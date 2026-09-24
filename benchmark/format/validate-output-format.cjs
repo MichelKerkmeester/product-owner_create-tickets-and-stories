@@ -31,20 +31,27 @@ function markdownFiles(directory) {
   });
 }
 
-// markdownFiles skips symlinks, so the two shared always-loaded cards are named
-// here explicitly. They are the strictest-enforced files in the system and the
-// ones the whole fleet reads, so dropping either from the lint the moment it
-// became shared would have removed the check exactly where it matters most.
-// Named by their symlink path, not their realpath, so the enforcement set still
-// matches.
+// The four shared rule files are regular-file copies of cards governed once at
+// the shared knowledge hub, carried as copies so this system works as its own
+// repository. The walk leaves all four out, and the two always-loaded cards are
+// named here explicitly instead. They are the strictest-enforced files in the
+// system and the ones the whole fleet reads, so dropping either from the lint
+// would remove the check exactly where it matters most.
+const sharedCopies = new Set(
+  ['conciseness-rationale.md', 'conciseness.md', 'human-voice-rules.md', 'hvr-core.md'].map((name) =>
+    path.join(skillRoot, 'references', name),
+  ),
+);
 const sourceFiles = [
   path.join(systemRoot, 'AGENTS.md'),
   path.join(skillRoot, 'SKILL.md'),
   path.join(skillRoot, 'README.md'),
   path.join(skillRoot, 'references', 'hvr-core.md'),
   path.join(skillRoot, 'references', 'conciseness.md'),
-  ...markdownFiles(path.join(skillRoot, 'references')),
-  ...markdownFiles(path.join(skillRoot, 'assets')),
+  ...[
+    ...markdownFiles(path.join(skillRoot, 'references')),
+    ...markdownFiles(path.join(skillRoot, 'assets')),
+  ].filter((file) => !sharedCopies.has(file)),
   path.join(systemRoot, 'claude project', 'Custom Instructions.md'),
 ];
 

@@ -118,7 +118,7 @@ The router discovers markdown resources recursively from `references/` and `asse
 
 ```text
 references/...   operating docs: mode workflows, interactive intelligence
-references/      four shared globals as relative symlinks into z — Knowledge/ (hvr-core, conciseness,
+references/      four shared globals as byte copies of cards in z — Knowledge/ (hvr-core, conciseness,
                  conciseness-rationale, human-voice-rules)
 assets/...       copy/apply material: task, bug, doc, prd and interactive templates plus worked examples
 ```
@@ -314,8 +314,8 @@ Refuse or reframe when the primary deliverable is live implementation rather tha
 
 - [hvr-core.md](./references/hvr-core.md) - Every Human Voice hard blocker, punctuation ban and structural ban carried inline. ALWAYS-loaded
 - [conciseness.md](./references/conciseness.md) - The layer above the card: the reconstruction test, twelve named cut rules, the keep rules that stop compression turning robotic, and format guidance. ALWAYS-loaded
-- [conciseness-rationale.md](./references/conciseness-rationale.md) - The reason behind every conciseness rule: the vocabulary that was refused, the worked cut and keep pairs, and the roster of what blocks against what advises. ON_DEMAND symlink, read before changing a rule and never in order to write one
-- [human-voice-rules.md](./references/human-voice-rules.md) - The full voice standard behind the card, with soft deductions and the scoring model. ON_DEMAND symlink for a borderline term or a scored pass. Do not edit from this system
+- [conciseness-rationale.md](./references/conciseness-rationale.md) - The reason behind every conciseness rule: the vocabulary that was refused, the worked cut and keep pairs, and the roster of what blocks against what advises. ON_DEMAND shared copy, read before changing a rule and never in order to write one
+- [human-voice-rules.md](./references/human-voice-rules.md) - The full voice standard behind the card, with soft deductions and the scoring model. ON_DEMAND shared copy for a borderline term or a scored pass. Do not edit from this system
 - [quality-scoring.md](./references/quality-scoring.md) - The six-dimension rubric behind the blocking floors: the bands, the per-shape reading across Task, Bug, Doc, Story and Epic, how the floors meet the two always-loaded layers, and the revision ladder. ON_DEMAND for a borderline score
 - [task-mode.md](./references/task-mode.md) - Task-mode workflow, delivery standards, structure rules and recovery
 - [bug-mode.md](./references/bug-mode.md) - Bug-mode workflow, evidence handling, reproduction rules and QA checklist
@@ -402,4 +402,4 @@ Product Owner is a backlog and source-safe product/engineering documentation pac
 
 When the runtime exposes ClickUp tooling, either the native ClickUp MCP connector or the `mcp-tooling` ClickUp bridge through Code Mode, the export response offers ClickUp delivery and waits. Creating, updating or deleting anything in ClickUp requires the user's explicit approval in the current conversation. An earlier approval does not carry forward. An approved push follows the `mcp-tooling` ClickUp packet's transport contract and the ClickUp Transport table in Section 3: markdown travels through markdown-aware parameters, never through the plain `description` field, which renders markdown as literal text.
 
-It may document code and implementation in depth, but it does not perform unrequested live implementation itself. The skill remains source of truth. Claude Project knowledge mirrors are hand-authored from these sources, not byte copies of the `sk-product-owner/references/` and `sk-product-owner/assets/` sources, with the four shared symlinks under `references/` dereferenced so the Project receives file contents. `SKILL.md` is not mirrored, and a Project routes from `claude project/Custom Instructions.md` instead. Manual sync rules live in `SYNC.md`.
+It may document code and implementation in depth, but it does not perform unrequested live implementation itself. The skill remains source of truth. Claude Project knowledge mirrors are hand-authored from these sources, not byte copies of the `sk-product-owner/references/` and `sk-product-owner/assets/` sources. The exception is the four shared rule files under `references/`: they are regular-file copies of cards in `z — Knowledge/`, so this system also works as its own repository, and their mirrors are byte copies of the same cards. `SKILL.md` is not mirrored, and a Project routes from `claude project/Custom Instructions.md` instead. Manual sync rules live in `SYNC.md`.
