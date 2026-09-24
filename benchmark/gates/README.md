@@ -59,7 +59,7 @@ The "pairs today" column is the floor `rule_parity.py` carries for that rule. A 
 Two things make `z — Claude Project Sync Loop/systems.py` unusual to read from another system's own tooling:
 
 *   It is owned by a different, possibly concurrently running process. `rule_parity.py` reads it as source text and executes it into a private namespace (`sys.dont_write_bytecode = True`, then `compile` and `exec`) rather than `import systems`, so a normal import cannot leave a compiled `.pyc` behind under that directory's `__pycache__`
-*   Four of this system's declared sources are symlinks into the shared knowledge tree (`hvr-core.md`, `human-voice-rules.md`, `conciseness.md`, `conciseness-rationale.md`). The path-containment guard is lexical (`os.path.abspath`, never `os.path.realpath` or `Path.resolve()`), so a symlinked row is read through the link and reported under the name the declaration gives it, instead of being rejected as an escape from the skill root
+*   Four of this system's declared sources are shared rule files (`hvr-core.md`, `human-voice-rules.md`, `conciseness.md`, `conciseness-rationale.md`), carried as regular-file copies of cards in the shared knowledge tree. The path-containment guard stays lexical (`os.path.abspath`, never `os.path.realpath` or `Path.resolve()`), so a system that carries them as symlinks instead still reads each row through the link under the name the declaration gives it, rather than rejecting it as an escape from the skill root
 
 * * *
 

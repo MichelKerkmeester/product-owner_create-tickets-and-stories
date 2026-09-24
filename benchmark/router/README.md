@@ -129,9 +129,10 @@ that appears in both.
   resource names against the live `references/*.md` and `assets/*.md`
   inventory (discover, existence-check, dedupe). A renamed or deleted
   reference degrades to a smaller resource set instead of a dead path or
-  crash. The guard stays lexical (`.absolute()`, never `.resolve()`) so the
-  relative symlink at `references/human-voice-rules.md` resolves for the
-  existence check without walking the fence outside `sk-product-owner/`.
+  crash. The guard stays lexical (`.absolute()`, never `.resolve()`), so a
+  shared rule file carried as a symlink rather than as a copy still resolves
+  for the existence check without walking the fence outside
+  `sk-product-owner/`.
 - **Always-on versus on demand**: the Human Voice card and the conciseness
   layer above it are preloaded on every route, and the full standard behind
   the card is not. Both halves are on the route object, so a fixture asserts

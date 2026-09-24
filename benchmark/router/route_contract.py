@@ -485,9 +485,9 @@ DISAMBIGUATION_CHECKLIST = [
 
 def _guard_in_skill(relative_path: str) -> str:
     # .absolute() (not .resolve()) so this stays lexical and never dereferences
-    # references/human-voice-rules.md, which is a relative symlink to a shared
-    # global three directories up in z - Knowledge/. Resolving it would land
-    # outside SKILL_ROOT and fail the guard for a routable resource.
+    # a shared rule file carried as a symlink into the shared knowledge folder
+    # rather than as a copy. Resolving such a link would land outside
+    # SKILL_ROOT and fail the guard for a routable resource.
     resolved = (SKILL_ROOT / relative_path).absolute()
     resolved.relative_to(SKILL_ROOT.absolute())
     if resolved.suffix.lower() != ".md":
@@ -498,10 +498,10 @@ def _guard_in_skill(relative_path: str) -> str:
 def discover_resource_inventory() -> Set[str]:
     """Return routable markdown paths under references/ and assets/.
 
-    A missing base contributes nothing instead of raising. Symlinked files
-    (the shared Human Voice Rules global) resolve through `is_file()` for the
-    existence check without dereferencing the path itself, so the guard fence
-    in `_guard_in_skill` never has to walk outside `SKILL_ROOT`.
+    A missing base contributes nothing instead of raising. A shared rule file
+    carried as a symlink rather than as a copy resolves through `is_file()` for
+    the existence check without dereferencing the path itself, so the guard
+    fence in `_guard_in_skill` never has to walk outside `SKILL_ROOT`.
     """
     inventory: Set[str] = set()
     for base_name in RESOURCE_BASES:
