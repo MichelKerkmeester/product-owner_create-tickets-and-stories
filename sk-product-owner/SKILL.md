@@ -313,7 +313,7 @@ Refuse or reframe when the primary deliverable is live implementation rather tha
 ### Core References
 
 - [hvr-core.md](./references/hvr-core.md) - Every Human Voice hard blocker, punctuation ban and structural ban carried inline. ALWAYS-loaded
-- [conciseness.md](./references/conciseness.md) - The layer above the card: the reconstruction test, twelve named cut rules, the keep rules that stop compression turning robotic, and format guidance. ALWAYS-loaded
+- [conciseness.md](./references/conciseness.md) - The layer above the card: the reconstruction test, thirteen named cut rules, the keep rules that stop compression turning robotic, and format guidance. ALWAYS-loaded
 - [conciseness-rationale.md](./references/conciseness-rationale.md) - The reason behind every conciseness rule: the vocabulary that was refused, the worked cut and keep pairs, and the roster of what blocks against what advises. ON_DEMAND shared copy, read before changing a rule and never in order to write one
 - [human-voice-rules.md](./references/human-voice-rules.md) - The full voice standard behind the card, with soft deductions and the scoring model. ON_DEMAND shared copy for a borderline term or a scored pass. Do not edit from this system
 - [quality-scoring.md](./references/quality-scoring.md) - The six-dimension rubric behind the blocking floors: the bands, the per-shape reading across Task, Bug, Doc, Story and Epic, how the floors meet the two always-loaded layers, and the revision ladder. ON_DEMAND for a borderline score
