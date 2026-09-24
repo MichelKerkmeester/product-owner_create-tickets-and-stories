@@ -26,9 +26,9 @@ Built for agent CLIs that read `AGENTS.md` and for claude.ai Projects through `c
 
 **Why it earns a place**
 
-- **Nothing invented:** a bug report with no supplied root cause gets none, and every missing field reads `Not provided`
-- **Nothing lost:** a clarification question is saved to `export/` under the next number, so it survives a closed terminal
-- **Measured, not claimed:** one 14-scenario playbook runs against both the CLI skill and the claude.ai package, and two captured runs sit in `benchmark/reports/`
+- A bug report with no supplied root cause gets none, and every missing field reads `Not provided`
+- A clarification question is saved to `export/` under the next number, so it survives a closed terminal
+- One 14-scenario playbook runs against both the CLI skill and the claude.ai package, and two captured runs sit in `benchmark/reports/`
 
 &nbsp;
 
@@ -373,23 +373,9 @@ Interactive intake questions use plain `-` bullets and bold labels. No newly wri
 
 A task takes one of four shapes: a canonical task, a parent task that coordinates one linked subtask per requirement, a subtask for one bounded area or a Quick task with one unnumbered requirement group. Each has a worked example in [assets/examples/task/](sk-product-owner/assets/examples/task/).
 
-The canonical template from `assets/task-templates.md`, trimmed to one context block and the first of its three requirement groups:
+The Requirements opening of the canonical template in `assets/task-templates.md`, down to the first requirement group's checklist:
 
 ```markdown
-# {Task Title}
-
-### About
-
----
-
-{1-3 short paragraphs describing the task, why it matters and what outcome it should create.}
-
-**Epic**
-
----
-
-- `{Epic name}`
-
 ### Requirements
 
 ---
@@ -408,13 +394,9 @@ The canonical template from `assets/task-templates.md`, trimmed to one context b
 
 - [ ] {Actionable requirement}
 - [ ] {Actionable requirement}
-
-**User Story**
-
-- **Given:** {context}
-- **When:** {action}
-- **Then:** {outcome}
 ```
+
+[task-templates.md](sk-product-owner/assets/task-templates.md) holds the full template, from the title and About through all three requirement groups.
 
 - Requirement groups are numbered only once there are two or more
 - Every group ends in a `**Checklist**` of literal `- [ ]` items a QA engineer can verify
@@ -424,7 +406,7 @@ The canonical template from `assets/task-templates.md`, trimmed to one context b
 
 #### Bug Shape
 
-The template from `assets/bug-report-template.md`, trimmed to the parts every report carries:
+The opening of the template in `assets/bug-report-template.md`, down to its field table:
 
 ```markdown
 # {Bug Title}
@@ -444,41 +426,9 @@ The template from `assets/bug-report-template.md`, trimmed to the parts every re
 | OS Version      | {OS version}                                 |
 | Browser         | {Browser name - if web}                      |
 | Browser Version | {Browser version - if web}                   |
-
----
-
-### Bug
-
----
-
-**1. Observed Behavior**
-
----
-
-{ Describe what happens when the bug is triggered }
-- { What the user sees }
-- { Any error messages displayed }
-
-Steps to Reproduce:
-1. { First action to take }
-2. { Second action to take }
-
----
-
-**2. Expected Behavior**
-
----
-
-{ Describe what should happen instead. }
-- { Design specifications }
-- { Previous working behavior }
-
-Checklist
-- [ ] Root cause identified
-- [ ] Fix implemented
-- [ ] Bug no longer reproducible
-- [ ] No regressions introduced
 ```
+
+The full template in [bug-report-template.md](sk-product-owner/assets/bug-report-template.md) continues with Observed Behavior, Steps to Reproduce, Expected Behavior and the four-item checklist.
 
 - An unsupplied field reads `Not provided`, never a plausible guess
 - Frequency comes from what the source says, not from a count. Three support tickets are three reports, not a frequency
@@ -524,7 +474,7 @@ Story and Epic are two kinds of product requirements document, not size tiers. D
 - A Story opens with `# {Persona} - {Area} - {Feature}` and an About of Problem, Solution, Expected outcomes and References. Its `## Requirements` holds hard constraints only and is left out when there are none. Its acceptance criteria work at screen level
 - An Epic opens with `# Epic - {Persona} - {Area}` and an About of Problem, Goal, Solution and References. A `## Scope` of child stories, with an optional Added Later group, takes the place of Requirements. Its acceptance criteria work at release level
 
-A real Story from the 2026-09-18 run, `export/benchmark/skill/SST-001 - 002 - PRD-payout-pause.md`, from Requirements to the end of the file:
+The Requirements section of a real Story from the 2026-09-18 run, `export/benchmark/skill/SST-001 - 002 - PRD-payout-pause.md`:
 
 ```markdown
 ## Requirements
@@ -537,29 +487,9 @@ A real Story from the 2026-09-18 run, `export/benchmark/skill/SST-001 - 002 - PR
 *   The payout row of a paused payout shows a `paused` badge
 * * *
 ##   
-
-## Acceptance criteria
-* * *
-All acceptance criteria below must be met, or discuss and rescope any that cannot be met.
-
-1\. **A brand pauses a payout that has not released**
-* * *
-*   **Given** a payout that is still pending
-*   **When** the brand pauses it
-*   **Then** the payout waits instead of releasing
-* * *
-- [ ] _Mark as done, if the criteria are met_
-
-2\. **The payout releases when the pause ends**
-* * *
-*   **Given** a payout that is paused
-*   **When** the pause ends
-*   **Then** the payout releases on its own
-* * *
-- [ ] _Mark as done, if the criteria are met_
-* * *
-##   
 ```
+
+Its acceptance criteria follow in [the full file](export/benchmark/skill/SST-001%20-%20002%20-%20PRD-payout-pause.md), and [story-template.md](sk-product-owner/assets/story-template.md) holds the full template.
 
 - Every hard value the source supplied lands in Requirements verbatim, in backticks and in the source's own units. `32px` never becomes "updated spacing" and `Link Instagram` never becomes "updated copy"
 - A supplied value stays out of the acceptance criteria, which describe outcomes and leave the mechanism to the developer
