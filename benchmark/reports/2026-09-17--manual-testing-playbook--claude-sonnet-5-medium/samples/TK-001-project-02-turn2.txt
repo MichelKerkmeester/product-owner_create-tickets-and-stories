@@ -1,0 +1,49 @@
+<!-- Mode: Task | Template: Task Templates v0.101 | Score: pass -->
+
+```markdown
+# Creator payout pause indicator
+
+### About
+
+---
+
+Creators can have a pending payout paused, but the system has no way to record why or to show that status to the creator or to support. This task adds a required pause reason on the payout record and a visible pause indicator on the payout row, so anyone reviewing a payout can see it is paused and why, and QA can confirm the state from payout history.
+
+### Requirements
+
+---
+
+1.  **Pause reason capture**
+
+---
+
+When a payout is paused, the reason must be captured and stored with that payout record so the pause can be explained and audited later.
+
+**Checklist**
+
+- [ ] Pause reason field is required when a payout is paused
+- [ ] Pause reason is stored on the payout record
+- [ ] Payout cannot be paused without a reason submitted
+
+---
+
+2.  **Pause indicator and history visibility**
+
+---
+
+A paused payout needs a clear visual indicator in the payout row, and the pause status with its reason must carry through to payout history so QA can verify it after the fact.
+
+**Checklist**
+
+- [ ] Pause indicator displays in the payout row for a paused payout
+- [ ] Pause status and reason are visible in payout history
+- [ ] QA can verify a paused payout's status and reason from payout history alone
+```
+
+Export-equivalent path: `export/001 - task-creator-payout-pause-indicator.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none needed. Kept with reason: none — draft used plain sentence-case wording throughout, no banned terms or punctuation triggered.
+
+Quality status: pass — WHAT/WHY only, no HOW, two numbered requirement groups with checklists mapped 1:1 to your three acceptance points, no unrequested scope added.
+
+Want this pushed to ClickUp, or any adjustments to the two requirement groups first?

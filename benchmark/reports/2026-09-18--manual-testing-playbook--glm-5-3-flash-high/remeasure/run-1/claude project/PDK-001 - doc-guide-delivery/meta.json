@@ -1,0 +1,88 @@
+{
+ "id": "PDK-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-document-modes/doc-guide-delivery.md",
+ "twin": "SDK-001",
+ "model": "llmgateway/glm-5.3-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-PDK-001-e5b19deb",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 112.17,
+   "tool_calls": 6,
+   "tools_used": [
+    "ls",
+    "ls",
+    "read",
+    "read",
+    "read",
+    "read"
+   ],
+   "input_tokens": 58737,
+   "output_tokens": 2862,
+   "reasoning_tokens": 3008,
+   "cost_usd": 0.0068923560000000005,
+   "model_s": 111.79,
+   "startup_s": 0.38,
+   "stop_reason": "stop",
+   "response_models": [
+    "consensusprotocol/glm-5.3-flash"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "Document how the notification retry pipeline works for the support team. I will paste the engineering notes."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 261.59,
+   "tool_calls": 4,
+   "tools_used": [
+    "read",
+    "read",
+    "read",
+    "read"
+   ],
+   "input_tokens": 24305,
+   "output_tokens": 10033,
+   "reasoning_tokens": 9992,
+   "cost_usd": 0.00599109,
+   "model_s": 261.33,
+   "startup_s": 0.25,
+   "stop_reason": "stop",
+   "response_models": [
+    "consensusprotocol/glm-5.3-flash"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Guide for support agents. Purpose: diagnose and requeue a failed notification retry. Status: current behavior. The notes are authoritative. Notes: a retry runs on a 30 second backoff for five attempts. Attempt six moves the notification to the failed queue. Support can requeue from the failed queue with the Requeue action. A requeued notification restarts the backoff."
+  }
+ ]
+}

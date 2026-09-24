@@ -1,0 +1,18 @@
+Since this is Standard energy (no `$quick`) and the report gives only the symptom with no reproduction steps, environment, frequency or evidence, I need one consolidated answer before drafting — this is the export-equivalent clarification deliverable rather than a guessed bug report.
+
+**Export-equivalent path:** `export/001 - bug-payout-pause-toggle-clarification.md`
+
+```markdown
+I'll create your bug report. Quick questions:
+
+**Bug details:** What exactly happens - does the toggle show "off" immediately on click, after a page refresh, or after some delay? Does the payout system actually keep pausing, or does it resume processing payouts once the toggle reverts? What is the expected behavior - should the toggle (and the pause) persist until manually turned off again?
+**Environment:** Where does this occur - admin dashboard, seller settings, another surface? Platform(s)? (iOS / Android / Web / All) Does it happen for all accounts or specific ones?
+**Reproduction:** Exact steps to trigger it, and how often it happens (every time, sometimes, rarely)?
+**Design reference:** Any Figma reference showing the intended toggle behavior?
+**Evidence:** Screenshots, screen recording, error logs or console output? When was this first noticed? Any known workaround?
+**Validation:** What should I NOT assume about the root cause (e.g. is this a UI-only display bug or does the backend setting actually revert)? Any related bug reports?
+```
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Once you answer, I'll draft the bug report as a new Deliverable Block and it'll take the next number in this lane (`002`).

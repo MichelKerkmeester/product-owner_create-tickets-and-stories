@@ -1,0 +1,67 @@
+## Deliverable Block
+
+```markdown
+# Add a pause toggle for pending payouts
+
+### About
+
+---
+
+Brands currently have no way to hold a pending payout once it is queued, so a mistaken or disputed payout runs to completion before anyone can intervene. Add a toggle that lets a brand pause a pending payout for 24 hours, with a required reason so the creator and support have context for the hold.
+
+### Requirements
+
+---
+
+1.  **Pause toggle on the pending payout**
+
+---
+
+Brands need a visible, reversible way to pause a payout before it settles. The pause applies only to payouts still in a pending state and automatically expires after 24 hours if no further action is taken.
+
+**Checklist**
+
+- [ ] Toggle is available on each pending payout and disabled or hidden once the payout is no longer pending
+- [ ] Enabling the toggle pauses the payout for exactly 24 hours from the time it is switched on
+- [ ] Payout automatically resumes and proceeds normally when the 24-hour hold expires
+- [ ] Brand can turn the toggle off before the 24 hours elapse to resume the payout early
+- [ ] Payout status reflects "Paused" state distinctly from "Pending" while the hold is active
+
+---
+
+2.  **Required reason field**
+
+---
+
+A pause cannot be submitted without a reason, so support and the creator always have context for why a payout was held.
+
+**Checklist**
+
+- [ ] Reason field is required before the pause toggle can be confirmed
+- [ ] Attempting to pause without a reason blocks submission and shows a validation message
+- [ ] Submitted reason is stored with the pause event and visible wherever the pause is reviewed
+- [ ] Reason field enforces a minimum length so a single character cannot satisfy the requirement
+
+---
+
+3.  **Creator banner**
+
+---
+
+The creator whose payout is paused needs a visible notice so the hold is not silent, without exposing internal-only detail.
+
+**Checklist**
+
+- [ ] Creator sees a banner on the affected payout while the pause is active
+- [ ] Banner states that the payout is paused and shows the time remaining or expected resume time
+- [ ] Banner does not display the brand's internal reason text
+- [ ] Banner is removed automatically once the pause expires or is turned off early
+```
+
+**Export-equivalent path:** `export/001 - task-payout-pause-toggle.md`
+
+**HVR self-scan:** 0 hard blockers. Fixed: none. Kept with reason: none needed.
+
+Quality: structure complete (About + numbered Requirements groups with checklists), scope limited to the toggle/reason/banner triad you named, no unrequested scope added.
+
+Next step: no ClickUp connector detected in this session, so there's nothing to push automatically — let me know if you'd like the task adjusted (e.g., naming a parent task/epic) before you move it into ClickUp yourself.

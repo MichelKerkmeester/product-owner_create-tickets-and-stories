@@ -1,0 +1,7 @@
+Path: `export/002 - doc-notification-retry-requeue-guide.md`
+Verified: read-back succeeded; 41 lines
+HVR self-scan: 0 hard blockers. Fixed: none needed. Kept with reason: em dashes only in the `Status:` label and definition bullets (granted ClickUp delimiter exemptions), repeated "failed queue", "attempt" and "moves" (fixed-term rule, not synonym cycling), straight quotes throughout
+
+Quality: Source safety pass — every claim traces to your notes, designated authoritative, single status (current behavior) carried in the notice, and undocumented points stay flagged rather than filled. Shape fit pass — a Guide, since the reader diagnoses then requeues in order. ClickUp layout pass — `* * *` dividers, `*   ` bullets, sentence-case headings, no spacer headings in the file export. Readability pass. Voice pass.
+
+The guide walks a support agent from confirming the notification reached the failed queue (which the documented cycle produces at attempt six, after five attempts on the 30 second backoff), through the Requeue action, to telling the affected user that the backoff restarts from the beginning rather than resuming. Points the notes do not cover, such as why an attempt fails and what happens after a second placement, stay visible as boundaries instead of invention. If you want a leaner quick-energy pass or extra sections such as related guidance links, say the word.

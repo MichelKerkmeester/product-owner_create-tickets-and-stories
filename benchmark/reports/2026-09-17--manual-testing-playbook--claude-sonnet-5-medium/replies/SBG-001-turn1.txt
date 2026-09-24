@@ -1,0 +1,15 @@
+Read-back verified, 7 lines.
+
+`export/001 - bug-payout-pause-toggle-clarification.md`
+Verified: read-back succeeded; 7 lines
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+I need a few more details before I can write the bug report:
+
+**Bug details:** Exact steps to reproduce — where's the toggle, what triggers the revert, and is it immediate or after a delay/refresh/navigation? Also: once it reverts, does the payout actually stay paused underneath or does it silently keep paying out?
+**Environment:** Which platform(s) — iOS / Android / Web / All?
+**Design reference:** Any Figma reference showing the intended toggle behavior?
+**Evidence:** Screenshots, screen recording, logs or console output? When was this first noticed, and is there a workaround?
+**Validation:** Anything I shouldn't assume about the root cause? Any related reports?
+
+Once you answer, I'll draft the bug report as `export/002 - bug-payout-pause-toggle.md`.

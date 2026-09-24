@@ -1,0 +1,9 @@
+Read-back confirmed: 9 lines.
+
+**export/001 - bug-payout-pause-toggle-clarification.md**
+Verified: read-back succeeded; 9 lines
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+The description gives an observed symptom but no reproduction steps, environment, evidence, or frequency — Bug Mode requires those before I can write a real report rather than invent them. I've saved one consolidated clarification question covering: when exactly the toggle reverts (and whether the pause actually holds on the backend), where it lives and on what platform, frequency/severity, any Figma reference, evidence (screenshots/logs), and what not to assume about root cause.
+
+Send me those answers and I'll draft the bug report next.

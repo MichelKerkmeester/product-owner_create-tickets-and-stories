@@ -1,0 +1,17 @@
+**Export-equivalent path:** `export/001 - bug-payout-pause-toggle-clarification.md`
+
+```markdown
+I'll create your bug report. Quick questions:
+
+**Bug details:** When the payout pause toggle is turned on and then reverts to off, what action or delay triggers the revert (immediate, after save, after refresh, after navigating away)? What confirms it actually saved as "off" — a page reload, an API response, a support report? Is the expected behavior that the toggle stays on until explicitly turned off?
+**Environment:** Where does this occur — admin dashboard, merchant settings, mobile app? Platform(s)? (iOS / Android / Web / All)
+**Design reference:** Any Figma reference for the intended toggle behavior?
+**Evidence:** Screenshots, screen recording, error logs, console/network output? When was this first noticed? Any known workaround?
+**Validation:** What should I NOT assume about root cause (e.g., don't assume it's a caching issue, a race condition, or a stale-read bug)? Any related bug reports?
+```
+
+**Quality status:** Not scored — this is a clarification, not the bug report itself. The one-sentence report has no reproduction steps, no environment data, no evidence and no confirmation of what "reverts to off" actually means (UI-only vs. persisted), so I can't safely write Observed/Expected Behavior without guessing.
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none — clarification block holds only the question, no artifact prose to scan.
+
+Once you answer, I'll deliver the full bug report (`export/002 - bug-payout-pause-toggle.md`) with whatever fields you can supply — anything you can't provide, I'll mark `Not provided` rather than invent it.

@@ -1,0 +1,40 @@
+Given this is a small, well-defined display requirement with no epic/parent context supplied, I've used the **Quick Task** shape.
+
+```markdown
+# Show payout pause reason and date on the payout detail screen
+
+### About
+
+---
+
+Creators can't currently tell why a payout was paused or when it happened, which pushes them to open a support ticket for an answer they should be able to see themselves. Showing the pause reason and pause date on the payout detail screen lets creators self-serve that context.
+
+### Requirements
+
+---
+
+**Show the pause reason and pause date for a paused payout**
+
+---
+
+When a payout is in a paused state, the payout detail screen must show why it was paused and when the pause happened, in language a creator can understand without contacting support.
+
+**Checklist**
+
+- [ ] Show the pause reason on the payout detail screen for any payout in a paused state
+- [ ] Show the date the payout was paused, alongside the reason
+- [ ] Reason and date are visible only when the payout is paused; a payout that isn't paused shows neither
+- [ ] Pause reason text is plain language a creator can act on, with no internal codes or jargon
+
+**User Story**
+
+- **Given:** a creator opens the detail screen for a payout that is currently paused
+- **When:** the screen loads
+- **Then:** the creator sees both the reason the payout was paused and the date it was paused
+```
+
+Export-equivalent path: `export/001 - task-payout-pause-reason-and-date.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none needed.
+
+Quality: WHAT/WHY only, no implementation detail, single acceptance path with a clear edge case (non-paused payout shows nothing). Let me know if you want a Related tasks/Epic link added, or if there's a broader payout-transparency initiative this should sit under.

@@ -1,0 +1,16 @@
+I don't have enough to build a task with real acceptance criteria — right now "creator payout pause feature" only names a feature, not what it does or why. Before I draft, I need this in one response:
+
+**Format & scope:** Backend / Frontend / Mobile / Full-stack / DevOps / QA — which layer(s) does the payout pause touch?
+
+**Requirements:** What needs to be built? Specifically:
+- Who triggers the pause (creator, admin/ops, automated risk rule) and from where?
+- What state does a "paused" payout enter, and what stays blocked vs. still allowed (e.g. can the creator still see balance, request an unpause)?
+- What resumes the payout, and does anything need to happen automatically (notification, timeout, audit log)?
+
+**Acceptance criteria:** What does success look like — the specific outcomes QA should verify?
+
+**Design & platform:** Any Figma links? Platforms — iOS / Android / Web / All?
+
+**Dependencies:** Any related or dependent tickets (e.g. existing payout pipeline, creator dashboard, admin tooling)?
+
+**Validation:** What am I likely to assume incorrectly here (e.g. that this is creator-initiated vs. platform-initiated)? Any constraint I should question?

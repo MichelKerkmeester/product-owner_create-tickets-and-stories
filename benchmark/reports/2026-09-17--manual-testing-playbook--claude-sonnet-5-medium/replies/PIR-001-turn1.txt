@@ -1,0 +1,18 @@
+Before drafting anything, I want to nail down the shape — it changes the whole structure of what I write. A few quick questions:
+
+1. **What's the trigger for this work?** Is this a net-new feature (creator payout flow doesn't exist yet or is getting a major new capability), or is it a fix/adjustment to something that already exists and is misbehaving?
+2. **How big is the unit of work?** Is "creator payout flow" really one PRD-sized initiative that should break into multiple stories under an Epic, or is it small enough to be a single Story/PRD, or is it actually just one or two discrete Tasks (e.g., "add a payout status field," "fix rounding on payout totals")?
+3. **Do you already have hard requirements** (payout amounts, timing/schedule rules, currency/rounding rules, screens involved, eligibility conditions), or are we still at the idea/options stage where this should be a Proposal-shaped doc first?
+4. **Is anything broken right now** that needs a Bug report instead of/in addition to backlog work?
+
+Quick shape guide so you can just point at one if that's faster:
+
+| If it's... | Shape |
+|---|---|
+| A big initiative with multiple screens/phases, no hard specs yet | **Epic**, with child Stories added later |
+| One clear unit of work with concrete requirements (amounts, rules, screens) | **Story/PRD** |
+| A small, well-defined change or addition | **Task** |
+| Current payout behavior is wrong | **Bug** |
+| Still exploring options, no decision yet | **Doc (Proposal)** |
+
+Tell me which of these fits (or answer the four questions) and I'll draft it.

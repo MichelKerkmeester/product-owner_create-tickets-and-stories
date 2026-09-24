@@ -1,0 +1,23 @@
+I don't have enough to write a reliable bug report yet — just the symptom, no reproduction path, environment or evidence. Rather than guess at severity or steps, here's the clarification, delivered as the record of what's still needed.
+
+**Export-equivalent path:** `export/001 - bug-payout-pause-toggle-clarification.md`
+
+---
+
+I'll create your bug report. Quick questions:
+
+**Bug details:** What are the exact steps to reproduce — e.g. open payout settings, toggle pause on, then what happens (immediate revert, revert after refresh, revert after a specific action)? What is the expected behavior (toggle stays on and payouts actually pause)?
+
+**Environment:** Where does this occur — admin dashboard, merchant portal, mobile app? Platform(s)? (iOS / Android / Web / All)
+
+**Design reference:** Any Figma reference showing the intended toggle behavior or state persistence?
+
+**Evidence:** Screenshots, screen recording, console errors, API/network logs showing the revert? When was this first noticed? Is there a known workaround?
+
+**Validation:** Should I avoid assuming this is a UI-only state bug versus a backend/persistence issue? Are there related bug reports on payout settings or toggle components?
+
+---
+
+**HVR self-scan:** 0 hard blockers. Fixed: none. Kept with reason: none — no artifact prose was authored yet.
+
+Once you answer, I'll draft the bug report as a new deliverable in this lane.

@@ -1,0 +1,7 @@
+Path: `export/002 - bug-payout-pause-toggle-reverts-off.md`
+Verified: read-back succeeded; 63 lines
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: the two fixed bold labels `**1. Observed Behavior**` and `**2. Expected Behavior**` (sanctioned Bug Mode corpus exemption) and the paired three-bullet prompts in Observed and Expected (template-fixed content, not the density tic)
+
+Quality summary: Completeness, Clarity, Actionability, Accuracy, Relevance and Mechanism Depth all clear their floors. Every state your answers supplied went into the report: Frequency `Always (per reporter)` from your "every time" claim, Web/Chrome 126 in the environment table, the four-step reproduce ending on the paired expected-versus-actual observation, and the toggle-versus-paused-payout disagreement as the incorrect state. Anything you did not supply (severity, device, OS, design references, previous working behavior) is written `Not provided` rather than invented, and the QA handoff checklist keeps root cause as an open item instead of asserting one.
+
+The clarification file at `export/001 - bug-payout-pause-toggle-reverts-clarification.md` is untouched. If you later get a screenshot or a severity rating, tell me and I'll refine this report in place.

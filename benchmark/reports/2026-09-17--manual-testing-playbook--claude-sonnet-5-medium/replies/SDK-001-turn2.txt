@@ -1,0 +1,16 @@
+Verified: read-back succeeded; 49 lines.
+
+**Path:** `export/001 - doc-notification-retry-pipeline.md`
+
+**Quality summary:**
+- Source safety: pass — every claim traces to your notes, all labeled current behavior, and the one unstated case (repeated failure post-requeue) is flagged unknown rather than invented
+- Shape fit: pass — Guide, since the reader follows an ordered diagnose-then-requeue procedure
+- ClickUp layout: pass — `* * *` dividers, `*   ` bullets, sentence-case headings
+- Readability: pass — one idea per section, takeaway first
+- Voice: pass
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+This is a support-facing Guide covering the retry schedule (30s backoff, 5 attempts), the failed-queue transition on attempt six, and the Requeue action's effect. I flagged one gap your notes didn't cover — what happens after a requeued notification fails again — rather than guessing at it; let me know if you have that detail to add.
+
+I don't see ClickUp tooling available in this session, so I can't offer a push right now — let me know if you'd like this content adapted for a different delivery target.

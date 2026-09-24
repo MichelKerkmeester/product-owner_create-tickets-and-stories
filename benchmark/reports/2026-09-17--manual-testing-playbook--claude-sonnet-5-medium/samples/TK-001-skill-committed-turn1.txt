@@ -1,0 +1,15 @@
+Verified: read-back succeeded; 8 lines.
+
+**export/001 - task-creator-payout-pause-clarification.md**
+
+Before I draft the task, I need a few things about the creator payout pause feature:
+
+- **Format & scope:** Backend / Frontend / Mobile / Full-stack / DevOps / QA
+- **Requirements:** What needs to be built? Who pauses a payout and from where (admin tool, creator settings, automated trigger)? What triggers a pause (manual action, fraud flag, dispute, compliance hold)? Does it resume automatically, manually, or expire? What does the creator see while paused?
+- **Design & platform:** Figma links? Platforms (iOS / Android / Web / All)?
+- **Dependencies:** Related tickets, existing payout or ledger logic this touches?
+- **Validation:** Should payouts already in flight be affected, or only future payout runs?
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none needed.
+
+Once you answer, I'll build the task and save it as `export/002 - task-creator-payout-pause.md`.

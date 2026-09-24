@@ -1,0 +1,59 @@
+# Pause creator payouts with a required reason
+
+### About
+
+---
+
+Support and creators need a way to pause a pending payout while a review is in progress, such as a fraud check or an open dispute, without releasing funds prematurely. Every pause must carry a reason so the payout history stays auditable and QA can confirm the pause happened for the right cause.
+
+### Requirements
+
+---
+
+1.  **Require a reason when pausing a payout**
+
+---
+
+Pausing blocks the payout from progressing further until it is resumed. The reason is mandatory so support, creators and QA can always tell why a payout stopped.
+
+**Checklist**
+
+- [ ] Pausing a pending payout requires a reason before the pause is saved
+- [ ] The reason is stored with the payout record
+- [ ] Attempting to pause without a reason blocks the action and shows an error
+
+---
+
+2.  **Show a pause indicator in the payout row**
+
+---
+
+Anyone scanning the payout list needs to see at a glance which payouts are paused, without opening each one individually.
+
+**Checklist**
+
+- [ ] A paused payout shows a visible pause indicator in its payout row
+- [ ] The indicator appears wherever that payout row is listed
+
+---
+
+3.  **Surface the pause and reason in payout history for QA verification**
+
+---
+
+QA needs to confirm a pause and its reason from the payout history alone, without inspecting the underlying data.
+
+**Checklist**
+
+- [ ] Payout history shows the pause event, its timestamp and the stored reason
+- [ ] QA can verify the pause and reason from payout history without a database query
+
+---
+
+Export-equivalent path: `export/001 - task-pause-creator-payouts-with-required-reason.md`
+
+Quality status: pass — About states outcome and value, Requirements stay in WHAT/WHY with testable checklist items, no unrequested scope added.
+
+HVR self-scan: 0 hard blockers. Fixed: none needed. Kept with reason: none.
+
+Standalone task, three requirement groups covering the reason capture, the row indicator and QA-visible history. Let me know if payout pausing should also block a resume path or note who is allowed to pause — I kept both out since you didn't specify them.

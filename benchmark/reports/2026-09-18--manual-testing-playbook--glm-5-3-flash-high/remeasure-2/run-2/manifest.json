@@ -1,0 +1,308 @@
+{
+ "model": "llmgateway/glm-5.3-flash",
+ "thinking": "high",
+ "pi_version": "0.85.1",
+ "scenarios": [
+  {
+   "id": "PBG-001",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "bug-report-flow",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/bug-report-flow.md",
+   "turns": [
+    "$bug The payout pause toggle silently reverts to off.",
+    "It happens every time on web. Steps: open a brand wallet with a pending payout, switch pause on, then refresh the page. The toggle shows off while the payout still shows paused. Expected: the toggle stays on until the brand resumes the payout. I used Chrome 126, no screenshot."
+   ],
+   "twin": "SBG-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "PTK-001",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "task-command-flow",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/task-command-flow.md",
+   "turns": [
+    "$task I need a task for the creator payout pause feature.",
+    "Standalone task. Creators need a pause indicator for pending payouts, and the pause reason must be stored. Acceptance: the reason field is required, the indicator appears in the payout row, and QA can verify the pause in the payout history."
+   ],
+   "twin": "STK-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "PDK-002",
+   "side": "project",
+   "group": "project-document-modes",
+   "slug": "doc-conflict-gate",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-document-modes/doc-conflict-gate.md",
+   "turns": [
+    "$doc Write a behavior reference for the payout pause feature from these two notes. Note A says the pause holds for 24 hours then releases automatically. Note B says the pause holds until the brand clears it manually.",
+    "Note A governs. The automatic release after 24 hours is current behavior. Note B is a retired draft."
+   ],
+   "twin": "SDK-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "PDK-001",
+   "side": "project",
+   "group": "project-document-modes",
+   "slug": "doc-guide-delivery",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-document-modes/doc-guide-delivery.md",
+   "turns": [
+    "Document how the notification retry pipeline works for the support team. I will paste the engineering notes.",
+    "Guide for support agents. Purpose: diagnose and requeue a failed notification retry. Status: current behavior. The notes are authoritative. Notes: a retry runs on a 30 second backoff for five attempts. Attempt six moves the notification to the failed queue. Support can requeue from the failed queue with the Requeue action. A requeued notification restarts the backoff."
+   ],
+   "twin": "SDK-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "PID-001",
+   "side": "project",
+   "group": "project-identity",
+   "slug": "identity-handover",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-identity/identity-handover.md",
+   "turns": [
+    "$quick $task Create a task for the payout pause toggle. Brands pause a pending payout for 24 hours with a required reason, and QA needs checklist items for the toggle, the reason field and the creator banner.",
+    "Confirm whether you wrote any file to disk, and tell me how a reviewer would open this artifact."
+   ],
+   "twin": "SID-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 1
+  },
+  {
+   "id": "PIR-001",
+   "side": "project",
+   "group": "project-interactive-routing",
+   "slug": "ambiguous-intake-energy-choice",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-interactive-routing/ambiguous-intake-energy-choice.md",
+   "turns": [
+    "I need to get something into the backlog for the creator payout flow but I am not sure what shape it should take.",
+    "Quick, please. It is a task. Creators need to see why a payout was paused, including the reason and the pause date, on the payout detail screen."
+   ],
+   "twin": "SIR-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "PST-001",
+   "side": "project",
+   "group": "project-story-modes",
+   "slug": "story-shape-hard-values",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/story-shape-hard-values.md",
+   "turns": [
+    "Turn these notes into a PRD for the payout pause feature.",
+    "Story for brands. A brand can pause a pending payout when it needs to hold it. Hard values: the pause lasts exactly 24 hours, the reason field is required, the toggle label reads Pause payout, and the payout row shows a paused badge. Acceptance: the pause releases automatically after the hold."
+   ],
+   "twin": "SST-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "SBG-001",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "bug-report-flow",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/bug-report-flow.md",
+   "turns": [
+    "$bug The payout pause toggle silently reverts to off.",
+    "It happens every time on web. Steps: open a brand wallet with a pending payout, switch pause on, then refresh the page. The toggle shows off while the payout still shows paused. Expected: the toggle stays on until the brand resumes the payout. I used Chrome 126, no screenshot."
+   ],
+   "twin": "PBG-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "STK-001",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "task-command-flow",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/task-command-flow.md",
+   "turns": [
+    "$task I need a task for the creator payout pause feature.",
+    "Standalone task. Creators need a pause indicator for pending payouts, and the pause reason must be stored. Acceptance: the reason field is required, the indicator appears in the payout row, and QA can verify the pause in the payout history."
+   ],
+   "twin": "PTK-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "SDK-002",
+   "side": "skill",
+   "group": "skill-document-modes",
+   "slug": "doc-conflict-gate",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-document-modes/doc-conflict-gate.md",
+   "turns": [
+    "$doc Write a behavior reference for the payout pause feature from these two notes. Note A says the pause holds for 24 hours then releases automatically. Note B says the pause holds until the brand clears it manually.",
+    "Note A governs. The automatic release after 24 hours is current behavior. Note B is a retired draft."
+   ],
+   "twin": "PDK-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "SDK-001",
+   "side": "skill",
+   "group": "skill-document-modes",
+   "slug": "doc-guide-delivery",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-document-modes/doc-guide-delivery.md",
+   "turns": [
+    "Document how the notification retry pipeline works for the support team. I will paste the engineering notes.",
+    "Guide for support agents. Purpose: diagnose and requeue a failed notification retry. Status: current behavior. The notes are authoritative. Notes: a retry runs on a 30 second backoff for five attempts. Attempt six moves the notification to the failed queue. Support can requeue from the failed queue with the Requeue action. A requeued notification restarts the backoff."
+   ],
+   "twin": "PDK-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "SID-001",
+   "side": "skill",
+   "group": "skill-identity",
+   "slug": "identity-handover",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-identity/identity-handover.md",
+   "turns": [
+    "$quick $task Create a task for the payout pause toggle. Brands pause a pending payout for 24 hours with a required reason, and QA needs checklist items for the toggle, the reason field and the creator banner.",
+    "Confirm what you did to verify the saved file, and name the exact delivery string you printed."
+   ],
+   "twin": "PID-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 1
+  },
+  {
+   "id": "SIR-001",
+   "side": "skill",
+   "group": "skill-interactive-routing",
+   "slug": "ambiguous-intake-energy-choice",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-interactive-routing/ambiguous-intake-energy-choice.md",
+   "turns": [
+    "I need to get something into the backlog for the creator payout flow but I am not sure what shape it should take.",
+    "Quick, please. It is a task. Creators need to see why a payout was paused, including the reason and the pause date, on the payout detail screen."
+   ],
+   "twin": "PIR-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "SST-001",
+   "side": "skill",
+   "group": "skill-story-modes",
+   "slug": "story-shape-hard-values",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/story-shape-hard-values.md",
+   "turns": [
+    "Turn these notes into a PRD for the payout pause feature.",
+    "Story for brands. A brand can pause a pending payout when it needs to hold it. Hard values: the pause lasts exactly 24 hours, the reason field is required, the toggle label reads Pause payout, and the payout row shows a paused badge. Acceptance: the pause releases automatically after the hold."
+   ],
+   "twin": "PST-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  }
+ ]
+}

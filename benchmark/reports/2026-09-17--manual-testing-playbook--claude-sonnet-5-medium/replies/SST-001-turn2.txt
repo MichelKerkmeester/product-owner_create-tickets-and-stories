@@ -1,0 +1,12 @@
+Read-back confirmed: 54 lines.
+
+**Path:** `export/001 - PRD-payout-pause.md`
+**Verified:** read-back succeeded; 54 lines
+**Artifact kind:** Story
+**HVR self-scan:** 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Quality summary: About/Problem/Solution narrative opens the story, Requirements holds all four supplied hard values verbatim (`24 hours`, required reason, `Pause payout` toggle label, `Paused` badge), and the two acceptance criteria cover the manual pause and the automatic release without restating those values.
+
+Summary: This turns your notes into a Brand-facing Story for pausing a pending payout, with the 24-hour hold, required reason, toggle label, and paused badge captured as hard requirements, plus acceptance criteria for activating the pause and for its automatic release.
+
+If you have ClickUp tooling connected, I can push this as a task or document once you confirm — just say the word.

@@ -1,0 +1,102 @@
+{
+ "id": "SST-001",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/story-shape-hard-values.md",
+ "twin": "PST-001",
+ "model": "llmgateway/glm-5.3-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-SST-001-37d6022d",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - PRD-payout-pause-clarification.md",
+   "export/002 - PRD-payout-pause.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 94.52,
+   "tool_calls": 12,
+   "tools_used": [
+    "ls",
+    "find",
+    "read",
+    "read",
+    "grep",
+    "ls",
+    "read",
+    "read",
+    "read",
+    "read",
+    "write",
+    "read"
+   ],
+   "input_tokens": 79772,
+   "output_tokens": 3430,
+   "reasoning_tokens": 3020,
+   "cost_usd": 0.010901436,
+   "model_s": 94.21,
+   "startup_s": 0.29,
+   "stop_reason": "stop",
+   "response_models": [
+    "consensusprotocol/glm-5.3-flash"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - PRD-payout-pause-clarification.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "Turn these notes into a PRD for the payout pause feature."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 169.1,
+   "tool_calls": 2,
+   "tools_used": [
+    "write",
+    "read"
+   ],
+   "input_tokens": 23672,
+   "output_tokens": 10574,
+   "reasoning_tokens": 10125,
+   "cost_usd": 0.007750636,
+   "model_s": 168.8,
+   "startup_s": 0.29,
+   "stop_reason": "stop",
+   "response_models": [
+    "consensusprotocol/glm-5.3-flash"
+   ],
+   "ledger": {
+    "created": [
+     "export/002 - PRD-payout-pause.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Story for brands. A brand can pause a pending payout when it needs to hold it. Hard values: the pause lasts exactly 24 hours, the reason field is required, the toggle label reads Pause payout, and the payout row shows a paused badge. Acceptance: the pause releases automatically after the hold."
+  }
+ ]
+}

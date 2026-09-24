@@ -1,0 +1,11 @@
+I'll ask the one consolidated Task question before drafting, since "creator payout pause feature" doesn't yet give scope, requirements, acceptance conditions or platform.
+
+I'll create your task. Quick questions:
+
+**Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA — where does the payout pause logic live?
+**Requirements:** What triggers a payout pause for a creator (manual admin action, policy violation, fraud flag, dispute, etc.)? What needs to be built? What are the acceptance criteria — e.g., does a paused creator still accrue earnings, get notified, see a status indicator? Can a pause be reversed, and by whom?
+**Design & platform:** Any Figma links for an admin UI or creator-facing status state? Platforms? (iOS / Android / Web / All)
+**Dependencies:** Related or dependent tickets (e.g., existing payout pipeline, admin tooling, notification system)?
+**Validation:** What am I likely misunderstanding — for example, should this pause future payouts only, or also hold funds already queued? What constraints should I question?
+
+Once you answer, I'll draft the task artifact.

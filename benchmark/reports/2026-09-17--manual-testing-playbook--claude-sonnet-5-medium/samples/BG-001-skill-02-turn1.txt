@@ -1,0 +1,10 @@
+Read-back verified: 11 lines.
+
+**export/001 - bug-payout-pause-toggle-clarification.md**
+
+Verified: read-back succeeded; 11 lines
+HVR self-scan: 0 hard blockers. Fixed: none needed. Kept with reason: none needed.
+
+Before I write the bug report, I need a few details the request doesn't give me yet: what exactly happens when the toggle reverts (UI state, any confirmation message, and whether the pause actually fails server-side or just the toggle display), the exact steps and whether it reproduces every time, where the toggle lives (platform/screen), and any evidence you have (screenshots, recording, logs) or a known workaround.
+
+I saved the question above as a standalone file so it isn't lost between sessions — reply with the details and I'll create the bug report next.

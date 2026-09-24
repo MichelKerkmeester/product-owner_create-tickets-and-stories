@@ -1,0 +1,15 @@
+Read-back verified: 7 lines.
+
+**Path:** `export/001 - task-creator-payout-pause-clarification.md`
+**Verified:** read-back succeeded; 7 lines
+**HVR self-scan:** 0 hard blockers. Fixed: none. Kept with reason: none.
+
+I need a few details before drafting the task for the creator payout pause feature:
+
+**Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA, and who can pause a payout (creator, brand, ops/admin, automated fraud check)
+**Requirements:** What triggers the pause and what should happen while a payout is paused? Can a pause be reversed, and by whom? Acceptance criteria for the paused state?
+**Design & platform:** Figma links for any pause UI? Platforms? (iOS / Android / Web / All)
+**Dependencies:** Related or dependent tickets, such as the existing payout flow or scheduling task?
+**Validation:** What am I likely misunderstanding about why this pause is needed? What constraints should I question, such as whether paused payouts still accrue or notify the creator?
+
+Once you answer, I'll draft the task as `export/002 - task-creator-payout-pause.md`.

@@ -1,0 +1,18 @@
+I don't have enough to draft this safely yet — "creator payout pause feature" could mean several different things in scope. One consolidated question before I draft:
+
+**Format & scope:**
+- Is this a standalone task, a parent task (coordinating subtasks), or a subtask of an existing parent/epic?
+- Who triggers the pause — an admin, the creator themselves, or an automated trigger (e.g. fraud flag, dispute, compliance hold)?
+
+**Behavior:**
+- What does "paused" mean concretely — payouts held but still accruing, payouts blocked entirely, or something else?
+- Can a paused creator still see pending amounts, and can the pause be reversed (resumed) by the same actor or a different one?
+- Any conditions that should auto-trigger or auto-lift a pause (e.g. dispute resolved, KYC re-verified), or is this manual-only for now?
+
+**Acceptance criteria:**
+- What outcome must be testable/verifiable when this ships (e.g. "a paused creator's next payout does not process", "creator sees a paused-status indicator")?
+
+**Context:**
+- Any Epic, parent task, Figma flow/page, or related tickets this should link to?
+
+Once I have these, I'll draft the task with About, Requirements (checklist-based), and any relevant references.

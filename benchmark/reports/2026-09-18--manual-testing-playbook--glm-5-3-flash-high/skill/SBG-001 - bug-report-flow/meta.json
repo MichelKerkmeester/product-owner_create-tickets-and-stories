@@ -1,0 +1,100 @@
+{
+ "id": "SBG-001",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/bug-report-flow.md",
+ "twin": "PBG-001",
+ "model": "llmgateway/glm-5.3-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-SBG-001-69d3ec53",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - bug-payout-pause-toggle-reverts-clarification.md",
+   "export/002 - bug-payout-pause-toggle-reverts-off.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 74.44,
+   "tool_calls": 10,
+   "tools_used": [
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "ls",
+    "write",
+    "read"
+   ],
+   "input_tokens": 72667,
+   "output_tokens": 1450,
+   "reasoning_tokens": 1157,
+   "cost_usd": 0.009893195999999998,
+   "model_s": 74.2,
+   "startup_s": 0.23,
+   "stop_reason": "stop",
+   "response_models": [
+    "consensusprotocol/glm-5.3-flash"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - bug-payout-pause-toggle-reverts-clarification.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$bug The payout pause toggle silently reverts to off."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 147.9,
+   "tool_calls": 2,
+   "tools_used": [
+    "write",
+    "read"
+   ],
+   "input_tokens": 17184,
+   "output_tokens": 5003,
+   "reasoning_tokens": 4700,
+   "cost_usd": 0.005338942,
+   "model_s": 147.7,
+   "startup_s": 0.2,
+   "stop_reason": "stop",
+   "response_models": [
+    "consensusprotocol/glm-5.3-flash"
+   ],
+   "ledger": {
+    "created": [
+     "export/002 - bug-payout-pause-toggle-reverts-off.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "It happens every time on web. Steps: open a brand wallet with a pending payout, switch pause on, then refresh the page. The toggle shows off while the payout still shows paused. Expected: the toggle stays on until the brand resumes the payout. I used Chrome 126, no screenshot."
+  }
+ ]
+}

@@ -1,0 +1,8 @@
+No file was written to disk in any real sense I can vouch for. This is an advisory-only Project: I don't have file system access, and I can't write, save, or read back local files. What I called the "Deliverable Block" above is the actual delivery — a Canvas Artifact rendered in the side panel — and the `export/001 - task-payout-pause-toggle.md` line is only a naming convention for what you'd call the file if you save it yourself, not a confirmation that a file exists anywhere. Any earlier tool-call output implying a write completed reflects the harness's internal scratchpad, not a Barter/Project deliverable path — I shouldn't have let that read as "saved."
+
+**How a reviewer actually opens this artifact:**
+1. Open the Canvas panel in this conversation (the rendered Deliverable Block above) — that's the source of truth.
+2. Copy the markdown out of it.
+3. Paste it into wherever your team reviews tasks — ClickUp (as a task's `markdown_description`, not the plain description field, so headings/checkboxes render), a `.md` file in your repo, or a docs tool — using the suggested filename `001 - task-payout-pause-toggle.md` if they want to match the export convention.
+
+If you have the ClickUp connector available in your own session, I can walk through pushing it there once you approve, but from my side there's no saved artifact to hand a reviewer directly — only the rendered block you already see.

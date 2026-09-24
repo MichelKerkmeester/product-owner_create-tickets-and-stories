@@ -1,0 +1,83 @@
+**Deliverable Block**
+
+```markdown
+# Payout pause toggle reverts to off after a page refresh
+
+### About
+
+---
+
+On a brand wallet with a pending payout, enabling the payout pause toggle and then refreshing the page shows the toggle as off, even though the payout itself remains paused.
+
+| Field           | Value           |
+| --------------- | --------------- |
+| Frequency       | Always          |
+| Severity        | Not provided    |
+| Platform        | Web             |
+| Device          | Not provided    |
+| OS Version      | Not provided    |
+| Browser         | Chrome          |
+| Browser Version | 126             |
+
+**References:** Not provided
+
+---
+
+### Bug
+
+---
+
+**1. Observed Behavior**
+
+---
+
+On a brand wallet with a pending payout, turning the payout pause toggle on and then refreshing the page shows the toggle displayed as off
+- The underlying payout still shows as paused, so the toggle's on-screen state no longer matches the actual payout status
+- No error message was reported
+
+Steps to Reproduce:
+1. Open a brand wallet that has a pending payout
+2. Switch the payout pause toggle on
+3. Refresh the page
+4. Observe the toggle now shows off while the payout still shows as paused
+
+Screen recording: Not provided. Screenshot: Not provided
+
+---
+
+**2. Expected Behavior**
+
+---
+
+The toggle should stay on, reflecting the paused state, until the brand explicitly resumes the payout
+- Design specification: Not provided
+- Previous working behavior: Not provided
+- User expectation: the toggle accurately reflects the payout's actual paused state after a refresh
+
+Checklist
+- [ ] Root cause identified
+- [ ] Fix implemented
+- [ ] Bug no longer reproducible
+- [ ] No regressions introduced
+
+---
+
+### BDD Scenarios
+
+---
+
+**Scenario:** Payout pause state survives a page refresh
+- **Given** a brand wallet has a pending payout and the payout pause toggle is switched on
+- **When** the page is refreshed
+- **Then** the toggle still shows on and the payout remains paused
+
+---
+```
+
+Export-equivalent path: `export/002 - bug-payout-pause-toggle-reverts.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Quality status: Structure complete per the fixed Bug template (About, Bug, BDD). Severity, device, OS version, browser version detail beyond "126," and screenshot/recording remain `Not provided` since none was supplied — no facts were invented to fill them.
+
+Summary: Bug report delivered with your steps, frequency ("Always," per your "every time" claim) and environment (Web, Chrome 126). Severity wasn't stated, so it's left as `Not provided` rather than guessed — let me know if you want it added. No ClickUp connector is present in this session, so there's no push offer to make.

@@ -1,0 +1,62 @@
+## Deliverable Block
+
+```markdown
+# Creator Payout Pause Indicator
+
+### About
+
+---
+
+Creators and admins need clear visibility when a pending payout is paused, and the reason for the pause must be captured for accountability and QA verification. This task adds a pause indicator to the payout row and requires a reason whenever a payout is paused, with the pause reflected in payout history for QA review.
+
+### Requirements
+
+---
+
+1.  **Pause reason capture**
+
+---
+
+When a payout is paused, the user pausing it must supply a reason before the pause is applied. The reason is stored against the payout record for later review.
+
+**Checklist**
+
+- [ ] Reason field is required and cannot be left blank when pausing a payout
+- [ ] Submitted reason is saved and associated with the paused payout
+- [ ] Attempting to pause without a reason blocks the action with a clear message
+
+---
+
+2.  **Pause indicator on payout row**
+
+---
+
+The payout row shows a visible pause indicator whenever a payout is paused, so creators and admins can identify paused payouts at a glance.
+
+**Checklist**
+
+- [ ] Paused payouts display a pause indicator in the payout row
+- [ ] Indicator is visible only while the payout remains paused
+- [ ] Indicator does not appear on payouts that are not paused
+
+---
+
+3.  **Pause visibility in payout history**
+
+---
+
+QA and support need to verify that a pause occurred, including its reason, by reviewing payout history.
+
+**Checklist**
+
+- [ ] Payout history shows the pause event, including the stored reason
+- [ ] QA can confirm the pause state and reason from payout history without additional tooling
+```
+
+Export-equivalent path: `export/001 - task-creator-payout-pause-indicator.md`
+
+Quality status: all dimensions 8+, three requirement groups scoped to your stated acceptance conditions (required reason, row indicator, history verification), no unrequested scope added.
+
+HVR self-scan: 0 hard blockers. Fixed: none needed. Kept with reason: none required.
+
+I detected no ClickUp connector in this session, so there's no push offer — let me know if you'd like anything scoped differently (e.g. splitting the history-verification piece into its own subtask).

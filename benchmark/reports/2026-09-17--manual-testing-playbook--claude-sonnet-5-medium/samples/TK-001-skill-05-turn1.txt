@@ -1,0 +1,14 @@
+Verified: read-back succeeded; 8 lines
+Path: `export/001 - task-creator-payout-pause-clarification.md`
+
+Before I draft the task, I need a few details in one response:
+
+**Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA
+**Requirements:** What triggers a payout pause, who can pause/unpause (creator, admin, both), what happens to in-flight payouts, and what acceptance criteria define done?
+**Design & platform:** Figma links? Platforms? (iOS / Android / Web / All)
+**Dependencies:** Related payout, wallet or admin-tooling tickets?
+**Validation:** What should I not assume — is this creator-initiated, admin-initiated, or both, and does a pause affect only future payouts or ones already in progress?
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+I'll create the task as soon as you reply — happy to also offer a ClickUp push once it's drafted.

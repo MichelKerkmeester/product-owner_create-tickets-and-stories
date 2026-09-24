@@ -1,0 +1,9 @@
+Verified: read-back succeeded; 61 lines.
+
+**Path:** `export/001 - task-creator-payout-pause.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Quality: Completeness, Clarity, Actionability, Relevance and Mechanism Depth all clear their floors — three requirement groups cover reason capture, the row indicator and QA verification in payout history, each closed with testable checklist items tied to your stated acceptance criteria.
+
+This is a standalone task covering the pause reason field, the payout-row indicator and QA verification in payout history, scoped to exactly what you confirmed — nothing on trigger source (creator vs admin) or resume behavior was added since you didn't specify it. Let me know if you want a follow-up subtask for either.

@@ -1,0 +1,79 @@
+**Export-equivalent path:** `export/002 - bug-payout-pause-toggle-reverts-to-off.md`
+
+```markdown
+# Payout pause toggle reverts to off after refresh
+
+### About
+
+---
+
+On the brand wallet screen, toggling payout pause on for a pending payout then refreshing the page shows the toggle back at off, while the payout itself remains paused.
+
+| Field           | Value         |
+| --------------- | ------------- |
+| Frequency       | Always        |
+| Severity        | Not provided  |
+| Platform        | Web           |
+| Device          | Not provided  |
+| OS Version      | Not provided  |
+| Browser         | Chrome        |
+| Browser Version | 126           |
+
+**References:** Not provided
+
+---
+
+### Bug
+
+---
+
+**1. Observed Behavior**
+
+---
+
+After a page refresh, the payout pause toggle displays off even though the underlying payout is still paused
+- The toggle visually reverts to off
+- The payout status stays paused, so the toggle and the payout state disagree
+- No error message appears
+
+Steps to Reproduce:
+1. Open a brand wallet with a pending payout
+2. Switch the payout pause toggle on
+3. Refresh the page
+4. Observe the toggle shows off while the payout still shows paused
+
+Screen recording: Not provided
+Screenshot: Not provided
+
+---
+
+**2. Expected Behavior**
+
+---
+
+The toggle should stay on until the brand resumes the payout
+- Design specification: Not provided
+- Previous working behavior: Not provided
+- User expectation: the toggle state persists across a refresh and matches the actual payout pause state
+
+Checklist
+- [ ] Root cause identified
+- [ ] Fix implemented
+- [ ] Bug no longer reproducible
+- [ ] No regressions introduced
+
+---
+
+### BDD Scenarios
+
+---
+
+**Scenario:** Payout pause toggle persists after refresh
+- **Given** a brand wallet with a pending payout and the pause toggle switched on
+- **When** the page is refreshed
+- **Then** the toggle still shows on and the payout remains paused
+```
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: "silently" kept as literal description of the defect, not a banned term.
+
+Severity, device and OS version are marked `Not provided` since they weren't supplied — let me know if you have those and I'll update. No ClickUp connector is present in this session, so there's no push offer to make.

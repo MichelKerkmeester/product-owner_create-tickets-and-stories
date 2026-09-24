@@ -1,0 +1,9 @@
+**export/002 - task-creator-payout-pause.md**
+
+Verified: read-back succeeded; 25 lines.
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none needed.
+
+This standalone task covers the creator payout pause indicator: a required reason field on pause, a visible indicator in the payout row, and QA-verifiable history — matching the four acceptance points you gave. No Figma links, platform, or related tickets were supplied, so those optional sections were left out; let me know if you want them added.
+
+Want me to offer this for ClickUp delivery, or refine anything first?
