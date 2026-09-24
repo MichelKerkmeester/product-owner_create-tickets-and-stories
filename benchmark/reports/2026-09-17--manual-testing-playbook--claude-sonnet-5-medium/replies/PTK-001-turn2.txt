@@ -1,0 +1,61 @@
+# Task delivered
+
+```markdown
+# Show a pause indicator and reason for paused creator payouts
+
+### About
+
+---
+
+Creators currently have no way to tell that a pending payout is on hold, and support has no stored explanation to point to when a creator asks why. Add a pause indicator to the payout row and require a reason whenever a payout is paused, so creators get a visible signal and QA and support can confirm the pause and its reason from the payout history.
+
+### Requirements
+
+---
+
+1.  **Require and store a pause reason**
+
+---
+
+Every paused payout must carry a reason so the pause can be explained later without guesswork.
+
+**Checklist**
+
+- [ ] Pausing a pending payout requires a non-empty reason before the pause is saved
+- [ ] The reason is stored against that specific payout record
+- [ ] Attempting to pause without a reason blocks the action and shows an inline error
+
+2.  **Show a pause indicator on the payout row**
+
+---
+
+Creators need to recognize a paused payout at a glance in their payout list.
+
+**Checklist**
+
+- [ ] A paused payout displays a visible pause indicator on its row
+- [ ] The indicator is visible only while the payout is paused
+- [ ] A payout with no pause shows no indicator
+
+3.  **Make the pause verifiable in payout history**
+
+---
+
+QA and support need to confirm a pause and its reason after the fact, not just at the moment it happens.
+
+**Checklist**
+
+- [ ] The payout history view shows the paused status for the affected payout
+- [ ] The stored pause reason is visible from the payout history view
+- [ ] The paused state and reason persist across sessions and remain visible after the pause is lifted
+```
+
+---
+
+Export-equivalent path: `export/001 - task-creator-payout-pause-indicator.md`
+
+**Quality:** Structure matches Task Mode (H3 About/Requirements, numbered checklist groups, no HOW). Three requirement groups since scope covers reason capture, indicator display and QA/history visibility — flag if you want these split into a parent task with subtasks instead.
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+No ClickUp connector is present in this session, so there's nothing to offer for direct push — let me know if you want the filename/number adjusted before you save this out.

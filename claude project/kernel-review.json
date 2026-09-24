@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "systemId": "product-owner",
+  "reviewer": "Michel Kerkmeester",
+  "reason": "Requested Product Owner bullets without terminal full stops and PRD acceptance criteria without a divider after Mark-as-done checkboxes",
+  "decision": "updated",
+  "reviewedAt": "2026-08-13T19:02:23+02:00",
+  "contractDigest": "b3be8da3e8c6a57f88d0bbfa1e6b23ca125ed241187588c61fc67eebc3630ab8",
+  "kernelSha256": "05b07f142531083922fa8ff81f989151f4207ae35bb968796094a1572f34df75",
+  "kernelVersion": "1.7.0",
+  "alignedSkillVersion": "1.7.0",
+  "note": "This is a dated record of one review at the kernel version named above, not a claim about the live kernel. The live version is the H1 of Custom Instructions.md and the dated review notes in SYNC.md. Nothing reads this file, and parity is checked by benchmark/parity/run_parity.sh plus hand-reading, never by this record."
+}

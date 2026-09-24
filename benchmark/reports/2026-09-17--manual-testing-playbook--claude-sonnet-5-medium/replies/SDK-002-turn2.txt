@@ -1,0 +1,15 @@
+**Path:** `export/002 - doc-payout-pause-behavior-reference.md`
+**Verified:** read-back succeeded; 39 lines
+
+**Quality summary**
+* Source safety: pass — Note A labeled current behavior, Note B labeled retired and kept visible rather than deleted
+* Shape fit: pass — Behavior reference, since the reader needs to predict a state's release condition
+* ClickUp layout: pass — `* * *` dividers, `*   ` bullets, sentence-case headings
+* Readability: pass — one rule, boundaries section flags the retired draft and one genuinely unknown edge case
+* Voice: pass
+
+This behavior reference documents the payout pause's release condition: the 24-hour automatic release is current behavior, and the manual-clearance draft is preserved as retired context rather than discarded. I also flagged one open edge case (what happens if a payout becomes ineligible during the hold) since neither note addressed it — worth confirming if that's a real gap.
+
+`HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.`
+
+Want this pushed to ClickUp, or should I fold in more detail (e.g., what triggers the pause in the first place) if you have source for it?

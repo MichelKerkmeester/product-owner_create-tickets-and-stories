@@ -1,0 +1,61 @@
+# Creator payout pause indicator and reason tracking
+
+### About
+
+---
+
+Creators and QA currently have no way to see or verify why a payout is paused. A pause carries no stored reason and no visible signal on the payout row, so support cannot explain a stalled payout and QA cannot confirm the pause after the fact. This task adds a required pause reason captured at the point of pause, a pause indicator on the payout row, and a verifiable record in payout history.
+
+### Requirements
+
+---
+
+1.  **Require a pause reason**
+
+---
+
+A payout cannot be paused without a reason, giving support and QA a source of truth for why a payout stopped moving.
+
+**Checklist**
+
+- [ ] Pausing a payout requires a non-empty reason before the pause is applied
+- [ ] Attempting to pause without a reason blocks the action and prompts for one
+- [ ] The reason is stored against the paused payout record
+
+---
+
+2.  **Show a pause indicator on the payout row**
+
+---
+
+Creators need to see at a glance that a payout is paused, without opening it for detail.
+
+**Checklist**
+
+- [ ] A paused payout displays a visible pause indicator in its row
+- [ ] The indicator shows only while the payout is in the paused state
+- [ ] The indicator clears once the payout is resumed
+
+---
+
+3.  **Make the pause verifiable in payout history**
+
+---
+
+QA and support need to confirm a pause occurred and why, after the fact, without relying on current row state alone.
+
+**Checklist**
+
+- [ ] Payout history records the pause event, its reason and the timestamp it was applied
+- [ ] Payout history records when and how the pause was lifted
+- [ ] QA can locate the pause record for a given payout from history alone
+
+---
+
+Export-equivalent path: `export/001 - task-creator-payout-pause.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none needed, no flagged terms present.
+
+Quality status: structure, WHAT/WHY scope and testable checklists validated against Task Mode.
+
+Want this pushed to ClickUp, or should I add a Design/Figma reference or related-ticket link once you have one?

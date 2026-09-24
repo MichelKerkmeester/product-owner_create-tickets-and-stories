@@ -1,0 +1,57 @@
+Conflict resolved per your answer: Note A is current behavior, Note B is retired. Drafting the behavior reference now.
+
+**Deliverable Block**
+
+````markdown
+# Payout pause — release behavior
+
+* * *
+> **Source basis**
+> *   **Current behavior** — Note A: the payout pause holds for 24 hours, then releases automatically.
+> *   **Retired material** — Note B: an earlier draft described a manual, brand-cleared release. Superseded by Note A and retained here only for historical context.
+* * *
+
+## Overview
+* * *
+When a payout is paused, engineering and support need to predict when it releases without checking each case manually. This reference explains the current release rule and flags the earlier draft rule it replaced.
+* * *
+###   
+
+### Glossary
+* * *
+#### Terms and states
+* * *
+*   **`paused`** — The payout is held and not yet sent to the brand
+*   **`released`** — The hold has ended and the payout proceeds through normal payout processing
+* * *
+##   
+
+## Behavior rules
+* * *
+**1. Automatic release after 24 hours**
+* * *
+*   **When** — A payout enters the `paused` state
+*   **Then** — The pause holds for 24 hours, then the system releases the payout automatically, moving it to `released`
+*   **Status** — Current behavior
+* * *
+##   
+
+## Boundaries and exceptions
+* * *
+*   **Retired manual-clear rule** — An earlier draft (Note B) held the pause until the brand cleared it manually, with no automatic release. That rule was retired; do not treat it as current behavior
+*   **Unknown** — Whether a brand can still clear a pause manually before the 24-hour window elapses is not established by the supplied notes
+* * *
+````
+
+**Export-equivalent path:** `export/002 - doc-payout-pause-behavior-reference.md`
+
+**Quality summary:**
+- Source safety: pass — Note A classified current behavior, Note B classified retired and kept visible rather than dropped
+- Shape fit: pass — Behavior reference; reader needs to predict a state/outcome, not follow a procedure
+- ClickUp layout: pass — `* * *` dividers, `*   ` bullets, heading-divider adjacency, sentence-case headings
+- Readability: pass — single rule, no forced Combinations/Examples sections given the thin source
+- Voice: pass
+
+**HVR self-scan:** 0 hard blockers. Fixed: none. Kept with reason: em dash used only in the `*   **Term** — Definition` glossary/source-basis bullets, per the sanctioned ClickUp delimiter exemption.
+
+Since ClickUp tooling isn't connected in this session, there's no push offer — let me know if you want anything expanded (e.g., what happens if a second pause is triggered during the 24-hour window) once that's documented somewhere.

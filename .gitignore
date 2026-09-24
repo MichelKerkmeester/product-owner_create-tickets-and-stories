@@ -1,0 +1,7 @@
+# OS-generated files
+.DS_Store
+
+# export/: keep the folder, its .gitkeep and the benchmark deliverables, ignore everything else
+export/*
+!export/.gitkeep
+!export/benchmark/

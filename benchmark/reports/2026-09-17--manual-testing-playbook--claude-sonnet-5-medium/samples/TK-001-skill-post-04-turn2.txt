@@ -1,0 +1,9 @@
+Read-back confirmed: 38 lines, content matches.
+
+**Path:** `export/001 - task-creator-payout-pause.md`
+**Verified:** read-back succeeded; 38 lines
+**HVR self-scan:** 0 hard blockers. Fixed: none needed. Kept with reason: none.
+
+**Summary:** Standalone task covering the creator payout pause feature, split into two requirement groups — pause reason capture (required, stored field) and pause indicator/history visibility (payout row + QA-verifiable history entry). Scope stayed tight to what you confirmed; I didn't invent who triggers the pause (creator vs. admin) since that wasn't specified — flag it if it matters for QA setup.
+
+Want me to offer this for ClickUp delivery, or refine anything first?

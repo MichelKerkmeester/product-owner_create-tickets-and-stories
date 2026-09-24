@@ -1,0 +1,191 @@
+<!-- Round 4 review of remeasure-4. Reviewer: DeepSeek V4.1 Flash, thinking max, Pi CLI on the normal config through the LLM Gateway (upstream runware/deepseek-v4.1-flash), read-only tools. Covers all three systems. -->
+
+All evidence has been read. Composing the full report now.
+
+---
+
+# Independent review: GLM 5.3 Flash, `remeasure-4`, the round 4 repairs
+
+**What I read.** Every `remeasure-4` run instance in both systems that have one: Deal Templates 6 run instances (SDP-004 skill 3, PDP-004 project 3) and Copywriter 24 run instances (SDL-001, SEN-001, SEN-002, SID-001 on the skill side, PDL-001, PEN-001, PEN-002, PID-001 on the project side, 3 runs each), each turn file, the `meta.json` ledger, the `exports/` tree where one exists, and the transcripts where a claim needed checking (paths, read-back, block boundaries). Plus the four scenario files at HEAD that grade this round, the round 4 diffs (`3b1f015`, `07ceec5`) and the peer commit `81441b2`, the `remeasure-3` evidence the two final reviews graded, both final reviews, and the system prompts and rule files at HEAD for every copy each repair touched. Product Owner has no `remeasure-4` folder and no round 4 commit, so it stays out of the grading tables and is flagged where it matters.
+
+**Grading basis.** A verdict comes from the scenario's Pass/fail line and Pass / fail section first. A fired fail clause is FAIL. A named expected signal or chain element that is unmet, with no fail clause fired, is PARTIAL. Otherwise PASS. File claims were checked against the ledger and `exports/`, never against the reply. **Three runs per scenario certify no rate.** Where I write "3 of 3" or "5 of 6" it describes the runs observed, not an estimate.
+
+**Sample size, stated plainly.** Deal Templates: 2 scenarios, 6 run instances. Copywriter: 8 scenarios, 24 run instances, with SEN-001 and PEN-001 contributing 2-turn chains. Clean three-for-three is not proof a behaviour is fixed.
+
+**One reading caveat that applies to every Project row.** The captures merge the rendered block and the chat reply, so the boundary is judged by the shape of the text (copy, labels, headings against verdict, summary, tags), as the earlier graders did, and I say where a different reading would move a verdict. Two rows turn on that boundary (PDL-001 run 1, PEN-001 run 3).
+
+**Two rubric decisions made before grading, stated so they are auditable.** (1) For the Fast and Quick scenarios, any numeric MEQT total printed anywhere in the reply, including a bare "20/25" attached to the gate status, counts as "a printed score" and fires the score clause. The original benchmark and the round 1 re-measurement both failed this exact pattern ("MEQT 21/25" printed on the Fast lane, and the Claude-run adjudication called printing the compact-gate status and the number together the clearest reading of the ban). (2) "A full variation grid" for the Quick lane means the full Standard short-copy artifact: six options across the three tier groups plus a Recommended Combination. Six options under flat task-fit labels is graded PARTIAL, since the count is at the ceiling but the grouping is card-sanctioned. Both decisions are named again where they bind.
+
+---
+
+## 1. Per system
+
+### 1.1 Barter Copywriter, `remeasure-4`
+
+| Scenario | Run | Verdict | Evidence |
+|---|---|---|---|
+| SDL-001 | 1 | **FAIL** | Path first and header correct, but the saved file carries rationale: "Barter's whole loop in four words. It answers the first question every new creator asks: what happens if I sign up." The SDL-001 fail clause names "scoring or rationale matter sits inside the body" |
+| SDL-001 | 2 | **PASS** | "Saved to `export/001 - write-creator-tagline.md` (read-back confirmed)." Header `Mode: $write`, four options under card labels, recommendation carried as "Recommended: Most Barter", no floors line, tag after the path |
+| SDL-001 | 3 | **FAIL** | Header fixed to `$write` and six options grouped 2/2/2, but the file closes with rationale: "The first line lowers the bar, the second removes the risk. Together they answer the two questions a new creator has" |
+| PDL-001 | 1 | **PARTIAL** | Report carries "`export/001 - write-new-creator-tagline.md`", but the block carries a rationale paragraph after the Recommended Combination: "The primary line carries the mechanism, because paying with product instead of cash is what makes Barter different." The expected signal says "no other section, rationale or scoring matter". No PDL-001 fail clause names rationale, so partial |
+| PDL-001 | 2 | **PARTIAL** | Path present but the mode segment is the shell token: "`export/001 - $write-new-creator-taglines.md`". The scenario's form is `export/[###] - write-[description].md`. A lenient reader calls this PASS, a strict reader fires "puts anything else in its place" |
+| PDL-001 | 3 | **FAIL** | No export-equivalent path anywhere in the reply. The reply ends "MEQT 21/25, ship. I routed this as a $write, goal-based ..." and no `export/` string occurs in the file. Fail clause: "the reply omits that path" |
+| SEN-001 | 1 | **FAIL** | Turn 2 prints a numeric total: "it clears the Fast gates (compact-gate status: pass, 20/25)". Fail clause: "Turn 2 prints a MEQT score". Turn 1 asked a single question and created no artifact, so the other half holds |
+| SEN-001 | 2 | **PASS** | "Fast lane: gates pass, options within the compact limit." Export holds two tooltip options, no number printed |
+| SEN-001 | 3 | **PASS** | "Fast lane, UX, 2 options, gates passed, no score narration." Export holds two options, save and read-back confirmed |
+| PEN-001 | 1 | **PASS** | Block first with `Mode: $fast`, compact Best pick plus two alternatives, then "`export/001 - fast-pricing-tooltip.md`" and "HVR clean | Fast (compact gate)". No number. Notes: the mode slot carries the energy token `$fast` |
+| PEN-001 | 2 | **FAIL** | Turn 2 asked a second question and rendered nothing: "One gap before I draft. What should the tooltip explain (for example, how the free trial works, how Barter credits or pricing tiers work), and is it speaking to creators, brands or both?" Fail clause: "renders no block" |
+| PEN-001 | 3 | **PARTIAL** | Block first, two options, then "Path: `export/001 - $ux-pricing-page-tooltip.md`". No compact-gate or HVR status is reported anywhere in the reply, so the named signal "reports compact-gate and HVR status" is unmet. The "Recommended:" explanation paragraph sits in the boundary zone between block and reply, and a reader who reads it as inside the block would add a body leak |
+| SEN-002 | 1 | **PASS** | "**Compact gate: pass** (Quick lane). HVR self-scan: 0 hard blockers." No number. Export holds five labelled options and the pick is named only in the reply, noted below |
+| SEN-002 | 2 | **PARTIAL** | "Compact gate passes on the Quick lane, no printed score." Score suppression holds, but the export ships six options, the full short-tier count, flat under task-fit labels. A strict reader fires "a full variation grid ships". A lenient reader passes it |
+| SEN-002 | 3 | **PASS** | "Compact gate passed, HVR self-scan: 0 hard blockers." Compact recommended-plus-alternatives form. Note: a stray "门槛" token slipped into the reply and the model self-corrected it in a bracketed note |
+| PEN-002 | 1 | **PASS** | "`export/001 - write-creator-homepage-tagline.md` | HVR clean | Quick (compact gate)". Best pick plus two alternatives, no number. Note: same stray-token class in the reply |
+| PEN-002 | 2 | **PASS** | "Compact gate passed: HVR clean, creator terminology throughout". Best pick plus three alternatives, path after the block, tag after the block, no number |
+| PEN-002 | 3 | **FAIL** | Block ships the full Standard short-copy grid on the Quick lane: "**Most concise:** 1. ... 2. ...", "**Most valuable:** 3. ... 4. ...", "**Most authentic:** 5. ... 6. ..." plus a Recommended Combination, while the reply claims "HVR 0 hard blockers, compact gate passed." Fail clause: "a full variation grid ships" |
+| SID-001 | 1 | **PASS** | "running from the skill package `sk-barter-copywriter` (v1.5.8)" and "- **File:** `export/001 - write-new-creator-tagline.md` (read back, confirmed)". The Project packaging is named only to contrast it, which the scenario allows |
+| SID-001 | 2 | **PASS** | "`export/001 - write-new-creator-tagline.md` (read-back confirmed)." String present, file exists, header `Mode: $write` |
+| SID-001 | 3 | **PASS** | "Export: `export/001 - write-creator-tagline.md` (read back, confirmed)". File exists with `Mode: $write` header and final copy. Note: the alternatives list in the export splits label and line onto separate bullets |
+| PID-001 | 1 | **PASS** | Opens "`# Barter Copywriter - Custom Instructions - v1.10.11`", states Canvas Artifact delivery, block renders, reports "`export/001 - write-new-creator-tagline.md`", claims no file |
+| PID-001 | 2 | **PASS** | "title line exactly as written: `# Barter Copywriter - Custom Instructions - v1.10.11`". Block renders, path reported, no file claim |
+| PID-001 | 3 | **PASS** | "**Instruction set:** the loaded kernel is titled, exactly: > # Barter Copywriter - Custom Instructions - v1.10.11". Block first, path reported, no file claim |
+
+**Per-scenario summaries (Copywriter).**
+
+- `SDL-001`: the delivery pipeline is intact in all three runs (file written before the reply, read back from the exact path, header `Mode: $write` in all three, verdict and HVR reported, no floors line, tag after the path). The new failure mode is narration inside the artifact: run 1 annotates every option and the recommendation with why-it-works lines, run 3 closes the Recommended Combination with a rationale paragraph. The round 4 edit made rationale-in-body a named fail clause for this scenario, so both runs fail on the current text. A reader who treats per-option why-notes as part of the deliverable would pass run 1 and still fail run 3.
+- `PDL-001`: the block-first contract holds in all three runs, headers are `Mode: $write` everywhere, the body carries four to six options with a Recommended Combination, the verdict is reported and no run claims a file. The path moved from 0 of 3 to 2 of 3 forms, one of them clean, one of them carrying `$write` in the filename segment, and one still missing. Run 1 adds a rationale paragraph inside the block.
+- `SEN-001`: the ask-once half worked in all three runs. Turn 2 quality is uneven: run 1 printed the total, run 2 shipped two options with no number, run 3 shipped two options and explicitly reported "no score narration". Runs 2 and 3 asked for the task plus audience but did not name placement in the ask, which the chain lists and which run 3 covered fully.
+- `PEN-001`: run 1 is a clean compact Fast delivery, run 2 collapses into a second intake round with no block, which is the exact fail the scenario names and the same failure the Claude-run evidence recorded for this pair, run 3 delivers but drops the compact-gate and HVR status line the scenario asks for.
+- `SEN-002`: no question fired in any run, no number was printed in any run, and every run saved a `write-` export first. Compactness is imperfect: run 1 has no pick inside the file, run 2 sits at the six-option ceiling, run 3 uses the recommended-plus-alternatives form.
+- `PEN-002`: no question fired, no number printed, block rendered first in all three runs. Run 3 ships the full tiered grid, which fires the scenario's own clause. Runs 1 and 2 use compact forms.
+- `SID-001`: 3 of 3 carry `sk-barter-copywriter` verbatim and name a real, readable file written by that turn. One run also carries a self-reported edit cycle with a final read after it, and the ledger folds that into `created`, the known ledger behaviour from round 3.
+- `PID-001`: 3 of 3 quote the kernel line at its current version `v1.10.11`, state Canvas Artifact delivery, render a block, report the export-equivalent path and claim no file. No run names the skill string. The identity split still holds in the sample.
+
+### 1.2 Barter Deal Templates, `remeasure-4`
+
+| Scenario | Run | Verdict | Evidence |
+|---|---|---|---|
+| SDP-004 | 1 | **PASS** | Lead "For anyone who's into stationery." takes the shape `For anyone who's into`, bullets clean, Most concise leadless. Reply opens with the bare path "`export/001 - deal-product-penhold.md`", ledger and exports agree |
+| SDP-004 | 2 | **PASS** | "Saved: `export/001 - deal-product-penhold.md`". Lead "For anyone who's into stationery.", bullets clean, Most concise leadless |
+| SDP-004 | 3 | **PASS** | "Saved: `export/001 - deal-product-penhold.md`". Lead "For anyone who likes to show off their setup.", bullets clean, Most concise leadless. The reply calls the check itself: "the creator-fit lead passing the name test" |
+| PDP-004 | 1 | **PASS** | Lead "For anyone who likes to show off their setup.", bullets clean, Most concise leadless, block first, "export/[NNN] - deal-product-penhold.md" and "DEAL 23/25 (D:5 E:7 A:5 L:6) | HVR: clean" |
+| PDP-004 | 2 | **PASS** | Lead "For anyone who's into stationery.", bullets clean, Most concise leadless, block first, "DEAL 21/25 (D:5 E:6 A:4 L:6) | Floors: D5 E6 A4 L6, all pass | HVR: clean" |
+| PDP-004 | 3 | **PASS** | Lead "For anyone who's into stationery.", bullets clean, Most concise leadless, block first, "DEAL 24/25 (D:6 E:7 A:5 L:6) | HVR: clean" |
+
+**The seven checks, quoted in full, per run.**
+
+SDP-004 run 1. Lead "For anyone who's into stationery." Shape pass (`For anyone who's into`). Name "stationery" passes checks 2 and 3, it is a standing hobby genre that sits in the brief, not an offer noun plus a suffix. Leaves people out. One line with blank lines above and below. No repeat. Bullets: "You film unboxings and first reactions" (pass, "unboxings" is a standing content label), "Your audience watches stationery hauls" (pass, "stationery hauls" is a standing genre), "You show your desk setup on camera" (pass, "desk setup" is a standing genre), "You want fresh picks for your desk" (pass, no invented name). Most concise lead absent, its bullets "You film unboxings on camera" and "Your audience follows what lands on your desk" pass.
+
+SDP-004 run 2. Lead "For anyone who's into stationery." All seven checks hold. Bullets: "You film desk setups and what's on your desk videos" (pass), "Your audience watches stationery hauls and unboxings" (pass), "You give your desk a refresh on camera" (pass, no name), "You want stationery you get to keep" (pass on checks 2 and 3, it restates the offer, which the bullet checks do not grade, the same note the round 3 reviews made). Most concise leadless, bullets "You like a desk that looks good on camera" and "Your audience notices your desk" pass.
+
+SDP-004 run 3. Lead "For anyone who likes to show off their setup." Shape pass (`For anyone who likes to`). Name "setup" passes, the Standards document names `setup` as an example. Bullets: "You film desk setups and stationery hauls" (pass), "Your audience watches what's-on-my-desk videos" (pass, a standing format), "You show new supplies in your day-to-day" (pass, no name), "You want fresh pieces for your filming background" (pass, no name). Most concise leadless, bullets "You film desk setups and stationery hauls" and "Your audience watches what's-on-my-desk videos" pass.
+
+PDP-004 run 1. Lead "For anyone who likes to show off their setup." Shape pass, name pass, and this is the scenario's own desired example. Bullets: "You film study-with-me videos at your desk" (pass), "Your audience follows your studygram posts" (pass, StudyGram is a standing community), "You're into stationery, planning and note-taking" (pass), "You already shoot your posts at your desk" (pass). Most concise leadless, bullets "You film study-with-me videos at your desk" and "Your audience follows your studygram posts" pass. Note: "studygram" and "study-with-me" do not trace to a word in the brief, which the provenance sweep carries outside the seven checks, so nothing fires and the slip is recorded.
+
+PDP-004 run 2. Lead "For anyone who's into stationery." All seven checks hold. Bullets: "You film stationery hauls and unboxings" (pass), "Your audience watches desk-setup videos" (pass), "You show new pieces in your routine" (pass, no name), "You want pieces you keep" (pass, no name, offer restatement not graded). Most concise leadless, both bullets pass.
+
+PDP-004 run 3. Lead "For anyone who's into stationery." All seven checks hold. Bullets: "You film stationery hauls and unboxings" (pass), "Your audience follows your desk setups" (pass), "You test what lands on your desk, on camera" (pass, no invented name), "You want a whole set to keep" (pass, no invented name). Most concise leadless, both bullets pass.
+
+No name built from the product noun occurs in any of the six runs, in a lead or in a bullet.
+
+**Per-scenario summaries (Deal Templates).**
+
+- `SDP-004`: 3 of 3 pass all seven checks. The round 3 failures do not recur: no "stationery content" construction anywhere, in a lead or a bullet, and no invented genre. The file is saved before the reply and read back in all three runs, and the save claims match the ledger and `exports/`.
+- `PDP-004`: 3 of 3 pass all seven checks. No undeclared shape appears. The block renders first with the mode header, the `export/[NNN]` placeholder path is reported as the Project contract states, and the no-file contract is respected. The reply lines carry the DT score shape including dimensions and, in run 2, a floors line, which is inside this system's own Chat Response Shape rather than a Copywriter-style leak.
+
+### 1.3 Product Owner
+
+No `remeasure-4` folder and no round 4 commit exist for this system. Round 4 did not touch it, and it is not re-measured here. The last recorded state is the round 3 grading (3 of 3 `SDK-001` pass, `PDK-001` 2 pass and 1 PARTIAL on spacer headings, plus the P3 items the final reviews left open).
+
+---
+
+## 2. Round 4 item by item
+
+**Item 1, Deal Templates, the five shapes in both system prompts and a blocking pre-export validation.**
+
+Source check: present at HEAD. The shapes sit at `AGENTS.md` line 214 and `claude project/Custom Instructions.md` line 45, each with the one-change example `If you're into skincare.` fails where `For anyone who's into skincare.` holds. The validation is at `AGENTS.md` steps 2 and 4, the kernel's strict sequence steps 7 and 9 ("render nothing until every one passes"), `SKILL.md` required checks, About order self-check and read-back bullet, the skill README in prose, and the Standards pre-reply checklist on both sides (v0.120). The round 3 final reviews both had this as their top Deal Templates item, one calling it a model limit with a placement gap on the shape half, and round 4 executed that fix.
+
+Did it move behaviour: yes, on this sample. `remeasure-3` evidence, verified in the files: SDP-004 run 1 saved the lead "If you create stationery content." with the bullet "Your audience watches stationery content", the exact named failure, and PDP-004 run 1 rendered "If you're into stationery.", which takes none of the five shapes. That is 4 of 6 runs passing. `remeasure-4` shows 6 of 6 passing the seven checks, with the two failure forms absent. The blocking branch itself was not exercised, because no line failed in the sample, so what is certified is the outcome, not the guard firing. Also note the lead that now appears, "For anyone who likes to show off their setup.", is the scenario's own desired example.
+
+**Item 2, Copywriter, the Project reports the export-equivalent path and PDL-001 grades it.**
+
+Source check: the kernel's Delivery line now says "After the block, the reply reports the export-equivalent path `export/[###] - [mode]-[description].md`, with the mode and a short description filled in, never a note about where the copy sits or the mode metadata in its place." `SKILL.md` names the same pattern for the Project packaging. `PDL-001` names the path in its Pass/fail line, both Pass and Fail bullets, the chain's state check, the expected signals, the summary table and the triage.
+
+Did it move behaviour: partly. `remeasure-3`, verified: 0 of 3 runs reported a path ("Path: export-equivalent copy panel above", "Path: $write, Standards energy, ...", and nothing). `remeasure-4`: run 1 reports "`export/001 - write-new-creator-tagline.md`", run 2 reports "`export/001 - $write-new-creator-taglines.md`", run 3 reports nothing. So 2 of 3 runs now produce a path, one in the exact clean form and one with the `$` sigil in the filename segment, and 1 of 3 still omits it. The omission now fires the scenario's own fail clause, which it could not before. Residual is one missing path and one malformed mode segment.
+
+**Item 3, Copywriter, reply hygiene, tag placement, header mode and the tagline WRITE alignment.**
+
+Source check: the "no floors line, no per-dimension figures, no weakest note" sentence sits in `AGENTS.md` step 8, `SKILL.md` Section 9, the kernel's closing Section 9 paragraph and the skill README, with the failed-floor and spent-attempts carve-outs. The `[Assumes:]` placement rule sits in `AGENTS.md` step 8, `SKILL.md` Section 9 and the kernel Section 9. The header sentence sits in `AGENTS.md` step 7, `SKILL.md` Section 9 and the kernel. `SDL-001` and `PDL-001` were both rewritten to the Frameworks card's terms, at most six options grouped by tier or task-fit labels plus a Recommended Combination, and the card text supports that reading ("Treat the tier as a maximum rather than a quota", and the label list includes "Most Barter" and "Most creator-friendly").
+
+Did it move behaviour: yes for the three named behaviours, on this sample. Floors line: `remeasure-3` PDL-001 run 1 printed "Floors: M 4, E 6, Q 6, T 3, D 2" plus "Lowest dimensions", run 3 printed "The two weakest dimensions are differentiation ...", and SDL-001 run 2 printed "Weakest dimensions: Differentiation and Targeting". `remeasure-4`: zero floors lines and zero weakest-dimension notes in all six SDL-001 and PDL-001 runs. Tag placement: `remeasure-3` PDL-001 run 3 put a visible `[Assumes: ...]` tag above the header, `remeasure-4` keeps every tag after the block or path in all six runs. Header mode: `remeasure-3` SDL-001 run 3 wrote `Mode: WRITE`, `remeasure-4` writes `$write` in 6 of 6. The aligned tier language did not produce a single shipping complaint in the sample, and the new clauses did not fire on the old behaviours because those behaviours did not recur. What did fire is new: the rationale clause the same edit added to SDL-001 caught two of three skill runs, which is why it is discussed under the diff audit.
+
+**The author's extra fail condition in `SDL-001` and `PDL-001`.** It fails an unasked floors line or weakest-dimension note. Assessment: sound in direction and aligned with the rules as they now stand, since the ban is live in both system prompts plus `SKILL.md`, and the scenarios' expected signals already asked for the no-floors form. Two refinements I would make. First, the clause bans "a weakest-dimension note" without the carve-out the rules keep for the spent-attempts quality note ("the quality note for spent improvement attempts keeps its Lowest dimension line"), so a legitimate spent-attempts line would fire the scenario while the runtime rule allows it. Second, the rules also ban "per-dimension figures" unasked, and neither scenario's fail clause lists them, so a reply printing `D:5 E:6 A:4 L:6` with no floors or weakest wording would pass the scenarios while breaking the kernel sentence. Both are small wording fixes, and both scenarios should carry the same wording, which they currently do not (see the audit).
+
+---
+
+## 3. Coverage findings
+
+**Fast, do the runs keep the score out of the reply.** Observed across the six Fast run instances: 5 of 6 replies that reached a delivery printed no score. The exception is SEN-001 run 1 with "compact-gate status: pass, 20/25". PEN-001 run 3 printed no score but also dropped the compact-gate and HVR status line entirely, and PEN-001 run 2 delivered nothing to report. So the round 1 behaviour still holds in the sample for the most part, with one instance of the exact old failure reappearing.
+
+**Quick, do the runs keep the score out of the reply.** Yes, 6 of 6. SEN-002 runs 1 to 3 and PEN-002 runs 1 to 3 all report compact-gate and HVR with no number anywhere in the reply, and every export and block keeps its number inside the line 1 comment, which the artifact template itself shows. The Quick lane's problem in this sample is compactness, not score leakage: PEN-002 run 3 ships the full six-option tiered grid, SEN-002 run 2 sits at the six-option ceiling, and SEN-002 run 1 names its pick only in the reply.
+
+**Identity, do both gates still pass after rounds 2 to 4.** Yes, 6 of 6. SID-001 runs 1 to 3 all carry `sk-barter-copywriter` verbatim and name a real file that the ledger records and `exports/` holds, with the `Mode: $write` header. PID-001 runs 1 to 3 all quote the kernel line at its current version, `# Barter Copywriter - Custom Instructions - v1.10.11`, which the round 4 bump moved, state Canvas Artifact delivery and claim no file. The SID-001 quotes also moved with the skill version to v1.5.8, which is correct. The split still holds in both directions, and the identity precondition for every other scenario in this set is satisfied on the fresh evidence.
+
+---
+
+## 4. Regression findings
+
+**Ordinary Copywriter delivery still works at the pipeline level.** Exports saved and read back: 9 of 9 skill saves (SDL-001 three, SEN-001 three, SEN-002 three, plus SID-001 three, all with a read of the exact path after the write). Blocks rendered first: every Project delivery that reached delivery, 12 of 12 across PDL-001, PEN-001, PEN-002 and PID-001. The header carries the `$` token mode in all twelve SDL-001, PDL-001 and SID-001, PID-001 runs checked, with `$fast` and `$ux` inside the Fast pair as their lanes dictate. The verdict still reaches the reader in every Standard run.
+
+**What round 4 did not break.** No export or block delivery was suppressed, no question that the lane requires was withheld, no refusal behaviour regressed (no safety scenario ran this round for either system, so refusal or escalation behaviour carries forward from `remeasure-3` unverified rather than regressed). The new Deal Templates blocking check cost nothing visible, since nothing failed it, and the shape sentence did not suppress any legitimate lead: every lead in the sample still takes a declared shape.
+
+**Drift found in ordinary delivery that round 4 did not cause but also did not stop.** Three of six Copywriter ordinary-delivery runs put rationale inside the delivered body: SDL-001 runs 1 and 3 in the file, PDL-001 run 1 in the block. `remeasure-3` had one instance of this class (SDL-001 run 3, which is what the round 4 note cites), so this is a widening, not a new invention. I cannot attribute the widening to the round 4 edits from three runs. It sits against the strengthened final-copy-only emphasis and the new SDL-001 fail clause, so it now costs a FAIL where it used to cost a note.
+
+**One likely suppression-shaped near miss.** PEN-001 run 2 answered "A tooltip for the pricing page." with another question instead of delivering. That is not the round 4 wording suppressing a legitimate delivery, it is the one-question contract being broken by the model on a lane where the earlier Claude run broke it the same way. Classified as a model limit in the final list.
+
+---
+
+## 5. Diff audit findings
+
+**Copies, `3b1f015` (Deal Templates).** Every copy the commit claims is present at HEAD. The five-shape sentence: `AGENTS.md` and the kernel. The validation: `AGENTS.md` steps 2 and 4, kernel steps 7, 9 and 10, `SKILL.md` required checks, About order and read-back, skill README prose, Standards pre-reply checklist on both sides. Version bumps are consistent (`AGENTS.md` kernel v1.15.8, Skill v1.12.4, Standards v0.120, both READMEs, both changelogs). No live `v0.119` reference remains, the only hit is the SYNC history line that recounts the change, and the three bare-stem mirror references are repointed. The sync-loop carrier file and the statement registry in the sync loop were updated for the rename, and the delivery-protocol and quality-checklist statements were resynced. The moved checklist line is identical on the skill and Project sides. No contradiction found in the changed text. One observation, no action: step 4's cross-reference "the five shapes in Section 5" resolves correctly to where the shapes live in `AGENTS.md`, but that home is inside the section headed "5. ESCALATION", an odd address for a creator-fit rule that predates round 4. The kernel's "Section 2" reference resolves correctly too.
+
+**Copies, `07ceec5` (Copywriter).** The no-floors sentence is live in four places (kernel Section 9, `AGENTS.md` step 8, `SKILL.md` Section 9, skill README). The path sentence is live in the kernel Delivery line and named for the Project packaging in `SKILL.md`. The header-mode sentence is live in `AGENTS.md` step 7, `SKILL.md` and the kernel. Both scenario files were updated in every place they state criteria, which I re-read at HEAD, and the twin-pair checks are in the summary tables too. The commit's claim that nothing was resynced checks out: the declared Delivery statement in the sync loop is a prefix of the live kernel line, and the added sentences follow it without changing the declared text. No knowledge document was edited, and I found no knowledge document that states the round 4 rules differently. The comment-header exception and the `MEQT Scoring` path sentence agree with the new text.
+
+**Contradictions and misreadable wording found.**
+
+1. The kernel's new sentence "with the mode and a short description filled in" does not say whether the mode keeps its `$` sigil in the filename segment. The scenario examples and skill README examples all use the bare word (`write-`, `ux-`, `improve-`), and one Project run rendered "`$write-new-creator-taglines.md`" and another "`$ux-pricing-page-tooltip.md`". One clause ("without the `$`") would close it. This is the misreadable wording most likely to have produced an observed deviation, classified as a rule gap in the final list.
+2. The Artifact Template, both sides, still reads "The compact score line is reported in chat after the artifact." The next line's example resolves it to the no-number form (`HVR clean | Fast (compact gate)`), but the phrase "score line" invites a numeric reading, and SEN-001 run 1 printed "compact-gate status: pass, 20/25". The round 4 commit says the Artifact Template was read and left as is. I would tighten that sentence to "the compact-gate status line" since it sits directly under the rule the new clauses enforce.
+3. The new placement sentences say the tag travels in the reply, "never in the saved file" (`AGENTS.md` step 8, `SKILL.md` Section 9), while the surviving sanctioned exception in `SKILL.md`, `conciseness.md` Section 8.2 and the Artifact Template allows a `Stats:` or `Assumes:` line as an HTML comment below the header inside the file. Read narrowly, the new sentence bans the comment form. "Never as visible text in the file" would remove the collision.
+4. Twin asymmetry, `SDL-001` against `PDL-001`. `SDL-001` fails "scoring or rationale matter sits inside the body". `PDL-001` fails only "scoring matter" in the Pass/fail line, "scoring or process matter" in its section 3, and relies on the expected signal to reach rationale. The PDL-001 run 1 rationale paragraph is the proof of why the term matters: under the twin's current wording it grades PARTIAL rather than FAIL. Align the twins.
+5. Neither scenario's fail clause names "per-dimension figures" though the runtime rule bans them unasked, and neither carves out the spent-attempts "Lowest dimension" line the runtime rule keeps. Small, same fix as in section 2.
+6. Pre-existing, not touched by round 4: "HVR failures only" in both rules cards sits against "and the HVR status" in both Section 9 texts and against the SDL-001 and PDL-001 requirement to report the HVR status. The round 3 Claude-run adjudication flagged this and it is still live. No run this round tripped it, since every SDL-001 and PDL-001 run happened to report the status.
+7. Evidence hygiene: the exported `commit-3b1f015.diff` file ends mid-hunk at line 712, so the residual sync-loop changes for that commit cannot be fully audited from the export. I audited the first 712 lines and verified the rest against the files at HEAD, where everything checked out.
+
+**Is the extra fail condition sound.** Yes, with the two refinements above. It targets a behaviour that has a live, twice-stated rule behind it, it does not change the allowed verdict form (`MEQT [total]/25` plus ship or the failed floor stays), and it does not touch the two carve-outs it should keep. The one thing I would change beyond wording is consistency: the twin scenarios and the spent-attempts carve-out should read identically.
+
+---
+
+## 6. Final recommendation
+
+**Not ready as it stands, on a strict reading, and the gap is concentrated in the Copywriter ordinary-delivery path.** Deal Templates is clean on its sampled scenarios and both round 4 items there are correctly scoped, implemented in every live copy, and moved on the sample, with the caveat that the new blocking branch itself was never exercised. Copywriter item 3 moved on the sample and item 2 moved partway, but the same re-measurement surfaced five FAIL-grade outcomes across 24 run instances, all in ordinary delivery. Every one of those is the model drifting against a live rule, and with three runs per scenario I certify occurrences, not rates. What remains, in priority order, each with its classification, evidence and the change I would make:
+
+**P1, model limit.** Rationale inside the delivered body on the ordinary Copywriter path. `SDL-001` run 1 ships per-option why-notes and a recommendation rationale inside the saved file, `SDL-001` run 3 ships a recommendation rationale paragraph inside the file, `PDL-001` run 1 ships a rationale paragraph inside the block. The rules are live on both sides and the SDL-001 fail clause already names rationale, so no new rule is strictly required. Change: either accept this as intermittent model behaviour and keep the clause, or add one mechanical strip-and-recheck step to the two ordinary delivery rows, which is a rule change and needs its own review.
+
+**P1, rule gap with a model-limit residual.** The Project path. `PDL-001` run 3 omits the export-equivalent path entirely and fires its own fail clause, and run 2 renders `$write` in the filename segment. Change: one clause in the kernel's Delivery line saying the mode segment is written without the `$` sigil, matching every example in the packagings. Evidence: "`export/001 - $write-new-creator-taglines.md`" against the scenario's `export/[###] - write-[description].md`.
+
+**P1, model limit with a wording contributor.** The Fast lane printed a numeric total once: SEN-001 run 1, "compact-gate status: pass, 20/25". Rules are live on both sides. Change: tighten the Artifact Template sentence "The compact score line is reported in chat after the artifact" to name the compact-gate status line, so the one live sentence that can be read as sanctioning a number stops reading that way.
+
+**P2, model limit.** PEN-001 run 2 asked a second question and rendered no block, the scenario's own named fail. The one-question contract is live in both prompts and this exact failure was recorded for this pair in the earlier Claude evidence. No rule change proposed, this is model reliability on the Fast intake path.
+
+**P2, model limit.** PEN-001 run 3 delivered without the compact-gate or HVR status line, and its "Recommended:" explanation paragraph sits on the unmarked block and reply boundary.
+
+**P2, model limit.** Quick compactness. PEN-002 run 3 ships the full six-option tiered grid plus Recommended Combination on the Quick lane, SEN-002 run 2 sits at the six-option ceiling, SEN-002 run 1 keeps the pick out of the file. The compact requirement is live in both prompts and the card defines the forms, so this is drift. If the operator wants it to bind harder, the mechanical route is a compact-shape check in the export validation, which needs its own review.
+
+**P2, playbook defect.** The SDL-001 and PDL-001 fail clauses, as detailed in sections 2 and 5: align the twins on "rationale", add "per-dimension figures", keep the spent-attempts carve-out. Evidence: PDL-001 run 1's rationale paragraph grading PARTIAL under PDL-001 while the same paragraph class grades FAIL under SDL-001.
+
+**P3, rule gap.** "HVR failures only" against "reports the HVR status", both sides, pre-existing and untouched by round 4. Pick one and align the scenarios, which currently demand the status.
+
+**P3, model limit.** Stray tokens and slot slips: "门槛" twice in replies (SEN-002 run 3, PEN-002 run 1, the model self-corrected once), "Fixed: actually." in PDP-004 run 2, `Mode: $fast` in the mode slot of a UX lane in PEN-001 run 1, and `$ux` in a filename segment in PEN-001 run 3.
+
+**Note, no classification.** Deal Templates: the new block-and-rewrite validation was not exercised in the sample, since no lead or bullet failed. The read-back and save behaviour, the opaque-offer handling and the reduced headline set all still work, and I found no regression there. Product Owner: not re-measured this round, so its last recorded round 3 items (the PDK-001 spacer-heading judgment call and the P3 wording items) remain open exactly as the round 3 reviews left them.
+
+**What I would do before a push.** Take the three P1 items and the P2 playbook defects into a small round 5 that is mostly wording: one clause in the kernel Delivery line, one sentence in the Artifact Template, and the SDL-001 and PDL-001 twin alignment. Then decide the one genuinely open policy question, which is whether intermittent rationale-in-body on the ordinary Copywriter path is acceptable model behaviour with a documented one-in-three style residual, or needs a mechanical guard of its own. The Deal Templates side is ready to push on this evidence, with the guard untested and said so.

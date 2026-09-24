@@ -1,0 +1,15 @@
+The `$task` command is explicit, but I still need scope and requirements to draft something real rather than guessing. One consolidated question, per the Task Format Question template.
+
+I'll create your task. Quick questions:
+
+**Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA — where does the payout pause live (e.g. creator-facing settings, admin/ops tooling, payout processing backend)?
+**Requirements:** What needs to be built? Specifically:
+- Who can trigger a pause — the creator themselves, an admin, or both?
+- What does "paused" actually stop (scheduled payouts, new payout requests, both)?
+- Can it be resumed, and by whom?
+- Any reason/note required when pausing?
+- What should happen to payouts already in flight when a pause is triggered?
+
+**Design & platform:** Figma links? Platforms? (iOS / Android / Web / All)
+**Dependencies:** Related or dependent tickets, existing payout or admin tooling this touches?
+**Validation:** What am I likely misunderstanding? What constraints should I question?

@@ -1,0 +1,22 @@
+session: 810113FD-7DA1-4BAB-B421-55C72874B64F
+
+turn 1 tool calls: 4
+turn 1 write-tool calls: 0
+  [read-only] Glob: **/knowledge/*.md
+  [read-only] Read: knowledge/Product Owner - Templates - Task Mode - v0.304.md
+  [read-only] Read: knowledge/Product Owner - Assets - Task Templates - v0.101.md
+  [read-only] Read: knowledge/Product Owner - Assets - Interactive Response Templates - v0.102.md
+
+turn 2 tool calls: 1
+turn 2 write-tool calls: 0
+  [read-only] Read: knowledge/Product Owner - Rules - Human Voice Core - v0.100.md
+
+--- was the repaired caveat in context ---
+repaired sentence present in 1 tool result(s):
+  turn 1, Read: knowledge/Product Owner - Templates - Task Mode - v0.304.md
+superseded wording "or uses an explicit command" in tool results: 0
+repaired sentence anywhere in the raw jsonl: True
+string "manual-testing-playbook" anywhere in the raw jsonl: False
+
+absolute tool paths outside the scratch tree: 0
+files under the scratch export directory after both turns: 0

@@ -1,0 +1,11 @@
+**Path:** `export/001 - bug-payout-pause-toggle-clarification.md`
+**Verified:** read-back succeeded; 7 lines
+`HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.`
+
+I can't draft the bug report yet — the description names a symptom but no reproduction steps or evidence, which the bug template needs before it's QA-actionable. One consolidated question before I proceed:
+
+**Bug details:** What's the exact sequence — who toggles payout pause, and on what does it revert to off? Immediately, after a refresh, after a save, or after some delay?
+**Environment:** Where does this live (admin dashboard, creator settings, brand settings)? Platform(s) — Web / iOS / Android / All?
+**Design reference:** Any Figma or spec showing the toggle should persist as set?
+**Evidence:** Screenshots, screen recording, console/network errors? When was this first noticed? Any known workaround (e.g. re-toggling, hard refresh)?
+**Validation:** Should I avoid assuming this is a save-race or a stale-cache issue, or is one of those already ruled out? Any related bug reports or tickets?

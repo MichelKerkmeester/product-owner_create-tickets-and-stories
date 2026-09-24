@@ -1,0 +1,2342 @@
+[
+  {
+    "input": "$task fix the login flow",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$t rename this field",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$task --subtask split the login work",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$bug the app crashes on submit",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/bug-mode.md",
+        "assets/bug-report-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$b broken button on checkout",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/bug-mode.md",
+        "assets/bug-report-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$doc document the feed ranking system",
+    "expect": {
+      "intent": "DOC",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/doc-mode.md",
+        "assets/doc-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$d write the api reference",
+    "expect": {
+      "intent": "DOC",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/doc-mode.md",
+        "assets/doc-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$prd write a prd for saved searches",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$p turn this into a prd",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$story write a story for saved searches",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$s turn this into a story",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "write a prd for saved searches",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$quick",
+    "expect": {
+      "intent": "TASK",
+      "energy": "QUICK",
+      "source": "quick-fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "create a task for the login flow",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "write a bug report about the checkout crash",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/bug-mode.md",
+        "assets/bug-report-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "write an implementation guide for the notification pipeline",
+    "expect": {
+      "intent": "DOC",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/doc-mode.md",
+        "assets/doc-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "turn this into a story please",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "the checkout flow is broken, crashing, failing, and shows a persistent issue",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.95,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/bug-mode.md",
+        "assets/bug-report-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "add a new capability with more functionality for filters",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.95,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "add this capability",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.5,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "review the debugging pipeline",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$d.md is just a filename in the repo",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$doc/path is a path and not a command",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$document the notification settings",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$doc write a bug report about the outage",
+    "expect": {
+      "intent": "DOC",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/doc-mode.md",
+        "assets/doc-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$task $bug this is broken",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "conflict",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$quick $doc write the api reference quickly",
+    "expect": {
+      "intent": "DOC",
+      "energy": "QUICK",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/doc-mode.md",
+        "assets/doc-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$quick the widget is broken and has a persistent issue",
+    "expect": {
+      "intent": "BUG",
+      "energy": "QUICK",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.5,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/bug-mode.md",
+        "assets/bug-report-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$epic redesign the creator onboarding funnel",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": "EPIC",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/epic-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "write an epic for the billing overhaul",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "EPIC",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/epic-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$email the release notes to the team",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$e outline the growth initiative",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": "EPIC",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/epic-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$epics are grouped on the roadmap",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$e.md is just a filename in the repo",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$doc settle whether this wording is a hard blocker",
+    "expect": {
+      "intent": "DOC",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/doc-mode.md",
+        "assets/doc-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "make a draft for the highlights edit flow",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "also make a draft",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "analyze these screens and write a draft for PM",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "create a task for the profile grids",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "write a story",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "write a full story",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "turn this into a story",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "turn this into a full story",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "write a proper prd for saved searches",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "create a task to write a PRD",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "write a draft guide for the api",
+    "expect": {
+      "intent": "DOC",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/doc-mode.md",
+        "assets/doc-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "create a task to write a draft",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$docs are out of date",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$debug the failing test",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.25,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$prds live in the drive folder",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$stories are tracked in clickup",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$sort the backlog by priority",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "write a user story for saved searches",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "write a draft for PM",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "create a task to document the payout rules",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "write a bug report about documentation",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/bug-mode.md",
+        "assets/bug-report-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "document bug behavior in the payout engine",
+    "expect": {
+      "intent": "DOC",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/doc-mode.md",
+        "assets/doc-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$doc $quick write the api reference",
+    "expect": {
+      "intent": "DOC",
+      "energy": "QUICK",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/doc-mode.md",
+        "assets/doc-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "the definition of done needs validation against the success condition",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.75,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "the user need and persona journey for this workflow",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.95,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "refactor and optimize the debt cleanup",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.95,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "connect the api webhook sync to the third-party",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.95,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "visual QA and UI tweak for design parity",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.8,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "the app crashes with a repro and an error on submit",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.75,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/bug-mode.md",
+        "assets/bug-report-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "a quick story about filters",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "this is not a quick fix, take your time",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.25,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "write a task and a guide",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "conflict",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "capitalised inconsistently across the highlights flow, pick one and make it consistent",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.8,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "the copy is capitalized inconsistently across the profile tabs",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.8,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "we're changing how creator ratings work. new version: brands rate on three separate things",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": "STORY",
+      "confidence": 0.85,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "we are changing the way brands pay creators",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": "STORY",
+      "confidence": 0.85,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "not sure if this is one story or several",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": "STORY",
+      "confidence": 0.85,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "we should redesign the export button, it is broken and crashing constantly with an error",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.75,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/bug-mode.md",
+        "assets/bug-report-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "add a deadline badge to the collab card",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "the app crashes on rotate during upload",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/bug-mode.md",
+        "assets/bug-report-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "document how the payout system works",
+    "expect": {
+      "intent": "DOC",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/doc-mode.md",
+        "assets/doc-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "write a story for saved searches",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "we need an epic for onboarding v3",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "EPIC",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/epic-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "give the PM a draft on read receipts",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "creators cant withdraw applications, we should let them",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "brands want analytics, whole dashboard thing",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "EPIC",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/epic-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "the follower count shows -- for tiktok",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/bug-mode.md",
+        "assets/bug-report-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "figma says the padding is 8px off on the empty state",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.8,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "change how ratings work, three dimensions instead of one",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": "STORY",
+      "confidence": 0.85,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "can you write up the notification provider comparison",
+    "expect": {
+      "intent": "DOC",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/doc-mode.md",
+        "assets/doc-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "build a toggle row component for notification prefs",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "search results are slow, need pagination",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "whats the best way to handle the migration for old ratings",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "tidy up the copy on the highlights flow",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.8,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "i need something for the team explaining the reel rules",
+    "expect": {
+      "intent": "DOC",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/doc-mode.md",
+        "assets/doc-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "this is broken, payments are failing",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/bug-mode.md",
+        "assets/bug-report-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "turn my notes into something the devs can pick up",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "we should track why creators drop off in onboarding",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "the widget is broken",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.25,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "it is broken, we already filed the defect",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.5,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "the app crashes and there's a known issue already",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.5,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "we tested the whole login flow, it works",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "this isn't a quick fix, we can't let it slip",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.25,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "add better logging around the retry loop",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.25,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "the checkout screen locks up when you tap pay twice",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/bug-mode.md",
+        "assets/bug-report-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "the balance shows a blank value after refresh",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/bug-mode.md",
+        "assets/bug-report-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "the report returns a 502 on export",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/bug-mode.md",
+        "assets/bug-report-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "users cant log in since the last release, it is broken",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/bug-mode.md",
+        "assets/bug-report-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "we should stop showing the banner after the first visit",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "the app is unable to load the feed",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "the whole team is aligned on the ratings change",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "we cant let this slip past friday",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "the crash needs writing up for the postmortem",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.25,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "we should revamp the profile page",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "lets overhaul the search experience",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "rework the settings page",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "clean up the stale copy on the settings page",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.8,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "the labels are inconsistent between the two tabs",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.8,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "put together a runbook for the on-call rotation",
+    "expect": {
+      "intent": "DOC",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/doc-mode.md",
+        "assets/doc-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "sellers have no way to bulk edit their listings",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "we need the entire referral programme scoped",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "EPIC",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/epic-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "an outline for the product owner on read receipts",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  }
+]

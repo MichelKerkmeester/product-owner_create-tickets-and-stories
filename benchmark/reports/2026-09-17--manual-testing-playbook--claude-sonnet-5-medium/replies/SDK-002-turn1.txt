@@ -1,0 +1,15 @@
+**Path:** `export/001 - doc-payout-pause-clarification.md`
+**Verified:** read-back succeeded; 9 lines
+
+I can't draft the behavior reference yet — Notes A and B directly contradict each other on how the payout pause ends (auto-release at 24 hours vs. manual clearance by the brand), and nothing in what you've shared tells me which one governs. No explicit designation, source declaration, repository placement, or independent corroboration points to a winner, so merging them or picking one silently would risk documenting a fabricated behavior.
+
+Before I draft, please confirm:
+
+* Which note governs the pause's end condition (or whether both apply to different scenarios — e.g., 24-hour auto-release *unless* the brand clears it manually first)
+* The document's purpose and audience (who reads this and why)
+* Whether the result should be labeled current behavior, approved direction, proposal, retired material, or unknown
+* Any scope to exclude
+
+The question is saved in `export/001 - doc-payout-pause-clarification.md` so it isn't lost between sessions — once you answer, the behavior reference will take the next number in this lane.
+
+`HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.`

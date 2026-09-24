@@ -1,0 +1,11 @@
+I need a bit more detail before drafting this task well. One consolidated question:
+
+**Creator payout pause feature — scope check**
+
+1. **Who triggers the pause** — an admin/ops action against a specific creator's payouts, a creator-initiated self-pause, an automated trigger (e.g., fraud flag, dispute, compliance hold), or more than one of these?
+2. **What "pause" affects** — does it hold all future payouts only, or also freeze payouts already queued/in-flight for the current cycle?
+3. **Visibility and notification** — does the creator see a paused status in their dashboard, and do they get notified when paused or unpaused?
+4. **Resuming** — is unpause manual only, or does it need an auto-expiry / scheduled resume?
+5. **Any known edge cases** to cover — e.g., pausing mid-payout-run, a creator with a pending payout dispute, multiple pause reasons stacking?
+
+If you'd rather I just draft with reasonable defaults (admin-triggered pause, holds future payouts, dashboard status shown, manual resume, no auto-expiry), say **"go with defaults"** and I'll produce the task now.

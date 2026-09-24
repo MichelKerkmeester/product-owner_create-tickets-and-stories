@@ -1,0 +1,12 @@
+**Path:** `export/001 - bug-payout-pause-toggle-clarification.md`
+**Verified:** read-back succeeded; 7 lines
+
+I have too little to write a reliable bug report yet — one line names the symptom but no reproduction steps, environment, or evidence. Before drafting, I need this in one response:
+
+**Bug details:** What's the exact sequence — where do you toggle payout pause, and how soon after does it revert to off? Does it revert instantly, on page refresh, or after some delay? What should happen instead (stay paused until manually turned back on)?
+**Environment:** Where does this occur — admin dashboard, seller settings, elsewhere? Platform(s)? (iOS / Android / Web / All)
+**Design reference:** Any Figma reference showing the expected toggle behavior?
+**Evidence:** Screenshots, screen recording, error logs or console output? When was this first noticed? Any known workaround?
+**Validation:** What should I NOT assume about root cause (e.g. a save/API call failing silently, a stale UI state, a permissions issue)? Any related bug reports?
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none — this is a clarification-question artifact, not a drafted bug report, so no HVR pass applies to prose beyond the fixed template wording.

@@ -1,0 +1,21 @@
+This is a `$task` request, but it names no scope, no user value, and no acceptance criteria — only the feature label "creator payout pause." Per Task Mode's core rule, I need one consolidated question before drafting rather than inventing requirements.
+
+I need one comprehensive answer covering scope, why this matters, and what "done" looks like — asking rather than assuming, since a payout-pause feature touches money and could mean several very different things (creator-initiated pause vs. platform/admin-initiated hold, dispute-driven freeze, etc.).
+
+I'll create your task. Quick questions:
+
+**Format & scope:** Backend / Frontend / Full-stack / QA — and who triggers the pause (creator self-service, admin/ops action, automated fraud or dispute hold, or more than one of these)
+
+**Requirements:** What needs to be built? Specifically:
+- What starts a pause and what resumes it
+- What happens to payouts already in flight versus future ones
+- Any duration limits, auto-resume rules, or required reason/reporting
+- Acceptance criteria: what should a QA reviewer be able to verify as "working"
+
+**Why it matters:** What problem does pausing payouts solve right now (e.g. dispute resolution, fraud review, creator opt-out, compliance hold)?
+
+**Design & platform:** Figma links, if any? Platforms (Web / Mobile / All)?
+
+**Dependencies:** Related tickets, existing payout system constraints, or a parent task this belongs under?
+
+Once I have these, I'll draft the task and export it — no need to answer every line if a couple are genuinely "doesn't apply."

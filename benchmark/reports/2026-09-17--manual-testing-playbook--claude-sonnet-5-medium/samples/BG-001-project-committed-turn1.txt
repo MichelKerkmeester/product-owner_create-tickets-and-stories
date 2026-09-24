@@ -1,0 +1,19 @@
+I need a few essentials before drafting this as a proper bug report — I don't have enough to write reproducible, QA-ready acceptance conditions yet.
+
+**1. Where does this happen?** Which surface/screen (e.g., Admin settings → Payouts, merchant dashboard, specific account type)?
+
+**2. Steps to reproduce** — what's the exact sequence? (e.g., open payout settings → toggle pause on → save → refresh page/reopen screen → toggle shows off)
+
+**3. What "reverts to off" means precisely:**
+   - Does it revert immediately after toggling, after save, after a page refresh/reload, or after some delay?
+   - Is the underlying payout behavior actually still paused (UI-only bug) or do payouts actually resume (functional/financial bug)? This changes severity a lot.
+
+**4. Consistency** — does it happen every time, or intermittently?
+
+**5. Scope** — all users/accounts, or specific to a role, account type, or environment (web vs mobile app)?
+
+**6. Any errors** — console errors, failed network requests, or silent failure with no visible error?
+
+**7. Source** — is this from your own testing/observation, a support ticket, or a report from someone else? (affects how I label evidence in the report)
+
+Once I have these I'll draft the Bug Mode artifact (Observed Behavior / Expected Behavior) with proper acceptance criteria.

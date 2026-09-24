@@ -1,0 +1,8 @@
+Go ahead and paste the engineering notes on the notification retry pipeline. Once I have them, I'll draft this as a **Guide** or **Behavior reference** (whichever fits the content better — a guide if it's step-by-step operational/troubleshooting info for support, a behavior reference if it's more about states/rules/outcomes to explain to support).
+
+A couple of quick things that'll help me shape it correctly:
+
+1. **Audience confirmation** — purely support team (non-engineering), or will engineers also reference this?
+2. **Purpose** — is this mainly so support can explain retry behavior to customers, troubleshoot failed notifications themselves, or know when/how to escalate to engineering?
+
+If you're not sure, just paste the notes and I'll infer scope from what's there — I'll flag anything ambiguous rather than guess silently.

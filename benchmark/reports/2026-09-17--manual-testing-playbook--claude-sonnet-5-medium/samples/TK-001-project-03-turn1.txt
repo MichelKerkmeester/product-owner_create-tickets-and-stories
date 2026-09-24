@@ -1,0 +1,9 @@
+This request is deliverable-explicit (`$task`) but scope, requirements, and success criteria aren't given yet. Per Task Mode's core rule, I'll ask one consolidated question before drafting.
+
+**Format & scope:** Backend/Frontend/Full-stack/Mobile? Is this a standalone task or does it belong under a parent task?
+**Requirements:** What should the pause do exactly — for example, block new payouts only, hold in-flight ones, or both? What triggers a pause (manual admin action, fraud flag, dispute, creator request)? Who can lift it, and does it auto-expire?
+**Why it matters:** What problem is this solving (fraud, dispute holds, compliance, chargebacks)?
+**Success criteria:** What must be true for QA to sign off — e.g., paused creators can't receive payouts, they still see pending balance, admins get an audit trail/notification?
+**Design & platform:** Any Figma references? Admin-only or does it surface to the creator too?
+**Dependencies:** Related tickets, existing payout or admin-tooling tasks this connects to?
+**Validation:** What am I likely to assume incorrectly here — e.g., should paused payouts queue and auto-release, or require manual resume?

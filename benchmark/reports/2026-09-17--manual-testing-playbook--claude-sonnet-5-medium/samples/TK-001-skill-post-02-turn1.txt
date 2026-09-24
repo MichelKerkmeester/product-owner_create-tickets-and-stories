@@ -1,0 +1,15 @@
+Read-back verified.
+
+**Path:** `export/001 - task-creator-payout-pause-clarification.md`
+**Verified:** read-back succeeded; 7 lines
+**HVR self-scan:** 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Before I draft the task, I need a bit more to write acceptance criteria that actually hold up:
+
+**Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA
+**Requirements:** What needs to be built? Who pauses a creator's payout, and from where (admin tool, support console, creator-facing setting)? What triggers or blocks a pause (fraud flag, dispute, manual admin action)? What happens to payouts already in flight versus future ones? Acceptance criteria?
+**Design & platform:** Figma links? Platforms? (iOS / Android / Web / All)
+**Dependencies:** Related or dependent tickets? Any existing payout or ledger system this touches?
+**Validation:** What am I likely misunderstanding? Should a paused creator be notified automatically, and can a pause be reversed?
+
+Once you answer, I'll draft the task as `export/002 - task-creator-payout-pause.md`.

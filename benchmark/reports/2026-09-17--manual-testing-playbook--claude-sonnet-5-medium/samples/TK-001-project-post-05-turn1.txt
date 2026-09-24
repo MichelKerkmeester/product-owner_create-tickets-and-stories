@@ -1,0 +1,12 @@
+I don't have enough detail yet to write a QA-ready task for this — I don't want to invent the WHAT/WHY or acceptance conditions. Could you fill in the following?
+
+1. **Trigger/actor** — Who pauses a creator's payout, and how (admin action in a back office, automated fraud/risk flag, creator-initiated, support tool)?
+2. **Scope** — Does "pause" affect all pending/future payouts for that creator, a specific payout, or a specific payout method? Any funds already in flight?
+3. **Reason/context** — What prompts a pause (e.g., fraud review, dispute, compliance hold, manual ops request)? Is a reason code/note required when pausing?
+4. **Duration & resume** — Is it indefinite until manually resumed, or time-boxed/auto-expiring? Who can un-pause, and is that a separate task?
+5. **Creator-facing impact** — Does the creator see a status change (dashboard, notification, email)? What should they be told?
+6. **Internal visibility** — Where should ops/support see the paused state (admin panel, ClickUp, internal tool)?
+7. **Edge cases to cover** — e.g., pausing a creator with a payout already mid-processing, pausing twice, payout scheduled during a pause.
+8. **Any existing source** — Is there a ticket, Slack thread, or design doc I should pull constraints from, or is this a fresh spec from your notes?
+
+Once I have these (even partial answers — I can flag the rest as open questions in the task), I'll draft the full Task artifact with acceptance criteria.

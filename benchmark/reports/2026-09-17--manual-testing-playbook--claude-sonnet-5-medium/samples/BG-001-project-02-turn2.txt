@@ -1,0 +1,80 @@
+## Deliverable Block
+
+```markdown
+# Payout pause toggle reverts to off after refresh while payout stays paused
+
+### About
+
+---
+
+On a brand wallet with a pending payout, enabling the payout pause toggle and refreshing the page causes the toggle to display as off, even though the payout itself remains paused.
+
+| Field           | Value          |
+| --------------- | -------------- |
+| Frequency       | Always         |
+| Severity        | Not provided   |
+| Platform        | Web            |
+| Device          | Not provided   |
+| OS Version      | Not provided   |
+| Browser         | Chrome         |
+| Browser Version | 126            |
+
+---
+
+### Bug
+
+---
+
+**1. Observed Behavior**
+
+---
+
+After refreshing the page, the payout pause toggle displays as off, while the payout still shows a paused status
+- Toggle UI state does not match the actual payout pause state
+- No error message displayed
+- Reproduces on every attempt (per reporter)
+
+Steps to Reproduce:
+1. Open a brand wallet with a pending payout
+2. Switch the payout pause toggle on
+3. Refresh the page
+4. Observe the toggle state versus the payout status
+5. Expected the toggle to show on; actual result shows the toggle off while the payout remains paused
+
+Not provided
+
+---
+
+**2. Expected Behavior**
+
+---
+
+The toggle should stay on and accurately reflect the paused state until the brand explicitly resumes the payout
+- Toggle display matches the underlying payout pause state after a page refresh
+- Pause state persists until an explicit resume action
+
+Checklist
+- [ ] Root cause identified
+- [ ] Fix implemented
+- [ ] Bug no longer reproducible
+- [ ] No regressions introduced
+
+---
+
+### BDD Scenarios
+
+---
+
+**Scenario:** Payout pause toggle state after refresh
+- **Given** a brand wallet with a pending payout and the pause toggle switched on
+- **When** the page is refreshed
+- **Then** the toggle displays on and the payout remains paused
+```
+
+**Export-equivalent path:** `export/002 - bug-payout-pause-toggle-reverts-to-off.md`
+
+**Quality:** Source safety pass (only reported facts used, gaps marked "Not provided") · Structure pass (About/Bug/BDD, fixed checklist intact) · WHAT/WHY only, no implementation direction
+
+HVR self-scan: 0 hard blockers. Fixed: none needed. Kept with reason: none — no banned terms appeared in the draft.
+
+When the ClickUp connector is available, I can push this as a task — let me know if you'd like me to.

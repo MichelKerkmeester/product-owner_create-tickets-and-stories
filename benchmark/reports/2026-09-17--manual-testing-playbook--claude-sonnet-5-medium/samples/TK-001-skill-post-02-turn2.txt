@@ -1,0 +1,11 @@
+Read-back verified.
+
+**Path:** `export/002 - task-creator-payout-pause.md`
+**Verified:** read-back succeeded; 37 lines
+**HVR self-scan:** 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Quality summary: standalone task, two numbered requirement groups (reason capture, row indicator), each closed with a QA-checkable checklist tied directly to your three acceptance conditions; About states the user-facing problem and the support/QA value of storing the reason.
+
+This is a Standalone Task covering both the storage side (required, stored pause reason) and the UI side (payout-row indicator), since your answer touched both. I didn't add platform, Figma or dependency fields since none were supplied — say the word if you want those added.
+
+Want me to offer this for ClickUp delivery, or adjust scope/wording first?
