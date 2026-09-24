@@ -1,0 +1,9 @@
+I'll ask one consolidated question before drafting, since the request names the feature but not scope, requirements or acceptance criteria.
+
+I'll create your task. Quick questions:
+
+**Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA — which surfaces does the payout pause touch (creator dashboard, admin console, payout processing job, notifications)?
+**Requirements:** What triggers a pause (manual admin action, automated risk flag, creator self-service, or all three)? Does a pause block scheduled payouts only, or also new payout requests? What should happen to payouts already in flight when a pause is applied? What ends a pause — manual resume, a time limit, or a review outcome?
+**Design & platform:** Any Figma references for the pause UI (admin or creator-facing)? Platforms — Web only, or also mobile?
+**Dependencies:** Related tickets for the payout system, risk/fraud flagging or notification service?
+**Validation:** Should creators be notified when their payouts are paused, and should the reason be visible to them or admin-only? Anything I shouldn't assume about who can trigger or lift a pause?

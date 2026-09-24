@@ -1,0 +1,13 @@
+Verified: read-back succeeded; 8 lines.
+
+**export/001 - task-creator-payout-pause-clarification.md**
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+I need a bit more before drafting the task — "creator payout pause" could mean several different things (who triggers it, what it blocks, why it exists). Please answer in one go:
+
+**Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA
+**Requirements:** What needs to be built? Who pauses a creator's payout, and from where (admin tool, creator dashboard, automated trigger)? What triggers a pause and what triggers a resume? Acceptance criteria? Technical constraints?
+**Design & platform:** Figma links? Platforms?
+**Dependencies:** Related or dependent tickets, or an existing payout task this should link to?
+**Validation:** Does a pause affect in-flight payouts, scheduled payouts, or both? Anything I shouldn't assume?

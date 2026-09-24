@@ -1,0 +1,11 @@
+Read-back verified, 70 lines.
+
+`export/002 - bug-payout-pause-toggle.md`
+Verified: read-back succeeded; 70 lines
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Quality summary: all six dimensions clear their floors — Accuracy holds because every field traces to what you gave me (Chrome 126, web, every-time reproduction, the exact repro steps), and unknowns (severity, device, OS, evidence) are marked `Not provided` rather than guessed.
+
+This captures the toggle-versus-payout state mismatch on refresh, with your exact repro steps and a BDD scenario to pin the expected state. Since no screenshot or recording was supplied, evidence is marked `Not provided` — add one later if you get it and I can refine this file in place.
+
+Want me to push this to ClickUp as a task (with `markdown_description`) once you confirm?

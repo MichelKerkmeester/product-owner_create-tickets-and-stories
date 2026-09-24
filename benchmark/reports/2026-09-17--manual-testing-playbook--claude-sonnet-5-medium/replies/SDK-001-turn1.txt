@@ -1,0 +1,1 @@
+I'm ready. Please paste the engineering notes on the notification retry pipeline, and let me know if there's anything specific the support team needs to focus on (e.g., troubleshooting steps, retry limits, failure states they'll encounter in tickets).

@@ -1,0 +1,12 @@
+Path: `export/001 - task-creator-payout-pause-clarification.md`
+Verified: read-back succeeded; 8 lines
+
+Before I draft the task, I need a bit more to make it buildable — please answer these in one go:
+
+**Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA
+**Requirements:** What needs to be built/fixed? Acceptance criteria? Technical constraints?
+**Design & platform:** Figma links? Platforms? (iOS / Android / Web / All)
+**Dependencies:** Related or dependent tickets?
+**Validation:** What am I likely misunderstanding about payout pause? What constraints should I question (e.g. does this pause outgoing payouts only, or also block new payout requests, and who can trigger/lift the pause)?
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

@@ -1,0 +1,86 @@
+{
+ "id": "PTK-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/task-command-flow.md",
+ "twin": "STK-001",
+ "model": "llmgateway/glm-5.3-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-PTK-001-20683773",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 50.98,
+   "tool_calls": 5,
+   "tools_used": [
+    "ls",
+    "read",
+    "read",
+    "grep",
+    "grep"
+   ],
+   "input_tokens": 52899,
+   "output_tokens": 820,
+   "reasoning_tokens": 531,
+   "cost_usd": 0.0054201119999999995,
+   "model_s": 50.75,
+   "startup_s": 0.22,
+   "stop_reason": "stop",
+   "response_models": [
+    "consensusprotocol/glm-5.3-flash"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$task I need a task for the creator payout pause feature."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 130.84,
+   "tool_calls": 3,
+   "tools_used": [
+    "read",
+    "read",
+    "read"
+   ],
+   "input_tokens": 28049,
+   "output_tokens": 5558,
+   "reasoning_tokens": 5351,
+   "cost_usd": 0.005761812,
+   "model_s": 130.64,
+   "startup_s": 0.19,
+   "stop_reason": "stop",
+   "response_models": [
+    "consensusprotocol/glm-5.3-flash"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Standalone task. Creators need a pause indicator for pending payouts, and the pause reason must be stored. Acceptance: the reason field is required, the indicator appears in the payout row, and QA can verify the pause in the payout history."
+  }
+ ]
+}

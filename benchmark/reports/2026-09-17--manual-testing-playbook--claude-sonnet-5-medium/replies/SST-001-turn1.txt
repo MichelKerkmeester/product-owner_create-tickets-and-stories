@@ -1,0 +1,6 @@
+I don't have any notes yet — your message says "turn these notes into a PRD" but no notes were included or attached.
+
+Could you paste the notes (or attach the file) for the payout pause feature? Once I have them, I'll also need to know:
+
+1. **Artifact shape** — Story (with detailed requirements) or Epic (Goal + Scope only, no requirements breakdown)?
+2. Any hard constraints already decided (deadlines, dependencies, out-of-scope items) that I should carry through exactly as stated?

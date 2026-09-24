@@ -1,0 +1,53 @@
+Now drafting the task artifact.
+
+**# Creator payout pause with reason and indicator**
+
+### About
+---
+Admins need a way to pause a creator's pending payout and record why, so support and finance can hold funds during a dispute or review without losing context on the reason. Right now a pause has no required reason and no visible signal on the payout row, so anyone reviewing payouts can't tell a pause happened or why. This adds a required pause reason at the point of pause, a visible indicator on the payout row, and a verifiable record in payout history.
+
+### Requirements
+---
+
+1. **Require a reason when pausing a payout**
+
+---
+
+An admin cannot pause a payout without entering a reason. The reason is stored against the payout record so it survives after the pause is lifted.
+
+**Checklist**
+- [ ] Pause action blocks submission until a reason is entered
+- [ ] Reason is stored on the payout record at the time of pause
+- [ ] Reason remains attached to the payout record after the pause is lifted
+
+2. **Show a pause indicator on the payout row**
+
+---
+
+Anyone viewing the payout list can tell at a glance which payouts are paused, without opening each record.
+
+**Checklist**
+- [ ] Paused payouts display a visible indicator on the payout row
+- [ ] Indicator is visible only while the payout is paused
+- [ ] Indicator disappears once the pause is lifted
+
+3. **Surface the pause in payout history for QA verification**
+
+---
+
+QA can confirm a pause happened, when it happened and why, by checking payout history rather than a live-only state.
+
+**Checklist**
+- [ ] Payout history shows the pause event with its timestamp
+- [ ] Payout history shows the stored reason for that pause
+- [ ] Payout history shows when the pause was lifted, if applicable
+
+---
+
+Export-equivalent path: `export/001 - task-creator-payout-pause.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Quality status: pass — About states outcome and value, Requirements are testable WHAT/WHY with no implementation detail, checklist items are concrete and unambiguous.
+
+No ClickUp connector detected in this session, so there's nothing to offer — let me know if you want any requirement split further or a platform/scope label added.

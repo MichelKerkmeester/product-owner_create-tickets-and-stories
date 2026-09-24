@@ -1,0 +1,34 @@
+<!-- Mode: Task | Template: Task Mode v0.304 / Task Templates v0.101 | Type: Standalone task -->
+```markdown
+# Creator Payout Pause Indicator
+
+### About
+
+---
+
+Creators currently have no visibility when their payout is paused, and there's no record of why. This task adds a pause indicator to the payout row and requires a reason whenever a payout is paused, so creators can see the paused state at a glance and QA can confirm both the state and the reason in payout history.
+
+### Requirements
+
+---
+
+**Payout pause indicator and reason capture**
+
+---
+
+When a payout is paused, the system must capture why and surface that state directly on the payout, so support and QA can trace the pause without digging through separate tooling.
+
+**Checklist**
+
+- [ ] Reason field is required when a payout is paused, and the pause cannot be saved without it
+- [ ] A pause indicator appears in the payout row for any payout currently paused
+- [ ] The paused state and its reason are visible in payout history for QA to verify
+```
+
+**Export-equivalent path:** `export/001 - task-creator-payout-pause-indicator.md`
+
+**Quality status:** Standalone task, single requirement group (three items didn't warrant separate categories). About and Requirements present per Task Mode core sections; no optional context sections included since none were supplied (no epic, parent, or ticket link given — add them if this belongs to a broader payout-pause initiative).
+
+**HVR self-scan:** 0 hard blockers. Fixed: none. Kept: none — no flagged terms in this draft.
+
+**Open items not covered** (flagging rather than guessing): who can un-pause and whether that's a separate task, and whether the creator sees any dashboard/notification beyond the row indicator. Let me know if either should be folded in or spun out as a related task.

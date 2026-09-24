@@ -1,0 +1,9 @@
+Read-back confirmed: 71 lines.
+
+**export/002 - bug-payout-pause-toggle-reverts-to-off.md**
+Verified: read-back succeeded; 71 lines
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Bug report captured: on a brand wallet with a pending payout, refreshing the page after enabling the pause toggle shows it back off, even though the payout status itself still reads paused — a UI/state desync, not a functional unpause. Reproduces every time on Chrome 126/Web; no screenshot, device, OS, severity, or design reference was supplied, so those fields are marked `Not provided` rather than assumed.
+
+Want me to offer this for ClickUp delivery, or would you like any field adjusted first?

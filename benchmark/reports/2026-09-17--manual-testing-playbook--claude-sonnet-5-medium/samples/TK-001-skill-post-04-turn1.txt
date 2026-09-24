@@ -1,0 +1,13 @@
+I need a bit more context before drafting this task. Creator payout pause could mean a few different things, and the acceptance criteria depend on which one this is.
+
+**One consolidated question:**
+
+Could you clarify the following so I can scope this accurately?
+
+1. **Who triggers the pause** — is this a creator self-service toggle (e.g., "pause my payouts while I'm on leave"), an admin/ops action (e.g., compliance hold, fraud review), or both?
+2. **What happens while paused** — do earnings keep accruing and just hold release, or does the deal/creator activity itself stop? Any cap on how long a pause can last?
+3. **Where does this live** — creator dashboard settings, admin panel, both? Any existing Figma flow or reference doc I should pull from?
+4. **Scope for this task** — is this a standalone task, or does it belong under a parent task/epic I should link?
+5. **Energy** — quick pass with smart defaults, or full rigor with edge cases (partial-period payouts, resuming mid-cycle, notifications)?
+
+I'll wait for your answer before drafting.

@@ -1,0 +1,10 @@
+I need a bit more before drafting this so the requirements are testable rather than guessed. One consolidated question:
+
+**Who triggers a payout pause, and what should happen while it's active?** Specifically:
+1. Trigger: does an admin pause a specific creator's payouts manually, does a system rule (e.g. fraud flag, dispute, compliance hold) trigger it automatically, or both?
+2. Scope: does a pause block only new payout runs, or also freeze payouts already queued/in-flight?
+3. Visibility: does the creator see the pause (and a reason) in their dashboard, or is it admin-only?
+4. Resume: is there an explicit unpause action, an auto-expiry, or both?
+5. Any known edge cases to cover (e.g. payout mid-processing when pause is triggered, multiple pause reasons stacking)?
+
+Once I have these, I'll draft the task with proper acceptance criteria. If you'd rather I move fast with reasonable defaults (admin-triggered manual pause, blocks all pending payouts, visible to creator with reason, manual resume only), say "quick" and I'll proceed on that basis.

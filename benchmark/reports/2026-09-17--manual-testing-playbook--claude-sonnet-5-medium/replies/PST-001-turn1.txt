@@ -1,0 +1,9 @@
+I don't see any notes included in your message — could you paste the payout pause feature notes you'd like turned into a PRD?
+
+To build the Barter house-format PRD accurately, it also helps to know:
+
+1. **Shape** — is this a full feature needing an Epic + child Stories, or a single Story-sized PRD?
+2. **Source values** — any concrete constraints (thresholds, timing, permissions, error states, screen names) I should carry verbatim into Requirements?
+3. **Audience/surfaces** — which screens or roles does the pause affect (admin panel, payee-facing, API, notifications)?
+
+Once you share the notes, I'll classify what's source-backed vs. what needs clarification and draft the PRD from there.

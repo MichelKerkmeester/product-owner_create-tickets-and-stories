@@ -1,0 +1,9 @@
+Verified: read-back succeeded; 55 lines.
+
+**Path:** `export/001 - task-payout-pause-toggle.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none needed. Kept with reason: none.
+
+Quality summary: Task covers the pause toggle, required reason field and creator banner as three numbered requirement groups, each with a mechanism-first About statement and a QA-ready checklist (activation window, manual override, auto-resume, validation, banner content and teardown).
+
+This task defines the pause toggle, required reason field and creator banner as three checklist-backed requirement groups, so QA has a testable item per surface. Want me to also add a subtask split or a `**References**` block for Figma/ClickUp links once you have them?

@@ -1,0 +1,15 @@
+I verified the saved file by calling the Read tool on the exact export path — `export/001 - task-payout-pause-toggle.md` — after the Write, and it returned non-empty content ending at line 55. That Read-tool return (not the Write result, and not memory of the draft) is what satisfied the export protocol's verification requirement.
+
+The exact delivery string I printed in response was:
+
+`Verified: read-back succeeded; 55 lines.`
+
+along with the path line:
+
+`**Path:** \`export/001 - task-payout-pause-toggle.md\``
+
+and the self-scan line:
+
+`HVR self-scan: 0 hard blockers. Fixed: none needed. Kept with reason: none.`
+
+Separately: the background notification that just came in (task `bu18nc3ra`, the earlier `find / -type d -iname "sk-product-owner"` search) is a stopped system task, not user input — it doesn't confirm or change anything about the task delivery above. No further action is needed on it since the file was already located manually and the artifact was delivered.

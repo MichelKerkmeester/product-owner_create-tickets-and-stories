@@ -1,0 +1,9 @@
+Verified: read-back succeeded; 38 lines.
+
+**Path:** `export/001 - intake-creator-payout-flow-clarification.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+I can't tell yet whether "creator payout flow" needs a **Task** (a scoped build/fix), a **Bug** (something already misbehaving), a **Story** (the requirements for the flow haven't been defined yet), or a **Doc** (explaining how it works or should work). Since no command or clear framing pointed at one of those, I saved a single consolidated intake question to the path above rather than guessing.
+
+Reply with the numbered answers whenever you're ready — no need to fill in fields that don't apply to your case, just tell me which deliverable type fits and I'll take it from there.

@@ -1,0 +1,59 @@
+<policy-note>No Artifact tool is available in this environment, so the deliverable below is rendered as the closest equivalent — a markdown block — rather than a true Canvas Artifact.</policy-note>
+
+**Deliverable Block**
+
+```markdown
+# Payout pause toggle silently reverts to off after refresh
+
+*   **Environment:** Web, Chrome 126
+*   **Scope:** Brand wallets with a pending payout
+*   **Consistency:** Reproduces every time
+*   **Source:** Reported directly by michel.k@getbarter.com, not yet corroborated with screenshot or logs
+
+* * *
+
+### Steps to reproduce
+
+1.  Open a brand wallet that has a pending payout.
+2.  Switch the payout pause toggle on.
+3.  Refresh the page.
+
+* * *
+
+### 1. Observed Behavior
+
+The toggle displays as off after the page refresh, even though the payout itself still shows as paused. The toggle's displayed state no longer matches the actual payout state.
+
+### 2. Expected Behavior
+
+The toggle stays on after refresh and continues to reflect the actual pause state. It should only turn off when the brand explicitly resumes the payout.
+
+* * *
+
+### Impact
+
+A brand or internal user checking the wallet after a refresh sees an off toggle and may reasonably conclude the payout is not paused, when it still is. That mismatch invites an unnecessary re-toggle or an incorrect assumption about payout status.
+
+* * *
+
+### Acceptance criteria
+
+1\. After toggling payout pause on and refreshing the page, the toggle displays as on.
+- [ ] _Mark as done, if the criteria are met_
+
+2\. The toggle's displayed state matches the actual payout pause state after refresh, after navigating away and back, and after reopening the wallet.
+- [ ] _Mark as done, if the criteria are met_
+
+3\. Toggling pause off still resumes the payout and the toggle correctly displays as off, with no regression to the existing resume flow.
+- [ ] _Mark as done, if the criteria are met_
+
+* * *
+```
+
+**Export-equivalent path:** `export/001 - bug-payout-pause-toggle-reverts.md`
+
+**HVR self-scan:** 0 hard blockers. Fixed: none. Kept with reason: none — no em dashes, filler, or flagged terms present in this draft.
+
+**Quality status:** WHAT/WHY boundary held — no root cause or fix speculation included, since that wasn't confirmed (could be frontend not persisting state, backend not saving, or a stale refetch on refresh — worth having engineering check, but not asserted here). Steps, observed/expected, scope, and acceptance criteria are all source-backed from what you gave me.
+
+Want me to add a screenshot/log placeholder section for QA to fill in, or is this ready as-is? No ClickUp connector is present in this session, so there's no push offer to make.

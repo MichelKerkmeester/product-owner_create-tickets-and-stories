@@ -1,0 +1,15 @@
+Read-back verified: 7 lines, non-empty content.
+
+**Path:** `export/001 - task-creator-payout-pause-clarification.md`
+**Verified:** read-back succeeded; 7 lines
+**HVR self-scan:** 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Before I draft the task, I need one consolidated answer:
+
+* **Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA
+* **Requirements:** What needs to be built? Who pauses a payout (creator, admin, or a system trigger) and under what condition? What happens to a payout already in progress versus one not yet initiated? What does a successful pause and a successful resume look like?
+* **Design & platform:** Figma links? Platforms (iOS / Android / Web / All)?
+* **Dependencies:** Related tickets, or the existing payout flow this task changes?
+* **Validation:** What am I likely misreading, and which constraints should I question?
+
+This is a placeholder question — I'm waiting on your answer before drafting the task. No task has been created yet.

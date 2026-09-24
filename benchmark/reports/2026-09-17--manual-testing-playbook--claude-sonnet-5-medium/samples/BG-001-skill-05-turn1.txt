@@ -1,0 +1,9 @@
+Read-back verified: non-empty content, 11 lines.
+
+**Path:** `export/001 - bug-payout-pause-toggle-clarification.md`
+**Verified:** read-back succeeded; 11 lines
+**HVR self-scan:** 0 hard blockers. Fixed: none. Kept with reason: none.
+
+I can't write the bug report yet — the request has no reproduction steps, environment, evidence, or frequency, and Bug Mode blocks on missing evidence outside Quick energy. I've saved the clarification question above instead of drafting from guesses.
+
+Once you answer the questions in that file (or reply here), I'll create `export/002 - bug-payout-pause-toggle.md` with the full report. If you'd rather I use a lean pass with smart defaults where evidence is genuinely unavailable, say "quick" and I'll mark those fields `Not provided` instead of asking further.

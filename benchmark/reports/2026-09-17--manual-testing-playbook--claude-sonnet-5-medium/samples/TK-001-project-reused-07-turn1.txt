@@ -1,0 +1,101 @@
+Deliverable Block
+
+```markdown
+# Pause and resume payouts for a creator
+
+### About
+
+---
+
+Trust & Safety and Finance need to stop a specific creator's payouts without disabling their account, so they can hold funds during a dispute, an active investigation or a compliance review. This task adds a pause control on the creator's account that blocks new payout runs while the creator keeps trading normally, and a resume control that releases the hold once the review closes.
+
+### Requirements
+
+---
+
+### **Pause and resume control**
+
+---
+
+1.  **Pause a creator's payouts**
+
+---
+
+An authorized admin can pause payouts for one creator from their account page, with a required reason captured at the time of the pause.
+
+**Checklist**
+
+- [ ] Pause action available only to roles with the payout-hold permission
+- [ ] Pause requires a reason selected from a fixed list plus an optional free-text note
+- [ ] Paused state and reason are visible on the creator's account page
+- [ ] Pausing a creator does not affect their ability to log in, list items or complete trades
+
+---
+
+2.  **Resume a creator's payouts**
+
+---
+
+An authorized admin can resume a paused creator's payouts, which releases the hold for the next payout run.
+
+**Checklist**
+
+- [ ] Resume action available only to roles with the payout-hold permission
+- [ ] Resume requires a reason or a reference to the review outcome
+- [ ] Resume timestamp and actor are recorded
+
+---
+
+### **Payout processing behavior**
+
+---
+
+3.  **Hold payouts while a creator is paused**
+
+---
+
+Payouts due to a paused creator are held rather than processed, and resume automatically once the pause is lifted.
+
+**Checklist**
+
+- [ ] Scheduled payout runs skip any creator currently paused
+- [ ] Held amounts remain visible to the creator as pending, not failed
+- [ ] Lifting the pause queues the held amount for the next scheduled run
+- [ ] A payout already submitted to the payment processor before the pause was applied is not clawed back by this feature
+
+---
+
+4.  **Notify on pause and resume**
+
+---
+
+The creator and the internal team receive a notification when a pause or resume happens, so no one has to check the account page to find out.
+
+**Checklist**
+
+- [ ] Creator receives a notification when their payouts are paused, with no internal reason disclosed
+- [ ] Creator receives a notification when their payouts resume
+- [ ] Internal team receives a notification identifying the actor, reason and timestamp
+
+---
+
+5.  **Audit trail**
+
+---
+
+Every pause and resume action is logged for compliance review.
+
+**Checklist**
+
+- [ ] Log entry includes actor, timestamp, reason and creator ID
+- [ ] Log is visible to Trust & Safety and Finance roles
+- [ ] Log entries cannot be edited or deleted
+```
+
+Export-equivalent path: `export/001 - task-creator-payout-pause.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Quality: structure and content checks pass — About states outcome and value, Requirements stay WHAT/WHY with testable checklists, no forced metadata sections added.
+
+Summary: Standalone task covering pause/resume control, held-payout processing, notifications and audit logging. I inferred the scope (admin-triggered hold on a specific creator, existing payouts unaffected) since none was supplied — flag if the actual trigger, permission model or notification wording differs and I'll adjust. No ClickUp connector is present in this session, so there's no push offer to make.

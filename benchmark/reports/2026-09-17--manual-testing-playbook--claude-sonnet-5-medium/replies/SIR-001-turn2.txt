@@ -1,0 +1,8 @@
+**Path:** `export/002 - task-payout-detail-pause-reason.md`
+Verified: read-back succeeded; 25 lines.
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+**Quality summary:** Single-scope task, About states the creator pain and the outcome, one requirement group (small task, no numbering needed) with a testable checklist covering the happy path, the non-paused hidden state, and the missing-reason edge case.
+
+This covers displaying the pause reason and date on the payout detail screen, hiding them when not paused, and a fallback for a pause with no recorded reason. If there's a specific reason taxonomy (fixed list vs. free text) or a design reference for this, let me know and I can fold it in — otherwise this ships as-is.

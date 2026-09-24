@@ -1,0 +1,20 @@
+I ran the source-authority and conflict gate before drafting (Doc Mode Section 4), and this request hits a blocking conflict: Note A and Note B make directly contradictory claims about the same behavior (release condition/duration) with no explicit user designation, no source declaration of precedence, no lifecycle placement, and no independent corroboration on either side. Per the gate, I can't merge, guess, or default to one — I have to stop and ask.
+
+**Deliverable Block**
+
+```markdown
+I'll create the payout pause behavior reference. Before drafting, I need the unresolved decision below in one response:
+
+**Conflict — release condition:** Note A states the pause holds for 24 hours then releases automatically. Note B states the pause holds until the brand clears it manually. These describe the same behavior and cannot both be current. Which source governs, or does a different rule apply (e.g. auto-release after 24 hours unless the brand acts sooner, or manual clear required regardless of elapsed time)?
+
+**Document status:** Should the resolved behavior be documented as current behavior, approved direction, proposal, retired material, or unknown?
+
+**Scope:** Anything to exclude (e.g. dispute-triggered pauses, admin overrides) from this first version?
+
+**Validation:** Is there a third source (spec, ticket, config) that should settle this instead of a pick between A and B?
+```
+
+**Export-equivalent path:** `export/001 - doc-payout-pause-behavior-clarification.md`
+**HVR self-scan:** 0 hard blockers. Fixed: none. Kept with reason: none — this block holds only the clarification question, no artifact prose to scan.
+
+Once you confirm which note governs (or supply a third source), I'll draft the Behavior reference with that as verified current behavior and the other version flagged as superseded/unknown rather than silently dropped.

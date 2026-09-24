@@ -1,0 +1,15 @@
+Verified: read-back succeeded; 10 lines.
+
+**Path:** `export/001 - task-creator-payout-pause-clarification.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Before I draft the task, I need a few things at once so I only ask once:
+
+**Format & scope:** Backend / Frontend / Mobile / Full-stack / DevOps / QA
+**Requirements:** What needs to be built? Who can pause a payout and from where — creator, admin, or both? Is a pause a full stop or a delay, and can it be resumed? Any acceptance criteria or technical constraints?
+**Design & platform:** Figma links? Platforms (iOS / Android / Web / All)?
+**Dependencies:** Related or dependent tickets, such as an existing payout or payment task?
+**Validation:** What am I likely misunderstanding about "pause" here? What constraints should I question?
+
+Reply with what you have and I'll build the task from it.

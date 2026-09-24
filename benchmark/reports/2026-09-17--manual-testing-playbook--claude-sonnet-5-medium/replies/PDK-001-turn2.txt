@@ -1,0 +1,59 @@
+<!-- Deliverable Block -->
+
+```markdown
+# Notification retry pipeline
+
+* * *
+
+## Overview
+
+* * *
+
+This guide explains how the notification retry pipeline behaves so support can diagnose a failed notification and requeue it correctly. It reflects current system behavior.
+
+### Retry attempts and backoff
+
+* * *
+
+*   A notification retries on a 30 second backoff
+*   The pipeline makes five retry attempts before succeeding or giving up
+*   There is no sixth retry attempt. Instead, the notification moves to the failed queue
+
+### Diagnosing a failed notification
+
+* * *
+
+A notification in the failed queue has already used all five retry attempts on the 30 second backoff without succeeding. Finding it there confirms it reached that state rather than being newly stuck or still retrying.
+
+*   **Failed queue** — holds notifications that exhausted all five retry attempts
+*   **Requeue action** — the control support uses to restart delivery for a notification sitting in the failed queue
+
+### Requeuing a notification
+
+* * *
+
+1.  Locate the notification in the failed queue
+2.  Select the Requeue action on that notification
+3.  Confirm the notification leaves the failed queue and re-enters the retry cycle
+
+### What to expect after requeue
+
+* * *
+
+*   Requeuing restarts the backoff from the beginning
+*   The notification gets a fresh set of five attempts on the 30 second backoff
+*   If all five fail again, the notification returns to the failed queue and can be requeued again
+```
+
+Export-equivalent path: `export/001 - doc-notification-retry-pipeline.md`
+
+Quality summary:
+- Source safety: pass — single authoritative source, no conflicting claims
+- Shape fit: pass — Guide shape, reader diagnoses then acts in order
+- ClickUp layout: pass — dividers, bullets, headings conform
+- Readability: pass — one idea per bullet/paragraph
+- Voice: pass
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: em dash in the two `*   **Term** — definition` bullets (sanctioned definition-delimiter exemption).
+
+Summary: This is a Guide documenting current retry-pipeline behavior — the backoff/attempt mechanics, how to recognize a failed notification, and the requeue steps support can take. I kept it to exactly what your notes state; if there's a specific UI location for the failed queue or Requeue button you'd like named, send that and I'll fold it in as a refinement.

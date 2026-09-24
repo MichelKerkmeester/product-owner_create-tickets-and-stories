@@ -1,0 +1,9 @@
+Read-back confirmed: 10 lines, non-empty.
+
+**Path:** `export/001 - bug-payout-pause-toggle-clarification.md`
+**Verified:** read-back succeeded; 10 lines
+**HVR self-scan:** 0 hard blockers. Fixed: none. Kept with reason: none — plain intake question, no artifact prose to scan.
+
+The description alone doesn't give me enough to write a real bug report — no reproduction steps, environment, frequency, or evidence, and "silently reverts to off" could mean the backend pause state is actually lost (payouts risk going out) or it's just a display glitch, which changes severity a lot. I saved the clarification question above instead of guessing.
+
+Reply with the details whenever you have them and I'll draft the full bug report as the next file in this lane (`002 - bug-payout-pause-toggle.md`).

@@ -1,0 +1,29 @@
+file,clean,hard_violations,violations,extraction_confidence
+PBG-001-turn1.txt,False,2,"em_dashx6, bullet_ends_with_full_stopx1",low
+PBG-001-turn2.txt,False,1,em_dashx5,low
+PDK-001-turn1.txt,False,1,em_dashx4,low
+PDK-001-turn2.txt,False,2,"em_dashx5, semicolonx1",high
+PDK-002-turn1.txt,False,1,em_dashx3,low
+PDK-002-turn2.txt,False,2,"em_dashx9, semicolonx2",low
+PID-001-turn1.txt,False,1,em_dashx1,low
+PID-001-turn2.txt,False,2,"em_dashx7, hard_blocker_word:harnessx1",low
+PIR-001-turn1.txt,False,1,em_dashx1,low
+PIR-001-turn2.txt,False,1,semicolonx1,high
+PST-001-turn1.txt,False,1,em_dashx4,low
+PST-001-turn2.txt,False,2,"em_dashx2, semicolonx1",high
+PTK-001-turn1.txt,False,1,em_dashx4,low
+PTK-001-turn2.txt,False,1,em_dashx2,high
+SBG-001-turn1.txt,False,1,em_dashx2,high
+SBG-001-turn2.txt,False,1,em_dashx2,high
+SDK-001-turn1.txt,True,0,none,low
+SDK-001-turn2.txt,False,2,"em_dashx7, semicolonx1",high
+SDK-002-turn1.txt,False,2,"em_dashx3, semicolonx1",low
+SDK-002-turn2.txt,False,2,"em_dashx5, semicolonx1",low
+SID-001-turn1.txt,True,0,none,high
+SID-001-turn2.txt,False,2,"em_dashx3, semicolonx1",low
+SIR-001-turn1.txt,False,1,em_dashx1,high
+SIR-001-turn2.txt,False,1,em_dashx1,high
+SST-001-turn1.txt,False,1,em_dashx2,low
+SST-001-turn2.txt,False,2,"em_dashx1, semicolonx1",low
+STK-001-turn1.txt,True,0,none,high
+STK-001-turn2.txt,False,2,"em_dashx1, semicolonx1",high

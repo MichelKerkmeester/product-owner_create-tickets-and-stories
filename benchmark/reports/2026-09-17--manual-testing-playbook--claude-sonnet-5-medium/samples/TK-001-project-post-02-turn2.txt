@@ -1,0 +1,67 @@
+My draft has no hard blockers — clean plain language throughout. Delivering now.
+
+## Deliverable Block
+
+```markdown
+# Creator payout pause indicator and reason tracking
+
+### About
+
+---
+
+Creators can have a pending payout paused, but there is currently no visible indicator on the payout row and no captured reason for why the pause happened. This task adds a pause indicator to the payout row and requires a reason whenever a payout is paused, so creators see pause status at a glance and support or finance can trace the cause through payout history.
+
+### Requirements
+
+---
+
+1.  **Pause indicator on payout row**
+
+---
+
+Show a visible indicator on the payout row whenever a pending payout is paused, so creators can tell at a glance which payouts are on hold.
+
+**Checklist**
+
+- [ ] Payout row displays a pause indicator when a pending payout's status is paused
+- [ ] Indicator is not shown when the payout is not paused
+- [ ] Indicator updates without a page reload when a payout is paused or unpaused
+
+---
+
+2.  **Required pause reason**
+
+---
+
+Capture a reason whenever a payout is paused, and block the pause action until a reason is entered, so every pause carries an auditable cause.
+
+**Checklist**
+
+- [ ] Pause action requires a non-empty reason before it can be submitted
+- [ ] Reason is stored against the specific pause event
+- [ ] Attempting to pause without a reason shows a validation error and does not pause the payout
+
+---
+
+3.  **Pause visibility in payout history**
+
+---
+
+Surface the pause and its reason in payout history so QA can verify a pause occurred and why, without inspecting the database.
+
+**Checklist**
+
+- [ ] Payout history shows the pause event, its timestamp and its reason
+- [ ] QA can verify pause state and reason directly from payout history
+- [ ] Unpausing a payout is also recorded in payout history
+```
+
+**Export-equivalent path:** `export/001 - task-creator-payout-pause.md`
+
+**Quality status:** Core sections present (About, Requirements), three testable requirement groups, all checklist items actionable and verifiable, no scope beyond what you specified.
+
+**HVR self-scan:** 0 hard blockers. Fixed: none needed. Kept with reason: none.
+
+**Summary:** Standalone task covering the pause indicator, required reason capture, and payout-history verification. No epic, related tickets, or design references were supplied, so those optional sections are omitted — say the word if you want to attach any (e.g. a parent epic or Figma link for the indicator).
+
+No ClickUp connector is present in this session, so there's nothing to offer for a direct push — let me know if you want the markdown adjusted for a manual paste instead.

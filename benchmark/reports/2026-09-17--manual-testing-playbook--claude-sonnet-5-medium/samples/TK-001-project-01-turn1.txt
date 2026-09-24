@@ -1,0 +1,7 @@
+I'll create your task. Quick questions:
+
+**Format & scope:** Backend / Frontend / Mobile / Full-stack / DevOps / QA
+**Requirements:** What needs to be built? Specifically — who can pause a payout (support, admin, creator, automated system), and what triggers a pause (manual action, fraud flag, dispute, chargeback)? What should happen to the payout while paused (held, held with reason logged, notification sent)? How does it get resumed or cancelled? Acceptance criteria?
+**Design & platform:** Figma links, if this touches an admin or creator-facing UI? Platforms? (iOS / Android / Web / All)
+**Dependencies:** Related or dependent tickets, such as the underlying payout or ledger system?
+**Validation:** What am I likely misunderstanding — for example, should a pause block only the *next* scheduled payout or all pending payouts for that creator? Any constraints I should question, such as compliance or time limits on how long a payout can stay paused?

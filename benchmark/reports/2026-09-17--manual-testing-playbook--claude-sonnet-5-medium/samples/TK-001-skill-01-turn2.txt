@@ -1,0 +1,8 @@
+Path: `export/002 - task-creator-payout-pause.md`
+Verified: read-back succeeded; 24 lines
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Quality check: About states the outcome and value (visibility into paused payouts), Requirements carries one testable checklist covering the required reason field, the row-level indicator and payout-history verification — all traceable to what you supplied, no unrequested scope added.
+
+This is a standalone task for the creator payout pause feature: a required reason field on pause plus a pause indicator visible on the payout row and in payout history for QA. Want me to add a category split, a User Story, or link a parent task/epic if this rolls up into a larger payouts initiative? I can also offer to push this to ClickUp once you confirm.

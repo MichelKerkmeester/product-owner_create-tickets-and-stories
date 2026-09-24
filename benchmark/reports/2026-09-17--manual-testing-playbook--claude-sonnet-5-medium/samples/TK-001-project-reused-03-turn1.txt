@@ -1,0 +1,30 @@
+Since `$task` is an exact command, I'll ask one consolidated question to get the missing scope, value, and acceptance details before drafting.
+
+## Deliverable Block
+
+**Export-equivalent path:** `export/001 - task-creator-payout-pause-clarification.md`
+
+---
+
+I'll create your task. Quick questions:
+
+**Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA — which layer(s) does the pause touch (payout processing, creator dashboard, admin tooling)?
+
+**Requirements:**
+- Who can trigger the pause — the creator themselves, an admin, or both?
+- What triggers it — a manual action, a policy violation, a dispute, fraud flag, or something else?
+- What happens to payouts already in flight versus future payouts while paused?
+- How is a pause lifted — manually, after a timeout, after review?
+- Does the creator see the pause reason and status, or is it admin-only?
+
+**Design & platform:** Figma links? Platforms? (iOS / Android / Web / All)
+
+**Dependencies:** Related or dependent tickets (payout system, admin console, notifications)?
+
+**Validation:** What am I likely misunderstanding? Should paused payouts be visible to the creator, and is there a compliance or audit-log requirement I should assume applies?
+
+---
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none — this is a clarification only, no artifact prose to scan.
+
+Once you answer, I'll draft the task and it'll take the next number in the task lane.

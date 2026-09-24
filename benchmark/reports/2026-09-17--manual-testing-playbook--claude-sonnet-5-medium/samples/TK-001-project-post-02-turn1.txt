@@ -1,0 +1,7 @@
+Before I draft the task, I need a few details in one go:
+
+**Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA — which area does the payout pause work touch?
+**Requirements:** What triggers a payout pause (manual admin action, fraud flag, dispute, policy violation)? Who can pause/unpause it, and what should happen to a creator's pending or scheduled payouts while paused? What does success look like — what must QA be able to verify?
+**Design & platform:** Any Figma references for an admin UI or creator-facing notice? Platforms involved (Web / iOS / Android / All)?
+**Dependencies:** Any related or parent tickets — e.g. a payments/fraud epic this belongs under?
+**Validation:** What am I likely to assume incorrectly here (e.g. whether the creator is notified, whether paused payouts resume automatically or need manual release)? Any constraints I should question?

@@ -1,0 +1,9 @@
+**Path:** `export/002 - bug-payout-pause-toggle-reverts.md`
+**Verified:** read-back succeeded; 67 lines
+`HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.`
+
+Quality summary: reproduction steps trace directly to what you reported, Frequency is labelled `Always` on your every-time claim, and Severity/Device/OS stay `Not provided` rather than guessed. The BDD scenario restates the observed-vs-expected mismatch for a quick QA read.
+
+Summary: this captures the payout pause toggle desyncing from actual payout state on refresh (Chrome 126, web, reproduces every time), with the fixed QA checklist gating the fix. No screenshot or root-cause hypothesis was supplied, so both stay open for engineering to fill in.
+
+Want me to offer this for ClickUp delivery, or is a local export enough for now?
