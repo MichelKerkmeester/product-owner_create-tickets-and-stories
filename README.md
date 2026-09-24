@@ -16,13 +16,13 @@ Built for agent CLIs that read `AGENTS.md` and for claude.ai Projects through `c
 
 **What's inside**
 
-- 🧭 **Smart Router** - exact `$` commands, artifact framing and nine scored topics resolve each request to Task, Bug, Doc, Story or Interactive
-- 💬 **One-Question Intake** - every missing fact goes into one consolidated question, saved as a `-clarification` file before anything is drafted
-- 🔒 **Source-Safe Docs** - five claim classes, a four-step authority order and a gate that blocks any claim no source covers
-- 📋 **Artifact Templates** - four task shapes, a fixed bug report, five Doc shapes and the Barter house Story and Epic, with 21 worked examples
-- 🎯 **Blocking Quality Floors** - six dimensions scored out of 10, with a floor of 8 for five of them and 9 for Accuracy
-- 📤 **Verified Delivery** - numbered export files, a read-back receipt and a ClickUp push only after an explicit yes
-- 🧪 **Checks Without a Model** - 117 router fixtures, 189 differential inputs and 35 format cases run from a fresh clone
+- **Smart Router** - exact `$` commands, artifact framing and nine scored topics resolve each request to Task, Bug, Doc, Story or Interactive
+- **One-Question Intake** - every missing fact goes into one consolidated question, saved as a `-clarification` file before anything is drafted
+- **Source-Safe Docs** - five claim classes, a four-step authority order and a gate that blocks any claim no source covers
+- **Artifact Templates** - four task shapes, a fixed bug report, five Doc shapes and the Barter house Story and Epic, with 21 worked examples
+- **Blocking Quality Floors** - six dimensions scored out of 10, with a floor of 8 for five of them and 9 for Accuracy
+- **Verified Delivery** - numbered export files, a read-back receipt and a ClickUp push only after an explicit yes
+- **Checks Without a Model** - 117 router fixtures, 189 differential inputs and 35 format cases run from a fresh clone
 
 **Why it earns a place**
 
@@ -152,98 +152,39 @@ Saved, read back, then reported.
 
 ### Installation
 
-**Prerequisites**
-
-- Git to clone the repository
-- An agent CLI that reads `AGENTS.md` and runs the model you choose
-- Bash and Python 3 for the router checks, Node.js for the format checks
-- For claude.ai, a Project that accepts custom instructions and knowledge files
-
 ```bash
 git clone https://github.com/MichelKerkmeester/product-owner_create-tickets-and-stories.git
 cd product-owner_create-tickets-and-stories
 ```
 
-Open the folder in your agent CLI and point the model at `AGENTS.md`. It reads `sk-product-owner/SKILL.md` plus the two always-loaded rule files, `hvr-core.md` and `conciseness.md`. From then on it works as the Product Owner. The repository itself has no package to install and no API key to set.
+Open the folder in an agent CLI that reads `AGENTS.md` and point the model at that file. It reads `sk-product-owner/SKILL.md` and works as the Product Owner from then on. There is no package to install and no API key to set. The router checks need Bash and Python 3, and the format check needs Node.js.
 
 ### Verify Installation
-
-Run the two standalone checks from the repository root:
 
 ```bash
 bash benchmark/router/run_fixtures.sh
 ```
-
-Expected output:
 
 ```text
 PASSED 117/117 fixtures
 PASSED 189/189 differential inputs (9 topics, 114 synonyms in parity, 61 SKILL.md triggers checked)
 ```
 
-```bash
-bash benchmark/format/run_fixtures.sh
-```
-
-The run prints one `PASS` line per case, 35 in all, then ends with:
-
-```text
-PASSED all format-validator fixtures
-```
-
-Neither check calls a model or the network.
+The check calls no model and no network. Section 11 lists the format check and the rest.
 
 ### First Use
-
-The two-turn flow below is scenario `STK-001` from the manual testing playbook, with the file names the 2026-09-18 benchmark run produced.
-
-Turn 1:
 
 ```text
 $task I need a task for the creator payout pause feature.
 ```
 
-The command picks Task Mode, but a feature name is not a scope. The reply saves one question and stops:
-
-```text
-export/001 - task-creator-payout-pause-clarification.md
-```
-
-That file asks who pauses payouts and at what level, what happens on resume, which value and surfaces are involved and what QA must verify. No task is drafted.
-
-Turn 2:
-
-```text
-Standalone task. Creators need a pause indicator for pending payouts, and the pause reason must be stored. Acceptance: the reason field is required, the indicator appears in the payout row, and QA can verify the pause in the payout history.
-```
-
-The answer becomes the next file in the lane, with three numbered requirement groups and a checklist under each:
-
-```text
-export/002 - task-creator-payout-pause.md
-```
-
-Both files are in `export/benchmark/skill/` under the `STK-001` prefix.
-
-Other requests to try:
-
-| Request | Route | What comes back |
-|---|---|---|
-| `$bug login returns the wrong error message` | Bug | An evidence question, then a report with the field table and `Not provided` where evidence is missing |
-| `$doc document how notification delivery works` | Doc | A Doc intake question covering sources, authority, status, shape and scope |
-| `$story saved searches for creators` | Story, Story shape | A question on role, value and requirements, then a PRD in the Barter house format |
-| `$epic creator verification` | Story, Epic shape | After intake, a Goal, a Scope of child stories and release-level criteria |
-| `$quick $doc a short guide for rotating the signing key` | Doc, Quick energy | A short guide with optional sections dropped. With no notes supplied, the source question is still asked |
-| `I need to get something into the backlog for the creator payout flow but I am not sure what shape it should take.` | Interactive | One question that opens with Quick or Deeper |
+A feature name is not a scope, so the reply saves one question as `export/001 - task-creator-payout-pause-clarification.md` and drafts nothing. Answer it in one message and the task lands in `export/002 - task-creator-payout-pause.md`. This is playbook scenario `STK-001`, and both files sit in `export/benchmark/skill/` under that prefix.
 
 ### Use It in a claude.ai Project
 
-1. Create or open a Project named **Product Owner**
-2. Paste `claude project/Custom Instructions.md` into its custom instructions
-3. Remove superseded knowledge uploads, then upload all 38 files in `claude project/knowledge/` with their filenames unchanged
-4. Run the smoke matrix in [the Project README](claude%20project/README.md) and confirm the Deliverable Block appears first
-
-A Project cannot write files, so each artifact arrives as a rendered Deliverable Block with an `Export-equivalent path:` label. Section 10 covers what else changes.
+1. Paste `claude project/Custom Instructions.md` into the custom instructions of a Project named **Product Owner**
+2. Remove superseded knowledge uploads, then upload all 38 files in `claude project/knowledge/` with their filenames unchanged
+3. Run the smoke matrix in [the Project README](claude%20project/README.md) and confirm a Deliverable Block appears first, since a Project cannot write files
 
 &nbsp;
 
@@ -263,67 +204,42 @@ Every request resolves to one route object before a template loads. Quick change
 | `$epic` | `$e` | Story, Epic shape | `story-mode.md` with `epic-template.md` |
 | `$quick` | `$q` | Energy only | nothing extra |
 
-Tokens match whole, after case normalization. `$d,` counts. `$document`, `$docs`, `$debug`, `$d.md`, `$doc/path`, `$stories`, `$prds`, `$sort`, `$epics`, `$email` and `$e.md` do not.
+Tokens match whole, after case normalization. `$d,` counts, while `$document`, `$debug`, `$epics` and `$e.md` do not. [AGENTS.md](AGENTS.md) spells out the token rules.
 
 #### Detection Order
 
 1. Pull out `$quick`, `$q` or quick framing as energy. Energy never selects an artifact
 2. Check `$task --subtask` before the bare `$task`
-3. Collect every exact command. One command wins over any wording. Two that name different routes become one question. `$story` and `$epic` both mean Story Mode, so together they only choose the shape
-4. With no command, match artifact framing such as "write a bug report about", "turn this into a PRD" or "write an epic for". Framing beats topic words, and two framing matches are a conflict too
-5. Apply the UI-refinement override: polish, spacing, wording and Figma feedback route to Task even beside "fix" or "broken", because Bug Mode is for unexpected system behavior
+3. One exact command wins over any wording. Two that name different routes become one question. `$story` and `$epic` both mean Story Mode, so together they only choose the shape
+4. With no command, match artifact framing such as "write a bug report about" or "turn this into a PRD". Framing beats topic words, and two framing matches are a conflict too
+5. Route polish, spacing, wording and Figma feedback to Task even beside "fix" or "broken", because Bug Mode is for unexpected system behavior
 6. Score the nine topics and route by confidence band
 7. Send every Doc route through the source-authority gate before drafting, under Quick energy too
 
-Three request shapes are caught as framing even though they name no artifact. Symptom wording such as "freezes" or "returns a 500" routes to Bug. A role denied a capability routes to Story. Initiative-scale wording routes to Story with the Epic shape.
+Three shapes count as framing without naming an artifact. Symptom wording such as "freezes" routes to Bug, a role denied a capability routes to Story and initiative-scale wording routes to Story with the Epic shape.
 
 #### Topics and Confidence
 
-Each word-boundary hit adds 0.25 to its topic, capped at 0.95, and table order breaks a tie. `bug` matches "file a bug" but never "debugging". A `$token` is stripped before scoring, so a sentence about `$epics` on the roadmap is not a request to write one.
+Nine topics score a request that carries no command and no framing. `bug` routes to Bug, `documentation` to Doc, `prd` to Story and the other six to Task. Each word-boundary hit adds 0.25, capped at 0.95. One hit on `ui_refinement` scores at least 0.80, and one on `documentation` or `prd` at least 0.85. The trigger words live in [router-contract.md](sk-product-owner/references/router-contract.md).
 
-| Topic | Route | Sample trigger words | Single-hit override |
-|---|---|---|---|
-| bug | Bug | `bug`, `fix`, `defect`, `broken`, `crash`, `repro` | none |
-| feature | Task | `capability`, `enhancement`, `new`, `add` | none |
-| acceptance | Task | `criteria`, `definition of done`, `success condition` | none |
-| user_need | Task | `user need`, `persona`, `journey`, `as a user` | none |
-| technical_task | Task | `refactor`, `optimize`, `debt`, `update dependency` | none |
-| integration | Task | `api`, `connect`, `sync`, `webhook` | none |
-| ui_refinement | Task | `polish`, `spacing`, `alignment`, `casing`, `figma` | 0.80 |
-| documentation | Doc | `document how`, `runbook`, `api reference`, `decision record` | 0.85 |
-| prd | Story | `prd`, `user story`, `epic`, `given when then`, `changing how` | 0.85 |
+- 0.85 and up routes directly
+- 0.60 to 0.84 routes with a one-line confirmation of the mode
+- 0.40 to 0.59 names the likely mode and asks through Interactive Mode
+- Under 0.40 gets one comprehensive question
 
-| Band | Score | What happens at Standard energy |
-|---|---|---|
-| HIGH | 0.85 and up | Routes directly |
-| MEDIUM | 0.60 to 0.84 | Routes with a one-line confirmation of the mode |
-| LOW | 0.40 to 0.59 | Names the likely mode and asks through Interactive Mode |
-| FALLBACK | under 0.40 | One comprehensive question |
-
-Under Quick energy the router trusts a score down to 0.40 and only below that falls back to Task, the narrow safe default.
+Under Quick energy the router trusts a score down to 0.40 and only below that falls back to Task, the narrow safe default. A `$token` is stripped before scoring, so a sentence about `$epics` on the roadmap is not a request to write one.
 
 #### Precedence, By Example
 
-Every row below is the output of `route_contract.py --request` on this tree.
+Each line is the output of `route_contract.py --request` on this tree.
 
-| Request | Route | Why |
-|---|---|---|
-| `$doc write a bug report about the outage` | Doc, from the command | One command beats every word after it |
-| `Create a task to document Feed v2` | Task, from framing | The artifact named is a task |
-| `Document bug behavior for failed payments` | Doc, from framing | "Document" frames the artifact and "bug" is only the subject |
-| `Write a bug report about documentation export naming` | Bug, from framing | The same rule the other way round |
-| `Create a task to write a PRD about search` | Task, from framing | A task whose subject is another artifact stays a task |
-| `write a full story for saved searches` | Story, Story shape | One qualifier inside a phrase is absorbed |
-| `the whole creator verification programme` | Story, Epic shape | Initiative-scale framing |
-| `the app freezes when I open the inbox` | Bug, from framing | Symptom wording with no defect noun |
-| `brands cant filter by engagement rate` | Story, Story shape | A role denied a capability |
-| `refine the settings panel spacing` | Task at 0.80 | The UI-refinement override |
-| `we are changing how creator ratings work` | Story at 0.85 | A behavior change with no artifact named |
-| `$prd $epic onboarding` | Story, Epic shape | Not a conflict: the Epic signal picks the shape |
-| `$task $doc explain Feed v2` | Interactive, conflict | Two commands, two routes, one question |
-| `$document the flow` | Interactive at 0.0 | `$document` is not a command |
-| `this is not a quick task, fix the login copy` | Interactive at 0.25 | Negated "quick" sets no energy, and one hit on "fix" is under 0.40 |
-| `$quick` | Task, Quick energy | Quick alone keeps the narrow Task fallback |
+- `$doc write a bug report about the outage` routes to Doc, because one command beats every word after it
+- `Create a task to document Feed v2` routes to Task, because the artifact it names is a task
+- `Document bug behavior for failed payments` routes to Doc, because "Document" frames the artifact and "bug" is only the subject
+- `the app freezes when I open the inbox` routes to Bug on symptom wording with no defect noun
+- `refine the settings panel spacing` routes to Task at 0.80 through the UI-refinement override
+- `$task $doc explain Feed v2` becomes one Interactive question, because two commands name two routes
+- `$document the flow` routes to Interactive at 0.0, because `$document` is not a command
 
 #### The Route Object
 
@@ -353,18 +269,16 @@ python3 benchmark/router/route_contract.py --request "write an epic for creator 
 }
 ```
 
-`confidence` is `null` for command, framing and conflict routes and a number for semantic and fallback routes. `shape` is set only on the Story lane, which is why an Epic request loads `epic-template.md` and never `story-template.md`. `resources` is what the route preloads and `on_demand` is what it names without loading. The schema rejects unknown fields and any file listed in both.
+`confidence` is `null` for command, framing and conflict routes and a number for semantic and fallback routes. `shape` is set only on the Story lane, which is why an Epic request loads `epic-template.md` and never `story-template.md`. `resources` is what the route preloads and `on_demand` is what it names without loading.
 
 #### Energy Levels
 
-| Energy | Selected by | Phase flow | Perspectives |
-|---|---|---|---|
-| Raw | the words "skip depth", never `$quick` | Skipped. Safety and delivery rules still apply | none required |
-| Quick | `$quick`, `$q` or "quick" and "fast" as framing | Discover, Prototype, Harmonize | 1 to 2 recommended |
-| Standard | the default for every mode | Discover, Engineer, Prototype, Test, Harmonize | at least 3, 5 targeted |
-| Deep | complex, high-risk or multi-source work | The full flow, extended | all 5 |
+- Raw skips the phase flow, while safety and delivery rules still apply. Only the words "skip depth" select it, never `$quick`
+- Quick comes from `$quick`, `$q` or "quick" and "fast" as framing. It runs Discover, Prototype and Harmonize, with 1 to 2 perspectives recommended
+- Standard is the default for every mode. It runs Discover, Engineer, Prototype, Test and Harmonize with at least 3 perspectives and a target of 5
+- Deep is for complex, high-risk or multi-source work. It extends the full flow and uses all 5 perspectives
 
-The five perspectives are User, Business, Technical, Risk and Delivery. Deep also runs all four cognitive techniques: perspective inversion, assumption audit, constraint reversal and mechanism first. `$quick $doc` and `$doc $quick` mean the same thing. "Quick" as subject matter sets no energy: "create a task for the quick-reply feature" routes at Standard.
+The five perspectives are User, Business, Technical, Risk and Delivery. `$quick $doc` and `$doc $quick` mean the same thing. "Quick" as subject matter sets no energy: "create a task for the quick-reply feature" routes at Standard.
 
 &nbsp;
 
@@ -409,28 +323,19 @@ For an ambiguous request with no command, the question has seven numbered blocks
 - Doc - Product or engineering guide, behavior reference, runbook, technical reference or proposal
 ```
 
-Blocks 2 to 6 cover scope, requirements, sources with their authority, extra context and the assumptions worth challenging. With no energy picked, the work runs at Standard.
-
-A command-routed request gets a shorter question from its own lane:
-
-| Route | The one question covers |
-|---|---|
-| Task | Format and scope, requirements, design and platform, dependencies, what to question |
-| Bug | Observed and expected behavior with steps, environment, design reference, evidence, root-cause assumptions to avoid |
-| Story | New or refine, role and value, the requirement list (none means an Epic), shared machinery, exact values and links |
-| Doc | Operation, purpose and audience, domain and depth, source set, authority per conflict, status, scope and shape, refinement boundaries |
+Blocks 2 to 6 cover scope, requirements, sources with their authority, extra context and the assumptions worth challenging. With no energy picked, the work runs at Standard. A command-routed request gets a shorter question from its own lane, and [interactive-response-templates.md](sk-product-owner/assets/interactive-response-templates.md) holds the Task, Bug, Story and Doc versions.
 
 #### Five Source Classes
 
-Doc Mode classifies each material claim, down to a section, a table row or a single claim when one file mixes them.
+Doc Mode classifies each material claim, down to a section, a table row or a single claim when one file mixes them. Current behavior is stated as current only within the scope its source verifies. Approved direction is stated as intended and kept apart from current behavior. A proposal keeps its proposal framing and its open decisions. Retired material stays visible as history and never overrides active material. An unknown is labelled as unverified or asked about before any definite claim. Each class carries its own label:
 
-| Class | How the document may state it | Label it carries |
-|---|---|---|
-| Current behavior | As current, only within the scope the source verifies | `Status: Current behavior — verified for {scope}` |
-| Approved direction | As intended, kept apart from current behavior | `Status: Approved direction — not confirmed as shipped` |
-| Proposal | With proposal framing and its open decisions | `Status: Proposal — not current product behavior` |
-| Retired material | Visible as history, never overriding active material | `Status: Retired material — retained for historical context` |
-| Unknown | Labelled as unverified or asked about before any definite claim | `Status: Unverified — source authority is not established` |
+```text
+Status: Current behavior — verified for {scope}
+Status: Approved direction — not confirmed as shipped
+Status: Proposal — not current product behavior
+Status: Retired material — retained for historical context
+Status: Unverified — source authority is not established
+```
 
 Labels such as `draft`, `new`, `exists, verify` and `legacy` never get normalized into current behavior. A present-tense sentence is not proof, and neither is a file named "canonical" that contradicts itself.
 
@@ -447,13 +352,7 @@ A newer timestamp, a confident filename, majority wording and byte-identical dup
 
 #### The Doc Gate
 
-Every Doc route, Quick included, passes `finalize_artifact_route` in `router-contract.md` before drafting:
-
-| State | Meaning |
-|---|---|
-| `PENDING` | Doc is selected and the request and sources are not yet evaluated |
-| `BLOCKED` | Stopped by a missing field, an open conflict, an unapproved restructure or a claim subject no source covers |
-| `READY` | Every check clears and drafting may start |
+Every Doc route, Quick included, passes `finalize_artifact_route` in `router-contract.md` before drafting. `PENDING` means the request and sources are not yet evaluated. `BLOCKED` means a missing field, an open conflict, an unapproved restructure or a claim subject no source covers stopped the draft. `READY` means every check cleared and drafting may start.
 
 The subject check catches the case the other checks miss. A request to compare two services can name a purpose, an audience, a source set and a scope while the sources describe only one of them. The gate blocks and asks either for a source on the other service or for that service to leave the scope.
 
@@ -465,21 +364,14 @@ Scenario `SDK-002` shows the conflict path. Note A says a payout pause holds for
 
 Each route fills one template. Two grammars exist and never mix:
 
-| Artifacts | Dividers | Bullets and checklists | Headings |
-|---|---|---|---|
-| Task, Bug | `---` between sections | `-` and `- [ ]` | H3 sections without icons |
-| Doc, Story, Epic | `* * *` under every content heading | `*   ` bullets, `*   [ ]` in a Doc, `- [ ]` in a Story only for Mark-as-done and the optional Ready and Done gates | Sentence case |
+- Task and Bug put `---` between sections, use `-` bullets and `- [ ]` checklists and write H3 sections without icons
+- Doc, Story and Epic put `* * *` under every content heading, use `*   ` bullets and write headings in sentence case. A Doc writes checklists as `*   [ ]`, and a Story uses `- [ ]` only for Mark-as-done and the optional Ready and Done gates
 
 Interactive intake questions use plain `-` bullets and bold labels. No newly written bullet in any artifact ends with a full stop.
 
 #### Task Shapes
 
-| Shape | Use it for | Worked example |
-|---|---|---|
-| Canonical task | About, optional context blocks and numbered requirement groups | `task-example-ui-refinement.md` |
-| Parent task | Coordinating subtasks, one linked child per requirement | `task-example-standard-feature.md` |
-| Subtask | One bounded area inside a parent | `task-example-subtask.md` |
-| Quick task | A small explicit change with one unnumbered requirement group | `task-example-quick.md` |
+A task takes one of four shapes: a canonical task, a parent task that coordinates one linked subtask per requirement, a subtask for one bounded area or a Quick task with one unnumbered requirement group. Each has a worked example in [assets/examples/task/](sk-product-owner/assets/examples/task/).
 
 The canonical template from `assets/task-templates.md`, trimmed to one context block and the first of its three requirement groups:
 
@@ -596,15 +488,9 @@ Checklist
 
 #### Doc Shapes
 
-| Shape | The reader needs to | The first screen answers | Example |
-|---|---|---|---|
-| Guide | Follow an order or apply a standard | What they can do after following it | `doc-example-guide.md` |
-| Catalog | Find and compare repeated entries | What it holds and what is out of scope | `doc-example-catalog.md` |
-| Behavior reference | Predict behavior in a given state | The behavior, its boundary and why to predict it | `doc-example-behavior-reference.md` |
-| Proposal | Review an option that is not current behavior | The decision sought, before any current state | `doc-example-proposal.md` |
-| Narrative overview | Get oriented through prose | The situation, the stakes and where things stand | `doc-example-readme.md` |
+The shape follows the reader's job, not whether the subject is product or engineering. A Guide is for following an order or applying a standard. A Catalog is for finding and comparing repeated entries. A Behavior reference predicts behavior in a given state. A Proposal puts an option that is not current behavior up for review and names the decision sought before any current state. A Narrative overview orients the reader through prose. Each has a worked example in [assets/examples/doc/](sk-product-owner/assets/examples/doc/).
 
-The shape follows the reader's job, not whether the subject is product or engineering. A Doc may carry source-backed code, APIs, schemas and runbook steps. Analysis nobody approved is labelled as a proposal.
+A Doc may carry source-backed code, APIs, schemas and runbook steps. Analysis nobody approved is labelled as a proposal.
 
 New Docs use ClickUp's grammar. This is the opening of the Guide scaffold in `assets/doc-templates.md`, with one status label filled in:
 
@@ -635,12 +521,8 @@ New Docs use ClickUp's grammar. This is the opening of the Guide scaffold in `as
 
 Story and Epic are two kinds of product requirements document, not size tiers. Detail grows with scope while the section order stays fixed.
 
-| Part | Story | Epic |
-|---|---|---|
-| H1 | `# {Persona} - {Area} - {Feature}` | `# Epic - {Persona} - {Area}` |
-| About | Problem, Solution, Expected outcomes, References | Problem, Goal, Solution, References |
-| Middle section | `## Requirements`, hard constraints only, left out when there are none | `## Scope` of child stories, plus an optional Added Later group |
-| Acceptance criteria | Screen level | Release level |
+- A Story opens with `# {Persona} - {Area} - {Feature}` and an About of Problem, Solution, Expected outcomes and References. Its `## Requirements` holds hard constraints only and is left out when there are none. Its acceptance criteria work at screen level
+- An Epic opens with `# Epic - {Persona} - {Area}` and an About of Problem, Goal, Solution and References. A `## Scope` of child stories, with an optional Added Later group, takes the place of Requirements. Its acceptance criteria work at release level
 
 A real Story from the 2026-09-18 run, `export/benchmark/skill/SST-001 - 002 - PRD-payout-pause.md`, from Requirements to the end of the file:
 
@@ -716,33 +598,15 @@ Six dimensions are scored out of 10 against every artifact before export. A dime
 
 Accuracy sits a point higher because an invented fact reads as confidently as a verified one and costs more downstream.
 
-#### Bands
+#### Bands and Shapes
 
-| Band | Completeness, Clarity, Actionability, Relevance, Mechanism depth | Accuracy |
-|---|---|---|
-| Below the near miss | 0 to 4, required content absent | 0 to 5, a claim contradicts a supplied source |
-| Near miss | 5 to 7, one named defect stands | 6 to 8, an unsupplied claim stands |
-| Clears the floor | 8 to 10 | 9 to 10 |
+Just under the floor is a near miss: 5 to 7 with one named defect standing, or 6 to 8 on Accuracy with an unsupplied claim standing. Lower than that means required content is absent or a claim contradicts a supplied source. A 10 is not a target. It records that a deliberate second pass found nothing.
 
-A 10 is not a target. It records that a deliberate second pass found nothing.
-
-#### Which Dimension Decides Each Shape
-
-| Shape | Decided by | The standard near miss |
-|---|---|---|
-| Task | Actionability | A checklist item with no observable end state |
-| Bug | Accuracy | A root cause or step no evidence supports, where `Not provided` belonged |
-| Doc | Accuracy and Relevance | A claim no source covers, even under a spotless layout |
-| Story | Clarity and Mechanism depth | A supplied `32px` written as "updated spacing", which drops Accuracy to 7 |
-| Epic | Completeness, read against the Epic shape | Scoring an Epic down for having no Requirements, which is a rubric error |
+Each shape has a deciding dimension: Actionability for a Task, Accuracy for a Bug, Accuracy and Relevance for a Doc, Clarity and Mechanism depth for a Story and Completeness, read against the Epic shape, for an Epic. Scoring an Epic down for having no Requirements is a rubric error. [quality-scoring.md](sk-product-owner/references/quality-scoring.md) gives the standard near miss for each shape.
 
 #### Revision Ladder
 
-| Dimensions under floor | Status | Action |
-|---|---|---|
-| None | PASS | Harmonize and export |
-| One | REVISION NEEDED | Fix it at the phase that owns it, then re-score |
-| Two or more | REJECTED | Return to Engineer and rebuild the shape |
+With no dimension under its floor the status is PASS, and the artifact is harmonized and exported. One dimension under is REVISION NEEDED: fix it at the phase that owns it, then score again. Two or more is REJECTED and goes back to Engineer to rebuild the shape.
 
 Completeness and Relevance return to Discover. Actionability and Accuracy return to Engineer. Clarity and Mechanism depth return to Prototype. Three cycles is the ceiling: after the third, the best version ships with a one-line note in the chat reply naming the dimension still short.
 
@@ -806,16 +670,17 @@ The same run shows why the receipt is checked rather than trusted. Every skill-s
 
 #### ClickUp Delivery
 
-| Operation | Parameter that keeps the markdown |
-|---|---|
-| Create task | `markdown_description` |
-| Update task | `markdown_content` (the claude.ai connector uses `markdown_description`) |
-| Create document or page | `content` with `content_format: "markdown"` |
-| Read a task back | `include_markdown_description=true` |
+The push has to use a parameter that keeps the markdown:
+
+- Create a task with `markdown_description`
+- Update a task with `markdown_content`. The claude.ai connector uses `markdown_description` here
+- Create a document or page with `content` and `content_format: "markdown"`
+- Read a task back with `include_markdown_description=true`
+
+The plain `description` field stores markdown as literal text, so visible `###` or `**` in ClickUp means the wrong parameter was used.
 
 - The export never asks permission. A ClickUp create, update or delete always does, as an explicit yes in the current conversation. An earlier yes does not carry forward
 - The artifact's H1 becomes the ClickUp name and leaves the body. HTML comments and process metadata are stripped. Everything else travels verbatim
-- The plain `description` field stores markdown as literal text, so visible `###` or `**` in ClickUp means the wrong parameter was used
 - After a push the task is read back with markdown enabled to confirm the formatting survived
 
 #### What Git Keeps
@@ -830,60 +695,15 @@ A route loads its template together with its mode reference. A worked example lo
 
 #### Template Assets
 
-| Asset | What it holds |
-|---|---|
-| `sk-product-owner/assets/task-templates.md` | Canonical, parent, subtask and Quick task scaffolds and the numbering rule |
-| `sk-product-owner/assets/bug-report-template.md` | The bug scaffold, the Frequency rules and the design-review rule |
-| `sk-product-owner/assets/doc-templates.md` | Five Doc shapes, the ClickUp contract, a Quick adaptation, a refinement overlay and a source-conflict hold |
-| `sk-product-owner/assets/story-template.md` | The Story scaffold and its opt-in Delivery close |
-| `sk-product-owner/assets/epic-template.md` | The Epic scaffold with Goal and Scope |
-| `sk-product-owner/assets/interactive-response-templates.md` | The comprehensive question and the Task, Bug, Story and Doc questions |
+[sk-product-owner/assets/](sk-product-owner/assets/) holds six templates. Five cover Task, Bug, Doc, Story and Epic. The sixth, `interactive-response-templates.md`, holds the comprehensive question plus the Task, Bug, Story and Doc questions.
 
 #### Worked Examples
 
-`sk-product-owner/assets/examples/` holds 21 filled artifacts. Each names in its frontmatter the template section it instantiates.
-
-| File | Subject | What it shows |
-|---|---|---|
-| `task/task-example-ui-refinement.md` | Meridian settings screen | Canonical task for design-parity work, no functional change, cross-device accessibility checks |
-| `task/task-example-standard-feature.md` | Vantage Analytics filter presets | Parent task: shared scope stated once, child tasks carry their own detail |
-| `task/task-example-subtask.md` | Corsair search empty states | Subtask keeping zero-result and request-failure recovery apart |
-| `task/task-example-quick.md` | Ledgerly trial-expiry banner copy | Quick task: exact replacement copy, a zero-day variant, no layout change |
-| `task/task-example-ds-variables.md` | DS Variables v1.0.7, size variables and disabled states | Parent plus one subtask per app, in the ClickUp format the team ships |
-| `bug/bug-example-frontend-visual.md` | Country dropdown behind the checkout payment modal | Visual defect with cross-browser evidence, exact design tokens and a BDD scenario |
-| `bug/bug-example-backend-api.md` | Orders endpoint returning duplicate rows across pages | API defect with paired request evidence and conditional reproduction |
-| `bug/bug-example-mobile-crash.md` | Crash attaching a large photo on Android 12 | Crash log plus a memory-pressure cause labelled as a hypothesis |
-| `bug/bug-example-quick.md` | Terms of Service footer link returning 404 | Quick report with missing environment data marked honestly |
-| `doc/doc-example-guide.md` | Driftboard empty-state copy | Guide: one writing standard across four empty-state intents, one of which needs no action |
-| `doc/doc-example-catalog.md` | Prism Design System color token roles | Catalog with current, approved and proposed entries labelled one by one |
-| `doc/doc-example-behavior-reference.md` | Fieldnote Editor form autosave | Behavior reference with timing, offline and conflict precedence and one edge left open |
-| `doc/doc-example-how-it-works.md` | Vantage Billing subscription lifecycle | Behavior reference at system scale, prose-first: renewal, dunning, cancellation and pause |
-| `doc/doc-example-proposal.md` | Meridian Mobile dark mode rollout | Proposal: verified context kept apart from candidate design, decision owner still open |
-| `doc/doc-example-readme.md` | Ledgerly Payments payout integration docs | Narrative overview as a folder README with an earned reading map |
-| `doc/doc-example-quick.md` | Rotating the Ledgerly API signing key | Quick guide: optional sections dropped, status notice and one unverified step kept |
-| `story/prd-example-simple.md` | Fieldstack inline project rename | Smallest Story: no Requirements, two criteria, ends on Acceptance criteria |
-| `story/prd-example-medium.md` | Lumen profile identity updates | Three safeguards on one settings form, criteria grouped by surface |
-| `story/prd-example-complex.md` | Keystone payout release pipeline | Four payout types sharing one pipeline described once in Solution, one `← PRIO` marker |
-| `story/prd-example-complete.md` | Presale access windows and redemption limits | Every optional enrichment filled in, as a reference rather than a default |
-| `story/prd-example-epic.md` | Gatherwell Event Check-in v2 | Epic: Goal, Scope of child stories with an Added Later group, release-level criteria |
-
-Twenty examples use invented products so they teach form without carrying real Barter material. `task-example-ds-variables.md` is the exception: the three tickets of a real Barter design token release, kept as the pattern for the next one.
+[sk-product-owner/assets/examples/](sk-product-owner/assets/examples/) holds 21 filled artifacts: 5 in `task/`, 4 in `bug/`, 7 in `doc/` and 5 in `story/`, one of them an Epic. Each names in its frontmatter the template section it instantiates. Twenty use invented products, so they teach form without carrying real Barter material. `task-example-ds-variables.md` is the exception: the three tickets of a real Barter design token release, kept as the pattern for the next one.
 
 #### Reference Files
 
-| File in `sk-product-owner/references/` | Loaded | What it holds |
-|---|---|---|
-| `hvr-core.md` | Always | Every Human Voice hard blocker inline, plus the self-scan line |
-| `conciseness.md` | Always | The reconstruction test, cut and keep rules and format choice |
-| `task-mode.md` | Task route | Task shapes, requirement groups, the table rule and source sync |
-| `bug-mode.md` | Bug route | The fixed bug structure, evidence handling and the four-item QA checklist |
-| `doc-mode.md` | Doc route | Source classes, authority order, the conflict gate and refinement fidelity |
-| `story-mode.md` | Story route | The house grammar, Story or Epic selection and the nine optional enrichments |
-| `interactive-mode.md` | Interactive route | The single-question flow, its state machine and the clarification export |
-| `quality-scoring.md` | On demand | Bands, the per-shape reading and the revision ladder |
-| `router-contract.md` | On demand | The router as running Python, checked by the differential |
-| `human-voice-rules.md` | On demand | The full voice standard behind the card |
-| `conciseness-rationale.md` | On demand | The reason behind each conciseness rule |
+[sk-product-owner/references/](sk-product-owner/references/) holds 11 rule files. `hvr-core.md` and `conciseness.md` load on every request. The five mode files, `task-mode.md`, `bug-mode.md`, `doc-mode.md`, `story-mode.md` and `interactive-mode.md`, load with their route. `quality-scoring.md`, `router-contract.md`, `human-voice-rules.md` and `conciseness-rationale.md` load on demand.
 
 &nbsp;
 
@@ -891,12 +711,10 @@ Twenty examples use invented products so they teach form without carrying real B
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem and never loads `SKILL.md`.
 
-| Part | What it is |
-|---|---|
-| `Custom Instructions.md` | The kernel, v1.12.6, aligned to skill v1.8.4. It carries the full router and rules and is the routing authority inside the Project |
-| `knowledge/` | 38 files: 17 core documents (five mode references, six templates, four shared rule files, quality scoring and the router contract) and the 21 worked examples |
-| `README.md` | Upload steps, the source-to-mirror map and the smoke matrix |
-| `kernel-review.json` | A dated record of one kernel review, read by no tool |
+- `Custom Instructions.md` is the kernel, v1.12.6, aligned to skill v1.8.4. It carries the full router and rules and is the routing authority inside the Project
+- `knowledge/` holds 38 files: 17 core documents (five mode references, six templates, four shared rule files, quality scoring and the router contract) and the 21 worked examples
+- `README.md` holds the upload steps, the source-to-mirror map and the smoke matrix
+- `kernel-review.json` is a dated record of one kernel review, read by no tool
 
 #### What Changes in a Project
 
@@ -907,7 +725,7 @@ Twenty examples use invented products so they teach form without carrying real B
 | Loads mode files from `references/` and `assets/` | Consults the matching knowledge document |
 | Pushes to ClickUp through a connected MCP server | Pushes to ClickUp through the claude.ai connector, when present |
 
-The kernel never claims a save, a read-back or a push the Project did not perform. Setup is the four steps in Quick Start.
+The kernel never claims a save, a read-back or a push the Project did not perform. Setup is the three steps in Quick Start.
 
 #### Hand-Written, Not Generated
 
@@ -924,7 +742,7 @@ The live Project is a separate manual upload, so a matching local package proves
 | Command | What it checks | Result on this tree |
 |---|---|---|
 | `bash benchmark/router/run_fixtures.sh` | 117 route fixtures, then the differential against `router-contract.md` | `PASSED 117/117 fixtures` and `PASSED 189/189 differential inputs` |
-| `bash benchmark/format/run_fixtures.sh` | 35 cases over 13 fixture files through the output validator | `PASSED all format-validator fixtures` |
+| `bash benchmark/format/run_fixtures.sh` | 35 cases over 13 fixture files through the output validator | One `PASS` line per case, then `PASSED all format-validator fixtures` |
 | `python3 benchmark/router/route_contract.py --self-check` | One sample per detection layer | `self-check passed 5 routing expectations` |
 | `node benchmark/format/validate-output-format.cjs "<file>"` | One saved artifact against the output rules | `Product Owner output format validation passed across 1 artifact file(s)` |
 | `bash benchmark/grader/check_report.sh <report-folder>` | The voice lint of every captured reply, then twin agreement | Writes `hvr-lint.csv` into the folder it reads |
@@ -953,31 +771,21 @@ Silent fixtures pin the other side: a compliant house Story, the sanctioned deli
 
 #### The Manual Testing Playbook
 
-`sk-product-owner/manual-testing-playbook/` turns the contract into 14 two-turn conversations: seven for the skill (`S` IDs) and a twin of each for the Project (`P` IDs).
-
-| Twin | What it checks |
-|---|---|
-| `SID-001` / `PID-001` | The delivery identity: a real path and read-back, or a Deliverable Block and no save claim |
-| `STK-001` / `PTK-001` | `$task` asks one question, then turns the answer into a checklisted task |
-| `SBG-001` / `PBG-001` | `$bug` waits for evidence and marks what is missing `Not provided` |
-| `SDK-001` / `PDK-001` | A Doc request with the notes still to come asks every open field at once |
-| `SDK-002` / `PDK-002` | Two conflicting notes stop the draft until one is chosen |
-| `SST-001` / `PST-001` | "Turn these notes into a PRD" keeps every hard value verbatim |
-| `SIR-001` / `PIR-001` | An ambiguous request opens its question with the energy choice |
+[The playbook](sk-product-owner/manual-testing-playbook/manual-testing-playbook.md) turns the contract into 14 two-turn conversations: seven for the skill (`S` IDs) and a twin of each for the Project (`P` IDs). The pairs cover the delivery identity, `$task` intake, `$bug` evidence, a Doc request with the notes still to come, two conflicting notes, a PRD from notes and an ambiguous request that must open with the energy choice.
 
 #### Captured Runs
 
 Two runs of the full playbook sit in `benchmark/reports/`, each with its verdicts, grading notes and captured replies.
 
-| Run | Skill | Project | Twins that disagree | Lint-clean replies |
-|---|---|---|---|---|
-| 2026-09-17, Claude Sonnet 5 at medium effort | 4 PASS, 3 FAIL | 2 PASS, 5 FAIL | 2 of 7 | 3 of 28 |
-| 2026-09-18, GLM 5.3 Flash through Pi at high thinking | 6 PASS, 1 PARTIAL | 6 PASS, 1 PARTIAL | 0 of 7 | 14 of 28 |
+- The 2026-09-17 run, Claude Sonnet 5 at medium effort, scored 4 PASS and 3 FAIL on the skill and 2 PASS and 5 FAIL on the Project. Twins disagreed in 2 of 7 pairs, and 3 of 28 replies were lint-clean
+- The 2026-09-18 run, GLM 5.3 Flash through Pi at high thinking, scored 6 PASS and 1 PARTIAL on each side. No twins disagreed, and 14 of 28 replies were lint-clean
+
+What the runs found:
 
 - In the Sonnet run, no-command Doc and Story requests skipped the consolidated question on both sides, and both sides opened the ambiguous-intake question with artifact types instead of the energy choice
 - In the same run the Project answered `$task` and `$bug` intake as plain chat, without a Deliverable Block. Those are the two twins that disagreed
 - 25 of the Sonnet run's 28 replies carried a banned em dash or semicolon. 18 of those 25 held a self-scan line, and every one of them reported 0 hard blockers
-- The GLM run agreed on all seven twins. Only the Doc guide pair, `SDK-001` and `PDK-001`, fell short
+- In the GLM run only the Doc guide pair, `SDK-001` and `PDK-001`, fell short
 - In the first GLM pass `SST-001` read a sibling scenario's export and copied a requirement nobody supplied. The rerun inside an operating-system sandbox no longer carried it
 
 Three re-measure rounds of the Doc guide pair, three runs per side each, sit in `remeasure/`, `remeasure-2/` and `remeasure-3/` inside the GLM report. The first round measured the v1.8.2 repair: 2 of 3 runs passed on each side, and no run asked for the notes alone any more. Findings from the rounds drove the v1.8.3 and v1.8.4 releases.
@@ -1086,18 +894,45 @@ No. The CLI skill is complete on its own. The Project package exists for people 
 
 ## 14. 🔧 TROUBLESHOOTING
 
-| What you see | Cause | Fix |
-|---|---|---|
-| The route does not match the request | A token is not an exact standalone command, or framing outranked a topic word | Check it with `python3 benchmark/router/route_contract.py --request "<request>"`, then use one command |
-| `$task` or `$bug` replies with a question | The command routed the request but the scope is missing | Answer in one reply, or resend with `$quick` to accept smart defaults |
-| A Doc request stops before drafting | The Doc gate is `BLOCKED` on a field, a conflict or an uncovered subject | Answer the consolidated question with the source or decision it names |
-| No `Path:` or `Verified:` line | The read-back failed twice | Treat the artifact as undelivered and rerun the request |
-| The `Verified:` line count differs from the file | The model printed a different number than the read returned | Trust the file on disk. The playbook grades the read, not the number |
-| ClickUp shows raw `###` or `**` | The push used the plain `description` field | Push again with `markdown_description` or `markdown_content` |
-| UI feedback routed to Bug | The wording read as a defect, such as "fix" or "broken" with no polish, spacing or Figma term | Use `$task`, or phrase it as polish or Figma alignment |
-| A Story has no Requirements section | The source supplied no hard value | Supply the sizes, limits or exact strings the build must meet |
-| `run_parity.sh` or `rule_parity.py` exits 2 | They need a sync toolkit outside this repository | Use the router and format checks, which run from a clone |
-| `check_report.sh` changed a report folder | It writes `hvr-lint.csv` beside the replies it lints | Run it on a copy of the folder |
+**The route does not match the request**
+
+A token is not an exact standalone command, or framing outranked a topic word. Check the route with `python3 benchmark/router/route_contract.py --request "<request>"`, then use one command.
+
+**`$task` or `$bug` replies with a question**
+
+The command routed the request but the scope is missing. Answer in one reply, or resend with `$quick` to accept smart defaults.
+
+**A Doc request stops before drafting**
+
+The Doc gate is `BLOCKED` on a field, a conflict or an uncovered subject. Answer the consolidated question with the source or decision it names.
+
+**No `Path:` or `Verified:` line**
+
+The read-back failed twice. Treat the artifact as undelivered and rerun the request.
+
+**The `Verified:` line count differs from the file**
+
+The model printed a different number than the read returned. Trust the file on disk. The playbook grades the read, not the number.
+
+**ClickUp shows raw `###` or `**`**
+
+The push used the plain `description` field. Push again with `markdown_description` or `markdown_content`.
+
+**UI feedback routed to Bug**
+
+The wording read as a defect, such as "fix" or "broken" with no polish, spacing or Figma term. Use `$task`, or phrase it as polish or Figma alignment.
+
+**A Story has no Requirements section**
+
+The source supplied no hard value. Supply the sizes, limits or exact strings the build must meet.
+
+**`run_parity.sh` or `rule_parity.py` exits 2**
+
+They need a sync toolkit outside this repository, in the maintainer's monorepo. Use the router and format checks, which run from a clone.
+
+**`check_report.sh` changed a report folder**
+
+It writes `hvr-lint.csv` beside the replies it lints. Run it on a copy of the folder.
 
 &nbsp;
 
