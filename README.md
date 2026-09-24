@@ -2,8 +2,6 @@
 
 > Turns product requests into evidence-based tickets, stories and source-safe documentation.
 
-&nbsp;
-
 > Like it? Please don't buy me unwanted coffee: https://buymeacoffee.com/michelkerkmeester
 
 [![GitHub Stars](https://img.shields.io/github/stars/MichelKerkmeester/product-owner_create-tickets-and-stories?style=for-the-badge&logo=github&color=fce566&labelColor=222222)](https://github.com/MichelKerkmeester/product-owner_create-tickets-and-stories/stargazers)
