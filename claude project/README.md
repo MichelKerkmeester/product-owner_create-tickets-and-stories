@@ -62,7 +62,7 @@ CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Bloc
 | `sk-product-owner/references/quality-scoring.md` | `Product Owner - Rules - Quality Scoring - v0.100.md` |
 | `sk-product-owner/references/router-contract.md` | `Product Owner - System - Router Contract - v0.100.md` |
 
-Every knowledge file is hand-authored from its skill source for Project retrieval, so it carries the decision rules and examples without the skill-only mechanics. The shared rule files that are symlinked under `references/` are read through the shared knowledge folder, and their Project counterparts are hand-written like every other knowledge file.
+Every knowledge file is hand-authored from its skill source for Project retrieval, so it carries the decision rules and examples without the skill-only mechanics. The four shared rule files under `references/` are byte copies of cards in the shared knowledge folder, and their Project counterparts are byte copies of the same cards rather than hand-written documents.
 
 ## Paired-Version + Checksum Table
 

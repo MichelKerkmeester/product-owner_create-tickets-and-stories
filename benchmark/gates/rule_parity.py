@@ -177,15 +177,16 @@ def body(path, drop_frontmatter=True):
 def inside(root, path):
     """Whether a resolved path stays under root, checked lexically.
 
-    Four of this system's declared sources are symlinks into the shared
-    knowledge tree (`hvr-core.md`, `human-voice-rules.md`, `conciseness.md`,
-    `conciseness-rationale.md`). Resolving the link would put every one of
-    them outside the skill root and reject all four as escapes, taking every
-    rule they teach out of the count along with them. `abspath` normalises
-    `..` segments and relative components without following a symlink, so a
-    row that climbs out or names an absolute path is caught while a symlinked
-    row is read through the link and reported under the name the declaration
-    gives it.
+    Four of this system's declared sources are shared rule files
+    (`hvr-core.md`, `human-voice-rules.md`, `conciseness.md`,
+    `conciseness-rationale.md`), carried here as regular-file copies of cards
+    in the shared knowledge tree. A system that carries them as symlinks
+    instead would have every one resolve outside the skill root and be
+    rejected as an escape, taking every rule they teach out of the count along
+    with them. `abspath` normalises `..` segments and relative components
+    without following a symlink, so a row that climbs out or names an
+    absolute path is caught while a symlinked row is read through the link and
+    reported under the name the declaration gives it.
     """
     root = os.path.abspath(root)
     target = os.path.abspath(path)
