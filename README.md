@@ -5,6 +5,7 @@
 [![Last Commit](https://img.shields.io/github/last-commit/MichelKerkmeester/product-owner_create-tickets-and-stories?style=for-the-badge&color=5ad4e6&labelColor=222222)](https://github.com/MichelKerkmeester/product-owner_create-tickets-and-stories/commits/main)
 
 > Turns product requests into evidence-based tickets, stories and source-safe documentation.
+
 > Like it? Please don't buy me unwanted coffee: https://buymeacoffee.com/michelkerkmeester
 
 ## 1. SUMMARY
