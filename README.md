@@ -29,7 +29,7 @@ Built for any capable model in an agent CLI that reads `AGENTS.md`, and for clau
 - **Source safety:** documentation preserves the status of verified facts, proposals and unknowns
 - **Visible delivery:** every saved artifact receives a read-back check before the response
 
----
+&nbsp;
 
 ## 2. 🎁 OVERVIEW
 
@@ -132,7 +132,7 @@ Each artifact is written under `export/` and read back before the response names
 - No receipt means the artifact is undelivered
 - ClickUp delivery waits for an explicit yes in the current conversation, every time
 
----
+&nbsp;
 
 ## 3. 🚀 QUICK START
 
@@ -217,7 +217,7 @@ A Project has no filesystem, so each artifact arrives as one markdown Deliverabl
 
 The package contains 38 knowledge files. See [the Project README](claude%20project/README.md) for its file map and upload steps.
 
----
+&nbsp;
 
 ## 4. 🧭 MODES AND ROUTING
 
@@ -292,7 +292,7 @@ Both use numbered Given, When and Then criteria. Delivery details appear only wh
 | Standard | Uses the full phase flow with at least three perspectives |
 | Deep | Uses expanded analysis with all five perspectives |
 
----
+&nbsp;
 
 ## 5. 🧱 OUTPUT FORMAT AND QUALITY GATES
 
@@ -460,7 +460,7 @@ Source classification and Human Voice Rules run alongside the quality review. A 
 | Deep | Five | Full review with expanded analysis |
 | Raw | No phase flow | Safety and delivery rules stay active |
 
----
+&nbsp;
 
 ## 6. 📤 EXPORT AND CLICKUP DELIVERY
 
@@ -511,7 +511,7 @@ Generated deliverables stay local. The root `.gitignore` ignores everything in `
 
 This lets the public repo carry the tool and its checks without publishing generated user artifacts.
 
----
+&nbsp;
 
 ## 7. 📚 TEMPLATES AND EXAMPLES
 
@@ -553,7 +553,7 @@ Load a single example when the routed template benefits from a concrete instance
 
 The Project package keeps 38 knowledge files with the same user-facing routing and rules. Its instructions and files are hand-maintained for claude.ai use.
 
----
+&nbsp;
 
 ## 8. 🧪 BENCHMARKS AND CHECKS
 
@@ -574,7 +574,7 @@ The differential check lifts the Smart Router pseudocode out of `SKILL.md`, runs
 
 `benchmark/parity/` and `benchmark/gates/` compare the Claude Project package against the skill sources. They call a shared sync toolkit that is not part of this repository, so they do not run from a clone.
 
----
+&nbsp;
 
 ## 9. 🗂️ REPOSITORY STRUCTURE
 
@@ -613,7 +613,7 @@ The root separates the skill source, Claude Project package, benchmark checks an
 
 `AGENTS.md` points an agent CLI at the skill. A claude.ai Project reads `claude project/Custom Instructions.md` and the files under `claude project/knowledge/` instead.
 
----
+&nbsp;
 
 ## 10. ❓ FAQ
 
@@ -641,7 +641,7 @@ No. It saves the local file first and waits for approval before a ClickUp write.
 
 Your stated count wins. Clauses, edge cases and acceptance checks inside a stated requirement never create extra requirements.
 
----
+&nbsp;
 
 ## 11. 🔧 TROUBLESHOOTING
 
@@ -654,7 +654,7 @@ Your stated count wins. Clauses, edge cases and acceptance checks inside a state
 | A UI feedback request routed to Bug | "Fix" appeared next to design-parity wording | Use `$task`, or phrase it as polish or Figma alignment |
 | `run_parity.sh` fails with a missing file | The parity scripts need a sync toolkit outside this repo | Use the router and format checks, which run standalone |
 
----
+&nbsp;
 
 ## 12. 📚 RELATED DOCUMENTS
 
