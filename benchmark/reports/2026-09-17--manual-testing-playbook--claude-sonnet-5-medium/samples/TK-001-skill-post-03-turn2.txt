@@ -1,0 +1,8 @@
+Path: `export/002 - task-creator-payout-pause.md`
+Verified: read-back succeeded; 25 lines
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Standalone task covering the required pause reason, the payout-row indicator, and QA verification through payout history. About explains why it matters (support/finance visibility, QA traceability), and the checklist keeps each acceptance point testable and scoped to what you supplied.
+
+Want me to add References (Figma/platform) or split the checklist into separate requirement groups once you have more detail on how the reason gets captured?

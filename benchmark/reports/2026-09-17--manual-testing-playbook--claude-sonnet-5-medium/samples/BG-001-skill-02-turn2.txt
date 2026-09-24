@@ -1,0 +1,10 @@
+**export/002 - bug-payout-pause-toggle.md**
+
+Verified: read-back succeeded; 79 lines
+HVR self-scan: 0 hard blockers. Fixed: none needed. Kept with reason: none needed.
+
+Quality summary: reproduction steps are exact and every-time (Chrome 126, web), severity/device/OS/flow references are honestly marked `Not provided` rather than guessed, and root cause is left open for QA rather than asserted. The About and Bug sections follow the fixed structure, and the BDD scenario captures the toggle/payout state mismatch clearly.
+
+This bug report covers the payout pause toggle visually reverting to off on refresh while the payout itself stays correctly paused — a state-display mismatch, not a pause failure. Root cause (client cache vs. state-fetch bug) isn't asserted since it wasn't supplied.
+
+I don't see ClickUp tooling available in this session, so I can't offer a push there right now — let me know if you'd like this handled differently.

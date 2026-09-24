@@ -1,0 +1,7 @@
+Saved: `export/002 - doc-payout-pause-behavior-reference.md`
+Verified: read-back succeeded; 43 lines
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: the `—` delimiters in the When/Then/Status bullets and the source-basis entries, sanctioned by the Human Voice card's Doc Mode definition-delimiter exemption.
+
+Quality: Source safety pass — Note A's release rule is the only current-behavior claim, Note B stays visibly retired and answers nothing, and the three gaps the notes don't cover are named rather than filled. Shape fit, ClickUp layout, readability and voice all pass: Behavior reference shape, `* * *` dividers after every heading, `*   ` bullets, sentence case, no spacer headings in the export, note B's status carried in the source basis.
+
+The reference states one settled rule, automatic release 24 hours after the pause starts with no manual action, then closes on what the sources leave open: what triggers a pause, whether early release exists, and what happens to payouts while the pause holds. One assumption you can correct: since you didn't specify an audience, I wrote it for anyone predicting payout resumption, support or product. The clarification file `001` is untouched, and the next artifact in this lane takes `003`.

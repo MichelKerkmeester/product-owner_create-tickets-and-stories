@@ -1,0 +1,66 @@
+Artifact rendering isn't available in this session, so here is the Deliverable Block inline instead.
+
+**Deliverable Block**
+
+```markdown
+<!-- mode: task | template: v0.303 | score: pass -->
+# Creator payout pause indicator and reason capture
+
+### About
+
+---
+
+Creators can currently have their payouts paused, but nothing records why or shows the pause on the payout itself. Support and QA have no way to confirm a pause is active or trace it back to a cause, so a paused payout looks identical to one still processing normally. Store a required reason whenever a payout is paused, show a pause indicator on the payout row, and make the pause and its reason visible in payout history so QA can verify it without escalating.
+
+### Requirements
+
+---
+
+1.  **Store the pause reason**
+
+---
+
+A payout cannot be paused without a reason. The reason is captured at the moment of pause and stays attached to that payout for as long as the pause exists.
+
+**Checklist**
+
+- [ ] Add a required reason field to the pause action, block the action until a reason is entered
+- [ ] Store the reason, the timestamp and who triggered the pause against the payout record
+- [ ] Reject any pause request submitted without a reason
+
+---
+
+2.  **Show a pause indicator on the payout row**
+
+---
+
+Creators and internal users need to see at a glance which payouts are paused without opening the payout detail.
+
+**Checklist**
+
+- [ ] Add a pause indicator to the payout row when a payout's status is paused
+- [ ] Indicator is visible in the same row list creators use to review pending payouts
+- [ ] Indicator disappears once the payout is resumed or resolved
+
+---
+
+3.  **Surface the pause in payout history for QA verification**
+
+---
+
+QA needs to confirm a pause happened and read its reason directly from payout history, without database access.
+
+**Checklist**
+
+- [ ] Add a pause entry to the payout's history log, including the stored reason and timestamp
+- [ ] QA can view the pause entry from the payout history view for that payout
+- [ ] History entry persists after the payout is resumed
+```
+
+Export-equivalent path: `export/001 - task-creator-payout-pause-indicator.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none needed. Kept with reason: none required — no exempt punctuation or preserved-source terms in this draft.
+
+Quality status: pass — required core sections present, WHAT/WHY only, three testable checklists match your three acceptance points (required reason, row indicator, QA-verifiable history).
+
+No ClickUp connector is present in this session, so there's no push to offer — save the block above as the file at the export path when ready.

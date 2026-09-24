@@ -1,0 +1,170 @@
+{
+  "known-divergences": [
+    "a quick story about filters",
+    "$epics are grouped on the roadmap"
+  ],
+
+  "bare-commands-and-aliases": [
+    "$task",
+    "$t",
+    "$bug",
+    "$b",
+    "$doc",
+    "$d",
+    "$prd",
+    "$p",
+    "$story",
+    "$s",
+    "$epic",
+    "$e",
+    "$quick",
+    "$q",
+    "$task --subtask split the login work",
+    "$doc $quick write the api reference",
+    "$quick $doc write the api reference quickly",
+    "$task $bug this is broken",
+    "$doc $prd conflicting instructions",
+    "$doc write a bug report about the outage"
+  ],
+
+  "false-prefix-tokens": [
+    "$document the notification settings",
+    "$docs are out of date",
+    "$debug the failing test",
+    "$prds live in the drive folder",
+    "$stories are tracked in clickup",
+    "$sort the backlog by priority",
+    "$epics are grouped on the roadmap already",
+    "$email the release notes to the team",
+    "$e.md is just a filename in the repo",
+    "$doc.md is just a filename",
+    "$d.md is just a filename in the repo",
+    "$doc/path is a path and not a command",
+    "$taskforce sync notes",
+    "the invoice totals us$500 before tax"
+  ],
+
+  "success-criteria-cases": [
+    "create a task to write a PRD",
+    "create a task to write a draft",
+    "write a user story for saved searches",
+    "make a draft for the highlights edit flow",
+    "write a draft for PM",
+    "also make a draft",
+    "create a task to document the payout rules",
+    "write a bug report about documentation",
+    "document bug behavior in the payout engine",
+    "write a full story",
+    "write a story",
+    "turn this into a full story",
+    "turn this into a story",
+    "write a proper prd for saved searches",
+    "a proper PRD",
+    "the spacing feedback from figma needs a fix, the alignment is broken",
+    "can you sort out this thing"
+  ],
+
+  "topic-bug": [
+    "the app crashes with a repro and an error on submit",
+    "the checkout flow is broken and failing with a persistent defect",
+    "review the debugging pipeline"
+  ],
+
+  "topic-feature": [
+    "add a new capability with more functionality",
+    "add this capability",
+    "this enhancement adds new functionality"
+  ],
+
+  "topic-acceptance": [
+    "the definition of done needs validation against the success condition",
+    "the success condition and validation criteria are unclear"
+  ],
+
+  "topic-user_need": [
+    "the user need and persona journey for this workflow",
+    "as a user I follow this journey through the workflow"
+  ],
+
+  "topic-technical_task": [
+    "refactor and optimize the debt cleanup",
+    "cleanup the debt and update dependency pins"
+  ],
+
+  "topic-integration": [
+    "connect the api webhook sync to the third-party",
+    "sync the third-party webhook through the api"
+  ],
+
+  "topic-ui_refinement": [
+    "visual QA and UI tweak for design parity",
+    "figma alignment feedback on the spacing",
+    "polish the spacing and alignment from the figma feedback"
+  ],
+
+  "topic-documentation": [
+    "product documentation for the payout engine",
+    "engineering docs for the ingest path",
+    "the schema reference and architecture recommendation are stale",
+    "refine this document"
+  ],
+
+  "topic-prd": [
+    "given when then acceptance scenarios in connextra form",
+    "definition of ready for the checkout story",
+    "the product requirements document is missing"
+  ],
+
+  "framing-doc": [
+    "write a runbook for the deploy",
+    "write a troubleshooting guide for the queue",
+    "write an architecture document for the ingest path",
+    "write a decision record for the vendor choice",
+    "write an rfc for the schema change",
+    "write an adr for the storage choice",
+    "write a configuration guide",
+    "write an implementation guide for the notification pipeline",
+    "write a schema reference",
+    "write documentation for the api",
+    "write a guide",
+    "write a draft guide for the api",
+    "recommend a queue and document the decision",
+    "write a future-state proposal for onboarding",
+    "write a technical proposal for the migration",
+    "document how the feed ranking works",
+    "please document the payout rules",
+    "can you document the retry policy"
+  ],
+
+  "framing-prd": [
+    "story for saved searches",
+    "epic for the billing overhaul",
+    "epic story for billing",
+    "create an epic for the billing overhaul",
+    "write an epic for the billing overhaul",
+    "refine this story",
+    "refine this prd",
+    "refine this epic",
+    "turn this into a draft",
+    "make a draft"
+  ],
+
+  "framing-task-and-precedence": [
+    "task to document the payout rules",
+    "draft a task for the login flow",
+    "write a task and a guide",
+    "write a bug report about the user story import",
+    "do not write a story, just explain it"
+  ],
+
+  "energy-framing": [
+    "quick task for the login flow",
+    "quick write-up of the outage",
+    "please quick fix this",
+    "this is not a quick fix, take your time",
+    "crashes when scrolling fast",
+    "no questions, just write it",
+    "make it quick",
+    "$quick the widget is broken and has a persistent issue"
+  ]
+}

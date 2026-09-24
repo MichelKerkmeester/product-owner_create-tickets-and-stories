@@ -1,0 +1,62 @@
+# {Task Title}
+
+```markdown
+# Creator payout pause indicator
+
+### About
+
+---
+
+Creators pause pending payouts, and support and QA need to see that a payout is paused and why. This task adds a pause reason capture, a visible pause indicator on the payout row and a durable record in payout history so the pause state can be verified after the fact.
+
+### Requirements
+
+---
+
+1.  **Pause reason capture**
+
+---
+
+When a payout is paused, the reason for the pause is captured and stored with the payout record.
+
+**Checklist**
+
+- [ ] Pause reason field is required to complete a pause action
+- [ ] Pause action is blocked until a reason is provided
+- [ ] Reason is stored with the payout record
+
+---
+
+2.  **Pause indicator on payout row**
+
+---
+
+A pending payout that is paused is visibly distinct from an active pending payout wherever payout rows are listed.
+
+**Checklist**
+
+- [ ] Paused payouts show an indicator on the payout row
+- [ ] Indicator is visually distinguishable from the active pending state
+
+---
+
+3.  **Pause visibility in payout history**
+
+---
+
+QA and support can confirm a payout's pause state and reason without relying on the live row alone.
+
+**Checklist**
+
+- [ ] Paused payout appears in payout history with its pause status
+- [ ] Stored pause reason is visible in payout history
+- [ ] QA can verify the pause from payout history alone
+```
+
+Export-equivalent path: `export/001 - task-creator-payout-pause-indicator.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none — no Human Voice terms triggered.
+
+Quality: About, Requirements and checklist structure validated against Task Templates; WHAT/WHY only, no HOW. No References/Epic/Platform sections added since none were supplied — say the word if this belongs under a parent task or epic and I'll add the link.
+
+Want me to push this to ClickUp?

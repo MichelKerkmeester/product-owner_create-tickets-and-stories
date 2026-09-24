@@ -1,0 +1,29 @@
+file,clean,hard_violations,violations,extraction_confidence
+PBG-001-turn1.txt,True,0,none,high
+PBG-001-turn2.txt,True,0,none,high
+PDK-001-turn1.txt,False,1,em_dashx2,low
+PDK-001-turn2.txt,False,1,em_dashx5,high
+PDK-002-turn1.txt,False,1,semicolonx1,low
+PDK-002-turn2.txt,False,1,em_dashx5,low
+PID-001-turn1.txt,True,0,none,high
+PID-001-turn2.txt,True,0,none,low
+PIR-001-turn1.txt,False,1,semicolonx1,low
+PIR-001-turn2.txt,True,0,none,low
+PST-001-turn1.txt,False,2,"semicolonx1, more_than_one_ellipsisx3",low
+PST-001-turn2.txt,False,1,semicolonx1,low
+PTK-001-turn1.txt,True,0,none,high
+PTK-001-turn2.txt,True,0,none,high
+SBG-001-turn1.txt,True,0,none,high
+SBG-001-turn2.txt,True,0,none,high
+SDK-001-turn1.txt,True,0,none,low
+SDK-001-turn2.txt,False,1,em_dashx6,high
+SDK-002-turn1.txt,False,2,"em_dashx3, semicolonx1",high
+SDK-002-turn2.txt,False,1,em_dashx1,high
+SID-001-turn1.txt,True,0,none,high
+SID-001-turn2.txt,False,2,"em_dashx1, semicolonx3",high
+SIR-001-turn1.txt,True,0,none,high
+SIR-001-turn2.txt,True,0,none,high
+SST-001-turn1.txt,False,2,"em_dashx3, semicolonx1",high
+SST-001-turn2.txt,False,1,em_dashx2,high
+STK-001-turn1.txt,True,0,none,high
+STK-001-turn2.txt,False,1,em_dashx2,high

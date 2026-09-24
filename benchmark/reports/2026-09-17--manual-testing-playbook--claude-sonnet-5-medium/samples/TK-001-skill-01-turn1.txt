@@ -1,0 +1,16 @@
+Path: `export/001 - task-creator-payout-pause-clarification.md`
+Verified: read-back succeeded; 11 lines
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+I need a bit more before drafting the task for creator payout pause:
+
+**Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA
+
+**Requirements:** What needs to be built? What triggers a payout pause and what un-pauses it? Acceptance criteria? Technical constraints?
+
+**Design & platform:** Figma links? Platforms? (iOS / Android / Web / All)
+
+**Dependencies:** Related or dependent tickets?
+
+**Validation:** What am I likely misunderstanding? What constraints should I question?

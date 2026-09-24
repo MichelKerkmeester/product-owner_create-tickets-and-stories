@@ -1,0 +1,8 @@
+Verified: read-back succeeded; 49 lines
+Path: `export/002 - task-creator-payout-pause.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+The task covers three requirement groups: required pause-reason capture on pause, a pause indicator on the payout row, and visibility of the reason in payout history for QA. Scope and platform weren't specified, so I built it as a standalone full-stack task (storage + UI) rather than guessing a single platform — flag if it should narrow to backend-only or a specific client.
+
+I can offer a ClickUp push once you confirm this looks right — just say the word.

@@ -1,0 +1,17 @@
+**Export-equivalent path:** `export/001 - bug-payout-pause-toggle-clarification.md`
+
+```markdown
+I'll create your bug report. Quick questions:
+
+**Bug details:** Unexpected behavior? Expected behavior? Steps to reproduce?
+**Environment:** Where does this occur? Platform(s)? (iOS / Android / Web / All)
+**Design reference:** Figma references showing expected design?
+**Evidence:** Screenshots, error logs, console output? When first noticed? Known workaround?
+**Validation:** What should I NOT assume about root cause? Related bug reports?
+```
+
+I have the observed symptom — the payout pause toggle silently reverts to off — but not enough to write a QA-ready bug report: no reproduction steps, no confirmation of expected behavior, no environment or evidence, and no frequency or severity signal.
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Once you answer, I'll deliver the bug report as `export/002 - bug-payout-pause-toggle-[description].md`.

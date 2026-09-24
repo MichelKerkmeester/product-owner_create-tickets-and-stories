@@ -1,0 +1,18 @@
+Since this request just names the feature without scope, requirements, or acceptance context, I'll ask one consolidated question rather than guess at what "pause" means here.
+
+I'll create your task. Quick questions:
+
+**Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA — and who triggers the pause (admin, ops/trust & safety, or the creator themselves)?
+
+**Requirements:**
+- What condition or action pauses a creator's payouts (fraud flag, dispute, manual admin action, policy violation, KYC/compliance hold, etc.)?
+- What happens to payouts already in flight when a pause is triggered — held, reversed, or queued until resumed?
+- Can a pause be scoped (specific payout, specific period) or is it always account-wide?
+- How is a pause lifted — manual resume, automatic expiry, or both?
+- Does the creator get notified, and if so what should they see (reason, status, expected resolution)?
+
+**Design & platform:** Figma links for any admin or creator-facing UI? Platforms? (iOS / Android / Web / All / Backend-only)
+
+**Dependencies:** Related payout, KYC, dispute, or compliance tickets this depends on or should link to?
+
+**Validation:** What am I likely misunderstanding — e.g., is this purely a backend/ops capability with no creator-facing surface, or does it need a creator notification/UI too?

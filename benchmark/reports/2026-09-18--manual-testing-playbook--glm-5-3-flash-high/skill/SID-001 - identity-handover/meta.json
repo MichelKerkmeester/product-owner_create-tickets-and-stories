@@ -1,0 +1,94 @@
+{
+ "id": "SID-001",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-identity/identity-handover.md",
+ "twin": "PID-001",
+ "model": "llmgateway/glm-5.3-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-SID-001-0294c4a8",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - task-payout-pause-toggle.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 58.85,
+   "tool_calls": 8,
+   "tools_used": [
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "ls",
+    "write",
+    "read"
+   ],
+   "input_tokens": 57428,
+   "output_tokens": 1849,
+   "reasoning_tokens": 1260,
+   "cost_usd": 0.007531914000000001,
+   "model_s": 58.63,
+   "startup_s": 0.22,
+   "stop_reason": "stop",
+   "response_models": [
+    "consensusprotocol/glm-5.3-flash"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - task-payout-pause-toggle.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$quick $task Create a task for the payout pause toggle. Brands pause a pending payout for 24 hours with a required reason, and QA needs checklist items for the toggle, the reason field and the creator banner."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 28.68,
+   "tool_calls": 1,
+   "tools_used": [
+    "bash"
+   ],
+   "input_tokens": 13304,
+   "output_tokens": 1417,
+   "reasoning_tokens": 1012,
+   "cost_usd": 0.0026450019999999996,
+   "model_s": 28.47,
+   "startup_s": 0.2,
+   "stop_reason": "stop",
+   "response_models": [
+    "consensusprotocol/glm-5.3-flash"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Confirm what you did to verify the saved file, and name the exact delivery string you printed."
+  }
+ ]
+}

@@ -1,0 +1,23 @@
+session: 6ED9C953-82A9-46BD-A082-62F0E91C759A
+
+turn 1 tool calls: 5
+turn 1 write-tool calls: 0
+  [read-only] Glob: knowledge/*.md
+  [read-only] Read: knowledge/Product Owner - Templates - Task Mode - v0.304.md
+  [read-only] Read: knowledge/Product Owner - Assets - Task Templates - v0.101.md
+  [read-only] Read: knowledge/Product Owner - System - Interactive Mode - v0.404.md
+  [read-only] Read: knowledge/Product Owner - Assets - Interactive Response Templates - v0.102.md
+
+turn 2 tool calls: 1
+turn 2 write-tool calls: 0
+  [read-only] ToolSearch: Artifact create canvas
+
+--- was the repaired caveat in context ---
+repaired sentence present in 1 tool result(s):
+  turn 1, Read: knowledge/Product Owner - Templates - Task Mode - v0.304.md
+superseded wording "or uses an explicit command" in tool results: 0
+repaired sentence anywhere in the raw jsonl: True
+string "manual-testing-playbook" anywhere in the raw jsonl: False
+
+absolute tool paths outside the scratch tree: 0
+files under the scratch export directory after both turns: 0

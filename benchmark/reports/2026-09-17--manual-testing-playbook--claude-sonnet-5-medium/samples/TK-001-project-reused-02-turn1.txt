@@ -1,0 +1,16 @@
+The request is too thin to draft a testable task from — I don't yet know what "pause" should actually do, who triggers it, or what counts as done. Let me get that in one shot:
+
+**Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA — which part of the payout-pause feature is this task?
+
+**Requirements:** What needs to be built? Specifically:
+- Who can pause a creator's payout (admin, support, automated trust/safety flag, the creator themselves)?
+- What does "paused" actually block — the payout run, withdrawal requests, both?
+- Does a pause need a reason/note, an expiry, or does it stay paused until manually resumed?
+- What should happen to payouts already in flight when a pause is applied?
+- Any notification to the creator when paused/resumed?
+
+**Design & platform:** Any Figma reference for an admin pause control? Platforms involved (internal admin tool / creator-facing app / API only)?
+
+**Dependencies:** Any related or dependent tickets (e.g. the underlying payout pipeline, trust & safety flagging)?
+
+**Validation:** What am I likely misunderstanding, and what constraints should I question — e.g. should this be reversible, is there an audit-log requirement, does finance/compliance need visibility?

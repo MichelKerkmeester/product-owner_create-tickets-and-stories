@@ -1,0 +1,16 @@
+The request is `$task` (explicit command) but lacks scope, requirements, and success criteria. Per Task Mode's core rule, I'll ask one consolidated question rather than guess.
+
+I'll create your task. Quick questions:
+
+**Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA — which layer(s) does the payout pause touch?
+**Requirements:** What needs to be built? Specifically:
+- Who can pause a creator's payouts, and from where (admin tool, creator's own settings, both)?
+- What triggers a pause (manual action, fraud flag, dispute, policy violation, creator request)?
+- What happens to payouts already in flight vs. future scheduled payouts while paused?
+- Can the creator see their payout is paused, and do they get notified? What do they see/receive?
+- How is a pause lifted — manual unpause, automatic expiry, or both?
+- What does success look like (e.g., no payout is issued while paused, audit trail exists)?
+
+**Design & platform:** Figma links for any admin or creator-facing UI? Platforms? (iOS / Android / Web / All)
+**Dependencies:** Related or dependent tickets (e.g., existing payout pipeline, fraud/dispute tooling, notifications)?
+**Validation:** What am I likely misunderstanding? Any constraints I should question (e.g., legal/compliance hold requirements, partial payout handling)?

@@ -1,0 +1,10 @@
+Read-back verified: 25 lines.
+
+`export/002 - task-creator-payout-pause.md`
+Verified: read-back succeeded; 25 lines.
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Standalone task covering the pause indicator, required reason field, and payout-history visibility for QA. Kept to a single requirement group since all three acceptance points describe one coupled behavior rather than separate build areas.
+
+This runtime doesn't expose ClickUp tooling right now, so there's no push offer to make. Want a parent task, related tickets linked, or a User Story block added?

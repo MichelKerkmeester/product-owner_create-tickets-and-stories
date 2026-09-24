@@ -1,0 +1,7 @@
+Path: `export/002 - doc-notification-retry-guide.md`
+Verified: read-back succeeded; 53 lines
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: em dashes in the status label and the two `*   **Term** — definition` boundary bullets (both sanctioned ClickUp definition-delimiter exemptions), "Requeue" capitalized mid-heading (literal action identifier), plain hyphens in "30 second backoff" (literal value).
+
+Quality summary: Source safety pass (all claims trace to the notes; the two derivations, that a requeued notification re-enters the failed cycle and that only the failed queue offers the Requeue action, follow directly from the stated rules). Shape fit pass (Guide, with a required Diagnostic branch before the requeue procedure). ClickUp layout pass (`* * *` dividers, `*   ` bullets, sentence-case headings, no spacer headings in the file). Readability pass. Voice pass.
+
+The guide gives support agents the failure signal (a notification in the failed queue has spent its five 30-second attempts), the two-step Requeue procedure, and what resets afterward. Two gaps stay visible in Boundaries: the notes do not record why attempts fail, and they say nothing about adjacent systems, so neither is invented. One flag for you: I derived "each attempt starts 30 seconds after the previous one" from "30 second backoff", so if the notes meant exponential backoff, tell me and I will correct it.

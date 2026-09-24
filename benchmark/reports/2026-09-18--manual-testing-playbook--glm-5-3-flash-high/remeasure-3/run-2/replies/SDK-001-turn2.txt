@@ -1,0 +1,8 @@
+`export/002 - doc-notification-retry-requeue.md`
+
+`Verified: read-back succeeded; 45 lines`
+`HVR self-scan: 0 hard blockers. Fixed: "new run" → "the requeued notification" and "wait"/"gap" → "backoff" to kill synonym cycling. Kept with reason: the five **Term** — definition delimiters (sanctioned ClickUp definition-entry shape), the capitalized **Requeue** action name (literal supplied identifier) and the single three-rule list in step 1 (content-fixed by the source's own three rules, one triad inside the density rule)`
+
+Quality summary: Source safety — pass, every claim traces to the pasted notes, with the failure-cause gap kept visibly unknown rather than filled. Shape fit — pass, Guide with diagnosis, requeue and a skipped Before you start that had no sourced prerequisite. ClickUp layout — pass, exact `* * *` dividers, `*   ` bullets, sentence-case headings, no spacer headings in the file export. Readability — pass, takeaway-first sections, connective and article floors cleared. Voice — pass.
+
+The guide states your rules verbatim: 30 second backoff, five attempts, attempt six moves the notification to the failed queue, the **Requeue** action restarts the backoff. One wording point you may want to settle for the next revision: the notes give five attempts and then an attempt six, so it reads as six delivery tries in total, and I kept that exactly as written rather than resolving whether the sixth attempt itself delivers or merely closes the run. If that detail or the failure cause reaches the notes later, I can extend the boundaries section in place.

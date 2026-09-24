@@ -1,0 +1,78 @@
+# Brand - Payouts - Pause payout
+
+* * *
+_A story is used to define product requirements, acceptance criteria, etc._
+_Use it as the foundation for Tasks that work towards fulfilling the acceptance criteria._
+
+## About
+* * *
+A brand can hold a pending payout for a fixed window instead of letting it process on schedule. This story adds a pause action on the payout row, a required reason and a status badge, then releases the payout automatically once the hold ends.
+
+### Problem
+* * *
+A pending payout processes on schedule with no way for a brand to stop it:
+*   There is no way to hold a payout once it is pending
+*   A brand with a reason to stop a payout, such as a dispute or a check still in progress, has no lever
+* * *
+
+### Solution
+* * *
+Add a pause action to the pending payout row that puts the payout on a fixed 24-hour hold and records why. The row reflects the paused state so the brand can see it at a glance, and the hold lifts on its own once the window ends, so nobody has to remember to resume it.
+* * *
+
+#### **Expected outcomes**
+* * *
+*   A brand can stop a pending payout from processing without contacting support
+*   Every pause carries a recorded reason
+*   A paused payout resumes on its own, with no manual step to release it
+* * *
+
+## Requirements
+* * *
+**Payout row**
+* * *
+*   The pause action is labelled `Pause payout`
+*   The payout row shows a `Paused` badge while the hold is active
+
+**Pause hold**
+* * *
+*   The reason field is required to confirm a pause
+*   The hold lasts exactly `24 hours` from confirmation, then the payout releases automatically
+* * *
+##   
+
+## Acceptance criteria
+* * *
+All acceptance criteria below must be met, or discuss and rescope any that cannot be met.
+
+1\. **A brand pauses a pending payout with a reason**
+* * *
+*   **Given** a brand is viewing a pending payout
+*   **When** the brand selects `Pause payout` and submits a reason
+*   **Then** the payout stops processing and the row shows the `Paused` badge
+*   **And** the brand cannot confirm the pause without entering a reason
+* * *
+- [ ] _Mark as done, if the criteria are met_
+
+2\. **A paused payout releases on its own once the hold ends**
+* * *
+*   **Given** a payout has been paused
+*   **When** the `24-hour` hold ends
+*   **Then** the payout resumes processing with no action from the brand
+*   **And** the `Paused` badge no longer shows on the row
+* * *
+- [ ] _Mark as done, if the criteria are met_
+* * *
+##   
+
+---
+
+Artifact kind: **Story**
+Export-equivalent path: `export/001 - PRD-payout-pause.md`
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Quality check: no Delivery section — nothing in the notes forced one (no open question, no undated external dependency, none requested), so Acceptance criteria correctly closes the artifact. All four hard values (label, badge, required reason, 24-hour duration) landed in Requirements verbatim; the criteria state outcomes only, not the values themselves.
+
+One assumption worth confirming: I read "pause a pending payout" as scoped to payouts still in pending state only (not already-processing or completed payouts) — flag if brands need to pause from another status too.
+
+Next step: happy to add a `## Delivery` section (estimation, rabbit holes, no-gos) if this is heading into sprint planning, or push to ClickUp once you approve.

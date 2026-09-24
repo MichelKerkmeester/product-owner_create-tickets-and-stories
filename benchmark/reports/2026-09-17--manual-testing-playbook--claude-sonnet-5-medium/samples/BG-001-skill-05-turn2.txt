@@ -1,0 +1,9 @@
+Read-back verified: non-empty content, 77 lines.
+
+**Path:** `export/002 - bug-payout-pause-toggle.md`
+**Verified:** read-back succeeded; 77 lines
+**HVR self-scan:** 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Quality: Observed/Expected behavior are specific and self-verifying (toggle display vs. actual paused state), reproduction steps are numbered and match exactly what you reported, frequency is `Always` per your "every time" claim, and every unsupplied field (severity, device, OS, screenshot, design reference) is marked `Not provided` rather than guessed. A BDD scenario is included since it cleanly captures the Given/When/Then of the display-state mismatch.
+
+This is a UI-state bug (the toggle's display resets, not the actual pause), which is worth flagging to engineering early since it changes where the fix likely lives. Let me know if you'd rather I remove the BDD section or add a severity/priority call.

@@ -1,0 +1,61 @@
+# Creator payout pause indicator and reason tracking
+
+### About
+
+---
+
+Creators and support teams currently have no way to tell whether a pending payout has been paused or why. This task adds a visible pause indicator to the payout row and requires a reason whenever a payout is paused, so the pause state and its cause are traceable through payout history for QA and support review.
+
+### Requirements
+
+---
+
+1.  **Require a reason when pausing a payout**
+
+---
+
+Pausing a pending payout must capture why, so the reason is available for support and QA review later.
+
+**Checklist**
+
+- [ ] Pausing a payout requires a reason to be entered before the pause is saved
+- [ ] A pause cannot be saved with an empty or missing reason
+- [ ] The reason is stored against the payout record
+
+---
+
+2.  **Show a pause indicator in the payout row**
+
+---
+
+Creators and internal users need to see at a glance which pending payouts are paused.
+
+**Checklist**
+
+- [ ] A paused payout shows a visible indicator in the payout row
+- [ ] The indicator is distinguishable from active and completed payout states
+
+---
+
+3.  **Surface the pause reason in payout history**
+
+---
+
+QA and support need to verify a pause and its reason without querying the backend directly.
+
+**Checklist**
+
+- [ ] The stored pause reason is visible in the payout history entry for the paused payout
+- [ ] QA can confirm both the pause state and the reason from the payout history view
+
+---
+
+<br>
+
+Export-equivalent path: `export/001 - task-creator-payout-pause-indicator.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Quality status: all dimensions 8+, WHAT/WHY scope only, no HOW or implementation detail added.
+
+Want me to add a References or Related tickets section for the existing payout pipeline work, or is this ready as-is? I can also offer ClickUp delivery once you confirm — let me know if the connector should push this task.

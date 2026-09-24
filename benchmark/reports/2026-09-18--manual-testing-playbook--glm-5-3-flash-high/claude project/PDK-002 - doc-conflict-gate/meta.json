@@ -1,0 +1,86 @@
+{
+ "id": "PDK-002",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-document-modes/doc-conflict-gate.md",
+ "twin": "SDK-002",
+ "model": "llmgateway/glm-5.3-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-PDK-002-3ab40c8f",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 93.28,
+   "tool_calls": 9,
+   "tools_used": [
+    "ls",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "ls",
+    "read"
+   ],
+   "input_tokens": 77187,
+   "output_tokens": 2804,
+   "reasoning_tokens": 2905,
+   "cost_usd": 0.009509456,
+   "model_s": 93.06,
+   "startup_s": 0.21,
+   "stop_reason": "stop",
+   "response_models": [
+    "consensusprotocol/glm-5.3-flash"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$doc Write a behavior reference for the payout pause feature from these two notes. Note A says the pause holds for 24 hours then releases automatically. Note B says the pause holds until the brand clears it manually."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 131.37,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 5342,
+   "output_tokens": 6825,
+   "reasoning_tokens": 6371,
+   "cost_usd": 0.002960346,
+   "model_s": 131.12,
+   "startup_s": 0.24,
+   "stop_reason": "stop",
+   "response_models": [
+    "consensusprotocol/glm-5.3-flash"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Note A governs. The automatic release after 24 hours is current behavior. Note B is a retired draft."
+  }
+ ]
+}

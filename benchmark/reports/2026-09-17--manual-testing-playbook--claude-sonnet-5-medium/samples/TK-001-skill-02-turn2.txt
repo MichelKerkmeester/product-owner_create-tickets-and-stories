@@ -1,0 +1,9 @@
+Verified: read-back succeeded; 27 lines.
+
+**Path:** `export/001 - task-creator-payout-pause.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none needed. Kept with reason: none.
+
+**Quality summary:** Standalone task with About and a single Requirements group covering the three acceptance conditions you gave (required reason on pause, stored reason, row indicator, visible in payout history for QA). Kept scope to exactly what you described — didn't add pause-trigger ownership, in-flight-payout handling, or resume logic since you didn't ask for them.
+
+This is a Task (not a document artifact), so there's no ClickUp offer needed unless you'd like me to push it — let me know if you want this created in ClickUp and I'll wait for your go-ahead before writing anything there.

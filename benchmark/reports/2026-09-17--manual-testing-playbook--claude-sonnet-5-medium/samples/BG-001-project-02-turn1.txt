@@ -1,0 +1,22 @@
+I don't have enough to write a reliable bug report yet — I have the observed symptom but not the reproduction path or context needed to make it QA-actionable.
+
+## Deliverable Block
+
+```markdown
+Before I draft the bug report, please confirm:
+
+- **Steps to reproduce:** What exact steps trigger the revert — e.g. toggle payout pause on, then what happens (page refresh, navigation, a save action, a delay)?
+- **Expected behavior:** Should the toggle stay "on" until explicitly turned off, and should payouts actually pause while it's on, or is the bug only visual (toggle looks off but pause is still active)?
+- **Frequency:** Does this happen every time, intermittently, or rarely?
+- **Severity:** How is this affecting payouts — are payouts going out when they shouldn't, or is this cosmetic?
+- **Scope:** Where does this occur — merchant dashboard, admin panel, mobile app? Any specific account, device, OS or browser involved?
+- **Evidence:** Any screenshots, screen recording, logs or error messages to include?
+
+I'll draft the full bug report as soon as you confirm these.
+```
+
+**Export-equivalent path:** `export/001 - bug-payout-pause-toggle-clarification.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none — no artifact body was drafted, so no voice pass applies yet.
+
+Once you answer, I'll deliver the full bug report as the next artifact in this lane (`002 - bug-payout-pause-toggle-...md`).

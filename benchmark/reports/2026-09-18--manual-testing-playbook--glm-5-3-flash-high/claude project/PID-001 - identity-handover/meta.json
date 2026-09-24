@@ -1,0 +1,83 @@
+{
+ "id": "PID-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-identity/identity-handover.md",
+ "twin": "SID-001",
+ "model": "llmgateway/glm-5.3-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-PID-001-b22adbbd",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 60.23,
+   "tool_calls": 6,
+   "tools_used": [
+    "ls",
+    "grep",
+    "read",
+    "read",
+    "read",
+    "read"
+   ],
+   "input_tokens": 36096,
+   "output_tokens": 2764,
+   "reasoning_tokens": 2329,
+   "cost_usd": 0.003979448,
+   "model_s": 60.0,
+   "startup_s": 0.23,
+   "stop_reason": "stop",
+   "response_models": [
+    "consensusprotocol/glm-5.3-flash"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$quick $task Create a task for the payout pause toggle. Brands pause a pending payout for 24 hours with a required reason, and QA needs checklist items for the toggle, the reason field and the creator banner."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 10.28,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 8061,
+   "output_tokens": 390,
+   "reasoning_tokens": 85,
+   "cost_usd": 0.0010308679999999999,
+   "model_s": 10.08,
+   "startup_s": 0.2,
+   "stop_reason": "stop",
+   "response_models": [
+    "consensusprotocol/glm-5.3-flash"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Confirm whether you wrote any file to disk, and tell me how a reviewer would open this artifact."
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+Path: `export/002 - doc-notification-retry-troubleshooting.md`
+Verified: read-back succeeded; 44 lines
+HVR self-scan: 0 hard blockers. Fixed: (none, drafted to the card). Kept with reason: em dashes in the Status label and the four `**Term** — detail` bullets (sanctioned Doc status-label and definition-delimiter exemptions), and the identifiers "failed queue", "Requeue action", "30 second backoff" and "attempt six" repeated rather than synonymed (fixed-label repetition)
+
+Quality: Source safety pass (every claim traces to your notes, all four gaps the notes do not answer are labelled in Boundaries, nothing invented beyond the derived expected result of a requeue). Shape fit pass (Guide: mandatory Overview and Process present, Before you start, Quality checks and Boundaries all satisfy their Include-when, Related guidance omitted since you supplied no links). ClickUp layout pass (`* * *` dividers after every heading, `*   ` and `*   [ ]` markers, sentence-case headings, H2 a 2-of-8 minority, no spacer headings in the file export). Readability pass (narrative register in the steps, reference register only where content is enumerable). Voice pass.
+
+The guide walks a support agent from confirming a notification reached the failed queue through attempt six, requeueing it, and knowing that the 30 second backoff restarts rather than delivery being instant. Anything the notes do not answer, such as why the notification failed or whether attempt six itself waits the interval, is stated as unknown instead of filled.
+
+One next step: tell me if any of the four Boundaries gaps has an answer you meant to include, and I will fold it in. Say the word if you also want this pushed to ClickUp, and I will wait for your approval before writing anything there.

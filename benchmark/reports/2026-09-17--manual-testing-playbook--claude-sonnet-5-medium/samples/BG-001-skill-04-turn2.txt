@@ -1,0 +1,7 @@
+Read-back confirmed: 78 lines, non-empty.
+
+**Path:** `export/002 - bug-payout-pause-toggle.md`
+**Verified:** read-back succeeded; 78 lines
+**HVR self-scan:** 0 hard blockers. Fixed: none. Kept with reason: "Not provided" (literal field placeholder used for every unsupplied fact rather than an invented value).
+
+Bug report saved for Web/Chrome 126, reproducing every time: pausing a payout on a brand wallet and refreshing shows the toggle as off while the payout status itself still reads paused — a UI/state desync rather than a lost pause, based on what you reported. Severity and device/OS were left as "Not provided" since you didn't supply them; let me know if you want those filled in or want ClickUp delivery for this one.

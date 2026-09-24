@@ -1,0 +1,10 @@
+To scope this task properly, I need a few details on the payout pause feature:
+
+1. **Who triggers the pause?** Admin/ops action, automated system trigger (e.g., fraud flag, dispute, KYC issue), or creator self-service?
+2. **What condition(s) cause it?** e.g., failed verification, chargeback/dispute opened, policy violation, manual review flag.
+3. **Scope of the pause** — does it block all future payouts for that creator, hold a specific payout in flight, or both?
+4. **Resume path** — how/when does the pause get lifted (auto after X, manual review, appeal)?
+5. **Visibility** — does the creator see a pause status/notice in their dashboard, or is it backend-only?
+6. **Any existing reference** (ticket, doc, Slack thread) I should pull constraints from?
+
+If you'd rather I just draft with reasonable placeholders and you correct them, say so and I'll proceed — but a short answer to 1–4 will get you a much tighter task on the first pass.

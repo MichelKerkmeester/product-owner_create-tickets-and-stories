@@ -1,0 +1,71 @@
+**Export-equivalent path:** `export/002 - bug-payout-pause-toggle.md`
+
+```markdown
+# Payout pause toggle reverts to off after refresh while the payout stays paused
+
+### About
+
+---
+
+On a brand wallet with a pending payout, turning the payout pause toggle on and refreshing the page shows the toggle back in the off position, even though the payout itself remains paused.
+
+| Field           | Value          |
+| --------------- | -------------- |
+| Frequency       | Always         |
+| Severity        | Not provided   |
+| Platform        | Web            |
+| Device          | Not provided   |
+| OS Version      | Not provided   |
+| Browser         | Chrome         |
+| Browser Version | 126            |
+
+**References:** Not provided
+
+---
+
+### Bug
+
+---
+
+**1. Observed Behavior**
+
+---
+
+After enabling the payout pause toggle and refreshing the page, the toggle visually shows off, while the underlying payout still shows as paused
+- The toggle's displayed state no longer matches the actual pause state
+- No error message is shown
+- Reproduced every time, on Chrome 126, web
+
+Steps to Reproduce:
+1. Open a brand wallet with a pending payout
+2. Switch the payout pause toggle on
+3. Refresh the page
+4. Observe the toggle shows off, while the payout still shows paused
+
+Screen recording: Not provided. Screenshot: Not provided
+
+---
+
+**2. Expected Behavior**
+
+---
+
+The toggle should stay on and reflect the paused state until the brand explicitly resumes the payout
+- Design specifications: Not provided
+- Previous working behavior: Not provided
+- User expectation: the toggle's displayed state should always match the actual pause state, including after a page refresh
+
+Checklist
+- [ ] Root cause identified
+- [ ] Fix implemented
+- [ ] Bug no longer reproducible
+- [ ] No regressions introduced
+
+---
+```
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none — no em-dashes or banned terms in the drafted prose.
+
+**Quality:** Observed/expected behavior, reproduction steps and environment fields are all source-backed; severity, device, OS and evidence are honestly marked `Not provided` rather than guessed.
+
+Since a ClickUp connector isn't detected in this environment, there's nothing to offer for direct push — let me know if you'd like anything adjusted (e.g. severity once you confirm impact, or a screenshot added later).

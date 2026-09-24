@@ -1,0 +1,9 @@
+I'll ask one consolidated question before drafting, per Task Mode intake rules — the request names the feature but not the scope, trigger, or success conditions.
+
+**Format & scope:** Who triggers a payout pause — the creator, an admin/ops user, or an automated risk check? Which platform(s)? (iOS / Android / Web / All)
+**Requirements:** What can be paused — all pending payouts, or a specific deal's payout? What resumes a paused payout, and is there a max pause duration or auto-resume? What should the creator/admin see while paused (status, reason, ETA)?
+**Design & references:** Any Figma links for the pause UI? Any existing payout task/epic this belongs under?
+**Dependencies:** Does this touch the payout processor, ledger, or notification system? Any related tickets?
+**Validation:** What am I likely misunderstanding — e.g., is "pause" creator-initiated (like a vacation mode) or platform-initiated (like a compliance hold)?
+
+Reply with what you know — I'll use smart defaults for anything you skip if you'd rather I move fast (say "quick" and I'll draft with reasonable assumptions instead of waiting).

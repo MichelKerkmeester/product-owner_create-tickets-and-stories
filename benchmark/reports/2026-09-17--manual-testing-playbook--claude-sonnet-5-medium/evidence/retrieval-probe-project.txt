@@ -1,0 +1,5 @@
+I listed the `knowledge/` directory successfully. It contains 40 files. Three of them, named exactly as they appear on disk:
+
+1. `Product Owner - Assets - Bug Report Template - v0.100.md`
+2. `Product Owner - System - Router Contract - v0.100.md`
+3. `Product Owner - Rules - Human Voice Core - v0.100.md`

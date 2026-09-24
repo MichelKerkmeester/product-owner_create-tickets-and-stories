@@ -1,0 +1,9 @@
+I need a few details before drafting this task — the request names the feature but not its scope or intended behavior.
+
+**Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA — which layer does the payout pause work touch?
+**Requirements:** What triggers a pause (creator-initiated, admin-initiated, automatic risk/compliance flag, or more than one)? What happens to payouts already in flight versus future ones? Can a creator still see pending balances while paused? What resumes it?
+**Design & platform:** Any Figma links for the pause UI (creator dashboard, admin panel)? Platforms — iOS / Android / Web / All?
+**Dependencies:** Any related or dependent tickets (existing payout flow, admin tooling, notification system)?
+**Validation:** What should I not assume — is this a manual admin action only, or does it need to integrate with an automated fraud/compliance hold? Should paused creators be notified automatically?
+
+Once I have these, I'll draft and export the task.

@@ -1,0 +1,23 @@
+**Deliverable Block**
+
+```markdown
+I'll create your bug report. Quick questions:
+
+**Bug details:** What exactly happens when you toggle payout pause on — does it revert immediately, after a page refresh, or after some delay? Does the UI show it as on for a moment first? What should happen instead (toggle stays on, payouts pause)?
+**Steps to reproduce:** Which screen or settings page holds the toggle? What is the exact sequence: navigate to X, click the toggle, then what?
+**Environment:** Platform(s)? (iOS / Android / Web / All) Device, OS and browser if applicable?
+**Frequency & severity:** Does this happen every time, sometimes, or rarely? How severe is the impact (for example, payouts continue unexpectedly while the toggle silently reverts)?
+**Evidence:** Screenshots, screen recording, console errors, API/log output? When was this first noticed? Any known workaround?
+**Design reference:** Any Figma reference showing the expected toggle behavior?
+**Validation:** What should I NOT assume about the root cause (for example, backend rejection vs. frontend state reset vs. a stale cache)? Any related bug reports?
+```
+
+---
+
+Export-equivalent path: `export/001 - bug-payout-pause-toggle-reverts-clarification.md`
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+Quality status: intake question only, not yet scored — the bug report itself scores after your answers land.
+
+Summary: "Toggle silently reverts to off" is too thin to write a reliable bug report — no reproduction steps, location, environment, or evidence to work from, and inventing any of those would violate the "no fabricated facts" rule. Reply with the details above and I'll deliver the full report as the next artifact in this lane.
