@@ -8,16 +8,16 @@ Hand-maintained local package for the Product Owner claude.ai Project. The kerne
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- synthesized Project kernel v1.13.0 (routing authority, SKILL.md is not loaded in this Project)
+|-- Custom Instructions.md        <- synthesized Project kernel v1.14.0 (routing authority, SKILL.md is not loaded in this Project)
 |-- README.md                     <- upload manifest and hand-authored parity note
 `-- knowledge/                    <- upload all thirty-eight files as Project Knowledge
-    |-- Product Owner - System - Interactive Mode - v0.404.md
+    |-- Product Owner - System - Interactive Mode - v0.405.md
     |-- Product Owner - System - Router Contract - v0.100.md
     |-- Product Owner - Templates - Task Mode - v0.305.md
     |-- Product Owner - Templates - Bug Mode - v0.203.md
     |-- Product Owner - Templates - Doc Mode - v0.110.md
-    |-- Product Owner - Templates - Story Mode - v0.401.md
-    |-- Product Owner - Assets - Task Templates - v0.101.md
+    |-- Product Owner - Templates - Story Mode - v0.402.md
+    |-- Product Owner - Assets - Task Templates - v0.102.md
     |-- Product Owner - Assets - Bug Report Template - v0.100.md
     |-- Product Owner - Assets - Interactive Response Templates - v0.102.md
     |-- Product Owner - Assets - Doc Templates - v0.107.md
@@ -36,7 +36,7 @@ claude project/
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` v1.13.0 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.9.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
+`Custom Instructions.md` v1.14.0 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.10.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
 
 CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Block**, direct resource loading becomes Project Knowledge consultation, and the response reports an export-equivalent path. Refinements keep delivery metadata outside preserved content unless equivalent metadata already exists in the source.
 
@@ -44,12 +44,12 @@ CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Bloc
 
 | Source | Project Knowledge mirror |
 | --- | --- |
-| `sk-product-owner/references/interactive-mode.md` | `Product Owner - System - Interactive Mode - v0.404.md` |
+| `sk-product-owner/references/interactive-mode.md` | `Product Owner - System - Interactive Mode - v0.405.md` |
 | `sk-product-owner/references/task-mode.md` | `Product Owner - Templates - Task Mode - v0.305.md` |
 | `sk-product-owner/references/bug-mode.md` | `Product Owner - Templates - Bug Mode - v0.203.md` |
 | `sk-product-owner/references/doc-mode.md` | `Product Owner - Templates - Doc Mode - v0.110.md` |
-| `sk-product-owner/references/story-mode.md` | `Product Owner - Templates - Story Mode - v0.401.md` |
-| `sk-product-owner/assets/task-templates.md` | `Product Owner - Assets - Task Templates - v0.101.md` |
+| `sk-product-owner/references/story-mode.md` | `Product Owner - Templates - Story Mode - v0.402.md` |
+| `sk-product-owner/assets/task-templates.md` | `Product Owner - Assets - Task Templates - v0.102.md` |
 | `sk-product-owner/assets/bug-report-template.md` | `Product Owner - Assets - Bug Report Template - v0.100.md` |
 | `sk-product-owner/assets/interactive-response-templates.md` | `Product Owner - Assets - Interactive Response Templates - v0.102.md` |
 | `sk-product-owner/assets/doc-templates.md` | `Product Owner - Assets - Doc Templates - v0.107.md` |
@@ -121,7 +121,8 @@ Push shape: artifact H1 becomes the task name, Deliverable Block framing and pro
 - `$task`, `$bug` and `$story` each consult only their own routed knowledge pair (Task Mode + Task Templates, Bug Mode + Bug Report Template, Story Mode + the one scaffold the resolved shape names) and load no unrelated mode resource. A `$story` request consults Story Template and never Epic Template.
 - `skip depth` explicitly selects Raw energy and skips the phase flow. `$quick` never selects Raw, and Raw never fires without the explicit phrase.
 - `$quick $story` and `$story $quick` (and the `$prd`/`$p` aliases, and `$epic`/`$e`) both select Story with Quick energy, matching the `$quick $doc` / `$doc $quick` order equivalence.
-- New Task, Bug, Doc, Story and Epic exports report `export/NNN - {task|bug|doc|PRD|Epic}-[description].md`. A Task source sync retains the existing task filename.
+- New Task, Bug, Doc, Story and Epic exports report `export/NNN - {task|bug|doc|Story|Epic}-[description].md`. A Task source sync retains the existing task filename.
+- A `$story` request that asks for its task breakdown renders one Deliverable Block per file, Story first, each with its own `Export-equivalent path:` inside `export/NNN - Story-[description]/`. The Story's `#### **Tasks**` block links each `NNN.[n] - task-[description].md`, each task's `**Story**` block links the Story, and one `HVR self-scan:` line covers the set.
 - An approved task read-back uses `include_markdown_description=true` and confirms the rendered body matches the pushed artifact before delivery is reported complete.
 - An approved ClickUp document or page create uses markdown content with the markdown `content_format` value, never the plain `description` field.
 - New Doc artifacts use same-level empty spacer headings only in ClickUp-bound content, never in a file export. A PRD keeps its spacer headings in the export, because they belong to the Barter house format.

@@ -1,7 +1,7 @@
 ---
-title: "Product Owner - System - Interactive Mode - v0.404"
+title: "Product Owner - System - Interactive Mode - v0.405"
 description: "Conversation flow and state management for Product Owner task, bug and document guidance."
-version: "0.404"
+version: "0.405"
 contextType: reference
 importance_tier: high
 trigger_phrases:
@@ -15,14 +15,14 @@ trigger_phrases:
   - "source authority clarification"
 ---
 
-# Product Owner - System - Interactive Mode - v0.404
+# Product Owner - System - Interactive Mode - v0.405
 
 Conversation flows and state management for interactive guidance with concise transparency.
 
 **Loading Condition:** TRIGGER
 **Purpose:** Provides the conversation flows and state management for interactive guidance, driving the single-question intake, artifact-intent and energy detection, source-safety clarification, two-layer transparency, quality control and formatting rules that turn an ambiguous request into a scoped deliverable
 **Scope:** Conversation flows, state machines, artifact-intent detection ($task/$bug/$doc/$story/$prd/$epic), Quick energy detection ($quick), the clarification export contract, source-safety and Story-shape clarification across Story and Epic, two-layer transparency, quality control, formatting rules, cognitive rigor enforcement and response template usage pointer
-**Output Path:** `export/[###] - {task|bug|doc|PRD|Epic}-[description]-clarification.md`
+**Output Path:** `export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md`
 **Loads With:** `assets/interactive-response-templates.md` as the paired scaffold, beside the always-loaded `references/hvr-core.md` and `references/conciseness.md`
 **Routed By:** two or more artifact commands in one request, confidence under the 0.40 fallback band, a blocked Doc or Story contract gate, and missing scope, user value or evidence
 **Hands Off To:** the resolved mode reference with its paired scaffold once the user answers, Task, Bug, Doc or Story Mode. The clarification file it wrote is left untouched, and the artifact takes the next number in that lane
@@ -87,10 +87,10 @@ A clarification is exported like any other deliverable. The skill's export-befor
 Save it in the routed artifact's lane, under the next number in that lane, with `-clarification` appended to the description stem:
 
 ```text
-export/[###] - {task|bug|doc|PRD|Epic}-[description]-clarification.md
+export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md
 ```
 
-A request that reached Interactive Mode through the Doc, Story or Bug gate keeps that lane and that prefix, because the clarification is about that artifact. A request with no resolved artifact at all uses `intake` in place of the artifact word. Read the file back and report its path exactly as an artifact delivery does.
+A request that reached Interactive Mode through the Doc, Story or Bug gate keeps that lane and that prefix, because the clarification is about that artifact. A Story asked for with its tasks asks in the Story lane at the top of `export/`, outside the bundle folder, which then takes the next number. A request with no resolved artifact at all uses `intake` in place of the artifact word. Read the file back and report its path exactly as an artifact delivery does.
 
 Two rules keep this from turning into a half-artifact:
 

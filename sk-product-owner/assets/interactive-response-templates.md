@@ -23,7 +23,7 @@ Copy/apply response templates for Product Owner interactive intake.
 **Loading Condition:** CONDITIONAL, with `references/interactive-mode.md` whenever a request reaches the one-question flow
 **Purpose:** Provides the intake prompts each artifact lane asks when required information is missing, so one question covers every unresolved decision
 **Scope:** The comprehensive question, the Task, Bug, Story and Doc context questions, the source-authority question and the response formatting rules
-**Output Path:** `export/[###] - {task|bug|doc|PRD|Epic}-[description]-clarification.md`
+**Output Path:** `export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md`
 
 ---
 

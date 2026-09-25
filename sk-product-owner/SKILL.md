@@ -2,7 +2,7 @@
 name: product-owner
 description: "Routes Product Owner requests into backlog artifacts, product requirements documents (PRDs) in the Barter house format, and source-safe product or engineering documentation, including ClickUp-formatted guides, catalogs, behavior references, runbooks, API or schema references, and proposals."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.9.0
+version: 1.10.0
 ---
 
 <!-- Keywords: product-owner, backlog, task, subtask, parent task, bug report, acceptance criteria, story mode, user story, prd, product requirements document, epic, doc mode, product documentation, engineering documentation, ClickUp, $task, $bug, $doc, $story, $prd, $epic, $quick -->
@@ -204,8 +204,8 @@ Everything the artifact does not carry travels in the chat response beside the e
 
 Deliverables are markdown artifacts saved before any response.
 
-- New task: `export/[###] - task-[description].md`. New bug: `export/[###] - bug-[description].md`. New Doc: `export/[###] - doc-[description].md`. New PRD Story: `export/[###] - PRD-[description].md`. New Epic: `export/[###] - Epic-[description].md`
-- A clarification is exported too, in the routed artifact's lane, as `export/[###] - {task|bug|doc|PRD|Epic}-[description]-clarification.md`, using `intake` in place of the artifact word when no artifact was resolved. It holds the question and nothing else: no draft, no partial artifact, no answer. When the user replies, the artifact takes the next number in that lane and the clarification file is left untouched
+- New task: `export/[###] - task-[description].md`. New bug: `export/[###] - bug-[description].md`. New Doc: `export/[###] - doc-[description].md`. New Story: `export/[###] - Story-[description].md`. New Epic: `export/[###] - Epic-[description].md`. A new Story asked for with its task breakdown saves as one folder, `export/[###] - Story-[description]/`, holding `[###] - Story-[description].md` and one `[###].[n] - task-[description].md` per task, `n` counting from 1 in the Story's task order. The Story lists its tasks in a `#### **Tasks**` block inside About, each task names the Story in a `**Story**` block, and both link the sibling file. Read back every file, then reply with every path, Story first, each with its own `Verified:` line, and one `HVR self-scan:` line for the whole bundle
+- A clarification is exported too, in the routed artifact's lane, as `export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md`, using `intake` in place of the artifact word when no artifact was resolved. It holds the question and nothing else: no draft, no partial artifact, no answer. When the user replies, the artifact takes the next number in that lane and the clarification file is left untouched
 - Refinement of an existing task, Doc or PRD: keep the original source basename and never overwrite the supplied source
 
 After saving, Read the exact export path and require non-empty returned content. A path string, planned write, or Write result alone does not pass verification. Use the final line number Read returns as `N`. If read-back fails, retry the save once. If it still fails, do not print a `Path:` line or claim delivery, and report that export is blocked. Never paste the full deliverable in chat after filesystem export.
@@ -249,7 +249,7 @@ For a Doc refinement, the fidelity invariant narrowly overrides the delivery-met
 
 ### Clarification Protocol
 
-Ask one comprehensive question and wait when required information is missing. Never answer your own question or create before the user responds. For an ambiguous no-command request, open that single question with the energy choice (quick lean pass with smart defaults, or deeper read with full rigor). For Doc work, consolidate purpose, audience, source authority, unresolved contradictions, current-versus-approved-versus-proposed status and required scope into that one question. Do not draft until the answer makes definitive claims safe. For Story work, consolidate whether the request is a Story or an Epic, the user role and value, the requirement list (a Story) or child-story set and Goal (an Epic), and any supplied evidence. `$quick` / `$q` may skip routine questions and use safe defaults. It cannot skip artifact-command conflicts or Doc authority, contradiction and lifecycle gates.
+Ask one comprehensive question and wait when required information is missing. Never answer your own question or create before the user responds. For an ambiguous no-command request, open that single question with the energy choice (quick lean pass with smart defaults, or deeper read with full rigor). For Doc work, consolidate purpose, audience, source authority, unresolved contradictions, current-versus-approved-versus-proposed status and required scope into that one question. Do not draft until the answer makes definitive claims safe. For Story work, consolidate whether the request is a Story or an Epic, the user role and value, the requirement list (a Story) or child-story set and Goal (an Epic), and any supplied evidence. A Story asked for with its tasks adds the task split to that question when the request names none, and a split the request names is authoritative, one task per named part. `$quick` / `$q` may skip routine questions and use safe defaults. It cannot skip artifact-command conflicts or Doc authority, contradiction and lifecycle gates.
 
 ---
 

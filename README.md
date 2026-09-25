@@ -178,7 +178,7 @@ The check calls no model and no network. Section 11 lists the format check and t
 $task I need a task for the creator payout pause feature.
 ```
 
-A feature name is not a scope, so the reply saves one question as `export/001 - task-creator-payout-pause-clarification.md` and drafts nothing. Answer it in one message and the task lands in `export/002 - task-creator-payout-pause.md`. This is playbook scenario `STK-001`, and both files sit in `export/benchmark/skill/` under that prefix.
+A feature name is not a scope, so the reply saves one question as `export/001 - task-creator-payout-pause-clarification.md` and drafts nothing. Answer it in one message and the task lands in `export/002 - task-creator-payout-pause.md`. This is playbook scenario `STK-001`, and a collected playbook run keeps both files under that prefix.
 
 ### Use It in a claude.ai Project
 
@@ -298,12 +298,12 @@ Product Owner asks before it guesses, and it asks once. For Doc work a second ga
 
 A clarification is exported like any artifact, in the lane of the route it belongs to, with `-clarification` added to the name. A request with no resolved artifact uses `intake` in place of the artifact word. The file holds the question and nothing else: no draft, no partial artifact and no guessed answer. When the user replies, the artifact takes the next number and the clarification file stays untouched.
 
-Real names from the 2026-09-18 run:
+Example names, one per lane:
 
 ```text
 export/001 - task-creator-payout-pause-clarification.md     $task with only a feature name
 export/001 - doc-payout-pause-clarification.md              two notes that disagree
-export/001 - PRD-payout-pause-clarification.md              "Turn these notes into a PRD"
+export/001 - Story-payout-pause-clarification.md            "Turn these notes into a PRD"
 export/001 - intake-creator-payout-flow-clarification.md    no artifact named at all
 ```
 
@@ -474,7 +474,7 @@ Story and Epic are two kinds of product requirements document, not size tiers. D
 - A Story opens with `# {Persona} - {Area} - {Feature}` and an About of Problem, Solution, Expected outcomes and References. Its `## Requirements` holds hard constraints only and is left out when there are none. Its acceptance criteria work at screen level
 - An Epic opens with `# Epic - {Persona} - {Area}` and an About of Problem, Goal, Solution and References. A `## Scope` of child stories, with an optional Added Later group, takes the place of Requirements. Its acceptance criteria work at release level
 
-The Requirements section of a real Story from the 2026-09-18 run, `export/benchmark/skill/SST-001 - 002 - PRD-payout-pause.md`:
+The Requirements section of a real Story from the 2026-09-18 run's `SST-001` scenario:
 
 ```markdown
 ## Requirements
@@ -489,7 +489,7 @@ The Requirements section of a real Story from the 2026-09-18 run, `export/benchm
 ##   
 ```
 
-Its acceptance criteria follow in [the full file](export/benchmark/skill/SST-001%20-%20002%20-%20PRD-payout-pause.md), and [story-template.md](sk-product-owner/assets/story-template.md) holds the full template.
+The run did not keep the Story file itself. [The scenario's reply](benchmark/reports/2026-09-18--manual-testing-playbook--glm-5-3-flash-high/skill/SST-001%20-%20story-shape-hard-values/turn-2.md) reports what landed in it, and [story-template.md](sk-product-owner/assets/story-template.md) holds the full template.
 
 - Every hard value the source supplied lands in Requirements verbatim, in backticks and in the source's own units. `32px` never becomes "updated spacing" and `Link Instagram` never becomes "updated copy"
 - A supplied value stays out of the acceptance criteria, which describe outcomes and leave the mechanism to the developer
@@ -567,13 +567,15 @@ The save happens before the reply, and the reply reports only what the save prov
 export/[###] - task-[description].md
 export/[###] - bug-[description].md
 export/[###] - doc-[description].md
-export/[###] - PRD-[description].md
+export/[###] - Story-[description].md
+export/[###] - Story-[description]/[###] - Story-[description].md
+export/[###] - Story-[description]/[###].[n] - task-[description].md
 export/[###] - Epic-[description].md
-export/[###] - {task|bug|doc|PRD|Epic}-[description]-clarification.md
+export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md
 export/[original-source-filename].md
 ```
 
-A new artifact takes the next free three-digit number and a short lowercase hyphenated description. A clarification with no resolved artifact uses `intake` as its artifact word. A refinement is saved under the exact source filename, such as `export/Barter deal - Image(s).md`, so it can be compared with the original. The supplied source itself is never overwritten.
+A new artifact takes the next free three-digit number and a short lowercase hyphenated description. A Story asked for with its task breakdown saves as one folder under one number, holding the Story and one `[###].[n]` task file per task, each linked to the others. A clarification with no resolved artifact uses `intake` as its artifact word. A refinement is saved under the exact source filename, such as `export/Barter deal - Image(s).md`, so it can be compared with the original. The supplied source itself is never overwritten.
 
 #### Read-Back Before Reply
 
@@ -641,7 +643,7 @@ A route loads its template together with its mode reference. A worked example lo
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem and never loads `SKILL.md`.
 
-- `Custom Instructions.md` is the kernel, v1.13.0, aligned to skill v1.9.0. It carries the full router and rules and is the routing authority inside the Project
+- `Custom Instructions.md` is the kernel, v1.14.0, aligned to skill v1.10.0. It carries the full router and rules and is the routing authority inside the Project
 - `knowledge/` holds 38 files: 17 core documents (five mode references, six templates, four shared rule files, quality scoring and the router contract) and the 21 worked examples
 - `README.md` holds the upload steps, the source-to-mirror map and the smoke matrix
 - `kernel-review.json` is a dated record of one kernel review, read by no tool
@@ -722,19 +724,7 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
 
 #### What `export/benchmark/` Shows
 
-The 60 files in `export/benchmark/` all come from the GLM run, collected by `run/collect_exports.py` in its report folder.
-
-- `skill/` holds the 12 files the skill scenarios wrote, renamed `<scenario id> - <file name>`
-- `claude project/` holds the 12 Deliverable Blocks the Project scenarios returned, saved under the path each reply reported. `PID-001 - NNN - task-payout-pause-toggle.md` keeps the `NNN` a Project cannot know
-- 10 of those 24 files are `-clarification` questions, saved before any draft existed
-- The other 36 are the re-measure rounds: 3 rounds of 3 runs, one clarification and one guide per run, on both sides
-
-Files worth opening first:
-
-- `skill/STK-001 - 002 - task-creator-payout-pause.md`, three requirement groups built only from the supplied acceptance list
-- `skill/SBG-001 - 002 - bug-payout-pause-toggle-reverts-off.md`, Frequency `Always (per reporter)` with Severity, Device and OS Version marked `Not provided`
-- `skill/SDK-002 - 002 - doc-payout-pause-behavior-reference.md`, Note A stated as current and Note B kept as retired
-- `skill/SST-001 - 002 - PRD-payout-pause.md`, four supplied values carried verbatim into Requirements
+`export/benchmark/` is empty. The deliverables of the earlier runs were removed so the next playbook run starts from a clean folder, and that run's collector fills it again, one file per scenario export or Deliverable Block. Each captured run keeps its replies, verdicts and grading notes in its own folder under `benchmark/reports/`.
 
 #### Maintainer Scripts
 
@@ -760,12 +750,12 @@ Files worth opening first:
 │   ├── reports/                     two captured playbook runs
 │   └── router/                      route_contract.py, 117 fixtures and the differential
 ├── claude project/
-│   ├── Custom Instructions.md       claude.ai kernel v1.13.0
+│   ├── Custom Instructions.md       claude.ai kernel v1.14.0
 │   ├── README.md                    upload steps, mirror map and smoke matrix
 │   ├── kernel-review.json           dated record of one kernel review
 │   └── knowledge/                   38 knowledge files
 ├── export/                          generated artifacts, ignored by git
-│   └── benchmark/                   60 deliverables from the GLM run
+│   └── benchmark/                   empty until the next playbook run is collected
 └── sk-product-owner/
     ├── README.md                    skill guide
     ├── SKILL.md                     router, rules and delivery protocol
