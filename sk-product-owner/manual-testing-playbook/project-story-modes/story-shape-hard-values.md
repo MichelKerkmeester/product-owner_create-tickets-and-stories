@@ -28,9 +28,9 @@ A generalized value is a different and false claim. `24 hours` must not become a
 - Runtime profile: project, from `Custom Instructions.md` with the full `claude project/knowledge/` set attached
 - Precondition: `PID-001` identity handover passed in the Project runtime before this scenario starts
 - Expected execution process: Start a fresh Project conversation, submit Turn 1, capture the intake question and its clarification block, answer in Turn 2 and inspect the rendered Story
-- Expected signals: Turn 1 asks one consolidated question covering role, value, kind, requirements and evidence, renders it with `Export-equivalent path: export/[NNN] - PRD-payout-pause-clarification.md` and creates no draft. Turn 2 names the Story kind in the reply, renders the Story under `Export-equivalent path: export/[NNN] - PRD-payout-pause.md`, claims no file and carries `24 hours` and `Pause payout` verbatim in Requirements
+- Expected signals: Turn 1 asks one consolidated question covering role, value, kind, requirements and evidence, renders it as its own clarification block with `Export-equivalent path: export/[NNN] - PRD-payout-pause-clarification.md` and the HVR self-scan line (root section 5, Clarification turns) and creates no draft. Turn 2 names the Story kind in the reply, renders the Story under `Export-equivalent path: export/[NNN] - PRD-payout-pause.md`, claims no file and carries `24 hours` and `Pause payout` verbatim in Requirements
 - Desired user-visible outcome: One story-intake question followed by a house-format Story block naming its kind
-- Pass/fail: PASS if the runtime waits, keeps the supplied values in Requirements, names the kind and claims no file. FAIL if it drafts early, generalizes a value, puts a value in an acceptance criterion, emits ticket fields and story points, or claims a local save
+- Pass/fail: PASS if the runtime waits, consults only the Story scaffold where the transcript shows its reads (`Custom Instructions.md` lines 58 and 79), keeps the supplied values in Requirements, names the kind and claims no file. FAIL if it drafts early, opens both scaffolds, generalizes a value, puts a value in an acceptance criterion, emits ticket fields and story points, or claims a local save
 - Record `SKIP` only when a named sandbox or runtime blocker prevents execution, never for a soft or inconclusive result
 
 ### Conversation chain
@@ -57,7 +57,7 @@ A generalized value is a different and false claim. `24 hours` must not become a
 
 ### Expected
 
-Step 1 fixes the panel baseline. Step 2 returns one intake question as a Canvas Artifact. Step 3 proves the wait state. Step 4 finds the story preamble, `## About`, `### Problem`, `### Solution`, `#### **Expected outcomes**`, `## Requirements` with the supplied values in backticks, and numbered acceptance criteria closed by the Mark-as-done line.
+Step 1 fixes the panel baseline. Step 2 returns one intake question as its own clarification block. Step 3 proves the wait state. Step 4 finds the story preamble, `## About`, `### Problem`, `### Solution`, `#### **Expected outcomes**`, `## Requirements` with the supplied values in backticks, and numbered acceptance criteria closed by the Mark-as-done line.
 
 ### Evidence
 
@@ -66,12 +66,12 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 ### Pass / fail
 
 - **Pass**: One intake question, no early draft, and one house-format Story that carries every supplied value verbatim, names its kind and claims no file
-- **Fail**: The runtime drafts early, generalizes a value, duplicates a value into a criterion, adds ticket header fields, points or INVEST notes, or claims a local save
+- **Fail**: The runtime drafts early, opens both scaffolds, generalizes a value, duplicates a value into a criterion, adds ticket header fields, points or INVEST notes, or claims a local save
 
 ### Failure triage
 
-1. Check the intake gate and kind selection in the Templates - Story Mode knowledge document
-2. Check the Requirements and acceptance-criteria rules in the Story Template knowledge document
+1. Check the intake gate and kind selection in `Product Owner - Templates - Story Mode`
+2. Check the Requirements and acceptance-criteria rules in `Product Owner - Assets - Story Template`
 3. Reconcile every supplied value against the Requirements bullets and restore any generalized value
 
 | Feature ID | Feature name | Scenario name / objective | Exact prompt | Exact command sequence | Expected signals | Evidence | Pass/fail criteria | Failure triage |
