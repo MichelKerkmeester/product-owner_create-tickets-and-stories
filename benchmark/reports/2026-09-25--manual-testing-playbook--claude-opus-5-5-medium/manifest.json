@@ -1,0 +1,1533 @@
+{
+ "engine": "claude",
+ "model": "claude-opus-5-5",
+ "thinking": "medium",
+ "claude_version": "2.1.282 (Claude Code)",
+ "scenarios": [
+  {
+   "id": "PTK-006",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "data-tracking-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/data-tracking-task.md",
+   "turns": [
+    "Can you write a task for the booking funnel events in Nadia's tracking plan, context/roamstay-booking-funnel-tracking-plan.md? Our conventions are in context/roamstay-context.md.",
+    "It is the Data team's own task under TRK. Nadia checks every event in events-collector as the squads ship them, moves the funnel dashboard over to booking_confirmed and has the collector drop checkout_complete on its removal date. The client events and booking_confirmed itself get separate FE and BE tasks later. Refinement closed yesterday with no change to the event table."
+   ],
+   "twin": "STK-006",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "roamstay-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+     "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+    },
+    {
+     "basename": "roamstay-booking-funnel-tracking-plan.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-booking-funnel-tracking-plan.md",
+     "sha256": "45afd318427e162e1c09f9df08d3053d064abb5882a1e3b7958f286da9196517"
+    }
+   ],
+   "wave": 2
+  },
+  {
+   "id": "PTK-002",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "design-notes-fe-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/design-notes-fe-task.md",
+   "turns": [
+    "$task FE task for the stay limits in the Guest app date picker. Ines's handover notes are in context/roamstay-date-picker-design-notes.md and our ticket conventions in context/roamstay-context.md.",
+    "One FE task for iOS, Android and web together, no parent, and the Search squad takes it into the 8.13.0 train. Leave search-service as it is, its own 30-night check stays as the backstop. QA signs it off on all three platforms in en-GB and en-US."
+   ],
+   "twin": "STK-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "roamstay-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+     "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+    },
+    {
+     "basename": "roamstay-date-picker-design-notes.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-date-picker-design-notes.md",
+     "sha256": "1f2fd401d8069d4099de779cbe78111cbeec053388ff43ce96de20a267afe06a"
+    }
+   ],
+   "wave": 2
+  },
+  {
+   "id": "PTK-003",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "long-be-integration-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/long-be-integration-task.md",
+   "turns": [
+    "$t BE task for the label webhook fix, Joris is taking it. The carrier API facts are in context/fernhouse-carrier-label-api-notes.md, the fix Noor summarised is at the end of context/fernhouse-carrier-label-thread.md and our ticket conventions are in context/fernhouse-context.md. Scope is the five points from the thread: answer inside the carrier's timeout and work from a queue, dedupe on event_id, guard against a second open shipment for a parcel, the 10-minute GET for stragglers and the alerting. Polling only stays out, the thread rejected it.",
+    "No parent, it goes on the Fulfilment board and has to be live before the November peak. Done means replaying a slow afternoon in staging gives one shipment and one label per parcel, and a label.created that lands after the 10-minute GET already took the label changes nothing. Keep our 8-second timeout on the warehouse system, only move that call out of the request."
+   ],
+   "twin": "STK-003",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "fernhouse-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+     "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+    },
+    {
+     "basename": "fernhouse-carrier-label-api-notes.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-carrier-label-api-notes.md",
+     "sha256": "c482fb032c2d3757d7c422ba4dc0f10e10573a4f2168546b72e028e0e03cb1f2"
+    },
+    {
+     "basename": "fernhouse-carrier-label-thread.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-carrier-label-thread.md",
+     "sha256": "a1a98f2a097108208a10afd5ddb2bd46ea5d7f40824de78bedde6b2496fc3382"
+    }
+   ],
+   "wave": 2
+  },
+  {
+   "id": "PTK-004",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "parent-task-with-subtasks",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/parent-task-with-subtasks.md",
+   "turns": [
+    "$task Parent task for recurring to-dos from Ines's brief in context/loomlist-recurring-todos-pm-brief.md, with subtasks for iOS, Android, web and BE. Board conventions are in context/loomlist-context.md.",
+    "Only the parent for now, the platform leads write their own subtasks from it, so list the four by title the way our board names them. State the shared rules once in the parent so the subtasks can point at it. iOS and Android aim for the 5.4.0 release, and web and BE ship dark before that."
+   ],
+   "twin": "STK-004",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "loomlist-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+     "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+    },
+    {
+     "basename": "loomlist-recurring-todos-pm-brief.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-recurring-todos-pm-brief.md",
+     "sha256": "91dd40d32e4e0f0bbcedf6fe95a058e7f8ca7dc6a3d8bdfb5aa40da00b07c365"
+    }
+   ],
+   "wave": 2
+  },
+  {
+   "id": "PBG-001",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "quick-bug",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/quick-bug.md",
+   "turns": [
+    "$quick $bug iOS 4.8.0, the cart badge keeps the old count after an item is removed. Put 2 of one product and 1 of another in the cart so the tab bar badge reads \"3\", open the cart and tap \"Remove\" on the single item. The cart then holds 2 units but the badge stays on \"3\" until the app is restarted. Happens every time on both our iOS test phones, while Android 4.8.2 and web update the badge straight away. Severity Medium, product context is in context/fernhouse-context.md"
+   ],
+   "twin": "SBG-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "fernhouse-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+     "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+    }
+   ],
+   "wave": 3
+  },
+  {
+   "id": "PTK-001",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "quick-copy-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/quick-copy-task.md",
+   "turns": [
+    "$quick $task Change the free-shipping banner to \"Free shipping over €50\" and \"Free shipping over £45\", the current copy in context/fernhouse-context.md wraps to two lines on small phones."
+   ],
+   "twin": "STK-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "fernhouse-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+     "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+    }
+   ],
+   "wave": 2
+  },
+  {
+   "id": "PTK-005",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "supplied-parent-subtask",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/supplied-parent-subtask.md",
+   "turns": [
+    "$task --subtask Android subtask of the recurring to-dos parent in context/loomlist-recurring-todos-parent-task.md. Board conventions are in context/loomlist-context.md.",
+    "It is the Android one from that list, phones and tablets, and Oskar's team takes it into the 5.4.0 release. BE builds the engine in parallel, so the app shows the next due date BE returns and never works it out on the device."
+   ],
+   "twin": "STK-005",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "loomlist-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+     "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+    },
+    {
+     "basename": "loomlist-recurring-todos-parent-task.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-recurring-todos-parent-task.md",
+     "sha256": "e4013dde60d7eef0a08aeacf3cc8219c68cae41c300bd8d1d8f9f0eb05dc9e9f"
+    }
+   ],
+   "wave": 2
+  },
+  {
+   "id": "PBG-002",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "support-ticket-bug",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/support-ticket-bug.md",
+   "turns": [
+    "$bug Guest Support escalated ticket 58213 to Booking. On Android the confirmation screen leaves city tax out of the total on stays of 2 nights or more, so the guest saw \"Total €387.00\" and was charged €405.00. The ticket with Maren's tests is in context/roamstay-support-ticket-58213.md and our product context is in context/roamstay-context.md",
+    "Severity High. We do not know the guest's phone model, and Maren's test phone runs Android 14. No screen recording, and the guest's screenshot stays in the support desk tool. I checked web this morning with a 3-night Pay now booking and its confirmation total was right. No related bug is open, and nobody on Booking has looked at the code yet."
+   ],
+   "twin": "SBG-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "roamstay-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+     "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+    },
+    {
+     "basename": "roamstay-support-ticket-58213.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-support-ticket-58213.md",
+     "sha256": "68dde4304162512efd2d88353bc9c61bb5d336ce3e5aaffc153be5b5b009737a"
+    }
+   ],
+   "wave": 3
+  },
+  {
+   "id": "PBG-003",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "two-platform-log-bug",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/two-platform-log-bug.md",
+   "turns": [
+    "$b Reminders arrived an hour late after the March clock change, one-off reminders on Android and daily ones on iOS. Please write it up as one bug for the To-dos and Reminders team from Ruben's log lines in context/loomlist-reminders-dst-log-excerpt.md and Marta's support reports in context/loomlist-reminders-dst-user-reports.md, with our product context in context/loomlist-context.md",
+    "Severity High for both. Support never collected device models or OS versions, so we have none. QA has not reproduced either one yet, and nobody has checked the current 5.3 apps because the clocks have not changed since March. No screenshots or recordings, and no other bug is open for it. Keep it as one report."
+   ],
+   "twin": "SBG-003",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "loomlist-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+     "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+    },
+    {
+     "basename": "loomlist-reminders-dst-log-excerpt.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-reminders-dst-log-excerpt.md",
+     "sha256": "4d66c246ff9b2a4d11a190cc7cedd55e43a7d671fa5c6c74526fe6fc369e48f8"
+    },
+    {
+     "basename": "loomlist-reminders-dst-user-reports.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-reminders-dst-user-reports.md",
+     "sha256": "e83461a889f6f2a0ada8b1ab310919d32b912164df968eadb3e1d8840ac80565"
+    }
+   ],
+   "wave": 3
+  },
+  {
+   "id": "PDK-001",
+   "side": "project",
+   "group": "project-document-modes",
+   "slug": "behavior-reference",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-document-modes/behavior-reference.md",
+   "turns": [
+    "Can you document how discount codes and automatic promotions stack? Start with context/fernhouse-promotions-rules.md, and context/fernhouse-context.md has the company background.",
+    "Behavior reference for CS agents and the Checkout engineers, so they can predict the discount on any cart. Those two files are all there is, the rules note governs and the context doc is background only. Write up what promotions-service does today, keep the old two-codes rule in because CS still refunds those orders, and leave out how merchandisers set promotions up in Admin."
+   ],
+   "twin": "SDK-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "fernhouse-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+     "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+    },
+    {
+     "basename": "fernhouse-promotions-rules.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-promotions-rules.md",
+     "sha256": "835777864fba3984fd3f70749ca249181b5c59c0173811a6a05e1ce7e022d5fe"
+    }
+   ],
+   "wave": 4
+  },
+  {
+   "id": "PDK-004",
+   "side": "project",
+   "group": "project-document-modes",
+   "slug": "catalog-conflict-gate",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-document-modes/catalog-conflict-gate.md",
+   "turns": [
+    "$doc Can you pull the six activity emails into one reference page? So far I have context/loomlist-notification-spec.md and context/loomlist-email-template-inventory.md, plus context/loomlist-context.md for background.",
+    "A catalog for Support agents and the Notifications engineers. On the send time the spec is right, the digest goes at 08:00 in the recipient's local time and the 07:00 UTC in the inventory is stale. Take the template names from the inventory, use only these three files, describe current behavior and leave push notifications out."
+   ],
+   "twin": "SDK-004",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "loomlist-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+     "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+    },
+    {
+     "basename": "loomlist-notification-spec.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-notification-spec.md",
+     "sha256": "8ea04d70f4eb33aafc2302079b63282bb2a0b02f103ef8bc2a22388b8adc0825"
+    },
+    {
+     "basename": "loomlist-email-template-inventory.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-email-template-inventory.md",
+     "sha256": "03b18fed77e3ccafa34506be17fd452ad993ec994ca2ca47fd4578e68439b233"
+    }
+   ],
+   "wave": 4
+  },
+  {
+   "id": "PDK-002",
+   "side": "project",
+   "group": "project-document-modes",
+   "slug": "incident-runbook",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-document-modes/incident-runbook.md",
+   "turns": [
+    "$doc We need a doc on handling payment webhook failures, like the INC-0412 outage. Start with context/roamstay-payment-webhook-incident-notes.md, and context/roamstay-context.md has the company background.",
+    "A runbook for whoever is on call in #payments-oncall, from the alert firing to the cleanup. Those two files are all there is, the incident notes govern and the context doc is background only. Write it as what we do today, list the review follow-ups at the end with where each one stands, and leave out the guest apology emails."
+   ],
+   "twin": "SDK-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "roamstay-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+     "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+    },
+    {
+     "basename": "roamstay-payment-webhook-incident-notes.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-payment-webhook-incident-notes.md",
+     "sha256": "4dcb58a50ab4a3e865d9795f33a5101f9f0326c374b84873ea5be684510826dc"
+    }
+   ],
+   "wave": 4
+  },
+  {
+   "id": "PDK-003",
+   "side": "project",
+   "group": "project-document-modes",
+   "slug": "proposal-decision-owner",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-document-modes/proposal-decision-owner.md",
+   "turns": [
+    "$d Can you write up where we are on sync conflicts and the lost edits? Start with context/loomlist-sync-conflict-thread.md, and context/loomlist-context.md has the company background.",
+    "A proposal for the Sync and Mobile engineers and the Support lead to read before the call is made. Those two files are all there is, the thread governs and the context doc is background on how v3 works today. Nothing is settled, so cover all three options with their cost and trade-offs and say where people in the thread landed. Keep the offline mode plans out of it."
+   ],
+   "twin": "SDK-003",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "loomlist-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+     "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+    },
+    {
+     "basename": "loomlist-sync-conflict-thread.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-sync-conflict-thread.md",
+     "sha256": "b69c95b9216798273280d7bfe5ed0d08d4f465e32065f6e214044bac3d1f8633"
+    }
+   ],
+   "wave": 4
+  },
+  {
+   "id": "PID-001",
+   "side": "project",
+   "group": "project-identity",
+   "slug": "identity-handover",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-identity/identity-handover.md",
+   "turns": [
+    "$task Small front end task for a \"Due today\" filter chip on the To-dos view, the chips we have today are described in context/loomlist-context.md",
+    "Front end, Web only for now, Desktop gets it through the web client and the apps follow later. The chip goes right after Overdue and shows to-dos not checked off that are due today in the owner's time zone, sorted by due date like the other chips, and only one chip is active at a time. Picking it sends filter_selected with filter set to due_today, which Yara has already added to the tracking plan. No Figma, reuse the existing chip, and nothing else depends on it."
+   ],
+   "twin": "SID-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "loomlist-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+     "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+    }
+   ],
+   "wave": 1
+  },
+  {
+   "id": "PIR-002",
+   "side": "project",
+   "group": "project-interactive-routing",
+   "slug": "conflicting-commands",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-interactive-routing/conflicting-commands.md",
+   "turns": [
+    "$bug $story Not sure if this is a bug or a story, customers lose their app wishlist when they change phones and cannot see it on web, CS has 412 contacts on it, see context/fernhouse-context.md and context/fernhouse-wishlist-feedback.md",
+    "Write it as a story, not a bug. The apps have always saved the wishlist on the device, so this is a change. Quick is fine. Signed-in customers on iOS and Android get their wishlist saved to the account, the same list web shows, and the first time they sign in on a device, the items saved on it move into the account list. Keep the limit of 50 items, and when the two lists together pass 50, keep the 50 most recently added. Customers without an account keep the device wishlist as it works today. Lotte signed this off yesterday."
+   ],
+   "twin": "SIR-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "fernhouse-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+     "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+    },
+    {
+     "basename": "fernhouse-wishlist-feedback.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-wishlist-feedback.md",
+     "sha256": "4c739c2cdd940fd5a43049b73387273b481fceb1741783a0d93c6990b4cff4ae"
+    }
+   ],
+   "wave": 6
+  },
+  {
+   "id": "PIR-001",
+   "side": "project",
+   "group": "project-interactive-routing",
+   "slug": "vague-intake-kind-and-energy",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-interactive-routing/vague-intake-kind-and-energy.md",
+   "turns": [
+    "Leadership keeps asking whether guests could earn loyalty points on their stays and I am not sure what we should put in the backlog for it, background is in context/roamstay-context.md",
+    "Deeper, and write an epic for it. It covers guests on the Guest app, iOS, Android and web. The goal is repeat bookings: 19% of guests book a second stay within 12 months today and we want 25% by the end of 2027. The child stories are joining from Account, earning points on completed stays, a points balance and history under Account, and spending points at checkout on Pay now bookings only, since Pay at property guests pay the property directly. The point value and who pays for points are not decided yet, so do not put a number on either."
+   ],
+   "twin": "SIR-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "roamstay-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+     "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+    }
+   ],
+   "wave": 6
+  },
+  {
+   "id": "PEP-001",
+   "side": "project",
+   "group": "project-story-modes",
+   "slug": "epic-from-strategy-brief",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/epic-from-strategy-brief.md",
+   "turns": [
+    "$epic Partner Hub self-onboarding from Freya's strategy brief in context/roamstay-partner-self-onboarding-brief.md, company context is in context/roamstay-context.md. We haven't agreed the first release cut yet.",
+    "One child story per stage in Freya's brief, all six in the first release. Connecting a channel manager goes under Added Later. The goal and target are Freya's, use them as she wrote them."
+   ],
+   "twin": "SEP-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "roamstay-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+     "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+    },
+    {
+     "basename": "roamstay-partner-self-onboarding-brief.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-partner-self-onboarding-brief.md",
+     "sha256": "9bb66acb15b754947f17eb6ca7d3835c312678d3f2eacc5f9262bb67f564d667"
+    }
+   ],
+   "wave": 5
+  },
+  {
+   "id": "PEP-002",
+   "side": "project",
+   "group": "project-story-modes",
+   "slug": "epic-natural-wording",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/epic-natural-wording.md",
+   "turns": [
+    "Can you write an epic for offline mode from Oskar's brief in context/loomlist-offline-mode-brief.md? Our product context is in context/loomlist-context.md. I'm not sure yet whether the child stories should follow his four areas or be split per platform.",
+    "Follow his four areas, one child story each, and each story covers iOS, Android and Desktop together. Offline mode is for every plan, Free included."
+   ],
+   "twin": "SEP-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "loomlist-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+     "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+    },
+    {
+     "basename": "loomlist-offline-mode-brief.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-offline-mode-brief.md",
+     "sha256": "53c0c1e8f77bdf1d086cbc087c35d55e4414ed3726de6c04c3377b231f0aa139"
+    }
+   ],
+   "wave": 5
+  },
+  {
+   "id": "PEP-003",
+   "side": "project",
+   "group": "project-story-modes",
+   "slug": "epic-quick-energy",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/epic-quick-energy.md",
+   "turns": [
+    "$quick $e self-serve returns, company context in context/fernhouse-context.md. Goal: signed-in customers on web, iOS and Android start a return themselves inside the 30-day window, so CS stops creating returns by hand in Admin, and by the end of Q1 2027 at least 60% of returns start without a CS contact. Child stories: start a return from order history with the items and a reason, return label by email, return status on the order page, refund after the warehouse check. Guest returns go under Added Later, and pallet items stay with CS."
+   ],
+   "twin": "SEP-003",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "fernhouse-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+     "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+    }
+   ],
+   "wave": 5
+  },
+  {
+   "id": "PST-002",
+   "side": "project",
+   "group": "project-story-modes",
+   "slug": "story-forced-delivery",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/story-forced-delivery.md",
+   "turns": [
+    "$story View-only share links for the Sharing team, from Kofi's design notes in context/loomlist-view-only-links-design-notes.md. Workspace background is in context/loomlist-context.md.",
+    "Agencies on Plus asked for this most, they invite clients as guests today just so they can read one page. Lena still hasn't settled the sub-page question with the security reviewer and it won't be settled before the build starts, so keep it open in the story."
+   ],
+   "twin": "SST-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "loomlist-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+     "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+    },
+    {
+     "basename": "loomlist-view-only-links-design-notes.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-view-only-links-design-notes.md",
+     "sha256": "3851e6b466c1b49fac4c3baa67b940a6900ac38c98f8c3c772f9418945b8baa8"
+    }
+   ],
+   "wave": 5
+  },
+  {
+   "id": "PST-001",
+   "side": "project",
+   "group": "project-story-modes",
+   "slug": "story-hard-values",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/story-hard-values.md",
+   "turns": [
+    "Can you write up the free cancellation filter as a story for the Search squad? Tomas's notes are in context/roamstay-free-cancellation-pm-notes.md and our company background is in context/roamstay-context.md. Guest Support sent me two asks for it as well, I'll pass them on.",
+    "Guest Support's two asks: show the deadline in the badge as the property's local date, because guests abroad check it against their confirmation email, and keep the filter on when a guest opens a property and goes back to the results. Everything else is as Tomas wrote it and nothing in his notes is still open."
+   ],
+   "twin": "SST-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "roamstay-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+     "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+    },
+    {
+     "basename": "roamstay-free-cancellation-pm-notes.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-free-cancellation-pm-notes.md",
+     "sha256": "7d256c03f36c7d4a92e6920b2797e4193937e8bdfb8865457f06d67e4c5216c9"
+    }
+   ],
+   "wave": 5
+  },
+  {
+   "id": "PST-003",
+   "side": "project",
+   "group": "project-story-modes",
+   "slug": "story-refinement",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/story-refinement.md",
+   "turns": [
+    "$s Priya's rough save card draft is in context/fernhouse-save-card-draft.md, can you bring it into our house Story format before the Checkout team picks it up? Restructure whatever it needs. Company background is in context/fernhouse-context.md.",
+    "The declined card copy is agreed now: \"This card was declined. Choose another card or enter a new one.\" The €150 and £130 CVC limits apply to the order total including shipping, and the Data team hasn't named the three events yet, so leave the names out."
+   ],
+   "twin": "SST-003",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "fernhouse-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+     "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+    },
+    {
+     "basename": "fernhouse-save-card-draft.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-save-card-draft.md",
+     "sha256": "c39e24407b8e0be6873219bf13d52c2b16293216575a676e3eaec905c0687907"
+    }
+   ],
+   "wave": 5
+  },
+  {
+   "id": "PST-004",
+   "side": "project",
+   "group": "project-story-modes",
+   "slug": "story-with-nested-tasks",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/story-with-nested-tasks.md",
+   "turns": [
+    "$story Order tracking on the order page, from Hamid's brief in context/fernhouse-order-tracking-pm-brief.md and Yusuf's carrier notes in context/fernhouse-carrier-tracking-api-facts.md. Please break it into tasks. Company background is in context/fernhouse-context.md.",
+    "Four tasks, in this order: FE iOS, FE Android, FE web and the BE tracking webhook. orders-service already gets \"Packed\" from the warehouse system, so no task for that, and the DATA events wait for a later story. \"Delivery failed\" shows no reason in this story, and the web layout is now done in the same \"Order page / Tracking timeline\" frame."
+   ],
+   "twin": "SST-004",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "fernhouse-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+     "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+    },
+    {
+     "basename": "fernhouse-order-tracking-pm-brief.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-order-tracking-pm-brief.md",
+     "sha256": "fe322fc6a028cb0bf24f1944b30a569c78d8c702daf1c7cf5639be98ab9d9561"
+    },
+    {
+     "basename": "fernhouse-carrier-tracking-api-facts.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-carrier-tracking-api-facts.md",
+     "sha256": "7a4c5b316e315428a3573e0c6256eb7f5d51b282444b68bab0ae9d38518dbd4a"
+    }
+   ],
+   "wave": 5
+  },
+  {
+   "id": "STK-006",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "data-tracking-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/data-tracking-task.md",
+   "turns": [
+    "Can you write a task for the booking funnel events in Nadia's tracking plan, context/roamstay-booking-funnel-tracking-plan.md? Our conventions are in context/roamstay-context.md.",
+    "It is the Data team's own task under TRK. Nadia checks every event in events-collector as the squads ship them, moves the funnel dashboard over to booking_confirmed and has the collector drop checkout_complete on its removal date. The client events and booking_confirmed itself get separate FE and BE tasks later. Refinement closed yesterday with no change to the event table."
+   ],
+   "twin": "PTK-006",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "roamstay-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+     "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+    },
+    {
+     "basename": "roamstay-booking-funnel-tracking-plan.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-booking-funnel-tracking-plan.md",
+     "sha256": "45afd318427e162e1c09f9df08d3053d064abb5882a1e3b7958f286da9196517"
+    }
+   ],
+   "wave": 2
+  },
+  {
+   "id": "STK-002",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "design-notes-fe-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/design-notes-fe-task.md",
+   "turns": [
+    "$task FE task for the stay limits in the Guest app date picker. Ines's handover notes are in context/roamstay-date-picker-design-notes.md and our ticket conventions in context/roamstay-context.md.",
+    "One FE task for iOS, Android and web together, no parent, and the Search squad takes it into the 8.13.0 train. Leave search-service as it is, its own 30-night check stays as the backstop. QA signs it off on all three platforms in en-GB and en-US."
+   ],
+   "twin": "PTK-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "roamstay-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+     "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+    },
+    {
+     "basename": "roamstay-date-picker-design-notes.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-date-picker-design-notes.md",
+     "sha256": "1f2fd401d8069d4099de779cbe78111cbeec053388ff43ce96de20a267afe06a"
+    }
+   ],
+   "wave": 2
+  },
+  {
+   "id": "STK-003",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "long-be-integration-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/long-be-integration-task.md",
+   "turns": [
+    "$t BE task for the label webhook fix, Joris is taking it. The carrier API facts are in context/fernhouse-carrier-label-api-notes.md, the fix Noor summarised is at the end of context/fernhouse-carrier-label-thread.md and our ticket conventions are in context/fernhouse-context.md. Scope is the five points from the thread: answer inside the carrier's timeout and work from a queue, dedupe on event_id, guard against a second open shipment for a parcel, the 10-minute GET for stragglers and the alerting. Polling only stays out, the thread rejected it.",
+    "No parent, it goes on the Fulfilment board and has to be live before the November peak. Done means replaying a slow afternoon in staging gives one shipment and one label per parcel, and a label.created that lands after the 10-minute GET already took the label changes nothing. Keep our 8-second timeout on the warehouse system, only move that call out of the request."
+   ],
+   "twin": "PTK-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "fernhouse-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+     "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+    },
+    {
+     "basename": "fernhouse-carrier-label-api-notes.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-carrier-label-api-notes.md",
+     "sha256": "c482fb032c2d3757d7c422ba4dc0f10e10573a4f2168546b72e028e0e03cb1f2"
+    },
+    {
+     "basename": "fernhouse-carrier-label-thread.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-carrier-label-thread.md",
+     "sha256": "a1a98f2a097108208a10afd5ddb2bd46ea5d7f40824de78bedde6b2496fc3382"
+    }
+   ],
+   "wave": 2
+  },
+  {
+   "id": "STK-004",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "parent-task-with-subtasks",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/parent-task-with-subtasks.md",
+   "turns": [
+    "$task Parent task for recurring to-dos from Ines's brief in context/loomlist-recurring-todos-pm-brief.md, with subtasks for iOS, Android, web and BE. Board conventions are in context/loomlist-context.md.",
+    "Only the parent for now, the platform leads write their own subtasks from it, so list the four by title the way our board names them. State the shared rules once in the parent so the subtasks can point at it. iOS and Android aim for the 5.4.0 release, and web and BE ship dark before that."
+   ],
+   "twin": "PTK-004",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "loomlist-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+     "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+    },
+    {
+     "basename": "loomlist-recurring-todos-pm-brief.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-recurring-todos-pm-brief.md",
+     "sha256": "91dd40d32e4e0f0bbcedf6fe95a058e7f8ca7dc6a3d8bdfb5aa40da00b07c365"
+    }
+   ],
+   "wave": 2
+  },
+  {
+   "id": "SBG-001",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "quick-bug",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/quick-bug.md",
+   "turns": [
+    "$quick $bug iOS 4.8.0, the cart badge keeps the old count after an item is removed. Put 2 of one product and 1 of another in the cart so the tab bar badge reads \"3\", open the cart and tap \"Remove\" on the single item. The cart then holds 2 units but the badge stays on \"3\" until the app is restarted. Happens every time on both our iOS test phones, while Android 4.8.2 and web update the badge straight away. Severity Medium, product context is in context/fernhouse-context.md"
+   ],
+   "twin": "PBG-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "fernhouse-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+     "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+    }
+   ],
+   "wave": 3
+  },
+  {
+   "id": "STK-001",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "quick-copy-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/quick-copy-task.md",
+   "turns": [
+    "$quick $task Change the free-shipping banner to \"Free shipping over €50\" and \"Free shipping over £45\", the current copy in context/fernhouse-context.md wraps to two lines on small phones."
+   ],
+   "twin": "PTK-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "fernhouse-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+     "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+    }
+   ],
+   "wave": 2
+  },
+  {
+   "id": "STK-005",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "supplied-parent-subtask",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/supplied-parent-subtask.md",
+   "turns": [
+    "$task --subtask Android subtask of the recurring to-dos parent in context/loomlist-recurring-todos-parent-task.md. Board conventions are in context/loomlist-context.md.",
+    "It is the Android one from that list, phones and tablets, and Oskar's team takes it into the 5.4.0 release. BE builds the engine in parallel, so the app shows the next due date BE returns and never works it out on the device."
+   ],
+   "twin": "PTK-005",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "loomlist-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+     "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+    },
+    {
+     "basename": "loomlist-recurring-todos-parent-task.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-recurring-todos-parent-task.md",
+     "sha256": "e4013dde60d7eef0a08aeacf3cc8219c68cae41c300bd8d1d8f9f0eb05dc9e9f"
+    }
+   ],
+   "wave": 2
+  },
+  {
+   "id": "SBG-002",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "support-ticket-bug",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/support-ticket-bug.md",
+   "turns": [
+    "$bug Guest Support escalated ticket 58213 to Booking. On Android the confirmation screen leaves city tax out of the total on stays of 2 nights or more, so the guest saw \"Total €387.00\" and was charged €405.00. The ticket with Maren's tests is in context/roamstay-support-ticket-58213.md and our product context is in context/roamstay-context.md",
+    "Severity High. We do not know the guest's phone model, and Maren's test phone runs Android 14. No screen recording, and the guest's screenshot stays in the support desk tool. I checked web this morning with a 3-night Pay now booking and its confirmation total was right. No related bug is open, and nobody on Booking has looked at the code yet."
+   ],
+   "twin": "PBG-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "roamstay-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+     "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+    },
+    {
+     "basename": "roamstay-support-ticket-58213.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-support-ticket-58213.md",
+     "sha256": "68dde4304162512efd2d88353bc9c61bb5d336ce3e5aaffc153be5b5b009737a"
+    }
+   ],
+   "wave": 3
+  },
+  {
+   "id": "SBG-003",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "two-platform-log-bug",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/two-platform-log-bug.md",
+   "turns": [
+    "$b Reminders arrived an hour late after the March clock change, one-off reminders on Android and daily ones on iOS. Please write it up as one bug for the To-dos and Reminders team from Ruben's log lines in context/loomlist-reminders-dst-log-excerpt.md and Marta's support reports in context/loomlist-reminders-dst-user-reports.md, with our product context in context/loomlist-context.md",
+    "Severity High for both. Support never collected device models or OS versions, so we have none. QA has not reproduced either one yet, and nobody has checked the current 5.3 apps because the clocks have not changed since March. No screenshots or recordings, and no other bug is open for it. Keep it as one report."
+   ],
+   "twin": "PBG-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "loomlist-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+     "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+    },
+    {
+     "basename": "loomlist-reminders-dst-log-excerpt.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-reminders-dst-log-excerpt.md",
+     "sha256": "4d66c246ff9b2a4d11a190cc7cedd55e43a7d671fa5c6c74526fe6fc369e48f8"
+    },
+    {
+     "basename": "loomlist-reminders-dst-user-reports.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-reminders-dst-user-reports.md",
+     "sha256": "e83461a889f6f2a0ada8b1ab310919d32b912164df968eadb3e1d8840ac80565"
+    }
+   ],
+   "wave": 3
+  },
+  {
+   "id": "SDK-001",
+   "side": "skill",
+   "group": "skill-document-modes",
+   "slug": "behavior-reference",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-document-modes/behavior-reference.md",
+   "turns": [
+    "Can you document how discount codes and automatic promotions stack? Start with context/fernhouse-promotions-rules.md, and context/fernhouse-context.md has the company background.",
+    "Behavior reference for CS agents and the Checkout engineers, so they can predict the discount on any cart. Those two files are all there is, the rules note governs and the context doc is background only. Write up what promotions-service does today, keep the old two-codes rule in because CS still refunds those orders, and leave out how merchandisers set promotions up in Admin."
+   ],
+   "twin": "PDK-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "fernhouse-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+     "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+    },
+    {
+     "basename": "fernhouse-promotions-rules.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-promotions-rules.md",
+     "sha256": "835777864fba3984fd3f70749ca249181b5c59c0173811a6a05e1ce7e022d5fe"
+    }
+   ],
+   "wave": 4
+  },
+  {
+   "id": "SDK-004",
+   "side": "skill",
+   "group": "skill-document-modes",
+   "slug": "catalog-conflict-gate",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-document-modes/catalog-conflict-gate.md",
+   "turns": [
+    "$doc Can you pull the six activity emails into one reference page? So far I have context/loomlist-notification-spec.md and context/loomlist-email-template-inventory.md, plus context/loomlist-context.md for background.",
+    "A catalog for Support agents and the Notifications engineers. On the send time the spec is right, the digest goes at 08:00 in the recipient's local time and the 07:00 UTC in the inventory is stale. Take the template names from the inventory, use only these three files, describe current behavior and leave push notifications out."
+   ],
+   "twin": "PDK-004",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "loomlist-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+     "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+    },
+    {
+     "basename": "loomlist-notification-spec.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-notification-spec.md",
+     "sha256": "8ea04d70f4eb33aafc2302079b63282bb2a0b02f103ef8bc2a22388b8adc0825"
+    },
+    {
+     "basename": "loomlist-email-template-inventory.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-email-template-inventory.md",
+     "sha256": "03b18fed77e3ccafa34506be17fd452ad993ec994ca2ca47fd4578e68439b233"
+    }
+   ],
+   "wave": 4
+  },
+  {
+   "id": "SDK-002",
+   "side": "skill",
+   "group": "skill-document-modes",
+   "slug": "incident-runbook",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-document-modes/incident-runbook.md",
+   "turns": [
+    "$doc We need a doc on handling payment webhook failures, like the INC-0412 outage. Start with context/roamstay-payment-webhook-incident-notes.md, and context/roamstay-context.md has the company background.",
+    "A runbook for whoever is on call in #payments-oncall, from the alert firing to the cleanup. Those two files are all there is, the incident notes govern and the context doc is background only. Write it as what we do today, list the review follow-ups at the end with where each one stands, and leave out the guest apology emails."
+   ],
+   "twin": "PDK-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "roamstay-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+     "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+    },
+    {
+     "basename": "roamstay-payment-webhook-incident-notes.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-payment-webhook-incident-notes.md",
+     "sha256": "4dcb58a50ab4a3e865d9795f33a5101f9f0326c374b84873ea5be684510826dc"
+    }
+   ],
+   "wave": 4
+  },
+  {
+   "id": "SDK-003",
+   "side": "skill",
+   "group": "skill-document-modes",
+   "slug": "proposal-decision-owner",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-document-modes/proposal-decision-owner.md",
+   "turns": [
+    "$d Can you write up where we are on sync conflicts and the lost edits? Start with context/loomlist-sync-conflict-thread.md, and context/loomlist-context.md has the company background.",
+    "A proposal for the Sync and Mobile engineers and the Support lead to read before the call is made. Those two files are all there is, the thread governs and the context doc is background on how v3 works today. Nothing is settled, so cover all three options with their cost and trade-offs and say where people in the thread landed. Keep the offline mode plans out of it."
+   ],
+   "twin": "PDK-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "loomlist-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+     "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+    },
+    {
+     "basename": "loomlist-sync-conflict-thread.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-sync-conflict-thread.md",
+     "sha256": "b69c95b9216798273280d7bfe5ed0d08d4f465e32065f6e214044bac3d1f8633"
+    }
+   ],
+   "wave": 4
+  },
+  {
+   "id": "SID-001",
+   "side": "skill",
+   "group": "skill-identity",
+   "slug": "identity-handover",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-identity/identity-handover.md",
+   "turns": [
+    "$task Small front end task for a \"Due today\" filter chip on the To-dos view, the chips we have today are described in context/loomlist-context.md",
+    "Front end, Web only for now, Desktop gets it through the web client and the apps follow later. The chip goes right after Overdue and shows to-dos not checked off that are due today in the owner's time zone, sorted by due date like the other chips, and only one chip is active at a time. Picking it sends filter_selected with filter set to due_today, which Yara has already added to the tracking plan. No Figma, reuse the existing chip, and nothing else depends on it."
+   ],
+   "twin": "PID-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "loomlist-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+     "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+    }
+   ],
+   "wave": 1
+  },
+  {
+   "id": "SIR-002",
+   "side": "skill",
+   "group": "skill-interactive-routing",
+   "slug": "conflicting-commands",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-interactive-routing/conflicting-commands.md",
+   "turns": [
+    "$bug $story Not sure if this is a bug or a story, customers lose their app wishlist when they change phones and cannot see it on web, CS has 412 contacts on it, see context/fernhouse-context.md and context/fernhouse-wishlist-feedback.md",
+    "Write it as a story, not a bug. The apps have always saved the wishlist on the device, so this is a change. Quick is fine. Signed-in customers on iOS and Android get their wishlist saved to the account, the same list web shows, and the first time they sign in on a device, the items saved on it move into the account list. Keep the limit of 50 items, and when the two lists together pass 50, keep the 50 most recently added. Customers without an account keep the device wishlist as it works today. Lotte signed this off yesterday."
+   ],
+   "twin": "PIR-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "fernhouse-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+     "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+    },
+    {
+     "basename": "fernhouse-wishlist-feedback.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-wishlist-feedback.md",
+     "sha256": "4c739c2cdd940fd5a43049b73387273b481fceb1741783a0d93c6990b4cff4ae"
+    }
+   ],
+   "wave": 6
+  },
+  {
+   "id": "SIR-001",
+   "side": "skill",
+   "group": "skill-interactive-routing",
+   "slug": "vague-intake-kind-and-energy",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-interactive-routing/vague-intake-kind-and-energy.md",
+   "turns": [
+    "Leadership keeps asking whether guests could earn loyalty points on their stays and I am not sure what we should put in the backlog for it, background is in context/roamstay-context.md",
+    "Deeper, and write an epic for it. It covers guests on the Guest app, iOS, Android and web. The goal is repeat bookings: 19% of guests book a second stay within 12 months today and we want 25% by the end of 2027. The child stories are joining from Account, earning points on completed stays, a points balance and history under Account, and spending points at checkout on Pay now bookings only, since Pay at property guests pay the property directly. The point value and who pays for points are not decided yet, so do not put a number on either."
+   ],
+   "twin": "PIR-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "roamstay-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+     "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+    }
+   ],
+   "wave": 6
+  },
+  {
+   "id": "SEP-001",
+   "side": "skill",
+   "group": "skill-story-modes",
+   "slug": "epic-from-strategy-brief",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/epic-from-strategy-brief.md",
+   "turns": [
+    "$epic Partner Hub self-onboarding from Freya's strategy brief in context/roamstay-partner-self-onboarding-brief.md, company context is in context/roamstay-context.md. We haven't agreed the first release cut yet.",
+    "One child story per stage in Freya's brief, all six in the first release. Connecting a channel manager goes under Added Later. The goal and target are Freya's, use them as she wrote them."
+   ],
+   "twin": "PEP-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "roamstay-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+     "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+    },
+    {
+     "basename": "roamstay-partner-self-onboarding-brief.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-partner-self-onboarding-brief.md",
+     "sha256": "9bb66acb15b754947f17eb6ca7d3835c312678d3f2eacc5f9262bb67f564d667"
+    }
+   ],
+   "wave": 5
+  },
+  {
+   "id": "SEP-002",
+   "side": "skill",
+   "group": "skill-story-modes",
+   "slug": "epic-natural-wording",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/epic-natural-wording.md",
+   "turns": [
+    "Can you write an epic for offline mode from Oskar's brief in context/loomlist-offline-mode-brief.md? Our product context is in context/loomlist-context.md. I'm not sure yet whether the child stories should follow his four areas or be split per platform.",
+    "Follow his four areas, one child story each, and each story covers iOS, Android and Desktop together. Offline mode is for every plan, Free included."
+   ],
+   "twin": "PEP-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "loomlist-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+     "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+    },
+    {
+     "basename": "loomlist-offline-mode-brief.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-offline-mode-brief.md",
+     "sha256": "53c0c1e8f77bdf1d086cbc087c35d55e4414ed3726de6c04c3377b231f0aa139"
+    }
+   ],
+   "wave": 5
+  },
+  {
+   "id": "SEP-003",
+   "side": "skill",
+   "group": "skill-story-modes",
+   "slug": "epic-quick-energy",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/epic-quick-energy.md",
+   "turns": [
+    "$quick $e self-serve returns, company context in context/fernhouse-context.md. Goal: signed-in customers on web, iOS and Android start a return themselves inside the 30-day window, so CS stops creating returns by hand in Admin, and by the end of Q1 2027 at least 60% of returns start without a CS contact. Child stories: start a return from order history with the items and a reason, return label by email, return status on the order page, refund after the warehouse check. Guest returns go under Added Later, and pallet items stay with CS."
+   ],
+   "twin": "PEP-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "fernhouse-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+     "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+    }
+   ],
+   "wave": 5
+  },
+  {
+   "id": "SST-002",
+   "side": "skill",
+   "group": "skill-story-modes",
+   "slug": "story-forced-delivery",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/story-forced-delivery.md",
+   "turns": [
+    "$story View-only share links for the Sharing team, from Kofi's design notes in context/loomlist-view-only-links-design-notes.md. Workspace background is in context/loomlist-context.md.",
+    "Agencies on Plus asked for this most, they invite clients as guests today just so they can read one page. Lena still hasn't settled the sub-page question with the security reviewer and it won't be settled before the build starts, so keep it open in the story."
+   ],
+   "twin": "PST-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "loomlist-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+     "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+    },
+    {
+     "basename": "loomlist-view-only-links-design-notes.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-view-only-links-design-notes.md",
+     "sha256": "3851e6b466c1b49fac4c3baa67b940a6900ac38c98f8c3c772f9418945b8baa8"
+    }
+   ],
+   "wave": 5
+  },
+  {
+   "id": "SST-001",
+   "side": "skill",
+   "group": "skill-story-modes",
+   "slug": "story-hard-values",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/story-hard-values.md",
+   "turns": [
+    "Can you write up the free cancellation filter as a story for the Search squad? Tomas's notes are in context/roamstay-free-cancellation-pm-notes.md and our company background is in context/roamstay-context.md. Guest Support sent me two asks for it as well, I'll pass them on.",
+    "Guest Support's two asks: show the deadline in the badge as the property's local date, because guests abroad check it against their confirmation email, and keep the filter on when a guest opens a property and goes back to the results. Everything else is as Tomas wrote it and nothing in his notes is still open."
+   ],
+   "twin": "PST-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "roamstay-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+     "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+    },
+    {
+     "basename": "roamstay-free-cancellation-pm-notes.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-free-cancellation-pm-notes.md",
+     "sha256": "7d256c03f36c7d4a92e6920b2797e4193937e8bdfb8865457f06d67e4c5216c9"
+    }
+   ],
+   "wave": 5
+  },
+  {
+   "id": "SST-003",
+   "side": "skill",
+   "group": "skill-story-modes",
+   "slug": "story-refinement",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/story-refinement.md",
+   "turns": [
+    "$s Priya's rough save card draft is in context/fernhouse-save-card-draft.md, can you bring it into our house Story format before the Checkout team picks it up? Restructure whatever it needs. Company background is in context/fernhouse-context.md.",
+    "The declined card copy is agreed now: \"This card was declined. Choose another card or enter a new one.\" The €150 and £130 CVC limits apply to the order total including shipping, and the Data team hasn't named the three events yet, so leave the names out."
+   ],
+   "twin": "PST-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "fernhouse-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+     "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+    },
+    {
+     "basename": "fernhouse-save-card-draft.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-save-card-draft.md",
+     "sha256": "c39e24407b8e0be6873219bf13d52c2b16293216575a676e3eaec905c0687907"
+    }
+   ],
+   "wave": 5
+  },
+  {
+   "id": "SST-004",
+   "side": "skill",
+   "group": "skill-story-modes",
+   "slug": "story-with-nested-tasks",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/story-with-nested-tasks.md",
+   "turns": [
+    "$story Order tracking on the order page, from Hamid's brief in context/fernhouse-order-tracking-pm-brief.md and Yusuf's carrier notes in context/fernhouse-carrier-tracking-api-facts.md. Please break it into tasks. Company background is in context/fernhouse-context.md.",
+    "Four tasks, in this order: FE iOS, FE Android, FE web and the BE tracking webhook. orders-service already gets \"Packed\" from the warehouse system, so no task for that, and the DATA events wait for a later story. \"Delivery failed\" shows no reason in this story, and the web layout is now done in the same \"Order page / Tracking timeline\" frame."
+   ],
+   "twin": "PST-004",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "attachments": [
+    {
+     "basename": "fernhouse-context.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+     "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+    },
+    {
+     "basename": "fernhouse-order-tracking-pm-brief.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-order-tracking-pm-brief.md",
+     "sha256": "fe322fc6a028cb0bf24f1944b30a569c78d8c702daf1c7cf5639be98ab9d9561"
+    },
+    {
+     "basename": "fernhouse-carrier-tracking-api-facts.md",
+     "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-carrier-tracking-api-facts.md",
+     "sha256": "7a4c5b316e315428a3573e0c6256eb7f5d51b282444b68bab0ae9d38518dbd4a"
+    }
+   ],
+   "wave": 5
+  }
+ ]
+}

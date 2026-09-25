@@ -1,0 +1,79 @@
+{
+ "id": "SBG-001",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/quick-bug.md",
+ "twin": "PBG-001",
+ "engine": "claude",
+ "model": "claude-opus-5-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "attachments": [
+  {
+   "basename": "fernhouse-context.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+   "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+  }
+ ],
+ "session_id": "78fb514b-d45d-4601-af9f-58486d7594ad",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - bug-ios-cart-badge-stale-after-remove.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 42.62,
+   "tool_calls": 11,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Read",
+    "Bash",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 393925,
+   "output_tokens": 3853,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.5379884,
+   "model_s": 41.83,
+   "startup_s": 0.5,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - bug-ios-cart-badge-stale-after-remove.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$quick $bug iOS 4.8.0, the cart badge keeps the old count after an item is removed. Put 2 of one product and 1 of another in the cart so the tab bar badge reads \"3\", open the cart and tap \"Remove\" on the single item. The cart then holds 2 units but the badge stays on \"3\" until the app is restarted. Happens every time on both our iOS test phones, while Android 4.8.2 and web update the badge straight away. Severity Medium, product context is in context/fernhouse-context.md"
+  }
+ ]
+}
