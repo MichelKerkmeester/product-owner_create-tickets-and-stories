@@ -1,0 +1,11 @@
+# Raw run evidence stays local: the Claude event streams, stderr, full tool
+# transcripts, failed attempts, the progress file and each scenario's copy of
+# the files it wrote. The results, grading, replies, per-scenario meta and the
+# harness are tracked. The deliverables themselves are collected into the
+# system's export/benchmark/ by run/collect_exports.py.
+*.jsonl
+*.stderr.txt
+transcript-turn-*.md
+failed-attempts/
+exports/
+run-progress.txt
