@@ -1,0 +1,102 @@
+{
+ "id": "STK-001",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/task-command-flow.md",
+ "twin": "PTK-001",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "3b5866ed-c891-4698-8017-228b1559ad02",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - task-creator-payout-pause-clarification.md",
+   "export/002 - task-creator-payout-pause-indicator.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 21.69,
+   "tool_calls": 9,
+   "tools_used": [
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Glob",
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 213255,
+   "output_tokens": 1846,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.2152872,
+   "model_s": 20.78,
+   "startup_s": 0.66,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - task-creator-payout-pause-clarification.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$task I need a task for the creator payout pause feature."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 24.39,
+   "tool_calls": 4,
+   "tools_used": [
+    "Read",
+    "Write",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 276853,
+   "output_tokens": 2094,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.3123676000000001,
+   "model_s": 23.51,
+   "startup_s": 0.61,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/002 - task-creator-payout-pause-indicator.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Standalone task. Creators need a pause indicator for pending payouts, and the pause reason must be stored. Acceptance: the reason field is required, the indicator appears in the payout row, and QA can verify the pause in the payout history."
+  }
+ ]
+}
