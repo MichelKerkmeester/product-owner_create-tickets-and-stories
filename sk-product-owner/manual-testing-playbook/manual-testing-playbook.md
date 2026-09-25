@@ -1,7 +1,7 @@
 ---
 title: "Product Owner: Manual Testing Playbook"
 description: "Operator-facing directory, execution policy and release-readiness guide for the two-runtime Product Owner manual validation package."
-version: 1.0.0.0
+version: 1.0.0.1
 ---
 
 # Product Owner: Manual Testing Playbook
@@ -129,11 +129,11 @@ Each scenario's Fail bullet names the likely failures and is not a complete list
 A clarification is a delivery on both runtimes. `references/interactive-mode.md` line 85 exports it like any other deliverable and line 93 reports its path exactly as an artifact delivery does. The `Product Owner - System - Interactive Mode` knowledge file says the same for the Project at lines 62 and 70. The `HVR self-scan:` line belongs to every delivery response (`SKILL.md` line 217, `Custom Instructions.md` line 89). Every turn-1 clarification check in this package therefore includes these:
 
 - Skill side: the question-only file saved under its lane's `-clarification` name and read back, and a reply carrying its path, the `Verified: read-back succeeded; N lines` line and the `HVR self-scan:` line. Whether the reply also prints the question is not graded either way. `references/interactive-mode.md` asks the user the question, while `AGENTS.md` Section 2 keeps a full artifact out of chat and the file is that artifact. The tension is logged as a follow-up finding
-- Project side: the question rendered as its own block before any commentary, then `Export-equivalent path:` with the `-clarification` name and the `HVR self-scan:` line
+- Project side: the question rendered as its own block, then `Export-equivalent path:` with the `-clarification` name and the `HVR self-scan:` line
 
 ### Rendering without a Canvas panel
 
-The kernel delivers every artifact as a Canvas Artifact in the side Canvas panel and renders the Deliverable Block before any commentary (`Custom Instructions.md` lines 76 and 85). A terminal run, the playbook runner included, gives the Project runtime no Canvas panel. There the block counts as rendered when the artifact or the clarification question sits in the reply as one delimited block before any commentary, either fenced or opened by its own heading and closed where the `Export-equivalent path:` line begins. `canvas:` steps read the reply text, and the panel baseline is empty. The kernel asks for the rendering and the `Export-equivalent path:` label, not for the words, so no reply is graded on printing `Canvas Artifact` or `Deliverable Block`. Record which form the block took.
+The kernel delivers every artifact as a Canvas Artifact in the side Canvas panel and renders the Deliverable Block before any commentary (`Custom Instructions.md` lines 76 and 85). A terminal run, the playbook runner included, gives the Project runtime no Canvas panel. There the block counts as rendered when the artifact or the clarification question sits in the reply as one delimited block, either fenced or opened by its own heading and closed where the `Export-equivalent path:` line begins. Commentary before the block is a response-ordering defect. Record it, and let it fail a scenario only when the scenario tests delivery shape, as Defect severity says. `PID-001` is such a scenario. `canvas:` steps read the reply text, and the panel baseline is empty. The kernel asks for the rendering and the `Export-equivalent path:` label, not for the words, so no reply is graded on printing `Canvas Artifact` or `Deliverable Block`. Record which form the block took.
 
 ### Export names
 
