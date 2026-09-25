@@ -1,7 +1,7 @@
 ---
 title: "Product Owner: Manual Testing Playbook"
 description: "Operator-facing directory, execution policy and release-readiness guide for the two-runtime Product Owner manual validation package."
-version: 1.0.0.3
+version: 1.0.0.4
 ---
 
 # Product Owner: Manual Testing Playbook
@@ -137,7 +137,7 @@ The kernel delivers every artifact as a Canvas Artifact in the side Canvas panel
 
 ### Export names
 
-The `[description]` part of every path a scenario names is illustrative, because the rules fix the pattern and not the slug (`SKILL.md` lines 207 and 208, `Custom Instructions.md` lines 223 to 228). Grade the artifact word (`task`, `bug`, `doc`, `PRD` or `intake`) and the `-clarification` suffix on both runtimes. On the skill side grade the order too, with the clarification first and the artifact on the next number. On the Project side `[NNN]` is a placeholder the human reconciles (`Custom Instructions.md` line 233), so number order is not graded there.
+The `[description]` part of every path a scenario names is illustrative, because the rules fix the pattern and not the slug (`SKILL.md` lines 207 and 208, `Custom Instructions.md` lines 223 to 228). Grade the artifact word (`task`, `bug`, `doc`, `Story` or `intake`) and the `-clarification` suffix on both runtimes. On the skill side grade the order too, with the clarification first and the artifact on the next number. On the Project side `[NNN]` is a placeholder the human reconciles (`Custom Instructions.md` line 233), so number order is not graded there.
 
 ### Handovers in an automated run
 

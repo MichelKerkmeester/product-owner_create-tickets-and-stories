@@ -19,7 +19,7 @@ The default shape for a Story. Detail scales with scope. The order does not chan
 **Loading Condition:** CONDITIONAL, with `references/story-mode.md` when the resolved shape is Story
 **Purpose:** Provides the Barter house-format Story scaffold a new Story is copied from
 **Scope:** The story preamble, the About umbrella, Requirements as hard constraints only and omitted when there are none, a few outcome-led acceptance criteria and an opt-in Delivery close written only on request or where the artifact forces one
-**Output Path:** `export/[###] - PRD-[description].md`, or `export/[original-source-filename].md` for a refinement
+**Output Path:** `export/[###] - Story-[description].md`, or `export/[original-source-filename].md` for a refinement
 
 ---
 

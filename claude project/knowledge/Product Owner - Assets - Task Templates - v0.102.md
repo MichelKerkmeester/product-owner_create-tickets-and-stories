@@ -1,4 +1,4 @@
-# Product Owner - Assets - Task Templates - v0.101
+# Product Owner - Assets - Task Templates - v0.102
 
 The four task scaffolds a new task artifact is copied from, canonical task, parent task, subtask and quick task, with the sections each one requires and the numbered requirement-group grammar.
 
@@ -50,6 +50,12 @@ Components
 ---
 
 - `{Epic name}`
+
+**Story**
+
+---
+
+- [{Story H1}](<[###] - Story-[description].md>)
 
 **Parent task**
 
@@ -132,6 +138,7 @@ Components
 - If the user provides source content, preserve it and only normalize what the user asked to normalize
 - When the task shares behavior with sibling tasks, add `Related tasks`
 - A parent task, related task, ticket or epic that was named but not linked keeps its own bullet as backticked plain text, `` - `{Task title}` ``, the same shape `**Epic**` uses above. Never fabricate a URL to complete the link, and never move a named parent into About prose because no link was supplied
+- `**Story**` names the Story a task delivers. In a Story with nested Tasks bundle the task is labelled `[###].[n] - task-[description].md` inside the Story's folder, links the sibling Story file in `**Story**` and carries no `**Parent task**` block for it, because a Story is not a task. Remove `**Story**` from a task that belongs to no Story
 - Do not end a newly authored or rewritten bullet item with a full stop
 
 ---
