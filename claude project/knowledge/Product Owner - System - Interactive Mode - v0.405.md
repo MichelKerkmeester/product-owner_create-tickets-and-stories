@@ -1,4 +1,4 @@
-# Product Owner - System - Interactive Mode - v0.404
+# Product Owner - System - Interactive Mode - v0.405
 
 Conversation flows and state management for interactive guidance with concise transparency: the single-question intake, artifact-intent and energy detection ($task, $bug, $doc, $story, $prd, $epic, $quick), the clarification export contract, source-safety and Story-shape clarification, two-layer transparency, quality control, the formatting rules and the error recovery table.
 
@@ -64,10 +64,10 @@ A clarification is delivered like any other deliverable. The render-before-respo
 Label it in the routed artifact's lane, under the next number in that lane, with `-clarification` appended to the description stem:
 
 ```text
-export/[###] - {task|bug|doc|PRD|Epic}-[description]-clarification.md
+export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md
 ```
 
-A request that reached Interactive Mode through the Doc, Story or Bug gate keeps that lane and that prefix, because the clarification is about that artifact. A request with no resolved artifact at all uses `intake` in place of the artifact word. Report its export-equivalent path exactly as an artifact delivery does.
+A request that reached Interactive Mode through the Doc, Story or Bug gate keeps that lane and that prefix, because the clarification is about that artifact. A Story asked for with its tasks asks in the Story lane, outside the bundle folder, which then takes the next number. A request with no resolved artifact at all uses `intake` in place of the artifact word. Report its export-equivalent path exactly as an artifact delivery does.
 
 Two rules keep this from turning into a half-artifact:
 

@@ -1,7 +1,7 @@
 ---
-title: "Product Owner - Templates - Story Mode - v0.401"
+title: "Product Owner - Templates - Story Mode - v0.402"
 description: "Workflow, shared house grammar, artifact-kind selection (Story or Epic), the optional-enrichment catalog, refinement fidelity and delivery standards for creating and refining Barter house-format artifacts: Stories (story preamble, an About umbrella with Problem, Solution, Expected outcomes and References, an optional Requirements section holding only hard constraints, a few outcome-led Given/When/Then acceptance criteria, and an opt-in Delivery close produced only on request or where the artifact forces it) and Epics (About with Problem, Goal and Solution, a Scope of child stories, release-level acceptance criteria, the same opt-in Delivery close, and no Requirements). Each shape carries its own scaffold in assets, and this file is the single authority for everything the shapes share."
-version: "0.401"
+version: "0.402"
 contextType: reference
 importance_tier: high
 trigger_phrases:
@@ -13,7 +13,7 @@ trigger_phrases:
   - "refine this PRD"
 ---
 
-# Product Owner - Templates - Story Mode - v0.401
+# Product Owner - Templates - Story Mode - v0.402
 
 Story-mode guidance for the two Barter house-format artifact kinds: **Stories** and **Epics**. A Story covers one feature area with a few outcome-led acceptance criteria and, where the delivery has hard constraints, a Requirements section that holds only those. An Epic frames an initiative split across child stories, with a Goal, a Scope and release-level acceptance criteria, and no requirements of its own. Both stay prose-first, share the same ClickUp grammar and the same opt-in `## Delivery` close, and reach for heavier machinery (a User Story promise block, per-requirement value lines, exact Rule blocks, Definition of Ready/Done gates) only as optional enrichment.
 
@@ -22,7 +22,7 @@ Each shape carries its own scaffold and nothing else: [story-template.md](../ass
 **Loading Condition:** ON-DEMAND
 **Purpose:** Provides the workflow, shared grammar, artifact-kind selection and delivery standards for `$story`, `$s`, `$prd`, `$p`, `$epic`, `$e` and clear natural-language Story or Epic requests
 **Scope:** New Stories and Epics, and source-safe refinement of existing ones
-**Output Path:** `export/[###] - PRD-[description].md` for a new Story, `export/[###] - Epic-[description].md` for a new Epic, or `export/[original-source-filename].md` for a refinement
+**Output Path:** `export/[###] - Story-[description].md` for a new Story, `export/[###] - Epic-[description].md` for a new Epic, or `export/[original-source-filename].md` for a refinement
 **Loads With:** the one scaffold the resolved shape names and never more than one, `assets/story-template.md` or `assets/epic-template.md`, beside the always-loaded `references/hvr-core.md` and `references/conciseness.md`
 **Routed By:** `$story`, `$s`, `$prd`, `$p` for the Story shape, `$epic`, `$e` for the Epic shape, Story-lane framing read most specific first, a role denied a capability, initiative-scale wording, and the prd semantic topic on its 0.85 override
 **Hands Off To:** `references/interactive-mode.md` when the role, user value, requirement shape or artifact kind cannot be inferred safely, which returns here once the user answers
@@ -362,7 +362,7 @@ Use it for an app-store review, a partner integration, a legal, security or comp
 
 ### Artifact Rules
 
-- One complete house-format markdown artifact per request
+- One complete house-format markdown artifact per request, except the Story with nested Tasks bundle below
 - No ticket header blocks, story points or INVEST notes anywhere
 - Acceptance-criteria steps carry observable outcomes. Internal state belongs in a requirement's prose or an optional Rule block
 - The H1 is the plain hyphen-joined path: a Story is `{Persona or platform} - {Area or initiative} - {Feature}`. An Epic is `Epic - {Persona or platform} - {Area or initiative}`. No `PRD -` prefix and no `BO`/`BE`/`FE` short codes
@@ -372,7 +372,7 @@ Use it for an app-store review, a partner integration, a legal, security or comp
 New Story:
 
 ```text
-export/[###] - PRD-[description].md
+export/[###] - Story-[description].md
 ```
 
 New Epic:
@@ -389,9 +389,37 @@ export/[original-source-filename].md
 
 Never overwrite the supplied source.
 
+### Story With Nested Tasks
+
+A new Story asked for together with its task breakdown, such as `$story` with "break it into tasks", is one dependent deliverable rather than two independent artifacts, so it needs no question about which artifact to make. Two explicit artifact commands such as `$story $task` stay a conflict. The bundle applies to a new Story only, because a refined Story keeps its source filename.
+
+It saves as one folder under one number:
+
+```text
+export/[###] - Story-[description]/
+  [###] - Story-[description].md
+  [###].1 - task-[description].md
+  [###].2 - task-[description].md
+```
+
+- `n` in `[###].[n]` counts from 1 in the Story's task order. A Story with one task is still a bundle, with `[###].1` alone
+- A split the request names is authoritative, one task per named part. With none named, the one consolidated Story question asks for it, and nothing is drafted until the user answers. Quick energy may skip routine intake, and it still writes the whole bundle
+- A clarification asked first keeps the Story lane at the top of `export/`, as `export/[###] - Story-[description]-clarification.md`. The folder takes the next number, and the clarification stays outside it, untouched
+- The Story lists its tasks in a `#### **Tasks**` block inside `## About`, after `#### **References**`, one bullet per task in `n` order, each linking the sibling task file. It never uses `## Scope` for this, because `## Scope` marks the Epic kind
+- Each task uses the Canonical Task template from `assets/task-templates.md`, read under the skill's ON_DEMAND allowance for one template asset, so the one-scaffold rule still governs the Story. Each task names its Story in a `**Story**` block between `**Epic**` and `**Parent task**`, and carries no `**Parent task**` block for it, because a Story is not a task
+
+```markdown
+#### **Tasks**
+* * *
+*   [{Task H1}](<[###].1 - task-[description].md>)
+*   [{Task H1}](<[###].2 - task-[description].md>)
+```
+
 ### Response Contract
 
 Respond with the saved path, the artifact kind (Story or Epic), a compact quality summary and a brief next step. Validate the house grammar and honest Delivery state, save, then verify before reporting. In a Claude Project runtime, deliver one markdown artifact with the export-equivalent path. When ClickUp tooling is available, offer ClickUp delivery and wait for explicit approval, per the skill's ClickUp handoff rule.
+
+For a Story with nested Tasks, read back every file in the folder, then reply with every path, Story first, each with its own `Verified: read-back succeeded; N lines` line, and one `HVR self-scan:` line counted across the whole bundle. A file whose read-back still fails after one retry gets no `Path:` line, and the reply says the bundle is blocked rather than delivered. In a Claude Project runtime, render one Deliverable Block per file, Story first, each followed by its own `Export-equivalent path:` inside the folder, then one `HVR self-scan:` line for the set.
 
 ---
 

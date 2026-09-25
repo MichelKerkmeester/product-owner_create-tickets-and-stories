@@ -76,10 +76,19 @@ export/[original-source-filename].md
 Clarification:
 
 ```text
-export/[###] - {task|bug|doc|PRD|Epic}-[description]-clarification.md
+export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md
 ```
 
 A clarification is a deliverable too. When a request needs one consolidated question before drafting, save that question to `export/` in the routed artifact's lane under the next number, using `intake` in place of the artifact word when no artifact was resolved. Then run steps 6 and 7 exactly as for an artifact: read it back and respond with its path, the `Verified:` line and the `HVR self-scan:` line. The file holds the question and nothing else: no draft, no partial artifact, no answer. When the user replies, the artifact takes the next number in that lane and the clarification file stays untouched.
+
+Story with its tasks:
+
+```text
+export/[###] - Story-[description]/[###] - Story-[description].md
+export/[###] - Story-[description]/[###].[n] - task-[description].md
+```
+
+A new Story asked for together with its task breakdown saves as one folder under one number, holding the Story and one task file per task, with `n` counting from 1 in the Story's task order. The Story lists its tasks in a `#### **Tasks**` block inside `## About`, after `#### **References**`, each bullet linking the sibling task file. Each task uses the Canonical Task template, which Story Mode reads from `sk-product-owner/assets/task-templates.md` on demand, and names its Story in a `**Story**` block between `**Epic**` and `**Parent task**`. A clarification asked first stays at the top of `export/` in the Story lane, and the folder takes the next number. Read back every file in the folder, then reply with every path, Story first, each with its own `Verified: read-back succeeded; N lines` line, and one `HVR self-scan:` line counted across the whole bundle. A file whose read-back still fails after one retry gets no `Path:` line, and the reply says the bundle is blocked.
 
 Examples:
 
@@ -88,9 +97,10 @@ Examples:
 - `export/003 - bug-login-failure.md`
 - `export/004 - task-acceptance-criteria-profile-update.md`
 - `export/005 - doc-notification-delivery.md`
-- `export/006 - PRD-saved-searches.md`
+- `export/006 - Story-saved-searches.md`
 - `export/007 - Epic-creator-onboarding.md`
 - `export/008 - task-payout-pause-clarification.md` for the question asked before that task, which then saves as `export/009 - task-payout-pause.md`
+- `export/010 - Story-order-tracking/` for a Story asked for with its tasks, holding `010 - Story-order-tracking.md`, `010.1 - task-order-status-api.md` and `010.2 - task-order-tracking-screen.md`
 - `export/Barter deal - Image(s).md` for a refinement of that supplied file
 
 ## Chat Response
@@ -195,6 +205,7 @@ Do not bulk-read optional resources or example folders.
 - Check `$task --subtask` before `$task`
 - One explicit artifact command wins over natural-language wording
 - Conflicting explicit commands or independent multi-artifact actions require one consolidated clarification question with conditional fields for the selected artifact
+- A new Story requested together with its task breakdown is one dependent deliverable, not independent multi-artifact actions, so it needs no question about which artifact to make. It routes to Story Mode in the Story shape and saves as one bundle folder. Story Mode still asks its own context question, and two explicit artifact commands such as `$story $task` stay a conflict
 - "Create a task to document X" remains Task Mode
 - "Write a bug report about documentation" remains Bug Mode
 - "Document bug behavior," "document how X works," "write engineering docs," "create an API reference," and "write a runbook" route to Doc Mode

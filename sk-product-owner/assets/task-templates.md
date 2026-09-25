@@ -1,7 +1,7 @@
 ---
-title: "Product Owner Task Templates - v0.101"
+title: "Product Owner Task Templates - v0.102"
 description: "Copy/apply templates for Product Owner standalone tasks, parent tasks, subtasks and quick tasks."
-version: "0.101"
+version: "0.102"
 contextType: asset
 importance_tier: high
 trigger_phrases:
@@ -12,7 +12,7 @@ trigger_phrases:
   - "quick task template"
 ---
 
-# Product Owner Task Templates - v0.101
+# Product Owner Task Templates - v0.102
 
 Copy/apply templates for Product Owner task deliverables.
 
@@ -69,6 +69,12 @@ Components
 ---
 
 - `{Epic name}`
+
+**Story**
+
+---
+
+- [{Story H1}](<[###] - Story-[description].md>)
 
 **Parent task**
 
@@ -151,6 +157,7 @@ Components
 - If the user provides source content, preserve it and only normalize what the user asked to normalize
 - When the task shares behavior with sibling tasks, add `Related tasks`
 - A parent task, related task, ticket or epic that was named but not linked keeps its own bullet as backticked plain text, `` - `{Task title}` ``, the same shape `**Epic**` uses above. Never fabricate a URL to complete the link, and never move a named parent into About prose because no link was supplied
+- `**Story**` names the Story a task delivers. In a Story with nested Tasks bundle the task saves as `[###].[n] - task-[description].md` in the Story's folder, links the sibling Story file in `**Story**` and carries no `**Parent task**` block for it, because a Story is not a task. Remove `**Story**` from a task that belongs to no Story
 - Do not end a newly authored or rewritten bullet item with a full stop
 
 ---
