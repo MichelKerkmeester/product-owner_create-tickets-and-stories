@@ -1,7 +1,7 @@
 {
   "name": "product-owner",
   "description": "Standalone Product Owner skill for Barter: routes backlog artifacts (tasks, subtasks, parent tasks, bug reports, acceptance criteria) and product requirements documents (PRDs) in the Story and Epic shapes, plus source-safe product and engineering documentation (guides, catalogs, behavior references, runbooks, API/schema references, architecture documents, technical proposals, decision records), across five intents (Task, Bug, Doc, Story, Interactive) with energy-scaled drafting, Human Voice Rules, six-dimension quality gates, and ClickUp-formatted export.",
-  "version": "1.8.0.0",
+  "version": "1.9.0.0",
   "importance_tier": "high",
   "keywords": [
     "product-owner",

@@ -73,6 +73,14 @@ Refined artifact or document:
 export/[original-source-filename].md
 ```
 
+Clarification:
+
+```text
+export/[###] - {task|bug|doc|PRD|Epic}-[description]-clarification.md
+```
+
+A clarification is a deliverable too. When a request needs one consolidated question before drafting, save that question to `export/` in the routed artifact's lane under the next number, using `intake` in place of the artifact word when no artifact was resolved. Then run steps 6 and 7 exactly as for an artifact: read it back and respond with its path, the `Verified:` line and the `HVR self-scan:` line. The file holds the question and nothing else: no draft, no partial artifact, no answer. When the user replies, the artifact takes the next number in that lane and the clarification file stays untouched.
+
 Examples:
 
 - `export/001 - task-user-onboarding.md`
@@ -82,6 +90,7 @@ Examples:
 - `export/005 - doc-notification-delivery.md`
 - `export/006 - PRD-saved-searches.md`
 - `export/007 - Epic-creator-onboarding.md`
+- `export/008 - task-payout-pause-clarification.md` for the question asked before that task, which then saves as `export/009 - task-payout-pause.md`
 - `export/Barter deal - Image(s).md` for a refinement of that supplied file
 
 ## Chat Response

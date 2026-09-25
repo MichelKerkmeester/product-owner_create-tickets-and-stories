@@ -12,7 +12,7 @@ This scenario validates natural-language Doc routing, the consolidated source qu
 
 ## 1. OVERVIEW
 
-The request carries no command token. The Project should route by documentation framing, reach the Doc context gate and ask one consolidated question covering at least the source set, authority, status, shape and scope, the minimum that `Product Owner - Templates - Doc Mode` line 174 and `Custom Instructions.md` line 129 set. The request states the audience, and purpose sits outside that minimum, so the question may ask either but need not. It must not draft until the user answers, and the final guide renders as a Canvas Artifact with an export-equivalent label and no file claim.
+The request carries no command token. The Project should route by documentation framing, reach the Doc context gate and ask one consolidated question covering at least the source set, authority, status, shape and scope, the minimum that `Product Owner - Templates - Doc Mode` line 174 and `Custom Instructions.md` line 130 set. The request states the audience, and purpose sits outside that minimum, so the question may ask either but need not. It must not draft until the user answers, and the final guide renders as a Canvas Artifact with an export-equivalent label and no file claim.
 
 ### Why this matters
 
@@ -57,7 +57,7 @@ Doc Mode is the source-safety lane. A guide drafted from an unseen source set or
 
 ### Expected
 
-Step 1 fixes the panel baseline. Step 2 returns one consolidated question as its own clarification block. Step 3 proves the wait state and that no draft exists. Step 4 finds a guide with `* * *` dividers directly under each content heading, `*   ` bullets, sentence-case headings and the 30 second backoff, five attempts and failed queue values intact, and a reply carrying one summary line each for Source safety, Shape fit, ClickUp layout, Readability and Voice (`Product Owner - Templates - Doc Mode` line 388, `Custom Instructions.md` line 216). Spacer headings are not graded here. The skill twin fails them because a file export never carries one, and `Product Owner - Templates - Doc Mode` line 73 allows them in ClickUp-bound content, which the kernel does not say a rendered block is. The rule's silence on a rendered block is logged as a follow-up finding.
+Step 1 fixes the panel baseline. Step 2 returns one consolidated question as its own clarification block. Step 3 proves the wait state and that no draft exists. Step 4 finds a guide with `* * *` dividers directly under each content heading, `*   ` bullets, sentence-case headings and the 30 second backoff, five attempts and failed queue values intact, and a reply carrying one summary line each for Source safety, Shape fit, ClickUp layout, Readability and Voice (`Product Owner - Templates - Doc Mode` line 388, `Custom Instructions.md` line 217). Spacer headings are not graded here. The skill twin fails them because a file export never carries one, and `Product Owner - Templates - Doc Mode` line 73 allows them in ClickUp-bound content, which the kernel does not say a rendered block is. The rule's silence on a rendered block is logged as a follow-up finding.
 
 ### Evidence
 
@@ -86,7 +86,7 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, Canvas Artifact and export-equivalent contract |
-| [`Product Owner - Templates - Doc Mode - v0.109.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Doc%20Mode%20-%20v0.109.md) | Project Doc context gate and ClickUp contract |
+| [`Product Owner - Templates - Doc Mode - v0.110.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Doc%20Mode%20-%20v0.110.md) | Project Doc context gate and ClickUp contract |
 | [`Product Owner - Assets - Doc Templates - v0.107.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Doc%20Templates%20-%20v0.107.md) | Project guide shape and layout rules |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |
 
