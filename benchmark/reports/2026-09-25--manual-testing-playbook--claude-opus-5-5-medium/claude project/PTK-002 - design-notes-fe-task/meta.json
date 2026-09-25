@@ -1,0 +1,100 @@
+{
+ "id": "PTK-002",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/design-notes-fe-task.md",
+ "twin": "STK-002",
+ "engine": "claude",
+ "model": "claude-opus-5-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "attachments": [
+  {
+   "basename": "roamstay-context.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+   "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+  },
+  {
+   "basename": "roamstay-date-picker-design-notes.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-date-picker-design-notes.md",
+   "sha256": "1f2fd401d8069d4099de779cbe78111cbeec053388ff43ce96de20a267afe06a"
+  }
+ ],
+ "session_id": "dc4af868-7062-469f-a257-fe877d99a3e0",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 72.4,
+   "tool_calls": 10,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 164019,
+   "output_tokens": 7594,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.6956298000000001,
+   "model_s": 71.6,
+   "startup_s": 0.54,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$task FE task for the stay limits in the Guest app date picker. Ines's handover notes are in context/roamstay-date-picker-design-notes.md and our ticket conventions in context/roamstay-context.md."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 28.45,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 83352,
+   "output_tokens": 3365,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.8244812000000001,
+   "model_s": 27.61,
+   "startup_s": 0.56,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "One FE task for iOS, Android and web together, no parent, and the Search squad takes it into the 8.13.0 train. Leave search-service as it is, its own 30-night check stays as the backstop. QA signs it off on all three platforms in en-GB and en-US."
+  }
+ ]
+}

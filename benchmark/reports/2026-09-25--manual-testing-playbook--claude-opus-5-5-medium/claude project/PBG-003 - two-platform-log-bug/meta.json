@@ -1,0 +1,105 @@
+{
+ "id": "PBG-003",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/two-platform-log-bug.md",
+ "twin": "SBG-003",
+ "engine": "claude",
+ "model": "claude-opus-5-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "attachments": [
+  {
+   "basename": "loomlist-context.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+   "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+  },
+  {
+   "basename": "loomlist-reminders-dst-log-excerpt.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-reminders-dst-log-excerpt.md",
+   "sha256": "4d66c246ff9b2a4d11a190cc7cedd55e43a7d671fa5c6c74526fe6fc369e48f8"
+  },
+  {
+   "basename": "loomlist-reminders-dst-user-reports.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-reminders-dst-user-reports.md",
+   "sha256": "e83461a889f6f2a0ada8b1ab310919d32b912164df968eadb3e1d8840ac80565"
+  }
+ ],
+ "session_id": "9e4334c6-2cbb-46aa-af8b-54d83d4f6581",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 54.24,
+   "tool_calls": 10,
+   "tools_used": [
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Grep"
+   ],
+   "input_tokens": 204507,
+   "output_tokens": 4926,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.6177242000000001,
+   "model_s": 53.31,
+   "startup_s": 0.66,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$b Reminders arrived an hour late after the March clock change, one-off reminders on Android and daily ones on iOS. Please write it up as one bug for the To-dos and Reminders team from Ruben's log lines in context/loomlist-reminders-dst-log-excerpt.md and Marta's support reports in context/loomlist-reminders-dst-user-reports.md, with our product context in context/loomlist-context.md"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 61.28,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 75348,
+   "output_tokens": 6730,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.7824944,
+   "model_s": 60.4,
+   "startup_s": 0.61,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Severity High for both. Support never collected device models or OS versions, so we have none. QA has not reproduced either one yet, and nobody has checked the current 5.3 apps because the clocks have not changed since March. No screenshots or recordings, and no other bug is open for it. Keep it as one report."
+  }
+ ]
+}

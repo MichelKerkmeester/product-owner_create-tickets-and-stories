@@ -1,0 +1,80 @@
+{
+ "id": "STK-001",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/quick-copy-task.md",
+ "twin": "PTK-001",
+ "engine": "claude",
+ "model": "claude-opus-5-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "attachments": [
+  {
+   "basename": "fernhouse-context.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+   "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+  }
+ ],
+ "session_id": "2f8bcb46-8cf6-4658-873b-465b4336200b",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - task-free-shipping-banner-copy.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 51.09,
+   "tool_calls": 12,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Read",
+    "Bash",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 302045,
+   "output_tokens": 4411,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.5322158,
+   "model_s": 50.2,
+   "startup_s": 0.62,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - task-free-shipping-banner-copy.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$quick $task Change the free-shipping banner to \"Free shipping over €50\" and \"Free shipping over £45\", the current copy in context/fernhouse-context.md wraps to two lines on small phones."
+  }
+ ]
+}
