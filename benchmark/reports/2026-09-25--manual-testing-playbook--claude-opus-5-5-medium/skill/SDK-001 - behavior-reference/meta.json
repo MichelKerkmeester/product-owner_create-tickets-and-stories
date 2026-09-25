@@ -1,0 +1,134 @@
+{
+ "id": "SDK-001",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-document-modes/behavior-reference.md",
+ "twin": "PDK-001",
+ "engine": "claude",
+ "model": "claude-opus-5-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "attachments": [
+  {
+   "basename": "fernhouse-context.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+   "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+  },
+  {
+   "basename": "fernhouse-promotions-rules.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-promotions-rules.md",
+   "sha256": "835777864fba3984fd3f70749ca249181b5c59c0173811a6a05e1ce7e022d5fe"
+  }
+ ],
+ "session_id": "08fc9646-95ee-45c9-9292-e3b729e9b464",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - doc-promotion-stacking.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 207.23,
+   "tool_calls": 18,
+   "tools_used": [
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Bash",
+    "Read",
+    "Read",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Grep",
+    "Read",
+    "Read",
+    "Write",
+    "Bash",
+    "Bash",
+    "Read"
+   ],
+   "input_tokens": 863030,
+   "output_tokens": 20850,
+   "reasoning_tokens": 0,
+   "cost_usd": 1.2471511999999998,
+   "model_s": 206.3,
+   "startup_s": 0.63,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - doc-promotion-stacking.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "Can you document how discount codes and automatic promotions stack? Start with context/fernhouse-promotions-rules.md, and context/fernhouse-context.md has the company background."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 92.93,
+   "tool_calls": 16,
+   "tools_used": [
+    "Read",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Read",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Edit",
+    "Bash",
+    "Read",
+    "Edit",
+    "Edit",
+    "Read"
+   ],
+   "input_tokens": 854239,
+   "output_tokens": 8768,
+   "reasoning_tokens": 0,
+   "cost_usd": 1.7494821999999997,
+   "model_s": 92.14,
+   "startup_s": 0.55,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [
+     "export/001 - doc-promotion-stacking.md"
+    ],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Behavior reference for CS agents and the Checkout engineers, so they can predict the discount on any cart. Those two files are all there is, the rules note governs and the context doc is background only. Write up what promotions-service does today, keep the old two-codes rule in because CS still refunds those orders, and leave out how merchandisers set promotions up in Admin."
+  }
+ ]
+}

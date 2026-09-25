@@ -1,0 +1,101 @@
+{
+ "id": "PDK-002",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-document-modes/incident-runbook.md",
+ "twin": "SDK-002",
+ "engine": "claude",
+ "model": "claude-opus-5-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "attachments": [
+  {
+   "basename": "roamstay-context.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+   "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+  },
+  {
+   "basename": "roamstay-payment-webhook-incident-notes.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-payment-webhook-incident-notes.md",
+   "sha256": "4dcb58a50ab4a3e865d9795f33a5101f9f0326c374b84873ea5be684510826dc"
+  }
+ ],
+ "session_id": "c9c9ac10-02c5-451c-ad30-88a290da5e0d",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 31.66,
+   "tool_calls": 6,
+   "tools_used": [
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Grep",
+    "Grep"
+   ],
+   "input_tokens": 105522,
+   "output_tokens": 3064,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.32426160000000004,
+   "model_s": 30.91,
+   "startup_s": 0.53,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$doc We need a doc on handling payment webhook failures, like the INC-0412 outage. Start with context/roamstay-payment-webhook-incident-notes.md, and context/roamstay-context.md has the company background."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 91.01,
+   "tool_calls": 4,
+   "tools_used": [
+    "Grep",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 153758,
+   "output_tokens": 9461,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.6596414,
+   "model_s": 89.77,
+   "startup_s": 0.71,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "A runbook for whoever is on call in #payments-oncall, from the alert firing to the cleanup. Those two files are all there is, the incident notes govern and the context doc is background only. Write it as what we do today, list the review follow-ups at the end with where each one stands, and leave out the guest apology emails."
+  }
+ ]
+}
