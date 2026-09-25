@@ -1,7 +1,7 @@
 ---
-title: "Product Owner - Templates - Story Mode - v0.400"
+title: "Product Owner - Templates - Story Mode - v0.401"
 description: "Workflow, shared house grammar, artifact-kind selection (Story or Epic), the optional-enrichment catalog, refinement fidelity and delivery standards for creating and refining Barter house-format artifacts: Stories (story preamble, an About umbrella with Problem, Solution, Expected outcomes and References, an optional Requirements section holding only hard constraints, a few outcome-led Given/When/Then acceptance criteria, and an opt-in Delivery close produced only on request or where the artifact forces it) and Epics (About with Problem, Goal and Solution, a Scope of child stories, release-level acceptance criteria, the same opt-in Delivery close, and no Requirements). Each shape carries its own scaffold in assets, and this file is the single authority for everything the shapes share."
-version: "0.400"
+version: "0.401"
 contextType: reference
 importance_tier: high
 trigger_phrases:
@@ -13,7 +13,7 @@ trigger_phrases:
   - "refine this PRD"
 ---
 
-# Product Owner - Templates - Story Mode - v0.400
+# Product Owner - Templates - Story Mode - v0.401
 
 Story-mode guidance for the two Barter house-format artifact kinds: **Stories** and **Epics**. A Story covers one feature area with a few outcome-led acceptance criteria and, where the delivery has hard constraints, a Requirements section that holds only those. An Epic frames an initiative split across child stories, with a Goal, a Scope and release-level acceptance criteria, and no requirements of its own. Both stay prose-first, share the same ClickUp grammar and the same opt-in `## Delivery` close, and reach for heavier machinery (a User Story promise block, per-requirement value lines, exact Rule blocks, Definition of Ready/Done gates) only as optional enrichment.
 
@@ -79,7 +79,7 @@ The house grammar every Story and Epic follows sits in section 3. These are the 
 - Every line of the source is accounted for, not only the lines under a screen heading. Accounted for means the change the line names lands in the draft, never that the line's own wording lands in Requirements. A line that gives a value is accounted for by that value, and a line that names a screen without giving one is accounted for by a single bullet pointing at the design. A change stated above the first heading, in a preamble, or for a surface the headings never name, such as the modal that opens the flow or a global change to all screens, is a supplied value like any other. It gets its own bold-lead group named for the surface it changes, and it is never folded into a neighbouring screen or dropped because the source did not give it a heading
 - Source prose is material, never copy. The Human Voice rules apply to what the artifact says, so a hedge, an opener, a filler phrase or a vague qualifier in the source is rewritten as a fact, an open constraint or a plain condition. Only exact product copy, identifiers and values are carried verbatim, inside backticks. A source that hedges whether a flow will run again and whether other flows will pick up its screens becomes an artifact that states the flow can run again and its screens are reused, because the hedges belonged to the author's uncertainty, not to the product
 - The default shape is lean. The optional enrichments in section 6 (value lines, Rule blocks, Which-means-that, Definition of Ready/Done, User Story promise block) are added only when the artifact earns them
-- User-supplied context is the main source of truth. Never invent requirements, evidence or links
+- User-supplied context is the main source of truth. Never invent requirements, evidence or links. An edge case, assumption or other addition the user did not supply is allowed only when the chat response names it as an addition, so the user can strike it. An addition the response does not name is an invented requirement, and naming one never makes invented evidence or a link acceptable
 - Apply every gate under Quick energy
 
 ---

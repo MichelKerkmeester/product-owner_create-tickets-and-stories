@@ -2,7 +2,7 @@
 name: product-owner
 description: "Routes Product Owner requests into backlog artifacts, product requirements documents (PRDs) in the Barter house format, and source-safe product or engineering documentation, including ClickUp-formatted guides, catalogs, behavior references, runbooks, API or schema references, and proposals."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.8.4
+version: 1.9.0
 ---
 
 <!-- Keywords: product-owner, backlog, task, subtask, parent task, bug report, acceptance criteria, story mode, user story, prd, product requirements document, epic, doc mode, product documentation, engineering documentation, ClickUp, $task, $bug, $doc, $story, $prd, $epic, $quick -->
@@ -264,7 +264,7 @@ Ask one comprehensive question and wait when required information is missing. Ne
 5. Preserve source shape when refining existing tasks. Preserve the full Doc fidelity invariant outside the explicitly requested change.
 6. Classify material Doc claims and retain their current, approved, proposal, retired or unknown status. Stop at unresolved source conflicts and ask one consolidated question.
 7. Use user-provided context as the main source of truth. Deliver only what the user requested.
-8. Identify dependencies, edge cases, error states, empty states, loading states and permission boundaries when relevant.
+8. Identify dependencies, edge cases, error states, empty states, loading states and permission boundaries when relevant. An edge case the user did not supply is an addition, so the chat response names it, as NEVER 4 requires.
 9. Write acceptance criteria as outcomes the user can rely on, few in number and open on the mechanism, growing only with the surfaces a story touches. In a Story, Requirements holds hard constraints only, carries every hard value the source supplied with its value, units and notation intact, mirrors the source's own screen or surface grouping where it has one, names each shared screen's reuse map as a constraint, and is omitted only where the source supplies none. Every Requirements bullet is a sentence a build can fail, so a bullet that reports what a screen says, shows or contains, naming no value, limit, condition, effect or named flow a build could get wrong, is description and is struck rather than reworded, and copy a screenshot supplies is quoted verbatim in backticks or dropped. A supplied value never travels into an acceptance criterion instead. Keep Task QA checklist items inside a Task's Requirements.
 10. Use `---` between required Task and Bug sections. Use `-` and `- [ ]` for Task, Bug and Interactive bullets and checklists. Use exact `*   ` bullets in new Doc and PRD artifacts, `*   [ ]` checklists in Doc and `- [ ]` only for the PRD Mark-as-done line and optional readiness or done gates (PRD requirements carry no checklist). Never end a newly authored or rewritten bullet item with a full stop. Preserve untouched source punctuation and markers in refinements unless normalization is requested.
 11. Use H3 generated Task and Bug artifact section headers without leading icons or symbols.
@@ -280,7 +280,7 @@ Ask one comprehensive question and wait when required information is missing. Ne
 1. Never turn a Doc request into unrequested live implementation or claim a documentation artifact is production code.
 2. Never present unsupported implementation guidance, code behavior, architecture, APIs, schemas, root causes, debugging evidence or operational evidence as established fact.
 3. Never present a technical selection, design, recommendation, or legal, compliance or security analysis as approved, shipped, or externally sanctioned without supplied authority.
-4. Never expand scope beyond the request, or invent requirements, evidence, root causes or platform details.
+4. Never expand scope beyond the request, or invent requirements, evidence, root causes or platform details. An edge case, assumption or other addition the user did not supply is allowed only when the chat response names it as an addition, so the user can strike it. An addition the response does not name is an invented requirement. Naming an addition never makes invented evidence, a root cause or a platform detail acceptable.
 5. Never answer your own clarification question, or create before the user responds when clarification is required.
 6. Never output `[Assumes: ...]` tags, and never accept assumptions without challenging them internally. Never put a score, a dimension breakdown, a self-scan line, a validation checklist or any other process material inside a delivered artifact body. The line-1 HTML comment header is the one sanctioned home for delivery metadata inside a file, because it renders as nothing.
 7. Never skip mechanism explanations, user-value justification, or edge cases that affect acceptance.

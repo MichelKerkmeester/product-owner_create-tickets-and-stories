@@ -86,7 +86,7 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, Canvas Artifact and export-equivalent contract |
-| [`Product Owner - Templates - Story Mode - v0.400.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.400.md) | Project Story intake, shape selection and hard-value rules |
+| [`Product Owner - Templates - Story Mode - v0.401.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.401.md) | Project Story intake, shape selection and hard-value rules |
 | [`Product Owner - Assets - Story Template - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Story%20Template%20-%20v0.100.md) | Project Story scaffold and acceptance-criteria grammar |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |
 

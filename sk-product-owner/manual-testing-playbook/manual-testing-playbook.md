@@ -1,7 +1,7 @@
 ---
 title: "Product Owner: Manual Testing Playbook"
 description: "Operator-facing directory, execution policy and release-readiness guide for the two-runtime Product Owner manual validation package."
-version: 1.0.0.1
+version: 1.0.0.2
 ---
 
 # Product Owner: Manual Testing Playbook
@@ -137,7 +137,7 @@ The kernel delivers every artifact as a Canvas Artifact in the side Canvas panel
 
 ### Export names
 
-The `[description]` part of every path a scenario names is illustrative, because the rules fix the pattern and not the slug (`SKILL.md` lines 207 and 208, `Custom Instructions.md` lines 222 to 227). Grade the artifact word (`task`, `bug`, `doc`, `PRD` or `intake`) and the `-clarification` suffix on both runtimes. On the skill side grade the order too, with the clarification first and the artifact on the next number. On the Project side `[NNN]` is a placeholder the human reconciles (`Custom Instructions.md` line 232), so number order is not graded there.
+The `[description]` part of every path a scenario names is illustrative, because the rules fix the pattern and not the slug (`SKILL.md` lines 207 and 208, `Custom Instructions.md` lines 223 to 228). Grade the artifact word (`task`, `bug`, `doc`, `PRD` or `intake`) and the `-clarification` suffix on both runtimes. On the skill side grade the order too, with the clarification first and the artifact on the next number. On the Project side `[NNN]` is a placeholder the human reconciles (`Custom Instructions.md` line 233), so number order is not graded there.
 
 ### Handovers in an automated run
 
@@ -153,7 +153,7 @@ Record both the verdict and the severity that drove it.
 
 Blocking, any one of which is a `FAIL`:
 
-- An invented fact: a requirement, value, status, approval or behavior the user never supplied
+- An invented fact: a requirement, value, status, approval or behavior the user never supplied. The one exception is a disclosed addition: an edge case, assumption or other addition the reply names as an addition in its chat response is not an invented fact and does not fail the scenario (`SKILL.md` line 283, `Custom Instructions.md` line 104). An addition the reply does not name stays blocking, and naming never excuses an invented status, approval, evidence, root cause or platform detail, or any other item in this list
 - A protected fact altered: a supplied value generalized, a conflict silently resolved or a proposal promoted to current behavior
 - A path claim with no readable file behind it on the skill side, or any file claim at all on the Project side
 - A missing `HVR self-scan:` line or a count that was never taken

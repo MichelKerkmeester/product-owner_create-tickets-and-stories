@@ -86,7 +86,7 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, Canvas Artifact and export-equivalent contract |
-| [`Product Owner - Templates - Doc Mode - v0.109.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Doc%20Mode%20-%20v0.109.md) | Project source authority order and conflict gate |
+| [`Product Owner - Templates - Doc Mode - v0.110.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Doc%20Mode%20-%20v0.110.md) | Project source authority order and conflict gate |
 | [`Product Owner - Assets - Doc Templates - v0.107.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Doc%20Templates%20-%20v0.107.md) | Project behavior reference shape |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |
 

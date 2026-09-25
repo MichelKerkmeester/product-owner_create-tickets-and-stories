@@ -8,15 +8,15 @@ Hand-maintained local package for the Product Owner claude.ai Project. The kerne
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- synthesized Project kernel v1.12.6 (routing authority, SKILL.md is not loaded in this Project)
+|-- Custom Instructions.md        <- synthesized Project kernel v1.13.0 (routing authority, SKILL.md is not loaded in this Project)
 |-- README.md                     <- upload manifest and hand-authored parity note
 `-- knowledge/                    <- upload all thirty-eight files as Project Knowledge
     |-- Product Owner - System - Interactive Mode - v0.404.md
     |-- Product Owner - System - Router Contract - v0.100.md
     |-- Product Owner - Templates - Task Mode - v0.305.md
     |-- Product Owner - Templates - Bug Mode - v0.203.md
-    |-- Product Owner - Templates - Doc Mode - v0.109.md
-    |-- Product Owner - Templates - Story Mode - v0.400.md
+    |-- Product Owner - Templates - Doc Mode - v0.110.md
+    |-- Product Owner - Templates - Story Mode - v0.401.md
     |-- Product Owner - Assets - Task Templates - v0.101.md
     |-- Product Owner - Assets - Bug Report Template - v0.100.md
     |-- Product Owner - Assets - Interactive Response Templates - v0.102.md
@@ -36,7 +36,7 @@ claude project/
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` v1.12.6 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.8.4**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
+`Custom Instructions.md` v1.13.0 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.9.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
 
 CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Block**, direct resource loading becomes Project Knowledge consultation, and the response reports an export-equivalent path. Refinements keep delivery metadata outside preserved content unless equivalent metadata already exists in the source.
 
@@ -47,8 +47,8 @@ CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Bloc
 | `sk-product-owner/references/interactive-mode.md` | `Product Owner - System - Interactive Mode - v0.404.md` |
 | `sk-product-owner/references/task-mode.md` | `Product Owner - Templates - Task Mode - v0.305.md` |
 | `sk-product-owner/references/bug-mode.md` | `Product Owner - Templates - Bug Mode - v0.203.md` |
-| `sk-product-owner/references/doc-mode.md` | `Product Owner - Templates - Doc Mode - v0.109.md` |
-| `sk-product-owner/references/story-mode.md` | `Product Owner - Templates - Story Mode - v0.400.md` |
+| `sk-product-owner/references/doc-mode.md` | `Product Owner - Templates - Doc Mode - v0.110.md` |
+| `sk-product-owner/references/story-mode.md` | `Product Owner - Templates - Story Mode - v0.401.md` |
 | `sk-product-owner/assets/task-templates.md` | `Product Owner - Assets - Task Templates - v0.101.md` |
 | `sk-product-owner/assets/bug-report-template.md` | `Product Owner - Assets - Bug Report Template - v0.100.md` |
 | `sk-product-owner/assets/interactive-response-templates.md` | `Product Owner - Assets - Interactive Response Templates - v0.102.md` |
