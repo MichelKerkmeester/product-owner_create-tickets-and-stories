@@ -28,9 +28,9 @@ The defect handoff depends on reproduction steps and honest missing values. A Pr
 - Runtime profile: project, from `Custom Instructions.md` with the full `claude project/knowledge/` set attached
 - Precondition: `PID-001` identity handover passed in the Project runtime before this scenario starts
 - Expected execution process: Start a fresh Project conversation, submit Turn 1, capture the clarification block, answer in Turn 2 and inspect the rendered bug block
-- Expected signals: Turn 1 asks one evidence question, renders a clarification block with `Export-equivalent path: export/[NNN] - bug-payout-pause-toggle-clarification.md` and claims no file. Turn 2 renders the bug block with the field table, `1. Observed Behavior`, numbered steps, `2. Expected Behavior`, the four fixed checklist items and `Export-equivalent path: export/[NNN] - bug-payout-pause-toggle.md`
+- Expected signals: Turn 1 asks one evidence question, renders it as its own clarification block with `Export-equivalent path: export/[NNN] - bug-payout-pause-toggle-clarification.md` and the HVR self-scan line (root section 5, Clarification turns) and claims no file. Turn 2 renders the bug block with the field table, `1. Observed Behavior`, numbered steps, `2. Expected Behavior`, the four fixed checklist items and `Export-equivalent path: export/[NNN] - bug-payout-pause-toggle.md`
 - Desired user-visible outcome: One evidence question followed by a compliant bug block
-- Pass/fail: PASS if the runtime waits, missing environment values read `Not provided`, and the checklist keeps the four fixed items. FAIL if it invents a frequency, device, root cause or reproduction step, or claims a local save
+- Pass/fail: PASS if Turn 1 renders the evidence question as its own block under its export-equivalent label and waits, missing environment values read `Not provided`, and the checklist keeps the four fixed items. FAIL if it invents a frequency, device, root cause or reproduction step, or claims a local save
 - Record `SKIP` only when a named sandbox or runtime blocker prevents execution, never for a soft or inconclusive result
 
 ### Conversation chain
@@ -57,7 +57,7 @@ The defect handoff depends on reproduction steps and honest missing values. A Pr
 
 ### Expected
 
-Step 1 fixes the panel baseline. Step 2 returns one evidence question as a Canvas Artifact. Step 3 proves the wait state. Step 4 finds `### About` with the field table, `1. Observed Behavior`, numbered steps, `2. Expected Behavior` and the exact four checklist items.
+Step 1 fixes the panel baseline. Step 2 returns one evidence question as its own clarification block. Step 3 proves the wait state. Step 4 finds `### About` with the field table, `1. Observed Behavior`, numbered steps, `2. Expected Behavior` and the exact four checklist items.
 
 ### Evidence
 
@@ -65,13 +65,13 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 
 ### Pass / fail
 
-- **Pass**: One evidence question, no early draft, and one rendered bug block with the fixed structure and honest missing values, under an export-equivalent label
+- **Pass**: One evidence question rendered as its own block under its label, no early draft, and one rendered bug block with the fixed structure and honest missing values, under an export-equivalent label
 - **Fail**: The runtime drafts before Turn 2, infers frequency from a count, invents environment data, alters the four checklist items or claims a local file
 
 ### Failure triage
 
-1. Check the bug context question and fixed structure in the Templates - Bug Mode knowledge document
-2. Compare the field table with the Bug Report Template knowledge document, especially the frequency and `Not provided` rules
+1. Check the bug context question and fixed structure in `Product Owner - Templates - Bug Mode`
+2. Compare the field table with `Product Owner - Assets - Bug Report Template`, especially the frequency and `Not provided` rules
 3. Reconcile the reproduction steps with the supplied flow and remove any invented detail
 
 | Feature ID | Feature name | Scenario name / objective | Exact prompt | Exact command sequence | Expected signals | Evidence | Pass/fail criteria | Failure triage |

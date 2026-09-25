@@ -12,7 +12,7 @@ This scenario validates natural-language Doc routing, the consolidated source qu
 
 ## 1. OVERVIEW
 
-The request carries no command token. The runtime should route by documentation framing, reach the Doc context gate and ask one consolidated question for the operation, audience, source set, authority, status, shape and scope. It must not draft until the user answers.
+The request carries no command token. The runtime should route by documentation framing, reach the Doc context gate and ask one consolidated question covering at least the source set, authority, status, shape and scope, the minimum that `doc-mode.md` line 198 sets. The request states the audience, and purpose sits outside that minimum, so the question may ask either but need not. It must not draft until the user answers.
 
 ### Why this matters
 
@@ -28,16 +28,16 @@ Doc Mode is the source-safety lane. A doc drafted from an unseen source set or a
 - Runtime profile: skill, from `AGENTS.md` with `SKILL.md` and the `sk-product-owner/` resources loaded
 - Precondition: `SID-001` identity handover passed in the skill runtime before this scenario starts
 - Expected execution process: Start fresh, submit Turn 1, capture the consolidated question and its clarification export, answer in Turn 2 and inspect the next doc export
-- Expected signals: Turn 1 asks one question covering the unresolved Doc fields, exports `export/[###] - doc-notification-retry-clarification.md`, reads it back and creates no draft. Turn 2 uses only the supplied notes, saves `export/[###] - doc-notification-retry.md`, reads it back and replies with the Doc quality summary
+- Expected signals: Turn 1 asks one question covering the unresolved Doc fields, exports `export/[###] - doc-notification-retry-clarification.md`, reads it back, replies with its path, the read-back line and the HVR self-scan line (root section 5, Clarification turns) and creates no draft. Turn 2 uses only the supplied notes, saves `export/[###] - doc-notification-retry.md`, reads it back and replies with the Doc quality summary
 - Desired user-visible outcome: One consolidated source question followed by a ClickUp-formatted guide export
-- Pass/fail: PASS if turn 1 asks one consolidated question covering every unresolved Doc field, the promised notes together with authority, status, shape and scope rather than the notes alone, exports it as a clarification and reads it back, the runtime then waits, the guide uses `* * *` dividers and `*   ` bullets, and every claim traces to the supplied notes. FAIL if turn 1 asks only for the notes or leaves an unresolved Doc field for a later turn, drafts before the notes arrive, merges statuses or emits `---` dividers and hyphen bullets in the new document
+- Pass/fail: PASS if turn 1 asks one consolidated question covering every unresolved Doc field, the promised notes together with authority, status, shape and scope rather than the notes alone, exports it as a clarification and reads it back, the runtime then waits, the guide uses `* * *` dividers and `*   ` bullets, and every claim traces to the supplied notes. FAIL if turn 1 asks only for the notes or leaves any of those five fields out of the question, whether it drops the field or defers it until the notes arrive, drafts before the notes arrive, merges statuses or emits `---` dividers and hyphen bullets in the new document
 - Record `SKIP` only when a named sandbox or runtime blocker prevents execution, never for a soft or inconclusive result
 
 ### Conversation chain
 
 | Turn | Exact user input | Expected assistant behavior | State check | Evidence |
 |---|---|---|---|---|
-| 1 | `Document how the notification retry pipeline works for the support team. I will paste the engineering notes.` | Route to Doc Mode, run the context gate, ask one consolidated question for purpose, audience, source set, authority, status, shape and scope, export it as a clarification and wait. Create no draft | Doc Mode is selected and no source is assumed beyond the promised notes | Turn 1 reply, clarification export, read-back result and clean draft ledger |
+| 1 | `Document how the notification retry pipeline works for the support team. I will paste the engineering notes.` | Route to Doc Mode, run the context gate, ask one consolidated question for the source set, authority, status, shape and scope, plus any other field the request left open, export it as a clarification and wait. Create no draft | Doc Mode is selected and no source is assumed beyond the promised notes | Turn 1 reply, clarification export, read-back result and clean draft ledger |
 | 2 | `Guide for support agents. Purpose: diagnose and requeue a failed notification retry. Status: current behavior. The notes are authoritative. Notes: a retry runs on a 30 second backoff for five attempts. Attempt six moves the notification to the failed queue. Support can requeue from the failed queue with the Requeue action. A requeued notification restarts the backoff.` | Build the guide from the notes, apply the ClickUp layout, save the next doc export, read it back and reply with the path, the HVR self-scan line and the one-line-per-dimension Doc summary | Every supplied value survives in its own units and no behavior beyond the notes is claimed | Turn 2 reply, exported guide and read-back result |
 
 ---
@@ -57,7 +57,7 @@ Doc Mode is the source-safety lane. A doc drafted from an unseen source set or a
 
 ### Expected
 
-Step 1 fixes the baseline. Step 2 returns one consolidated question and one clarification file. Step 3 proves the wait state and that no draft exists. Step 4 finds a guide with `* * *` dividers directly under each content heading, `*   ` bullets, sentence-case headings and the 30 second backoff, five attempts and failed queue values intact.
+Step 1 fixes the baseline. Step 2 returns one consolidated question and one clarification file. Step 3 proves the wait state and that no draft exists. Step 4 finds a guide with `* * *` dividers directly under each content heading, `*   ` bullets, sentence-case headings, no empty spacer heading, since a file export never carries one (`doc-mode.md` line 97), and the 30 second backoff, five attempts and failed queue values intact.
 
 ### Evidence
 
@@ -66,7 +66,7 @@ Capture both replies, the side-effect ledger, both export paths and read-back re
 ### Pass / fail
 
 - **Pass**: Turn 1 asks one consolidated question covering every unresolved Doc field, the promised notes together with authority, status, shape and scope rather than the notes alone, exported as a clarification and read back, with no early draft, and one readable guide that passes the ClickUp layout gate with source-backed claims
-- **Fail**: Turn 1 asks only for the notes or holds an unresolved Doc field for a later turn, or the runtime drafts early, invents behavior, promotes the notes beyond their supplied scope, or writes `---` dividers and hyphen bullets into the new document
+- **Fail**: Turn 1 asks only for the notes or leaves one of the five fields out, whether dropped or deferred until the notes arrive, or the runtime drafts early, invents behavior, promotes the notes beyond their supplied scope, or writes `---` dividers, hyphen bullets or empty spacer headings into the new document
 
 ### Failure triage
 

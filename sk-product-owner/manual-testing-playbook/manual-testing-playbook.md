@@ -13,7 +13,7 @@ This package turns the Product Owner contract into 14 reproducible conversations
 ### Result persistence
 
 <!-- MANUAL_PLAYBOOK_RESULT_PERSISTENCE_CONTRACT -->
-A scenario run is complete only after its `PASS`, `FAIL` or `SKIP` outcome and reason are persisted into `sk-product-owner/benchmark/reports/<dated-run-label>/`. Generated report Markdown is renderer-owned and never hand-authored.
+A scenario run is complete only after its `PASS`, `FAIL` or `SKIP` outcome and reason are persisted into `benchmark/reports/<dated-run-label>/`. Generated report Markdown is renderer-owned and never hand-authored.
 
 ---
 
@@ -38,7 +38,7 @@ The playbook covers 14 scenarios in two mirrored sets of seven, grouped under te
 
 ### Two runtimes, one system
 
-Both sets test the same Product Owner contract against the surface that actually runs it, never one system tested twice. A skill-side reply is only genuine when it names a real readable path under `export/` and prints the read-back verification line. A Project-side reply is only genuine when it renders the Deliverable Block as a Canvas Artifact, reports `Export-equivalent path:` and claims no file was written. A reply that could have come from either runtime fails the scenario that produced it. The handover files `SID-001` and `PID-001` carry the four greps that prove the vocabulary split, and every other scenario names its runtime's handover as a precondition.
+Both sets test the same Product Owner contract against the surface that actually runs it, never one system tested twice. A skill-side reply is only genuine when it names a real readable path under `export/` and prints the read-back verification line. A Project-side reply is only genuine when it renders the Deliverable Block as a Canvas Artifact, or as its own block where the runtime has no Canvas panel (section 5), reports `Export-equivalent path:` and claims no file was written. A reply that could have come from either runtime fails the scenario that produced it. The handover files `SID-001` and `PID-001` carry the four greps that prove the vocabulary split, and every other scenario names its runtime's handover as a precondition.
 
 ### Realistic test model
 
@@ -65,7 +65,7 @@ At least two scenarios per set open with a Turn 1 that carries no command token,
 1. Work only in a disposable project copy for skill-side runs, never inside the authoritative `sk-product-owner/` tree
 2. Confirm `AGENTS.md`, `sk-product-owner/` and a writable `export/` directory exist before skill-side runs
 3. Attach `claude project/Custom Instructions.md` plus the full `claude project/knowledge/` set before Project-side runs
-4. Run the runtime's handover scenario first: `SID-001` gates every `S` scenario and `PID-001` gates every `P` scenario
+4. Run the runtime's handover scenario first: `SID-001` leads the `S` set and `PID-001` the `P` set. A failed handover is flagged, never a stop (section 5, Handovers in an automated run)
 5. Record `export/` baselines before each skill-side scenario
 6. Use a fresh session per ID and keep follow-up turns inside that same ID and session
 7. Do not use production credentials, private partner data or live ClickUp access, and never let a ClickUp push become part of a verdict
@@ -102,7 +102,7 @@ Clarification turns may create only the expected `-clarification` export on the 
 - `session:` starts or continues a conversation in the runtime under test
 - `user:` submits the exact text shown for a turn
 - `filesystem:` records and reads allowed artifacts, skill side only
-- `canvas:` inspects the rendered Deliverable Block, Project side only
+- `canvas:` inspects the rendered Deliverable Block, Project side only, and reads the reply text where the runtime has no Canvas panel
 - `operator:` compares observed behavior with the contract
 - `->` separates sequential steps
 
@@ -122,9 +122,30 @@ A scenario passes only when the exact sequence ran, every turn matched expected 
 - `FAIL`: any critical signal, state, artifact or boundary is wrong
 - `SKIP`: a named sandbox or runtime blocker prevents execution and no safe deterministic fallback exists
 
+Each scenario's Fail bullet names the likely failures and is not a complete list. A turn that misses any Pass clause fails the scenario even when no Fail example describes the miss, so there is no verdict between `PASS` and `FAIL`.
+
+### Clarification turns
+
+A clarification is a delivery on both runtimes. `references/interactive-mode.md` line 85 exports it like any other deliverable and line 93 reports its path exactly as an artifact delivery does. The `Product Owner - System - Interactive Mode` knowledge file says the same for the Project at lines 62 and 70. The `HVR self-scan:` line belongs to every delivery response (`SKILL.md` line 217, `Custom Instructions.md` line 89). Every turn-1 clarification check in this package therefore includes these:
+
+- Skill side: the question-only file saved under its lane's `-clarification` name and read back, and a reply carrying its path, the `Verified: read-back succeeded; N lines` line and the `HVR self-scan:` line. Whether the reply also prints the question is not graded either way. `references/interactive-mode.md` asks the user the question, while `AGENTS.md` Section 2 keeps a full artifact out of chat and the file is that artifact. The tension is logged as a follow-up finding
+- Project side: the question rendered as its own block before any commentary, then `Export-equivalent path:` with the `-clarification` name and the `HVR self-scan:` line
+
+### Rendering without a Canvas panel
+
+The kernel delivers every artifact as a Canvas Artifact in the side Canvas panel and renders the Deliverable Block before any commentary (`Custom Instructions.md` lines 76 and 85). A terminal run, the playbook runner included, gives the Project runtime no Canvas panel. There the block counts as rendered when the artifact or the clarification question sits in the reply as one delimited block before any commentary, either fenced or opened by its own heading and closed where the `Export-equivalent path:` line begins. `canvas:` steps read the reply text, and the panel baseline is empty. The kernel asks for the rendering and the `Export-equivalent path:` label, not for the words, so no reply is graded on printing `Canvas Artifact` or `Deliverable Block`. Record which form the block took.
+
+### Export names
+
+The `[description]` part of every path a scenario names is illustrative, because the rules fix the pattern and not the slug (`SKILL.md` lines 207 and 208, `Custom Instructions.md` lines 222 to 227). Grade the artifact word (`task`, `bug`, `doc`, `PRD` or `intake`) and the `-clarification` suffix on both runtimes. On the skill side grade the order too, with the clarification first and the artifact on the next number. On the Project side `[NNN]` is a placeholder the human reconciles (`Custom Instructions.md` line 232), so number order is not graded there.
+
+### Handovers in an automated run
+
+Every scenario runs in its own fresh sandbox or conversation, so a handover hands nothing on to the scenarios after it. The playbook runner runs `SID-001` and `PID-001` first but does not hold the rest of a set on their verdict. Grade every scenario in both sets, whatever the handovers return. When a handover fails, state that failure at the top of the run report, before any other result, and name the runtime whose other verdicts it puts in question. A scenario whose precondition says its handover passed reads, in an automated run, as the handover having run first in its own session. Its verdict gates nothing.
+
 ### Identity handover rule
 
-`SID-001` and `PID-001` prove the runtime, not only the artifact. A reply that could have come from either runtime is a `FAIL`. The skill side must name a real readable `export/` path and print the read-back confirmation fixture `Verified: read-back succeeded` with its line count. The Project side must render the Canvas Artifact and report `Export-equivalent path:` while claiming no file was written. The skill proof string is `read-back succeeded` and the Project proof string is `Canvas Artifact`. Each handover file carries the four greps that show a proof string appears only in its own identity file.
+`SID-001` and `PID-001` prove the runtime, not only the artifact. A reply that could have come from either runtime is a `FAIL`. The proof is graded on Turn 1, because both Turn 2 prompts ask about the delivery and so invite the runtime to name it. The skill side must name a real readable `export/` path and print the read-back confirmation fixture `Verified: read-back succeeded` with its line count. The Project side must render the Deliverable Block, in the form Rendering without a Canvas panel describes when there is no panel, and report `Export-equivalent path:` while claiming no file was written. The skill proof string is `read-back succeeded` and the Project proof string is `Canvas Artifact`. Each handover file carries the four greps that show a proof string appears only in its own identity file. The Project string proves the packaging through those greps and is not required in a reply.
 
 ### Defect severity
 
@@ -153,7 +174,7 @@ The system is ready only when every scenario has evidence, no scenario is `FAIL`
 
 | Wave | Scenarios | Isolation |
 |---|---|---|
-| 1 | `SID-001`, `PID-001` | One fresh session per runtime, handover gates first |
+| 1 | `SID-001`, `PID-001` | One fresh session per runtime, handovers run first |
 | 2 | `STK-001`, `SBG-001`, `PTK-001`, `PBG-001` | Separate export baselines per runtime |
 | 3 | `SDK-001`, `SDK-002`, `PDK-001`, `PDK-002` | Separate doc baselines, clarification exports allowed |
 | 4 | `SST-001`, `PST-001` | Story baselines per runtime |
