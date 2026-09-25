@@ -28,7 +28,7 @@ An ambiguous request that guesses a shape renders the wrong artifact. The energy
 - Runtime profile: project, from `Custom Instructions.md` with the full `claude project/knowledge/` set attached
 - Precondition: `PID-001` identity handover passed in the Project runtime before this scenario starts
 - Expected execution process: Start a fresh Project conversation, submit Turn 1, capture the comprehensive question and its clarification block, answer in Turn 2 and inspect the rendered task
-- Expected signals: Turn 1 asks one question that opens with the Quick or Deeper energy choice, renders it with `Export-equivalent path: export/[NNN] - intake-creator-payout-flow-clarification.md` and claims no file. Turn 2 keeps the chosen Quick energy, renders the task under `Export-equivalent path: export/[NNN] - task-payout-pause-visibility.md` and claims no file
+- Expected signals: Turn 1 asks one question that opens with the Quick or Deeper energy choice, renders it as its own clarification block with `Export-equivalent path: export/[NNN] - intake-creator-payout-flow-clarification.md` and the HVR self-scan line (root section 5, Clarification turns) and claims no file. Turn 2 keeps the chosen Quick energy, renders the task under `Export-equivalent path: export/[NNN] - task-payout-pause-visibility.md` and claims no file
 - Desired user-visible outcome: One energy-first question labelled as an intake clarification, then a quick task block
 - Pass/fail: PASS if the first question opens with the energy choice and renders intact, and the second turn produces one quick task block with no file claim. FAIL if the runtime picks a shape before the answer, skips the clarification block or treats energy as an artifact intent
 - Record `SKIP` only when a named sandbox or runtime blocker prevents execution, never for a soft or inconclusive result
@@ -57,7 +57,7 @@ An ambiguous request that guesses a shape renders the wrong artifact. The energy
 
 ### Expected
 
-Step 1 fixes the panel baseline. Step 2 returns one comprehensive question as a Canvas Artifact. Step 3 proves the wait state and the energy-first order. Step 4 finds a task with `### About`, `### Requirements` and the reason and pause date facts.
+Step 1 fixes the panel baseline. Step 2 returns one comprehensive question as its own clarification block. Step 3 proves the wait state and the energy-first order. Step 4 finds a task with `### About`, `### Requirements` and the reason and pause date facts.
 
 ### Evidence
 
@@ -70,9 +70,9 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 
 ### Failure triage
 
-1. Check the comprehensive question order and guidance rules in the Interactive Mode knowledge document
-2. Compare the question with the Comprehensive Question template in the Interactive Response Templates knowledge document
-3. Check the routed task against the Task Mode and Task Templates knowledge documents
+1. Check the comprehensive question order and guidance rules in `Product Owner - System - Interactive Mode`
+2. Compare the question with the Comprehensive Question in `Product Owner - Assets - Interactive Response Templates`
+3. Check the routed task against `Product Owner - Templates - Task Mode` and `Product Owner - Assets - Task Templates`
 
 | Feature ID | Feature name | Scenario name / objective | Exact prompt | Exact command sequence | Expected signals | Evidence | Pass/fail criteria | Failure triage |
 |---|---|---|---|---|---|---|---|---|

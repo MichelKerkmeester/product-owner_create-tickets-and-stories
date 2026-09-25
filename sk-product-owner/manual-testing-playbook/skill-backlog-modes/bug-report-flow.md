@@ -28,7 +28,7 @@ Bug reports hand a defect to QA. Missing reproduction steps or an invented frequ
 - Runtime profile: skill, from `AGENTS.md` with `SKILL.md` and the `sk-product-owner/` resources loaded
 - Precondition: `SID-001` identity handover passed in the skill runtime before this scenario starts
 - Expected execution process: Start fresh, submit Turn 1, capture the evidence question and its clarification export, answer in Turn 2 and inspect the next bug export
-- Expected signals: Turn 1 asks one evidence question, exports `export/[###] - bug-payout-pause-toggle-clarification.md`, reads it back and creates no draft. Turn 2 uses only supplied facts, writes `Not provided` where evidence is missing, saves `export/[###] - bug-payout-pause-toggle.md`, reads it back and replies path-first
+- Expected signals: Turn 1 asks one evidence question, exports `export/[###] - bug-payout-pause-toggle-clarification.md`, reads it back, replies with its path, the read-back line and the HVR self-scan line (root section 5, Clarification turns) and creates no draft. Turn 2 uses only supplied facts, writes `Not provided` where evidence is missing, saves `export/[###] - bug-payout-pause-toggle.md`, reads it back and replies path-first
 - Desired user-visible outcome: One evidence question followed by a compliant bug export
 - Pass/fail: PASS if the runtime waits, the bug carries observed and expected behavior and numbered reproduction steps, and the checklist holds the four fixed items. FAIL if it invents a frequency, a device, a root cause or a reproduction step
 - Record `SKIP` only when a named sandbox or runtime blocker prevents execution, never for a soft or inconclusive result
