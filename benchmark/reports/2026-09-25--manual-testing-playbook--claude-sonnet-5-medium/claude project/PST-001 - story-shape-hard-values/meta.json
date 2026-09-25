@@ -1,0 +1,87 @@
+{
+ "id": "PST-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/story-shape-hard-values.md",
+ "twin": "SST-001",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "d01344ca-acab-457b-b4c9-48705a5c51cc",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 13.96,
+   "tool_calls": 4,
+   "tools_used": [
+    "Glob",
+    "Glob",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 60087,
+   "output_tokens": 1373,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.1080548,
+   "model_s": 12.9,
+   "startup_s": 0.53,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "Turn these notes into a PRD for the payout pause feature."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 24.35,
+   "tool_calls": 4,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 82567,
+   "output_tokens": 2655,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.20860800000000002,
+   "model_s": 23.5,
+   "startup_s": 0.58,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Story for brands. A brand can pause a pending payout when it needs to hold it. Hard values: the pause lasts exactly 24 hours, the reason field is required, the toggle label reads Pause payout, and the payout row shows a paused badge. Acceptance: the pause releases automatically after the hold."
+  }
+ ]
+}

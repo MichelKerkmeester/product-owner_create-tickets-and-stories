@@ -1,0 +1,101 @@
+{
+ "id": "SDK-001",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-document-modes/doc-guide-delivery.md",
+ "twin": "PDK-001",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "bf3d7866-b40d-4d44-9ce9-adc41a2a43d6",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - doc-notification-retry-pipeline-clarification.md",
+   "export/002 - doc-notification-retry-requeue-guide.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 26.63,
+   "tool_calls": 9,
+   "tools_used": [
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Glob",
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 308169,
+   "output_tokens": 2434,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.2645648,
+   "model_s": 25.8,
+   "startup_s": 0.54,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - doc-notification-retry-pipeline-clarification.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "Document how the notification retry pipeline works for the support team. I will paste the engineering notes."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 30.77,
+   "tool_calls": 3,
+   "tools_used": [
+    "Read",
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 283317,
+   "output_tokens": 2859,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.41771579999999997,
+   "model_s": 29.81,
+   "startup_s": 0.66,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/002 - doc-notification-retry-requeue-guide.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Guide for support agents. Purpose: diagnose and requeue a failed notification retry. Status: current behavior. The notes are authoritative. Notes: a retry runs on a 30 second backoff for five attempts. Attempt six moves the notification to the failed queue. Support can requeue from the failed queue with the Requeue action. A requeued notification restarts the backoff."
+  }
+ ]
+}
