@@ -28,7 +28,7 @@ A silently merged conflict turns one source's retired claim into current behavio
 - Runtime profile: project, from `Custom Instructions.md` with the full `claude project/knowledge/` set attached
 - Precondition: `PID-001` identity handover passed in the Project runtime before this scenario starts
 - Expected execution process: Start a fresh Project conversation, submit Turn 1, inspect the clarification block, resolve authority in Turn 2 and inspect the rendered behavior reference
-- Expected signals: Turn 1 lists both conflicting claims, asks one consolidated question, renders it with `Export-equivalent path: export/[NNN] - doc-payout-pause-clarification.md` and creates no draft. Turn 2 labels the losing claim as retired material, renders the reference under `Export-equivalent path: export/[NNN] - doc-payout-pause.md` and claims no file
+- Expected signals: Turn 1 lists both conflicting claims, asks one consolidated question, renders it as its own clarification block with `Export-equivalent path: export/[NNN] - doc-payout-pause-clarification.md` and the HVR self-scan line (root section 5, Clarification turns) and creates no draft. Turn 2 labels the losing claim as retired material, renders the reference under `Export-equivalent path: export/[NNN] - doc-payout-pause.md`, claims no file and replies with the Doc quality summary
 - Desired user-visible outcome: A clarification block listing the conflict, then one doc block after the user resolves authority
 - Pass/fail: PASS if the first turn stops without a draft and the second turn keeps the resolved status visible with no file claim. FAIL if the runtime picks a winner, blends the two claims, promotes the retired claim or claims a local save
 - Record `SKIP` only when a named sandbox or runtime blocker prevents execution, never for a soft or inconclusive result
@@ -38,7 +38,7 @@ A silently merged conflict turns one source's retired claim into current behavio
 | Turn | Exact user input | Expected assistant behavior | State check | Evidence |
 |---|---|---|---|---|
 | 1 | `$doc Write a behavior reference for the payout pause feature from these two notes. Note A says the pause holds for 24 hours then releases automatically. Note B says the pause holds until the brand clears it manually.` | Detect the unresolved conflict, stop composition, render one consolidated question that lists both claims with an export-equivalent label, then wait. Create no draft | Both notes are named and neither is promoted ahead of the user's authority decision | Turn 1 reply, rendered clarification block and the no-file-write statement |
-| 2 | `Note A governs. The automatic release after 24 hours is current behavior. Note B is a retired draft.` | Render the behavior reference with Note A as current behavior and Note B labelled retired, keep the export-equivalent label and claim no file | The authority decision and the retired label remain attached to their claims | Turn 2 reply, rendered reference block and its labels |
+| 2 | `Note A governs. The automatic release after 24 hours is current behavior. Note B is a retired draft.` | Render the behavior reference with Note A as current behavior and Note B labelled retired, keep the export-equivalent label, claim no file and reply with the Doc summary | The authority decision and the retired label remain attached to their claims | Turn 2 reply, rendered reference block and its labels |
 
 ---
 
@@ -70,8 +70,8 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 
 ### Failure triage
 
-1. Check the authority order and conflict gate in the Templates - Doc Mode knowledge document
-2. Compare the block with the Doc Context and Clarification template in the Interactive Response Templates knowledge document
+1. Check the authority order and conflict gate in `Product Owner - Templates - Doc Mode`
+2. Compare the block with the Doc Context and Clarification Question in `Product Owner - Assets - Interactive Response Templates`
 3. Re-read the final document and restore any status label that the synthesis dropped
 
 | Feature ID | Feature name | Scenario name / objective | Exact prompt | Exact command sequence | Expected signals | Evidence | Pass/fail criteria | Failure triage |

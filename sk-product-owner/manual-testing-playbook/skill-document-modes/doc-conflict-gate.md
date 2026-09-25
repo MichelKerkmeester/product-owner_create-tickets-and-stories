@@ -28,7 +28,7 @@ A silently merged conflict turns one source's retired claim into current behavio
 - Runtime profile: skill, from `AGENTS.md` with `SKILL.md` and the `sk-product-owner/` resources loaded
 - Precondition: `SID-001` identity handover passed in the skill runtime before this scenario starts
 - Expected execution process: Start fresh, submit Turn 1, inspect the clarification export, resolve authority in Turn 2 and inspect the next doc export
-- Expected signals: Turn 1 lists both conflicting claims, asks one consolidated question, exports `export/[###] - doc-payout-pause-clarification.md`, reads it back and creates no draft. Turn 2 labels the losing claim as retired material, saves `export/[###] - doc-payout-pause.md`, reads it back and replies with the Doc quality summary
+- Expected signals: Turn 1 lists both conflicting claims, asks one consolidated question, exports `export/[###] - doc-payout-pause-clarification.md`, reads it back, replies with its path, the read-back line and the HVR self-scan line (root section 5, Clarification turns) and creates no draft. Turn 2 labels the losing claim as retired material, saves `export/[###] - doc-payout-pause.md`, reads it back and replies with the Doc quality summary
 - Desired user-visible outcome: A clarification export listing the conflict, then one doc export after the user resolves authority
 - Pass/fail: PASS if the first turn stops without a draft and the second turn keeps the resolved status visible. FAIL if the runtime picks a winner, blends the two claims or promotes the retired claim into current behavior
 - Record `SKIP` only when a named sandbox or runtime blocker prevents execution, never for a soft or inconclusive result

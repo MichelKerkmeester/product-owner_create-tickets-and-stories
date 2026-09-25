@@ -28,7 +28,7 @@ An ambiguous request that guesses a shape writes the wrong artifact. The energy-
 - Runtime profile: skill, from `AGENTS.md` with `SKILL.md` and the `sk-product-owner/` resources loaded
 - Precondition: `SID-001` identity handover passed in the skill runtime before this scenario starts
 - Expected execution process: Start fresh, submit Turn 1, capture the comprehensive question and its clarification export, answer in Turn 2 and inspect the next task export
-- Expected signals: Turn 1 asks one question that opens with the Quick or Deeper energy choice, exports `export/[###] - intake-creator-payout-flow-clarification.md`, reads it back and creates no artifact. Turn 2 keeps the chosen Quick energy, saves `export/[###] - task-payout-pause-visibility.md`, reads it back and replies path-first
+- Expected signals: Turn 1 asks one question that opens with the Quick or Deeper energy choice, exports `export/[###] - intake-creator-payout-flow-clarification.md`, reads it back, replies with its path, the read-back line and the HVR self-scan line (root section 5, Clarification turns) and creates no artifact. Turn 2 keeps the chosen Quick energy, saves `export/[###] - task-payout-pause-visibility.md`, reads it back and replies path-first
 - Desired user-visible outcome: One energy-first question saved as an intake clarification, then a quick task export
 - Pass/fail: PASS if the first question opens with the energy choice and is exported intact, and the second turn produces one quick task. FAIL if the runtime picks a shape before the answer, skips the clarification export or treats energy as an artifact intent
 - Record `SKIP` only when a named sandbox or runtime blocker prevents execution, never for a soft or inconclusive result

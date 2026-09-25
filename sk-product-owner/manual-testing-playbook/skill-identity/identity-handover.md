@@ -29,7 +29,7 @@ Every later skill scenario assumes the runtime can save a file, read it back and
 - Expected execution process: Start a fresh skill session, submit Turn 1, inspect the export folder, then submit Turn 2 in the same session and compare both replies
 - Expected signals: Turn 1 saves `export/[###] - task-payout-pause-toggle.md`, reads it back with non-empty content and replies with the path, the read-back fixture, the HVR self-scan line and a quality summary. Turn 2 repeats the same path and proof without inventing a new file
 - Desired user-visible outcome: A saved export, a path-first reply and the skill-only delivery lines
-- Pass/fail: PASS if the reply carries `read-back succeeded`, names a readable path with non-empty content, and carries no Project wording. FAIL if it claims no file was written, speaks Canvas Artifact, or names a path that does not read back
+- Pass/fail: PASS if the Turn 1 reply carries `read-back succeeded`, names a readable path with non-empty content, and neither reply carries Project wording. Turn 2 asks for the delivery string by name, so it cannot supply the proof. FAIL if either reply claims no file was written, speaks Canvas Artifact, or names a path that does not read back
 - Record `SKIP` only when a named sandbox or runtime blocker prevents execution, never for a soft or inconclusive result
 
 ### Conversation chain
@@ -60,7 +60,7 @@ Step 1 fixes the baseline. Step 2 produces one task export and the skill deliver
 
 ### Evidence
 
-Capture both replies, the per-turn side-effect ledger, the export folder listing, the read-back result, the HVR self-scan line and the task artifact body.
+Capture both replies, the per-turn side-effect ledger, the export folder listing, the read-back result, the HVR self-scan line and the task artifact body. Record the `N` the Turn 1 reply printed beside the final line number its Read call returned, which `AGENTS.md` Section 2 step 6 makes the value of `N`.
 
 Identity split proof from the worktree root:
 
@@ -75,18 +75,18 @@ Fixture payload (skill delivery line): Verified: read-back succeeded; N lines
 
 ### Pass / fail
 
-- **Pass**: The reply carries `read-back succeeded`, names a readable export path and prints the HVR self-scan line
-- **Fail**: The reply carries Canvas Artifact or `Export-equivalent path:`, claims no file was written, omits the read-back proof, or names a path that does not read back
+- **Pass**: The Turn 1 reply carries `read-back succeeded`, names a readable export path and prints the HVR self-scan line, and Turn 2 names the same file
+- **Fail**: Either reply carries Canvas Artifact or `Export-equivalent path:` or claims no file was written, Turn 1 omits the read-back proof, or a named path does not read back
 
 ### Failure triage
 
 1. Re-run Turn 1 in a clean session and inspect the export folder before reading the reply
 2. Compare the reply wording with the skill delivery contract in `AGENTS.md` Section 2
-3. If the runtime emits Project vocabulary, stop the skill set and report the identity failure
+3. If the runtime emits Project vocabulary, state the identity failure at the top of the run report and keep grading the skill set, as the root's Handovers in an automated run section asks
 
 | Feature ID | Feature name | Scenario name / objective | Exact prompt | Exact command sequence | Expected signals | Evidence | Pass/fail criteria | Failure triage |
 |---|---|---|---|---|---|---|---|---|
-| SID-001 | Skill identity handover | Verify the skill runtime through the read-back proof and a real export path | `$quick $task Create a task for the payout pause toggle. Brands pause a pending payout for 24 hours with a required reason, and QA needs checklist items for the toggle, the reason field and the creator banner.` | 1. Baseline -> 2. Submit Turn 1 fresh -> 3. Inspect and read back the export -> 4. Submit Turn 2 and compare | Step 1: baseline known. Step 2: one export and the skill lines. Step 3: readable file. Step 4: same file identity | Both replies, folder listing, read-back result and artifact body | PASS if the skill string and a readable path both appear. FAIL on Project wording or an unreadable path | 1. Re-run in a clean session. 2. Compare with the delivery contract. 3. Stop the set on identity drift |
+| SID-001 | Skill identity handover | Verify the skill runtime through the read-back proof and a real export path | `$quick $task Create a task for the payout pause toggle. Brands pause a pending payout for 24 hours with a required reason, and QA needs checklist items for the toggle, the reason field and the creator banner.` | 1. Baseline -> 2. Submit Turn 1 fresh -> 3. Inspect and read back the export -> 4. Submit Turn 2 and compare | Step 1: baseline known. Step 2: one export and the skill lines. Step 3: readable file. Step 4: same file identity | Both replies, folder listing, read-back result and artifact body | PASS if the skill string and a readable path both appear on Turn 1. FAIL on Project wording or an unreadable path | 1. Re-run in a clean session. 2. Compare with the delivery contract. 3. Flag identity drift at the top of the run report and keep grading the set |
 
 ---
 
