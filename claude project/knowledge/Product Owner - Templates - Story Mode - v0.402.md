@@ -1,4 +1,4 @@
-# Product Owner - Templates - Story Mode - v0.401
+# Product Owner - Templates - Story Mode - v0.402
 
 Story-mode guidance for the two Barter house-format artifact kinds: **Stories** and **Epics**. A Story covers one feature area with a few outcome-led acceptance criteria and, where the delivery has hard constraints, a Requirements section that holds only those. An Epic frames an initiative split across child stories, with a Goal, a Scope and release-level acceptance criteria, and no requirements of its own. Both stay prose-first, share the same ClickUp grammar and the same opt-in `## Delivery` close, and reach for heavier machinery (a User Story promise block, per-requirement value lines, exact Rule blocks, Definition of Ready/Done gates) only as optional enrichment.
 
@@ -338,7 +338,7 @@ Use it for an app-store review, a partner integration, a legal, security or comp
 
 ### Artifact Rules
 
-- One complete house-format markdown artifact per request
+- One complete house-format markdown artifact per request, except the Story with nested Tasks bundle below
 - No ticket header blocks, story points or INVEST notes anywhere
 - Acceptance-criteria steps carry observable outcomes. Internal state belongs in a requirement's prose or an optional Rule block
 - The H1 is the plain hyphen-joined path: a Story is `{Persona or platform} - {Area or initiative} - {Feature}`. An Epic is `Epic - {Persona or platform} - {Area or initiative}`. No `PRD -` prefix and no `BO`/`BE`/`FE` short codes
@@ -348,7 +348,7 @@ Use it for an app-store review, a partner integration, a legal, security or comp
 New Story:
 
 ```text
-[###] - PRD-[description].md
+[###] - Story-[description].md
 ```
 
 New Epic:
@@ -365,9 +365,37 @@ Refined Story or Epic:
 
 Never overwrite the supplied source.
 
+### Story With Nested Tasks
+
+A new Story asked for together with its task breakdown, such as `$story` with "break it into tasks", is one dependent deliverable rather than two independent artifacts, so it needs no question about which artifact to make. Two explicit artifact commands such as `$story $task` stay a conflict. The bundle applies to a new Story only, because a refined Story keeps its source filename.
+
+Its export-equivalent paths name one folder under one number:
+
+```text
+[###] - Story-[description]/
+  [###] - Story-[description].md
+  [###].1 - task-[description].md
+  [###].2 - task-[description].md
+```
+
+- `n` in `[###].[n]` counts from 1 in the Story's task order. A Story with one task is still a bundle, with `[###].1` alone
+- A split the request names is authoritative, one task per named part. With none named, the one consolidated Story question asks for it, and nothing is drafted until the user answers. Quick energy may skip routine intake, and it still renders the whole bundle
+- A clarification asked first keeps the Story lane, labelled `[###] - Story-[description]-clarification.md` outside the folder. The folder takes the next number, and the clarification block is left as it stands
+- The Story lists its tasks in a `#### **Tasks**` block inside `## About`, after `#### **References**`, one bullet per task in `n` order, each linking the sibling task file by its export-equivalent name. It never uses `## Scope` for this, because `## Scope` marks the Epic kind
+- Each task follows the Canonical Task template in Assets - Task Templates, consulted beside the one Story scaffold, so the one-scaffold rule still governs the Story. Each task names its Story in a `**Story**` block between `**Epic**` and `**Parent task**`, and carries no `**Parent task**` block for it, because a Story is not a task
+
+```markdown
+#### **Tasks**
+* * *
+*   [{Task H1}](<[###].1 - task-[description].md>)
+*   [{Task H1}](<[###].2 - task-[description].md>)
+```
+
 ### Response Contract
 
 Respond with the export-equivalent path, the artifact kind (Story or Epic), a compact quality summary and a brief next step. Validate the house grammar and the honest Delivery state, then render one markdown Deliverable Block before reporting. When ClickUp tooling is connected, offer ClickUp delivery and wait for explicit approval, per the ClickUp handoff rule.
+
+For a Story with nested Tasks, render one Deliverable Block per file, Story first, each followed by its own `Export-equivalent path:` naming its file inside the folder, then one `HVR self-scan:` line counted across the whole set.
 
 ---
 
