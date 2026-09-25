@@ -1,0 +1,123 @@
+{
+ "id": "SIR-002",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-interactive-routing/conflicting-commands.md",
+ "twin": "PIR-002",
+ "engine": "claude",
+ "model": "claude-opus-5-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "attachments": [
+  {
+   "basename": "fernhouse-context.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+   "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+  },
+  {
+   "basename": "fernhouse-wishlist-feedback.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-wishlist-feedback.md",
+   "sha256": "4c739c2cdd940fd5a43049b73387273b481fceb1741783a0d93c6990b4cff4ae"
+  }
+ ],
+ "session_id": "e0215f4a-1c2f-4abe-959b-cd7857059def",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - intake-wishlist-cross-device-clarification.md",
+   "export/002 - Story-wishlist-saved-to-account-in-apps.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 49.94,
+   "tool_calls": 13,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Write",
+    "Read",
+    "Edit",
+    "Read"
+   ],
+   "input_tokens": 297128,
+   "output_tokens": 4240,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.32764800000000005,
+   "model_s": 49.07,
+   "startup_s": 0.6,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - intake-wishlist-cross-device-clarification.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$bug $story Not sure if this is a bug or a story, customers lose their app wishlist when they change phones and cannot see it on web, CS has 412 contacts on it, see context/fernhouse-context.md and context/fernhouse-wishlist-feedback.md"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 58.13,
+   "tool_calls": 9,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Write",
+    "Edit",
+    "Bash",
+    "Bash",
+    "Read"
+   ],
+   "input_tokens": 404185,
+   "output_tokens": 5242,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.7401710000000002,
+   "model_s": 57.22,
+   "startup_s": 0.64,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/002 - Story-wishlist-saved-to-account-in-apps.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Write it as a story, not a bug. The apps have always saved the wishlist on the device, so this is a change. Quick is fine. Signed-in customers on iOS and Android get their wishlist saved to the account, the same list web shows, and the first time they sign in on a device, the items saved on it move into the account list. Keep the limit of 50 items, and when the two lists together pass 50, keep the 50 most recently added. Customers without an account keep the device wishlist as it works today. Lotte signed this off yesterday."
+  }
+ ]
+}

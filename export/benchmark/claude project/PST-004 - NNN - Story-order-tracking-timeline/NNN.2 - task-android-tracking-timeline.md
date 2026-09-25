@@ -1,0 +1,68 @@
+# FE - Android - TRACK - Order page tracking timeline
+
+### About
+
+---
+
+The Android order page replaces its fixed `Order placed` and `Shipped` states with a timeline that follows each parcel. It also shows the delivery estimate when the carrier sends one, as laid out in the `Order page / Tracking timeline` frame.
+
+**References**
+
+---
+
+Page
+
+- `Order page / Tracking timeline`
+
+**Story**
+
+---
+
+- [Customer - Order tracking - Order page timeline](<NNN - Story-order-tracking-timeline.md>)
+
+**Related tasks**
+
+---
+
+- [FE - iOS - TRACK - Order page tracking timeline](<NNN.1 - task-ios-tracking-timeline.md>)
+- [FE - Web - TRACK - Order page tracking timeline](<NNN.3 - task-web-tracking-timeline.md>)
+- [BE - TRACK - Tracking webhook](<NNN.4 - task-tracking-webhook.md>)
+
+### Requirements
+
+---
+
+1.  **Tracking timeline**
+
+---
+
+**Checklist**
+
+- [ ] The order page shows `Order placed`, `Packed`, `Shipped`, `Out for delivery`, `Delivered` and `Delivery failed` in that order, as each is reached
+- [ ] Every step that happened shows with its date and time
+- [ ] `Delivery failed` shows no reason
+- [ ] A new `Out for delivery` after `Delivery failed` keeps the failed attempt visible
+- [ ] An order with several parcels shows one timeline per parcel, with that parcel's items under it
+- [ ] More than `90 days` after delivery the page shows the last status only
+- [ ] Status text is translated for `nl-NL`, `nl-BE`, `fr-BE`, `de-DE`, `fr-FR` and `en-GB`
+
+---
+
+2.  **Delivery estimate**
+
+---
+
+**Checklist**
+
+- [ ] With a delivery window, the day and window show under the current status, as in the frame: `Arriving Thursday 1 October` and `Between 10:00 and 14:00`
+- [ ] With no delivery window, no estimate shows, and none is derived from the dispatch date
+
+---
+
+3.  **Pallet items**
+
+---
+
+**Checklist**
+
+- [ ] A shipment by the pallet carrier keeps today's page plus the line `The delivery company will call you to book a delivery slot`
