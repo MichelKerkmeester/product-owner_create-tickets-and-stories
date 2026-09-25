@@ -28,7 +28,7 @@ The Project cannot save files. Task QA handoff still depends on the same context
 - Runtime profile: project, from `Custom Instructions.md` with the full `claude project/knowledge/` set attached
 - Precondition: `PID-001` identity handover passed in the Project runtime before this scenario starts
 - Expected execution process: Start a fresh Project conversation, submit Turn 1, capture the clarification block, answer in Turn 2 and inspect the rendered task block
-- Expected signals: Turn 1 asks one consolidated question, governed by the direct `$task` row at the Interactive Mode knowledge document line 101, renders a clarification block with `Export-equivalent path: export/[NNN] - task-payout-pause-feature-clarification.md` and claims no file was written. Turn 2 renders the task block, reports `Export-equivalent path: export/[NNN] - task-payout-pause-feature.md` and carries the HVR self-scan line
+- Expected signals: Turn 1 asks one consolidated question, governed by the direct `$task` row at `Product Owner - System - Interactive Mode` line 101, renders it as its own clarification block with `Export-equivalent path: export/[NNN] - task-payout-pause-feature-clarification.md` and the HVR self-scan line (root section 5, Clarification turns) and claims no file was written. Turn 2 renders the task block, reports `Export-equivalent path: export/[NNN] - task-payout-pause-feature.md` and carries the HVR self-scan line
 - Desired user-visible outcome: One task-context question followed by a task block and an export-equivalent label
 - Pass/fail: PASS if the runtime waits, the task block carries the supplied facts and a checklist, and every path is labelled export-equivalent with no file claim. FAIL if it renders the final task before Turn 2, prints `Path:` or claims a save
 - Record `SKIP` only when a named sandbox or runtime blocker prevents execution, never for a soft or inconclusive result
@@ -37,7 +37,7 @@ The Project cannot save files. Task QA handoff still depends on the same context
 
 | Turn | Exact user input | Expected assistant behavior | State check | Evidence |
 |---|---|---|---|---|
-| 1 | `$task I need a task for the creator payout pause feature.` | Ask one task-context question (the direct `$task` rule at the Interactive Mode knowledge document line 101), render it as a clarification block with an export-equivalent label and wait. Claim no file and render no task | Task Mode and the payout pause feature remain selected | Turn 1 reply, rendered clarification block and the no-file-write statement |
+| 1 | `$task I need a task for the creator payout pause feature.` | Ask one task-context question (the direct `$task` rule at `Product Owner - System - Interactive Mode` line 101), render it as a clarification block with an export-equivalent label and wait. Claim no file and render no task | Task Mode and the payout pause feature remain selected | Turn 1 reply, rendered clarification block and the no-file-write statement |
 | 2 | `Standalone task. Creators need a pause indicator for pending payouts, and the pause reason must be stored. Acceptance: the reason field is required, the indicator appears in the payout row, and QA can verify the pause in the payout history.` | Render the task block from the supplied facts with its export-equivalent label and the HVR self-scan line | The supplied acceptance list and the standalone scope survive into Requirements | Turn 2 reply, rendered task block and its labels |
 
 ---
@@ -57,7 +57,7 @@ The Project cannot save files. Task QA handoff still depends on the same context
 
 ### Expected
 
-Step 1 fixes the panel baseline. Step 2 returns one context question as a Canvas Artifact. Step 3 proves the wait state and state retention. Step 4 finds `### About`, `### Requirements` and a `- [ ]` checklist carrying the supplied acceptance items, under an export-equivalent label.
+Step 1 fixes the panel baseline. Step 2 returns one context question as its own clarification block. Step 3 proves the wait state and state retention. Step 4 finds `### About`, `### Requirements` and a `- [ ]` checklist carrying the supplied acceptance items, under an export-equivalent label.
 
 ### Evidence
 
@@ -70,8 +70,8 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 
 ### Failure triage
 
-1. Check the direct `$task` routing rule at the Interactive Mode knowledge document line 101, then the task context gate and required sections in the Templates - Task Mode knowledge document
-2. Compare the Turn 1 question with the task intake in the Task Templates knowledge document
+1. Check the direct `$task` routing rule at `Product Owner - System - Interactive Mode` line 101, then the task context gate and required sections in `Product Owner - Templates - Task Mode`
+2. Compare the Turn 1 question with the Task Format Question in `Product Owner - Assets - Interactive Response Templates`
 3. Re-render the task block and confirm every claim stays inside the rendered artifact
 
 | Feature ID | Feature name | Scenario name / objective | Exact prompt | Exact command sequence | Expected signals | Evidence | Pass/fail criteria | Failure triage |
@@ -88,6 +88,8 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, Canvas Artifact and export-equivalent contract |
 | [`Product Owner - Templates - Task Mode - v0.305.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.305.md) | Project task workflow and structure rules |
 | [`Product Owner - Assets - Task Templates - v0.101.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates%20-%20v0.101.md) | Project task scaffold |
+| [`Product Owner - System - Interactive Mode - v0.404.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.404.md) | Direct `$task` routing row and clarification delivery |
+| [`Product Owner - Assets - Interactive Response Templates - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.102.md) | Task context question wording |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |
 
 ---

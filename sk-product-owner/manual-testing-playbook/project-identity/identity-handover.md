@@ -12,7 +12,7 @@ This scenario validates the Project runtime before any other Project-side scenar
 
 ## 1. OVERVIEW
 
-The runtime runs from `claude project/Custom Instructions.md` with the full Project Knowledge set attached. A routine Quick task request must render a task as a Canvas Artifact, report an export-equivalent label and claim no file was written. The skill runtime has a real filesystem contract, so a reply carrying a real path or a read-back claim fails this scenario.
+The runtime runs from `claude project/Custom Instructions.md` with the full Project Knowledge set attached. A routine Quick task request must render a task as a Canvas Artifact, or as its own block before any commentary where the runtime has no Canvas panel, report an export-equivalent label and claim no file was written. The skill runtime has a real filesystem contract, so a reply carrying a real path or a read-back claim fails this scenario.
 
 ### Why this matters
 
@@ -27,16 +27,16 @@ Every later Project scenario assumes the runtime renders a Deliverable Block and
 - Prompt: `$quick $task Create a task for the payout pause toggle. Brands pause a pending payout for 24 hours with a required reason, and QA needs checklist items for the toggle, the reason field and the creator banner.`
 - Runtime profile: project, from `Custom Instructions.md` with the full `claude project/knowledge/` set attached
 - Expected execution process: Start a fresh Project conversation, submit Turn 1, capture the rendered block and the labels beside it, then submit Turn 2 and compare both replies
-- Expected signals: Turn 1 renders the task as a Canvas Artifact, reports `Export-equivalent path: export/[NNN] - task-payout-pause-toggle.md`, claims no file was written and carries the HVR self-scan line. Turn 2 states the same delivery boundary without naming a real saved file
+- Expected signals: Turn 1 renders the task as its own Deliverable Block before any commentary, in the Canvas panel where one exists, reports `Export-equivalent path: export/[NNN] - task-payout-pause-toggle.md`, claims no file was written and carries the HVR self-scan line. Turn 2 states the same delivery boundary without naming a real saved file
 - Desired user-visible outcome: A Canvas Artifact, an export-equivalent label and no file claim
-- Pass/fail: PASS if the reply carries `Canvas Artifact`, reports `Export-equivalent path:` and claims no local file was written. FAIL if it prints `Path:`, `Saved:`, `Verified: read-back succeeded`, or claims any local save
+- Pass/fail: PASS if the Turn 1 reply renders the task block, reports `Export-equivalent path:` and claims no local file was written, and Turn 2 keeps that boundary. The words `Canvas Artifact` are not required in either reply, because the kernel asks for the rendering and Turn 2's question invites the phrase. FAIL if either reply prints `Path:`, `Saved:`, `Verified: read-back succeeded`, or claims any local save
 - Record `SKIP` only when a named sandbox or runtime blocker prevents execution, never for a soft or inconclusive result
 
 ### Conversation chain
 
 | Turn | Exact user input | Expected assistant behavior | State check | Evidence |
 |---|---|---|---|---|
-| 1 | `$quick $task Create a task for the payout pause toggle. Brands pause a pending payout for 24 hours with a required reason, and QA needs checklist items for the toggle, the reason field and the creator banner.` | Route to Task Mode with Quick energy, render the task as a Canvas Artifact, then report the export-equivalent label and the HVR self-scan line outside the block | The artifact renders in the side Canvas panel and no file path is claimed | Turn 1 reply, rendered block and the labels beside it |
+| 1 | `$quick $task Create a task for the payout pause toggle. Brands pause a pending payout for 24 hours with a required reason, and QA needs checklist items for the toggle, the reason field and the creator banner.` | Route to Task Mode with Quick energy, render the task as a Canvas Artifact, then report the export-equivalent label and the HVR self-scan line outside the block | The artifact renders as its own block, in the side Canvas panel where one exists, and no file path is claimed | Turn 1 reply, rendered block and the labels beside it |
 | 2 | `Confirm whether you wrote any file to disk, and tell me how a reviewer would open this artifact.` | State that the Project cannot write or read local files, that the Canvas Artifact is the delivery evidence, and repeat the export-equivalent label | The no-file-write boundary holds and the label stays a naming convention | Turn 2 reply |
 
 ---
@@ -51,12 +51,12 @@ Every later Project scenario assumes the runtime renders a Deliverable Block and
 
 1. `canvas: record the Canvas panel baseline`
 2. `session: start a fresh Project conversation -> user: submit Turn 1 exactly`
-3. `canvas: inspect the rendered Deliverable Block -> operator: confirm it is a Canvas Artifact and not a pasted file body`
+3. `canvas: inspect the rendered Deliverable Block -> operator: confirm the task renders as its own block before any commentary, in the Canvas panel where one exists`
 4. `user: submit Turn 2 in the same conversation -> operator: confirm no file was claimed`
 
 ### Expected
 
-Step 1 fixes the panel baseline. Step 2 produces one rendered task block. Step 3 proves the block arrived as a Canvas Artifact. Step 4 proves the runtime keeps the no-file-write boundary.
+Step 1 fixes the panel baseline. Step 2 produces one rendered task block. Step 3 proves the block rendered on its own before any commentary. Step 4 proves the runtime keeps the no-file-write boundary.
 
 ### Evidence
 
@@ -73,18 +73,18 @@ The Project identity string `Canvas Artifact` is absent from the skill identity 
 
 ### Pass / fail
 
-- **Pass**: The reply carries `Canvas Artifact`, reports `Export-equivalent path:` and claims no local file was written
-- **Fail**: The reply prints `Path:`, `Saved:` or `Verified: read-back succeeded`, names a readable file, or omits the export-equivalent label
+- **Pass**: The Turn 1 reply renders the task as its own block before any commentary, reports `Export-equivalent path:` and the HVR self-scan line and claims no local file was written, and Turn 2 keeps the no-file-write boundary
+- **Fail**: Either reply prints `Path:`, `Saved:` or `Verified: read-back succeeded` or names a readable file, or Turn 1 renders no block or omits the export-equivalent label
 
 ### Failure triage
 
 1. Re-run Turn 1 in a fresh Project and inspect where the block rendered
 2. Compare the delivery wording with the Deliverable Block and export-equivalent rules in `Custom Instructions.md` Section 9
-3. If the runtime claims a local file, stop the Project set and report the identity failure
+3. If the runtime claims a local file, state the identity failure at the top of the run report and keep grading the Project set, as the root's Handovers in an automated run section asks
 
 | Feature ID | Feature name | Scenario name / objective | Exact prompt | Exact command sequence | Expected signals | Evidence | Pass/fail criteria | Failure triage |
 |---|---|---|---|---|---|---|---|---|
-| PID-001 | Project identity handover | Verify the Project runtime through the Canvas Artifact and the no-file-write claim | `$quick $task Create a task for the payout pause toggle. Brands pause a pending payout for 24 hours with a required reason, and QA needs checklist items for the toggle, the reason field and the creator banner.` | 1. Canvas baseline -> 2. Submit Turn 1 fresh -> 3. Inspect the rendered block -> 4. Submit Turn 2 and confirm the boundary | Step 1: panel baseline known. Step 2: one rendered block. Step 3: Canvas Artifact confirmed. Step 4: no file claim | Both replies, rendered block, export-equivalent label and the no-file-write evidence | PASS if the Project string and the label both appear. FAIL on any real path or save claim | 1. Re-run in a fresh Project. 2. Compare with the Deliverable Block rules. 3. Stop the set on identity drift |
+| PID-001 | Project identity handover | Verify the Project runtime through the Canvas Artifact and the no-file-write claim | `$quick $task Create a task for the payout pause toggle. Brands pause a pending payout for 24 hours with a required reason, and QA needs checklist items for the toggle, the reason field and the creator banner.` | 1. Canvas baseline -> 2. Submit Turn 1 fresh -> 3. Inspect the rendered block -> 4. Submit Turn 2 and confirm the boundary | Step 1: panel baseline known. Step 2: one rendered block. Step 3: block rendered on its own. Step 4: no file claim | Both replies, rendered block, export-equivalent label and the no-file-write evidence | PASS if the rendered block and the label both appear on Turn 1. FAIL on any real path or save claim | 1. Re-run in a fresh Project. 2. Compare with the Deliverable Block rules. 3. Flag identity drift at the top of the run report and keep grading the set |
 
 ---
 
