@@ -1,0 +1,87 @@
+{
+ "id": "PBG-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/bug-report-flow.md",
+ "twin": "SBG-001",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "ebf14a0c-b5de-40d7-b07a-ca34160f6817",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 14.54,
+   "tool_calls": 5,
+   "tools_used": [
+    "Glob",
+    "Glob",
+    "Read",
+    "Read",
+    "Grep"
+   ],
+   "input_tokens": 89868,
+   "output_tokens": 1375,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.11703279999999999,
+   "model_s": 13.53,
+   "startup_s": 0.49,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$bug The payout pause toggle silently reverts to off."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 17.78,
+   "tool_calls": 3,
+   "tools_used": [
+    "Read",
+    "Glob",
+    "Read"
+   ],
+   "input_tokens": 113781,
+   "output_tokens": 1859,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.1871102,
+   "model_s": 16.88,
+   "startup_s": 0.67,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "It happens every time on web. Steps: open a brand wallet with a pending payout, switch pause on, then refresh the page. The toggle shows off while the payout still shows paused. Expected: the toggle stays on until the brand resumes the payout. I used Chrome 126, no screenshot."
+  }
+ ]
+}

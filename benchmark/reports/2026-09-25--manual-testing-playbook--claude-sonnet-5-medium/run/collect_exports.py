@@ -25,20 +25,23 @@ import sys
 from typing import List, Optional, Tuple
 
 # The export lane, plus the curated folder a brand voice snippet is saved to,
-# which is the one file a Deal Templates run writes outside export/.
-PATH_RE = re.compile(r"(?:export|assets/tone-of-voice)/[^\n`|)*\"']*?\.md")
+# which is the one file a Deal Templates run writes outside export/. Prompt
+# Improver also exports JSON and YAML when the user locks the format.
+PATH_RE = re.compile(r"(?:export|assets/tone-of-voice)/[^\n`|)*\"']*?\.(?:md|json|ya?ml)\b")
 # A bracketed slot is a template placeholder, except the sequence number a Project
 # cannot know, which a batch writes as [NNN], [NNN+1] and so on.
 NUMBER_SLOT_RE = re.compile(r"\[(NNN(?:\+\d+)?|###)\]")
 PLACEHOLDER_RE = re.compile(r"\[(?!NNN(?:\+\d+)?\]|###\])[^\]]+\]")
 FENCE_RE = re.compile(r"^(`{3,}|~{3,})([^\n]*)$")
 BLOCK_HEADING_RE = re.compile(r"^(#{1,4}\s*|\*\*)Deliverable Block\b", re.I)
-PROSE_FENCE_LANGS = {"", "markdown", "md", "text"}
+PROSE_FENCE_LANGS = {"", "markdown", "md", "text", "json", "yaml", "yml"}
+# Prompt Improver opens its block with a template line rather than a comment.
+MODE_LINE_RE = re.compile(r"^\**Mode: \$\w+ \| Complexity:")
 MIN_BODY_CHARS = 200
 # Chat lines a model sometimes writes between an unfenced block and the path it
 # reports. Everything from the first one on is the reply, not the deliverable.
 TRAILER_RE = re.compile(r"^(HVR self-scan|HVR:|MEQT \d|DEAL \d+/25|\*\*Instruction set|"
-                        r"\*\*How finished|Summary:|Single-paragraph summary)")
+                        r"\*\*How finished|Summary:|Single-paragraph summary|\*\*Chat report)")
 
 
 def scenario_id(folder: str) -> str:
@@ -102,7 +105,8 @@ def extract(text: str) -> List[Tuple[str, str, str]]:
             body, how, end = None, "", index
             prose = [s for s in spans if floor <= s[0] and s[1] < index and s[2] in PROSE_FENCE_LANGS]
             header = [i for i in range(floor, index)
-                      if lines[i].startswith("<!--") and not inside(i, spans)]
+                      if (lines[i].startswith("<!--") or MODE_LINE_RE.match(lines[i]))
+                      and not inside(i, spans)]
             labelled = [i for i in range(floor, index) if BLOCK_HEADING_RE.match(lines[i].strip())]
             titled = [i for i in range(floor, index)
                       if re.match(r"#{1,2} ", lines[i]) and not inside(i, spans)]
@@ -164,7 +168,8 @@ def collect(run: str, out: str, dry: bool) -> None:
                     for name, body, how in extract(open(file, encoding="utf-8").read()):
                         stem = f"{scenario_id(folder)} - {name}"
                         if stem in written:
-                            stem = stem[:-3] + f" (turn {turn}).md"
+                            root, ext = os.path.splitext(stem)
+                            stem = f"{root} (turn {turn}){ext}"
                         written.add(stem)
                         target = os.path.join(out, "claude project", label, stem)
                         first = body.split("\n", 1)[0][:60]

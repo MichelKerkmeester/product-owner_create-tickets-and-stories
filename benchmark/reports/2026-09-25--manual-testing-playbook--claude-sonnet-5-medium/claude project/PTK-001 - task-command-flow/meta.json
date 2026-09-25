@@ -1,0 +1,89 @@
+{
+ "id": "PTK-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/task-command-flow.md",
+ "twin": "STK-001",
+ "engine": "claude",
+ "model": "claude-sonnet-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "995fe52c-9724-4788-9f14-ef9c6c6f4899",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 15.01,
+   "tool_calls": 4,
+   "tools_used": [
+    "Glob",
+    "Glob",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 53861,
+   "output_tokens": 1402,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.09116620000000002,
+   "model_s": 13.88,
+   "startup_s": 0.62,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$task I need a task for the creator payout pause feature."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 24.34,
+   "tool_calls": 6,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Glob",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 109093,
+   "output_tokens": 2479,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.1990264,
+   "model_s": 23.4,
+   "startup_s": 0.68,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-sonnet-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Standalone task. Creators need a pause indicator for pending payouts, and the pause reason must be stored. Acceptance: the reason field is required, the indicator appears in the payout row, and QA can verify the pause in the payout history."
+  }
+ ]
+}
