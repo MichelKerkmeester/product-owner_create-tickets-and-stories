@@ -3,12 +3,15 @@
 * * *
 ## About
 * * *
-Self-serve returns lets signed-in customers on web, iOS and Android start a return from their order history within the `30 days` return window. They get the return label by email, follow the return on the order page and receive the refund once the warehouse has checked the items.
-This Epic is split into four child stories. Each one owns one part of the return lifecycle and carries its own detailed requirements and acceptance criteria.
+Self-serve returns lets signed-in customers on web, iOS and Android start a return from their order history within the `30 days` return window. They get the return label by email, follow the return on the order page and receive the refund after the warehouse has checked the items.
+
+This Epic is split into four child stories, each owning one part of the return lifecycle.
 
 ### Problem
 * * *
-Customers cannot start a return themselves today. Every return starts with a CS contact. The customer writes in, a CS agent creates the return in Admin and emails a return label, the warehouse checks the item, and then the agent issues the refund. CS handles about `1,900` return requests a month this way, and a refund takes `6 days` on average from the first contact.
+Customers cannot start a return themselves today, so every return starts with a CS contact. After the customer writes in, a CS agent creates the return in Admin, emails a return label and issues the refund once the warehouse has checked the item.
+
+CS handles about `1,900` return requests a month this way, and a refund takes `6 days` on average from the first contact.
 
 **The following issues rise from that:**
 *   Every return costs a CS contact, about `1,900` a month

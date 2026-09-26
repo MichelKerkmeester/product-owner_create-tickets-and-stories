@@ -4,9 +4,9 @@
 
 ---
 
-The web client gets the same member-facing half of recurring to-dos as iOS: the Repeat and Ends pickers, the Custom interval, Skip this one and the repeat icon on the to-do row. Desktop wraps the web client, so Desktop members get the feature the next time Desktop loads, with no Desktop release. The next occurrence, Ends, the 500 limit and the reminder handover belong to the BE subtask, and the shared rules with every value sit in the parent task.
+Like iOS, the web client gets the member-facing half of recurring to-dos, while the BE subtask owns the next occurrence, Ends, the 500 limit and the reminder handover, and the parent task holds the shared rules with every value. Desktop wraps the web client, so Desktop members get the feature the next time Desktop loads, with no Desktop release.
 
-Work starts after Yara has reviewed the tracking plan. Web ships dark behind `recurring_todos`, and Data turns the flag on only once iOS, Android and Web are all out.
+Work starts after Yara reviews the tracking plan. Web ships dark behind `recurring_todos`, which Data turns on only once iOS, Android and Web are out.
 
 **References**
 
@@ -98,4 +98,4 @@ On Web and Desktop a reminder shows in the app only, as a banner and a badge on 
 
 **Checklist**
 
-- [ ] The web client sends whichever of `todo_repeat_set` and `todo_occurrence_skipped` the reviewed tracking plan assigns to clients, with `repeat` set to `daily`, `weekdays`, `weekly`, `monthly` or `custom`
+- [ ] The client sends whichever of `todo_repeat_set` and `todo_occurrence_skipped` the reviewed tracking plan assigns to clients, with `repeat` set to `daily`, `weekdays`, `weekly`, `monthly` or `custom`

@@ -4,9 +4,9 @@
 
 ---
 
-The Android app gets the same member-facing half of recurring to-dos as iOS: the Repeat and Ends pickers, the Custom interval, Skip this one and the repeat icon on the to-do row. The next occurrence, Ends, the 500 limit and the reminder handover belong to the BE subtask, and the shared rules with every value sit in the parent task.
+Like iOS, the Android app gets the member-facing half of recurring to-dos, while the BE subtask owns the next occurrence, Ends, the 500 limit and the reminder handover, and the parent task holds the shared rules with every value.
 
-Work starts after Yara has reviewed the tracking plan. The app ships dark behind `recurring_todos`, and Data turns the flag on only once iOS, Android and Web are all out.
+Work starts after Yara reviews the tracking plan. The app ships dark behind `recurring_todos`, which Data turns on only once iOS, Android and Web are out.
 
 **References**
 

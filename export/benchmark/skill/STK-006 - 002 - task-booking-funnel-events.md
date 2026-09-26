@@ -4,9 +4,9 @@
 
 ---
 
-Today the funnel from search to booking can't be drawn cleanly. `checkout_complete` fires when the confirmation screen renders, so a booking is lost when the app closes before the screen draws and counted twice when the guest reopens the confirmation from Trips. The web sends amounts as decimals while the apps send minor units, and search and property page events carry dates in three formats. The booking funnel tracking plan fixes this with new and changed events, and every booking count moves to `booking_confirmed`, which `booking-service` sends from the server.
+Today the search-to-booking funnel can't be drawn cleanly: `checkout_complete` fires when the confirmation screen renders, so an app closed early loses the booking and a confirmation reopened from Trips counts it twice. Web amounts are decimals while app amounts are minor units, and search and property page events carry dates in three formats. The booking funnel tracking plan fixes this.
 
-This task is the Data team's part of that plan. The FE and BE tasks build the events. This task checks each event in `events-collector` as the squads ship it, moves the funnel dashboard to `booking_confirmed` before 2026-11-01 and has `events-collector` drop `checkout_complete` on that date. `date_changed` stays out of scope because it is still proposed and its trigger isn't agreed.
+This is the Data team's part of that plan, while the FE and BE tasks build the events. It checks each event in `events-collector` as the squads ship it, moves the funnel dashboard to `booking_confirmed` before 2026-11-01 and has `events-collector` drop `checkout_complete` on that date. `date_changed` stays out of scope because it is proposed and its trigger isn't agreed.
 
 **References**
 

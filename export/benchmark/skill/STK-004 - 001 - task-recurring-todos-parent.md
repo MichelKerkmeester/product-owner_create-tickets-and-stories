@@ -4,13 +4,11 @@
 
 ---
 
-Members who want a to-do to come back every week copy it by hand, or set a reminder far ahead and keep moving it. Repeating to-dos are the most requested to-do feature: the feedback board holds 212 requests since January, and 38 Plus workspaces named it in the renewal survey as the reason they keep a second app for chores and routines.
+Members who want a to-do back every week copy it by hand, or set a reminder far ahead and keep moving it. Repeating to-dos are the most requested to-do feature: the feedback board holds 212 requests since January, and 38 Plus workspaces named it in the renewal survey as the reason they keep a second app for chores and routines.
 
-This parent task holds the shared rules for every surface, numbered 1 to 5 below so each subtask can point at them instead of restating them. The platform leads write their own subtasks from it. Desktop gets the feature through the web client, with no Desktop release. The source is Ines's PM brief from 2026-09-08, with the answers from the 2026-09-10 planning session folded in. Anouk has the three design frames ready for review.
+This parent task holds the shared rules, numbered 1 to 5 so subtasks point at them rather than restating them. Platform leads write their subtasks from it, and Desktop gets the feature through the web client with no Desktop release. Sources are Ines's 2026-09-08 PM brief and the 2026-09-10 planning answers, and Anouk's three design frames are ready for review.
 
-The feature counts as working when 10% of weekly active Plus and Team workspaces have at least one repeating to-do 8 weeks after the `recurring_todos` flag is on for everyone.
-
-Out of scope: repeating a whole page or a database row, repeating from the date a to-do was checked off (as in every 3 days after I finish), a different time for each weekday and any Support console change.
+The feature succeeds when 10% of weekly active Plus and Team workspaces have at least one repeating to-do 8 weeks after `recurring_todos` is on for everyone. Out of scope: repeating a whole page or a database row, repeating from the check-off date (every 3 days after I finish), a different time for each weekday and any Support console change.
 
 **References**
 
@@ -48,7 +46,7 @@ A to-do can repeat only when it has a due date, because every Repeat option coun
 
 - [ ] A to-do without a due date shows Repeat greyed out with the hint `Add a due date to repeat`
 - [ ] Each Repeat option sets the next due date the table gives
-- [ ] Monthly keeps to the day of the first due date, so a series that starts on the 31st lands on the 30th in April and on the 31st again in May
+- [ ] Monthly keeps the first due date's day, so a series starting on the 31st lands on the 30th in April and the 31st in May
 - [ ] Ends has Never, On date and After, and Never is the default
 - [ ] On date stops the series after the last occurrence on or before that date
 - [ ] After stops the series after a set number of occurrences, from 1 to 365

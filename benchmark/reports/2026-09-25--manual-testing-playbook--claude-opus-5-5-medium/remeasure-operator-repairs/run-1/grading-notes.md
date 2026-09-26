@@ -1,6 +1,10 @@
 # Grading notes, remeasure round `remeasure-operator-repairs/run-1`
 
-Evidence behind every verdict in this folder's `results.csv`. The round reran 26 scenarios on Product Owner `39bcd29` and Barter `df2de5f0`: skill 1.11.0, kernel v1.15.0 and playbook 2.1.0.0, after the operator's rulings of 2026-09-25 were repaired in the sources. Source and root lines cite that commit. Three Opus 5.5 graders drafted the evidence, and the orchestrator reviewed it as for the main run. Sections 2 to 4 are the graders' drafts. Each draft row shows the first reading, with `after_failed_gate` unset, and `results.csv` holds the final row.
+Evidence behind every verdict in this folder's `results.csv`. The round reran 26 scenarios on Product Owner `39bcd29` and Barter `df2de5f0` (skill 1.11.0, kernel v1.15.0, playbook 2.1.0.0), after the operator's rulings of 2026-09-25 were repaired in the sources. Source and root lines cite that commit.
+
+Three Opus 5.5 graders drafted the evidence, and the orchestrator reviewed it as for the main run. Sections 2 to 4 are the graders' drafts, each row showing the first reading with `after_failed_gate` unset, and `results.csv` holds the final row.
+
+The round's exports left `export/benchmark/` on 2026-09-26, so export lines cited here refer to the files at Product Owner `3fdce37` and Barter `d214c160`.
 
 ---
 
@@ -8,15 +12,32 @@ Evidence behind every verdict in this folder's `results.csv`. The round reran 26
 
 **Result.** Skill 7 PASS and 4 FAIL, Project 3 PASS and 12 FAIL. `PID-001` fails, so the other 14 Project rows carry `after_failed_gate` yes.
 
-**The ask-first repair worked on both sides.** Every scenario with an explicit command now asks one question in its lane on Turn 1 and drafts on Turn 2 on the next number. The skill side leaves the clarification file untouched. `TK-002` and `TK-004` on both sides, `SBG-002`, `SST-003`, `SST-004`, `SEP-001` and `PIR-002` pass where the main run failed them, and `SDK-003` passes again.
+**The ask-first repair worked on both sides.** Every scenario with an explicit command now asks one question in its lane on Turn 1, drafts on Turn 2 on the next number, and on the skill side leaves the clarification file untouched.
 
-**The file-promise repair did not hold on the Project side.** Eight Project rows still name a path or a file for the artifact still to come, and several nearly copy the example kernel line 101 now quotes: `PID-001` Turn 1 ("Once you answer, the task will be `export/002 - task-due-today-filter-chip.md`"), `PBG-002`, `PTK-005` Turn 2 ("I'll update the same file"), `PTK-006` Turn 2, `PST-003`, `PST-004`, `PEP-001` and `PEP-002`. The dividing line applied in every batch: a forward statement that attaches an `export/` path or the word file to the next artifact is a claim, and one that names only the next number is not, as `PIR-002` and `PDK-003` do. The operator chose one more repair and a second round of these eight (`remeasure-file-forecast/run-1`).
+`TK-002` and `TK-004` on both sides, `SBG-002`, `SST-003`, `SST-004`, `SEP-001` and `PIR-002` pass where the main run failed them, and `SDK-003` passes again.
 
-**Backticked values are graded word for word, as in the main run.** One draft passed `PDK-003` on "Protocol v3 applies last-writer-wins at the block level" (block line 19) where the Pass clause lists `block-level last-writer-wins`. The orchestrator regraded it FAIL, since `STK-005` ("below 1 or above 99" for `1 to 99`), `PDK-001` ("One code per order" for `one discount code per order`) and `SST-002`/`PST-002` (the reworded `Do sub-pages inherit the link?`) are graded the same way. `SDK-003` states the value verbatim at export line 18.
+**The file-promise repair did not hold on the Project side.** Eight Project rows still name a path or file for the next artifact, several nearly copying the example kernel line 101 quoted in this round.
 
-**Still failing on content.** `TK-003` on both sides leaves out `HMAC-SHA256`, `5 attempts` and the retry schedule. `SDK-001` names its rules section `## Stacking rules` instead of `## Behavior rules`. `PTK-006` still never marks `checkout_complete` as `deprecated`.
+They are `PID-001` Turn 1 ("Once you answer, the task will be `export/002 - task-due-today-filter-chip.md`"), `PBG-002`, `PTK-005` Turn 2 ("I'll update the same file"), `PTK-006` Turn 2, `PST-003`, `PST-004`, `PEP-001` and `PEP-002`.
 
-**Readings kept as the drafts recorded them.** A Read of a line range after the last write counts as read-back (`AGENTS.md` line 46 asks for non-empty content). A clarification that says the two sources agree covers the authority field in `SDK-003` and `PDK-003`, as borderline. The card brand held as `**Open:**` in `SST-003` and `PST-003` is a surfaced conflict, not a silent one, and `facts_intact` stays `no` for the draft's value as in the main run.
+The dividing line applied in every batch: a forward statement that attaches an `export/` path or the word file to the next artifact is a claim. One that names only the next number is not, as in `PIR-002` and `PDK-003`. The operator chose one more repair and a second round of these eight (`remeasure-file-forecast/run-1`).
+
+**Backticked values are graded word for word, as in the main run.** One draft passed `PDK-003` on "Protocol v3 applies last-writer-wins at the block level" (block line 19), where the Pass clause lists `block-level last-writer-wins`.
+
+The orchestrator regraded it FAIL, as `STK-005` ("below 1 or above 99" for `1 to 99`), `PDK-001` ("One code per order" for `one discount code per order`) and `SST-002`/`PST-002` (the reworded `Do sub-pages inherit the link?`) are graded the same way. `SDK-003` states the value verbatim at export line 18.
+
+**Still failing on content:**
+
+- `TK-003` on both sides leaves out `HMAC-SHA256`, `5 attempts` and the retry schedule
+- `SDK-001` names its rules section `## Stacking rules` instead of `## Behavior rules`
+- `PTK-006` still never marks `checkout_complete` as `deprecated`
+
+**Readings kept as the drafts recorded them:**
+
+- A Read of a line range after the last write counts as read-back, since `AGENTS.md` line 46 asks for non-empty content
+- A clarification saying the two sources agree covers the authority field in `SDK-003` and `PDK-003`, as borderline
+- The card brand held as `**Open:**` in `SST-003` and `PST-003` is a surfaced conflict, not a silent one
+- `facts_intact` stays `no` for the draft's value, as in the main run
 
 ---
 

@@ -5,11 +5,9 @@
 
 ---
 
-Today the Guest app date picker lets a guest select any range. `search-service` turns down anything over 30 nights, and the guest only sees a generic `Something went wrong` after tapping Search. Guest Support logged 23 chats about it in August, mostly about long stays for work.
+Today the Guest app date picker accepts any range, but `search-service` turns down anything over 30 nights, and the guest only sees a generic `Something went wrong` after tapping Search. Guest Support logged 23 chats about it in August, mostly about long stays for work. This task makes the picker block an unsearchable range before the guest taps Search, and say why.
 
-This task makes the date picker block a range that can't be searched before the guest taps Search, and tells the guest why. It covers the Guest app on iOS, Android and web. It applies on the search form and on the property page, where the picker also applies the property's minimum stay.
-
-The design frames are final. If the build doesn't match the file, raise it with Ines in the Search squad channel before working around it. Flexible dates, weekend presets, prices per night inside the calendar and tracking changes are out of scope. Date selection isn't tracked today, and this work adds no events.
+The change covers iOS, Android and web, on the search form and the property page. The design frames are final, so raise any mismatch with Ines in the Search squad channel before working around it. Flexible dates, weekend presets, per-night calendar prices and tracking changes are out of scope, date selection isn't tracked today, and this work adds no events.
 
 **References**
 
@@ -36,7 +34,7 @@ The apps hard-code none of the limits, so a change to search-service config or t
 **Checklist**
 
 - [ ] The 30-night maximum and the 365-day check-in window come from `search-service` config
-- [ ] On the property page, the minimum stay comes with the property details, where a partner sets it in Partner Hub anywhere from 1 night to 14 nights
+- [ ] On the property page, the minimum stay comes with the property details, set by the partner in Partner Hub from 1 night to 14 nights
 - [ ] Helper text fills `{max}` and `{n}` from these values, never from a number fixed in the app
 
 2.  **Which days can be picked**
@@ -67,7 +65,7 @@ The button at the bottom of the picker tells the guest what to do next and stays
 **Checklist**
 
 - [ ] With nothing picked, the button reads `Select check-in date` (`datepicker.cta.checkin`) and is disabled
-- [ ] With check-in picked, days that would make the stay too short or longer than 30 nights turn grey, and the button reads `Select check-out date` (`datepicker.cta.checkout`) and stays disabled
+- [ ] With check-in picked, days that make the stay too short or over 30 nights turn grey, and the button reads `Select check-out date` (`datepicker.cta.checkout`) and stays disabled
 - [ ] With a valid range picked, the range is highlighted, the nights count sits under it (`datepicker.nights`) and the button reads `Show prices` (`datepicker.cta.show_prices`)
 - [ ] A 30-night range across two months keeps the highlight across the month break
 
@@ -80,7 +78,7 @@ A grey day can still be tapped. Tapping it is the only way the guest learns why 
 **Checklist**
 
 - [ ] Tapping a grey day past the 30-night limit selects nothing and shows `Stays can be up to 30 nights` (`datepicker.helper.max_stay`)
-- [ ] On the property page, tapping a day inside the property's minimum stay selects nothing and shows the helper text with the property's own number, for example `This property has a 3-night minimum` (`datepicker.helper.min_stay`)
+- [ ] On the property page, tapping a day inside the minimum stay selects nothing and shows helper text with the property's number, for example `This property has a 3-night minimum` (`datepicker.helper.min_stay`)
 - [ ] The helper text stays until the guest picks a valid day
 - [ ] The helper text never covers the calendar
 - [ ] Screen readers announce a grey day as unavailable, followed by the same helper text a tap would show
@@ -95,7 +93,7 @@ A guest who changes their mind or comes back from an earlier search always lands
 
 - [ ] With check-in picked, tapping a day before it makes that day the new check-in, and the button goes back to `Select check-out date`
 - [ ] Opening the picker with dates from an earlier search shows the range as picked, with the button reading `Show prices`
-- [ ] Opening the picker with earlier dates that break a limit, such as a 45-night search saved before this change, clears them and opens with nothing picked
+- [ ] Opening the picker with earlier dates that break a limit, like a 45-night search saved before this change, clears them and opens with nothing picked
 
 ### **Platforms**
 

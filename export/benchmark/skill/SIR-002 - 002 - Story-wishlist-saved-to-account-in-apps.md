@@ -27,7 +27,9 @@ Several of the 39 who hit the limit had a full list on web and a shorter one in 
 
 ### Solution
 * * *
-For a signed-in customer, the apps save the wishlist to the account, so the list follows the customer to a new phone and matches what web shows. The first time a customer signs in on a device, whatever they saved on it before moves into the account list, so nothing built as a guest is lost. Guests keep the device wishlist unchanged, because the wishlist has to keep working for customers who never sign in.
+For a signed-in customer, the apps save the wishlist to the account, so the list follows the customer to a new phone and matches what web shows. The first time a customer signs in on a device, whatever they saved on it before moves into the account list, so nothing built as a guest is lost.
+
+Guests keep the device wishlist unchanged, because the wishlist has to keep working for customers who never sign in.
 
 #### **Expected outcomes**
 * * *

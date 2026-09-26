@@ -10,11 +10,13 @@ This story adds a Free cancellation filter to search in the Guest app on iOS, An
 
 ### Problem
 * * *
-"Can I cancel this for free?" is the most common question guests ask in Guest Support chats before they book. It came up in about one in six pre-booking chats in August. 44% of August bookings were on a free cancellation rate plan. Even so, guests can only find these rates by opening each property page one at a time.
+"Can I cancel this for free?" is the most common question guests ask in Guest Support chats before they book, coming up in about one in six pre-booking chats in August. 44% of August bookings were on a free cancellation rate plan. Even so, guests can only find these rates by opening each property page one at a time.
 
 ### Solution
 * * *
-Guests get the answer on the results list, because that is where they compare stays. A single switch in the filter sheet narrows the list to stays with free cancellation. The card then shows the free cancellation price and the deadline for that rate, so the guest can choose a stay without opening its property page. The filter stays on while the guest refines the same search and turns off when they start a new one.
+Guests get the answer on the results list, because that is where they compare stays. A single switch in the filter sheet narrows the list to stays with free cancellation. Each card then shows that rate's price and deadline, so the guest can choose without opening the property page.
+
+The filter stays on while the guest refines the same search and turns off when they start a new one.
 
 #### **Expected outcomes**
 * * *
@@ -30,7 +32,8 @@ Guests get the answer on the results list, because that is where they compare st
 * * *
 *   The `Free cancellation` filter sits in the search filter sheet, below `Price` and `Star rating`
 *   The filter is a single on and off switch
-*   With the filter on, a stay shows in results only if at least one rate plan for the searched dates, guests and rooms has free cancellation and its deadline has not passed
+*   With the filter on, a stay shows only if at least one rate plan for the searched dates, guests and rooms has free cancellation
+*   A rate plan whose free cancellation deadline has passed does not count
 *   With the filter on, the price on the result card is the cheapest free cancellation rate plan, even when a non-refundable rate is cheaper
 *   The results header shows the filtered count
 *   Test search: Lisbon for `4 nights` with `2 adults` goes from `1,146` stays to `312` stays with the filter on
@@ -41,7 +44,7 @@ Guests get the answer on the results list, because that is where they compare st
 **Result card badge**
 * * *
 *   With the filter on, every result card shows the deadline of the rate plan whose price is on the card, as `Free cancellation until 14 Oct`
-*   The deadline is the check-in date minus the partner's cancellation window, so a partner who allows free cancellation up to `14 days` before check-in gets a deadline 14 days before check-in
+*   The deadline is the check-in date minus the partner's cancellation window, so a `14 days` window gives a deadline 14 days before check-in
 *   The deadline is the date at the property's location, not the date on the guest's device
 *   The date uses the `d MMM` pattern in the guest's locale, which gives a day and a short month name with no year
 *   With the filter off, result cards stay as they are today

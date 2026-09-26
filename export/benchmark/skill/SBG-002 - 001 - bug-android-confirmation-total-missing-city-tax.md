@@ -43,14 +43,16 @@ On Android 8.12.1, the Guest app confirmation screen shows a total without city 
 
 After Pay now on a stay of 2 nights or more, the confirmation screen shows the room price as the total and leaves out the city tax that the payment step showed and the card was charged for
 - The guest on booking `RS-7Q4K2M` saw `Total €387.00` on the confirmation screen and was charged €405.00, a gap of €18.00
-- No error message is shown. The screen looks like a normal confirmation with a lower total
+- No error message is shown, and the screen looks like a normal confirmation with a lower total
 - The confirmation email for the same booking says `Total €405.00`, which matches the charge
 - Back office shows one Pay now charge of €405.00, captured on 2026-09-20, and it is the only charge on the card
-- On the Guest Support test phone, a 2-night stay showed the `City tax` line and €270.00 at the payment step, then `Total €258.00` on the confirmation screen. Back office has the charge at €270.00
+- On the Guest Support test phone, a 2-night stay showed the `City tax` line and €270.00 at the payment step, then `Total €258.00` on confirmation
+- Back office has that test charge at €270.00
 - A 1-night stay on the same test phone showed `Total €135.00`, which matches the charge of €129.00 plus €6.00 city tax
 - The same 3-night booking on the iOS test phone, app 8.12.0, shows `Total €405.00`
 - A 3-night Pay now booking on the web Guest app, checked on 2026-09-25, showed the right total on the confirmation screen
-- Guest Support found 14 chats tagged `price-mismatch` between the release on 2026-09-16 and 2026-09-21. All 14 came from Android 8.12.1 and all were Pay now bookings of 2 nights or more. None came from iOS or web
+- Guest Support found 14 chats tagged `price-mismatch` between the release on 2026-09-16 and 2026-09-21, none from iOS or web
+- All 14 came from Android 8.12.1, and all were Pay now bookings of 2 nights or more
 - The Android staged rollout reached every user on 2026-09-21, so the number of affected guests can grow from here
 
 Back office breakdown for `RS-7Q4K2M`:
@@ -62,16 +64,16 @@ Back office breakdown for `RS-7Q4K2M`:
 | Total | €405.00 |
 
 Not known yet:
-- Whether Pay at property bookings show the same lower total. Those guests are not charged until arrival, and no guest has written in about one
-- The cause. Nobody on the Booking squad has looked at the code yet
-- Whether Android 8.11.2 showed the right total. The chat search started at the 8.12.1 release
+- Whether Pay at property bookings show the same lower total, since those guests are not charged until arrival and none has written in
+- The cause, since nobody on the Booking squad has looked at the code yet
+- Whether Android 8.11.2 showed the right total, since the chat search started at the 8.12.1 release
 
 Steps to Reproduce:
 1. On an Android phone with Guest app 8.12.1, search for property 40217 for 2 adults, 1 room, 2 nights
 2. Pick a rate plan with Pay now and continue to the payment step
-3. Check the price breakdown. Expected and actual: the `City tax` line is shown and the total is €270.00
+3. Check the price breakdown: expected and actual both show the `City tax` line and a total of €270.00
 4. Tap Pay now with a test card
-5. Check the total on the confirmation screen. Expected: `Total €270.00`, the amount charged. Actual: `Total €258.00`, the room price without the €12.00 city tax
+5. Check the confirmation screen total: expected `Total €270.00` (the amount charged), actual `Total €258.00` (the room price without the €12.00 city tax)
 6. Cancel the test booking under Trips before the free cancellation deadline
 
 Screenshot: the guest's Android confirmation screen showing `Total €387.00`, kept on ticket 58213 in the support desk tool
@@ -86,9 +88,9 @@ Screen recording: Not provided
 
 The confirmation screen total equals the amount charged for the booking, city tax included, on every stay length
 - Design spec: Not provided
-- Previous working behavior: Not provided for Android. The iOS 8.12.0 app, the web Guest app and the confirmation email all show the full total with city tax
+- Previous working behavior: Not provided for Android, while iOS 8.12.0, the web Guest app and the confirmation email show the full total with city tax
 - Product rule: city tax is part of the total, and Pay now charges the full total with city tax included
-- User expectation: the total on the confirmation screen is the amount that leaves the guest's card, so a guest never sees a lower number than their bank shows
+- User expectation: the confirmation total is the amount that leaves the guest's card, so a guest never sees a lower number than their bank shows
 
 Checklist
 - [ ] Root cause identified

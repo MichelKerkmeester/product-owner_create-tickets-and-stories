@@ -10,23 +10,21 @@
 ## Overview
 * * *
 
-This reference explains what promotions-service does today when discount codes and automatic promotions meet in one cart: which discounts reach each line, in what order, how far they can go and what the result does to shipping. It is for CS agents and the Checkout engineers, so that either can take a cart and predict the discount it gets, apart from the six cases listed under Open questions. CS agents use it to explain a total to a customer, and Checkout engineers use it to check a cart's discount against the written rules. It does not cover how promotions are set up.
+This reference explains what promotions-service does today when discount codes and automatic promotions meet in one cart: which discounts reach each line, in what order, how far they go and the effect on shipping. CS agents use it to explain a total, and Checkout engineers to check a cart against the written rules. Promotion setup is out of scope.
 
-In short, a customer gets at most one code and each line gets at most one automatic promotion. The automatic promotion comes off first and the code comes off the price that is left, unless one of them is marked `exclusive`. Sale items are skipped unless a promotion says otherwise, and no line ever loses more than half its price before promotions.
-
-Everything under Stacking rules is current behavior. The retired rule and the open questions carry their own labels, because neither describes what an order placed today will do.
+A customer gets at most one code and each line at most one automatic promotion, and the code comes off the price the promotion leaves unless either is marked `exclusive`. Sale items are skipped unless a promotion says otherwise, and no line loses more than half its price before promotions. Six cases stay open, under Open questions.
 * * *
 
 ### Glossary
 * * *
 
 *   **Automatic promotion** — A discount that applies to a line without the customer entering a code
-*   **Discount code** — A code the customer enters on the order. Staff codes are one kind of discount code
-*   **`exclusive`** — A flag on a promotion or a code meaning it combines with nothing. What it removes depends on whether it sits on a code or on an automatic promotion, as rule 3 sets out
-*   **Sale item** — A product whose `compare_at` price in catalog-service is above its current price. The storefront shows the `compare_at` price struck through
-*   **`applies_to_sale`** — A switch on a promotion or a code. When it is on, that promotion or code also reaches sale items. When it is off, it skips them
+*   **Discount code** — A code the customer enters on the order, staff codes included
+*   **`exclusive`** — A flag meaning a promotion or code combines with nothing, and rule 3 sets out what it removes on each type
+*   **Sale item** — A product whose `compare_at` price in catalog-service is above its current price, and the storefront shows that price struck through
+*   **`applies_to_sale`** — A switch on a promotion or code: when on, it also reaches sale items, and when off, it skips them
 *   **Staff code** — A code that starts with `STAFF-` and is tied to one staff account
-*   **Subtotal** — The sum of the lines after every discount and before shipping. The free-shipping threshold is checked against it
+*   **Subtotal** — The sum of the lines after every discount and before shipping, which the free-shipping threshold is checked against
 * * *
 
 ### Where the calculation runs
@@ -124,7 +122,7 @@ No line loses more than half of its price before promotions, and the code is the
 
 *   **When** — The automatic promotion and the code together would take more than `50%` of the line's price before promotions
 *   **Then** — The code's share is cut until the line sits at exactly 50%
-*   **How** — The cap is measured against the line's current price before promotions. The struck-through `compare_at` price does not count, so a sale item's earlier price never raises the cap
+*   **How** — The cap uses the line's current price before promotions, not the struck-through `compare_at` price, so a sale item's earlier price never raises it
 * * *
 
 **7. Rounding and fixed-amount codes**
@@ -190,7 +188,7 @@ These are the worked examples from the Promotions rules note, with the note's ow
 #### Code on top of an automatic promotion, Netherlands
 * * *
 
-The cart has stoneware dinner plates, set of 4, at €39.95 with the automatic promotion Tableware 20% off. It also has linen tea towels, set of 3, at €24.90 with no promotion, and a cast iron casserole at €89.00 with a `compare_at` price of €119.00, which makes it a sale item. Code HOME15 gives 15% off and has `applies_to_sale` switched off.
+The cart has stoneware dinner plates, set of 4, at €39.95 with the automatic promotion Tableware 20% off. It also has linen tea towels, set of 3, at €24.90 with no promotion, and a cast iron casserole at €89.00 with a `compare_at` price of €119.00, making it a sale item. Code HOME15 gives 15% off and has `applies_to_sale` off.
 
 | Line | Price | Automatic | Code | Line total |
 |------|-------|-----------|------|------------|
@@ -199,7 +197,9 @@ The cart has stoneware dinner plates, set of 4, at €39.95 with the automatic p
 | Casserole | €89.00 | none | skipped, sale item | €89.00 |
 | Subtotal | | | | €137.33 |
 
-The plates take 20% first, which is €7.99 and leaves €31.96. The code then takes 15% of €31.96, which is €4.794 and rounds to €4.79. The towels take 15% of €24.90, which is €3.735 and rounds half up to €3.74. The subtotal is over the threshold, so shipping is free.
+The plates take 20% first, which is €7.99 and leaves €31.96. The code then takes 15% of €31.96, which is €4.794 and rounds to €4.79.
+
+The towels take 15% of €24.90, which is €3.735 and rounds half up to €3.74. The subtotal is over the threshold, so shipping is free.
 * * *
 
 #### The 50% cap
@@ -236,18 +236,18 @@ Status: Unverified — the Promotions rules note does not settle these cases
 
 Each case below can come up in an ordinary cart, and each one has two rules that could apply and no written answer. Colette owns the note, so she is the person who can add the answer.
 
-*   **Two exclusives on one line** — An exclusive code removes every automatic promotion, and an exclusive automatic promotion blocks codes on its lines. The note does not say which wins when both meet on the same line
-*   **Exclusive against bigger saving** — When two automatic promotions match a line, the bigger saving applies. The note does not say whether an exclusive promotion with the smaller saving still takes the line and still blocks the code
-*   **An exclusive code that reaches no line** — For example, an exclusive code with `applies_to_sale` off in a cart of sale items only. The note does not say whether it still removes the automatic promotions
-*   **An automatic promotion above 50% on its own** — The cap is met by cutting the code's share. The note does not say what happens when the automatic promotion alone passes 50%, with or without a code
-*   **Rounding at the cap** — A capped line sits at exactly 50%, but half of €39.95 is €19.975. The note does not say which way the capped amount rounds
-*   **The price a fixed-amount code is split by** — The split follows each line's price. The note does not say whether that is the price before or after the automatic promotion
+*   **Two exclusives on one line** — Which wins when an exclusive code and an exclusive automatic promotion meet on the same line
+*   **Exclusive against bigger saving** — Whether an exclusive promotion with the smaller saving still takes the line and still blocks the code
+*   **An exclusive code that reaches no line** — Whether it still removes the automatic promotions, as with `applies_to_sale` off in a cart of sale items only
+*   **An automatic promotion above 50% on its own** — What happens with or without a code, since the cap is met by cutting the code's share
+*   **Rounding at the cap** — Which way the capped amount rounds, since a capped line sits at exactly 50% and half of €39.95 is €19.975
+*   **The price a fixed-amount code is split by** — Whether the split follows each line's price before or after the automatic promotion
 * * *
 
 ### Free-shipping banner wording
 * * *
 
-An order with a subtotal of exactly €50.00 or £45.00 ships free, because rule 8 sets the threshold at "at least" that amount. The banner copy reads `Free shipping on orders over €50` and `Free shipping on orders over £45`, so a customer at exactly the threshold may expect to pay shipping and then not be charged. The rules note governs what the order does. Neither source says whether the difference in wording is intended.
+An order whose subtotal is exactly €50.00 or £45.00 ships free, because rule 8 sets the threshold at "at least" that amount. The banner reads `Free shipping on orders over €50` and `Free shipping on orders over £45`, so a customer at exactly the threshold may expect to pay shipping and not be charged. The rules note governs the order, and neither source says whether the wording difference is intended.
 * * *
 
 ### Retired rule: two codes on one order
@@ -255,7 +255,7 @@ An order with a subtotal of exactly €50.00 or £45.00 ships free, because rule
 
 Status: Retired material — retired on 2026-05-01, kept because CS still refunds orders placed under it
 
-No order placed today can carry two codes, but CS still refunds orders that do. Until 2026-05-01 a customer could combine one percentage code with one free-shipping code on the same order. Free-shipping codes stopped on that date, and since then the one-code rule covers every order. The code path was removed from promotions-service on 2026-05-04.
+No order placed today can carry two codes, but CS still refunds orders that do. Until 2026-05-01 a customer could combine one percentage code with one free-shipping code on the same order. Free-shipping codes stopped that day, and since then the one-code rule covers every order, with the code path removed from promotions-service on 2026-05-04.
 
 An order placed before 2026-05-01 can still show two codes in Admin. When a CS agent refunds one of those orders, the refund splits the discount across both codes, as it did at the time. Nothing new should be built on this rule.
 * * *

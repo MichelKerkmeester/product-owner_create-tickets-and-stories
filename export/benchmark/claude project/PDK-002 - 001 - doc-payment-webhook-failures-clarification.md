@@ -1,7 +1,7 @@
-I'll create a new document on handling payment webhook failures. I've read both files. They don't contradict each other: the 30-minute `payment_pending` expiry matches in both. Before I draft, I need the decisions below, all in one reply:
+I'll create a new document on handling payment webhook failures. I've read both files, and they don't contradict each other: the 30-minute `payment_pending` expiry matches in both. Before I draft, I need the decisions below, all in one reply:
 
 **1. Purpose, shape & audience:**
-- A runbook for the next webhook failure (Guide). This would close the open follow-up "Runbook for webhook failures, linked from the Payments / Webhooks dashboard" (owner Karim)
+- A runbook for the next webhook failure (Guide), which would close the open follow-up "Runbook for webhook failures, linked from the Payments / Webhooks dashboard" (owner Karim)
 - A post-mortem of INC-0412 (Narrative overview)
 - Or a runbook that uses INC-0412 as its worked example
 - Who reads it: Payments on-call engineers only, or Guest Support too for the handoff step?
@@ -9,7 +9,7 @@ I'll create a new document on handling payment webhook failures. I've read both 
 **2. Scope of failures:**
 - The notes only cover one failure: a 401 `signature_mismatch` on `/v2/psp/webhooks` after a secret rotation
 - No source covers other failures, such as 5xx errors or timeouts in payments-service, other 4xx reasons, or an outage at the payment provider
-- Should the doc stay limited to signature failures? If not, please send a source for the other failure types
+- Should the doc stay limited to signature failures, and if not, can you send a source for the other failure types?
 
 **3. Authority & status:**
 - The six steps in "What I did, in order" are Karim's account of one incident
@@ -26,8 +26,9 @@ The notes name these steps but don't say how to do them:
 Can you send these? If not, I'll mark each one as not supplied and won't invent it.
 
 **5. Prevention & proposals:**
-- The rotation order is marked Done in the follow-ups: deploy the new secret to payments-service first, then switch it at the payment provider. Should the doc include it?
-- The dual-secret window (accept both secrets for 1 hour) is marked "proposed" (owner Elif). Should I include it, labelled as a proposal, or leave it out?
+- The rotation order is marked Done in the follow-ups: deploy the new secret to payments-service first, then switch it at the payment provider
+- Should the doc include the rotation order?
+- Should I include the dual-secret window (accept both secrets for 1 hour), marked "proposed" (owner Elif), as a labelled proposal or leave it out?
 
 **6. Guest remedy:**
-- After INC-0412, Guest Support sent an apology email and offered the same room at the same price. Is that standard policy, or was it a one-off for this incident?
+- After INC-0412, Guest Support sent an apology email and offered the same room at the same price: standard policy, or a one-off for this incident?

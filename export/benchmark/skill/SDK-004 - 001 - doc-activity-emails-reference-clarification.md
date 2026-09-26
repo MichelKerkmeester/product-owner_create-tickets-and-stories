@@ -1,10 +1,11 @@
 I'll create a new reference page for the six Loomlist activity emails, EM-01 to EM-06. Before drafting, I need the unresolved decisions below in one response:
 
-**Authority & conflicts:** The two notification sources disagree on when the daily digest goes out, and neither page says it governs the other. Which should the page state?
+**Authority & conflicts:** The two notification sources disagree on when the daily digest goes out, and neither page says it governs the other, nor does the newer edit date settle it on its own. Which should the page state?
 
 *   `loomlist-notification-spec.md` (Lena, edited 2026-07-14) says EM-01 goes out "every day at 08:00 in the recipient's local time", with local time taken from the profile time zone
 *   `loomlist-email-template-inventory.md` (Mateo, edited 2026-09-11) says "Daily at 07:00 UTC", and the `digest-sender` job hands the batch to the email delivery provider at 07:00 UTC
-*   Options: the spec is the rule and the inventory describes a bug, the inventory is what ships and the spec is out of date or the page shows both as an open discrepancy with Lena as the decision owner. The newer edit date doesn't settle it on its own
+*   Options: the spec is the rule and the inventory describes a bug, or the inventory is what ships and the spec is out of date
+*   A third option: the page shows both as an open discrepancy, with Lena as the decision owner
 
 **Document status:** Should the page describe current behavior (what notifications-service sends today) or intended product behavior from the spec? That choice also decides whether the digest time above reads as fact or as a gap.
 
@@ -16,5 +17,7 @@ I'll create a new reference page for the six Loomlist activity emails, EM-01 to 
 
 **Scope & shape:** Two things to confirm:
 
-*   Scope: both sources leave out push notifications, reminders, a choice of digest time and the sign-in, receipt and plan emails. Should the page leave them out too, or list them in a short "Not covered" section?
-*   Shape: I'd lean towards a Catalog, with one entry per email ID and a shared-rules section for guests, locale fallback, the footer and the mention-over-reply rule. If the page should explain how the emails interact instead, it would be a Behavior reference. Which do you want?
+*   Scope: should the page, like both sources, leave out push notifications, reminders, digest-time choice and sign-in, receipt and plan emails, or list them under "Not covered"?
+*   Shape: I'd suggest a Catalog, with one entry per email ID and a shared-rules section for guests, locale fallback, the footer and the mention-over-reply rule
+
+If the page should explain how the emails interact instead, it would be a Behavior reference. Which do you want?
