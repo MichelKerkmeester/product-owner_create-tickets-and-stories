@@ -10,11 +10,13 @@ The order page on web, iOS and Android gets a status timeline that follows each 
 
 ### Problem
 * * *
-"Where is my order" is the biggest reason customers contact Fernhouse. In August CS tagged `5,870` of `18,940` contacts as WISMO, which is `31%`. Most of those customers already had a tracking number. What they wanted to know was when the parcel would arrive, and the order page could not tell them. The page shows `Order placed` until dispatch and `Shipped` after it, and then never changes. Customers copy the number into the parcel carrier's own site, and the ones who get lost there contact CS.
+"Where is my order" is the biggest reason customers contact Fernhouse: in August CS tagged `5,870` of `18,940` contacts as WISMO, which is `31%`. Most of those customers already had a tracking number but wanted to know when the parcel would arrive, which the order page could not tell them.
+
+The page shows `Order placed` until dispatch and `Shipped` after it, and then never changes. Customers copy the number into the parcel carrier's own site, and the ones who get lost there contact CS.
 
 ### Solution
 * * *
-The order page becomes the place where a customer checks on a parcel, so they no longer need the carrier's site. The page moves through each status as the parcel moves, and it shows an arrival day and time window only when the carrier has sent one. The tracking number stays in the shipping email for customers who still prefer the carrier's page.
+The order page is where a customer checks on a parcel, so they no longer need the carrier's site. The page follows the parcel through each status, and shows an arrival day and time window only when the carrier sends one. The tracking number stays in the shipping email for customers who still prefer the carrier's page.
 
 #### **Expected outcomes**
 * * *
@@ -73,7 +75,8 @@ The order page becomes the place where a customer checks on a parcel, so they no
 *   After a failed delivery the carrier makes up to `5 attempts` more, waiting `1 min, 5 min, 15 min, 1 h, 6 h` before each, then drops the event
 *   Delivery is at least once, so events are deduplicated on `event_id`
 *   A dropped event cannot be recovered, because `GET /v1/shipments/{shipment_id}` returns label fields only and tracking history is not part of the carrier plan
-*   About `3,100` parcels leave on a normal working day and up to `5,400` on the busiest, at `5` to `8` events each, so a peak day brings up to about `43,000` events
+*   About `3,100` parcels leave on a normal working day, and up to `5,400` on the busiest
+*   Each parcel brings `5` to `8` events, so a peak day brings up to about `43,000` events
 
 **Event order**
 * * *
@@ -81,7 +84,8 @@ The order page becomes the place where a customer checks on a parcel, so they no
 *   The timeline orders events by `occurred_at`, never by arrival
 *   An event older than the newest one held for that parcel is stored for the history and does not change the status shown
 *   After an `EX` with `NOT_HOME` the carrier tries again the next working day, which sends a new `OD`
-*   After a second `NOT_HOME` the parcel goes to a parcel point, and its `DL` carries `delivered_to` set to `parcel_point` when the parcel is dropped there, not when the customer collects it
+*   After a second `NOT_HOME` the parcel goes to a parcel point
+*   The parcel-point `DL` carries `delivered_to` set to `parcel_point` when the parcel is dropped there, not when the customer collects it
 * * *
 ##   
 

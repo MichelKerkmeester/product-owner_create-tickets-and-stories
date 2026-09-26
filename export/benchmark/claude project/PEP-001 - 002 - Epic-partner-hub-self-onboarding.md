@@ -3,11 +3,15 @@
 * * *
 ## About
 * * *
-Independent properties with up to 40 rooms set themselves up in Partner Hub, from sign-up to a finished listing. An Ops agent only checks that listing in Back office before it goes live. The work splits into six child stories, one per onboarding stage, and all six ship in the first release. The Partner squad owns the epic. The Ops Tools squad builds the Go-live review queue and the Payments squad owns payout details.
+Independent properties with up to 40 rooms set themselves up in Partner Hub, from sign-up to a finished listing. An Ops agent only checks that listing in Back office before it goes live. The work splits into six child stories, one per onboarding stage, and all six ship in the first release.
+
+The Partner squad owns the epic, the Ops Tools squad builds the Go-live review queue and the Payments squad owns payout details.
 
 ### Problem
 * * *
-Every new property on Roamstay is set up by hand. A partner fills in a short sign-up form. An Ops agent then collects photos, room types, rates, policies, city tax, bank details and identity documents by email, builds the listing in Back office and makes it live. Most partners who drop out leave while they wait for an agent to reply, not while they fill anything in. On exit calls they say they signed up, heard nothing for days and listed their rooms somewhere else.
+Every new property on Roamstay is set up by hand. After a partner fills in a short sign-up form, an Ops agent collects photos, room types, rates, policies, city tax, bank details and identity documents by email, builds the listing in Back office and makes it live.
+
+Most partners who drop out leave while they wait for an agent to reply, not while they fill anything in. On exit calls they say they signed up, heard nothing for days and listed their rooms somewhere else.
 
 **The following issues rise from that:**
 *   The median time from sign-up to go-live is 11 business days
@@ -68,7 +72,7 @@ The Ops Tools squad builds this stage.
 Capabilities that belong to the epic but do not block the first release.
 
 **Channel manager connection**
-*   Partners who run a channel manager connect it during self-onboarding instead of staying on assisted onboarding. Connecting one is its own integration project
+*   Partners who run a channel manager connect it during self-onboarding instead of staying on assisted onboarding, and connecting one is its own integration project
 * * *
 ##   
 
@@ -136,12 +140,12 @@ The delivery budget or expected size for the approved scope.
 * * *
 Areas that could waste effort, create ambiguity or distract from the intended outcome.
 
-*   Go-live review queue capacity: the queue has to hold its 1 business day as volume grows, and the Ops Tools squad sizes it with the Partner squad
+*   Go-live review queue capacity: the queue must hold its 1 business day as volume grows, and Ops Tools sizes it with the Partner squad
 
 #### No-gos
 * * *
 Explicit scope exclusions and behaviors the delivery team must not introduce.
 
 *   Self-onboarding for properties with more than 40 rooms or for chains, which stay on the assisted path with a partner manager
-*   Self-onboarding in the first release for partners who run a channel manager. They stay on assisted onboarding until the channel manager connection under Added Later ships
+*   Self-onboarding in the first release for partners who run a channel manager, who stay on assisted onboarding until the Added Later channel manager connection ships
 * * *

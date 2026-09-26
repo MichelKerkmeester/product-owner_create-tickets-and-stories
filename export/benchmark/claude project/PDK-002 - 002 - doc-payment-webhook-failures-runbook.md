@@ -6,25 +6,23 @@
 
 ## Overview
 * * *
-This runbook takes whoever is on call in #payments-oncall from a webhook alert through to cleanup. Use it when the `payments.webhook.4xx_rate` alert pages the channel, or when Guest Support reports guests stuck on the Confirming your booking screen.
+This runbook takes whoever is on call in #payments-oncall from the moment the `payments.webhook.4xx_rate` alert pages or Guest Support reports guests stuck on the Confirming your booking screen through to cleanup. The payment provider sends Pay now results only by webhook, so while payments-service rejects webhooks, bookings wait in `payment_pending` until the booking-service expiry job expires them after 30 minutes.
 
-The payment provider sends the result of a Pay now payment to us only by webhook. While payments-service rejects webhooks, no Pay now booking can leave `payment_pending`. After 30 minutes, the `payment_pending` expiry job in booking-service expires each of those bookings. Pause the expiry job before you look for the cause, because expired bookings are what's left to clean up once the webhooks work again.
-
-INC-0412 shows the cost. On 2026-09-09, payments-service answered every webhook from the payment provider with a 401 for 47 minutes, from 12:02 to 12:49 UTC. 1,284 bookings entered `payment_pending` and 1,190 recovered after the fix. 94 expired before anyone paused the expiry job. The payment provider had charged 71 of those guests, and psp-reconcile refunded them.
+Pause the expiry job before looking for the cause, because expired bookings are what's left to clean up once the webhooks work again. In INC-0412 on 2026-09-09, payments-service returned 401 to every webhook from 12:02 to 12:49 UTC, 47 minutes. Of 1,284 stuck bookings, 1,190 recovered and 94 expired before the pause, 71 of them charged and refunded by psp-reconcile.
 
 ### What keeps working during a failure
 * * *
-*   **Pay now booking** — Waits in `payment_pending` until the payment provider confirms the payment by webhook. After 30 minutes the booking expires and its room goes back on sale
-*   **Payment provider retries** — Up to 8 attempts over 24 hours, with a longer gap after each attempt. By the time you fix the cause, many events are waiting hours for their next attempt, so retries alone leave guests on the confirming screen
-*   **psp-reconcile** — Runs every 15 minutes and reads captures from the payment provider's API, not from webhooks, so it keeps working during a webhook failure. It refunds any capture whose booking has expired
+*   **Pay now booking** — Waits in `payment_pending` until the payment provider confirms by webhook, and after 30 minutes expires with its room back on sale
+*   **Payment provider retries** — Up to 8 over 24 hours with growing gaps, so after a fix retries alone leave guests hours on the confirming screen
+*   **psp-reconcile** — Reads captures from the payment provider's API every 15 minutes, not from webhooks, so it keeps refunding expired bookings' captures during a failure
 *   **psp-replay** — Replays the payment provider's webhook events for a time window, so bookings don't have to wait for the next retry
 
 ### Before you start
 * * *
-*   **Alert** — The alert pages #payments-oncall when `payments.webhook.4xx_rate` stays above 5% for 5 minutes. It was added on 2026-09-10. Before that, nothing watched the webhook error rate
+*   **Alert** — Pages #payments-oncall when `payments.webhook.4xx_rate` stays above 5% for 5 minutes, and nothing watched that rate before it was added on 2026-09-10
 *   **Dashboard** — Payments / Webhooks shows the webhook 4xx rate by reason
 *   **Access** — You need to be able to pause and resume the expiry job in booking-service, deploy payments-service config and run psp-replay
-*   **Not written down yet** — How to pause and resume the expiry job, the psp-replay command and its parameters, the dashboard link and the normal `payment_pending` count
+*   **Not written down yet** — Pausing and resuming the expiry job, the psp-replay command and parameters, the dashboard link and the normal `payment_pending` count
 
 ## Response steps
 * * *
@@ -40,7 +38,7 @@ Open the Payments / Webhooks dashboard and check the 4xx rate by reason. The rea
 
 ### 2. Pause the payment_pending expiry job
 * * *
-Pause the `payment_pending` expiry job in booking-service straight away, before you look for the cause. The job doesn't stop by itself. In INC-0412 it kept running until someone paused it by hand at 12:36, and 94 bookings had expired by then. The first bookings from the failure window expired at 12:32, 30 minutes after the first rejection.
+Pause the `payment_pending` expiry job in booking-service straight away, before you look for the cause, because it doesn't stop by itself. In INC-0412 it kept running until someone paused it by hand at 12:36, and 94 bookings had expired by then. The first bookings from the failure window expired at 12:32, 30 minutes after the first rejection.
 
 **Expected result:** bookings stop expiring. An expiry shows in the booking-service logs like this:
 
@@ -54,7 +52,9 @@ Pause the `payment_pending` expiry job in booking-service straight away, before 
 * * *
 Fix whatever makes payments-service reject the webhooks. The payment provider's retries start landing only after that.
 
-If the reason is `signature_mismatch`, check that payments-service is checking signatures with the secret the payment provider signs with. In INC-0412, a planned rotation of the webhook signing secret switched the payment provider to the new secret at 12:02. Our config change with the new secret was merged but not yet deployed, so payments-service kept checking signatures with the old secret. Deploying the config with the new secret fixed it at 12:49.
+If the reason is `signature_mismatch`, check that payments-service is checking signatures with the secret the payment provider signs with.
+
+In INC-0412, a planned rotation of the webhook signing secret switched the payment provider to the new secret at 12:02. Our config change with the new secret was merged but not yet deployed, so payments-service kept checking signatures with the old secret. Deploying that config fixed it at 12:49.
 
 **Expected result:** the config reload is logged, the 401s stop and webhooks are accepted again. In INC-0412 the payment provider's retries started landing at 12:50.
 
@@ -81,7 +81,7 @@ Resume the `payment_pending` expiry job once the `payment_pending` count is back
 
 ### 6. Check refunds and hand over to Guest Support
 * * *
-Check the psp-reconcile output. Every booking that expired after a successful charge should have a refund. psp-reconcile works from the payment provider's API, so it may already have issued the refunds during the failure. In INC-0412 it refunded 71 captures at 12:45, before the fix. The other 23 expired bookings never had a successful charge.
+Check the psp-reconcile output: every booking that expired after a successful charge should have a refund. psp-reconcile works from the payment provider's API, so it may already have issued the refunds during the failure. In INC-0412 it refunded 71 captures at 12:45, before the fix, and the other 23 expired bookings never had a successful charge.
 
 Then give Guest Support the list of bookings that expired in the window, with their booking references.
 
@@ -98,12 +98,12 @@ Then give Guest Support the list of bookings that expired in the window, with th
 
 ### Boundaries and exceptions
 * * *
-*   **Other rejection reasons** — INC-0412 is the only failure behind this runbook, so step 3 covers `signature_mismatch` only. Steps 1, 2 and 4 to 6 don't depend on the cause
-*   **Planned secret rotations** — The rotation checklist now deploys the new secret to payments-service before switching it at the payment provider. A rotation done in the old order can cause INC-0412 again
+*   **Other rejection reasons** — Step 3 covers only `signature_mismatch`, since INC-0412 is the one source, while steps 1, 2 and 4 to 6 fit any cause
+*   **Planned secret rotations** — The checklist now deploys the new secret to payments-service before the payment provider, because the old order can cause INC-0412 again
 
 ## Review follow-ups
 * * *
-The 2026-09-10 incident review found three gaps. Guest Support noticed the failure 19 minutes in, before anything alerted. The rotation switched the payment provider first and our side second. The expiry job kept expiring bookings until someone paused it by hand. These are the actions it agreed and where each one stands.
+The 2026-09-10 incident review found three gaps. Nothing alerted before Guest Support noticed the failure 19 minutes in, the rotation switched the payment provider before our side, and the expiry job kept expiring bookings until someone paused it by hand. These are the actions it agreed and where each one stands.
 
 | Action | Owner | Status |
 |--------|-------|--------|

@@ -4,7 +4,7 @@
 
 ---
 
-The free-shipping banner sits at the top of every web page and above the cart in the iOS and Android apps. It reads `Free shipping on orders over €50` in the four euro markets and `Free shipping on orders over £45` in the UK. On small phones that copy wraps to two lines, which pushes the page or cart content down and splits the one message customers need to read at a glance.
+The free-shipping banner sits at the top of every web page and above the cart in the iOS and Android apps. It reads `Free shipping on orders over €50` in the four euro markets and `Free shipping on orders over £45` in the UK. On small phones that copy wraps to two lines, pushing page or cart content down and splitting the one message customers read at a glance.
 
 This task shortens the copy so the banner fits on one line. The thresholds stay the same. Copy is written in English first and then translated, so the two English lines are the source strings for every locale, and the translations have to follow the new wording.
 

@@ -6,19 +6,19 @@
 
 ## Overview
 * * *
-This catalog lists the six emails Loomlist sends about activity in a workspace, EM-01 to EM-06. For each one it gives the trigger, who gets it, the timing, the Settings > Notifications switch and the template that renders it. Support agents can use it to answer "why did I get this email" or "why didn't I", and Notifications engineers can use it to check a template before they change it.
+This catalog lists the six emails Loomlist sends about activity in a workspace, EM-01 to EM-06. For each one it gives the trigger, who gets it, the timing, the Settings > Notifications switch and the template that renders it. Support agents can use it to answer "why did I get this email" or "why didn't I", and Notifications engineers to check a template before changing it.
 
 Sign-in codes, receipts and plan emails are out of scope because the Accounts and Billing teams own them and other services send them. Push notifications are out of scope too.
 * * *
 
 ### Shared vocabulary
 * * *
-*   **Recipient's local time** — The time zone on the recipient's profile. Every scheduled email uses it
-*   **Settings > Notifications** — The screen where a person turns emails on or off. It has one switch each for EM-01 to EM-04 and EM-06, and all five are on by default. EM-05 has no switch
-*   **Footer** — A line at the end of the email that opens Settings > Notifications in the app. Every email except EM-05 has one
-*   **Guest** — A person who can open only the pages shared with them, with view or edit access. Guests are not billed
-*   **Email delivery provider** — The outside service notifications-service hands every email to. The sender name is always Loomlist
-*   **Version suffix** — The `_v{n}` at the end of a template name, such as `_v4` in `tpl_digest_v4`. It goes up whenever a template variable is added or removed
+*   **Recipient's local time** — The time zone on the recipient's profile, which every scheduled email uses
+*   **Settings > Notifications** — The screen of on/off switches, one each for EM-01 to EM-04 and EM-06, all five on by default, and none for EM-05
+*   **Footer** — A line at the end of the email that opens Settings > Notifications in the app, on every email except EM-05
+*   **Guest** — A person who can open only the pages shared with them, with view or edit access, and is not billed
+*   **Email delivery provider** — The outside service notifications-service hands every email to, always with the sender name Loomlist
+*   **Version suffix** — The `_v{n}` ending a template name, such as `_v4` in `tpl_digest_v4`, which goes up whenever a template variable is added or removed
 * * *
 
 ### Index
@@ -38,10 +38,10 @@ Sign-in codes, receipts and plan emails are out of scope because the Accounts an
 * * *
 These rules hold for every entry below. Check them before you look for anything specific to one email.
 
-*   **Language** — An email goes out in the recipient's app language: en-US, de-DE, fr-FR, es-ES, ja-JP or pt-BR. A missing string falls back to en-US
+*   **Language** — An email goes out in the recipient's app language (en-US, de-DE, fr-FR, es-ES, ja-JP or pt-BR), and a missing string falls back to en-US
 *   **Time zone** — Scheduled emails use the time zone on the recipient's profile
 *   **Mention inside a reply** — A mention inside a comment reply sends EM-02 only, never EM-02 and EM-03 together
-*   **Guests** — Guests get EM-02, EM-03 and EM-04 for the pages shared with them. They never get EM-01 or EM-06
+*   **Guests** — Guests get EM-02, EM-03 and EM-04 for the pages shared with them, but never EM-01 or EM-06
 *   **Footer** — Every email except EM-05 ends with a line that opens Settings > Notifications
 *   **Sender** — Every email goes out through the email delivery provider with the sender name Loomlist
 * * *
@@ -54,8 +54,8 @@ These rules hold for every entry below. Check them before you look for anything 
 The daily digest collects unread activity from the last 24 hours in one email, grouped by page with the newest page first.
 
 *   **Sent when** — The recipient has unread activity from the last 24 hours in pages they follow
-*   **Who gets it** — Owners, Admins and Members with unread activity. Never guests
-*   **Timing** — Every day at 08:00 in the recipient's local time. Not sent when there is nothing unread
+*   **Who gets it** — Owners, Admins and Members with unread activity, never guests
+*   **Timing** — Every day at 08:00 in the recipient's local time, unless there is nothing unread
 *   **Can be turned off** — Yes, from its switch in Settings > Notifications
 *   **Template** — `tpl_digest_v4`
 *   **Variables** — `recipient_name`, `workspace_name` and `items`, capped at 20 items grouped by page
@@ -131,12 +131,12 @@ EM-05 is the only activity email a person cannot turn off, so it has no switch i
 The weekly summary gives Owners and Admins a count of the last 7 days of workspace activity.
 
 *   **Sent when** — The workspace had activity in the last 7 days
-*   **Who gets it** — Every Owner and Admin of the workspace. Never Members or guests
+*   **Who gets it** — Every Owner and Admin of the workspace, never Members or guests
 *   **Timing** — Monday 09:00 in the recipient's local time
 *   **Can be turned off** — Yes, from its switch in Settings > Notifications
 *   **Template** — `tpl_weekly_summary_v1`
 *   **Variables** — The four workspace counts and the five most edited pages
-*   **Sent by** — The `summary-sender` job, which runs every hour on Mondays and picks the Owners and Admins whose local time is Monday 09:00 in that hour
+*   **Sent by** — The `summary-sender` job, which runs hourly on Mondays and picks the Owners and Admins whose local time is Monday 09:00 in that hour
 *   **Last test send** — 2026-08-31
 
 The summary counts pages created, pages edited, to-dos completed and new members, then lists the five most edited pages. A workspace with no activity that week gets no summary.
@@ -149,22 +149,22 @@ The summary counts pages created, pages edited, to-dos completed and new members
 * * *
 Run these three checks on any template change. The version bump matters most, because a job built for the old variables then fails loudly instead of sending a broken email.
 
-*   [ ] **Render all six locales in the preview tool.** Read the ja-JP and de-DE versions for overflow
-*   [ ] **Send a test to the team inbox.** Note the date in the notifications-service template inventory
+*   [ ] **Render all six locales in the preview tool:** Read the ja-JP and de-DE versions for overflow
+*   [ ] **Send a test to the team inbox:** Note the date in the notifications-service template inventory
 *   [ ] **Bump the version suffix when a variable is added or removed**
 * * *
 
 ### Catalog boundaries
 * * *
-*   **Digest time in the template inventory** — The inventory lists the EM-01 schedule as daily at 07:00 UTC. That line is out of date. The digest goes at 08:00 in the recipient's local time
-*   **Digest time choice** — Recipients cannot pick their own digest time. It comes up in feedback now and then and is not planned
-*   **Reminders** — Loomlist sends no reminder email. Reminders show in the app or as local notifications on the phone
+*   **Digest time in the template inventory** — The inventory's daily 07:00 UTC for EM-01 is out of date, since the digest goes at 08:00 local time
+*   **Digest time choice** — Recipients cannot pick their own digest time, which comes up in feedback now and then and is not planned
+*   **Reminders** — Loomlist sends no reminder email, and reminders show in the app or as local notifications on the phone
 *   **Other emails** — Sign-in codes, receipts and plan emails come from other services and teams
 *   **Push notifications** — Not covered here
 * * *
 
 ### Sources
 * * *
-*   Email notifications spec, Lena, Product Manager, Sharing and Notifications, last edited 2026-07-14 — triggers, timing, recipients, rules for all six and the digest send time
-*   Email template inventory, notifications-service, Mateo, Backend Engineer, Notifications, last edited 2026-09-11 — template names, variables, jobs, test sends, locales and change checks. Its 07:00 UTC digest schedule is out of date
-*   Loomlist product context, Elif, Product Operations, last updated 2026-09-22 — background definitions for roles and guests
+*   Email notifications spec, Lena, Product Manager, Sharing and Notifications, last edited 2026-07-14: triggers, timing, recipients, rules for all six and the digest send time
+*   Email template inventory, notifications-service, Mateo, Backend Engineer, Notifications, last edited 2026-09-11: template names, variables, jobs, test sends, locales and change checks
+*   Loomlist product context, Elif, Product Operations, last updated 2026-09-22: background definitions for roles and guests

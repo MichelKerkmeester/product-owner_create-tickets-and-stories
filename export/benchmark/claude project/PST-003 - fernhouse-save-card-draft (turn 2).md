@@ -10,7 +10,7 @@ Signed-in customers can save a card at checkout and pay with it on their next or
 
 ### Problem
 * * *
-Every card payment today means typing the full card number, expiry and CVC, even for a customer on their tenth order. In the apps the payment step loses 17% of the customers who reach it, against 9% on web, and card entry is where most of them stop. Returning customers place 68% of app orders, so most of the people typing their card again have done it before.
+Every card payment today means typing the full card number, expiry and CVC, even on a customer's tenth order. The app payment step loses 17% of customers who reach it, against 9% on web, and most of them stop at card entry. Returning customers place 68% of app orders, so most people retyping a card have typed it before.
 
 ### Solution
 * * *
@@ -31,10 +31,10 @@ A signed-in customer ticks a box on the card form to keep the card, and on the n
 *   The checkbox label is `Save this card for next time`, shown under the card fields
 *   The checkbox is unchecked by default
 *   The checkbox is on the card form on web, iOS and Android
-*   Only signed-in customers see the checkbox. Guest checkout never saves a card
-*   A customer can hold at most `5` saved cards. At the limit the checkbox is replaced by `You can save up to 5 cards`
+*   Only signed-in customers see the checkbox, and guest checkout never saves a card
+*   A customer can hold at most `5` saved cards, and at the limit `You can save up to 5 cards` replaces the checkbox
 *   The back end refuses a sixth card
-*   Cards only. Wallet and bank payments stay as they are
+*   This covers cards only, and wallet and bank payments stay as they are
 
 **Paying with a saved card**
 * * *
@@ -53,12 +53,13 @@ A signed-in customer ticks a box on the card form to keep the card, and on the n
 * * *
 **Open:** the draft stores the card brand, but the company card data rule allows only the card token, the last four digits and the expiry date. Checkout agrees with Lotte, who owns the company context, whether the brand logo comes from the payment provider when the card is shown or the rule changes.
 
-*   Card details stay with the payment provider. The account stores the provider's card token, the last four digits and the expiry date, and nothing else
+*   Card details stay with the payment provider, and the account stores only the provider's card token, the last four digits and the expiry date
 
 **Tracking**
 * * *
 *   Events fire when a card is saved, when a card is removed and when an order is paid with a saved card
-*   The Data team names the three events, and each event has a row in its tracking plan and a DATA task before any client sends it
+*   The Data team names the three events
+*   Each event has a row in the Data team's tracking plan and a DATA task before any client sends it
 * * *
 ##   
 
