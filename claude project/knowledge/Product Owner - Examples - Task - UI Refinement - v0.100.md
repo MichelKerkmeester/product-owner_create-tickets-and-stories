@@ -6,7 +6,7 @@ Instantiates Task Templates section 2, Canonical Task. Shows design-parity work 
 
 # Align the Meridian settings screen with the current design reference
 
-### About
+## About
 
 ---
 
@@ -43,11 +43,11 @@ Replace the earlier spacing values with the exact measurements in design referen
 
 **Checklist**
 
-- [ ] Set spacing between section headers and their first row to `space-16` (16pt)
-- [ ] Set spacing between grouped sections to `space-24` (24pt)
-- [ ] Set minimum row height to 52pt with `space-16` (16pt) horizontal padding
-- [ ] Align each leading icon to the 16pt row margin and each label to 52pt from the row edge (`16pt + 24pt + 12pt`)
-- [ ] Apply the same spacing values on both iOS and Android builds
+- [] Set spacing between section headers and their first row to `space-16` (16pt)
+- [] Set spacing between grouped sections to `space-24` (24pt)
+- [] Set minimum row height to 52pt with `space-16` (16pt) horizontal padding
+- [] Align each leading icon to the 16pt row margin and each label to 52pt from the row edge (`16pt + 24pt + 12pt`)
+- [] Apply the same spacing values on both iOS and Android builds
 
 ---
 
@@ -63,10 +63,10 @@ Dividers currently run full width between every row, including after the last ro
 
 **Checklist**
 
-- [ ] Set every divider to 1px using `border-subtle`
-- [ ] Inset the divider's leading edge to 52pt so it aligns with the row label
-- [ ] Remove the divider after the last row in each grouped section
-- [ ] Remove the divider between a section header and its first row
+- [] Set every divider to 1px using `border-subtle`
+- [] Inset the divider's leading edge to 52pt so it aligns with the row label
+- [] Remove the divider after the last row in each grouped section
+- [] Remove the divider between a section header and its first row
 
 ---
 
@@ -82,10 +82,10 @@ Leading row icons still use the retired 20x20 size. Reference v3 uses 24x24 icon
 
 **Checklist**
 
-- [ ] Resize all leading row icons from 20x20 to 24x24
-- [ ] Keep 12pt spacing between the icon and the row label
-- [ ] Use `icon-secondary` for enabled icons in light and dark mode
-- [ ] Use `opacity-disabled` (40%) for rows disabled by account permissions
+- [] Resize all leading row icons from 20x20 to 24x24
+- [] Keep 12pt spacing between the icon and the row label
+- [] Use `icon-secondary` for enabled icons in light and dark mode
+- [] Use `opacity-disabled` (40%) for rows disabled by account permissions
 
 ---
 
@@ -101,8 +101,8 @@ The parity check must cover Meridian's 320pt and 430pt width boundaries in addit
 
 **Checklist**
 
-- [ ] Confirm row spacing and divider insets hold at the supported 320pt and 430pt viewport widths
-- [ ] Confirm row labels wrap to a second line without changing icon alignment when the device text size is set to the largest accessibility setting
-- [ ] Confirm dark mode divider and icon colors match the reference file's dark mode variant
-- [ ] Confirm no row's tap target drops below 44pt in height after the spacing changes
-- [ ] Confirm every row opens the same destination or changes the same setting as before this refinement
+- [] Confirm row spacing and divider insets hold at the supported 320pt and 430pt viewport widths
+- [] Confirm row labels wrap to a second line without changing icon alignment when the device text size is set to the largest accessibility setting
+- [] Confirm dark mode divider and icon colors match the reference file's dark mode variant
+- [] Confirm no row's tap target drops below 44pt in height after the spacing changes
+- [] Confirm every row opens the same destination or changes the same setting as before this refinement

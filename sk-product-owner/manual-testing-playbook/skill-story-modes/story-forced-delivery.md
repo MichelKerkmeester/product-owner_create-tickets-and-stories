@@ -59,7 +59,7 @@ Design and engineering disagree on the sub-page question, and each answer ships 
 
 ### Expected
 
-Step 1 fixes the baseline with `context/` holding the two attachments. Step 2 returns one Story question and one clarification file. Step 3 proves the wait state. Step 4 finds the story preamble, `## About`, `### Problem`, `### Solution`, `#### **Expected outcomes**`, `## Requirements` in the notes' own groups with one `**Open:**` line, numbered acceptance criteria on the link, the plans and the viewer with none on sub-pages, and `## Delivery` as the last section, closed by a bare `* * *`.
+Step 1 fixes the baseline with `context/` holding the two attachments. Step 2 returns one Story question and one clarification file. Step 3 proves the wait state. Step 4 finds the story preamble, `## About`, `#### Problem`, `#### Solution`, the `**Expected outcomes**` label, `## Requirements` in the notes' own groups with one `**Open:**` line, numbered acceptance criteria on the link, the plans and the viewer with none on sub-pages, and `## Delivery` as the last section, closed by a bare `* * *`.
 
 ### Evidence
 

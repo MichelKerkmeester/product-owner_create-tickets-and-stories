@@ -1,6 +1,6 @@
 # FS - REM - Reminders arrive one hour late after the March clock change
 
-### About
+## About
 
 ---
 
@@ -107,9 +107,9 @@ A reminder arrives at the picked local date and time, in the to-do owner's profi
 - User expectation: reminders serve time-bound things (LL-20931 call, LL-20944 medication, LL-20958 stand-up), so an hour late is missed
 
 Checklist
-- [ ] Root cause identified
-- [ ] Fix implemented
-- [ ] Bug no longer reproducible
-- [ ] No regressions introduced
+- [] Root cause identified
+- [] Fix implemented
+- [] Bug no longer reproducible
+- [] No regressions introduced
 
 ---

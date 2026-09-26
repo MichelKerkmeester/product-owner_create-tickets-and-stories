@@ -5,7 +5,7 @@
 * * *
 Partner Hub self-onboarding replaces Ops agents' hand setup of new properties, in six child stories, one per stage in Freya's brief.
 
-### Problem
+#### Problem
 * * *
 After sign-up, an Ops agent collects photos, room types, rates, policies, city tax, bank details and identity documents by email and builds the listing in Back office.
 
@@ -16,9 +16,9 @@ Most partners who drop out do so while waiting for an agent's reply, not while f
 *   38% of sign-ups never go live, 813 of the 2,140 from January to June 2026
 *   Each property takes an Ops agent about 4.5 hours
 *   640 properties wait in the queue today
-###   
+####   
 
-### Goal
+#### Goal
 * * *
 Independent properties with up to 40 rooms self-onboard and go live in a median of 3 business days.
 
@@ -28,9 +28,9 @@ Target: 1,500 self-onboarded properties live by 2027-06-30, against 18,000 live 
 *   Partners move on their own schedule instead of waiting for a reply
 *   Ops agents review finished listings instead of building them
 *   Fake listings, wrong city tax and poor photos are caught before booking
-###   
+####   
 
-### Solution
+#### Solution
 * * *
 In order to get there, we will:
 *   Move setup into Partner Hub as six ordered, resumable stages
@@ -95,14 +95,14 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **When** the partner completes all six stages and an Ops agent approves the listing
 *   **Then** the property is bookable in the Guest app
 *   **And** no Ops agent entered any setup details
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 2\. **A partner can stop and continue later**
 * * *
 *   **Given** a partner who leaves part-way through any stage
 *   **When** they come back to Partner Hub
 *   **Then** they resume where they stopped, with saved work in place
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 3\. **Nothing goes live or pays out before the checks pass**
 * * *
@@ -110,7 +110,7 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **When** a guest searches for it
 *   **Then** it is not bookable
 *   **And** no payout is sent until the bank account and identity checks pass
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 4\. **A sent-back listing tells the partner what to fix**
 * * *
@@ -118,14 +118,14 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **When** the Ops agent sends it back
 *   **Then** the partner sees each stage to change and why
 *   **And** the partner can resubmit once those are fixed
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 5\. **Ineligible properties stay on the assisted path**
 * * *
 *   **Given** a property with more than 40 rooms, a chain or a channel manager
 *   **When** the partner signs up
 *   **Then** it goes through assisted onboarding with a partner manager
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 6\. **The squads can see whether self-onboarding works**
 * * *
@@ -133,7 +133,7 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **When** the Partner squad reviews results
 *   **Then** it sees median sign-up to go-live time and time per stage
 *   **And** it sees drop-off per stage against today's 38%, sent-back share with reasons and city tax or photo complaints in the first 90 days
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 * * *
 ##   
 

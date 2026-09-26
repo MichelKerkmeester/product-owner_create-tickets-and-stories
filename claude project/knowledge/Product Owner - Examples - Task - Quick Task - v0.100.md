@@ -6,7 +6,7 @@ Instantiates Task Templates section 5, Quick Task. Shows exact copy replacement 
 
 # Update trial-expiry banner copy on the Ledgerly pricing page
 
-### About
+## About
 
 ---
 
@@ -24,10 +24,10 @@ Users must see the same remaining time in the banner and the existing pricing-pa
 
 **Checklist**
 
-- [ ] For 2 or more days remaining, replace "Your trial is ending" with "{days_remaining} days left on your trial"
-- [ ] For 1 day remaining, use "1 day left on your trial"
-- [ ] For 0 days remaining, use "Last day of your trial"
-- [ ] Replace "Upgrade now to avoid losing access to your account and data" with "Your invoices, clients and reports stay safe. When the trial ends, you can view them, but you can't create or export until you choose a plan."
-- [ ] Replace the button label "Upgrade Now" with "Choose a plan"
-- [ ] Use the account service's existing countdown value as the single source for the 2-or-more-day, 1-day and 0-day headline variants
-- [ ] Keep the banner above the pricing table with its current dimensions, colors, icon, dismissal behavior and surrounding spacing
+- [] For 2 or more days remaining, replace "Your trial is ending" with "{days_remaining} days left on your trial"
+- [] For 1 day remaining, use "1 day left on your trial"
+- [] For 0 days remaining, use "Last day of your trial"
+- [] Replace "Upgrade now to avoid losing access to your account and data" with "Your invoices, clients and reports stay safe. When the trial ends, you can view them, but you can't create or export until you choose a plan."
+- [] Replace the button label "Upgrade Now" with "Choose a plan"
+- [] Use the account service's existing countdown value as the single source for the 2-or-more-day, 1-day and 0-day headline variants
+- [] Keep the banner above the pricing table with its current dimensions, colors, icon, dismissal behavior and surrounding spacing

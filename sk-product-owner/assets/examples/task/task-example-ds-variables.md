@@ -30,11 +30,11 @@ Each app lands v1.0.7 in its own subtask, the tables below are the full change l
 * * *
 **1\. Partner App integration**
 * * *
-- [ ] Integrate `barter-ds-variables--v1.0.7.css` in the Partner app
+- [] Integrate `barter-ds-variables--v1.0.7.css` in the Partner app
 
 **2\. Creator App integration**
 * * *
-- [ ] Integrate `barter-ds-variables--v1.0.7.ts` in the Creator app
+- [] Integrate `barter-ds-variables--v1.0.7.ts` in the Creator app
 ###   
 
 ### **Change Overview**
@@ -88,7 +88,7 @@ The 21 disabled state tokens that read `--states-border-disabled` now read `--st
 # DS - Variables - v1.0.7 - Partner App
 
 * * *
-### About
+## About
 * * *
 Partner reads its design tokens from `barter-ds-variables.css`.
 This subtask lands v1.0.7 there. The parent task lists every changed value.
@@ -107,17 +107,17 @@ The rename is the exception:
 *   A Partner style that still reads `--states-border-disabled` gets no value once the old name is gone
 
 **Checklist**
-- [ ] `barter-ds-variables.css` carries the 34 v1.0.7 values
-- [ ] `--states-border-disabled` replaced by `--states-border-disabled-base`
-- [ ] `--states-border-disabled-light` added
-- [ ] No Partner code references `--states-border-disabled` any more
+- [] `barter-ds-variables.css` carries the 34 v1.0.7 values
+- [] `--states-border-disabled` replaced by `--states-border-disabled-base`
+- [] `--states-border-disabled-light` added
+- [] No Partner code references `--states-border-disabled` any more
 
 <!-- Subtask 2 of 2: Creator app, which reads the TS token file -->
 
 # DS - Variables - v1.0.7 - Creator App
 
 * * *
-### About
+## About
 * * *
 Creator reads its design tokens from `barter-ds-variables.ts`.
 This subtask lands v1.0.7 there. The parent task lists every changed value.
@@ -136,10 +136,10 @@ The rename is the exception:
 *   Creator code that still reads `STATES.Border.Disabled` or `--states-border-disabled` breaks once the old name is gone
 
 **Checklist**
-- [ ] `barter-ds-variables.ts` carries the 34 v1.0.7 values
-- [ ] `STATES.Border.Disabled` replaced by `STATES.Border.DisabledBase`
-- [ ] `STATES.Border.DisabledLight` and `BORDER_STATES.DisabledLight` added
-- [ ] `FLAT_TOKEN_MAP` carries the same 34 values
-    - [ ] `--states-border-disabled` replaced by `--states-border-disabled-base`
-    - [ ] `--states-border-disabled-light` added
-- [ ] No Creator code references `STATES.Border.Disabled` or `--states-border-disabled` any more
+- [] `barter-ds-variables.ts` carries the 34 v1.0.7 values
+- [] `STATES.Border.Disabled` replaced by `STATES.Border.DisabledBase`
+- [] `STATES.Border.DisabledLight` and `BORDER_STATES.DisabledLight` added
+- [] `FLAT_TOKEN_MAP` carries the same 34 values
+    - [] `--states-border-disabled` replaced by `--states-border-disabled-base`
+    - [] `--states-border-disabled-light` added
+- [] No Creator code references `STATES.Border.Disabled` or `--states-border-disabled` any more

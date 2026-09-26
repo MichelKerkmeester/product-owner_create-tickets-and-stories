@@ -6,7 +6,7 @@
 
 * * *
 
-### Problem
+#### Problem
 
 * * *
 
@@ -25,11 +25,11 @@ answers the same question every week.
 
 * * *
 
-*   Payouts run every Tuesday for balances above the €50 floor ← PRIO high
-*   The schedule note reads `Paid out every Tuesday`
-*   A bold lead uses two asterisks, so **this** is the sanctioned emphasis
-*   One ellipsis in a piece is fine, and it sits here...
-*   One emoji is fine too 🚀
+- [] Payouts run every Tuesday for balances above the €50 floor ← PRIO high
+- [] The schedule note reads `Paid out every Tuesday`
+- [] A bold lead uses two asterisks, so **this** is the sanctioned emphasis
+- [] One ellipsis in a piece is fine, and it sits here...
+- [] One emoji is fine too 🚀
 
 * * *
 

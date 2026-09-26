@@ -8,26 +8,26 @@ Hand-maintained local package for the Product Owner claude.ai Project. The kerne
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- synthesized Project kernel v1.18.0 (routing authority, SKILL.md is not loaded in this Project)
+|-- Custom Instructions.md        <- synthesized Project kernel v1.19.0 (routing authority, SKILL.md is not loaded in this Project)
 |-- README.md                     <- upload manifest and hand-authored parity note
 `-- knowledge/                    <- upload all thirty-eight files as Project Knowledge
-    |-- Product Owner - System - Interactive Mode - v0.407.md
+    |-- Product Owner - System - Interactive Mode - v0.408.md
     |-- Product Owner - System - Router Contract - v0.100.md
-    |-- Product Owner - Templates - Task Mode - v0.306.md
-    |-- Product Owner - Templates - Bug Mode - v0.204.md
-    |-- Product Owner - Templates - Doc Mode - v0.111.md
-    |-- Product Owner - Templates - Story Mode - v0.404.md
-    |-- Product Owner - Assets - Task Templates - v0.102.md
-    |-- Product Owner - Assets - Bug Report Template - v0.101.md
+    |-- Product Owner - Templates - Task Mode - v0.307.md
+    |-- Product Owner - Templates - Bug Mode - v0.205.md
+    |-- Product Owner - Templates - Doc Mode - v0.112.md
+    |-- Product Owner - Templates - Story Mode - v0.405.md
+    |-- Product Owner - Assets - Task Templates - v0.103.md
+    |-- Product Owner - Assets - Bug Report Template - v0.102.md
     |-- Product Owner - Assets - Interactive Response Templates - v0.103.md
-    |-- Product Owner - Assets - Doc Templates - v0.108.md
-    |-- Product Owner - Assets - Story Template - v0.100.md
-    |-- Product Owner - Assets - Epic Template - v0.101.md
+    |-- Product Owner - Assets - Doc Templates - v0.109.md
+    |-- Product Owner - Assets - Story Template - v0.101.md
+    |-- Product Owner - Assets - Epic Template - v0.102.md
     |-- Product Owner - Rules - Human Voice Core - v0.100.md
     |-- Product Owner - Rules - Human Voice - EN - v0.210.md
     |-- Product Owner - Rules - Conciseness - v0.100.md
     |-- Product Owner - Rules - Conciseness - On Demand Rationale - v0.100.md
-    |-- Product Owner - Rules - Quality Scoring - v0.100.md
+    |-- Product Owner - Rules - Quality Scoring - v0.101.md
     |-- Product Owner - Examples - Task - ... (5 files)
     |-- Product Owner - Examples - Bug - ... (4 files)
     |-- Product Owner - Examples - Doc - ... (7 files)
@@ -36,7 +36,7 @@ claude project/
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` v1.18.0 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.15.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
+`Custom Instructions.md` v1.19.0 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.16.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
 
 CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Block**, direct resource loading becomes Project Knowledge consultation, and the response reports an export-equivalent path. Refinements keep delivery metadata outside preserved content unless equivalent metadata already exists in the source.
 
@@ -44,22 +44,22 @@ CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Bloc
 
 | Source | Project Knowledge mirror |
 | --- | --- |
-| `sk-product-owner/references/interactive-mode.md` | `Product Owner - System - Interactive Mode - v0.407.md` |
-| `sk-product-owner/references/task-mode.md` | `Product Owner - Templates - Task Mode - v0.306.md` |
-| `sk-product-owner/references/bug-mode.md` | `Product Owner - Templates - Bug Mode - v0.204.md` |
-| `sk-product-owner/references/doc-mode.md` | `Product Owner - Templates - Doc Mode - v0.111.md` |
-| `sk-product-owner/references/story-mode.md` | `Product Owner - Templates - Story Mode - v0.404.md` |
-| `sk-product-owner/assets/task-templates.md` | `Product Owner - Assets - Task Templates - v0.102.md` |
-| `sk-product-owner/assets/bug-report-template.md` | `Product Owner - Assets - Bug Report Template - v0.101.md` |
+| `sk-product-owner/references/interactive-mode.md` | `Product Owner - System - Interactive Mode - v0.408.md` |
+| `sk-product-owner/references/task-mode.md` | `Product Owner - Templates - Task Mode - v0.307.md` |
+| `sk-product-owner/references/bug-mode.md` | `Product Owner - Templates - Bug Mode - v0.205.md` |
+| `sk-product-owner/references/doc-mode.md` | `Product Owner - Templates - Doc Mode - v0.112.md` |
+| `sk-product-owner/references/story-mode.md` | `Product Owner - Templates - Story Mode - v0.405.md` |
+| `sk-product-owner/assets/task-templates.md` | `Product Owner - Assets - Task Templates - v0.103.md` |
+| `sk-product-owner/assets/bug-report-template.md` | `Product Owner - Assets - Bug Report Template - v0.102.md` |
 | `sk-product-owner/assets/interactive-response-templates.md` | `Product Owner - Assets - Interactive Response Templates - v0.103.md` |
-| `sk-product-owner/assets/doc-templates.md` | `Product Owner - Assets - Doc Templates - v0.108.md` |
-| `sk-product-owner/assets/story-template.md` | `Product Owner - Assets - Story Template - v0.100.md` |
-| `sk-product-owner/assets/epic-template.md` | `Product Owner - Assets - Epic Template - v0.101.md` |
+| `sk-product-owner/assets/doc-templates.md` | `Product Owner - Assets - Doc Templates - v0.109.md` |
+| `sk-product-owner/assets/story-template.md` | `Product Owner - Assets - Story Template - v0.101.md` |
+| `sk-product-owner/assets/epic-template.md` | `Product Owner - Assets - Epic Template - v0.102.md` |
 | `sk-product-owner/references/hvr-core.md` | `Product Owner - Rules - Human Voice Core - v0.100.md` |
 | `sk-product-owner/references/conciseness.md` | `Product Owner - Rules - Conciseness - v0.100.md` |
 | `sk-product-owner/references/human-voice-rules.md` | `Product Owner - Rules - Human Voice - EN - v0.210.md` |
 | `sk-product-owner/references/conciseness-rationale.md` | `Product Owner - Rules - Conciseness - On Demand Rationale - v0.100.md` |
-| `sk-product-owner/references/quality-scoring.md` | `Product Owner - Rules - Quality Scoring - v0.100.md` |
+| `sk-product-owner/references/quality-scoring.md` | `Product Owner - Rules - Quality Scoring - v0.101.md` |
 | `sk-product-owner/references/router-contract.md` | `Product Owner - System - Router Contract - v0.100.md` |
 
 Every knowledge file is hand-authored from its skill source for Project retrieval, so it carries the decision rules and examples without the skill-only mechanics. The four shared rule files under `references/` are byte copies of cards in the shared knowledge folder, and their Project counterparts are byte copies of the same cards rather than hand-written documents.
@@ -75,7 +75,7 @@ When the Project has the claude.ai ClickUp connector, the kernel offers ClickUp 
 
 - Task create and update: `markdown_description` on `clickup_create_task` / `clickup_update_task`
 - Documents and pages: markdown content with the markdown (`text/md`) content format
-- Never the plain `description` field — ClickUp stores it literally and the task shows raw `### About` / `**Checklist**` / `- [ ]` text
+- Never the plain `description` field — ClickUp stores it literally and the task shows raw `## About` / `**Checklist**` / `- []` text
 
 Push shape: artifact H1 becomes the task name, Deliverable Block framing and processing metadata stay out of ClickUp, and the body travels verbatim.
 
@@ -117,7 +117,7 @@ Push shape: artifact H1 becomes the task name, Deliverable Block framing and pro
 - `$story`, `$s`, `$prd` and `$p` select Story; `$stories`, `$prds`, `$sort` and embedded `$s` do not; `create a task to write a PRD` stays Task.
 - A generated Story-Mode artifact names its artifact kind (Story or Epic), keeps the narrative first, uses Given/When/Then scenario bullets, closes with a Delivery section only when the requester asked for one or the artifact forces it, and carries no ticket header fields, story points or INVEST notes.
 - With the ClickUp connector present, every export response offers ClickUp delivery and nothing is written to ClickUp without explicit approval in that conversation.
-- An approved ClickUp push uses `markdown_description` (never plain `description`) and the created task renders real headings, bold and checkboxes with zero literal `###`, `**` or `- [ ]` text.
+- An approved ClickUp push uses `markdown_description` (never plain `description`) and the created task renders real headings, bold and checkboxes with zero literal `###`, `**` or `- []` text.
 - `$task`, `$bug` and `$story` each consult only their own routed knowledge pair (Task Mode + Task Templates, Bug Mode + Bug Report Template, Story Mode + the one scaffold the resolved shape names) and load no unrelated mode resource. A `$story` request consults Story Template and never Epic Template.
 - `skip depth` explicitly selects Raw energy and skips the phase flow. `$quick` never selects Raw, and Raw never fires without the explicit phrase.
 - `$quick $story` and `$story $quick` (and the `$prd`/`$p` aliases, and `$epic`/`$e`) both select Story with Quick energy, matching the `$quick $doc` / `$doc $quick` order equivalence.

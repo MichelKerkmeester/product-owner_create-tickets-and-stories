@@ -9,7 +9,7 @@ trigger_phrases:
   - "$prd"
   - "$story"
   - "$epic"
-version: 1.15.0
+version: 1.16.0
 ---
 
 # sk-product-owner
@@ -131,7 +131,7 @@ The canonical shape at a glance:
 ```markdown
 # Task Title
 
-### About
+## About
 
 ---
 
@@ -149,8 +149,8 @@ Short outcome description.
 
 **Checklist**
 
-- [ ] Literal, verifiable requirement
-- [ ] Another one, no trailing period
+- [] Literal, verifiable requirement
+- [] Another one, no trailing period
 
 **User Story**
 
@@ -159,7 +159,7 @@ Short outcome description.
 - **Then:** outcome
 ```
 
-Structure rules that matter day to day: `### About` and `### Requirements` at H3 with `---` dividers, requirement groups numbered only when there are two or more (a single group keeps its bold title unnumbered), every group carrying a `**Checklist**` of literal `- [ ]` items a QA engineer can verify, and optional Given/When/Then user-story blocks where value needs spelling out. Checklist items never end with a period, assumptions never appear as bracketed tags and out-of-scope platform behavior gets an honest carve-out instead of silence. Refining an existing task keeps its structure, naming and quirks.
+Structure rules that matter day to day: `## About` at H2 and `### Requirements` at H3 with `---` dividers, requirement groups numbered only when there are two or more (a single group keeps its bold title unnumbered), every group carrying a `**Checklist**` of literal `- []` items a QA engineer can verify, and optional Given/When/Then user-story blocks where value needs spelling out. Checklist items never end with a period, assumptions never appear as bracketed tags and out-of-scope platform behavior gets an honest carve-out instead of silence. Refining an existing task keeps its structure, naming and quirks.
 
 ### Bug Mode (`$bug`, `$b`)
 
@@ -168,7 +168,7 @@ Consistent defect reports with a fixed shape:
 ```markdown
 # Bug Title
 
-### About
+## About
 
 ---
 
@@ -225,10 +225,10 @@ Product requirements documents (PRDs) developers cut tickets from, produced in t
 
 | Kind | Shape |
 |---|---|
-| Story | `$story` `$s` `$prd` `$p`. One feature area: an About umbrella, Requirements only when there are hard constraints to state (no outcomes, no build checklist), a few outcome-led acceptance criteria, and a `## Delivery` close only where the requester asked for it or the artifact forced it |
+| Story | `$story` `$s` `$prd` `$p`. One feature area: an About umbrella, Requirements only when there are hard constraints to state (no outcomes, no build steps), a few outcome-led acceptance criteria, and a `## Delivery` close only where the requester asked for it or the artifact forced it |
 | Epic | `$epic` `$e`. An initiative split across child stories: an About carrying a Goal, a `## Scope` of child stories, release-level acceptance criteria, and the same opt-in Delivery close, with no Requirements of its own |
 
-Both kinds share one markdown grammar, which lives once in `references/story-mode.md` rather than being copied into each scaffold, and each kind carries its own scaffold that a request loads on its own. A Story's `## Requirements` names each requirement as a bold paragraph lead followed by short constraint bullets holding only the hard requirements the delivery has to satisfy, with every hard value the source supplied carried across verbatim in its own units and notation; it never carries a `**Checklist**` or `- [ ]` items, because the verifiable detail lives in the acceptance criteria and the child tasks the story feeds. An Epic swaps that whole section for a `## Scope` listing its child stories, and swaps the About's Expected outcomes for a `### Goal`. Everything else is shared.
+Both kinds share one markdown grammar, which lives once in `references/story-mode.md` rather than being copied into each scaffold, and each kind carries its own scaffold that a request loads on its own. A Story's `## Requirements` names each requirement as a bold paragraph lead followed by short `- []` constraint items holding only the hard requirements the delivery has to satisfy, with every hard value the source supplied carried across verbatim in its own units and notation; it never carries a `**Checklist**` label or build steps, because the verifiable detail lives in the acceptance criteria and the child tasks the story feeds. An Epic swaps that whole section for a `## Scope` listing its child stories, and swaps the Expected outcomes label that closes a Story's Solution for a `#### Goal` section. Problem, Goal and Solution sit at H4 in both kinds. Everything else is shared.
 
 Across every Product Owner artifact, newly authored or rewritten bullet items never end with a full stop. Source-preserving refinements keep untouched punctuation unless the user requests normalization.
 
@@ -243,7 +243,7 @@ Both kinds carry numbered Given/When/Then acceptance criteria in exact ClickUp f
 *   **When** they deselect every component except `api`
 *   **Then** only `api` incidents generate notifications for them
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 ```
 
 The Mark-as-done checkbox is the last line in a criterion block. The next criterion starts after one blank line, with no divider between them. The last criterion in the section is followed by a `* * *` that closes Acceptance criteria, on the line directly above the `##   ` spacer, which is the one place a divider follows the checkbox.
@@ -298,7 +298,7 @@ New Doc and PRD artifacts use the grammar ClickUp renders correctly:
 Opening prose that orients the reader before any structure appears.
 
 *   **Term** — compact definition entry
-*   [ ] checklist item where work is genuinely open
+*   [] checklist item where work is genuinely open
 
 ### Subsection
 * * *
@@ -306,7 +306,7 @@ Opening prose that orients the reader before any structure appears.
 1.  Ordered steps stay numbered
 ```
 
-The load-bearing rules: `* * *` dividers only (never `---`), a divider immediately after every content heading, with a blank line after the divider optional, `*   ` bullets (never hyphens), `*   [ ]` checklists and `*   **Term** — value` definition entries.
+The load-bearing rules: `* * *` dividers only (never `---`), a divider immediately after every content heading, with a blank line after the divider optional, `*   ` bullets (never hyphens), `*   []` checklists and `*   **Term** — value` definition entries.
 
 ### Heading Depth
 
@@ -318,7 +318,7 @@ One idea per paragraph with the takeaway first. Links sit at the end of the clai
 
 ### Task and Bug House Format
 
-Task, Bug and Interactive artifacts keep their own format: H3 section headings, `---` dividers, plain `- [ ]` checklists. The ClickUp doc grammar never leaks into them.
+Task, Bug and Interactive artifacts keep their own format: an H2 About with H3 section headings under it, `---` dividers, plain `- []` checklists. The ClickUp doc grammar never leaks into them.
 
 ---
 

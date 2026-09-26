@@ -59,7 +59,7 @@ A vague request that guesses a kind writes the wrong artifact, and a runtime tha
 
 ### Expected
 
-Step 1 fixes the baseline with the attachment in place. Step 2 returns one comprehensive question and one clarification file. Step 3 proves the wait state and the energy-first order. Step 4 finds an Epic with `## About`, `### Problem`, `### Goal`, `### Solution`, `## Scope` and `## Acceptance criteria`, the four child stories and the Turn 2 numbers.
+Step 1 fixes the baseline with the attachment in place. Step 2 returns one comprehensive question and one clarification file. Step 3 proves the wait state and the energy-first order. Step 4 finds an Epic with `## About`, `#### Problem`, `#### Goal`, `#### Solution`, `## Scope` and `## Acceptance criteria`, the four child stories and the Turn 2 numbers.
 
 ### Evidence
 

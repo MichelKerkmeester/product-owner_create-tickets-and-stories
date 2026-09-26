@@ -1,4 +1,4 @@
-# Product Owner - Assets - Task Templates - v0.102
+# Product Owner - Assets - Task Templates - v0.103
 
 The four task scaffolds a new task artifact is copied from, canonical task, parent task, subtask and quick task, with the sections each one requires and the numbered requirement-group grammar.
 
@@ -23,7 +23,7 @@ Worked example: **Examples - Task - UI Refinement** shows the full task shape ap
 ```markdown
 # {Task Title}
 
-### About
+## About
 
 ---
 
@@ -91,8 +91,8 @@ Components
 
 **Checklist**
 
-- [ ] {Actionable requirement}
-- [ ] {Actionable requirement}
+- [] {Actionable requirement}
+- [] {Actionable requirement}
 
 **User Story**
 
@@ -110,8 +110,8 @@ Components
 
 **Checklist**
 
-- [ ] {Actionable requirement}
-- [ ] {Actionable requirement}
+- [] {Actionable requirement}
+- [] {Actionable requirement}
 
 ---
 
@@ -127,8 +127,8 @@ Components
 
 **Checklist**
 
-- [ ] {Actionable requirement}
-- [ ] {Actionable requirement}
+- [] {Actionable requirement}
+- [] {Actionable requirement}
 
 ```
 
@@ -152,7 +152,7 @@ Worked example: **Examples - Task - Standard Feature** shows shared feature scop
 ```markdown
 # {Parent Task Title}
 
-### About
+## About
 
 ---
 
@@ -201,7 +201,7 @@ Worked example: **Examples - Task - Subtask** shows a bounded child task that se
 ```markdown
 # {Subtask Title}
 
-### About
+## About
 
 ---
 
@@ -231,8 +231,8 @@ Components
 
 **Checklist**
 
-- [ ] {Actionable requirement}
-- [ ] {Actionable requirement}
+- [] {Actionable requirement}
+- [] {Actionable requirement}
 
 ```
 
@@ -247,7 +247,7 @@ Worked example: **Examples - Task - Quick Task** shows exact replacement copy, a
 ```markdown
 # {Task Title}
 
-### About
+## About
 
 ---
 
@@ -265,8 +265,8 @@ Worked example: **Examples - Task - Quick Task** shows exact replacement copy, a
 
 **Checklist**
 
-- [ ] {Actionable requirement}
-- [ ] {Actionable requirement}
+- [] {Actionable requirement}
+- [] {Actionable requirement}
 
 ```
 

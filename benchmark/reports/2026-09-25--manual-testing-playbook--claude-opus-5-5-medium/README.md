@@ -171,8 +171,9 @@ The collector filed the rounds' 102 deliverables under their own folders in `exp
 
 ## 5. Next steps
 
-- **Kernel review:** the operator confirmed v1.17.0 on 2026-09-26, and v1.18.0, which adds the word budget, awaits review
-- **Deployment:** the renamed knowledge files and kernel v1.18.0 reach claude.ai only with a deployment receipt and a smoke check
+- **Kernel review:** the operator confirmed v1.17.0 on 2026-09-26, and v1.19.0, which adds the word budget and the new template forms, awaits review
+- **Deployment:** the renamed knowledge files and kernel v1.19.0 reach claude.ai only with a deployment receipt and a smoke check
+- **`[]` checkboxes:** no one has yet checked that ClickUp renders `- []` as a checkbox, since standard markdown needs `- [ ]`
 - **`PST-004`:** the skill twin asked for the split, as Story Mode requires at `references/story-mode.md` line 406 and Project knowledge line 382
 - The Project took the brief's six tasks as the split in both rounds, recorded as a runtime fault with no repair proposed
 - **Length caps and word budget:** the rules gained both on 2026-09-26 without a rerun, so no run has measured whether the runtimes follow them
@@ -263,6 +264,12 @@ Later on 2026-09-26 the operator found the exports still long, since the first e
 A script held every heading, label, template line, table header, backticked value, number and link. Seven fact reviewers then read each file against its snapshot. They found 81 lost or changed facts: 75 were restored, and 6 were color or a subtask restating its parent, which the operator's chosen depth allows.
 
 The word budget in the rules comes from these files, and 68 of the 78 fit it. No scenario reran, so the budget is unmeasured on the runtimes, and the verdicts still cite the graded originals. The Doc label and Status dashes stay, since the Doc template prescribes them.
+
+### Template forms
+
+The operator then changed the house forms, and the 78 exports were converted to them on 2026-09-26. Story and Epic openings sit at H4, Expected outcomes is a bold label inside Solution, and Task and Bug About is H2. Story requirements are `- []` items, and every checkbox is written `[]`.
+
+A script made each change and then checked every changed line against its snapshot, so no word moved. The format gate now blocks the old forms. No scenario reran, and the verdicts still cite the graded originals.
 
 ### What is tracked
 

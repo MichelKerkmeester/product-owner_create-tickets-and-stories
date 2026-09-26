@@ -1,6 +1,6 @@
 # FE - Guest app - SRCH - Date picker stay limits
 
-### About
+## About
 
 ---
 
@@ -38,11 +38,11 @@ The limits match search-service, so any allowed range can be searched.
 
 **Checklist**
 
-- [ ] A stay is 1 to 30 nights, so check-in and check-out can't be the same day
-- [ ] Past days are disabled, and today can be check-in
-- [ ] Check-in is at most 365 days from today, and later days show but are disabled
-- [ ] Check-out may land past the 365-day mark
-- [ ] The 30-night maximum and the 365-day window come from search-service config, never hard-coded
+- [] A stay is 1 to 30 nights, so check-in and check-out can't be the same day
+- [] Past days are disabled, and today can be check-in
+- [] Check-in is at most 365 days from today, and later days show but are disabled
+- [] Check-out may land past the 365-day mark
+- [] The 30-night maximum and the 365-day window come from search-service config, never hard-coded
 
 2.  **Property minimum stay**
 
@@ -52,8 +52,8 @@ Partners set the minimum stay in Partner Hub.
 
 **Checklist**
 
-- [ ] The picker applies the property's minimum stay on top of group 1, on the property page only
-- [ ] The minimum, 1 to 14 nights, comes with the property details and isn't hard-coded
+- [] The picker applies the property's minimum stay on top of group 1, on the property page only
+- [] The minimum, 1 to 14 nights, comes with the property details and isn't hard-coded
 
 ---
 
@@ -67,10 +67,10 @@ Partners set the minimum stay in Partner Hub.
 
 **Checklist**
 
-- [ ] State 1, nothing picked: the disabled button reads `Select check-in date`
-- [ ] State 2, check-in picked: days making the stay too short or over 30 nights turn grey, and the disabled button reads `Select check-out date`
-- [ ] State 3, valid range picked: the range is highlighted, the nights count sits under it and the button reads `Show prices`
-- [ ] Nights follow the Roamstay stay definition, so Monday to Thursday shows 3 nights
+- [] State 1, nothing picked: the disabled button reads `Select check-in date`
+- [] State 2, check-in picked: days making the stay too short or over 30 nights turn grey, and the disabled button reads `Select check-out date`
+- [] State 3, valid range picked: the range is highlighted, the nights count sits under it and the button reads `Show prices`
+- [] Nights follow the Roamstay stay definition, so Monday to Thursday shows 3 nights
 
 4.  **Helper text on grey days**
 
@@ -80,9 +80,9 @@ A grey day stays tappable, because its helper text under the calendar says why i
 
 **Checklist**
 
-- [ ] State 4: tapping a grey day past the 30-night limit selects nothing and shows `Stays can be up to 30 nights`
-- [ ] State 5, property page only: tapping a day inside the minimum stay selects nothing and shows the property's number, like `This property has a 3-night minimum`
-- [ ] The helper text stays until a valid day is picked and never covers the calendar
+- [] State 4: tapping a grey day past the 30-night limit selects nothing and shows `Stays can be up to 30 nights`
+- [] State 5, property page only: tapping a day inside the minimum stay selects nothing and shows the property's number, like `This property has a 3-night minimum`
+- [] The helper text stays until a valid day is picked and never covers the calendar
 
 5.  **Copy keys**
 
@@ -101,11 +101,11 @@ Hana has sent all six keys for translation. The frames' `30` and `3` are example
 
 **Checklist**
 
-- [ ] All six keys are used, with no hard-coded strings
-- [ ] `{max}` comes from the search-service maximum and `{n}` from the property's minimum stay
-- [ ] `datepicker.nights` is singular for 1 night and plural otherwise
-- [ ] A missing translation falls back to `en-GB`
-- [ ] The button copy fits in `de-DE`, where strings run about 30% longer than English
+- [] All six keys are used, with no hard-coded strings
+- [] `{max}` comes from the search-service maximum and `{n}` from the property's minimum stay
+- [] `datepicker.nights` is singular for 1 night and plural otherwise
+- [] A missing translation falls back to `en-GB`
+- [] The button copy fits in `de-DE`, where strings run about 30% longer than English
 
 ---
 
@@ -121,10 +121,10 @@ Oskar and Hana defined these outcomes.
 
 **Checklist**
 
-- [ ] With check-in picked, tapping an earlier day makes it the new check-in, and the button returns to `Select check-out date`
-- [ ] Reopening with dates from an earlier search shows the range picked, in state 3
-- [ ] Saved dates breaking a limit, such as a 45-night search from before this change, are cleared, opening in state 1
-- [ ] A 30-night range across two months stays highlighted across the month break
+- [] With check-in picked, tapping an earlier day makes it the new check-in, and the button returns to `Select check-out date`
+- [] Reopening with dates from an earlier search shows the range picked, in state 3
+- [] Saved dates breaking a limit, such as a 45-night search from before this change, are cleared, opening in state 1
+- [] A 30-night range across two months stays highlighted across the month break
 
 7.  **Screen readers**
 
@@ -132,7 +132,7 @@ Oskar and Hana defined these outcomes.
 
 **Checklist**
 
-- [ ] Screen readers announce a grey day as unavailable, then the helper text of states 4 and 5
+- [] Screen readers announce a grey day as unavailable, then the helper text of states 4 and 5
 
 ---
 
@@ -146,10 +146,10 @@ Oskar and Hana defined these outcomes.
 
 **Checklist**
 
-- [ ] iOS and Android use the design system calendar component, never the system date picker
-- [ ] Desktop web shows two months side by side
-- [ ] Mobile web and the apps show one month at a time, scrolling vertically
-- [ ] The week starts on Monday, or on Sunday in `en-US`
+- [] iOS and Android use the design system calendar component, never the system date picker
+- [] Desktop web shows two months side by side
+- [] Mobile web and the apps show one month at a time, scrolling vertically
+- [] The week starts on Monday, or on Sunday in `en-US`
 
 ---
 
@@ -163,4 +163,4 @@ Oskar and Hana defined these outcomes.
 
 **Checklist**
 
-- [ ] QA signs off groups 1 to 8 on iOS, Android and web, each in `en-GB` and `en-US`, with web on desktop and mobile
+- [] QA signs off groups 1 to 8 on iOS, Android and web, each in `en-GB` and `en-US`, with web on desktop and mobile

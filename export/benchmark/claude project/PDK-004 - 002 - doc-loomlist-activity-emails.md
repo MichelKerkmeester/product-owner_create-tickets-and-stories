@@ -133,9 +133,9 @@ It counts pages created, pages edited, to-dos completed and new members, and a w
 * * *
 The version bump matters most, so a job built for old variables fails loudly rather than sending a broken email.
 
-*   [ ] **Render all six locales in the preview tool:** Check ja-JP and de-DE for overflow
-*   [ ] **Send a test to the team inbox:** Note the date in the template inventory
-*   [ ] **Bump the version suffix when a variable is added or removed**
+*   [] **Render all six locales in the preview tool:** Check ja-JP and de-DE for overflow
+*   [] **Send a test to the team inbox:** Note the date in the template inventory
+*   [] **Bump the version suffix when a variable is added or removed**
 * * *
 
 ### Catalog boundaries

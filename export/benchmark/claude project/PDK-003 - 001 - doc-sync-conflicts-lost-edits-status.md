@@ -61,10 +61,10 @@ Status: Approved direction — set by Joana in the thread on 2026-09-22
 
 Joana chose not to decide in the thread, and v3 stays as it is until 2026-10-09. The decision waits on two unknowns about B: its storage cost on mobile and how often the merge falls back to a copy.
 
-*   [ ] **Run a two-week spike on Option B:** Tomasz, on real August conflicts, with Saskia's formatting fallback
-*   [ ] **Write down what Option A would take as a first step:** Tomasz, alongside the spike
-*   [ ] **Keep the current support message:** Support keeps telling members that edits made on two devices at the same time can overwrite each other
-*   [ ] **Decide on 2026-10-09:** Joana chooses between Option A, Option B and Option C
+*   [] **Run a two-week spike on Option B:** Tomasz, on real August conflicts, with Saskia's formatting fallback
+*   [] **Write down what Option A would take as a first step:** Tomasz, alongside the spike
+*   [] **Keep the current support message:** Support keeps telling members that edits made on two devices at the same time can overwrite each other
+*   [] **Decide on 2026-10-09:** Joana chooses between Option A, Option B and Option C
 
 ### Open questions
 * * *

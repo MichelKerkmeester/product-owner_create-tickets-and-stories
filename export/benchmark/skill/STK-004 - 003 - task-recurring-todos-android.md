@@ -1,6 +1,6 @@
 # FE - Android - TODO - Recurring to-dos
 
-### About
+## About
 
 ---
 
@@ -41,11 +41,11 @@ Components
 
 **Checklist**
 
-- [ ] Repeat in the detail sheet offers Daily, Weekdays, Weekly, Monthly and Custom, matching `Recurring to-dos / Repeat picker`
-- [ ] Without a due date, Repeat is greyed out with the hint `Add a due date to repeat`
-- [ ] Custom sets every N days, weeks or months, N from 1 to 99, matching `Recurring to-dos / Custom interval`
-- [ ] Ends, under Repeat, offers Never, the default, On date and After
-- [ ] After accepts 1 to 365 occurrences
+- [] Repeat in the detail sheet offers Daily, Weekdays, Weekly, Monthly and Custom, matching `Recurring to-dos / Repeat picker`
+- [] Without a due date, Repeat is greyed out with the hint `Add a due date to repeat`
+- [] Custom sets every N days, weeks or months, N from 1 to 99, matching `Recurring to-dos / Custom interval`
+- [] Ends, under Repeat, offers Never, the default, On date and After
+- [] After accepts 1 to 365 occurrences
 
 ---
 
@@ -55,10 +55,10 @@ Components
 
 **Checklist**
 
-- [ ] The to-do's menu has Skip this one, matching `Recurring to-dos / Occurrence menu`
-- [ ] Skip this one moves the to-do to its next due date, unchecked
-- [ ] Repeating to-dos show the repeat icon on their row
-- [ ] Checking one off shows the next on the same page with the next due date, assignee and reminder
+- [] The to-do's menu has Skip this one, matching `Recurring to-dos / Occurrence menu`
+- [] Skip this one moves the to-do to its next due date, unchecked
+- [] Repeating to-dos show the repeat icon on their row
+- [] Checking one off shows the next on the same page with the next due date, assignee and reminder
 
 ---
 
@@ -68,9 +68,9 @@ Components
 
 **Checklist**
 
-- [ ] On Free, Repeat shows a Plus badge and opens the upgrade sheet
-- [ ] At the limit, Repeat stays visible and opens a sheet saying `This workspace has 500 repeating to-dos. End one to add another.`
-- [ ] With `recurring_todos` off, Repeat, Ends, Skip this one and the repeat icon are hidden
+- [] On Free, Repeat shows a Plus badge and opens the upgrade sheet
+- [] At the limit, Repeat stays visible and opens a sheet saying `This workspace has 500 repeating to-dos. End one to add another.`
+- [] With `recurring_todos` off, Repeat, Ends, Skip this one and the repeat icon are hidden
 
 ---
 
@@ -82,8 +82,8 @@ Android schedules every reminder as a local notification from the UTC time remin
 
 **Checklist**
 
-- [ ] The next reminder arrives as a local notification at the previous one's local time
-- [ ] Teammates in other zones see the owner's date with the zone shown
+- [] The next reminder arrives as a local notification at the previous one's local time
+- [] Teammates in other zones see the owner's date with the zone shown
 
 ---
 
@@ -93,4 +93,4 @@ Android schedules every reminder as a local notification from the UTC time remin
 
 **Checklist**
 
-- [ ] The app sends whichever of `todo_repeat_set` and `todo_occurrence_skipped` the reviewed tracking plan gives clients, with `repeat` set to `daily`, `weekdays`, `weekly`, `monthly` or `custom`
+- [] The app sends whichever of `todo_repeat_set` and `todo_occurrence_skipped` the reviewed tracking plan gives clients, with `repeat` set to `daily`, `weekdays`, `weekly`, `monthly` or `custom`

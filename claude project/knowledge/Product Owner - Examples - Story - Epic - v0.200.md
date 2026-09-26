@@ -12,7 +12,7 @@ Instantiates the house PRD shape as an Epic: an About umbrella with Problem, Goa
 Check-in v2 rebuilds how organizers admit attendees at the door of a live event, replacing the single scan screen with a flow that also covers manual lookup, offline capture and post-event reconciliation.
 This Epic is split into several child stories, each owning one part of the door lifecycle and carrying its own detailed requirements and acceptance criteria.
 
-### Problem
+#### Problem
 * * *
 The current door experience (v1) was built for one small conference and assumes a fast, always-online connection and a clean guest list. At larger venues that assumption breaks the moment the network drops or a ticket is scanned twice, and door staff have no fallback beyond a paper list.
 
@@ -21,9 +21,9 @@ The current door experience (v1) was built for one small conference and assumes 
 *   A ticket scanned twice looks identical to a first scan, so the same code can admit two people
 *   When a scan fails there is no way to find an attendee by name or email
 *   Headcounts from different door devices disagree, so organizers never trust the live total
-###   
+####   
 
-### Goal
+#### Goal
 * * *
 Admit every valid attendee quickly and exactly once, whether or not the door device is online, and give organizers one headcount they can trust.
 
@@ -32,9 +32,9 @@ Admit every valid attendee quickly and exactly once, whether or not the door dev
 *   An attendee is admitted once and only once, on any device
 *   Staff can resolve a failed scan without leaving the door
 *   Organizers see a single reconciled count they can act on
-###   
+####   
 
-### Solution
+#### Solution
 * * *
 In order to get there, we will:
 *   Rebuild the scan flow so a valid ticket admits in one tap and a reused ticket is stopped with a clear reason
@@ -99,7 +99,7 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **Then** a valid ticket admits the attendee in one tap, and a reused, refunded or unrecognized one is refused with the reason named
 *   **And** no ticket ever produces a second admission, on that device or any other
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 2\. **Staff can still admit an attendee when the scan fails**
 * * *
@@ -108,7 +108,7 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **Then** the attendee can be admitted from the search result without leaving the door
 *   **And** that admission carries the same weight as a scanned one everywhere it is counted
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 3\. **The queue keeps moving when the venue loses connectivity**
 * * *
@@ -117,7 +117,7 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **Then** admissions continue at the same speed and none is lost when connectivity returns
 *   **And** a ticket admitted offline on one device cannot be admitted again on another
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 4\. **Organizers see one headcount they can trust**
 * * *
@@ -126,7 +126,7 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **Then** the event shows a single total, with each admission attributed to the door that made it
 *   **And** that total counts every admitted attendee exactly once
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 * * *
 ##   
 

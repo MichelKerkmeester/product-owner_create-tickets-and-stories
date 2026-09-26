@@ -1,7 +1,7 @@
 ---
-title: "Product Owner - Templates - Doc Mode - v0.111"
+title: "Product Owner - Templates - Doc Mode - v0.112"
 description: "Source-safe workflow, ClickUp formatting rules, and delivery standards for creating and refining product or engineering documentation."
-version: "0.111"
+version: "0.112"
 contextType: reference
 importance_tier: high
 trigger_phrases:
@@ -16,7 +16,7 @@ trigger_phrases:
   - "source authority conflict"
 ---
 
-# Product Owner - Templates - Doc Mode - v0.111
+# Product Owner - Templates - Doc Mode - v0.112
 
 Doc-mode guidance for trustworthy product and engineering documentation. The mode creates or refines guides, catalogs, behavior references, and proposal or future-state documents without turning unverified material into current or approved fact.
 
@@ -91,7 +91,7 @@ For every new Doc artifact:
 - Balance heading depth: H1 is the title only. H2 anchors major sections such as the Overview and the primary body section but stays a minority of the document's headings, roughly three or four when a document has ten, because ClickUp renders H2 very large. H3 carries the remaining sections and the subsections under an H2 anchor, H4 carries deeper subsections, and bold paragraph leads replace anything deeper
 - Wrap an optional document-wide status or scope blockquote between title-level dividers
 - Use `*   ` for unordered bullets and `*   **{Term}** — {Definition}` for compact definitions
-- Use `*   [ ]` for document checklists. Keep ordered procedures numbered
+- Use `*   []` for document checklists, with no space between the brackets. Keep ordered procedures numbered
 - Write every heading in sentence case: capitalize the first word plus proper nouns, acronyms and literal identifiers, and nothing else. `### Boundaries and exceptions`, never `### Boundaries and Exceptions`. The scaffold names in doc-templates.md are already written this way, and a heading a writer invents follows the same rule. This is the Human Voice card's title-case ban, and Doc Mode holds no exemption from it. A refinement keeps the supplied document's own heading case
 - Do not end a newly authored or rewritten bullet item with a full stop
 - Treat same-level empty spacer headings such as `##   `, `###   ` or `####   ` as a ClickUp rendering affordance: use them only in ClickUp-bound content, never in a file export, where plain blank lines carry the spacing
@@ -569,7 +569,7 @@ The kernel points here for the source of truth rule:
 
 The kernel points here for the ClickUp and house format rule:
 
-11. Use ClickUp Markdown for a new Doc (exact `* * *` dividers, `*   ` bullets, `*   **Term** — definition`), the Barter house format for a new PRD (`*   ` bullets, Requirements limited to hard constraints with no checklist and omitted when there are none, a few numbered `1.` outcome-led acceptance criteria each closed with a `- [ ]` Mark-as-done line that no divider separates from the next criterion, a `* * *` section close directly above each `##   ` spacer heading, `- [ ]` used only for the Mark-as-done line and optional readiness or done gates, and a `## Delivery` close only where the requester asked for it or an open question or an undated external constraint forced it), and `-`/`- [ ]` for Task, Bug and Interactive. Never end a newly authored or rewritten bullet item with a full stop. Preserve untouched source punctuation and markers in refinements unless normalization is requested.
+11. Use ClickUp Markdown for a new Doc (exact `* * *` dividers, `*   ` bullets, `*   []` checklists, `*   **Term** — definition`), the Barter house format for a new PRD (`*   ` bullets, Requirements limited to hard constraints written as `- []` items under bold group names and omitted when there are none, a few numbered `1.` outcome-led acceptance criteria each closed with a `- []` Mark-as-done line that no divider separates from the next criterion, a `* * *` section close directly above each `##   ` spacer heading, `- []` also for optional readiness or done gates, and a `## Delivery` close only where the requester asked for it or an open question or an undated external constraint forced it), and `-`/`- []` for Task, Bug and Interactive. Write every checkbox `[]`, never `[ ]` with a space. Never end a newly authored or rewritten bullet item with a full stop. Preserve untouched source punctuation and markers in refinements unless normalization is requested.
 
 The kernel points here for these documentation prohibitions:
 

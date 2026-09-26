@@ -89,11 +89,11 @@ Support keeps telling members that edits on two devices at once can overwrite ea
 
 ### Open decisions and pending evidence
 * * *
-*   [ ] **Choose between Options A, B and C:** Joana decides on 2026-10-09
-*   [ ] **Measure B's storage cost on mobile:** from Tomasz's spike
-*   [ ] **Measure how often B falls back to a conflict copy:** also from the spike
-*   [ ] **Write down what Option A would take as a first step:** Tomasz, alongside the spike
-*   [ ] **Confirm the spike's timing:** two weeks but no start date, so results before 2026-10-09 are unconfirmed
+*   [] **Choose between Options A, B and C:** Joana decides on 2026-10-09
+*   [] **Measure B's storage cost on mobile:** from Tomasz's spike
+*   [] **Measure how often B falls back to a conflict copy:** also from the spike
+*   [] **Write down what Option A would take as a first step:** Tomasz, alongside the spike
+*   [] **Confirm the spike's timing:** two weeks but no start date, so results before 2026-10-09 are unconfirmed
 
 ### Out of scope
 * * *

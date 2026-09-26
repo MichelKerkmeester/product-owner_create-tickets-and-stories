@@ -5,7 +5,7 @@
 * * *
 Signed-in customers on web, iOS and Android start their own returns inside the return window. Four child stories follow one return to refund, guest returns follow later and pallet items stay with CS.
 
-### Problem
+#### Problem
 * * *
 Today CS creates each return in Admin and emails a label, the warehouse checks the item and the agent refunds it. CS handles about `1,900` return requests a month this way, and a refund takes `6 days` on average from first contact.
 
@@ -13,18 +13,18 @@ Today CS creates each return in Admin and emails a label, the warehouse checks t
 *   Every return costs a CS contact, even for just a label
 *   Return volume turns directly into agent time
 *   The customer cannot see return status without contacting CS again
-###   
+####   
 
-### Goal
+#### Goal
 * * *
 CS stops creating returns by hand, and by the end of Q1 2027 at least `60%` of returns start without a CS contact.
 
 **Direct customer and Fernhouse benefits:**
 *   Customers start a return at any time from order history
 *   CS time moves to pallet items, guest orders and other contacts needing an agent
-###   
+####   
 
-### Solution
+#### Solution
 * * *
 In order to get there, we will:
 *   Let signed-in customers start a return from order history with items and a reason, inside the `30 days` window
@@ -73,7 +73,7 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **Then** the return exists without a CS agent creating it
 *   **And** the customer receives a return label by email
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 2\. **The customer follows the return to the refund**
 * * *
@@ -82,7 +82,7 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **Then** they see the return's current status
 *   **And** they are refunded after the warehouse check, without contacting CS
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 3\. **Returns outside the self-serve scope stay with CS**
 * * *
@@ -91,6 +91,6 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **Then** self-serve return is unavailable
 *   **And** its return goes through CS as it does today
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 * * *
 ##   

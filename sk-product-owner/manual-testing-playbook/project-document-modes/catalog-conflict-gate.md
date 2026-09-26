@@ -91,8 +91,8 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project Doc intake minimum, authority order, Deliverable Block and export-equivalent contract |
-| [`Product Owner - Templates - Doc Mode - v0.111.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Doc%20Mode%20-%20v0.111.md) | Project authority order, conflict gate, recency rule and ClickUp output contract |
-| [`Product Owner - Assets - Doc Templates - v0.108.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Doc%20Templates%20-%20v0.108.md) | Project Catalog shape, the source-conflict hold template and layout rules |
+| [`Product Owner - Templates - Doc Mode - v0.112.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Doc%20Mode%20-%20v0.112.md) | Project authority order, conflict gate, recency rule and ClickUp output contract |
+| [`Product Owner - Assets - Doc Templates - v0.109.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Doc%20Templates%20-%20v0.109.md) | Project Catalog shape, the source-conflict hold template and layout rules |
 | [`Product Owner - Assets - Interactive Response Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.103.md) | Project Doc Context and Clarification Question wording |
 | [`loomlist-context.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-context.md) | Attachment: Loomlist company context |
 | [`loomlist-notification-spec.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-notification-spec.md) | Attachment: the six emails with the digest at `08:00` in the recipient's local time |

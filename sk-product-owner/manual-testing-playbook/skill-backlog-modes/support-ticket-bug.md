@@ -59,7 +59,7 @@ The guest read the gap as an overcharge, and a bug that repeats that reading sen
 
 ### Expected
 
-Step 1 fixes the baseline with both attachments staged. Step 2 returns one evidence question and one clarification file. Step 3 proves the wait state and the question-only file. Step 4 finds `### About` with the field table reading Severity `High`, `**1. Observed Behavior**` with "Total €387.00" against the `€405.00` charge on booking `RS-7Q4K2M`, numbered steps from the 2-night test, `**2. Expected Behavior**` with the confirmation total matching the charge, city tax included, and the four Checklist items.
+Step 1 fixes the baseline with both attachments staged. Step 2 returns one evidence question and one clarification file. Step 3 proves the wait state and the question-only file. Step 4 finds `## About` with the field table reading Severity `High`, `**1. Observed Behavior**` with "Total €387.00" against the `€405.00` charge on booking `RS-7Q4K2M`, numbered steps from the 2-night test, `**2. Expected Behavior**` with the confirmation total matching the charge, city tax included, and the four Checklist items.
 
 ### Evidence
 
