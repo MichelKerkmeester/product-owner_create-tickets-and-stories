@@ -66,18 +66,21 @@ The repairs are Product Owner `39bcd29` and Barter `df2de5f0`: skill 1.11.0, ker
 
 The first remeasure round showed the ask-first repair working on both sides and the file-promise repair failing on the Project side (section 4). The operator chose one more repair, Product Owner `b591571` and Barter `e9eec279`. Kernel line 101 now says the Project never says it saved, verified, read back, pushed, will write, will save or will update a file, and a reply names only the export-equivalent label of the block it renders. It no longer quotes a forbidden example. Kernel line 228 and the Interactive Mode files on both sides say a clarification reply names the artifact as coming next without its path or file, and root lines 179 and 189 count a forecast path as a file claim. That makes skill 1.12.0, kernel v1.16.0, Interactive Mode mirror v0.407 and playbook 2.1.1.0. The review of kernel v1.16.0 is pending the operator as well.
 
+Rows that still dropped or reworded a supplied value after round one went to a read-only investigation, one Opus 5.5 investigator per group, each tracing a miss to its source, the rules for and against it, and one cause class. Task Mode had no rule that a supplied value travels into a task unchanged, since every such rule was written for a Story. Doc Templates never protected the Behavior reference heading or a backticked rule phrase. Story Mode told the runtime to rewrite source prose, with no exception for an open question. Five misses failed only under the grading convention that every backticked Pass-clause value is word for word, which the root never stated. On 2026-09-26 the operator chose four changes. The root grades a backticked value word for word only where the source sets it in backticks, gives it as a defined label or the clause says verbatim. Task Mode carries a supplied value, name or status word as the source writes it. Doc Templates keep `## Behavior rules` and a backticked source phrase word for word, and Story Mode quotes an open question the source words itself. The long integration task no longer demands the carrier's retry count and schedule word for word. That is Product Owner `b50f0a0` and Barter `7396d79e`: skill 1.13.0, Task Mode v0.306, Doc Templates v0.108, Story Mode v0.404 and playbook 2.2.0.0, with the kernel unchanged at v1.16.0 because every new rule lives in a document it already routes to. Every edit stayed on its own line, so no line a scenario cites moved.
+
 Findings that moved no verdict are in `grading-notes.md` section 4. Among them: `Verified:` lines printed with no Read after the last write, in `SBG-002` Turn 1 and both `STK-003` turns. And `N` is printed as `wc -l` in seven turns, where `AGENTS.md` line 46 names the Read's final line number, one more.
 
 ---
 
 ## 4. Remeasure rounds
 
-The main run's 46 rows in `results.csv` stay the verdicts of record for playbook 2.0.0.0 at `3023c5e`. Two rounds then reran a subset on the repaired sources, to see whether each repair changes what the runtimes do. Each round keeps its own `results.csv` and `grading-notes.md` under `remeasure-*/run-1/`, and its deliverables sit in `export/benchmark/<side>/<round>/run-1/`.
+The main run's 46 rows in `results.csv` stay the verdicts of record for playbook 2.0.0.0 at `3023c5e`. Three rounds then reran a subset on the repaired sources, to see whether each repair changes what the runtimes do. Each round keeps its own `results.csv` and `grading-notes.md` under `remeasure-*/run-1/`, and its deliverables sit in `export/benchmark/<side>/<round>/run-1/`.
 
 | Round | Sources | Scenarios | Skill | Project | Cost |
 | --- | --- | --- | --- | --- | ---: |
 | `remeasure-operator-repairs/run-1` | Product Owner `39bcd29`, Barter `df2de5f0`: skill 1.11.0, kernel v1.15.0, playbook 2.1.0.0 | 26: both twins of `TK-002` to `TK-005`, `BG-002`, `DK-001`, `DK-003`, `ST-002` to `ST-004` and `EP-001`, plus `PID-001`, `PEP-002`, `PTK-006` and `PIR-002` | 7 PASS, 4 FAIL | 3 PASS, 12 FAIL | USD 37.36 |
 | `remeasure-file-forecast/run-1` | Product Owner `b591571`, Barter `e9eec279`: skill 1.12.0, kernel v1.16.0, playbook 2.1.1.0 | 8 Project: `PID-001`, `PBG-002`, `PTK-005`, `PTK-006`, `PST-003`, `PST-004`, `PEP-001` and `PEP-002` | Not run | 5 PASS, 3 FAIL | USD 10.38 |
+| `remeasure-supplied-values/run-1` | Product Owner `b50f0a0`, Barter `7396d79e`: skill 1.13.0, kernel v1.16.0, playbook 2.2.0.0 | 12: both twins of `TK-003`, `TK-005`, `TK-006`, `DK-001`, `DK-003` and `ST-002` | 6 PASS, 0 FAIL | 6 PASS, 0 FAIL | USD 18.90 |
 
 **Round one: the ask-first repair worked.** Every scenario with an explicit command now asks one question in its lane on Turn 1 and drafts on Turn 2 on the next number. `TK-002` and `TK-004` on both sides, `SBG-002`, `SST-003`, `SST-004`, `SEP-001` and `PIR-002` pass where the main run failed them.
 
@@ -89,7 +92,7 @@ The main run's 46 rows in `results.csv` stay the verdicts of record for playbook
 - **`PST-004`**. Turn 1 settles the six-task split from the brief instead of asking for it, which Story Mode knowledge line 382 requires, and Turn 2 then follows the four named tasks
 - **`PTK-006`**. The task still never marks `checkout_complete` as `deprecated`, and no longer names `booking-service`
 
-**Still failing on content after round one.** These rows fail on a value, not on the repaired rules, and were not rerun in round two:
+**Still failing on content after round one.** These rows failed on a value, not on the repaired rules, and were not rerun in round two:
 
 | Rows | Miss |
 | --- | --- |
@@ -100,18 +103,20 @@ The main run's 46 rows in `results.csv` stay the verdicts of record for playbook
 | `PDK-003` | `block-level last-writer-wins` written as "last-writer-wins at the block level" |
 | `SST-002`, `PST-002` | The open question `Do sub-pages inherit the link?` reworded |
 
-Backticked Pass-clause values are graded word for word in every round, as in the main run.
+Rounds one and two graded every backticked Pass-clause value word for word, as the main run did. Round three grades by root line 150 as it now stands (section 3).
 
-| Measure | Round one | Round two |
-| --- | --- | --- |
-| Claude Code | `2.1.283` | `2.1.283` |
-| Turns | 52, skill 22 and Project 30 | 16, all Project |
-| Turn time | 3,634 s | 993 s |
-| Models in the streams | `claude-opus-5-5` only | `claude-opus-5-5` only |
-| Scenarios `ok` on the first attempt | 26 of 26 | 8 of 8 |
-| Collected | 59 files: skill 25, Project 34 | 20 Project files |
+**Round three: the content repair held.** All 12 rows pass on both sides. Every value above is present: `HMAC-SHA256` in the signature check, `99` in the Custom range, `checkout_complete` marked `deprecated` beside its removal, `date_changed` kept `proposed`, `booking-service` as the sender, `## Behavior rules` as the Behavior reference body, `one discount code per order` in the sentence stating the rule, block-level last-writer-wins as today's state, and `Do sub-pages inherit the link?` quoted in the `**Open:**` line. `remeasure-supplied-values/run-1/grading-notes.md` section 1 cites each on both sides. One reading decides a verdict: `PDK-003` never prints `not decided` and states the same status in other words. The thread's pinned `Status: not decided` is neither backticked nor a status-key word, so other words meet the clause. The operator ruled on 2026-09-26 that they do, and the row stays PASS.
 
-Each round ran from this folder as `python3 run/playbook_runner.py --system ../../.. --out <round>/run-1 --engine claude --model claude-opus-5-5 --effort medium --jobs 4 --ids <ids>`. `run/check_run.py <round>/run-1 --model claude-opus-5-5` reports no finding for any scenario the round ran. Its only findings name the scenarios the round left out, as "no readable meta.json". `run/collect_exports.py . ../../../export/benchmark` filed each round under its own folder, and `export/benchmark/` now holds 177 files: 98 from the main run and 79 from the two rounds.
+| Measure | Round one | Round two | Round three |
+| --- | --- | --- | --- |
+| Claude Code | `2.1.283` | `2.1.283` | `2.1.283` |
+| Turns | 52, skill 22 and Project 30 | 16, all Project | 24, skill 12 and Project 12 |
+| Turn time | 3,634 s | 993 s | 1,660 s |
+| Models in the streams | `claude-opus-5-5` only | `claude-opus-5-5` only | `claude-opus-5-5` only |
+| Scenarios `ok` on the first attempt | 26 of 26 | 8 of 8 | 12 of 12 |
+| Collected | 59 files: skill 25, Project 34 | 20 Project files | 23 files: skill 11, Project 12 |
+
+Each round ran from this folder as `python3 run/playbook_runner.py --system ../../.. --out <round>/run-1 --engine claude --model claude-opus-5-5 --effort medium --jobs 4 --ids <ids>`. `run/check_run.py <round>/run-1 --model claude-opus-5-5` reports no finding for any scenario the round ran. Its only findings name the scenarios the round left out, as "no readable meta.json". `run/collect_exports.py . ../../../export/benchmark` filed each round under its own folder, and `export/benchmark/` now holds 200 files: 98 from the main run and 102 from the three rounds.
 
 ---
 
@@ -119,7 +124,6 @@ Each round ran from this folder as `python3 run/playbook_runner.py --system ../.
 
 - **Kernel review and deployment.** The operator's kernel review has been pending since v1.13.0, and the text to review is now v1.16.0. It is recorded as a dated note in `SYNC.md` only once confirmed. The renamed knowledge files reach claude.ai only after that, with a deployment receipt and a smoke check
 - **`PST-004`.** Story Mode says a split the request does not name is asked for, in the skill at `references/story-mode.md` line 406 and in the Project at knowledge line 382. The skill twin asked in round one, and the Project read the brief's six tasks as the split in both rounds. It is recorded as a runtime fault, and no repair is proposed
-- **Content misses.** The rows in the table above miss a value the rules already protect. No repair is proposed, and a future run shows whether they recur
 
 ---
 
