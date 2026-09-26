@@ -4,6 +4,7 @@
 ## About
 * * *
 Offline mode lets a member open, read, edit and create pages on iOS, Android and Desktop without a connection, then syncs their changes once the device is back online. It is available on every plan, Free included, and the target is Q1 2027 for all four areas on all three platforms.
+
 This Epic is split into four child stories, one per area of Oskar's brief. Each story covers iOS, Android and Desktop together and carries its own detailed requirements and acceptance criteria.
 
 ### Problem
@@ -14,7 +15,7 @@ Loomlist needs a connection for everything past the page already on screen. The 
 *   Between June and August, 23% of iOS and Android sessions started without a connection or lost it within the first minute
 *   Between April and August, 31% of Plus workspaces that gave a cancellation reason named offline access
 *   Some `lost-edit` tickets raised in #sync-eng start with an edit made after the connection dropped
-*   sync-service resolves every overlap with block-level last-writer-wins on protocol v3, so a phone that was offline for a day can replace a whole morning of a teammate's edits
+*   sync-service resolves every overlap with block-level last-writer-wins on protocol v3, so a phone offline for a day can replace a teammate's whole morning of edits
 ###   
 
 ### Goal
@@ -34,7 +35,8 @@ A member on iOS, Android or Desktop can open, read, edit and create pages withou
 * * *
 In order to get there, we will:
 *   Keep a member's most recently opened pages on the device so they open and read without a connection
-*   Let members edit, check off to-dos and create pages and to-dos offline, while sharing, inviting, moving a page to another workspace and deleting a page stay online only
+*   Let members edit, check off to-dos and create pages and to-dos offline
+*   Keep sharing, inviting, moving a page to another workspace and deleting a page online only
 *   Upload changes made offline in the order they were made once the connection returns
 *   Show members when they are offline, how many changes are waiting to sync and how much space offline data takes
 
@@ -65,7 +67,9 @@ Neither story depends on the conflict-handling decision, so both can start befor
 
 #### Waits on the conflict-handling decision
 * * *
-Joana, Engineering Manager, Sync, decides on 2026-10-09 how sync-service handles conflicting edits, choosing between the options in the #sync-eng thread. Both stories can be drafted before then, and neither can be finalised until the decision lands. If the decision changes protocol v3, every client has to be on a version that speaks the new protocol, and whether the Web client update belongs to this epic is not decided yet.
+Joana, Engineering Manager, Sync, decides on 2026-10-09 how sync-service handles conflicting edits, choosing between the options in the #sync-eng thread. Both stories can be drafted before then, and neither can be finalised until the decision lands.
+
+If the decision changes protocol v3, every client has to be on a version that speaks the new protocol, and whether the Web client update belongs to this epic is not decided yet.
 
 *   Member - Offline mode - Offline editing and creation
 *   Member - Offline mode - Sync on reconnect

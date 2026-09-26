@@ -4,7 +4,7 @@
 ## About
 * * *
 Loyalty points let a guest join from Account, earn points on completed stays, see their balance and history under Account and spend points at checkout on Pay now bookings. The work covers the Guest app on iOS, Android and web.
-This Epic is split into four child stories. Each one carries its own detailed requirements and acceptance criteria.
+This Epic is split into four child stories, each with its own detailed requirements and acceptance criteria.
 
 ### Problem
 * * *
@@ -30,7 +30,7 @@ In order to get there, we will:
 *   Let a signed-in guest join loyalty points from Account
 *   Add points to a member's balance when a stay is completed
 *   Show the points balance and a history of points earned and spent under Account
-*   Let a member spend points at checkout on Pay now bookings. Pay at property bookings are left out, because those guests pay the property directly
+*   Let a member spend points at checkout on Pay now bookings, but not Pay at property bookings, because those guests pay the property directly
 
 The value of a point and who pays for points are not decided yet. This Epic sets neither, and no child story should assume a value or a funder until both are decided.
 

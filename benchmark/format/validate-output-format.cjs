@@ -820,6 +820,129 @@ const isProseLine = (line) =>
   && !TAG_RUN_SHAPE.test(line)
   && !LABEL_LINE_SHAPE.test(line);
 
+// --- the length caps ---------------------------------------------------
+// The caps a deliverable's writing is held to: a bullet is one sentence of 25
+// words or fewer, a paragraph at most three sentences and 60 words, and an
+// About or Overview opening at most two paragraphs. The opening is the prose
+// before the section's first heading or bold label, since a task template keeps
+// its References block inside About and those lines are not the opening. They
+// advise and never block, because a long line that carries a supplied value is
+// still correct, and a scenario grades what an artifact says before how long it
+// takes to say it. Code, tables, blockquotes and Given/When/Then lines are
+// exempt, and a backticked or double-quoted span counts as one word, since copy
+// carried verbatim from a source is the writer's to keep rather than to shorten.
+const BULLET_WORD_CAP = 25;
+const PARAGRAPH_WORD_CAP = 60;
+const PARAGRAPH_SENTENCE_CAP = 3;
+const OPENING_PARAGRAPH_CAP = 2;
+const LIST_ITEM = /^\s*(?:[-*+]|\d+[.)])\s+(.*)$/;
+// The house writes a scenario step's keyword in bold, which is what separates
+// `**When** they sign in` from a requirement that happens to open on "When".
+const GIVEN_WHEN_THEN = /^(?:\*\*(?:Given|When|Then|And|But)\*\*|Given\b)/;
+const OPENING_HEADING = /^(?:About|Overview)$/i;
+const SENTENCE_BREAK = /(?<=[.!?])\s+(?=["'(]?[A-Z0-9])/;
+
+const capText = (line) =>
+  line
+    .replace(/`[^`]*`/g, 'CODE')
+    .replace(/"[^"]*"/g, 'QUOTE')
+    .replace(/[*_]+/g, '')
+    .trim();
+const capWords = (text) => text.split(/\s+/).filter((word) => /[A-Za-z0-9]/.test(word)).length;
+const capSentences = (text) => text.split(SENTENCE_BREAK).filter((sentence) => /[A-Za-z0-9]/.test(sentence)).length;
+
+function lengthCapFindings(lines, uncommented, proseStart) {
+  const findings = [];
+  let inFence = false;
+  let paragraph = null;
+  let opening = null;
+
+  const closeParagraph = () => {
+    if (!paragraph) return;
+    const words = capWords(paragraph.text);
+    const sentences = capSentences(paragraph.text);
+    if (words > PARAGRAPH_WORD_CAP) {
+      findings.push({ index: paragraph.index, message: `paragraph runs ${words} words, over the 60-word cap` });
+    }
+    if (sentences > PARAGRAPH_SENTENCE_CAP) {
+      findings.push({ index: paragraph.index, message: `paragraph holds ${sentences} sentences, over the three-sentence cap` });
+    }
+    if (opening) opening.paragraphs += 1;
+    paragraph = null;
+  };
+  const closeOpening = () => {
+    if (opening && opening.paragraphs > OPENING_PARAGRAPH_CAP) {
+      findings.push({
+        index: opening.index,
+        message: `${opening.name} opening holds ${opening.paragraphs} paragraphs, over the two-paragraph cap`,
+      });
+    }
+    opening = null;
+  };
+
+  lines.forEach((line, index) => {
+    if (/^\s*(```|~~~)/.test(line)) {
+      closeParagraph();
+      inFence = !inFence;
+      return;
+    }
+    if (inFence || index < proseStart) return;
+    const text = uncommented[index];
+    const trimmed = text.trim();
+
+    const heading = trimmed.match(/^#{1,6}(?:\s+(.*))?$/);
+    if (heading) {
+      closeParagraph();
+      closeOpening();
+      const name = capText(heading[1] || '');
+      if (OPENING_HEADING.test(name)) opening = { index, name, paragraphs: 0 };
+      return;
+    }
+    if (!trimmed || HOUSE_DIVIDER.test(trimmed) || HYPHEN_RULE.test(trimmed)) {
+      closeParagraph();
+      return;
+    }
+
+    const item = text.match(LIST_ITEM);
+    if (item) {
+      closeParagraph();
+      const raw = item[1].replace(/^\[[ xX]\]\s*/, '').trim();
+      const body = capText(raw);
+      if (!body || GIVEN_WHEN_THEN.test(raw)) return;
+      const words = capWords(body);
+      const sentences = capSentences(body);
+      if (words > BULLET_WORD_CAP) {
+        findings.push({ index, message: `bullet runs ${words} words, over the 25-word cap` });
+      }
+      if (sentences > 1) {
+        findings.push({ index, message: `bullet holds ${sentences} sentences, over the one-sentence cap` });
+      }
+      return;
+    }
+
+    if (LABEL_LINE_SHAPE.test(text)) {
+      closeParagraph();
+      closeOpening();
+      return;
+    }
+    if (STRUCTURAL_LINE_SHAPE.test(text) || TAG_RUN_SHAPE.test(text)) {
+      closeParagraph();
+      return;
+    }
+    const body = capText(trimmed);
+    if (GIVEN_WHEN_THEN.test(trimmed)) {
+      closeParagraph();
+      return;
+    }
+    if (paragraph) paragraph.text += ` ${body}`;
+    else paragraph = { index, text: body };
+  });
+  closeParagraph();
+  closeOpening();
+
+  return findings.sort((left, right) => left.index - right.index);
+}
+
 // --- per-file analysis -------------------------------------------------
 function analyse(file, source) {
   const relative = lintingArtifacts ? file : path.relative(systemRoot, file);
@@ -1170,6 +1293,13 @@ function analyse(file, source) {
         lintingArtifacts,
       );
     }
+  }
+
+  // 7. the length caps, advice on a deliverable only
+  if (lintingArtifacts) {
+    lengthCapFindings(lines, uncommented, proseStart).forEach(({ index, message }) => {
+      advisories.push(`${relative}:${index + 1}: ${message}`);
+    });
   }
 
   return `${relative}: ${stats.join(', ')}`;

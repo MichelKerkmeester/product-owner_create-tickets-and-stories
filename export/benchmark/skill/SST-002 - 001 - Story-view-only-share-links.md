@@ -18,7 +18,9 @@ Agencies on Plus asked for this most. Today they invite clients as guests only s
 
 ### Solution
 * * *
-The person sharing a page can switch on a link that anyone can open without an account, and the page opens read-only with nothing of the workspace around it. The sharer keeps control of the link, because it can expire, be switched off or be reset, and each of those ends access for the old link. Plans set how far this goes, so Free workspaces get a small number of links and Team Admins can switch the feature off for the whole workspace.
+The person sharing a page can switch on a link that anyone can open without an account, and the page opens read-only with nothing of the workspace around it. The sharer keeps control of the link, because it can expire, be switched off or be reset, and each of those ends access for the old link.
+
+Plans set how far this goes, so Free workspaces get a small number of links and Team Admins can switch the feature off for the whole workspace.
 
 #### **Expected outcomes**
 * * *
@@ -33,7 +35,9 @@ The person sharing a page can switch on a link that anyone can open without an a
 * * *
 **View-only link**
 * * *
-**Open:** whether a link on a page also opens its sub-pages is not decided. Design proposes that it does, with a switch on each sub-page to leave it out. Engineering proposes one link per page, so a sub-page added later never becomes public without someone choosing that. Lena, Product Manager, Sharing and Notifications, decides after talking it through with the security reviewer, with no date set, and the decision will not land before the build starts. The answer also settles what `Duplicate` copies.
+**Open:** whether a link on a page also opens its sub-pages is not decided. Design proposes that it does, with a switch on each sub-page to leave it out. Engineering proposes one link per page, so a sub-page added later never becomes public without someone choosing that.
+
+Lena, Product Manager, Sharing and Notifications, decides after talking it through with the security reviewer, with no date set, and the decision will not land before the build starts. The answer also settles what `Duplicate` copies.
 
 *   A view-only link opens the page it was switched on for, and until the open question is settled it opens that page only
 *   Anyone with the link can open the page without signing in
@@ -169,7 +173,9 @@ The delivery budget or expected size for the approved scope.
 * * *
 Areas that could waste effort, create ambiguity or distract from the intended outcome.
 
-*   Sub-page inheritance is not decided: design proposes that a link also opens sub-pages with a per-sub-page opt-out, and engineering proposes one link per page. Lena decides after the security review, with no date set, and not before the build starts. Build against a single page until then, and keep what `Duplicate` copies open until the answer lands
+*   Sub-page inheritance is not decided: design proposes that a link also opens sub-pages with a per-sub-page opt-out, and engineering proposes one link per page
+*   Lena decides sub-page inheritance after the security review, with no date set, and not before the build starts
+*   Until the sub-page decision lands, build against a single page and keep what `Duplicate` copies open
 
 #### No-gos
 * * *

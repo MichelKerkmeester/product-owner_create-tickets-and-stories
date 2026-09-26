@@ -4,11 +4,9 @@
 
 ---
 
-Today the Guest app date picker lets a guest select any range. search-service then turns down anything over 30 nights, and the guest sees a generic "Something went wrong" after tapping Search. Guest Support logged 23 chats about it in August, mostly from guests booking long stays for work.
+The Guest app date picker accepts any range today, but search-service turns down anything over 30 nights, so the guest sees a generic "Something went wrong" after tapping Search. Guest Support logged 23 chats about it in August, mostly from guests booking long work stays. This task makes the picker stop an unsearchable range before the guest taps Search, and say why.
 
-This task makes the date picker stop a range it can't search before the guest taps Search, and tell the guest why. It is one FE task for the Guest app on iOS, Android and web together, on the search form and on the property page. The Search squad takes it into the 8.13.0 train.
-
-The frames are final and the copy was signed off by Hana on 2026-09-11. If the build can't match the frame, raise it with Ines in the Search squad channel before working around it.
+It is one FE task covering iOS, Android and web, on the search form and the property page, and the Search squad takes it into the 8.13.0 train. The frames are final and Hana signed off the copy on 2026-09-11. If the build can't match the frame, raise it with Ines in the Search squad channel before working around it.
 
 Not in this task: flexible dates, weekend presets, prices per night inside the calendar and any tracking change. Date selection isn't tracked today and this task adds no events. search-service stays as it is, because its own 30-night check remains the backstop behind the picker.
 
@@ -43,9 +41,9 @@ These limits apply everywhere the date picker opens. They match what search-serv
 - [ ] Check-in and check-out can't be the same day, so a stay is at least 1 night
 - [ ] A stay is at most 30 nights, the same limit search-service applies
 - [ ] Past days are disabled, and today can be picked as check-in
-- [ ] Check-in can be at most 365 days from today. Later days show in the calendar but are disabled
+- [ ] Check-in can be at most 365 days from today, and later days show in the calendar but are disabled
 - [ ] Check-out may land past the 365-day mark, because only check-in is limited
-- [ ] The 30-night maximum and the 365-day window come from search-service config. No platform hard-codes them
+- [ ] The 30-night maximum and the 365-day window come from search-service config, and no platform hard-codes them
 
 2.  **Property minimum stay**
 
@@ -75,7 +73,7 @@ The frame shows three states for picking a range. The button at the bottom only 
 **Checklist**
 
 - [ ] State 1, nothing picked: the button reads `Select check-in date` and is disabled
-- [ ] State 2, check-in picked: days that would make the stay too short or longer than 30 nights turn grey, and the button reads `Select check-out date` and stays disabled
+- [ ] State 2, check-in picked: days making the stay too short or longer than 30 nights turn grey, and the button stays disabled, reading `Select check-out date`
 - [ ] State 3, valid range picked: the range is highlighted, the nights count sits under it and the button reads `Show prices`
 - [ ] The nights count matches the Roamstay stay definition, so check-in on a Monday and check-out on a Thursday shows 3 nights
 
@@ -131,7 +129,7 @@ These cases were walked through with Oskar and Hana and have a defined outcome.
 
 - [ ] With check-in picked, tapping a day before it makes that day the new check-in, and the button goes back to `Select check-out date`
 - [ ] Opening the picker with dates from an earlier search shows the range as picked, in state 3
-- [ ] Dates from an earlier search that break a limit are cleared and the picker opens in state 1, for example a saved 45-night search from before this change
+- [ ] Earlier search dates that break a limit, such as a 45-night search saved before this change, are cleared and the picker opens in state 1
 - [ ] A 30-night range across two months keeps the highlight across the month break
 
 7.  **Screen readers**

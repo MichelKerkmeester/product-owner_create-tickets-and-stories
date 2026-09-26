@@ -4,7 +4,7 @@
 
 ---
 
-This subtask builds recurring to-dos in the Android app for phones and tablets, following the shared rules in the parent task. A member on Android can make a to-do with a due date repeat, check off or skip one occurrence and see the next one appear with the next due date. Oskar's Mobile Platform team ships it in the Android 5.4.0 release.
+This subtask builds recurring to-dos in the Android app for phones and tablets, following the shared rules in the parent task. A member can make a to-do with a due date repeat, check off or skip one occurrence and see the next one appear with the next due date. Oskar's Mobile Platform team ships it in the Android 5.4.0 release.
 
 BE builds the recurrence engine at the same time. Android shows the next due date the engine returns and never works one out on the device, so Android, iOS and Web always show the same schedule. Everything ships dark behind the workspace flag `recurring_todos`.
 
@@ -52,7 +52,7 @@ Repeat sits on the to-do's detail sheet and only works once the to-do has a due 
 - [ ] On a to-do with no due date, show Repeat greyed out with the hint `Add a due date to repeat`
 - [ ] Custom repeats every N days, weeks or months, with N from 1 to 99, and accepts no value outside that range
 - [ ] Show the next due date the recurrence engine returns for every option, and never work one out on the device
-- [ ] Show dates in the member's locale and the new copy in en-US, de-DE, fr-FR, es-ES, ja-JP and pt-BR, with en-US as the fallback for a missing string
+- [ ] Show dates in the member's locale and new copy in en-US, de-DE, fr-FR, es-ES, ja-JP and pt-BR, falling back to en-US for a missing string
 - [ ] The Repeat picker, Custom interval and occurrence menu work on Android phones and tablets
 
 ---
@@ -87,7 +87,7 @@ Only one occurrence exists at a time, so the member's list never fills with futu
 - [ ] Show only one open occurrence of a series at a time
 - [ ] Checking off an occurrence shows the next one on the same page, with the due date the engine returns
 - [ ] Carry the assignee over to the next occurrence
-- [ ] Carry the reminder over at the same local time, and schedule it as a local notification for the next occurrence on the to-do owner's Android devices
+- [ ] Carry the reminder over at the same local time, scheduled as a local notification for the next occurrence on the to-do owner's Android devices
 
 ---
 

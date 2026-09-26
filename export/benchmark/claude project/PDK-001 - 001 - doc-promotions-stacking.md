@@ -9,7 +9,7 @@
 
 ## Overview
 * * *
-This reference explains what discount an order gets when a customer's discount code meets one or more automatic promotions. It also covers how that result decides free shipping. It is for CS agents explaining an order, engineers working on promotions-service or the surfaces that show its result, and merchandisers setting up a promotion. Read it when a discount looks wrong, or before you switch on `exclusive` or `applies_to_sale`.
+This reference explains what discount an order gets when a discount code meets one or more automatic promotions, and how it decides free shipping. It serves CS agents explaining an order, engineers on promotions-service or the surfaces showing it, and merchandisers setting up a promotion. Read it when a discount looks wrong or before switching on `exclusive` or `applies_to_sale`.
 
 promotions-service works out every discount. Web, iOS, Android and Admin show what it returns and never compute a discount themselves.
 
@@ -17,8 +17,8 @@ promotions-service works out every discount. Web, iOS, Android and Admin show wh
 * * *
 *   **Automatic promotion** — A discount that applies without a code, set up by a merchandiser in Admin
 *   **Discount code** — A code the customer types in the cart or at checkout
-*   **`exclusive`** — A flag on a promotion or code. An exclusive promotion or code combines with nothing
-*   **`applies_to_sale`** — A flag that lets a promotion or code discount sale items. When it is off, sale items are skipped
+*   **`exclusive`** — A flag that makes a promotion or code combine with nothing
+*   **`applies_to_sale`** — A flag that lets a promotion or code discount sale items, which are skipped when it is off
 *   **Sale item** — A product whose `compare_at` price in catalog-service is above its current price, shown struck through
 *   **Staff code** — A code starting with `STAFF-`, tied to one staff account
 *   **Subtotal** — The sum of the lines after promotions and before shipping
@@ -44,7 +44,7 @@ Automatic promotions apply first. The discount code then applies to the price th
 A promotion or code marked `exclusive` combines with nothing. What it removes depends on which side carries the flag.
 
 *   **Exclusive code** — Removes every automatic promotion from the order and applies alone
-*   **Exclusive automatic promotion** — Blocks codes on the lines it covers. A code still applies to the other lines
+*   **Exclusive automatic promotion** — Blocks codes on the lines it covers, while a code still applies to the other lines
 
 **Staff codes**
 * * *
@@ -92,7 +92,7 @@ A gift card in the cart never takes a discount and does not count toward the fre
 * * *
 #### Code on top of an automatic promotion, Netherlands
 * * *
-The cart holds stoneware dinner plates, set of 4, at €39.95 with the automatic promotion Tableware 20% off. It also holds linen tea towels, set of 3, at €24.90 with no promotion, and a cast iron casserole at €89.00 with a `compare_at` price of €119.00, which makes it a sale item. Code HOME15 gives 15% off and has `applies_to_sale` switched off.
+The cart holds stoneware dinner plates, set of 4, at €39.95 with the automatic promotion Tableware 20% off. It also holds linen tea towels, set of 3, at €24.90 with no promotion, and a cast iron casserole at €89.00, a sale item with a `compare_at` price of €119.00. Code HOME15 gives 15% off and has `applies_to_sale` switched off.
 
 | Line | Price | Automatic | Code | Line total |
 |------|-------|-----------|------|------------|
@@ -101,7 +101,9 @@ The cart holds stoneware dinner plates, set of 4, at €39.95 with the automatic
 | Casserole | €89.00 | none | skipped, sale item | €89.00 |
 | Subtotal | | | | €137.33 |
 
-The plates take 20% first, which is €7.99 and leaves €31.96. HOME15 then takes 15% of €31.96, which is €4.794 and rounds to €4.79. The towels take 15% of €24.90, which is €3.735 and rounds half up to €3.74. The subtotal is well over €50, so shipping is free.
+The plates take 20% first, which is €7.99 and leaves €31.96. HOME15 then takes 15% of €31.96, which is €4.794 and rounds to €4.79.
+
+The towels take 15% of €24.90, which is €3.735 and rounds half up to €3.74. The subtotal is well over €50, so shipping is free.
 
 #### The 50% cap
 * * *
@@ -119,11 +121,11 @@ The cart holds a €25.00 gift card and a bread bin at €32.00. Only the bread 
 * * *
 The Promotions rules note does not settle the cases below. Nobody should answer them from this document. Colette owns the note and is the person to ask.
 
-*   **Exclusive code meets an exclusive automatic promotion** — An exclusive code removes every automatic promotion, and an exclusive automatic promotion blocks codes on its lines. The note does not say which wins when both sit on one order. Staff codes are always exclusive, so the same gap covers a staff code
-*   **Exclusive and non-exclusive automatic promotions on one line** — The bigger saving normally wins. The note does not say whether the `exclusive` flag changes that
-*   **Automatic promotion alone above 50%** — The cap only says how the code's share is cut. It does not say what happens when an automatic promotion by itself goes past 50%
+*   **Exclusive code meets an exclusive automatic promotion** — The note does not say which wins, and staff codes, always exclusive, fall in the same gap
+*   **Exclusive and non-exclusive automatic promotions on one line** — The bigger saving normally wins, and the note does not say whether the `exclusive` flag changes that
+*   **Automatic promotion alone above 50%** — The cap only says how the code's share is cut, not what happens when an automatic promotion alone passes 50%
 *   **Base for splitting a fixed-amount code** — "In proportion to their price" does not say whether that is the price before or after automatic promotions
-*   **Banner copy at exactly the threshold** — The banner reads `Free shipping on orders over €50` and `Free shipping on orders over £45`, while the rule gives free shipping at €50 or £45 and above. An order at exactly €50.00 ships free under the rule, even though the copy says "over"
+*   **Banner copy at exactly the threshold** — The banner reads `Free shipping on orders over €50` and `Free shipping on orders over £45`, but the rule ships an order at exactly €50.00 free despite the "over"
 
 ### Retired rule: two codes on one order
 * * *
@@ -135,5 +137,5 @@ Orders placed before 2026-05-01 can still show two codes in Admin. A refund on o
 
 ### Related references
 * * *
-*   [Promotions rules](context/fernhouse-promotions-rules.md) — the governing note, owned by Merchandising
-*   [Fernhouse company context](context/fernhouse-context.md) — markets, services and the free-shipping banner copy
+*   [Promotions rules](context/fernhouse-promotions-rules.md): the governing note, owned by Merchandising
+*   [Fernhouse company context](context/fernhouse-context.md): markets, services and the free-shipping banner copy

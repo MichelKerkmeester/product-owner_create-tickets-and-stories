@@ -40,7 +40,7 @@ Steps to Reproduce:
 3. Add 1 unit of a second product to the cart
 4. Check that the tab bar badge reads "3"
 5. Open the cart and tap "Remove" on the line for the second product
-6. Expected: the badge reads "2". Actual: the cart holds 2 units and the badge still reads "3"
+6. Expected: the badge reads "2", actual: the cart holds 2 units and the badge still reads "3"
 7. Restart the app and observe that the badge now reads "2"
 
 Screen recording: Not provided
@@ -54,7 +54,7 @@ Screen recording: Not provided
 The tab bar badge shows the new unit count as soon as an item is removed from the cart, without a restart
 - Design spec: the badge counts units in the cart, not lines, so removing the 1-unit line from a 3-unit cart leaves the badge on "2"
 - Previous working behavior: Not provided
-- User expectation: the badge matches the cart the customer is looking at, as it already does on Android 4.8.2 and web and as it does on iOS when an item is added
+- User expectation: the badge matches the cart on screen, as it does on Android 4.8.2, on web and on iOS when an item is added
 
 Checklist
 - [ ] Root cause identified

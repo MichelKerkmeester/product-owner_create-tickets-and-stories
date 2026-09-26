@@ -1,6 +1,10 @@
 # Grading notes, third remeasure round `remeasure-supplied-values/run-1`
 
-Evidence behind every verdict in this folder's `results.csv`. The round reran both twins of `TK-003`, `TK-005`, `TK-006`, `DK-001`, `DK-003` and `ST-002` on Product Owner `b50f0a0` and Barter `7396d79e`: skill 1.13.0, kernel v1.16.0 and playbook 2.2.0.0. Source and root lines cite that commit. Two Opus 5.5 graders drafted the evidence, one for the three task pairs and one for the doc and Story pairs, and the orchestrator reviewed it. Sections 2 and 3 are the drafts, and `results.csv` holds the final rows.
+Evidence behind every verdict in this folder's `results.csv`. The round reran both twins of `TK-003`, `TK-005`, `TK-006`, `DK-001`, `DK-003` and `ST-002` on Product Owner `b50f0a0` and Barter `7396d79e` (skill 1.13.0, kernel v1.16.0, playbook 2.2.0.0). Source and root lines cite that commit.
+
+Two Opus 5.5 graders drafted the evidence, one for the three task pairs and one for the doc and Story pairs, and the orchestrator reviewed it. Sections 2 and 3 are the drafts, and `results.csv` holds the final rows.
+
+The round's exports left `export/benchmark/` on 2026-09-26, so export lines cited here refer to the files at Product Owner `3fdce37` and Barter `d214c160`.
 
 ---
 
@@ -24,13 +28,16 @@ Evidence behind every verdict in this folder's `results.csv`. The round reran bo
 
 An independent count of each value across this round's exports and replies agreed with the drafts before they were read.
 
-**One reading, ruled by the operator.** `PDK-003` never prints `not decided`. Its notice labels the block a proposal that is not current product behavior, then says "none of them is approved" and "Nothing here is decided" (turn 2 lines 5, 6 and 12). The thread's pinned `Status: not decided` (thread line 66) is not backticked and is no word from a status key, so under root line 150 the same status in other words meets the clause. The operator ruled on 2026-09-26 that other words meet it, and the row stays PASS.
+**One reading, ruled by the operator.** `PDK-003` never prints `not decided`, but its notice calls the block a proposal that is not current product behavior. It then says "none of them is approved" and "Nothing here is decided" (turn 2 lines 5, 6 and 12).
+
+The thread's pinned `Status: not decided` (thread line 66) is neither backticked nor a status-key word, so under root line 150 other words meet the clause. The operator ruled so on 2026-09-26, and the row stays PASS.
 
 **Readings the orchestrator checked and kept.**
 
-- `PDK-001` says "I left out spacer headings because this is a file export" (turn 1 line 169). The Project's own Doc Mode knowledge uses "file export" for this spacer-heading rule (lines 73 and 432), so the reply restates a rule term and claims no file
-- The skill side forecasts the next export path on Turn 1 (`STK-003` turn 1 line 17). The kernel's forecast rule governs the Project only, and each forecast file was written and read back on Turn 2, so no path claim lacks a readable file
-- Group 1 of both `TK-006` tasks carries its checklist items under per-event labels with no `**Checklist**` label. The Pass clause asks for checklisted groups, which it is
+- `PDK-001` says "I left out spacer headings because this is a file export" (turn 1 line 169), a rule term Doc Mode knowledge uses at lines 73 and 432, not a file claim
+- The skill side forecasts the next export path on Turn 1 (`STK-003` turn 1 line 17), which the kernel's Project-only forecast rule does not govern
+- Each forecast file was written and read back on Turn 2, so no path claim lacks a readable file
+- Group 1 of both `TK-006` tasks lists checklist items under per-event labels without a `**Checklist**` label, which still meets the Pass clause's checklisted groups
 - Partial read-backs after the last change count, as in every earlier round (`AGENTS.md` line 46)
 
 ---

@@ -10,11 +10,13 @@ Signed-in customers can save a card at checkout and pay with it on their next or
 
 ### Problem
 * * *
-Every card payment today means typing the full card number, expiry and CVC, even for a customer on their tenth order. In the apps the payment step loses 17% of the customers who reach it, against 9% on web, and card entry is where most of them stop. Returning customers place 68% of app orders, so most of the people typing their card again have done it before.
+Every card payment today means typing the full card number, expiry and CVC, even on a customer's tenth order. In the apps the payment step loses 17% of customers who reach it, against 9% on web, and most stop at card entry. Returning customers place 68% of app orders, so most who retype their card have done it before.
 
 ### Solution
 * * *
-A signed-in customer chooses to keep a card when they pay, and the next time they reach the payment step that card is waiting for them, so a repeat order no longer starts with card entry. Saving is always the customer's choice, because a card kept without asking costs more trust than the typing it saves. The card itself stays with the payment provider, and customers manage their saved cards from their account.
+A signed-in customer chooses to keep a card when they pay, and the next time they reach the payment step that card is waiting for them, so a repeat order no longer starts with card entry. Saving is always the customer's choice, because a card kept without asking costs more trust than the typing it saves.
+
+The card itself stays with the payment provider, and customers manage their saved cards from their account.
 
 #### **Expected outcomes**
 * * *
@@ -141,7 +143,7 @@ The delivery budget or expected size for the approved scope.
 * * *
 Areas that could waste effort, create ambiguity or distract from the intended outcome.
 
-*   Card brand storage: the draft stores brand, the card-data rule does not allow it, and the brand logo at the payment step depends on how Lotte and Checkout settle it
+*   Card brand storage: the draft stores brand, which the card-data rule does not allow, so the payment-step brand logo waits on Lotte and Checkout
 
 #### No-gos
 * * *

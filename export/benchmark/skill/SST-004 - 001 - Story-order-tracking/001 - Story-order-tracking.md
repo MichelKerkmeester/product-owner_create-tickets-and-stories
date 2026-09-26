@@ -10,13 +10,15 @@ This story adds a status timeline to the order page on web, iOS and Android. The
 
 ### Problem
 * * *
-Where is my order is the largest reason customers contact Fernhouse. In August, CS tagged 5,870 of 18,940 contacts as WISMO, which is 31%. Most of those customers already had a tracking number. What they wanted to know was when the parcel would arrive, and the order page could not tell them.
+Where is my order is the largest reason customers contact Fernhouse. In August, CS tagged 5,870 of 18,940 contacts as WISMO, which is 31%. Most of those customers already had a tracking number and wanted to know when the parcel would arrive, which the order page could not tell them.
 
 Today the order page shows `Order placed` until dispatch and `Shipped` after it, with the tracking number, and it never changes after that. Customers copy the number into the parcel carrier's own site, and the ones who get lost there contact CS.
 
 ### Solution
 * * *
-Each parcel gets its own timeline on the order page, fed by the parcel carrier's tracking events and by the warehouse system's packed signal, so a customer can see where the parcel is and when it should arrive without leaving Fernhouse. The delivery estimate appears only when the carrier sends a window, because a guessed day that proves wrong sends the customer back to CS. Pallet items keep today's page, since the pallet carrier sends no tracking events.
+Each parcel gets its own timeline on the order page, fed by the parcel carrier's tracking events and by the warehouse system's packed signal, so a customer can see where the parcel is and when it should arrive without leaving Fernhouse.
+
+The delivery estimate appears only when the carrier sends a window, because a guessed day that proves wrong sends the customer back to CS. Pallet items keep today's page, since the pallet carrier sends no tracking events.
 
 #### **Expected outcomes**
 * * *
@@ -46,7 +48,7 @@ Each parcel gets its own timeline on the order page, fed by the parcel carrier's
 *   A new `OD` after `Delivery failed` moves the order back to `Out for delivery`
 *   The timeline shows every step that happened, each with its date and time
 *   Events are ordered by `occurred_at`, never by arrival
-*   An event whose `occurred_at` is older than the newest one held for that parcel is stored for the history and does not change the status shown
+*   An event whose `occurred_at` is older than the parcel's newest one is stored for the history and does not change the status shown
 
 **Delivery estimate**
 * * *
@@ -54,7 +56,8 @@ Each parcel gets its own timeline on the order page, fed by the parcel carrier's
 *   The estimate shows only when the carrier sends an `eta_window`
 *   With no window, no estimate shows, and none is derived from the dispatch date
 *   The newest `eta_window` by `occurred_at` wins
-*   `OD` always carries a window. `IT` carries one only when the carrier can predict the day, mostly inside the Netherlands and Belgium
+*   `OD` always carries a window
+*   `IT` carries a window only when the carrier can predict the day, mostly inside the Netherlands and Belgium
 
 **Orders with several parcels**
 * * *
@@ -92,7 +95,8 @@ Each parcel gets its own timeline on the order page, fed by the parcel carrier's
 *   `DL` carries `delivered_to`: `recipient`, `neighbour` or `parcel_point`
 *   `EX` carries `exception_code`: `NOT_HOME`, `ADDRESS_PROBLEM`, `DAMAGED` or `REFUSED`
 *   After an `EX` with `NOT_HOME` the carrier tries again the next working day, which sends a new `OD`
-*   After a second `NOT_HOME` the parcel goes to a parcel point, and the `DL` with `parcel_point` comes when the parcel is dropped there, not when the customer collects it
+*   After a second `NOT_HOME` the parcel goes to a parcel point
+*   The `DL` with `parcel_point` comes when the parcel is dropped at the parcel point, not when the customer collects it
 
 **Event volume**
 * * *

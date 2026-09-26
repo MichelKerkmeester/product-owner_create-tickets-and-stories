@@ -12,11 +12,13 @@ The Search squad owns it. Tomas is the product manager, Ines owns the frames and
 
 ### Problem
 * * *
-"Can I cancel this for free?" is the most common question in Guest Support chats before a booking, at about one in six pre-booking chats in August. In the same month, 44% of bookings were on a free cancellation rate plan. Guests can only find those rates today by opening each property page one at a time, so the question lands on Guest Support instead of being answered in search.
+"Can I cancel this for free?" is the most common question in pre-booking Guest Support chats, at about one in six in August. In the same month, 44% of bookings were on a free cancellation rate plan. Guests can only find those rates today by opening each property page, so the question lands on Guest Support instead of being answered in search.
 
 ### Solution
 * * *
-Guests get a single switch in the search filter sheet that narrows results to stays with a free cancellation rate they can still book, and each result card then shows the price and deadline of that rate. The guest gets the answer before opening a property, so the result card has to show the rate the guest would book and a date they can check against their confirmation email. The filter stays on for as long as the guest works through one search, because a guest who compares properties expects the filtered list to still be there when they come back to it.
+A single switch in the search filter sheet narrows results to stays with a free cancellation rate the guest can still book, and each result card shows that rate's price and deadline. Guests get the answer before opening a property, so the card must show the rate they would book and a date to check against their confirmation email.
+
+The filter stays on for as long as the guest works through one search, because a guest who compares properties expects the filtered list to still be there when they return.
 
 #### **Expected outcomes**
 * * *
@@ -33,9 +35,10 @@ Guests get a single switch in the search filter sheet that narrows results to st
 
 **Results with the filter on**
 * * *
-*   A stay shows only if at least one rate plan for the searched dates, guests and rooms has free cancellation and its deadline has not passed
+*   A stay shows only if a rate plan for the searched dates, guests and rooms has free cancellation and its deadline has not passed
 *   The price on the result card is the cheapest free cancellation rate plan, even when a non-refundable rate plan is cheaper
-*   The results header shows the filtered count. Reference search at the kickoff: Lisbon, 4 nights, 2 adults, `1,146` stays with the filter off and `312` stays with it on
+*   The results header shows the filtered count
+*   Reference search at the kickoff: Lisbon, 4 nights, 2 adults, `1,146` stays with the filter off and `312` with it on
 
 **Filter state**
 * * *
@@ -46,7 +49,7 @@ Guests get a single switch in the search filter sheet that narrows results to st
 **Result card badge**
 * * *
 *   With the filter on, every result card shows the deadline of the rate plan whose price is on the card, as `Free cancellation until 14 Oct`
-*   The deadline is the check-in date minus the partner's cancellation window. A partner who allows free cancellation up to 14 days before check-in gets a deadline 14 days before check-in
+*   The deadline is the check-in date minus the partner's cancellation window, so a 14-day window gives a deadline 14 days before check-in
 *   The deadline is the property's local date, because guests abroad check it against their confirmation email
 *   The date uses the `d MMM` pattern in the guest's locale: a day and a short month name, with no year
 *   With the filter off, result cards stay as they are today
@@ -58,7 +61,7 @@ Guests get a single switch in the search filter sheet that narrows results to st
 
 **Tracking**
 * * *
-*   No new event. Turning the filter on fires the existing `filter_applied` event with `filter_name` set to `free_cancellation`
+*   No new event: turning the filter on fires the existing `filter_applied` event with `filter_name` set to `free_cancellation`
 *   No tracking plan change, as Nadia confirmed on 2026-09-17
 
 **Release**

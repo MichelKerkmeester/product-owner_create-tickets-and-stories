@@ -1,6 +1,10 @@
 # Grading notes, second remeasure round `remeasure-file-forecast/run-1`
 
-Evidence behind every verdict in this folder's `results.csv`. The round reran the eight Project scenarios that still named a file for an artifact still to come in the first round, on Product Owner `b591571` and Barter `e9eec279`: skill 1.12.0, kernel v1.16.0 and playbook 2.1.1.0. Source and root lines cite that commit. One Opus 5.5 grader drafted the evidence, and the orchestrator reviewed it. Section 2 is the draft. Its draft rows show `after_failed_gate` unset, and `results.csv` holds the final rows.
+Evidence behind every verdict in this folder's `results.csv`. The round reran the eight Project scenarios that still named a file for an artifact still to come in round one, on Product Owner `b591571` and Barter `e9eec279` (skill 1.12.0, kernel v1.16.0, playbook 2.1.1.0). Source and root lines cite that commit.
+
+One Opus 5.5 grader drafted the evidence, and the orchestrator reviewed it. Section 2 is the draft, whose rows show `after_failed_gate` unset, and `results.csv` holds the final rows.
+
+The round's exports left `export/benchmark/` on 2026-09-26, so export lines cited here refer to the files at Product Owner `3fdce37` and Barter `d214c160`.
 
 ---
 
@@ -8,9 +12,13 @@ Evidence behind every verdict in this folder's `results.csv`. The round reran th
 
 **Result.** Project 5 PASS and 3 FAIL. `PID-001` passes, so no row in this round carries `after_failed_gate` yes.
 
-**The forecast repair held.** None of the eight replies attaches an `export/` path to the next artifact. Turn 1 now says, for example, "I'll write it once you reply" (`PID-001` line 33) or "Once you answer, I'll write the bug report" (`PBG-002` line 44). `PID-001`, `PBG-002`, `PTK-005`, `PEP-001` and `PEP-002` pass where the first round failed them.
+**The forecast repair held.** None of the eight replies attaches an `export/` path to the next artifact: Turn 1 now says, for example, "I'll write it once you reply" (`PID-001` line 33) or "Once you answer, I'll write the bug report" (`PBG-002` line 44). `PID-001`, `PBG-002`, `PTK-005`, `PEP-001` and `PEP-002` pass where the first round failed them.
 
-**One reading decides `PST-003`.** Turn 1 line 42 says "I'll keep the draft's original filename". The draft grades it a file claim, since it names the file of an artifact still to come by reference. The Project's own naming rules give a refinement the source's file name as its label (kernel line 229, `export/[original-source-filename].md`, and Story Mode knowledge line 363), so the sentence may only restate the label convention. Every other clause of `PST-003` is met. The operator ruled on 2026-09-26 that the sentence is a file claim, so `PST-003` stays FAIL.
+**One reading decides `PST-003`.** Turn 1 line 42 says "I'll keep the draft's original filename", and the draft grades it a file claim, since it names the file of an artifact still to come by reference.
+
+The Project's own naming rules give a refinement the source's file name as its label (kernel line 229, `export/[original-source-filename].md`, and Story Mode knowledge line 363), so the sentence may only restate that convention. Every other clause of `PST-003` is met.
+
+The operator ruled on 2026-09-26 that the sentence is a file claim, so `PST-003` stays FAIL.
 
 **Still failing.** `PST-004` Turn 1 settles the six-task split from the brief instead of asking for it, which the Pass clause and Story Mode knowledge line 382 require, and Turn 2 then follows the four named tasks. `PTK-006` still never marks `checkout_complete` as `deprecated`, and its task no longer names `booking-service`.
 

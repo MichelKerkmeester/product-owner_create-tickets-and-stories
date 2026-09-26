@@ -4,7 +4,7 @@
 
 ---
 
-BE owns what happens after a member sets Repeat: creating the next occurrence on check-off and on Skip this one, stopping a series at its Ends setting, holding each workspace to 500 series that have not ended and handing the next reminder to reminders-service. The three client subtasks show this behavior, so it has to hold no matter which surface the member acts from. The shared rules with every value sit in the parent task.
+BE owns what happens after a member sets Repeat: the next occurrence on check-off and Skip this one, Ends, the 500 limit on series still running and the reminder handover to reminders-service. The three client subtasks show this behavior, so it has to hold whichever surface the member acts from. The parent task holds the shared rules with every value.
 
 BE ships dark behind the workspace flag `recurring_todos`, the same as the clients.
 
@@ -35,7 +35,7 @@ Only one occurrence of a series exists at a time. Checking it off is what brings
 **Checklist**
 
 - [ ] Checking off an occurrence creates the next one on the same page, with the next due date the parent task's Repeat table gives
-- [ ] Monthly keeps to the day of the first due date, so a series that starts on the 31st lands on the 30th in April and on the 31st again in May
+- [ ] Monthly keeps the first due date's day, so a series starting on the 31st lands on the 30th in April and the 31st in May
 - [ ] Custom counts every N days, weeks or months, with N from 1 to 99
 - [ ] The next occurrence keeps the assignee and the reminder
 - [ ] A series never holds more than one open occurrence

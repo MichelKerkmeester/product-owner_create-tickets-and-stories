@@ -9,7 +9,7 @@
 * * *
 Joana decides on 2026-10-09 how Loomlist should handle two devices changing the same block. Three options are on the table and none is chosen. This document sets out what each would cost, what it fixes and where people in the #sync-eng thread landed, so the Sync and Mobile engineers and the Support lead can read it before that call.
 
-The problem is growing and members cannot recover from it. Support tagged 40 tickets `lost-edit` in August, up from 22 in July, and nearly all follow one pattern: a member edits a page on their phone, edits it again on a laptop and the phone edit is gone. Page history does not hold the lost version either, so Support has nothing to restore.
+The problem is growing and members cannot recover from it. Support tagged 40 tickets `lost-edit` in August, up from 22 in July, and nearly all follow one pattern: a member edits a page on their phone, then on a laptop, and the phone edit is gone. Page history does not hold the lost version, so Support has nothing to restore.
 * * *
 
 ### Current state
@@ -118,10 +118,12 @@ The spike is there to answer the two questions Joana named as open: what B costs
 
 ### Dependencies and risks
 * * *
-*   **Every-client releases** — B needs a release on every platform and C needs every client on protocol v4. The context page notes that iOS and Android ship every two weeks and roll out over 7 days, and that Desktop runs the web client, so a Web change reaches Desktop without a Desktop release
+The context page notes that iOS and Android ship every two weeks and roll out over 7 days, and that Desktop runs the web client, so a Web change reaches Desktop without a Desktop release.
+
+*   **Every-client releases** — B needs a release on every platform and C needs every client on protocol v4
 *   **Mobile storage** — B keeps a base version of every edited block on the device, and nobody has measured that cost yet
-*   **Rich text merges** — a merged boundary can break formatting or split a mention. Saskia's fallback avoids this by sending formatted blocks to the conflict copy, so the fallback rate decides how often members see a copy instead of merged text
-*   **Lost edits continue** — until a change ships, conflicting edits keep disappearing with nothing to restore, and tickets went from 22 in July to 40 in August
+*   **Rich text merges** — a merged boundary can break formatting or split a mention, which Saskia's fallback avoids by sending formatted blocks to the conflict copy
+*   **Lost edits continue** — until a change ships, conflicting edits vanish with nothing to restore, and tickets went from 22 in July to 40 in August
 * * *
 
 ## Open decisions
@@ -131,7 +133,7 @@ The spike is there to answer the two questions Joana named as open: what B costs
 *   [ ] **Measure B's fallback rate**, meaning how often the merge ends in a conflict copy with the formatting fallback on
 *   [ ] **Write down what A would take** as a first step, owned by Tomasz
 *   [ ] **Settle how B treats to-do fields**, since the thread describes the merge for block text only
-*   [ ] **Settle mixed-version behavior** during a rollout, when some clients keep a base version and others still run v3. The thread does not cover it
+*   [ ] **Settle mixed-version behavior** during a rollout, when some clients keep a base version and others still run v3, which the thread does not cover
 *   [ ] **Agree the member message** Support uses once a change ships
 * * *
 
@@ -143,6 +145,6 @@ The spike is there to answer the two questions Joana named as open: what B costs
 
 ### Source basis
 * * *
-*   **`context/loomlist-sync-conflict-thread.md`** — governs the options, figures, positions and plan. The #sync-eng thread from 2026-09-14 to 2026-09-22, exported by Joana
+*   **`context/loomlist-sync-conflict-thread.md`** — the #sync-eng thread from 2026-09-14 to 2026-09-22, exported by Joana, which governs the options, figures, positions and plan
 *   **`context/loomlist-context.md`** — background on how protocol v3 behaves today, kept by Elif, Product Operations, last updated 2026-09-22
 *   **Not supplied** — Tomasz's doc `Sync conflicts, options for v3 and after` and Selin's frame `Sync / Conflict copy`, both cited in the thread and not read for this document

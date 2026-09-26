@@ -4,11 +4,9 @@
 
 ---
 
-Members want to-dos that come back on a schedule. Repeating to-dos are the most requested to-do feature we have: 212 requests on the feedback board since January, and 38 Plus workspaces named it in the renewal survey as the reason they keep a second app for chores and routines. Today people copy a to-do by hand every week, or set a reminder far ahead and keep moving it.
+Repeating to-dos are the most requested to-do feature: 212 requests on the feedback board since January, and 38 Plus workspaces named it in the renewal survey as the reason they keep a second app for chores and routines. Today people copy a to-do by hand every week, or set a reminder far ahead and keep moving it.
 
-This parent task holds the behavior every platform builds to, plus the rollout and the tracking. iOS, Android, Web and BE each deliver their part in a subtask. Desktop gets the feature through the web client, so it has no subtask of its own.
-
-The work counts as a success when 10% of weekly active Plus and Team workspaces have at least one repeating to-do 8 weeks after the flag is on for everyone.
+This parent task holds the shared behavior, rollout and tracking, and iOS, Android, Web and BE each have a subtask. Desktop gets the feature through the web client, so it has no subtask. The work succeeds when 10% of weekly active Plus and Team workspaces have at least one repeating to-do 8 weeks after the flag is on for everyone.
 
 **References**
 
@@ -116,7 +114,7 @@ A workspace can hold 500 repeating to-dos that have not ended. Checked-off and e
 
 ---
 
-Next due dates are worked out in the to-do owner's time zone. The Overdue chip and reminders follow the same rule, so all three agree for the owner. When the to-do is reassigned, the next occurrence uses the new owner's zone. A teammate in another zone sees the owner's date with the zone shown.
+Next due dates are worked out in the to-do owner's time zone, the same rule the Overdue chip and reminders follow, so all three agree for the owner. When the to-do is reassigned, the next occurrence uses the new owner's zone. A teammate in another zone sees the owner's date with the zone shown.
 
 > The to-do owner is the assignee, or the creator when the to-do has no assignee. It is not the workspace Owner role.
 

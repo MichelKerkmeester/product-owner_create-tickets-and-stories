@@ -14,11 +14,13 @@ The apps have saved the wishlist on the device since it first shipped, and web h
 * * *
 From the customer's side, the app and the website are one shop, but they have two wishlists. The app wishlist lives on the phone and is lost with a new phone or a reinstall. The web wishlist lives in the account and never shows up in the app.
 
-CS tagged `412` wishlist contacts between `2026-07-01` and `2026-09-20`. That makes wishlist the third biggest tag after WISMO and returns, and the count grew every month: 118 in July, 139 in August and 155 in September up to the 20th. Of those contacts, 171 lost their wishlist after a new phone or a reinstall, 138 could not find their app items on web and 64 could not find their web items in the app. Another 39 hit the limit, and several of them did not know they had two separate lists. 23 of the contacts also carry a complaint tag.
+CS tagged `412` wishlist contacts between `2026-07-01` and `2026-09-20`, making wishlist the third biggest tag after WISMO and returns. The count grew every month: 118 in July, 139 in August and 155 in September up to the 20th.
+
+Of those, 171 lost their wishlist after a new phone or a reinstall, 138 could not find their app items on web and 64 could not find their web items in the app. Another 39 hit the limit, and several of them did not know they had two separate lists. 23 of the contacts also carry a complaint tag.
 
 ### Solution
 * * *
-A signed-in customer gets one wishlist that belongs to their account, whichever surface they save from. Items a customer saved on a device before signing in are moved into that account list, so moving to the account never costs them what they already saved. Customers who use the app without an account keep the device wishlist, because it is how the wishlist works for anyone who never signs in.
+A signed-in customer gets one account wishlist, whichever surface they save from. Items saved on a device before signing in move into that list, so the switch never costs a customer what they already saved. Customers who use the app without an account keep the device wishlist, because that is how it works for anyone who never signs in.
 
 #### **Expected outcomes**
 * * *

@@ -1,7 +1,7 @@
 ---
 title: "Product Owner: Manual Testing Playbook"
 description: "Operator-facing directory, execution policy and release-readiness guide for the two-runtime Product Owner manual validation package."
-version: 2.2.0.0
+version: 2.3.0.0
 ---
 
 # Product Owner: Manual Testing Playbook
@@ -206,7 +206,7 @@ Ticket realism grades whether a delivered artifact reads like work a team at the
 | Blocking | An invented fact | Exactly the Defect severity definition, the disclosed-addition exception, the whole-item naming sentence and the labelled-hypothesis reading included. The rubric adds no stricter reading |
 | Blocking | Placeholder or toy content | An unfilled slot (`{...}`, `{LINK}`, `TODO`, lorem ipsum) or a stand-in name or value where the turns or an attachment supply the real one. Exempt: the Project `[NNN]` path slot, the bug template's `Not provided`, Story Mode's `TBD...` in the three Delivery slots, every fixed template line and a placeholder quoted verbatim from an attached source, such as `Conflicting edit from {device name}` in the Loomlist sync thread, braces included |
 | Blocking | Context facts ignored or altered | The artifact states a name, surface, service, number, code, platform or version the attachments or turns contradict, or puts a generic stand-in where they name the real thing the request is about. Omitting a context fact the request does not need is not a defect |
-| Advisory | Size band | The artifact body's line count against the band the scenario records. Never a failure, whatever the scenario tests |
+| Advisory | Size band | The artifact body's line count against the band the scenario records, and the length caps: a bullet is one sentence of 25 words or fewer, a paragraph at most three sentences and 60 words, and an About or Overview opening at most two paragraphs, with code, tables, Given/When/Then lines and verbatim source copy exempt. Never a failure, whatever the scenario tests |
 | Advisory | Commentary | Unchanged from Defect severity, its delivery-shape exception for `PID-001` included |
 | Advisory | Asking for a fact an attachment already states | Recorded as it is today, never a failure |
 | Advisory | A Task or Bug title with no discipline code | No routed template asks for one, so it is recorded only. Story and Epic H1s follow the skill's H1 rule, which bans `BO`, `BE` and `FE` short codes and a `PRD -` prefix, so neither the rubric nor any Pass clause expects a code there |

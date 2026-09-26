@@ -162,7 +162,7 @@ benchmark/format/
 | Arguments | `validate-output-format.cjs` accepts `--write`, flags and target paths, then rejects unknown flags or `--write` with explicit targets (`validate-output-format.cjs:9-23`) |
 | Source inventory | No explicit target selects the system files, shared cards and Markdown files found under the skill references and assets (`validate-output-format.cjs:25-49, 53-54`) |
 | Target type | Explicit targets must exist and be regular files before analysis begins (`validate-output-format.cjs:56-67`) |
-| Artifact checks | Explicit targets receive purity, shape, Delivery, punctuation, Requirements, voice and conciseness checks (`validate-output-format.cjs:833-944, 946-1058`) |
+| Artifact checks | Explicit targets receive purity, shape, Delivery, punctuation, Requirements, voice and conciseness checks, plus length-cap advice (`validate-output-format.cjs:833-944, 946-1058`) |
 | Writing | `--write` is allowed only without explicit targets and writes a changed formatted source file (`validate-output-format.cjs:20-23, 1165-1188`) |
 | Results | Unknown flag combinations return 64, unreadable targets return 66, validation errors return 1 and a clean run prints a passed scope (`validate-output-format.cjs:14-23, 59-67, 1300-1307`) |
 
