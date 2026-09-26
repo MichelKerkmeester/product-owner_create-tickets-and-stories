@@ -165,14 +165,14 @@ One reading decides a verdict: `PDK-003` states `not decided` in other words. Th
 
 Each round ran from this folder as `python3 run/playbook_runner.py --system ../../.. --out <round>/run-1 --engine claude --model claude-opus-5-5 --effort medium --jobs 4 --ids <ids>`. `run/check_run.py <round>/run-1 --model claude-opus-5-5` reports findings only for the scenarios the round left out, as "no readable meta.json".
 
-The collector filed the rounds' 102 deliverables under their own folders in `export/benchmark/`. The operator removed them on 2026-09-26, so `export/benchmark/` holds the main run's 98 files. Each round's evidence stays in its `replies/` and `results.csv`, and its exports in git history at Product Owner `3fdce37` and Barter `d214c160`.
+The collector filed the rounds' 102 deliverables under their own folders in `export/benchmark/`. The operator removed them on 2026-09-26, and then the main run's 20 clarifications, so `export/benchmark/` holds the main run's 78 deliverables. Each round's evidence stays in its `replies/` and `results.csv`, and its exports in git history at Product Owner `3fdce37` and Barter `d214c160`.
 
 ---
 
 ## 5. Next steps
 
-- **Kernel review:** pending since v1.13.0, and the text to review is now v1.17.0, recorded in `SYNC.md` only once the operator confirms it
-- **Deployment:** the renamed knowledge files and the new kernel reach claude.ai only after that review, with a deployment receipt and a smoke check
+- **Kernel review:** the operator confirmed v1.17.0 on 2026-09-26, and `SYNC.md` records it
+- **Deployment:** the renamed knowledge files and kernel v1.17.0 reach claude.ai only with a deployment receipt and a smoke check
 - **`PST-004`:** the skill twin asked for the split, as Story Mode requires at `references/story-mode.md` line 406 and Project knowledge line 382
 - The Project took the brief's six tasks as the split in both rounds, recorded as a runtime fault with no repair proposed
 - **Length caps:** the rules gained them on 2026-09-26 without a rerun, so no run has measured whether the runtimes follow them
@@ -246,7 +246,15 @@ Three readers then compared every changed hunk for a dropped, changed or added f
 
 Over-cap lines fell from 623 in 78 files to 7 in 7 files, and words from 82,830 to 81,502. The 7 are task About openings kept past two paragraphs, since cutting them would drop a fact the body does not repeat.
 
-No scenario reran, so the caps are unmeasured on the runtimes. `run/collect_exports.py` now keeps an edited export unless `--force` is given and collects rounds only with `--rounds`. Its sha256 is now `161169269678cc0e0dac2c725722713c6c3aa6c923663c36f500d52451790e5f`, and `run/selftest.py` is `f657ab6f2092f53813b90e4637105160a1cf1d3de64a754d08f022a0323fbd8c`.
+No scenario reran, so the caps are unmeasured on the runtimes. `run/collect_exports.py` now keeps an edited export unless `--force` is given and collects rounds only with `--rounds`. That version's sha256 was `161169269678cc0e0dac2c725722713c6c3aa6c923663c36f500d52451790e5f`, with `run/selftest.py` at `f657ab6f2092f53813b90e4637105160a1cf1d3de64a754d08f022a0323fbd8c`.
+
+### Clarifications removed
+
+On 2026-09-26 the operator removed the 20 clarification files from `export/benchmark/`, 10 skill and 10 Project. A clarification is the question a scenario asked before drafting, not a deliverable. `export/benchmark/` now holds 78 files, 31 skill and 47 Project, and the counts above describe all 98 as collected and edited.
+
+The questions stay in the evidence. Each Project one is in its `replies/<ID>-turn1.txt`, and each skill one in its scenario's git-ignored `exports/` copy. All 20 are in git history at Product Owner `1fc3657` and Barter `e324ecdf` as edited, and at `e9edb95` and `7652158c` as graded.
+
+`run/collect_exports.py` now skips any file named `*-clarification.md` and prints a skip line for it, so a new collection cannot put one back. A dry run over this folder prints 20 skip lines and writes no clarification. Its sha256 is now `c277dd4327125b88700cca894b591d9515105c0a424d1596eb25b83263ed29bb`, and `run/selftest.py` is `10608ab9ff3bd9fdab3c7efb5ebe2e2e61cb5c6a1d17507f895d5e5805866ad6`.
 
 ### What is tracked
 
@@ -256,35 +264,26 @@ Kept local by `.gitignore`: the event streams and `run-log.jsonl`, stderr, trans
 
 ### Project extraction review
 
-Each collected Project file beside its reply. At collection, each file's text was found verbatim in the reply named here, as the block that reply rendered. The hand edit under Edited after grading changed the files, so the match now holds for the graded originals.
+Each Project file still published, beside its reply. At collection, each file's text was found verbatim in the reply named here, as the block that reply rendered. The hand edit under Edited after grading changed the files, so the match now holds for the graded originals.
 
 | Collected file | Found in |
 | --- | --- |
 | `PBG-001 - NNN - bug-ios-cart-badge-stale-after-remove.md` | `replies/PBG-001-turn1.txt` |
 | `PBG-002 - NNN - bug-android-confirmation-total-missing-city-tax (turn 2).md` | `replies/PBG-002-turn2.txt` |
 | `PBG-002 - NNN - bug-android-confirmation-total-missing-city-tax.md` | `replies/PBG-002-turn1.txt` |
-| `PBG-003 - 001 - bug-reminders-late-after-march-clock-change-clarification.md` | `replies/PBG-003-turn1.txt` |
 | `PBG-003 - 002 - bug-reminders-late-after-march-clock-change.md` | `replies/PBG-003-turn2.txt` |
 | `PDK-001 - 001 - doc-promotions-stacking (turn 2).md` | `replies/PDK-001-turn2.txt` |
 | `PDK-001 - 001 - doc-promotions-stacking.md` | `replies/PDK-001-turn1.txt` |
-| `PDK-002 - 001 - doc-payment-webhook-failures-clarification.md` | `replies/PDK-002-turn1.txt` |
 | `PDK-002 - 002 - doc-payment-webhook-failures-runbook.md` | `replies/PDK-002-turn2.txt` |
 | `PDK-003 - 001 - doc-sync-conflicts-lost-edits-status.md` | `replies/PDK-003-turn1.txt` |
 | `PDK-003 - 002 - doc-sync-conflict-options-proposal.md` | `replies/PDK-003-turn2.txt` |
-| `PDK-004 - 001 - doc-loomlist-activity-emails-clarification.md` | `replies/PDK-004-turn1.txt` |
 | `PDK-004 - 002 - doc-loomlist-activity-emails.md` | `replies/PDK-004-turn2.txt` |
-| `PEP-001 - 001 - Epic-partner-hub-self-onboarding-clarification.md` | `replies/PEP-001-turn1.txt` |
 | `PEP-001 - 002 - Epic-partner-hub-self-onboarding.md` | `replies/PEP-001-turn2.txt` |
-| `PEP-002 - 001 - Epic-offline-mode-clarification.md` | `replies/PEP-002-turn1.txt` |
 | `PEP-002 - 002 - Epic-offline-mode.md` | `replies/PEP-002-turn2.txt` |
 | `PEP-003 - 001 - Epic-self-serve-returns.md` | `replies/PEP-003-turn1.txt` |
-| `PID-001 - 001 - task-due-today-filter-chip-clarification.md` | `replies/PID-001-turn1.txt` |
 | `PID-001 - 002 - task-due-today-filter-chip.md` | `replies/PID-001-turn2.txt` |
-| `PIR-001 - 001 - intake-guest-loyalty-points-clarification.md` | `replies/PIR-001-turn1.txt` |
 | `PIR-001 - 002 - Epic-guest-loyalty-points.md` | `replies/PIR-001-turn2.txt` |
-| `PIR-002 - 001 - intake-wishlist-across-devices-clarification.md` | `replies/PIR-002-turn1.txt` |
 | `PIR-002 - 002 - Story-customer-wishlist-account-wishlist-in-apps.md` | `replies/PIR-002-turn2.txt` |
-| `PST-001 - NNN - Story-free-cancellation-filter-clarification.md` | `replies/PST-001-turn1.txt` |
 | `PST-001 - NNN - Story-free-cancellation-filter.md` | `replies/PST-001-turn2.txt` |
 | `PST-002 - NNN - Story-member-sharing-view-only-links (turn 2).md` | `replies/PST-002-turn2.txt` |
 | `PST-002 - NNN - Story-member-sharing-view-only-links.md` | `replies/PST-002-turn1.txt` |
@@ -315,5 +314,4 @@ Each collected Project file beside its reply. At collection, each file's text wa
 | `PTK-004 - NNN - task-recurring-todos.md` | `replies/PTK-004-turn1.txt` |
 | `PTK-005 - NNN - task-android-recurring-todos (turn 2).md` | `replies/PTK-005-turn2.txt` |
 | `PTK-005 - NNN - task-android-recurring-todos.md` | `replies/PTK-005-turn1.txt` |
-| `PTK-006 - 001 - task-booking-funnel-events-clarification.md` | `replies/PTK-006-turn1.txt` |
 | `PTK-006 - 002 - task-booking-funnel-event-checks.md` | `replies/PTK-006-turn2.txt` |
