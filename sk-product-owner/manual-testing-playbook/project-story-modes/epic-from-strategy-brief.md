@@ -1,7 +1,7 @@
 ---
 title: "PEP-001 -- Epic from strategy brief"
 description: "Validates an explicit $epic request built on a partner self-onboarding strategy brief in a Project: one Epic question block in the Epic lane, then a house-format Epic Deliverable Block whose child stories and numbers come from the brief verbatim."
-version: 1.1.0.0
+version: 1.1.0.1
 ---
 
 # PEP-001 -- Epic from strategy brief
@@ -94,7 +94,7 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | One scaffold at lines 58 and 79, rendering without a panel at line 85, the ESCALATE IF intake rule at line 108, the Epic shape at line 140 and the Epic and clarification labels at lines 227 and 228 |
-| [`Product Owner - Templates - Story Mode - v0.403.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.403.md) | Clarification block at line 42, Epic kind at line 102, stated child-story set at line 110, Delivery opt-in at lines 131 and 132, Epic H1 at line 146 and Epic draft order at line 182 |
+| [`Product Owner - Templates - Story Mode - v0.404.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.404.md) | Clarification block at line 42, Epic kind at line 102, stated child-story set at line 110, Delivery opt-in at lines 131 and 132, Epic H1 at line 146 and Epic draft order at line 182 |
 | [`Product Owner - Assets - Epic Template - v0.101.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Epic%20Template%20-%20v0.101.md) | Epic scaffold at lines 22 to 93 and its Notes For Use at lines 98 to 102 |
 | [`roamstay-context.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-context.md) | Roamstay surfaces, squads and the epic title pattern |
 | [`roamstay-partner-self-onboarding-brief.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-partner-self-onboarding-brief.md) | The six stages, the numbers and the boundaries the Epic carries |

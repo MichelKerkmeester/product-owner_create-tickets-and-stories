@@ -1,7 +1,7 @@
 ---
 title: "Product Owner: Manual Testing Playbook"
 description: "Operator-facing directory, execution policy and release-readiness guide for the two-runtime Product Owner manual validation package."
-version: 2.1.1.0
+version: 2.2.0.0
 ---
 
 # Product Owner: Manual Testing Playbook
@@ -147,7 +147,7 @@ A scenario passes only when the exact sequence ran, every turn matched expected 
 - `FAIL`: any critical signal, state, artifact or boundary is wrong
 - `SKIP`: a named sandbox or runtime blocker prevents execution and no safe deterministic fallback exists
 
-Each scenario's Fail bullet names the likely failures and is not a complete list. A turn that misses any Pass clause fails the scenario even when no Fail example describes the miss, so there is no verdict between `PASS` and `FAIL`.
+Each scenario's Fail bullet names the likely failures and is not a complete list. A turn that misses any Pass clause fails the scenario even when no Fail example describes the miss, so there is no verdict between `PASS` and `FAIL`. A backticked value in a Pass clause is graded word for word where the source sets that value in backticks, gives it as a defined label such as a word from a status key, or the clause itself says verbatim for it. Elsewhere the same value stated in other words meets the clause. A value that is changed, generalized or left out still misses it.
 
 ### Clarification turns
 
