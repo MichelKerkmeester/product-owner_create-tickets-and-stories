@@ -1,4 +1,4 @@
-# Product Owner - Assets - Story Template - v0.100
+# Product Owner - Assets - Story Template - v0.101
 
 The default shape for a Story. Detail scales with scope. The order does not change.
 
@@ -29,15 +29,15 @@ _Use it as the foundation for Tasks that work towards fulfilling the acceptance 
 * * *
 {One to three short sentences: what this story covers. Add a second paragraph only when the flow needs framing.}
 
-### Problem
+#### Problem
 * * *
 {What breaks or is missing today, or a link to the parent epic where the high-level problem is defined.}
 
-### Solution
+#### Solution
 * * *
 {Two or three sentences on the approach: what changes for the user, and why this shape of change answers the Problem. Written as a decision, not a list. Bullets only when the story bundles several distinct changes that a reader needs to tell apart, and then one line each.}
 
-#### **Expected outcomes**
+**Expected outcomes**
 * * *
 *   {Result for users or the business}
 *   {Result for users or the business}
@@ -57,12 +57,12 @@ Lifecycle
 * * *
 **{Constraint group, such as Video format or Data retention}**
 * * *
-*   {A hard requirement: a format, limit, platform, integration or rule the delivery must satisfy}
-*   {Another hard requirement in the same group}
+- [] {A hard requirement: a format, limit, platform, integration or rule the delivery must satisfy}
+- [] {Another hard requirement in the same group}
 
 **{Next constraint group}**
 * * *
-*   {Hard requirement}
+- [] {Hard requirement}
 * * *
 ##   
 
@@ -79,7 +79,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** {the outcome they experience and the quality it has to have, with the how left open}
 *   **And** {a second outcome, only when the criterion needs it}
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 * * *
 ##   
 ```
@@ -87,11 +87,11 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 ### Notes For Use
 
 - The `#### **References**` block uses plain sub-labels (`Components`, `Flows`, `Lifecycle`), not bold. Omit any group with no supplied links. Images are embedded in ClickUp after export, so the artifact never carries an image, a screenshot reference or a file path to one
-- Solution is the product decision in prose: what changes for the user and why that shape answers the Problem. It never restates the constraints that sit in Requirements or the outcomes that sit in Acceptance criteria, and it names no mechanism. If a Solution bullet could be pasted into Requirements or a criterion unchanged, it belongs there instead
-- Requirements hold hard requirements only: the formats, limits, platforms, integrations, compliance rules and performance floors the delivery has to satisfy whatever approach the developer takes. Each group is a bold name, a divider and short `*   ` bullets, one constraint per bullet, stated as a fact or an instruction rather than as a user outcome. Every bullet is a sentence a build can fail, so a bullet that reports what a screen says, shows or contains, naming no value, limit, condition, effect or named flow a build could get wrong, is description and is struck rather than reworded. Never a `**Checklist**`
-- Supplied hard values travel verbatim. Copy each number, size, spacing, heading level, limit, exact string and button order into a constraint bullet with its value intact, in the source's own units and notation, inside backticks. Where the source is organised per screen or surface, mirror that organisation with one bold-lead group per screen under the source's own name, and carry each screen's reuse map as a Shared with: constraint in that group. Where the source names a change without giving its content, point the constraint at the design that settles it rather than inventing the text or dropping the line. A screen the source describes in prose, or shows only in a screenshot, supplies its copy, its labels and its values, and not its layout, its composition or a paraphrase of what it communicates. Carry the strings verbatim in backticks and let the design link carry the rest
+- Solution is the product decision in prose: what changes for the user and why that shape answers the Problem. It never restates the constraints that sit in Requirements or the outcomes that sit in Acceptance criteria, and it names no mechanism. If a Solution bullet could be pasted into Requirements or a criterion unchanged, it belongs there instead. `**Expected outcomes**` closes Solution as a bold label with a `* * *` divider under it, never as a heading, because Solution already sits at H4
+- Requirements hold hard requirements only: the formats, limits, platforms, integrations, compliance rules and performance floors the delivery has to satisfy whatever approach the developer takes. Each group is a bold name, a divider and short `- []` checklist items, one constraint per item, stated as a fact or an instruction rather than as a user outcome or a build step. Every item is a sentence a build can fail, so an item that reports what a screen says, shows or contains, naming no value, limit, condition, effect or named flow a build could get wrong, is description and is struck rather than reworded. Never a `**Checklist**` label, and never `[ ]` with a space
+- Supplied hard values travel verbatim. Copy each number, size, spacing, heading level, limit, exact string and button order into a constraint item with its value intact, in the source's own units and notation, inside backticks. Where the source is organised per screen or surface, mirror that organisation with one bold-lead group per screen under the source's own name, and carry each screen's reuse map as a Shared with: constraint in that group. Where the source names a change without giving its content, point the constraint at the design that settles it rather than inventing the text or dropping the line. A screen the source describes in prose, or shows only in a screenshot, supplies its copy, its labels and its values, and not its layout, its composition or a paraphrase of what it communicates. Carry the strings verbatim in backticks and let the design link carry the rest
 - A source line above the first heading, or for a surface no heading names, is a group of its own under that surface's name, and source hedges are rewritten as facts or open constraints rather than carried into the artifact's prose
-- Requirements is optional only where there is nothing hard to hold. Omit the whole section, spacer included, when the source names no hard constraint and the acceptance criteria say everything. One supplied hard value makes the section mandatory: optionality is permission to omit an empty section, never permission to drop a value the source supplied. Never pad it with outcomes or with screen description to make it look complete. A group named for a screen the source mentioned once holds one bullet, and a group that grew past its source grew by description
+- Requirements is optional only where there is nothing hard to hold. Omit the whole section, spacer included, when the source names no hard constraint and the acceptance criteria say everything. One supplied hard value makes the section mandatory: optionality is permission to omit an empty section, never permission to drop a value the source supplied. Never pad it with outcomes or with screen description to make it look complete. A group named for a screen the source mentioned once holds one item, and a group that grew past its source grew by description
 - `## Delivery` is opt-in and lives in section 3 rather than in the scaffold above, because a delivery view nobody asked for reads as three `TBD...` slots pretending to be a plan. When it is absent, Acceptance criteria is the last section and keeps the close it already writes
 - Acceptance criteria describe what the user can rely on once the work ships and the quality it has to have, from the product's point of view. They leave the mechanism to the developer. A criterion says playback starts at once and adapts to the connection, not which player or bitrate ladder does it
 - Keep acceptance criteria few. One criterion per outcome the story exists to guarantee, plus the edges that matter. The count grows only with the number of surfaces and considerations the story touches, never with its size or the number of requirements

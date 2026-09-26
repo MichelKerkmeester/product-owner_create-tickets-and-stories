@@ -52,9 +52,9 @@ Items opened since the last digest drop out of the next EM-01, so it can run sho
 ### Before changing a template
 * * *
 
-*   [ ] **Render all six locales** in the preview tool, checking ja-JP and de-DE overflow
-*   [ ] **Send a test to the team inbox** and log the date on the inventory page
-*   [ ] **Bump the version suffix** when a variable is added or removed, so a job on the old variables fails loudly
+*   [] **Render all six locales** in the preview tool, checking ja-JP and de-DE overflow
+*   [] **Send a test to the team inbox** and log the date on the inventory page
+*   [] **Bump the version suffix** when a variable is added or removed, so a job on the old variables fails loudly
 
 ## Scheduled emails
 * * *

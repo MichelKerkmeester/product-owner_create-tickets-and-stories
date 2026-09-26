@@ -1,6 +1,6 @@
 # FE - Web - TODO - Due today filter chip
 
-### About
+## About
 
 ---
 
@@ -18,12 +18,12 @@ Add a Due today chip on Web. Desktop gets it through the web client, and iOS and
 
 **Checklist**
 
-- [ ] Show a `Due today` chip after Overdue: All, Assigned to me, Overdue, Due today
-- [ ] Use the existing filter chip, with no new styling
-- [ ] Keep one chip active at a time
-- [ ] Keep All as the default when the To-dos view opens
-- [ ] Show the label in every shipped locale, with en-US for a missing string
-- [ ] Desktop shows the chip on its next load, with no Desktop release
+- [] Show a `Due today` chip after Overdue: All, Assigned to me, Overdue, Due today
+- [] Use the existing filter chip, with no new styling
+- [] Keep one chip active at a time
+- [] Keep All as the default when the To-dos view opens
+- [] Show the label in every shipped locale, with en-US for a missing string
+- [] Desktop shows the chip on its next load, with no Desktop release
 
 ---
 
@@ -35,10 +35,10 @@ As with Overdue, "today" is the to-do owner's date, even when the viewer is on a
 
 **Checklist**
 
-- [ ] List every to-do the member can open that is unchecked and due today in the owner's time zone
-- [ ] Leave out checked-off to-dos and ones due before or after today or undated
-- [ ] Sort by due date, like the other chips
-- [ ] When nothing is due today, keep the chip active and show an empty list, not another chip's list
+- [] List every to-do the member can open that is unchecked and due today in the owner's time zone
+- [] Leave out checked-off to-dos and ones due before or after today or undated
+- [] Sort by due date, like the other chips
+- [] When nothing is due today, keep the chip active and show an empty list, not another chip's list
 
 ---
 
@@ -50,6 +50,6 @@ As with Overdue, "today" is the to-do owner's date, even when the viewer is on a
 
 **Checklist**
 
-- [ ] Send `filter_selected` with `filter` set to `due_today` on selecting Due today
-- [ ] Include the usual `filter_selected` properties: `workspace_id`, hashed `user_id`, `platform`, `app_version` as the web build number and `plan`
-- [ ] Keep sending `all`, `assigned_to_me` and `overdue` unchanged
+- [] Send `filter_selected` with `filter` set to `due_today` on selecting Due today
+- [] Include the usual `filter_selected` properties: `workspace_id`, hashed `user_id`, `platform`, `app_version` as the web build number and `plan`
+- [] Keep sending `all`, `assigned_to_me` and `overdue` unchanged

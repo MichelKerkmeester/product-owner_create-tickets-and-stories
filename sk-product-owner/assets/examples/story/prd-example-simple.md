@@ -15,19 +15,19 @@ _Use it as the foundation for Tasks that work towards fulfilling the acceptance 
 * * *
 The project title sits in the project header. Renaming a project today means leaving the project view for Settings, which turns a one-character fix into a two-click detour. This story makes the header title editable in place, so members never leave the project view to correct a name.
 
-### Problem
+#### Problem
 * * *
 Members leave the project view to correct even one character:
 *   The header title is read-only
 *   Rename lives in Settings, two clicks away from where the name is shown
 * * *
 
-### Solution
+#### Solution
 * * *
 Let the project name be edited where it is read. The header title becomes the field itself, so renaming is a correction made in passing rather than a trip into Settings, and the save happens the moment the member moves on, because a separate button would turn a two-second fix back into a form.
 * * *
 
-#### **Expected outcomes**
+**Expected outcomes**
 * * *
 *   Members fix a typo without leaving the project view
 *   No separate save action is needed for a rename
@@ -52,7 +52,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **When** the member edits the title in place and moves focus away
 *   **Then** the new name is saved and every project surface shows it, with no separate save step to remember
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 2\. **An invalid name never replaces the saved one**
 * * *
@@ -61,6 +61,6 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** the saved name stands unchanged everywhere the project appears
 *   **And** the member is told what to correct, and the name they typed is still there to fix
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 * * *
 ##   

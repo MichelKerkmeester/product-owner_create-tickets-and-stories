@@ -1,7 +1,7 @@
 ---
-title: "Product Owner - System - Interactive Mode - v0.407"
+title: "Product Owner - System - Interactive Mode - v0.408"
 description: "Conversation flow and state management for Product Owner task, bug and document guidance."
-version: "0.407"
+version: "0.408"
 contextType: reference
 importance_tier: high
 trigger_phrases:
@@ -15,7 +15,7 @@ trigger_phrases:
   - "source authority clarification"
 ---
 
-# Product Owner - System - Interactive Mode - v0.407
+# Product Owner - System - Interactive Mode - v0.408
 
 Conversation flows and state management for interactive guidance with concise transparency.
 
@@ -503,7 +503,7 @@ Ready for delivery.
 
 The kernel points here for the shape-specific gate notes:
 
-- **Story:** Clarity and Mechanism Depth decide it. Acceptance criteria settle Clarity and the Problem inside the About umbrella settles Mechanism Depth. Adding a build checklist to a requirement costs Relevance and buys no Actionability
+- **Story:** Clarity and Mechanism Depth decide it. Acceptance criteria settle Clarity and the Problem inside the About umbrella settles Mechanism Depth. Adding build steps to a requirement costs Relevance and buys no Actionability
 - **Epic:** Completeness reads against the Epic shape, which carries a Goal and a Scope of child stories and no requirements of its own. Scoring an Epic down for absent requirements is a rubric error, and Actionability lives in the release-level criteria and in whether each named child story is separable
 
 `Rules - Quality Scoring` carries the three bands, the pass-versus-near-miss test per dimension and the revision ladder. Consult it when a dimension sits on its boundary or a revision cycle needs a named target.

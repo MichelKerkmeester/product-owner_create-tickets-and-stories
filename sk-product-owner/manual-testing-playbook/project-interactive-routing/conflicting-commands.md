@@ -59,7 +59,7 @@ A runtime that settles a command conflict on its own reading renders an artifact
 
 ### Expected
 
-Step 1 fixes the panel baseline with both attachments in place. Step 2 returns one consolidated question as its own clarification block. Step 3 proves the wait state and that the runtime left the choice to the user. Step 4 finds a Story with `## About`, `### Problem`, `### Solution`, `#### **Expected outcomes**`, `## Requirements` and `## Acceptance criteria`, carrying the Turn 2 values.
+Step 1 fixes the panel baseline with both attachments in place. Step 2 returns one consolidated question as its own clarification block. Step 3 proves the wait state and that the runtime left the choice to the user. Step 4 finds a Story with `## About`, `#### Problem`, `#### Solution`, the `**Expected outcomes**` label, `## Requirements` and `## Acceptance criteria`, carrying the Turn 2 values.
 
 ### Evidence
 
@@ -89,10 +89,10 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, Deliverable Block and export-equivalent contract |
 | [`Product Owner - System - Router Contract - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Router%20Contract%20-%20v0.100.md) | Command collection and the conflict route |
-| [`Product Owner - System - Interactive Mode - v0.407.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.407.md) | Consolidated question and clarification block |
+| [`Product Owner - System - Interactive Mode - v0.408.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.408.md) | Consolidated question and clarification block |
 | [`Product Owner - Assets - Interactive Response Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.103.md) | Comprehensive Question template and its conflict line |
-| [`Product Owner - Templates - Story Mode - v0.404.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.404.md) | Routed Story Mode workflow and Story shape |
-| [`Product Owner - Assets - Story Template - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Story%20Template%20-%20v0.100.md) | Routed Story scaffold |
+| [`Product Owner - Templates - Story Mode - v0.405.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.405.md) | Routed Story Mode workflow and Story shape |
+| [`Product Owner - Assets - Story Template - v0.101.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Story%20Template%20-%20v0.101.md) | Routed Story scaffold |
 | [`fernhouse-context.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-context.md) | Attachment, the Wishlist flow and its limit of 50 items |
 | [`fernhouse-wishlist-feedback.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-wishlist-feedback.md) | Attachment, the 412 contacts and the bug-or-story disagreement |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |

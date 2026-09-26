@@ -212,7 +212,7 @@ Do not bulk-read optional resources or example folders.
 - "Create a task to write engineering docs" remains Task Mode
 - "Create a task to write a PRD" and "create a task to write a draft" remain Task Mode. The phrases "write a user story for X" and "turn this into a PRD" route to Story Mode (Story shape), "write an epic for X" routes to Story Mode (Epic shape), and draft wording such as "make a draft for X", "write a draft for PM" and "give the PM a draft" routes to Story Mode (Story shape)
 - One qualifier inside a phrase never changes the route. "Write a full story" routes exactly where "write a story" routes, and "a proper PRD" exactly where "a PRD" routes
-- Story Mode resolves the artifact kind (Story or Epic) before any file is read, loads only that shape's scaffold, names the kind in the response, keeps requirements free of build checklists, writes a Delivery section only where the requester asked for it or an open question or an undated external constraint forced it, and never emits ticket header fields, story points or INVEST notes. Story and Epic are artifact kinds, not size tiers
+- Story Mode resolves the artifact kind (Story or Epic) before any file is read, loads only that shape's scaffold, names the kind in the response, keeps requirements free of build steps, writes a Delivery section only where the requester asked for it or an open question or an undated external constraint forced it, and never emits ticket header fields, story points or INVEST notes. Story and Epic are artifact kinds, not size tiers
 - UI feedback and design refinement remain Task Mode unless the requested artifact is explicitly a bug report, story or document
 
 ## Document Loading Order

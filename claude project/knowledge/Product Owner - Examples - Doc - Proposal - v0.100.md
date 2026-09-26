@@ -108,10 +108,10 @@ No recommendation has been recorded yet. The Product Design lead is the proposed
 ## Open decisions
 * * *
 
-*   [ ] Full migration versus incremental migration — owner: Product Design lead, pending engineering feasibility estimate
-*   [ ] Whether "System" appearance should be the default for new installs or whether "Light" remains default until dark mode is fully migrated
-*   [ ] Which screens are prioritized first if incremental migration is chosen
-*   [ ] Baseline count and target reduction for brightness-related support contacts — owner: Product Operations
+*   [] Full migration versus incremental migration — owner: Product Design lead, pending engineering feasibility estimate
+*   [] Whether "System" appearance should be the default for new installs or whether "Light" remains default until dark mode is fully migrated
+*   [] Which screens are prioritized first if incremental migration is chosen
+*   [] Baseline count and target reduction for brightness-related support contacts — owner: Product Operations
 * * *
 
 ###   

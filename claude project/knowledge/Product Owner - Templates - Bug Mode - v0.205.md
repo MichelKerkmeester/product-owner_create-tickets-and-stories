@@ -1,4 +1,4 @@
-# Product Owner - Templates - Bug Mode - v0.204
+# Product Owner - Templates - Bug Mode - v0.205
 
 Bug-mode guidance for isolated defects: the workflow, the delivery standards, the mandatory structure, the quality checklist and the error recovery table. The workflow captures context, observed behavior, reproduction steps, expected behavior and the QA checklist needed before handoff.
 
@@ -102,13 +102,13 @@ For feature development or enhancements, use `$task` and reference **Templates -
 #### Section hierarchy
 
 - **H1:** Bug title only
-- **H3:** `About`, `Bug` and optional `BDD Scenarios`
+- **H2:** `About`. **H3:** `Bug` and optional `BDD Scenarios`
 - **Bold numbered labels:** `1. Observed Behavior` and `2. Expected Behavior` inside `### Bug`
 
 #### Structure order
 
 1. Title as `# {Bug Title}`
-2. `### About` with short description, field table and references
+2. `## About` with short description, field table and references
 3. `### Bug`
 4. `1. Observed Behavior`
 5. `Steps to Reproduce:`
@@ -121,7 +121,7 @@ For feature development or enhancements, use `$task` and reference **Templates -
 
 - Use `---` between major sections and template blocks
 - Use `-` for bullets
-- Use `- [ ]` for checklist items
+- Use `- []` for checklist items, with no space between the brackets
 - Use numbered lists for reproduction steps
 - Use fenced code blocks for logs or error messages when needed
 - Use inline images for screenshots when available
@@ -174,7 +174,7 @@ For feature development or enhancements, use `$task` and reference **Templates -
 ### Structure validation
 
 - [ ] Title uses H1 and appears first?
-- [ ] About section uses `### About`?
+- [ ] About section uses `## About`?
 - [ ] About section includes the field table?
 - [ ] References appear under About when provided?
 - [ ] Bug section uses `### Bug`?
@@ -188,7 +188,7 @@ For feature development or enhancements, use `$task` and reference **Templates -
 
 - [ ] Using `text/markdown` artifact type?
 - [ ] Lists use `-` bullets?
-- [ ] Checkboxes use `- [ ]` format?
+- [ ] Checkboxes use the `- []` format?
 - [ ] Dividers use `---`?
 - [ ] No generated table of contents?
 - [ ] No template-internal comments remain in generated output?
@@ -229,7 +229,7 @@ Include screenshots or logs when provided. Do not create a separate Evidence sec
 
 ### Wrong section structure
 
-Update the report to use `### About`, `### Bug` and optional `### BDD Scenarios`.
+Update the report to use `## About`, `### Bug` and optional `### BDD Scenarios`.
 
 ### Missing environment table values
 

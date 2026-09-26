@@ -5,7 +5,7 @@
 * * *
 Offline mode lets members on iOS, Android or Desktop work on pages without a connection, syncing on reconnect. It covers every plan, Free included, targeting Q1 2027 for all four areas of Oskar's brief on all three platforms.
 
-### Problem
+#### Problem
 * * *
 Loomlist needs a connection for everything past the page on screen, and an offline edit is retried until the app closes, then lost.
 
@@ -14,9 +14,9 @@ Loomlist needs a connection for everything past the page on screen, and an offli
 *   From April to August, 31% of Plus workspaces giving a cancellation reason named offline access
 *   Some `lost-edit` tickets in #sync-eng start with an edit after the connection dropped
 *   sync-service resolves overlaps with block-level last-writer-wins on protocol v3, so a phone offline for a day can overwrite a teammate's morning
-###   
+####   
 
-### Goal
+#### Goal
 * * *
 A member on iOS, Android or Desktop can open, read, edit and create pages offline, and others see the changes once the device reconnects.
 
@@ -27,9 +27,9 @@ A member on iOS, Android or Desktop can open, read, edit and create pages offlin
 **We will know it works when:**
 *   The share of mobile sessions hitting the no-connection screen halves within 8 weeks of release
 *   `lost-edit` tickets starting with a dropped connection stop
-###   
+####   
 
-### Solution
+#### Solution
 * * *
 In order to get there, we will:
 *   Keep a member's most recently opened pages on the device for offline reading
@@ -85,7 +85,7 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **When** the device is offline
 *   **Then** they can read pages kept offline, with blocks, inline databases and to-dos
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 2\. **Work done offline is kept and reaches the workspace**
 * * *
@@ -94,7 +94,7 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **Then** every offline change reaches the workspace in order, and teammates see it
 *   **And** no offline change is lost if the app closes first
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 3\. **Members can tell what works offline and what is still waiting**
 * * *
@@ -103,6 +103,6 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **Then** they see that they are offline and how many changes wait to sync
 *   **And** sharing, inviting, moving a page to another workspace and deleting a page show as unavailable until reconnecting
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 * * *
 ##   

@@ -8,15 +8,15 @@ _Use it as the foundation for Tasks that work towards fulfilling the acceptance 
 * * *
 Signed-in customers can save a card at checkout and reuse it, across the card form on web, iOS and Android, the payment step and the account.
 
-### Problem
+#### Problem
 * * *
 Each card payment means typing number, expiry and CVC. The app payment step loses 17% against 9% on web, mostly at card entry, and returning customers place 68% of app orders.
 
-### Solution
+#### Solution
 * * *
 Saving is always the customer's choice, because a card kept without asking costs more trust than the typing it saves. The card itself stays with the payment provider.
 
-#### **Expected outcomes**
+**Expected outcomes**
 * * *
 *   Returning app customers pay faster and drop off less
 *   Fewer repeat orders abandoned at card entry
@@ -27,39 +27,39 @@ Saving is always the customer's choice, because a card kept without asking costs
 * * *
 **Saving a card**
 * * *
-*   A checkbox on the checkout card form on Web, iOS and Android, unchecked by default
-*   Label `Save this card for next time`, under the card fields
-*   Only signed-in customers see it, with no saving at guest checkout
-*   An account holds 5 saved cards across platforms, and a sixth is refused
-*   At the limit the checkbox becomes `You can save up to 5 cards`
-*   Only cards, with wallet and bank payments unchanged
+- [] A checkbox on the checkout card form on Web, iOS and Android, unchecked by default
+- [] Label `Save this card for next time`, under the card fields
+- [] Only signed-in customers see it, with no saving at guest checkout
+- [] An account holds 5 saved cards across platforms, and a sixth is refused
+- [] At the limit the checkbox becomes `You can save up to 5 cards`
+- [] Only cards, with wallet and bank payments unchanged
 
 **Card data**
 * * *
 **Open:** The draft stores card brand, but the company card-data rule allows only token, last four digits and expiry date. Lotte, the rule's owner, decides with Checkout whether brand may be stored or the logo must come from the payment provider.
 
-*   Fernhouse stores only the provider's card token, last four digits and expiry date against the account
+- [] Fernhouse stores only the provider's card token, last four digits and expiry date against the account
 
 **Paying with a saved card**
 * * *
-*   Saved cards show first at the payment step
-*   Each reads `Card ending 7031` over `Expires 08/28`, with 7031 and 08/28 as that card's values
-*   The card brand logo sits on the left
-*   Orders over `€150` with shipping in NL, BE, DE and FR ask for the `CVC` again
-*   Orders over `£130` with shipping in the UK ask for the `CVC` again
-*   Expired cards are hidden at checkout
-*   A declined card shows `This card was declined. Choose another card or enter a new one.`
+- [] Saved cards show first at the payment step
+- [] Each reads `Card ending 7031` over `Expires 08/28`, with 7031 and 08/28 as that card's values
+- [] The card brand logo sits on the left
+- [] Orders over `€150` with shipping in NL, BE, DE and FR ask for the `CVC` again
+- [] Orders over `£130` with shipping in the UK ask for the `CVC` again
+- [] Expired cards are hidden at checkout
+- [] A declined card shows `This card was declined. Choose another card or enter a new one.`
 
 **Managing saved cards**
 * * *
-*   Saved cards live under `Account > Payment methods` on web and apps
-*   Each has a remove button
-*   Removing a card first asks `Remove this card?`
+- [] Saved cards live under `Account > Payment methods` on web and apps
+- [] Each has a remove button
+- [] Removing a card first asks `Remove this card?`
 
 **Tracking**
 * * *
-*   Track card saved, card removed and order paid with a saved card
-*   Each needs a Data team tracking plan row and a DATA task before any FE task sends it
+- [] Track card saved, card removed and order paid with a saved card
+- [] Each needs a Data team tracking plan row and a DATA task before any FE task sends it
 * * *
 ##   
 
@@ -76,7 +76,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** the card is offered at their next payment step
 *   **And** an unticked option or guest checkout keeps no card
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 2\. **The saved-card limit is clear before the customer tries to pass it**
 * * *
@@ -85,7 +85,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** they see the limit message instead of the save option
 *   **And** no card is added on any platform
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 #### Paying with a saved card
 * * *
@@ -96,7 +96,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** saved cards come first, payable without number or expiry
 *   **And** above their market's CVC threshold including shipping, they confirm the CVC first
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 4\. **A declined saved card leaves the customer a way to pay**
 * * *
@@ -104,7 +104,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **When** the card is declined
 *   **Then** they see the decline and can use another saved or new card on the same step
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 5\. **An expired card is never offered**
 * * *
@@ -112,7 +112,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **When** they reach the payment step
 *   **Then** it is not offered, and another saved or new card works
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 #### Managing saved cards
 * * *
@@ -122,7 +122,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **When** the customer removes it and confirms
 *   **Then** it no longer appears in the account or at the payment step on web, iOS or Android
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 * * *
 ##   
 

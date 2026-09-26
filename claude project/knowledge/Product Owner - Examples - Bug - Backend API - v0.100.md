@@ -6,7 +6,7 @@ Instantiates Bug Report Template section 2. Shows a concurrency-sensitive API de
 
 # Orders list endpoint returns duplicate rows across page boundaries
 
-### About
+## About
 
 ---
 
@@ -78,9 +78,9 @@ An order already returned during a paging session should not appear again on a l
 - User expectation: admins reviewing new orders can trust that the paginated list never shows the same order twice
 
 Checklist
-- [ ] Root cause identified
-- [ ] Fix implemented
-- [ ] Bug no longer reproducible
-- [ ] No regressions introduced
+- [] Root cause identified
+- [] Fix implemented
+- [] Bug no longer reproducible
+- [] No regressions introduced
 
 ---

@@ -1,7 +1,7 @@
 ---
-title: "Product Owner - Assets - Epic Template - v0.101"
+title: "Product Owner - Assets - Epic Template - v0.102"
 description: "The Barter house-format Epic scaffold: an About umbrella with Problem, Goal and Solution, a Scope section listing child stories, release-level acceptance criteria and the same opt-in Delivery close a Story uses, with no Requirements of its own. Shared grammar, artifact-kind selection and the optional enrichments live in story-mode.md."
-version: "0.101"
+version: "0.102"
 contextType: asset
 importance_tier: high
 trigger_phrases:
@@ -12,7 +12,7 @@ trigger_phrases:
   - "release-level acceptance criteria"
 ---
 
-# Product Owner - Assets - Epic Template - v0.101
+# Product Owner - Assets - Epic Template - v0.102
 
 An Epic frames an initiative and delegates requirements to its child stories.
 
@@ -27,7 +27,7 @@ An Epic frames an initiative and delegates requirements to its child stories.
 
 ### Purpose
 
-Same grammar and the same opt-in `## Delivery` close as a Story, with three differences: `### Goal` replaces `#### **Expected outcomes**`, `## Scope` replaces `## Requirements`, and the acceptance criteria stay at release level.
+Same grammar and the same opt-in `## Delivery` close as a Story, with three differences: a `#### Goal` section between Problem and Solution replaces the Story's `**Expected outcomes**` label, `## Scope` replaces `## Requirements`, and the acceptance criteria stay at release level. Problem, Goal and Solution sit at H4, and each spacer between them is `####   `, matching the heading it precedes.
 
 ### Usage
 
@@ -45,25 +45,25 @@ Load this asset with Story Mode. The shared house grammar, the artifact-kind sel
 * * *
 {Epic-level narrative: the product change and that it is split into several child stories.}
 
-### Problem
+#### Problem
 * * *
 {The current problem and why it matters.}
 
 **The following issues rise from that:**
 *   {Observable failure}
 *   {Observable failure}
-###   
+####   
 
-### Goal
+#### Goal
 * * *
 {The primary product or business goal.}
 
 **Direct user/Barter benefits:**
 *   {Direct benefit}
 *   {Direct benefit}
-###   
+####   
 
-### Solution
+#### Solution
 * * *
 In order to get there, we will:
 *   {High-level direction}
@@ -107,14 +107,14 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **Then** {observable release outcome}
 *   **And** {additional outcome, only when needed}
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 * * *
 ##   
 ```
 
 ### Notes For Use
 
-- An Epic has **no** `## Requirements` section by default. Add requirements only when the supplied epic carries genuine standalone scope that no child story owns. Keep them in the Story shape's bold-lead hard-constraint form and flag why they live at epic level
+- An Epic has **no** `## Requirements` section by default. Add requirements only when the supplied epic carries genuine standalone scope that no child story owns. Keep them in the Story shape's form, bold group names over `- []` hard-constraint items, and flag why they live at epic level
 - `## Scope` lists the child stories grouped by lifecycle part, with an optional `#### Added Later` group for capabilities that do not block the first release
 - A first-drafted Epic usually has no child-story links at all, because the stories do not exist yet. That is the normal case and it does not block the Scope section. Name each intended child story as plain text in its own `*   ` bullet, written in the shape its Story H1 will take (`{Persona or platform} - {Area or initiative} - {Feature}`), and add the link when the story is created. Never invent a ClickUp or Figma URL to make a bullet look finished, and never drop a child story because it has no link. A group that mixes linked and unlinked bullets is normal and needs no explanatory note
 - Release-level acceptance criteria describe outcomes a completed release guarantees. Screen-level detail belongs in the child stories

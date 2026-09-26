@@ -109,11 +109,11 @@ Secondary action: "View board"
 ### Quality checks
 * * *
 
-*   [ ] Does the headline describe the surface's purpose or next step instead of only stating absence?
-*   [ ] Is the subcopy one sentence and free of internal jargon the workspace has not already adopted?
-*   [ ] Does the state distinguish "no data ever" from "filtered to nothing," where both are possible on that surface?
-*   [ ] Is a primary action present only where an action genuinely resolves the empty state?
-*   [ ] Does the copy fit the surface's available illustration, headline, subcopy and action slots without truncation?
+*   [] Does the headline describe the surface's purpose or next step instead of only stating absence?
+*   [] Is the subcopy one sentence and free of internal jargon the workspace has not already adopted?
+*   [] Does the state distinguish "no data ever" from "filtered to nothing," where both are possible on that surface?
+*   [] Is a primary action present only where an action genuinely resolves the empty state?
+*   [] Does the copy fit the surface's available illustration, headline, subcopy and action slots without truncation?
 * * *
 
 ###   

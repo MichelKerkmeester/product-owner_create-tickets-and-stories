@@ -5,7 +5,7 @@
 * * *
 Signed-in customers on web, iOS and Android start a return from order history within the `30 days` window, get the label by email, track it on the order page and get refunded after the warehouse check. Four child stories each own one part.
 
-### Problem
+#### Problem
 * * *
 Every return starts with a CS contact, and an agent creates it in Admin, emails a label and refunds after the warehouse check. A refund takes `6 days` on average from first contact.
 
@@ -14,9 +14,9 @@ Every return starts with a CS contact, and an agent creates it in Admin, emails 
 *   Customers wait for an agent before anything happens
 *   Agents create every return and email every label by hand
 *   The order page stops at `Shipped`, hiding where a return stands
-###   
+####   
 
-### Goal
+#### Goal
 * * *
 By the end of Q1 2027, at least `60%` of returns start without CS, and CS stops creating returns by hand.
 
@@ -24,9 +24,9 @@ By the end of Q1 2027, at least `60%` of returns start without CS, and CS stops 
 *   Customers start returns anytime, without waiting for CS
 *   Customers see their return's status on the order page
 *   CS stops creating returns and emailing labels, freeing time from return contacts
-###   
+####   
 
-### Solution
+#### Solution
 * * *
 In order to get there, we will:
 *   Let signed-in customers start a return from order history, with items and a reason
@@ -68,7 +68,7 @@ Release-level outcomes, with detailed criteria in each child story.
 *   **Then** the return is created with no CS contact
 *   **And** no agent creates it by hand in Admin
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 2\. **A return cannot start outside the return window**
 * * *
@@ -76,7 +76,7 @@ Release-level outcomes, with detailed criteria in each child story.
 *   **When** they open that order in their order history
 *   **Then** it offers no self-serve return
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 3\. **The customer gets the return label without asking for it**
 * * *
@@ -85,7 +85,7 @@ Release-level outcomes, with detailed criteria in each child story.
 *   **Then** they get the label by email
 *   **And** no agent sends it by hand
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 4\. **The customer can follow the return through to the refund**
 * * *
@@ -94,7 +94,7 @@ Release-level outcomes, with detailed criteria in each child story.
 *   **Then** the page shows where the return stands
 *   **And** the refund comes only after the warehouse check
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 5\. **Pallet items stay with CS**
 * * *
@@ -102,6 +102,6 @@ Release-level outcomes, with detailed criteria in each child story.
 *   **When** they look for a return
 *   **Then** the pallet item has no self-serve return and stays with CS
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 * * *
 ##   

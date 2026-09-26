@@ -91,8 +91,8 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project explicit-command rule, Doc intake minimum, Deliverable Block and export-equivalent contract |
-| [`Product Owner - Templates - Doc Mode - v0.111.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Doc%20Mode%20-%20v0.111.md) | Project Doc intake minimum, source classification and ClickUp output contract |
-| [`Product Owner - Assets - Doc Templates - v0.108.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Doc%20Templates%20-%20v0.108.md) | Project Guide shape, the unverified-step rule and layout rules |
+| [`Product Owner - Templates - Doc Mode - v0.112.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Doc%20Mode%20-%20v0.112.md) | Project Doc intake minimum, source classification and ClickUp output contract |
+| [`Product Owner - Assets - Doc Templates - v0.109.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Doc%20Templates%20-%20v0.109.md) | Project Guide shape, the unverified-step rule and layout rules |
 | [`Product Owner - Assets - Interactive Response Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.103.md) | Project Doc Context and Clarification Question wording |
 | [`roamstay-context.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-context.md) | Attachment: Roamstay company context |
 | [`roamstay-payment-webhook-incident-notes.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-payment-webhook-incident-notes.md) | Attachment: INC-0412 timeline, recovery steps and follow-ups with the proposed dual-secret window |

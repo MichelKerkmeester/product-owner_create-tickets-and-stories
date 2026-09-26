@@ -1,6 +1,6 @@
 # FS - TODO - Recurring to-dos
 
-### About
+## About
 
 ---
 
@@ -44,12 +44,12 @@ Every option counts forward from the due date. Repeat sits in the detail sheet w
 
 **Checklist**
 
-- [ ] Without a due date, Repeat is greyed out with the hint `Add a due date to repeat`
-- [ ] Each option sets the table's next due date
-- [ ] Monthly keeps the first due date's day, so a 31st series lands on the 30th in April and the 31st in May
-- [ ] Ends offers Never, the default, On date and After
-- [ ] On date stops after the last occurrence on or before that date
-- [ ] After stops after 1 to 365 occurrences
+- [] Without a due date, Repeat is greyed out with the hint `Add a due date to repeat`
+- [] Each option sets the table's next due date
+- [] Monthly keeps the first due date's day, so a 31st series lands on the 30th in April and the 31st in May
+- [] Ends offers Never, the default, On date and After
+- [] On date stops after the last occurrence on or before that date
+- [] After stops after 1 to 365 occurrences
 
 2.  **Occurrences, Skip this one and the repeat icon**
 
@@ -59,11 +59,11 @@ One occurrence at a time keeps pages free of future copies. Skip this one is in 
 
 **Checklist**
 
-- [ ] Checking one off shows the next on the same page with the next due date
-- [ ] The next keeps the assignee and reminder
-- [ ] Skip this one moves the to-do to its next due date without marking it done
-- [ ] A skip counts toward an After limit
-- [ ] Repeating to-dos show the repeat icon on their row
+- [] Checking one off shows the next on the same page with the next due date
+- [] The next keeps the assignee and reminder
+- [] Skip this one moves the to-do to its next due date without marking it done
+- [] A skip counts toward an After limit
+- [] Repeating to-dos show the repeat icon on their row
 
 3.  **Reminders and time zones**
 
@@ -73,12 +73,12 @@ Due dates follow the Overdue chip and reminders' rule, so they never disagree.
 
 **Checklist**
 
-- [ ] Next due dates use the to-do owner's time zone
-- [ ] After a reassign, the new owner's zone applies
-- [ ] Teammates in other zones see the owner's date with the zone shown
-- [ ] The next reminder keeps its local time and goes to reminders-service, which sends it to all the owner's devices
-- [ ] On iOS and Android it arrives as a local notification
-- [ ] On Web and Desktop it shows only in the open app, like every reminder there
+- [] Next due dates use the to-do owner's time zone
+- [] After a reassign, the new owner's zone applies
+- [] Teammates in other zones see the owner's date with the zone shown
+- [] The next reminder keeps its local time and goes to reminders-service, which sends it to all the owner's devices
+- [] On iOS and Android it arrives as a local notification
+- [] On Web and Desktop it shows only in the open app, like every reminder there
 
 4.  **Plans and the workspace limit**
 
@@ -86,10 +86,10 @@ Due dates follow the Overdue chip and reminders' rule, so they never disagree.
 
 **Checklist**
 
-- [ ] Repeat works on Plus and Team
-- [ ] On Free, Repeat shows a Plus badge and opens the upgrade sheet
-- [ ] A workspace holds up to 500 unended repeating to-dos, not counting checked-off and ended series
-- [ ] At 500, Repeat stays visible and opens a sheet saying `This workspace has 500 repeating to-dos. End one to add another.`
+- [] Repeat works on Plus and Team
+- [] On Free, Repeat shows a Plus badge and opens the upgrade sheet
+- [] A workspace holds up to 500 unended repeating to-dos, not counting checked-off and ended series
+- [] At 500, Repeat stays visible and opens a sheet saying `This workspace has 500 repeating to-dos. End one to add another.`
 
 5.  **Flag, release order and tracking**
 
@@ -99,12 +99,12 @@ Everything ships dark behind the workspace flag `recurring_todos`, and once all 
 
 **Checklist**
 
-- [ ] Nothing shows where `recurring_todos` is off
-- [ ] Web and BE are live behind the flag before iOS and Android 5.4.0
-- [ ] Yara reviews the tracking plan before any client subtask starts
-- [ ] `todo_repeat_set` carries `repeat` set to `daily`, `weekdays`, `weekly`, `monthly` or `custom`
-- [ ] `todo_occurrence_skipped` fires on Skip this one
-- [ ] Both carry `workspace_id`, `user_id`, `platform`, `app_version` and `plan`, as every Loomlist event does
+- [] Nothing shows where `recurring_todos` is off
+- [] Web and BE are live behind the flag before iOS and Android 5.4.0
+- [] Yara reviews the tracking plan before any client subtask starts
+- [] `todo_repeat_set` carries `repeat` set to `daily`, `weekdays`, `weekly`, `monthly` or `custom`
+- [] `todo_occurrence_skipped` fires on Skip this one
+- [] Both carry `workspace_id`, `user_id`, `platform`, `app_version` and `plan`, as every Loomlist event does
 
 > The brief does not say which surface sends each event, and the tracking plan settles it before client subtasks start.
 
