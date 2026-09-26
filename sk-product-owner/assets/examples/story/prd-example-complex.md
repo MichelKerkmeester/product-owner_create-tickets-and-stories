@@ -15,7 +15,7 @@ _Use it as the foundation for Tasks that work towards fulfilling the acceptance 
 * * *
 Keystone releases four kinds of payout to sellers: instant, standard, milestone and scheduled. Each type schedules and releases on its own today, with no shared cap, risk hold or fallback, so a seller can be paid several times within the hour, a large release can slip out without review, and a failed transfer can vanish with no record. This story routes all four types through one release pipeline that owns eligibility, risk holds, the daily cap and a shared fallback, so every payout keeps one consistent promise.
 
-### Problem
+#### Problem
 * * *
 Every payout type runs on its own today:
 *   A seller can receive an instant payout and a scheduled payout minutes apart on the same balance
@@ -23,7 +23,7 @@ Every payout type runs on its own today:
 *   A failed transfer stops silently, with no queue and no record for support to act on
 *   No type shares a limit, so a busy settlement day sends several transfers to one account within the hour
 
-### Solution
+#### Solution
 * * *
 Route all four payout types through one shared release pipeline that owns eligibility, risk holds, the daily cap and the fallback to manual review. Each type supplies only its trigger, its amount source and its destination account. The pipeline decides whether, when and how a payout is released, so every type keeps one consistent promise.
 
@@ -33,7 +33,7 @@ For every candidate the pipeline runs the same ordered stages: an eligibility ch
 *   The pipeline owns eligibility, risk holds, the daily cap and priority ordering
 *   A blocked, deferred or failed release always lands in the manual review queue
 
-#### **Expected outcomes**
+**Expected outcomes**
 * * *
 *   A seller is never paid more times in a day than the shared cap allows
 *   A large release is reviewed by a person before it can settle
@@ -51,16 +51,16 @@ Spec
 * * *
 **Release limits** ← PRIO
 * * *
-*   `daily_payout_cap = 3 releases per rolling 24h`, counted per seller across every payout type
-*   Any release where `amount >= 5000` goes on a risk hold instead of releasing automatically
-*   A release is evaluated against the cap and the risk threshold in that order, before any transfer is attempted
+- [] `daily_payout_cap = 3 releases per rolling 24h`, counted per seller across every payout type
+- [] Any release where `amount >= 5000` goes on a risk hold instead of releasing automatically
+- [] A release is evaluated against the cap and the risk threshold in that order, before any transfer is attempted
 
 **Pipeline coverage**
 * * *
-*   The pipeline handles instant, standard, milestone and scheduled payouts, and no other type
-*   Priority order when candidates compete for the last release under the cap is `instant > milestone > scheduled > standard`
-*   A scheduled payout runs on a fixed calendar, defaulting to weekly on Monday
-*   Every blocked, deferred or failed release is recorded in one shared manual review queue
+- [] The pipeline handles instant, standard, milestone and scheduled payouts, and no other type
+- [] Priority order when candidates compete for the last release under the cap is `instant > milestone > scheduled > standard`
+- [] A scheduled payout runs on a fixed calendar, defaulting to weekly on Monday
+- [] Every blocked, deferred or failed release is recorded in one shared manual review queue
 * * *
 ##   
 
@@ -77,7 +77,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** the money reaches the seller's destination account within minutes of becoming due
 *   **And** that release counts against the cap for every other payout type, not only its own
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 2\. **The cap defers a payout without losing it**
 * * *
@@ -86,7 +86,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** the highest-priority payout releases first
 *   **And** every deferred payout waits for a later pass with its amount and destination intact, rather than being cancelled or converted to another type
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 3\. **No payout releases before its money has cleared**
 * * *
@@ -95,7 +95,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** nothing is released while the money is not there
 *   **And** it releases on the first pass after the funds clear, still subject to the shared cap
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 #### Risk and fallback
 * * *
@@ -106,7 +106,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** the payout neither settles quietly nor drops without a trace
 *   **And** it waits in the shared manual review queue with its original amount and destination, ready for a person to act on
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 #### Type scope
 * * *
@@ -117,7 +117,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** nothing releases for that type
 *   **And** their remaining payout types keep releasing exactly as before
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 * * *
 ##   
 

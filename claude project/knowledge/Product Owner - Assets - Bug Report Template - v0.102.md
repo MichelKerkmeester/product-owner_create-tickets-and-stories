@@ -1,4 +1,4 @@
-# Product Owner - Assets - Bug Report Template - v0.101
+# Product Owner - Assets - Bug Report Template - v0.102
 
 The scaffold an isolated bug report is copied from, with the Frequency rules, the design-evidence rule and the QA handoff checklist that govern how it is filled.
 
@@ -43,7 +43,7 @@ Four worked examples instantiate this scaffold:
 ````markdown
 # {Bug Title}
 
-### About
+## About
 
 ---
 
@@ -109,10 +109,10 @@ Steps to Reproduce:
 - { User expectations }
 
 Checklist
-- [ ] Root cause identified
-- [ ] Fix implemented
-- [ ] Bug no longer reproducible
-- [ ] No regressions introduced
+- [] Root cause identified
+- [] Fix implemented
+- [] Bug no longer reproducible
+- [] No regressions introduced
 
 ---
 

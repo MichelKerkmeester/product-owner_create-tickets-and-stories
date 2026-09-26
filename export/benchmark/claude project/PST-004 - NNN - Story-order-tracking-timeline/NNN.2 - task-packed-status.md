@@ -1,6 +1,6 @@
 # BE - TRACK - Packed status from the warehouse system
 
-### About
+## About
 
 ---
 
@@ -28,6 +28,6 @@ The warehouse system already tells orders-service when an order is packed, but c
 
 **Checklist**
 
-- [ ] orders-service records `Packed` on the warehouse system's packed report
-- [ ] `Packed` carries a date and time
-- [ ] `Order placed` stays tied to payment authorisation
+- [] orders-service records `Packed` on the warehouse system's packed report
+- [] `Packed` carries a date and time
+- [] `Order placed` stays tied to payment authorisation

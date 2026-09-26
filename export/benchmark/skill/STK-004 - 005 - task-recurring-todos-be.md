@@ -1,6 +1,6 @@
 # BE - TODO - Recurring to-do occurrences, Ends and workspace limit
 
-### About
+## About
 
 ---
 
@@ -32,13 +32,13 @@ BE ships dark behind the workspace flag `recurring_todos`, like the clients.
 
 **Checklist**
 
-- [ ] Checking off an occurrence creates the next on the same page, with the next due date from the parent's Repeat table
-- [ ] Monthly keeps the first due date's day, so a 31st series lands on the 30th in April and the 31st in May
-- [ ] Custom counts every N days, weeks or months, N from 1 to 99
-- [ ] The next occurrence keeps the assignee and reminder
-- [ ] A series never holds more than one open occurrence
-- [ ] Checking off one occurrence on two devices before sync still yields one next occurrence
-- [ ] A check-off from an app version without Repeat still gets a next occurrence
+- [] Checking off an occurrence creates the next on the same page, with the next due date from the parent's Repeat table
+- [] Monthly keeps the first due date's day, so a 31st series lands on the 30th in April and the 31st in May
+- [] Custom counts every N days, weeks or months, N from 1 to 99
+- [] The next occurrence keeps the assignee and reminder
+- [] A series never holds more than one open occurrence
+- [] Checking off one occurrence on two devices before sync still yields one next occurrence
+- [] A check-off from an app version without Repeat still gets a next occurrence
 
 ---
 
@@ -48,8 +48,8 @@ BE ships dark behind the workspace flag `recurring_todos`, like the clients.
 
 **Checklist**
 
-- [ ] Skip this one moves the to-do to its next due date without marking it done
-- [ ] A skip counts toward an After limit
+- [] Skip this one moves the to-do to its next due date without marking it done
+- [] A skip counts toward an After limit
 
 ---
 
@@ -59,9 +59,9 @@ BE ships dark behind the workspace flag `recurring_todos`, like the clients.
 
 **Checklist**
 
-- [ ] Never, the default, keeps the series going
-- [ ] On date stops it after the last occurrence on or before that date
-- [ ] After stops it after the set 1 to 365 occurrences, skips included
+- [] Never, the default, keeps the series going
+- [] On date stops it after the last occurrence on or before that date
+- [] After stops it after the set 1 to 365 occurrences, skips included
 
 ---
 
@@ -73,8 +73,8 @@ Due dates follow the Overdue chip and reminders' rule, so all three agree.
 
 **Checklist**
 
-- [ ] Next due dates use the to-do owner's time zone
-- [ ] After a reassign, the new owner's zone applies
+- [] Next due dates use the to-do owner's time zone
+- [] After a reassign, the new owner's zone applies
 
 ---
 
@@ -84,9 +84,9 @@ Due dates follow the Overdue chip and reminders' rule, so all three agree.
 
 **Checklist**
 
-- [ ] A workspace holds up to 500 unended repeating to-dos
-- [ ] Checked-off and ended series do not count toward the 500
-- [ ] Setting Repeat in a workspace at 500 is refused, so clients can open the sheet saying `This workspace has 500 repeating to-dos. End one to add another.`
+- [] A workspace holds up to 500 unended repeating to-dos
+- [] Checked-off and ended series do not count toward the 500
+- [] Setting Repeat in a workspace at 500 is refused, so clients can open the sheet saying `This workspace has 500 repeating to-dos. End one to add another.`
 
 ---
 
@@ -98,7 +98,7 @@ reminders-service holds each reminder's UTC due time and sends it to all the own
 
 **Checklist**
 
-- [ ] The next reminder goes to reminders-service at the previous one's local time, in the owner's zone
+- [] The next reminder goes to reminders-service at the previous one's local time, in the owner's zone
 
 ---
 
@@ -108,5 +108,5 @@ reminders-service holds each reminder's UTC due time and sends it to all the own
 
 **Checklist**
 
-- [ ] With `recurring_todos` off, no repeat behavior runs
-- [ ] BE sends whichever of `todo_repeat_set` and `todo_occurrence_skipped` the reviewed tracking plan assigns it
+- [] With `recurring_todos` off, no repeat behavior runs
+- [] BE sends whichever of `todo_repeat_set` and `todo_occurrence_skipped` the reviewed tracking plan assigns it

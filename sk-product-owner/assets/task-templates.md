@@ -1,7 +1,7 @@
 ---
-title: "Product Owner Task Templates - v0.102"
+title: "Product Owner Task Templates - v0.103"
 description: "Copy/apply templates for Product Owner standalone tasks, parent tasks, subtasks and quick tasks."
-version: "0.102"
+version: "0.103"
 contextType: asset
 importance_tier: high
 trigger_phrases:
@@ -12,7 +12,7 @@ trigger_phrases:
   - "quick task template"
 ---
 
-# Product Owner Task Templates - v0.102
+# Product Owner Task Templates - v0.103
 
 Copy/apply templates for Product Owner task deliverables.
 
@@ -42,7 +42,7 @@ Worked example: [`examples/task/task-example-ui-refinement.md`](examples/task/ta
 ```markdown
 # {Task Title}
 
-### About
+## About
 
 ---
 
@@ -110,8 +110,8 @@ Components
 
 **Checklist**
 
-- [ ] {Actionable requirement}
-- [ ] {Actionable requirement}
+- [] {Actionable requirement}
+- [] {Actionable requirement}
 
 **User Story**
 
@@ -129,8 +129,8 @@ Components
 
 **Checklist**
 
-- [ ] {Actionable requirement}
-- [ ] {Actionable requirement}
+- [] {Actionable requirement}
+- [] {Actionable requirement}
 
 ---
 
@@ -146,8 +146,8 @@ Components
 
 **Checklist**
 
-- [ ] {Actionable requirement}
-- [ ] {Actionable requirement}
+- [] {Actionable requirement}
+- [] {Actionable requirement}
 
 ```
 
@@ -171,7 +171,7 @@ Worked example: [`examples/task/task-example-standard-feature.md`](examples/task
 ```markdown
 # {Parent Task Title}
 
-### About
+## About
 
 ---
 
@@ -220,7 +220,7 @@ Worked example: [`examples/task/task-example-subtask.md`](examples/task/task-exa
 ```markdown
 # {Subtask Title}
 
-### About
+## About
 
 ---
 
@@ -250,8 +250,8 @@ Components
 
 **Checklist**
 
-- [ ] {Actionable requirement}
-- [ ] {Actionable requirement}
+- [] {Actionable requirement}
+- [] {Actionable requirement}
 
 ```
 
@@ -266,7 +266,7 @@ Worked example: [`examples/task/task-example-quick.md`](examples/task/task-examp
 ```markdown
 # {Task Title}
 
-### About
+## About
 
 ---
 
@@ -284,8 +284,8 @@ Worked example: [`examples/task/task-example-quick.md`](examples/task/task-examp
 
 **Checklist**
 
-- [ ] {Actionable requirement}
-- [ ] {Actionable requirement}
+- [] {Actionable requirement}
+- [] {Actionable requirement}
 
 ```
 

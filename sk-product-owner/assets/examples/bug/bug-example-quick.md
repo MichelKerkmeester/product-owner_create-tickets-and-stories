@@ -7,7 +7,7 @@ contextType: asset
 
 # Terms of Service footer link returns 404 on the marketing site
 
-### About
+## About
 
 ---
 
@@ -64,9 +64,9 @@ Clicking "Terms of Service" in the footer should load `fernbank.com/legal/terms`
 - User expectation: visitors can read the terms without hitting a dead link
 
 Checklist
-- [ ] Root cause identified
-- [ ] Fix implemented
-- [ ] Bug no longer reproducible
-- [ ] No regressions introduced
+- [] Root cause identified
+- [] Fix implemented
+- [] Bug no longer reproducible
+- [] No regressions introduced
 
 ---

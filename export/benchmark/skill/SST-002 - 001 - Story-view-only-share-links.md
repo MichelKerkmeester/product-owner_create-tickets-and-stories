@@ -10,15 +10,15 @@ This story adds a view-only link anyone can open to read a page without signing 
 
 Design: the Sharing design file, frames `Share / View-only link`, `Share / Link settings` and `Shared page / Viewer`, from the design review on 2026-09-15.
 
-### Problem
+#### Problem
 * * *
 Pages are shared only by email invite, as member or guest, so a reader must join the workspace. Agencies on Plus asked most, since they invite clients as guests just to read one page.
 
-### Solution
+#### Solution
 * * *
 Sharers switch on a link that opens the page read-only, with no account and nothing of the workspace around it. Expiry, switch-off and reset each end its access, and plans set the limits.
 
-#### **Expected outcomes**
+**Expected outcomes**
 * * *
 *   Outsiders read a shared page without an invite or sign-in
 *   Plus agencies send clients a link instead of a guest invite
@@ -35,40 +35,40 @@ Sharers switch on a link that opens the page read-only, with no account and noth
 
 Lena, Product Manager, Sharing and Notifications, decides after talking with the security reviewer, with no date set and not before the build starts. The answer also settles what `Duplicate` copies.
 
-*   A link opens only the page it was switched on for until the open question is settled
-*   Anyone with the link reads the page without signing in
+- [] A link opens only the page it was switched on for until the open question is settled
+- [] Anyone with the link reads the page without signing in
 
 **Share panel**
 * * *
-*   A new bottom Share panel row holds the switch `Anyone with the link can view`, off by default
-*   Switching it on creates the link and shows `Copy link` beside it
-*   The `Link expires` menu below offers `Never`, the default, `7 days` and `30 days`
-*   An expired link counts as off
-*   Switching off stops the link within `60 seconds`
-*   `Reset link` stops the old link within `60 seconds` and creates a new one
-*   A viewer who has the page open when the link stops gets `This link no longer works` on their next action
-*   Members with edit access, Admins and the Owner can switch it on, and guests never see it
+- [] A new bottom Share panel row holds the switch `Anyone with the link can view`, off by default
+- [] Switching it on creates the link and shows `Copy link` beside it
+- [] The `Link expires` menu below offers `Never`, the default, `7 days` and `30 days`
+- [] An expired link counts as off
+- [] Switching off stops the link within `60 seconds`
+- [] `Reset link` stops the old link within `60 seconds` and creates a new one
+- [] A viewer who has the page open when the link stops gets `This link no longer works` on their next action
+- [] Members with edit access, Admins and the Owner can switch it on, and guests never see it
 
 **Plans**
 * * *
-*   Active means switched on and not expired
-*   Free: up to `3` active links per workspace, `Never` expiry only
-*   Plus: unlimited active links, every expiry option
-*   Team: unlimited active links, every expiry option
-*   Team: Admins can turn view-only links off workspace-wide
-*   On Free at the limit, the switch stays visible and turning it on opens `Your workspace has 3 active links. Turn one off or upgrade to Plus to add more.`
-*   When a Team Admin turns links off, every workspace link stops within the same `60 seconds`
-*   The switch then shows off with the note `Turned off by your workspace admin`
+- [] Active means switched on and not expired
+- [] Free: up to `3` active links per workspace, `Never` expiry only
+- [] Plus: unlimited active links, every expiry option
+- [] Team: unlimited active links, every expiry option
+- [] Team: Admins can turn view-only links off workspace-wide
+- [] On Free at the limit, the switch stays visible and turning it on opens `Your workspace has 3 active links. Turn one off or upgrade to Plus to add more.`
+- [] When a Team Admin turns links off, every workspace link stops within the same `60 seconds`
+- [] The switch then shows off with the note `Turned off by your workspace admin`
 
 **What a viewer sees**
 * * *
-*   The page is read-only, inline databases as read-only tables
-*   A slim top bar shows the page title, workspace name and a `Try Loomlist` button
-*   No comments, page history or workspace sidebar
-*   Signed-in viewers get `Duplicate` in the top bar, copying the page to a workspace of theirs
-*   Signed-out viewers tapping `Duplicate` get a sign-in prompt
-*   Pages opened through a view-only link are served with `noindex`
-*   On iOS and Android the link opens the app if installed, otherwise the web page
+- [] The page is read-only, inline databases as read-only tables
+- [] A slim top bar shows the page title, workspace name and a `Try Loomlist` button
+- [] No comments, page history or workspace sidebar
+- [] Signed-in viewers get `Duplicate` in the top bar, copying the page to a workspace of theirs
+- [] Signed-out viewers tapping `Duplicate` get a sign-in prompt
+- [] Pages opened through a view-only link are served with `noindex`
+- [] On iOS and Android the link opens the app if installed, otherwise the web page
 * * *
 ##   
 
@@ -85,7 +85,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** they get a link anyone can use to read the page without signing in
 *   **And** it works until it expires, is switched off or is reset
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 2\. **A sharer can end a link's access**
 * * *
@@ -94,7 +94,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** the old link stops within the Requirements time, and a reset leaves a new working link
 *   **And** a viewer on the page is told the link no longer works on their next action and sees nothing more
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 3\. **Guests cannot publish links**
 * * *
@@ -102,7 +102,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **When** they open the Share panel
 *   **Then** they cannot create a view-only link
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 #### Plans
 * * *
@@ -113,7 +113,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** none is created, and the sharer learns why and how to free a slot or upgrade
 *   **And** switching one off frees a slot
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 5\. **A Team Admin can take every page off public links at once**
 * * *
@@ -122,7 +122,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** no workspace link opens its page, within the single switch-off time
 *   **And** sharers see the workspace admin switched it off, not a switch they can turn back on
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 #### Viewer
 * * *
@@ -133,7 +133,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** they read it, inline databases included, and cannot change anything
 *   **And** comments, history and the rest of the workspace stay out of reach, and search engines skip the page
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 7\. **A viewer can keep a copy of the page**
 * * *
@@ -141,7 +141,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **When** they duplicate it
 *   **Then** a signed-in viewer gets a copy in a workspace of theirs, and a signed-out one is asked to sign in first
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 8\. **The link opens where the viewer is**
 * * *
@@ -149,7 +149,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **When** they open a view-only link
 *   **Then** it opens in the Loomlist app if installed, else the browser, showing the same read-only page
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 * * *
 ##   
 

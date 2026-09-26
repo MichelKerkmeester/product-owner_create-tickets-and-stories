@@ -45,9 +45,9 @@ The diagnosis is settled and the runbook has already carried on-call through two
 
 Two threads stay open. One is engineering merging the decided fix so the runbook's manual step can retire. The other is Finance's audit, which is why this folder cannot yet say how many users were affected or what the total refund comes to.
 
-*   [ ] Merge the idempotency-key change against `decision-idempotency-keys.md` and retire the runbook's manual step once it ships
-*   [ ] Close Finance's ledger audit to establish how far back the exposure reaches. The affected user count and refund total are genuinely unknown until that audit lands, not just unpublished
-*   [ ] Confirm with Support before drafting any customer-facing notice, since the refund total isn't final yet
+*   [] Merge the idempotency-key change against `decision-idempotency-keys.md` and retire the runbook's manual step once it ships
+*   [] Close Finance's ledger audit to establish how far back the exposure reaches. The affected user count and refund total are genuinely unknown until that audit lands, not just unpublished
+*   [] Confirm with Support before drafting any customer-facing notice, since the refund total isn't final yet
 ###   
 
 ### Reading map

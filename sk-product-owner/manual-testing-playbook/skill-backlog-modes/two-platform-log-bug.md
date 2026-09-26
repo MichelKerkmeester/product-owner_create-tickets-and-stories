@@ -59,7 +59,7 @@ Folding the two groups into "reminders are an hour late after the clock change" 
 
 ### Expected
 
-Step 1 fixes the baseline with the three attachments staged. Step 2 returns one evidence question and one clarification file. Step 3 proves the wait state and the question-only file. Step 4 finds one bug with `### About`, the field table reading Severity `High` and `Not provided` for Device and OS Version, `**1. Observed Behavior**` and `**2. Expected Behavior**` covering the Android `5.2.3` one-off issue and the iOS `5.2.4` daily issue apart, the `rem_8f31c2` log lines as evidence and the four Checklist items with `Root cause identified` open.
+Step 1 fixes the baseline with the three attachments staged. Step 2 returns one evidence question and one clarification file. Step 3 proves the wait state and the question-only file. Step 4 finds one bug with `## About`, the field table reading Severity `High` and `Not provided` for Device and OS Version, `**1. Observed Behavior**` and `**2. Expected Behavior**` covering the Android `5.2.3` one-off issue and the iOS `5.2.4` daily issue apart, the `rem_8f31c2` log lines as evidence and the four Checklist items with `Root cause identified` open.
 
 ### Evidence
 

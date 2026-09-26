@@ -1,6 +1,6 @@
 # FS - REM - Reminders arrive one hour late after the March clock change
 
-### About
+## About
 
 ---
 
@@ -95,10 +95,10 @@ A reminder arrives at the local time picked, in the to-do owner's time zone, whe
 - User expectation: reminders for calls, medication and team routines arrive on time
 
 Checklist
-- [ ] Root cause identified
-- [ ] Fix implemented
-- [ ] Bug no longer reproducible
-- [ ] No regressions introduced
+- [] Root cause identified
+- [] Fix implemented
+- [] Bug no longer reproducible
+- [] No regressions introduced
 
 ---
 

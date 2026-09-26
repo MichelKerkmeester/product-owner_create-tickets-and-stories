@@ -116,13 +116,13 @@ iOS and Android ship every two weeks and roll out over 7 days. Desktop runs the 
 
 ## Open decisions
 * * *
-*   [ ] **Choose an option** by 2026-10-09, owned by Joana, and whether A goes first
-*   [ ] **Measure B's mobile storage cost** in Tomasz's spike
-*   [ ] **Measure B's fallback rate** to a copy, with the formatting fallback on
-*   [ ] **Write down what A would take** as a first step, owned by Tomasz
-*   [ ] **Settle how B treats to-do fields** such as checked state or due date, as the thread covers block text only
-*   [ ] **Settle mixed-version behavior** during a rollout, when some clients keep a base version and others still run v3, which the thread does not cover
-*   [ ] **Agree the member message** Support uses once a change ships
+*   [] **Choose an option** by 2026-10-09, owned by Joana, and whether A goes first
+*   [] **Measure B's mobile storage cost** in Tomasz's spike
+*   [] **Measure B's fallback rate** to a copy, with the formatting fallback on
+*   [] **Write down what A would take** as a first step, owned by Tomasz
+*   [] **Settle how B treats to-do fields** such as checked state or due date, as the thread covers block text only
+*   [] **Settle mixed-version behavior** during a rollout, when some clients keep a base version and others still run v3, which the thread does not cover
+*   [] **Agree the member message** Support uses once a change ships
 * * *
 
 ### Out of scope
