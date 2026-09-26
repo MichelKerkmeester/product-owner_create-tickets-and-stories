@@ -4,9 +4,9 @@
 
 ---
 
-This subtask builds recurring to-dos in the Android app, following the shared rules in the parent task. A member on Android can make a to-do with a due date repeat, check off or skip one occurrence and see the next one appear with the next due date.
+The Android app gets recurring to-dos per the parent's shared rules: members make dated to-dos repeat, check off or skip occurrences and see the next.
 
-Android must show the same series and the same due dates as iOS and Web, so a member who switches devices sees one schedule, not two. Everything ships dark behind the workspace flag `recurring_todos`.
+Android matches iOS and Web due dates, so switching devices shows one schedule. It ships dark behind the workspace flag `recurring_todos`.
 
 **References**
 
@@ -44,16 +44,16 @@ Flows
 
 ---
 
-Repeat sits on the to-do's detail sheet and only works once the to-do has a due date. The next due date for each option follows the Repeat options table in the parent task.
+Next due dates follow the parent task's Repeat options table.
 
 **Checklist**
 
-- [ ] Show Repeat on the to-do's detail sheet with the options Daily, Weekdays, Weekly, Monthly and Custom
-- [ ] On a to-do with no due date, show Repeat greyed out with the hint `Add a due date to repeat`
-- [ ] Custom repeats every N days, weeks or months, with N from 1 to 99, and accepts no value outside that range
-- [ ] Weekdays lands on Monday through Friday only, whatever day the member's locale starts the week on
-- [ ] A Monthly series that starts on the 31st lands on the 30th in April and on the 31st again in May
-- [ ] Show dates in the member's locale and new copy in en-US, de-DE, fr-FR, es-ES, ja-JP and pt-BR, falling back to en-US for a missing string
+- [ ] Show Repeat on the detail sheet: Daily, Weekdays, Weekly, Monthly, Custom
+- [ ] With no due date, grey out Repeat with the hint `Add a due date to repeat`
+- [ ] Custom repeats every N days, weeks or months, N from 1 to 99 only
+- [ ] Weekdays means Monday to Friday, whatever the locale's first weekday
+- [ ] Monthly from the 31st lands on the 30th in April and the 31st in May
+- [ ] Dates follow the member's locale, and new copy ships in en-US, de-DE, fr-FR, es-ES, ja-JP and pt-BR, with en-US fallback
 
 ---
 
@@ -61,13 +61,11 @@ Repeat sits on the to-do's detail sheet and only works once the to-do has a due 
 
 ---
 
-Ends controls when a series stops. It offers Never, On date and After, and Never is the default.
-
 **Checklist**
 
 - [ ] Default Ends to Never
-- [ ] On date stops the series after the last occurrence on or before the chosen date
-- [ ] After stops the series after a set number of occurrences, from 1 to 365, and accepts no value outside that range
+- [ ] On date stops after the last occurrence on or before that date
+- [ ] After stops after 1 to 365 occurrences, rejecting other values
 
 ---
 
@@ -79,15 +77,15 @@ Ends controls when a series stops. It offers Never, On date and After, and Never
 
 ---
 
-Only one occurrence exists at a time, so the member's list never fills with future copies of the same to-do.
+One occurrence at a time keeps the list free of future copies.
 
 **Checklist**
 
-- [ ] Show only one open occurrence of a series at a time
-- [ ] Checking off an occurrence creates the next one on the same page with the next due date
-- [ ] Carry the assignee over to the next occurrence
-- [ ] Carry the reminder over at the same local time, scheduled as a local notification for the next occurrence on the to-do owner's Android devices
-- [ ] Create no next occurrence once the series has ended through On date or After
+- [ ] Show one open occurrence per series at a time
+- [ ] Checking one off creates the next on the same page with the next due date
+- [ ] Carry the assignee to the next occurrence
+- [ ] Carry the reminder at the same local time, as a local notification on the owner's Android devices
+- [ ] Create no next occurrence once On date or After ends the series
 
 ---
 
@@ -95,13 +93,11 @@ Only one occurrence exists at a time, so the member's list never fills with futu
 
 ---
 
-Skip this one lets a member pass on an occurrence without marking it done.
-
 **Checklist**
 
-- [ ] Show Skip this one in the to-do's menu for repeating to-dos only
-- [ ] Skip this one moves the to-do to its next due date without marking it done
-- [ ] A skipped occurrence counts toward an After limit, so skipping the last allowed occurrence ends the series
+- [ ] Only repeating to-dos' menu shows Skip this one
+- [ ] Skip moves the to-do to its next due date without marking it done
+- [ ] A skip counts toward an After limit, so skipping the last allowed occurrence ends the series
 
 ---
 
@@ -113,12 +109,12 @@ Skip this one lets a member pass on an occurrence without marking it done.
 
 ---
 
-Next due dates follow the to-do owner's time zone. The to-do owner is the assignee, or the creator when the to-do has no assignee.
+The owner is the assignee, or else the creator.
 
 **Checklist**
 
-- [ ] Work out next due dates in the owner's time zone, not the viewer's device zone
-- [ ] After a reassignment, the next occurrence uses the new owner's time zone
+- [ ] Work out next due dates in the owner's zone, not the device's
+- [ ] After reassignment, use the new owner's zone
 - [ ] A teammate in another zone sees the owner's date with the zone shown
 
 ---
@@ -131,11 +127,11 @@ Next due dates follow the to-do owner's time zone. The to-do owner is the assign
 
 ---
 
-A workspace holds at most 500 repeating to-dos that have not ended. Checked-off and ended series do not count toward the limit.
+A workspace holds at most 500 unended repeating to-dos.
 
 **Checklist**
 
-- [ ] At the limit, keep Repeat visible and open a sheet that says `This workspace has 500 repeating to-dos. End one to add another.`
+- [ ] At the limit, keep Repeat visible and open a sheet saying `This workspace has 500 repeating to-dos. End one to add another.`
 - [ ] Leave checked-off and ended series out of the count
 
 ---
@@ -144,13 +140,13 @@ A workspace holds at most 500 repeating to-dos that have not ended. Checked-off 
 
 ---
 
-Repeat is for Plus and Team workspaces. The whole feature stays hidden until Data turns on `recurring_todos`, which happens once the three clients are out.
+Repeat is for Plus and Team, hidden until Data turns on `recurring_todos` once all three clients are out.
 
 **Checklist**
 
-- [ ] On Plus and Team workspaces, Repeat opens the picker
-- [ ] On Free workspaces, show Repeat with a Plus badge and open the upgrade sheet on tap
-- [ ] With `recurring_todos` off, show no Repeat on the detail sheet and no Skip this one in the menu
+- [ ] On Plus and Team, Repeat opens the picker
+- [ ] On Free, show Repeat with a Plus badge, opening the upgrade sheet on tap
+- [ ] With `recurring_todos` off, show no Repeat or Skip this one
 
 ---
 
@@ -167,5 +163,5 @@ Both events are in the tracking plan Yara reviewed on 2026-09-16.
 **Checklist**
 
 - [ ] Send `todo_repeat_set` with `repeat` set to `daily`, `weekdays`, `weekly`, `monthly` or `custom`
-- [ ] Send `todo_occurrence_skipped` when the member uses Skip this one
-- [ ] Both events carry `workspace_id`, a hashed `user_id`, `platform`, `app_version` and `plan`
+- [ ] Send `todo_occurrence_skipped` on Skip this one
+- [ ] Both carry `workspace_id`, a hashed `user_id`, `platform`, `app_version` and `plan`

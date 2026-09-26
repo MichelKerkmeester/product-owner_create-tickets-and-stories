@@ -3,49 +3,47 @@
 * * *
 ## About
 * * *
-Offline mode lets a member open, read, edit and create pages on iOS, Android and Desktop without a connection, then syncs their changes once the device is back online. It is available on every plan, Free included, and the target is Q1 2027 for all four areas on all three platforms.
-
-This Epic is split into four child stories, one per area of Oskar's brief. Each story covers iOS, Android and Desktop together and carries its own detailed requirements and acceptance criteria.
+Offline mode lets members on iOS, Android or Desktop work on pages without a connection, syncing on reconnect. It covers every plan, Free included, targeting Q1 2027 for all four areas of Oskar's brief on all three platforms.
 
 ### Problem
 * * *
-Loomlist needs a connection for everything past the page already on screen. The mobile apps keep the open page visible but cannot open another one offline, and an edit made while the connection is gone is retried until the app closes and is then lost.
+Loomlist needs a connection for everything past the page on screen, and an offline edit is retried until the app closes, then lost.
 
 **The following issues rise from that:**
-*   Between June and August, 23% of iOS and Android sessions started without a connection or lost it within the first minute
-*   Between April and August, 31% of Plus workspaces that gave a cancellation reason named offline access
-*   Some `lost-edit` tickets raised in #sync-eng start with an edit made after the connection dropped
-*   sync-service resolves every overlap with block-level last-writer-wins on protocol v3, so a phone offline for a day can replace a teammate's whole morning of edits
+*   From June to August, 23% of iOS and Android sessions started offline or lost the connection within the first minute
+*   From April to August, 31% of Plus workspaces giving a cancellation reason named offline access
+*   Some `lost-edit` tickets in #sync-eng start with an edit after the connection dropped
+*   sync-service resolves overlaps with block-level last-writer-wins on protocol v3, so a phone offline for a day can overwrite a teammate's morning
 ###   
 
 ### Goal
 * * *
-A member on iOS, Android or Desktop can open, read, edit and create pages without a connection, and everyone else sees their changes once the device is back online.
+A member on iOS, Android or Desktop can open, read, edit and create pages offline, and others see the changes once the device reconnects.
 
 **Direct user/Loomlist benefits:**
-*   Members keep working on their recent pages when the connection drops or never arrives
-*   An edit made offline is kept on the device until it syncs instead of being lost when the app closes
+*   Members keep working on recent pages when the connection drops or never arrives
+*   An offline edit stays on the device until it syncs
 
 **We will know it works when:**
-*   The share of mobile sessions that hit the no-connection screen drops by half within 8 weeks of release
-*   `lost-edit` tickets that start with a dropped connection stop coming in
+*   The share of mobile sessions hitting the no-connection screen halves within 8 weeks of release
+*   `lost-edit` tickets starting with a dropped connection stop
 ###   
 
 ### Solution
 * * *
 In order to get there, we will:
-*   Keep a member's most recently opened pages on the device so they open and read without a connection
+*   Keep a member's most recently opened pages on the device for offline reading
 *   Let members edit, check off to-dos and create pages and to-dos offline
 *   Keep sharing, inviting, moving a page to another workspace and deleting a page online only
-*   Upload changes made offline in the order they were made once the connection returns
-*   Show members when they are offline, how many changes are waiting to sync and how much space offline data takes
+*   Upload offline changes in order once the connection returns
+*   Show offline status, changes waiting to sync and the space offline data takes
 
-Web is out of scope because a browser tab cannot be relied on to keep a local copy between visits, and Desktop covers the laptop case.
+Web is out because a browser tab cannot be relied on to keep a local copy.
 
 This epic does not cover:
 *   Web
 *   Choosing which pages to keep offline
-*   Searching pages that are not kept on the device
+*   Searching pages not kept on the device
 *   Offline access in the Support console
 
 #### **References**
@@ -56,7 +54,7 @@ Sources
 
 ## Scope
 * * *
-Each child story owns one area of offline mode and carries its own detailed requirements and acceptance criteria for iOS, Android and Desktop.
+Each child story covers one area on iOS, Android and Desktop.
 
 #### Starts now
 * * *
@@ -67,9 +65,9 @@ Neither story depends on the conflict-handling decision, so both can start befor
 
 #### Waits on the conflict-handling decision
 * * *
-Joana, Engineering Manager, Sync, decides on 2026-10-09 how sync-service handles conflicting edits, choosing between the options in the #sync-eng thread. Both stories can be drafted before then, and neither can be finalised until the decision lands.
+Joana, Engineering Manager, Sync, picks from the #sync-eng options on 2026-10-09 how sync-service handles conflicting edits. Both stories can be drafted, not finalised, before then.
 
-If the decision changes protocol v3, every client has to be on a version that speaks the new protocol, and whether the Web client update belongs to this epic is not decided yet.
+If the decision changes protocol v3, every client needs a version that speaks it, and whether the Web client update belongs to this epic is not decided.
 
 *   Member - Offline mode - Offline editing and creation
 *   Member - Offline mode - Sync on reconnect
@@ -83,27 +81,27 @@ Each child story carries the detailed criteria for its own screens and states.
 
 1\. **Recent pages open without a connection**
 * * *
-*   **Given** a member on any plan, Free included, using iOS, Android or Desktop
-*   **When** the device has no connection
-*   **Then** the member can open and read the pages the device keeps offline, with their blocks, inline databases and to-dos
+*   **Given** a member on any plan, Free included, on iOS, Android or Desktop
+*   **When** the device is offline
+*   **Then** they can read pages kept offline, with blocks, inline databases and to-dos
 * * *
 - [ ] _Mark as done, if the criteria are met_
 
 2\. **Work done offline is kept and reaches the workspace**
 * * *
-*   **Given** a member who edits blocks, checks off to-dos or creates pages and to-dos with no connection
-*   **When** the device is back online
-*   **Then** every change made offline reaches the workspace in the order it was made, and teammates see it
-*   **And** no change made offline is lost when the app closes before the connection returns
+*   **Given** a member who edits blocks, checks off to-dos or creates pages and to-dos offline
+*   **When** the device reconnects
+*   **Then** every offline change reaches the workspace in order, and teammates see it
+*   **And** no offline change is lost if the app closes first
 * * *
 - [ ] _Mark as done, if the criteria are met_
 
 3\. **Members can tell what works offline and what is still waiting**
 * * *
-*   **Given** a member using Loomlist with no connection
+*   **Given** a member using Loomlist offline
 *   **When** they look at the app
-*   **Then** they can see that they are offline and how many changes are waiting to sync
-*   **And** sharing, inviting, moving a page to another workspace and deleting a page show as unavailable until the connection returns
+*   **Then** they see that they are offline and how many changes wait to sync
+*   **And** sharing, inviting, moving a page to another workspace and deleting a page show as unavailable until reconnecting
 * * *
 - [ ] _Mark as done, if the criteria are met_
 * * *

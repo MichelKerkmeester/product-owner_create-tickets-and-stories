@@ -6,21 +6,20 @@ _Use it as the foundation for Tasks that work towards fulfilling the acceptance 
 
 ## About
 * * *
-Signed-in customers can save a card at checkout and pay with it on their next order without typing the card number again. This covers the card form in checkout on web, iOS and Android, saved cards at the payment step, and a place in the account to see and remove saved cards.
+Signed-in customers can save a card at checkout on web, iOS and Android, reuse it without retyping, and remove it in their account.
 
 ### Problem
 * * *
-Every card payment today means typing the full card number, expiry and CVC, even on a customer's tenth order. The app payment step loses 17% of customers who reach it, against 9% on web, and most of them stop at card entry. Returning customers place 68% of app orders, so most people retyping a card have typed it before.
+Every card payment means typing the card number, expiry and CVC, even on a tenth order. The app payment step loses 17% against 9% on web, mostly at card entry, and returning customers place 68% of app orders.
 
 ### Solution
 * * *
-A signed-in customer ticks a box on the card form to keep the card, and on the next order their saved cards come first at the payment step. Saving is always the customer's choice, so no card is kept without them asking. Customers see and remove their saved cards from their account.
+A signed-in customer ticks a box to keep the card, and no card is kept unless asked.
 
 #### **Expected outcomes**
 * * *
-*   Returning app customers get through the payment step faster and drop off less
-*   Fewer repeat orders are abandoned at card entry
-*   No new CS contacts about cards being kept without the customer asking
+*   Returning app customers pay faster, and fewer repeat orders stop at card entry
+*   No new CS contacts about cards saved unasked
 * * *
 ##   
 
@@ -28,18 +27,16 @@ A signed-in customer ticks a box on the card form to keep the card, and on the n
 * * *
 **Saving a card**
 * * *
-*   The checkbox label is `Save this card for next time`, shown under the card fields
-*   The checkbox is unchecked by default
-*   The checkbox is on the card form on web, iOS and Android
-*   Only signed-in customers see the checkbox, and guest checkout never saves a card
-*   A customer can hold at most `5` saved cards, and at the limit `You can save up to 5 cards` replaces the checkbox
+*   `Save this card for next time` sits unchecked under the card fields on web, iOS and Android
+*   Only signed-in customers see it, and guests never save a card
+*   A customer holds at most `5` saved cards, and at the limit `You can save up to 5 cards` replaces the checkbox
 *   The back end refuses a sixth card
-*   This covers cards only, and wallet and bank payments stay as they are
+*   Only cards are covered, not wallet or bank payments
 
 **Paying with a saved card**
 * * *
 *   Saved cards show first at the payment step
-*   Each saved card shows in the format `Card ending 7031`, with `Expires 08/28` under it and the card brand logo on the left
+*   Each shows as `Card ending 7031`, with `Expires 08/28` under it and the brand logo on the left
 *   Orders whose total including shipping is over `€150`, or `£130` in the UK, ask for the `CVC` again before paying
 *   Expired cards are hidden at checkout
 *   A declined saved card shows `This card was declined. Choose another card or enter a new one.`
@@ -47,19 +44,19 @@ A signed-in customer ticks a box on the card form to keep the card, and on the n
 **Managing saved cards**
 * * *
 *   Saved cards live under `Account > Payment methods` on web, iOS and Android
-*   Each saved card has a remove button that asks `Remove this card?` before the card is removed
+*   Each has a remove button asking `Remove this card?` first
 
 **Card data**
 * * *
-**Open:** the draft stores the card brand, but the company card data rule allows only the card token, the last four digits and the expiry date. Checkout agrees with Lotte, who owns the company context, whether the brand logo comes from the payment provider when the card is shown or the rule changes.
+**Open:** the draft stores the card brand, which the company card data rule forbids. Checkout agrees with Lotte, who owns the company context, whether the provider supplies the logo at display time or the rule changes.
 
-*   Card details stay with the payment provider, and the account stores only the provider's card token, the last four digits and the expiry date
+*   Card details stay with the payment provider, and the account keeps only its card token, last four digits and expiry date
 
 **Tracking**
 * * *
-*   Events fire when a card is saved, when a card is removed and when an order is paid with a saved card
+*   Events fire when a card is saved, removed or used to pay
 *   The Data team names the three events
-*   Each event has a row in the Data team's tracking plan and a DATA task before any client sends it
+*   Before any client sends an event, it needs a Data team tracking plan row and a DATA task
 * * *
 ##   
 
@@ -71,27 +68,27 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 * * *
 1\. **A signed-in customer keeps a card only when they ask to**
 * * *
-*   **Given** a signed-in customer on the card form on web, iOS or Android
-*   **When** they tick the save checkbox and pay
-*   **Then** the card is waiting for them at the payment step on their next order and in their account
-*   **And** a card paid with the box left unticked is not kept
+*   **Given** a signed-in customer at the card form on web, iOS or Android
+*   **When** they tick save and pay
+*   **Then** the card waits at their next payment step and in their account
+*   **And** a card paid unticked is not kept
 * * *
 - [ ] _Mark as done, if the criteria are met_
 
 2\. **Guests are never offered to save a card**
 * * *
-*   **Given** a customer checking out as a guest
+*   **Given** a guest customer
 *   **When** they reach the card form
-*   **Then** no save option shows and the card is not kept after payment
+*   **Then** no save option shows and the card is not kept
 * * *
 - [ ] _Mark as done, if the criteria are met_
 
 3\. **A customer at the saved card limit can still pay**
 * * *
-*   **Given** a signed-in customer who already has the maximum number of saved cards
+*   **Given** a signed-in customer at the saved card limit
 *   **When** they reach the card form
-*   **Then** they are told they have reached the limit instead of seeing the save option
-*   **And** they can pay with a new card without it being kept
+*   **Then** the limit message replaces the save option
+*   **And** they can pay with a new card without keeping it
 * * *
 - [ ] _Mark as done, if the criteria are met_
 
@@ -99,16 +96,16 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 * * *
 4\. **A returning customer pays without typing their card number**
 * * *
-*   **Given** a signed-in customer with a saved card that has not expired
+*   **Given** a signed-in customer with an unexpired saved card
 *   **When** they reach the payment step
-*   **Then** their saved cards come first and they can pay with one without typing the card number or expiry
-*   **And** on an order above their market's CVC threshold they confirm the CVC before the payment goes through
+*   **Then** saved cards come first and they pay with one without typing the number or expiry
+*   **And** above their market's CVC threshold, they confirm the CVC first
 * * *
 - [ ] _Mark as done, if the criteria are met_
 
 5\. **Expired cards stay out of the payment step**
 * * *
-*   **Given** a signed-in customer with a saved card past its expiry date
+*   **Given** a signed-in customer with an expired saved card
 *   **When** they reach the payment step
 *   **Then** that card does not show
 * * *
@@ -119,7 +116,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Given** a signed-in customer paying with a saved card
 *   **When** the card is declined
 *   **Then** they are told the card was declined
-*   **And** they can choose another saved card or enter a new one without leaving the payment step
+*   **And** they can pick another saved card or a new one without leaving the payment step
 * * *
 - [ ] _Mark as done, if the criteria are met_
 
@@ -128,9 +125,9 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 7\. **A customer removes a card they no longer want kept**
 * * *
 *   **Given** a signed-in customer with a saved card
-*   **When** they remove it from their payment methods and confirm
-*   **Then** the card no longer shows in their account or at the payment step
-*   **And** backing out of the confirmation leaves the card in place
+*   **When** they remove it and confirm
+*   **Then** it is gone from their account and the payment step
+*   **And** backing out keeps it
 * * *
 - [ ] _Mark as done, if the criteria are met_
 
@@ -138,9 +135,9 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 * * *
 8\. **Saved card use shows up in reporting**
 * * *
-*   **Given** the Data team reading the analytics tool
-*   **When** a customer saves a card, removes a card or pays with a saved card
-*   **Then** each action appears as its own event carrying the standard event properties
+*   **Given** the Data team in the analytics tool
+*   **When** a customer saves, removes or pays with a saved card
+*   **Then** each action is its own event with the standard event properties
 * * *
 - [ ] _Mark as done, if the criteria are met_
 * * *
@@ -158,7 +155,7 @@ The delivery budget or expected size for the approved scope.
 * * *
 Areas that could waste effort, create ambiguity or distract from the intended outcome.
 
-*   Storing the card brand conflicts with the card data rule, which allows only the card token, the last four digits and the expiry date
+*   Storing the card brand conflicts with the card data rule
 
 #### No-gos
 * * *

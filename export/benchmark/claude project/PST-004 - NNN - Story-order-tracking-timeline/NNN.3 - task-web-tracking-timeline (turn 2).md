@@ -4,7 +4,7 @@
 
 ---
 
-The web order page replaces its fixed `Order placed` and `Shipped` states with a timeline that follows each parcel. It also shows the delivery estimate when the carrier sends one. The web layout is in the same `Order page / Tracking timeline` frame as the apps.
+The web order page swaps its fixed `Order placed` and `Shipped` states for a per-parcel timeline and the carrier's delivery estimate when sent. The web layout is in the apps' `Order page / Tracking timeline` frame.
 
 **References**
 
@@ -38,13 +38,13 @@ Page
 
 **Checklist**
 
-- [ ] The order page shows `Order placed`, `Packed`, `Shipped`, `Out for delivery`, `Delivered` and `Delivery failed` in that order, as each is reached
-- [ ] Every step that happened shows with its date and time
+- [ ] Statuses show in order as reached: `Order placed`, `Packed`, `Shipped`, `Out for delivery`, `Delivered` and `Delivery failed`
+- [ ] Every past step shows its date and time
 - [ ] `Delivery failed` shows no reason
 - [ ] A new `Out for delivery` after `Delivery failed` keeps the failed attempt visible
-- [ ] An order with several parcels shows one timeline per parcel, with that parcel's items under it
-- [ ] More than `90 days` after delivery the page shows the last status only
-- [ ] Status text is translated for `nl-NL`, `nl-BE`, `fr-BE`, `de-DE`, `fr-FR` and `en-GB`
+- [ ] A multi-parcel order shows one timeline per parcel, with its items
+- [ ] More than `90 days` after delivery, only the last status shows
+- [ ] Status text is translated into `nl-NL`, `nl-BE`, `fr-BE`, `de-DE`, `fr-FR` and `en-GB`
 
 ---
 
@@ -54,8 +54,8 @@ Page
 
 **Checklist**
 
-- [ ] With a delivery window, the day and window show under the current status, as in the frame: `Arriving Thursday 1 October` and `Between 10:00 and 14:00`
-- [ ] With no delivery window, no estimate shows, and none is derived from the dispatch date
+- [ ] A delivery window shows under the current status as `Arriving Thursday 1 October` and `Between 10:00 and 14:00`
+- [ ] With no window, no estimate shows or is derived from the dispatch date
 
 ---
 
@@ -65,4 +65,4 @@ Page
 
 **Checklist**
 
-- [ ] A shipment by the pallet carrier keeps today's page plus the line `The delivery company will call you to book a delivery slot`
+- [ ] A pallet carrier shipment keeps today's page plus `The delivery company will call you to book a delivery slot`

@@ -4,7 +4,7 @@
 
 ---
 
-The release goal is a drop in WISMO contacts. These two events show whether customers use the timeline and how often they still leave for the carrier's page. No FE task can send a new event until the event has a row in the tracking plan, so this task comes before the FE analytics work.
+These two events show whether customers use the timeline or still leave for the carrier's page, against the goal of fewer WISMO contacts. No FE task can send an event before its tracking plan row exists, so this comes first.
 
 **Story**
 
@@ -30,7 +30,7 @@ The release goal is a drop in WISMO contacts. These two events show whether cust
 
 **Checklist**
 
-- [ ] One row for the tracking timeline being viewed on the order page
-- [ ] One row for the carrier link being tapped
+- [ ] One row for tracking timeline views on the order page
+- [ ] One row for carrier link taps
 - [ ] Event names follow `object_action` in snake_case with a past-tense verb
 - [ ] Each event carries `platform`, `app_version`, `market`, `locale` and `customer_type`

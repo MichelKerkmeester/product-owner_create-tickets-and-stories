@@ -4,9 +4,9 @@
 
 ---
 
-This subtask builds recurring to-dos in the Android app for phones and tablets, following the shared rules in the parent task. A member can make a to-do with a due date repeat, check off or skip one occurrence and see the next one appear with the next due date. Oskar's Mobile Platform team ships it in the Android 5.4.0 release.
+The Android app gets recurring to-dos for phones and tablets per the parent's shared rules: members make dated to-dos repeat, check off or skip occurrences and see the next. Oskar's Mobile Platform team ships it in Android 5.4.0.
 
-BE builds the recurrence engine at the same time. Android shows the next due date the engine returns and never works one out on the device, so Android, iOS and Web always show the same schedule. Everything ships dark behind the workspace flag `recurring_todos`.
+Android shows the due dates from BE's recurrence engine, built in parallel, so Android, iOS and Web show one schedule. It ships dark behind the workspace flag `recurring_todos`.
 
 **References**
 
@@ -44,16 +44,16 @@ Flows
 
 ---
 
-Repeat sits on the to-do's detail sheet and only works once the to-do has a due date. The member picks the schedule, and the recurrence engine decides every due date that follows from it.
+The member picks the schedule, and the recurrence engine decides the due dates.
 
 **Checklist**
 
-- [ ] Show Repeat on the to-do's detail sheet with the options Daily, Weekdays, Weekly, Monthly and Custom
-- [ ] On a to-do with no due date, show Repeat greyed out with the hint `Add a due date to repeat`
-- [ ] Custom repeats every N days, weeks or months, with N from 1 to 99, and accepts no value outside that range
-- [ ] Show the next due date the recurrence engine returns for every option, and never work one out on the device
-- [ ] Show dates in the member's locale and new copy in en-US, de-DE, fr-FR, es-ES, ja-JP and pt-BR, falling back to en-US for a missing string
-- [ ] The Repeat picker, Custom interval and occurrence menu work on Android phones and tablets
+- [ ] Show Repeat on the detail sheet: Daily, Weekdays, Weekly, Monthly, Custom
+- [ ] With no due date, grey out Repeat with the hint `Add a due date to repeat`
+- [ ] Custom repeats every N days, weeks or months, N from 1 to 99 only
+- [ ] Show the engine's next due date for each option, never one computed on device
+- [ ] Dates follow the member's locale, and new copy ships in en-US, de-DE, fr-FR, es-ES, ja-JP and pt-BR, with en-US fallback
+- [ ] The Repeat picker, Custom interval and occurrence menu work on phones and tablets
 
 ---
 
@@ -61,14 +61,12 @@ Repeat sits on the to-do's detail sheet and only works once the to-do has a due 
 
 ---
 
-Ends controls when a series stops. It offers Never, On date and After, and Never is the default.
-
 **Checklist**
 
 - [ ] Default Ends to Never
-- [ ] On date takes a date, and the series stops after the last occurrence on or before it
-- [ ] After takes a number of occurrences from 1 to 365, and accepts no value outside that range
-- [ ] Once the engine ends a series through On date or After, show no next occurrence
+- [ ] On date takes a date, stopping after the last occurrence on or before it
+- [ ] After takes 1 to 365 occurrences, rejecting other values
+- [ ] Once the engine ends a series via On date or After, show no next occurrence
 
 ---
 
@@ -80,14 +78,14 @@ Ends controls when a series stops. It offers Never, On date and After, and Never
 
 ---
 
-Only one occurrence exists at a time, so the member's list never fills with future copies of the same to-do.
+One occurrence at a time keeps the list free of future copies.
 
 **Checklist**
 
-- [ ] Show only one open occurrence of a series at a time
-- [ ] Checking off an occurrence shows the next one on the same page, with the due date the engine returns
-- [ ] Carry the assignee over to the next occurrence
-- [ ] Carry the reminder over at the same local time, scheduled as a local notification for the next occurrence on the to-do owner's Android devices
+- [ ] Show one open occurrence per series at a time
+- [ ] Checking one off shows the next on the same page, with the engine's due date
+- [ ] Carry the assignee to the next occurrence
+- [ ] Carry the reminder at the same local time, as a local notification on the owner's Android devices
 
 ---
 
@@ -95,13 +93,11 @@ Only one occurrence exists at a time, so the member's list never fills with futu
 
 ---
 
-Skip this one lets a member pass on an occurrence without marking it done.
-
 **Checklist**
 
-- [ ] Show Skip this one in the to-do's menu for repeating to-dos only
-- [ ] Skip this one moves the to-do to the next due date the engine returns, without marking it done
-- [ ] A skipped occurrence counts toward an After limit, so skipping the last allowed occurrence ends the series
+- [ ] Only repeating to-dos' menu shows Skip this one
+- [ ] Skip moves the to-do to the engine's next due date without marking it done
+- [ ] A skip counts toward an After limit, so skipping the last allowed occurrence ends the series
 
 ---
 
@@ -113,12 +109,12 @@ Skip this one lets a member pass on an occurrence without marking it done.
 
 ---
 
-The engine works out next due dates in the to-do owner's time zone. The to-do owner is the assignee, or the creator when the to-do has no assignee.
+The engine uses the owner's time zone, the owner being the assignee, or else the creator.
 
 **Checklist**
 
-- [ ] Show the owner's due date as the engine returns it, with no conversion to the viewer's device zone
-- [ ] After a reassignment, show the next occurrence with the date the engine returns for the new owner
+- [ ] Show the owner's due date as the engine returns it, unconverted to the device zone
+- [ ] After reassignment, show the date the engine returns for the new owner
 - [ ] A teammate in another zone sees the owner's date with the zone shown
 
 ---
@@ -131,11 +127,11 @@ The engine works out next due dates in the to-do owner's time zone. The to-do ow
 
 ---
 
-A workspace holds at most 500 repeating to-dos that have not ended. Checked-off and ended series do not count toward the limit.
+A workspace holds at most 500 unended repeating to-dos.
 
 **Checklist**
 
-- [ ] At the limit, keep Repeat visible and open a sheet that says `This workspace has 500 repeating to-dos. End one to add another.`
+- [ ] At the limit, keep Repeat visible and open a sheet saying `This workspace has 500 repeating to-dos. End one to add another.`
 - [ ] Leave checked-off and ended series out of the count
 
 ---
@@ -144,13 +140,13 @@ A workspace holds at most 500 repeating to-dos that have not ended. Checked-off 
 
 ---
 
-Repeat is for Plus and Team workspaces. The whole feature stays hidden until Data turns on `recurring_todos`, which happens once the three clients are out.
+Repeat is for Plus and Team, hidden until Data turns on `recurring_todos` once all three clients are out.
 
 **Checklist**
 
-- [ ] On Plus and Team workspaces, Repeat opens the picker
-- [ ] On Free workspaces, show Repeat with a Plus badge and open the upgrade sheet on tap
-- [ ] With `recurring_todos` off, show no Repeat on the detail sheet and no Skip this one in the menu
+- [ ] On Plus and Team, Repeat opens the picker
+- [ ] On Free, show Repeat with a Plus badge, opening the upgrade sheet on tap
+- [ ] With `recurring_todos` off, show no Repeat or Skip this one
 
 ---
 
@@ -167,5 +163,5 @@ Both events are in the tracking plan Yara reviewed on 2026-09-16.
 **Checklist**
 
 - [ ] Send `todo_repeat_set` with `repeat` set to `daily`, `weekdays`, `weekly`, `monthly` or `custom`
-- [ ] Send `todo_occurrence_skipped` when the member uses Skip this one
-- [ ] Both events carry `workspace_id`, a hashed `user_id`, `platform`, `app_version` and `plan`
+- [ ] Send `todo_occurrence_skipped` on Skip this one
+- [ ] Both carry `workspace_id`, a hashed `user_id`, `platform`, `app_version` and `plan`

@@ -4,11 +4,11 @@
 
 ---
 
-Members who want a to-do back every week copy it by hand, or set a reminder far ahead and keep moving it. Repeating to-dos are the most requested to-do feature: the feedback board holds 212 requests since January, and 38 Plus workspaces named it in the renewal survey as the reason they keep a second app for chores and routines.
+Members copy a weekly to-do by hand, or set a far-off reminder and keep moving it. Repeating to-dos are the most requested to-do feature: 212 feedback board requests since January, and 38 Plus workspaces named it in the renewal survey as why they keep a second app for chores and routines.
 
-This parent task holds the shared rules, numbered 1 to 5 so subtasks point at them rather than restating them. Platform leads write their subtasks from it, and Desktop gets the feature through the web client with no Desktop release. Sources are Ines's 2026-09-08 PM brief and the 2026-09-10 planning answers, and Anouk's three design frames are ready for review.
+Success is 10% of weekly active Plus and Team workspaces with at least one repeating to-do 8 weeks after `recurring_todos` is on for everyone. Platform leads write their subtasks from shared rules 1 to 5, and Desktop gets it through the web client with no Desktop release.
 
-The feature succeeds when 10% of weekly active Plus and Team workspaces have at least one repeating to-do 8 weeks after `recurring_todos` is on for everyone. Out of scope: repeating a whole page or a database row, repeating from the check-off date (every 3 days after I finish), a different time for each weekday and any Support console change.
+Sources: Ines's 2026-09-08 PM brief and 2026-09-10 planning answers, and Anouk's three design frames await review. Out of scope: repeating a page or database row, repeating from check-off (every 3 days after I finish), per-weekday times and Support console changes.
 
 **References**
 
@@ -32,85 +32,83 @@ Components
 
 ---
 
-A to-do can repeat only when it has a due date, because every Repeat option counts forward from that date. Repeat sits in the to-do's detail sheet and Ends sits under it, as `Recurring to-dos / Repeat picker` and `Recurring to-dos / Custom interval` show.
+Every option counts forward from the due date. Repeat sits in the detail sheet with Ends below, as `Recurring to-dos / Repeat picker` and `Recurring to-dos / Custom interval` show.
 
 | Option | Next due date |
 | --- | --- |
-| Daily | The next day |
-| Weekdays | The next weekday, Monday through Friday |
+| Daily | Next day |
+| Weekdays | Next weekday, Monday to Friday |
 | Weekly | Same weekday next week |
 | Monthly | Same day next month |
-| Custom | Every N days, weeks or months, with N from 1 to 99 |
+| Custom | Every N days, weeks or months, N from 1 to 99 |
 
 **Checklist**
 
-- [ ] A to-do without a due date shows Repeat greyed out with the hint `Add a due date to repeat`
-- [ ] Each Repeat option sets the next due date the table gives
-- [ ] Monthly keeps the first due date's day, so a series starting on the 31st lands on the 30th in April and the 31st in May
-- [ ] Ends has Never, On date and After, and Never is the default
-- [ ] On date stops the series after the last occurrence on or before that date
-- [ ] After stops the series after a set number of occurrences, from 1 to 365
+- [ ] Without a due date, Repeat is greyed out with the hint `Add a due date to repeat`
+- [ ] Each option sets the table's next due date
+- [ ] Monthly keeps the first due date's day, so a 31st series lands on the 30th in April and the 31st in May
+- [ ] Ends offers Never, the default, On date and After
+- [ ] On date stops after the last occurrence on or before that date
+- [ ] After stops after 1 to 365 occurrences
 
 2.  **Occurrences, Skip this one and the repeat icon**
 
 ---
 
-Only one occurrence of a series exists at a time, so a page never fills up with future copies of the same to-do. Skip this one sits in the to-do's menu, as `Recurring to-dos / Occurrence menu` shows.
+One occurrence at a time keeps pages free of future copies. Skip this one is in the to-do's menu, as `Recurring to-dos / Occurrence menu` shows.
 
 **Checklist**
 
-- [ ] Checking off an occurrence makes the next one appear on the same page with the next due date
-- [ ] The next occurrence keeps the assignee and the reminder
+- [ ] Checking one off shows the next on the same page with the next due date
+- [ ] The next keeps the assignee and reminder
 - [ ] Skip this one moves the to-do to its next due date without marking it done
-- [ ] A skipped occurrence counts toward an After limit
-- [ ] A repeating to-do shows the repeat icon on its row
+- [ ] A skip counts toward an After limit
+- [ ] Repeating to-dos show the repeat icon on their row
 
 3.  **Reminders and time zones**
 
 ---
 
-Next due dates follow the rule the Overdue chip and reminders already follow, so a repeating to-do never disagrees with them about which day it is due. Each surface delivers the next occurrence's reminder the way it delivers any reminder today.
+Due dates follow the Overdue chip and reminders' rule, so they never disagree.
 
 **Checklist**
 
-- [ ] Next due dates are worked out in the to-do owner's time zone
-- [ ] After a reassign, the next occurrence uses the new to-do owner's time zone
-- [ ] A teammate in another time zone sees the to-do owner's date with the zone shown
-- [ ] The next occurrence's reminder keeps the same local time and reaches reminders-service, which hands it to every device of the to-do owner
-- [ ] On iOS and Android the next occurrence's reminder arrives as a local notification
-- [ ] On Web and Desktop it shows in the app only, while the app is open, as every reminder there does
+- [ ] Next due dates use the to-do owner's time zone
+- [ ] After a reassign, the new owner's zone applies
+- [ ] Teammates in other zones see the owner's date with the zone shown
+- [ ] The next reminder keeps its local time and goes to reminders-service, which sends it to all the owner's devices
+- [ ] On iOS and Android it arrives as a local notification
+- [ ] On Web and Desktop it shows only in the open app, like every reminder there
 
 4.  **Plans and the workspace limit**
 
 ---
 
-Repeat is for Plus and Team workspaces. The limit caps any one workspace at 500 series that are still running.
-
 **Checklist**
 
-- [ ] Repeat works on Plus and Team workspaces
-- [ ] On Free, Repeat shows with a Plus badge and opens the upgrade sheet
-- [ ] A workspace holds up to 500 repeating to-dos that have not ended, and checked-off and ended series do not count toward the 500
-- [ ] At 500, Repeat stays visible and opens a sheet that says `This workspace has 500 repeating to-dos. End one to add another.`
+- [ ] Repeat works on Plus and Team
+- [ ] On Free, Repeat shows a Plus badge and opens the upgrade sheet
+- [ ] A workspace holds up to 500 unended repeating to-dos, not counting checked-off and ended series
+- [ ] At 500, Repeat stays visible and opens a sheet saying `This workspace has 500 repeating to-dos. End one to add another.`
 
 5.  **Flag, release order and tracking**
 
 ---
 
-Everything ships dark behind the workspace flag `recurring_todos`. Web and BE ship dark first, and iOS and Android aim for the 5.4.0 release. Once all three clients are out, Data turns the flag on for a sample of Plus and Team workspaces and widens it from there.
+Everything ships dark behind the workspace flag `recurring_todos`, and once all three clients are out, Data turns it on for a sample of Plus and Team workspaces, then widens it.
 
 **Checklist**
 
-- [ ] No part of the feature shows in a workspace where `recurring_todos` is off
+- [ ] Nothing shows where `recurring_todos` is off
 - [ ] Web and BE are live behind the flag before iOS and Android 5.4.0
-- [ ] Yara has reviewed the tracking plan before any client subtask starts
+- [ ] Yara reviews the tracking plan before any client subtask starts
 - [ ] `todo_repeat_set` carries `repeat` set to `daily`, `weekdays`, `weekly`, `monthly` or `custom`
 - [ ] `todo_occurrence_skipped` fires on Skip this one
-- [ ] Both events carry `workspace_id`, `user_id`, `platform`, `app_version` and `plan`, as every Loomlist event does
+- [ ] Both carry `workspace_id`, `user_id`, `platform`, `app_version` and `plan`, as every Loomlist event does
 
-> The brief does not say which surface sends each event. The tracking plan settles that before the client subtasks start.
+> The brief does not say which surface sends each event, and the tracking plan settles it before client subtasks start.
 
-> Whether a series shows its past occurrences in the to-do's activity is not part of the first release. Ines decides after the flag reaches everyone.
+> Whether past occurrences show in the to-do's activity is outside the first release, and Ines decides after the flag reaches everyone.
 
 ### **Subtasks**
 
@@ -122,7 +120,7 @@ Everything ships dark behind the workspace flag `recurring_todos`. Web and BE sh
 
 `FE - iOS - TODO - Recurring to-dos`
 
-The Repeat and Ends pickers, the Custom interval, Skip this one and the repeat icon on the to-do row, built against shared rules 1 to 5. Aims for 5.4.0.
+Repeat and Ends pickers, Custom interval, Skip this one and the row's repeat icon, per rules 1 to 5. Aims for 5.4.0.
 
 7.  **Android**
 
@@ -130,7 +128,7 @@ The Repeat and Ends pickers, the Custom interval, Skip this one and the repeat i
 
 `FE - Android - TODO - Recurring to-dos`
 
-Same scope as iOS, built against shared rules 1 to 5. Aims for 5.4.0.
+Same scope as iOS, per rules 1 to 5. Aims for 5.4.0.
 
 8.  **Web**
 
@@ -138,7 +136,7 @@ Same scope as iOS, built against shared rules 1 to 5. Aims for 5.4.0.
 
 `FE - Web - TODO - Recurring to-dos`
 
-Same scope as iOS, built against shared rules 1 to 5. Ships dark before 5.4.0, and Desktop members get it through the web client, so every check also passes in the Desktop app.
+Same scope as iOS, per rules 1 to 5. Ships dark before 5.4.0, and every check also passes in the Desktop app.
 
 9.  **BE**
 
@@ -146,4 +144,4 @@ Same scope as iOS, built against shared rules 1 to 5. Ships dark before 5.4.0, a
 
 `BE - TODO - Recurring to-dos`
 
-The next occurrence on check-off and on Skip this one, Ends, the 500 limit and handing the next reminder to reminders-service, built against shared rules 1 to 5. Ships dark before 5.4.0.
+Next occurrence on check-off and Skip this one, Ends, the 500 limit and the reminder handoff to reminders-service, per rules 1 to 5. Ships dark before 5.4.0.
