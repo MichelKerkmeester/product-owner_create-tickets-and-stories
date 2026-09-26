@@ -1,7 +1,7 @@
 ---
 title: "PTK-003 -- Long BE integration task"
 description: "Validates that a task shortcut carrying a full scope renders one context question block, then a long Fernhouse back end task block in a Claude Project for label webhook idempotency and retries that keeps every carrier value, every agreed fix and the rejected polling option out."
-version: 1.0.0.1
+version: 1.0.0.2
 ---
 
 # PTK-003 -- Long BE integration task
@@ -94,7 +94,7 @@ Capture both replies, both rendered blocks and which form each took, the two exp
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, the explicit-command question rule, the named-addition rule, Deliverable Block and export-equivalent contract |
 | [`Product Owner - Templates - Task Mode - v0.305.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.305.md) | Project task workflow, required sections and requirement grammar |
 | [`Product Owner - Assets - Task Templates - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates%20-%20v0.102.md) | Project Canonical Task scaffold |
-| [`Product Owner - System - Interactive Mode - v0.406.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.406.md) | Direct `$task` row and clarification delivery |
+| [`Product Owner - System - Interactive Mode - v0.407.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.407.md) | Direct `$task` row and clarification delivery |
 | [`fernhouse-context.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-context.md) | Attachment: services, the `SHIP` code, the cut-off, the label cost rule and the title convention |
 | [`fernhouse-carrier-label-api-notes.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-carrier-label-api-notes.md) | Attachment: the carrier label contract, retries, signature, rate limit and open questions |
 | [`fernhouse-carrier-label-thread.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-carrier-label-thread.md) | Attachment: the incident, its cause, the five agreed points and the rejected polling option |
