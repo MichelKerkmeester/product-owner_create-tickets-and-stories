@@ -1,7 +1,7 @@
 ---
 title: "PDK-001 -- Behavior reference"
 description: "Validates a no-command Doc request at Fernhouse that renders a ClickUp behavior reference Deliverable Block on discount stacking at once from its attachments, then applies a follow-up change that keeps the retired two-codes rule retired."
-version: 2.0.0.0
+version: 2.0.0.1
 ---
 
 # PDK-001 -- Behavior reference
@@ -95,7 +95,7 @@ Capture both replies, both rendered blocks, both export-equivalent labels, the d
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project promised-source rule, Deliverable Block order, the no-file-claim rule and the new and refined export-equivalent labels |
 | [`Product Owner - System - Router Contract - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Router%20Contract%20-%20v0.100.md) | Project Doc routing phrase |
 | [`Product Owner - Templates - Doc Mode - v0.111.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Doc%20Mode%20-%20v0.111.md) | Project no-command intake rule, shape routing, source classification, refinement workflow, export contract and ClickUp output contract |
-| [`Product Owner - Assets - Doc Templates - v0.107.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Doc%20Templates%20-%20v0.107.md) | Project behavior reference shape, status language and layout rules |
+| [`Product Owner - Assets - Doc Templates - v0.108.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Doc%20Templates%20-%20v0.108.md) | Project behavior reference shape, status language and layout rules |
 | [`fernhouse-context.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-context.md) | Attachment: Fernhouse company context |
 | [`fernhouse-promotions-rules.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-promotions-rules.md) | Attachment: current promotion rules, worked examples and the retired two-codes rule |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |
