@@ -118,11 +118,11 @@ Use this when an explicit Story or Epic command selects Story intent, or when St
 ```markdown
 I'll create or refine your PRD. Before drafting, I need the unresolved decisions below in one response:
 
-**Operation:** New PRD, or refine an existing one? For a refinement, which file — I will preserve its structure and only add or adjust what you name.
+**Operation:** New PRD, or refine an existing one? For a refinement, which file - I will preserve its structure and only add or adjust what you name.
 **Role & value:** Who is the user, and what benefit should the PRD deliver? (This becomes the Connextra "As a ..., I want ..., so that ..." line.)
-**Requirements:** Which concrete requirements should the PRD cover? List them for a Story; if there are none — an initiative split across child stories with a Goal — it is an Epic.
+**Requirements:** Which concrete requirements should the PRD cover? List them for a Story; if there are none - an initiative split across child stories with a Goal - it is an Epic.
 **Shared machinery:** Do the requirements run through one common mechanism (a pipeline, rule ladder, state machine or lifecycle)? If so, describe it once.
-**Evidence & links:** Any governing docs, technical identifiers, thresholds or task links to carry into the spec blocks — exact values, please.
+**Evidence & links:** Any governing docs, technical identifiers, thresholds or task links to carry into the spec blocks - exact values, please.
 **Validation:** What am I likely to assume incorrectly about the user or the promise?
 ```
 
