@@ -1,7 +1,7 @@
 ---
-title: "Product Owner - System - Interactive Mode - v0.406"
+title: "Product Owner - System - Interactive Mode - v0.407"
 description: "Conversation flow and state management for Product Owner task, bug and document guidance."
-version: "0.406"
+version: "0.407"
 contextType: reference
 importance_tier: high
 trigger_phrases:
@@ -15,7 +15,7 @@ trigger_phrases:
   - "source authority clarification"
 ---
 
-# Product Owner - System - Interactive Mode - v0.406
+# Product Owner - System - Interactive Mode - v0.407
 
 Conversation flows and state management for interactive guidance with concise transparency.
 
@@ -90,7 +90,7 @@ Save it in the routed artifact's lane, under the next number in that lane, with 
 export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md
 ```
 
-A request that reached Interactive Mode through the Doc, Story or Bug gate keeps that lane and that prefix, because the clarification is about that artifact. A Story asked for with its tasks asks in the Story lane at the top of `export/`, outside the bundle folder, which then takes the next number. A request with no resolved artifact at all uses `intake` in place of the artifact word. Read the file back and report its path exactly as an artifact delivery does.
+A request that reached Interactive Mode through the Doc, Story or Bug gate keeps that lane and that prefix, because the clarification is about that artifact. A Story asked for with its tasks asks in the Story lane at the top of `export/`, outside the bundle folder, which then takes the next number. A request with no resolved artifact at all uses `intake` in place of the artifact word. Read the file back and report its path exactly as an artifact delivery does. The reply says the artifact comes next once the user answers, without naming the artifact's path or file.
 
 Two rules keep this from turning into a half-artifact:
 

@@ -1,7 +1,7 @@
 ---
 title: "PTK-005 -- Supplied parent subtask"
 description: "Validates that a subtask command against a supplied Loomlist parent task renders one context question block, then an Android recurring to-dos subtask block in a Claude Project that names its parent in plain text, keeps the parent's shared rules and holds only Android client work."
-version: 1.0.0.1
+version: 1.0.0.2
 ---
 
 # PTK-005 -- Supplied parent subtask
@@ -94,7 +94,7 @@ Capture both replies, both rendered blocks and which form each took, the two exp
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, the explicit-command question rule, Deliverable Block and export-equivalent contract |
 | [`Product Owner - Templates - Task Mode - v0.305.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.305.md) | Project task workflow, subtask type, required sections and the named-but-unlinked rule |
 | [`Product Owner - Assets - Task Templates - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates%20-%20v0.102.md) | Project Subtask scaffold and the Notes For Use |
-| [`Product Owner - System - Interactive Mode - v0.406.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.406.md) | The `$task --subtask` state route and clarification delivery |
+| [`Product Owner - System - Interactive Mode - v0.407.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.407.md) | The `$task --subtask` state route and clarification delivery |
 | [`loomlist-context.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-context.md) | Attachment: platforms, reminder delivery on Android, the owner's time zone and the title convention |
 | [`loomlist-recurring-todos-parent-task.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-recurring-todos-parent-task.md) | Attachment: the supplied parent, its four subtask titles, shared rules, frames, flag and tracking |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |

@@ -2,7 +2,7 @@
 name: product-owner
 description: "Routes Product Owner requests into backlog artifacts, product requirements documents (PRDs) in the Barter house format, and source-safe product or engineering documentation, including ClickUp-formatted guides, catalogs, behavior references, runbooks, API or schema references, and proposals."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.11.0
+version: 1.12.0
 ---
 
 <!-- Keywords: product-owner, backlog, task, subtask, parent task, bug report, acceptance criteria, story mode, user story, prd, product requirements document, epic, doc mode, product documentation, engineering documentation, ClickUp, $task, $bug, $doc, $story, $prd, $epic, $quick -->

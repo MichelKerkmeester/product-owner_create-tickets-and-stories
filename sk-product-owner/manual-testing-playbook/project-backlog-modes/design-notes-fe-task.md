@@ -1,7 +1,7 @@
 ---
 title: "PTK-002 -- Design notes FE task"
 description: "Validates that a task command pointing at Roamstay date picker design notes renders one context question block, then a front end task block in a Claude Project that carries every stay limit and copy string from the notes and every scope fact from the answer."
-version: 1.0.0.1
+version: 1.0.0.2
 ---
 
 # PTK-002 -- Design notes FE task
@@ -92,7 +92,7 @@ Capture both replies, both rendered blocks and which form each took, the two exp
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, the explicit-command question rule, Deliverable Block and export-equivalent contract |
 | [`Product Owner - Templates - Task Mode - v0.305.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.305.md) | Project task workflow, required sections, requirement grammar and the plain-text reference rule |
 | [`Product Owner - Assets - Task Templates - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates%20-%20v0.102.md) | Project Canonical Task scaffold |
-| [`Product Owner - System - Interactive Mode - v0.406.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.406.md) | Direct `$task` row and clarification delivery |
+| [`Product Owner - System - Interactive Mode - v0.407.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.407.md) | Direct `$task` row and clarification delivery |
 | [`Product Owner - Assets - Interactive Response Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.103.md) | Task Format question wording |
 | [`roamstay-context.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-context.md) | Attachment: surfaces, squads, the `SRCH` code, locales and the title convention |
 | [`roamstay-date-picker-design-notes.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-date-picker-design-notes.md) | Attachment: stay limits, picker states, copy keys, edge cases, platforms and exclusions |
