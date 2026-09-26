@@ -1,7 +1,7 @@
 ---
-title: "Product Owner - Assets - Doc Templates - v0.107"
+title: "Product Owner - Assets - Doc Templates - v0.108"
 description: "ClickUp-native adaptive scaffolds for product and engineering guides, catalogs, behavior references, and proposal or future-state documents."
-version: "0.107"
+version: "0.108"
 contextType: asset
 importance_tier: high
 trigger_phrases:
@@ -14,7 +14,7 @@ trigger_phrases:
   - "ClickUp document layout"
 ---
 
-# Product Owner - Assets - Doc Templates - v0.107
+# Product Owner - Assets - Doc Templates - v0.108
 
 Copy/apply scaffolds for new product or engineering documentation in the repository's ClickUp Markdown style. Refinements preserve the supplied document's existing structure instead of imposing these shapes.
 
@@ -70,7 +70,7 @@ New documents use the same layout grammar as the canonical Feed documentation:
 - Every heading in a Doc artifact is sentence case, including the scaffold names below. Capitalize the first word and whatever is a proper noun, an acronym or a literal identifier, and nothing else. `### Boundaries and exceptions`, never `### Boundaries and Exceptions`. This is the Human Voice card's title-case ban, and Doc Mode holds no exemption from it: the card's only Doc exemptions are the definition delimiter above and the `Status: {class} — {qualifier}` label in the Status language table. A refinement keeps the supplied document's own heading case
 - Use `*   [ ]` for checklist items
 - Keep ordered procedures as numbered lists
-- Keep tables, code fences, blockquotes, links, identifiers, and literal copy in their source-supported form
+- Keep tables, code fences, blockquotes, links, identifiers, and literal copy in their source-supported form. A phrase the source sets in backticks is literal copy, a rule's own wording as much as an identifier, so it appears word for word in the sentence that states that rule, even where that sentence repeats its bold label, and a shorter label or a When and Then pair never stands in for it
 
 This contract is the default for new documents. A refinement follows the supplied document's established divider, bullet, heading, and spacing style unless the user explicitly requests normalization to the ClickUp standard.
 
@@ -113,7 +113,7 @@ The first screen, meaning the title, the status notice and the opening of the fi
 
 - Use the smallest set of sections that serves the reader
 - Each shape's adaptation notes carry a `Section | Include when` table: an optional section earns its place only when its condition holds, and the Overview plus the shape's primary body are the only mandatory sections
-- Rename optional headings when the subject needs clearer product language
+- Rename optional headings when the subject needs clearer product language. A Behavior reference keeps its primary body heading as `## Behavior rules` and puts the subject's wording in the `### {Rule, feature or flow}` headings beneath it
 - Combine compatible sections rather than leaving empty shells
 - Keep status labels beside the claims they qualify
 - Do not add a table of contents unless requested

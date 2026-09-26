@@ -1,7 +1,7 @@
 ---
 title: "PID-001 -- Project identity handover"
 description: "Validates the Project runtime identity on a two-turn Loomlist task, where a task-lane clarification and then the task each render as a Deliverable Block with an export-equivalent label and no file claim."
-version: 1.0.0.2
+version: 1.0.0.3
 ---
 
 # PID-001 -- Project identity handover
@@ -97,7 +97,7 @@ The Project identity string `Canvas Artifact` is absent from the skill identity 
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project identity, Deliverable Block and export-equivalent contract |
-| [`Product Owner - Templates - Task Mode - v0.305.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.305.md) | Routed Task Mode workflow and its context question rule |
+| [`Product Owner - Templates - Task Mode - v0.306.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.306.md) | Routed Task Mode workflow and its context question rule |
 | [`Product Owner - Assets - Task Templates - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates%20-%20v0.102.md) | Routed task scaffold |
 | [`Product Owner - System - Interactive Mode - v0.407.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.407.md) | Clarification block contract |
 | [`Product Owner - Assets - Interactive Response Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.103.md) | Task Format Question the Turn 1 clarification follows |
