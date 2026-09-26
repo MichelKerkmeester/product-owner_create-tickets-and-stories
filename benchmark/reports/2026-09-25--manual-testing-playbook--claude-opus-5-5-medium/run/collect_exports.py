@@ -22,7 +22,7 @@ and nothing else:
   warning line, since an attachment is never meant to be modified.
 - A clarification, saved as "...-clarification.md", is the question a scenario
   asked before drafting, not a deliverable, so it is skipped with a skip line.
-  Its text stays in the run folder and, for a Project, in the reply.
+  Its text stays in the scenario's transcript and, for a Project, in the reply.
 - Re-measure rounds are collected only with --rounds, into
   <side>/<round>/<run>/ with the same naming, since a round's evidence already
   lives in its own replies/ and results.csv.

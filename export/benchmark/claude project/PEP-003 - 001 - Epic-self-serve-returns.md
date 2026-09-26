@@ -3,45 +3,40 @@
 * * *
 ## About
 * * *
-Self-serve returns lets signed-in customers on web, iOS and Android start a return from their order history within the `30 days` return window. They get the return label by email, follow the return on the order page and receive the refund after the warehouse has checked the items.
-
-This Epic is split into four child stories, each owning one part of the return lifecycle.
+Signed-in customers on web, iOS and Android start a return from order history within the `30 days` window, get the label by email, track it on the order page and get refunded after the warehouse check. Four child stories each own one part.
 
 ### Problem
 * * *
-Customers cannot start a return themselves today, so every return starts with a CS contact. After the customer writes in, a CS agent creates the return in Admin, emails a return label and issues the refund once the warehouse has checked the item.
-
-CS handles about `1,900` return requests a month this way, and a refund takes `6 days` on average from the first contact.
+Every return starts with a CS contact, and an agent creates it in Admin, emails a label and refunds after the warehouse check. A refund takes `6 days` on average from first contact.
 
 **The following issues rise from that:**
 *   Every return costs a CS contact, about `1,900` a month
-*   A customer who wants to return an item has to wait for an agent before anything happens
-*   CS agents create every return by hand in Admin and email every label themselves
-*   The order page stops at `Shipped`, so a customer cannot see where a return stands
+*   Customers wait for an agent before anything happens
+*   Agents create every return and email every label by hand
+*   The order page stops at `Shipped`, hiding where a return stands
 ###   
 
 ### Goal
 * * *
-By the end of Q1 2027, at least `60%` of returns start without a CS contact. To get there, signed-in customers on web, iOS and Android start their own returns inside the return window, and CS stops creating returns by hand in Admin.
+By the end of Q1 2027, at least `60%` of returns start without CS, and CS stops creating returns by hand.
 
 **Direct user/Fernhouse benefits:**
-*   Customers start a return whenever they want, without waiting for a CS reply
-*   Customers see where their return stands on the order page
-*   CS agents stop creating returns and emailing labels by hand
-*   Return contacts no longer take up CS time
+*   Customers start returns anytime, without waiting for CS
+*   Customers see their return's status on the order page
+*   CS stops creating returns and emailing labels, freeing time from return contacts
 ###   
 
 ### Solution
 * * *
 In order to get there, we will:
-*   Let a signed-in customer start a return from order history, choosing the items and a reason
-*   Email the return label to the customer once the return is started
+*   Let signed-in customers start a return from order history, with items and a reason
+*   Email the label once the return starts
 *   Show the return's status on the order page
-*   Issue the refund after the warehouse has checked the returned items
+*   Refund after the warehouse checks the items
 
 ## Scope
 * * *
-Each child story owns one part of the return lifecycle and carries its own detailed requirements and acceptance criteria. Returns of pallet items stay with CS and are not part of this epic.
+Each child story carries its own requirements and criteria. Pallet item returns stay with CS, outside this epic.
 
 #### Starting a return
 * * *
@@ -55,24 +50,23 @@ Each child story owns one part of the return lifecycle and carries its own detai
 
 #### Added Later
 * * *
-These capabilities belong to the epic but do not block the first release.
+These do not block the first release.
 
 **Guest returns**
-*   A customer who checked out as a guest starts a return themselves, even though guests have no order history to start it from
+*   Guest-checkout customers start returns themselves, though they have no order history
 * * *
 ##   
 
 ## Acceptance criteria
 * * *
-These are release-level outcomes.
-Each child story carries the detailed criteria for its own screens and states.
+Release-level outcomes, with detailed criteria in each child story.
 
 1\. **A signed-in customer starts a return without contacting CS**
 * * *
-*   **Given** a signed-in customer on web, iOS or Android with an order delivered within the last `30 days`
-*   **When** they choose the items and a reason from their order history
-*   **Then** the return is created without any CS contact
-*   **And** no CS agent creates that return by hand in Admin
+*   **Given** a signed-in web, iOS or Android customer with an order delivered in the last `30 days`
+*   **When** they pick items and a reason in order history
+*   **Then** the return is created with no CS contact
+*   **And** no agent creates it by hand in Admin
 * * *
 - [ ] _Mark as done, if the criteria are met_
 
@@ -80,16 +74,16 @@ Each child story carries the detailed criteria for its own screens and states.
 * * *
 *   **Given** a signed-in customer with an order delivered more than `30 days` ago
 *   **When** they open that order in their order history
-*   **Then** the order offers no self-serve return
+*   **Then** it offers no self-serve return
 * * *
 - [ ] _Mark as done, if the criteria are met_
 
 3\. **The customer gets the return label without asking for it**
 * * *
-*   **Given** a customer who has started a self-serve return
+*   **Given** a customer starting a self-serve return
 *   **When** the return is created
-*   **Then** the customer receives the return label by email
-*   **And** no CS agent sends that label by hand
+*   **Then** they get the label by email
+*   **And** no agent sends it by hand
 * * *
 - [ ] _Mark as done, if the criteria are met_
 
@@ -97,16 +91,16 @@ Each child story carries the detailed criteria for its own screens and states.
 * * *
 *   **Given** a started self-serve return
 *   **When** the customer opens the order on web, iOS or Android
-*   **Then** the order page shows where the return currently stands
-*   **And** the refund is issued only after the warehouse has checked the returned items
+*   **Then** the page shows where the return stands
+*   **And** the refund comes only after the warehouse check
 * * *
 - [ ] _Mark as done, if the criteria are met_
 
 5\. **Pallet items stay with CS**
 * * *
-*   **Given** a signed-in customer with a pallet item in a delivered order
-*   **When** they look for a return in their order history
-*   **Then** the pallet item cannot be returned through self-serve, and its return stays with CS
+*   **Given** a signed-in customer with a delivered pallet item
+*   **When** they look for a return
+*   **Then** the pallet item has no self-serve return and stays with CS
 * * *
 - [ ] _Mark as done, if the criteria are met_
 * * *

@@ -4,9 +4,9 @@
 
 ---
 
-The To-dos view has three filter chips: All, Assigned to me and Overdue. Members can see which to-dos are already late, but no chip shows the to-dos due today. To find those, they have to look through the full list.
+The To-dos view's chips, All, Assigned to me and Overdue, leave members scanning the full list for to-dos due today.
 
-Add a Due today chip on Web. It shows the to-dos that are not checked off and are due today in the owner's time zone. Desktop gets the chip through the web client. iOS and Android will follow in later tasks and are out of scope here.
+Add a Due today chip on Web. Desktop gets it through the web client, and iOS and Android follow in later tasks, out of scope here.
 
 ### Requirements
 
@@ -16,16 +16,14 @@ Add a Due today chip on Web. It shows the to-dos that are not checked off and ar
 
 ---
 
-The new chip reuses the existing filter chip, so it looks and behaves like the three chips already on the To-dos view.
-
 **Checklist**
 
-- [ ] Show a chip labelled `Due today` directly after Overdue, so the chips read All, Assigned to me, Overdue, Due today
-- [ ] Use the existing filter chip with no new styling
-- [ ] Keep one chip active at a time, so selecting Due today deactivates the previously active chip
-- [ ] Keep All as the default chip when the To-dos view opens
-- [ ] Show the chip label in every shipped locale, with en-US as the fallback for a missing string
-- [ ] Confirm Desktop shows the chip the next time it loads, with no Desktop release
+- [ ] Show a `Due today` chip after Overdue: All, Assigned to me, Overdue, Due today
+- [ ] Use the existing filter chip, with no new styling
+- [ ] Keep one chip active at a time
+- [ ] Keep All as the default when the To-dos view opens
+- [ ] Show the label in every shipped locale, with en-US for a missing string
+- [ ] Desktop shows the chip on its next load, with no Desktop release
 
 ---
 
@@ -33,14 +31,14 @@ The new chip reuses the existing filter chip, so it looks and behaves like the t
 
 ---
 
-"Today" follows the same rule as Overdue. It is read in the to-do owner's time zone, not the viewer's. A to-do shows under Due today when its owner's date is today, even if the member viewing the list is already on a different date.
+As with Overdue, "today" is the to-do owner's date, even when the viewer is on another one.
 
 **Checklist**
 
-- [ ] With Due today active, list every to-do the member can open that is not checked off and due today in the owner's time zone
-- [ ] Leave out checked-off to-dos, to-dos due before or after today and to-dos with no due date
-- [ ] Sort the list by due date, the same as the other chips
-- [ ] When no to-do is due today, keep the chip active and show no to-dos rather than falling back to another chip's list
+- [ ] List every to-do the member can open that is unchecked and due today in the owner's time zone
+- [ ] Leave out checked-off to-dos and ones due before or after today or undated
+- [ ] Sort by due date, like the other chips
+- [ ] When nothing is due today, keep the chip active and show an empty list, not another chip's list
 
 ---
 
@@ -48,10 +46,10 @@ The new chip reuses the existing filter chip, so it looks and behaves like the t
 
 ---
 
-The `due_today` value is already in the tracking plan, so the client work does not wait on a Data review.
+`due_today` is already in the tracking plan, so no Data review blocks this.
 
 **Checklist**
 
-- [ ] Send `filter_selected` with `filter` set to `due_today` when the member selects Due today
-- [ ] Send the same properties the other `filter_selected` events carry: `workspace_id`, hashed `user_id`, `platform`, `app_version` set to the web build number and `plan`
-- [ ] Keep sending `all`, `assigned_to_me` and `overdue` for the existing chips, unchanged
+- [ ] Send `filter_selected` with `filter` set to `due_today` on selecting Due today
+- [ ] Include the usual `filter_selected` properties: `workspace_id`, hashed `user_id`, `platform`, `app_version` as the web build number and `plan`
+- [ ] Keep sending `all`, `assigned_to_me` and `overdue` unchanged

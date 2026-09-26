@@ -4,7 +4,7 @@
 
 ---
 
-The warehouse system already reports back to orders-service when an order is packed, but the customer never sees it. This task records that report as the `Packed` status, so the timeline has a step between `Order placed` and `Shipped`.
+The warehouse system already tells orders-service when an order is packed, but customers never see it. This task records it as `Packed`, between `Order placed` and `Shipped`.
 
 **Story**
 
@@ -28,6 +28,6 @@ The warehouse system already reports back to orders-service when an order is pac
 
 **Checklist**
 
-- [ ] orders-service records `Packed` when the warehouse system reports the order packed
-- [ ] `Packed` carries a date and time for the timeline
+- [ ] orders-service records `Packed` on the warehouse system's packed report
+- [ ] `Packed` carries a date and time
 - [ ] `Order placed` stays tied to payment authorisation
