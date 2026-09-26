@@ -1,6 +1,125 @@
 # Manual testing playbook run, 2026-09-25, Product Owner, claude-opus-5-5 medium
 
-The graded results, the handover status and the findings are written above this run record once grading closes. Until then this file holds only how the run was made.
+## 1. Handover status, read this first
+
+**The Project handover failed, and the skill handover passed.**
+
+- **Skill, `SID-001`: PASS.** Both replies name a real export path, print `Verified: read-back succeeded` with a line count and the `HVR self-scan:` line, and the event stream shows a Read of each file after its last write. The task keeps every Turn 2 fact, and the reply names each of its additions
+- **Project, `PID-001`: FAIL.** The block, the `Export-equivalent path:` line and the `HVR self-scan:` line are all right, and no reply says a file was saved. But Turn 1 ends: "When you reply, I'll write the task as `export/002 - task-due-today-filter-chip.md`" (`replies/PID-001-turn1.txt` line 44). The operator ruled on 2026-09-25 that a promise to write a file is a file claim, which root line 189 blocks on the Project side
+
+So the other 22 Project rows carry `after_failed_gate` yes. Each scenario ran in its own fresh session, so the handover changed nothing a later scenario could do (root line 175). The doubt is about the Project runtime's habits. Kernel line 101 at the run's commit forbade only claiming that a file was saved, so the promise slipped past the kernel's own wording. Two repairs followed (section 3). `PID-001` failed again in the first remeasure round and passes in the second, on kernel v1.16.0 (section 4), so the Project handover holds on the repaired sources.
+
+---
+
+## 2. Verdict counts
+
+Every count below comes from `results.csv` by this command, run from this folder:
+
+```bash
+python3 -c "
+import csv,collections as c
+r=list(csv.DictReader(open('results.csv')))
+for k,v in sorted(c.Counter((x['runtime'],x['result']) for x in r).items()): print(k[0],k[1],v)
+print('facts_intact yes',sum(x['facts_intact']=='yes' for x in r),'of',len(r))
+print('after_failed_gate yes',sum(x['after_failed_gate']=='yes' for x in r))
+d={x['id']:x['result'] for x in r}
+print('twin pairs differing',sum(d[k]!=d['P'+k[1:]] for k in d if k[0]=='S'),'of',sum(k[0]=='S' for k in d))
+"
+```
+
+Output: `project FAIL 15`, `project PASS 8`, `skill FAIL 11`, `skill PASS 12`, `facts_intact yes 38 of 46`, `after_failed_gate yes 22`, `twin pairs differing 4 of 23`.
+
+| Runtime | PASS | FAIL | SKIP | Total |
+| --- | ---: | ---: | ---: | ---: |
+| Skill (`S`) | 12 | 11 | 0 | 23 |
+| Project (`P`) | 8 | 15 | 0 | 23 |
+
+The passes are `SID-001`, `STK-001`, `SBG-001`, `SBG-003`, `SDK-002`, `SDK-003`, `SDK-004`, `SST-001`, `SEP-002`, `SEP-003`, `SIR-001` and `SIR-002` on the skill side, and `PTK-001`, `PBG-001`, `PBG-003`, `PDK-002`, `PDK-004`, `PST-001`, `PEP-003` and `PIR-001` on the Project side.
+
+The 26 failures come from three causes:
+
+- **Drafting on Turn 1 instead of asking, 20 rows.** `STK-002` to `STK-005`, `PTK-002` to `PTK-005`, `SBG-002`, `PBG-002`, `SST-002` to `SST-004`, `PST-002` to `PST-004`, `SEP-001` and `PDK-003` came with an explicit command and rich attachments, and the runtime wrote the artifact at once. Each scenario's Pass clause asks for one question first, as `AGENTS.md` line 287 and kernel line 108 require. The Bug, Story and Doc Mode intake lines let enough context stand in for the question, and `task-mode.md` line 50, which already said `$task` still asks, was misread the same way. `SDK-001` and `PDK-001` carry no command. For them the operator ruled the scenario wrong, since no rule required the question
+- **A file promised on the Project side, 4 rows.** `PID-001`, `PIR-002`, `PEP-001` and `PEP-002` each say, in Turn 1, that the next turn will write or save a file (section 1)
+- **A status word left out, 2 rows.** `STK-006` and `PTK-006` never mark `checkout_complete` as `deprecated`, which the tracking plan and the Pass clause both state. `PTK-006` also promises a file
+
+Every delivered artifact is recognisably company work. The realism review read every export against its fixtures and found no placeholder content, no wrong artifact word and no company fact contradicted. The value misses are omissions or rewordings, graded through the Pass clauses. Every Story export uses `Story-`, the Story bundle kept its folder on both sides, and the refinement kept its source name. The only realism item that decided a verdict, a missing `#### **References**` in the Project Epics, was ruled optional when no link is supplied, which turned `PEP-003` and `PIR-001` to PASS.
+
+`results.md` has the table of all 46 and the twin table. `grading-notes.md` has the rulings, the report checker output, the twin causes and each grader's evidence.
+
+---
+
+## 3. Findings and decisions
+
+Every finding that could move a verdict went to the operator on 2026-09-25, and each answer is below. Repairs were made only where the operator chose one.
+
+| # | Finding | Decision | Repair |
+| --- | --- | --- | --- |
+| 1 | An explicit command drafted on Turn 1 whenever the attachments were rich (20 rows) | The command always asks first | Bug, Story and Doc Mode intake lines carry the exception Task Mode had, `$epic` and every short alias join `AGENTS.md` line 287 and kernel line 108, on both sides |
+| 2 | The Project Epics left out `#### **References**` with no link supplied | Optional when no link is supplied, as for a Story | Epic template, its mirror, kernel line 140 and the six Epic scenarios |
+| 3 | The Project promised a file in `PID-001`, `PIR-002`, `PEP-001`, `PEP-002` and `PTK-006` | A promise is a file claim | Kernel line 101 and root lines 179 and 189 name it |
+| 4 | `SDK-001` and `PDK-001` expected a question no rule requires | The scenario is wrong | Both expect a direct draft on Turn 1, and Turn 2 is a follow-up change |
+| 5 | `SBG-003` gives one issue a cause labelled as an unverified hypothesis, against "no root cause" | Allowed | Both twins say no cause stated as fact |
+| 6 | The skill bugs write "No error message is shown" with no source | Advisory | The bug template's error slot reads `Not provided` or is left out |
+| 7 | The runbooks turn incident details into general "Expected result" lines | Allowed | None |
+
+The repairs are Product Owner `39bcd29` and Barter `df2de5f0`: skill 1.11.0, kernel v1.15.0 with seven knowledge files renamed, playbook 2.1.0.0. The format gate, the playbook validator (46 scenarios, 0 violations) and the run selftest passed on the working tree, and `validate_parity.py product-owner` (38 of 38 pairs) and `run_residency.sh product-owner` passed on the commit. The review of kernel v1.15.0 is pending the operator, and the seven renamed files are not on claude.ai until then.
+
+The first remeasure round showed the ask-first repair working on both sides and the file-promise repair failing on the Project side (section 4). The operator chose one more repair, Product Owner `b591571` and Barter `e9eec279`. Kernel line 101 now says the Project never says it saved, verified, read back, pushed, will write, will save or will update a file, and a reply names only the export-equivalent label of the block it renders. It no longer quotes a forbidden example. Kernel line 228 and the Interactive Mode files on both sides say a clarification reply names the artifact as coming next without its path or file, and root lines 179 and 189 count a forecast path as a file claim. That makes skill 1.12.0, kernel v1.16.0, Interactive Mode mirror v0.407 and playbook 2.1.1.0. The review of kernel v1.16.0 is pending the operator as well.
+
+Findings that moved no verdict are in `grading-notes.md` section 4. Among them: `Verified:` lines printed with no Read after the last write, in `SBG-002` Turn 1 and both `STK-003` turns. And `N` is printed as `wc -l` in seven turns, where `AGENTS.md` line 46 names the Read's final line number, one more.
+
+---
+
+## 4. Remeasure rounds
+
+The main run's 46 rows in `results.csv` stay the verdicts of record for playbook 2.0.0.0 at `3023c5e`. Two rounds then reran a subset on the repaired sources, to see whether each repair changes what the runtimes do. Each round keeps its own `results.csv` and `grading-notes.md` under `remeasure-*/run-1/`, and its deliverables sit in `export/benchmark/<side>/<round>/run-1/`.
+
+| Round | Sources | Scenarios | Skill | Project | Cost |
+| --- | --- | --- | --- | --- | ---: |
+| `remeasure-operator-repairs/run-1` | Product Owner `39bcd29`, Barter `df2de5f0`: skill 1.11.0, kernel v1.15.0, playbook 2.1.0.0 | 26: both twins of `TK-002` to `TK-005`, `BG-002`, `DK-001`, `DK-003`, `ST-002` to `ST-004` and `EP-001`, plus `PID-001`, `PEP-002`, `PTK-006` and `PIR-002` | 7 PASS, 4 FAIL | 3 PASS, 12 FAIL | USD 37.36 |
+| `remeasure-file-forecast/run-1` | Product Owner `b591571`, Barter `e9eec279`: skill 1.12.0, kernel v1.16.0, playbook 2.1.1.0 | 8 Project: `PID-001`, `PBG-002`, `PTK-005`, `PTK-006`, `PST-003`, `PST-004`, `PEP-001` and `PEP-002` | Not run | 5 PASS, 3 FAIL | USD 10.38 |
+
+**Round one: the ask-first repair worked.** Every scenario with an explicit command now asks one question in its lane on Turn 1 and drafts on Turn 2 on the next number. `TK-002` and `TK-004` on both sides, `SBG-002`, `SST-003`, `SST-004`, `SEP-001` and `PIR-002` pass where the main run failed them.
+
+**Round one: the file-promise repair did not hold on the Project side.** Eight Project rows still named a path or a file for the artifact still to come, several in nearly the words of the example kernel line 101 then quoted as forbidden. `PID-001` failed again ("Once you answer, the task will be `export/002 - task-due-today-filter-chip.md`"), so the other 14 Project rows of that round carry `after_failed_gate` yes. The operator chose one more repair (section 3).
+
+**Round two: the handover passes.** None of the eight replies attaches an `export/` path to the next artifact. `PID-001`, `PBG-002`, `PTK-005`, `PEP-001` and `PEP-002` pass, and no row of the round carries `after_failed_gate` yes. Three still fail:
+
+- **`PST-003`**, on the operator's ruling. Turn 1 says "I'll keep the draft's original filename", graded a file claim. The Project's own naming rules give a refinement the source's file name as its label (kernel line 229), so the sentence may only restate that convention. Every other clause is met. The operator ruled on 2026-09-26 that it is a claim
+- **`PST-004`**. Turn 1 settles the six-task split from the brief instead of asking for it, which Story Mode knowledge line 382 requires, and Turn 2 then follows the four named tasks
+- **`PTK-006`**. The task still never marks `checkout_complete` as `deprecated`, and no longer names `booking-service`
+
+**Still failing on content after round one.** These rows fail on a value, not on the repaired rules, and were not rerun in round two:
+
+| Rows | Miss |
+| --- | --- |
+| `STK-003`, `PTK-003` | None of `HMAC-SHA256`, `5 attempts` or `1 min, 5 min, 15 min, 1 h, 6 h`, and the Fulfilment board left out of the task |
+| `STK-005` | `1 to 99` restated as "below 1 or above 99" |
+| `SDK-001` | The mandatory body named `## Stacking rules` instead of `## Behavior rules` |
+| `PDK-001` | `one discount code per order` written as "One code per order" |
+| `PDK-003` | `block-level last-writer-wins` written as "last-writer-wins at the block level" |
+| `SST-002`, `PST-002` | The open question `Do sub-pages inherit the link?` reworded |
+
+Backticked Pass-clause values are graded word for word in every round, as in the main run.
+
+| Measure | Round one | Round two |
+| --- | --- | --- |
+| Claude Code | `2.1.283` | `2.1.283` |
+| Turns | 52, skill 22 and Project 30 | 16, all Project |
+| Turn time | 3,634 s | 993 s |
+| Models in the streams | `claude-opus-5-5` only | `claude-opus-5-5` only |
+| Scenarios `ok` on the first attempt | 26 of 26 | 8 of 8 |
+| Collected | 59 files: skill 25, Project 34 | 20 Project files |
+
+Each round ran from this folder as `python3 run/playbook_runner.py --system ../../.. --out <round>/run-1 --engine claude --model claude-opus-5-5 --effort medium --jobs 4 --ids <ids>`. `run/check_run.py <round>/run-1 --model claude-opus-5-5` reports no finding for any scenario the round ran. Its only findings name the scenarios the round left out, as "no readable meta.json". `run/collect_exports.py . ../../../export/benchmark` filed each round under its own folder, and `export/benchmark/` now holds 177 files: 98 from the main run and 79 from the two rounds.
+
+---
+
+## 5. Next steps
+
+- **Kernel review and deployment.** The operator's kernel review has been pending since v1.13.0, and the text to review is now v1.16.0. It is recorded as a dated note in `SYNC.md` only once confirmed. The renamed knowledge files reach claude.ai only after that, with a deployment receipt and a smoke check
+- **`PST-004`.** Story Mode says a split the request does not name is asked for, in the skill at `references/story-mode.md` line 406 and in the Project at knowledge line 382. The skill twin asked in round one, and the Project read the brief's six tasks as the split in both rounds. It is recorded as a runtime fault, and no repair is proposed
+- **Content misses.** The rows in the table above miss a value the rules already protect. No repair is proposed, and a future run shows whether they recur
 
 ---
 
@@ -63,7 +182,7 @@ Each Story bundle kept its folder: `skill/SST-004 - 001 - Story-order-tracking/`
 
 ### What is tracked
 
-Tracked here: `manifest.json`, `run-status.json`, `replies/`, each scenario's `meta.json` and `turn-<n>.md`, and `run/`. Kept local by `.gitignore`: the event streams and `run-log.jsonl`, stderr, transcripts, the progress file and each scenario's `exports/` copy. The deliverables themselves are tracked in `export/benchmark/`.
+Tracked here: this README, `results.csv`, `results.md`, `grading-notes.md`, `hvr-lint.csv`, `manifest.json`, `run-status.json`, `replies/`, each scenario's `meta.json` and `turn-<n>.md`, and `run/`. Each `remeasure-*/run-1/` folder is tracked the same way, with its own `results.csv` and `grading-notes.md`. Kept local by `.gitignore`: the event streams and `run-log.jsonl`, stderr, transcripts, the progress file and each scenario's `exports/` copy. The deliverables themselves are tracked in `export/benchmark/`.
 
 ### Project extraction review
 
