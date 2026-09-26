@@ -20,6 +20,9 @@ and nothing else:
 - context/ holds the attachments the runner staged. They are inputs, never
   deliverables, so they are not collected, and one the runtime changed prints a
   warning line, since an attachment is never meant to be modified.
+- A clarification, saved as "...-clarification.md", is the question a scenario
+  asked before drafting, not a deliverable, so it is skipped with a skip line.
+  Its text stays in the run folder and, for a Project, in the reply.
 - Re-measure rounds are collected only with --rounds, into
   <side>/<round>/<run>/ with the same naming, since a round's evidence already
   lives in its own replies/ and results.csv.
@@ -58,6 +61,8 @@ TRAILER_RE = re.compile(r"^(HVR self-scan|HVR:|MEQT \d|DEAL \d+/25|\*\*Instructi
 # The folder the runner stages a scenario's attachments into.
 CONTEXT_DIR = "context"
 EXPORT_DIR = "export"
+# The suffix the Product Owner naming rule reserves for a clarification.
+CLARIFICATION_SUFFIX = "-clarification.md"
 
 
 def scenario_id(folder: str) -> str:
@@ -207,6 +212,9 @@ def collect(run: str, out: str, dry: bool, with_rounds: bool = False, force: boo
                                   f"An attachment is never modified, so it is not collected")
                             continue
                         stem = target_name(scenario_id(folder), *export_parts(rel, slots=False))
+                        if stem.endswith(CLARIFICATION_SUFFIX):
+                            print(f"skip    skill {os.path.join(label, stem)} is a clarification, not a deliverable")
+                            continue
                         target = os.path.join(out, "skill", label, stem)
                         with open(os.path.join(root, file), "rb") as handle:
                             data = handle.read()
@@ -232,6 +240,9 @@ def collect(run: str, out: str, dry: bool, with_rounds: bool = False, force: boo
                             root, ext = os.path.splitext(stem)
                             stem = f"{root} (turn {turn}){ext}"
                         written.add(stem)
+                        if stem.endswith(CLARIFICATION_SUFFIX):
+                            print(f"skip    project {os.path.join(label, stem)} is a clarification, not a deliverable")
+                            continue
                         target = os.path.join(out, "claude project", label, stem)
                         if not force and edited(target, body.encode("utf-8")):
                             print(f"warning project {os.path.join(label, stem)} differs from the run's copy, "

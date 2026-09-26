@@ -19,8 +19,9 @@ Tests:
   staging-order    run_scenario with a stand-in turn sees every attachment in the
                    baseline, so an attachment edited in place is a modification
   collector        a Story bundle lands in its subfolder on both sides, flat files
-                   stay flat, context/ is skipped with a warning, a dry run writes
-                   nothing, and the Sonnet collector flattens the same input
+                   stay flat, context/ is skipped with a warning, a clarification
+                   is skipped with a skip line, a dry run writes nothing, and the
+                   Sonnet collector flattens the same input
   check-run        the default model is claude-opus-5-5, and an engine, model or
                    effort other than the run's own is a finding
   root-links       every relative link in the real playbook root resolves
@@ -536,14 +537,19 @@ def test_collector(t, ctx):
     want = {"skill/SST-001 - 001 - Story-checkout.md",
             "skill/SST-001 - [###] - task-unnumbered.md",
             "skill/SST-003 - fernhouse-save-card-draft.md",
-            "skill/SST-004 - 001 - Story-order-tracking-clarification.md",
             "claude project/PST-001 - NNN - Story-checkout.md",
-            "claude project/PST-003 - fernhouse-save-card-draft.md",
-            "claude project/PST-004 - NNN - Story-order-tracking-clarification.md"}
+            "claude project/PST-003 - fernhouse-save-card-draft.md"}
     want |= {f"{skill_bundle}/002{n} - {stem}.md" for n, stem, _ in BUNDLE_FILES}
     want |= {f"{project_bundle}/NNN{n} - {stem}.md" for n, stem, _ in BUNDLE_FILES}
     got = files_under(out)
     t.check(got == want, f"collected set differs: missing {sorted(want - got)}, extra {sorted(got - want)}")
+    # A clarification is a question, not a deliverable, so each side's one is
+    # left out and named on its own skip line.
+    skipped = [line for line in proc.stdout.splitlines() if line.startswith("skip")]
+    t.check(len(skipped) == 2
+            and any("skill SST-004 - 001 - Story-order-tracking-clarification.md" in line for line in skipped)
+            and any("project PST-004 - NNN - Story-order-tracking-clarification.md" in line for line in skipped),
+            f"a clarification was collected, or skipped without its skip line: {skipped}")
     for n, stem, h1 in BUNDLE_FILES:
         for rel in (f"{skill_bundle}/002{n} - {stem}.md", f"{project_bundle}/NNN{n} - {stem}.md"):
             path = os.path.join(out, rel)
