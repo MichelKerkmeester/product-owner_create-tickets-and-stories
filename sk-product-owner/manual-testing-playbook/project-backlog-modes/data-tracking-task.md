@@ -1,7 +1,7 @@
 ---
 title: "PTK-006 -- Data tracking task"
 description: "Validates that a plain-language request with no command routes to Task Mode in a Claude Project, renders one scope question block, then a Roamstay DATA task block for the booking funnel events that keeps every event status from the tracking plan, the deprecated event's removal date included, and leaves the proposed event unbuilt."
-version: 1.0.0.0
+version: 1.0.0.1
 ---
 
 # PTK-006 -- Data tracking task
@@ -95,7 +95,7 @@ Capture both replies, both rendered blocks and which form each took, the two exp
 | [`Product Owner - System - Router Contract - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Router%20Contract%20-%20v0.100.md) | The task framing pattern the plain request matches |
 | [`Product Owner - Templates - Task Mode - v0.305.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.305.md) | Project task workflow, the ask-first rule, required sections and requirement grammar |
 | [`Product Owner - Assets - Task Templates - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates%20-%20v0.102.md) | Project Canonical Task scaffold |
-| [`Product Owner - System - Interactive Mode - v0.405.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.405.md) | Clear natural-language task row and clarification delivery |
+| [`Product Owner - System - Interactive Mode - v0.406.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.406.md) | Clear natural-language task row and clarification delivery |
 | [`roamstay-context.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-context.md) | Attachment: services, squads, the `DATA` discipline, the `TRK` code and the analytics conventions |
 | [`roamstay-booking-funnel-tracking-plan.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-booking-funnel-tracking-plan.md) | Attachment: the funnel events, statuses, properties, per-event notes, comments and the build split |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |

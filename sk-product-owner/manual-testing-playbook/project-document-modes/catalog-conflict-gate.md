@@ -1,7 +1,7 @@
 ---
 title: "PDK-004 -- Catalog conflict gate"
 description: "Validates the Project Doc conflict gate at Loomlist, which stops on the digest send time conflict between two email sources, then a ClickUp catalog Deliverable Block of the six activity emails that carries the value the user's chosen source gives."
-version: 1.0.0.0
+version: 1.0.0.1
 ---
 
 # PDK-004 -- Catalog conflict gate
@@ -91,9 +91,9 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project Doc intake minimum, authority order, Deliverable Block and export-equivalent contract |
-| [`Product Owner - Templates - Doc Mode - v0.110.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Doc%20Mode%20-%20v0.110.md) | Project authority order, conflict gate, recency rule and ClickUp output contract |
+| [`Product Owner - Templates - Doc Mode - v0.111.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Doc%20Mode%20-%20v0.111.md) | Project authority order, conflict gate, recency rule and ClickUp output contract |
 | [`Product Owner - Assets - Doc Templates - v0.107.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Doc%20Templates%20-%20v0.107.md) | Project Catalog shape, the source-conflict hold template and layout rules |
-| [`Product Owner - Assets - Interactive Response Templates - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.102.md) | Project Doc Context and Clarification Question wording |
+| [`Product Owner - Assets - Interactive Response Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.103.md) | Project Doc Context and Clarification Question wording |
 | [`loomlist-context.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-context.md) | Attachment: Loomlist company context |
 | [`loomlist-notification-spec.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-notification-spec.md) | Attachment: the six emails with the digest at `08:00` in the recipient's local time |
 | [`loomlist-email-template-inventory.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-email-template-inventory.md) | Attachment: the six templates with the digest at `07:00 UTC` |

@@ -1,4 +1,4 @@
-# Product Owner - Templates - Bug Mode - v0.203
+# Product Owner - Templates - Bug Mode - v0.204
 
 Bug-mode guidance for isolated defects: the workflow, the delivery standards, the mandatory structure, the quality checklist and the error recovery table. The workflow captures context, observed behavior, reproduction steps, expected behavior and the QA checklist needed before handoff.
 
@@ -41,7 +41,7 @@ Symptom wording that names no defect noun still belongs here when the report des
 
 ### Critical rules
 
-- Do not create an artifact until the user responds to the comprehensive question unless the request contains enough bug context to proceed
+- Do not create an artifact until the user responds to the comprehensive question unless the request carries no command and contains enough bug context to proceed. An explicit command routes the request and does not stand in for the direction, so `$bug` and `$b` still ask their context-specific question and wait. Only `$quick` or `$q` may skip routine intake
 - Do not answer your own questions when clarification is required
 - Stopping to ask still produces a deliverable. Render the question as its own Deliverable Block, labelled `export/[###] - bug-[description]-clarification.md`, holding the question and nothing else, so the request is not lost between sessions. The artifact takes the next number in the lane once the user answers
 - Do not include a table of contents in generated bug reports
@@ -138,7 +138,7 @@ For feature development or enhancements, use `$task` and reference **Templates -
 
 **Bug section:**
 - Describe what happens when the bug is triggered
-- List what the user sees, error messages and incorrect data or behavior
+- List what the user sees, any error message the ticket, log or user supplied and incorrect data or behavior. With no error message supplied, the line reads `Not provided` or is left out, and it never asserts that no error message appears
 - Include reproducible steps
 - Include screen recording, screenshots or logs when provided
 - Describe what should happen instead
@@ -197,7 +197,7 @@ For feature development or enhancements, use `$task` and reference **Templates -
 
 - [ ] Observed behavior describes what happens when the bug is triggered?
 - [ ] Observed behavior describes what the user sees?
-- [ ] Error messages are included or marked as not provided?
+- [ ] Supplied error messages are included, and with none supplied the line reads `Not provided` or is left out rather than asserting that none appears?
 - [ ] Incorrect data or behavior is described?
 - [ ] Steps are numbered and reproducible?
 - [ ] Screen recording, screenshots or logs are included when provided?

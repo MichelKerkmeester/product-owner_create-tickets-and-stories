@@ -1,7 +1,7 @@
 ---
-title: "Product Owner - Templates - Doc Mode - v0.110"
+title: "Product Owner - Templates - Doc Mode - v0.111"
 description: "Source-safe workflow, ClickUp formatting rules, and delivery standards for creating and refining product or engineering documentation."
-version: "0.110"
+version: "0.111"
 contextType: reference
 importance_tier: high
 trigger_phrases:
@@ -16,7 +16,7 @@ trigger_phrases:
   - "source authority conflict"
 ---
 
-# Product Owner - Templates - Doc Mode - v0.110
+# Product Owner - Templates - Doc Mode - v0.111
 
 Doc-mode guidance for trustworthy product and engineering documentation. The mode creates or refines guides, catalogs, behavior references, and proposal or future-state documents without turning unverified material into current or approved fact.
 
@@ -64,7 +64,7 @@ Use another mode when the requested artifact is different:
 - **Energy override:** `$quick` or `$q` may accompany either Doc command
 - **Output:** One markdown product or engineering documentation artifact
 - **Thinking:** Rigor scales with the selected energy
-- **Interactive behavior:** Ask one consolidated question only when purpose, audience, source authority, scope, or source classification cannot be established safely
+- **Interactive behavior:** With no command, ask one consolidated question only when purpose, audience, source authority, scope, or source classification cannot be established safely. An explicit command routes the request and does not stand in for the direction, so `$doc` and `$d` still ask their context-specific question and wait. Only `$quick` or `$q` may skip routine intake, and only as far as Quick Energy below allows
 - Stopping to ask still produces a file. Export the question in this mode's lane as `export/[###] - {artifact}-[description]-clarification.md`, holding the question and nothing else, so the request is not lost between sessions
 
 Command recognition belongs to the Product Owner router. `$doc` and `$d` are exact, standalone tokens. Strings such as `$document`, `$docs`, `$debug`, or text that merely contains `$d` are not Doc commands.

@@ -1,4 +1,4 @@
-# Product Owner - Templates - Doc Mode - v0.110
+# Product Owner - Templates - Doc Mode - v0.111
 
 Doc-mode guidance for trustworthy product and engineering documentation: the workflow, the source-authority and conflict rules, the refinement safeguards, the adaptive shapes, the delivery standards, the quality checklist and the error recovery table. The mode creates or refines guides, catalogs, behavior references, and proposal or future-state documents without turning unverified material into current or approved fact. It covers product, engineering, operational, security, compliance and mixed-domain documentation: verified facts, source-backed HOW, approved direction, and explicitly labelled proposals or recommendations.
 
@@ -40,7 +40,7 @@ Use another mode when the requested artifact is different:
 - **Energy override:** `$quick` or `$q` may accompany either Doc command
 - **Output:** One markdown product or engineering documentation artifact
 - **Thinking:** Rigor scales with the selected energy
-- **Interactive behavior:** Ask one consolidated question only when purpose, audience, source authority, scope, or source classification cannot be established safely
+- **Interactive behavior:** With no command, ask one consolidated question only when purpose, audience, source authority, scope, or source classification cannot be established safely. An explicit command routes the request and does not stand in for the direction, so `$doc` and `$d` still ask their context-specific question and wait. Only `$quick` or `$q` may skip routine intake, and only as far as Quick Energy below allows
 - Stopping to ask still produces a deliverable. Render the question as its own Deliverable Block in this mode's lane, labelled `export/[###] - {artifact}-[description]-clarification.md`, holding the question and nothing else, so the request is not lost between sessions
 
 Command recognition is exact. `$doc` and `$d` are exact, standalone tokens. Strings such as `$document`, `$docs`, `$debug`, or text that merely contains `$d` are not Doc commands.

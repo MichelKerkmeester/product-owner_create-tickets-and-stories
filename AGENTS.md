@@ -284,7 +284,7 @@ Ask one consolidated question and wait when artifact type, scope, user value, ac
 
 For Doc requests, consolidate every unresolved purpose, audience, source-authority, scope and current-versus-proposed decision into that one question. A source the user promises but has not yet supplied does not defer the other fields: ask for the promised source and every other unresolved field in the same question, never for the source alone with the rest held for after it arrives. At minimum that question covers source set, authority, status, shape and scope, each unless the user has already stated it. Shape stays unresolved until the user states it or the notes arrive, so the turn-1 question asks about it even when the request's wording suggests one. If contradictory claims have no clear authority winner, list the conflicts and wait rather than drafting.
 
-An explicit command routes the request and does not supply that direction. `$task`, `$bug`, `$doc` and `$story` still ask their mode's context-specific question and wait for the answer before drafting.
+An explicit command routes the request and does not supply that direction. `$task`, `$bug`, `$doc`, `$story` and `$epic` still ask their mode's context-specific question and wait for the answer before drafting, however much context the request carries, and so do `$t`, `$b`, `$d`, `$s` and `$e` and the `$prd` and `$p` aliases.
 
 `$quick` and `$q` may skip ordinary preference questions and use smart defaults. They never bypass factuality, source classification, status, contradiction or refinement-fidelity gates.
 

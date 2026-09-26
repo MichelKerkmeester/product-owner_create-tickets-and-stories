@@ -1,4 +1,4 @@
-# Product Owner - Assets - Bug Report Template - v0.100
+# Product Owner - Assets - Bug Report Template - v0.101
 
 The scaffold an isolated bug report is copied from, with the Frequency rules, the design-evidence rule and the QA handoff checklist that govern how it is filled.
 
@@ -82,7 +82,7 @@ Four worked examples instantiate this scaffold:
 
 { Describe what happens when the bug is triggered }
 - { What the user sees }
-- { Any error messages displayed }
+- { Any error message the ticket, log or user supplied. With none supplied, write `Not provided` or leave this line out, never that no error message appears }
 - { Incorrect data or behavior }
 
 Steps to Reproduce:

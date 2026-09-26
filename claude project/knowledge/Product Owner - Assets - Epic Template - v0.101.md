@@ -1,4 +1,4 @@
-# Product Owner - Assets - Epic Template - v0.100
+# Product Owner - Assets - Epic Template - v0.101
 
 An Epic frames an initiative and delegates requirements to its child stories.
 
@@ -52,7 +52,7 @@ In order to get there, we will:
 
 #### **References**
 * * *
-{Supplied links only.}
+{Supplied links only, grouped under plain labels. Omit the whole section when none are supplied, and never leave it empty or invent a link.}
 Components
 *   [{link}]({url})
 Flows

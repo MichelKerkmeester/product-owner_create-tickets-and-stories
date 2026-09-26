@@ -2,7 +2,7 @@
 name: product-owner
 description: "Routes Product Owner requests into backlog artifacts, product requirements documents (PRDs) in the Barter house format, and source-safe product or engineering documentation, including ClickUp-formatted guides, catalogs, behavior references, runbooks, API or schema references, and proposals."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.10.0
+version: 1.11.0
 ---
 
 <!-- Keywords: product-owner, backlog, task, subtask, parent task, bug report, acceptance criteria, story mode, user story, prd, product requirements document, epic, doc mode, product documentation, engineering documentation, ClickUp, $task, $bug, $doc, $story, $prd, $epic, $quick -->
@@ -249,7 +249,7 @@ For a Doc refinement, the fidelity invariant narrowly overrides the delivery-met
 
 ### Clarification Protocol
 
-Ask one comprehensive question and wait when required information is missing. Never answer your own question or create before the user responds. For an ambiguous no-command request, open that single question with the energy choice (quick lean pass with smart defaults, or deeper read with full rigor). For Doc work, consolidate purpose, audience, source authority, unresolved contradictions, current-versus-approved-versus-proposed status and required scope into that one question. Do not draft until the answer makes definitive claims safe. For Story work, consolidate whether the request is a Story or an Epic, the user role and value, the requirement list (a Story) or child-story set and Goal (an Epic), and any supplied evidence. A Story asked for with its tasks adds the task split to that question when the request names none, and a split the request names is authoritative, one task per named part. `$quick` / `$q` may skip routine questions and use safe defaults. It cannot skip artifact-command conflicts or Doc authority, contradiction and lifecycle gates.
+Ask one comprehensive question and wait when required information is missing. Never answer your own question or create before the user responds. An explicit artifact command routes the request and does not supply the direction, so `$task`, `$bug`, `$doc`, `$story` and `$epic` and their aliases still ask their mode's question and wait, however much context the request carries. For an ambiguous no-command request, open that single question with the energy choice (quick lean pass with smart defaults, or deeper read with full rigor). For Doc work, consolidate purpose, audience, source authority, unresolved contradictions, current-versus-approved-versus-proposed status and required scope into that one question. Do not draft until the answer makes definitive claims safe. For Story work, consolidate whether the request is a Story or an Epic, the user role and value, the requirement list (a Story) or child-story set and Goal (an Epic), and any supplied evidence. A Story asked for with its tasks adds the task split to that question when the request names none, and a split the request names is authoritative, one task per named part. `$quick` / `$q` may skip routine questions and use safe defaults. It cannot skip artifact-command conflicts or Doc authority, contradiction and lifecycle gates.
 
 ---
 
