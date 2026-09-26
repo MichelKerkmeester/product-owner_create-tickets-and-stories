@@ -1,7 +1,7 @@
 ---
 title: "Product Owner: Manual Testing Playbook"
 description: "Operator-facing directory, execution policy and release-readiness guide for the two-runtime Product Owner manual validation package."
-version: 2.1.0.0
+version: 2.1.1.0
 ---
 
 # Product Owner: Manual Testing Playbook
@@ -176,7 +176,7 @@ Every scenario runs in its own fresh sandbox or conversation, so a handover hand
 
 ### Identity handover rule
 
-`SID-001` and `PID-001` prove the runtime, not only the artifact. A reply that could have come from either runtime is a `FAIL`. Both handovers are the same two-turn `$task` chain for a Loomlist task. `$task` still asks its context question before drafting (`AGENTS.md` line 287), so Turn 1 delivers the task-lane clarification and Turn 2, the answer, delivers the task on the next number. Turn 2 answers the question rather than asking about the delivery, so each turn is a delivery and the proof is graded on both. The skill side must name a real readable `export/` path and print the read-back confirmation fixture `Verified: read-back succeeded` with its line count. The Project side must render the Deliverable Block, or the clarification question as its own block, in the form Rendering without a Canvas panel describes when there is no panel, and report `Export-equivalent path:`. Its reply passes when it makes no claim that any file was saved, written or read back, and no promise to write or save one, such as "I'll write the task as `export/002 - ...`", which is a file claim too. It does not have to say out loud that no file was written. The skill proof string is `read-back succeeded` and the Project proof string is `Canvas Artifact`. Each handover file carries the four greps that show a proof string appears only in its own identity file. The Project string proves the packaging through those greps and is not required in a reply.
+`SID-001` and `PID-001` prove the runtime, not only the artifact. A reply that could have come from either runtime is a `FAIL`. Both handovers are the same two-turn `$task` chain for a Loomlist task. `$task` still asks its context question before drafting (`AGENTS.md` line 287), so Turn 1 delivers the task-lane clarification and Turn 2, the answer, delivers the task on the next number. Turn 2 answers the question rather than asking about the delivery, so each turn is a delivery and the proof is graded on both. The skill side must name a real readable `export/` path and print the read-back confirmation fixture `Verified: read-back succeeded` with its line count. The Project side must render the Deliverable Block, or the clarification question as its own block, in the form Rendering without a Canvas panel describes when there is no panel, and report `Export-equivalent path:`. Its reply passes when it makes no claim that any file was saved, written or read back, and no promise to write or save one, such as "I'll write the task as `export/002 - ...`", and no forecast of the next artifact's path, such as "the task will be `export/002 - ...`", each of which is a file claim too. It does not have to say out loud that no file was written. The skill proof string is `read-back succeeded` and the Project proof string is `Canvas Artifact`. Each handover file carries the four greps that show a proof string appears only in its own identity file. The Project string proves the packaging through those greps and is not required in a reply.
 
 ### Defect severity
 
@@ -186,7 +186,7 @@ Blocking, any one of which is a `FAIL`:
 
 - An invented fact: a requirement, value, status, approval or behavior the user never supplied. The one exception is a disclosed addition: an edge case, assumption or other addition the reply names as an addition in its chat response is not an invented fact and does not fail the scenario (`SKILL.md` line 283, `Custom Instructions.md` line 104). A reply that names a criterion or other whole item as an addition has named every clause inside it. An addition the reply does not name stays blocking, and naming never excuses an invented status, approval, evidence, root cause or platform detail, or any other item in this list. A root cause the artifact labels as an unverified hypothesis, the way the skill's own bug examples do (`assets/examples/bug/bug-example-mobile-crash.md` line 68, the Project's Mobile Crash example line 67), is not an invented root cause. A cause stated as fact, or one cause given to two separate issues, still is
 - A protected fact altered: a supplied value generalized, a conflict silently resolved or a proposal promoted to current behavior
-- A path claim with no readable file behind it on the skill side, or any file claim at all on the Project side, where a promise to write or save a file counts as one, such as "I'll write the task as `export/002 - ...`"
+- A path claim with no readable file behind it on the skill side, or any file claim at all on the Project side, where a promise to write or save a file counts as one, such as "I'll write the task as `export/002 - ...`", and so does a forecast of the next artifact's path, such as "the task will be `export/002 - ...`"
 - A missing `HVR self-scan:` line or a count that was never taken
 - Process material inside a delivered artifact body: scores, self-scan lines, mode or energy headers outside a line-1 HTML comment
 
