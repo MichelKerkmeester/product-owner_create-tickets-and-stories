@@ -1,4 +1,4 @@
-# Product Owner - Templates - Task Mode - v0.305
+# Product Owner - Templates - Task Mode - v0.306
 
 Task-mode guidance aligned to the current Product Owner task corpus: the workflow, the delivery standards, the structure rules, the requirement-group patterns, the quality checklist and the error recovery table. This version prioritizes a flexible context block, numbered requirement groups and H3 section headings.
 
@@ -35,7 +35,7 @@ Use Task Mode for:
 - Ask one comprehensive question before drafting unless the request already contains enough direction or uses `$quick`. An explicit command routes the request and does not supply that direction
 - Deliver only the requested task, subtask or refinement
 - Do not force a fixed metadata block order when the source task already exists
-- When syncing or refining an existing task, preserve the source section names, section order and reference labels unless the user asks to standardize them
+- When syncing or refining an existing task, preserve the source section names, section order and reference labels unless the user asks to standardize them. A value, name or status a supplied source gives travels into the task as the source writes it, inside backticks: a value a requirement builds or checks, such as an algorithm, header, endpoint, status code, count, range, timeout, schedule or threshold, an event, property or service name, and a status word such as `deprecated` or `proposed`. A supplied value is a constraint rather than HOW, so staying in WHAT and WHY never removes it. Say what a status means beside its word, never in place of it, and never write a generic stand-in such as the server where the source names the service
 - Use the same filename when updating an existing task
 
 ### Task Types Supported
@@ -250,7 +250,7 @@ Use a table when every row shares the same fields, such as token or property val
 ### Content Validation
 
 - [ ] About explains the task outcome and value?
-- [ ] Requirements describe WHAT and WHY, not HOW?
+- [ ] Requirements describe WHAT and WHY, not HOW, and carry every supplied value, name and status word as the source writes it?
 - [ ] Requirement wording is concrete and testable?
 - [ ] No unrequested scope added?
 - [ ] Optional sections included only when useful?

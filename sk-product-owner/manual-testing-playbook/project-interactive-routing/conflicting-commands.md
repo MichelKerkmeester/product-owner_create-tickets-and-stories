@@ -1,7 +1,7 @@
 ---
 title: "PIR-002 -- Conflicting commands"
 description: "Validates two explicit artifact commands on one Fernhouse wishlist request in a Claude Project: one consolidated question rendered in the intake lane, then the Story Turn 2 picks, rendered as its own block."
-version: 1.0.0.2
+version: 1.0.0.3
 ---
 
 # PIR-002 -- Conflicting commands
@@ -91,7 +91,7 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 | [`Product Owner - System - Router Contract - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Router%20Contract%20-%20v0.100.md) | Command collection and the conflict route |
 | [`Product Owner - System - Interactive Mode - v0.407.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.407.md) | Consolidated question and clarification block |
 | [`Product Owner - Assets - Interactive Response Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.103.md) | Comprehensive Question template and its conflict line |
-| [`Product Owner - Templates - Story Mode - v0.403.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.403.md) | Routed Story Mode workflow and Story shape |
+| [`Product Owner - Templates - Story Mode - v0.404.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.404.md) | Routed Story Mode workflow and Story shape |
 | [`Product Owner - Assets - Story Template - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Story%20Template%20-%20v0.100.md) | Routed Story scaffold |
 | [`fernhouse-context.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-context.md) | Attachment, the Wishlist flow and its limit of 50 items |
 | [`fernhouse-wishlist-feedback.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-wishlist-feedback.md) | Attachment, the 412 contacts and the bug-or-story disagreement |
