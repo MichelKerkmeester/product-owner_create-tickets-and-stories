@@ -4,9 +4,9 @@
 
 ---
 
-A member who wants to see what needs doing today has to scan the full To-dos list, because Overdue only covers dates before today. This task adds a fourth chip, Due today, on Web only. Desktop gets it through the web client the next time it loads, with no Desktop release, and iOS and Android follow in their own tasks.
+Members scan the full To-dos list for today's work, because Overdue covers only earlier dates. This task adds a fourth chip, Due today, on Web only, which Desktop gets on its next web client load with no Desktop release, and iOS and Android follow in their own tasks.
 
-"Today" follows the same rule as Overdue: the date in the to-do owner's time zone. Because both chips use the same zone, a to-do is never in both lists at once. At midnight in the owner's time zone, an unchecked to-do moves from Due today to Overdue.
+"Today" is the date in the to-do owner's time zone, as for Overdue, so a to-do is never in both lists and moves to Overdue at the owner's midnight if unchecked.
 
 ### Requirements
 
@@ -16,21 +16,21 @@ A member who wants to see what needs doing today has to scan the full To-dos lis
 
 ---
 
-The chip reuses the existing filter chip component, so it looks and behaves like the other three. There is no Figma file for this change.
+There is no Figma file for this change.
 
 **Checklist**
 
-- [ ] A chip labelled "Due today" sits directly after Overdue, so the order is All, Assigned to me, Overdue, Due today
-- [ ] The chip uses the existing filter chip component with no visual changes
-- [ ] Picking Due today shows every to-do the member can open that is not checked off and is due today in the to-do owner's time zone
-- [ ] To-dos that are checked off, have no due date or are due on any other day do not appear under Due today
-- [ ] Results are sorted by due date, the same as under the other chips
-- [ ] Only one chip is active at a time, so picking Due today turns off the active chip, and picking another chip turns off Due today
-- [ ] All stays the default chip when the To-dos view opens
-- [ ] When nothing is due today, the Due today list is empty and the view does not switch back to All
-- [ ] The "Due today" label has a string in each of the six shipped locales, and en-US is the fallback when a string is missing
+- [ ] Chip order: All, Assigned to me, Overdue, Due today
+- [ ] It uses the existing filter chip component unchanged
+- [ ] It shows every unchecked to-do the member can open that is due today in the owner's time zone
+- [ ] Checked-off, undated and other-day to-dos stay out
+- [ ] Results sort by due date, as under the other chips
+- [ ] One chip is active at a time, so picking any chip turns off the previous one
+- [ ] All stays the default when the To-dos view opens
+- [ ] With nothing due, the list stays empty without switching to All
+- [ ] The label has a string in all six shipped locales, with en-US as fallback
 
-> A member can see to-dos owned by someone in a different time zone. For those to-dos, Due today uses the owner's today rather than the viewer's, so the list can include a to-do whose date looks like tomorrow or yesterday to the viewer. The date shows in the owner's time zone, and the zone is shown whenever it differs from the viewer's.
+> For a to-do owned in another time zone, Due today uses the owner's today, so its date can look like tomorrow or yesterday to the viewer. The date shows in the owner's zone, with the zone shown when it differs.
 
 ---
 
@@ -38,10 +38,10 @@ The chip reuses the existing filter chip component, so it looks and behaves like
 
 ---
 
-Yara has already added `due_today` to the tracking plan, so client work can start without another Data review.
+Yara has added `due_today` to the tracking plan, so client work needs no further Data review.
 
 **Checklist**
 
 - [ ] Picking Due today sends `filter_selected` with `filter` set to `due_today`
-- [ ] The event carries `workspace_id`, `user_id`, `platform`, `app_version` and `plan`, the same as the other `filter_selected` events
-- [ ] The `all`, `assigned_to_me` and `overdue` values keep sending as they do today
+- [ ] It carries `workspace_id`, `user_id`, `platform`, `app_version` and `plan`, like other `filter_selected` events
+- [ ] `all`, `assigned_to_me` and `overdue` keep sending as today

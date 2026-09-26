@@ -4,7 +4,7 @@
 
 ---
 
-shipping-service receives the parcel carrier's `tracking.updated` events, stores them and maps each carrier code to the status the customer sees. Every timeline on the order page depends on this task. A tracking event the carrier drops after its last retry cannot be recovered, so the endpoint has to answer reliably at peak volume.
+shipping-service receives, stores and maps the carrier's `tracking.updated` events to customer statuses for every order page timeline. The carrier drops an event for good after its last retry, so the endpoint must answer reliably at peak.
 
 **Story**
 
@@ -29,14 +29,14 @@ shipping-service receives the parcel carrier's `tracking.updated` events, stores
 
 ---
 
-The carrier signs the tracking subscription with its own secret and treats a slow answer as a failure. Five failed attempts mean the event is gone for good.
+The tracking subscription has its own secret, and a slow answer counts as failed.
 
 **Checklist**
 
 - [ ] Events arrive at `/webhooks/carrier/tracking` on shipping-service, separate from the label events path
 - [ ] Each event is verified against `X-Carrier-Signature`, the hex HMAC-SHA256 of the raw body keyed with the tracking subscription's secret
 - [ ] A valid event gets a 2xx within `5 seconds`
-- [ ] The endpoint keeps within that time at up to about `43,000` events on a peak day
+- [ ] It holds that time at up to about `43,000` events on a peak day
 
 ---
 
@@ -44,13 +44,13 @@ The carrier signs the tracking subscription with its own secret and treats a slo
 
 ---
 
-Delivery is at least once and events can arrive out of order. An `IT` can arrive more than an hour after the `OD`, and a retried event always arrives late.
+Delivery is at least once and out of order: an `IT` can trail the `OD` by over an hour, and retries always arrive late.
 
 **Checklist**
 
 - [ ] Events are deduplicated on `event_id`
 - [ ] Events are ordered by `occurred_at`, never by arrival
-- [ ] An event older than the newest one held for that parcel is stored for the history and does not change the status shown
+- [ ] An event older than the parcel's newest is stored for history without changing the status
 - [ ] The newest `eta_window` by `occurred_at` wins
 - [ ] Each event is stored with its `eta_window`, `exception_code`, `delivered_to` and `location` when present
 
@@ -66,7 +66,7 @@ Delivery is at least once and events can arrive out of order. An `IT` can arrive
 - [ ] `OD` maps to `Out for delivery`
 - [ ] `DL` maps to `Delivered`
 - [ ] `EX` maps to `Delivery failed`
-- [ ] A new `OD` after an `EX` moves the parcel back to `Out for delivery`
+- [ ] A new `OD` after an `EX` returns the parcel to `Out for delivery`
 
 ---
 
@@ -76,4 +76,4 @@ Delivery is at least once and events can arrive out of order. An `IT` can arrive
 
 **Checklist**
 
-- [ ] Tracking events are kept for `90 days` after delivery, after which only the last status remains available to the order page
+- [ ] Tracking events are kept `90 days` after delivery, then only the last status stays for the order page

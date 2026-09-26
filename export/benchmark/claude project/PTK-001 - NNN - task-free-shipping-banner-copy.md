@@ -4,7 +4,7 @@
 
 ---
 
-The free-shipping banner, at the top of every web page and above the cart in the iOS and Android apps, wraps to two lines on small phones. Shorter copy keeps the offer on one line, so the banner takes less space above the cart. Only the copy changes, and the threshold amounts stay the same.
+The free-shipping banner, at the top of every web page and above the cart in the iOS and Android apps, wraps to two lines on small phones. Shorter copy keeps it on one line.
 
 ### Requirements
 
@@ -14,7 +14,7 @@ The free-shipping banner, at the top of every web page and above the cart in the
 
 ---
 
-The two English lines are the source strings for every locale, so the translations change with them.
+The two English lines are the source strings for every locale, so the translations follow.
 
 **Checklist**
 
@@ -23,5 +23,5 @@ The two English lines are the source strings for every locale, so the translatio
 - [ ] Show the new copy on web, iOS and Android
 - [ ] Update the nl-NL, nl-BE, fr-BE, de-DE and fr-FR translations from the new source strings
 - [ ] English chosen through the language switcher in a euro market shows "Free shipping over €50"
-- [ ] The English banner fits on one line on the small phones where the current copy wraps
+- [ ] The English banner fits on one line on small phones
 - [ ] Keep the €50 and £45 thresholds and the banner's position and styling unchanged

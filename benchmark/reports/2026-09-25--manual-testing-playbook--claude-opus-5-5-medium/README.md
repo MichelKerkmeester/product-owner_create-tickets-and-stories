@@ -171,11 +171,11 @@ The collector filed the rounds' 102 deliverables under their own folders in `exp
 
 ## 5. Next steps
 
-- **Kernel review:** the operator confirmed v1.17.0 on 2026-09-26, and `SYNC.md` records it
-- **Deployment:** the renamed knowledge files and kernel v1.17.0 reach claude.ai only with a deployment receipt and a smoke check
+- **Kernel review:** the operator confirmed v1.17.0 on 2026-09-26, and v1.18.0, which adds the word budget, awaits review
+- **Deployment:** the renamed knowledge files and kernel v1.18.0 reach claude.ai only with a deployment receipt and a smoke check
 - **`PST-004`:** the skill twin asked for the split, as Story Mode requires at `references/story-mode.md` line 406 and Project knowledge line 382
 - The Project took the brief's six tasks as the split in both rounds, recorded as a runtime fault with no repair proposed
-- **Length caps:** the rules gained them on 2026-09-26 without a rerun, so no run has measured whether the runtimes follow them
+- **Length caps and word budget:** the rules gained both on 2026-09-26 without a rerun, so no run has measured whether the runtimes follow them
 
 ---
 
@@ -250,11 +250,19 @@ No scenario reran, so the caps are unmeasured on the runtimes. `run/collect_expo
 
 ### Clarifications removed
 
-On 2026-09-26 the operator removed the 20 clarification files from `export/benchmark/`, 10 skill and 10 Project. A clarification is the question a scenario asked before drafting, not a deliverable. `export/benchmark/` now holds 78 files, 31 skill and 47 Project, and the counts above describe all 98 as collected and edited.
+On 2026-09-26 the operator removed the 20 clarification files from `export/benchmark/`, 10 skill and 10 Project, and every git-ignored local copy under `exports/`. A clarification is the question a scenario asked before drafting, not a deliverable. `export/benchmark/` now holds 78 files, 31 skill and 47 Project, and the counts above describe all 98 as collected and edited.
 
-The questions stay in the evidence. Each Project one is in its `replies/<ID>-turn1.txt`, and each skill one in its scenario's git-ignored `exports/` copy. All 20 are in git history at Product Owner `1fc3657` and Barter `e324ecdf` as edited, and at `e9edb95` and `7652158c` as graded.
+The questions stay in the evidence. Each Project one is in its `replies/<ID>-turn1.txt`, and each skill one is summarized in its `turn-1.md` and quoted in its git-ignored transcript. All 20 are in git history at Product Owner `1fc3657` and Barter `e324ecdf` as edited, and at `e9edb95` and `7652158c` as graded.
 
-`run/collect_exports.py` now skips any file named `*-clarification.md` and prints a skip line for it, so a new collection cannot put one back. A dry run over this folder prints 20 skip lines and writes no clarification. Its sha256 is now `c277dd4327125b88700cca894b591d9515105c0a424d1596eb25b83263ed29bb`, and `run/selftest.py` is `10608ab9ff3bd9fdab3c7efb5ebe2e2e61cb5c6a1d17507f895d5e5805866ad6`.
+`run/collect_exports.py` now skips any file named `*-clarification.md` and prints a skip line for it, so a new collection cannot put one back. A dry run over this folder prints 20 skip lines and writes no clarification. Its sha256 is now `7d06baa5023c7cbf849581573888bc5d9ee61c792f6627dec3da5634a5f6f213`, and `run/selftest.py` is `10608ab9ff3bd9fdab3c7efb5ebe2e2e61cb5c6a1d17507f895d5e5805866ad6`.
+
+### Second edit
+
+Later on 2026-09-26 the operator found the exports still long, since the first edit split lines and cut 1.6% of the words. Seven Opus 5.5 agents cut the 78 files again in two rounds. Words outside code fell from 73,942 to 57,138, or 22.7%.
+
+A script held every heading, label, template line, table header, backticked value, number and link. Seven fact reviewers then read each file against its snapshot. They found 81 lost or changed facts: 75 were restored, and 6 were color or a subtask restating its parent, which the operator's chosen depth allows.
+
+The word budget in the rules comes from these files, and 68 of the 78 fit it. No scenario reran, so the budget is unmeasured on the runtimes, and the verdicts still cite the graded originals. The Doc label and Status dashes stay, since the Doc template prescribes them.
 
 ### What is tracked
 

@@ -1,24 +1,22 @@
 # Loomlist activity emails
 
 * * *
-> Status: Current behavior — the six activity emails notifications-service sends, with the daily digest at 08:00 in the recipient's local time
+> Status: Current behavior — the six activity emails notifications-service sends, digest at 08:00 local time
 * * *
 
 ## Overview
 * * *
-This catalog lists the six emails Loomlist sends about activity in a workspace, EM-01 to EM-06. For each one it gives the trigger, who gets it, the timing, the Settings > Notifications switch and the template that renders it. Support agents can use it to answer "why did I get this email" or "why didn't I", and Notifications engineers to check a template before changing it.
+This catalog lists the six workspace activity emails Loomlist sends, EM-01 to EM-06, for Support agents answering "why did I get this email" or "why didn't I" and Notifications engineers checking a template before changing it.
 
-Sign-in codes, receipts and plan emails are out of scope because the Accounts and Billing teams own them and other services send them. Push notifications are out of scope too.
+Out of scope: sign-in codes, receipts and plan emails, owned by the Accounts and Billing teams, and push notifications.
 * * *
 
 ### Shared vocabulary
 * * *
-*   **Recipient's local time** — The time zone on the recipient's profile, which every scheduled email uses
-*   **Settings > Notifications** — The screen of on/off switches, one each for EM-01 to EM-04 and EM-06, all five on by default, and none for EM-05
-*   **Footer** — A line at the end of the email that opens Settings > Notifications in the app, on every email except EM-05
-*   **Guest** — A person who can open only the pages shared with them, with view or edit access, and is not billed
-*   **Email delivery provider** — The outside service notifications-service hands every email to, always with the sender name Loomlist
-*   **Version suffix** — The `_v{n}` ending a template name, such as `_v4` in `tpl_digest_v4`, which goes up whenever a template variable is added or removed
+*   **Settings > Notifications** — Switches for EM-01 to EM-04 and EM-06, on by default, none for EM-05
+*   **Guest** — An unbilled person with view or edit access to shared pages only
+*   **Email delivery provider** — The outside service that sends every email for notifications-service
+*   **Version suffix** — The `_v{n}` ending a template name, such as `_v4` in `tpl_digest_v4`, raised when a variable is added or removed
 * * *
 
 ### Index
@@ -26,24 +24,22 @@ Sign-in codes, receipts and plan emails are out of scope because the Accounts an
 
 | ID | Email | Sent when | Timing | Can be turned off | Template |
 | ---| ---| ---| ---| ---| --- |
-| EM-01 | [Daily digest](#em-01-daily-digest) | The recipient has unread activity from the last 24 hours in pages they follow | Every day at 08:00 in the recipient's local time. Not sent when there is nothing unread | Yes | `tpl_digest_v4` |
-| EM-02 | [Mentioned in a page](#em-02-mentioned-in-a-page) | Someone mentions the recipient in a page or a comment | When it happens | Yes | `tpl_mention_v2` |
-| EM-03 | [Comment reply](#em-03-comment-reply) | Someone replies in a comment thread the recipient started or replied in | When it happens | Yes | `tpl_comment_reply_v2` |
-| EM-04 | [Page shared with you](#em-04-page-shared-with-you) | A member shares a page with the recipient | When it happens | Yes | `tpl_page_shared_v3` |
-| EM-05 | [Workspace invite](#em-05-workspace-invite) | Someone invites the recipient to a workspace | When it happens | No | `tpl_workspace_invite_v5` |
-| EM-06 | [Weekly summary](#em-06-weekly-summary) | Activity across the workspace over the last 7 days, for Owners and Admins only | Monday 09:00 in the recipient's local time | Yes | `tpl_weekly_summary_v1` |
+| EM-01 | [Daily digest](#em-01-daily-digest) | Unread activity from the last 24 hours in followed pages | Daily 08:00 local time, unless nothing is unread | Yes | `tpl_digest_v4` |
+| EM-02 | [Mentioned in a page](#em-02-mentioned-in-a-page) | A mention in a page or comment | When it happens | Yes | `tpl_mention_v2` |
+| EM-03 | [Comment reply](#em-03-comment-reply) | A reply in a thread the recipient started or replied in | When it happens | Yes | `tpl_comment_reply_v2` |
+| EM-04 | [Page shared with you](#em-04-page-shared-with-you) | A member shares a page with them | When it happens | Yes | `tpl_page_shared_v3` |
+| EM-05 | [Workspace invite](#em-05-workspace-invite) | An invite to a workspace | When it happens | No | `tpl_workspace_invite_v5` |
+| EM-06 | [Weekly summary](#em-06-weekly-summary) | Workspace activity in the last 7 days, Owners and Admins only | Monday 09:00 local time | Yes | `tpl_weekly_summary_v1` |
 * * *
 
 ### Rules that apply to all six
 * * *
-These rules hold for every entry below. Check them before you look for anything specific to one email.
-
-*   **Language** — An email goes out in the recipient's app language (en-US, de-DE, fr-FR, es-ES, ja-JP or pt-BR), and a missing string falls back to en-US
-*   **Time zone** — Scheduled emails use the time zone on the recipient's profile
-*   **Mention inside a reply** — A mention inside a comment reply sends EM-02 only, never EM-02 and EM-03 together
-*   **Guests** — Guests get EM-02, EM-03 and EM-04 for the pages shared with them, but never EM-01 or EM-06
-*   **Footer** — Every email except EM-05 ends with a line that opens Settings > Notifications
-*   **Sender** — Every email goes out through the email delivery provider with the sender name Loomlist
+*   **Language** — The recipient's app language (en-US, de-DE, fr-FR, es-ES, ja-JP or pt-BR), falling back to en-US per missing string
+*   **Time zone** — Scheduled emails use the profile time zone, called local time here
+*   **Mention inside a reply** — Sends EM-02 only, never EM-03 too
+*   **Guests** — Get EM-02, EM-03 and EM-04 for pages shared with them, never EM-01 or EM-06
+*   **Footer** — A closing line that opens Settings > Notifications, on every email except EM-05
+*   **Sender** — The email delivery provider, as Loomlist
 * * *
 
 ## Activity emails
@@ -51,95 +47,83 @@ These rules hold for every entry below. Check them before you look for anything 
 
 ### EM-01 Daily digest
 * * *
-The daily digest collects unread activity from the last 24 hours in one email, grouped by page with the newest page first.
+Grouped by page, newest page first.
 
-*   **Sent when** — The recipient has unread activity from the last 24 hours in pages they follow
-*   **Who gets it** — Owners, Admins and Members with unread activity, never guests
-*   **Timing** — Every day at 08:00 in the recipient's local time, unless there is nothing unread
-*   **Can be turned off** — Yes, from its switch in Settings > Notifications
+*   **Sent when** — Unread activity from the last 24 hours in followed pages
+*   **Who gets it** — Owners, Admins and Members, never guests
+*   **Timing** — Daily at 08:00 local time, unless nothing is unread
+*   **Can be turned off** — Yes
 *   **Template** — `tpl_digest_v4`
-*   **Variables** — `recipient_name`, `workspace_name` and `items`, capped at 20 items grouped by page
-*   **Sent by** — The `digest-sender` job, which builds the list for each recipient and hands the batch to the email delivery provider
+*   **Variables** — `recipient_name`, `workspace_name` and `items`, capped at 20
+*   **Sent by** — The `digest-sender` job, which builds each recipient's list and hands the batch to the email delivery provider
 *   **Last test send** — 2026-09-03
 
-The digest lists mentions, comment replies, pages shared with the recipient and to-dos assigned to them. An item the recipient has opened in the app since the last digest drops out.
+It lists mentions, replies, shared pages and assigned to-dos not opened since the last digest.
 
-A member who turns the digest off still gets [EM-02](#em-02-mentioned-in-a-page) and [EM-03](#em-03-comment-reply) for each event, unless those are off too.
+Digest off, a member gets [EM-02](#em-02-mentioned-in-a-page) and [EM-03](#em-03-comment-reply) unless those are off too.
 * * *
 
 ### EM-02 Mentioned in a page
 * * *
-EM-02 tells the recipient that someone typed @ and their name in a page or a comment.
-
-*   **Sent when** — Someone mentions the recipient in a page or a comment
-*   **Who gets it** — The person mentioned, including a guest on a page shared with them
+*   **Sent when** — A mention in a page or a comment
+*   **Who gets it** — The person mentioned, guests included
 *   **Timing** — When it happens
-*   **Can be turned off** — Yes, from its switch in Settings > Notifications
+*   **Can be turned off** — Yes
 *   **Template** — `tpl_mention_v2`
 *   **Variables** — `actor_name`, `page_title` and a 140-character `excerpt` around the mention
 *   **Sent by** — The mention event
 *   **Last test send** — 2026-08-27
-
-A mention inside a comment reply sends EM-02 only, so the recipient does not also get [EM-03](#em-03-comment-reply) for that reply.
 * * *
 
 ### EM-03 Comment reply
 * * *
-EM-03 tells the recipient that someone replied in a comment thread they are part of.
-
-*   **Sent when** — Someone replies in a comment thread the recipient started or replied in
-*   **Who gets it** — Everyone who started or replied in the thread, including a guest on a page shared with them
+*   **Sent when** — A reply in a thread the recipient started or replied in
+*   **Who gets it** — Thread starters and repliers, guests included
 *   **Timing** — When it happens
-*   **Can be turned off** — Yes, from its switch in Settings > Notifications
+*   **Can be turned off** — Yes
 *   **Template** — `tpl_comment_reply_v2`
 *   **Variables** — `actor_name`, `page_title` and `reply_excerpt`
 *   **Sent by** — The reply event
 *   **Last test send** — 2026-08-27
-
-When the reply mentions the recipient, they get [EM-02](#em-02-mentioned-in-a-page) instead of EM-03.
 * * *
 
 ### EM-04 Page shared with you
 * * *
-EM-04 tells the recipient that a member gave them access to a page.
-
 *   **Sent when** — A member shares a page with the recipient
-*   **Who gets it** — The person the page is shared with, member or guest
+*   **Who gets it** — The member or guest it is shared with
 *   **Timing** — When it happens
-*   **Can be turned off** — Yes, from its switch in Settings > Notifications
+*   **Can be turned off** — Yes
 *   **Template** — `tpl_page_shared_v3`
-*   **Variables** — `actor_name`, `page_title` and `access`, which reads view or edit
+*   **Variables** — `actor_name`, `page_title` and `access`, view or edit
 *   **Sent by** — The share event in share-service
 *   **Last test send** — 2026-09-09
 * * *
 
 ### EM-05 Workspace invite
 * * *
-EM-05 is the only activity email a person cannot turn off, so it has no switch in Settings > Notifications and no footer.
+The only activity email with no switch and no footer.
 
-*   **Sent when** — Someone invites the recipient to a workspace
+*   **Sent when** — An invite to a workspace
 *   **Who gets it** — The invited person
 *   **Timing** — When it happens
 *   **Can be turned off** — No
 *   **Template** — `tpl_workspace_invite_v5`
-*   **Variables** — `actor_name`, `workspace_name` and an invite token that expires after 14 days
+*   **Variables** — `actor_name`, `workspace_name` and an invite token expiring after 14 days
 *   **Last test send** — 2026-09-09
 * * *
 
 ### EM-06 Weekly summary
 * * *
-The weekly summary gives Owners and Admins a count of the last 7 days of workspace activity.
-
-*   **Sent when** — The workspace had activity in the last 7 days
-*   **Who gets it** — Every Owner and Admin of the workspace, never Members or guests
-*   **Timing** — Monday 09:00 in the recipient's local time
-*   **Can be turned off** — Yes, from its switch in Settings > Notifications
+*   **Sent when** — Workspace activity in the last 7 days
+*   **Who gets it** — Every Owner and Admin, never Members or guests
+*   **Timing** — Monday 09:00 local time
+*   **Can be turned off** — Yes
 *   **Template** — `tpl_weekly_summary_v1`
 *   **Variables** — The four workspace counts and the five most edited pages
-*   **Sent by** — The `summary-sender` job, which runs hourly on Mondays and picks the Owners and Admins whose local time is Monday 09:00 in that hour
+*   **Sent by** — The `summary-sender` job, hourly on Mondays for Owners and Admins at local 09:00
 *   **Last test send** — 2026-08-31
 
-The summary counts pages created, pages edited, to-dos completed and new members, then lists the five most edited pages. A workspace with no activity that week gets no summary.
+It counts pages created, pages edited, to-dos completed and new members, and a week with no activity sends none.
 * * *
 
 ## Reference notes
@@ -147,24 +131,22 @@ The summary counts pages created, pages edited, to-dos completed and new members
 
 ### Checks before changing a template
 * * *
-Run these three checks on any template change. The version bump matters most, because a job built for the old variables then fails loudly instead of sending a broken email.
+The version bump matters most, so a job built for old variables fails loudly rather than sending a broken email.
 
-*   [ ] **Render all six locales in the preview tool:** Read the ja-JP and de-DE versions for overflow
-*   [ ] **Send a test to the team inbox:** Note the date in the notifications-service template inventory
+*   [ ] **Render all six locales in the preview tool:** Check ja-JP and de-DE for overflow
+*   [ ] **Send a test to the team inbox:** Note the date in the template inventory
 *   [ ] **Bump the version suffix when a variable is added or removed**
 * * *
 
 ### Catalog boundaries
 * * *
-*   **Digest time in the template inventory** — The inventory's daily 07:00 UTC for EM-01 is out of date, since the digest goes at 08:00 local time
-*   **Digest time choice** — Recipients cannot pick their own digest time, which comes up in feedback now and then and is not planned
-*   **Reminders** — Loomlist sends no reminder email, and reminders show in the app or as local notifications on the phone
-*   **Other emails** — Sign-in codes, receipts and plan emails come from other services and teams
-*   **Push notifications** — Not covered here
+*   **Digest time in the template inventory** — Its daily 07:00 UTC for EM-01 is out of date, and 08:00 local holds
+*   **Digest time choice** — Recipients cannot pick it, an occasional request that is not planned
+*   **Reminders** — No email, as reminders show in the app or as local phone notifications
 * * *
 
 ### Sources
 * * *
-*   Email notifications spec, Lena, Product Manager, Sharing and Notifications, last edited 2026-07-14: triggers, timing, recipients, rules for all six and the digest send time
-*   Email template inventory, notifications-service, Mateo, Backend Engineer, Notifications, last edited 2026-09-11: template names, variables, jobs, test sends, locales and change checks
-*   Loomlist product context, Elif, Product Operations, last updated 2026-09-22: background definitions for roles and guests
+*   Email notifications spec, Lena, Product Manager, Sharing and Notifications, last edited 2026-07-14: triggers, timing, recipients and shared rules
+*   Email template inventory, notifications-service, Mateo, Backend Engineer, Notifications, last edited 2026-09-11: templates, variables, jobs, test sends, locales and checks
+*   Loomlist product context, Elif, Product Operations, last updated 2026-09-22: roles and guests

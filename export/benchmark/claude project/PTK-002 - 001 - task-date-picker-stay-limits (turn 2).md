@@ -5,13 +5,11 @@
 
 ---
 
-Today the Guest app date picker lets a guest select any range. `search-service` turns down anything over 30 nights, and the guest only sees a generic `Something went wrong` after tapping Search. Guest Support logged 23 chats about it in August, mostly about long stays for work.
+The Guest app date picker accepts any range, but `search-service` turns down anything over 30 nights with only `Something went wrong`. Guest Support logged 23 chats about it in August. The picker should block an unsearchable range before Search, and say why.
 
-This task makes the date picker block an unsearchable range before the guest taps Search, and tell the guest why. It covers the Guest app on iOS, Android and web as one task, on the search form and the property page, where the picker also applies the property's minimum stay. The Search squad takes it into the 8.13.0 app train.
+The Search squad ships it in the 8.13.0 app train on iOS, Android and web, search form and property page. `search-service` doesn't change, because its own 30-night check stays the backstop. Flexible dates, weekend presets, per-night calendar prices and tracking changes are out, and date selection isn't tracked today and gets no events.
 
-`search-service` doesn't change, and its own 30-night check stays as the backstop, so a range that gets past the picker is still turned down. Flexible dates, weekend presets, prices per night inside the calendar and tracking changes are out of scope. Date selection isn't tracked today, and this work adds no events.
-
-The design frames are final. If the build doesn't match the file, raise it with Ines in the Search squad channel before working around it.
+The design frames are final, so raise any mismatch with Ines in the Search squad channel before working around it.
 
 **References**
 
@@ -33,28 +31,25 @@ Flows
 
 ---
 
-The apps hard-code none of the limits, so a change to search-service config or to a partner's minimum stay reaches the picker without an app release.
+No limit is hard-coded, so changes need no app release.
 
 **Checklist**
 
 - [ ] The 30-night maximum and the 365-day check-in window come from `search-service` config
-- [ ] On the property page, the minimum stay comes with the property details, set by the partner in Partner Hub from 1 night to 14 nights
-- [ ] Helper text fills `{max}` and `{n}` from these values, never from a number fixed in the app
+- [ ] On the property page, the minimum stay comes with the property details, set in Partner Hub from 1 to 14 nights
+- [ ] Helper text fills `{max}` and `{n}` from these values
 
 2.  **Which days can be picked**
 
 ---
 
-The picker enforces the same limits `search-service` applies, so every range it accepts can be searched.
-
 **Checklist**
 
-- [ ] Past days are disabled, and today can be picked as check-in
-- [ ] Days more than 365 days after today show in the calendar but are disabled as check-in
-- [ ] Check-out may land more than 365 days after today, because only check-in is limited
-- [ ] Check-in and check-out can't be the same day, so a stay is at least 1 night
-- [ ] A stay is at most 30 nights
-- [ ] On the property page, a stay is also at least the property's minimum stay
+- [ ] Past days are disabled, and today can be check-in
+- [ ] Days more than 365 days ahead show but are disabled as check-in
+- [ ] Check-out may land more than 365 days ahead
+- [ ] A stay is at least 1 night and at most 30 nights
+- [ ] On the property page, a stay is also at least the minimum stay
 
 ### **Picker states**
 
@@ -64,40 +59,35 @@ The picker enforces the same limits `search-service` applies, so every range it 
 
 ---
 
-The button at the bottom of the picker tells the guest what to do next and stays disabled until the range is valid.
-
 **Checklist**
 
-- [ ] With nothing picked, the button reads `Select check-in date` (`datepicker.cta.checkin`) and is disabled
-- [ ] With check-in picked, days that make the stay too short or over 30 nights turn grey, and the button reads `Select check-out date` (`datepicker.cta.checkout`) and stays disabled
-- [ ] With a valid range picked, the range is highlighted, the nights count sits under it (`datepicker.nights`) and the button reads `Show prices` (`datepicker.cta.show_prices`)
-- [ ] A 30-night range across two months keeps the highlight across the month break
+- [ ] With nothing picked, the disabled button reads `Select check-in date` (`datepicker.cta.checkin`)
+- [ ] With check-in picked, days making the stay too short or over 30 nights turn grey, and the disabled button reads `Select check-out date` (`datepicker.cta.checkout`)
+- [ ] With a valid range, the range is highlighted, the nights count sits under it (`datepicker.nights`) and the button reads `Show prices` (`datepicker.cta.show_prices`)
+- [ ] A 30-night range across two months stays highlighted across the month break
 
 4.  **Helper text on a grey day**
 
 ---
 
-A grey day can still be tapped. Tapping it is the only way the guest learns why the day is grey, so the tap selects nothing and shows helper text under the calendar.
+A grey day stays tappable, because the tap shows why it is grey.
 
 **Checklist**
 
-- [ ] Tapping a grey day past the 30-night limit selects nothing and shows `Stays can be up to 30 nights` (`datepicker.helper.max_stay`)
-- [ ] On the property page, tapping a day inside the minimum stay selects nothing and shows helper text with the property's number, for example `This property has a 3-night minimum` (`datepicker.helper.min_stay`)
-- [ ] The helper text stays until the guest picks a valid day
-- [ ] The helper text never covers the calendar
-- [ ] Screen readers announce a grey day as unavailable, followed by the same helper text a tap would show
+- [ ] Tapping a grey day past 30 nights selects nothing and shows `Stays can be up to 30 nights` (`datepicker.helper.max_stay`)
+- [ ] On the property page, tapping a day inside the minimum stay selects nothing and shows `This property has a 3-night minimum` (`datepicker.helper.min_stay`) with the property's number
+- [ ] The helper text shows under the calendar, never covers it and stays until a valid day is picked
+- [ ] Screen readers announce a grey day as unavailable, then its helper text
 
 5.  **Changing and reopening dates**
 
 ---
 
-A guest who changes their mind or comes back from an earlier search always lands in a state that can be searched.
-
 **Checklist**
 
-- [ ] With check-in picked, tapping a day before it makes that day the new check-in, and the button goes back to `Select check-out date`
-- [ ] Opening the picker with dates from an earlier search shows the range as picked, with the button reading `Show prices`
-- [ ] Opening the picker with earlier dates that break a limit, like a 45-night search saved before this change, clears them and opens with nothing picked
+- [ ] With check-in picked, tapping an earlier day makes it check-in, and the button returns to `Select check-out date`
+- [ ] Reopening with dates from an earlier search shows them picked, with `Show prices`
+- [ ] Earlier dates that break a limit, like a 45-night search saved before this change, are cleared and the picker opens empty
 
 ### **Platforms**
 
@@ -107,23 +97,18 @@ A guest who changes their mind or comes back from an earlier search always lands
 
 ---
 
-The same behavior ships on every platform, with a layout that fits each one.
-
 **Checklist**
 
-- [ ] iOS and Android use the design system's own calendar component, never the system date picker
-- [ ] Web on desktop shows two months side by side
-- [ ] Mobile web and the apps show one month at a time and scroll vertically
-- [ ] The week starts on Monday, except in `en-US`, where it starts on Sunday
-- [ ] All six `datepicker` keys show the translated copy for the guest's locale, and fall back to `en-GB` for any missing string
+- [ ] iOS and Android use the design system calendar, never the system date picker
+- [ ] Desktop web shows two months side by side
+- [ ] Mobile web and the apps show one month at a time, scrolling vertically
+- [ ] The week starts on Monday, or on Sunday in `en-US`
+- [ ] All six `datepicker` keys are translated, falling back to `en-GB` for a missing string
 
 7.  **QA sign-off**
 
 ---
 
-The task is done when QA signs it off on every platform in both English locales.
-
 **Checklist**
 
-- [ ] QA signs off on iOS, Android and web
-- [ ] Each platform passes in `en-GB` and in `en-US`
+- [ ] QA signs off iOS, Android and web, each in `en-GB` and `en-US`
