@@ -177,6 +177,8 @@ The collector filed the rounds' 102 deliverables under their own folders in `exp
 - **`PST-004`:** the skill twin asked for the split, as Story Mode requires at `references/story-mode.md` line 406 and Project knowledge line 382
 - The Project took the brief's six tasks as the split in both rounds, recorded as a runtime fault with no repair proposed
 - **Length caps and word budget:** the rules gained both on 2026-09-26 without a rerun, so no run has measured whether the runtimes follow them
+- **Quality Scoring mirror:** Project knowledge line 77 leaves out the reason `references/quality-scoring.md` line 100 gives for scoring Requirements per item
+- The gap dates from the package's first commit, and the operator decides whether to restore it
 
 ---
 
