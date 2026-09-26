@@ -1,7 +1,7 @@
 ---
-title: "Product Owner Bug Report Template - v0.100"
+title: "Product Owner Bug Report Template - v0.101"
 description: "Copy/apply template for Product Owner bug reports with evidence, reproduction and QA handoff."
-version: "0.100"
+version: "0.101"
 contextType: asset
 importance_tier: high
 trigger_phrases:
@@ -12,7 +12,7 @@ trigger_phrases:
   - "QA handoff checklist"
 ---
 
-# Product Owner Bug Report Template - v0.100
+# Product Owner Bug Report Template - v0.101
 
 Copy/apply template for isolated Product Owner bug reports.
 
@@ -102,7 +102,7 @@ Worked example: [`examples/bug/bug-example-quick.md`](examples/bug/bug-example-q
 
 { Describe what happens when the bug is triggered }
 - { What the user sees }
-- { Any error messages displayed }
+- { Any error message the ticket, log or user supplied. With none supplied, write `Not provided` or leave this line out, never that no error message appears }
 - { Incorrect data or behavior }
 
 Steps to Reproduce:

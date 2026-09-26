@@ -1,7 +1,7 @@
 ---
-title: "Product Owner - Assets - Epic Template - v0.100"
+title: "Product Owner - Assets - Epic Template - v0.101"
 description: "The Barter house-format Epic scaffold: an About umbrella with Problem, Goal and Solution, a Scope section listing child stories, release-level acceptance criteria and the same opt-in Delivery close a Story uses, with no Requirements of its own. Shared grammar, artifact-kind selection and the optional enrichments live in story-mode.md."
-version: "0.100"
+version: "0.101"
 contextType: asset
 importance_tier: high
 trigger_phrases:
@@ -12,7 +12,7 @@ trigger_phrases:
   - "release-level acceptance criteria"
 ---
 
-# Product Owner - Assets - Epic Template - v0.100
+# Product Owner - Assets - Epic Template - v0.101
 
 An Epic frames an initiative and delegates requirements to its child stories.
 
@@ -71,7 +71,7 @@ In order to get there, we will:
 
 #### **References**
 * * *
-{Supplied links only.}
+{Supplied links only, grouped under plain labels. Omit the whole section when none are supplied, and never leave it empty or invent a link.}
 Components
 *   [{link}]({url})
 Flows

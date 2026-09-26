@@ -1,7 +1,7 @@
 ---
 title: "PTK-001 -- Quick copy task"
 description: "Validates that a quick task command carrying two exact strings renders a Fernhouse free-shipping banner copy task block in a Claude Project with no clarification, both string pairs verbatim and no file claim."
-version: 1.0.0.0
+version: 1.0.0.1
 ---
 
 # PTK-001 -- Quick copy task
@@ -90,7 +90,7 @@ Capture the reply, the rendered block and which form it took, the export-equival
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, the Quick intake allowance, Deliverable Block and export-equivalent contract |
 | [`Product Owner - Templates - Task Mode - v0.305.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.305.md) | Project task workflow and required sections |
 | [`Product Owner - Assets - Task Templates - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates%20-%20v0.102.md) | Project Quick Task scaffold and the group numbering rule |
-| [`Product Owner - System - Interactive Mode - v0.405.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.405.md) | Quick energy row that lets Task skip routine intake |
+| [`Product Owner - System - Interactive Mode - v0.406.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.406.md) | Quick energy row that lets Task skip routine intake |
 | [`fernhouse-context.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-context.md) | Attachment: current banner strings, thresholds, surfaces, source-string rule and title convention |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |
 

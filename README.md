@@ -288,7 +288,7 @@ Product Owner asks before it guesses, and it asks once. For Doc work a second ga
 
 #### When It Stops to Ask
 
-- `$task` or `$bug` with little more than a feature name. A command picks the route and does not supply the scope, so only `$quick` may skip this question
+- Any explicit artifact command, `$task`, `$bug`, `$doc`, `$story`, `$epic` or one of their aliases, however much the request already says. A command picks the route and does not supply the direction, so only `$quick` may skip this question
 - Two artifact commands that name different routes, or no command and a topic score under 0.60
 - A Doc request missing purpose, audience, source set, authority, status, shape or scope
 - A Story request where the role, the value, the requirements or the choice between Story and Epic cannot be inferred
@@ -472,7 +472,7 @@ New Docs use ClickUp's grammar. This is the opening of the Guide scaffold in `as
 Story and Epic are two kinds of product requirements document, not size tiers. Detail grows with scope while the section order stays fixed.
 
 - A Story opens with `# {Persona} - {Area} - {Feature}` and an About of Problem, Solution, Expected outcomes and References. Its `## Requirements` holds hard constraints only and is left out when there are none. Its acceptance criteria work at screen level
-- An Epic opens with `# Epic - {Persona} - {Area}` and an About of Problem, Goal, Solution and References. A `## Scope` of child stories, with an optional Added Later group, takes the place of Requirements. Its acceptance criteria work at release level
+- An Epic opens with `# Epic - {Persona} - {Area}` and an About of Problem, Goal and Solution, with References only when a link is supplied. A `## Scope` of child stories, with an optional Added Later group, takes the place of Requirements. Its acceptance criteria work at release level
 
 The Requirements section of a real Story from the 2026-09-18 run's `SST-001` scenario:
 
@@ -643,7 +643,7 @@ A route loads its template together with its mode reference. A worked example lo
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem and never loads `SKILL.md`.
 
-- `Custom Instructions.md` is the kernel, v1.14.0, aligned to skill v1.10.0. It carries the full router and rules and is the routing authority inside the Project
+- `Custom Instructions.md` is the kernel, v1.15.0, aligned to skill v1.11.0. It carries the full router and rules and is the routing authority inside the Project
 - `knowledge/` holds 38 files: 17 core documents (five mode references, six templates, four shared rule files, quality scoring and the router contract) and the 21 worked examples
 - `README.md` holds the upload steps, the source-to-mirror map and the smoke matrix
 - `kernel-review.json` is a dated record of one kernel review, read by no tool
@@ -750,7 +750,7 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
 │   ├── reports/                     two captured playbook runs
 │   └── router/                      route_contract.py, 117 fixtures and the differential
 ├── claude project/
-│   ├── Custom Instructions.md       claude.ai kernel v1.14.0
+│   ├── Custom Instructions.md       claude.ai kernel v1.15.0
 │   ├── README.md                    upload steps, mirror map and smoke matrix
 │   ├── kernel-review.json           dated record of one kernel review
 │   └── knowledge/                   38 knowledge files

@@ -1,4 +1,4 @@
-# Product Owner - Assets - Interactive Response Templates - v0.102
+# Product Owner - Assets - Interactive Response Templates - v0.103
 
 Copy/apply response templates for Product Owner interactive intake.
 
@@ -90,7 +90,7 @@ I'll create your bug report. Quick questions:
 
 ### Story Context Question
 
-Use this when Story intent is selected but role, value, requirement shape or artifact kind (Story or Epic) cannot be inferred safely. Populate only unresolved fields and wait once.
+Use this when an explicit Story or Epic command selects Story intent, or when Story intent is selected but role, value, requirement shape or artifact kind (Story or Epic) cannot be inferred safely. Populate only unresolved fields and wait once.
 
 ```markdown
 I'll create or refine your PRD. Before drafting, I need the unresolved decisions below in one response:
