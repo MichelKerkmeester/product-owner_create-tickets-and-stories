@@ -1,7 +1,7 @@
 ---
 title: "PST-004 -- Story with nested tasks"
 description: "Validates that a Fernhouse order tracking Story asked for with its task breakdown renders in a Project as one Deliverable Block per file, labelled inside one bundle folder, in the split the PM names."
-version: 1.0.0.2
+version: 1.0.0.3
 ---
 
 # PST-004 -- Story with nested tasks
@@ -88,7 +88,7 @@ Capture both replies, the clarification block and its label, all five rendered b
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Line 85 the block without a Canvas panel, line 108 an explicit command still asks, line 226 the bundle folder, its links and one block per file, line 228 clarification label, line 233 no `Path:`, `Saved:` or `Verified:` |
-| [`Product Owner - Templates - Story Mode - v0.403.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.403.md) | Line 341 the bundle exception to one artifact, lines 368 to 392 Story With Nested Tasks, line 382 a named split is authoritative, line 383 the clarification outside the folder, line 384 the Tasks block, line 385 the task template and the Story block, line 398 the bundle reply |
+| [`Product Owner - Templates - Story Mode - v0.404.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.404.md) | Line 341 the bundle exception to one artifact, lines 368 to 392 Story With Nested Tasks, line 382 a named split is authoritative, line 383 the clarification outside the folder, line 384 the Tasks block, line 385 the task template and the Story block, line 398 the bundle reply |
 | [`Product Owner - Assets - Story Template - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Story%20Template%20-%20v0.100.md) | Lines 21 to 85 Story scaffold |
 | [`Product Owner - Assets - Task Templates - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates%20-%20v0.102.md) | Lines 19 to 133 Canonical Task template, lines 54 to 58 the `**Story**` block, line 141 the Story block in a bundle |
 | [`Product Owner - System - Interactive Mode - v0.407.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.407.md) | Line 70 the Story lane for a bundle's clarification |

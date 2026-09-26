@@ -1,7 +1,7 @@
 ---
 title: "PTK-004 -- Parent task with subtasks"
 description: "Validates that a task command for a Loomlist parent task renders one context question block, then one parent task block in a Claude Project that lists its iOS, Android, web and back end subtasks by title and states the recurring to-do rules from the PM brief once."
-version: 1.0.0.2
+version: 1.0.0.3
 ---
 
 # PTK-004 -- Parent task with subtasks
@@ -92,7 +92,7 @@ Capture both replies, the rendered blocks and which form each took, the two expo
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, the explicit-command question rule, Deliverable Block and export-equivalent contract |
-| [`Product Owner - Templates - Task Mode - v0.305.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.305.md) | Project task workflow, parent task type, required sections and the named-but-unlinked rule |
+| [`Product Owner - Templates - Task Mode - v0.306.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.306.md) | Project task workflow, parent task type, required sections and the named-but-unlinked rule |
 | [`Product Owner - Assets - Task Templates - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates%20-%20v0.102.md) | Project Parent Task scaffold and the Notes For Use |
 | [`Product Owner - System - Interactive Mode - v0.407.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.407.md) | Direct `$task` row and clarification delivery |
 | [`loomlist-context.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-context.md) | Attachment: surfaces, plans, the `TODO` code, the owner's time zone and the title convention |

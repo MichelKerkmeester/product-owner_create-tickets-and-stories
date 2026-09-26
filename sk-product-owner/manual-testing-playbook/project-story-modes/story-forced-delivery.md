@@ -1,7 +1,7 @@
 ---
 title: "PST-002 -- Story forced delivery"
 description: "Validates that a Loomlist Story on view-only share links, rendered in a Project, keeps the undecided sub-page question as an Open line, which forces a Delivery section nobody asked for."
-version: 1.0.0.1
+version: 1.0.0.2
 ---
 
 # PST-002 -- Story forced delivery
@@ -88,7 +88,7 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Line 85 the block without a Canvas panel, line 108 an explicit command still asks, line 140 house format and the forced Delivery, lines 226 and 228 Story and clarification labels, line 233 no `Path:`, `Saved:` or `Verified:` |
-| [`Product Owner - Templates - Story Mode - v0.403.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.403.md) | Line 51 an `**Open:**` line opts Delivery in, line 52 verbatim hard values, line 131 Delivery opt-in and closing, lines 303 to 318 the `**Open:**` line and its rules, line 316 no criterion for the open part, line 317 the question repeated in Rabbit holes |
+| [`Product Owner - Templates - Story Mode - v0.404.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.404.md) | Line 51 an `**Open:**` line opts Delivery in, line 52 verbatim hard values, line 131 Delivery opt-in and closing, lines 303 to 318 the `**Open:**` line and its rules, line 316 no criterion for the open part, line 317 the question repeated in Rabbit holes |
 | [`Product Owner - Assets - Story Template - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Story%20Template%20-%20v0.100.md) | Lines 21 to 85 Story scaffold, lines 103 to 128 the Delivery close |
 | [`Product Owner - Assets - Interactive Response Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.103.md) | Lines 91 to 104 Story context question |
 | [loomlist-context.md](../../../benchmark/fixtures/companies/loomlist/loomlist-context.md) | Company context: plans, roles, invite-only sharing, story title pattern |
