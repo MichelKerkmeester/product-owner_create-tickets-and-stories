@@ -9,16 +9,16 @@
 
 ## Overview
 * * *
-This reference explains the discount promotions-service gives an order today when a discount code meets one or more automatic promotions. It also covers how that discount decides free shipping. It is for CS agents explaining or refunding an order, and for Checkout engineers who need to know what promotions-service will return for a cart. With it, either reader can work out the discount on any cart without opening another document.
+This reference explains the discount promotions-service gives an order today when a discount code meets one or more automatic promotions, and how that discount decides free shipping. It serves CS agents explaining or refunding an order and Checkout engineers predicting what promotions-service returns for a cart. Either reader can work out any cart's discount without opening another document.
 
 promotions-service applies every rule below, and the storefront and the apps show what it returns. How a promotion is created or changed in Admin is outside this document.
 
 ### Glossary
 * * *
 *   **Automatic promotion** — A discount that applies without a code
-*   **Discount code** — A code the customer enters on the order. One per order
-*   **`exclusive`** — A flag on a promotion or code. An exclusive promotion or code combines with nothing
-*   **`applies_to_sale`** — A flag that lets a promotion or code discount sale items. When it is off, sale items are skipped
+*   **Discount code** — A code the customer enters on the order, one per order
+*   **`exclusive`** — A flag that makes a promotion or code combine with nothing
+*   **`applies_to_sale`** — A flag that lets a promotion or code discount sale items, which are skipped when it is off
 *   **Sale item** — A product whose `compare_at` price in catalog-service is above its current price, shown struck through
 *   **Staff code** — A code starting with `STAFF-`, tied to one staff account
 *   **Subtotal** — The order total after every discount and before shipping
@@ -44,7 +44,7 @@ Automatic promotions apply first. The discount code then applies to the price th
 A promotion or code marked `exclusive` combines with nothing. What it removes depends on which side carries the flag.
 
 *   **Exclusive code** — Removes every automatic promotion from the order and applies alone
-*   **Exclusive automatic promotion** — Blocks codes on the lines it covers. A code still applies to the other lines
+*   **Exclusive automatic promotion** — Blocks codes on the lines it covers, while a code still applies to the other lines
 
 **Staff codes**
 * * *
@@ -92,7 +92,7 @@ A gift card in the cart never takes a discount and does not count toward the fre
 * * *
 #### Code on top of an automatic promotion, Netherlands
 * * *
-The cart holds stoneware dinner plates, set of 4, at €39.95 with the automatic promotion Tableware 20% off. It also holds linen tea towels, set of 3, at €24.90 with no promotion, and a cast iron casserole at €89.00 with a `compare_at` price of €119.00, which makes it a sale item. Code HOME15 gives 15% off and has `applies_to_sale` switched off.
+The cart holds stoneware dinner plates, set of 4, at €39.95 with the automatic promotion Tableware 20% off. It also holds linen tea towels, set of 3, at €24.90 with no promotion, and a cast iron casserole at €89.00, a sale item with a `compare_at` price of €119.00. Code HOME15 gives 15% off and has `applies_to_sale` switched off.
 
 | Line | Price | Automatic | Code | Line total |
 |------|-------|-----------|------|------------|
@@ -101,7 +101,9 @@ The cart holds stoneware dinner plates, set of 4, at €39.95 with the automatic
 | Casserole | €89.00 | none | skipped, sale item | €89.00 |
 | Subtotal | | | | €137.33 |
 
-The plates take 20% first, which is €7.99 and leaves €31.96. HOME15 then takes 15% of €31.96, which is €4.794 and rounds to €4.79. The towels take 15% of €24.90, which is €3.735 and rounds half up to €3.74. The subtotal is well over €50, so shipping is free.
+The plates take 20% first, which is €7.99 and leaves €31.96. HOME15 then takes 15% of €31.96, which is €4.794 and rounds to €4.79.
+
+The towels take 15% of €24.90, which is €3.735 and rounds half up to €3.74. The subtotal is well over €50, so shipping is free.
 
 #### The 50% cap
 * * *
@@ -119,9 +121,9 @@ The cart holds a €25.00 gift card and a bread bin at €32.00. Only the bread 
 * * *
 The Promotions rules note does not settle the cases below, so this document gives no outcome for them. Colette owns the note and is the person to ask.
 
-*   **Exclusive code meets an exclusive automatic promotion** — An exclusive code removes every automatic promotion, and an exclusive automatic promotion blocks codes on its lines. The note does not say which wins when both sit on one order. Staff codes are always exclusive, so the same gap covers a staff code
-*   **Exclusive and non-exclusive automatic promotions on one line** — The bigger saving normally wins. The note does not say whether the `exclusive` flag changes that
-*   **Automatic promotion alone above 50%** — The cap only says how the code's share is cut. It does not say what happens when an automatic promotion by itself goes past 50%
+*   **Exclusive code meets an exclusive automatic promotion** — The note does not say which wins, and staff codes, always exclusive, fall in the same gap
+*   **Exclusive and non-exclusive automatic promotions on one line** — The bigger saving normally wins, and the note does not say whether the `exclusive` flag changes that
+*   **Automatic promotion alone above 50%** — The cap only says how the code's share is cut, not what happens when an automatic promotion alone passes 50%
 *   **Base for splitting a fixed-amount code** — "In proportion to their price" does not say whether that is the price before or after automatic promotions
 
 ### Retired rule: two codes on one order
@@ -134,4 +136,4 @@ Until 2026-05-01 a customer could combine one percentage code with one free-ship
 
 ### Related references
 * * *
-*   [Promotions rules](context/fernhouse-promotions-rules.md) — the governing note, owned by Merchandising
+*   [Promotions rules](context/fernhouse-promotions-rules.md): the governing note, owned by Merchandising

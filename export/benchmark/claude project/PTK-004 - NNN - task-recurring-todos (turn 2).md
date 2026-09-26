@@ -4,13 +4,11 @@
 
 ---
 
-Members want to-dos that come back on a schedule. Repeating to-dos are the most requested to-do feature we have: 212 requests on the feedback board since January, and 38 Plus workspaces named it in the renewal survey as the reason they keep a second app for chores and routines. Today people copy a to-do by hand every week, or set a reminder far ahead and keep moving it.
+Repeating to-dos are the most requested to-do feature: 212 requests on the feedback board since January, and 38 Plus workspaces named it in the renewal survey as the reason they keep a second app for chores and routines. Today people copy a to-do by hand every week, or set a reminder far ahead and keep moving it.
 
-This parent task states the shared rules once. The iOS, Android, Web and BE leads each write their own subtask from it and point at the numbered rules below instead of restating them. Desktop gets the feature through the web client, so it has no subtask of its own.
+This parent task states the shared rules once. The iOS, Android, Web and BE leads each write their own subtask from it and point at the numbered rules below instead of restating them.
 
-iOS and Android aim for the 5.4.0 release. Web and BE ship dark before that, so both are in place when the apps land.
-
-The work counts as a success when 10% of weekly active Plus and Team workspaces have at least one repeating to-do 8 weeks after the flag is on for everyone.
+iOS and Android aim for the 5.4.0 release. Web and BE ship dark before that, so both are in place when the apps land. The work counts as a success when 10% of weekly active Plus and Team workspaces have at least one repeating to-do 8 weeks after the flag is on for everyone.
 
 **References**
 
@@ -132,7 +130,7 @@ A workspace can hold 500 repeating to-dos that have not ended. Checked-off and e
 
 ---
 
-Next due dates are worked out in the to-do owner's time zone. The Overdue chip and reminders follow the same rule, so all three agree for the owner. When the to-do is reassigned, the next occurrence uses the new owner's zone. A teammate in another zone sees the owner's date with the zone shown.
+Next due dates are worked out in the to-do owner's time zone, the same rule the Overdue chip and reminders follow, so all three agree for the owner. When the to-do is reassigned, the next occurrence uses the new owner's zone. A teammate in another zone sees the owner's date with the zone shown.
 
 > The to-do owner is the assignee, or the creator when the to-do has no assignee. It is not the workspace Owner role.
 
@@ -154,7 +152,7 @@ Repeat is for Plus and Team workspaces. On Free it shows with a Plus badge and o
 
 ---
 
-Everything ships behind the workspace flag `recurring_todos`. Web and BE ship dark first, then iOS and Android ship dark in 5.4.0. While the flag is off for a workspace, that workspace sees none of Repeat, Ends, Skip this one or the repeat icon. Data turns the flag on for a sample of Plus and Team workspaces once all three clients are out, then widens it from there.
+Everything ships dark behind the workspace flag `recurring_todos`: Web and BE first, then iOS and Android in 5.4.0. A workspace with the flag off sees none of Repeat, Ends, Skip this one or the repeat icon. Data turns the flag on for a sample of Plus and Team workspaces once all three clients are out, then widens it from there.
 
 **Checklist**
 

@@ -4,7 +4,7 @@
 
 ---
 
-This subtask brings recurring to-dos to the web client: the Repeat and Ends pickers, the Custom interval, Skip this one and the repeat icon on the to-do row. The scope matches iOS. The parent task defines the options, the Ends rules, the occurrence rules and the limit. BE creates every next occurrence, so Web sets the repeat and shows the result.
+This subtask brings recurring to-dos to the web client, matching the iOS scope: the Repeat and Ends pickers, the Custom interval, Skip this one and the repeat icon on the to-do row. The parent task defines the options, the Ends and occurrence rules and the limit. BE creates every next occurrence, so Web sets the repeat and shows the result.
 
 Desktop wraps the web client, so this subtask also delivers the feature to Desktop members the next time Desktop loads, with no Desktop release. On Web and Desktop, reminders show only inside the app while it is open, and the next occurrence's reminder works the same way.
 
@@ -61,7 +61,7 @@ Only one occurrence exists at a time, so the row the member checks off is follow
 
 - [ ] A repeating to-do shows the repeat icon on its row
 - [ ] Checking off an occurrence shows the next one on the same page with its next due date, assignee and reminder
-- [ ] While the app is open, the next occurrence's reminder shows as a banner and a badge on the To-dos view at the same local time as before
+- [ ] With the app open, the next occurrence's reminder shows as a banner and badge on the To-dos view at the same local time as before
 - [ ] Checking off the last occurrence of an On date or After series shows no next occurrence
 - [ ] A teammate in another time zone sees the owner's due date with the zone shown
 - [ ] Desktop shows the same pickers, icon and menu through the web client with no Desktop release

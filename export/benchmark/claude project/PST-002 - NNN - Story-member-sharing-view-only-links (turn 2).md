@@ -6,15 +6,17 @@ _Use it as the foundation for Tasks that work towards fulfilling the acceptance 
 
 ## About
 * * *
-This story adds a view-only link to a page. Anyone with the link can open the page without signing in and read it without changing anything. It covers the switch in the Share panel, the limits each plan puts on links and what a viewer sees. The designs are the `Share / View-only link`, `Share / Link settings` and `Shared page / Viewer` frames in the Sharing design file, reviewed on 2026-09-15.
+This story adds a view-only link to a page, so anyone with the link can open and read it without signing in or changing anything. It covers the Share panel switch, each plan's link limits and what a viewer sees. The designs are the `Share / View-only link`, `Share / Link settings` and `Shared page / Viewer` frames in the Sharing design file, reviewed on 2026-09-15.
 
 ### Problem
 * * *
-Today the only way to share a page is to invite a member or a guest by email. Agencies on Plus have asked for this change most. Today they invite clients as guests only so that a client can read one page.
+Today the only way to share a page is to invite a member or a guest by email. Agencies on Plus have asked for this change most, since they now invite clients as guests only so that a client can read one page.
 
 ### Solution
 * * *
-People who can already edit a page can turn on a view-only link from the Share panel. The person holding the link reads the page without an account and sees nothing else of the workspace. The sharer stays in control after the link goes out, because a link can be turned off, reset or left to expire, and a Team workspace can turn every link off at once. The plan decides how many links a workspace can keep active and which expiry options it gets.
+People who can already edit a page can turn on a view-only link from the Share panel. The link holder reads the page without an account and sees nothing else of the workspace.
+
+The sharer stays in control after the link goes out, because a link can be turned off, reset or left to expire, and a Team workspace can turn every link off at once. The plan decides how many active links a workspace can keep and which expiry options it gets.
 
 #### **Expected outcomes**
 * * *
@@ -30,7 +32,9 @@ People who can already edit a page can turn on a view-only link from the Share p
 * * *
 **Share panel**
 * * *
-**Open:** It is not decided whether a link on a page also opens its sub-pages. Design proposes that it does, with a switch on each sub-page to leave it out. Engineering proposes one link per page, so that a sub-page added later never becomes public unless someone chooses that. Lena decides after she has talked it through with the security reviewer. No date is set, and the decision will not land before the build starts. The answer also settles what `Duplicate` copies.
+**Open:** whether a page's link also opens its sub-pages. Design proposes it does, with a switch on each sub-page to leave it out. Engineering proposes one link per page, so a sub-page added later never becomes public unless someone chooses that.
+
+Lena decides after talking with the security reviewer. No date is set, and the decision will not land before the build starts. The answer settles what `Duplicate` copies.
 
 *   A new row sits at the bottom of the Share panel with the switch `Anyone with the link can view`
 *   The switch is off by default
@@ -170,7 +174,10 @@ The delivery budget or expected size for the approved scope.
 * * *
 Areas that could waste effort, create ambiguity or distract from the intended outcome.
 
-*   Sub-page inheritance is still open. The choice is between a link that also opens sub-pages, with a switch on each sub-page to leave it out, and a separate link for each page. Lena decides after she has talked it through with the security reviewer. No date is set, and the decision will not land before the build starts. What `Duplicate` copies is the only part of the viewer that depends on it
+*   Sub-page inheritance is still open: one link that also opens sub-pages, each with a switch to leave it out, or a separate link per page
+*   Lena decides after talking it through with the security reviewer, with no date set
+*   The decision will not land before the build starts
+*   What `Duplicate` copies is the only part of the viewer that depends on it
 
 #### No-gos
 * * *

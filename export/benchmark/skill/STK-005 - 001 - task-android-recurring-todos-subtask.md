@@ -4,9 +4,7 @@
 
 ---
 
-This subtask brings recurring to-dos to the Android app on phones and tablets. A member sets a repeat on a to-do's detail sheet, and when they check off or skip one occurrence, the next one appears with the next due date.
-
-The parent task holds the shared rules. This subtask covers what Android members see and do: the Repeat picker, the custom interval, the Ends options, Skip this one, the limit and plan sheets, the owner's time zone and the two tracking events. Oskar's team takes it into the 5.4.0 release, and it ships dark behind the workspace flag `recurring_todos`, which Data turns on once iOS, Android and Web are out.
+This subtask brings recurring to-dos to Android phones and tablets and covers what Android members see and do, under the parent task's shared rules. Oskar's team takes it into the 5.4.0 release, and it ships dark behind the workspace flag `recurring_todos`, which Data turns on once iOS, Android and Web are out.
 
 BE builds the recurrence engine in parallel, and the engine works out every next due date. The app shows the next due date BE returns and never works one out on the device, so one series always shows the same dates on every surface. End-to-end checks on occurrences wait until the engine is available to test against.
 

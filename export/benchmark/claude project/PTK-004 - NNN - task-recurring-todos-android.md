@@ -4,7 +4,7 @@
 
 ---
 
-This subtask brings recurring to-dos to the Android app: the Repeat and Ends pickers, the Custom interval, Skip this one and the repeat icon on the to-do row. The scope matches iOS. The parent task defines the options, the Ends rules, the occurrence rules and the limit. BE creates every next occurrence, so Android sets the repeat and shows the result.
+This subtask brings recurring to-dos to the Android app, matching the iOS scope: the Repeat and Ends pickers, the Custom interval, Skip this one and the repeat icon on the to-do row. The parent task defines the options, the Ends and occurrence rules and the limit. BE creates every next occurrence, so Android sets the repeat and shows the result.
 
 Most Android members read and check off to-dos on the move. That makes the check-off, and the next occurrence that replaces it, the moment this subtask has to get right.
 

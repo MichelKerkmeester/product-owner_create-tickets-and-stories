@@ -571,6 +571,30 @@ def test_collector(t, ctx):
             and "warning" not in cproc.stdout,
             f"negative control: the Sonnet collector should flatten the same bundle, got {sorted(flat)[:6]}")
 
+    # An export edited after collection survives the next collection, so a hand
+    # edit is never undone silently, and --force restores the run's copy.
+    edited = os.path.join(out, "skill/SST-001 - 001 - Story-checkout.md")
+    write(edited, "edited by hand\n")
+    kept = py(os.path.join(HERE, "collect_exports.py"), run, out)
+    t.check(kept.returncode == 0 and read(edited) == "edited by hand\n"
+            and any(line.startswith("warning skill SST-001 - 001 - Story-checkout.md")
+                    for line in kept.stdout.splitlines()),
+            "the collector overwrote an export edited after collection, or kept it without a warning")
+    forced = py(os.path.join(HERE, "collect_exports.py"), run, out, "--force")
+    t.check(forced.returncode == 0 and read(edited) == body("Checkout"),
+            "--force did not restore the run's copy of an edited export")
+
+    # A remeasure round is collected only on request.
+    with_round = os.path.join(tmp, "run-with-round")
+    shutil.copytree(run, with_round)
+    shutil.copytree(os.path.join(run, "skill"), os.path.join(with_round, "remeasure-demo", "run-1", "skill"))
+    plain, rounds = os.path.join(tmp, "collected-plain"), os.path.join(tmp, "collected-rounds")
+    py(os.path.join(HERE, "collect_exports.py"), with_round, plain)
+    py(os.path.join(HERE, "collect_exports.py"), with_round, rounds, "--rounds")
+    t.check(not any("remeasure-demo" in p for p in files_under(plain))
+            and any(p.startswith("skill/remeasure-demo/run-1/") for p in files_under(rounds)),
+            "a remeasure round was collected without --rounds, or left out with it")
+
 
 def make_check_run(root, engine="claude", model=MODEL, thinking="medium", streams=MODEL):
     scenarios = [{"id": "SST-001", "side": "skill", "slug": "demo", "turns": ["one", "two"]},

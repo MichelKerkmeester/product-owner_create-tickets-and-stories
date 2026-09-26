@@ -4,11 +4,9 @@
 
 ---
 
-The booking funnel tracking plan changes how Roamstay counts the path from search to booking. Today `checkout_complete` fires when the confirmation screen renders. A booking is lost when the app closes before the screen draws, and counted twice when the guest reopens the confirmation from Trips. The web sends amounts as decimals while the apps send minor units, and search and property page events carry dates in three formats, so no one can draw one clean funnel.
+The tracking plan changes how Roamstay counts its booking funnel. `checkout_complete` fires when the confirmation screen renders, so a booking is lost when the app closes first and counted twice when reopened from Trips. Web sends decimal amounts and the apps minor units, and search and property page events use three date formats, so no clean funnel can be drawn.
 
-The squads build the client events and `booking_confirmed` in separate FE and BE tasks. This task is the Data team's part: check each event in `events-collector` as it ships, move the funnel dashboard to `booking_confirmed` and have the collector drop `checkout_complete` on its removal date, 2026-11-01. The event table in draft v0.3 stands as written after the Booking squad refinement on 2026-09-24.
-
-`date_changed` is still proposed and its trigger is undecided, so it stays out of this task.
+The squads build the client events and `booking_confirmed` in separate FE and BE tasks, and this task is the Data team's part. The draft v0.3 event table stands unchanged after the Booking squad refinement on 2026-09-24. `date_changed` is still proposed and its trigger is undecided, so it stays out of this task.
 
 **References**
 

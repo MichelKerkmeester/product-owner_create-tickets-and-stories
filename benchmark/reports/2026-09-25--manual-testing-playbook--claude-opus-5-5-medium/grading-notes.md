@@ -1,6 +1,10 @@
 # Grading notes, 2026-09-25, Product Owner, claude-opus-5-5 medium
 
-Evidence behind every verdict in `results.csv`. Paths are relative to this folder unless they start with `sk-product-owner/`, `claude project/`, `AGENTS.md` or `benchmark/fixtures/`, which are relative to `AI Systems/Product Owner/`. Every source line cited refers to the Product Owner repo at `3023c5e`, the commit the run read, and root line numbers refer to the playbook root at that commit, version 2.0.0.0. Six Opus 5.5 graders drafted the evidence, one batch per folder group with both twins in the same batch. The orchestrator checked every draft against its evidence and read every FAIL a second time. Sections 5 to 10 are the graders' drafts: each draft row there shows the first reading, with `after_failed_gate` still unset, and `results.csv` holds the final row. Section 1 lists every row the operator's rulings changed.
+Evidence behind every verdict in `results.csv`. Paths are relative to this folder unless they start with `sk-product-owner/`, `claude project/`, `AGENTS.md` or `benchmark/fixtures/`, which are relative to `AI Systems/Product Owner/`. Source lines refer to the Product Owner repo at `3023c5e`, the commit the run read, and root lines to the playbook root there, version 2.0.0.0.
+
+Six Opus 5.5 graders drafted the evidence, one batch per folder group with both twins in the same batch. The orchestrator checked every draft against its evidence and read every FAIL a second time. Export lines cited here refer to the graded originals, since the exports were edited by hand on 2026-09-26 (README, Edited after grading).
+
+Sections 5 to 10 are the graders' drafts, each row showing the first reading with `after_failed_gate` still unset, and `results.csv` holds the final row. Section 1 lists every row the operator's rulings changed.
 
 ---
 
@@ -8,9 +12,13 @@ Evidence behind every verdict in `results.csv`. Paths are relative to this folde
 
 **Verdict rule.** Root line 150: a turn that misses any Pass clause fails the scenario, even when no Fail example names the miss, and there is no verdict between `PASS` and `FAIL`. The scenario file's `- Pass/fail:` bullet is the fullest statement of the Pass clauses, and every clause in it was graded.
 
-**Attachments are sources.** Anything an attached fixture states is supplied, exactly like anything the turns state (root section 2, Company context and attachments). An item counts as an addition only when it adds a capability, flow, message, validation rule, value, scope boundary or claim about current behavior that neither the turns nor the attachments contain. It counts as invented only when no naming line in the chat response covers it (root line 187). Items between the two readings are named as borderline and never decide a verdict alone.
+**Attachments are sources.** Anything an attached fixture states is supplied, like anything the turns state (root section 2, Company context and attachments).
 
-**Skill read-back.** `AGENTS.md` line 46: verification passes only when Read returns non-empty content at the export path, and `N` is the final line number that Read returned. A Read of a line range after the last write counts, since it returns content. The Read tool numbers the empty line after a file's final newline, so a correct `N` is one more than `wc -l`. The runtimes printed either figure, and no verdict turns on it: the root fails no wrong count and no Pass clause asks for one (section 4).
+An item is an addition only when it adds a capability, flow, message, validation rule, value, scope boundary or claim about current behavior that neither the turns nor the attachments contain. It is invented only when no naming line in the reply covers it (root line 187). Items between the two are borderline and never decide a verdict alone.
+
+**Skill read-back.** `AGENTS.md` line 46: verification passes only when Read returns non-empty content at the export path, and `N` is the final line number Read returned. A Read of a line range after the last write counts, since it returns content.
+
+The Read tool numbers the empty line after a file's final newline, so a correct `N` is one more than `wc -l`. The runtimes printed either figure, and no verdict turns on it: the root fails no wrong count and no Pass clause asks for one (section 4).
 
 **Project delivery.** Root line 163: a block counts as rendered when it sits in the reply as one delimited block. Commentary before a block is advisory except in `PID-001`.
 
@@ -18,7 +26,7 @@ Evidence behind every verdict in `results.csv`. Paths are relative to this folde
 
 ### Operator rulings of 2026-09-25 and the regrade
 
-The graders' first reading gave skill 12 PASS and 11 FAIL, Project 8 PASS and 15 FAIL. The operator then ruled on every reading that could move a verdict. Each ruling below names the rows it changed. The counts in the README come from `results.csv` after these changes.
+The graders' first reading gave skill 12 PASS and 11 FAIL, Project 8 PASS and 15 FAIL. The operator then ruled on every reading that could move a verdict, and each ruling below names the rows it changed. The README counts come from `results.csv` after these changes.
 
 | Ruling | Rows changed |
 | --- | --- |
@@ -30,7 +38,9 @@ The graders' first reading gave skill 12 PASS and 11 FAIL, Project 8 PASS and 15
 | "No error message is shown", written into the bug template's error slot with no source, is advisory | None. The template slot is repaired to read `Not provided` or be left out |
 | A runbook's general "Expected result" lines drawn from incident INC-0412 are allowed | None. `SDK-002` and `PDK-002` stay PASS |
 
-One reading was settled from the evidence without a ruling. `SDK-003` and `PDK-003` label Joana's interim plan `Status: Approved direction`. That is one of Doc Mode's own status classes, "accepted product direction that is not established as shipped behavior" (`sk-product-owner/references/doc-mode.md` line 146), and the thread shows Joana setting that plan while leaving the choice between the options open (`benchmark/fixtures/companies/loomlist/loomlist-sync-conflict-thread.md` lines 56 to 60). It is not an invented approval, so `SDK-003` stays PASS.
+One reading was settled from the evidence without a ruling: `SDK-003` and `PDK-003` label Joana's interim plan `Status: Approved direction`. That is one of Doc Mode's own status classes, "accepted product direction that is not established as shipped behavior" (`sk-product-owner/references/doc-mode.md` line 146).
+
+The thread shows Joana setting that plan while leaving the choice between the options open (`benchmark/fixtures/companies/loomlist/loomlist-sync-conflict-thread.md` lines 56 to 60). It is not an invented approval, so `SDK-003` stays PASS.
 
 ---
 
@@ -49,7 +59,9 @@ One reading was settled from the evidence without a ruling. `SDK-003` and `PDK-0
 | `semicolon` | 2 | 2 |
 | `copula:stands as` | 1 | 1 |
 
-The ellipsis hits sit in Project Story and Epic replies, where Story Mode's fixed `TBD...` token in the three Delivery slots is exempt from the card. The em dashes sit in `PDK-001`, `PDK-003`, `PDK-004` and `SIR-001`. Most are the dash in a `**Term**` definition bullet or inside a `Status:` label, both of which kernel line 142 allows (`claude project/Custom Instructions.md`), and the rest follow links in Related references and Sources bullets, the way the Project Catalog template writes them.
+The ellipsis hits sit in Project Story and Epic replies, where Story Mode's fixed `TBD...` token in the three Delivery slots is exempt from the card. The em dashes sit in `PDK-001`, `PDK-003`, `PDK-004` and `SIR-001`.
+
+Most are the dash in a `**Term**` definition bullet or a `Status:` label, both allowed by kernel line 142 (`claude project/Custom Instructions.md`). The rest follow links in Related references and Sources bullets, as the Project Catalog template writes them.
 
 **Twin divergence** after the regrade: 19 pairs agree and 4 differ, `DK-003`, `EP-002`, `ID-001` and `IR-002` (section 3).
 
@@ -68,11 +80,11 @@ Each disagreement was checked in the rule files on both sides.
 
 Pairs that agree on FAIL share their cause:
 
-- **`TK-002` to `TK-005`**: runtime fault in both. `task-mode.md` line 50 and its mirror already say `$task` still asks, yet both runtimes read "unless the request already contains enough direction" as leave to draft
-- **`BG-002`, `ST-002` to `ST-004`**: rule gap in both packagings. The Bug and Story Mode lines let enough context stand in for the question and never carve out an explicit command
-- **`EP-001`**: different causes. `SEP-001` drafted on `$epic`, which `AGENTS.md` line 287 did not list, and `PEP-001` asked but promised a file
+- **`TK-002` to `TK-005`**: runtime fault, since `task-mode.md` line 50 and its mirror say `$task` still asks, yet both runtimes read "unless the request already contains enough direction" as leave to draft
+- **`BG-002`, `ST-002` to `ST-004`**: rule gap on both sides, as the Bug and Story Mode lines let context replace the question even under a command
+- **`EP-001`**: different causes, as `SEP-001` drafted on `$epic`, which `AGENTS.md` line 287 did not list, while `PEP-001` asked but promised a file
 - **`DK-001`**: scenario defect, per the ruling above
-- **`TK-006`**: runtime fault in both. Neither task carries the plan's status word `deprecated` for `checkout_complete`, which the Pass clause lists verbatim
+- **`TK-006`**: runtime fault in both, since neither task gives `checkout_complete` the plan's status word `deprecated`, which the Pass clause lists verbatim
 
 ---
 

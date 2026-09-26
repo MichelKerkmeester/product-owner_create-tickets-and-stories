@@ -39,13 +39,18 @@ Since the clocks moved forward on 2026-03-29, reminders have arrived one hour la
 
 Between 2026-03-29 and 2026-04-05, Support tagged 117 tickets `reminder-late`. All of them came from members in time zones where the clocks moved forward on 2026-03-29. The tickets fall into two groups:
 
-- Group A, 64 tickets, Android 5.2.3: a one-off reminder set for 09:00 arrives at 10:00. It fires once, so nothing can be corrected after it arrives
-- Group B, 53 tickets, iOS 5.2.4: a daily reminder set for 07:30 arrives at 08:30 every day. It stays late until the member opens the reminder and taps Save without changing anything. From the next day it arrives at 07:30 again
+- Group A, 64 tickets, Android 5.2.3: a one-off reminder set for 09:00 arrives at 10:00 and fires once, so nothing can correct it afterwards
+- Group B, 53 tickets, iOS 5.2.4: a daily reminder set for 07:30 arrives at 08:30 every day
+- A Group B reminder stays late until the member opens it and taps Save without changing anything
+- From the next day, that re-saved reminder arrives at 07:30 again
 - No late one-off reminders were reported on iOS, and no late daily reminders were reported on Android
-- No reports came from Web or Desktop. On those surfaces reminders appear only inside the app
+- No reports came from Web or Desktop, where reminders appear only inside the app
 - No error message was reported
-- Impact shown in the tickets: a member missed the call the reminder was for (LL-20931), a medication reminder arrived an hour late (LL-20944), and nine members of one team got their stand-up reminder late until the Admin re-saved each reminder by hand (LL-20958)
-- Log lines for LL-20931 show that the reminder set before the change was stored with `tz_offset=+01:00` and `scheduled_utc=2026-03-30T08:00:00Z`. It was shown at 10:00 local time. A reminder the same member set after the change was stored with `tz_offset=+02:00` and was shown at 09:00 local time
+- Impact in LL-20931: a member missed the call the reminder was for
+- Impact in LL-20944: a medication reminder arrived an hour late
+- Impact in LL-20958: nine members of one team got their stand-up reminder late until the Admin re-saved each reminder by hand
+- Log lines for LL-20931 show the reminder set before the change stored with `tz_offset=+01:00` and `scheduled_utc=2026-03-30T08:00:00Z`, then shown at 10:00 local time
+- A reminder the same member set after the change was stored with `tz_offset=+02:00` and shown at 09:00 local time
 - There are no log lines for Group B yet
 
 QA has not reproduced either group yet. Nobody has checked Android 5.3.0 or iOS 5.3.2, because the clocks have not changed since March. The steps below come from the support tickets and the log lines.
@@ -54,17 +59,17 @@ Steps to Reproduce:
 
 Group A, one-off reminder on Android
 1. On Android app 5.2.3, sign in as a member whose profile time zone moves its clocks forward, such as Europe/Amsterdam
-2. Before the clock change, add a one-off reminder at 09:00 to a to-do, for a date after the change. In LL-20931 the reminder was set on 2026-03-27 for 2026-03-30
+2. Before the clock change, add a one-off reminder at 09:00 to a to-do for a later date, as in LL-20931, set on 2026-03-27 for 2026-03-30
 3. Wait for the reminder date after the change
-4. Observe the notification. Expected: 09:00 local time. Actual: 10:00 local time
-5. After the change, add another one-off reminder at 09:00. It arrives at 09:00
+4. Observe the notification: expected 09:00 local time, actual 10:00 local time
+5. After the change, add another one-off reminder at 09:00, which arrives at 09:00
 
 Group B, daily reminder on iOS
 1. On iOS app 5.2.4, sign in as a member whose profile time zone moves its clocks forward, such as Europe/Berlin or Europe/Madrid
 2. Before the clock change, add a daily reminder at 07:30 to a to-do
-3. After the change, observe the notification on each following day. Expected: 07:30 local time. Actual: 08:30 local time, every day
+3. After the change, observe the notification on each following day: expected 07:30 local time, actual 08:30 local time, every day
 4. Open the reminder and tap Save without changing anything
-5. Observe the next day's notification. It arrives at 07:30
+5. Observe the next day's notification, which arrives at 07:30
 
 reminders-service log excerpt for LL-20931 (server time in UTC, IDs hashed):
 
@@ -93,9 +98,9 @@ Screen recording: Not provided
 A reminder arrives at the local time the member picked, in the to-do owner's time zone. This holds whether the reminder was set before or after a clock change.
 
 - A one-off reminder set for 09:00 before a clock change, for a date after it, arrives at 09:00
-- A daily reminder set for 07:30 arrives at 07:30 on every day before and after a clock change, with no edit or re-save by the member
-- Previous working behavior: one-off reminders set on Android after the change arrived on time (rem_c41d07). Daily reminders on iOS arrive on time again from the day after the member re-saves them
-- User expectation: members rely on reminders for calls, medication and team routines, so a reminder that arrives an hour late causes them to miss the thing it was set for
+- A daily reminder set for 07:30 arrives at 07:30 every day before and after a clock change, with no edit or re-save by the member
+- Previous working behavior: Android one-off reminders set after the change arrived on time (rem_c41d07), as do iOS daily reminders from the day after a re-save
+- User expectation: members rely on reminders for calls, medication and team routines, so an hour-late reminder makes them miss what it was set for
 
 Checklist
 - [ ] Root cause identified
