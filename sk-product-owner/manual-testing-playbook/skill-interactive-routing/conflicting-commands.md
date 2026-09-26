@@ -59,7 +59,7 @@ A runtime that settles a command conflict on its own reading writes an artifact 
 
 ### Expected
 
-Step 1 fixes the baseline with both attachments in place. Step 2 returns one consolidated question and one clarification file. Step 3 proves the wait state and that the runtime left the choice to the user. Step 4 finds a Story with `## About`, `### Problem`, `### Solution`, `#### **Expected outcomes**`, `## Requirements` and `## Acceptance criteria`, carrying the Turn 2 values.
+Step 1 fixes the baseline with both attachments in place. Step 2 returns one consolidated question and one clarification file. Step 3 proves the wait state and that the runtime left the choice to the user. Step 4 finds a Story with `## About`, `#### Problem`, `#### Solution`, the `**Expected outcomes**` label, `## Requirements` and `## Acceptance criteria`, carrying the Turn 2 values.
 
 ### Evidence
 

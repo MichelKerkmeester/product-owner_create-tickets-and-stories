@@ -59,7 +59,7 @@ A vague request that guesses a kind renders the wrong artifact, and a runtime th
 
 ### Expected
 
-Step 1 fixes the panel baseline with the attachment in place. Step 2 returns one comprehensive question as its own clarification block. Step 3 proves the wait state and the energy-first order. Step 4 finds an Epic with `## About`, `### Problem`, `### Goal`, `### Solution`, `## Scope` and `## Acceptance criteria`, the four child stories and the Turn 2 numbers.
+Step 1 fixes the panel baseline with the attachment in place. Step 2 returns one comprehensive question as its own clarification block. Step 3 proves the wait state and the energy-first order. Step 4 finds an Epic with `## About`, `#### Problem`, `#### Goal`, `#### Solution`, `## Scope` and `## Acceptance criteria`, the four child stories and the Turn 2 numbers.
 
 ### Evidence
 
@@ -89,10 +89,10 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, Deliverable Block and export-equivalent contract |
 | [`Product Owner - System - Router Contract - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Router%20Contract%20-%20v0.100.md) | Fallback routing into Interactive Mode |
-| [`Product Owner - System - Interactive Mode - v0.407.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.407.md) | Comprehensive question, energy choice and clarification block |
+| [`Product Owner - System - Interactive Mode - v0.408.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.408.md) | Comprehensive question, energy choice and clarification block |
 | [`Product Owner - Assets - Interactive Response Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.103.md) | Comprehensive Question template |
-| [`Product Owner - Templates - Story Mode - v0.404.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.404.md) | Routed Story Mode workflow and Epic shape |
-| [`Product Owner - Assets - Epic Template - v0.101.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Epic%20Template%20-%20v0.101.md) | Routed Epic scaffold |
+| [`Product Owner - Templates - Story Mode - v0.405.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.405.md) | Routed Story Mode workflow and Epic shape |
+| [`Product Owner - Assets - Epic Template - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Epic%20Template%20-%20v0.102.md) | Routed Epic scaffold |
 | [`roamstay-context.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-context.md) | Attachment, the Guest app surfaces, Pay now and Pay at property, and the absent loyalty scheme |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |
 

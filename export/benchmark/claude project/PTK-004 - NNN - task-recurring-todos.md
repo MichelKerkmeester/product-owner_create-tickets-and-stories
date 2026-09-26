@@ -1,6 +1,6 @@
 # FS - TODO - Recurring to-dos
 
-### About
+## About
 
 ---
 
@@ -140,9 +140,9 @@ Everything ships dark behind the workspace flag `recurring_todos`, and Data wide
 
 **Checklist**
 
-- [ ] iOS, Android, Web and BE have all shipped with `recurring_todos` off
-- [ ] Data turns `recurring_todos` on for a sample of Plus and Team workspaces only once iOS, Android and Web are out
-- [ ] Success, 10% of weekly active Plus and Team workspaces holding a repeating to-do, is read 8 weeks after the flag is on for everyone
+- [] iOS, Android, Web and BE have all shipped with `recurring_todos` off
+- [] Data turns `recurring_todos` on for a sample of Plus and Team workspaces only once iOS, Android and Web are out
+- [] Success, 10% of weekly active Plus and Team workspaces holding a repeating to-do, is read 8 weeks after the flag is on for everyone
 
 ---
 
@@ -159,9 +159,9 @@ Both carry the standard properties `workspace_id`, `user_id`, `platform`, `app_v
 
 **Checklist**
 
-- [ ] Yara has reviewed the tracking plan with both events before iOS, Android or Web work starts
-- [ ] `todo_repeat_set` sends `repeat` as one of `daily`, `weekdays`, `weekly`, `monthly` or `custom`
-- [ ] `todo_occurrence_skipped` fires once for each Skip this one
+- [] Yara has reviewed the tracking plan with both events before iOS, Android or Web work starts
+- [] `todo_repeat_set` sends `repeat` as one of `daily`, `weekdays`, `weekly`, `monthly` or `custom`
+- [] `todo_occurrence_skipped` fires once for each Skip this one
 
 ---
 

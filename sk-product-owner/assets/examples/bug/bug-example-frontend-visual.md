@@ -7,7 +7,7 @@ contextType: asset
 
 # Country dropdown renders behind the payment modal at checkout
 
-### About
+## About
 
 ---
 
@@ -71,10 +71,10 @@ The country dropdown panel should render above the payment modal and keep its op
 - User expectation: shoppers can open the dropdown and select a country without the modal blocking the option list
 
 Checklist
-- [ ] Root cause identified
-- [ ] Fix implemented
-- [ ] Bug no longer reproducible
-- [ ] No regressions introduced
+- [] Root cause identified
+- [] Fix implemented
+- [] Bug no longer reproducible
+- [] No regressions introduced
 
 ---
 

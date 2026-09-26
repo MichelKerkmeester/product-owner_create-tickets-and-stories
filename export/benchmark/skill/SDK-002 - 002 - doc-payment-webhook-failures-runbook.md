@@ -93,12 +93,12 @@ Confirm in psp-reconcile that every charged, expired booking was refunded, then 
 
 ### Quality checks
 * * *
-*   [ ] **The 4xx rate is back to normal** on the dashboard, with webhooks logged at status 200
-*   [ ] **The replay covered the full window**
-*   [ ] **The `payment_pending` count is back to normal**
-*   [ ] **The expiry job is running again**
-*   [ ] **Every expired booking with a charge is refunded** in the psp-reconcile output
-*   [ ] **Guest Support has the list of expired bookings**
+*   [] **The 4xx rate is back to normal** on the dashboard, with webhooks logged at status 200
+*   [] **The replay covered the full window**
+*   [] **The `payment_pending` count is back to normal**
+*   [] **The expiry job is running again**
+*   [] **Every expired booking with a charge is refunded** in the psp-reconcile output
+*   [] **Guest Support has the list of expired bookings**
 
 * * *
 

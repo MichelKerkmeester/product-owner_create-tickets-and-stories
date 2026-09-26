@@ -1,7 +1,7 @@
 ---
-title: "Product Owner - Templates - Task Mode - v0.306"
+title: "Product Owner - Templates - Task Mode - v0.307"
 description: "Product Owner task-mode workflow, delivery standards and structure rules for task artifacts."
-version: "0.306"
+version: "0.307"
 contextType: reference
 importance_tier: high
 trigger_phrases:
@@ -12,9 +12,9 @@ trigger_phrases:
   - "requirements checklist"
 ---
 
-# Product Owner - Templates - Task Mode - v0.306
+# Product Owner - Templates - Task Mode - v0.307
 
-Task-mode guidance aligned to the current Product Owner task corpus. This version prioritizes a flexible context block, numbered requirement groups and H3 section headings.
+Task-mode guidance aligned to the current Product Owner task corpus. This version prioritizes a flexible context block, numbered requirement groups, an H2 About and H3 section headings under it.
 
 **Loading Condition:** ON-DEMAND
 **Purpose:** Provides task-mode workflow, standards and structure rules for `$task` and `$t` requests
@@ -74,7 +74,7 @@ Use Task Mode for:
 Every task must include:
 
 1. Title
-2. `### About`
+2. `## About`
 3. `### Requirements`
 
 ### Optional Context Sections
@@ -106,7 +106,7 @@ Each numbered requirement group should follow this pattern unless the source tas
 1. Numbered item title
 2. One or more short paragraphs that explain the outcome and context
 3. `**Checklist**`
-4. `- [ ]` checklist items for literal, actionable requirements
+4. `- []` checklist items for literal, actionable requirements
 5. Checklist and bullet items must not end with `.`
 
 Number requirement groups only when the task carries two or more. A single group keeps its bold title without a number. The moment a second group appears, number them `1.`, `2.` in order.
@@ -123,7 +123,7 @@ Number requirement groups only when the task carries two or more. A single group
 
 ### Section Hierarchy
 
-- **H3 core sections:** `### About`, `### Requirements`
+- **Core sections:** `## About` at H2, `### Requirements` at H3
 - **Requirement category headings:** `### **{Group Name}**` or `### {Group Name}` when matching an existing task
 - **Bold sub-label:** `**Checklist**`
 - **Optional bold labels:** `**References**`, `**Epic**`, `**Parent task**`, `**Related tickets**`
@@ -134,7 +134,7 @@ A parent task, related task, ticket or epic is often named before it exists as a
 
 ### Divider Rules
 
-- Use `---` after `### About`
+- Use `---` after `## About`
 - Use `---` after `### Requirements`
 - Use `---` after each category heading
 - Use `---` after each numbered item title
@@ -171,8 +171,8 @@ Use when the task is small.
 
 **Checklist**
 
-- [ ] {Requirement}
-- [ ] {Requirement}
+- [] {Requirement}
+- [] {Requirement}
 ```
 
 #### Pattern B: Category heading plus numbered groups
@@ -192,8 +192,8 @@ Use when the task spans multiple areas.
 
 **Checklist**
 
-- [ ] {Requirement}
-- [ ] {Requirement}
+- [] {Requirement}
+- [] {Requirement}
 ```
 
 #### Pattern C: Nested sub-blocks inside a numbered group
@@ -209,12 +209,12 @@ Use when one numbered requirement needs several sub-areas.
 
 **Sub-area A**
 
-- [ ] {Requirement}
-- [ ] {Requirement}
+- [] {Requirement}
+- [] {Requirement}
 
 **Sub-area B**
 
-- [ ] {Requirement}
+- [] {Requirement}
 ```
 
 ### User Story Usage
@@ -233,7 +233,7 @@ Use when one numbered requirement needs several sub-areas.
 - **Then:** {outcome}
 ```
 
-The labels carry a colon and the block takes no `---` divider under `**User Story**`, which is what the task corpus writes and what [task-templates.md](../assets/task-templates.md) shows. The divider rules above cover `### About`, `### Requirements`, category headings and numbered item titles, and the bold sub-labels inside a requirement (`**Checklist**`, `**User Story**`) are not among them. A refinement keeps whatever the source task already uses.
+The labels carry a colon and the block takes no `---` divider under `**User Story**`, which is what the task corpus writes and what [task-templates.md](../assets/task-templates.md) shows. The divider rules above cover `## About`, `### Requirements`, category headings and numbered item titles, and the bold sub-labels inside a requirement (`**Checklist**`, `**User Story**`) are not among them. A refinement keeps whatever the source task already uses.
 
 ### Tables
 
@@ -260,10 +260,10 @@ Use a table when every row shares the same fields, such as token or property val
 ### Structure Validation
 
 - [ ] Title present as H1?
-- [ ] About uses `### About`?
+- [ ] About uses `## About`?
 - [ ] Requirements uses `### Requirements`?
 - [ ] Numbered requirement groups use clear titles?
-- [ ] Actionable requirement items use `- [ ]`?
+- [ ] Actionable requirement items use `- []`, with no space between the brackets?
 - [ ] `---` dividers used consistently?
 - [ ] Every table at most 4 columns, with Size leftmost when values vary by size?
 
@@ -281,7 +281,7 @@ Use a table when every row shares the same fields, such as token or property val
 - [ ] Existing headings preserved when user asked for a sync?
 - [ ] Existing section order preserved when user asked for a sync?
 - [ ] Existing reference labels preserved when user asked for a sync?
-- [ ] Legacy `[]` or plain bullets converted to proper checklists only when the user asked to normalize them?
+- [ ] Legacy `[ ]` boxes or plain bullets converted to `- []` checklists only when the user asked to normalize them?
 
 ---
 
@@ -295,7 +295,7 @@ Use a table when every row shares the same fields, such as token or property val
 
 #### Plain bullets used for actionable requirements
 
-**Fix:** Convert requirement bullets to `- [ ]` checklists.
+**Fix:** Convert requirement bullets to `- []` checklists.
 
 #### Source task was standardized when it should have been synced
 
@@ -314,7 +314,7 @@ Use a table when every row shares the same fields, such as token or property val
 1. Start from the source task when one exists
 2. Keep the core sections fixed and the context block flexible
 3. Group the checklist at the level that best supports verification
-4. Use `- [ ]` for actionable items
+4. Use `- []` for actionable items
 5. Add only the sections the task actually needs
 
 ---
@@ -328,7 +328,7 @@ Templates: see [task-templates.md](../assets/task-templates.md).
 1. Keep the core structure fixed and the context block flexible
 2. Preserve source structure when syncing an existing task
 3. Use category headings when they make the task easier to scan
-4. Use `- [ ]` for actionable requirement items
+4. Use `- []` for actionable requirement items
 5. Stay in WHAT and WHY, not HOW
 6. Deliver only the requested task scope
 ---
@@ -351,4 +351,4 @@ The kernel points here for the dependency and edge case rule:
 
 The kernel points here for the acceptance criteria rule:
 
-10. Write acceptance criteria as outcomes the user can rely on, few in number and open on the mechanism, growing only with the surfaces a story touches. In a Story, Requirements holds hard constraints only, carries every hard value the source supplied with its value, units and notation intact, mirrors the source's own screen or surface grouping where it has one, names each shared screen's reuse map as a constraint, and is omitted only where the source supplies none. Every Requirements bullet is a sentence a build can fail, so a bullet that reports what a screen says, shows or contains, naming no value, limit, condition, effect or named flow a build could get wrong, is description and is struck rather than reworded, and copy a screenshot supplies is quoted verbatim in backticks or dropped. A supplied value never travels into an acceptance criterion instead. Keep the Task QA checklist inside a Task's Requirements.
+10. Write acceptance criteria as outcomes the user can rely on, few in number and open on the mechanism, growing only with the surfaces a story touches. In a Story, Requirements holds hard constraints only, carries every hard value the source supplied with its value, units and notation intact, mirrors the source's own screen or surface grouping where it has one, names each shared screen's reuse map as a constraint, and is omitted only where the source supplies none. Every Requirements item is a `- []` checkbox holding a sentence a build can fail, so an item that reports what a screen says, shows or contains, naming no value, limit, condition, effect or named flow a build could get wrong, is description and is struck rather than reworded, and copy a screenshot supplies is quoted verbatim in backticks or dropped. A supplied value never travels into an acceptance criterion instead. Keep the Task QA checklist inside a Task's Requirements.

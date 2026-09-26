@@ -1,6 +1,6 @@
 # FE - iOS - CART - Cart badge keeps old count after an item is removed
 
-### About
+## About
 
 ---
 
@@ -56,7 +56,7 @@ After a removal, the badge shows the new count at once, as on Android 4.8.2 and 
 - User expectation: the badge reads "2" after this removal, without an app restart
 
 Checklist
-- [ ] Root cause identified
-- [ ] Fix implemented
-- [ ] Bug no longer reproducible
-- [ ] No regressions introduced
+- [] Root cause identified
+- [] Fix implemented
+- [] Bug no longer reproducible
+- [] No regressions introduced

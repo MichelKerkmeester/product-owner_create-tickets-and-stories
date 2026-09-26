@@ -1,6 +1,6 @@
 # FE - iOS - CART - Cart badge keeps the old count after an item is removed
 
-### About
+## About
 
 ---
 
@@ -56,10 +56,10 @@ The badge shows the new unit count on removal, without a restart
 - User expectation: the badge matches the cart, as on Android 4.8.2, web and iOS when adding
 
 Checklist
-- [ ] Root cause identified
-- [ ] Fix implemented
-- [ ] Bug no longer reproducible
-- [ ] No regressions introduced
+- [] Root cause identified
+- [] Fix implemented
+- [] Bug no longer reproducible
+- [] No regressions introduced
 
 ---
 

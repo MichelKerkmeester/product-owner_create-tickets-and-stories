@@ -18,7 +18,7 @@ divider under it, which is the first finding.
 
 **Checklist**
 
-*   [ ] Wire the payout job
+- [] Wire the payout job
 *   Payout runs weekly for every creator above the €50 floor
 
 * * *

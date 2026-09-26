@@ -7,7 +7,7 @@ contextType: asset
 
 # App crashes when attaching a large gallery photo on Android 12
 
-### About
+## About
 
 ---
 
@@ -81,10 +81,10 @@ Selecting `loopline-gallery-4032x3024.jpg` should attach the photo without closi
 - User expectation: users can attach a supported gallery photo without losing their draft message
 
 Checklist
-- [ ] Root cause identified
-- [ ] Fix implemented
-- [ ] Bug no longer reproducible
-- [ ] No regressions introduced
+- [] Root cause identified
+- [] Fix implemented
+- [] Bug no longer reproducible
+- [] No regressions introduced
 
 ---
 

@@ -96,9 +96,9 @@ check "a populated delivery slot stays silent" 0 "validation passed" "only TBD p
 # pinned by nothing here, and the narration fixtures had sat unused in this
 # directory since the commit that created them. A regression that deleted either
 # check outright would have printed PASSED.
-check "requirements narration fires on the first bullet" 1 "requirements-narration-violation.md:7: Requirements bullet reports what a screen says" "" \
+check "requirements narration fires on the first item" 1 "requirements-narration-violation.md:7: Requirements item reports what a screen says" "" \
   "${FIXTURES}/requirements-narration-violation.md"
-check "requirements narration fires on the second bullet" 1 "requirements-narration-violation.md:8: Requirements bullet reports what a screen says" "" \
+check "requirements narration fires on the second item" 1 "requirements-narration-violation.md:8: Requirements item reports what a screen says" "" \
   "${FIXTURES}/requirements-narration-violation.md"
 check "a quoted string and real constraints stay silent" 0 "validation passed" "reports what a screen says" \
   "${FIXTURES}/requirements-narration-exempt.md"
@@ -106,6 +106,17 @@ check "mark-as-done divider fires" 1 "markasdone-divider-violation.md:16: divide
   "${FIXTURES}/markasdone-divider-violation.md"
 check "the sanctioned section close above a spacer stays silent" 1 "failed with 1 error(s)" "markasdone-divider-violation.md:24" \
   "${FIXTURES}/markasdone-divider-violation.md"
+
+# The house writes every checkbox `[]`. A spaced one blocks, and the divider
+# rule still reads a Mark-as-done line written in the old form.
+check "checkbox form: a spaced requirement checkbox fires" 1 "checkbox-form-violation.md:13: a checkbox written" "" \
+  "${FIXTURES}/checkbox-form-violation.md"
+check "checkbox form: a spaced Mark-as-done checkbox fires" 1 "checkbox-form-violation.md:30: a checkbox written" "" \
+  "${FIXTURES}/checkbox-form-violation.md"
+check "checkbox form: the house form stays silent" 1 "" "checkbox-form-violation.md:14:" \
+  "${FIXTURES}/checkbox-form-violation.md"
+check "mark-as-done divider fires on an old-form checkbox" 1 "checkbox-form-violation.md:31: divider follows a Mark-as-done checkbox" "" \
+  "${FIXTURES}/checkbox-form-violation.md"
 
 # The Barter house shape rules, gated on the `* * *` divider so a deliverable in
 # another grammar never meets them. The silent half matters more than the loud
@@ -117,9 +128,11 @@ check "house grammar: a hyphen rule fires" 1 "house-grammar-violation.md:9: a \`
   "${FIXTURES}/house-grammar-violation.md"
 check "house grammar: a heading deeper than H4 fires" 1 "house-grammar-violation.md:32: a heading deeper than H4" "" \
   "${FIXTURES}/house-grammar-violation.md"
-check "house grammar: a Checklist sub-block in Requirements fires" 1 "house-grammar-violation.md:19: a ..Checklist.. sub-block inside Requirements" "" \
+check "house grammar: a Checklist label in Requirements fires" 1 "house-grammar-violation.md:19: a ..Checklist.. label inside Requirements" "" \
   "${FIXTURES}/house-grammar-violation.md"
-check "house grammar: a checkbox in Requirements fires" 1 "house-grammar-violation.md:21: a checkbox item inside Requirements" "" \
+check "house grammar: a plain bullet in Requirements fires" 1 "house-grammar-violation.md:22: a plain bullet inside Requirements" "" \
+  "${FIXTURES}/house-grammar-violation.md"
+check "house grammar: a checklist item in Requirements stays silent" 1 "" "house-grammar-violation.md:21:" \
   "${FIXTURES}/house-grammar-violation.md"
 check "house grammar: asterisk emphasis fires" 1 "house-grammar-violation.md:34: asterisk emphasis" "" \
   "${FIXTURES}/house-grammar-violation.md"

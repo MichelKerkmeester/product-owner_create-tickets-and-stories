@@ -6,25 +6,25 @@
 Loyalty points for guests on the Guest app on iOS, Android and web.
 Four child stories carry the detailed requirements and acceptance criteria.
 
-### Problem
+#### Problem
 * * *
 Roamstay gives a returning guest nothing. There is no points scheme, no member tiers and no member-only prices, so a fifth stay costs what the first did.
 
 **The following issues rise from that:**
 *   A completed stay leaves nothing that carries over to the next booking
 *   Neither Account nor checkout recognises a returning guest
-###   
+####   
 
-### Goal
+#### Goal
 * * *
 Raise the share of guests who book a second stay within `12 months` from `19%` today to `25%` by the end of 2027.
 
 **Direct user/Roamstay benefits:**
 *   Guests get visible value from every completed stay to spend on a later Pay now booking
 *   Roamstay gets a reason for repeat bookings, measured against the `25%` target
-###   
+####   
 
-### Solution
+#### Solution
 * * *
 In order to get there, we will:
 *   Let a signed-in guest join from Account
@@ -62,7 +62,7 @@ Each child story carries the criteria for its own screens and states.
 *   **Then** they are a member at once
 *   **And** their membership shows on all three platforms, whichever they joined on
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 2\. **Completed stays earn points**
 * * *
@@ -71,7 +71,7 @@ Each child story carries the criteria for its own screens and states.
 *   **Then** points for that stay are added to their balance
 *   **And** a stay cancelled before completion adds no points
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 3\. **The balance and the history agree**
 * * *
@@ -80,7 +80,7 @@ Each child story carries the criteria for its own screens and states.
 *   **Then** they see their balance, every earning stay and every spending booking
 *   **And** the balance matches the history
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 4\. **Points can be spent on Pay now bookings only**
 * * *
@@ -89,6 +89,6 @@ Each child story carries the criteria for its own screens and states.
 *   **Then** they can spend points on it
 *   **And** a Pay at property option offers no way to spend points
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 * * *
 ##   

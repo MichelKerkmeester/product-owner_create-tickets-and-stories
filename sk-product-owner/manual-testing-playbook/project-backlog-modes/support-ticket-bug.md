@@ -59,7 +59,7 @@ The guest read the gap as an overcharge, and a bug that repeats that reading sen
 
 ### Expected
 
-Step 1 fixes the panel baseline with both attachments staged. Step 2 returns one evidence question as its own clarification block under its label. Step 3 proves the wait state. Step 4 finds `### About` with the field table reading Severity `High`, `**1. Observed Behavior**` with "Total €387.00" against the `€405.00` charge on booking `RS-7Q4K2M`, numbered steps from the ticket, `**2. Expected Behavior**` with the confirmation total matching the charge, city tax included, and the four Checklist items.
+Step 1 fixes the panel baseline with both attachments staged. Step 2 returns one evidence question as its own clarification block under its label. Step 3 proves the wait state. Step 4 finds `## About` with the field table reading Severity `High`, `**1. Observed Behavior**` with "Total €387.00" against the `€405.00` charge on booking `RS-7Q4K2M`, numbered steps from the ticket, `**2. Expected Behavior**` with the confirmation total matching the charge, city tax included, and the four Checklist items.
 
 ### Evidence
 
@@ -88,9 +88,9 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Clarification turns, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, the explicit-command wait, the Deliverable Block and the export-equivalent contract |
-| [`Product Owner - Templates - Bug Mode - v0.204.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Bug%20Mode%20-%20v0.204.md) | Project bug workflow, evidence rules, Frequency recovery and fixed structure |
-| [`Product Owner - Assets - Bug Report Template - v0.101.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Bug%20Report%20Template%20-%20v0.101.md) | Field table, Frequency rules and Checklist |
-| [`Product Owner - System - Interactive Mode - v0.407.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.407.md) | Clarification delivery contract |
+| [`Product Owner - Templates - Bug Mode - v0.205.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Bug%20Mode%20-%20v0.205.md) | Project bug workflow, evidence rules, Frequency recovery and fixed structure |
+| [`Product Owner - Assets - Bug Report Template - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Bug%20Report%20Template%20-%20v0.102.md) | Field table, Frequency rules and Checklist |
+| [`Product Owner - System - Interactive Mode - v0.408.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.408.md) | Clarification delivery contract |
 | [`roamstay-context.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-context.md) | Attachment: surfaces, app versions, city tax and Pay now |
 | [`roamstay-support-ticket-58213.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-support-ticket-58213.md) | Attachment: the chat, the Back office breakdown, the agent's tests and the escalation |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |

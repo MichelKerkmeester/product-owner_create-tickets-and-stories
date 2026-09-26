@@ -1,6 +1,6 @@
 # FE - Guest app - BOOK - Android confirmation total leaves out city tax on stays of 2 nights or more
 
-### About
+## About
 
 ---
 
@@ -91,10 +91,10 @@ For every stay length, the confirmation total equals the charge, city tax includ
 - User expectation: the confirmation total is the amount that leaves the guest's card
 
 Checklist
-- [ ] Root cause identified
-- [ ] Fix implemented
-- [ ] Bug no longer reproducible
-- [ ] No regressions introduced
+- [] Root cause identified
+- [] Fix implemented
+- [] Bug no longer reproducible
+- [] No regressions introduced
 
 ---
 

@@ -1,6 +1,6 @@
 # DATA - TRACK - Tracking timeline events
 
-### About
+## About
 
 ---
 
@@ -30,7 +30,7 @@ These two events show whether customers use the timeline or still leave for the 
 
 **Checklist**
 
-- [ ] One row for tracking timeline views on the order page
-- [ ] One row for carrier link taps
-- [ ] Event names follow `object_action` in snake_case with a past-tense verb
-- [ ] Each event carries `platform`, `app_version`, `market`, `locale` and `customer_type`
+- [] One row for tracking timeline views on the order page
+- [] One row for carrier link taps
+- [] Event names follow `object_action` in snake_case with a past-tense verb
+- [] Each event carries `platform`, `app_version`, `market`, `locale` and `customer_type`

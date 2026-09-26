@@ -1,6 +1,6 @@
 # BE - SHIP - Label webhook duplicates and missing labels
 
-### About
+## About
 
 ---
 
@@ -31,12 +31,12 @@ The carrier treats a timeout, `4xx` or `5xx` as failed and retries up to 5 more 
 
 **Checklist**
 
-- [ ] `X-Carrier-Signature` must equal the hex `HMAC-SHA256` of the raw body, checked before JSON parsing, or the answer is `401`
-- [ ] A signed `label.created` or `label.failed` is stored raw, queued and answered `200`, calling neither the warehouse system nor the carrier
-- [ ] The warehouse system call moves to the queue and keeps its 8-second timeout
-- [ ] Events are answered within 5 seconds even when the warehouse system is slow or down
-- [ ] An event that cannot be stored gets a non-`2xx`, so the carrier redelivers it
-- [ ] The webhook secret comes from the shipping-service secrets store entry, with a separate secret for the carrier's test environment
+- [] `X-Carrier-Signature` must equal the hex `HMAC-SHA256` of the raw body, checked before JSON parsing, or the answer is `401`
+- [] A signed `label.created` or `label.failed` is stored raw, queued and answered `200`, calling neither the warehouse system nor the carrier
+- [] The warehouse system call moves to the queue and keeps its 8-second timeout
+- [] Events are answered within 5 seconds even when the warehouse system is slow or down
+- [] An event that cannot be stored gets a non-`2xx`, so the carrier redelivers it
+- [] The webhook secret comes from the shipping-service secrets store entry, with a separate secret for the carrier's test environment
 
 ---
 
@@ -48,9 +48,9 @@ Delivery is at least once with a stable `event_id`, and the last retry comes 7 h
 
 **Checklist**
 
-- [ ] An `event_id` processed in the last 7 days causes no new shipment, warehouse system call or second label copy
-- [ ] A repeat still gets `200`, so the carrier stops retrying
-- [ ] An event that fails, including on the 8-second warehouse system timeout, is not recorded as processed, so it is retried
+- [] An `event_id` processed in the last 7 days causes no new shipment, warehouse system call or second label copy
+- [] A repeat still gets `200`, so the carrier stops retrying
+- [] An event that fails, including on the 8-second warehouse system timeout, is not recorded as processed, so it is retried
 
 ---
 
@@ -62,8 +62,8 @@ Delivery is at least once with a stable `event_id`, and the last retry comes 7 h
 
 **Checklist**
 
-- [ ] After `label.failed` with `SERVICE_UNAVAILABLE`, no POST is sent if the parcel's `reference`, such as `FH-2291834-1`, has a shipment in `label_pending` or `label_ready`
-- [ ] Two concurrent failure events for one parcel create at most one shipment
+- [] After `label.failed` with `SERVICE_UNAVAILABLE`, no POST is sent if the parcel's `reference`, such as `FH-2291834-1`, has a shipment in `label_pending` or `label_ready`
+- [] Two concurrent failure events for one parcel create at most one shipment
 
 > Still open with the carrier: whether a `label.failed` with `SERVICE_UNAVAILABLE` can be followed by a `label.created` for the same shipment. Their engineer thought not and promised to check. If it can, the guard is revisited, since a re-created parcel could get two labels.
 
@@ -77,10 +77,10 @@ The 12 late orders' `label.created` events failed on the first try and four retr
 
 **Checklist**
 
-- [ ] A shipment with no label 10 minutes after its POST gets `GET /v1/shipments/{shipment_id}`
-- [ ] On a `label_ready` GET, `tracking_number` and `label_url` are handled as for `label.created`, including copying the label file to our storage
-- [ ] Whichever of `label.created` and the GET delivers a label second changes nothing: no second label copy, new tracking number or warehouse system call
-- [ ] GETs share the 20 requests per second limit with POSTs, and a `429` waits its `Retry-After` seconds
+- [] A shipment with no label 10 minutes after its POST gets `GET /v1/shipments/{shipment_id}`
+- [] On a `label_ready` GET, `tracking_number` and `label_url` are handled as for `label.created`, including copying the label file to our storage
+- [] Whichever of `label.created` and the GET delivers a label second changes nothing: no second label copy, new tracking number or warehouse system call
+- [] GETs share the 20 requests per second limit with POSTs, and a `429` waits its `Retry-After` seconds
 
 > The thread does not say whether a shipment still `label_pending` at the 10-minute GET is read again before the 30-minute alert. Joris confirms with Noor before building it.
 
@@ -94,8 +94,8 @@ A label missing after 30 minutes needs a person, because an order missing the 18
 
 **Checklist**
 
-- [ ] A shipment with no label 30 minutes after its POST is posted once to `#fulfilment-alerts` with its `reference` and `shipment_id`
-- [ ] On-call is paged when more than 5 shipments are stuck at once
+- [] A shipment with no label 30 minutes after its POST is posted once to `#fulfilment-alerts` with its `reference` and `shipment_id`
+- [] On-call is paged when more than 5 shipments are stuck at once
 
 > The thread does not say whether a `label_failed` shipment with `ADDRESS_INVALID`, waiting on a CS agent and the customer, counts toward the alert and the page. Joris confirms with Noor before building it.
 
@@ -109,5 +109,5 @@ The test replays a slow afternoon like 2026-09-15 in staging, because that after
 
 **Checklist**
 
-- [ ] The replay gives one shipment and one label per parcel
-- [ ] In that replay, a `label.created` after the 10-minute GET took the label changes nothing
+- [] The replay gives one shipment and one label per parcel
+- [] In that replay, a `label.created` after the 10-minute GET took the label changes nothing

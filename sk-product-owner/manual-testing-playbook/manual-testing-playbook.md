@@ -1,7 +1,7 @@
 ---
 title: "Product Owner: Manual Testing Playbook"
 description: "Operator-facing directory, execution policy and release-readiness guide for the two-runtime Product Owner manual validation package."
-version: 2.4.0.0
+version: 2.5.0.0
 ---
 
 # Product Owner: Manual Testing Playbook
