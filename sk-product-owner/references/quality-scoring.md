@@ -1,7 +1,7 @@
 ---
-title: "Product Owner - Rules - Quality Scoring - v0.100"
+title: "Product Owner - Rules - Quality Scoring - v0.101"
 description: "The six-dimension quality rubric behind the blocking floors in SKILL.md Section 6: what each dimension measures, the test that separates a floor-clearing score from a near miss, the three bands, how each dimension reads against Task, Bug, Doc, Story and Epic, how the two always-loaded layers meet the floors, and the revision ladder a failing score follows."
-version: "0.100"
+version: "0.101"
 contextType: reference
 importance_tier: critical
 trigger_phrases:
@@ -13,7 +13,7 @@ trigger_phrases:
   - "scoring bands"
 ---
 
-# Product Owner - Rules - Quality Scoring - v0.100
+# Product Owner - Rules - Quality Scoring - v0.101
 
 The rubric behind the six blocking floors. Each dimension states what it measures, the one test that separates a clear pass from a near miss, and how it reads against each artifact shape the system now produces.
 
@@ -97,7 +97,7 @@ The artifact set is Task, Bug, Doc, and Story Mode's two shapes. A shape changes
 
 **Doc.** Accuracy and Relevance decide it, and the source-authority gate feeds Accuracy directly: a claim whose subject no supplied source covers scores 7 even when the ClickUp divider, heading and bullet contract is spotless. For a refinement, Completeness is scored on the requested change plus preserved fidelity, never on gaps the source already carried, because a refinement that fixes what the request did not name has failed Relevance rather than earned Completeness.
 
-**Story.** Clarity and Mechanism Depth decide it. Acceptance criteria are where Clarity is settled, and the Problem inside the About umbrella is where Mechanism Depth is settled. Requirements hold hard constraints only, so adding a build checklist or an outcome to one costs Relevance and buys no Actionability, and a criterion that prescribes the mechanism costs Clarity because it is no longer testable as an outcome. Three supplied-value failures score here rather than reading as style. A hard value the source supplied and the draft generalised into a description of itself, `32px` written as updated spacing, is an Accuracy failure at 7, because the artifact now states something the source did not: that the change is unspecified. A Requirements section that drops values the source supplied is a Completeness failure at 6, and the section a reader would have to ask about is the one holding the values. A value carried into an acceptance criterion instead costs Clarity, since the criterion is no longer testable as an outcome. A Requirements bullet that reports what a screen says, shows or contains, naming no value, limit, condition, effect or named flow, is a Relevance failure at 6, and it is scored per bullet rather than per section, because four such bullets sitting beside twelve real constraints leave the section as a whole still earning its place and the section-level reconstruction test scores it a pass.
+**Story.** Clarity and Mechanism Depth decide it. Acceptance criteria are where Clarity is settled, and the Problem inside the About umbrella is where Mechanism Depth is settled. Requirements hold hard constraints only, so adding build steps or an outcome to one costs Relevance and buys no Actionability, and a criterion that prescribes the mechanism costs Clarity because it is no longer testable as an outcome. Three supplied-value failures score here rather than reading as style. A hard value the source supplied and the draft generalised into a description of itself, `32px` written as updated spacing, is an Accuracy failure at 7, because the artifact now states something the source did not: that the change is unspecified. A Requirements section that drops values the source supplied is a Completeness failure at 6, and the section a reader would have to ask about is the one holding the values. A value carried into an acceptance criterion instead costs Clarity, since the criterion is no longer testable as an outcome. A Requirements item that reports what a screen says, shows or contains, naming no value, limit, condition, effect or named flow, is a Relevance failure at 6, and it is scored per item rather than per section, because four such items sitting beside twelve real constraints leave the section as a whole still earning its place and the section-level reconstruction test scores it a pass.
 
 **Epic.** Completeness reads against the Epic shape, which carries a Goal and a Scope of child stories and no requirements of its own. Scoring an Epic down for absent requirements is a rubric error. Actionability lives in the release-level acceptance criteria and in whether each child story named in Scope is separable enough to hand to someone. The same holds for Delivery. An absent `## Delivery` section is not a Completeness miss in either shape when nobody asked for one and no open question or undated external constraint forced one, exactly as an absent Requirements section is not one when the story carries no hard constraint. Scoring down a section the shape made optional is a rubric error. A Delivery section whose every slot is still `TBD...` is the opposite finding, and it costs Relevance.
 
@@ -152,7 +152,7 @@ The kernel points here for the pre-reply quality checklist:
 - New Docs and PRDs follow the ClickUp divider/`*   ` bullet contract and the Barter house format respectively, and refinements preserve source formatting unless normalization was requested
 - Every new Doc heading is sentence case, and every PRD H2 section closes with a `* * *` directly above its `##   ` spacer
 - The Doc gate blocked when a requested claim's subject was absent from the supplied sources, not only when a contract field was missing
-- A PRD names its artifact kind (Story or Epic), keeps requirements to hard constraints free of build checklists and carries every supplied hard value verbatim, references no screenshot or image path, carries a Delivery section only where it was requested or forced, and carries no ticket header fields, story points or INVEST notes
+- A PRD names its artifact kind (Story or Epic), keeps requirements to hard constraints free of build steps and carries every supplied hard value verbatim, references no screenshot or image path, carries a Delivery section only where it was requested or forced, and carries no ticket header fields, story points or INVEST notes
 - HVR has no hard blockers, and the self-scan line reports the real count
 - Six-dimension floors pass. Quick narrows the artifact, never the floors, so a Quick delivery reports the same gate as checked
 - The Deliverable Block appears before commentary and is the only claimed delivery evidence

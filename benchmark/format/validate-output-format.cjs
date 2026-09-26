@@ -114,7 +114,9 @@ const vocabularyBlocks = true;
 
 const errors = [];
 const advisories = [];
-const markAsDone = '- [ ] _Mark as done, if the criteria are met_';
+// The Mark-as-done line in either checkbox form, so the divider rule and the
+// stripper still hold on an artifact written before the house dropped the space.
+const MARK_AS_DONE = /^- \[ ?\] _Mark as done, if the criteria are met_$/;
 
 // A divider sitting directly above a same-level empty spacer heading closes the
 // whole H2 section, which is what the Barter house PRDs do at the end of
@@ -189,7 +191,7 @@ const maskPaths = (line) =>
 // blockquote marker and a checkbox are all containers, not content, so strip
 // them before testing rather than teaching every pattern about each one.
 const stripContainers = (line) =>
-  line.replace(/^\s*(?:>\s?)*\s*/, '').replace(/^(\* {3})(?:\[[ xX]\] )/, '$1');
+  line.replace(/^\s*(?:>\s?)*\s*/, '').replace(/^(\* {3})(?:\[[ xX]?\] )/, '$1');
 
 // A leaked process line arrives wrapped in whatever container it sat in: an
 // indent, a blockquote marker, a list marker, a bold run. Stripping the wrapper
@@ -489,7 +491,10 @@ const HYPHEN_RULE = /^-{3,}$/;
 const CONTENT_HEADING = /^#{2,6}[ \t]+\S/;
 const DEEP_HEADING = /^#{5,6}[ \t]+\S/;
 const REQUIREMENTS_CHECKLIST = /^\*{2}Checklist\*{2}/;
-const CHECKBOX_ITEM = /^(?:\*\s{3}|[-*+]\s)\[[ xX]\]/;
+// A checkbox in either form, `[]` as the house writes it or `[ ]` as older
+// artifacts do, capturing the item text.
+const CHECKBOX_ITEM = /^(?:\*\s{3}|[-*+]\s)\[[ xX]?\]\s+(.*\S)\s*$/;
+const SPACED_CHECKBOX = /^\s*(?:\*\s{3}|[-*+]\s)\[ \]/;
 const PRIO_MARKER = /← PRIO/g;
 
 // The card's two per-piece caps and its asterisk-emphasis ban. `TBD...` is the
@@ -906,7 +911,7 @@ function lengthCapFindings(lines, uncommented, proseStart) {
     const item = text.match(LIST_ITEM);
     if (item) {
       closeParagraph();
-      const raw = item[1].replace(/^\[[ xX]\]\s*/, '').trim();
+      const raw = item[1].replace(/^\[[ xX]?\]\s*/, '').trim();
       const body = capText(raw);
       if (!body || GIVEN_WHEN_THEN.test(raw)) return;
       const words = capWords(body);
@@ -1039,18 +1044,23 @@ function analyse(file, source) {
       }
     });
 
-    // 0d. a Requirements bullet saying a screen explains, states, tells or
-    // informs, while quoting none of the copy, reports that a string exists
-    // without carrying the string. The design already holds what the screen
-    // says, so the bullet fixes nothing a build could get wrong, and the
-    // repair is to quote the copy in backticks or drop the bullet.
-    // Deliberately narrow, and a copy-paraphrase check rather than a
-    // description check: third-person verb forms only, so the noun "state"
-    // never matches, and any backtick in the bullet is an exemption because
-    // a bullet that quotes the copy has carried the value. Measured at one
-    // hit across 261 Requirements bullets in the story corpus and zero
-    // across 67 in the worked examples, mirrors and numbered exports. The
-    // wider "describes a screen" class is not mechanically separable, so
+    // 0d. Requirements hold constraints a build can fail, each one a `- []`
+    // checklist item under its group name. A plain bullet there is the retired
+    // shape and a `**Checklist**` label is build tracking, so both settle without
+    // reading the wording. The per-criterion Mark-as-done checkbox lives in
+    // Acceptance criteria and never inside Requirements.
+    //
+    // An item saying a screen explains, states, tells or informs, while quoting
+    // none of the copy, reports that a string exists without carrying the
+    // string. The design already holds what the screen says, so the item fixes
+    // nothing a build could get wrong, and the repair is to quote the copy in
+    // backticks or drop the item. Deliberately narrow, and a copy-paraphrase
+    // check rather than a description check: third-person verb forms only, so
+    // the noun "state" never matches, and any backtick in the item is an
+    // exemption because an item that quotes the copy has carried the value.
+    // Measured at one hit across 261 Requirements bullets in the story corpus
+    // and zero across 67 in the worked examples, mirrors and numbered exports.
+    // The wider "describes a screen" class is not mechanically separable, so
     // Requirements still needs a reader.
     const requirementsIndex = lines.findIndex((line) => line.trim() === '## Requirements');
     if (requirementsIndex >= 0) {
@@ -1058,29 +1068,33 @@ function analyse(file, source) {
       const last = nextSection === -1 ? lines.length : nextSection;
       for (let i = requirementsIndex + 1; i < last; i += 1) {
         const line = lines[i].trim();
-        // Requirements hold constraints a build can fail. A `**Checklist**`
-        // sub-block or a checkbox item is build tracking, which the section
-        // rule bans outright, so both settle without reading the wording. The
-        // per-criterion Mark-as-done checkbox lives in Acceptance criteria and
-        // never inside Requirements, which is what leaves no legitimate case.
         if (REQUIREMENTS_CHECKLIST.test(line)) {
-          errors.push(`${relative}:${i + 1}: a **Checklist** sub-block inside Requirements, which holds constraints only`);
+          errors.push(`${relative}:${i + 1}: a **Checklist** label inside Requirements, where each constraint is its own checklist item`);
           continue;
         }
-        if (CHECKBOX_ITEM.test(line)) {
-          errors.push(`${relative}:${i + 1}: a checkbox item inside Requirements, which holds constraints only`);
+        if (/^\*   \S/.test(lines[i])) {
+          errors.push(`${relative}:${i + 1}: a plain bullet inside Requirements, where each constraint is a \`- []\` checklist item`);
           continue;
         }
-        const bullet = lines[i].match(/^\*   (.*\S)\s*$/);
-        if (!bullet || bullet[1].includes('`')) continue;
-        if (!/\b(?:explains|states|tells|informs)\b/.test(bullet[1])) continue;
+        const item = lines[i].match(CHECKBOX_ITEM);
+        if (!item || item[1].includes('`')) continue;
+        if (!/\b(?:explains|states|tells|informs)\b/.test(item[1])) continue;
         errors.push(
-          `${relative}:${i + 1}: Requirements bullet reports what a screen says without quoting the copy`,
+          `${relative}:${i + 1}: Requirements item reports what a screen says without quoting the copy`,
         );
       }
     }
   }
 
+  // 0f. the house writes every checkbox `[]`, with no space between the
+  // brackets. The checkbox rules above read both forms, so this is the one
+  // check that holds a deliverable to the house form.
+  if (lintingArtifacts) {
+    prose.forEach(({ index, raw }) => {
+      if (!SPACED_CHECKBOX.test(raw)) return;
+      errors.push(`${relative}:${index + 1}: a checkbox written \`[ ]\`, where the house form is \`[]\` with no space`);
+    });
+  }
   // 1. bullet punctuation and the acceptance-block spacing rule (unchanged)
   lines.forEach((line, index) => {
     const bullet = line.match(/^\s*[-*]\s+(.*\S)\s*$/);
@@ -1088,7 +1102,7 @@ function analyse(file, source) {
       errors.push(`${relative}:${index + 1}: bullet item ends with a full stop`);
     }
 
-    if (line.trim() !== markAsDone) return;
+    if (!MARK_AS_DONE.test(line.trim())) return;
     const nextContentIndex = lines.findIndex((candidate, candidateIndex) => candidateIndex > index && candidate.trim() !== '');
     if (nextContentIndex >= 0 && lines[nextContentIndex].trim() === '* * *' && !closesSection(lines, nextContentIndex)) {
       errors.push(`${relative}:${nextContentIndex + 1}: divider follows a Mark-as-done checkbox`);
@@ -1316,7 +1330,7 @@ for (const file of files) {
     const formatted = sourceLines.flatMap((line, index) => {
       // The section-closing divider above a spacer heading is sanctioned, so
       // the stripper leaves it where the checker leaves it.
-      if (line.trim() === '* * *' && previousContent === markAsDone && !closesSection(sourceLines, index)) return [];
+      if (line.trim() === '* * *' && MARK_AS_DONE.test(previousContent) && !closesSection(sourceLines, index)) return [];
 
       const bullet = line.match(/^(\s*[-*]\s+)(.*\S)(\s*)$/);
       let nextLine = line;

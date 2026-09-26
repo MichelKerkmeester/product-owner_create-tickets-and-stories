@@ -7,7 +7,7 @@ Independent properties with up to 40 rooms set up in Partner Hub, and an Ops age
 
 The Partner squad owns the epic, Ops Tools the Go-live review queue and Payments payout details.
 
-### Problem
+#### Problem
 * * *
 After a short sign-up form, an Ops agent emails for photos, room types, rates, policies, city tax, bank details and identity documents, then builds each Roamstay listing in Back office by hand.
 
@@ -18,9 +18,9 @@ Most dropouts leave after days waiting for a reply, and list elsewhere.
 *   38% never go live: 813 of 2,140 sign-ups, January to June 2026
 *   About 4.5 Ops agent hours per property, spread across the wait
 *   640 properties waiting in the queue today
-###   
+####   
 
-### Goal
+#### Goal
 * * *
 Eligible properties go live in a median of 3 business days with no Ops setup. The target is 1,500 self-onboarded properties live by 2027-06-30, against 18,000 Roamstay properties live today.
 
@@ -33,9 +33,9 @@ Eligible properties go live in a median of 3 business days with no Ops setup. Th
 *   Drop-off per stage, against today's 38%
 *   Share sent back from review, with reasons
 *   Guest complaints about wrong city tax or wrong photos on self-onboarded properties in their first 90 days live
-###   
+####   
 
-### Solution
+#### Solution
 * * *
 In order to get there, we will:
 *   Move setup into Partner Hub as six ordered stages, with save and come back anytime
@@ -84,7 +84,7 @@ Release-level outcomes, with detailed criteria in each child story.
 *   **Then** the listing reaches the Go-live review queue with no Ops setup
 *   **And** the partner can save and resume at any stage without losing input
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 2\. **No property goes live or gets a payout before its checks pass**
 * * *
@@ -93,7 +93,7 @@ Release-level outcomes, with detailed criteria in each child story.
 *   **Then** it is not bookable in the Guest app
 *   **And** no payout goes out
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 3\. **Every finished listing gets a review decision within 1 business day**
 * * *
@@ -103,7 +103,7 @@ Release-level outcomes, with detailed criteria in each child story.
 *   **And** the review covers the city tax rule
 *   **And** an approved property becomes bookable in the Guest app
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 4\. **Properties outside the self-onboarding segment stay on the assisted path**
 * * *
@@ -111,7 +111,7 @@ Release-level outcomes, with detailed criteria in each child story.
 *   **When** the partner signs up
 *   **Then** it stays on assisted onboarding
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 5\. **The release shows how self-onboarding performs**
 * * *
@@ -120,7 +120,7 @@ Release-level outcomes, with detailed criteria in each child story.
 *   **Then** median time to go-live, time and drop-off per stage and the sent-back share with reasons are available
 *   **And** guest complaints about wrong city tax or photos in their first 90 days live are counted
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 * * *
 ##   
 

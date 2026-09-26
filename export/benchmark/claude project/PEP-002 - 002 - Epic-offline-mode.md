@@ -7,16 +7,16 @@ Offline mode lets a member open, read, edit and create pages on iOS, Android and
 
 Four child stories, one per brief area, each cover all three platforms by Q1 2027.
 
-### Problem
+#### Problem
 * * *
 From June to August, 23% of iOS and Android sessions started offline or lost the connection within a minute. From April to August, 31% of Plus workspaces giving a cancellation reason named offline access.
 
 **The following issues rise from that:**
 *   Without a connection, a member can open only the page already on screen
 *   An offline edit is retried until the app closes, then lost, starting some `lost-edit` tickets
-###   
+####   
 
-### Goal
+#### Goal
 * * *
 Members on iOS, Android or Desktop work offline, and others see the changes once the device reconnects.
 
@@ -24,9 +24,9 @@ Members on iOS, Android or Desktop work offline, and others see the changes once
 *   Offline work reaches the workspace instead of vanishing
 *   Mobile sessions hitting the no-connection screen halve within 8 weeks of release
 *   `lost-edit` tickets from dropped connections stop
-###   
+####   
 
-### Solution
+#### Solution
 * * *
 In order to get there, we will:
 *   Keep the 500 most recently opened pages with blocks, inline databases and to-dos, up to 1 GB, whichever comes first
@@ -70,7 +70,7 @@ Release-level outcomes, with detailed criteria in each child story.
 *   **When** they open a page kept on the device
 *   **Then** it opens with its blocks, inline databases and to-dos
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 2\. **Work done offline reaches the workspace**
 * * *
@@ -79,7 +79,7 @@ Release-level outcomes, with detailed criteria in each child story.
 *   **Then** every change is kept on the device in order, even if the app closes first
 *   **And** once back online, members with access see every change that did not conflict with another edit
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 3\. **Online-only actions show as unavailable offline**
 * * *
@@ -87,7 +87,7 @@ Release-level outcomes, with detailed criteria in each child story.
 *   **When** they reach for sharing, inviting, moving a page to another workspace or deleting one
 *   **Then** each shows as unavailable
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 4\. **Members can see their offline state and manage storage**
 * * *
@@ -96,6 +96,6 @@ Release-level outcomes, with detailed criteria in each child story.
 *   **Then** they see they are offline and how many changes wait to sync
 *   **And** in settings they see the space offline data uses, lower the cap and clear offline data
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 * * *
 ##   

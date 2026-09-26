@@ -20,7 +20,7 @@ A presale code moves through one lifecycle:
 *   `exhausted` → cap reached, no more redemptions
 *   `closed` → window ended or the code was revoked
 
-### Problem
+#### Problem
 * * *
 Organizers cannot control when a code works or how far it spreads:
 *   A code goes live the instant it is created, with no start and no end
@@ -28,21 +28,21 @@ Organizers cannot control when a code works or how far it spreads:
 *   A leaked code keeps working with no way to shut it off
 *   A code stays redeemable long after the presale window should have closed
 
-### Solution
+#### Solution
 * * *
 Give every presale code one shared window-and-cap lifecycle with three controls:
 *   A time-boxed access window with a start and an end
 *   A redemption cap per code
 *   An instant revoke that closes a single leaked code
 
-#### **User Story**
+**User Story**
 * * *
 As an organizer running a presale:
 *   I want each code to work only inside a window I set, so that early access opens and closes on schedule without me watching it
 *   I want each code to stop after a set number of uses, so that a shared code cannot drain the allocation
 *   I want to revoke a leaked code in one action, so that I can shut it off the moment I notice it
 
-#### **Expected outcomes**
+**Expected outcomes**
 * * *
 *   A presale code only works during the window the organizer set for it
 *   A shared or leaked code can never redeem more than its cap
@@ -67,9 +67,9 @@ Spec
 #### **Definition of Ready**
 * * *
 Check off as met. Pull requirements into a sprint only when every box is checked:
-- [ ] Every acceptance criterion is agreed as an outcome, and every hard requirement is confirmed with the team that has to meet it
-- [ ] Dependencies identified (the order service exposes a confirmed-order webhook and the checkout hold-and-release is live)
-- [ ] Sized by the team and each requirement fits comfortably in a sprint
+- [] Every acceptance criterion is agreed as an outcome, and every hard requirement is confirmed with the team that has to meet it
+- [] Dependencies identified (the order service exposes a confirmed-order webhook and the checkout hold-and-release is live)
+- [] Sized by the team and each requirement fits comfortably in a sprint
 * * *
 ##   
 
@@ -79,8 +79,8 @@ Check off as met. Pull requirements into a sprint only when every box is checked
 * * *
 **PRD:** As an organizer running a presale, I want each code to work only inside a set start and end time, so that early access opens and closes exactly when the presale is meant to run.
 
-*   Every code carries a start and an end, stored as `opens_at` and `closes_at` in `UTC`
-*   A code redeems nothing outside that window
+- [] Every code carries a start and an end, stored as `opens_at` and `closes_at` in `UTC`
+- [] A code redeems nothing outside that window
 
 #### **Rule**
 * * *
@@ -89,15 +89,15 @@ A redemption outside the window is refused. `now()` is compared in `UTC` and sho
 * * *
 
 Which means that:
-*   A code cannot be redeemed a moment before it opens or a moment after it closes
-*   An attempt outside the window returns "This code is not active right now." and consumes nothing
+- [] A code cannot be redeemed a moment before it opens or a moment after it closes
+- [] An attempt outside the window returns "This code is not active right now." and consumes nothing
 
 **Redemption limits**
 * * *
 **PRD:** As an organizer protecting the presale allocation, I want each code to stop after a set number of uses, so that a shared or leaked code cannot drain more tickets than I intended.
 
-*   Every code carries a `max_redemptions` value
-*   A redemption counts only against a confirmed order
+- [] Every code carries a `max_redemptions` value
+- [] A redemption counts only against a confirmed order
 
 #### **Rule**
 * * *
@@ -106,15 +106,15 @@ The count is incremented only on a confirmed order. An abandoned checkout releas
 * * *
 
 Which means that:
-*   The code redeems at most `max_redemptions` times, never one more
-*   A checkout that is abandoned frees its seat back to the remaining count
+- [] The code redeems at most `max_redemptions` times, never one more
+- [] A checkout that is abandoned frees its seat back to the remaining count
 
 **Instant revoke**
 * * *
 **PRD:** As an organizer who spots a leaked code, I want to revoke it in one action, so that it stops working immediately without touching the codes that are still safe.
 
-*   Revoke applies to a single code, never to a presale or a batch
-*   A revoked code is closed permanently and cannot be reopened
+- [] Revoke applies to a single code, never to a presale or a batch
+- [] A revoked code is closed permanently and cannot be reopened
 
 #### **Rule**
 * * *
@@ -123,8 +123,8 @@ A revoked code is closed for good. It cannot be reopened, and a new code must be
 * * *
 
 Which means that:
-*   A revoked code refuses every redemption from the moment it is revoked
-*   Orders already confirmed before the revoke stand, and only new redemptions are blocked
+- [] A revoked code refuses every redemption from the moment it is revoked
+- [] Orders already confirmed before the revoke stand, and only new redemptions are blocked
 * * *
 ##   
 
@@ -140,7 +140,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **When** a member enters it at checkout
 *   **Then** the presale price unlocks and the redemption is counted against that code
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 2\. **A code outside its window does nothing at all**
 * * *
@@ -149,7 +149,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** it is refused with "This code is not active right now." and nothing is consumed
 *   **And** the organizer reads that window in their own local time wherever the code is shown
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 #### Redemption limits
 * * *
@@ -160,7 +160,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** it redeems up to `max_redemptions` and no further, even under two members confirming at the same moment
 *   **And** every attempt past the cap is refused as fully redeemed
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 4\. **An abandoned checkout gives its seat back**
 * * *
@@ -168,7 +168,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **When** they abandon checkout before confirming
 *   **Then** the seat returns to the remaining count and another member can still use the code
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 #### Revoke
 * * *
@@ -179,7 +179,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** the next attempt to redeem it is refused immediately
 *   **And** every other code in the presale keeps working
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 
 6\. **A revoke never undoes an order already placed**
 * * *
@@ -187,17 +187,17 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **When** the organizer revokes the code
 *   **Then** that member keeps their order and only new redemptions are blocked
 * * *
-- [ ] _Mark as done, if the criteria are met_
+- [] _Mark as done, if the criteria are met_
 * * *
 ##   
 
 #### **Definition of Done**
 * * *
 Verify for every requirement above before its task closes:
-- [ ] The requirement's acceptance criteria all pass against a staging presale with realistic redemption volume
-- [ ] Tests added covering the window bound, the redemption cap, the abandoned-checkout release and the revoke lock, with CI green
-- [ ] Reviewed by a second engineer
-- [ ] A load test confirms two members racing for the last seat never push the count past `max_redemptions`
+- [] The requirement's acceptance criteria all pass against a staging presale with realistic redemption volume
+- [] Tests added covering the window bound, the redemption cap, the abandoned-checkout release and the revoke lock, with CI green
+- [] Reviewed by a second engineer
+- [] A load test confirms two members racing for the last seat never push the count past `max_redemptions`
 * * *
 ##   
 

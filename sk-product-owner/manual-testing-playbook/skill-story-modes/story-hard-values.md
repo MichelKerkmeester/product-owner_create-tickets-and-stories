@@ -59,7 +59,7 @@ The badge string, its date pattern and the empty-state copy go straight into thr
 
 ### Expected
 
-Step 1 fixes the baseline with `context/` holding the two attachments. Step 2 returns one Story question and one clarification file. Step 3 proves the wait state. Step 4 finds the story preamble, `## About`, `### Problem`, `### Solution`, `#### **Expected outcomes**`, `## Requirements` in the notes' own groups with every supplied value in backticks, and numbered acceptance criteria covering the filtered results, the badge, the empty state and the filter staying on, each closed by the Mark-as-done line.
+Step 1 fixes the baseline with `context/` holding the two attachments. Step 2 returns one Story question and one clarification file. Step 3 proves the wait state. Step 4 finds the story preamble, `## About`, `#### Problem`, `#### Solution`, the `**Expected outcomes**` label, `## Requirements` in the notes' own groups with every supplied value in backticks, and numbered acceptance criteria covering the filtered results, the badge, the empty state and the filter staying on, each closed by the Mark-as-done line.
 
 ### Evidence
 

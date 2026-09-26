@@ -1,6 +1,6 @@
 # BE - TODO - Recurring to-dos
 
-### About
+## About
 
 ---
 
@@ -32,14 +32,14 @@ The owner's time zone keeps due dates in step with the Overdue chip and reminder
 
 **Checklist**
 
-- [ ] Checking off an occurrence creates the next on the same page, dated by the parent task's option table
-- [ ] Only one occurrence of a series exists at any time
-- [ ] Weekdays moves a Friday occurrence to the following Monday
-- [ ] A Monthly series from the 31st lands on the 30th in April and the 31st in May
-- [ ] Custom moves the due date by N days, weeks or months, with N from 1 to 99
-- [ ] The next due date uses the to-do owner's time zone, or the new owner's after a reassignment
-- [ ] The next occurrence keeps the assignee and the reminder at the same local time
-- [ ] On check-off and on skip, the next occurrence's reminder is handed to reminders-service
+- [] Checking off an occurrence creates the next on the same page, dated by the parent task's option table
+- [] Only one occurrence of a series exists at any time
+- [] Weekdays moves a Friday occurrence to the following Monday
+- [] A Monthly series from the 31st lands on the 30th in April and the 31st in May
+- [] Custom moves the due date by N days, weeks or months, with N from 1 to 99
+- [] The next due date uses the to-do owner's time zone, or the new owner's after a reassignment
+- [] The next occurrence keeps the assignee and the reminder at the same local time
+- [] On check-off and on skip, the next occurrence's reminder is handed to reminders-service
 
 ---
 
@@ -49,7 +49,7 @@ The owner's time zone keeps due dates in step with the Overdue chip and reminder
 
 **Checklist**
 
-- [ ] Skip this one moves the to-do to its next due date without marking it done, and counts toward an After limit
+- [] Skip this one moves the to-do to its next due date without marking it done, and counts toward an After limit
 
 ---
 
@@ -59,9 +59,9 @@ The owner's time zone keeps due dates in step with the Overdue chip and reminder
 
 **Checklist**
 
-- [ ] Never keeps the series going with no end
-- [ ] On date creates no occurrence after the last one on or before that date
-- [ ] After creates no occurrence past the set count, from 1 to 365
+- [] Never keeps the series going with no end
+- [] On date creates no occurrence after the last one on or before that date
+- [] After creates no occurrence past the set count, from 1 to 365
 
 ---
 
@@ -71,8 +71,8 @@ The owner's time zone keeps due dates in step with the Overdue chip and reminder
 
 **Checklist**
 
-- [ ] A workspace holds at most 500 repeating to-dos that have not ended, and checked-off or ended series do not count
-- [ ] A repeat that would take the workspace past 500 is refused, so the clients show the limit sheet
+- [] A workspace holds at most 500 repeating to-dos that have not ended, and checked-off or ended series do not count
+- [] A repeat that would take the workspace past 500 is refused, so the clients show the limit sheet
 
 ---
 
@@ -82,4 +82,4 @@ The owner's time zone keeps due dates in step with the Overdue chip and reminder
 
 **Checklist**
 
-- [ ] With `recurring_todos` off for a workspace, the back end accepts no repeat on its to-dos
+- [] With `recurring_todos` off for a workspace, the back end accepts no repeat on its to-dos

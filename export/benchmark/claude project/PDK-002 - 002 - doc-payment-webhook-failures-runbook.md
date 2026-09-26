@@ -87,12 +87,12 @@ Then send Guest Support the window's expired bookings with their references.
 
 ### Cleanup checks
 * * *
-*   [ ] **Webhooks accepted again** on `/v2/psp/webhooks`
-*   [ ] **Failure window replayed** from first rejection to fix
-*   [ ] **No booking from the window left** in `payment_pending`
-*   [ ] **Expiry job resumed** in booking-service
-*   [ ] **Expired captures refunded** by psp-reconcile, with no guest charged twice
-*   [ ] **Expired bookings list sent** to Guest Support
+*   [] **Webhooks accepted again** on `/v2/psp/webhooks`
+*   [] **Failure window replayed** from first rejection to fix
+*   [] **No booking from the window left** in `payment_pending`
+*   [] **Expiry job resumed** in booking-service
+*   [] **Expired captures refunded** by psp-reconcile, with no guest charged twice
+*   [] **Expired bookings list sent** to Guest Support
 
 ### Boundaries and exceptions
 * * *
