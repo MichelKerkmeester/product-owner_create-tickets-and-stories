@@ -1,0 +1,119 @@
+{
+ "id": "STK-005",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/supplied-parent-subtask.md",
+ "twin": "PTK-005",
+ "engine": "claude",
+ "model": "claude-opus-5-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "attachments": [
+  {
+   "basename": "loomlist-context.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+   "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+  },
+  {
+   "basename": "loomlist-recurring-todos-parent-task.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-recurring-todos-parent-task.md",
+   "sha256": "e4013dde60d7eef0a08aeacf3cc8219c68cae41c300bd8d1d8f9f0eb05dc9e9f"
+  }
+ ],
+ "session_id": "60761f9a-5c0a-48bd-8fde-36f056f52755",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - task-android-recurring-todos-clarification.md",
+   "export/002 - task-android-recurring-todos.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 51.44,
+   "tool_calls": 13,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Write",
+    "Bash",
+    "Read"
+   ],
+   "input_tokens": 434944,
+   "output_tokens": 4313,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.6605049999999999,
+   "model_s": 50.63,
+   "startup_s": 0.53,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - task-android-recurring-todos-clarification.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$task --subtask Android subtask of the recurring to-dos parent in context/loomlist-recurring-todos-parent-task.md. Board conventions are in context/loomlist-context.md."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 49.69,
+   "tool_calls": 5,
+   "tools_used": [
+    "Bash",
+    "Read",
+    "Write",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 336002,
+   "output_tokens": 4886,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.8901254000000001,
+   "model_s": 48.82,
+   "startup_s": 0.57,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/002 - task-android-recurring-todos.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "It is the Android one from that list, phones and tablets, and Oskar's team takes it into the 5.4.0 release. BE builds the engine in parallel, so the app shows the next due date BE returns and never works it out on the device."
+  }
+ ]
+}

@@ -1,0 +1,119 @@
+{
+ "id": "SST-002",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/story-forced-delivery.md",
+ "twin": "PST-002",
+ "engine": "claude",
+ "model": "claude-opus-5-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "attachments": [
+  {
+   "basename": "loomlist-context.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+   "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+  },
+  {
+   "basename": "loomlist-view-only-links-design-notes.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-view-only-links-design-notes.md",
+   "sha256": "3851e6b466c1b49fac4c3baa67b940a6900ac38c98f8c3c772f9418945b8baa8"
+  }
+ ],
+ "session_id": "1d70accc-359e-4bfc-a545-ab7b72b6789e",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - Story-view-only-share-links-clarification.md",
+   "export/002 - Story-view-only-share-links.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 52.66,
+   "tool_calls": 12,
+   "tools_used": [
+    "Bash",
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Grep",
+    "Bash",
+    "Bash",
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 486859,
+   "output_tokens": 4266,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.6519536,
+   "model_s": 51.85,
+   "startup_s": 0.49,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - Story-view-only-share-links-clarification.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$story View-only share links for the Sharing team, from Kofi's design notes in context/loomlist-view-only-links-design-notes.md. Workspace background is in context/loomlist-context.md."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 93.58,
+   "tool_calls": 6,
+   "tools_used": [
+    "Bash",
+    "Write",
+    "Bash",
+    "Read",
+    "Bash",
+    "Read"
+   ],
+   "input_tokens": 576592,
+   "output_tokens": 8523,
+   "reasoning_tokens": 0,
+   "cost_usd": 1.0589816,
+   "model_s": 92.48,
+   "startup_s": 0.66,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/002 - Story-view-only-share-links.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Agencies on Plus asked for this most, they invite clients as guests today just so they can read one page. Lena still hasn't settled the sub-page question with the security reviewer and it won't be settled before the build starts, so keep it open in the story."
+  }
+ ]
+}
