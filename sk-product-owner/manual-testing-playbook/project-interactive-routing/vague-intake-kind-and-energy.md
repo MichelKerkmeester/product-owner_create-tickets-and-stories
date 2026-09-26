@@ -1,7 +1,7 @@
 ---
 title: "PIR-001 -- Vague intake, kind and energy"
 description: "Validates a no-command Roamstay loyalty points request in a Claude Project: one energy-first intake question rendered in the intake lane, then the Epic Turn 2 picks, rendered as its own block."
-version: 1.0.0.0
+version: 1.0.0.1
 ---
 
 # PIR-001 -- Vague intake, kind and energy
@@ -89,10 +89,10 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, Deliverable Block and export-equivalent contract |
 | [`Product Owner - System - Router Contract - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Router%20Contract%20-%20v0.100.md) | Fallback routing into Interactive Mode |
-| [`Product Owner - System - Interactive Mode - v0.405.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.405.md) | Comprehensive question, energy choice and clarification block |
-| [`Product Owner - Assets - Interactive Response Templates - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.102.md) | Comprehensive Question template |
-| [`Product Owner - Templates - Story Mode - v0.402.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.402.md) | Routed Story Mode workflow and Epic shape |
-| [`Product Owner - Assets - Epic Template - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Epic%20Template%20-%20v0.100.md) | Routed Epic scaffold |
+| [`Product Owner - System - Interactive Mode - v0.406.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.406.md) | Comprehensive question, energy choice and clarification block |
+| [`Product Owner - Assets - Interactive Response Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.103.md) | Comprehensive Question template |
+| [`Product Owner - Templates - Story Mode - v0.403.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.403.md) | Routed Story Mode workflow and Epic shape |
+| [`Product Owner - Assets - Epic Template - v0.101.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Epic%20Template%20-%20v0.101.md) | Routed Epic scaffold |
 | [`roamstay-context.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-context.md) | Attachment, the Guest app surfaces, Pay now and Pay at property, and the absent loyalty scheme |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |
 

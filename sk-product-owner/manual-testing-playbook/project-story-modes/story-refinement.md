@@ -1,7 +1,7 @@
 ---
 title: "PST-003 -- Story refinement"
 description: "Validates that a rough Fernhouse Story draft, refined in a Project with explicit leave to restructure, keeps its source file name, loses its PRD title prefix and build checklist, gains acceptance criteria and keeps every value it supplied."
-version: 1.0.0.0
+version: 1.0.0.1
 ---
 
 # PST-003 -- Story refinement
@@ -88,9 +88,9 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Line 85 the block without a Canvas panel, line 108 an explicit command still asks, line 140 house format with no build checklist and no `PRD -` prefix, line 228 clarification label, line 229 the PRD refinement label, line 233 no `Path:`, `Saved:` or `Verified:` |
-| [`Product Owner - Templates - Story Mode - v0.402.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.402.md) | Line 126 no `**Checklist**` in Requirements, line 143 the H1 with no `PRD -` prefix, lines 200 to 210 the refinement workflow, line 207 create-time checks only on request, line 209 the source basename, line 210 restructure needs explicit leave, lines 360 to 363 the refined label |
+| [`Product Owner - Templates - Story Mode - v0.403.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.403.md) | Line 126 no `**Checklist**` in Requirements, line 143 the H1 with no `PRD -` prefix, lines 200 to 210 the refinement workflow, line 207 create-time checks only on request, line 209 the source basename, line 210 restructure needs explicit leave, lines 360 to 363 the refined label |
 | [`Product Owner - Assets - Story Template - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Story%20Template%20-%20v0.100.md) | Lines 21 to 85 Story scaffold |
-| [`Product Owner - Assets - Interactive Response Templates - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.102.md) | Lines 91 to 104 Story context question, including the refinement operation |
+| [`Product Owner - Assets - Interactive Response Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.103.md) | Lines 91 to 104 Story context question, including the refinement operation |
 | [fernhouse-context.md](../../../benchmark/fixtures/companies/fernhouse/fernhouse-context.md) | Company context: stored card data limits, surfaces, story title pattern, tracking plan rule |
 | [fernhouse-save-card-draft.md](../../../benchmark/fixtures/companies/fernhouse/fernhouse-save-card-draft.md) | The rough draft being refined |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |
