@@ -1,7 +1,7 @@
 ---
 title: "PID-001 -- Project identity handover"
 description: "Validates the Project runtime identity on a two-turn Loomlist task, where a task-lane clarification and then the task each render as a Deliverable Block with an export-equivalent label and no file claim."
-version: 1.0.0.1
+version: 1.0.0.2
 ---
 
 # PID-001 -- Project identity handover
@@ -99,7 +99,7 @@ The Project identity string `Canvas Artifact` is absent from the skill identity 
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project identity, Deliverable Block and export-equivalent contract |
 | [`Product Owner - Templates - Task Mode - v0.305.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.305.md) | Routed Task Mode workflow and its context question rule |
 | [`Product Owner - Assets - Task Templates - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates%20-%20v0.102.md) | Routed task scaffold |
-| [`Product Owner - System - Interactive Mode - v0.406.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.406.md) | Clarification block contract |
+| [`Product Owner - System - Interactive Mode - v0.407.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.407.md) | Clarification block contract |
 | [`Product Owner - Assets - Interactive Response Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.103.md) | Task Format Question the Turn 1 clarification follows |
 | [`Product Owner - System - Router Contract - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Router%20Contract%20-%20v0.100.md) | Project routing authority |
 | [`Product Owner - Rules - Human Voice Core - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Rules%20-%20Human%20Voice%20Core%20-%20v0.100.md) | HVR self-scan source |

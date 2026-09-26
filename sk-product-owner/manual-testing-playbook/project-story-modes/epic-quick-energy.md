@@ -1,7 +1,7 @@
 ---
 title: "PEP-003 -- Epic quick energy"
 description: "Validates a one-turn $quick $e request for Fernhouse self-serve returns in a Project: the Story gate passes on what the prompt supplies, so one lean house-format Epic Deliverable Block lands with no question."
-version: 1.1.0.0
+version: 1.1.0.1
 ---
 
 # PEP-003 -- Epic quick energy
@@ -92,7 +92,7 @@ Capture the reply, the rendered Epic block, its export-equivalent label, the Epi
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | One scaffold at lines 58 and 79, rendering without a panel at line 85, the Quick intake allowance at line 108, the Epic shape at line 140 and the Epic label at line 227 |
 | [`Product Owner - Templates - Story Mode - v0.403.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.403.md) | Every gate under Quick at line 60, Epic kind at line 102, stated child-story set at line 110, Quick keeps needed gates at line 113, Delivery opt-in at line 132, Epic H1 at line 146 and Epic draft order at line 182 |
 | [`Product Owner - Assets - Epic Template - v0.101.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Epic%20Template%20-%20v0.101.md) | Epic scaffold at lines 22 to 93 and its Notes For Use at lines 98 to 102 |
-| [`Product Owner - System - Interactive Mode - v0.406.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.406.md) | The Quick energy row at line 103 and the Story intake gate at lines 146 to 150 |
+| [`Product Owner - System - Interactive Mode - v0.407.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.407.md) | The Quick energy row at line 103 and the Story intake gate at lines 146 to 150 |
 | [`fernhouse-context.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-context.md) | Fernhouse surfaces, today's CS-only returns, guest orders, pallet items and the epic title pattern |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |
 

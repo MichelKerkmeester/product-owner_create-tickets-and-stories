@@ -1,7 +1,7 @@
 ---
 title: "PBG-003 -- Two-platform log bug"
 description: "Validates that a bug command handing over a Loomlist log excerpt and support reports renders one evidence question as a clarification block, waits, then renders one bug block that keeps two platform issues as two observed and expected pairs, invents no root cause and claims no file."
-version: 1.1.0.0
+version: 1.1.0.1
 ---
 
 # PBG-003 -- Two-platform log bug
@@ -90,7 +90,7 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, the explicit-command wait, the root cause rule, the Deliverable Block and the export-equivalent contract |
 | [`Product Owner - Templates - Bug Mode - v0.204.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Bug%20Mode%20-%20v0.204.md) | Project bug workflow, the grouped-bug rule, evidence placement, Frequency recovery and fixed structure |
 | [`Product Owner - Assets - Bug Report Template - v0.101.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Bug%20Report%20Template%20-%20v0.101.md) | Field table, Frequency rules and Checklist |
-| [`Product Owner - System - Interactive Mode - v0.406.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.406.md) | Clarification delivery contract |
+| [`Product Owner - System - Interactive Mode - v0.407.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.407.md) | Clarification delivery contract |
 | [`loomlist-context.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-context.md) | Attachment: platforms, app versions, how reminders reach each platform and the owning team |
 | [`loomlist-reminders-dst-log-excerpt.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-reminders-dst-log-excerpt.md) | Attachment: the Android log lines for two reminders either side of the change |
 | [`loomlist-reminders-dst-user-reports.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-reminders-dst-user-reports.md) | Attachment: the two report groups, sample tickets, the workaround and the next change |
