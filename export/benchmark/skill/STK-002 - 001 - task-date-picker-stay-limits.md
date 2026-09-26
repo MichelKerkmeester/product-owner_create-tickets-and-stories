@@ -4,11 +4,11 @@
 
 ---
 
-The Guest app date picker accepts any range today, but search-service turns down anything over 30 nights, so the guest sees a generic "Something went wrong" after tapping Search. Guest Support logged 23 chats about it in August, mostly from guests booking long work stays. This task makes the picker stop an unsearchable range before the guest taps Search, and say why.
+The Guest app date picker accepts any range, but search-service rejects stays over 30 nights, and the guest sees a generic "Something went wrong" after Search. Guest Support logged 23 chats about it in August. The picker should block such ranges before Search, and say why.
 
-It is one FE task covering iOS, Android and web, on the search form and the property page, and the Search squad takes it into the 8.13.0 train. The frames are final and Hana signed off the copy on 2026-09-11. If the build can't match the frame, raise it with Ines in the Search squad channel before working around it.
+One FE task covers iOS, Android and web, search form and property page, in the Search squad's 8.13.0 train. search-service doesn't change, because its own 30-night check stays the backstop. Flexible dates, weekend presets, per-night calendar prices and tracking changes are out, and date selection isn't tracked today and gets no events.
 
-Not in this task: flexible dates, weekend presets, prices per night inside the calendar and any tracking change. Date selection isn't tracked today and this task adds no events. search-service stays as it is, because its own 30-night check remains the backstop behind the picker.
+The frames are final and Hana signed off the copy on 2026-09-11, so raise any mismatch with Ines in the Search squad channel before working around it.
 
 **References**
 
@@ -34,29 +34,26 @@ Components
 
 ---
 
-These limits apply everywhere the date picker opens. They match what search-service accepts, so any range the picker allows can be searched.
+The limits match search-service, so any allowed range can be searched.
 
 **Checklist**
 
-- [ ] Check-in and check-out can't be the same day, so a stay is at least 1 night
-- [ ] A stay is at most 30 nights, the same limit search-service applies
-- [ ] Past days are disabled, and today can be picked as check-in
-- [ ] Check-in can be at most 365 days from today, and later days show in the calendar but are disabled
-- [ ] Check-out may land past the 365-day mark, because only check-in is limited
-- [ ] The 30-night maximum and the 365-day window come from search-service config, and no platform hard-codes them
+- [ ] A stay is 1 to 30 nights, so check-in and check-out can't be the same day
+- [ ] Past days are disabled, and today can be check-in
+- [ ] Check-in is at most 365 days from today, and later days show but are disabled
+- [ ] Check-out may land past the 365-day mark
+- [ ] The 30-night maximum and the 365-day window come from search-service config, never hard-coded
 
 2.  **Property minimum stay**
 
 ---
 
-On the property page the picker also applies the property's minimum stay. Partners set it in Partner Hub, anywhere from 1 night to 14 nights.
+Partners set the minimum stay in Partner Hub.
 
 **Checklist**
 
-- [ ] On the property page, the picker applies the property's minimum stay on top of the limits in group 1
-- [ ] The property minimum applies on the property page only
-- [ ] The minimum comes with the property details and isn't hard-coded
-- [ ] Any minimum from 1 night to 14 nights works
+- [ ] The picker applies the property's minimum stay on top of group 1, on the property page only
+- [ ] The minimum, 1 to 14 nights, comes with the property details and isn't hard-coded
 
 ---
 
@@ -68,33 +65,30 @@ On the property page the picker also applies the property's minimum stay. Partne
 
 ---
 
-The frame shows three states for picking a range. The button at the bottom only becomes active once the range is valid.
-
 **Checklist**
 
-- [ ] State 1, nothing picked: the button reads `Select check-in date` and is disabled
-- [ ] State 2, check-in picked: days making the stay too short or longer than 30 nights turn grey, and the button stays disabled, reading `Select check-out date`
+- [ ] State 1, nothing picked: the disabled button reads `Select check-in date`
+- [ ] State 2, check-in picked: days making the stay too short or over 30 nights turn grey, and the disabled button reads `Select check-out date`
 - [ ] State 3, valid range picked: the range is highlighted, the nights count sits under it and the button reads `Show prices`
-- [ ] The nights count matches the Roamstay stay definition, so check-in on a Monday and check-out on a Thursday shows 3 nights
+- [ ] Nights follow the Roamstay stay definition, so Monday to Thursday shows 3 nights
 
 4.  **Helper text on grey days**
 
 ---
 
-A grey day can still be tapped. The tap selects nothing and shows helper text under the calendar, which is the only way the guest learns why the day is grey.
+A grey day stays tappable, because its helper text under the calendar says why it is grey.
 
 **Checklist**
 
 - [ ] State 4: tapping a grey day past the 30-night limit selects nothing and shows `Stays can be up to 30 nights`
-- [ ] State 5, property page only: tapping a day inside the property's minimum stay selects nothing and shows the property's own number, for example `This property has a 3-night minimum`
-- [ ] The helper text stays until the guest picks a valid day
-- [ ] The helper text never covers the calendar
+- [ ] State 5, property page only: tapping a day inside the minimum stay selects nothing and shows the property's number, like `This property has a 3-night minimum`
+- [ ] The helper text stays until a valid day is picked and never covers the calendar
 
 5.  **Copy keys**
 
 ---
 
-Hana has sent all six keys for translation. The numbers in the helper text are placeholders filled from the live limits, so the frames' `30` and `3` are examples of the rendered copy rather than fixed values.
+Hana has sent all six keys for translation. The frames' `30` and `3` are examples, since helper numbers fill from the live limits.
 
 | Key | en-GB copy | Where |
 |-----|------------|-------|
@@ -107,9 +101,9 @@ Hana has sent all six keys for translation. The numbers in the helper text are p
 
 **Checklist**
 
-- [ ] All six keys are used as listed, with no hard-coded strings
+- [ ] All six keys are used, with no hard-coded strings
 - [ ] `{max}` comes from the search-service maximum and `{n}` from the property's minimum stay
-- [ ] `datepicker.nights` uses the singular form for 1 night and the plural form otherwise
+- [ ] `datepicker.nights` is singular for 1 night and plural otherwise
 - [ ] A missing translation falls back to `en-GB`
 - [ ] The button copy fits in `de-DE`, where strings run about 30% longer than English
 
@@ -123,24 +117,22 @@ Hana has sent all six keys for translation. The numbers in the helper text are p
 
 ---
 
-These cases were walked through with Oskar and Hana and have a defined outcome.
+Oskar and Hana defined these outcomes.
 
 **Checklist**
 
-- [ ] With check-in picked, tapping a day before it makes that day the new check-in, and the button goes back to `Select check-out date`
-- [ ] Opening the picker with dates from an earlier search shows the range as picked, in state 3
-- [ ] Earlier search dates that break a limit, such as a 45-night search saved before this change, are cleared and the picker opens in state 1
-- [ ] A 30-night range across two months keeps the highlight across the month break
+- [ ] With check-in picked, tapping an earlier day makes it the new check-in, and the button returns to `Select check-out date`
+- [ ] Reopening with dates from an earlier search shows the range picked, in state 3
+- [ ] Saved dates breaking a limit, such as a 45-night search from before this change, are cleared, opening in state 1
+- [ ] A 30-night range across two months stays highlighted across the month break
 
 7.  **Screen readers**
 
 ---
 
-A screen reader user gets the same explanation a sighted guest gets from the helper text.
-
 **Checklist**
 
-- [ ] Screen readers announce a grey day as unavailable, followed by the same helper text as states 4 and 5
+- [ ] Screen readers announce a grey day as unavailable, then the helper text of states 4 and 5
 
 ---
 
@@ -152,14 +144,12 @@ A screen reader user gets the same explanation a sighted guest gets from the hel
 
 ---
 
-The number of months on screen depends on the platform and screen size.
-
 **Checklist**
 
 - [ ] iOS and Android use the design system calendar component, never the system date picker
-- [ ] Web on desktop shows two months side by side
-- [ ] Mobile web and the apps show one month at a time and scroll vertically
-- [ ] The week starts on Monday, except in `en-US`, where it starts on Sunday
+- [ ] Desktop web shows two months side by side
+- [ ] Mobile web and the apps show one month at a time, scrolling vertically
+- [ ] The week starts on Monday, or on Sunday in `en-US`
 
 ---
 
@@ -171,10 +161,6 @@ The number of months on screen depends on the platform and screen size.
 
 ---
 
-QA signs the task off on each platform and locale separately, so a pass on one platform doesn't stand in for another.
-
 **Checklist**
 
-- [ ] QA signs off groups 1 to 8 on iOS in `en-GB` and in `en-US`
-- [ ] QA signs off groups 1 to 8 on Android in `en-GB` and in `en-US`
-- [ ] QA signs off groups 1 to 8 on web in `en-GB` and in `en-US`, on desktop and on mobile web
+- [ ] QA signs off groups 1 to 8 on iOS, Android and web, each in `en-GB` and `en-US`, with web on desktop and mobile

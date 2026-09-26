@@ -4,9 +4,9 @@
 
 ---
 
-BE owns what happens after a member sets Repeat: the next occurrence on check-off and Skip this one, Ends, the 500 limit on series still running and the reminder handover to reminders-service. The three client subtasks show this behavior, so it has to hold whichever surface the member acts from. The parent task holds the shared rules with every value.
+BE owns what follows Repeat: the next occurrence on check-off and Skip this one, Ends, the 500 limit on running series and reminder handover to reminders-service. It must hold whichever of the three clients the member uses, and the parent holds the shared rules.
 
-BE ships dark behind the workspace flag `recurring_todos`, the same as the clients.
+BE ships dark behind the workspace flag `recurring_todos`, like the clients.
 
 **Parent task**
 
@@ -30,17 +30,15 @@ BE ships dark behind the workspace flag `recurring_todos`, the same as the clien
 
 ---
 
-Only one occurrence of a series exists at a time. Checking it off is what brings the next one into being, on the same page.
-
 **Checklist**
 
-- [ ] Checking off an occurrence creates the next one on the same page, with the next due date the parent task's Repeat table gives
-- [ ] Monthly keeps the first due date's day, so a series starting on the 31st lands on the 30th in April and the 31st in May
-- [ ] Custom counts every N days, weeks or months, with N from 1 to 99
-- [ ] The next occurrence keeps the assignee and the reminder
+- [ ] Checking off an occurrence creates the next on the same page, with the next due date from the parent's Repeat table
+- [ ] Monthly keeps the first due date's day, so a 31st series lands on the 30th in April and the 31st in May
+- [ ] Custom counts every N days, weeks or months, N from 1 to 99
+- [ ] The next occurrence keeps the assignee and reminder
 - [ ] A series never holds more than one open occurrence
-- [ ] Checking off the same occurrence on two devices before they sync still produces one next occurrence
-- [ ] An occurrence checked off from an app version without Repeat still gets its next occurrence
+- [ ] Checking off one occurrence on two devices before sync still yields one next occurrence
+- [ ] A check-off from an app version without Repeat still gets a next occurrence
 
 ---
 
@@ -51,7 +49,7 @@ Only one occurrence of a series exists at a time. Checking it off is what brings
 **Checklist**
 
 - [ ] Skip this one moves the to-do to its next due date without marking it done
-- [ ] A skipped occurrence counts toward an After limit
+- [ ] A skip counts toward an After limit
 
 ---
 
@@ -61,9 +59,9 @@ Only one occurrence of a series exists at a time. Checking it off is what brings
 
 **Checklist**
 
-- [ ] With Ends set to Never, the default, the series keeps going
-- [ ] With On date, the series stops after the last occurrence on or before that date
-- [ ] With After, the series stops after the set number of occurrences, from 1 to 365, skipped occurrences included
+- [ ] Never, the default, keeps the series going
+- [ ] On date stops it after the last occurrence on or before that date
+- [ ] After stops it after the set 1 to 365 occurrences, skips included
 
 ---
 
@@ -71,12 +69,12 @@ Only one occurrence of a series exists at a time. Checking it off is what brings
 
 ---
 
-Next due dates follow the rule the Overdue chip and reminders already follow, so all three agree on which day a to-do is due.
+Due dates follow the Overdue chip and reminders' rule, so all three agree.
 
 **Checklist**
 
-- [ ] Next due dates are worked out in the to-do owner's time zone
-- [ ] After a reassign, the next occurrence uses the new to-do owner's time zone
+- [ ] Next due dates use the to-do owner's time zone
+- [ ] After a reassign, the new owner's zone applies
 
 ---
 
@@ -86,9 +84,9 @@ Next due dates follow the rule the Overdue chip and reminders already follow, so
 
 **Checklist**
 
-- [ ] A workspace holds up to 500 repeating to-dos that have not ended
+- [ ] A workspace holds up to 500 unended repeating to-dos
 - [ ] Checked-off and ended series do not count toward the 500
-- [ ] Setting Repeat on another to-do in a workspace at 500 is refused, so the clients can open the sheet that says `This workspace has 500 repeating to-dos. End one to add another.`
+- [ ] Setting Repeat in a workspace at 500 is refused, so clients can open the sheet saying `This workspace has 500 repeating to-dos. End one to add another.`
 
 ---
 
@@ -96,11 +94,11 @@ Next due dates follow the rule the Overdue chip and reminders already follow, so
 
 ---
 
-reminders-service holds each reminder's UTC due time and hands it to every device of the to-do owner, so the next occurrence's reminder reaches members only once BE passes it on.
+reminders-service holds each reminder's UTC due time and sends it to all the owner's devices, so the next reminder reaches members only once BE passes it on.
 
 **Checklist**
 
-- [ ] The next occurrence's reminder goes to reminders-service at the same local time as the one before, in the to-do owner's time zone
+- [ ] The next reminder goes to reminders-service at the previous one's local time, in the owner's zone
 
 ---
 
@@ -110,5 +108,5 @@ reminders-service holds each reminder's UTC due time and hands it to every devic
 
 **Checklist**
 
-- [ ] With `recurring_todos` off for a workspace, no repeat behavior runs there
-- [ ] BE sends whichever of `todo_repeat_set` and `todo_occurrence_skipped` the reviewed tracking plan assigns to it
+- [ ] With `recurring_todos` off, no repeat behavior runs
+- [ ] BE sends whichever of `todo_repeat_set` and `todo_occurrence_skipped` the reviewed tracking plan assigns it

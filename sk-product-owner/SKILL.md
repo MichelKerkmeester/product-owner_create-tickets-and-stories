@@ -2,7 +2,7 @@
 name: product-owner
 description: "Routes Product Owner requests into backlog artifacts, product requirements documents (PRDs) in the Barter house format, and source-safe product or engineering documentation, including ClickUp-formatted guides, catalogs, behavior references, runbooks, API or schema references, and proposals."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.14.0
+version: 1.15.0
 ---
 
 <!-- Keywords: product-owner, backlog, task, subtask, parent task, bug report, acceptance criteria, story mode, user story, prd, product requirements document, epic, doc mode, product documentation, engineering documentation, ClickUp, $task, $bug, $doc, $story, $prd, $epic, $quick -->
@@ -273,7 +273,7 @@ Ask one comprehensive question and wait when required information is missing. Ne
 14. Wait for explicit approval in the current conversation before any ClickUp write. When approved, follow the `mcp-tooling` ClickUp packet's markdown transport contract.
 15. Load Story Mode plus the one scaffold the resolved shape names for Story work, resolve the artifact kind (Story or Epic) before any file is read, name it in the delivery response, keep requirements free of build checklists, and add a `## Delivery` close only where the requester asked for it or an open question or an undated external constraint forced it.
 16. Emit the `HVR self-scan:` line in every delivery response, counted against `references/hvr-core.md`, naming the terms fixed and the terms kept with their reason.
-17. Apply `references/conciseness.md` to every artifact after the voice pass. Cut only what a reader could rebuild from what remains, and never cut a semantic connective, a scope qualifier, a caveat, a number or the one example that makes a rule usable. These are edits, so they never enter the self-scan count. Then hold the length caps: a bullet is one sentence of 25 words or fewer, a paragraph is at most three sentences and 60 words, and an About or Overview opening is at most two paragraphs. Code, tables, Given/When/Then lines and copy carried verbatim from a supplied source are exempt, and a line over a cap is split or tightened, never brought under it by dropping a supplied value.
+17. Apply `references/conciseness.md` to every artifact after the voice pass. Cut only what a reader could rebuild from what remains, and never cut a semantic connective, a scope qualifier, a caveat, a number or the one example that makes a rule usable. These are edits, so they never enter the self-scan count. Then hold the length caps: a bullet is one sentence of 25 words or fewer, a paragraph is at most three sentences and 60 words, and an About or Overview opening is at most two paragraphs. Code, tables, Given/When/Then lines and copy carried verbatim from a supplied source are exempt, and a line over a cap is split or tightened, never brought under it by dropping a supplied value. Then keep each artifact inside its word budget, counted outside code blocks: a task inside a Story bundle at most 500 words, a subtask 750, any other task 900, a bug 800, an Epic 1,000, and a Story or a Doc 1,400. Go over only when supplied values, requirements or criteria need the room, never with restated context or background.
 
 ### NEVER
 

@@ -3,57 +3,54 @@
 * * *
 ## About
 * * *
-Independent properties with up to 40 rooms set themselves up in Partner Hub, from sign-up to a finished listing. An Ops agent only checks that listing in Back office before it goes live. The work splits into six child stories, one per onboarding stage, and all six ship in the first release.
+Independent properties with up to 40 rooms set up in Partner Hub, and an Ops agent only checks the listing in Back office. Six child stories, one per stage, all ship in the first release.
 
-The Partner squad owns the epic, the Ops Tools squad builds the Go-live review queue and the Payments squad owns payout details.
+The Partner squad owns the epic, Ops Tools the Go-live review queue and Payments payout details.
 
 ### Problem
 * * *
-Every new property on Roamstay is set up by hand. After a partner fills in a short sign-up form, an Ops agent collects photos, room types, rates, policies, city tax, bank details and identity documents by email, builds the listing in Back office and makes it live.
+After a short sign-up form, an Ops agent emails for photos, room types, rates, policies, city tax, bank details and identity documents, then builds each Roamstay listing in Back office by hand.
 
-Most partners who drop out leave while they wait for an agent to reply, not while they fill anything in. On exit calls they say they signed up, heard nothing for days and listed their rooms somewhere else.
+Most dropouts leave after days waiting for a reply, and list elsewhere.
 
 **The following issues rise from that:**
-*   The median time from sign-up to go-live is 11 business days
-*   38% of partners who sign up never go live: 813 of 2,140 sign-ups from January to June 2026
-*   Each property takes an Ops agent about 4.5 hours of work, spread across the whole wait
-*   640 properties are waiting in the queue today
+*   Median sign-up to go-live: 11 business days
+*   38% never go live: 813 of 2,140 sign-ups, January to June 2026
+*   About 4.5 Ops agent hours per property, spread across the wait
+*   640 properties waiting in the queue today
 ###   
 
 ### Goal
 * * *
-Independent properties with up to 40 rooms set themselves up in Partner Hub and go live in a median of 3 business days, with no Ops agent doing the setup. Ops agents only check a finished listing before it goes live.
-
-The target is 1,500 properties live through self-onboarding by 2027-06-30. Roamstay has 18,000 properties live today.
+Eligible properties go live in a median of 3 business days with no Ops setup. The target is 1,500 self-onboarded properties live by 2027-06-30, against 18,000 Roamstay properties live today.
 
 **Direct partner/Roamstay benefits:**
-*   Partners set up at their own pace and can save and come back at any point, instead of waiting days for an email reply
-*   Ops agents check finished listings instead of spending about 4.5 hours building each one
+*   Partners set up at their own pace, not waiting days for email
+*   Ops agents check listings instead of building them
 
 **How we'll know it works:**
-*   Median time from sign-up to go-live, and time spent in each stage
+*   Median time to go-live, and per stage
 *   Drop-off per stage, against today's 38%
-*   Share of listings sent back from the Go-live review queue, and the reasons
+*   Share sent back from review, with reasons
 *   Guest complaints about wrong city tax or wrong photos on self-onboarded properties in their first 90 days live
 ###   
 
 ### Solution
 * * *
 In order to get there, we will:
-*   Move partner setup into Partner Hub as six stages the partner completes in order, with save and come back at any point
-*   Keep two checks before go-live: the identity verification provider checks the owner's identity document, and an Ops agent reviews the finished listing in Back office
-*   Hold every payout until the bank account, the identity document and the go-live review have all passed
-*   Check the city tax rule on every listing during the go-live review, because a wrong rule changes what a guest pays
-*   Keep properties with more than 40 rooms, chains and partners who run a channel manager on the assisted path
+*   Move setup into Partner Hub as six ordered stages, with save and come back anytime
+*   Two checks before go-live: the identity verification provider on the owner's identity document, and an Ops agent on the listing
+*   Hold payouts until bank account, identity document and go-live review all pass
+*   Check every listing's city tax rule in review, because a wrong rule changes what a guest pays
 *   Pilot the Go-live review queue with Bram, Ops Lead, and his agents
 
 ## Scope
 * * *
-Each child story owns one onboarding stage and carries its own detailed requirements and acceptance criteria. A partner moves through the stages in order, and all six ship in the first release.
+Each child story owns one stage, with its own requirements and criteria.
 
 #### Partner setup in Partner Hub
 * * *
-The Partner squad owns these stages. The Payments squad owns payout details and the handover to the payment provider for payouts.
+The Partner squad owns these, and Payments owns payout details and their handover to the payment provider.
 
 *   Partner Hub - Self-onboarding - Sign-up and verification
 *   Partner Hub - Self-onboarding - Property profile and photos
@@ -69,60 +66,59 @@ The Ops Tools squad builds this stage.
 
 #### Added Later
 * * *
-Capabilities that belong to the epic but do not block the first release.
+These do not block the first release.
 
 **Channel manager connection**
-*   Partners who run a channel manager connect it during self-onboarding instead of staying on assisted onboarding, and connecting one is its own integration project
+*   Channel manager partners connect it during self-onboarding, as its own integration project
 * * *
 ##   
 
 ## Acceptance criteria
 * * *
-These are release-level outcomes.
-Each child story carries the detailed criteria for its own screens and states.
+Release-level outcomes, with detailed criteria in each child story.
 
 1\. **A partner takes an eligible property from sign-up to a finished listing on their own**
 * * *
-*   **Given** an independent property with up to 40 rooms that runs no channel manager
-*   **When** the partner completes the six stages in Partner Hub in order
-*   **Then** the finished listing reaches the Go-live review queue without an Ops agent setting up any part of it
-*   **And** the partner can save and come back at any stage without losing what they entered
+*   **Given** an independent property with up to 40 rooms and no channel manager
+*   **When** the partner completes the six Partner Hub stages in order
+*   **Then** the listing reaches the Go-live review queue with no Ops setup
+*   **And** the partner can save and resume at any stage without losing input
 * * *
 - [ ] _Mark as done, if the criteria are met_
 
 2\. **No property goes live or gets a payout before its checks pass**
 * * *
 *   **Given** a self-onboarded listing
-*   **When** its identity checks or its go-live review have not passed
-*   **Then** the property is not bookable in the Guest app
-*   **And** no payout goes to the partner
+*   **When** its identity checks or go-live review have not passed
+*   **Then** it is not bookable in the Guest app
+*   **And** no payout goes out
 * * *
 - [ ] _Mark as done, if the criteria are met_
 
 3\. **Every finished listing gets a review decision within 1 business day**
 * * *
-*   **Given** a finished listing in the Go-live review queue
+*   **Given** a listing in the Go-live review queue
 *   **When** an Ops agent reviews it in Back office
-*   **Then** the agent approves it or sends it back with a reason per stage within 1 business day
-*   **And** the review covers the city tax rule on every listing
+*   **Then** the agent approves it or returns it with a reason per stage within 1 business day
+*   **And** the review covers the city tax rule
 *   **And** an approved property becomes bookable in the Guest app
 * * *
 - [ ] _Mark as done, if the criteria are met_
 
 4\. **Properties outside the self-onboarding segment stay on the assisted path**
 * * *
-*   **Given** a property with more than 40 rooms, a chain property or a partner who runs a channel manager
+*   **Given** a property over 40 rooms, a chain property or a channel manager partner
 *   **When** the partner signs up
-*   **Then** the property stays on assisted onboarding
+*   **Then** it stays on assisted onboarding
 * * *
 - [ ] _Mark as done, if the criteria are met_
 
 5\. **The release shows how self-onboarding performs**
 * * *
-*   **Given** properties onboarded through self-onboarding
+*   **Given** self-onboarded properties
 *   **When** the Partner squad reviews the release
-*   **Then** the median time from sign-up to go-live, the time spent in each stage, the drop-off per stage and the share of listings sent back with their reasons are all available
-*   **And** guest complaints about wrong city tax or wrong photos on these properties in their first 90 days live are counted
+*   **Then** median time to go-live, time and drop-off per stage and the sent-back share with reasons are available
+*   **And** guest complaints about wrong city tax or photos in their first 90 days live are counted
 * * *
 - [ ] _Mark as done, if the criteria are met_
 * * *
@@ -140,12 +136,12 @@ The delivery budget or expected size for the approved scope.
 * * *
 Areas that could waste effort, create ambiguity or distract from the intended outcome.
 
-*   Go-live review queue capacity: the queue must hold its 1 business day as volume grows, and Ops Tools sizes it with the Partner squad
+*   Go-live review queue capacity: it must hold 1 business day as volume grows, and Ops Tools sizes it with the Partner squad
 
 #### No-gos
 * * *
 Explicit scope exclusions and behaviors the delivery team must not introduce.
 
-*   Self-onboarding for properties with more than 40 rooms or for chains, which stay on the assisted path with a partner manager
-*   Self-onboarding in the first release for partners who run a channel manager, who stay on assisted onboarding until the Added Later channel manager connection ships
+*   Self-onboarding for chains or properties over 40 rooms, which stay assisted with a partner manager
+*   First-release self-onboarding for channel manager partners, until the Added Later connection ships
 * * *
