@@ -1,7 +1,7 @@
 ---
 title: "PST-004 -- Story with nested tasks"
 description: "Validates that a Fernhouse order tracking Story asked for with its task breakdown renders in a Project as one Deliverable Block per file, labelled inside one bundle folder, in the split the PM names."
-version: 1.0.0.1
+version: 1.0.0.2
 ---
 
 # PST-004 -- Story with nested tasks
@@ -91,7 +91,7 @@ Capture both replies, the clarification block and its label, all five rendered b
 | [`Product Owner - Templates - Story Mode - v0.403.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.403.md) | Line 341 the bundle exception to one artifact, lines 368 to 392 Story With Nested Tasks, line 382 a named split is authoritative, line 383 the clarification outside the folder, line 384 the Tasks block, line 385 the task template and the Story block, line 398 the bundle reply |
 | [`Product Owner - Assets - Story Template - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Story%20Template%20-%20v0.100.md) | Lines 21 to 85 Story scaffold |
 | [`Product Owner - Assets - Task Templates - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates%20-%20v0.102.md) | Lines 19 to 133 Canonical Task template, lines 54 to 58 the `**Story**` block, line 141 the Story block in a bundle |
-| [`Product Owner - System - Interactive Mode - v0.406.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.406.md) | Line 70 the Story lane for a bundle's clarification |
+| [`Product Owner - System - Interactive Mode - v0.407.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.407.md) | Line 70 the Story lane for a bundle's clarification |
 | [fernhouse-context.md](../../../benchmark/fixtures/companies/fernhouse/fernhouse-context.md) | Company context: surfaces, services, pallet limits, story and task title patterns |
 | [fernhouse-order-tracking-pm-brief.md](../../../benchmark/fixtures/companies/fernhouse/fernhouse-order-tracking-pm-brief.md) | The PM brief: statuses, estimate strings, rules and the expected task list |
 | [fernhouse-carrier-tracking-api-facts.md](../../../benchmark/fixtures/companies/fernhouse/fernhouse-carrier-tracking-api-facts.md) | The carrier tracking facts behind the BE tracking webhook |
