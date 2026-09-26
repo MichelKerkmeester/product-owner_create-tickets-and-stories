@@ -13,7 +13,7 @@ The plan hands the build to three owners: Apps and web build the client events o
 
 **2. `booking_confirmed` trigger**
 
-The events table says it fires when `booking-service` moves the booking to confirmed. The notes say it fires when a Pay now booking leaves `payment_pending`. A Pay now booking also leaves `payment_pending` when it expires after 30 minutes, so the note would count expired bookings. Should the table's wording govern, or do you want to check with Nadia first?
+The events table says it fires when `booking-service` moves the booking to confirmed, while the notes say it fires when a Pay now booking leaves `payment_pending`. A Pay now booking also leaves `payment_pending` when it expires after 30 minutes, so the note would count expired bookings. Should the table's wording govern, or do you want to check with Nadia first?
 
 **3. `date_changed`**
 

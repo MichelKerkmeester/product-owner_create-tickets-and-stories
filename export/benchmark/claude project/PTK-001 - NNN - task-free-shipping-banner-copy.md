@@ -4,7 +4,7 @@
 
 ---
 
-The free-shipping banner wraps to two lines on small phones. It sits at the top of every web page and above the cart in the iOS and Android apps. Shorter copy keeps the offer on one line, so the banner takes less space above the cart. Only the copy changes. The threshold amounts stay the same.
+The free-shipping banner, at the top of every web page and above the cart in the iOS and Android apps, wraps to two lines on small phones. Shorter copy keeps the offer on one line, so the banner takes less space above the cart. Only the copy changes, and the threshold amounts stay the same.
 
 ### Requirements
 

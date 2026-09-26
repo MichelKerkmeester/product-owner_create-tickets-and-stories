@@ -53,7 +53,7 @@ Repeat sits on the to-do's detail sheet and only works once the to-do has a due 
 - [ ] Custom repeats every N days, weeks or months, with N from 1 to 99, and accepts no value outside that range
 - [ ] Weekdays lands on Monday through Friday only, whatever day the member's locale starts the week on
 - [ ] A Monthly series that starts on the 31st lands on the 30th in April and on the 31st again in May
-- [ ] Show dates in the member's locale and the new copy in en-US, de-DE, fr-FR, es-ES, ja-JP and pt-BR, with en-US as the fallback for a missing string
+- [ ] Show dates in the member's locale and new copy in en-US, de-DE, fr-FR, es-ES, ja-JP and pt-BR, falling back to en-US for a missing string
 
 ---
 
@@ -86,7 +86,7 @@ Only one occurrence exists at a time, so the member's list never fills with futu
 - [ ] Show only one open occurrence of a series at a time
 - [ ] Checking off an occurrence creates the next one on the same page with the next due date
 - [ ] Carry the assignee over to the next occurrence
-- [ ] Carry the reminder over at the same local time, and schedule it as a local notification for the next occurrence on the to-do owner's Android devices
+- [ ] Carry the reminder over at the same local time, scheduled as a local notification for the next occurrence on the to-do owner's Android devices
 - [ ] Create no next occurrence once the series has ended through On date or After
 
 ---

@@ -3,7 +3,9 @@
 * * *
 ## About
 * * *
-Offline mode lets a member open, read, edit and create pages on iOS, Android and Desktop with no connection. It is available on every plan, including Free. Web stays online only. The epic has four child stories, one for each area of the offline mode brief, and each story covers iOS, Android and Desktop together. The target is Q1 2027 for all four stories on all three platforms.
+Offline mode lets a member open, read, edit and create pages on iOS, Android and Desktop with no connection, on every plan including Free. Web stays online only.
+
+The epic has four child stories, one for each area of the offline mode brief, and each story covers iOS, Android and Desktop together. The target is Q1 2027 for all four stories on all three platforms.
 
 ### Problem
 * * *
@@ -30,16 +32,19 @@ A member on iOS, Android or Desktop can open, read, edit and create pages withou
 In order to get there, we will:
 *   Keep the 500 most recently opened pages on the device with their blocks, inline databases and to-dos, capped at 1 GB, whichever limit comes first
 *   Count images and files toward the cap, and remove a page that falls out of the 500 the next time the app has a connection
-*   Let members edit blocks, check off to-dos and create pages and to-dos offline, with every change queued on the device in the order it was made
+*   Let members edit blocks, check off to-dos and create pages and to-dos offline, queuing every change on the device in the order it was made
 *   Start uploading queued changes within 30 seconds of the connection returning, oldest first
 *   Keep sharing, inviting, moving a page to another workspace and deleting a page online only, with their controls shown as unavailable offline
-*   Add an offline marker in the top bar, a count of changes waiting to sync and a storage screen in settings where the member sees space used, lowers the 1 GB cap and clears offline data
+*   Add an offline marker in the top bar and a count of changes waiting to sync
+*   Add a storage screen in settings where the member sees space used, lowers the 1 GB cap and clears offline data
 
 ## Scope
 * * *
 Each child story owns one area of offline mode, covers iOS, Android and Desktop together and carries its own detailed requirements and acceptance criteria.
 
-Conflict handling is not settled. Joana, Engineering Manager, Sync, decides how sync-service handles conflicting edits on 2026-10-09, choosing between the options in the #sync-eng thread. Today sync-service resolves every overlap with block-level last-writer-wins on protocol v3, so a device that was offline for a day can replace a whole morning of a teammate's edits. Offline reading and the indicator do not depend on that decision, so they can start first.
+Conflict handling is not settled: Joana, Engineering Manager, Sync, decides how sync-service handles conflicting edits on 2026-10-09, choosing between the options in the #sync-eng thread. Today sync-service resolves every overlap with block-level last-writer-wins on protocol v3, so a device that was offline for a day can replace a whole morning of a teammate's edits.
+
+Offline reading and the indicator do not depend on that decision, so they can start first.
 
 #### Starts before the conflict decision
 * * *

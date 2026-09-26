@@ -146,6 +146,25 @@ check "one hedge stays silent" 0 "validation passed" "hedge stack" \
 check "terminal recap check stays silent" 0 "validation passed" "recap opener" \
   "${FIXTURES}/conciseness-silent.md"
 
+# The length caps advise on a deliverable and never block, so the violation
+# fixture still exits 0 and the near-miss fixture prints no advice at all.
+check "length caps: a third About paragraph warns" 0 "length-caps-violation.md:3: About opening holds 3 paragraphs" "" \
+  "${FIXTURES}/length-caps-violation.md"
+check "length caps: a bullet over 25 words warns" 0 "length-caps-violation.md:13: bullet runs 28 words" "" \
+  "${FIXTURES}/length-caps-violation.md"
+check "length caps: a two-sentence bullet warns" 0 "length-caps-violation.md:14: bullet holds 2 sentences" "" \
+  "${FIXTURES}/length-caps-violation.md"
+check "length caps: a paragraph over 60 words warns" 0 "length-caps-violation.md:18: paragraph runs 61 words" "" \
+  "${FIXTURES}/length-caps-violation.md"
+check "length caps: a four-sentence paragraph warns" 0 "length-caps-violation.md:20: paragraph holds 4 sentences" "" \
+  "${FIXTURES}/length-caps-violation.md"
+check "length caps: a requirement opening on a plain When is no Given/When/Then line" 0 "length-caps-violation.md:24: bullet runs 31 words" "" \
+  "${FIXTURES}/length-caps-violation.md"
+check "length caps: lines at the caps, code, tables, quotes and Given/When/Then stay silent" 0 "validation passed" "over the" \
+  "${FIXTURES}/length-caps-silent.md"
+check "length caps: a References block inside About is not counted as its opening" 0 "validation passed" "About opening" \
+  "${FIXTURES}/length-caps-silent.md"
+
 if [ "$failures" -ne 0 ]; then
   echo "${failures} format-validator fixture(s) failed"
   exit 1

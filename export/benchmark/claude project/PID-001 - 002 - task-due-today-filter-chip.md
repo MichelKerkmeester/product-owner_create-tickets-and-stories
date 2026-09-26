@@ -37,7 +37,7 @@ The new chip reuses the existing filter chip, so it looks and behaves like the t
 
 **Checklist**
 
-- [ ] With Due today active, list every to-do the member can open that is not checked off and whose due date is today in the owner's time zone
+- [ ] With Due today active, list every to-do the member can open that is not checked off and due today in the owner's time zone
 - [ ] Leave out checked-off to-dos, to-dos due before or after today and to-dos with no due date
 - [ ] Sort the list by due date, the same as the other chips
 - [ ] When no to-do is due today, keep the chip active and show no to-dos rather than falling back to another chip's list

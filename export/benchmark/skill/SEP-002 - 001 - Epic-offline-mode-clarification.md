@@ -4,9 +4,9 @@ I'll write the offline mode epic from Oskar's brief. The Problem, Goal, platform
 
 **Child-story split:** Which way should `## Scope` split the child stories?
 
-A. Oskar's four areas, which are Offline reading, Offline editing and creation, Sync on reconnect plus Offline indicator and storage settings. This matches the dependency in the brief. Reading and the indicator can start now, and only two stories wait on the 2026-10-09 conflict decision
+A. Oskar's four areas: Offline reading, Offline editing and creation, Sync on reconnect plus Offline indicator and storage settings. This matches the dependency in the brief, since reading and the indicator can start now and only two stories wait on the 2026-10-09 conflict decision
 
-B. One story per platform: iOS, Android and Desktop. Each story would hold all four areas, so the conflict decision blocks every story. Desktop wraps the web client, and a web client change reaches Desktop with no Desktop release. That makes the Desktop story web client work, even though Web is out of scope
+B. One story per platform: iOS, Android and Desktop, each holding all four areas, so the conflict decision blocks every story. Desktop wraps the web client, so a web client change reaches Desktop with no Desktop release and the Desktop story becomes web client work, even though Web is out of scope
 
 C. Four area stories, with platform differences written inside each story instead of as separate stories
 

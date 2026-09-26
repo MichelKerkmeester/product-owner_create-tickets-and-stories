@@ -3,11 +3,11 @@
 * * *
 ## About
 * * *
-Signed-in customers on web, iOS and Android can start a return themselves inside the return window, instead of contacting CS and waiting for an agent to create it in Admin. The epic is split into four child stories that follow one return from the request to the refund. Guest returns follow in a later release, and pallet items stay with CS.
+Signed-in customers on web, iOS and Android can start a return themselves inside the return window, instead of contacting CS and waiting for an agent to create it in Admin. The epic is split into four child stories that follow one return from request to refund. Guest returns follow in a later release, and pallet items stay with CS.
 
 ### Problem
 * * *
-There is no self-serve return today. A customer who wants to send something back has to contact CS, a CS agent creates the return in Admin and emails a return label, the warehouse checks the item and the agent then refunds it. CS handles about `1,900` return requests a month this way, and a refund takes `6 days` on average from the first contact.
+There is no self-serve return today. A customer who wants to return something must contact CS, a CS agent creates the return in Admin and emails a return label, the warehouse checks the item and the agent refunds it. CS handles about `1,900` return requests a month this way, and a refund takes `6 days` on average from the first contact.
 
 **The following issues rise from that:**
 *   Every return costs at least one CS contact, even when the customer only wants a label
@@ -27,7 +27,7 @@ Signed-in customers start their own returns, so CS stops creating returns by han
 ### Solution
 * * *
 In order to get there, we will:
-*   Let a signed-in customer start a return from order history on web, iOS and Android, choosing the items and a reason, inside the `30 days` return window
+*   Let a signed-in customer start a return from order history on web, iOS and Android, choosing items and a reason, inside the `30 days` return window
 *   Email the customer a return label once the return is started
 *   Show the return status on the order page, so the customer can follow the return without contacting CS
 *   Refund the customer after the warehouse has checked the returned items

@@ -40,7 +40,7 @@ Steps to reproduce:
 3. Add 1 unit of a second product, so the tab bar badge reads "3"
 4. Open the cart
 5. Tap "Remove" on the single-unit item
-6. Check the cart and the tab bar badge. Expected: the cart holds 2 units and the badge reads "2". Actual: the cart holds 2 units and the badge still reads "3"
+6. Check the cart and the tab bar badge: expected 2 units and a badge reading "2", actual 2 units and a badge still reading "3"
 
 Screen recording: Not provided
 

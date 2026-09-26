@@ -4,13 +4,15 @@
 
 ---
 
-On 2026-09-15, between 14:10 and 15:50, the pack stations printed 37 duplicate labels, and 12 orders paid before the 15:00 cut-off had no label when the 18:00 collection came, so they shipped a day late. The label webhook handler in shipping-service called the warehouse system before answering and took 6 to 9 seconds per event, while the carrier waits 5 seconds. Every retry repeated the work: each retry of a `label.failed` with `SERVICE_UNAVAILABLE` created one more billed shipment, and calls that hit our own 8-second timeout on the warehouse system answered `500` and saved nothing.
+On 2026-09-15, between 14:10 and 15:50, the pack stations printed 37 duplicate labels, and 12 orders paid before the 15:00 cut-off had no label when the 18:00 collection came, so they shipped a day late.
 
-This task makes the handler answer inside the carrier's timeout, process each event once, never open a second shipment for a parcel, pick up labels the webhook missed and alert before a missing label costs a collection. Scope is the five points Noor summarised in #fulfilment-eng on 2026-09-16. Every label the carrier creates costs €0.42 whether or not it is printed, and Finance checks the carrier invoice line by line.
+The label webhook handler in shipping-service called the warehouse system before answering and took 6 to 9 seconds per event, while the carrier waits 5 seconds. Every retry repeated the work: each retry of a `label.failed` with `SERVICE_UNAVAILABLE` created one more billed shipment. Calls that hit our own 8-second warehouse system timeout answered `500` and saved nothing.
+
+Scope is the five points Noor summarised in #fulfilment-eng on 2026-09-16: answer inside the carrier's timeout, process each event once, never open a second shipment for a parcel, pick up labels the webhook missed and alert before a missing label costs a collection. Each carrier label costs €0.42, printed or not, and Finance checks the invoice line by line.
 
 Polling only, meaning a GET of every pending shipment in place of the webhook, is out of scope. The thread rejected it because the 20 requests per second account limit is shared with the POSTs, which reach 14 a second around the cut-off.
 
-Joris (Backend, Fulfilment) takes this task. It sits on the Fulfilment board with no parent task, and it has to be live before the November peak.
+Joris (Backend, Fulfilment) takes this task, which sits on the Fulfilment board with no parent task and has to be live before the November peak.
 
 **References**
 
@@ -31,7 +33,9 @@ Impacted
 
 ---
 
-The carrier counts a timeout, a `4xx` and a `5xx` as a failed delivery and retries up to 5 more times, after 1 min, 5 min, 15 min, 1 h and 6 h. The request path therefore does only what the carrier needs in order to stop retrying, and all label work runs from a queue, so a slow warehouse system can no longer turn one event into several.
+The carrier counts a timeout, a `4xx` and a `5xx` as a failed delivery and retries up to 5 more times, after 1 min, 5 min, 15 min, 1 h and 6 h.
+
+The request path therefore does only what the carrier needs to stop retrying, and all label work runs from a queue, so a slow warehouse system can no longer turn one event into several.
 
 **Checklist**
 
@@ -56,7 +60,7 @@ Delivery is at least once, and `event_id` stays the same on every retry of an ev
 - [ ] An event whose `event_id` was already processed causes no further work: no new shipment, no warehouse system call and no second copy of the label
 - [ ] Processed `event_id` values are kept for 7 days
 - [ ] A repeat delivery of an already processed event is still answered with `200`, so the carrier stops retrying it
-- [ ] An event whose processing fails, including a warehouse system call that hits the 8-second timeout, is not recorded as processed, so it is attempted again instead of being dropped
+- [ ] An event whose processing fails, including on the 8-second warehouse system timeout, is not recorded as processed, so it is retried rather than dropped
 
 ---
 
@@ -81,13 +85,15 @@ Delivery is at least once, and `event_id` stays the same on every retry of an ev
 
 ---
 
-The 12 late orders on 2026-09-15 had `label.created` events that failed on the first try and the first four retries. The fifth retry comes 6 h after the fourth, so those labels landed after 21:00. A dropped event does not lose the label, since `GET /v1/shipments/{shipment_id}` still returns it, so reading the stragglers recovers them long before the collection. This touches only shipments still waiting, which keeps it inside the rate limit that ruled out polling only.
+The 12 late orders on 2026-09-15 had `label.created` events that failed on the first try and the first four retries. The fifth retry comes 6 h after the fourth, so those labels landed after 21:00.
+
+A dropped event does not lose the label, since `GET /v1/shipments/{shipment_id}` still returns it, so reading the stragglers recovers them long before the collection. This touches only shipments still waiting, which keeps it inside the rate limit that ruled out polling only.
 
 **Checklist**
 
 - [ ] A shipment with no label 10 minutes after its POST gets `GET /v1/shipments/{shipment_id}`
-- [ ] When the GET returns `label_ready`, the `tracking_number` and `label_url` are handled exactly as a `label.created` event would be, including the copy of the label file into our own storage
-- [ ] A `label.created` that arrives after the 10-minute GET already took the label changes nothing: no second label copy, no new tracking number and no warehouse system call
+- [ ] When the GET returns `label_ready`, `tracking_number` and `label_url` are handled exactly as for a `label.created` event, including copying the label file to our own storage
+- [ ] A `label.created` arriving after the 10-minute GET already took the label changes nothing: no second label copy, new tracking number or warehouse system call
 - [ ] A label already taken from a `label.created` event is not processed again when a GET for the same shipment returns it
 - [ ] GETs share the 20 requests per second account limit with the POSTs, and a `429` is retried after the seconds in its `Retry-After` header
 

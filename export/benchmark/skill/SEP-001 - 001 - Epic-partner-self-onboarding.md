@@ -7,7 +7,9 @@ Partner Hub self-onboarding replaces the hand setup Ops agents do today for new 
 
 ### Problem
 * * *
-Every new property on Roamstay is set up by hand. A partner fills in a short sign-up form, then an Ops agent collects photos, room types, rates, policies, city tax, bank details and identity documents by email and builds the listing in Back office. Most partners who drop out do so while they wait for an agent to reply, not while they fill anything in. On exit calls they say they heard nothing for days and listed their rooms somewhere else.
+Every new property on Roamstay is set up by hand. A partner fills in a short sign-up form, then an Ops agent collects photos, room types, rates, policies, city tax, bank details and identity documents by email and builds the listing in Back office.
+
+Most partners who drop out do so while they wait for an agent to reply, not while they fill anything in. On exit calls they say they heard nothing for days and listed their rooms somewhere else.
 
 **The following issues rise from that:**
 *   Median time from sign-up to go-live is 11 business days
@@ -33,7 +35,8 @@ Target: 1,500 properties live through self-onboarding by 2027-06-30. For scale, 
 In order to get there, we will:
 *   Move property setup into Partner Hub as six stages the partner completes in order, with the option to save and come back at any point
 *   Put identity checks and an Ops agent review in front of go-live, and hold payouts until the bank account and identity checks pass
-*   Keep properties with more than 40 rooms and chains on the assisted path with a partner manager, and keep properties that run a channel manager on assisted onboarding until the channel manager connection ships
+*   Keep properties with more than 40 rooms and chains on the assisted path with a partner manager
+*   Keep properties that run a channel manager on assisted onboarding until the channel manager connection ships
 
 #### **References**
 * * *
@@ -43,7 +46,9 @@ Sources
 
 ## Scope
 * * *
-Each child story owns one stage and carries its own detailed requirements and acceptance criteria. All six stages ship in the first release. Partner squad owns stages 1 to 4 in Partner Hub and `partner-service`. Payments squad owns payout details and the handover to the payment provider in stage 5. Ops Tools squad builds the Go-live review queue in Back office for stage 6, and Bram, Ops Lead, has agreed to pilot it with his agents.
+Each child story owns one stage and carries its own detailed requirements and acceptance criteria, and all six stages ship in the first release. Partner squad owns stages 1 to 4 in Partner Hub and `partner-service`, and Payments squad owns payout details and the handover to the payment provider in stage 5.
+
+Ops Tools squad builds the Go-live review queue in Back office for stage 6, and Bram, Ops Lead, has agreed to pilot it with his agents.
 
 #### Getting verified
 * * *
@@ -51,24 +56,31 @@ Each child story owns one stage and carries its own detailed requirements and ac
 
 #### Building the listing
 * * *
-*   Partner - Self-onboarding - Property profile and photos: address and map pin, description, facilities and at least `8` photos of up to `20 MB` each, with size and resolution checked on upload
-*   Partner - Self-onboarding - Rooms and rates setup: room types with their occupancy, a base price per night and at least one rate plan, either free cancellation or non-refundable
-*   Partner - Self-onboarding - Policies and city tax: check-in and check-out times, the cancellation policy per rate plan, house rules and the city tax rule, per adult per night or per stay
+Photos are checked for size and resolution on upload, and the city tax rule is set per adult per night or per stay.
+
+*   Partner - Self-onboarding - Property profile and photos: address and map pin, description, facilities and at least `8` photos of up to `20 MB` each
+*   Partner - Self-onboarding - Rooms and rates setup: room types with occupancy, a base price per night and at least one rate plan, free cancellation or non-refundable
+*   Partner - Self-onboarding - Policies and city tax: check-in and check-out times, the cancellation policy per rate plan, house rules and the city tax rule
 
 #### Getting paid
 * * *
-*   Partner - Self-onboarding - Payout details and identity checks: bank account and the owner's identity document, checked by the identity verification provider, with no payout before both pass. Only a Partner Hub Owner can change payout details
+No payout goes out before the bank account and identity checks pass, and only a Partner Hub Owner can change payout details.
+
+*   Partner - Self-onboarding - Payout details and identity checks: bank account and the owner's identity document, checked by the identity verification provider
 
 #### Going live
 * * *
-*   Ops agent - Self-onboarding - Go-live review queue: an Ops agent checks the finished listing in Back office within `1 business day`, including the city tax rule on every listing, then approves it or sends it back with a reason per stage
+The Go-live review checks the city tax rule on every listing, and a sent-back listing carries a reason per stage.
+
+*   Ops agent - Self-onboarding - Go-live review queue: an Ops agent checks the finished listing in Back office within `1 business day`, then approves it or sends it back
 
 #### Added Later
 * * *
 Capabilities that belong to the epic but do not block the first release.
 
 **Channel manager connection**
-*   Lets a partner who runs a channel manager connect it during self-onboarding, which is its own integration project. Until it ships, these partners stay on assisted onboarding
+*   Lets a partner who runs a channel manager connect it during self-onboarding, which is its own integration project
+*   Until it ships, these partners stay on assisted onboarding
 * * *
 ##   
 
@@ -137,7 +149,8 @@ Each squad sizes its own child stories before planning closes: Partner squad for
 * * *
 Areas that could waste effort, create ambiguity or distract from the intended outcome.
 
-*   The brief does not say how a property with more than 40 rooms, a chain or a property that runs a channel manager is identified at sign-up and moved to the assisted path
+*   The brief does not say how sign-up identifies a property with more than 40 rooms, a chain or a property that runs a channel manager
+*   Nor does it say how such a property moves to the assisted path
 *   The business registration check runs against each country's business register, and Roamstay lists properties across Europe and the United States
 *   The photo step checks resolution on upload, and the brief sets no minimum resolution
 *   The Go-live review queue has to hold `1 business day` as volume grows toward 1,500 self-onboarded properties
