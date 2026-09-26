@@ -1,0 +1,87 @@
+file,clean,hard_violations,violations,extraction_confidence
+PBG-001-turn1.txt,False,1,bullet_ends_with_full_stopx6,high
+PBG-002-turn1.txt,False,1,bullet_ends_with_full_stopx6,high
+PBG-002-turn2.txt,False,1,bullet_ends_with_full_stopx9,high
+PBG-003-turn1.txt,True,0,none,high
+PBG-003-turn2.txt,False,1,bullet_ends_with_full_stopx5,high
+PDK-001-turn1.txt,False,2,"em_dashx5, bullet_ends_with_full_stopx9",high
+PDK-001-turn2.txt,False,2,"em_dashx4, bullet_ends_with_full_stopx10",high
+PDK-002-turn1.txt,False,1,bullet_ends_with_full_stopx3,high
+PDK-002-turn2.txt,False,1,bullet_ends_with_full_stopx13,high
+PDK-003-turn1.txt,False,2,"em_dashx1, bullet_ends_with_full_stopx9",high
+PDK-003-turn2.txt,False,1,bullet_ends_with_full_stopx5,high
+PDK-004-turn1.txt,False,1,bullet_ends_with_full_stopx2,high
+PDK-004-turn2.txt,False,2,"em_dashx3, bullet_ends_with_full_stopx9",high
+PEP-001-turn1.txt,True,0,none,high
+PEP-001-turn2.txt,False,2,"bullet_ends_with_full_stopx6, more_than_one_ellipsisx2",high
+PEP-002-turn1.txt,False,1,bullet_ends_with_full_stopx3,high
+PEP-002-turn2.txt,False,1,bullet_ends_with_full_stopx7,high
+PEP-003-turn1.txt,False,1,bullet_ends_with_full_stopx4,high
+PID-001-turn1.txt,False,1,bullet_ends_with_full_stopx5,high
+PID-001-turn2.txt,False,1,bullet_ends_with_full_stopx13,high
+PIR-001-turn1.txt,True,0,none,high
+PIR-001-turn2.txt,False,1,bullet_ends_with_full_stopx10,high
+PIR-002-turn1.txt,True,0,none,high
+PIR-002-turn2.txt,False,1,bullet_ends_with_full_stopx2,high
+PST-001-turn1.txt,True,0,none,high
+PST-001-turn2.txt,False,1,bullet_ends_with_full_stopx8,high
+PST-002-turn1.txt,False,2,"bullet_ends_with_full_stopx6, more_than_one_ellipsisx3",high
+PST-002-turn2.txt,False,2,"bullet_ends_with_full_stopx3, more_than_one_ellipsisx3",high
+PST-003-turn1.txt,False,2,"bullet_ends_with_full_stopx14, more_than_one_ellipsisx4",high
+PST-003-turn2.txt,False,2,"bullet_ends_with_full_stopx3, more_than_one_ellipsisx2",high
+PST-004-turn1.txt,False,3,"bullet_ends_with_full_stopx3, more_than_one_ellipsisx2, copula:acts asx1",high
+PST-004-turn2.txt,False,2,"bullet_ends_with_full_stopx4, copula:acts asx1",high
+PTK-001-turn1.txt,False,1,bullet_ends_with_full_stopx4,high
+PTK-002-turn1.txt,False,1,bullet_ends_with_full_stopx3,high
+PTK-002-turn2.txt,False,1,bullet_ends_with_full_stopx6,high
+PTK-003-turn1.txt,False,1,bullet_ends_with_full_stopx1,high
+PTK-003-turn2.txt,False,1,bullet_ends_with_full_stopx6,high
+PTK-004-turn1.txt,False,1,bullet_ends_with_full_stopx7,high
+PTK-004-turn2.txt,False,1,bullet_ends_with_full_stopx6,high
+PTK-005-turn1.txt,False,1,bullet_ends_with_full_stopx8,high
+PTK-005-turn2.txt,False,1,bullet_ends_with_full_stopx9,high
+PTK-006-turn1.txt,False,1,bullet_ends_with_full_stopx4,high
+PTK-006-turn2.txt,False,2,"bullet_ends_with_full_stopx5, copula:stands asx1",high
+SBG-001-turn1.txt,False,1,bullet_ends_with_full_stopx4,high
+SBG-002-turn1.txt,False,1,bullet_ends_with_full_stopx4,high
+SBG-002-turn2.txt,False,1,bullet_ends_with_full_stopx6,high
+SBG-003-turn1.txt,False,1,bullet_ends_with_full_stopx6,high
+SBG-003-turn2.txt,False,1,bullet_ends_with_full_stopx8,high
+SDK-001-turn1.txt,False,1,bullet_ends_with_full_stopx7,high
+SDK-001-turn2.txt,False,1,bullet_ends_with_full_stopx7,high
+SDK-002-turn1.txt,False,1,bullet_ends_with_full_stopx3,high
+SDK-002-turn2.txt,False,1,bullet_ends_with_full_stopx2,high
+SDK-003-turn1.txt,True,0,none,high
+SDK-003-turn2.txt,True,0,none,high
+SDK-004-turn1.txt,False,1,bullet_ends_with_full_stopx4,high
+SDK-004-turn2.txt,False,1,bullet_ends_with_full_stopx10,high
+SEP-001-turn1.txt,False,1,bullet_ends_with_full_stopx6,high
+SEP-001-turn2.txt,False,2,"semicolonx1, bullet_ends_with_full_stopx7",high
+SEP-002-turn1.txt,False,1,bullet_ends_with_full_stopx1,high
+SEP-002-turn2.txt,False,1,bullet_ends_with_full_stopx5,high
+SEP-003-turn1.txt,False,1,bullet_ends_with_full_stopx4,high
+SID-001-turn1.txt,True,0,none,high
+SID-001-turn2.txt,False,2,"semicolonx1, bullet_ends_with_full_stopx1",high
+SIR-001-turn1.txt,False,1,bullet_ends_with_full_stopx3,high
+SIR-001-turn2.txt,False,2,"em_dashx1, bullet_ends_with_full_stopx7",high
+SIR-002-turn1.txt,False,1,bullet_ends_with_full_stopx2,high
+SIR-002-turn2.txt,False,1,bullet_ends_with_full_stopx2,high
+SST-001-turn1.txt,False,1,bullet_ends_with_full_stopx1,high
+SST-001-turn2.txt,False,1,bullet_ends_with_full_stopx5,high
+SST-002-turn1.txt,False,1,bullet_ends_with_full_stopx1,high
+SST-002-turn2.txt,False,1,bullet_ends_with_full_stopx2,high
+SST-003-turn1.txt,False,1,bullet_ends_with_full_stopx9,high
+SST-003-turn2.txt,False,1,bullet_ends_with_full_stopx3,high
+SST-004-turn1.txt,False,1,bullet_ends_with_full_stopx10,high
+SST-004-turn2.txt,False,1,bullet_ends_with_full_stopx4,high
+STK-001-turn1.txt,False,1,bullet_ends_with_full_stopx4,high
+STK-002-turn1.txt,False,1,bullet_ends_with_full_stopx2,high
+STK-002-turn2.txt,False,1,bullet_ends_with_full_stopx3,high
+STK-003-turn1.txt,False,1,bullet_ends_with_full_stopx8,high
+STK-003-turn2.txt,False,1,bullet_ends_with_full_stopx5,high
+STK-004-turn1.txt,False,1,bullet_ends_with_full_stopx6,high
+STK-004-turn2.txt,False,1,bullet_ends_with_full_stopx3,high
+STK-005-turn1.txt,False,1,bullet_ends_with_full_stopx3,high
+STK-005-turn2.txt,False,1,bullet_ends_with_full_stopx7,high
+STK-006-turn1.txt,False,1,bullet_ends_with_full_stopx3,high
+STK-006-turn2.txt,False,1,bullet_ends_with_full_stopx8,high
