@@ -1,0 +1,97 @@
+{
+ "id": "PID-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-identity/identity-handover.md",
+ "twin": "SID-001",
+ "engine": "claude",
+ "model": "claude-opus-5-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "attachments": [
+  {
+   "basename": "loomlist-context.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+   "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+  }
+ ],
+ "session_id": "2103c998-7c8c-454b-aaa4-3c654456c0d1",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 44.05,
+   "tool_calls": 6,
+   "tools_used": [
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Grep",
+    "Read"
+   ],
+   "input_tokens": 139055,
+   "output_tokens": 3501,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.41529000000000005,
+   "model_s": 43.23,
+   "startup_s": 0.58,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$task Small front end task for a \"Due today\" filter chip on the To-dos view, the chips we have today are described in context/loomlist-context.md"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 46.66,
+   "tool_calls": 5,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 158072,
+   "output_tokens": 4119,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.709495,
+   "model_s": 44.86,
+   "startup_s": 1.54,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Front end, Web only for now, Desktop gets it through the web client and the apps follow later. The chip goes right after Overdue and shows to-dos not checked off that are due today in the owner's time zone, sorted by due date like the other chips, and only one chip is active at a time. Picking it sends filter_selected with filter set to due_today, which Yara has already added to the tracking plan. No Figma, reuse the existing chip, and nothing else depends on it."
+  }
+ ]
+}

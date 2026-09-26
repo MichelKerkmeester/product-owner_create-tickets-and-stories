@@ -1,0 +1,101 @@
+{
+ "id": "PST-002",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/story-forced-delivery.md",
+ "twin": "SST-002",
+ "engine": "claude",
+ "model": "claude-opus-5-5",
+ "thinking": "medium",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "attachments": [
+  {
+   "basename": "loomlist-context.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+   "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+  },
+  {
+   "basename": "loomlist-view-only-links-design-notes.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-view-only-links-design-notes.md",
+   "sha256": "3851e6b466c1b49fac4c3baa67b940a6900ac38c98f8c3c772f9418945b8baa8"
+  }
+ ],
+ "session_id": "1314bbb6-b00d-4ce9-931f-6a02448e8e6c",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 51.13,
+   "tool_calls": 8,
+   "tools_used": [
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Grep",
+    "Grep",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 199549,
+   "output_tokens": 4508,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.4158684,
+   "model_s": 50.47,
+   "startup_s": 0.46,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$story View-only share links for the Sharing team, from Kofi's design notes in context/loomlist-view-only-links-design-notes.md. Workspace background is in context/loomlist-context.md."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 75.37,
+   "tool_calls": 2,
+   "tools_used": [
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 108431,
+   "output_tokens": 8001,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.6609258,
+   "model_s": 74.62,
+   "startup_s": 0.51,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Agencies on Plus asked for this most, they invite clients as guests today just so they can read one page. Lena still hasn't settled the sub-page question with the security reviewer and it won't be settled before the build starts, so keep it open in the story."
+  }
+ ]
+}
