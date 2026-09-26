@@ -1,7 +1,7 @@
 ---
 title: "PBG-002 -- Support ticket bug"
 description: "Validates that a bug command handing over a Roamstay support ticket renders one evidence question as a clarification block, waits, then renders a bug block that keeps the ticket's amounts, scope and the fact that the charge is right while the Android total is wrong."
-version: 1.0.0.0
+version: 1.0.0.1
 ---
 
 # PBG-002 -- Support ticket bug
@@ -88,9 +88,9 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Clarification turns, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, the explicit-command wait, the Deliverable Block and the export-equivalent contract |
-| [`Product Owner - Templates - Bug Mode - v0.203.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Bug%20Mode%20-%20v0.203.md) | Project bug workflow, evidence rules, Frequency recovery and fixed structure |
-| [`Product Owner - Assets - Bug Report Template - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Bug%20Report%20Template%20-%20v0.100.md) | Field table, Frequency rules and Checklist |
-| [`Product Owner - System - Interactive Mode - v0.405.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.405.md) | Clarification delivery contract |
+| [`Product Owner - Templates - Bug Mode - v0.204.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Bug%20Mode%20-%20v0.204.md) | Project bug workflow, evidence rules, Frequency recovery and fixed structure |
+| [`Product Owner - Assets - Bug Report Template - v0.101.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Bug%20Report%20Template%20-%20v0.101.md) | Field table, Frequency rules and Checklist |
+| [`Product Owner - System - Interactive Mode - v0.406.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.406.md) | Clarification delivery contract |
 | [`roamstay-context.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-context.md) | Attachment: surfaces, app versions, city tax and Pay now |
 | [`roamstay-support-ticket-58213.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-support-ticket-58213.md) | Attachment: the chat, the Back office breakdown, the agent's tests and the escalation |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |

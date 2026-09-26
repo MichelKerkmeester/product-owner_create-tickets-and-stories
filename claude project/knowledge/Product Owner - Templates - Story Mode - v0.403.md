@@ -1,4 +1,4 @@
-# Product Owner - Templates - Story Mode - v0.402
+# Product Owner - Templates - Story Mode - v0.403
 
 Story-mode guidance for the two Barter house-format artifact kinds: **Stories** and **Epics**. A Story covers one feature area with a few outcome-led acceptance criteria and, where the delivery has hard constraints, a Requirements section that holds only those. An Epic frames an initiative split across child stories, with a Goal, a Scope and release-level acceptance criteria, and no requirements of its own. Both stay prose-first, share the same ClickUp grammar and the same opt-in `## Delivery` close, and reach for heavier machinery (a User Story promise block, per-requirement value lines, exact Rule blocks, Definition of Ready/Done gates) only as optional enrichment.
 
@@ -38,7 +38,7 @@ Research and feasibility spikes: work whose deliverable is a decision rather tha
 - **Energy override:** `$quick` or `$q` may accompany any of these
 - **Output:** One markdown artifact in the Barter house format
 - **Thinking:** Rigor scales with the selected energy
-- **Interactive behavior:** Ask one consolidated question only when role, value, requirement shape or artifact kind cannot be established safely
+- **Interactive behavior:** With no command, ask one consolidated question only when role, value, requirement shape or artifact kind cannot be established safely. An explicit command routes the request and does not stand in for the direction, so `$story`, `$s`, `$prd`, `$p`, `$epic` and `$e` still ask their context-specific question and wait. Only `$quick` or `$q` may skip routine intake
 - Stopping to ask still produces a deliverable. Render the question as its own Deliverable Block in this mode's lane, labelled `export/[###] - {artifact}-[description]-clarification.md`, holding the question and nothing else, so the request is not lost between sessions
 
 `$story`, `$s`, `$prd`, `$p`, `$epic` and `$e` are exact, standalone tokens. Strings such as `$stories`, `$prds`, `$epics`, `$sort`, `$email`, `$e.md`, or text that merely contains `$s` or `$e` are not Story Mode commands.
@@ -179,7 +179,7 @@ Apply the artifact-kind selection above. State the chosen kind in the delivery r
 
 - The `## About` umbrella: narrative scope and promise, then the opening group sections in the order the resolved shape's scaffold sets
 - **Story:** `### Problem`, `### Solution`, `#### **Expected outcomes**`, `#### **References**` (supplied links only), then `## Requirements` only when the delivery has hard constraints to state, each group a bold name, a divider and one constraint per bullet. No outcomes there, no checklist, no images
-- **Epic:** `### Problem`, `### Goal` (with direct benefits), `### Solution`, `#### **References**`, then `## Scope` with child-story groups and an optional `#### Added Later` group. No `## Requirements`
+- **Epic:** `### Problem`, `### Goal` (with direct benefits), `### Solution`, `#### **References**` (supplied links only, omitted when none are supplied, never left empty or given an invented link), then `## Scope` with child-story groups and an optional `#### Added Later` group. No `## Requirements`
 - `## Acceptance criteria`: a few numbered Given/When/Then blocks, each an outcome the user can rely on with the how left open, and a Mark-as-done checkbox that no divider separates from the next criterion, closing with a `* * *` above the section's `##   ` spacer. Story criteria cover the surfaces the story touches (optional `#### {Group}` headers when it spans several). Epic criteria stay release-level
 - `## Delivery`, only when the requester asked for it or an `**Open:**` line or an undated external constraint forced it: Estimation, Rabbit holes, No-gos, in that order, `TBD...` where unknown. Otherwise the artifact ends on Acceptance criteria
 - Optional enrichments from section 6 (per-requirement value line, Rule block, Which-means-that, Definition of Ready/Done, User Story promise block, `← PRIO`) only where they earn their place

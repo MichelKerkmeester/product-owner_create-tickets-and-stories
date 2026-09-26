@@ -1,7 +1,7 @@
 ---
 title: "PST-001 -- Story hard values"
 description: "Validates that a plain-words Roamstay Story request in a Project waits for the input the PM promised, then renders a house-format Story that keeps every hard value from the PM notes in its own notation."
-version: 1.0.0.0
+version: 1.0.0.1
 ---
 
 # PST-001 -- Story hard values
@@ -88,10 +88,10 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Line 85 the block without a Canvas panel, line 108 one question when scope is missing, line 140 house format, lines 226 and 228 Story and clarification labels, line 233 no `Path:`, `Saved:` or `Verified:` |
-| [`Product Owner - Templates - Story Mode - v0.402.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.402.md) | Line 42 clarification block, line 52 verbatim hard values, line 53 source grouping, line 115 naming the kind, line 126 Requirements hold hard constraints only, line 172 accounting for every value |
+| [`Product Owner - Templates - Story Mode - v0.403.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.403.md) | Line 42 clarification block, line 52 verbatim hard values, line 53 source grouping, line 115 naming the kind, line 126 Requirements hold hard constraints only, line 172 accounting for every value |
 | [`Product Owner - Assets - Story Template - v0.100.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Story%20Template%20-%20v0.100.md) | Lines 21 to 85 Story scaffold, line 94 Requirements mandatory once one hard value is supplied |
-| [`Product Owner - System - Interactive Mode - v0.405.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.405.md) | Lines 146 to 155 Story intake gate and its one question |
-| [`Product Owner - Assets - Interactive Response Templates - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.102.md) | Lines 91 to 104 Story context question |
+| [`Product Owner - System - Interactive Mode - v0.406.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.406.md) | Lines 146 to 155 Story intake gate and its one question |
+| [`Product Owner - Assets - Interactive Response Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.103.md) | Lines 91 to 104 Story context question |
 | [roamstay-context.md](../../../benchmark/fixtures/companies/roamstay/roamstay-context.md) | Company context: Guest app surfaces, story title pattern, `filter_applied` convention |
 | [roamstay-free-cancellation-pm-notes.md](../../../benchmark/fixtures/companies/roamstay/roamstay-free-cancellation-pm-notes.md) | The PM notes holding every hard value |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |
