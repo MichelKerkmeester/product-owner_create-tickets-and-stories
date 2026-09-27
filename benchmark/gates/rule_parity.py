@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: RULE PARITY GATE
+# ───────────────────────────────────────────────────────────────
+
 """Hold each named Product Owner rule on both sides of its declared pair.
 
 `benchmark/parity/` already checks that every declared mirror exists and that
@@ -49,6 +53,10 @@ Environment:
 """
 import os
 import sys
+
+# ───────────────────────────────────────────────────────────────
+# 1. CONFIGURATION
+# ───────────────────────────────────────────────────────────────
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 # Always the real system root, regardless of CW_ROOT, so the declaration this
@@ -123,6 +131,10 @@ RULES = {
     },
 }
 
+# ───────────────────────────────────────────────────────────────
+# 2. HELPERS
+# ───────────────────────────────────────────────────────────────
+
 
 def load_systems():
     """The shared SYSTEMS declaration, read as source text, never imported.
@@ -193,7 +205,13 @@ def inside(root, path):
     return target == root or target.startswith(root + os.sep)
 
 
+# ───────────────────────────────────────────────────────────────
+# 3. CORE LOGIC
+# ───────────────────────────────────────────────────────────────
+
+
 def main() -> int:
+    """Compare every declared pair and report each rule that drifted."""
     systems, problem = load_systems()
     if problem is not None:
         print(problem, file=sys.stderr)
@@ -265,6 +283,11 @@ def main() -> int:
         return 1
     print(f"PASSED {len(RULES)} rules hold on both sides of every pair that teaches them")
     return 0
+
+
+# ───────────────────────────────────────────────────────────────
+# 4. ENTRY POINT
+# ───────────────────────────────────────────────────────────────
 
 
 if __name__ == "__main__":

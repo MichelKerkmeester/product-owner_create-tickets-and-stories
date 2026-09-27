@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: ROUTE CONTRACT GATE
+# ───────────────────────────────────────────────────────────────
 # Deterministic route-contract gate.
 #
 # Two checks run, and the gate fails if either one does.
@@ -13,8 +16,13 @@
 # agrees with it on tables, on each detection layer and on the whole route
 # object. Fixtures alone cannot catch prose and code drifting together in the
 # same wrong direction, and this catches it.
+#
+# Exit Codes:
+#   0 - Every check passed
+#   1 - At least one check failed
+#   2 - The run was refused before anything was checked
 set -uo pipefail
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit 2
 
 status=0
 python3 route_contract.py fixtures.json || status=1
