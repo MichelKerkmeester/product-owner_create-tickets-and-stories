@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: HUMAN VOICE HARD-BLOCKER LINTER
+# ───────────────────────────────────────────────────────────────
+
 """Deterministic Human Voice hard-blocker linter for Product Owner replies.
 
 Usage: hvr_lint.py <file>   ->  prints JSON {file, clean, violations:[{type,count,samples}]}
@@ -52,6 +56,10 @@ list stay `hard` at any confidence, because an em dash or a semicolon is not
 a matter of narration versus deliverable.
 """
 import sys, json, re
+
+# ───────────────────────────────────────────────────────────────
+# 1. CONFIGURATION
+# ───────────────────────────────────────────────────────────────
 
 # Section 3, HARD BLOCKER WORDS, verbatim, minus the six terms the same
 # section calls out as "blocked as metaphor, allowed when literal"
@@ -130,6 +138,11 @@ BULLET_FULL_STOP = re.compile(r"^[ \t]*[*\-]\s+.*[^.\n]\.[ \t]*$", re.M)
 NOT_JUST_X_BUT = re.compile(r"not (?:just|only) .{1,40}? but", re.I)
 
 
+# ───────────────────────────────────────────────────────────────
+# 2. HELPERS
+# ───────────────────────────────────────────────────────────────
+
+
 def extract_deliverable(raw: str):
     """Return (text, confidence): the reply body with delivery metadata cut.
 
@@ -148,6 +161,7 @@ def extract_deliverable(raw: str):
 
 
 def samples(pattern, text, n=2):
+    """Up to `n` context windows around each match, for the samples list."""
     out = []
     for m in pattern.finditer(text):
         s = text[max(0, m.start() - 25): m.end() + 25].replace("\n", " ")
@@ -171,7 +185,13 @@ def _exempt_em_dash_lines(text):
     return exempt
 
 
+# ───────────────────────────────────────────────────────────────
+# 3. CORE LOGIC
+# ───────────────────────────────────────────────────────────────
+
+
 def lint(text: str, confidence: str = "high"):
+    """Every hard-blocker finding in `text`, each typed, counted and sampled."""
     v = []
 
     def add(kind, pat, severity="hard", count=None, sample_list=None):
@@ -236,7 +256,13 @@ def lint(text: str, confidence: str = "high"):
     return v
 
 
+# ───────────────────────────────────────────────────────────────
+# 4. ENTRY POINT
+# ───────────────────────────────────────────────────────────────
+
+
 def main():
+    """Lint one reply file and print the finding report as JSON."""
     if len(sys.argv) < 2:
         print("usage: hvr_lint.py <reply file>", file=sys.stderr)
         sys.exit(64)

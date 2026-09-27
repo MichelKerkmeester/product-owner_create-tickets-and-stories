@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: OUTPUT FORMAT FIXTURE RUNNER
+# ───────────────────────────────────────────────────────────────
 # Regression gate for the output-format validator's own mechanics.
 #
 # Each case pins behavior that regressed once already: a path mask that
@@ -7,12 +10,25 @@
 # taking the clean missing-file exit. The conciseness cases at the bottom pin
 # the four checks that turned blocking once their vocabulary was written into
 # the always-loaded instruction surface.
+#
+# Exit Codes:
+#   0 - Every case passed
+#   1 - At least one case failed
+#   2 - The script directory could not be entered, so nothing ran
 set -uo pipefail
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit 2
+
+# ───────────────────────────────────────────────────────────────
+# 1. CONFIGURATION
+# ───────────────────────────────────────────────────────────────
 
 VALIDATOR="./validate-output-format.cjs"
 FIXTURES="./fixtures"
 failures=0
+
+# ───────────────────────────────────────────────────────────────
+# 2. HELPERS
+# ───────────────────────────────────────────────────────────────
 
 check() {
   local name="$1" expected_exit="$2" pattern="$3" antipattern="$4"
@@ -44,6 +60,10 @@ check() {
   fi
   echo "PASS ${name}"
 }
+
+# ───────────────────────────────────────────────────────────────
+# 3. FIXTURE CASES
+# ───────────────────────────────────────────────────────────────
 
 # A prose em dash after a slash-bearing token stays visible.
 check "path mask keeps a real violation" 1 "mask-paths-violation.md:6: prose em dash" "" \
@@ -177,6 +197,10 @@ check "length caps: lines at the caps, code, tables, quotes and Given/When/Then 
   "${FIXTURES}/length-caps-silent.md"
 check "length caps: a References block inside About is not counted as its opening" 0 "validation passed" "About opening" \
   "${FIXTURES}/length-caps-silent.md"
+
+# ───────────────────────────────────────────────────────────────
+# 4. RESULT
+# ───────────────────────────────────────────────────────────────
 
 if [ "$failures" -ne 0 ]; then
   echo "${failures} format-validator fixture(s) failed"

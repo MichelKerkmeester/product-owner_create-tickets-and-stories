@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: REPORT CHECK RUNNER
+# ───────────────────────────────────────────────────────────────
 # Run every after-the-fact check a finished playbook report supports.
 #
 # The manual testing playbook persists one PASS/FAIL/SKIP verdict per
@@ -16,6 +19,13 @@
 # failed to run. A dirty reply or a diverging twin is a finding about the
 # runtime that produced it, not a defect in this repository, and a caller
 # reading the code should reach for the output rather than a revert.
+#
+# Exit Codes:
+#   0 - Every check ran clean
+#   1 - One check reported findings or could not run
+#   2 - Both checks reported findings or could not run
+#   64 - No run report directory was given
+#   66 - The run report directory does not exist
 set -uo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 # Not ${1:?...}, which exits 1, and 1 already means one check reported findings.

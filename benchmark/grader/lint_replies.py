@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: PLAYBOOK REPLY LINTER
+# ───────────────────────────────────────────────────────────────
+
 """Run the HVR hard-blocker linter over every reply a playbook run captured.
 
 The manual testing playbook (`sk-product-owner/manual-testing-playbook/`)
@@ -48,6 +52,7 @@ def replies_dir(target: Path) -> Path:
 
 
 def lint_file(path: Path) -> dict:
+    """One summary row for a reply file, ready for both the CSV and the table."""
     raw = path.read_text(encoding="utf-8", errors="replace")
     text, confidence = extract_deliverable(raw)
     violations = lint(text, confidence)
@@ -62,6 +67,7 @@ def lint_file(path: Path) -> dict:
 
 
 def main(argv) -> int:
+    """Lint one reply or a whole run's replies, report, and return the exit code."""
     if len(argv) < 2:
         print("usage: lint_replies.py <run report dir or replies dir>", file=sys.stderr)
         return 64

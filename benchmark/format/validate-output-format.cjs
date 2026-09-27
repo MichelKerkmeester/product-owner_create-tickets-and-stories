@@ -1,7 +1,18 @@
 #!/usr/bin/env node
+// ───────────────────────────────────────────────────────────────────
+// MODULE: Output Format Validator
+// ───────────────────────────────────────────────────────────────────
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 1. IMPORTS
+// ─────────────────────────────────────────────────────────────────────────────
 
 const fs = require('fs');
 const path = require('path');
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 2. CONFIGURATION
+// ─────────────────────────────────────────────────────────────────────────────
 
 const systemRoot = path.resolve(__dirname, '../..');
 const skillRoot = path.join(systemRoot, 'sk-product-owner');
@@ -130,7 +141,9 @@ const closesSection = (lines, dividerIndex) => {
   return nextIndex >= 0 && SPACER_HEADING.test(lines[nextIndex]);
 };
 
-// --- masking -----------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// 3. MASKING
+// ─────────────────────────────────────────────────────────────────────────────
 // Quoted spans hold cited material, so a document naming a banned phrase is
 // not using it. Path-like spans carry structural punctuation that no voice
 // rule governs. Both are blanked before any prose rule runs.
@@ -204,6 +217,10 @@ const stripLeadIn = (line) =>
     .replace(/^(?:\*\*|__|\*|_)\s*/, '');
 const stripEmphasis = (text) => text.replace(/[*_]+/g, '');
 
+// ─────────────────────────────────────────────────────────────────────────────
+// 4. SANCTIONED SHAPES
+// ─────────────────────────────────────────────────────────────────────────────
+
 // The definition delimiter names a term and then defines it.
 const SANCTIONED_DEFINITION = /^\* {3}\*\*.+?\*\* — /;
 
@@ -212,7 +229,9 @@ const SANCTIONED_DEFINITION = /^\* {3}\*\*.+?\*\* — /;
 // hide where the label ends and the scope begins.
 const SANCTIONED_STATUS = /^(?:\* {3})?(?:\*\*)?Status:(?:\*\*)?\s.+ — /;
 
-// --- word lists --------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// 5. WORD LISTS
+// ─────────────────────────────────────────────────────────────────────────────
 // The first three lists drive blocking checks. Every term in them is stated
 // verbatim in the always-loaded conciseness layer, which is what earns them
 // the right to block: the writer is given the same list the gate holds. The
@@ -294,7 +313,9 @@ const startsWithAny = (sentence, openers) => {
   return openers.find((opener) => normalised.startsWith(opener));
 };
 
-// --- the Human Voice blocker vocabulary --------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// 6. CARD VOCABULARY
+// ─────────────────────────────────────────────────────────────────────────────
 // The always-loaded card carries the whole blocker list inline, so the gate
 // reads that list out of the card rather than keeping a second copy of it. A
 // second copy is how the card and the gate come to disagree, and the writer is
@@ -430,7 +451,9 @@ if (vocabulary.missing && lintingArtifacts) {
   errors.push(`${hvrCard}: the ALWAYS-loaded Human Voice card is absent, so its blocker list cannot be read`);
 }
 
-// --- artifact purity ---------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// 7. ARTIFACT PURITY
+// ─────────────────────────────────────────────────────────────────────────────
 // A deliverable carries the deliverable. A score, a dimension breakdown, a
 // voice self-scan, a hard blocker count and an assumption ledger are delivery
 // metadata: they belong in the reply, and inside the file only in the line-1
@@ -581,7 +604,9 @@ function processShape(visible) {
 // preamble, the one that does not is an Epic and correctly omits it, and none has
 // an unnumbered criteria block.
 
-// --- the house grammar shape -------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// 8. HOUSE GRAMMAR
+// ─────────────────────────────────────────────────────────────────────────────
 // Gated on the house divider, the same way the deal rules are gated on the deal
 // export's headings, so a deliverable in another grammar never meets them.
 // Measured across the twenty-nine house-grammar worked examples, scaffold
@@ -612,7 +637,9 @@ function houseGrammarFindings(prose, lines) {
   return findings;
 }
 
-// --- the score section shape -------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// 9. SCORE SECTION SHAPE
+// ─────────────────────────────────────────────────────────────────────────────
 // One pass rather than one line, because the heading and the body decide this
 // together. The section runs to the next heading at the same level or above.
 function scoreSectionFindings(prose) {
@@ -646,7 +673,9 @@ function scoreSectionFindings(prose) {
   return findings;
 }
 
-// --- the deal artifact shape -------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// 10. DEAL ARTIFACT SHAPE
+// ─────────────────────────────────────────────────────────────────────────────
 // Three rules a deal export carries, each with a fixed string behind it, so all
 // three settle without judgement. They run on a deliverable that carries the
 // export's own two section headings, which is what keeps them off a voice
@@ -770,7 +799,9 @@ function dealArtifactFindings(prose) {
   return findings.sort((left, right) => left.index - right.index);
 }
 
-// --- the cut side that a machine can settle ----------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// 11. CUT RULES
+// ─────────────────────────────────────────────────────────────────────────────
 // Two of the layer's named cut rules resolve deterministically, so both block
 // on a deliverable. Precision uses the same trick the heading echo uses: the
 // sentence has to carry no content of its own beyond the marker, which leaves a
@@ -792,7 +823,9 @@ const EFFORT_REPORT = new RegExp(
   'i',
 );
 
-// --- the keep side, and the perimeter that makes it mean something -----
+// ─────────────────────────────────────────────────────────────────────────────
+// 12. KEEP SIDE
+// ─────────────────────────────────────────────────────────────────────────────
 // Connective inventory and article rate are the two over-compression
 // signatures a machine can count, and both mean something only where sentences
 // carry the reasoning. A headline list, a field block, a hashtag run and a
@@ -825,7 +858,9 @@ const isProseLine = (line) =>
   && !TAG_RUN_SHAPE.test(line)
   && !LABEL_LINE_SHAPE.test(line);
 
-// --- the length caps ---------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// 13. LENGTH CAPS
+// ─────────────────────────────────────────────────────────────────────────────
 // The caps a deliverable's writing is held to: a bullet is one sentence of 25
 // words or fewer, a paragraph at most three sentences and 60 words, and an
 // About or Overview opening at most two paragraphs. The opening is the prose
@@ -948,7 +983,9 @@ function lengthCapFindings(lines, uncommented, proseStart) {
   return findings.sort((left, right) => left.index - right.index);
 }
 
-// --- per-file analysis -------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// 14. PER-FILE ANALYSIS
+// ─────────────────────────────────────────────────────────────────────────────
 function analyse(file, source) {
   const relative = lintingArtifacts ? file : path.relative(systemRoot, file);
   const enforceHvr = hvrEnforced.has(file) || lintingArtifacts;
@@ -1318,6 +1355,10 @@ function analyse(file, source) {
 
   return `${relative}: ${stats.join(', ')}`;
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 15. THE RUN
+// ─────────────────────────────────────────────────────────────────────────────
 
 const statLines = [];
 

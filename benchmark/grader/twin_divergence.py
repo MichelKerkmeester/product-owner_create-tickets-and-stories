@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: TWIN DIVERGENCE REPORTER
+# ───────────────────────────────────────────────────────────────
+
 """Report scenario twins whose two runtimes disagreed in a playbook run.
 
 `sk-product-owner/manual-testing-playbook/manual-testing-playbook.md` runs
@@ -59,11 +63,13 @@ ID = re.compile(r"^([SP])([A-Z]{2})-(\d+)$")
 
 
 def rows(path: Path):
+    """Every row a results.csv holds, as the csv reader returns them."""
     with path.open(encoding="utf-8", newline="") as handle:
         return list(csv.DictReader(handle))
 
 
 def main(argv) -> int:
+    """Pair each twin in a run's results, then report and return the exit code."""
     if len(argv) < 2:
         print("usage: twin_divergence.py <run report dir, or a results.csv>", file=sys.stderr)
         return 64
