@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: PLAYBOOK RUN CHECKER
+# ───────────────────────────────────────────────────────────────
+
 """Check that a playbook run is complete and ran on the model it names.
 
 The runner's exit status says every scenario was attempted. It does not say that
@@ -48,6 +52,7 @@ def split_args(argv):
 
 
 def side_dir(side):
+    """The run subfolder a scenario side records its work under."""
     return "skill" if side == "skill" else "claude project"
 
 
@@ -73,6 +78,7 @@ def models_in(path):
 
 
 def main(argv):
+    """Check one run folder, print each finding, and return the exit code."""
     folder, values = split_args(argv)
     run = os.path.abspath(folder)
     expected, effort = values["model"], values["effort"]

@@ -193,10 +193,10 @@ The collector filed the rounds' 102 deliverables under their own folders in `exp
 | Claude Code | `2.1.282` |
 | Engine, model, effort | `claude`, `claude-opus-5-5`, `medium` (`manifest.json`) |
 | Parallel sessions | `--jobs 4` |
-| `run/playbook_runner.py` | sha256 `868cad2739c77675c4fb829e927a4a719503d12de29e83d1b38d1087fff4ed92` |
-| `run/collect_exports.py` | sha256 `34427b7cc79d7af97068c3a444b1b01a5199dd4d18926e60e76ff83cea20c737` |
-| `run/check_run.py` | sha256 `4bc16f13ef663f05e0a0266388815747ce73b79741b75f6f85b300baab527faa` |
-| `run/selftest.py` | sha256 `5e79b00f41c0b52ce4572a197aae8a934c7ed1511b6f0f696c3000700dd503cb` |
+| `run/playbook_runner.py` | sha256 `c79e36ef211c4c1c417e0840a7ead13b2c58ba0a2c6b879eb26a4bd0ded80571`. Aligned with sk-code-opencode on 2026-09-26 after the run, which executed the earlier revision `868cad2739c77675c4fb829e927a4a719503d12de29e83d1b38d1087fff4ed92` that git history keeps |
+| `run/collect_exports.py` | sha256 `9be63ec2dcda6dddfb26f5c885e05f4f68d75270650a43952d2ac37358f60d43`. Aligned with sk-code-opencode on 2026-09-26 after the run, which used an older revision, `34427b7cc79d7af97068c3a444b1b01a5199dd4d18926e60e76ff83cea20c737`, that git history keeps |
+| `run/check_run.py` | sha256 `0b1b3de168cd8d919b11963f0ea7fa698d462033e3118e640c9d50c4ee2b2269`. Aligned with sk-code-opencode on 2026-09-26 after the run, which executed the earlier revision `4bc16f13ef663f05e0a0266388815747ce73b79741b75f6f85b300baab527faa` that git history keeps |
+| `run/selftest.py` | sha256 `aad5c892f307d7c6cd21bb3dab79b7d28f2c905c585439ad038e20f0f5a4f0dc`. Aligned with sk-code-opencode on 2026-09-26 after the run, which used an older revision, `5e79b00f41c0b52ce4572a197aae8a934c7ed1511b6f0f696c3000700dd503cb`, that git history keeps |
 
 Command, from this folder:
 
@@ -255,7 +255,7 @@ On 2026-09-26 the operator removed the 20 clarification files from `export/bench
 
 The questions stay in the evidence. Each Project one is in its `replies/<ID>-turn1.txt`, and each skill one is summarized in its `turn-1.md` and quoted in its git-ignored transcript. All 20 are in git history at Product Owner `1fc3657` and Barter `e324ecdf` as edited, and at `e9edb95` and `7652158c` as graded.
 
-`run/collect_exports.py` now skips any file named `*-clarification.md` and prints a skip line for it, so a new collection cannot put one back. A dry run over this folder prints 20 skip lines and writes no clarification. Its sha256 is now `7d06baa5023c7cbf849581573888bc5d9ee61c792f6627dec3da5634a5f6f213`, and `run/selftest.py` is `10608ab9ff3bd9fdab3c7efb5ebe2e2e61cb5c6a1d17507f895d5e5805866ad6`.
+`run/collect_exports.py` now skips any file named `*-clarification.md` and prints a skip line for it, so a new collection cannot put one back. A dry run over this folder prints 20 skip lines and writes no clarification. Its sha256 is now `9be63ec2dcda6dddfb26f5c885e05f4f68d75270650a43952d2ac37358f60d43`, and `run/selftest.py` is `aad5c892f307d7c6cd21bb3dab79b7d28f2c905c585439ad038e20f0f5a4f0dc`. Both were aligned with sk-code-opencode on 2026-09-26 after this change, and the dry run above executed the earlier collector revision `7d06baa5023c7cbf849581573888bc5d9ee61c792f6627dec3da5634a5f6f213`, which git history keeps along with the earlier selftest `10608ab9ff3bd9fdab3c7efb5ebe2e2e61cb5c6a1d17507f895d5e5805866ad6`.
 
 ### Second edit
 

@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: ROUTE CONTRACT
+# ───────────────────────────────────────────────────────────────
+
 """Deterministic route contract for the Barter Product Owner skill.
 
 Characterizes a request into one stable route object so artifact routing,
@@ -40,9 +44,9 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
 
-# ---------------------------------------------------------------------------
-# Token tables (exact, delimiter-aware matches only)
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 1. TOKEN TABLES (EXACT, DELIMITER-AWARE MATCHES ONLY)
+# ───────────────────────────────────────────────────────────────
 
 # `$task`/`$t` must not fire inside `$taskforce`, and `$doc` must not fire
 # inside `$document` or `$doc.md`. TOKEN_START/TOKEN_END reject a `$`, word
@@ -427,9 +431,9 @@ SEMANTIC_TOKEN_STRIP_RE = re.compile(r"(?<!\S)\$[a-z][\w.-]*")
 
 CONFIDENCE_THRESHOLDS = {"HIGH": 0.85, "MEDIUM": 0.60, "LOW": 0.40}
 
-# ---------------------------------------------------------------------------
-# Route object schema (fixed field set; unknown or duplicate fields reject)
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 2. ROUTE OBJECT SCHEMA (FIXED FIELD SET; UNKNOWN OR DUPLICATE FIELDS REJECT)
+# ───────────────────────────────────────────────────────────────
 
 ROUTE_FIELDS = ["intent", "energy", "source", "shape", "confidence", "needs_disambiguation", "resources", "on_demand"]
 
@@ -440,7 +444,9 @@ SHAPE_VALUES = ["STORY", "EPIC", None]
 ENERGY_VALUES = ["QUICK", "STANDARD"]
 SOURCE_VALUES = ["command", "framing", "semantic", "fallback", "quick-fallback", "conflict"]
 
-# --- Runtime discovery + guarded loading (resilient router mechanics) ---
+# ───────────────────────────────────────────────────────────────
+# 3. RUNTIME DISCOVERY AND GUARDED LOADING (RESILIENT ROUTER MECHANICS)
+# ───────────────────────────────────────────────────────────────
 # Resource names below are resolved against the actual skill inventory at
 # every call, so a renamed or deleted reference degrades to a smaller
 # resource set instead of a dead path or a crash.
@@ -535,6 +541,7 @@ def conditional_for(intent: str, shape: Optional[str]) -> List[str]:
 
 
 def resources_for(intent: str, shape: Optional[str] = None) -> List[str]:
+    """Return the guarded resource list for a route and shape."""
     inventory = discover_resource_inventory()
     return guard_resources(list(ALWAYS) + conditional_for(intent, shape), inventory)
 
@@ -552,9 +559,9 @@ def on_demand_for(intent: str, shape: Optional[str] = None) -> List[str]:
     return [name for name in guard_resources(list(ON_DEMAND), inventory) if name not in preloaded]
 
 
-# ---------------------------------------------------------------------------
-# Tokenization + detection
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 4. TOKENIZATION + DETECTION
+# ───────────────────────────────────────────────────────────────
 
 def has_exact_token(text: str, token: str) -> bool:
     """Whole-token match only. `$doc` never fires inside `$document`."""
@@ -574,6 +581,7 @@ def detect_commands(text: str) -> Set[str]:
 
 
 def detect_energy(text: str) -> str:
+    """Resolve QUICK or STANDARD energy for a request."""
     if has_exact_token(text, "$quick") or has_exact_token(text, "$q"):
         return "QUICK"
     if NATURAL_QUICK_RE.search(text) and not NEGATED_QUICK_RE.search(text):
@@ -659,9 +667,9 @@ def score_semantic_topics(text: str) -> Tuple[str, float, str]:
     return best_topic, best_score, SEMANTIC_TOPICS[best_topic]["intent"]
 
 
-# ---------------------------------------------------------------------------
-# Route resolution + schema validation
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 5. ROUTE RESOLUTION + SCHEMA VALIDATION
+# ───────────────────────────────────────────────────────────────
 
 def _route(intent: str, energy: str, source: str, confidence: Optional[float],
            needs_disambiguation: bool, text: str = "") -> Dict[str, Any]:
@@ -679,6 +687,7 @@ def _route(intent: str, energy: str, source: str, confidence: Optional[float],
 
 
 def route_request(text: str) -> Dict[str, Any]:
+    """Return the route object for a request text."""
     normalized = " ".join((text or "").split())
     energy = detect_energy(normalized)
 
@@ -698,9 +707,9 @@ def route_request(text: str) -> Dict[str, Any]:
 
     # Standard energy routes directly at MEDIUM (0.60) and above, and asks one
     # question below it. Quick energy trusts the same score down to LOW
-    # (0.40), and only below that falls back to Task, its narrow safe default
-    # per SKILL.md's Detection Sequence rule 12 ("`$quick`/`$q` without
-    # another detectable artifact retains the narrow Task fallback").
+    # (0.40), and only below that falls back to Task, its narrow safe default:
+    # "`$quick`/`$q` without another detectable artifact retains the narrow
+    # Task fallback", as SKILL.md states.
     if energy == "QUICK":
         if score >= CONFIDENCE_THRESHOLDS["LOW"]:
             return _route(intent, energy, "semantic", score, False, normalized)
@@ -753,11 +762,12 @@ def validate_route_object(obj: Dict[str, Any]) -> List[str]:
     return errors
 
 
-# ---------------------------------------------------------------------------
-# Fixture runner
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 6. FIXTURE RUNNER
+# ───────────────────────────────────────────────────────────────
 
 def load_fixtures(path: str) -> List[Dict[str, Any]]:
+    """Return the fixture list read from a JSON manifest."""
     with open(path, "r", encoding="utf-8") as fh:
         return json.load(fh)
 
@@ -787,6 +797,7 @@ def _check_duplicate_json_keys(path: str) -> List[str]:
 
 
 def run_fixtures(fixtures: List[Dict[str, Any]], source_path: Optional[str] = None) -> Tuple[int, List[str]]:
+    """Run every fixture and return the failure count and one line per failure."""
     failures: List[str] = []
     if source_path:
         failures.extend(_check_duplicate_json_keys(source_path))
@@ -848,8 +859,13 @@ def run_self_check() -> Tuple[int, List[str]]:
                 )
     return len(failures), failures
 
+# ───────────────────────────────────────────────────────────────
+# 7. ENTRY POINT
+# ───────────────────────────────────────────────────────────────
+
 
 def main(argv: List[str]) -> int:
+    """Inspect one request, self-check, or run a fixtures file and return the exit status."""
     usage = 'usage: route_contract.py <fixtures.json | --self-check | --request "text">'
     if len(argv) == 3 and argv[1] == "--request":
         obj = route_request(argv[2])

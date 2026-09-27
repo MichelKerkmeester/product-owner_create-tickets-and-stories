@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: PLAYBOOK RUNNER
+# ───────────────────────────────────────────────────────────────
+
 """Run one system's manual testing playbook against both packagings, through Pi or Claude.
 
 Every scenario gets its own scratch tree and its own Pi session, built fresh from the
@@ -49,6 +53,10 @@ import threading
 import time
 import uuid
 from urllib.parse import unquote
+
+# ───────────────────────────────────────────────────────────────
+# 1. CONFIGURATION
+# ───────────────────────────────────────────────────────────────
 
 ENGINE = "pi"
 MODEL = "llmgateway/glm-5.3-flash"
@@ -114,7 +122,9 @@ SYSTEM_KEYS = {
 LOG_LOCK = threading.Lock()
 
 
-# ─── playbook ────────────────────────────────────────────────────────────────
+# ───────────────────────────────────────────────────────────────
+# 2. PLAYBOOK
+# ───────────────────────────────────────────────────────────────
 
 def _cells(row):
     out, cur, tick, i = [], "", False, 0
@@ -151,11 +161,13 @@ class PlaybookError(Exception):
 
 
 def repo_root(system_dir):
+    """The repository root a system folder lives under."""
     # A system folder sits at <repository>/AI Systems/<system>.
     return os.path.dirname(os.path.dirname(os.path.realpath(system_dir)))
 
 
 def sha256_file(path):
+    """The hex sha256 digest of one file's bytes."""
     with open(path, "rb") as fh:
         return hashlib.sha256(fh.read()).hexdigest()
 
@@ -205,6 +217,7 @@ def load_attachments(text, scenario_file, system_dir):
 
 
 def load_playbook(system_dir, key):
+    """Every scenario row parsed from a system's manual-testing playbook."""
     sk = next(d for d in os.listdir(system_dir) if d.startswith("sk-"))
     pb = os.path.join(system_dir, sk, TEST_DIR_EXACT)
     rows, problems = [], []
@@ -274,9 +287,18 @@ def load_waves(system_dir):
     return waves
 
 
-# ─── sandbox ─────────────────────────────────────────────────────────────────
+# ───────────────────────────────────────────────────────────────
+# 3. SANDBOX
+# ───────────────────────────────────────────────────────────────
 
 def build(system_dir, side, scratch, seed_export, attachments=()):
+    """Rebuild one scenario's sandbox from the system's own packaging.
+
+    Args:
+        seed_export: File names to create under export/ as the playbook's
+            precondition.
+        attachments: Staged rows naming each file to copy into context/.
+    """
     shutil.rmtree(scratch, ignore_errors=True)
     os.makedirs(scratch)
     if side == "skill":
@@ -380,6 +402,7 @@ def prove_isolation(side, scratch, attachments=None):
 
 
 def snapshot(root):
+    """Map every file under root to the hash of its contents."""
     out = {}
     for dp, _, fs in os.walk(root):
         for f in fs:
@@ -392,6 +415,7 @@ def snapshot(root):
 
 
 def diff(before, after):
+    """The created, modified and deleted paths between two snapshots."""
     return {
         "created": sorted(set(after) - set(before)),
         "modified": sorted(k for k in set(after) & set(before) if after[k] != before[k]),
@@ -399,7 +423,9 @@ def diff(before, after):
     }
 
 
-# ─── one turn ────────────────────────────────────────────────────────────────
+# ───────────────────────────────────────────────────────────────
+# 4. ONE TURN
+# ───────────────────────────────────────────────────────────────
 
 def seatbelt(scratch, session_dir, deny_roots, writes=()):
     """A macOS sandbox profile that confines the runtime to its own tree.
@@ -438,6 +464,7 @@ def seatbelt(scratch, session_dir, deny_roots, writes=()):
 
 
 def run_turn(scratch, session_dir, session_id, system_prompt, tools, prompt, events_path, deny_roots):
+    """Run one Pi turn in the sandbox and return its parsed run record."""
     cmd = ["sandbox-exec", "-p", seatbelt(scratch, session_dir, deny_roots,
                                          writes=[os.path.expanduser("~/.pi")]),
            "pi", "-p", "--offline", "--mode", "json",
@@ -517,6 +544,12 @@ def claude_seatbelt(scratch, session_dir, deny_roots, tail):
 
 def run_turn_claude(scratch, session_dir, session_id, first, system_prompt, tools, prompt,
                     events_path, deny_roots, tail):
+    """Run one Claude CLI turn in the sandbox and return its parsed run record.
+
+    Args:
+        first: True on the session's first turn, False to resume the session.
+        tail: The suffix this scenario's transcript and temp folders end with.
+    """
     cmd = ["sandbox-exec", "-p", claude_seatbelt(scratch, session_dir, deny_roots, tail),
            "claude", "-p", "--output-format", "stream-json", "--verbose",
            "--model", MODEL, "--effort", THINKING,
@@ -563,6 +596,7 @@ def run_turn_claude(scratch, session_dir, session_id, first, system_prompt, tool
 
 
 def parse_claude_events(path, rc, status, wall):
+    """The run record parsed from one Claude CLI event stream."""
     r = {"rc": rc, "status": status, "wall_s": round(wall, 2), "reply": "", "transcript": [],
          "tool_calls": 0, "tools_used": [], "input_tokens": 0, "output_tokens": 0,
          "reasoning_tokens": 0, "cost_usd": 0.0, "model_s": None, "startup_s": None, "stop_reason": None,
@@ -627,6 +661,7 @@ def parse_claude_events(path, rc, status, wall):
 
 
 def parse_events(path, rc, status, wall):
+    """The run record parsed from one Pi event stream."""
     msgs = None
     for line in open(path, encoding="utf-8", errors="ignore"):
         try:
@@ -680,19 +715,29 @@ def parse_events(path, rc, status, wall):
     return r
 
 
-# ─── one scenario ────────────────────────────────────────────────────────────
+# ───────────────────────────────────────────────────────────────
+# 5. ONE SCENARIO
+# ───────────────────────────────────────────────────────────────
 
 def deny_roots(system_dir, harness_root):
-    # every sandbox, the repository with its playbooks and earlier replies, and the
-    # operator's own transcripts
+    """Every sandbox, the repository with its playbooks and earlier replies, and
+    the operator's own transcripts."""
     return [harness_root, repo_root(system_dir), os.path.expanduser("~/.claude"), "/private/tmp/claude-501"]
 
 
 def side_dir(side):
+    """The run-folder directory name for one scenario's side."""
     return "skill" if side == "skill" else "claude project"
 
 
 def write_transcript(path, sc, n, prompt, r):
+    """Write one turn's transcript as markdown beside its event stream.
+
+    Args:
+        sc: The scenario row, for the id in the heading.
+        n: The turn number.
+        r: The turn's parsed run record, for its transcript entries.
+    """
     lines = [f"# {sc['id']} turn {n} transcript", "", f"**User:** {prompt}", ""]
     for item in r["transcript"]:
         if item["kind"] == "text":
@@ -706,6 +751,14 @@ def write_transcript(path, sc, n, prompt, r):
 
 
 def run_scenario(system_dir, key, sc, out_root, harness_root):
+    """Run one scenario across its turns with retries and return its status record.
+
+    Args:
+        key: The system key the scenario's sandboxes are grouped under.
+        sc: The scenario row parsed from the playbook.
+        out_root: The run folder that receives the artifacts.
+        harness_root: The scratch root holding the sandboxes and sessions.
+    """
     base = os.path.join(harness_root, key, sc["side"])
     scratch = os.path.join(base, sc["id"])
     sessions = os.path.join(base, ".sessions", sc["id"])
@@ -754,7 +807,7 @@ def run_scenario(system_dir, key, sc, out_root, harness_root):
                 break
         if ok:
             break
-        # a failed attempt keeps its evidence beside the retry, never silently replaced
+        # A failed attempt keeps its evidence beside the retry, never silently replaced
         keep = os.path.join(out_root, "failed-attempts", side_dir(sc["side"]), f"{sc['id']}-attempt-{attempt}")
         shutil.rmtree(keep, ignore_errors=True)
         shutil.copytree(dest, keep)
@@ -784,9 +837,12 @@ def run_scenario(system_dir, key, sc, out_root, harness_root):
             "attempts": attempt, "turns_run": len(turns), "turns_declared": len(sc["turns"])}
 
 
-# ─── main ────────────────────────────────────────────────────────────────────
+# ───────────────────────────────────────────────────────────────
+# 6. MAIN
+# ───────────────────────────────────────────────────────────────
 
 def main():
+    """Run the playbook matrix and return the process exit status."""
     ap = argparse.ArgumentParser(add_help=True)
     ap.add_argument("--system", required=True)
     ap.add_argument("--out", required=True)
