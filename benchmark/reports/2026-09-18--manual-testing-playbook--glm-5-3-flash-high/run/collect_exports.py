@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: PLAYBOOK EXPORT COLLECTOR
+# ───────────────────────────────────────────────────────────────
+
 """Rebuild export/benchmark from a playbook run, holding real artifact exports only.
 
 The run folder keeps everything a run produces: plans, grading, transcripts,
@@ -24,6 +28,10 @@ import shutil
 import sys
 from typing import List, Optional, Tuple
 
+# ───────────────────────────────────────────────────────────────
+# 1. CONFIGURATION
+# ───────────────────────────────────────────────────────────────
+
 # The export lane, plus the curated folder a brand voice snippet is saved to,
 # which is the one file a Deal Templates run writes outside export/.
 PATH_RE = re.compile(r"(?:export|assets/tone-of-voice)/[^\n`|)*\"']*?\.md")
@@ -41,11 +49,18 @@ TRAILER_RE = re.compile(r"^(HVR self-scan|HVR:|MEQT \d|DEAL \d+/25|\*\*Instructi
                         r"\*\*How finished|Summary:|Single-paragraph summary)")
 
 
+# ───────────────────────────────────────────────────────────────
+# 2. HELPERS
+# ───────────────────────────────────────────────────────────────
+
+
 def scenario_id(folder: str) -> str:
+    """The scenario id a scenario folder name opens with."""
     return os.path.basename(folder.rstrip("/")).split(" ")[0]
 
 
 def turn_files(folder: str) -> List[Tuple[int, str]]:
+    """Every `turn-N.md` a scenario folder holds, ordered by turn number."""
     found = []
     for name in os.listdir(folder):
         match = re.fullmatch(r"turn-(\d+)\.md", name)
@@ -70,6 +85,7 @@ def fences(lines: List[str]) -> List[Tuple[int, int, str]]:
 
 
 def inside(index: int, spans: List[Tuple[int, int, str]]) -> Optional[Tuple[int, int, str]]:
+    """The fence span a line index falls in, or None when it falls in none."""
     for span in spans:
         if span[0] <= index <= span[1]:
             return span
@@ -84,6 +100,11 @@ def trim(block: List[str], leading_rule: bool = False) -> List[str]:
     while block and (not block[0].strip() or (leading_rule and block[0].strip() in ("---", "***"))):
         block.pop(0)
     return block
+
+
+# ───────────────────────────────────────────────────────────────
+# 3. CORE LOGIC
+# ───────────────────────────────────────────────────────────────
 
 
 def extract(text: str) -> List[Tuple[str, str, str]]:
@@ -135,6 +156,7 @@ def extract(text: str) -> List[Tuple[str, str, str]]:
 
 
 def collect(run: str, out: str, dry: bool) -> None:
+    """Collect a run's exports into `out`, honouring dry-run."""
     rounds = [("", run)]
     for name in sorted(os.listdir(run)):
         if name.startswith("remeasure") and os.path.isdir(os.path.join(run, name)):
@@ -174,6 +196,11 @@ def collect(run: str, out: str, dry: bool) -> None:
                             os.makedirs(os.path.dirname(target), exist_ok=True)
                             with open(target, "w", encoding="utf-8") as handle:
                                 handle.write(body)
+
+
+# ───────────────────────────────────────────────────────────────
+# 4. ENTRY POINT
+# ───────────────────────────────────────────────────────────────
 
 
 if __name__ == "__main__":

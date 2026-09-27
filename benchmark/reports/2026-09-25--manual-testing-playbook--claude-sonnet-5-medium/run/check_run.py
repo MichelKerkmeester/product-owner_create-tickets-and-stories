@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: PLAYBOOK RUN CHECKER
+# ───────────────────────────────────────────────────────────────
+
 """Check that a playbook run is complete and ran on the model it names.
 
 The runner's exit status says every scenario was attempted. It does not say that
@@ -24,6 +28,7 @@ import sys
 
 
 def side_dir(side):
+    """The run-folder directory name for one scenario's side."""
     return "skill" if side == "skill" else "claude project"
 
 
@@ -49,6 +54,11 @@ def models_in(path):
 
 
 def main(argv):
+    """Check one run folder's scenarios and turns, printing each finding.
+
+    Returns 0 when every scenario is whole and every turn named only the
+    expected model, 1 on any finding and 2 when the run metadata is unreadable.
+    """
     args = [a for a in argv[1:] if not a.startswith("--")]
     run = os.path.abspath(args[0] if args else ".")
     expected = "claude-sonnet-5"

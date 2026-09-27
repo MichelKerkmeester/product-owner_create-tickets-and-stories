@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: RUN TOOLING SELFTEST
+# ───────────────────────────────────────────────────────────────
+
 """Prove this folder's run tooling against planted faults, before any scenario runs.
 
 No model is called and nothing leaves the machine. The synthetic tests build a
@@ -49,6 +53,10 @@ import tempfile
 import time
 import traceback
 from urllib.parse import unquote
+
+# ───────────────────────────────────────────────────────────────
+# 1. CONFIGURATION
+# ───────────────────────────────────────────────────────────────
 
 # Loading the run scripts as modules must leave no bytecode cache beside them,
 # least of all in the Sonnet folder, which stays byte for byte as it was.
@@ -120,14 +128,19 @@ EXPORT_PATTERNS = {
 LINK_TARGET_RE = re.compile(r"\]\(\s*(?:<([^>]+)>|([^)\s]+))(?:\s+\"[^\"]*\")?\s*\)")
 
 
-# --- harness ------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 2. HARNESS
+# ───────────────────────────────────────────────────────────────
 
 class Test:
+    """One named test's check count, caught faults and failures."""
+
     def __init__(self, name):
         self.name, self.checks, self.failures, self.caught = name, 0, [], []
         self.waits_on = None
 
     def check(self, ok, message):
+        """Record one assertion's verdict and keep its message when it fails."""
         self.checks += 1
         if not ok:
             self.failures.append(message)
@@ -144,22 +157,26 @@ class Test:
 
 
 def write(path, text):
+    """Write text to path, creating the parent folder when it is missing."""
     os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as fh:
         fh.write(text)
 
 
 def read(path):
+    """Return the text held at path."""
     with open(path, encoding="utf-8") as fh:
         return fh.read()
 
 
 def sha(path):
+    """The hex sha256 digest of one file's bytes."""
     with open(path, "rb") as fh:
         return hashlib.sha256(fh.read()).hexdigest()
 
 
 def load_module(name, path):
+    """Load a Python file as a module under the given name."""
     spec = importlib.util.spec_from_file_location(name, path)
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
@@ -167,11 +184,13 @@ def load_module(name, path):
 
 
 def py(script, *args):
+    """Run one script with this interpreter and return its captured result."""
     return subprocess.run([sys.executable, "-B", script, *args], capture_output=True, text=True,
                           stdin=subprocess.DEVNULL, timeout=120)
 
 
 def files_under(root):
+    """Every file under root, as a path relative to it."""
     if not os.path.isdir(root):
         return set()
     return {os.path.relpath(os.path.join(dp, f), root) for dp, _, fs in os.walk(root) for f in fs}
@@ -184,7 +203,9 @@ def strip_code(text):
     return re.sub(r"`[^`\n]*`", "", text)
 
 
-# --- synthetic trees ------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 3. SYNTHETIC TREES
+# ───────────────────────────────────────────────────────────────
 
 def scenario(sid, title, turns, attachments=None):
     """A scenario file in the playbook's contract shape. Section 1 carries a stray
@@ -266,7 +287,9 @@ def make_deal_system(root):
     return system
 
 
-# --- the stand-in turn ------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 4. THE STAND-IN TURN
+# ───────────────────────────────────────────────────────────────
 
 BUNDLE_FILES = [  # (number suffix, file stem, H1), Story first, then its tasks in order
     ("", "Story-order-tracking", "Order tracking"),
@@ -278,6 +301,7 @@ BUNDLE_FILES = [  # (number suffix, file stem, H1), Story first, then its tasks 
 
 
 def body(h1):
+    """The markdown body one deliverable carries under its heading."""
     return (f"# {h1}\n\n## About\n* * *\n"
             "Customers follow an order from the moment it is placed until it arrives, on every surface "
             "they shop on, so nobody has to ask support where a parcel is.\n"
@@ -285,6 +309,11 @@ def body(h1):
 
 
 def reply(blocks):
+    """The stand-in Project reply carrying each deliverable block.
+
+    Args:
+        blocks: (label, text, path) rows, one per deliverable block.
+    """
     lines = []
     for label, text, path in blocks:
         lines += [f"**Deliverable Block: {label}**", "", "```markdown", text.rstrip("\n"), "```", "",
@@ -293,6 +322,7 @@ def reply(blocks):
 
 
 def skill_write(scratch, rel, text):
+    """Write one export file and return the read-back line the skill format requires."""
     write(os.path.join(scratch, rel), text)
     return f"Path: {rel}\nVerified: read-back succeeded; {text.count(chr(10))} lines"
 
@@ -328,9 +358,12 @@ def turn_action(sid, turn, scratch):
     raise AssertionError(f"no stand-in action for {sid} turn {turn}")
 
 
-# --- tests ------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 5. TESTS
+# ───────────────────────────────────────────────────────────────
 
 def test_parse_synthetic(t, ctx):
+    """The synthetic playbook parses as declared, and every planted parse fault stops the run."""
     runner, sonnet, system = ctx["runner"], ctx["sonnet_runner"], ctx["po"]
     rows = {r["id"]: r for r in runner.load_playbook(system, KEY)}
     ctx["rows"] = rows
@@ -409,6 +442,7 @@ def test_parse_synthetic(t, ctx):
 
 
 def test_isolation(t, ctx):
+    """Attachments stage cleanly, and every planted context/ fault is caught."""
     runner, sonnet, system, rows, tmp = ctx["runner"], ctx["sonnet_runner"], ctx["po"], ctx["rows"], ctx["tmp"]
     for side, sid in (("skill", "SST-004"), ("project", "PST-004")):
         atts = rows[sid]["attachments"]
@@ -473,6 +507,7 @@ def test_isolation(t, ctx):
 
 
 def test_staging_order(t, ctx):
+    """Attachments sit in the baseline, so an in-place edit lands as a modification."""
     runner, system, rows, tmp = ctx["runner"], ctx["po"], ctx["rows"], ctx["tmp"]
     runner.ENGINE, runner.MODEL, runner.THINKING = "claude", MODEL, "medium"
     seen = {}
@@ -525,6 +560,7 @@ def test_staging_order(t, ctx):
 
 
 def test_collector(t, ctx):
+    """The collector gathers the expected exports, and every planted collection fault is caught."""
     run, tmp = ctx.get("run"), ctx["tmp"]
     if not run:
         t.check(False, "no synthetic run to collect, because staging-order did not produce one")
@@ -603,6 +639,12 @@ def test_collector(t, ctx):
 
 
 def make_check_run(root, engine="claude", model=MODEL, thinking="medium", streams=MODEL):
+    """Build a synthetic run folder whose manifest names one engine, model and effort.
+
+    Args:
+        streams: The model name written into each event stream, which may differ
+            from the model the manifest names.
+    """
     scenarios = [{"id": "SST-001", "side": "skill", "slug": "demo", "turns": ["one", "two"]},
                  {"id": "PST-001", "side": "project", "slug": "demo", "turns": ["one"]}]
     write(os.path.join(root, "manifest.json"), json.dumps(
@@ -623,6 +665,7 @@ def make_check_run(root, engine="claude", model=MODEL, thinking="medium", stream
 
 
 def test_check_run(t, ctx):
+    """The run checker accepts the run's own model and effort and flags any other."""
     tmp, script, old = ctx["tmp"], os.path.join(HERE, "check_run.py"), ctx["sonnet_paths"]["check_run.py"]
     clean = make_check_run(os.path.join(tmp, "check-clean"))
     proc = py(script, clean)
@@ -651,6 +694,7 @@ def test_check_run(t, ctx):
 
 
 def test_root_links(t, ctx):
+    """Every relative link in the real playbook root resolves."""
     root = os.path.join(SYSTEM, PLAYBOOK, "manual-testing-playbook.md")
     if not t.check(os.path.isfile(root), f"no playbook root at {os.path.relpath(root, SYSTEM)}"):
         return
@@ -667,6 +711,7 @@ def test_root_links(t, ctx):
 
 
 def test_parse_real(t, ctx):
+    """The real playbook parses to the manifest's rows, waves, turns and attachments."""
     runner = ctx["runner"]
     waits = "the 46 rewritten scenario files and the company fixtures they attach"
     try:
@@ -730,7 +775,13 @@ TESTS = [("parse-synthetic", test_parse_synthetic), ("isolation", test_isolation
          ("check-run", test_check_run), ("root-links", test_root_links), ("parse-real", test_parse_real)]
 
 
+# ───────────────────────────────────────────────────────────────
+# 6. ENTRY POINT
+# ───────────────────────────────────────────────────────────────
+
+
 def main(argv):
+    """Run every test, print the report, and return the exit code."""
     keep = "--keep" in argv[1:]
     started = time.time()
     tmp = tempfile.mkdtemp(prefix="po-run-selftest-")
@@ -755,7 +806,7 @@ def main(argv):
             t = Test(name)
             try:
                 fn(t, ctx)
-            except Exception as exc:  # a crash is a failed test, reported with its line
+            except Exception as exc:  # A crash is a failed test, reported with its line
                 where = traceback.extract_tb(exc.__traceback__)[-1]
                 t.failures.append(f"raised {type(exc).__name__}: {exc} (line {where.lineno})")
             results.append(t)

@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: PI PLAYBOOK RUNNER
+# ───────────────────────────────────────────────────────────────
+
 """Run one system's manual testing playbook through the Pi CLI, against both packagings.
 
 Every scenario gets its own scratch tree and its own Pi session, built fresh from the
@@ -34,6 +38,10 @@ import sys
 import threading
 import time
 import uuid
+
+# ───────────────────────────────────────────────────────────────
+# 1. CONFIGURATION
+# ───────────────────────────────────────────────────────────────
 
 MODEL = "llmgateway/glm-5.3-flash"
 THINKING = "high"
@@ -84,7 +92,9 @@ SYSTEM_KEYS = {
 LOG_LOCK = threading.Lock()
 
 
-# ─── playbook ────────────────────────────────────────────────────────────────
+# ───────────────────────────────────────────────────────────────
+# 2. PLAYBOOK
+# ───────────────────────────────────────────────────────────────
 
 def _cells(row):
     out, cur, tick, i = [], "", False, 0
@@ -112,6 +122,7 @@ def _unwrap(x):
 
 
 def load_playbook(system_dir, key):
+    """Every scenario row parsed from a system's manual-testing playbook."""
     sk = next(d for d in os.listdir(system_dir) if d.startswith("sk-"))
     pb = os.path.join(system_dir, sk, TEST_DIR_EXACT)
     rows = []
@@ -176,9 +187,12 @@ def load_waves(system_dir):
     return waves
 
 
-# ─── sandbox ─────────────────────────────────────────────────────────────────
+# ───────────────────────────────────────────────────────────────
+# 3. SANDBOX
+# ───────────────────────────────────────────────────────────────
 
 def build(system_dir, side, scratch, seed_export):
+    """Rebuild one scenario's sandbox from the system's own packaging."""
     shutil.rmtree(scratch, ignore_errors=True)
     os.makedirs(scratch)
     if side == "skill":
@@ -229,6 +243,7 @@ def prove_isolation(side, scratch):
 
 
 def snapshot(root):
+    """Map every file under root to the hash of its contents."""
     out = {}
     for dp, _, fs in os.walk(root):
         for f in fs:
@@ -241,6 +256,7 @@ def snapshot(root):
 
 
 def diff(before, after):
+    """The created, modified and deleted paths between two snapshots."""
     return {
         "created": sorted(set(after) - set(before)),
         "modified": sorted(k for k in set(after) & set(before) if after[k] != before[k]),
@@ -248,7 +264,9 @@ def diff(before, after):
     }
 
 
-# ─── one turn ────────────────────────────────────────────────────────────────
+# ───────────────────────────────────────────────────────────────
+# 4. ONE TURN
+# ───────────────────────────────────────────────────────────────
 
 def seatbelt(scratch, session_dir, deny_roots):
     """A macOS sandbox profile that confines the runtime to its own tree.
@@ -278,6 +296,7 @@ def seatbelt(scratch, session_dir, deny_roots):
 
 
 def run_turn(scratch, session_dir, session_id, system_prompt, tools, prompt, events_path, deny_roots):
+    """Run one Pi turn in the sandbox and return its parsed run record."""
     cmd = ["sandbox-exec", "-p", seatbelt(scratch, session_dir, deny_roots),
            "pi", "-p", "--offline", "--mode", "json",
            "--model", MODEL, "--thinking", THINKING,
@@ -327,6 +346,7 @@ def run_turn(scratch, session_dir, session_id, system_prompt, tools, prompt, eve
 
 
 def parse_events(path, rc, status, wall):
+    """The run record parsed from one Pi event stream."""
     msgs = None
     for line in open(path, encoding="utf-8", errors="ignore"):
         try:
@@ -380,20 +400,24 @@ def parse_events(path, rc, status, wall):
     return r
 
 
-# ─── one scenario ────────────────────────────────────────────────────────────
+# ───────────────────────────────────────────────────────────────
+# 5. ONE SCENARIO
+# ───────────────────────────────────────────────────────────────
 
 def deny_roots(system_dir, harness_root):
-    # every sandbox, the repository with its playbooks and earlier replies, and the
-    # operator's own transcripts
+    """Every sandbox, the repository with its playbooks and earlier replies, and
+    the operator's own transcripts."""
     repo = os.path.dirname(os.path.dirname(os.path.realpath(system_dir)))
     return [harness_root, repo, os.path.expanduser("~/.claude"), "/private/tmp/claude-501"]
 
 
 def side_dir(side):
+    """The run-folder directory name for one scenario's side."""
     return "skill" if side == "skill" else "claude project"
 
 
 def write_transcript(path, sc, n, prompt, r):
+    """Write one turn's transcript as markdown beside its event stream."""
     lines = [f"# {sc['id']} turn {n} transcript", "", f"**User:** {prompt}", ""]
     for item in r["transcript"]:
         if item["kind"] == "text":
@@ -407,6 +431,7 @@ def write_transcript(path, sc, n, prompt, r):
 
 
 def run_scenario(system_dir, key, sc, out_root, harness_root):
+    """Run one scenario across its turns with retries and return its status record."""
     base = os.path.join(harness_root, key, sc["side"])
     scratch = os.path.join(base, sc["id"])
     sessions = os.path.join(base, ".sessions", sc["id"])
@@ -448,7 +473,7 @@ def run_scenario(system_dir, key, sc, out_root, harness_root):
                 break
         if ok:
             break
-        # a failed attempt keeps its evidence beside the retry, never silently replaced
+        # A failed attempt keeps its evidence beside the retry, never silently replaced
         keep = os.path.join(out_root, "failed-attempts", side_dir(sc["side"]), f"{sc['id']}-attempt-{attempt}")
         shutil.rmtree(keep, ignore_errors=True)
         shutil.copytree(dest, keep)
@@ -477,9 +502,12 @@ def run_scenario(system_dir, key, sc, out_root, harness_root):
             "attempts": attempt, "turns_run": len(turns), "turns_declared": len(sc["turns"])}
 
 
-# ─── main ────────────────────────────────────────────────────────────────────
+# ───────────────────────────────────────────────────────────────
+# 6. MAIN
+# ───────────────────────────────────────────────────────────────
 
 def main():
+    """Run the playbook matrix and return the process exit status."""
     ap = argparse.ArgumentParser(add_help=True)
     ap.add_argument("--system", required=True)
     ap.add_argument("--out", required=True)

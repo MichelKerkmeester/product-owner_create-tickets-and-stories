@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: DIFFERENTIAL GATE
+# ───────────────────────────────────────────────────────────────
+
 """Differential gate between the executable router and the router contract's pseudocode.
 
 `references/router-contract.md` carries a Smart Router pseudocode block, the
@@ -55,6 +59,10 @@ import sys
 import types
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
+
+# ───────────────────────────────────────────────────────────────
+# 1. CONFIGURATION
+# ───────────────────────────────────────────────────────────────
 
 HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
@@ -141,9 +149,9 @@ REQUIRED_FALSE_PREFIXES = [
 ]
 
 
-# ---------------------------------------------------------------------------
-# Guard 0: the prose topic table a model routes from
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 2. GUARD 0: THE PROSE TOPIC TABLE A MODEL ROUTES FROM
+# ───────────────────────────────────────────────────────────────
 
 def parse_skill_topic_table() -> List[Tuple[str, str, List[str], Optional[float]]]:
     """Read the semantic topic table out of SKILL.md.
@@ -223,9 +231,9 @@ def check_prose_table_parity() -> List[str]:
     return failures
 
 
-# ---------------------------------------------------------------------------
-# Guard 1: lift the pseudocode and confirm the mirror copy matches
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 3. GUARD 1: LIFT THE PSEUDOCODE AND CONFIRM THE MIRROR COPY MATCHES
+# ───────────────────────────────────────────────────────────────
 
 def extract_pseudocode(path: Path) -> str:
     """Return the Smart Router pseudocode block from a markdown file.
@@ -398,9 +406,9 @@ def build_skill_router() -> types.ModuleType:
     return module
 
 
-# ---------------------------------------------------------------------------
-# Guard 2: table parity
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 4. GUARD 2: TABLE PARITY
+# ───────────────────────────────────────────────────────────────
 
 def _skill_topics(skill: types.ModuleType) -> List[Tuple[str, Tuple[str, ...], Optional[float], str]]:
     return [
@@ -422,6 +430,7 @@ def _contract_topics() -> List[Tuple[str, Tuple[str, ...], Optional[float], str]
 
 
 def check_table_parity(skill: types.ModuleType) -> List[str]:
+    """Compare the skill's tables against the contract's, value for value."""
     failures: List[str] = []
 
     def compare(label: str, expected: Any, actual: Any) -> None:
@@ -476,9 +485,9 @@ def check_table_parity(skill: types.ModuleType) -> List[str]:
     return failures
 
 
-# ---------------------------------------------------------------------------
-# Guard 3: behavior parity
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 5. GUARD 3: BEHAVIOR PARITY
+# ───────────────────────────────────────────────────────────────
 
 def skill_route(skill: types.ModuleType, text: str) -> Dict[str, Any]:
     """Adapt the pseudocode's route dict onto the contract's fixed field set."""
@@ -523,6 +532,7 @@ def skill_route(skill: types.ModuleType, text: str) -> Dict[str, Any]:
 
 
 def compare_input(skill: types.ModuleType, text: str) -> List[str]:
+    """Route one input through both implementations and name each layer that disagrees."""
     failures: List[str] = []
     normalized = " ".join((text or "").split())
 
@@ -564,11 +574,12 @@ def compare_input(skill: types.ModuleType, text: str) -> List[str]:
     return failures
 
 
-# ---------------------------------------------------------------------------
-# Guard 4: corpus coverage
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 6. GUARD 4: CORPUS COVERAGE
+# ───────────────────────────────────────────────────────────────
 
 def check_coverage(skill: types.ModuleType, corpus: List[str]) -> List[str]:
+    """Prove the corpus exercises every command, false prefix, topic and shape."""
     failures: List[str] = []
 
     tokens = sorted(set(rc.ARTIFACT_COMMANDS) | rc.QUICK_TOKENS)
@@ -594,9 +605,9 @@ def check_coverage(skill: types.ModuleType, corpus: List[str]) -> List[str]:
     return failures
 
 
-# ---------------------------------------------------------------------------
-# Runner
-# ---------------------------------------------------------------------------
+# ───────────────────────────────────────────────────────────────
+# 7. RUNNER
+# ───────────────────────────────────────────────────────────────
 
 def read_json(path: Path) -> Any:
     """Read one of this harness's own input files, or say which one is missing.
@@ -639,6 +650,7 @@ def load_corpus() -> List[str]:
 
 
 def main() -> int:
+    """Run the guard suite and return the exit status."""
     failures = check_prose_table_parity()
     failures.extend(check_copy_parity())
     if failures:

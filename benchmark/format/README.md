@@ -13,14 +13,14 @@ trigger_phrases:
 
 ## 1. Overview
 
-`benchmark/format/` contains a Bash fixture runner, a Node validator and a Markdown fixture corpus. The runner fixes the validator and fixture directory in variables, while the validator parses flags and target paths (`run_fixtures.sh:1-15`, `validate-output-format.cjs:1-12`)
+`benchmark/format/` contains a Bash fixture runner, a Node validator and a Markdown fixture corpus. The runner fixes the validator and fixture directory in variables, while the validator parses flags and target paths (`run_fixtures.sh:1-27`, `validate-output-format.cjs:1-23`)
 
 Current state:
 
-*   `run_fixtures.sh` compares expected exit status, required output and forbidden output for each case, records mismatches and prints a pass line for cases that clear all checks (`run_fixtures.sh:17-45`)
-*   `validate-output-format.cjs` walks source directories recursively, skips symlinks and selects Markdown files for its source inventory (`validate-output-format.cjs:25-31`)
-*   Explicit validator targets use artifact checks, while no target uses the validator's source inventory (`validate-output-format.cjs:40-54`)
-*   Missing or non-regular targets return exit 66 before file analysis (`validate-output-format.cjs:56-67`)
+*   `run_fixtures.sh` compares expected exit status, required output and forbidden output for each case, records mismatches and prints a pass line for cases that clear all checks (`run_fixtures.sh:33-61`)
+*   `validate-output-format.cjs` walks source directories recursively, skips symlinks and selects Markdown files for its source inventory (`validate-output-format.cjs:36-42`)
+*   Explicit validator targets use artifact checks, while no target uses the validator's source inventory (`validate-output-format.cjs:51-65`)
+*   Missing or non-regular targets return exit 66 before file analysis (`validate-output-format.cjs:67-78`)
 
 * * *
 
@@ -29,7 +29,7 @@ Current state:
 ```text
 +------------------------------+
 | run_fixtures.sh              |
-| run_fixtures.sh:13-45        |
+| run_fixtures.sh:25-61        |
 +---------------+--------------+
                 | fixture paths
                 v
@@ -53,11 +53,11 @@ Current state:
 +------------------------------+
 
 No target paths:
-validate-output-format.cjs:40-54
+validate-output-format.cjs:51-65
 source inventory -> per-file analysis -> reports
 ```
 
-`run_fixtures.sh` passes fixed fixture paths to the validator. A call without target paths uses the source inventory instead, and both paths reach the same per-file analysis and final reporting (`run_fixtures.sh:13-21, 49-147`, `validate-output-format.cjs:40-67, 809-831, 1165-1307`)
+`run_fixtures.sh` passes fixed fixture paths to the validator. A call without target paths uses the source inventory instead, and both paths reach the same per-file analysis and final reporting (`run_fixtures.sh:25-37, 69-167`, `validate-output-format.cjs:51-78, 842-866, 1202-1344`)
 
 Dependency direction:
 
@@ -68,7 +68,7 @@ validate-output-format.cjs -> explicit target files
 validate-output-format.cjs -> source inventory when no targets are supplied
 ```
 
-The runner supplies fixture paths as command-line arguments to the validator, and the validator selects either those targets or its source inventory (`run_fixtures.sh:13-21, 49-147`, `validate-output-format.cjs:40-54`)
+The runner supplies fixture paths as command-line arguments to the validator, and the validator selects either those targets or its source inventory (`run_fixtures.sh:25-37, 69-167`, `validate-output-format.cjs:51-65`)
 
 * * *
 
@@ -95,7 +95,7 @@ benchmark/format/
     `-- sanctioned-shapes.md
 ```
 
-The runner owns case selection and result comparison. The validator owns file selection, per-file checks and final status, while the fixture files supply the Markdown inputs (`run_fixtures.sh:17-45, 49-147`, `validate-output-format.cjs:53-67, 809-831, 1291-1307`)
+The runner owns case selection and result comparison. The validator owns file selection, per-file checks and final status, while the fixture files supply the Markdown inputs (`run_fixtures.sh:33-61, 69-167`, `validate-output-format.cjs:64-78, 842-866, 1328-1344`)
 
 Allowed dependency direction:
 
@@ -129,7 +129,7 @@ benchmark/format/
     `-- sanctioned-shapes.md
 ```
 
-`run_fixtures.sh:49-147` names every fixture path used by the runner. The fixture responsibilities are listed below with the lines that define each input
+`run_fixtures.sh:69-167` names every fixture path used by the runner. The fixture responsibilities are listed below with the lines that define each input
 
 * * *
 
@@ -137,8 +137,8 @@ benchmark/format/
 
 | File | Responsibility |
 |---|---|
-| `run_fixtures.sh` | Sets the validator and fixture paths, runs fixed cases and reports aggregate failure or success (`run_fixtures.sh:13-45, 149-153`) |
-| `validate-output-format.cjs` | Parses flags and targets, selects source or artifact mode, analyzes each file and reports the result (`validate-output-format.cjs:9-23, 40-67, 809-831, 1165-1307`) |
+| `run_fixtures.sh` | Sets the validator and fixture paths, runs fixed cases and reports aggregate failure or success (`run_fixtures.sh:25-61, 169-173`) |
+| `validate-output-format.cjs` | Parses flags and targets, selects source or artifact mode, analyzes each file and reports the result (`validate-output-format.cjs:20-34, 51-78, 842-866, 1202-1344`) |
 | `fixtures/conciseness-silent.md` | Holds near-miss cases for exact token binding, export read-back, one hedge, quoted vocabulary and fallback intake (`conciseness-silent.md:1-27`) |
 | `fixtures/conciseness-violation.md` | Holds opener, heading echo, hedge stack and terminal recap cases (`conciseness-violation.md:1-22`) |
 | `fixtures/delivery-placeholder-exempt.md` | Uses an explicit estimate and two placeholder slots so its Delivery section is not placeholder-only (`delivery-placeholder-exempt.md:20-39`) |
@@ -159,22 +159,22 @@ benchmark/format/
 
 | Boundary | Rule |
 |---|---|
-| Arguments | `validate-output-format.cjs` accepts `--write`, flags and target paths, then rejects unknown flags or `--write` with explicit targets (`validate-output-format.cjs:9-23`) |
-| Source inventory | No explicit target selects the system files, shared cards and Markdown files found under the skill references and assets (`validate-output-format.cjs:25-49, 53-54`) |
-| Target type | Explicit targets must exist and be regular files before analysis begins (`validate-output-format.cjs:56-67`) |
-| Artifact checks | Explicit targets receive purity, shape, Delivery, punctuation, Requirements, voice and conciseness checks, plus length-cap advice (`validate-output-format.cjs:833-944, 946-1058`) |
-| Writing | `--write` is allowed only without explicit targets and writes a changed formatted source file (`validate-output-format.cjs:20-23, 1165-1188`) |
-| Results | Unknown flag combinations return 64, unreadable targets return 66, validation errors return 1 and a clean run prints a passed scope (`validate-output-format.cjs:14-23, 59-67, 1300-1307`) |
+| Arguments | `validate-output-format.cjs` accepts `--write`, flags and target paths, then rejects unknown flags or `--write` with explicit targets (`validate-output-format.cjs:20-34`) |
+| Source inventory | No explicit target selects the system files, shared cards and Markdown files found under the skill references and assets (`validate-output-format.cjs:36-60, 64-65`) |
+| Target type | Explicit targets must exist and be regular files before analysis begins (`validate-output-format.cjs:67-78`) |
+| Artifact checks | Explicit targets receive purity, shape, Delivery, punctuation, Requirements, voice and conciseness checks, plus length-cap advice (`validate-output-format.cjs:868-979, 981-1095`) |
+| Writing | `--write` is allowed only without explicit targets and writes a changed formatted source file (`validate-output-format.cjs:31-34, 1202-1225`) |
+| Results | Unknown flag combinations return 64, unreadable targets return 66, validation errors return 1 and a clean run prints a passed scope (`validate-output-format.cjs:25-34, 70-78, 1337-1344`) |
 
-`validate-output-format.cjs:9-23, 40-67, 809-831 and 1291-1307` establish the path from argument parsing through file selection, analysis and result reporting
+`validate-output-format.cjs:20-34, 51-78, 842-866 and 1291-1307` establish the path from argument parsing through file selection, analysis and result reporting
 
 ```text
 process.argv
-  -> flags and targets : validate-output-format.cjs:9-23
-  -> file set          : validate-output-format.cjs:40-67
-  -> per-file analysis : validate-output-format.cjs:809-831
-  -> checks            : validate-output-format.cjs:833-1158
-  -> output            : validate-output-format.cjs:1291-1307
+  -> flags and targets : validate-output-format.cjs:20-34
+  -> file set          : validate-output-format.cjs:51-78
+  -> per-file analysis : validate-output-format.cjs:842-866
+  -> checks            : validate-output-format.cjs:868-1195
+  -> output            : validate-output-format.cjs:1328-1344
 ```
 
 * * *
@@ -183,9 +183,9 @@ process.argv
 
 | Entrypoint | Type | Purpose |
 |---|---|---|
-| `run_fixtures.sh` | Bash script | Changes to its own directory and defines the fixed validator and fixture paths (`run_fixtures.sh:1-15`) |
-| `validate-output-format.cjs [--write] [file ...]` | Node CLI | Accepts the write flag or target files according to its usage contract (`validate-output-format.cjs:9-23`) |
-| `PO_FORMAT_STATS=1` | Environment flag | Prints per-file statistics after analysis (`validate-output-format.cjs:1097-1116, 1295-1297`) |
+| `run_fixtures.sh` | Bash script | Changes to its own directory and defines the fixed validator and fixture paths (`run_fixtures.sh:1-27`) |
+| `validate-output-format.cjs [--write] [file ...]` | Node CLI | Accepts the write flag or target files according to its usage contract (`validate-output-format.cjs:20-34`) |
+| `PO_FORMAT_STATS=1` | Environment flag | Prints per-file statistics after analysis (`validate-output-format.cjs:1134-1153, 1332-1334`) |
 
 * * *
 
@@ -197,7 +197,7 @@ Run the fixture harness from the repository root:
 bash 'AI Systems/Product Owner/benchmark/format/run_fixtures.sh'
 ```
 
-The harness prints `PASSED all format-validator fixtures` and returns exit 0 when no case increments `failures`. A mismatch prints the failed case and returns exit 1 (`run_fixtures.sh:17-45, 149-153`)
+The harness prints `PASSED all format-validator fixtures` and returns exit 0 when no case increments `failures`. A mismatch prints the failed case and returns exit 1 (`run_fixtures.sh:33-61, 169-173`)
 
 For a direct file check, use the validator form declared in its usage line:
 
@@ -205,7 +205,7 @@ For a direct file check, use the validator form declared in its usage line:
 node 'AI Systems/Product Owner/benchmark/format/validate-output-format.cjs' path/to/file.md
 ```
 
-The direct form accepts one or more target paths, and `--write` is reserved for source mode (`validate-output-format.cjs:14-23, 40-54`)
+The direct form accepts one or more target paths, and `--write` is reserved for source mode (`validate-output-format.cjs:25-34, 51-65`)
 
 * * *
 
