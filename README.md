@@ -6,7 +6,7 @@
 
 > Like it? https://buymeacoffee.com/michelkerkmeester
 
-## 1. SUMMARY
+## 1. 📝 SUMMARY
 
 A product owner in a folder: it turns a half-formed product request into a task, bug report, product requirements document or source-safe document.
 
@@ -32,7 +32,7 @@ Built for agent CLIs that read `AGENTS.md` and for claude.ai Projects through `c
 
 &nbsp;
 
-## 2. 🎁 OVERVIEW
+## 2. 🗺️ OVERVIEW
 
 ### THE FOUNDATION
 
