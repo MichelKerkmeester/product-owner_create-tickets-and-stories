@@ -16,26 +16,26 @@ Built for agent CLIs that read `AGENTS.md` and for claude.ai Projects through `c
 
 **What's inside**
 
-**Smart Router**\
-Exact `$` commands, artifact framing and nine scored topics resolve each request to Task, Bug, Doc, Story or Interactive
+**Smart Router**
+- Exact `$` commands, artifact framing and nine scored topics resolve each request to Task, Bug, Doc, Story or Interactive
 
-**One-Question Intake**\
-Every missing fact goes into one consolidated question, saved as a `-clarification` file before anything is drafted
+**One-Question Intake**
+- Every missing fact goes into one consolidated question, saved as a `-clarification` file before anything is drafted
 
-**Source-Safe Docs**\
-Five claim classes, a four-step authority order and a gate that blocks any claim no source covers
+**Source-Safe Docs**
+- Five claim classes, a four-step authority order and a gate that blocks any claim no source covers
 
-**Artifact Templates**\
-Four task shapes, a fixed bug report, five Doc shapes and the Barter house Story and Epic, with 21 worked examples
+**Artifact Templates**
+- Four task shapes, a fixed bug report, five Doc shapes and the Barter house Story and Epic, with 21 worked examples
 
-**Blocking Quality Floors**\
-Six dimensions scored out of 10, with a floor of 8 for five of them and 9 for Accuracy
+**Blocking Quality Floors**
+- Six dimensions scored out of 10, with a floor of 8 for five of them and 9 for Accuracy
 
-**Verified Delivery**\
-Numbered export files, a read-back receipt and a ClickUp push only after an explicit yes
+**Verified Delivery**
+- Numbered export files, a read-back receipt and a ClickUp push only after an explicit yes
 
-**Checks Without a Model**\
-117 router fixtures, 189 differential inputs and 35 format cases run from a fresh clone
+**Checks Without a Model**
+- 117 router fixtures, 189 differential inputs and 35 format cases run from a fresh clone
 
 **Why it earns a place**
 
