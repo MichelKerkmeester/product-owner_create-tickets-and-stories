@@ -17,25 +17,25 @@ Built for agent CLIs that read `AGENTS.md` and for claude.ai Projects through `c
 **What's inside**
 
 **Smart Router**
-- Exact `$` commands, artifact framing and nine scored topics resolve each request to Task, Bug, Doc, Story or Interactive
+- Routes each request to Task, Bug, Doc, Story or Interactive
 
 **One-Question Intake**
-- Every missing fact goes into one consolidated question, saved as a `-clarification` file before anything is drafted
+- One question covers every missing fact, saved before any draft
 
 **Source-Safe Docs**
-- Five claim classes, a four-step authority order and a gate that blocks any claim no source covers
+- A gate blocks any claim no source covers
 
 **Artifact Templates**
-- Four task shapes, a fixed bug report, five Doc shapes and the Barter house Story and Epic, with 21 worked examples
+- Tasks, bugs, docs, Stories and Epics, with 21 worked examples
 
 **Blocking Quality Floors**
-- Six dimensions scored out of 10, with a floor of 8 for five of them and 9 for Accuracy
+- Six dimensions scored out of 10, each with a floor of 8 or 9
 
 **Verified Delivery**
-- Numbered export files, a read-back receipt and a ClickUp push only after an explicit yes
+- Every export read back before the reply, ClickUp only on a yes
 
 **Checks Without a Model**
-- 117 router fixtures, 189 differential inputs and 35 format cases run from a fresh clone
+- Router, input and format fixtures run from a fresh clone
 
 **Why it earns a place**
 
