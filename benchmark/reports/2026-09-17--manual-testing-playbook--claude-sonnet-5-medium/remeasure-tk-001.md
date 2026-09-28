@@ -1,6 +1,6 @@
 # Re-measurement, the Task Mode caveat repair on `TK-001`
 
-Post-repair measurement for commit `cfbfce0`, `fix(product-owner): an explicit command
+Post-repair measurement for commit `43d04af`, `fix(product-owner): an explicit command
 routes a request, it does not complete one`. `sampling.md` measured this lane before the
 repair and is untouched. This file carries the after side and nothing else.
 
@@ -31,7 +31,7 @@ Located by `grep -n`, not taken from the commit message:
 | project | `claude project/knowledge/Product Owner - Templates - Task Mode - v0.304.md` | 30 |
 
 The two strings are identical character for character. The superseded wording is recovered
-from `git show cfbfce0^` at the same two line numbers, so the before and after text is read
+from `git show 43d04af^` at the same two line numbers, so the before and after text is read
 from the tree rather than from prose.
 
 ### The cited authority says what the repair claims
