@@ -1,6 +1,6 @@
 # Grading notes, 2026-09-25, Product Owner, claude-opus-5-5 medium
 
-Evidence behind every verdict in `results.csv`. Paths are relative to this folder unless they start with `sk-product-owner/`, `claude project/`, `AGENTS.md` or `benchmark/fixtures/`, which are relative to `AI Systems/Product Owner/`. Source lines refer to the Product Owner repo at `3023c5e`, the commit the run read, and root lines to the playbook root there, version 2.0.0.0.
+Evidence behind every verdict in `results.csv`. Paths are relative to this folder unless they start with `sk-product-owner/`, `claude project/`, `AGENTS.md` or `benchmark/fixtures/`, which are relative to `AI Systems/Product Owner/`. Source lines refer to the Product Owner repo at `34a518e`, the commit the run read, and root lines to the playbook root there, version 2.0.0.0.
 
 Six Opus 5.5 graders drafted the evidence, one batch per folder group with both twins in the same batch. The orchestrator checked every draft against its evidence and read every FAIL a second time. Export lines cited here refer to the graded originals, since the exports were edited by hand on 2026-09-26 (README, Edited after grading).
 
@@ -107,7 +107,7 @@ Pairs that agree on FAIL share their cause:
 
 ## 5. Identity and interactive routing batch, grader draft
 
-Run: `AI Systems/Product Owner/benchmark/reports/2026-09-25--manual-testing-playbook--claude-opus-5-5-medium/`. Model `claude-opus-5-5-medium`. Sources read from the working tree: `git -C "AI Systems/Product Owner" status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing, and `git diff --stat 3023c5e HEAD` over the same paths is empty (HEAD `e9edb95` only adds the run), so every source line cited below is the line at `3023c5e`.
+Run: `AI Systems/Product Owner/benchmark/reports/2026-09-25--manual-testing-playbook--claude-opus-5-5-medium/`. Model `claude-opus-5-5-medium`. Sources read from the working tree: `git -C "AI Systems/Product Owner" status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing, and `git diff --stat 34a518e HEAD` over the same paths is empty (HEAD `c54fb79` only adds the run), so every source line cited below is the line at `34a518e`.
 
 ### Handover verdicts
 
@@ -458,7 +458,7 @@ Batch `tasks`, twelve scenarios in six twin pairs: `STK-001..STK-006` (skill) an
 
 - `<RUN>` is `AI Systems/Product Owner/benchmark/reports/2026-09-25--manual-testing-playbook--claude-opus-5-5-medium/`. Skill evidence sits under `<RUN>/skill/<ID> - <slug>/`, Project evidence under `<RUN>/claude project/<ID> - <slug>/`. Every `replies/<ID>-turn<n>.txt` is byte-identical to its `turn-<n>.md` (checked with `diff -q`, no differences).
 - "call N" means the Nth tool call in that turn's `events-turn-<n>.jsonl`, counted in stream order.
-- `git -C "AI Systems/Product Owner" status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing, so source and fixture lines are cited from the working tree, which equals `3023c5e`.
+- `git -C "AI Systems/Product Owner" status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing, so source and fixture lines are cited from the working tree, which equals `34a518e`.
 - Skill export line numbers are the file as it stands in `exports/export/`. Project line numbers are `turn-<n>.md` reply lines. Block copies for the format gate sit in `scratch/grades/blocks/tasks/<ID>-turn<n>-block<k>.md`, holding the text between the fence lines, so a block copy's line = reply line minus 1.
 - Format gate: `node validate-output-format.cjs --system product-owner "<file>"` from the `AI Systems/z*Sync Loop` folder the brief names. All 11 skill export files and all 15 Project block copies printed `Product Owner output format validation passed across 1 artifact file(s)`.
 - The Read tool counts the empty line after a trailing newline, so on every export in this batch the Read `totalLines` equals `wc -l` plus 1 (see OR-2).
@@ -1066,7 +1066,7 @@ Tally: skill 1 PASS, 5 FAIL; Project 1 PASS, 5 FAIL. If the operator reads OR-4 
 
 Batch `bugs`: SBG-001, PBG-001, SBG-002, PBG-002, SBG-003, PBG-003. Model `claude-opus-5-5-medium`. Run folder `<RUN>` = `AI Systems/Product Owner/benchmark/reports/2026-09-25--manual-testing-playbook--claude-opus-5-5-medium/`.
 
-Sources: `git -C "AI Systems/Product Owner" status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing and HEAD is `3023c5e`, so every source line below is cited from the working tree at `3023c5e`.
+Sources: `git -C "AI Systems/Product Owner" status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing and HEAD is `34a518e`, so every source line below is cited from the working tree at `34a518e`.
 
 Format gate: `node validate-output-format.cjs --system product-owner <file>` run from the Sync Loop folder on all four skill exports and all five Project block copies under `scratch/grades/blocks/bugs/`. Every run printed `Product Owner output format validation passed across 1 artifact file(s)` with exit 0.
 
@@ -1433,7 +1433,7 @@ None.
 
 Batch `docs`: SDK-001, PDK-001, SDK-002, PDK-002, SDK-003, PDK-003, SDK-004, PDK-004. Model `claude-opus-5-5-medium`. Run folder `<RUN>` = `AI Systems/Product Owner/benchmark/reports/2026-09-25--manual-testing-playbook--claude-opus-5-5-medium/`.
 
-Sources: `git -C "AI Systems/Product Owner" status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing and HEAD is `3023c5e`, so every source line below is cited from the working tree at `3023c5e`. `turn-<n>.md` and `replies/<ID>-turn<n>.txt` are byte-identical for all 16 turns (`diff` silent).
+Sources: `git -C "AI Systems/Product Owner" status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing and HEAD is `34a518e`, so every source line below is cited from the working tree at `34a518e`. `turn-<n>.md` and `replies/<ID>-turn<n>.txt` are byte-identical for all 16 turns (`diff` silent).
 
 Format gate: `node validate-output-format.cjs --system product-owner <file>` from the Sync Loop folder, on all seven skill exports and on the eight Project block copies under `scratch/grades/blocks/docs/` (`PDK-00n-turn<n>.md`, the text between the opening and closing fence of each reply). Every skill export passed with exit 0. Project blocks: PDK-002 turn 1 and 2, PDK-003 turn 1 and 2 and PDK-004 turn 1 passed. PDK-001 turn 1 (block lines 138 and 139), PDK-001 turn 2 (block line 137) and PDK-004 turn 2 (block lines 168 to 170) failed with `prose em dash (HVR bans it, use a comma, colon or full stop)`. No Pass clause in this batch names the em dash, so these findings are recorded as advisory evidence only.
 
@@ -1951,7 +1951,7 @@ None.
 
 ## 9. Stories batch, grader draft
 
-Batch: `SST-001..SST-004` (skill) and `PST-001..PST-004` (Project), run `2026-09-25--manual-testing-playbook--claude-opus-5-5-medium`, Product Owner commit `3023c5e`.
+Batch: `SST-001..SST-004` (skill) and `PST-001..PST-004` (Project), run `2026-09-25--manual-testing-playbook--claude-opus-5-5-medium`, Product Owner commit `34a518e`.
 
 `<RUN>` below is `AI Systems/Product Owner/benchmark/reports/2026-09-25--manual-testing-playbook--claude-opus-5-5-medium/`. Scenario files are `AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/{skill,project}-story-modes/<slug>.md`, and every Pass/fail bullet sits on line 35 of its file. `git -C "AI Systems/Product Owner" status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing, so sources were read from the working tree.
 
@@ -2440,7 +2440,7 @@ Cause shared by the three failing pairs. The twins agree, so no divergence needs
 
 ## 10. Epics batch, grader draft
 
-Run folder `<RUN>`: `AI Systems/Product Owner/benchmark/reports/2026-09-25--manual-testing-playbook--claude-opus-5-5-medium/`. Sources read from the working tree, which is clean for `sk-product-owner`, `claude project`, `AGENTS.md` and `benchmark/fixtures` (the `git status --porcelain` check printed nothing), so every source line below stands as at `3023c5e`. Event citations are line numbers inside the named `events-turn-<n>.jsonl`. Project block copies sit under `scratch/grades/blocks/epics/`.
+Run folder `<RUN>`: `AI Systems/Product Owner/benchmark/reports/2026-09-25--manual-testing-playbook--claude-opus-5-5-medium/`. Sources read from the working tree, which is clean for `sk-product-owner`, `claude project`, `AGENTS.md` and `benchmark/fixtures` (the `git status --porcelain` check printed nothing), so every source line below stands as at `34a518e`. Event citations are line numbers inside the named `events-turn-<n>.jsonl`. Project block copies sit under `scratch/grades/blocks/epics/`.
 
 Format gate results, one per export or block:
 

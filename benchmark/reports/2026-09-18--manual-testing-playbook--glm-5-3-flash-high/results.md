@@ -112,7 +112,7 @@ No other Product Owner scenario made an out-of-sandbox call, so the remaining 12
 
 ## 10. RE-MEASURED AFTER THE REPAIRS
 
-Commit `9474bd7` made a promised source stop deferring the other Doc intake fields. `SDK-001` and `PDK-001` were rerun three times each on GLM through the sandboxed runner, in `remeasure/run-1` to `run-3`, and graded by a fresh reader in `remeasure/remeasure-grading.md`.
+Commit `bca9e28` made a promised source stop deferring the other Doc intake fields. `SDK-001` and `PDK-001` were rerun three times each on GLM through the sandboxed runner, in `remeasure/run-1` to `run-3`, and graded by a fresh reader in `remeasure/remeasure-grading.md`.
 
 | Scenario | Before | After |
 | --- | --- | --- |
