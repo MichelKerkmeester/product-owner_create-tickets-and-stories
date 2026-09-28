@@ -44,7 +44,7 @@ One qualification. `benchmark/gates/README.md` section 6 documents its own injec
 method in the tracked record itself. `benchmark/grader/README.md` carries no
 equivalent section for `lint_replies.py` or `twin_divergence.py`, so before I ran the
 tests above, the only claim that those two were ever proved red was the terse fleet
-commit message at `c2d9e7d` ("each proved red on an injection before being believed"),
+commit message at `4a2d523` ("each proved red on an injection before being believed"),
 with no lane log preserved in the tracked tree (the phase-1 episode's own spec folder
 is stated as gitignored in `z — Parity Gate/episodes/hand-run/011-fleet-capability-leak/handover.md`
 line 15). The standard is met because I did the reproduction myself and it held on
@@ -108,7 +108,7 @@ tracked record alone.
 
 **Upheld.**
 
-- The Task Mode caveat repair (commit `173a3b7`, `fix(product-owner): an explicit
+- The Task Mode caveat repair (commit `cfbfce0`, `fix(product-owner): an explicit
   command routes a request, it does not complete one`) changed
   `sk-product-owner/references/task-mode.md` line 50 and
   `claude project/knowledge/Product Owner - Templates - Task Mode - v0.304.md` line
@@ -119,7 +119,7 @@ tracked record alone.
   (\`$task\`/\`$bug\`) | Context-specific question → Wait → Process → Deliver`. That
   is a context-specific question and a wait, named for an explicit command, exactly
   what the commit says the old caveat contradicted
-- The kernel prescriptive-delivery repair (commit `fb08df0`) is Project-kernel-only by
+- The kernel prescriptive-delivery repair (commit `abd984d`) is Project-kernel-only by
   its own text ("Skill unchanged, because no skill rule changed and the skill
   packaging legitimately writes files"), so it is not a both-sides repair and the
   brief does not ask it to be one. `claude project/Custom Instructions.md` line 88
@@ -200,7 +200,7 @@ line 89 reads:
 ```
 
 The link text was repointed to the new filename (`v0.304.md`) but its `href` was not,
-and still names `v0.303.md`, the file the same repair commit (`173a3b7`) renamed away.
+and still names `v0.303.md`, the file the same repair commit (`cfbfce0`) renamed away.
 Confirmed the target does not resolve
 (`os.path.exists` on the decoded, normalized path returns `False`), and confirmed by a
 full re-run of the same link-walk the earlier playbook verification episode used

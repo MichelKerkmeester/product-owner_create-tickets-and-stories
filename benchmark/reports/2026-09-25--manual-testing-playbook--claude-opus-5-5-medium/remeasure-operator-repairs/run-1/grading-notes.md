@@ -1,10 +1,10 @@
 # Grading notes, remeasure round `remeasure-operator-repairs/run-1`
 
-Evidence behind every verdict in this folder's `results.csv`. The round reran 26 scenarios on Product Owner `39bcd29` and Barter `df2de5f0` (skill 1.11.0, kernel v1.15.0, playbook 2.1.0.0), after the operator's rulings of 2026-09-25 were repaired in the sources. Source and root lines cite that commit.
+Evidence behind every verdict in this folder's `results.csv`. The round reran 26 scenarios on Product Owner `3f1f1dd` and Barter `50bd2273` (skill 1.11.0, kernel v1.15.0, playbook 2.1.0.0), after the operator's rulings of 2026-09-25 were repaired in the sources. Source and root lines cite that commit.
 
 Three Opus 5.5 graders drafted the evidence, and the orchestrator reviewed it as for the main run. Sections 2 to 4 are the graders' drafts, each row showing the first reading with `after_failed_gate` unset, and `results.csv` holds the final row.
 
-The round's exports left `export/benchmark/` on 2026-09-26, so export lines cited here refer to the files at Product Owner `3fdce37` and Barter `d214c160`.
+The round's exports left `export/benchmark/` on 2026-09-26, so export lines cited here refer to the files at Product Owner `a556a7c` and Barter `ef2a4cfa`.
 
 ---
 
@@ -48,7 +48,7 @@ Batch `remeasure-tasks`, nine scenarios from the remeasure round `remeasure-oper
 ### Conventions used in this draft
 
 - `<R1>` is `AI Systems/Product Owner/benchmark/reports/2026-09-25--manual-testing-playbook--claude-opus-5-5-medium/remeasure-operator-repairs/run-1/`. Skill evidence sits under `<R1>/skill/<ID> - <slug>/`, Project evidence under `<R1>/claude project/<ID> - <slug>/`. Every `replies/<ID>-turn<n>.txt` is byte-identical to its `turn-<n>.md` (checked with `cmp`, all 18 the same).
-- Sources are cited at Product Owner `39bcd29`. `git -C "AI Systems/Product Owner" status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing, so the working tree was read directly. Root lines come from `git show 39bcd29:sk-product-owner/manual-testing-playbook/manual-testing-playbook.md` (version 2.1.0.0): verdict line 150, rendering line 163, identity handover line 179, invented fact line 187, protected fact line 188, file claim line 189, Ticket realism lines 198 to 214.
+- Sources are cited at Product Owner `3f1f1dd`. `git -C "AI Systems/Product Owner" status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing, so the working tree was read directly. Root lines come from `git show 3f1f1dd:sk-product-owner/manual-testing-playbook/manual-testing-playbook.md` (version 2.1.0.0): verdict line 150, rendering line 163, identity handover line 179, invented fact line 187, protected fact line 188, file claim line 189, Ticket realism lines 198 to 214.
 - `run-status.json`: all nine scenarios `status ok`, `turns_run 2`, `turns_declared 2`.
 - "call N" is the Nth tool call in that turn's `events-turn-<n>.jsonl`, counted in stream order.
 - Skill export line numbers are the file in `exports/export/`. Project line numbers are `turn-<n>.md` reply lines. Block copies for the format gate sit in `scratch/grades/blocks/remeasure-tasks/<ID>-turn<n>-block1.md` and hold the text between the fence lines, so a block copy's line is the reply line minus 1.
@@ -546,13 +546,13 @@ PTK-006,project,claude-opus-5-5-medium,FAIL,2,2,pending,no,"The Turn 2 block nev
 
 ## 3. Bugs, docs and identity batch, grader draft
 
-Batch: SBG-002, PBG-002, SDK-001, PDK-001, SDK-003, PDK-003, PID-001, PIR-002. Model `claude-opus-5-5-medium`. Run folder `<RUN>/remeasure-operator-repairs/run-1/`, where `<RUN>` is `AI Systems/Product Owner/benchmark/reports/2026-09-25--manual-testing-playbook--claude-opus-5-5-medium/`. Product Owner commit `39bcd29`, Barter commit `df2de5f0`, playbook 2.1.0.0. `git status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing, so every source was read from the working tree and every root and source line below is cited as it stands at `39bcd29` (root copy written with `git show 39bcd29:sk-product-owner/manual-testing-playbook/manual-testing-playbook.md`).
+Batch: SBG-002, PBG-002, SDK-001, PDK-001, SDK-003, PDK-003, PID-001, PIR-002. Model `claude-opus-5-5-medium`. Run folder `<RUN>/remeasure-operator-repairs/run-1/`, where `<RUN>` is `AI Systems/Product Owner/benchmark/reports/2026-09-25--manual-testing-playbook--claude-opus-5-5-medium/`. Product Owner commit `3f1f1dd`, Barter commit `50bd2273`, playbook 2.1.0.0. `git status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing, so every source was read from the working tree and every root and source line below is cited as it stands at `3f1f1dd` (root copy written with `git show 3f1f1dd:sk-product-owner/manual-testing-playbook/manual-testing-playbook.md`).
 
 ### Handover verdict first
 
 - **PID-001 (Project handover): FAIL.** `claude project/PID-001 - identity-handover/turn-1.md` line 48 says "Once you answer, the task will be `export/002 - task-due-today-filter-chip.md`." The block itself says "I'll write the task from your answers" (line 4). Naming the future task as a concrete `export/` Markdown file is a promise of a file, which root lines 179 and 189 and `Custom Instructions.md` line 101 make a file claim. Every other PID-001 clause is met. The alternative reading is under PID-001 Open readings, and PID-001 flips to PASS only if the operator rejects this one.
 
-Identity split greps at `39bcd29`, run from the workspace root:
+Identity split greps at `3f1f1dd`, run from the workspace root:
 
 | Grep | Expected | Observed |
 |---|---|---|
@@ -1051,7 +1051,7 @@ PIR-002,project,claude-opus-5-5-medium,PASS,2,2,pending,yes,"Turn 1 rendered one
 
 ## 4. Stories and Epics batch, grader draft
 
-Run: `AI Systems/Product Owner/benchmark/reports/2026-09-25--manual-testing-playbook--claude-opus-5-5-medium/remeasure-operator-repairs/run-1/`. Model `claude-opus-5-5-medium`. Product Owner commit `39bcd29`, Barter commit `df2de5f0`, playbook 2.1.0.0. `git -C "AI Systems/Product Owner" status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing, and the working-tree root is identical to `git show 39bcd29:sk-product-owner/manual-testing-playbook/manual-testing-playbook.md`, so every root, source and fixture line below is the line at `39bcd29`. `run-status.json` gives 2 of 2 turns for all nine scenarios.
+Run: `AI Systems/Product Owner/benchmark/reports/2026-09-25--manual-testing-playbook--claude-opus-5-5-medium/remeasure-operator-repairs/run-1/`. Model `claude-opus-5-5-medium`. Product Owner commit `3f1f1dd`, Barter commit `50bd2273`, playbook 2.1.0.0. `git -C "AI Systems/Product Owner" status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing, and the working-tree root is identical to `git show 3f1f1dd:sk-product-owner/manual-testing-playbook/manual-testing-playbook.md`, so every root, source and fixture line below is the line at `3f1f1dd`. `run-status.json` gives 2 of 2 turns for all nine scenarios.
 
 Tally: skill 3 PASS, 1 FAIL. Project 0 PASS, 5 FAIL.
 

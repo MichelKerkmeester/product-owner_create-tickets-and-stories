@@ -1,4 +1,4 @@
-<!-- Rounds 5 and 6 review of remeasure-5 and remeasure-6. Reviewer: DeepSeek V4.1 Flash, thinking max, Pi CLI through the LLM Gateway, read-only tools. Two Copywriter and Deal Templates fixes were committed while it ran (595881c, b5044e4). Covers all three systems. -->
+<!-- Rounds 5 and 6 review of remeasure-5 and remeasure-6. Reviewer: DeepSeek V4.1 Flash, thinking max, Pi CLI through the LLM Gateway, read-only tools. Two Copywriter and Deal Templates fixes were committed while it ran (7de3fec, 8701eb1). Covers all three systems. -->
 
 All evidence is read. Composing the final report now, with the reading conventions I applied stated first so every verdict is auditable.
 
@@ -6,7 +6,7 @@ All evidence is read. Composing the final report now, with the reading conventio
 
 # Independent review: `remeasure-5` and `remeasure-6`
 
-**Scope of what I read.** All 18 `remeasure-5` run instances in Barter Copywriter (`PDL-001`, `SDL-001`, `PEN-001`, `SEN-001`, `PEN-002`, `SEN-002`, 3 runs each), all 12 `remeasure-6` instances (`PEN-001`, `SEN-001`, `PEN-002`, `SEN-002`, 3 runs each), all 6 Deal Templates instances (`SDP-004`, `PDP-004`, 3 runs each), every `turn-N.md` reply, every `meta.json` ledger, every skill `exports/` tree, the transcripts where a path or read-back claim needed checking, the three diffs (`231bcdb`, `194a52c`, `f839815`), the round 4 reviews (both reviewers, both system copies), the `remeasure-4` evidence the round 4 reviews graded, and the live rule files at HEAD for every copy the repairs touched. Product Owner has no `remeasure-5` or `remeasure-6` folder and no round 5 or 6 commit, so it stays out of the tables.
+**Scope of what I read.** All 18 `remeasure-5` run instances in Barter Copywriter (`PDL-001`, `SDL-001`, `PEN-001`, `SEN-001`, `PEN-002`, `SEN-002`, 3 runs each), all 12 `remeasure-6` instances (`PEN-001`, `SEN-001`, `PEN-002`, `SEN-002`, 3 runs each), all 6 Deal Templates instances (`SDP-004`, `PDP-004`, 3 runs each), every `turn-N.md` reply, every `meta.json` ledger, every skill `exports/` tree, the transcripts where a path or read-back claim needed checking, the three diffs (`ae57d9c`, `e268f13`, `d626ccf`), the round 4 reviews (both reviewers, both system copies), the `remeasure-4` evidence the round 4 reviews graded, and the live rule files at HEAD for every copy the repairs touched. Product Owner has no `remeasure-5` or `remeasure-6` folder and no round 5 or 6 commit, so it stays out of the tables.
 
 **Reading conventions, stated so they are auditable.**
 

@@ -38,7 +38,7 @@ Output: `('project', 'FAIL') 4`, `('project', 'PASS') 3`, `('skill', 'FAIL') 3`,
 | SST-001 | skill | PASS | Hard values verbatim and kind named. Criterion 2 keeps entered input on refusal, and the reply names criterion 2 as an addition, which names every clause in it |
 | STK-001 | skill | PASS | Wait state and facts are right, and the page value `Creator payouts` and the scope-out sentence are both named in the reply as additions |
 
-`facts_intact` is yes on all 14 rows: every user-supplied fact reached the deliverable. The failures are unnamed additions, layout and verification, not lost facts. Five Project rows record Turn 1 commentary before the clarification block as an advisory defect, and it decides none of them (root line 136 at Barter `a6442856`).
+`facts_intact` is yes on all 14 rows: every user-supplied fact reached the deliverable. The failures are unnamed additions, layout and verification, not lost facts. Five Project rows record Turn 1 commentary before the clarification block as an advisory defect, and it decides none of them (root line 136 at Barter `47fe129d`).
 
 ---
 
