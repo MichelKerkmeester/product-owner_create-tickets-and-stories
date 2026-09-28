@@ -122,7 +122,7 @@ No `remeasure-5` or `remeasure-6` folders exist (`remeasure`, `remeasure-2`, `re
 
 ## 2. Round 5 and round 6, item by item
 
-**Round 5, Copywriter (`231bcdb`).**
+**Round 5, Copywriter (`ae57d9c`).**
 
 1. *Bare-mode filename, never the `$` token and never the energy.* Moved decisively. In remeasure-4 the Project wrote `export/001 - $write-new-creator-taglines.md` (PDL-001 run 2), `export/001 - fast-pricing-tooltip.md` (PEN-001 run 1), `export/001 - $ux-pricing-page-tooltip.md` (PEN-001 run 3), `export/001 - quick-creator-homepage-tagline.md` (PEN-002 run 2), and PDL-001 run 3 reported no path at all. Across remeasure-5 and remeasure-6, every reported path on both packagings takes the correct `write-` or `ux-` form, 15 of 15. The Artifact Template example fix (`Mode: $fast` to `Mode: $ux`) correlates with `Mode: $ux` headers on all six observed Fast deliveries.
 
@@ -136,13 +136,13 @@ No `remeasure-5` or `remeasure-6` folders exist (`remeasure`, `remeasure-2`, `re
 
 6. *Rationale inside the body recorded as an accepted model limit.* A documentation stance, not a behavior change. Remeasure-5's clean bodies offer no new evidence either way.
 
-**Round 5, Deal Templates (`194a52c`).**
+**Round 5, Deal Templates (`e268f13`).**
 
 7. *Check 7 fails only on a made-up name from the product noun.* The contract moved on all copies (AGENTS.md Section 5, kernel Creator-fit names, Standards pair, SKILL.md required checks and About-order self-check, both scenario files). In remeasure-5 every observed bullet already passed even the old stricter reading, so the leniency is verified in the text rather than exercised by the runs. No legitimate bullet was suppressed: 24 of 24 bullets across the six runs carry standing format names or descriptive claims.
 
 8. *`<!-- Assumes: -->` HTML comment allowed inside a deal.* Moved and exercised: SDP-004 run 3's export carries exactly that comment below its header and correctly passes.
 
-**Round 6, Copywriter (`f839815`).**
+**Round 6, Copywriter (`d626ccf`).**
 
 9. *Fast allows a best pick plus up to two alternatives, three option lines at most.* Moved. All 6 remeasure-6 Fast deliveries sit within 3 option lines, in numbered, labeled or Recommended-plus-alternative forms. The rule is now written identically in AGENTS.md, SKILL.md (both tables), the kernel energy table, the Interactive Mode pair, the Router Contract pair, `route_contract.py`, both READMEs and both scenario files, and a grep of the live tree finds no surviving "at most two options" or "1 best" wording. The Artifact Template was correctly left alone since its compact example already shows the shape.
 
@@ -190,20 +190,20 @@ No `remeasure-5` or `remeasure-6` folders exist (`remeasure`, `remeasure-2`, `re
 
 ## 5. Diff audit findings
 
-**`231bcdb` (Copywriter round 5).**
+**`ae57d9c` (Copywriter round 5).**
 
 - **Missed copy, placement gap, P2.** `sk-barter-copywriter/references/meqt-scoring.md:213` and its mirror `claude project/knowledge/Copywriter - System - MEQT Scoring - v0.302.md:195` still read `report the export-equivalent path export/[###] - [mode]-[description].md, lane-appropriate proof and a 2-3 sentence summary` with no bare-mode clause and no concrete example. This is the document PDL-001's own source table cites for "Export-equivalent path wording", so the ambiguous `[mode]` slot survives in exactly the copy the scenario points at. The primary copies (AGENTS.md step 7, SKILL.md Section 9, kernel Delivery) carry the fix, which is why observed behavior moved anyway.
 - **Missed copy, placement gap, P2 (minor).** `claude project/README.md` prose still shows the bare `[mode]` placeholder without the clause. The skill README's export block shows the placeholder plus two correct examples (`write-landing-hero.md`, `ux-error-states.md`), so it teaches the right shape by example without ever stating the rule.
 - **Misreadable wording, playbook defect, P2.** The scenario fail clause `a full variation grid ships` never defines the grid. Remeasure-5 SEN-002 run 3's flat Recommended-plus-5-options export sits exactly on the ambiguity the two round-4 reviewers split on: count-based reading fails it, structure-based reading partials it. Naming the grid (`six options across the three tier groups plus a Recommended Combination, or the $grid spread`) would end the split.
 - **No contradictions.** The three updated path copies agree word for word on `mode name without its $ and never the energy` plus the `export/001 - write-...` example. The `[Assumes:]` rules stay correctly split per packaging (after the path on skill, after the block on Project). The HVR change is consistent across SKILL.md rule 12, the kernel ALWAYS list and both Section 9 texts. No live file retains "compact score line" or "HVR failures only" outside dated benchmark reports.
 
-**`194a52c` (Deal Templates round 5).**
+**`e268f13` (Deal Templates round 5).**
 
 - **Clean on copies.** Check 7's lenient reading now reads identically in AGENTS.md Section 5, the kernel Creator-fit names, the Standards pair, SKILL.md's required checks and About-order self-check, and both scenario files. The validation steps that defer to those definitions were correctly left unchanged, and each scenario's triage step 2 was updated in step with check 7 (`the bullets run only the made-up-name check`). Check 21's HTML-comment exception is aligned across the Standards pair, SKILL.md's Project packaging bullet and the export enumeration, and kernel rule 15 was correctly left alone since it already banned only visible tags.
 - **Missed copies:** none found. The Standards pre-reply checklist line (`every creator-fit bullet passes the name test, so no name is built from an offer noun plus...`) reads consistently because it defines the test it invokes.
 - **Misreadable wording:** a weak one. AGENTS.md step 4 says `every creator-fit bullet passes the name test` without restating the bullet-scope narrowing. It resolves through the Section 5 definition, so it is consistent, but a reader of step 4 alone could still over-read it. P2 at most.
 
-**`f839815` (Copywriter round 6).**
+**`d626ccf` (Copywriter round 6).**
 
 - **Clean on copies and repoints.** All 13 live copies of the Fast rule carry the new shape, the Router Contract pair moved to v0.102 byte-identically (same hunk both files), Interactive Mode moved to v0.703 with every reference repointed (playbook tables, `carrier_query_evidence.py`, `systems.py`, `residency/backlog.md`), and no stale `at most two options`, `1 best` or `max 2 options` wording survives outside changelogs and SYNC notes.
 - **Contradictions:** none. The scenario pass/fail lines were deliberately left generic and still cover the new shape. The Quick scenarios were untouched beyond a reference repoint, consistent with the three-line rule being Fast-only.
