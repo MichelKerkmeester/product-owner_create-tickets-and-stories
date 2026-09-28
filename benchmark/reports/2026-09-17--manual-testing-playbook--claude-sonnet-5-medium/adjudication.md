@@ -263,8 +263,8 @@ rather than substituting a path for a deliverable. Different cause.
   reproduction rates separate accordingly, 3 of 4 against 1 of 8
 - Not a defect, checked and cleared: section 3's claim that the harness rebuilds
   the scratch tree on `--resume` was true of the harness in force during the run,
-  at commit `3e5b3b1`, where `build_skill` and `build_project` ran unguarded. The
-  `REBUILD` guard landed in `f78a361`, the commit that recorded this report. The
+  at commit `b6ed0bf`, where `build_skill` and `build_project` ran unguarded. The
+  `REBUILD` guard landed in `cd6cd14`, the commit that recorded this report. The
   note is stale against today's script and accurate about the run
 - Not a defect, checked and cleared: `hvr-lint.csv` holds 28 rows with exactly 3
   `clean=True`, matching section 8, and `knowledge/` holds 38 files, matching

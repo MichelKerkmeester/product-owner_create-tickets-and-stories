@@ -1,10 +1,10 @@
 # Grading notes, second remeasure round `remeasure-file-forecast/run-1`
 
-Evidence behind every verdict in this folder's `results.csv`. The round reran the eight Project scenarios that still named a file for an artifact still to come in round one, on Product Owner `db629d2` and Barter `e759082d` (skill 1.12.0, kernel v1.16.0, playbook 2.1.1.0). Source and root lines cite that commit.
+Evidence behind every verdict in this folder's `results.csv`. The round reran the eight Project scenarios that still named a file for an artifact still to come in round one, on Product Owner `8eb4ee6` and Barter `def23ee9` (skill 1.12.0, kernel v1.16.0, playbook 2.1.1.0). Source and root lines cite that commit.
 
 One Opus 5.5 grader drafted the evidence, and the orchestrator reviewed it. Section 2 is the draft, whose rows show `after_failed_gate` unset, and `results.csv` holds the final rows.
 
-The round's exports left `export/benchmark/` on 2026-09-26, so export lines cited here refer to the files at Product Owner `a556a7c` and Barter `ef2a4cfa`.
+The round's exports left `export/benchmark/` on 2026-09-26, so export lines cited here refer to the files at Product Owner `871cd32` and Barter `70f459bb`.
 
 ---
 
@@ -26,13 +26,13 @@ The operator ruled on 2026-09-26 that the sentence is a file claim, so `PST-003`
 
 ## 2. Grader draft
 
-Batch: `PID-001`, `PBG-002`, `PTK-005`, `PTK-006`, `PST-003`, `PST-004`, `PEP-001` and `PEP-002`, all Project side, in the order the forecast brief lists them. Model `claude-opus-5-5-medium`. Run folder `<R2>` is `AI Systems/Product Owner/benchmark/reports/2026-09-25--manual-testing-playbook--claude-opus-5-5-medium/remeasure-file-forecast/run-1/`. Product Owner commit `db629d2`, Barter commit `e759082d`, playbook 2.1.1.0, skill 1.12.0, kernel v1.16.0. Graded read-only against `grading-brief.md`, `grading-brief-remeasure.md` and `grading-brief-forecast.md`.
+Batch: `PID-001`, `PBG-002`, `PTK-005`, `PTK-006`, `PST-003`, `PST-004`, `PEP-001` and `PEP-002`, all Project side, in the order the forecast brief lists them. Model `claude-opus-5-5-medium`. Run folder `<R2>` is `AI Systems/Product Owner/benchmark/reports/2026-09-25--manual-testing-playbook--claude-opus-5-5-medium/remeasure-file-forecast/run-1/`. Product Owner commit `8eb4ee6`, Barter commit `def23ee9`, playbook 2.1.1.0, skill 1.12.0, kernel v1.16.0. Graded read-only against `grading-brief.md`, `grading-brief-remeasure.md` and `grading-brief-forecast.md`.
 
 ### Handover verdict first
 
 **PID-001 (Project handover): PASS.** Both replies open with a fenced block at line 1, then `Export-equivalent path:` in the task lane and the `HVR self-scan:` line, with no `Path:`, `Saved:` or `Verified:` line. The first round failed on `turn-1.md` line 48, "Once you answer, the task will be `export/002 - task-due-today-filter-chip.md`". That forecast is gone. Turn 1 now closes "I haven't drafted the task yet because `$task` needs your answers first. I'll write it once you reply." (`turn-1.md` line 33), which names neither a path nor a file. The task keeps every Turn 2 fact. No Project handover failure needs stating at the top of the run report for this round.
 
-Identity split greps at `db629d2`, run from `AI Systems/Product Owner/`:
+Identity split greps at `8eb4ee6`, run from `AI Systems/Product Owner/`:
 
 | Grep | Expected | Observed |
 |---|---|---|
@@ -72,7 +72,7 @@ No Turn 2 reply in the batch says anything about a file for its own or a later a
 
 ### Method notes
 
-- `git -C "AI Systems/Product Owner" status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing and HEAD is `db629d2`, so every source was read from the working tree. Root lines come from `git show db629d2:sk-product-owner/manual-testing-playbook/manual-testing-playbook.md` (1,074 lines): verdict 150, clarification turns 154 to 159, rendering 163, export names 167 and 171, identity handover 179, invented fact 187, protected fact 188, file claim 189, HVR 190, Ticket realism 198 to 214. Kernel `claude project/Custom Instructions.md`: 85, 90, 101, 103, 108, 226, 228, 229, 233. `Product Owner - System - Interactive Mode - v0.407.md` line 70.
+- `git -C "AI Systems/Product Owner" status --porcelain -- sk-product-owner "claude project" AGENTS.md benchmark/fixtures` printed nothing and HEAD is `8eb4ee6`, so every source was read from the working tree. Root lines come from `git show 8eb4ee6:sk-product-owner/manual-testing-playbook/manual-testing-playbook.md` (1,074 lines): verdict 150, clarification turns 154 to 159, rendering 163, export names 167 and 171, identity handover 179, invented fact 187, protected fact 188, file claim 189, HVR 190, Ticket realism 198 to 214. Kernel `claude project/Custom Instructions.md`: 85, 90, 101, 103, 108, 226, 228, 229, 233. `Product Owner - System - Interactive Mode - v0.407.md` line 70.
 - `<R2>/run-status.json`: all eight `status ok`, one attempt, `turns_run 2`, `turns_declared 2`.
 - Every `replies/<ID>-turn<n>.txt` is byte-identical to its `turn-<n>.md` (`cmp`, 16 of 16).
 - Every `meta.json` shows empty ledgers on both turns and empty `net_file_changes`. Every session's init event lists only `Glob`, `Grep` and `Read`, and every result event is `success`.
