@@ -6,6 +6,8 @@
 
 > Like it? https://buymeacoffee.com/michelkerkmeester
 
+&nbsp;
+
 ## 1. 📝 SUMMARY
 
 A product owner in a folder: it turns a half-formed product request into a task, bug report, product requirements document or source-safe document.
