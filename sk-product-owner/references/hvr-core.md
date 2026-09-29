@@ -42,6 +42,7 @@ A consuming system may grant a narrow exemption where a target format fixes a sh
 - Product Owner Doc Mode grants the status-label delimiter `Status: {source class} — {scope or qualifier}`, in a document-wide status notice and in a section-level or entry-level status line, because the qualifier itself routinely carries commas
 - Product Owner Bug Mode grants the two fixed corpus labels `**1. Observed Behavior**` and `**2. Expected Behavior**`, which the Barter bug corpus writes verbatim. No other heading or label in that system escapes sentence case
 - Product Owner Story Mode grants the literal placeholder `TBD...` in the three `## Delivery` slots, Estimation, Rabbit holes and No-gos. It is a fixed token rather than a prose ellipsis, so it never counts against the one-ellipsis cap
+- Barter Deal Templates grants its deal copy one emoji closing each headline and at most two more across the whole deal, where they add tone. None may lead a list line or sit in About prose, and every other piece that system writes keeps the one-emoji cap
 
 ---
 
