@@ -149,8 +149,10 @@ its two side effects, and compared against this contract.
 
 Four guards fire independently.
 
-- **Copy parity**: the Claude Project mirror carries a third copy of the block
-  and must stay byte-identical to the router contract's copy
+- **Copy parity**: the kernel ends with the same block minus its comments
+  under its own Router Code section, held equal to the stripped reference
+  line for line and as a parsed tree, while `SKILL.md` grows no python fence
+  and no Router Contract document returns to the knowledge root
 - **Table parity**: semantic topics with their order, confidence overrides,
   thresholds, token and phrase regexes, resource lanes and the disambiguation
   checklist must match value for value, so a table drifts loudly even when no

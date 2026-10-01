@@ -8,10 +8,12 @@
 `references/router-contract.md` carries a Smart Router pseudocode block, the
 exact algorithm the skill's prose routing section in `SKILL.md` summarizes,
 and the executable route contract carries the same router as running Python.
-Prose and code drift silently because nothing executes the prose, so this
-gate executes it: the pseudocode block is lifted out of the markdown, run as
-a real module, and compared against the route contract on every input in the
-corpus.
+The Claude Project kernel ends with the same code minus its comments, because
+the kernel is the one file a Project reads on every turn while a Knowledge
+document is retrieved only by relevance. Prose and code drift silently
+because nothing executes the prose, so this gate executes it: the pseudocode
+block is lifted out of the markdown, run as a real module, and compared
+against the route contract on every input in the corpus.
 
 Five guards fire, each on its own:
 
@@ -23,11 +25,11 @@ Five guards fire, each on its own:
    confidence override, and every trigger word it prints must be a real
    synonym. A prose table that drifts is worse than no table, because it tells
    the reader to score vocabulary the router does not carry.
-1. Copy parity. The Claude Project kernel used to inline the same block, and
-   the check held that copy byte-identical to this one. A Project reads the
-   contract as an uploaded Knowledge document instead, so the kernel now names
-   that document and is held to carrying no python fence of its own, and the
-   byte comparison runs against the uploaded copy the Project routes from.
+1. Copy parity. The kernel's closing Router Code section is held equal to the
+   reference block minus its comments, line for line and as a parsed syntax
+   tree, while SKILL.md grows no python fence of its own and no Router
+   Contract Knowledge document returns as a second routing copy nothing
+   compares.
 2. Table parity. Semantic topics (order included, since order is the score
    tie-break), confidence thresholds, token and phrase regexes, resource lanes
    and the disambiguation checklist must match value for value. A table that
@@ -53,9 +55,11 @@ Python 3.9 compatible.
 from __future__ import annotations
 
 import ast
+import io
 import json
 import re
 import sys
+import tokenize
 import types
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
@@ -80,6 +84,12 @@ FIXTURES_PATH = HERE / "fixtures.json"
 KNOWLEDGE_ROOT = REPO_ROOT / "claude project" / "knowledge"
 
 PSEUDOCODE_HEADING = "### Smart Router Pseudocode"
+# The kernel's own copy of the router. A Project retrieves Knowledge by
+# relevance, so a router kept only in a Knowledge document routes a turn only
+# when retrieval happens to pull it. The kernel is in context on every turn, so
+# it carries the code, and carries it without comments because the comments
+# explain the design to a maintainer and change nothing a model routes.
+KERNEL_ROUTER_HEADING = "## 11. ROUTER CODE"
 SKILL_TOPIC_TABLE_HEADING = "### Semantic Topics"
 CONTRACT_HEADING = "### Executable Contract"
 
@@ -232,7 +242,7 @@ def check_prose_table_parity() -> List[str]:
 
 
 # ───────────────────────────────────────────────────────────────
-# 3. GUARD 1: LIFT THE PSEUDOCODE AND CONFIRM THE MIRROR COPY MATCHES
+# 3. GUARD 1: LIFT THE PSEUDOCODE AND HOLD THE KERNEL COPY EQUAL
 # ───────────────────────────────────────────────────────────────
 
 def extract_pseudocode(path: Path) -> str:
@@ -258,51 +268,53 @@ def _section(text: str, heading: str) -> str:
     return tail[:nxt.start()] if nxt else tail
 
 
-def knowledge_mirror() -> Tuple[Path, str]:
-    """Return the uploaded Knowledge document mirroring the router contract, and its label.
+def strip_comments(block: str) -> str:
+    """Return a python block with every comment removed and blank runs collapsed.
 
-    The sync compiler and its manifest are retired, and Knowledge documents are
-    written by hand, so the mirror is found by name in the knowledge root rather
-    than declared in a manifest. A Claude Project holds no filesystem and no
-    references folder, so the uploaded Knowledge document is the only copy of the
-    contract a kernel can reach, and exactly one document may carry it. The label
-    is the document as a kernel writes it, without the system prefix the upload
-    carries or the version suffix the filename appends.
+    The tokenizer finds the comments, so a `#` inside a string or a regex is kept.
+    A line left empty by the cut is dropped, and a run of blank lines collapses to
+    one, so the result is the code alone in its original order and indentation.
     """
-    candidates = sorted(path for path in KNOWLEDGE_ROOT.glob("*.md")
-                        if "Router Contract" in path.name)
-    if len(candidates) != 1:
-        raise LookupError(
-            f"the knowledge root holds {len(candidates)} Router Contract documents, so no "
-            "single uploaded document is the one a kernel can point at"
-        )
-    label = re.sub(r" - v[0-9.]+\.md$", "", candidates[0].name.split(" - ", 1)[-1])
-    return candidates[0], label
+    cuts = {tok.start[0]: tok.start[1]
+            for tok in tokenize.generate_tokens(io.StringIO(block).readline)
+            if tok.type == tokenize.COMMENT}
+    kept: List[str] = []
+    for number, line in enumerate(block.split("\n"), 1):
+        if number in cuts:
+            line = line[:cuts[number]]
+            if not line.strip():
+                continue
+        kept.append(line.rstrip())
+    return re.sub(r"\n{3,}", "\n\n", "\n".join(kept)).strip("\n")
+
+
+def kernel_router_block(kernel_text: str) -> str:
+    """Return the python block under the kernel's Router Code heading."""
+    if KERNEL_ROUTER_HEADING not in kernel_text:
+        raise LookupError(f"the kernel has no {KERNEL_ROUTER_HEADING!r} section")
+    tail = kernel_text[kernel_text.index(KERNEL_ROUTER_HEADING):]
+    match = re.search(r"```python\n(.*?)\n```", tail, re.S)
+    if not match:
+        raise LookupError(f"the kernel has no python block under {KERNEL_ROUTER_HEADING!r}")
+    return match.group(1)
 
 
 def check_copy_parity() -> List[str]:
-    """Prove the kernel points at the router contract instead of carrying a copy of it.
+    """Prove the kernel ends with the reference router minus its comments.
 
-    The kernel used to inline the contract's whole python fence, and this guard
-    used to hold that inline copy byte-identical to the reference. The reasoning
-    behind the inline copy was that a Claude Project has no filesystem to load a
-    reference from, which is true of a reference and false of a Knowledge
-    document, and the contract is registered as one. So the fence was a second
-    full copy of a document the Project could already read, paid for on every
-    conversation in the one file that is always in context, and the byte check on
-    it was protecting the wrong copy.
+    `references/router-contract.md` owns the pseudocode block, the copy every
+    guard below executes. The kernel ends with the same code minus every
+    comment, because a Project always reads the kernel and retrieves Knowledge
+    only by relevance, so a router kept in a document alone routed a turn only
+    when retrieval happened to pull it. No Router Contract Knowledge document
+    is uploaded, and SKILL.md carries no copy, because the CLI reads the
+    reference itself.
 
-    Three properties replace it, and together they are stronger than the one they
-    replace. The kernel carries no python fence at all, so the router cannot come
-    back inline under any spelling, and cannot come back untagged either, because
-    the contract's own function signatures are searched for as well. The kernel
-    names the Knowledge document, because an authority no surface names is an
-    authority no runtime reaches. And that uploaded document stays byte-identical
-    to the reference this gate executes, which is the original protection moved
-    onto the copy the Project actually routes from: a cross-system overwrite
-    lands as a whole block that parses, declares every expected table and still
-    routes another system's requests, so table and behaviour parity can both
-    agree with it and only the bytes disagree.
+    Each copy is compared as bytes after its derivation rather than as
+    behavior. A cross-system overwrite lands as a whole block that parses,
+    declares every expected table and still routes another system's requests,
+    so table and behavior parity can both agree with it and only the bytes
+    disagree.
     """
     failures: List[str] = []
 
@@ -313,66 +325,83 @@ def check_copy_parity() -> List[str]:
                 "router pasted back under that spelling would clear every check below"
             )
 
-    kernel_text = PROJECT_MD.read_text(encoding="utf-8")
     contract_block = extract_pseudocode(ROUTER_CONTRACT_MD)
-
-    if PYTHON_FENCE_RE.search(kernel_text):
-        failures.append(
-            "copy parity: the Claude Project kernel carries a python fence, so the router is "
-            "inlined in an instruction file again, paid for on every conversation, in a copy "
-            f"nothing executes and nothing compares against {ROUTER_CONTRACT_MD.name}"
-        )
-    pasted = sorted({
-        f"def {node.name}(" for node in ast.parse(contract_block).body
-        if isinstance(node, ast.FunctionDef) and f"def {node.name}(" in kernel_text
-    })
-    if pasted:
-        failures.append(
-            f"copy parity: the kernel carries the contract's own definitions {pasted}, so the "
-            "router is inlined under a fence tag no list anticipates, or under none at all"
-        )
-
-    try:
-        mirror_path, label = knowledge_mirror()
-    except LookupError as problem:
-        return failures + [f"copy parity: {problem}"]
-
-    if CONTRACT_HEADING not in kernel_text:
-        failures.append(
-            f"copy parity: the kernel has no {CONTRACT_HEADING!r} section, so the router it "
-            "stopped carrying is named by nothing the Project reads"
-        )
-    elif label not in _section(kernel_text, CONTRACT_HEADING):
-        failures.append(
-            f"copy parity: the kernel's {CONTRACT_HEADING.strip('# ')} section never names the "
-            f"{label!r} Knowledge document, so the routing authority is unreachable from the "
-            "one surface a Project loads every conversation"
-        )
-
-    if not mirror_path.exists():
-        failures.append(
-            f"copy parity: the kernel points at {label!r} and {mirror_path.name} is not in the "
-            "uploaded Knowledge folder, so the pointer reaches nothing"
-        )
-    elif mirror_path.read_bytes() != ROUTER_CONTRACT_MD.read_bytes():
-        failures.append(
-            f"copy parity: the uploaded {label!r} Knowledge document is no longer "
-            f"byte-identical to {ROUTER_CONTRACT_MD.name} "
-            f"({len(ROUTER_CONTRACT_MD.read_bytes())} vs {len(mirror_path.read_bytes())} "
-            "bytes), so the Project routes from a copy this gate never executed"
-        )
-
+    kernel_text = PROJECT_MD.read_text(encoding="utf-8")
     skill_text = SKILL_MD.read_text(encoding="utf-8")
+
     if PYTHON_FENCE_RE.search(skill_text):
         failures.append(
-            "copy parity: SKILL.md carries a python fence again, so the router exists in a "
+            "copy parity: SKILL.md carries a python fence, so the router exists in a "
             "copy no guard executes and no guard compares against the reference that owns it "
             f"({ROUTER_CONTRACT_MD.name})"
         )
+    pasted = sorted({
+        f"def {node.name}(" for node in ast.parse(contract_block).body
+        if isinstance(node, ast.FunctionDef) and f"def {node.name}(" in skill_text
+    })
+    if pasted:
+        failures.append(
+            f"copy parity: SKILL.md carries the contract's own definitions {pasted}, so the "
+            "router is inlined under a fence tag no list anticipates, or under none at all"
+        )
+
+    kernel_fences = len(PYTHON_FENCE_RE.findall(kernel_text))
+    if kernel_fences != 1:
+        failures.append(
+            f"copy parity: the kernel carries {kernel_fences} python fences where it carries "
+            f"exactly one, the router under {KERNEL_ROUTER_HEADING!r}"
+        )
+    try:
+        kernel_block = kernel_router_block(kernel_text)
+    except LookupError as problem:
+        failures.append(f"copy parity: {problem}")
+        kernel_block = None
+    if kernel_block is not None:
+        expected_block = strip_comments(contract_block)
+        if kernel_block != expected_block:
+            drift = next((index for index, (have, want) in enumerate(
+                zip(kernel_block.splitlines(), expected_block.splitlines()), 1)
+                if have != want),
+                min(len(kernel_block.splitlines()), len(expected_block.splitlines())) + 1)
+            failures.append(
+                f"copy parity: the kernel's router is not {ROUTER_CONTRACT_MD.name}'s router with "
+                f"its comments removed, first difference at code line {drift}, so the Project "
+                "routes from a copy this gate never executed"
+            )
+        elif ast.dump(ast.parse(kernel_block)) != ast.dump(ast.parse(contract_block)):
+            failures.append(
+                "copy parity: removing the comments changed the router's syntax tree, so the "
+                "kernel's copy no longer means what the reference means"
+            )
+
+    # The kernel is the Project's one copy of the router. A Router Contract
+    # Knowledge document would be a second, retrieved by relevance and compared
+    # against nothing, so its return is a failure rather than a harmless extra.
+    stale = sorted(path.name for path in KNOWLEDGE_ROOT.glob("*.md")
+                   if "Router Contract" in path.name)
+    if stale:
+        failures.append(
+            f"copy parity: the knowledge root holds {stale}, and the kernel's router code "
+            "is the Project's only routing copy, so an uploaded contract is a second router "
+            "no guard compares"
+        )
+
+    if CONTRACT_HEADING not in kernel_text:
+        failures.append(
+            f"copy parity: the kernel has no {CONTRACT_HEADING!r} section, so the router "
+            "code it ends with is named by nothing the Project reads"
+        )
+    elif "Router Code" not in _section(kernel_text, CONTRACT_HEADING):
+        failures.append(
+            f"copy parity: the kernel's {CONTRACT_HEADING.strip('# ')} section never names "
+            "Router Code, so the routing authority is unreachable from the one surface a "
+            "Project loads every conversation"
+        )
+
     if CONTRACT_HEADING not in skill_text:
         failures.append(
             f"copy parity: SKILL.md has no {CONTRACT_HEADING!r} section, so the reference it "
-            "stopped carrying is named by nothing a model reads"
+            "points at is named by nothing a model reads"
         )
     else:
         relative = f"references/{ROUTER_CONTRACT_MD.name}"
