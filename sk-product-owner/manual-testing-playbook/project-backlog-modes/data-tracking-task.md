@@ -93,7 +93,7 @@ Capture both replies, both rendered blocks and which form each took, the two exp
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, the missing-scope question rule, Deliverable Block and export-equivalent contract |
 | [`Custom Instructions.md` Section 11](../../../claude%20project/Custom%20Instructions.md) | The task framing pattern the plain request matches |
-| [`Product Owner - Templates - Task Mode - v0.307.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.307.md) | Project task workflow, the ask-first rule, required sections and requirement grammar |
+| [`Product Owner - Templates - Task Mode - v0.308.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.308.md) | Project task workflow, the ask-first rule, required sections and requirement grammar |
 | [`Product Owner - Assets - Task Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates%20-%20v0.103.md) | Project Canonical Task scaffold |
 | [`Product Owner - System - Interactive Mode - v0.408.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.408.md) | Clear natural-language task row and clarification delivery |
 | [`roamstay-context.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-context.md) | Attachment: services, squads, the `DATA` discipline, the `TRK` code and the analytics conventions |

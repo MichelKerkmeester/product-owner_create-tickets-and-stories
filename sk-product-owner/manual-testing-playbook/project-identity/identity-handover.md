@@ -97,7 +97,7 @@ The Project identity string `Canvas Artifact` is absent from the skill identity 
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project identity, Deliverable Block and export-equivalent contract |
-| [`Product Owner - Templates - Task Mode - v0.307.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.307.md) | Routed Task Mode workflow and its context question rule |
+| [`Product Owner - Templates - Task Mode - v0.308.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.308.md) | Routed Task Mode workflow and its context question rule |
 | [`Product Owner - Assets - Task Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates%20-%20v0.103.md) | Routed task scaffold |
 | [`Product Owner - System - Interactive Mode - v0.408.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.408.md) | Clarification block contract |
 | [`Product Owner - Assets - Interactive Response Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.103.md) | Task Format Question the Turn 1 clarification follows |
