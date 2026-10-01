@@ -280,7 +280,7 @@ AGENTS.md
 
 # 5. ESCALATION
 
-Ask one consolidated question and wait when artifact type, scope, user value, acceptance criteria, bug evidence or reproduction steps are missing.
+Ask one consolidated question and wait when artifact type, scope, user value, acceptance criteria, bug evidence or reproduction steps are missing. For every artifact kind, with or without a command, a source the user promised but has not sent, and a decision the user calls unsettled, each make the first reply one consolidated question with no draft, and `$quick` or `$q` skips routine intake but never a promised source or an unsettled decision.
 
 For Doc requests, consolidate every unresolved purpose, audience, source-authority, scope and current-versus-proposed decision into that one question. A source the user promises but has not yet supplied does not defer the other fields: ask for the promised source and every other unresolved field in the same question, never for the source alone with the rest held for after it arrives. At minimum that question covers source set, authority, status, shape and scope, each unless the user has already stated it. Shape stays unresolved until the user states it or the notes arrive, so the turn-1 question asks about it even when the request's wording suggests one. If contradictory claims have no clear authority winner, list the conflicts and wait rather than drafting.
 

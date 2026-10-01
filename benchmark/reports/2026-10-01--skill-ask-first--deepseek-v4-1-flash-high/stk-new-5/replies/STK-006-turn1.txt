@@ -1,0 +1,9 @@
+**Path:** `export/001 - task-booking-funnel-events-clarification.md`
+Verified: read-back succeeded; 15 lines
+HVR self-scan: 1 hard blocker. Fixed: triad density (a second three-item list sitting within 150 words of the builders list, rewritten to two items). Kept with reason: the Task intake template's bold-label heads (`**Scope and deliverable count:**` and the rest), which the scaffold fixes and which the inline-header ban does not reach, and the supplied literal identifiers quoted from the sources (`booking_confirmed`, `events-collector`, `date_changed`, `{Discipline} - {Surface} - {Feature code} - {Title}`).
+
+**Quality summary:** Completeness, Clarity, Actionability, Relevance and Mechanism Depth clear their floors, and Accuracy is grounded only in the tracking plan and the Roamstay conventions, with no invented scope or values. The output-format gate passes with no advisories.
+
+**Summary:** The tracking plan hands the funnel work to three different builders, so one task cannot honestly cover "the booking funnel events" without deciding which slice it owns, and the title convention needs a discipline, surface and feature code that the request does not supply. The plan also leaves the `date_changed` trigger open with Search, and treats `checkout_complete` as deprecated with a 2026-11-01 removal, so those boundaries need your call before they become task scope. The saved file asks everything in one pass: which builder and how many tasks, how the title reads, whether the proposed event and the removal are in, what success and sign-off look like, and which dates gate the work.
+
+Answer those in one reply and the task itself follows as `export/002 - …`, leaving this file untouched.
