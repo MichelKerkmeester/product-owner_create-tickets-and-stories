@@ -1,0 +1,62 @@
+{
+ "id": "PBG-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/quick-bug.md",
+ "twin": "SBG-001",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-PBG-001-663a4c1e",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 69.64,
+   "tool_calls": 11,
+   "tools_used": [
+    "ls",
+    "ls",
+    "ls",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "grep",
+    "read"
+   ],
+   "input_tokens": 26171,
+   "output_tokens": 10338,
+   "reasoning_tokens": 8455,
+   "cost_usd": 0.010586178,
+   "model_s": 69.16,
+   "startup_s": 0.3,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$quick $bug iOS 4.8.0, the cart badge keeps the old count after an item is removed. Put 2 of one product and 1 of another in the cart so the tab bar badge reads \"3\", open the cart and tap \"Remove\" on the single item. The cart then holds 2 units but the badge stays on \"3\" until the app is restarted. Happens every time on both our iOS test phones, while Android 4.8.2 and web update the badge straight away. Severity Medium, product context is in context/fernhouse-context.md"
+  }
+ ]
+}
