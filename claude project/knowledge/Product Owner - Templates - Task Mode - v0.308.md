@@ -1,6 +1,6 @@
-# Product Owner - Templates - Task Mode - v0.307
+# Product Owner - Templates - Task Mode - v0.308
 
-Task-mode guidance aligned to the current Product Owner task corpus: the workflow, the delivery standards, the structure rules, the requirement-group patterns, the quality checklist and the error recovery table. This version prioritizes a flexible context block, numbered requirement groups, an H2 About and H3 section headings under it.
+Task-mode guidance aligned to the current Product Owner task corpus. This version prioritizes a flexible context block, numbered requirement groups, an H2 About and H3 section headings under it.
 
 The paired scaffolds live in Assets - Task Templates. When scope, user value or testable acceptance criteria cannot be inferred, ask the one consolidated question from System - Interactive Mode and resume Task Mode with the answer.
 
