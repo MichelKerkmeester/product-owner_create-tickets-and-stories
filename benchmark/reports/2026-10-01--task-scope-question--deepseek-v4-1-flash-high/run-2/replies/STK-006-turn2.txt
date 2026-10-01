@@ -1,0 +1,11 @@
+Path: `export/002 - task-booking-funnel-tracking.md`
+
+Verified: read-back succeeded; 77 lines
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: backticked identifiers (`checkout_complete`, `booking_confirmed`, `events-collector`, `total_amount_minor`, `TRK`) are literal event, service, property and feature-code names carried verbatim from the plan and the conventions.
+
+Quality summary: Strongest on Accuracy and Mechanism Depth. Every event, property, service and date traces to Nadia's plan, and each checklist item states an observable state a build or a dashboard can be checked against. Completeness covers the three responsibilities you named (event verification, dashboard move, collector drop) plus the dependency on the BE task. Clarity and Relevance are held to the Data team's share only, so no FE or BE implementation detail leaked in.
+
+Summary: This is the Data team's standalone `TRK` task: verify each funnel event in `events-collector` as squads ship it, move the funnel dashboard from `checkout_complete` to `booking_confirmed`, and have the collector drop `checkout_complete` on 2026-11-01. The plan's supplied values (event and property names, `YYYY-MM-DD` dates, minor-unit amounts with `currency`, both transition dates) are carried as written. The clarification file from the previous turn stays untouched and this task took the next number in the lane.
+
+Four things I chose that you may want to change: the title reads `DATA - Guest app - TRK - Booking funnel tracking`, where I filled the surface with `Guest app` because the funnel is the Guest app journey and the conventions offer no Data surface. The `Related tasks` bullets are descriptive labels, not real ticket titles, so swap in links once the FE and BE tasks exist. The `date_changed` line is mine, drawn from the plan's own `proposed` status and open trigger, and it marks that event out of scope. The overlap-window reconciliation and `payment_pending` checks in group 3 are my additions from the plan's promise that dashboards move across before the drop, so strike them if the Data team checks the switch differently.
