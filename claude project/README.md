@@ -12,7 +12,7 @@ claude project/
 |-- README.md                     <- upload manifest and hand-authored parity note
 `-- knowledge/                    <- upload all thirty-seven files as Project Knowledge
     |-- Product Owner - System - Interactive Mode - v0.408.md
-    |-- Product Owner - Templates - Task Mode - v0.307.md
+    |-- Product Owner - Templates - Task Mode - v0.308.md
     |-- Product Owner - Templates - Bug Mode - v0.205.md
     |-- Product Owner - Templates - Doc Mode - v0.112.md
     |-- Product Owner - Templates - Story Mode - v0.405.md
@@ -44,7 +44,7 @@ CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Bloc
 | Source | Project Knowledge mirror |
 | --- | --- |
 | `sk-product-owner/references/interactive-mode.md` | `Product Owner - System - Interactive Mode - v0.408.md` |
-| `sk-product-owner/references/task-mode.md` | `Product Owner - Templates - Task Mode - v0.307.md` |
+| `sk-product-owner/references/task-mode.md` | `Product Owner - Templates - Task Mode - v0.308.md` |
 | `sk-product-owner/references/bug-mode.md` | `Product Owner - Templates - Bug Mode - v0.205.md` |
 | `sk-product-owner/references/doc-mode.md` | `Product Owner - Templates - Doc Mode - v0.112.md` |
 | `sk-product-owner/references/story-mode.md` | `Product Owner - Templates - Story Mode - v0.405.md` |
