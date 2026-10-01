@@ -663,7 +663,7 @@ The kernel never claims a save, a read-back or a push the Project did not perfor
 
 #### Hand-Written, Not Generated
 
-Every knowledge file is written by hand from its skill source. It drops loading preambles, routed-by lines and file-path routing. It keeps the decision rules, output shapes and examples. Five files are byte copies instead: the four shared rule files, which are regular-file copies of cards maintained in a shared knowledge folder, and the Router Contract, whose code block the router differential compares byte for byte. `SYNC.md` holds the manual parity method and the dated review notes.
+Every knowledge file is written by hand from its skill source. It drops loading preambles, routed-by lines and file-path routing. It keeps the decision rules, output shapes and examples. Four files are byte copies instead, the shared rule files, which are regular-file copies of cards maintained in a shared knowledge folder. No Router Contract document ships, because the kernel's Router Code section carries the router code. `SYNC.md` holds the manual parity method and the dated review notes.
 
 The live Project is a separate manual upload, so a matching local package proves nothing about what is deployed.
 
