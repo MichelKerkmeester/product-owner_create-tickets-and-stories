@@ -9,7 +9,7 @@ trigger_phrases:
   - "$prd"
   - "$story"
   - "$epic"
-version: 1.16.0
+version: 1.16.1
 ---
 
 # sk-product-owner
