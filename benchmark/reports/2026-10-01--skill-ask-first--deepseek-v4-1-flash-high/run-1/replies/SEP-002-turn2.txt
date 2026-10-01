@@ -1,0 +1,12 @@
+**Path:** `export/002 - Epic-offline-mode.md`
+**Verified: read-back succeeded; 121 lines**
+
+`HVR self-scan: 0 hard blockers. Fixed: none (no em dashes, semicolons, Oxford commas, blocker words or setup phrases entered the draft). Kept with reason: the house template tokens "The following issues rise from that:" and "_Mark as done, if the criteria are met_", the backticked literal identifiers `lost-edit` and `#sync-eng`, and the repeated Given/When/Then labels, which fixed house grammar requires rather than penalises.`
+
+**Quality summary.** Kind: Epic (Story Mode, Epic shape), 985 words against the 1,000-word budget. Accurate to Oskar's brief with its values intact: 23%, 31%, 500 pages, 1 GB, 30 seconds, Q1 2027, 2026-10-09. All four areas are child stories covering iOS, Android and Desktop together, Web plus the three other exclusions stay out, and the sync conflict decision sits in Solution with the two dependent areas grouped behind it. Release criteria run to seven, covering the four areas, the online-only actions, every plan including Free, and both of the brief's measures.
+
+**The Epic.** About frames the initiative and the Q1 2027 target, Problem carries the three supplied failures, Goal and Solution state the direction, and Scope names the four child stories: `Member - Offline mode - Offline reading`, `- Offline indicator and storage settings`, `- Offline editing and creation` and `- Sync on reconnect`. Your new fact lands in three places: the About promise, the Goal benefits and criterion 5.
+
+**Additions to check, all strikeable.** The child-story titles are mine in the house H1 shape, so rename them freely. The two Scope groups ("Starting first", "Waiting on the conflict decision") are my framing of the brief's sentence that reading and the indicator can start first. The per-area values sit in `#### Solution` because an Epic carries no Requirements section, and they are what the child stories will hold as their own requirements, so nothing the brief supplied was dropped. `#### **References**` is omitted since no links came with the brief, and no `## Delivery` close is written because nothing asked for one and no open line or undated external constraint forced it.
+
+Next step: say the word and I'll write any of the four child stories, with the two blocked ones carrying the conflict decision as an open line.

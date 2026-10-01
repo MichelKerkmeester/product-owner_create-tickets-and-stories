@@ -1,0 +1,13 @@
+`export/002 - Story-free-cancellation-filter.md`
+
+`Verified: read-back succeeded; 132 lines`
+
+`HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: the bold house labels (**Expected outcomes**, and **Given**/**When**/**Then**/**And** repeated verbatim in every criterion) are fixed Story grammar rather than emphasis, the * * * dividers and - [] boxes are required Barter grammar, and the backticked strings (Free cancellation until 14 Oct, No stays with free cancellation for these dates, Clear filter) are supplied product copy carried verbatim.`
+
+**Quality summary:** Artifact kind named: **Story**, for the Search squad, H1 `Guest - Search - Free cancellation filter`. Requirements is grouped to mirror the source's own surfaces (Filter sheet, Results, Result card, Results list empty state, Tracking, Release), every supplied value travels inside backticks with its units intact, and the `1,146` to `312` Lisbon count, the `d MMM` pattern, the `filter_applied` event with `filter_name` set to `free_cancellation`, and the `8.13.0` release order are all accounted for. Both Guest Support asks landed: the property's local date as a Result card requirement plus acceptance criterion 4, and the filter staying on across a property visit as a Results requirement plus acceptance criterion 3. Sources under `context/` were read only and left unchanged. The output-format lint script is absent from this runtime, so that gate was not executed.
+
+**Two judgement calls you can overturn:**
+*   Tomas's notes format the badge date in the guest's locale while the Guest Support ask fixes the day to the property's local date. I read locale as the display format and property-local as the calendar day, and carried both. If the ask meant the day itself follows the guest's device date, the two items in the Result card group need merging into one
+*   No `## Delivery` close, because you did not ask for one, nothing is open and no undated external constraint exists. The release plan therefore sits as a `Release` requirement group and the not-in-this-release list is one closing sentence in Solution. Say the word and both move into a Delivery close with No-gos
+
+**Summary:** The Story turns Tomas's notes into a full Barter house-format artifact with six outcome-led acceptance criteria across three surface groups, no Delivery section, and the file closing on its `##   ` spacer. The two Guest Support asks were added as requirements and criteria alongside the notes rather than replacing them. Next step if useful: break it into tasks for the Search squad, or push it to ClickUp once tooling is available.
