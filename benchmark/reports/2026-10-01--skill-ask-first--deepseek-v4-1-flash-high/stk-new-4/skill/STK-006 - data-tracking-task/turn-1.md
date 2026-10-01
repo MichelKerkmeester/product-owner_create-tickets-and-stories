@@ -1,0 +1,9 @@
+Path: `export/001 - task-booking-funnel-events.md`
+Verified: read-back succeeded; 116 lines
+HVR self-scan: 0 hard blockers. Fixed: none (no em dashes, semicolons, curly quotes or banned terms present on the first pass). Kept with reason: supplied source identifiers and values carried verbatim as constraints rather than reworded, namely `checkout_complete`, `booking_confirmed`, `events-collector`, `payment_pending`, `YYYY-MM-DD` and `2026-11-01`.
+
+Quality summary: complete against the Task template (`## About`, `### Requirements`, five numbered groups under four bold categories, `---` dividers, `- []` checklist items); accuracy is the strongest dimension, with every event, property, status word, date and service name traced to Nadia's plan and the Roamstay conventions; the weakest is relevance, because the plan's own work split forced a scope call into one ticket.
+
+Route: Task Mode, framed by "write a task" with no explicit command. The task is `DATA - Guest app - TRK - Booking funnel events`, using the convention title format and the `TRK` tracking code. Three decisions you may want to correct: it covers the whole funnel the plan defines, so `booking_confirmed` (Booking squad, `booking-service`) and the dashboard move sit inside a Data-owned ticket; `date_changed` stays out as `proposed` because Search has not settled whether it fires per tap or per applied range; and the title surface is `Guest app` even though `booking_confirmed` is server-side. Two additions I made from context rather than the plan, so strike them if you disagree: the `source` value split by surface, and the note that no funnel step counts `checkout_complete` as a booking.
+
+Next step if useful: split this into a parent task with per-platform subtasks, or add a `**Parent task**` link once the Data squad has one.

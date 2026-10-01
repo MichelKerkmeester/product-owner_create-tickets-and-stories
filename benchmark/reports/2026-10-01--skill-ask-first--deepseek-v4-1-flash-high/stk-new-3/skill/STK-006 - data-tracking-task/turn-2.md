@@ -1,0 +1,11 @@
+`export/002 - task-booking-funnel-events.md`
+
+Verified: read-back succeeded; 78 lines (the earlier `export/001 - task-booking-funnel-events-clarification.md` stays untouched at 25 lines, and both supplied context files are byte-identical to how they arrived)
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: `events-collector`, `booking-service`, `checkout_complete`, `booking_confirmed`, `search_submitted`, `property_viewed`, `room_selected`, `checkout_started`, `payment_submitted`, `date_changed`, `total_amount_minor`, `payment_option`, `pay_now`, `pay_at_property`, `RS-` and `YYYY-MM-DD` are literal event, property, service and value identifiers carried from the supplied plan; `proposed`, `draft v0.3`, `2026-09-24` and `2026-11-01` are status, version and date values kept as written; `DATA` and `TRK` come from your answer and the conventions
+
+Quality summary: canonical Task shape with an About, a References block and three numbered requirement groups, 20 `- []` items, `---` dividers per the house task corpus and no trailing divider after the last group. Every supplied value, sender, property, format and date travels unchanged, no event instrumentation sits in scope, and word count is about 560 against the 900 task cap.
+
+One addition to strike if you disagree: the last checklist item in group 1, that a failed check is raised with the squad that ships the event. The sources say the events are checked but not what happens on a failed check. Two items are derived rather than stated: that older app versions contribute nothing after the drop (from the plan's "whatever app version sends it") and that `date_changed` stays out of scope (its `proposed` status plus your answer).
+
+The task is the Data team's own piece under `DATA - Guest app - TRK`: validate the funnel events in `events-collector` as each squad ships, cut the dashboard over to `booking_confirmed` before `2026-11-01`, then have the collector drop `checkout_complete` on that date. No ClickUp tooling is exposed in this runtime, so there is nothing to push unless you connect it.

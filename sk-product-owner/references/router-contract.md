@@ -790,7 +790,7 @@ def route_product_owner_resources(user_input: str, doc_context: Optional[dict] =
 
 ---
 
-The kernel points here for the primary detection signal:
+Primary detection signal:
 
 Detect the artifact command or framing and select the right mode before consulting deeper Knowledge.
 
@@ -808,7 +808,7 @@ no command, no framing        -> score semantic topics, route by confidence thre
 confidence < LOW (0.40)       -> Interactive Mode (one comprehensive question), except under Quick energy, which keeps the narrow Task fallback
 ```
 
-The kernel points here for the phase detection order:
+Phase detection order:
 
 1. Normalize case. Extract `$quick` / `$q` or natural quick/fast framing as energy only, never as intent.
 2. Detect `$task --subtask` before the bare `$task` command. Both dedupe to Task intent with child-task scope.
@@ -820,7 +820,7 @@ The kernel points here for the phase detection order:
 8. Route every Doc selection through the source-authority and conflict gate before drafting, including under Quick energy. Quick may skip routine intake and use safe defaults. It never bypasses artifact-command conflicts or a Doc's source-authority, contradiction and lifecycle gates.
 9. Consult only the Knowledge the selected intent needs.
 
-The kernel points here for the confidence thresholds and the artifact-kind guard:
+Confidence thresholds and the artifact-kind guard:
 
 - HIGH `>= 0.85`: route directly, no clarification
 - MEDIUM `>= 0.60`: route with a concise confirmation of the detected mode
@@ -831,7 +831,7 @@ Documentation and PRD synonyms carry a 0.85 confidence override, so a genuine hi
 
 **PRD artifact-kind guard:** an explicit user-stated requirement count or child-story set outranks model decomposition. Actions, variants, states, edge cases and acceptance checks do not increment the requirement count. A request with zero requirements signals the Epic shape rather than a malformed PRD. Story and Epic are artifact kinds, not sizes.
 
-The kernel points here for the resource loading levels:
+Resource loading levels:
 
 | Level       | Consult when                                               | Knowledge                                                                                                                                                                                                          |
 | -------------| ------------------------------------------------------------| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -839,7 +839,7 @@ The kernel points here for the resource loading levels:
 | CONDITIONAL | Mode matches                                               | Task Mode + Task Templates, Bug Mode + Bug Report Template, Doc Mode + Doc Templates, Story Mode + one of Story Template or Epic Template, Interactive Mode + Interactive Response Templates |
 | ON_DEMAND   | Missing fact, source-preservation check or template detail | Rules - Human Voice EN for a borderline term. One reference or asset for the gap, and at most one worked example per mode, never a bulk folder read                                                                |
 
-The kernel points here for the smart routing matrix:
+Smart routing matrix:
 
 | Route        | Trigger signals                                                                                                                                                                 | Consult                                             | Action                                                                                   | Blocking gate                                                                                                                                               |
 | --------------| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| -----------------------------------------------------| ------------------------------------------------------------------------------------------| -------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -851,7 +851,7 @@ The kernel points here for the smart routing matrix:
 | Interactive  | Conflicting commands or unresolved essential context                                                                                                                            | Interactive Mode, Interactive Response Templates    | Ask one consolidated question and wait                                                   | Single-question protocol                                                                                                                                    |
 | Refusal      | Primary deliverable is executable code or live-system diagnosis, or the request requires fabricated current facts, evidence, approval, authority or professional sign-off       | These kernel rules, HVR                                          | State the boundary and offer a documented, source-backed or explicitly proposed artifact | Boundary check                                                                                                                                              |
 
-The kernel points here for the project knowledge consultation:
+Project knowledge consultation:
 
 Treat uploaded Project Knowledge as the detailed source mirror. Consult the smallest set that can safely answer the request, and never turn general Knowledge into unrelated product or engineering facts.
 
@@ -879,9 +879,9 @@ Consult at most one example per request, for the routed mode only. The twenty ex
 
 ## 3. DOC GATE BEHAVIOR
 
-The kernel points here for the executable contract:
+Executable contract:
 
-The `System - Router Contract` Knowledge document carries this router as running Python, and it is the authority for exact routing behaviour: the full token and phrase regexes, the semantic topic tables and their scoring, the shape-precedence patterns, and the resource map behind the loading levels above. Consult it on demand, when a request needs the precise implementation rather than the rule. This Project cannot execute Python and does not need to, because the prose, tables and thresholds above encode the same decision procedure and never drift from it. Every `references/...` or `assets/...` resource stem the contract names maps to the matching uploaded Knowledge doc, guarded so a missing doc degrades to a smaller resource set instead of a dead reference.
+The kernel carries this router as Section 11, Router Code, with its comments removed, and that section is the authority for exact routing behaviour in a Project: the full token and phrase regexes, the semantic topic tables and their scoring, the shape-precedence patterns, and the resource map behind the loading levels above. This Project cannot execute Python and does not need to, because the prose, tables and thresholds above encode the same decision procedure and never drift from it. Every `references/...` or `assets/...` resource stem the contract names maps to the matching uploaded Knowledge doc, guarded so a missing doc degrades to a smaller resource set instead of a dead reference.
 
 Every Doc selection passes through the contract's `finalize_artifact_route` gate. `PENDING` means Doc intent is selected but drafting is blocked until the request and supplied sources are evaluated. Re-running the gate against the derived Doc context returns `BLOCKED` (consults Interactive Mode Knowledge, asks one consolidated question) or `READY` (drafting permitted). The gate tests substance as well as process: its six procedural checks confirm that a purpose, an audience, a source set, an authority, a conflict review and a scope exist, and all six can pass over sources that say nothing about what the document is being asked to claim, so the gate also matches the subjects the request asks for claims about against the subjects the supplied sources cover and blocks on any subject no source reaches. A comparison request is the clearest case, because it names two subjects, a source set commonly covers one, and the missing half would otherwise be written from nothing. The `load(...)` and `show_user(...)` calls in that contract name the skill's own execution actions. In this Project they describe consulting the matching Knowledge doc and stating the detected mode inline, never a file read, write or save this Project performs.
 
@@ -890,7 +890,7 @@ Every Doc selection passes through `finalize_artifact_route`. `PENDING` means Do
 The gate tests substance as well as process. Its procedural checks confirm that a purpose, an audience, a source set, an authority, a conflict review and a scope exist, and all six can pass over sources that say nothing about what the document is being asked to claim. So the gate also matches the subjects the request asks for claims about against the subjects the supplied sources actually cover, and blocks on any subject no source reaches. A comparison request is the clearest case, because it names two subjects, a source set commonly covers one, and the missing half would otherwise be written from nothing.
 ---
 
-The kernel points here for the operating model tables:
+Operating model tables:
 
 | Artifact intent | Command and natural-language signals                                                                                                                                                                              | Use                                                                         | Primary knowledge                                            |
 | -----------------| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| -----------------------------------------------------------------------------| --------------------------------------------------------------|
