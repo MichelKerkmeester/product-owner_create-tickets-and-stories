@@ -1,0 +1,83 @@
+{
+ "id": "PTK-006",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/data-tracking-task.md",
+ "twin": "STK-006",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-PTK-006-f3a121e4",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 138.95,
+   "tool_calls": 10,
+   "tools_used": [
+    "ls",
+    "read",
+    "read",
+    "ls",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read"
+   ],
+   "input_tokens": 27430,
+   "output_tokens": 18874,
+   "reasoning_tokens": 17508,
+   "cost_usd": 0.015849395999999998,
+   "model_s": 138.55,
+   "startup_s": 0.22,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "Can you write a task for the booking funnel events in Nadia's tracking plan, context/roamstay-booking-funnel-tracking-plan.md? Our conventions are in context/roamstay-context.md."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 87.72,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 14448,
+   "output_tokens": 15888,
+   "reasoning_tokens": 14434,
+   "cost_usd": 0.011830943999999998,
+   "model_s": 87.36,
+   "startup_s": 0.17,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "It is the Data team's own task under TRK. Nadia checks every event in events-collector as the squads ship them, moves the funnel dashboard over to booking_confirmed and has the collector drop checkout_complete on its removal date. The client events and booking_confirmed itself get separate FE and BE tasks later. Refinement closed yesterday with no change to the event table."
+  }
+ ]
+}
