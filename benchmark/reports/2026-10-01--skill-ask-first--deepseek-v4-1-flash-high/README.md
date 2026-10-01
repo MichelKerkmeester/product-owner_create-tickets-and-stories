@@ -3,7 +3,7 @@
 Skill v1.16.2 adds the kernel's two ask-first triggers to `AGENTS.md` and `SKILL.md` for every artifact kind: a source the user promised but has not sent, and a decision the user calls unsettled. This run checks the three skill-side scenarios those triggers touch, each of which requires a saved clarification and no draft on turn 1.
 
 - **Model:** `opencode-go/deepseek-v4.1-flash`, thinking high, through `run/pi_playbook_runner.py` with `--side skill`
-- **Rules under test:** `AGENTS.md` and `sk-product-owner/` at Skill v1.16.2, before commit. The `stk-head-<N>` runs use a detached worktree at HEAD `541b8955`, Skill v1.16.1
+- **Rules under test:** `AGENTS.md` and `sk-product-owner/` at Skill v1.16.2, before commit. The `stk-head-<N>` runs use a detached worktree at HEAD `ca92098b`, Skill v1.16.1
 - **Grader:** Claude Opus 5.5 in Claude Code, reading which file turn 1 saved. A `-clarification` file means the scenario asked first
 
 ## Results
