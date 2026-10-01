@@ -19,6 +19,8 @@ Kernel v1.21.0 drops from 70,557 to 61,977 characters by trimming tables alone: 
 
 12 of 12 turn-1 replies render one question block under a `-clarification` label and hold no draft section. Some ask in the imperative, "Send both" or "Confirm whether", rather than with a question mark. Each was read to confirm it asks before drafting.
 
+In `ask-first-1` the turn-2 drafts were checked as well. `PEP-002` renders a `# Epic - ` H1 with `## Scope`, `23%`, `31%` and the `2026-10-09` decision and no `## Requirements`, `PST-001` renders its Story with the path and `HVR self-scan:` lines, and `PTK-006` renders `### Requirements` with `booking_confirmed`, the `checkout_complete` removal on `2026-11-01` and the open `date_changed` event. No reply in the run claims a saved file.
+
 ## Other scenarios
 
 All five sessions in `others` ended `ok` on their first attempt.
