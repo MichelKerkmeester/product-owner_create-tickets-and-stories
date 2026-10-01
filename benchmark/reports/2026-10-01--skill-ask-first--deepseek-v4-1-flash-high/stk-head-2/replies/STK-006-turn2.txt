@@ -1,0 +1,10 @@
+Path: `export/001 - task-booking-funnel-events.md`
+
+Verified: read-back succeeded; 123 lines
+HVR self-scan: 0 hard blockers. Fixed: two 3-item lists that sat within 150 words of each other were split and merged into pairs, so no triad density remains. Kept with reason: `checkout_complete`, `booking_confirmed`, `events-collector`, `booking-service` and the other event and property names are supplied literal identifiers carried verbatim from the tracking plan; `proposed`, `new`, `changed` and `deprecated` are the plan's own status words; `iOS, Android and web` stays as the plan's fixed platform set; the hyphen-spaced H1 is the house `{Discipline} - {Surface} - {Feature code} - {Title}` format.
+
+Quality summary: all six dimensions clear their floors, with Accuracy strongest since every event, property, trigger, format and date traces to the tracking plan or the analytics conventions, and the refinement outcome you gave replaces the earlier open-comment wording. Structure holds the Canonical Task shape (About, `### Requirements`, category headings, continuous numbering, `- []` checklists, `---` dividers) inside the 900-word task budget at 710 words.
+
+The task is now the Data team's own TRK work: checking each funnel event in `events-collector` as the squads ship it, moving the funnel dashboard to `booking_confirmed` before the removal date, and having `events-collector` drop `checkout_complete` on `2026-11-01`. The event build itself sits with the client and `booking-service` teams under their own FE and BE tasks, and the plan's event table is the check criteria after the refinement closed without change.
+
+Two readings of mine are worth a look before this goes to ClickUp: I kept the `proposed` `date_changed` row out on the basis that "no change to the event table" leaves it unshipped, and I added one sequencing check that `booking_confirmed` verifies out before the dashboard moves. I also retitled the task to `Booking funnel event checks and dashboard cutover` so it reads as verification and cutover rather than event build. Say the word and I'll adjust or push it to ClickUp.

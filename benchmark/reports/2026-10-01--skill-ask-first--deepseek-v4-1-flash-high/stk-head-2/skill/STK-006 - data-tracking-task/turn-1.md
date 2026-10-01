@@ -1,0 +1,10 @@
+Path: `export/001 - task-booking-funnel-events.md`
+
+Verified: read-back succeeded; 153 lines
+HVR self-scan: 0 hard blockers. Fixed: none needed. Kept with reason: `checkout_complete`, `payment_pending`, `booking-service`, `room_selected` and the other event and property names are supplied literal identifiers carried verbatim from the tracking plan; `proposed`, `new`, `changed` and `deprecated` are the plan's own status words preserved in backticks; the hyphen-spaced H1 is the house `{Discipline} - {Surface} - {Feature code} - {Title}` title format.
+
+Quality summary: all six dimensions clear their floors. Accuracy is strongest, since every event, property, trigger, format and date traces to the tracking plan or the analytics conventions, and the plan's status words keep proposed and deprecated material from reading as current. Structure follows the Canonical Task template (About, `### Requirements`, category headings, continuous numbering, `- []` checklists, `---` dividers), inside the 900-word task budget at 842 words.
+
+The task instruments the booking funnel end to end so one funnel joins from `search_submitted` to `booking_confirmed`, replacing the client-side `checkout_complete` and fixing the amount and date mismatches the plan names. It carries group-level requirements for shared properties and formats, the search and property page events, the checkout and payment events, the server confirmation event, and the retirement deadline.
+
+Three choices are mine and worth confirming before this goes to ClickUp: I made it one task covering the client events and the `booking-service` event rather than splitting the plan's "Who builds what" across owners, titled it `DATA - Guest app - TRK` from the conventions, and kept the `proposed` `date_changed` event and the Data team's dashboard migration out of scope. Say the word and I'll split it, retitle it, or push it to ClickUp.

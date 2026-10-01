@@ -1,0 +1,9 @@
+Path: `export/001 - task-booking-funnel-events.md`
+Verified: read-back succeeded; 97 lines
+HVR self-scan: 0 hard blockers. Fixed: none (the first pass already carried no em dashes, semicolons, curly quotes or banned terms). Kept with reason: supplied identifiers and values carried verbatim as check criteria rather than reworded, namely `events-collector`, `checkout_complete`, `booking_confirmed`, `payment_pending`, `YYYY-MM-DD` and `2026-11-01`.
+
+Quality summary: refined in place at the original filename, so the task keeps its H1 and section order while the scope narrows to Data's own `TRK` work. Completeness holds because all three Data responsibilities are covered, actionability is strongest through the nine event checks and the three cutover gates, and accuracy now reflects the closed plan and the FE and BE handoffs. The weakest dimension is relevance, since the client events still appear as check criteria even though other squads build them.
+
+The task now scopes to: checking every funnel event in `events-collector` as it lands, moving the funnel dashboard onto `booking_confirmed`, and having `events-collector` drop `checkout_complete` from `2026-11-01`. The client events and `booking_confirmed` now appear only as verification criteria, with a References line noting they ship in separate FE and BE tasks. `date_changed` is recorded as still `proposed` in the closed event table and stays outside this scope, so no build work was invented for it.
+
+Next step if useful: I can split this into two subtasks, one for the event checks and one for the dashboard and collector cutover.

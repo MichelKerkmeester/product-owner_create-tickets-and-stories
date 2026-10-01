@@ -1,0 +1,8 @@
+**Path:** `export/001 - Epic-offline-mode-clarification.md`
+**Verified: read-back succeeded; 31 lines**
+
+`HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: `* * *` dividers and `*   ` bullets (house grammar), backticked supplied values `Offline reading`, `Offline editing and creation`, `Sync on reconnect`, `Offline indicator and storage settings`, `2026-10-09` and the `#### Added Later` token (literal source identifiers).`
+
+**Quality summary.** Artifact kind: Epic (Story Mode, Epic shape). This turn delivers the intake question, not the Epic, because you named the child-story split as unsettled and the split is what `## Scope` is built from. The file holds only that question, and both supplied context files are unchanged. Question coverage: the split itself with three options, how `## Scope` handles the two areas the sync conflict decision blocks on 2026-10-09, and whether to add a `## Delivery` close. One consideration is flagged inside the split options, not as a new requirement: Desktop runs the web client in a shell, so its storage work lands in code the Web team ships even though Web is out of scope.
+
+**What lands in the Epic once you answer.** Problem, Goal and Solution come from the brief with its figures intact (23% of sessions, 31% of Plus workspaces, 500 pages, 1 GB, 30 seconds). The two success measures become release-level acceptance criteria with their thresholds and the 8-week window preserved. I would title it `# Epic - Platform - Offline mode`, since the initiative spans three surfaces and no single persona. Answer the split and I will write the Epic as `export/002 - Epic-offline-mode.md`.
