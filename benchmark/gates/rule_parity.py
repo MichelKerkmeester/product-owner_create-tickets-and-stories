@@ -167,12 +167,11 @@ def body(path, drop_frontmatter=True):
     """The document's text, or None when it cannot be read.
 
     Frontmatter is stripped on both sides here. Most Product Owner mirrors
-    open straight on a heading, but a few (the Human Voice Core mirror, the
-    Router Contract mirror) carry the same YAML block their source does, so
-    stripping only the source would report drift in packaging that is
-    actually symmetric. The strip only fires when the very first line is the
-    opening `---`, so a later `---` used as an in-body section rule is left
-    alone on both sides.
+    open straight on a heading, but a few, the Human Voice Core mirror among
+    them, carry the same YAML block their source does, so stripping only the
+    source would report drift in packaging that is actually symmetric. The
+    strip only fires when the very first line is the opening `---`, so a
+    later `---` used as an in-body section rule is left alone on both sides.
     """
     try:
         with open(path, encoding="utf-8", errors="replace") as handle:

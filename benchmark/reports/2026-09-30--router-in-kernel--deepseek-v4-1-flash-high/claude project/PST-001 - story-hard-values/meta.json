@@ -1,0 +1,85 @@
+{
+ "id": "PST-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/story-hard-values.md",
+ "twin": "SST-001",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-PST-001-53b41174",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 212.15,
+   "tool_calls": 12,
+   "tools_used": [
+    "read",
+    "read",
+    "ls",
+    "ls",
+    "read",
+    "read",
+    "read",
+    "read",
+    "ls",
+    "read",
+    "read",
+    "read"
+   ],
+   "input_tokens": 45195,
+   "output_tokens": 34571,
+   "reasoning_tokens": 31950,
+   "cost_usd": 0.028138169999999997,
+   "model_s": 211.77,
+   "startup_s": 0.2,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "Can you write up the free cancellation filter as a story for the Search squad? Tomas's notes are in context/roamstay-free-cancellation-pm-notes.md and our company background is in context/roamstay-context.md. Guest Support sent me two asks for it as well, I'll pass them on."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 69.81,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 20926,
+   "output_tokens": 11995,
+   "reasoning_tokens": 10002,
+   "cost_usd": 0.010519835999999998,
+   "model_s": 69.41,
+   "startup_s": 0.18,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Guest Support's two asks: show the deadline in the badge as the property's local date, because guests abroad check it against their confirmation email, and keep the filter on when a guest opens a property and goes back to the results. Everything else is as Tomas wrote it and nothing in his notes is still open."
+  }
+ ]
+}

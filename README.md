@@ -645,8 +645,8 @@ A route loads its template together with its mode reference. A worked example lo
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem and never loads `SKILL.md`.
 
-- `Custom Instructions.md` is the kernel, v1.19.0, aligned to skill v1.16.0. It carries the full router and rules and is the routing authority inside the Project
-- `knowledge/` holds 38 files: 17 core documents (five mode references, six templates, four shared rule files, quality scoring and the router contract) and the 21 worked examples
+- `Custom Instructions.md` is the kernel, v1.20.0, aligned to skill v1.16.1. It carries the full router and rules and is the routing authority inside the Project
+- `knowledge/` holds 37 files: 16 core documents (five mode references, six templates, four shared rule files and quality scoring) and the 21 worked examples
 - `README.md` holds the upload steps, the source-to-mirror map and the smoke matrix
 - `kernel-review.json` is a dated record of one kernel review, read by no tool
 
@@ -685,7 +685,7 @@ The live Project is a separate manual upload, so a matching local package proves
 
 `route_contract.py` is the router as a program. `router-contract.md` carries the same router as pseudocode, which is what the skill reads. `differential.py` lifts that pseudocode out of the markdown, runs it and compares the two on four guards:
 
-- Copy parity: the Project's Router Contract carries the same code block byte for byte
+- Copy parity: the kernel's Router Code section is the same code block with its comments removed, and no Router Contract Knowledge document ships
 - Table parity: topics and their order, overrides, thresholds, regexes, resource lanes and the fallback checklist match value for value
 - Behavior parity: every corpus input matches layer by layer (energy, commands, framing, top topic and score) and then as a whole route object
 - Corpus coverage: every command, alias, false-prefix case and topic is exercised
@@ -752,7 +752,7 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
 │   ├── reports/                     two captured playbook runs
 │   └── router/                      route_contract.py, 117 fixtures and the differential
 ├── claude project/
-│   ├── Custom Instructions.md       claude.ai kernel v1.19.0
+│   ├── Custom Instructions.md       claude.ai kernel v1.20.0
 │   ├── README.md                    upload steps, mirror map and smoke matrix
 │   ├── kernel-review.json           dated record of one kernel review
 │   └── knowledge/                   38 knowledge files

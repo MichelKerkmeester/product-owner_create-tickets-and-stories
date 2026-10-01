@@ -1,0 +1,88 @@
+{
+ "id": "PIR-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-interactive-routing/vague-intake-kind-and-energy.md",
+ "twin": "SIR-001",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-PIR-001-cacf5193",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 76.87,
+   "tool_calls": 10,
+   "tools_used": [
+    "ls",
+    "read",
+    "ls",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read"
+   ],
+   "input_tokens": 29629,
+   "output_tokens": 9236,
+   "reasoning_tokens": 7614,
+   "cost_usd": 0.010411806,
+   "model_s": 76.5,
+   "startup_s": 0.19,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "Leadership keeps asking whether guests could earn loyalty points on their stays and I am not sure what we should put in the backlog for it, background is in context/roamstay-context.md"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 112.82,
+   "tool_calls": 4,
+   "tools_used": [
+    "read",
+    "read",
+    "read",
+    "read"
+   ],
+   "input_tokens": 21605,
+   "output_tokens": 18038,
+   "reasoning_tokens": 16232,
+   "cost_usd": 0.014528573999999999,
+   "model_s": 112.36,
+   "startup_s": 0.24,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Deeper, and write an epic for it. It covers guests on the Guest app, iOS, Android and web. The goal is repeat bookings: 19% of guests book a second stay within 12 months today and we want 25% by the end of 2027. The child stories are joining from Account, earning points on completed stays, a points balance and history under Account, and spending points at checkout on Pay now bookings only, since Pay at property guests pay the property directly. The point value and who pays for points are not decided yet, so do not put a number on either."
+  }
+ ]
+}
