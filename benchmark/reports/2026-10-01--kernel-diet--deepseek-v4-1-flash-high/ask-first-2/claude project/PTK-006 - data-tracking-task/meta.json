@@ -1,0 +1,89 @@
+{
+ "id": "PTK-006",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/data-tracking-task.md",
+ "twin": "STK-006",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-PTK-006-e9f73dd7",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 116.79,
+   "tool_calls": 14,
+   "tools_used": [
+    "read",
+    "read",
+    "ls",
+    "ls",
+    "read",
+    "read",
+    "read",
+    "read",
+    "grep",
+    "read",
+    "read",
+    "read",
+    "read",
+    "grep"
+   ],
+   "input_tokens": 32860,
+   "output_tokens": 16406,
+   "reasoning_tokens": 14634,
+   "cost_usd": 0.015424248,
+   "model_s": 116.28,
+   "startup_s": 0.33,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "Can you write a task for the booking funnel events in Nadia's tracking plan, context/roamstay-booking-funnel-tracking-plan.md? Our conventions are in context/roamstay-context.md."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 105.95,
+   "tool_calls": 1,
+   "tools_used": [
+    "read"
+   ],
+   "input_tokens": 28170,
+   "output_tokens": 17289,
+   "reasoning_tokens": 16017,
+   "cost_usd": 0.014914931999999999,
+   "model_s": 105.53,
+   "startup_s": 0.23,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "It is the Data team's own task under TRK. Nadia checks every event in events-collector as the squads ship them, moves the funnel dashboard over to booking_confirmed and has the collector drop checkout_complete on its removal date. The client events and booking_confirmed itself get separate FE and BE tasks later. Refinement closed yesterday with no change to the event table."
+  }
+ ]
+}
