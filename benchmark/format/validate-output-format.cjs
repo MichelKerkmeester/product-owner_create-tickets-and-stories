@@ -297,7 +297,17 @@ const SEMANTIC_CONNECTIVES = [
   'because', 'so that', 'unless', 'which means', 'while', 'although', 'though', 'since',
   'whereas', 'in order to', 'rather than', 'instead of', 'when', 'if', 'until', 'before',
   'after', 'so',
+  // A Dutch or German deal carries the same logic in its own words, and an
+  // English-only list scores every one of them as connective-free.
+  'omdat', 'zodat', 'tenzij', 'terwijl', 'hoewel', 'sinds', 'wanneer', 'als', 'totdat',
+  'voordat', 'nadat', 'dus', 'zodra', 'in plaats van',
+  'weil', 'damit', 'falls', 'während', 'obwohl', 'seit', 'wenn', 'bis', 'bevor',
+  'nachdem', 'denn', 'sobald', 'statt',
 ];
+
+// Articles in the three deal languages, for the same reason.
+const ARTICLE_PATTERN =
+  /\b(?:the|a|an|de|het|een|der|die|das|dem|den|des|ein|eine|einen|einem|einer|eines)\b/g;
 
 const contentWords = (text) =>
   text
@@ -1293,7 +1303,7 @@ function analyse(file, source) {
     (total, connective) => total + (body.join(' ').toLowerCase().match(new RegExp(`\\b${connective}\\b`, 'g')) || []).length,
     0,
   );
-  const articles = (body.join(' ').toLowerCase().match(/\b(?:the|a|an)\b/g) || []).length;
+  const articles = (body.join(' ').toLowerCase().match(ARTICLE_PATTERN) || []).length;
   const copulas = (body.join(' ').toLowerCase().match(/\b(?:is|are|was|were|be|been)\b/g) || []).length;
 
   const stats = [
@@ -1330,7 +1340,7 @@ function analyse(file, source) {
       (total, connective) => total + (proseLower.match(new RegExp(`\\b${connective}\\b`, 'g')) || []).length,
       0,
     );
-    const proseArticles = (proseLower.match(/\b(?:the|a|an)\b/g) || []).length;
+    const proseArticles = (proseLower.match(ARTICLE_PATTERN) || []).length;
     const per1000 = (count) => ((count / proseWords) * 1000).toFixed(1);
     if ((proseConnectives / proseWords) * 1000 < CONNECTIVE_FLOOR_PER_1000) {
       report(
