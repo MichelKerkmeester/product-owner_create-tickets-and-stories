@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Doc - Guide - v0.100"
+title: "Product Owner - Examples - Doc - Guide"
 description: "Instantiates Doc Templates section 3, Guide. Shows one writing standard adapted across four empty-state intents, including a state that needs no action."
-version: "0.100"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["guide doc example", "worked doc example"]
+version: 1.16.0.5
 ---
 
 # Writing empty-state copy for Driftboard

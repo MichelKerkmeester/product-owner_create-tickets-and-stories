@@ -1,0 +1,9 @@
+**Path:** `export/001 - task-shorten-free-shipping-banner-copy.md`
+**Verified:** read-back succeeded; 27 lines
+**HVR self-scan:** 0 hard blockers. Fixed: `sits at the top` → `shows at the top` (copula-avoidance risk), and `line`/`wording`/`text` cycling → repeated term `copy` (synonym cycling). Kept with reason: the ` - ` delimiters in the H1, because the house title pattern `{Discipline} - {Surface} - {Feature code} - {Title}` fixes that shape and it is a hyphen rather than an em dash; `**Checklist**` and the bold requirement title, because the Quick Task scaffold fixes them.
+
+**Quality summary:** Completeness 9, Clarity 9, Actionability 9, Accuracy 9, Relevance 9, Mechanism Depth 8. Task Mode at Quick energy, single requirement group left unnumbered, `- []` checklist items with no trailing full stops, no template slots or placeholder links, and no question asked.
+
+Quick energy skipped the routine intake and the source supplied the rest. Both string pairs travel verbatim (`Free shipping on orders over €50` → `Free shipping over €50`, `Free shipping on orders over £45` → `Free shipping over £45`), the `€50` and `£45` thresholds and all five markets stay untouched, and the banner is verified on web, iOS and Android in one change.
+
+Two things came from `context/fernhouse-context.md` rather than the prompt, so strike them if they are wrong: the app surfaces (the request names only the banner, and the context places it above the cart in both apps) and the translation handoff (the context states the English lines are the source strings for every locale). No ClickUp tooling is exposed in this runtime, so the artifact stays local to `export/`.

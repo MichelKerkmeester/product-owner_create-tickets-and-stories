@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Bug - Quick Bug - v0.100"
+title: "Product Owner - Examples - Bug - Quick Bug"
 description: "Instantiates Bug Report Template section 2 in Quick form. Shows honest missing environment data and an unverified route hypothesis in a concise report."
-version: "0.100"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["quick bug example", "worked bug example"]
+version: 1.16.0.2
 ---
 
 # Terms of Service footer link returns 404 on the marketing site

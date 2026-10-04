@@ -1,0 +1,8 @@
+Path: `export/001 - task-due-today-filter-chip-clarification.md`
+Verified: read-back succeeded; 11 lines
+
+HVR self-scan: 0 hard blockers. Fixed: none needed, the draft carried no banned terms, no em dash, no semicolon and no inline-header bullets. Kept with reason: `FE - {Platform} - TODO - {Title}`, `filter_selected`, `all`, `assigned_to_me`, `overdue` and `Due today` are literal values, identifiers and labels carried from `context/loomlist-context.md`, and "All, Assigned to me and Overdue" is the source's own chip set, so all stay verbatim.
+
+Quality summary: Completeness 8, Clarity 9, Actionability 8, Accuracy 9, Relevance 9, Mechanism Depth 8. All floors met. Task-lane question shape, `-`/prose grammar with no trailing full stops, 213 words, no artifact draft or answer inside the file.
+
+Summary: this is the one intake question a `$task` request asks before drafting, so nothing was drafted yet. It covers the five decisions the supplied context page does not settle: which single client the front end work lands in, how Due today sits beside the existing three chips, what counts as today for checked-off and other-owned to-dos, the exact chip label, and whether `filter_selected` gains a `due_today` value with the Data team review inside or outside this task. One addition of my own: the question about a member viewing someone else's to-do and the owner's zone marker, since the context fixes that rule for dates but not for the chip. Answer in one go and the task takes the next number in this lane as `export/002 - task-...`, leaving this file untouched.

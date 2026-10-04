@@ -1,5 +1,5 @@
 ---
-title: "Rules - Human Voice - EN - v0.210"
+title: "Rules - Human Voice - EN"
 description: "English Human Voice hard blockers and structural rules every deliverable must pass with zero violations."
 trigger_phrases:
   - "human voice rules"
@@ -8,10 +8,11 @@ trigger_phrases:
   - "ai pattern detection"
   - "pre-publish checklist"
 importance_tier: critical
-contextType: reference
+contextType: general
+version: 0.210.0.0
 ---
 
-# Rules - Human Voice - EN - v0.210
+# Rules - Human Voice - EN
 
 
 The Human Voice Rules (HVR) define the global linguistic standards that govern all AI-generated content across the ecosystem. These rules eliminate detectable AI patterns, enforce natural human writing conventions and ensure every piece of output reads as if written by a knowledgeable human professional. This document is the canonical, system-agnostic superset. Individual content systems inherit these rules and may extend them with system-specific overrides.

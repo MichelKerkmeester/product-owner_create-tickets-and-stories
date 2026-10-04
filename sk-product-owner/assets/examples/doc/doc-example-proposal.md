@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Doc - Proposal - v0.100"
+title: "Product Owner - Examples - Doc - Proposal"
 description: "Instantiates Doc Templates section 6, Proposal. Shows verified current context separated from candidate design while the decision owner and evidence gap stay open."
-version: "0.100"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["proposal doc example", "worked doc example"]
+version: 1.16.0.4
 ---
 
 # Proposal — dark mode rollout for Meridian Mobile

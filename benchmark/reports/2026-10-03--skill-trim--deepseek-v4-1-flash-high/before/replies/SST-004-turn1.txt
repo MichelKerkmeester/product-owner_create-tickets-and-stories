@@ -1,0 +1,7 @@
+`export/001 - Story-order-tracking-clarification.md`
+Verified: read-back succeeded; 22 lines
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: `Order page / Tracking timeline` and `Packed` are literals the brief supplies, `BE`, `FE`, `DATA` and `{Discipline} - {Surface} - {Code} - {Title}` are the company's own discipline codes and title pattern, and the spaced hyphens in the H1 are the house hyphen-joined title style.
+
+Quality summary: one consolidated question in the Story lane, holding no draft and no answer of its own; every field the three context files already settle (artifact kind, role and value, requirement values, statuses, out-of-scope list, evidence) is left out rather than restated, so the file asks only what the request and the brief leave open — the task split the request never names, plus the brief's two open questions on the failure reason and the web layout. Interactive intake formatting, Human Voice and conciseness checks pass, and no supplied value, identifier or status label was altered.
+
+This is a Story with its tasks requested by explicit command, so Story Mode's context question comes first and nothing is drafted until you answer. Say the word and the Story plus one task per named part lands as a single numbered folder. If any of Hamid's six should sit elsewhere, or if you would rather I carry the two open questions into the artifact as open items rather than settle them now, tell me either way in the same reply.

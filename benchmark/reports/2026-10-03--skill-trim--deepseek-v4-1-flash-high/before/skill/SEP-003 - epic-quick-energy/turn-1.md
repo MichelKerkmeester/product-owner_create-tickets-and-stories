@@ -1,0 +1,11 @@
+`export/001 - Epic-customer-returns.md`
+
+Verified: read-back succeeded; 106 lines
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: the supplied values `30 days`, `1,900`, `6 days`, `60%` and the `Q1 2027` date kept verbatim in their source notation; the `**Guest returns**` bold lead kept because an Epic's `Added Later` group uses that template shape.
+
+**Quality summary** — Kind: Epic (not a Story). The About umbrella carries Problem, Goal and Solution, `## Scope` carries the child-story groups, and there is no `## Requirements` or `## Delivery`, since an Epic holds neither and no delivery view was requested. House grammar passes: `* * *` after each content heading, `####   ` spacers after Problem and Goal, a `##   ` close after Scope and after Acceptance criteria, sentence-case headings, `*   ` bullets, `- []` checkboxes, numbered `1\.` criteria each closed by a Mark-as-done line with no divider before the next. 790 words against the 1,000 Epic budget.
+
+**Summary** — The Epic gives signed-in customers the full self-serve return on web, iOS and Android: starting from order history with items and a reason, the label by email, status on the order page, and a refund once the warehouse check passes, with the goal that at least 60% of returns start without a CS contact by the end of Q1 2027. Four child stories are grouped as `Start a return`, `Return label` and `Status and refund`, plus an `Added Later` group holding guest returns. Guest returns and the pallet-item boundary are stated in About rather than as requirements, because an Epic's requirements live in its children.
+
+**Additions to strike if wrong** — the Scope group names and the lifecycle grouping are mine; the four child stories are titled in the `{Persona} - {Area} - {Feature}` shape as plain text since none has a link yet; the `Added Later` line describes guest returns as "start a return without an account"; and the pallet boundary is explained by the pallet carrier's missing API and tracking events, taken from the context file. Say the word and I can reword any of these, or add a `## Delivery` close with Estimation, Rabbit holes and No-gos.

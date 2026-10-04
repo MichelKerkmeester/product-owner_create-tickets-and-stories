@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Bug - Mobile Crash - v0.100"
+title: "Product Owner - Examples - Bug - Mobile Crash"
 description: "Instantiates Bug Report Template section 2. Shows crash-log evidence and an explicitly labelled memory-pressure hypothesis instead of an asserted root cause."
-version: "0.100"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["mobile crash bug example", "worked bug example"]
+version: 1.16.0.2
 ---
 
 # App crashes when attaching a large gallery photo on Android 12

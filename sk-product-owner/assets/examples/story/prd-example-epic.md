@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Story - Epic - v0.200"
+title: "Product Owner - Examples - Story - Epic"
 description: "Instantiates the house PRD shape as an Epic: an About umbrella with Problem, Goal and Solution, a Scope of child stories grouped by lifecycle plus an Added Later group, a few release-level outcome-led Given/When/Then acceptance criteria, and the Delivery close, present because the request asked for a delivery view and sizing, with no Requirements section."
-version: "0.200"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["epic story example", "worked story example"]
+version: 1.16.0.6
 ---
 
 # Epic - Gatherwell - Event Check-in v2

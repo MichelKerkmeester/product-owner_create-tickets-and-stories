@@ -94,8 +94,8 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | One scaffold at lines 62 and 85, rendering without a panel at line 91, the ESCALATE IF intake rule at line 114, the Epic shape at line 157 and the Epic and clarification labels at lines 271 and 272 |
-| [`Product Owner - Templates - Story Mode - v0.405.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.405.md) | Clarification block at line 42, Epic kind at line 102, stated child-story set at line 110, Delivery opt-in at lines 131 and 132, Epic H1 at line 146 and Epic draft order at line 182 |
-| [`Product Owner - Assets - Epic Template - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Epic%20Template%20-%20v0.102.md) | Epic scaffold at lines 22 to 93 and its Notes For Use at lines 98 to 102 |
+| [`Product Owner - Templates - Story Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode.md) | Clarification block at line 42, Epic kind at line 102, stated child-story set at line 110, Delivery opt-in at lines 131 and 132, Epic H1 at line 146 and Epic draft order at line 182 |
+| [`Product Owner - Assets - Epic Template.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Epic%20Template.md) | Epic scaffold at lines 22 to 93 and its Notes For Use at lines 98 to 102 |
 | [`roamstay-context.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-context.md) | Roamstay surfaces, squads and the epic title pattern |
 | [`roamstay-partner-self-onboarding-brief.md`](../../../benchmark/fixtures/companies/roamstay/roamstay-partner-self-onboarding-brief.md) | The six stages, the numbers and the boundaries the Epic carries |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |

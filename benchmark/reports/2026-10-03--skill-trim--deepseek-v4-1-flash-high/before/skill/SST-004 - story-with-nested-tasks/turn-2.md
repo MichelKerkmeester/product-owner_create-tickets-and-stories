@@ -1,0 +1,20 @@
+`export/002 - Story-order-tracking/002 - Story-order-tracking.md`
+Verified: read-back succeeded; 154 lines
+`export/002 - Story-order-tracking/002.1 - task-ios-tracking-timeline.md`
+Verified: read-back succeeded; 107 lines
+`export/002 - Story-order-tracking/002.2 - task-android-tracking-timeline.md`
+Verified: read-back succeeded; 91 lines
+`export/002 - Story-order-tracking/002.3 - task-web-tracking-timeline.md`
+Verified: read-back succeeded; 108 lines
+`export/002 - Story-order-tracking/002.4 - task-carrier-tracking-webhook.md`
+Verified: read-back succeeded; 98 lines
+
+HVR self-scan: 0 hard blockers. Fixed: none, since no always-cut modifier was written in the first place. Kept with reason: `Order page / Tracking timeline` is the design frame name you and the brief supplied, `Packed`, `PU`, `IT`, `OD`, `DL` and `EX` are supplied status and carrier code literals, `tracking.updated`, `/webhooks/carrier/tracking`, `X-Carrier-Signature`, `event_id`, `occurred_at` and `eta_window` are supplied API identifiers, `en-GB` is supplied locale notation, the spaced hyphens in every H1 and task title are the company's own `{Discipline} - {Surface} - {Code} - {Title}` convention, and `_Mark as done, if the criteria are met_` with the two-line story preamble are house template labels.
+
+Quality summary: artifact kind is **Story**, saved as one bundle with four task files in your order. All six dimensions clear their floors, Accuracy highest because every value, code, string and limit traces to Hamid's brief, Yusuf's API facts or the company context. House grammar passes: preamble, `* * *` dividers, `*   ` bullets, `- []` requirement items with one supplied value each, seven numbered criteria each closed by a Mark-as-done line with no divider before the next, spacers retained, and no ticket fields, points or INVEST notes. Budgets hold, with the Story at 1,141 words and the tasks at 425, 404, 441 and 494. No `## Delivery` section, because you asked for none and settling both open questions removed the two things that would have forced one.
+
+The Story covers the timeline on all three surfaces, the delivery estimate, per-parcel timelines, the pallet-carrier page, the 90-day rule and the webhook, with the four tasks split exactly as you named them. Both of your answers are carried: `Delivery failed` shows no reason in the Requirements and in criterion 3, and the web layout shares the `Order page / Tracking timeline` frame, which the web, iOS and Android tasks each name. Deliberately out of scope and named here rather than in the artifact: the per-status push notification, address or day changes after dispatch and return parcel tracking (the brief's own exclusions, which the Solution states in one line), the `Packed` wiring, which orders-service already does, and the DATA events, which move to a later story.
+
+Four additions to strike if you disagree, all derived rather than supplied by the brief: an `Analytics` group in the three client tasks recording that no new events ship in this story, since the company context requires a tracking plan row and a DATA task before a client sends an event, the web task's one responsive build for desktop and mobile browsers, the Android task's Android 9 support floor and two-week Tuesday release cycle, and the web task's note that a market's English option shows en-GB copy with its own currency. The titles are mine, using the company convention: `Customer - Post-purchase - Order tracking` for the Story, and `FE - iOS - TRACK - ...`, `FE - Android - TRACK - ...`, `FE - Web - TRACK - ...`, `BE - TRACK - Carrier tracking webhook` for the tasks. One thing I left out on purpose, so you can decide: guest customers have no order history, so on web the timeline reaches signed-in customers only.
+
+The bundle is already in ClickUp markdown grammar. This session exposes no ClickUp tooling, so I have not offered a push. Say the word if you want the split changed, an addition struck, or the guest-customer note added to the Story.

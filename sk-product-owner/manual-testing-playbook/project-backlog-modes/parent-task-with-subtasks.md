@@ -92,9 +92,9 @@ Capture both replies, the rendered blocks and which form each took, the two expo
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, the explicit-command question rule, Deliverable Block and export-equivalent contract |
-| [`Product Owner - Templates - Task Mode - v0.308.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.308.md) | Project task workflow, parent task type, required sections and the named-but-unlinked rule |
-| [`Product Owner - Assets - Task Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates%20-%20v0.103.md) | Project Parent Task scaffold and the Notes For Use |
-| [`Product Owner - System - Interactive Mode - v0.408.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.408.md) | Direct `$task` row and clarification delivery |
+| [`Product Owner - Templates - Task Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode.md) | Project task workflow, parent task type, required sections and the named-but-unlinked rule |
+| [`Product Owner - Assets - Task Templates.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates.md) | Project Parent Task scaffold and the Notes For Use |
+| [`Product Owner - System - Interactive Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode.md) | Direct `$task` row and clarification delivery |
 | [`loomlist-context.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-context.md) | Attachment: surfaces, plans, the `TODO` code, the owner's time zone and the title convention |
 | [`loomlist-recurring-todos-pm-brief.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-recurring-todos-pm-brief.md) | Attachment: recurrence rules, limit, plans, flag, tracking, frames, the build split and the open question |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |

@@ -1,0 +1,9 @@
+Path: `export/001 - Story-save-card-for-next-time-clarification.md`
+Verified: read-back succeeded; 20 lines
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: `TBD...` (the house placeholder, which the card's one-ellipsis cap exempts).
+
+**Quality summary:** the output-format gate passes with no blocking findings. The only advisories are the length caps, because each numbered field answers in two or three sentences so it stands alone. The file holds the question and nothing else, no partial Story, and the supplied sources are unchanged (the draft still hashes to the fixture value).
+
+**Why this is a question, not a draft.** `$s` opens with its intake question, and the ask is a restructure of Priya's draft into the house Story shape. The kind is clear, a Story rather than an Epic, so the one consolidated question covers only what I will not decide for you. The main point is a straight conflict between the two attached files: the draft keeps the card brand so the payment step can show a brand logo, while the `Known constraints` section of the Fernhouse context allows a card token, the last four digits and the expiry date, "and nothing else."
+
+The other five points cover the draft's build checklist (the house format bars build steps from Requirements, and the three analytics events have no names yet), the declined saved-card copy still marked `TBD...`, how expired cards behave in the account area and against the 5-card limit, whether the `€150` and `£130` CVC limits bite on the order total or the subtotal, and whether you want a Delivery close. I also flagged two readings for confirmation: `Card ending 7031` and `Expires 08/28` look like sample values, and `€150` reads as the four euro markets with `£130` for the UK. Answer in one reply and the Story follows in this lane, with Priya's values carried verbatim and her file left as she wrote it.

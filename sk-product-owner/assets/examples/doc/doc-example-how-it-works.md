@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Doc - How It Works - v0.100"
+title: "Product Owner - Examples - Doc - How It Works"
 description: "Instantiates Doc Templates section 5, Behavior Reference, at system scale with a prose-first register. A subscription billing lifecycle: states, renewal and proration, dunning retries, cancellation and pause, precedence and one unresolved edge."
-version: "0.100"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["how it works doc example", "worked doc example"]
+version: 1.16.0.3
 ---
 
 # Vantage Billing — subscription lifecycle

@@ -90,9 +90,9 @@ Capture the reply, the rendered Epic block, its export-equivalent label, the Epi
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | One scaffold at lines 62 and 85, rendering without a panel at line 91, the Quick intake allowance at line 114, the Epic shape at line 157 and the Epic label at line 271 |
-| [`Product Owner - Templates - Story Mode - v0.405.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.405.md) | Every gate under Quick at line 60, Epic kind at line 102, stated child-story set at line 110, Quick keeps needed gates at line 113, Delivery opt-in at line 132, Epic H1 at line 146 and Epic draft order at line 182 |
-| [`Product Owner - Assets - Epic Template - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Epic%20Template%20-%20v0.102.md) | Epic scaffold at lines 22 to 93 and its Notes For Use at lines 98 to 102 |
-| [`Product Owner - System - Interactive Mode - v0.408.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.408.md) | The Quick energy row at line 103 and the Story intake gate at lines 146 to 150 |
+| [`Product Owner - Templates - Story Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode.md) | Every gate under Quick at line 60, Epic kind at line 102, stated child-story set at line 110, Quick keeps needed gates at line 113, Delivery opt-in at line 132, Epic H1 at line 146 and Epic draft order at line 182 |
+| [`Product Owner - Assets - Epic Template.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Epic%20Template.md) | Epic scaffold at lines 22 to 93 and its Notes For Use at lines 98 to 102 |
+| [`Product Owner - System - Interactive Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode.md) | The Quick energy row at line 103 and the Story intake gate at lines 146 to 150 |
 | [`fernhouse-context.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-context.md) | Fernhouse surfaces, today's CS-only returns, guest orders, pallet items and the epic title pattern |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |
 

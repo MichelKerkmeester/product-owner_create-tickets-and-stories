@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Task - UI Refinement - v0.100"
+title: "Product Owner - Examples - Task - UI Refinement"
 description: "Instantiates Task Templates section 2, Canonical Task. Shows design-parity work scoped with no functional change and cross-device accessibility verification."
-version: "0.100"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["ui refinement task example", "worked task example"]
+version: 1.16.0.2
 ---
 
 # Align the Meridian settings screen with the current design reference

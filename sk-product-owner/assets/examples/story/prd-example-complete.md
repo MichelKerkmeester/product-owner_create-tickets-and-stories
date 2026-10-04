@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Story - Complete Reference - v0.200"
+title: "Product Owner - Examples - Story - Complete Reference"
 description: "The maximal house Story: every optional enrichment populated as a reference for what is available. The story preamble, an About umbrella with Problem, a Solution that carries a User Story promise block, Expected outcomes and References, a Definition of Ready gate, Requirements holding only hard constraints with a PRD value line, a Rule block, a Which-means-that block and one priority marker on each group, outcome-led Given/When/Then acceptance criteria grouped by surface with Mark-as-done lines, a Definition of Done gate, plus a Delivery close present because the request asked for a delivery view and sizing. A reference for what is available, not the default a small Story needs."
-version: "0.200"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["complete reference story example", "worked story example"]
+version: 1.16.0.11
 ---
 
 <!-- This is the maximal reference. Most Stories use far less. Simple Stories drop every optional block, so reach for these only when a Story earns them. -->

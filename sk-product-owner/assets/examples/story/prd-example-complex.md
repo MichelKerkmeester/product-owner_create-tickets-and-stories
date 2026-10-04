@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Story - Complex Tier - v0.300"
+title: "Product Owner - Examples - Story - Complex Tier"
 description: "Instantiates the house Story shape at Complex size: four payout types that inherit one shared release pipeline, with the shared mechanism described once in Solution, Requirements reduced to the limits and ordering the pipeline must honour, one priority marker, and outcome-led acceptance criteria grouped by surface, closing on a populated Delivery section because the request asked for a delivery view and sizing."
-version: "0.300"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["complex tier story example", "worked story example"]
+version: 1.16.0.11
 ---
 
 # Keystone - Payouts - Release pipeline

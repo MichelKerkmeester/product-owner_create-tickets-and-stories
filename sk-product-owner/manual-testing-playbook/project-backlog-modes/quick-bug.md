@@ -86,9 +86,9 @@ Capture the reply, the rendered block, the export-equivalent label, the field ta
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, the Quick intake skip, the Deliverable Block and the export-equivalent contract |
-| [`Product Owner - Templates - Bug Mode - v0.205.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Bug%20Mode%20-%20v0.205.md) | Project bug workflow, evidence rules and fixed structure |
-| [`Product Owner - Assets - Bug Report Template - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Bug%20Report%20Template%20-%20v0.102.md) | Field table, Frequency rules and Checklist |
-| [`Product Owner - System - Interactive Mode - v0.408.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.408.md) | Quick energy bypassing routine Bug intake |
+| [`Product Owner - Templates - Bug Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Bug%20Mode.md) | Project bug workflow, evidence rules and fixed structure |
+| [`Product Owner - Assets - Bug Report Template.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Bug%20Report%20Template.md) | Field table, Frequency rules and Checklist |
+| [`Product Owner - System - Interactive Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode.md) | Quick energy bypassing routine Bug intake |
 | [`fernhouse-context.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-context.md) | Attachment: surfaces, app versions and the badge unit rule |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |
 

@@ -1,18 +1,18 @@
 ---
-title: "Product Owner - Assets - Epic Template - v0.102"
+title: "Product Owner - Assets - Epic Template"
 description: "The Barter house-format Epic scaffold: an About umbrella with Problem, Goal and Solution, a Scope section listing child stories, release-level acceptance criteria and the same opt-in Delivery close a Story uses, with no Requirements of its own. Shared grammar, artifact-kind selection and the optional enrichments live in story-mode.md."
-version: "0.102"
-contextType: asset
-importance_tier: high
+contextType: general
+importance_tier: important
 trigger_phrases:
   - "epic template"
   - "epic scaffold"
   - "write an epic"
   - "epic scope section"
   - "release-level acceptance criteria"
+version: 1.16.0.6
 ---
 
-# Product Owner - Assets - Epic Template - v0.102
+# Product Owner - Assets - Epic Template
 
 An Epic frames an initiative and delegates requirements to its child stories.
 
