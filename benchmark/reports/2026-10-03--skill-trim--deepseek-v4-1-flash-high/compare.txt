@@ -1,0 +1,23 @@
+SBG-001  A t1ask=False vals=11/12  gate=0  ver=True  scan=True  | B t1ask=False vals=11/12  gate=0  ver=True  scan=True  | 
+SBG-002  A t1ask=True  vals=17/18  gate=0  ver=True  scan=True  | B t1ask=True  vals=16/18  gate=0  ver=True  scan=True  | values
+SBG-003  A t1ask=True  vals=22/23  gate=0  ver=True  scan=True  | B t1ask=True  vals=21/23  gate=0  ver=True  scan=True  | values
+SDK-001  A t1ask=False vals=0/1    gate=1  ver=True  scan=True  | B t1ask=False vals=1/1    gate=1  ver=True  scan=True  | values
+SDK-002  A t1ask=True  vals=0/1    gate=0  ver=True  scan=True  | B t1ask=True  vals=0/1    gate=0  ver=True  scan=True  | 
+SDK-003  A t1ask=True  vals=1/1    gate=0  ver=True  scan=True  | B t1ask=True  vals=1/1    gate=0  ver=False scan=False | verified_all,selfscan_all
+SDK-004  A t1ask=True  vals=2/2    gate=0  ver=True  scan=True  | B t1ask=True  vals=2/2    gate=0  ver=True  scan=True  | 
+SEP-001  A t1ask=True  vals=8/8    gate=0  ver=False scan=True  | B t1ask=True  vals=8/8    gate=0  ver=True  scan=True  | verified_all
+SEP-002  A t1ask=True  vals=7/7    gate=0  ver=True  scan=True  | B t1ask=True  vals=7/7    gate=0  ver=True  scan=True  | 
+SEP-003  A t1ask=False vals=3/4    gate=0  ver=False scan=True  | B t1ask=False vals=3/4    gate=0  ver=True  scan=True  | verified_all
+SID-001  A t1ask=True  vals=4/4    gate=0  ver=True  scan=True  | B t1ask=True  vals=4/4    gate=0  ver=True  scan=True  | 
+SIR-001  A t1ask=True  vals=3/3    gate=0  ver=False scan=True  | B t1ask=True  vals=3/3    gate=0  ver=False scan=True  | 
+SIR-002  A t1ask=True  vals=0/1    gate=0  ver=True  scan=True  | B t1ask=True  vals=0/1    gate=0  ver=True  scan=True  | 
+SST-001  A t1ask=True  vals=11/15  gate=0  ver=True  scan=True  | B t1ask=True  vals=11/15  gate=0  ver=True  scan=True  | 
+SST-002  A t1ask=True  vals=18/20  gate=0  ver=True  scan=True  | B t1ask=True  vals=19/20  gate=0  ver=True  scan=True  | values
+SST-003  A t1ask=True  vals=8/11   gate=0  ver=True  scan=True  | B t1ask=False vals=7/11   gate=0  ver=True  scan=True  | t1_asks,t1_drafts,files,values
+SST-004  A t1ask=True  vals=27/34  gate=0  ver=True  scan=True  | B t1ask=True  vals=27/34  gate=0  ver=True  scan=True  | 
+STK-001  A t1ask=False vals=9/10   gate=0  ver=False scan=True  | B t1ask=False vals=9/10   gate=0  ver=True  scan=True  | verified_all
+STK-002  A t1ask=True  vals=12/15  gate=0  ver=True  scan=True  | B t1ask=False vals=14/15  gate=0  ver=False scan=True  | t1_asks,t1_drafts,files,verified_all,values
+STK-003  A t1ask=True  vals=6/9    gate=0  ver=True  scan=True  | B t1ask=True  vals=5/9    gate=0  ver=True  scan=True  | values
+STK-004  A t1ask=True  vals=2/3    gate=0  ver=True  scan=True  | B t1ask=False vals=2/3    gate=0  ver=True  scan=True  | t1_asks,t1_drafts,files
+STK-005  A t1ask=True  vals=6/8    gate=0  ver=True  scan=True  | B t1ask=True  vals=6/8    gate=0  ver=True  scan=True  | 
+STK-006  A t1ask=True  vals=12/12  gate=0  ver=True  scan=True  | B t1ask=True  vals=12/12  gate=0  ver=True  scan=True  | 

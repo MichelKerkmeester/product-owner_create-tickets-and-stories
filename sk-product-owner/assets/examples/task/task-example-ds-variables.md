@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Task - DS Variables - v0.100"
+title: "Product Owner - Examples - Task - DS Variables"
 description: "Instantiates Task Templates sections 3 and 4 in the ClickUp format the team ships, a Parent Task with one Subtask per app. Shows a design token release listed once in the parent while each app's subtask carries its own token file and the checks that file needs."
-version: "0.100"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["ds variables task example", "worked task example"]
+version: 1.16.0.2
 ---
 
 # DS - Variables - v1.0.7 - Size Variables & Disabled States

@@ -1,0 +1,20 @@
+Path: `export/002 - Epic-offline-mode.md`
+
+Verified: read-back succeeded; 106 lines
+
+HVR self-scan: 1 hard blocker. Fixed: the serial comma that was sitting before the last item of the About exclusions list, since an Oxford comma is banned in delivered prose. Kept with reason: `Platform` and the four area names read as the house path segments and Oskar's own headings; `lost-edit`, `#sync-eng`, `block-level last-writer-wins`, `protocol v3`, `sync-service` and `2026-10-09` are supplied identifiers kept exactly; `**The following issues rise from that:**`, `**Direct user/Barter benefits:**`, `In order to get there, we will:` and `_Mark as done, if the criteria are met_` are the Epic scaffold's own fixed wording; `iOS, Android and Desktop` is the subject's platform set rather than a chosen triad.
+
+Quality summary: shape resolved as an **Epic** before drafting, so the body carries About with Problem, Goal and Solution, then Scope and release-level acceptance criteria, and no Requirements. Accuracy holds at the floor, since every claim traces to Oskar's brief, the context page, or your reply. Completeness holds for the shape: Scope names all four child stories as plain text rather than inventing links, and every out-of-scope item the brief lists plus the platform boundary and the plan set are recorded visibly. Clarity and Actionability hold because each of the four criteria states an outcome with the mechanism left open, and Mechanism Depth holds because the conflict-handling decision and the sequencing it forces are both stated, so a reader can derive which work can start now.
+
+Summary: the Epic is titled `# Epic - Platform - Offline mode`, with one child story per area you chose, each named in its Story-H1 shape and each covering iOS, Android and Desktop together. Free is written into the Goal and its benefits, and the Q1 2027 target sits in the About narrative. The four areas map to the four release-level acceptance criteria, closed by the brief's own success measures.
+
+Where the brief's hard values go, since an Epic has no Requirements section and those numbers belong to the child stories that will hold them:
+
+*   Offline reading: the 500 most recently opened pages with their blocks, inline databases and to-dos, the 1 GB cap, whichever limit comes first, images and files counting toward the cap, and a page dropping out of the 500 being removed on the next connection
+*   Offline editing and creation: editing blocks, checking off to-dos and creating pages and to-dos, the queue holding changes in the order they were made, and sharing, inviting, moving a page and deleting a page staying online only with those controls shown unavailable
+*   Sync on reconnect: upload starting within 30 seconds, oldest first, and the overlap rule once Joana's 2026-10-09 decision lands
+*   Offline indicator and storage settings: the top-bar marker, the count of changes waiting to sync, and the storage screen showing space used, lowering the 1 GB cap and clearing offline data
+
+Three things I decided that you should confirm or overrule. Web stays out and I read Desktop as in scope exactly as the brief states, so nothing in the Epic implies offline work in the web client. No links arrived, so `#### **References**` is omitted rather than left empty. No `## Delivery` close is written, because you did not ask for one and Joana's decision carries a date, so the dependency sits in Solution instead of becoming a no-gos or rabbit-holes entry. One context-page fact belongs in the sync child story rather than the Epic: protocol v3 has no merge and no conflict copy, and any protocol change needs every client on a version that speaks the new one.
+
+Next step: say the word and I will draft the four child stories in order, each as its own Story export carrying the values listed above, or send corrections to the Epic first.

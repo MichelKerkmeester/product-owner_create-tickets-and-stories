@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Doc - Behavior Reference - v0.100"
+title: "Product Owner - Examples - Doc - Behavior Reference"
 description: "Instantiates Doc Templates section 5, Behavior Reference. Shows state precedence across timing, offline and conflict rules while one edge remains unresolved."
-version: "0.100"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["behavior reference doc example", "worked doc example"]
+version: 1.16.0.4
 ---
 
 # Fieldnote Editor — form autosave behavior

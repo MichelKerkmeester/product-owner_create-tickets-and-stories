@@ -1,0 +1,8 @@
+Path: `export/001 - intake-wishlist-bug-or-story-clarification.md`
+Verified: read-back succeeded; 36 lines
+
+HVR self-scan: 6 hard blockers. Fixed: five serial-comma joins (list items and one heading), one process-narration opener. Kept with reason: source literals (`accounts-service`, `WISH`, `FE`, `FS`, `50 item`) as identifiers; paragraph full stops, since the no-full-stop rule binds bullet items only.
+
+Quality summary: one consolidated question, no draft. It resolves the `$bug`/`$story` conflict, the open decision owner (Lotte unanswered), what may be stated as current behavior, scope across the four reported contact groups, requirements and evidence for either artifact, the source set and the root-cause assumptions to challenge. Question-level dimensions all clear their floor (clarity, completeness, assumption challenge, perspective diversity, mechanism depth).
+
+Summary: two explicit commands and an unsettled product call mean the first reply is one question, not a guess. The question asks which deliverable this problem deserves, since CS reads it as a defect while Storefront's reply calls the device-local app list current by design, and it carries the Bug and Story intake fields so one answer unblocks the draft. Both supplied sources are read and unchanged, and the artifact will take the next number in its lane once you answer. No ClickUp tooling is available in this runtime, so there is nothing to push yet.

@@ -1,8 +1,7 @@
 ---
-title: "Product Owner - Rules - Quality Scoring - v0.101"
+title: "Product Owner - Rules - Quality Scoring"
 description: "The six-dimension quality rubric behind the blocking floors in SKILL.md Section 6: what each dimension measures, the test that separates a floor-clearing score from a near miss, the three bands, how each dimension reads against Task, Bug, Doc, Story and Epic, how the two always-loaded layers meet the floors, and the revision ladder a failing score follows."
-version: "0.101"
-contextType: reference
+contextType: implementation
 importance_tier: critical
 trigger_phrases:
   - "quality scoring"
@@ -11,9 +10,10 @@ trigger_phrases:
   - "quality floor"
   - "revision cycle"
   - "scoring bands"
+version: 1.16.0.10
 ---
 
-# Product Owner - Rules - Quality Scoring - v0.101
+# Product Owner - Rules - Quality Scoring
 
 The rubric behind the six blocking floors. Each dimension states what it measures, the one test that separates a clear pass from a near miss, and how it reads against each artifact shape the system now produces.
 

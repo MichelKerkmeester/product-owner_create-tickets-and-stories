@@ -1,0 +1,130 @@
+{
+ "id": "SBG-003",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/two-platform-log-bug.md",
+ "twin": "PBG-003",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-SBG-003-9e890e58",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - bug-reminders-late-after-clock-change-clarification.md",
+   "export/002 - bug-reminders-late-after-clock-change.md"
+  ],
+  "modified": [
+   ".git/index"
+  ],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 225.34,
+   "tool_calls": 33,
+   "tools_used": [
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "bash",
+    "read",
+    "bash",
+    "read",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "read",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "write",
+    "bash",
+    "edit",
+    "bash",
+    "bash",
+    "read",
+    "bash"
+   ],
+   "input_tokens": 111850,
+   "output_tokens": 20635,
+   "reasoning_tokens": 15636,
+   "cost_usd": 0.034718052,
+   "model_s": 224.78,
+   "startup_s": 0.3,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [
+     "export/001 - bug-reminders-late-after-clock-change-clarification.md"
+    ],
+    "modified": [
+     ".git/index"
+    ],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$b Reminders arrived an hour late after the March clock change, one-off reminders on Android and daily ones on iOS. Please write it up as one bug for the To-dos and Reminders team from Ruben's log lines in context/loomlist-reminders-dst-log-excerpt.md and Marta's support reports in context/loomlist-reminders-dst-user-reports.md, with our product context in context/loomlist-context.md"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 142.86,
+   "tool_calls": 9,
+   "tools_used": [
+    "write",
+    "bash",
+    "edit",
+    "bash",
+    "bash",
+    "edit",
+    "bash",
+    "read",
+    "bash"
+   ],
+   "input_tokens": 22554,
+   "output_tokens": 18593,
+   "reasoning_tokens": 14201,
+   "cost_usd": 0.018429204,
+   "model_s": 142.49,
+   "startup_s": 0.19,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [
+     "export/002 - bug-reminders-late-after-clock-change.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Severity High for both. Support never collected device models or OS versions, so we have none. QA has not reproduced either one yet, and nobody has checked the current 5.3 apps because the clocks have not changed since March. No screenshots or recordings, and no other bug is open for it. Keep it as one report."
+  }
+ ]
+}

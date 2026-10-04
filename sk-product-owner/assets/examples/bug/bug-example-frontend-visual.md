@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Bug - Frontend Visual - v0.100"
+title: "Product Owner - Examples - Bug - Frontend Visual"
 description: "Instantiates Bug Report Template section 2. Shows a visual stacking defect with cross-browser evidence, exact design tokens and focused BDD coverage."
-version: "0.100"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["frontend visual bug example", "worked bug example"]
+version: 1.16.0.2
 ---
 
 # Country dropdown renders behind the payment modal at checkout

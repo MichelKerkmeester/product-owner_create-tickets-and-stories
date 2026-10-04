@@ -1,18 +1,18 @@
 ---
-title: "Product Owner - Assets - Story Template - v0.101"
+title: "Product Owner - Assets - Story Template"
 description: "The Barter house-format Story scaffold: a story preamble, an About umbrella with Problem, Solution, Expected outcomes and References, an optional Requirements section holding only hard constraints, a few outcome-led acceptance criteria, and an opt-in Delivery close written only on request or where the artifact forces one. Shared grammar, artifact-kind selection and the optional enrichments live in story-mode.md."
-version: "0.101"
-contextType: asset
-importance_tier: high
+contextType: general
+importance_tier: important
 trigger_phrases:
   - "story template"
   - "story scaffold"
   - "PRD house format"
   - "write a user story"
   - "story requirements section"
+version: 1.16.0.10
 ---
 
-# Product Owner - Assets - Story Template - v0.101
+# Product Owner - Assets - Story Template
 
 The default shape for a Story. Detail scales with scope. The order does not change.
 

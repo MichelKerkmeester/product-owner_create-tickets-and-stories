@@ -76,7 +76,7 @@ Capture both replies, the side-effect ledger, both export paths and read-back re
 
 ### Failure triage
 
-1. Check the natural framing rule in `AGENTS.md` line 213 and `SKILL.md` line 142, and the Epic clarification lane in `SKILL.md` line 208
+1. Check the natural framing rule in `AGENTS.md` line 213 and `SKILL.md` line 118, and the Epic clarification lane in `SKILL.md` line 174
 2. Check the Epic scaffold and its Notes For Use in `epic-template.md` lines 41 to 121
 3. Reconcile Scope, Goal and the dependency against `loomlist-offline-mode-brief.md`, and strike any Web item or conflict-handling decision
 

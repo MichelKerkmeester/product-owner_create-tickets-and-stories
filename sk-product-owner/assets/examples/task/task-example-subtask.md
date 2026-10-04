@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Task - Subtask - v0.100"
+title: "Product Owner - Examples - Task - Subtask"
 description: "Instantiates Task Templates section 4, Subtask. Shows zero-result and request-failure recovery kept distinct without leaking permission state."
-version: "0.100"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["subtask example", "worked task example"]
+version: 1.16.0.2
 ---
 
 # Empty states for search results in Corsair

@@ -1,0 +1,9 @@
+Path: `export/001 - task-shorten-free-shipping-banner-copy.md`
+Verified: read-back succeeded; 30 lines
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: "current" (not an always-cut modifier, and it separates today's placement from the new copy), plus both banner strings in backticks as supplied literal copy.
+
+Quality summary: all six dimensions clear their floors — Completeness (surfaces, locales, thresholds and the no-change boundary all named), Clarity (each checklist item resolves to one reading), Actionability (replacement, carry-through and verification are observable), Accuracy 9 (strings, thresholds and locales trace to the banner paragraph, the currency table and the locale column), Relevance (copy change only), Mechanism Depth 8 (the wrapping reason settles unlisted cases). 292 words, inside the 900-word task budget; Task template grammar, `- []` checkboxes and no terminal full stops on bullets held.
+
+The task replaces `Free shipping on orders over €50` and `Free shipping on orders over £45` with the two strings you gave, and holds the thresholds, banner styling and all other copy still. It covers the banner on web and above the cart on iOS and Android, since the banner has no single owning surface.
+
+Three additions you can strike if they are wrong: (1) the smart-default scope is all three surfaces, so the title drops the surface segment per the house rule for work no single surface owns — say the word and I will narrow it to one; (2) the checklist asks for the shortened wording in `nl-NL`, `nl-BE`, `fr-BE`, `de-DE`, `fr-FR` and `en-GB`, because the two English strings are the source for every locale; (3) the About notes that web picks up the new wording on the next deploy while the app banners wait for the next app release, which is the one window where the two surfaces can differ.

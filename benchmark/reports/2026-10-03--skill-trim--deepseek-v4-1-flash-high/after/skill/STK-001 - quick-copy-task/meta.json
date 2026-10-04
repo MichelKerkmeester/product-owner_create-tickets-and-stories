@@ -1,0 +1,87 @@
+{
+ "id": "STK-001",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/quick-copy-task.md",
+ "twin": "PTK-001",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-STK-001-6e18719f",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - task-shorten-free-shipping-banner-copy.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 171.21,
+   "tool_calls": 29,
+   "tools_used": [
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "ls",
+    "bash",
+    "read",
+    "read",
+    "bash",
+    "bash",
+    "read",
+    "bash",
+    "bash",
+    "read",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "write",
+    "read",
+    "bash",
+    "write",
+    "read",
+    "bash"
+   ],
+   "input_tokens": 64885,
+   "output_tokens": 18081,
+   "reasoning_tokens": 14869,
+   "cost_usd": 0.023382246000000002,
+   "model_s": 170.32,
+   "startup_s": 0.33,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [
+     "export/001 - task-shorten-free-shipping-banner-copy.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$quick $task Change the free-shipping banner to \"Free shipping over €50\" and \"Free shipping over £45\", the current copy in context/fernhouse-context.md wraps to two lines on small phones."
+  }
+ ]
+}

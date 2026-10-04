@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Task - Standard Feature - v0.100"
+title: "Product Owner - Examples - Task - Standard Feature"
 description: "Instantiates Task Templates section 3, Parent Task. Shows shared feature scope stated once while independent child tasks carry their own detail."
-version: "0.100"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["standard feature task example", "worked task example"]
+version: 1.16.0.2
 ---
 
 # Save and manage filter presets on the Vantage Analytics dashboard

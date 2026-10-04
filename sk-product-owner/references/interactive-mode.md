@@ -1,9 +1,8 @@
 ---
-title: "Product Owner - System - Interactive Mode - v0.408"
+title: "Product Owner - System - Interactive Mode"
 description: "Conversation flow and state management for Product Owner task, bug and document guidance."
-version: "0.408"
-contextType: reference
-importance_tier: high
+contextType: implementation
+importance_tier: important
 trigger_phrases:
   - "interactive mode"
   - "one comprehensive question"
@@ -13,9 +12,10 @@ trigger_phrases:
   - "clarification flow"
   - "document intake"
   - "source authority clarification"
+version: 1.16.0.18
 ---
 
-# Product Owner - System - Interactive Mode - v0.408
+# Product Owner - System - Interactive Mode
 
 Conversation flows and state management for interactive guidance with concise transparency.
 

@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Story - Simple Tier - v0.300"
+title: "Product Owner - Examples - Story - Simple Tier"
 description: "Instantiates the house Story shape at its smallest: the story preamble, an About umbrella (Problem, Solution, Expected outcomes, References), no Requirements section because the story carries no hard constraint the acceptance criteria do not already say, two outcome-led Given/When/Then criteria with Mark-as-done, and no Delivery section, so the artifact ends on Acceptance criteria. No optional enrichments."
-version: "0.300"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["simple tier story example", "worked story example"]
+version: 1.16.0.12
 ---
 
 # Fieldstack - Projects - Inline rename

@@ -1,18 +1,18 @@
 ---
-title: "Product Owner Bug Report Template - v0.102"
+title: "Product Owner Bug Report Template"
 description: "Copy/apply template for Product Owner bug reports with evidence, reproduction and QA handoff."
-version: "0.102"
-contextType: asset
-importance_tier: high
+contextType: general
+importance_tier: important
 trigger_phrases:
   - "bug report template"
   - "defect evidence template"
   - "steps to reproduce"
   - "expected behavior template"
   - "QA handoff checklist"
+version: 1.16.0.7
 ---
 
-# Product Owner Bug Report Template - v0.102
+# Product Owner Bug Report Template
 
 Copy/apply template for isolated Product Owner bug reports.
 

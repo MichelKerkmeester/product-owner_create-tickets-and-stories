@@ -1,9 +1,8 @@
 ---
-title: "Rules - Conciseness - On Demand Rationale - v0.100"
+title: "Rules - Conciseness - On Demand Rationale"
 description: "The reasons behind the conciseness layer: the vocabulary candidates that were refused and why, the worked cut and keep pairs, the connective argument, and the roster of what blocks against what advises."
-version: "0.100"
-contextType: reference
-importance_tier: high
+contextType: general
+importance_tier: important
 trigger_phrases:
   - "conciseness rationale"
   - "rejected vocabulary"
@@ -11,9 +10,10 @@ trigger_phrases:
   - "worked cuts"
   - "block or advise"
   - "drop-in conciseness block"
+version: 0.100.0.0
 ---
 
-# Rules - Conciseness - On Demand Rationale - v0.100
+# Rules - Conciseness - On Demand Rationale
 
 The reasons behind the conciseness layer: the vocabulary candidates that were refused and why, the worked cut and keep pairs, the connective argument, and the roster of what blocks against what advises.
 
@@ -21,7 +21,7 @@ The reasons behind the conciseness layer: the vocabulary candidates that were re
 **Purpose:** Holds what a maintainer needs while changing a rule, so the always-loaded card can hold only what a writer needs while writing
 **Scope:** What the validator holds, the boundaries of the reconstruction test, the refused vocabulary with the correct writing each term would have failed, one worked pair per named cut rule, five worked keeps, the perimeter worked case, rhetorical against semantic connectives, a worked list-to-prose conversion, the check roster, the drop-in instruction block, and the division of labour with the Human Voice card
 **Output Path:** None. It explains the rules another file enforces, and writes no artifact
-**Authority:** `Rules - Conciseness - v0.100` is the rule. This file is the reason, so a disagreement between them is a defect in this file. Section numbers below match the card, which is what lets a rule and its reason be found from either side
+**Authority:** `Rules - Conciseness` is the rule. This file is the reason, so a disagreement between them is a defect in this file. Section numbers below match the card, which is what lets a rule and its reason be found from either side
 **Read It When:** adding or removing a blocked term, changing a floor, moving a check between blocking and advisory, or answering why a rule is the shape it is. A writer producing a deliverable never needs it
 
 ---

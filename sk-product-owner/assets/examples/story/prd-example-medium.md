@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Story - Medium Tier - v0.300"
+title: "Product Owner - Examples - Story - Medium Tier"
 description: "Instantiates the house Story shape at medium size: three safeguards on one settings form, with Requirements carrying only the hard constraints each control has to satisfy and outcome-led acceptance criteria grouped by surface, and no Delivery section, so the artifact ends on Acceptance criteria."
-version: "0.300"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["medium tier story example", "worked story example"]
+version: 1.16.0.12
 ---
 
 # Lumen - Profile settings - Identity updates

@@ -92,9 +92,9 @@ Capture both replies, both rendered blocks and which form each took, the two exp
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, the explicit-command question rule, the named-addition rule, Deliverable Block and export-equivalent contract |
-| [`Product Owner - Templates - Task Mode - v0.308.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode%20-%20v0.308.md) | Project task workflow, required sections and requirement grammar |
-| [`Product Owner - Assets - Task Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates%20-%20v0.103.md) | Project Canonical Task scaffold |
-| [`Product Owner - System - Interactive Mode - v0.408.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.408.md) | Direct `$task` row and clarification delivery |
+| [`Product Owner - Templates - Task Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Task%20Mode.md) | Project task workflow, required sections and requirement grammar |
+| [`Product Owner - Assets - Task Templates.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Task%20Templates.md) | Project Canonical Task scaffold |
+| [`Product Owner - System - Interactive Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode.md) | Direct `$task` row and clarification delivery |
 | [`fernhouse-context.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-context.md) | Attachment: services, the `SHIP` code, the cut-off, the label cost rule and the title convention |
 | [`fernhouse-carrier-label-api-notes.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-carrier-label-api-notes.md) | Attachment: the carrier label contract, retries, signature, rate limit and open questions |
 | [`fernhouse-carrier-label-thread.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-carrier-label-thread.md) | Attachment: the incident, its cause, the five agreed points and the rejected polling option |

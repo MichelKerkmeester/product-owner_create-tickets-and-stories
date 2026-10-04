@@ -1,0 +1,101 @@
+{
+ "id": "STK-002",
+ "side": "skill",
+ "scenario_file": "/private/tmp/claude-501/-Users-michelkerkmeester-MEGA-Development-AI-Systems/5347dbce-12b3-4d28-9826-cfbf11c6be1d/scratchpad/po-before/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/design-notes-fe-task.md",
+ "twin": "PTK-002",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-STK-002-92f41826",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - task-stay-limits-date-picker.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 130.67,
+   "tool_calls": 15,
+   "tools_used": [
+    "bash",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "write",
+    "read",
+    "bash",
+    "bash",
+    "edit",
+    "bash",
+    "read"
+   ],
+   "input_tokens": 47548,
+   "output_tokens": 17077,
+   "reasoning_tokens": 13491,
+   "cost_usd": 0.018654048,
+   "model_s": 130.21,
+   "startup_s": 0.29,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [
+     "export/001 - task-stay-limits-date-picker.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$task FE task for the stay limits in the Guest app date picker. Ines's handover notes are in context/roamstay-date-picker-design-notes.md and our ticket conventions in context/roamstay-context.md."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 70.42,
+   "tool_calls": 3,
+   "tools_used": [
+    "write",
+    "bash",
+    "read"
+   ],
+   "input_tokens": 8245,
+   "output_tokens": 5928,
+   "reasoning_tokens": 3783,
+   "cost_usd": 0.005474766,
+   "model_s": 70.04,
+   "startup_s": 0.2,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [
+     "export/001 - task-stay-limits-date-picker.md"
+    ],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "One FE task for iOS, Android and web together, no parent, and the Search squad takes it into the 8.13.0 train. Leave search-service as it is, its own 30-night check stays as the backstop. QA signs it off on all three platforms in en-GB and en-US."
+  }
+ ]
+}

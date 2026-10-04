@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Doc - README - v0.100"
+title: "Product Owner - Examples - Doc - README"
 description: "Instantiates Doc Templates section 7, Narrative overview, as a folder README. Open this example when authoring a working-folder README that must orient a newcomer in one screen, earn a reading map instead of listing files, and keep one honestly open question visible."
-version: "0.100"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["readme doc example", "worked doc example"]
+version: 1.16.0.4
 ---
 
 # Ledgerly Payments: payout integration working docs

@@ -1,0 +1,109 @@
+{
+ "id": "SDK-002",
+ "side": "skill",
+ "scenario_file": "/private/tmp/claude-501/-Users-michelkerkmeester-MEGA-Development-AI-Systems/5347dbce-12b3-4d28-9826-cfbf11c6be1d/scratchpad/po-before/Product Owner/sk-product-owner/manual-testing-playbook/skill-document-modes/incident-runbook.md",
+ "twin": "PDK-002",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-SDK-002-3059d12f",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - doc-payment-webhook-failure-handling-clarification.md",
+   "export/002 - doc-payment-webhook-failure-runbook.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 107.65,
+   "tool_calls": 21,
+   "tools_used": [
+    "read",
+    "read",
+    "read",
+    "ls",
+    "read",
+    "bash",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "grep",
+    "bash",
+    "write",
+    "read",
+    "bash"
+   ],
+   "input_tokens": 54767,
+   "output_tokens": 12642,
+   "reasoning_tokens": 10145,
+   "cost_usd": 0.01685817,
+   "model_s": 106.38,
+   "startup_s": 1.08,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [
+     "export/001 - doc-payment-webhook-failure-handling-clarification.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$doc We need a doc on handling payment webhook failures, like the INC-0412 outage. Start with context/roamstay-payment-webhook-incident-notes.md, and context/roamstay-context.md has the company background."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 135.65,
+   "tool_calls": 4,
+   "tools_used": [
+    "write",
+    "read",
+    "bash",
+    "bash"
+   ],
+   "input_tokens": 23807,
+   "output_tokens": 21241,
+   "reasoning_tokens": 18143,
+   "cost_usd": 0.017175041999999998,
+   "model_s": 135.26,
+   "startup_s": 0.2,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [
+     "export/002 - doc-payment-webhook-failure-runbook.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "A runbook for whoever is on call in #payments-oncall, from the alert firing to the cleanup. Those two files are all there is, the incident notes govern and the context doc is background only. Write it as what we do today, list the review follow-ups at the end with where each one stands, and leave out the guest apology emails."
+  }
+ ]
+}
