@@ -10,7 +10,7 @@
 
 ## 1. 📝 SUMMARY
 
-A product owner in a folder: it turns a half-formed product request into a task, bug report, story, epic or documentation.
+A product owner in a folder: turns rough product requests into clear developer tasks, bug reports, stories, and docs, with adjustable templates and examples to fit your team.
 
 It asks one question when a fact is missing and never invents one to fill the gap. Every artifact lands on disk before the reply mentions it.
 
