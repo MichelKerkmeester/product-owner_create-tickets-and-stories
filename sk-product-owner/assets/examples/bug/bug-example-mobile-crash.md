@@ -4,7 +4,7 @@ description: "Instantiates Bug Report Template section 2. Shows crash-log eviden
 contextType: general
 importance_tier: normal
 trigger_phrases: ["mobile crash bug example", "worked bug example"]
-version: 1.16.0.2
+version: 0.17.0.2
 ---
 
 # App crashes when attaching a large gallery photo on Android 12

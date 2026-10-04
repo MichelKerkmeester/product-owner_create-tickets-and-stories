@@ -4,7 +4,7 @@ description: "Instantiates Doc Templates section 8, Quick document adaptation. S
 contextType: general
 importance_tier: normal
 trigger_phrases: ["quick doc example", "worked doc example"]
-version: 1.16.0.4
+version: 0.17.0.4
 ---
 
 # Quick guide: rotating the Ledgerly API signing key

@@ -10,7 +10,7 @@
 
 ## 1. 📝 SUMMARY
 
-A product owner in a folder: it turns a half-formed product request into a task, bug report, product requirements document or source-safe document.
+A product owner in a folder: it turns a half-formed product request into a task, bug report, story, epic or documentation.
 
 It asks one question when a fact is missing and never invents one to fill the gap. Every artifact lands on disk before the reply mentions it.
 
@@ -471,7 +471,7 @@ New Docs use ClickUp's grammar. This is the opening of the Guide scaffold in `as
 
 #### Story and Epic
 
-Story and Epic are two kinds of product requirements document, not size tiers. Detail grows with scope while the section order stays fixed.
+Story and Epic are two separate artifacts, not size tiers. Detail grows with scope while the section order stays fixed.
 
 - A Story opens with `# {Persona} - {Area} - {Feature}` and an About of `#### Problem`, `#### Solution` closing on a bold Expected outcomes label, and References. Its `## Requirements` holds hard constraints only and is left out when there are none. Its acceptance criteria work at screen level
 - An Epic opens with `# Epic - {Persona} - {Area}` and an About of `#### Problem`, `#### Goal` and `#### Solution`, with References only when a link is supplied. A `## Scope` of child stories, with an optional Added Later group, takes the place of Requirements. Its acceptance criteria work at release level
@@ -645,7 +645,7 @@ A route loads its template together with its mode reference. A worked example lo
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem and never loads `SKILL.md`.
 
-- `Custom Instructions.md` is the kernel, v1.21.0, aligned to skill v1.16.4.0. It carries the full router and rules and is the routing authority inside the Project
+- `Custom Instructions.md` is the kernel, v1.0.0, aligned to skill v1.0.0.0. It carries the full router and rules and is the routing authority inside the Project
 - `knowledge/` holds 37 files: 16 core documents (five mode references, six templates, four shared rule files and quality scoring) and the 21 worked examples
 - `README.md` holds the upload steps, the source-to-mirror map and the smoke matrix
 - `kernel-review.json` is a dated record of one kernel review, read by no tool
@@ -722,7 +722,7 @@ What the runs found:
 - In the GLM run only the Doc guide pair, `SDK-001` and `PDK-001`, fell short
 - In the first GLM pass `SST-001` read a sibling scenario's export and copied a requirement nobody supplied. The rerun inside an operating-system sandbox no longer carried it
 
-Three re-measure rounds of the Doc guide pair, three runs per side each, sit in `remeasure/`, `remeasure-2/` and `remeasure-3/` inside the GLM report. The first round measured the v1.8.2 repair: 2 of 3 runs passed on each side, and no run asked for the notes alone any more. Findings from the rounds drove the v1.8.3 and v1.8.4 releases.
+Three re-measure rounds of the Doc guide pair, three runs per side each, sit in `remeasure/`, `remeasure-2/` and `remeasure-3/` inside the GLM report. The first round measured the v0.9.2 repair: 2 of 3 runs passed on each side, and no run asked for the notes alone any more. Findings from the rounds drove the v0.9.3 and v0.9.4 releases.
 
 #### What `export/benchmark/` Shows
 
@@ -752,7 +752,7 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
 │   ├── reports/                     two captured playbook runs
 │   └── router/                      route_contract.py, 117 fixtures and the differential
 ├── claude project/
-│   ├── Custom Instructions.md       claude.ai kernel v1.21.0
+│   ├── Custom Instructions.md       claude.ai kernel v1.0.0
 │   ├── README.md                    upload steps, mirror map and smoke matrix
 │   ├── kernel-review.json           dated record of one kernel review
 │   └── knowledge/                   37 knowledge files
@@ -767,7 +767,7 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
     ├── leaf-aliases.json            generated identity map of those docs
     ├── assets/                      six templates
     │   └── examples/                21 worked artifacts in task/, bug/, doc/ and story/
-    ├── changelog/                   14 release notes, v1.0.0.0 to v1.8.4.0
+    ├── changelog/                   26 release notes, v0.1.0.0 to v1.0.0.0
     ├── manual-testing-playbook/     14 two-turn scenarios in 10 category folders
     └── references/                  11 rule files, loaded always, per route or on demand
 ```
@@ -876,7 +876,7 @@ It writes `hvr-lint.csv` beside the replies it lints. Run it on a copy of the fo
 - **[→ Router Contract](sk-product-owner/references/router-contract.md)** - the router as running Python
 - **[→ Worked Examples](sk-product-owner/assets/examples/)** - 21 filled artifacts by mode
 - **[→ Manual Testing Playbook](sk-product-owner/manual-testing-playbook/manual-testing-playbook.md)** - the 14 scenarios and their pass criteria
-- **[→ Latest Release Notes](sk-product-owner/changelog/v1.8.4.0.md)** - v1.8.4.0, the closed Doc intake field list
+- **[→ Latest Release Notes](sk-product-owner/changelog/v0.9.4.0.md)** - v0.9.4.0, the closed Doc intake field list
 
 **Claude Project package**
 

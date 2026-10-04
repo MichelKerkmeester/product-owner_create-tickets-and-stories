@@ -4,7 +4,7 @@ description: "Instantiates the house Story shape at its smallest: the story prea
 contextType: general
 importance_tier: normal
 trigger_phrases: ["simple tier story example", "worked story example"]
-version: 1.16.0.12
+version: 0.17.0.12
 ---
 
 # Fieldstack - Projects - Inline rename

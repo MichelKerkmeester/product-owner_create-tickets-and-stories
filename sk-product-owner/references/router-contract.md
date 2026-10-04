@@ -9,7 +9,7 @@ trigger_phrases:
   - "exact routing algorithm"
   - "how does the router work"
   - "route_contract.py"
-version: 1.16.0.5
+version: 0.17.0.5
 ---
 
 # Product Owner - Router Contract

@@ -12,7 +12,7 @@ trigger_phrases:
   - "clarification flow"
   - "document intake"
   - "source authority clarification"
-version: 1.16.0.18
+version: 0.17.0.18
 ---
 
 # Product Owner - System - Interactive Mode

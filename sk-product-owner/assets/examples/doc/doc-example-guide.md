@@ -4,7 +4,7 @@ description: "Instantiates Doc Templates section 3, Guide. Shows one writing sta
 contextType: general
 importance_tier: normal
 trigger_phrases: ["guide doc example", "worked doc example"]
-version: 1.16.0.5
+version: 0.17.0.5
 ---
 
 # Writing empty-state copy for Driftboard

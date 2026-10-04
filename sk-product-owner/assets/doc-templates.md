@@ -11,7 +11,7 @@ trigger_phrases:
   - "product proposal template"
   - "engineering documentation template"
   - "ClickUp document layout"
-version: 1.16.0.9
+version: 0.17.0.9
 ---
 
 # Product Owner - Assets - Doc Templates
