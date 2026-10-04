@@ -1,0 +1,9 @@
+Path: `export/002 - doc-activity-emails-catalog.md`
+
+Verified: read-back succeeded; 151 lines
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: the em dashes that sit inside the two sanctioned structural shapes, the definition delimiter `*   **Term** — definition` and the source-basis class label `**Current behavior** — …`, plus supplied literal identifiers and values kept verbatim (`EM-01`–`EM-06`, `tpl_digest_v4` and the other template IDs, `digest-sender`, `summary-sender`, the locale codes, the source paths).
+
+Quality summary: Accuracy 9 holds because every claim traces to one of the three supplied files, the spec governs the EM-01 send time as you directed, and the inventory's superseded `07:00 UTC` value is labelled retired material rather than dropped silently. Completeness and Clarity clear their floors through one entry per email over the same fields, plus the rules that span all six and the boundaries. Relevance is held by using only the three named files and leaving push notifications out entirely. The `Changing a template` subsection and its test-send table are taken from the inventory rather than invented, and they are the one part adjacent to the strict "six emails" ask, so strike it if you want a leaner page.
+
+The page is a catalog: an index, a shared vocabulary for the roles the emails reference, six entries carrying sent-when, timing, recipient, template and variables, then the rules that apply to all six, the inventory's template-change checks, and the scope boundaries. The EM-01 conflict is settled in the page with 08:00 local time as current behavior and the inventory's UTC value marked stale. The three context files were read only and left unchanged.

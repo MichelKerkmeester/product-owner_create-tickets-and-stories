@@ -645,7 +645,7 @@ A route loads its template together with its mode reference. A worked example lo
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem and never loads `SKILL.md`.
 
-- `Custom Instructions.md` is the kernel, v1.21.0, aligned to skill v1.16.3. It carries the full router and rules and is the routing authority inside the Project
+- `Custom Instructions.md` is the kernel, v1.21.0, aligned to skill v1.16.4.0. It carries the full router and rules and is the routing authority inside the Project
 - `knowledge/` holds 37 files: 16 core documents (five mode references, six templates, four shared rule files and quality scoring) and the 21 worked examples
 - `README.md` holds the upload steps, the source-to-mirror map and the smoke matrix
 - `kernel-review.json` is a dated record of one kernel review, read by no tool
@@ -761,8 +761,10 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
 └── sk-product-owner/
     ├── README.md                    skill guide
     ├── SKILL.md                     router, rules and delivery protocol
-    ├── description.json             skill metadata and trigger examples
     ├── graph-metadata.json          skill graph edges and trigger phrases
+    ├── leaf-manifest.config.json    which folders hold the routed docs
+    ├── leaf-manifest.json           generated list of the routed docs
+    ├── leaf-aliases.json            generated identity map of those docs
     ├── assets/                      six templates
     │   └── examples/                21 worked artifacts in task/, bug/, doc/ and story/
     ├── changelog/                   14 release notes, v1.0.0.0 to v1.8.4.0

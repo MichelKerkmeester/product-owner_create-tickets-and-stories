@@ -88,9 +88,9 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Clarification turns, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, the explicit-command wait, the root cause rule, the Deliverable Block and the export-equivalent contract |
-| [`Product Owner - Templates - Bug Mode - v0.205.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Bug%20Mode%20-%20v0.205.md) | Project bug workflow, the grouped-bug rule, evidence placement, Frequency recovery and fixed structure |
-| [`Product Owner - Assets - Bug Report Template - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Bug%20Report%20Template%20-%20v0.102.md) | Field table, Frequency rules and Checklist |
-| [`Product Owner - System - Interactive Mode - v0.408.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.408.md) | Clarification delivery contract |
+| [`Product Owner - Templates - Bug Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Bug%20Mode.md) | Project bug workflow, the grouped-bug rule, evidence placement, Frequency recovery and fixed structure |
+| [`Product Owner - Assets - Bug Report Template.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Bug%20Report%20Template.md) | Field table, Frequency rules and Checklist |
+| [`Product Owner - System - Interactive Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode.md) | Clarification delivery contract |
 | [`loomlist-context.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-context.md) | Attachment: platforms, app versions, how reminders reach each platform and the owning team |
 | [`loomlist-reminders-dst-log-excerpt.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-reminders-dst-log-excerpt.md) | Attachment: the Android log lines for two reminders either side of the change |
 | [`loomlist-reminders-dst-user-reports.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-reminders-dst-user-reports.md) | Attachment: the two report groups, sample tickets, the workaround and the next change |

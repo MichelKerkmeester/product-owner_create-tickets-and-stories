@@ -1,0 +1,7 @@
+Path: `export/001 - task-label-webhook-fix-clarification.md`
+Verified: read-back succeeded; 38 lines
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: the backticked carrier and thread identifiers (`label_ready`, `ADDRESS_INVALID`, `SERVICE_UNAVAILABLE`, `#fulfilment-alerts`, `Retry-After`) and the supplied values `20 requests per second`, `15:00`, `30 minutes` and `more than 5`, which are literal code, a channel name and source numbers.
+
+**Quality:** routes to Task Mode on the explicit `$t` command, which still asks its context question once and waits. The file holds only that question, in seven parts, with no task draft. Every value it quotes (`event_id`, the failure codes, the thresholds) comes from the three attachments, `context/` is unchanged (all three files hash-match their staged fixtures), and nothing from the carrier's open questions is settled.
+
+No task is drafted yet. The exported question asks only what the three sources leave open: the width of the open-shipment guard, how the failure codes and the carrier's unanswered question are treated, what the 10-minute GET does with a fetched label and a `429`, what an alert carries and who is paged, whether this is a new or the existing ticket, how QA proves the fix, and what I might misread. Answer it in one message and the BE task for Joris follows on the next number.

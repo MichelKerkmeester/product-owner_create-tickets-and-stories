@@ -1,0 +1,8 @@
+**Path:** `export/001 - task-booking-funnel-events-clarification.md`
+**Verified: read-back succeeded; 17 lines**
+
+**HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason:** the event identifiers (`search_submitted`, `property_viewed`, `room_selected`, `checkout_started`, `payment_submitted`, `booking_confirmed`, `checkout_complete`, `date_changed`), the service name `booking-service`, the status words `proposed` and `deprecated`, and the `2026-11-01` removal date, all as the supplied sources write them.
+
+**Quality summary:** Completeness 9, Clarity 9, Actionability 9, Accuracy 9, Relevance 9, Mechanism Depth 8. Structure follows the Task-lane clarification shape, and formatting uses the task lane's `-` and prose conventions with no dividers.
+
+**Summary:** Nadia's plan hands the funnel work to three owners (the apps and web, the Booking squad in `booking-service`, and the Data team for the dashboard), and your request names none of them, so one task would silently choose the scope for you. The exported question asks that split, plus which events and statuses to carry, whether the unsettled `date_changed` trigger belongs, the title discipline and feature code, the platform split, and the links to attach. Once you answer, the task takes the next number in `export/` and this clarification file stays as it is; if what you actually want is one task per owner, say so and I will draft them as separate exports.

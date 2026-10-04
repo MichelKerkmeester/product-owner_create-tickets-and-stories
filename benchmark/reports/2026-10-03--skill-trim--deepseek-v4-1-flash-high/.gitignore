@@ -1,0 +1,9 @@
+# Raw run evidence stays local: Pi's event streams, stderr, full tool transcripts,
+# failed attempts and each scenario's copy of the files it wrote. The plan, results,
+# grading, reviews, replies, per-scenario meta and the harness are tracked. The
+# deliverables themselves are collected into export/benchmark/.
+*.jsonl
+*.stderr.txt
+transcript-turn-*.md
+failed-attempts/
+exports/

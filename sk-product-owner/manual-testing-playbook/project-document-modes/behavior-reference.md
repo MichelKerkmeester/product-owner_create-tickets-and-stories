@@ -94,8 +94,8 @@ Capture both replies, both rendered blocks, both export-equivalent labels, the d
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project promised-source rule, Deliverable Block order, the no-file-claim rule and the new and refined export-equivalent labels |
 | [`Custom Instructions.md` Section 11](../../../claude%20project/Custom%20Instructions.md) | Project Doc routing phrase |
-| [`Product Owner - Templates - Doc Mode - v0.112.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Doc%20Mode%20-%20v0.112.md) | Project no-command intake rule, shape routing, source classification, refinement workflow, export contract and ClickUp output contract |
-| [`Product Owner - Assets - Doc Templates - v0.109.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Doc%20Templates%20-%20v0.109.md) | Project behavior reference shape, status language and layout rules |
+| [`Product Owner - Templates - Doc Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Doc%20Mode.md) | Project no-command intake rule, shape routing, source classification, refinement workflow, export contract and ClickUp output contract |
+| [`Product Owner - Assets - Doc Templates.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Doc%20Templates.md) | Project behavior reference shape, status language and layout rules |
 | [`fernhouse-context.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-context.md) | Attachment: Fernhouse company context |
 | [`fernhouse-promotions-rules.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-promotions-rules.md) | Attachment: current promotion rules, worked examples and the retired two-codes rule |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |

@@ -1,0 +1,422 @@
+[
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/bug-report-template.md",
+    "diskPath": "assets/bug-report-template.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/doc-templates.md",
+    "diskPath": "assets/doc-templates.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/epic-template.md",
+    "diskPath": "assets/epic-template.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/bug/bug-example-backend-api.md",
+    "diskPath": "assets/examples/bug/bug-example-backend-api.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/bug/bug-example-frontend-visual.md",
+    "diskPath": "assets/examples/bug/bug-example-frontend-visual.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/bug/bug-example-mobile-crash.md",
+    "diskPath": "assets/examples/bug/bug-example-mobile-crash.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/bug/bug-example-quick.md",
+    "diskPath": "assets/examples/bug/bug-example-quick.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/doc/doc-example-behavior-reference.md",
+    "diskPath": "assets/examples/doc/doc-example-behavior-reference.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/doc/doc-example-catalog.md",
+    "diskPath": "assets/examples/doc/doc-example-catalog.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/doc/doc-example-guide.md",
+    "diskPath": "assets/examples/doc/doc-example-guide.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/doc/doc-example-how-it-works.md",
+    "diskPath": "assets/examples/doc/doc-example-how-it-works.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/doc/doc-example-proposal.md",
+    "diskPath": "assets/examples/doc/doc-example-proposal.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/doc/doc-example-quick.md",
+    "diskPath": "assets/examples/doc/doc-example-quick.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/doc/doc-example-readme.md",
+    "diskPath": "assets/examples/doc/doc-example-readme.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/story/prd-example-complete.md",
+    "diskPath": "assets/examples/story/prd-example-complete.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/story/prd-example-complex.md",
+    "diskPath": "assets/examples/story/prd-example-complex.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/story/prd-example-epic.md",
+    "diskPath": "assets/examples/story/prd-example-epic.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/story/prd-example-medium.md",
+    "diskPath": "assets/examples/story/prd-example-medium.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/story/prd-example-simple.md",
+    "diskPath": "assets/examples/story/prd-example-simple.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/task/task-example-ds-variables.md",
+    "diskPath": "assets/examples/task/task-example-ds-variables.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/task/task-example-quick.md",
+    "diskPath": "assets/examples/task/task-example-quick.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/task/task-example-standard-feature.md",
+    "diskPath": "assets/examples/task/task-example-standard-feature.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/task/task-example-subtask.md",
+    "diskPath": "assets/examples/task/task-example-subtask.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/examples/task/task-example-ui-refinement.md",
+    "diskPath": "assets/examples/task/task-example-ui-refinement.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/interactive-response-templates.md",
+    "diskPath": "assets/interactive-response-templates.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/story-template.md",
+    "diskPath": "assets/story-template.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "assets/task-templates.md",
+    "diskPath": "assets/task-templates.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-backlog-modes/data-tracking-task.md",
+    "diskPath": "manual-testing-playbook/project-backlog-modes/data-tracking-task.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-backlog-modes/design-notes-fe-task.md",
+    "diskPath": "manual-testing-playbook/project-backlog-modes/design-notes-fe-task.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-backlog-modes/long-be-integration-task.md",
+    "diskPath": "manual-testing-playbook/project-backlog-modes/long-be-integration-task.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-backlog-modes/parent-task-with-subtasks.md",
+    "diskPath": "manual-testing-playbook/project-backlog-modes/parent-task-with-subtasks.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-backlog-modes/quick-bug.md",
+    "diskPath": "manual-testing-playbook/project-backlog-modes/quick-bug.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-backlog-modes/quick-copy-task.md",
+    "diskPath": "manual-testing-playbook/project-backlog-modes/quick-copy-task.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-backlog-modes/supplied-parent-subtask.md",
+    "diskPath": "manual-testing-playbook/project-backlog-modes/supplied-parent-subtask.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-backlog-modes/support-ticket-bug.md",
+    "diskPath": "manual-testing-playbook/project-backlog-modes/support-ticket-bug.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-backlog-modes/two-platform-log-bug.md",
+    "diskPath": "manual-testing-playbook/project-backlog-modes/two-platform-log-bug.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-document-modes/behavior-reference.md",
+    "diskPath": "manual-testing-playbook/project-document-modes/behavior-reference.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-document-modes/catalog-conflict-gate.md",
+    "diskPath": "manual-testing-playbook/project-document-modes/catalog-conflict-gate.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-document-modes/incident-runbook.md",
+    "diskPath": "manual-testing-playbook/project-document-modes/incident-runbook.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-document-modes/proposal-decision-owner.md",
+    "diskPath": "manual-testing-playbook/project-document-modes/proposal-decision-owner.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-identity/identity-handover.md",
+    "diskPath": "manual-testing-playbook/project-identity/identity-handover.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-interactive-routing/conflicting-commands.md",
+    "diskPath": "manual-testing-playbook/project-interactive-routing/conflicting-commands.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-interactive-routing/vague-intake-kind-and-energy.md",
+    "diskPath": "manual-testing-playbook/project-interactive-routing/vague-intake-kind-and-energy.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-story-modes/epic-from-strategy-brief.md",
+    "diskPath": "manual-testing-playbook/project-story-modes/epic-from-strategy-brief.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-story-modes/epic-natural-wording.md",
+    "diskPath": "manual-testing-playbook/project-story-modes/epic-natural-wording.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-story-modes/epic-quick-energy.md",
+    "diskPath": "manual-testing-playbook/project-story-modes/epic-quick-energy.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-story-modes/story-forced-delivery.md",
+    "diskPath": "manual-testing-playbook/project-story-modes/story-forced-delivery.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-story-modes/story-hard-values.md",
+    "diskPath": "manual-testing-playbook/project-story-modes/story-hard-values.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-story-modes/story-refinement.md",
+    "diskPath": "manual-testing-playbook/project-story-modes/story-refinement.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/project-story-modes/story-with-nested-tasks.md",
+    "diskPath": "manual-testing-playbook/project-story-modes/story-with-nested-tasks.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-backlog-modes/data-tracking-task.md",
+    "diskPath": "manual-testing-playbook/skill-backlog-modes/data-tracking-task.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-backlog-modes/design-notes-fe-task.md",
+    "diskPath": "manual-testing-playbook/skill-backlog-modes/design-notes-fe-task.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-backlog-modes/long-be-integration-task.md",
+    "diskPath": "manual-testing-playbook/skill-backlog-modes/long-be-integration-task.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-backlog-modes/parent-task-with-subtasks.md",
+    "diskPath": "manual-testing-playbook/skill-backlog-modes/parent-task-with-subtasks.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-backlog-modes/quick-bug.md",
+    "diskPath": "manual-testing-playbook/skill-backlog-modes/quick-bug.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-backlog-modes/quick-copy-task.md",
+    "diskPath": "manual-testing-playbook/skill-backlog-modes/quick-copy-task.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-backlog-modes/supplied-parent-subtask.md",
+    "diskPath": "manual-testing-playbook/skill-backlog-modes/supplied-parent-subtask.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-backlog-modes/support-ticket-bug.md",
+    "diskPath": "manual-testing-playbook/skill-backlog-modes/support-ticket-bug.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-backlog-modes/two-platform-log-bug.md",
+    "diskPath": "manual-testing-playbook/skill-backlog-modes/two-platform-log-bug.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-document-modes/behavior-reference.md",
+    "diskPath": "manual-testing-playbook/skill-document-modes/behavior-reference.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-document-modes/catalog-conflict-gate.md",
+    "diskPath": "manual-testing-playbook/skill-document-modes/catalog-conflict-gate.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-document-modes/incident-runbook.md",
+    "diskPath": "manual-testing-playbook/skill-document-modes/incident-runbook.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-document-modes/proposal-decision-owner.md",
+    "diskPath": "manual-testing-playbook/skill-document-modes/proposal-decision-owner.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-identity/identity-handover.md",
+    "diskPath": "manual-testing-playbook/skill-identity/identity-handover.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-interactive-routing/conflicting-commands.md",
+    "diskPath": "manual-testing-playbook/skill-interactive-routing/conflicting-commands.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-interactive-routing/vague-intake-kind-and-energy.md",
+    "diskPath": "manual-testing-playbook/skill-interactive-routing/vague-intake-kind-and-energy.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-story-modes/epic-from-strategy-brief.md",
+    "diskPath": "manual-testing-playbook/skill-story-modes/epic-from-strategy-brief.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-story-modes/epic-natural-wording.md",
+    "diskPath": "manual-testing-playbook/skill-story-modes/epic-natural-wording.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-story-modes/epic-quick-energy.md",
+    "diskPath": "manual-testing-playbook/skill-story-modes/epic-quick-energy.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-story-modes/story-forced-delivery.md",
+    "diskPath": "manual-testing-playbook/skill-story-modes/story-forced-delivery.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-story-modes/story-hard-values.md",
+    "diskPath": "manual-testing-playbook/skill-story-modes/story-hard-values.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-story-modes/story-refinement.md",
+    "diskPath": "manual-testing-playbook/skill-story-modes/story-refinement.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "manual-testing-playbook/skill-story-modes/story-with-nested-tasks.md",
+    "diskPath": "manual-testing-playbook/skill-story-modes/story-with-nested-tasks.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "references/bug-mode.md",
+    "diskPath": "references/bug-mode.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "references/conciseness-rationale.md",
+    "diskPath": "references/conciseness-rationale.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "references/conciseness.md",
+    "diskPath": "references/conciseness.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "references/doc-mode.md",
+    "diskPath": "references/doc-mode.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "references/human-voice-rules.md",
+    "diskPath": "references/human-voice-rules.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "references/hvr-core.md",
+    "diskPath": "references/hvr-core.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "references/interactive-mode.md",
+    "diskPath": "references/interactive-mode.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "references/quality-scoring.md",
+    "diskPath": "references/quality-scoring.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "references/router-contract.md",
+    "diskPath": "references/router-contract.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "references/story-mode.md",
+    "diskPath": "references/story-mode.md"
+  },
+  {
+    "workflowMode": "sk-product-owner",
+    "leafResourceId": "references/task-mode.md",
+    "diskPath": "references/task-mode.md"
+  }
+]

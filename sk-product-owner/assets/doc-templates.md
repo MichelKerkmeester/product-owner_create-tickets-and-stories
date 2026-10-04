@@ -1,9 +1,8 @@
 ---
-title: "Product Owner - Assets - Doc Templates - v0.109"
+title: "Product Owner - Assets - Doc Templates"
 description: "ClickUp-native adaptive scaffolds for product and engineering guides, catalogs, behavior references, and proposal or future-state documents."
-version: "0.109"
-contextType: asset
-importance_tier: high
+contextType: general
+importance_tier: important
 trigger_phrases:
   - "doc templates"
   - "product guide template"
@@ -12,9 +11,10 @@ trigger_phrases:
   - "product proposal template"
   - "engineering documentation template"
   - "ClickUp document layout"
+version: 1.16.0.9
 ---
 
-# Product Owner - Assets - Doc Templates - v0.109
+# Product Owner - Assets - Doc Templates
 
 Copy/apply scaffolds for new product or engineering documentation in the repository's ClickUp Markdown style. Refinements preserve the supplied document's existing structure instead of imposing these shapes.
 

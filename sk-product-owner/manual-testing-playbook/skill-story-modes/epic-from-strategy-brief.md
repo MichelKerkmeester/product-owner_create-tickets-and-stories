@@ -78,7 +78,7 @@ Capture both replies, the side-effect ledger, both export paths and read-back re
 
 ### Failure triage
 
-1. Check the explicit-command intake rule in `AGENTS.md` line 287 and the Epic clarification lane in `SKILL.md` line 208
+1. Check the explicit-command intake rule in `AGENTS.md` line 287 and the Epic clarification lane in `SKILL.md` line 174
 2. Check the Epic scaffold and its Notes For Use in `epic-template.md` lines 41 to 121
 3. Reconcile every number and stage name in the Epic against `roamstay-partner-self-onboarding-brief.md` and restore any rounded or renamed value
 

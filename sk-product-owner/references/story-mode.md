@@ -1,9 +1,8 @@
 ---
-title: "Product Owner - Templates - Story Mode - v0.405"
+title: "Product Owner - Templates - Story Mode"
 description: "Workflow, shared house grammar, artifact-kind selection (Story or Epic), the optional-enrichment catalog, refinement fidelity and delivery standards for creating and refining Barter house-format artifacts: Stories (story preamble, an About umbrella with Problem, Solution, Expected outcomes and References, an optional Requirements section holding only hard constraints, a few outcome-led Given/When/Then acceptance criteria, and an opt-in Delivery close produced only on request or where the artifact forces it) and Epics (About with Problem, Goal and Solution, a Scope of child stories, release-level acceptance criteria, the same opt-in Delivery close, and no Requirements). Each shape carries its own scaffold in assets, and this file is the single authority for everything the shapes share."
-version: "0.405"
-contextType: reference
-importance_tier: high
+contextType: implementation
+importance_tier: important
 trigger_phrases:
   - "Story mode"
   - "write a user story"
@@ -11,9 +10,10 @@ trigger_phrases:
   - "PRD with acceptance criteria"
   - "story vs epic"
   - "refine this PRD"
+version: 1.16.0.26
 ---
 
-# Product Owner - Templates - Story Mode - v0.405
+# Product Owner - Templates - Story Mode
 
 Story-mode guidance for the two Barter house-format artifact kinds: **Stories** and **Epics**. A Story covers one feature area with a few outcome-led acceptance criteria and, where the delivery has hard constraints, a Requirements section that holds only those. An Epic frames an initiative split across child stories, with a Goal, a Scope and release-level acceptance criteria, and no requirements of its own. Both stay prose-first, share the same ClickUp grammar and the same opt-in `## Delivery` close, and reach for heavier machinery (a User Story promise block, per-requirement value lines, exact Rule blocks, Definition of Ready/Done gates) only as optional enrichment.
 

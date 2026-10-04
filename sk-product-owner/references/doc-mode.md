@@ -1,9 +1,8 @@
 ---
-title: "Product Owner - Templates - Doc Mode - v0.112"
+title: "Product Owner - Templates - Doc Mode"
 description: "Source-safe workflow, ClickUp formatting rules, and delivery standards for creating and refining product or engineering documentation."
-version: "0.112"
-contextType: reference
-importance_tier: high
+contextType: implementation
+importance_tier: important
 trigger_phrases:
   - "doc mode"
   - "$doc product documentation"
@@ -14,9 +13,10 @@ trigger_phrases:
   - "refine product documentation"
   - "refine technical documentation"
   - "source authority conflict"
+version: 1.16.0.12
 ---
 
-# Product Owner - Templates - Doc Mode - v0.112
+# Product Owner - Templates - Doc Mode
 
 Doc-mode guidance for trustworthy product and engineering documentation. The mode creates or refines guides, catalogs, behavior references, and proposal or future-state documents without turning unverified material into current or approved fact.
 

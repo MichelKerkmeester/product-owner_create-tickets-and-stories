@@ -1,0 +1,75 @@
+{
+ "id": "SBG-001",
+ "side": "skill",
+ "scenario_file": "/private/tmp/claude-501/-Users-michelkerkmeester-MEGA-Development-AI-Systems/5347dbce-12b3-4d28-9826-cfbf11c6be1d/scratchpad/po-before/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/quick-bug.md",
+ "twin": "PBG-001",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-SBG-001-43a73764",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - bug-cart-badge-stale-count-ios.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 91.34,
+   "tool_calls": 17,
+   "tools_used": [
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "bash",
+    "read",
+    "write",
+    "bash",
+    "bash",
+    "bash",
+    "edit",
+    "read",
+    "edit",
+    "bash",
+    "read"
+   ],
+   "input_tokens": 35432,
+   "output_tokens": 8902,
+   "reasoning_tokens": 6038,
+   "cost_usd": 0.011892863999999998,
+   "model_s": 90.94,
+   "startup_s": 0.23,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [
+     "export/001 - bug-cart-badge-stale-count-ios.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$quick $bug iOS 4.8.0, the cart badge keeps the old count after an item is removed. Put 2 of one product and 1 of another in the cart so the tab bar badge reads \"3\", open the cart and tap \"Remove\" on the single item. The cart then holds 2 units but the badge stays on \"3\" until the app is restarted. Happens every time on both our iOS test phones, while Android 4.8.2 and web update the badge straight away. Severity Medium, product context is in context/fernhouse-context.md"
+  }
+ ]
+}

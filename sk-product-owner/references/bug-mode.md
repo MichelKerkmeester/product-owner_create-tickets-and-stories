@@ -1,18 +1,18 @@
 ---
-title: "Product Owner - Templates - Bug Mode - v0.205"
+title: "Product Owner - Templates - Bug Mode"
 description: "Product Owner bug-mode workflow, delivery standards and QA handoff rules for defect reports."
-version: "0.205"
-contextType: reference
-importance_tier: high
+contextType: implementation
+importance_tier: important
 trigger_phrases:
   - "bug mode"
   - "$bug defect report"
   - "reproduction steps"
   - "observed expected behavior"
   - "bug evidence QA"
+version: 1.16.0.22
 ---
 
-# Product Owner - Templates - Bug Mode - v0.205
+# Product Owner - Templates - Bug Mode
 
 Bug-mode guidance for isolated defects. The workflow captures context, observed behavior, reproduction steps, expected behavior and the QA checklist needed before handoff.
 

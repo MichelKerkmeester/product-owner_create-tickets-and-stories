@@ -1,0 +1,8 @@
+Path: `export/002 - task-due-today-filter-chip.md`
+Verified: read-back succeeded; 63 lines
+
+HVR self-scan: 0 hard blockers. Fixed: none needed, the draft carried no em dash, semicolon, banned term or setup phrase, and no bullet ends with a full stop. Kept with reason: `Due today`, `filter_selected`, `filter`, `all`, `assigned_to_me`, `overdue` and `due_today` are literal labels and event values carried verbatim from the request and `context/loomlist-context.md`, as are `workspace_id`, `user_id`, `platform`, `app_version` and `plan`, and the H1 keeps the house `FE - Web - TODO - {Title}` shape.
+
+Quality summary: Completeness 8, Clarity 9, Actionability 8, Accuracy 9, Relevance 9, Mechanism Depth 8. All floors met. Canonical Task template, `## About` plus `### Requirements` with numbered groups and `- []` checklists, `---` dividers per the divider rules, 587 words against the 900 budget.
+
+Summary: the task scopes a fourth chip after Overdue on the Web To-dos view, filtered to unchecked to-dos due today in the owner's time zone, sorted by due date, with one active chip at a time, and it reports `filter_selected` with `due_today` on a plan Yara already updated. Desktop and the apps are named as out of scope, with no Figma and no new component. Two additions of mine, both strikable: a zero-result state group so a member with nothing due sees the view's existing empty state, and a note that the result follows the owner's current local date, so a to-do drops out at the rollover without reselecting the chip.

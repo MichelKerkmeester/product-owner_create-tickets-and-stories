@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Bug - Backend API - v0.100"
+title: "Product Owner - Examples - Bug - Backend API"
 description: "Instantiates Bug Report Template section 2. Shows a concurrency-sensitive API defect with paired request evidence and conditional reproduction."
-version: "0.100"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["backend api bug example", "worked bug example"]
+version: 1.16.0.2
 ---
 
 # Orders list endpoint returns duplicate rows across page boundaries

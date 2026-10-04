@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Doc - Quick - v0.100"
+title: "Product Owner - Examples - Doc - Quick"
 description: "Instantiates Doc Templates section 8, Quick document adaptation. Shows a Quick Guide that omits Before you start and Related guidance while keeping Overview, Process, Boundaries, the status notice, one unverified step and the full ClickUp contract."
-version: "0.100"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["quick doc example", "worked doc example"]
+version: 1.16.0.4
 ---
 
 # Quick guide: rotating the Ledgerly API signing key

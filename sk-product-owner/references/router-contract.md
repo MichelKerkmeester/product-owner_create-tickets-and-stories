@@ -1,18 +1,18 @@
 ---
-title: "Product Owner - Router Contract - v0.100"
+title: "Product Owner - Router Contract"
 description: "The Smart Router as running Python: primary detection, phase order, the semantic topic tables, confidence thresholds, resource loading and Story/Epic shape resolution, expressed as the exact algorithm benchmark/router/route_contract.py is checked against. SKILL.md carries the prose summary this file backs. ON_DEMAND for a reader who needs the precise regex or scoring behavior rather than the rule."
-version: "0.100"
-contextType: reference
-importance_tier: medium
+contextType: implementation
+importance_tier: normal
 trigger_phrases:
   - "router contract"
   - "smart router pseudocode"
   - "exact routing algorithm"
   - "how does the router work"
   - "route_contract.py"
+version: 1.16.0.5
 ---
 
-# Product Owner - Router Contract - v0.100
+# Product Owner - Router Contract
 
 The Smart Router expressed as running Python, one level below the prose routing rules in `SKILL.md` Section 2. This is the algorithm those rules summarize, and the exact source `benchmark/router/differential.py` executes to prove `benchmark/router/route_contract.py` never drifts from it.
 

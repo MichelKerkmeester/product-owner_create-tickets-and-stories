@@ -1,9 +1,8 @@
 ---
-title: "Product Owner - Assets - Interactive Response Templates - v0.103"
+title: "Product Owner - Assets - Interactive Response Templates"
 description: "Copy/apply response templates for Product Owner comprehensive, task, bug, PRD and document intake questions."
-version: "0.103"
-contextType: asset
-importance_tier: high
+contextType: general
+importance_tier: important
 trigger_phrases:
   - "interactive response templates"
   - "comprehensive intake question"
@@ -14,9 +13,10 @@ trigger_phrases:
   - "document context question"
   - "source authority question"
   - "one question intake"
+version: 1.16.0.10
 ---
 
-# Product Owner - Assets - Interactive Response Templates - v0.103
+# Product Owner - Assets - Interactive Response Templates
 
 Copy/apply response templates for Product Owner interactive intake.
 

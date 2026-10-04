@@ -89,10 +89,10 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Project routing, Deliverable Block and export-equivalent contract |
 | [`Custom Instructions.md` Section 11](../../../claude%20project/Custom%20Instructions.md) | Command collection and the conflict route |
-| [`Product Owner - System - Interactive Mode - v0.408.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.408.md) | Consolidated question and clarification block |
-| [`Product Owner - Assets - Interactive Response Templates - v0.103.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates%20-%20v0.103.md) | Comprehensive Question template and its conflict line |
-| [`Product Owner - Templates - Story Mode - v0.405.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.405.md) | Routed Story Mode workflow and Story shape |
-| [`Product Owner - Assets - Story Template - v0.101.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Story%20Template%20-%20v0.101.md) | Routed Story scaffold |
+| [`Product Owner - System - Interactive Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode.md) | Consolidated question and clarification block |
+| [`Product Owner - Assets - Interactive Response Templates.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates.md) | Comprehensive Question template and its conflict line |
+| [`Product Owner - Templates - Story Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode.md) | Routed Story Mode workflow and Story shape |
+| [`Product Owner - Assets - Story Template.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Story%20Template.md) | Routed Story scaffold |
 | [`fernhouse-context.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-context.md) | Attachment, the Wishlist flow and its limit of 50 items |
 | [`fernhouse-wishlist-feedback.md`](../../../benchmark/fixtures/companies/fernhouse/fernhouse-wishlist-feedback.md) | Attachment, the 412 contacts and the bug-or-story disagreement |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |

@@ -1,0 +1,12 @@
+Path: `export/002 - Epic-partner-hub-self-onboarding.md`
+Verified: read-back succeeded; 113 lines
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: supplied proper nouns, identifiers and values preserved verbatim from the brief and company context (`Partner Hub`, `Back office`, `Ops Tools`, `Payments`, `partner-service`, `Bram`, `40 rooms`, `11 business days`, `38%`, `813 of 2,140`, `4.5 hours`, `640`, `1,500`, `18-06` → `2027-06-30`, `3 business days`, `18,000`), plus the six stage names the brief supplies.
+
+Quality summary: Standard energy, Epic kind resolved before drafting and named here. `About` (Problem, Goal, Solution) opens the artifact, `## Scope` carries six child stories, one per stage, then release-level Acceptance criteria closed by its spacer. All six stages are in Scope for the first release, channel manager connection sits in `Added Later`, and Freya's goal and 1,500-by-2027-06-30 target travel as she wrote them. House grammar validated: dividers after every content heading, `[]` checkboxes, no divider between a Mark-as-done line and the next criterion, section closes above each spacer, H4 depth cap, sentence-case headings, no ticket fields, points or INVEST notes, and no `## Requirements` in an Epic. 899 prose words, inside the 1,000-word Epic budget.
+
+Additions you may want to strike, since you did not supply them: the three Scope group names (the brief lists six ordered stages with no grouping, so I grouped them as setup, policies and payout, and review), and the dependency sentence naming Ops Tools sizing with the Partner squad and Bram piloting the queue. I also read the first release as covering the full in-scope property-type set, because you named no narrower set.
+
+Two deliberate omissions: there is no `## Delivery` section, so the Epic ends on Acceptance criteria. Freya's line that the squads "can size before planning closes" reads as downstream use of the Epic rather than a request for an estimation view, and an all-`TBD...` Delivery reads as a view the team never took. Say the word and I add Estimation, Rabbit holes and No-gos. There is also no `#### **References**` block, because no links were supplied, and the six child stories are named as plain text in the shape their Story H1 will take, since they do not exist yet.
+
+Next: I can turn the six Scope entries into child Story files, or add the Delivery view. The clarification file at `export/001` stays untouched.

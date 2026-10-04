@@ -1,0 +1,1 @@
+Word count is over the 1,400 Doc budget at 1,713. Tightening before delivery, keeping every supplied value.

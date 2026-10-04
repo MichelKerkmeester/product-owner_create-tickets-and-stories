@@ -1,18 +1,18 @@
 ---
-title: "Product Owner Task Templates - v0.103"
+title: "Product Owner Task Templates"
 description: "Copy/apply templates for Product Owner standalone tasks, parent tasks, subtasks and quick tasks."
-version: "0.103"
-contextType: asset
-importance_tier: high
+contextType: general
+importance_tier: important
 trigger_phrases:
   - "task templates"
   - "standalone task template"
   - "parent task template"
   - "subtask template"
   - "quick task template"
+version: 1.16.0.8
 ---
 
-# Product Owner Task Templates - v0.103
+# Product Owner Task Templates
 
 Copy/apply templates for Product Owner task deliverables.
 

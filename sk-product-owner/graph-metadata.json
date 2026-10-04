@@ -1,8 +1,9 @@
 {
   "schema_version": 2,
-  "skill_id": "product-owner",
-  "family": "product-management",
+  "skill_id": "sk-product-owner",
+  "family": "sk-util",
   "category": "backlog-and-documentation",
+  "deprecated": false,
   "edges": {
     "depends_on": [],
     "enhances": [
@@ -16,18 +17,11 @@
       {
         "target": "sk-doc",
         "weight": 0.3,
-        "context": "documentation-authoring peer; sk-doc authors OpenCode components and general docs, product-owner owns Barter backlog artifacts and source-safe product/engineering documentation"
+        "context": "documentation-authoring peer; sk-doc authors OpenCode components and general docs, sk-product-owner owns Barter backlog artifacts and source-safe product/engineering documentation"
       }
     ],
     "conflicts_with": [],
     "prerequisite_for": []
-  },
-  "manual": {
-    "depends_on": [],
-    "related_to": [
-      "mcp-tooling",
-      "sk-doc"
-    ]
   },
   "domains": [
     "product-management",
@@ -118,7 +112,7 @@
     ],
     "entities": [
       {
-        "name": "product-owner",
+        "name": "sk-product-owner",
         "kind": "skill",
         "path": "sk-product-owner/SKILL.md",
         "source": "derived"
@@ -181,6 +175,7 @@
     "causal_summary": "Standalone Product Owner skill for Barter backlog work and source-safe product or engineering documentation. Routes every request into one of five intents (Task, Bug, Doc, Story, Interactive) through an exact-command, artifact-framing, then semantic-confidence detection sequence, applies energy-scaled processing at the detected energy level, and exports a verified markdown artifact before offering ClickUp delivery. It matters because it is the one discoverable identity for Barter Product Owner artifact creation and refinement, keeping backlog outcomes and documentation source-status distinct and export-verified.",
     "source_docs": [
       "SKILL.md",
+      "leaf-manifest.config.json",
       "README.md",
       "references/task-mode.md",
       "references/bug-mode.md",
@@ -193,6 +188,6 @@
       "references/router-contract.md"
     ],
     "created_at": "2026-01-01T00:00:00Z",
-    "last_updated_at": "2026-07-16T00:00:00Z"
+    "last_updated_at": "2026-10-03T00:00:00Z"
   }
 }

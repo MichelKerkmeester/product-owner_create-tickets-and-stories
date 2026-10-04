@@ -1,0 +1,9 @@
+**Path:** `export/001 - intake-loyalty-points-clarification.md`
+**Verified:** read-back succeeded; 39 lines
+`HVR self-scan: 0 hard blockers. Fixed: "acts as" → "are" (copula avoidance) and a prompt-echo opening line. Kept with reason: the `**` bold field labels are the intake template's own structure, and straight quotes keep leadership's wording literal.`
+
+**Quality summary:** Routed to Interactive Mode, not a backlog artifact. No command, no artifact framing and no semantic topic hit, so confidence fell to the fallback band, and you called the decision unsettled. The export holds the consolidated question only: no draft, no partial artifact, no answer, no process material inside the file.
+
+**Summary:** Nothing has been drafted yet, because "loyalty points" could land as a single squad's task, a multi-surface Story or Epic, or a proposal document that answers leadership's "could we" question, and the four scope gaps below decide which. The question also asks who owns the decision and which existing mechanics the scheme has to respect, such as the email-only guest who has no account, the five currencies with no conversion, and the city tax line. Reply with what you know, and the artifact takes `002` in whichever lane the answer picks.
+
+**Additions I made, so you can strike any you disagree with:** treating cancelled and no-show stays, retroactive earning for past stays, whether city tax sits inside the earning base, and whether the partner or Roamstay funds the points were not in your message or the context file. They came from Roamstay's known constraints and from gaps a loyalty decision normally closes, not from anything you supplied. No ClickUp tooling is available in this session, so there is nothing to push yet.

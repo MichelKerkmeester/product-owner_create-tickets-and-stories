@@ -1,0 +1,143 @@
+{
+ "id": "SBG-002",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/support-ticket-bug.md",
+ "twin": "PBG-002",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-SBG-002-0b9e9441",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - bug-android-confirmation-total-city-tax-clarification.md",
+   "export/002 - bug-android-confirmation-total-city-tax.md"
+  ],
+  "modified": [
+   ".git/index"
+  ],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 298.15,
+   "tool_calls": 44,
+   "tools_used": [
+    "bash",
+    "ls",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "read",
+    "read",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "read",
+    "bash",
+    "bash",
+    "bash",
+    "read",
+    "bash",
+    "write",
+    "read",
+    "bash",
+    "bash"
+   ],
+   "input_tokens": 111771,
+   "output_tokens": 17666,
+   "reasoning_tokens": 11738,
+   "cost_usd": 0.03369894600000001,
+   "model_s": 297.45,
+   "startup_s": 0.49,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [
+     "export/001 - bug-android-confirmation-total-city-tax-clarification.md"
+    ],
+    "modified": [
+     ".git/index"
+    ],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$bug Guest Support escalated ticket 58213 to Booking. On Android the confirmation screen leaves city tax out of the total on stays of 2 nights or more, so the guest saw \"Total €387.00\" and was charged €405.00. The ticket with Maren's tests is in context/roamstay-support-ticket-58213.md and our product context is in context/roamstay-context.md"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 188.82,
+   "tool_calls": 11,
+   "tools_used": [
+    "write",
+    "read",
+    "bash",
+    "write",
+    "read",
+    "bash",
+    "edit",
+    "read",
+    "bash",
+    "edit",
+    "read"
+   ],
+   "input_tokens": 23745,
+   "output_tokens": 17480,
+   "reasoning_tokens": 13020,
+   "cost_usd": 0.018676181999999996,
+   "model_s": 188.44,
+   "startup_s": 0.21,
+   "stop_reason": "stop",
+   "response_models": [],
+   "ledger": {
+    "created": [
+     "export/002 - bug-android-confirmation-total-city-tax.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Severity High. We do not know the guest's phone model, and Maren's test phone runs Android 14. No screen recording, and the guest's screenshot stays in the support desk tool. I checked web this morning with a 3-night Pay now booking and its confirmation total was right. No related bug is open, and nobody on Booking has looked at the code yet."
+  }
+ ]
+}

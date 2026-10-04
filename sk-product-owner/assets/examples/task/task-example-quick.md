@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Task - Quick Task - v0.100"
+title: "Product Owner - Examples - Task - Quick Task"
 description: "Instantiates Task Templates section 5, Quick Task. Shows exact copy replacement with a zero-day variant and no unrelated layout change."
-version: "0.100"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["quick task example", "worked task example"]
+version: 1.16.0.2
 ---
 
 # Update trial-expiry banner copy on the Ledgerly pricing page

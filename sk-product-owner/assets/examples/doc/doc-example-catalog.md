@@ -1,8 +1,10 @@
 ---
-title: "Product Owner - Examples - Doc - Catalog - v0.100"
+title: "Product Owner - Examples - Doc - Catalog"
 description: "Instantiates Doc Templates section 4, Catalog. Shows local status labels preserved across current, approved and proposed entries in one mixed-status catalog."
-version: "0.100"
-contextType: asset
+contextType: general
+importance_tier: normal
+trigger_phrases: ["catalog doc example", "worked doc example"]
+version: 1.16.0.3
 ---
 
 # Prism Design System — color token roles

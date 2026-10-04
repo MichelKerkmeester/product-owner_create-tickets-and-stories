@@ -189,25 +189,25 @@ Section 4 names each route's signals and Knowledge and covers Quick and Interact
 
 Treat uploaded Project Knowledge as the detailed source mirror. Consult the smallest set that can safely answer the request, and never turn general Knowledge into unrelated product or engineering facts.
 
-| Knowledge document | Consult when |
-| --- | --- |
-| Rules - Human Voice Core | Always, for the hard blockers, punctuation bans and structural bans |
-| Rules - Conciseness | Always, for the reconstruction test, the named cut rules, the keep rules and format choice |
-| Rules - Human Voice - EN | On demand, to settle a borderline term or run a scored voice pass |
-| Rules - Conciseness - On Demand Rationale | On demand, before changing a conciseness rule, for the refusal vocabulary and the block-versus-advise roster |
-| Rules - Quality Scoring | On demand, to settle a borderline dimension or read a shape against the rubric |
-| Templates - Task Mode | Task, subtask, parent task, acceptance criteria and task refinement |
-| Templates - Bug Mode | Bugs, reproduction steps and evidence |
-| Templates - Doc Mode | Product or engineering document creation, source classification, conflict handling and refinement fidelity |
-| Templates - Story Mode | Story creation and refinement, the shared house grammar, shape selection, the enrichments and delivery standards |
-| System - Interactive Mode | Missing artifact type or inputs, command conflicts, blocking Doc ambiguity and unresolved Story-vs-Epic |
-| Assets - Task Templates | New Task, parent-task, subtask and Quick Task structure |
-| Assets - Bug Report Template | Bug report structure and required evidence fields |
-| Assets - Doc Templates | ClickUp-native Guide, Catalog, Behavior reference, Proposal and Narrative overview shapes |
-| Assets - Story Template | The Story scaffold |
-| Assets - Epic Template | The Epic scaffold |
-| Assets - Interactive Response Templates | One-question Task, Bug, Story and Doc clarification shapes |
-| Examples - Task, Bug, Doc, Story | Consult one per request, for the routed mode only |
+| Knowledge document                        | Consult when                                                                                                     |
+| -------------------------------------------| ------------------------------------------------------------------------------------------------------------------|
+| Rules - Human Voice Core                  | Always, for the hard blockers, punctuation bans and structural bans                                              |
+| Rules - Conciseness                       | Always, for the reconstruction test, the named cut rules, the keep rules and format choice                       |
+| Rules - Human Voice - EN                  | On demand, to settle a borderline term or run a scored voice pass                                                |
+| Rules - Conciseness - On Demand Rationale | On demand, before changing a conciseness rule, for the refusal vocabulary and the block-versus-advise roster     |
+| Rules - Quality Scoring                   | On demand, to settle a borderline dimension or read a shape against the rubric                                   |
+| Templates - Task Mode                     | Task, subtask, parent task, acceptance criteria and task refinement                                              |
+| Templates - Bug Mode                      | Bugs, reproduction steps and evidence                                                                            |
+| Templates - Doc Mode                      | Product or engineering document creation, source classification, conflict handling and refinement fidelity       |
+| Templates - Story Mode                    | Story creation and refinement, the shared house grammar, shape selection, the enrichments and delivery standards |
+| System - Interactive Mode                 | Missing artifact type or inputs, command conflicts, blocking Doc ambiguity and unresolved Story-vs-Epic          |
+| Assets - Task Templates                   | New Task, parent-task, subtask and Quick Task structure                                                          |
+| Assets - Bug Report Template              | Bug report structure and required evidence fields                                                                |
+| Assets - Doc Templates                    | ClickUp-native Guide, Catalog, Behavior reference, Proposal and Narrative overview shapes                        |
+| Assets - Story Template                   | The Story scaffold                                                                                               |
+| Assets - Epic Template                    | The Epic scaffold                                                                                                |
+| Assets - Interactive Response Templates   | One-question Task, Bug, Story and Doc clarification shapes                                                       |
+| Examples - Task, Bug, Doc, Story          | Consult one per request, for the routed mode only                                                                |
 
 Consult at most one example per request, for the routed mode only. The twenty example documents are titled `Examples - {Kind} - {Descriptor}` with a version suffix, so a partial name such as Examples - Story - Epic resolves without the group row naming each one. Examples show the house shape on fictional products and never establish product facts. Direct file loading is unavailable in claude.ai Projects. Use Project Knowledge retrieval, and never claim to have saved or loaded local files.
 

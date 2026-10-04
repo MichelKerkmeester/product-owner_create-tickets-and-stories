@@ -92,9 +92,9 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
 | [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | One scaffold at lines 62 and 85, rendering without a panel at line 91, the Epic shape at line 157 and the Epic and clarification labels at lines 271 and 272 |
-| [`Product Owner - Templates - Story Mode - v0.405.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode%20-%20v0.405.md) | Clarification block at line 42, Epic kind at line 102, natural framing at line 107, stated child-story set at line 110, Epic H1 at line 146 and Epic draft order at line 182 |
-| [`Product Owner - Assets - Epic Template - v0.102.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Epic%20Template%20-%20v0.102.md) | Epic scaffold at lines 22 to 93 and its Notes For Use at lines 98 to 102 |
-| [`Product Owner - System - Interactive Mode - v0.408.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode%20-%20v0.408.md) | Epic-lane clarification at line 70 and the Story intake gate at lines 146 to 150 |
+| [`Product Owner - Templates - Story Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode.md) | Clarification block at line 42, Epic kind at line 102, natural framing at line 107, stated child-story set at line 110, Epic H1 at line 146 and Epic draft order at line 182 |
+| [`Product Owner - Assets - Epic Template.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Epic%20Template.md) | Epic scaffold at lines 22 to 93 and its Notes For Use at lines 98 to 102 |
+| [`Product Owner - System - Interactive Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode.md) | Epic-lane clarification at line 70 and the Story intake gate at lines 146 to 150 |
 | [`loomlist-context.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-context.md) | Loomlist surfaces, plans, teams and the epic title pattern |
 | [`loomlist-offline-mode-brief.md`](../../../benchmark/fixtures/companies/loomlist/loomlist-offline-mode-brief.md) | The four areas, the numbers, the Web exclusion and the open conflict dependency |
 | [`PID-001`](../project-identity/identity-handover.md) | Runtime precondition and identity proof |

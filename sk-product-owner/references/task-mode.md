@@ -1,18 +1,18 @@
 ---
-title: "Product Owner - Templates - Task Mode - v0.307"
+title: "Product Owner - Templates - Task Mode"
 description: "Product Owner task-mode workflow, delivery standards and structure rules for task artifacts."
-version: "0.307"
-contextType: reference
-importance_tier: high
+contextType: implementation
+importance_tier: important
 trigger_phrases:
   - "task mode"
   - "$task acceptance criteria"
   - "subtask parent task"
   - "source task sync"
   - "requirements checklist"
+version: 1.16.0.22
 ---
 
-# Product Owner - Templates - Task Mode - v0.307
+# Product Owner - Templates - Task Mode
 
 Task-mode guidance aligned to the current Product Owner task corpus. This version prioritizes a flexible context block, numbered requirement groups, an H2 About and H3 section headings under it.
 
