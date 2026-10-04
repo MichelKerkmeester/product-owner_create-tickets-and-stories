@@ -4,7 +4,7 @@ description: "Instantiates Bug Report Template section 2. Shows a visual stackin
 contextType: general
 importance_tier: normal
 trigger_phrases: ["frontend visual bug example", "worked bug example"]
-version: 1.16.0.2
+version: 0.17.0.2
 ---
 
 # Country dropdown renders behind the payment modal at checkout

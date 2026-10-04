@@ -4,7 +4,7 @@ description: "The maximal house Story: every optional enrichment populated as a 
 contextType: general
 importance_tier: normal
 trigger_phrases: ["complete reference story example", "worked story example"]
-version: 1.16.0.11
+version: 0.17.0.11
 ---
 
 <!-- This is the maximal reference. Most Stories use far less. Simple Stories drop every optional block, so reach for these only when a Story earns them. -->

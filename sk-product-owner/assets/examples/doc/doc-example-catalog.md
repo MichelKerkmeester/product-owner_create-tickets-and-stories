@@ -4,7 +4,7 @@ description: "Instantiates Doc Templates section 4, Catalog. Shows local status 
 contextType: general
 importance_tier: normal
 trigger_phrases: ["catalog doc example", "worked doc example"]
-version: 1.16.0.3
+version: 0.17.0.3
 ---
 
 # Prism Design System — color token roles

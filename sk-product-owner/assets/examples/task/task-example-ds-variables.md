@@ -4,7 +4,7 @@ description: "Instantiates Task Templates sections 3 and 4 in the ClickUp format
 contextType: general
 importance_tier: normal
 trigger_phrases: ["ds variables task example", "worked task example"]
-version: 1.16.0.2
+version: 0.17.0.2
 ---
 
 # DS - Variables - v1.0.7 - Size Variables & Disabled States

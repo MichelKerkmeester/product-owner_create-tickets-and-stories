@@ -13,7 +13,7 @@ trigger_phrases:
   - "document context question"
   - "source authority question"
   - "one question intake"
-version: 1.16.0.10
+version: 0.17.0.10
 ---
 
 # Product Owner - Assets - Interactive Response Templates

@@ -13,7 +13,7 @@ trigger_phrases:
   - "refine product documentation"
   - "refine technical documentation"
   - "source authority conflict"
-version: 1.16.0.12
+version: 0.17.0.12
 ---
 
 # Product Owner - Templates - Doc Mode

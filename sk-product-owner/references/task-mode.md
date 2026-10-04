@@ -9,7 +9,7 @@ trigger_phrases:
   - "subtask parent task"
   - "source task sync"
   - "requirements checklist"
-version: 1.16.0.22
+version: 0.17.0.22
 ---
 
 # Product Owner - Templates - Task Mode

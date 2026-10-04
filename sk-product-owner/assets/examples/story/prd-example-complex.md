@@ -4,7 +4,7 @@ description: "Instantiates the house Story shape at Complex size: four payout ty
 contextType: general
 importance_tier: normal
 trigger_phrases: ["complex tier story example", "worked story example"]
-version: 1.16.0.11
+version: 0.17.0.11
 ---
 
 # Keystone - Payouts - Release pipeline

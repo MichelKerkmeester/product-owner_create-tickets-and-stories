@@ -10,7 +10,7 @@ trigger_phrases:
   - "PRD with acceptance criteria"
   - "story vs epic"
   - "refine this PRD"
-version: 1.16.0.26
+version: 0.17.0.26
 ---
 
 # Product Owner - Templates - Story Mode
