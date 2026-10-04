@@ -10,7 +10,7 @@ trigger_phrases:
   - "quality floor"
   - "revision cycle"
   - "scoring bands"
-version: 1.16.0.10
+version: 0.17.0.10
 ---
 
 # Product Owner - Rules - Quality Scoring

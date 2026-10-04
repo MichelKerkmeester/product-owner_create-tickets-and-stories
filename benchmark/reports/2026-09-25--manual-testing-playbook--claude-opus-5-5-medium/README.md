@@ -73,11 +73,11 @@ Every finding that could move a verdict went to the operator on 2026-09-25, and 
 | 6 | The skill bugs write "No error message is shown" with no source | Advisory | The bug template's error slot reads `Not provided` or is left out |
 | 7 | The runbooks turn incident details into general "Expected result" lines | Allowed | None |
 
-The repairs are Product Owner `de7775b` and Barter `53239d7b`: skill 1.11.0, kernel v1.15.0 with seven knowledge files renamed, and playbook 2.1.0.0. The format gate, the playbook validator (46 scenarios, 0 violations) and the run selftest passed on the working tree.
+The repairs are Product Owner `8cf8e13` and Barter `53239d7b`: skill 1.11.0, kernel v1.15.0 with seven knowledge files renamed, and playbook 2.1.0.0. The format gate, the playbook validator (46 scenarios, 0 violations) and the run selftest passed on the working tree.
 
 `validate_parity.py product-owner` (38 of 38 pairs) and `run_residency.sh product-owner` passed on the commit. The kernel v1.15.0 review is pending the operator, and the seven renamed files are not on claude.ai until then.
 
-Round one showed the ask-first repair working on both sides and the file-promise repair failing on the Project side (section 4). The operator chose one more repair, Product Owner `8eb4ee6` and Barter `def23ee9`:
+Round one showed the ask-first repair working on both sides and the file-promise repair failing on the Project side (section 4). The operator chose one more repair, Product Owner `46e1669` and Barter `def23ee9`:
 
 - Kernel line 101: the Project never says it saved, verified, read back, pushed, will write, will save or will update a file
 - A reply names only the export-equivalent label of the block it renders, and line 101 no longer quotes a forbidden example
@@ -100,7 +100,7 @@ On 2026-09-26 the operator chose four changes:
 - Doc Templates keep `## Behavior rules` and a backticked source phrase word for word, and Story Mode quotes an open question the source words itself
 - The long integration task no longer demands the carrier's retry count and schedule word for word
 
-That is Product Owner `e793897` and Barter `92f4de47`: skill 1.13.0, Task Mode v0.306, Doc Templates v0.108, Story Mode v0.404 and playbook 2.2.0.0. The kernel stayed at v1.16.0, since every new rule lives in a document it already routes to. Every edit stayed on its own line, so no line a scenario cites moved.
+That is Product Owner `4830148` and Barter `92f4de47`: skill 1.13.0, Task Mode v0.306, Doc Templates v0.108, Story Mode v0.404 and playbook 2.2.0.0. The kernel stayed at v1.16.0, since every new rule lives in a document it already routes to. Every edit stayed on its own line, so no line a scenario cites moved.
 
 Findings that moved no verdict are in `grading-notes.md` section 4. Two examples: `Verified:` lines with no Read after the last write in `SBG-002` Turn 1 and both `STK-003` turns, and `N` printed as `wc -l` in seven turns, one lower than the Read's final line number `AGENTS.md` line 46 names.
 
@@ -108,13 +108,13 @@ Findings that moved no verdict are in `grading-notes.md` section 4. Two examples
 
 ## 4. Remeasure rounds
 
-The main run's 46 rows in `results.csv` stay the verdicts of record for playbook 2.0.0.0 at `d0d3600`. Three rounds then reran a subset on the repaired sources, to see whether each repair changes what the runtimes do. Each round keeps its own `results.csv`, `grading-notes.md` and `replies/` under `remeasure-*/run-1/`.
+The main run's 46 rows in `results.csv` stay the verdicts of record for playbook 2.0.0.0 at `5d9c7cf`. Three rounds then reran a subset on the repaired sources, to see whether each repair changes what the runtimes do. Each round keeps its own `results.csv`, `grading-notes.md` and `replies/` under `remeasure-*/run-1/`.
 
 | Round | Sources | Scenarios | Skill | Project | Cost |
 | --- | --- | --- | --- | --- | ---: |
-| `remeasure-operator-repairs/run-1` | Product Owner `de7775b`, Barter `53239d7b`: skill 1.11.0, kernel v1.15.0, playbook 2.1.0.0 | 26: both twins of `TK-002` to `TK-005`, `BG-002`, `DK-001`, `DK-003`, `ST-002` to `ST-004` and `EP-001`, plus `PID-001`, `PEP-002`, `PTK-006` and `PIR-002` | 7 PASS, 4 FAIL | 3 PASS, 12 FAIL | USD 37.36 |
-| `remeasure-file-forecast/run-1` | Product Owner `8eb4ee6`, Barter `def23ee9`: skill 1.12.0, kernel v1.16.0, playbook 2.1.1.0 | 8 Project: `PID-001`, `PBG-002`, `PTK-005`, `PTK-006`, `PST-003`, `PST-004`, `PEP-001` and `PEP-002` | Not run | 5 PASS, 3 FAIL | USD 10.38 |
-| `remeasure-supplied-values/run-1` | Product Owner `e793897`, Barter `92f4de47`: skill 1.13.0, kernel v1.16.0, playbook 2.2.0.0 | 12: both twins of `TK-003`, `TK-005`, `TK-006`, `DK-001`, `DK-003` and `ST-002` | 6 PASS, 0 FAIL | 6 PASS, 0 FAIL | USD 18.90 |
+| `remeasure-operator-repairs/run-1` | Product Owner `8cf8e13`, Barter `53239d7b`: skill 1.11.0, kernel v1.15.0, playbook 2.1.0.0 | 26: both twins of `TK-002` to `TK-005`, `BG-002`, `DK-001`, `DK-003`, `ST-002` to `ST-004` and `EP-001`, plus `PID-001`, `PEP-002`, `PTK-006` and `PIR-002` | 7 PASS, 4 FAIL | 3 PASS, 12 FAIL | USD 37.36 |
+| `remeasure-file-forecast/run-1` | Product Owner `46e1669`, Barter `def23ee9`: skill 1.12.0, kernel v1.16.0, playbook 2.1.1.0 | 8 Project: `PID-001`, `PBG-002`, `PTK-005`, `PTK-006`, `PST-003`, `PST-004`, `PEP-001` and `PEP-002` | Not run | 5 PASS, 3 FAIL | USD 10.38 |
+| `remeasure-supplied-values/run-1` | Product Owner `4830148`, Barter `92f4de47`: skill 1.13.0, kernel v1.16.0, playbook 2.2.0.0 | 12: both twins of `TK-003`, `TK-005`, `TK-006`, `DK-001`, `DK-003` and `ST-002` | 6 PASS, 0 FAIL | 6 PASS, 0 FAIL | USD 18.90 |
 
 **Round one: the ask-first repair worked.** Every scenario with an explicit command now asks one question in its lane on Turn 1 and drafts on Turn 2 on the next number. `TK-002` and `TK-004` on both sides, `SBG-002`, `SST-003`, `SST-004`, `SEP-001` and `PIR-002` pass where the main run failed them.
 
@@ -165,7 +165,7 @@ One reading decides a verdict: `PDK-003` states `not decided` in other words. Th
 
 Each round ran from this folder as `python3 run/playbook_runner.py --system ../../.. --out <round>/run-1 --engine claude --model claude-opus-5-5 --effort medium --jobs 4 --ids <ids>`. `run/check_run.py <round>/run-1 --model claude-opus-5-5` reports findings only for the scenarios the round left out, as "no readable meta.json".
 
-The collector filed the rounds' 102 deliverables under their own folders in `export/benchmark/`. The operator removed them on 2026-09-26, and then the main run's 20 clarifications, so `export/benchmark/` holds the main run's 78 deliverables. Each round's evidence stays in its `replies/` and `results.csv`, and its exports in git history at Product Owner `871cd32` and Barter `70f459bb`.
+The collector filed the rounds' 102 deliverables under their own folders in `export/benchmark/`. The operator removed them on 2026-09-26, and then the main run's 20 clarifications, so `export/benchmark/` holds the main run's 78 deliverables. Each round's evidence stays in its `replies/` and `results.csv`, and its exports in git history at Product Owner `68938a8` and Barter `70f459bb`.
 
 ---
 
@@ -187,7 +187,7 @@ The collector filed the rounds' 102 deliverables under their own folders in `exp
 | Item | Value |
 | --- | --- |
 | Playbook | Version 2.0.0.0, 46 scenarios, 23 skill and 23 Project, each twinned, 86 turns |
-| Product Owner repo | `d0d3600c01160b3e4dee00d2508401384866f9d3`, sources clean before and after the run |
+| Product Owner repo | `5d9c7cf5c9b5bf05201ee4136082867cddb0da48`, sources clean before and after the run |
 | Barter repo | `2ae41289ac21ea6f853b6f8c600dafc377a9f10b`, the same before and after |
 | Operator approval | The scenario plan was approved on 2026-09-25 at 19:31 UTC, before any scenario ran |
 | Claude Code | `2.1.282` |
@@ -239,7 +239,7 @@ Each Story bundle kept its folder: `skill/SST-004 - 001 - Story-order-tracking/`
 
 ### Edited after grading
 
-On 2026-09-26 the operator had the exports edited by hand to the new length caps, after grading. Every verdict and every export line a grader cites refers to the graded originals, not to the edited files. The originals are in git history at Product Owner `a2d5808` and Barter `ee6e3f14`, and each Project block is also in its `replies/` file.
+On 2026-09-26 the operator had the exports edited by hand to the new length caps, after grading. Every verdict and every export line a grader cites refers to the graded originals, not to the edited files. The originals are in git history at Product Owner `d5ee8c5` and Barter `ee6e3f14`, and each Project block is also in its `replies/` file.
 
 Five Opus 5.5 agents edited 80 of the 98 files and left the other 18 unchanged. A script checked each file against its graded snapshot: headings, labels, Given/When/Then lines, tables, backticked values, numbers and links unchanged, no new em dash or nested list, the caps met and the format gate passing.
 
@@ -253,7 +253,7 @@ No scenario reran, so the caps are unmeasured on the runtimes. `run/collect_expo
 
 On 2026-09-26 the operator removed the 20 clarification files from `export/benchmark/`, 10 skill and 10 Project, and every git-ignored local copy under `exports/`. A clarification is the question a scenario asked before drafting, not a deliverable. `export/benchmark/` now holds 78 files, 31 skill and 47 Project, and the counts above describe all 98 as collected and edited.
 
-The questions stay in the evidence. Each Project one is in its `replies/<ID>-turn1.txt`, and each skill one is summarized in its `turn-1.md` and quoted in its git-ignored transcript. All 20 are in git history at Product Owner `0da2151` and Barter `57bb8d58` as edited, and at `a2d5808` and `ee6e3f14` as graded.
+The questions stay in the evidence. Each Project one is in its `replies/<ID>-turn1.txt`, and each skill one is summarized in its `turn-1.md` and quoted in its git-ignored transcript. All 20 are in git history at Product Owner `e75324f` and Barter `57bb8d58` as edited, and at `d5ee8c5` and `ee6e3f14` as graded.
 
 `run/collect_exports.py` now skips any file named `*-clarification.md` and prints a skip line for it, so a new collection cannot put one back. A dry run over this folder prints 20 skip lines and writes no clarification. Its sha256 is now `9be63ec2dcda6dddfb26f5c885e05f4f68d75270650a43952d2ac37358f60d43`, and `run/selftest.py` is `aad5c892f307d7c6cd21bb3dab79b7d28f2c905c585439ad038e20f0f5a4f0dc`. Both were aligned with sk-code-opencode on 2026-09-26 after this change, and the dry run above executed the earlier collector revision `7d06baa5023c7cbf849581573888bc5d9ee61c792f6627dec3da5634a5f6f213`, which git history keeps along with the earlier selftest `10608ab9ff3bd9fdab3c7efb5ebe2e2e61cb5c6a1d17507f895d5e5805866ad6`.
 

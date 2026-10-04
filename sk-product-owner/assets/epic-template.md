@@ -9,7 +9,7 @@ trigger_phrases:
   - "write an epic"
   - "epic scope section"
   - "release-level acceptance criteria"
-version: 1.16.0.6
+version: 0.17.0.6
 ---
 
 # Product Owner - Assets - Epic Template

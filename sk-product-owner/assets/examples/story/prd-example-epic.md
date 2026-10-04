@@ -4,7 +4,7 @@ description: "Instantiates the house PRD shape as an Epic: an About umbrella wit
 contextType: general
 importance_tier: normal
 trigger_phrases: ["epic story example", "worked story example"]
-version: 1.16.0.6
+version: 0.17.0.6
 ---
 
 # Epic - Gatherwell - Event Check-in v2

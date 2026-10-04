@@ -9,7 +9,7 @@ trigger_phrases:
   - "PRD house format"
   - "write a user story"
   - "story requirements section"
-version: 1.16.0.10
+version: 0.17.0.10
 ---
 
 # Product Owner - Assets - Story Template

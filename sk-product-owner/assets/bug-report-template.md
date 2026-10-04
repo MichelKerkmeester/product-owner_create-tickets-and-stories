@@ -9,7 +9,7 @@ trigger_phrases:
   - "steps to reproduce"
   - "expected behavior template"
   - "QA handoff checklist"
-version: 1.16.0.7
+version: 0.17.0.7
 ---
 
 # Product Owner Bug Report Template

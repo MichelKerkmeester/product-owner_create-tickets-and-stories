@@ -4,7 +4,7 @@ description: "Instantiates Bug Report Template section 2. Shows a concurrency-se
 contextType: general
 importance_tier: normal
 trigger_phrases: ["backend api bug example", "worked bug example"]
-version: 1.16.0.2
+version: 0.17.0.2
 ---
 
 # Orders list endpoint returns duplicate rows across page boundaries

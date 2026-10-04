@@ -9,7 +9,7 @@ trigger_phrases:
   - "parent task template"
   - "subtask template"
   - "quick task template"
-version: 1.16.0.8
+version: 0.17.0.8
 ---
 
 # Product Owner Task Templates

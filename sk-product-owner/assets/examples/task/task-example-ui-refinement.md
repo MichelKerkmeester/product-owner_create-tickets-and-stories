@@ -4,7 +4,7 @@ description: "Instantiates Task Templates section 2, Canonical Task. Shows desig
 contextType: general
 importance_tier: normal
 trigger_phrases: ["ui refinement task example", "worked task example"]
-version: 1.16.0.2
+version: 0.17.0.2
 ---
 
 # Align the Meridian settings screen with the current design reference

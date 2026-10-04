@@ -4,7 +4,7 @@ description: "Instantiates Doc Templates section 5, Behavior Reference, at syste
 contextType: general
 importance_tier: normal
 trigger_phrases: ["how it works doc example", "worked doc example"]
-version: 1.16.0.3
+version: 0.17.0.3
 ---
 
 # Vantage Billing — subscription lifecycle
