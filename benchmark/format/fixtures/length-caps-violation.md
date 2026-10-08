@@ -22,3 +22,11 @@ The filter ships on web first. The apps follow a week later. The label is the sa
 ## Edge cases
 
 - When a guest turns the filter on after picking dates, the results reload at once and keep the sort order, the map position and every other filter the guest had set
+
+## Problem
+
+Guests cannot tell which stays they can cancel for free. The deadline sits on the rate page. Guests open each stay to find it. Many give up before they book. Support answers the same question every day. The count of these tickets doubled this year.
+
+## Acceptance criteria
+
+*   **Then** the list sorts by rating ascending, and the sort control shows Rating as active

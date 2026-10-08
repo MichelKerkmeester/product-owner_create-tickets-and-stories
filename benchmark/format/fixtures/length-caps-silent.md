@@ -38,3 +38,12 @@ filter=free_cancellation&deadline_after=2026-10-01&tz=property&sort=ranking_defa
 ## Ownership
 
 The search squad owns the filter, and the ranking team owns the order of filtered results. Ranking already reads the cancellation deadline for its own scoring, so a second reader of the same field would drift from it. The price filter drifted the same way last year when two teams read the nightly rate differently.
+
+## Problem
+
+Guests cannot tell which stays they can cancel for free. The deadline sits on the rate page, so guests open each stay to find it. Many give up before they book. Support answers the same question every day.
+
+## Acceptance criteria
+
+*   **Then** the confirmation shows the guest's name and email
+*   **And** the sort control shows Rating as active

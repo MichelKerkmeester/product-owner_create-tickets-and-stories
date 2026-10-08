@@ -1,0 +1,121 @@
+{
+ "id": "SBG-002",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/support-ticket-bug.md",
+ "twin": "PBG-002",
+ "engine": "claude",
+ "model": "claude-haiku-5-5",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "attachments": [
+  {
+   "basename": "roamstay-context.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-context.md",
+   "sha256": "c910977ccdfe0ce1398c5d4ae886b28a6d6ae896c3d8c954a136545109d519e4"
+  },
+  {
+   "basename": "roamstay-support-ticket-58213.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/roamstay/roamstay-support-ticket-58213.md",
+   "sha256": "68dde4304162512efd2d88353bc9c61bb5d336ce3e5aaffc153be5b5b009737a"
+  }
+ ],
+ "session_id": "d70ef82a-d290-4943-9da8-5913cbc3559b",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - bug-android-confirmation-city-tax-clarification.md",
+   "export/002 - bug-android-confirmation-city-tax.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 515.78,
+   "tool_calls": 16,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Glob",
+    "Glob",
+    "Bash",
+    "Write",
+    "Read",
+    "Edit",
+    "Read"
+   ],
+   "input_tokens": 503759,
+   "output_tokens": 29595,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.03610187,
+   "model_s": 515.02,
+   "startup_s": 0.46,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-haiku-5-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - bug-android-confirmation-city-tax-clarification.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$bug Guest Support escalated ticket 58213 to Booking. On Android the confirmation screen leaves city tax out of the total on stays of 2 nights or more, so the guest saw \"Total €387.00\" and was charged €405.00. The ticket with Maren's tests is in context/roamstay-support-ticket-58213.md and our product context is in context/roamstay-context.md"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 98.36,
+   "tool_calls": 4,
+   "tools_used": [
+    "Write",
+    "Read",
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 566930,
+   "output_tokens": 18880,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.1013674,
+   "model_s": 97.5,
+   "startup_s": 0.85,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-haiku-5-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/002 - bug-android-confirmation-city-tax.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Severity High. We do not know the guest's phone model, and Maren's test phone runs Android 14. No screen recording, and the guest's screenshot stays in the support desk tool. I checked web this morning with a 3-night Pay now booking and its confirmation total was right. No related bug is open, and nobody on Booking has looked at the code yet."
+  }
+ ]
+}

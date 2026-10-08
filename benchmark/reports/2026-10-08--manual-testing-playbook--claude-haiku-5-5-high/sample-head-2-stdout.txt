@@ -1,0 +1,3 @@
+{"id": "PST-003", "side": "project", "status": "ok", "attempts": 1, "turns_run": 2, "turns_declared": 2}
+{"id": "SST-003", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 2, "turns_declared": 2}
+{"id": "PEP-002", "side": "project", "status": "ok", "attempts": 1, "turns_run": 2, "turns_declared": 2}

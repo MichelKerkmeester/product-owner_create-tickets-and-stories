@@ -1,0 +1,115 @@
+{
+ "id": "STK-004",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/parent-task-with-subtasks.md",
+ "twin": "PTK-004",
+ "engine": "claude",
+ "model": "claude-haiku-5-5",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "attachments": [
+  {
+   "basename": "loomlist-context.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-context.md",
+   "sha256": "0e45cb4bf97f1a24fb847fcff0941a45e046f37a269e202c125ebd44ffaf5c7a"
+  },
+  {
+   "basename": "loomlist-recurring-todos-pm-brief.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/loomlist/loomlist-recurring-todos-pm-brief.md",
+   "sha256": "91dd40d32e4e0f0bbcedf6fe95a058e7f8ca7dc6a3d8bdfb5aa40da00b07c365"
+  }
+ ],
+ "session_id": "f985ad44-82bb-4198-bfc7-1085c0d1c3a9",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [
+   "export/001 - task-recurring-todos-parent-clarification.md",
+   "export/002 - task-recurring-todos-parent.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 73.49,
+   "tool_calls": 12,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Glob",
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 346185,
+   "output_tokens": 15362,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.02464438,
+   "model_s": 72.63,
+   "startup_s": 0.51,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-haiku-5-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - task-recurring-todos-parent-clarification.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$task Parent task for recurring to-dos from Ines's brief in context/loomlist-recurring-todos-pm-brief.md, with subtasks for iOS, Android, web and BE. Board conventions are in context/loomlist-context.md."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 72.91,
+   "tool_calls": 2,
+   "tools_used": [
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 287841,
+   "output_tokens": 17084,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.06412238,
+   "model_s": 72.02,
+   "startup_s": 0.57,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-haiku-5-5"
+   ],
+   "ledger": {
+    "created": [
+     "export/002 - task-recurring-todos-parent.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Only the parent for now, the platform leads write their own subtasks from it, so list the four by title the way our board names them. State the shared rules once in the parent so the subtasks can point at it. iOS and Android aim for the 5.4.0 release, and web and BE ship dark before that."
+  }
+ ]
+}

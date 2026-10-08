@@ -3,61 +3,58 @@
 * * *
 ## About
 * * *
-Signed-in customers on web, iOS and Android start their own returns inside the return window. Four child stories follow one return to refund, guest returns follow later and pallet items stay with CS.
+Signed-in customers handle a return without contacting CS, from starting it to receiving the refund. The change splits into four child stories listed under Scope, and guest returns sit under Added Later.
 
 #### Problem
 * * *
-Today CS creates each return in Admin and emails a label, the warehouse checks the item and the agent refunds it. CS handles about `1,900` return requests a month this way, and a refund takes `6 days` on average from first contact.
+Customers have 30 days from delivery to return an item, but there is no self-serve return today. A customer contacts CS, a CS agent creates the return in Admin and emails a return label, the warehouse checks the item, and the agent refunds. CS handles about 1,900 return requests a month, and a refund takes 6 days on average from first contact.
 
 **The following issues rise from that:**
-*   Every return costs a CS contact, even for just a label
-*   Return volume turns directly into agent time
-*   The customer cannot see return status without contacting CS again
+*   Signed-in customers cannot start a return from their own order history
+*   Every return waits on a CS agent to create it by hand in Admin
 ####   
 
 #### Goal
 * * *
-CS stops creating returns by hand, and by the end of Q1 2027 at least `60%` of returns start without a CS contact.
+The aim is that signed-in customers on web, iOS and Android start a return themselves inside the 30-day window, so CS stops creating returns by hand in Admin. By the end of Q1 2027, at least 60% of returns start without a CS contact.
 
-**Direct customer and Fernhouse benefits:**
-*   Customers start a return at any time from order history
-*   CS time moves to pallet items, guest orders and other contacts needing an agent
+**Direct user/Barter benefits:**
+*   Signed-in customers start a return from order history without contacting CS
+*   CS stops creating returns by hand in Admin for the returns this epic covers
 ####   
 
 #### Solution
 * * *
 In order to get there, we will:
-*   Let signed-in customers start a return from order history with items and a reason, inside the `30 days` window
-*   Email a return label once the return starts
-*   Show the return status on the order page
-*   Refund after the warehouse checks the items
-*   Keep pallet item returns out of self-serve and with CS
-
-#### **References**
-* * *
-Context
-*   [Fernhouse company context](<../context/fernhouse-context.md>)
+*   Let signed-in customers start a return from order history, choosing the items and a reason
+*   Email the return label to the customer
+*   Show the return status on the order page, which today never changes after dispatch
+*   Refund the customer once the warehouse has checked the returned item
+*   Keep pallet items with CS, and hold guest returns in Added Later
 
 ## Scope
 * * *
-Each child story owns one part of the lifecycle.
+Each child story owns one part of the lifecycle and carries its own detailed requirements and acceptance criteria.
 
-#### Starting a return
+#### Starting the return
 * * *
-*   Customer - Returns - Start a return from order history
-*   Customer - Returns - Return label by email
+*   Customer - Self-serve returns - Start from order history
 
-#### After the return is sent
+#### After the return starts
 * * *
-*   Customer - Returns - Return status on the order page
-*   Customer - Returns - Refund after the warehouse check
+*   Customer - Self-serve returns - Return label by email
+*   Customer - Self-serve returns - Return status on order page
+
+#### Refund
+* * *
+*   Customer - Self-serve returns - Refund after warehouse check
 
 #### Added Later
 * * *
 Capabilities that belong to the epic but do not block the first release.
 
 **Guest returns**
-*   Guest checkout customers start a return without an account
+*   Guest customers, who have no order history today, start a return without blocking the first release
 * * *
 ##   
 
@@ -66,31 +63,64 @@ Capabilities that belong to the epic but do not block the first release.
 These are release-level outcomes.
 Each child story carries the detailed criteria for its own screens and states.
 
-1\. **A signed-in customer starts a return without contacting CS**
+1 ) **Signed-in customers start a return themselves**
 * * *
-*   **Given** a signed-in customer on web, iOS or Android with a delivered order inside the `30 days` window
-*   **When** they start a return in order history with items and a reason
-*   **Then** the return exists without a CS agent creating it
-*   **And** the customer receives a return label by email
-* * *
-- [] _Mark as done, if the criteria are met_
-
-2\. **The customer follows the return to the refund**
-* * *
-*   **Given** a customer started a return themselves
-*   **When** they open the order page on web, iOS or Android
-*   **Then** they see the return's current status
-*   **And** they are refunded after the warehouse check, without contacting CS
+*   **Given** a signed-in customer on web, iOS or Android with an item delivered inside the 30-day return window
+*   **When** the customer starts a return from order history, picks the items and gives a reason
+*   **Then** the return is created without a CS contact
 * * *
 - [] _Mark as done, if the criteria are met_
 
-3\. **Returns outside the self-serve scope stay with CS**
+2 ) **The return label reaches the customer by email**
 * * *
-*   **Given** an item delivered more than `30 days` ago, a pallet item or an item from a guest order
-*   **When** the customer wants to return it
-*   **Then** self-serve return is unavailable
-*   **And** its return goes through CS as it does today
+*   **Given** a return started by a signed-in customer
+*   **When** the return label is issued
+*   **Then** the customer receives the label by email
+* * *
+- [] _Mark as done, if the criteria are met_
+
+3 ) **The order page shows the return status**
+* * *
+*   **Given** a return started on an order
+*   **When** the customer opens that order on web or in the app
+*   **Then** the order page shows the current return status
+* * *
+- [] _Mark as done, if the criteria are met_
+
+4 ) **Refunds follow the warehouse check without a CS contact**
+* * *
+*   **Given** the warehouse has checked the returned items
+*   **When** the check result is recorded
+*   **Then** the customer receives the refund without a CS contact
+* * *
+- [] _Mark as done, if the criteria are met_
+
+5 ) **The Q1 2027 target is met**
+* * *
+*   **Given** returns started on web, iOS and Android during Q1 2027
+*   **When** Q1 2027 closes
+*   **Then** at least 60% of those returns start without a CS contact
 * * *
 - [] _Mark as done, if the criteria are met_
 * * *
 ##   
+
+## Delivery
+* * *
+#### Estimation
+* * *
+*   TBD...
+
+#### External dependencies
+* * *
+*   **App store review** - the iOS and Android stores approve each app release that carries the return flow, and the update reaches most customers about a week after release. Date: TBD...
+
+#### Rabbit holes
+* * *
+*   Whether the €200 per-order CS refund limit applies once a refund no longer goes through a CS agent, and who decides
+*   Each parcel carrier label is charged on creation, even if the parcel never ships, so creation timing sets the cost of abandoned returns
+
+#### No-gos
+* * *
+*   Pallet items stay with CS and get no self-serve return
+* * *

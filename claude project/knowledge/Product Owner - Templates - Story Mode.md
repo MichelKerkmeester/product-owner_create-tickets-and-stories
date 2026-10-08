@@ -10,7 +10,7 @@ Each shape carries its own scaffold and nothing else: the Story Template and the
 
 ### Purpose
 
-Story Mode turns an outcome and its requirements into a narrative artifact in the Barter house format. It stays prose-first. The `## About` umbrella opens the artifact before any structured detail, with scope and value in prose, then `#### Problem` and `#### Solution`. The conventional elements it carries (numbered outcome-led acceptance criteria, and for a Story its hard requirements) sharpen the narrative. They never replace it.
+Story Mode turns an outcome and its requirements into a narrative artifact in the Barter house format. It stays prose-first. A Story opens on `## Problem` and `## Solution` and an Epic on the `## About` umbrella, so prose carries the problem and the value before any structured detail. The conventional elements it carries (numbered outcome-led acceptance criteria, and for a Story its hard requirements) sharpen the narrative. They never replace it.
 
 ### When to Use
 
@@ -96,7 +96,7 @@ strings. What survives is the one exact string the source did give.
 
 ## 2. ARTIFACT-KIND SELECTION
 
-Resolve the shape before drafting. Story and Epic are artifact **kinds**, not size tiers: detail scales with the supplied scope, the section order never changes. They differ in three places: the About sub-sections (Story closes Solution on an `**Expected outcomes**` label, Epic has `#### Goal`), the middle section (Story has `## Requirements`, Epic has `## Scope`) and the altitude of the acceptance criteria (Story verifies screens, Epic states release outcomes). Everything else is shared.
+Resolve the shape before drafting. Story and Epic are artifact **kinds**, not size tiers: detail scales with the supplied scope, the section order never changes. They differ in four places: the opening (Story opens on `## Problem` and `## Solution`, Epic on a `## About` umbrella holding `#### Problem`, `#### Goal` and `#### Solution`), the close of Solution (Story closes it on an `**Expected outcomes**` label, Epic follows it from `#### Goal`), the middle section (Story has `## Requirements`, Epic has `## Scope`) and the altitude of the acceptance criteria (Story verifies screens, Epic states release outcomes). Everything else is shared.
 
 - **Story:** one feature area with a few outcome-led acceptance criteria and hard requirements where the delivery has them. Selected by `$story`, `$s`, `$prd`, `$p`, "write a PRD/story", "write a draft", "draft for PM", or a plain `# {Persona} - {Area} - {Feature}` H1. Carries `**Expected outcomes**` and, only when there are hard constraints to state, `## Requirements`
 - **Epic:** an initiative split across child stories, where requirements live in the children. Selected by `$epic`, `$e`, "write an epic", or an `# Epic - …` H1. Carries `#### Goal` and `## Scope`, keeps acceptance criteria at release level, and has **no** `## Requirements` section by default
@@ -120,20 +120,20 @@ State the chosen artifact kind (Story or Epic) in the delivery response.
 
 These apply to every Story and every Epic:
 
-- Narrative first: the artifact opens with prose (`## About`) that carries scope and value before any structured detail. Prose is never replaced by ticket boilerplate
+- Narrative first: the artifact opens with prose (`## Problem` in a Story, `## About` in an Epic) that carries the problem and the value before any structured detail. Prose is never replaced by ticket boilerplate
 - `#### Solution` is the product decision in prose: what changes for the user and why that shape answers the Problem. It restates neither the constraints in Requirements nor the outcomes in Acceptance criteria, and names no mechanism. Bullets appear only when several distinct changes need telling apart, one line each. In a Story it closes on `**Expected outcomes**`, a bold label with a `* * *` divider under it and its outcome bullets below, never a heading
 - No ticket header fields (no Type/Epic/Priority/Estimate/Status), no story points, no INVEST notes anywhere
 - Requirements hold hard requirements only: the formats, limits, platforms, integrations, compliance rules and performance floors the delivery has to satisfy whatever approach the developer takes. Each group is a bold-lead name, a divider and short `- []` checklist items, one constraint per item, stated as a fact or an instruction. Never a `**Checklist**` label, never build steps, never `[ ]` with a space, never a user outcome dressed as a constraint, and never a description of what a screen says, shows or contains. Every item is a sentence a build can fail: it names a value, a limit, a condition, an effect or a named flow a build could get wrong, and an item that names none of those is description the design already carries, struck rather than reworded. An item naming a presentation shape is a constraint only where the source itself named the alternative it rules out. The section is optional only where there is nothing hard to hold: omit it, spacer included, when the source names no hard constraint and the acceptance criteria say everything. One supplied hard value makes the section mandatory. Optionality is permission to omit an empty section and never permission to drop a value the source supplied, and Quick energy does not change that
-- Acceptance criteria are numbered `1\.` bold-title blocks. Each holds `*   **Given/When/Then/And**` ClickUp bullets and closes with `- [] _Mark as done, if the criteria are met_`. No divider separates a Mark-as-done line from the next criterion, so one blank line is the whole separator. A criterion states what the user can rely on once the work ships and the quality it has to have, from the product's point of view, and leaves the mechanism to the developer: playback starts at once and adapts to the connection, not which player or bitrate ladder does it. Keep them few. One per outcome the story exists to guarantee, plus the edges that matter. The count grows only with the number of surfaces and considerations the story touches, never with its size or the number of requirements. Story criteria verify screen-level behavior, and Epic criteria stay release-level. A supplied hard value belongs in Requirements and not inside a Given/When/Then. A criterion names the outcome the value serves and leaves the value where it is stated once, so a spacing, a heading level, a token or an exact button order never becomes the Then clause. The test is mechanical: a criterion that would have to be edited when a design token changes is a criterion holding a constraint that belongs in Requirements. A criterion names the surface it verifies and does not re-list the flows that share it
+- Acceptance criteria are numbered bold-title blocks, each opening on its number, a space and a closing bracket, as in `1 ) **{Title}**`, never `1.`, `1\.` or `1)`. Each holds `*   **Given/When/Then/And**` ClickUp bullets and closes with `- [] _Mark as done, if the criteria are met_`. One outcome per Then or And line: when a Then line would join two outcomes with "and", the second outcome moves to its own `*   **And**` line, and so does each outcome after it. "The list sorts by rating ascending, and the sort control shows Rating as active" becomes a Then line and an And line. An "and" inside one outcome stays, as in "name and email". No divider separates a Mark-as-done line from the next criterion, so one blank line is the whole separator. A criterion states what the user can rely on once the work ships and the quality it has to have, from the product's point of view, and leaves the mechanism to the developer: playback starts at once and adapts to the connection, not which player or bitrate ladder does it. Keep them few. One per outcome the story exists to guarantee, plus the edges that matter. The count grows only with the number of surfaces and considerations the story touches, never with its size or the number of requirements. Story criteria verify screen-level behavior, and Epic criteria stay release-level. A supplied hard value belongs in Requirements and not inside a Given/When/Then. A criterion names the outcome the value serves and leaves the value where it is stated once, so a spacing, a heading level, a token or an exact button order never becomes the Then clause. The test is mechanical: a criterion that would have to be edited when a design token changes is a criterion holding a constraint that belongs in Requirements. A criterion names the surface it verifies and does not re-list the flows that share it
 - Section close: a `* * *` sits on the line directly above every `##   ` spacer heading and closes the H2 section that spacer ends. This is the one sanctioned divider after a Mark-as-done checkbox, and it is what closes Requirements, Scope and Acceptance criteria before the next H2 opens. An H4 sub-section's `####   ` spacer takes no divider above it. The close belongs to the section rather than to the gap between two sections, so an artifact that ends on Acceptance criteria still writes the `* * *` above its `##   ` spacer and that spacer is the file's last line. Only `## Delivery` closes on a bare `* * *` with no spacer after it, because nothing follows it. A refinement keeps whatever the source document does here
 - Given, When, Then and And repeat verbatim in every criterion. They are fixed labels rather than prose, so the Human Voice synonym-cycling rule requires the repetition instead of penalising it. Never vary them for the sake of variety
 - Bullet items never end with a full stop
 - `## Delivery` is optional and opt-in. Write it only when the requester asks for it, or when the artifact forces it: a requirement carrying an `**Open:**` line, or a constraint outside the team's control that has no date. When it is written it closes the artifact and holds Estimation, Rabbit holes and No-gos, in that order, with unknown values left as `TBD...` rather than an inferred estimate, risk or exclusion. `TBD...` is a fixed house token and carries a named exemption on the Human Voice card, so three of them in one Delivery section is correct output, not three ellipses. When it is not written, `## Acceptance criteria` is the last section and nothing replaces Delivery. A section written unasked and filled with three `TBD...` slots is worse than an absent one, because it reads as a delivery view the team never took
 - What opts it in: a request naming the section or any of its parts (delivery section, estimation, estimate, sizing, how long, rabbit holes, no-gos, out of scope, scope exclusions, external dependencies), a request for the artifact to be sprint-ready or ready for planning, or one of the two content forcings above. Quick energy never opts it in on its own, and never drops it once one of those triggers fired
 - A constraint the team does not control and cannot date (an app-store review, a partner integration, a legal or security sign-off, a contract that has to land first) belongs in an optional fourth Delivery sub-section, `#### External dependencies`, placed directly after Estimation because it qualifies the estimate. It is not a Rabbit hole, which names effort the team could waste, and not a No-go, which names scope the team is choosing to exclude. Name the external party, what it has to do, and what is blocked until it does. Leave its date `TBD...` rather than inventing one, and never convert an undated external constraint into a delivery date
-- ClickUp-native grammar: `* * *` dividers immediately after each content heading, `*   ` unordered bullets for prose and Given/When/Then, `- []` checklists, never `[ ]` with a space, for Story requirement items, the per-criterion Mark-as-done line and the optional Ready and Done gates, `1\.` numbering for acceptance criteria and same-level spacer headings (`##   `, `####   `) between sections
+- ClickUp-native grammar: `* * *` dividers immediately after each content heading, `*   ` unordered bullets for prose and Given/When/Then, `- []` checklists, never `[ ]` with a space, for Story requirement items, the per-criterion Mark-as-done line and the optional Ready and Done gates, `1 )` numbering for acceptance criteria and same-level spacer headings (`##   `, `####   `) between sections
 - Spacer headings stay in a Story or Epic file export. They are part of the Barter house format rather than a paste-time affordance, so a Story and an Epic each keep every spacer the sections they actually carry produce, in the saved `.md` exactly as in ClickUp. This is the opposite of the Doc rule, where a spacer heading is a ClickUp-only affordance that a file export drops
-- Heading depth: H1 is the title only. Major sections (`## About`, `## Requirements` or `## Scope`, `## Acceptance criteria`, `## Delivery`) anchor at H2. The opening group sections sit at H4 (`#### Problem`, `#### Solution`, `#### Goal`), as do scenario groups inside Acceptance criteria (`#### {Group}`), and `#### **References**` sits at H4-bold. `**Expected outcomes**` and `**User Story**` are bold labels with a `* * *` divider under them inside Solution, never headings, because nothing inside an H4 section can be a heading. Requirement names use bold paragraph leads (`**{Requirement name}**`). Gates and spec sub-blocks use H4-bold headings (`#### **Rule**`). Sub-labels inside References are plain paragraph text (`Components`, `Flows`, `Lifecycle`), not bold. Nothing goes deeper than H4
+- Heading depth: H1 is the title only. Major sections (`## Problem` and `## Solution` in a Story, `## About` in an Epic, `## Requirements` or `## Scope`, `## Acceptance criteria`, `## Delivery`) anchor at H2. The Epic's opening group sections sit at H4 (`#### Problem`, `#### Goal`, `#### Solution`), as do scenario groups inside Acceptance criteria (`#### {Group}`), and `#### **References**` sits at H4-bold. `**Expected outcomes**` and `**User Story**` are bold labels with a `* * *` divider under them inside Solution, never headings, because they belong to Solution rather than standing as sections of their own. Requirement names use bold paragraph leads (`**{Requirement name}**`). Gates and spec sub-blocks use H4-bold headings (`#### **Rule**`). Sub-labels inside References are plain paragraph text (`Components`, `Flows`, `Lifecycle`), not bold. Nothing goes deeper than H4
 - Preserve technical identifiers exactly, even when they look misspelled or use local notation (for example `Below 2.500 followers`). Flag oddities in prose instead of normalizing them
 - Exact expressions, thresholds, field names and event names travel in backticks
 - Links appear only when supplied. Never invent a Figma destination or a ClickUp link. Images are embedded in ClickUp after export, so a Story or Epic never carries an image, a screenshot reference or a file path to one
@@ -149,17 +149,11 @@ Worked house titles: `# Creator - Onboarding v2 - Password reset`, `# Creator - 
 
 **When the work spans every persona.** `{Persona or platform}` has a sanctioned value for platform-wide work, so nothing forces a false persona onto a cross-persona Epic. Use `Platform` when the initiative genuinely lands across the whole product, as in `# Epic - Platform - Consent and data retention`. Use the shared surface's own name when the change is bounded to one system that several personas touch, as in `# Epic - Notifications - Delivery rework`. Never stack personas into the segment (`Creator and Brand`), never drop the segment, and never pick one persona because it happens to be affected most. Pick the word a reader would search for.
 
-### The story preamble
+### The opening
 
-Every new **Story** opens with the native ClickUp preamble, verbatim, directly under the title's divider, as plain italic lines rather than a blockquote:
+A **Story** goes straight from the title's `* * *` divider to `## Problem`, with no intro lines above it. Problem states the business problem in three to five sentences, one paragraph: what breaks or is missing today, who it costs and why it matters to the business. It names no solution and links no parent epic in place of the prose. This paragraph is the one exception to the three-sentence paragraph cap. `## Solution` follows as its own H2 section after the `##   ` spacer.
 
-```markdown
-* * *
-_A story is used to define product requirements, acceptance criteria, etc._
-_Use it as the foundation for Tasks that work towards fulfilling the acceptance criteria._
-```
-
-An **Epic** omits this preamble. It goes straight from the title's `* * *` divider to `## About`.
+An **Epic** goes straight from the title's `* * *` divider to `## About`.
 
 ---
 
@@ -177,9 +171,9 @@ Apply the artifact-kind selection above. State the chosen kind in the delivery r
 
 ### Step 3: Draft From the House Shape
 
-- The `## About` umbrella: narrative scope and promise, then the opening group sections in the order the resolved shape's scaffold sets
-- **Story:** `#### Problem`, `#### Solution` closing on the `**Expected outcomes**` label, `#### **References**` (supplied links only), then `## Requirements` only when the delivery has hard constraints to state, each group a bold name, a divider and one constraint per `- []` item. No outcomes there, no build steps, no `**Checklist**` label, no images
-- **Epic:** `#### Problem`, `#### Goal` (with direct benefits), `#### Solution`, `#### **References**` (supplied links only, omitted when none are supplied, never left empty or given an invented link), then `## Scope` with child-story groups and an optional `#### Added Later` group. No `## Requirements`
+- The opening, in the order the resolved shape's scaffold sets
+- **Story:** `## Problem` (three to five sentences on the business problem), `## Solution` closing on the `**Expected outcomes**` label, `#### **References**` (supplied links only), then `## Requirements` only when the delivery has hard constraints to state, each group a bold name, a divider and one constraint per `- []` item. No outcomes there, no build steps, no `**Checklist**` label, no images
+- **Epic:** the `## About` umbrella with `#### Problem`, `#### Goal` (with direct benefits), `#### Solution`, `#### **References**` (supplied links only, omitted when none are supplied, never left empty or given an invented link), then `## Scope` with child-story groups and an optional `#### Added Later` group. No `## Requirements`
 - `## Acceptance criteria`: a few numbered Given/When/Then blocks, each an outcome the user can rely on with the how left open, and a Mark-as-done checkbox that no divider separates from the next criterion, closing with a `* * *` above the section's `##   ` spacer. Story criteria cover the surfaces the story touches (optional `#### {Group}` headers when it spans several). Epic criteria stay release-level
 - `## Delivery`, only when the requester asked for it or an `**Open:**` line or an undated external constraint forced it: Estimation, Rabbit holes, No-gos, in that order, `TBD...` where unknown. Otherwise the artifact ends on Acceptance criteria
 - Optional enrichments from section 6 (per-requirement value line, Rule block, Which-means-that, Definition of Ready/Done, User Story promise block, `← PRIO`) only where they earn their place
@@ -187,8 +181,8 @@ Apply the artifact-kind selection above. State the chosen kind in the delivery r
 ### Step 4: Validate and Export
 
 - Run the quality checklist below and the Human Voice Rules
-- Validate house grammar: the story preamble (Story only), `* * *` dividers after each content heading, `*   ` bullets for prose and Given/When/Then, no bullet item ending with a full stop, `1\.` numbering on acceptance criteria, the Mark-as-done line closing each criterion with no divider between it and the next criterion, a `* * *` section close directly above each `##   ` spacer heading, requirements written as `- []` items with no `**Checklist**` label, every checkbox written `[]`, `## Delivery` present only where it was asked for or forced and closing the artifact when present, and at most one `← PRIO`
-- Validate heading depth: H1 title only, major sections at H2, opening group sections at H4, Expected outcomes a bold label inside Solution, References at H4-bold, requirement names as bold paragraph leads, and scenario groups and gates at H4
+- Validate house grammar: a Story opening on `## Problem` with no intro lines, one outcome per Then or And line, `* * *` dividers after each content heading, `*   ` bullets for prose and Given/When/Then, no bullet item ending with a full stop, `1 )` numbering on acceptance criteria, the Mark-as-done line closing each criterion with no divider between it and the next criterion, a `* * *` section close directly above each `##   ` spacer heading, requirements written as `- []` items with no `**Checklist**` label, every checkbox written `[]`, `## Delivery` present only where it was asked for or forced and closing the artifact when present, and at most one `← PRIO`
+- Validate heading depth: H1 title only, major sections at H2 (a Story's Problem and Solution among them), an Epic's opening group sections at H4, Expected outcomes a bold label inside Solution, References at H4-bold, requirement names as bold paragraph leads, and scenario groups and gates at H4
 - Confirm every Story acceptance criterion traces back to a requirement and covers the normal path, the edges that matter and the guarantee the story keeps. Confirm every Epic criterion stays release-level
 - Reconcile the Step 1 value list against the draft: every supplied hard value appears in `## Requirements` with its value, units and notation intact, grouped as the source grouped it, each shared screen's reuse map naming the flows the source names
 - Confirm no supplied hard value survives only inside an acceptance criterion, and no criterion states a value that Requirements should hold
@@ -217,7 +211,7 @@ Add these only when the artifact earns them. None is required. Most stories use 
 
 ### 6.1 User Story promise block (optional)
 
-The Connextra promise for the whole feature, added under `#### Solution` only when several capabilities need explicit promise lines. The About narrative normally carries the promise already.
+The Connextra promise for the whole feature, added under `#### Solution` only when several capabilities need explicit promise lines. The Problem and Solution prose normally carries the promise already.
 
 ```markdown
 **User Story**
@@ -229,7 +223,7 @@ As a {end-user or team role}:
 
 ### 6.2 Per-requirement value line (optional)
 
-A Connextra value line under a requirement name, when the requirement's own "why" is not obvious from the About promise.
+A Connextra value line under a requirement name, when the requirement's own "why" is not obvious from the Solution.
 
 ```markdown
 **{Requirement name}**
@@ -263,7 +257,7 @@ Which means that:
 
 ### 6.5 Definition of Ready (optional)
 
-A readiness gate placed after `## About` or just before `## Requirements`. It never becomes the closing section: `## Delivery` closes the artifact where it is present, and Acceptance criteria closes it where Delivery is absent. Boxes reflect honest state. An unchecked sizing box means the work is not sprint-ready.
+A readiness gate placed after the opening (`## Solution` in a Story, `## About` in an Epic) or just before `## Requirements`. It never becomes the closing section: `## Delivery` closes the artifact where it is present, and Acceptance criteria closes it where Delivery is absent. Boxes reflect honest state. An unchecked sizing box means the work is not sprint-ready.
 
 ```markdown
 #### **Definition of Ready**
@@ -325,8 +319,6 @@ The fourth Delivery sub-section, for a constraint the team does not control and 
 ```markdown
 #### External dependencies
 * * *
-Constraints outside the team's control that gate delivery, with no date the team can set.
-
 *   **{External party}** - {what they have to do}, {what stays blocked until they do}. Date: TBD...
 ```
 
@@ -381,7 +373,7 @@ Its export-equivalent paths name one folder under one number:
 - `n` in `[###].[n]` counts from 1 in the Story's task order. A Story with one task is still a bundle, with `[###].1` alone
 - A split the request names is authoritative, one task per named part. With none named, the one consolidated Story question asks for it, and nothing is drafted until the user answers. Quick energy may skip routine intake, and it still renders the whole bundle
 - A clarification asked first keeps the Story lane, labelled `[###] - Story-[description]-clarification.md` outside the folder. The folder takes the next number, and the clarification block is left as it stands
-- The Story lists its tasks in a `#### **Tasks**` block inside `## About`, after `#### **References**`, one bullet per task in `n` order, each linking the sibling task file by its export-equivalent name. It never uses `## Scope` for this, because `## Scope` marks the Epic kind
+- The Story lists its tasks in a `#### **Tasks**` block inside `## Solution`, after `#### **References**`, one bullet per task in `n` order, each linking the sibling task file by its export-equivalent name. It never uses `## Scope` for this, because `## Scope` marks the Epic kind
 - Each task follows the Canonical Task template in Assets - Task Templates, consulted beside the one Story scaffold, so the one-scaffold rule still governs the Story. Each task names its Story in a `**Story**` block between `**Epic**` and `**Parent task**`, and carries no `**Parent task**` block for it, because a Story is not a task
 
 ```markdown
@@ -415,10 +407,10 @@ Consult at most one worked example per request.
 ## 9. QUALITY CHECKLIST
 
 - [ ] Artifact kind resolved (Story or Epic) and named in the response?
-- [ ] Narrative present: the `## About` umbrella (scope and promise in prose, then Problem and Solution) opens the artifact before any structured detail, and Solution reads as a decision rather than a preview of Requirements or the criteria?
-- [ ] Story: `#### Problem` and `#### Solution` present, Solution closing on the `**Expected outcomes**` label, and `## Requirements`, if present, holds only hard constraints as `- []` items with no outcomes, no screen description, no `**Checklist**` label and no images?
+- [ ] Narrative present: the opening prose (a Story's `## Problem` and `## Solution`, an Epic's `## About` umbrella) comes before any structured detail, and Solution reads as a decision rather than a preview of Requirements or the criteria?
+- [ ] Story: no intro lines, `## Problem` in three to five sentences on the business problem and `## Solution` present, Solution closing on the `**Expected outcomes**` label, and `## Requirements`, if present, holds only hard constraints as `- []` items with no outcomes, no screen description, no `**Checklist**` label and no images?
 - [ ] Epic: `#### Problem`, `#### Goal`, `#### Solution` and `## Scope` present and no `## Requirements` unless the source needs it?
-- [ ] Acceptance criteria numbered `1\.`, few, each an outcome the user can rely on with the how left to the developer, closed with a Mark-as-done checkbox that no divider separates from the next criterion?
+- [ ] Acceptance criteria numbered `1 )`, few, each an outcome the user can rely on with the how left to the developer, one outcome per Then or And line, closed with a Mark-as-done checkbox that no divider separates from the next criterion?
 - [ ] Each H2 section closed with a `* * *` directly above its `##   ` spacer heading, and every spacer heading retained in the export?
 - [ ] An Epic Scope with no child-story links yet names each intended child story as plain text instead of inventing a URL or dropping it?
 - [ ] A cross-persona Epic H1 uses `Platform` or the shared surface's own name rather than a stacked or arbitrarily chosen persona?
@@ -431,7 +423,7 @@ Consult at most one worked example per request.
 - [ ] Every hard value the source supplied appears in `## Requirements` with its value, units and notation intact, including any change stated above the first heading or outside every screen section?
 - [ ] No hedge, opener or filler phrase from the source survives in the artifact's prose, so the Human Voice gate passes on a Story written from hedged notes?
 - [ ] Requirements mirrors the source's own screen or surface grouping, one bold-lead group per screen under the source's own name, where the source is organised that way?
-- [ ] Each shared screen's reuse map names the flows the source names, as a constraint in that screen's group rather than as prose in About?
+- [ ] Each shared screen's reuse map names the flows the source names, as a constraint in that screen's group rather than as prose in Problem or Solution?
 - [ ] No supplied hard value sits only inside an acceptance criterion, and no criterion would need editing if a design token changed?
 - [ ] Optional enrichments present only where they earn their place?
 - [ ] No ticket fields, points or INVEST anywhere?

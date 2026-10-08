@@ -21,19 +21,13 @@
 * * *
 #### Estimation
 * * *
-The delivery budget or expected size for the approved scope.
-
 *   TBD...
 
 #### Rabbit holes
 * * *
-Areas that could waste effort, create ambiguity or distract from the intended outcome.
-
 *   TBD...
 
 #### No-gos
 * * *
-Explicit scope exclusions and behaviors the delivery team must not introduce.
-
 *   TBD...
 * * *
