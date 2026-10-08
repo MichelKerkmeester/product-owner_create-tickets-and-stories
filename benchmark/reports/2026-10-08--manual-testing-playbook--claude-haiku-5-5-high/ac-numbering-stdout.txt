@@ -1,0 +1,4 @@
+{"id": "PEP-003", "side": "project", "status": "ok", "attempts": 1, "turns_run": 1, "turns_declared": 1}
+{"id": "PST-001", "side": "project", "status": "ok", "attempts": 1, "turns_run": 2, "turns_declared": 2}
+{"id": "SEP-003", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 1, "turns_declared": 1}
+{"id": "SST-001", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 2, "turns_declared": 2}

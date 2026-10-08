@@ -1,71 +1,72 @@
 # Guest - Search - Free cancellation filter
 
 * * *
-_A story is used to define product requirements, acceptance criteria, etc._
-_Use it as the foundation for Tasks that work towards fulfilling the acceptance criteria._
-
-## About
+## Problem
 * * *
-A Free cancellation filter for search in the Guest app on iOS, Android and web shows only stays the guest can still cancel for free, with that rate's price and deadline.
-
-#### Problem
+Guests ask "Can I cancel this for free?" more than any other question in Guest Support chats before a booking, about one in six of those chats in August. Free cancellation rate plans were 44% of August bookings, yet guests can only find them by opening each property page one at a time. Guest Support answers the question chat by chat, and search does not show the answer at all.
 * * *
-"Can I cancel this for free?" is the top pre-booking Guest Support question, about one in six chats in August. 44% of August bookings used a free cancellation rate plan, yet guests find these rates only on each property page.
+##   
 
-#### Solution
+## Solution
 * * *
-Guests get the answer on the results list, because that is where they compare stays.
+The search filter sheet gets one new switch, Free cancellation, below Price and Star rating. With it on, a guest sees only stays that have a rate plan still free to cancel for their dates, guests and rooms, and each result shows that plan's price and deadline. The switch holds while the guest adjusts the search or looks at a property, and it clears when they start a new search.
 
 **Expected outcomes**
 * * *
-*   Guests find free cancellation stays from results
-*   Fewer pre-booking Guest Support chats ask about it
-*   The card deadline matches the confirmation email
+*   Guests find stays with free cancellation from the search results, without opening each property page
+*   Guests see the free cancellation deadline on each result while the filter is on
 * * *
 ##   
 
 ## Requirements
 * * *
-**Free cancellation filter**
+**Filter sheet**
 * * *
-- [] `Free cancellation` is one on and off switch in the filter sheet, below `Price` and `Star rating`
-- [] With it on, only stays with an unexpired free cancellation rate plan for the searched dates, guests and rooms show
-- [] Cards then price the cheapest free cancellation rate plan, even if a non-refundable rate is cheaper
-- [] The header shows the filtered count
-- [] Test search: Lisbon, `4 nights`, `2 adults` goes from `1,146` stays to `312`
-- [] It stays on through date or guest changes, or a property visit and back
-- [] A new home screen search turns it off
+- [] A `Free cancellation` on and off switch in the search filter sheet, below Price and Star rating
+
+**Results**
+* * *
+- [] With the filter on, a stay shows only if at least one rate plan for the searched dates, guests and rooms has free cancellation and its deadline has not passed
+- [] With the filter on, the price on each result card is the cheapest free cancellation rate plan, even when a non-refundable rate is cheaper
+- [] With the filter on, the results header shows the matching count, so the Lisbon test search for 4 nights and 2 adults shows `312` stays against `1,146` with the filter off
 
 **Result card badge**
 * * *
-- [] With the filter on, cards show their rate plan's deadline, as `Free cancellation until 14 Oct`
-- [] The deadline is check-in minus the partner's cancellation window, so `14 days` means 14 days before
-- [] The deadline uses the property's local date, not the device's
-- [] The date uses `d MMM` in the guest's locale, no year
-- [] With the filter off, cards stay as today
+- [] With the filter on, every result card shows `Free cancellation until {date}` for the rate plan whose price is on the card, for example `Free cancellation until 14 Oct`
+- [] The deadline is the check-in date minus the partner's cancellation window, so a partner allowing free cancellation up to 14 days before check-in gives a deadline 14 days before check-in
+- [] The date uses the `d MMM` pattern in the guest's locale, with no year
+- [] The date is the property's local date and is not converted to the guest's time zone
+- [] With the filter off, result cards stay as they are today
 
 **Empty state**
 * * *
-- [] With no match, the list shows `No stays with free cancellation for these dates` and one button, `Clear filter`
-- [] `Clear filter` switches the filter off and reruns the search
+- [] When no stay matches, the results list shows `No stays with free cancellation for these dates`
+- [] The empty state has one button, `Clear filter`
+- [] `Clear filter` switches the filter off and reruns the same search
+
+**Filter state**
+* * *
+- [] The filter stays on while the guest changes dates or guests in the same search
+- [] The filter stays on when the guest opens a property and goes back to the results
+- [] The filter turns off when the guest starts a new search from the home screen
 
 **Tracking**
 * * *
-- [] No new event is added
-- [] Turning the filter on fires the existing `filter_applied` with `filter_name` set to `free_cancellation`
-- [] The tracking plan does not change, as Nadia confirmed on `2026-09-17`
+- [] Turning the filter on fires the existing `filter_applied` event with `filter_name` set to `free_cancellation`
+- [] No new analytics event is added
 
 **Release**
 * * *
-- [] iOS and Android ship in `8.13.0`, and web the same week
-- [] `search-service` ships first, so no app shows an unsupported filter
+- [] iOS and Android ship in `8.13.0`
+- [] Web ships in the same week as the apps
+- [] `search-service` ships first, so no app shows a filter the service cannot apply
 
-**Not in this release**
+**Out of this release**
 * * *
-- [] The map view is unchanged, its pins showing every stay
-- [] No sorting by cancellation deadline
-- [] Partner Hub is unchanged, because partners already set free cancellation per rate plan
-- [] No badge on the property page, because it already lists each rate plan's policy
+- [] The map view keeps showing every stay as a pin
+- [] Sorting by cancellation deadline is not added
+- [] Partner Hub does not change, and partners keep setting free cancellation per rate plan
+- [] The property page does not get a free cancellation badge
 * * *
 ##   
 
@@ -73,55 +74,64 @@ Guests get the answer on the results list, because that is where they compare st
 * * *
 All acceptance criteria below must be met, or discuss and rescope any that cannot be met.
 
-1\. **With the filter on, results show only stays the guest can still cancel for free**
+1 ) **Filter narrows results to stays with free cancellation**
 * * *
-*   **Given** a guest has searched
-*   **When** they turn the filter on
-*   **Then** list and count show only stays with an unexpired free cancellation rate for the searched dates, guests and rooms
-*   **And** each card shows the free cancellation price, even when a non-refundable rate is cheaper
+*   **Given** the guest has searched for a stay with the filter off
+*   **When** they turn the free cancellation filter on
+*   **Then** the results show only stays with a rate plan that is free to cancel for their dates, guests and rooms
+*   **And** the results header shows the matching count
 * * *
 - [] _Mark as done, if the criteria are met_
 
-2\. **The card shows a deadline the guest can trust**
+2 ) **Price and deadline come from the cheapest free cancellation rate**
+* * *
+*   **Given** a stay has a non-refundable rate that is cheaper than its free cancellation rate
+*   **When** the guest has the filter on
+*   **Then** the result card shows the price of the cheapest free cancellation rate
+*   **And** the card shows the deadline of that rate plan
+* * *
+- [] _Mark as done, if the criteria are met_
+
+3 ) **Deadline date matches the property's local date**
+* * *
+*   **Given** the guest is in a different time zone from the property
+*   **When** they view a result with the filter on
+*   **Then** the deadline date is the property's local date
+*   **And** the date reads in the guest's locale without a year
+* * *
+- [] _Mark as done, if the criteria are met_
+
+4 ) **Filter holds through date changes and a property visit**
+* * *
+*   **Given** the filter is on in a search
+*   **When** the guest changes dates or guests, or opens a property and goes back to the results
+*   **Then** the filter stays on
+* * *
+- [] _Mark as done, if the criteria are met_
+
+5 ) **Filter resets on a new search**
 * * *
 *   **Given** the filter is on
-*   **When** the guest reads a card
-*   **Then** it shows its rate plan's deadline in property-local date and the guest's language
-*   **And** after booking that rate plan, the confirmation email shows the same date
+*   **When** the guest starts a new search from the home screen
+*   **Then** the filter is off
 * * *
 - [] _Mark as done, if the criteria are met_
 
-3\. **With the filter off, results stay as they are today**
+6 ) **Empty state offers a way out**
 * * *
-*   **Given** the filter is off
-*   **When** the guest views results
-*   **Then** stays, prices and cards are unchanged
-* * *
-- [] _Mark as done, if the criteria are met_
-
-4\. **The filter stays on for the rest of the same search**
-* * *
-*   **Given** the filter is on
-*   **When** the guest changes dates or guests, or opens a property and returns
-*   **Then** the filter stays on and applied
-*   **And** a new search from the home screen starts with it off
+*   **Given** no stay matches the searched dates, guests and rooms with the filter on
+*   **When** the results list loads
+*   **Then** the results list explains that no stay has free cancellation for these dates
+*   **And** the guest can clear the filter with one action
+*   **And** clearing the filter reruns the same search
 * * *
 - [] _Mark as done, if the criteria are met_
 
-5\. **A search with no matching stays still gives the guest a way forward**
+7 ) **Turning the filter on is tracked**
 * * *
-*   **Given** the filter is on and no stay matches
-*   **When** results load
-*   **Then** the empty state offers one action to clear the filter
-*   **And** it switches the filter off and shows the full results
-* * *
-- [] _Mark as done, if the criteria are met_
-
-6\. **Turning the filter on is recorded in analytics**
-* * *
-*   **Given** a guest on any platform
-*   **When** they turn the filter on
-*   **Then** the existing filter event records it for this filter, with no new event
+*   **Given** the filter is off on the results list
+*   **When** the guest turns the filter on
+*   **Then** the existing filter event fires with free cancellation as the filter name
 * * *
 - [] _Mark as done, if the criteria are met_
 * * *

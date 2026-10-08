@@ -4,33 +4,29 @@
 
 ---
 
-Members scan the full To-dos list for today's work, because Overdue covers only earlier dates. This task adds a fourth chip, Due today, on Web only, which Desktop gets on its next web client load with no Desktop release, and iOS and Android follow in their own tasks.
+The To-dos view on Web gets a Due today chip directly after Overdue. The chip shows the to-dos a member has not checked off whose due date is today in the to-do owner's time zone. It reuses the existing chip component and follows the same single active chip behavior and due date sort as the other chips.
 
-"Today" is the date in the to-do owner's time zone, as for Overdue, so a to-do is never in both lists and moves to Overdue at the owner's midnight if unchecked.
+A member can see today's open to-dos with one click, without scanning the full list. Desktop gets the chip through the web client, so Desktop needs no separate change. iOS and Android follow later.
 
 ### Requirements
 
 ---
 
-1.  **Due today chip**
+1.  **Chip and filter**
 
 ---
 
-There is no Figma file for this change.
+The Due today chip sits in the existing row of filter chips, after Overdue. It reuses the existing chip component, and no Figma reference applies. The list under the chip uses the same rules as the other chips, including the owner's time zone.
 
 **Checklist**
 
-- [] Chip order: All, Assigned to me, Overdue, Due today
-- [] It uses the existing filter chip component unchanged
-- [] It shows every unchecked to-do the member can open that is due today in the owner's time zone
-- [] Checked-off, undated and other-day to-dos stay out
-- [] Results sort by due date, as under the other chips
-- [] One chip is active at a time, so picking any chip turns off the previous one
-- [] All stays the default when the To-dos view opens
-- [] With nothing due, the list stays empty without switching to All
-- [] The label has a string in all six shipped locales, with en-US as fallback
-
-> For a to-do owned in another time zone, Due today uses the owner's today, so its date can look like tomorrow or yesterday to the viewer. The date shows in the owner's zone, with the zone shown when it differs.
+- [] The Due today chip sits directly after the Overdue chip
+- [] The chip reuses the existing chip component
+- [] Only one chip is active at a time, as it is for All, Assigned to me and Overdue
+- [] The All chip stays the default active chip
+- [] The list under the chip shows to-dos not checked off whose due date is today in the to-do owner's time zone
+- [] The list under the chip sorts by due date, as the other chips do
+- [] To-dos with no due date and checked-off to-dos do not appear under the chip
 
 ---
 
@@ -38,10 +34,11 @@ There is no Figma file for this change.
 
 ---
 
-Yara has added `due_today` to the tracking plan, so client work needs no further Data review.
+Picking the chip sends the existing filter event with the new filter value. The Data team has already added the value to the tracking plan, so no new event is needed.
 
 **Checklist**
 
-- [] Picking Due today sends `filter_selected` with `filter` set to `due_today`
-- [] It carries `workspace_id`, `user_id`, `platform`, `app_version` and `plan`, like other `filter_selected` events
-- [] `all`, `assigned_to_me` and `overdue` keep sending as today
+- [] Picking the Due today chip sends `filter_selected` with `filter` set to `due_today`
+- [] The other chips keep sending their current `filter` values
+
+> Desktop receives the chip through the web client, so no Desktop change is in scope. iOS and Android are out of scope and follow later. No other feature depends on this chip.

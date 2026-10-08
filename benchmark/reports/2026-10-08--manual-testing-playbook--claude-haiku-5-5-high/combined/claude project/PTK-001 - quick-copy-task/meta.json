@@ -1,0 +1,67 @@
+{
+ "id": "PTK-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/quick-copy-task.md",
+ "twin": "STK-001",
+ "engine": "claude",
+ "model": "claude-haiku-5-5",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "attachments": [
+  {
+   "basename": "fernhouse-context.md",
+   "source": "AI Systems/Product Owner/benchmark/fixtures/companies/fernhouse/fernhouse-context.md",
+   "sha256": "7c4d03b67d4d47ea89e99dbee797cdfa052e45f359705e7708843d67e6303ec0"
+  }
+ ],
+ "session_id": "3c3f5b1b-a3d7-4035-a46a-82e668f60d5b",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 43.95,
+   "tool_calls": 6,
+   "tools_used": [
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 114147,
+   "output_tokens": 9115,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.01090209,
+   "model_s": 43.15,
+   "startup_s": 0.5,
+   "stop_reason": "success",
+   "response_models": [
+    "claude-haiku-5-5"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$quick $task Change the free-shipping banner to \"Free shipping over €50\" and \"Free shipping over £45\", the current copy in context/fernhouse-context.md wraps to two lines on small phones."
+  }
+ ]
+}

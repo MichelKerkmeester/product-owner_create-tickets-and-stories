@@ -4,7 +4,7 @@ description: "Instantiates the house PRD shape as an Epic: an About umbrella wit
 contextType: general
 importance_tier: normal
 trigger_phrases: ["epic story example", "worked story example"]
-version: 0.17.0.6
+version: 0.17.0.7
 ---
 
 # Epic - Gatherwell - Event Check-in v2
@@ -95,16 +95,17 @@ These capabilities belong to the epic but do not block the first release. Design
 These are release-level outcomes.
 Each child story carries the detailed criteria for its own screens and states.
 
-1\. **Every valid attendee is admitted, and admitted only once**
+1 ) **Every valid attendee is admitted, and admitted only once**
 * * *
 *   **Given** a ticket presented at the door of a live event
 *   **When** a staff member scans it
-*   **Then** a valid ticket admits the attendee in one tap, and a reused, refunded or unrecognized one is refused with the reason named
+*   **Then** a valid ticket admits the attendee in one tap
+*   **And** a reused, refunded or unrecognized one is refused with the reason named
 *   **And** no ticket ever produces a second admission, on that device or any other
 * * *
 - [] _Mark as done, if the criteria are met_
 
-2\. **Staff can still admit an attendee when the scan fails**
+2 ) **Staff can still admit an attendee when the scan fails**
 * * *
 *   **Given** a ticket that cannot be read at the door
 *   **When** a staff member looks the attendee up by name or email
@@ -113,16 +114,17 @@ Each child story carries the detailed criteria for its own screens and states.
 * * *
 - [] _Mark as done, if the criteria are met_
 
-3\. **The queue keeps moving when the venue loses connectivity**
+3 ) **The queue keeps moving when the venue loses connectivity**
 * * *
 *   **Given** a door device that has gone offline mid-event
 *   **When** staff carry on admitting attendees
-*   **Then** admissions continue at the same speed and none is lost when connectivity returns
+*   **Then** admissions continue at the same speed
+*   **And** none is lost when connectivity returns
 *   **And** a ticket admitted offline on one device cannot be admitted again on another
 * * *
 - [] _Mark as done, if the criteria are met_
 
-4\. **Organizers see one headcount they can trust**
+4 ) **Organizers see one headcount they can trust**
 * * *
 *   **Given** several door devices admitting attendees to the same event
 *   **When** their check-ins have synced
@@ -137,19 +139,13 @@ Each child story carries the detailed criteria for its own screens and states.
 * * *
 #### Estimation
 * * *
-The delivery budget or expected size for the approved scope.
-
 *   Roughly one six-week cycle for two engineers and one designer: door scan and manual lookup in the first half, offline capture and reconciliation in the second
 
 #### Rabbit holes
 * * *
-Areas that could waste effort, create ambiguity or distract from the intended outcome.
-
 *   Barcode symbology: support `QR` and `Code 128` only, and do not build a general-purpose scanner that tries to guess unknown formats
 
 #### No-gos
 * * *
-Explicit scope exclusions and behaviors the delivery team must not introduce.
-
 *   No attendee self-service kiosk in this epic: every admission goes through a staffed door device
 * * *

@@ -197,6 +197,12 @@ check "length caps: lines at the caps, code, tables, quotes and Given/When/Then 
   "${FIXTURES}/length-caps-silent.md"
 check "length caps: a References block inside About is not counted as its opening" 0 "validation passed" "About opening" \
   "${FIXTURES}/length-caps-silent.md"
+check "length caps: a six-sentence Problem warns over its five-sentence cap" 0 "length-caps-violation.md:28: paragraph holds 6 sentences, over the five-sentence Problem cap" "" \
+  "${FIXTURES}/length-caps-violation.md"
+check "length caps: a Then line joining a second outcome with a comma and warns" 0 "length-caps-violation.md:32: a Then or And line joins a second outcome" "" \
+  "${FIXTURES}/length-caps-violation.md"
+check "length caps: a four-sentence Problem and a noun pair joined by and stay silent" 0 "validation passed" "joins a second outcome" \
+  "${FIXTURES}/length-caps-silent.md"
 
 # ───────────────────────────────────────────────────────────────
 # 4. RESULT

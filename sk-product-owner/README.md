@@ -9,7 +9,7 @@ trigger_phrases:
   - "$prd"
   - "$story"
   - "$epic"
-version: 1.0.0.0
+version: 1.1.0.0
 ---
 
 # sk-product-owner
@@ -225,7 +225,7 @@ Product requirements documents (PRDs) developers cut tickets from, produced in t
 
 | Kind | Shape |
 |---|---|
-| Story | `$story` `$s` `$prd` `$p`. One feature area: an About umbrella, Requirements only when there are hard constraints to state (no outcomes, no build steps), a few outcome-led acceptance criteria, and a `## Delivery` close only where the requester asked for it or the artifact forced it |
+| Story | `$story` `$s` `$prd` `$p`. One feature area: a Problem of three to five sentences and a Solution, Requirements only when there are hard constraints to state (no outcomes, no build steps), a few outcome-led acceptance criteria, and a `## Delivery` close only where the requester asked for it or the artifact forced it |
 | Epic | `$epic` `$e`. An initiative split across child stories: an About carrying a Goal, a `## Scope` of child stories, release-level acceptance criteria, and the same opt-in Delivery close, with no Requirements of its own |
 
 Both kinds share one markdown grammar, which lives once in `references/story-mode.md` rather than being copied into each scaffold, and each kind carries its own scaffold that a request loads on its own. A Story's `## Requirements` names each requirement as a bold paragraph lead followed by short `- []` constraint items holding only the hard requirements the delivery has to satisfy, with every hard value the source supplied carried across verbatim in its own units and notation; it never carries a `**Checklist**` label or build steps, because the verifiable detail lives in the acceptance criteria and the child tasks the story feeds. An Epic swaps that whole section for a `## Scope` listing its child stories, and swaps the Expected outcomes label that closes a Story's Solution for a `#### Goal` section. Problem, Goal and Solution sit at H4 in both kinds. Everything else is shared.
@@ -237,7 +237,7 @@ Both kinds carry numbered Given/When/Then acceptance criteria in exact ClickUp f
 ```markdown
 ## Acceptance criteria
 * * *
-1\. **Subscriber narrows to one component**
+1 ) **Subscriber narrows to one component**
 * * *
 *   **Given** a subscriber opened the token-authenticated preferences page
 *   **When** they deselect every component except `api`
