@@ -12,7 +12,7 @@ This scenario refines Priya's rough save card draft into the house Story shape a
 
 ## 1. OVERVIEW
 
-The Checkout PM sends `$s` with a draft that is deliberately rough: a `PRD -` title, a `**Checklist**` of build steps under Requirements, a `TBD...` line for the declined card copy and no acceptance criteria. Turn 1 gives explicit leave to restructure, which is what lets a refinement normalize a source (`Product Owner - Templates - Story Mode` line 210). The Project should ask its one Story question and wait. After Turn 2 supplies the declined card copy and a rule for the CVC limits, it renders the refined Story labelled with the draft's own file name, with a plain H1, the checklist's content carried as `- []` constraint items under bold-lead groups, an `## Acceptance criteria` section and every value the draft and the turns supplied.
+The Checkout PM sends `$s` with a draft that is deliberately rough: a `PRD -` title, a `**Checklist**` of build steps under Requirements, a `TBD...` line for the declined card copy and no acceptance criteria. Turn 1 gives explicit leave to restructure, which is what lets a refinement normalize a source (`Product Owner - Templates - Story Mode` line 204). The Project should ask its one Story question and wait. After Turn 2 supplies the declined card copy and a rule for the CVC limits, it renders the refined Story labelled with the draft's own file name, with a plain H1, the checklist's content carried as `- []` constraint items under bold-lead groups, an `## Acceptance criteria` section and every value the draft and the turns supplied.
 
 ### Why this matters
 

@@ -473,7 +473,7 @@ New Docs use ClickUp's grammar. This is the opening of the Guide scaffold in `as
 
 Story and Epic are two separate artifacts, not size tiers. Detail grows with scope while the section order stays fixed.
 
-- A Story opens with `# {Persona} - {Area} - {Feature}` and an About of `#### Problem`, `#### Solution` closing on a bold Expected outcomes label, and References. Its `## Requirements` holds hard constraints only and is left out when there are none. Its acceptance criteria work at screen level
+- A Story opens with `# {Persona} - {Area} - {Feature}` then `## Problem` in three to five sentences on the business problem and `## Solution` closing on a bold Expected outcomes label, and References. Its `## Requirements` holds hard constraints only and is left out when there are none. Its acceptance criteria work at screen level
 - An Epic opens with `# Epic - {Persona} - {Area}` and an About of `#### Problem`, `#### Goal` and `#### Solution`, with References only when a link is supplied. A `## Scope` of child stories, with an optional Added Later group, takes the place of Requirements. Its acceptance criteria work at release level
 
 The Requirements section of a real Story from the 2026-09-18 run's `SST-001` scenario, its items shown in the current `- []` form:
@@ -496,7 +496,7 @@ The run did not keep the Story file itself. [The scenario's reply](benchmark/rep
 - Every hard value the source supplied lands in Requirements verbatim, in backticks and in the source's own units. `32px` never becomes "updated spacing" and `Link Instagram` never becomes "updated copy"
 - A supplied value stays out of the acceptance criteria, which describe outcomes and leave the mechanism to the developer
 - Requirements hold constraints a build can fail. Each is a `- []` item holding one constraint. An item that only describes what a screen shows is struck, and a `**Checklist**` label or a plain `*   ` bullet never appears there
-- Each criterion is a numbered `1\.` block closed by its Mark-as-done checkbox, with no divider before the next one. The `* * *` above the `##   ` spacer closes the section
+- Each criterion is a numbered `1 )` block closed by its Mark-as-done checkbox, with no divider before the next one. The `* * *` above the `##   ` spacer closes the section
 - `## Delivery` (Estimation, Rabbit holes, No-gos) is added only on request or when an `**Open:**` line or an undated external constraint forces it
 - No ticket header fields, story points or INVEST notes appear. The reply names the kind: Story or Epic
 
@@ -645,7 +645,7 @@ A route loads its template together with its mode reference. A worked example lo
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem and never loads `SKILL.md`.
 
-- `Custom Instructions.md` is the kernel, v1.0.0, aligned to skill v1.0.0.0. It carries the full router and rules and is the routing authority inside the Project
+- `Custom Instructions.md` is the kernel, v1.1.0, aligned to skill v1.1.0.0. It carries the full router and rules and is the routing authority inside the Project
 - `knowledge/` holds 37 files: 16 core documents (five mode references, six templates, four shared rule files and quality scoring) and the 21 worked examples
 - `README.md` holds the upload steps, the source-to-mirror map and the smoke matrix
 - `kernel-review.json` is a dated record of one kernel review, read by no tool
@@ -752,7 +752,7 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
 │   ├── reports/                     two captured playbook runs
 │   └── router/                      route_contract.py, 117 fixtures and the differential
 ├── claude project/
-│   ├── Custom Instructions.md       claude.ai kernel v1.0.0
+│   ├── Custom Instructions.md       claude.ai kernel v1.1.0
 │   ├── README.md                    upload steps, mirror map and smoke matrix
 │   ├── kernel-review.json           dated record of one kernel review
 │   └── knowledge/                   37 knowledge files
@@ -767,7 +767,7 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
     ├── leaf-aliases.json            generated identity map of those docs
     ├── assets/                      six templates
     │   └── examples/                21 worked artifacts in task/, bug/, doc/ and story/
-    ├── changelog/                   26 release notes, v0.1.0.0 to v1.0.0.0
+    ├── changelog/                   27 release notes, v0.1.0.0 to v1.1.0.0
     ├── manual-testing-playbook/     14 two-turn scenarios in 10 category folders
     └── references/                  11 rule files, loaded always, per route or on demand
 ```

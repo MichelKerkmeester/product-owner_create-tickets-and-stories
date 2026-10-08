@@ -3,74 +3,46 @@
 * * *
 ## About
 * * *
-Offline mode lets members on iOS, Android or Desktop work on pages without a connection, syncing on reconnect. It covers every plan, Free included, targeting Q1 2027 for all four areas of Oskar's brief on all three platforms.
+Offline mode lets a member on iOS, Android or Desktop open, read, edit and create pages without a connection, on any plan, Free included. It splits into four child stories, one per area in the offline brief.
 
 #### Problem
 * * *
-Loomlist needs a connection for everything past the page on screen, and an offline edit is retried until the app closes, then lost.
+Between June and August, 23% of iOS and Android sessions started without a connection or lost it within the first minute. Of the Plus workspaces that gave a cancellation reason between April and August, 31% named offline access.
 
 **The following issues rise from that:**
-*   From June to August, 23% of iOS and Android sessions started offline or lost the connection within the first minute
-*   From April to August, 31% of Plus workspaces giving a cancellation reason named offline access
-*   Some `lost-edit` tickets in #sync-eng start with an edit after the connection dropped
-*   sync-service resolves overlaps with block-level last-writer-wins on protocol v3, so a phone offline for a day can overwrite a teammate's morning
+*   Pages other than the one on screen do not open without a connection
+*   Edits made without a connection are retried until the app closes, then lost
+*   Some lost-edit tickets raised by Support start with a dropped connection
 ####   
 
 #### Goal
 * * *
-A member on iOS, Android or Desktop can open, read, edit and create pages offline, and others see the changes once the device reconnects.
+A member on iOS, Android or Desktop can open, read, edit and create pages without a connection on any plan, and everyone else sees their changes once the device is back online.
 
-**Direct user/Loomlist benefits:**
-*   Members keep working on recent pages when the connection drops or never arrives
-*   An offline edit stays on the device until it syncs
-
-**We will know it works when:**
-*   The share of mobile sessions hitting the no-connection screen halves within 8 weeks of release
-*   `lost-edit` tickets starting with a dropped connection stop
+**Direct user/Barter benefits:**
+*   Members keep working on iOS, Android and Desktop when the connection drops
+*   Edits made without a connection upload when the connection returns, instead of being lost
+*   The share of mobile sessions that hit the no-connection screen drops by half within 8 weeks of release
 ####   
 
 #### Solution
 * * *
-In order to get there, we will:
-*   Keep a member's most recently opened pages on the device for offline reading
-*   Let members edit, check off to-dos and create pages and to-dos offline
-*   Keep sharing, inviting, moving a page to another workspace and deleting a page online only
-*   Upload offline changes in order once the connection returns
-*   Show offline status, changes waiting to sync and the space offline data takes
+Because only the open page works without a connection today, the device keeps the most recently opened pages, bounded by 500 pages and 1 GB, whichever limit comes first. Members can lower that limit and clear offline data from a storage screen in settings.
 
-Web is out because a browser tab cannot be relied on to keep a local copy.
+Members edit while offline, and each change queues on the device in the order it was made. The queue uploads when the connection returns, and how overlapping edits resolve stays open until the conflict decision lands.
 
-This epic does not cover:
-*   Web
-*   Choosing which pages to keep offline
-*   Searching pages not kept on the device
-*   Offline access in the Support console
-
-#### **References**
-* * *
-Sources
-*   Offline mode, epic brief by Oskar, Product Manager, Mobile, shared with the Sync, Mobile Platform and Web and Desktop teams on 2026-09-23
-*   The #sync-eng thread holding the conflict-handling options
+Sharing, inviting, moving a page to another workspace and deleting a page stay online only, so their controls show as unavailable offline. Choosing which pages stay offline, searching pages not kept on the device, offline access in the Support console and Web stay out of this epic.
 
 ## Scope
 * * *
-Each child story covers one area on iOS, Android and Desktop.
+Each child story owns one area and carries its own detailed requirements and acceptance criteria. Offline reading and the offline indicator can start first, because the conflict decision does not block them. Offline editing and creation and offline sync cannot be finalized until Joana's conflict decision lands on 2026-10-09.
 
-#### Starts now
+#### Child stories
 * * *
-Neither story depends on the conflict-handling decision, so both can start before 2026-10-09.
-
-*   Member - Offline mode - Offline reading
-*   Member - Offline mode - Offline indicator and storage settings
-
-#### Waits on the conflict-handling decision
-* * *
-Joana, Engineering Manager, Sync, picks from the #sync-eng options on 2026-10-09 how sync-service handles conflicting edits. Both stories can be drafted, not finalised, before then.
-
-If the decision changes protocol v3, every client needs a version that speaks it, and whether the Web client update belongs to this epic is not decided.
-
-*   Member - Offline mode - Offline editing and creation
-*   Member - Offline mode - Sync on reconnect
+*   Member - Offline reading - Read kept pages
+*   Member - Offline editing and creation - Edit and create without a connection
+*   Member - Offline sync - Upload queued changes on reconnect
+*   Member - Offline indicator and storage - Indicator and storage screen
 * * *
 ##   
 
@@ -79,29 +51,55 @@ If the decision changes protocol v3, every client needs a version that speaks it
 These are release-level outcomes.
 Each child story carries the detailed criteria for its own screens and states.
 
-1\. **Recent pages open without a connection**
+1\. **Members read kept pages on any plan without a connection**
 * * *
-*   **Given** a member on any plan, Free included, on iOS, Android or Desktop
-*   **When** the device is offline
-*   **Then** they can read pages kept offline, with blocks, inline databases and to-dos
-* * *
-- [] _Mark as done, if the criteria are met_
-
-2\. **Work done offline is kept and reaches the workspace**
-* * *
-*   **Given** a member who edits blocks, checks off to-dos or creates pages and to-dos offline
-*   **When** the device reconnects
-*   **Then** every offline change reaches the workspace in order, and teammates see it
-*   **And** no offline change is lost if the app closes first
+*   **Given** a member on iOS, Android or Desktop, on any plan, who has opened a page while online
+*   **When** the connection is gone
+*   **Then** that page opens with its blocks, inline databases and to-dos
 * * *
 - [] _Mark as done, if the criteria are met_
 
-3\. **Members can tell what works offline and what is still waiting**
+2\. **Edits made without a connection are kept and reach others once the device is back online**
 * * *
-*   **Given** a member using Loomlist offline
-*   **When** they look at the app
-*   **Then** they see that they are offline and how many changes wait to sync
-*   **And** sharing, inviting, moving a page to another workspace and deleting a page show as unavailable until reconnecting
+*   **Given** a member with no connection on iOS, Android or Desktop
+*   **When** they edit blocks, check off to-dos or create pages and to-dos
+*   **Then** each change is kept on the device in the order it was made
+*   **And** other members see the change once the device is back online
+* * *
+- [] _Mark as done, if the criteria are met_
+
+3\. **Sharing, inviting, moving and deleting stay online only**
+* * *
+*   **Given** a member with no connection
+*   **When** they look at the sharing, invite, move or delete controls for a page
+*   **Then** those controls show as unavailable
+* * *
+- [] _Mark as done, if the criteria are met_
+
+4\. **Queued changes upload within 30 seconds of the connection returning**
+* * *
+*   **Given** changes waiting on the device
+*   **When** the connection returns
+*   **Then** queued changes start uploading within 30 seconds
+*   **And** they upload oldest first
+* * *
+- [] _Mark as done, if the criteria are met_
+
+5\. **Members see the offline marker and how many changes wait to sync**
+* * *
+*   **Given** a member with no connection
+*   **When** they look at the top bar
+*   **Then** a small offline marker shows
+*   **And** the count of changes waiting to sync is visible
+* * *
+- [] _Mark as done, if the criteria are met_
+
+6\. **Members manage offline storage from settings**
+* * *
+*   **Given** a member on any plan
+*   **When** they open the storage screen in settings
+*   **Then** it shows the space offline data uses
+*   **And** it lets them lower the offline cap and clear offline data
 * * *
 - [] _Mark as done, if the criteria are met_
 * * *

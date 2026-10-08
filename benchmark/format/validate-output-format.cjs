@@ -601,18 +601,17 @@ function processShape(visible) {
 // in that order", which is a constraint a build can fail. Requirements still
 // needs a reader.
 //
-// The Story presence rules, the verbatim preamble, the required heading set and
-// `1\.` numbering on acceptance criteria, stay out for a different reason than the
-// three above. They are create-time shape checks, and story-mode.md exempts a
+// The Story presence rules, the required opening headings and `1 )` numbering
+// on acceptance criteria stay out for a different reason than the three above.
+// They are create-time shape checks, and story-mode.md exempts a
 // source-preserving refinement from every one of them by name, so a refinement of
-// a Story written before the preamble rule keeps its own opening and is correct
+// a Story written to an older house shape keeps its own opening and is correct
 // output. Nothing in the file says whether it was created or refined. The divider
 // rules below survive that problem because a refinement that preserves a
 // non-house source carries no house divider and never meets them, which is not
 // true of a rule that fires on something being absent. Measured for the record:
-// 21 of the 22 deliverables carrying `## Acceptance criteria` carry the verbatim
-// preamble, the one that does not is an Epic and correctly omits it, and none has
-// an unnumbered criteria block.
+// none of the 22 deliverables carrying `## Acceptance criteria` has an unnumbered
+// criteria block.
 
 // ─────────────────────────────────────────────────────────────────────────────
 // 8. HOUSE GRAMMAR
@@ -881,15 +880,27 @@ const isProseLine = (line) =>
 // takes to say it. Code, tables, blockquotes and Given/When/Then lines are
 // exempt, and a backticked or double-quoted span counts as one word, since copy
 // carried verbatim from a source is the writer's to keep rather than to shorten.
+// A Story's H2 Problem is the one paragraph granted more room: the requester
+// wants the business problem stated in three to five sentences, which the
+// general cap would flag on every correct Story.
 const BULLET_WORD_CAP = 25;
 const PARAGRAPH_WORD_CAP = 60;
 const PARAGRAPH_SENTENCE_CAP = 3;
+const PROBLEM_WORD_CAP = 100;
+const PROBLEM_SENTENCE_CAP = 5;
 const OPENING_PARAGRAPH_CAP = 2;
 const LIST_ITEM = /^\s*(?:[-*+]|\d+[.)])\s+(.*)$/;
 // The house writes a scenario step's keyword in bold, which is what separates
 // `**When** they sign in` from a requirement that happens to open on "When".
 const GIVEN_WHEN_THEN = /^(?:\*\*(?:Given|When|Then|And|But)\*\*|Given\b)/;
 const OPENING_HEADING = /^(?:About|Overview)$/i;
+const PROBLEM_HEADING = /^Problem$/i;
+// A Then or And step holds one outcome. A second outcome joined on with
+// ", and" belongs on its own And line, which is how the house reads a
+// criterion one checkable outcome at a time. An "and" with no comma before
+// it usually joins a noun pair inside one outcome, so it stays unflagged.
+const JOINED_OUTCOME_STEP = /^\*\*(?:Then|And)\*\*.*,\s+and\s/;
+const JOINED_OUTCOME_MESSAGE = 'a Then or And line joins a second outcome with ", and", which goes on its own **And** line';
 const SENTENCE_BREAK = /(?<=[.!?])\s+(?=["'(]?[A-Z0-9])/;
 
 const capText = (line) =>
@@ -906,16 +917,20 @@ function lengthCapFindings(lines, uncommented, proseStart) {
   let inFence = false;
   let paragraph = null;
   let opening = null;
+  let inProblem = false;
 
   const closeParagraph = () => {
     if (!paragraph) return;
     const words = capWords(paragraph.text);
     const sentences = capSentences(paragraph.text);
-    if (words > PARAGRAPH_WORD_CAP) {
-      findings.push({ index: paragraph.index, message: `paragraph runs ${words} words, over the 60-word cap` });
+    const wordCap = paragraph.problem ? PROBLEM_WORD_CAP : PARAGRAPH_WORD_CAP;
+    const sentenceCap = paragraph.problem ? PROBLEM_SENTENCE_CAP : PARAGRAPH_SENTENCE_CAP;
+    if (words > wordCap) {
+      findings.push({ index: paragraph.index, message: `paragraph runs ${words} words, over the ${wordCap}-word cap` });
     }
-    if (sentences > PARAGRAPH_SENTENCE_CAP) {
-      findings.push({ index: paragraph.index, message: `paragraph holds ${sentences} sentences, over the three-sentence cap` });
+    if (sentences > sentenceCap) {
+      const label = paragraph.problem ? 'five-sentence Problem' : 'three-sentence';
+      findings.push({ index: paragraph.index, message: `paragraph holds ${sentences} sentences, over the ${label} cap` });
     }
     if (opening) opening.paragraphs += 1;
     paragraph = null;
@@ -946,6 +961,7 @@ function lengthCapFindings(lines, uncommented, proseStart) {
       closeOpening();
       const name = capText(heading[1] || '');
       if (OPENING_HEADING.test(name)) opening = { index, name, paragraphs: 0 };
+      inProblem = /^##\s/.test(trimmed) && PROBLEM_HEADING.test(name);
       return;
     }
     if (!trimmed || HOUSE_DIVIDER.test(trimmed) || HYPHEN_RULE.test(trimmed)) {
@@ -958,6 +974,7 @@ function lengthCapFindings(lines, uncommented, proseStart) {
       closeParagraph();
       const raw = item[1].replace(/^\[[ xX]?\]\s*/, '').trim();
       const body = capText(raw);
+      if (JOINED_OUTCOME_STEP.test(raw)) findings.push({ index, message: JOINED_OUTCOME_MESSAGE });
       if (!body || GIVEN_WHEN_THEN.test(raw)) return;
       const words = capWords(body);
       const sentences = capSentences(body);
@@ -982,10 +999,11 @@ function lengthCapFindings(lines, uncommented, proseStart) {
     const body = capText(trimmed);
     if (GIVEN_WHEN_THEN.test(trimmed)) {
       closeParagraph();
+      if (JOINED_OUTCOME_STEP.test(trimmed)) findings.push({ index, message: JOINED_OUTCOME_MESSAGE });
       return;
     }
     if (paragraph) paragraph.text += ` ${body}`;
-    else paragraph = { index, text: body };
+    else paragraph = { index, text: body, problem: inProblem };
   });
   closeParagraph();
   closeOpening();

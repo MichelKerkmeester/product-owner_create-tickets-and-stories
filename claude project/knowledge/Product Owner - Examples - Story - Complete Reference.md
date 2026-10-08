@@ -1,39 +1,30 @@
 # Product Owner - Examples - Story - Complete Reference
 
-The maximal house Story: every optional enrichment populated as a reference for what is available. The story preamble, an About umbrella with Problem, a Solution that carries a User Story promise block, Expected outcomes and References, a Definition of Ready gate, Requirements holding only hard constraints with a PRD value line, a Rule block, a Which-means-that block and one priority marker on each group, outcome-led Given/When/Then acceptance criteria grouped by surface with Mark-as-done lines, a Definition of Done gate, plus a Delivery close present because the request asked for a delivery view and sizing. A reference for what is available, not the default a small Story needs. Most Stories use far less. Simple Stories drop every optional block, so reach for these only when a Story earns them.
+The maximal house Story: every optional enrichment populated as a reference for what is available. A Problem section, a Solution that carries a User Story promise block, Expected outcomes and References, a Definition of Ready gate, Requirements holding only hard constraints with a PRD value line, a Rule block, a Which-means-that block and one priority marker on each group, outcome-led Given/When/Then acceptance criteria grouped by surface with Mark-as-done lines, a Definition of Done gate, plus a Delivery close present because the request asked for a delivery view and sizing. A reference for what is available, not the default a small Story needs. Most Stories use far less. Simple Stories drop every optional block, so reach for these only when a Story earns them.
 
 ---
 
 # Organizer - Presale - Access windows & redemption limits
 
 * * *
-_A story is used to define product requirements, acceptance criteria, etc._
-_Use it as the foundation for Tasks that work towards fulfilling the acceptance criteria._
-
-## About
+## Problem
 * * *
-Organizers on Marquee open a presale by handing out codes that unlock early ticket prices. Today a code works the instant it is created, for anyone who has it, with no cap and no end, so a leaked code drains the presale allocation and a code stays live long after the presale should have closed. This story gives every presale code a time-boxed access window and a redemption cap, and lets an organizer revoke a code the moment it leaks, so a code only ever works when and as much as the organizer intended.
+Organizers on Marquee open a presale by handing out codes that unlock early ticket prices. Today a code goes live the instant it is created, for anyone who has it, with no start, no end and no cap. One shared code can drain the whole presale allocation, and a leaked code keeps working with no way to shut it off. A code also stays redeemable long after the presale window should have closed.
+* * *
+##   
+
+## Solution
+* * *
+Give every presale code one shared window-and-cap lifecycle with three controls:
+*   A time-boxed access window with a start and an end
+*   A redemption cap per code
+*   An instant revoke that closes a single leaked code
 
 A presale code moves through one lifecycle:
 *   `draft` → created but not yet live, redeems nothing
 *   `active` → inside its window and under its cap, redeemable
 *   `exhausted` → cap reached, no more redemptions
 *   `closed` → window ended or the code was revoked
-
-#### Problem
-* * *
-Organizers cannot control when a code works or how far it spreads:
-*   A code goes live the instant it is created, with no start and no end
-*   There is no cap, so one shared code can drain the whole presale allocation
-*   A leaked code keeps working with no way to shut it off
-*   A code stays redeemable long after the presale window should have closed
-
-#### Solution
-* * *
-Give every presale code one shared window-and-cap lifecycle with three controls:
-*   A time-boxed access window with a start and an end
-*   A redemption cap per code
-*   An instant revoke that closes a single leaked code
 
 **User Story**
 * * *
@@ -134,26 +125,28 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 
 #### Access windows
 * * *
-1\. **A code works during the window the organizer set**
+1 ) **A code works during the window the organizer set**
 * * *
 *   **Given** a code inside its access window with redemptions still available
 *   **When** a member enters it at checkout
-*   **Then** the presale price unlocks and the redemption is counted against that code
+*   **Then** the presale price unlocks
+*   **And** the redemption is counted against that code
 * * *
 - [] _Mark as done, if the criteria are met_
 
-2\. **A code outside its window does nothing at all**
+2 ) **A code outside its window does nothing at all**
 * * *
 *   **Given** a code whose window has not opened yet, or has already closed
 *   **When** a member enters it
-*   **Then** it is refused with "This code is not active right now." and nothing is consumed
+*   **Then** it is refused with "This code is not active right now."
+*   **And** nothing is consumed
 *   **And** the organizer reads that window in their own local time wherever the code is shown
 * * *
 - [] _Mark as done, if the criteria are met_
 
 #### Redemption limits
 * * *
-3\. **A code stops at the cap the organizer set**
+3 ) **A code stops at the cap the organizer set**
 * * *
 *   **Given** a code with redemptions still available inside its window
 *   **When** members keep redeeming it
@@ -162,17 +155,18 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 * * *
 - [] _Mark as done, if the criteria are met_
 
-4\. **An abandoned checkout gives its seat back**
+4 ) **An abandoned checkout gives its seat back**
 * * *
 *   **Given** a member holding the last seat under the cap
 *   **When** they abandon checkout before confirming
-*   **Then** the seat returns to the remaining count and another member can still use the code
+*   **Then** the seat returns to the remaining count
+*   **And** another member can still use the code
 * * *
 - [] _Mark as done, if the criteria are met_
 
 #### Revoke
 * * *
-5\. **Revoking a leaked code stops it at once, and only it**
+5 ) **Revoking a leaked code stops it at once, and only it**
 * * *
 *   **Given** an open, un-exhausted code and other live codes in the same presale
 *   **When** the organizer revokes that one code
@@ -181,11 +175,12 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 * * *
 - [] _Mark as done, if the criteria are met_
 
-6\. **A revoke never undoes an order already placed**
+6 ) **A revoke never undoes an order already placed**
 * * *
 *   **Given** a member who confirmed an order before the code was revoked
 *   **When** the organizer revokes the code
-*   **Then** that member keeps their order and only new redemptions are blocked
+*   **Then** that member keeps their order
+*   **And** only new redemptions are blocked
 * * *
 - [] _Mark as done, if the criteria are met_
 * * *
@@ -205,19 +200,13 @@ Verify for every requirement above before its task closes:
 * * *
 #### Estimation
 * * *
-The delivery budget or expected size for the approved scope.
-
 *   One sprint for two engineers: window and cap logic in the first week, revoke and the last-seat race guard in the second
 
 #### Rabbit holes
 * * *
-Areas that could waste effort, create ambiguity or distract from the intended outcome.
-
 *   Timezone handling for the window bounds: store `opens_at` and `closes_at` in `UTC` and show the organizer's local time everywhere, rather than building a per-code timezone picker
 
 #### No-gos
 * * *
-Explicit scope exclusions and behaviors the delivery team must not introduce.
-
 *   No bulk code generation or CSV import screen, because this story governs only how a single existing code behaves
 * * *
