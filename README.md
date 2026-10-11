@@ -26,12 +26,6 @@ Built for agent CLIs that read `AGENTS.md` and for claude.ai Projects through `c
 - **Verified Delivery** - numbered export files, a read-back receipt and a ClickUp push only after an explicit yes
 - **Checks Without a Model** - 117 router fixtures, 189 differential inputs and 35 format cases run from a fresh clone
 
-**Why it earns a place**
-
-- A bug report with no supplied root cause gets none, and every missing field reads `Not provided`
-- A clarification question is saved to `export/` under the next number, so it survives a closed terminal
-- One 14-scenario playbook runs against both the CLI skill and the claude.ai package, and two captured runs sit in `benchmark/reports/`
-
 &nbsp;
 
 ## 2. 🗺️ OVERVIEW
