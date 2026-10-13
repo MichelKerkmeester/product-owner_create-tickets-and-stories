@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "packet_id": "013-po-realistic-playbook-opus-rerun/004-opus-run",
+  "spec_folder": "013-po-realistic-playbook-opus-rerun/004-opus-run",
+  "parent_id": "013-po-realistic-playbook-opus-rerun",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "opus 5.5 medium playbook run",
+      "smoke run sid-001 pid-001",
+      "check_run model set",
+      "collect exports bundle subfolder",
+      "opus run plan",
+      "playbook runner claude engine",
+      "smoke run model check",
+      "collect_exports dry run",
+      "opus run tasks",
+      "phase 4 verification",
+      "smoke run tasks",
+      "resume by scenario id"
+    ],
+    "key_topics": [
+      "opus",
+      "medium",
+      "playbook",
+      "run",
+      "smoke",
+      "sid-001",
+      "pid-001",
+      "model",
+      "set",
+      "collect",
+      "exports",
+      "bundle"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "scratch/dry-run.json",
+      "scratch/smoke/run-log.jsonl",
+      "scratch/collect-dry-run.txt",
+      "scratch/smoke/manifest.json"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "dry-run.json",
+        "kind": "config",
+        "path": "scratch/dry-run.json",
+        "source": "derived"
+      },
+      {
+        "name": "run-log.jsonl",
+        "kind": "file",
+        "path": "scratch/smoke/run-log.jsonl",
+        "source": "derived"
+      },
+      {
+        "name": "collect-dry-run.txt",
+        "kind": "file",
+        "path": "scratch/collect-dry-run.txt",
+        "source": "derived"
+      },
+      {
+        "name": "manifest.json",
+        "kind": "config",
+        "path": "scratch/smoke/manifest.json",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern One",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Record Barter",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The rewritten playbook proves nothing until it has run whole on the model it names",
+    "created_at": "2026-09-25T18:14:16Z",
+    "last_save_at": "2026-10-13T12:52:52.985Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:9b36d183bf6208212f5c195fb68119b08097e29adfc12702c94273012a98e64f",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "f3f1bc48efcb8091844d90a47dad20b26e0974bb8774d45450af65cff370a708",
+      "plan.md": "f74c309579d3502edaea080cc281201d07718379791707b6ad3472c714d7dd1a",
+      "tasks.md": "fcfddcd8b63774679a016c183be750eb9429b4f45d0ce19b6bc296a4d8220b95",
+      "implementation-summary.md": "671114f9a63008e0fe563e18e635f9571acea6c849bf61a2d28520321d5711b8"
+    },
+    "last_active_at": null
+  }
+}

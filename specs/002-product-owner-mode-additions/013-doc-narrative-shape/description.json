@@ -1,0 +1,30 @@
+{
+  "specFolder": "002-product-owner-mode-additions/013-doc-narrative-shape",
+  "description": "The user finds Doc Mode output too much of a \"logic glossary and overview\": heavy label-bullet blocks, structure-first register.",
+  "keywords": [
+    "user",
+    "finds",
+    "doc",
+    "mode",
+    "output",
+    "too",
+    "much",
+    "logic",
+    "glossary",
+    "overview",
+    "heavy",
+    "label-bullet",
+    "blocks",
+    "structure-first",
+    "register"
+  ],
+  "lastUpdated": "2026-10-13T12:52:47.139Z",
+  "specId": "013",
+  "folderSlug": "doc-narrative-shape",
+  "parentChain": [
+    "002-product-owner-mode-additions"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

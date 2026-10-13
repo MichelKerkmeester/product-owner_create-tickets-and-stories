@@ -1,0 +1,26 @@
+{
+  "specFolder": "010-requirements-bloat",
+  "description": "Four of the five bullets under `Initial Instagram Sheet` in `Highlights - Onboarding - Instagram ReAuth.md` describe the screen rather than state a",
+  "keywords": [
+    "four",
+    "five",
+    "bullets",
+    "initial",
+    "instagram",
+    "sheet",
+    "highlights",
+    "onboarding",
+    "reauth",
+    "describe",
+    "screen",
+    "rather",
+    "state"
+  ],
+  "lastUpdated": "2026-10-13T13:08:52.268Z",
+  "specId": "010",
+  "folderSlug": "requirements-bloat",
+  "parentChain": [],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "1"
+}

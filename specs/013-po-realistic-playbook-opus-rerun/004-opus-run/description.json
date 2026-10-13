@@ -1,0 +1,24 @@
+{
+  "level": "2",
+  "specFolder": "013-po-realistic-playbook-opus-rerun/004-opus-run",
+  "description": "The rewritten playbook proves nothing until it has run whole on the model it names",
+  "keywords": [
+    "rewritten",
+    "playbook",
+    "proves",
+    "nothing",
+    "until",
+    "run",
+    "whole",
+    "model",
+    "names"
+  ],
+  "lastUpdated": "2026-10-13T12:52:47.192Z",
+  "specId": "004",
+  "folderSlug": "opus-run",
+  "parentChain": [
+    "013-po-realistic-playbook-opus-rerun"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

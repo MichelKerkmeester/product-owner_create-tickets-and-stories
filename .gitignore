@@ -5,3 +5,6 @@
 export/*
 !export/.gitkeep
 !export/benchmark/
+
+# Spec folders are tracked; this overrides the global /specs ignore
+!/specs/

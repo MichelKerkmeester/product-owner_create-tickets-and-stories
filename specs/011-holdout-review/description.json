@@ -1,0 +1,25 @@
+{
+  "specFolder": "011-holdout-review",
+  "description": "The Requirements rule had been rewritten twice, in `ba2bec3` and `095479a`, but it had never been tested against a source the skill had not already",
+  "keywords": [
+    "requirements",
+    "rule",
+    "rewritten",
+    "twice",
+    "ba2bec3",
+    "095479a",
+    "never",
+    "tested",
+    "against",
+    "source",
+    "skill",
+    "already"
+  ],
+  "lastUpdated": "2026-10-13T13:09:52.832Z",
+  "specId": "011",
+  "folderSlug": "holdout-review",
+  "parentChain": [],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "1"
+}

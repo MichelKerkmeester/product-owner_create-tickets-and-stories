@@ -1,0 +1,22 @@
+Findings written to `AI Systems/Product Owner/specs/010-requirements-bloat/findings.md`. Nothing outside that folder changed, no sync compiler ran, nothing committed. Format gate and fixtures pass at baseline.
+
+**Root cause.** The four bloated bullets are paraphrases of a screenshot. The story's `context.md` gives that sheet one line, `Compeltely new sheet that explains the situation`, and `Screenshots/2 No Instagram ReAuth/` holds the screen. Two rules then collide. The accounting rule at `story-mode.md:79` orders every source line into the draft and names failure a defect. The hard-constraint rule at `story-mode.md:116` excludes exactly two things, a `**Checklist**` and a user outcome. Narrative UI description is neither, so the instruction with a consequence attached beat the adjective with no exclusion behind it. Two of the four bullets also violate a rule that already exists: the screen reads `We noticed your Instagram isn't linked yet.` and the bullet reports that a string exists, which is the generalisation `story-mode.md:75` already forbids. It did not fire because no rule says a screenshot supplies values.
+
+**Scale.** Bloat tracks the absence of stated values in the source.
+
+| Measure | Count |
+| --- | --- |
+| Requirements bullets across the sixteen stories | 221 |
+| Whole-bullet UI description | 19 |
+| Constraints carrying a description rider | 9 |
+| Description rate where the folder ships a `context.md` with values | 3.7% |
+| Description rate where the folder ships screenshots only | 10.4% |
+
+**The test.** A Requirements bullet must be a sentence a build can fail, so strike any bullet that reports what a screen says, shows or contains without naming a value, limit, condition, effect or named flow a build could get wrong. It keeps all five of your examples and rejects all four bloated bullets. The borderline is presentation shape, and it keeps only when the source itself named the alternative it rules out.
+
+**Worked examples.** No line models the wrong thing. The defect is absence. None of the five shows a per-screen Requirements group, which is the shape all sixteen stories use and the shape commit `1b47426` introduced without an exemplar. One live stale line found: `story-mode.md:365` calls `prd-example-simple.md` a Story with one requirement, and it has no Requirements section at all.
+
+**Gate.** Partly. A narrow check on one subclass ships clean and I built and ran it: bullets using `explains`, `states`, `tells` or `informs` inside Requirements with no backticked copy. Zero false positives across 221 corpus bullets and 93 example, export and mirror bullets, catching three of the four bullets you named. The general description check does not exist. The two broad heuristics I measured scored 0.15 and 0.38 precision, rejecting constraints like `Closing without confirming never writes a value`, so I am not proposing either.
+
+**The dropped description** goes nowhere. The design link in References already carries it. The Instagram sheet group becomes two bullets, or four if the copy is settled and travels in backticks.
+exit=0 seconds=868

@@ -1,0 +1,17 @@
+{
+  "specFolder": "013-po-realistic-playbook-opus-rerun/007-drop-clarification-exports",
+  "description": "Phase 1: drop-clarification-exports",
+  "keywords": [
+    "phase",
+    "drop-clarification-exports"
+  ],
+  "lastUpdated": "2026-09-26T08:29:02.916Z",
+  "specId": "007",
+  "folderSlug": "drop-clarification-exports",
+  "parentChain": [
+    "013-po-realistic-playbook-opus-rerun"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "1"
+}

@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "packet_id": "002-product-owner-mode-additions/014-doc-mode-teachings",
+  "spec_folder": "002-product-owner-mode-additions/014-doc-mode-teachings",
+  "parent_id": "002-product-owner-mode-additions",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [],
+    "key_topics": [
+      "user",
+      "wants",
+      "doc",
+      "mode",
+      "modes",
+      "tiny",
+      "bit",
+      "learn",
+      "three",
+      "strong",
+      "documentation",
+      "sources"
+    ],
+    "importance_tier": "normal",
+    "status": "planned",
+    "key_files": [
+      "spec.md",
+      "tasks.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Doc Mode Teachings",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Doc Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem The",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Approach Three",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Readability Floor",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "cli-opencode",
+        "kind": "key_phrase",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Doc Templates",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Opening Contract",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Prose Is",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Class Citizen",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The user wants Doc Mode (and the other modes a tiny bit) to learn from three strong documentation sources in the Public repo: the root README (tone and structure exemplar), the ...",
+    "created_at": "2026-10-13T12:52:54.948Z",
+    "last_save_at": "2026-10-13T12:52:54.948Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "tasks.md"
+    ],
+    "source_fingerprint": "sha256:f8cb54647da7b81f7b2ab81c88cae704999717f2746308c665124f4cb5befe20",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "cf8767e58a00cf14f864c0411fc50a53968019fb29d1c3e48a85e55269d49f1b",
+      "tasks.md": "32cfa66939c0f31fcaa0d2ddaac99fac0496662a952ae2a8485d23a0c3a7912d"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "packet_id": "008-router-and-skill-slimming/005-preamble-and-quality-scoring",
+  "spec_folder": "008-router-and-skill-slimming/005-preamble-and-quality-scoring",
+  "parent_id": "008-router-and-skill-slimming",
+  "children_ids": [],
+  "migrated": true,
+  "migration_source": "legacy",
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [],
+    "key_topics": [
+      "give",
+      "every",
+      "non-symlink",
+      "reference",
+      "same",
+      "seven-key",
+      "preamble",
+      "carrying",
+      "routing",
+      "connection",
+      "information",
+      "restore"
+    ],
+    "importance_tier": "high",
+    "status": "planned",
+    "key_files": [
+      "spec.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Output Path",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Loading Condition",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Resource Loading Levels",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Artifact And Export",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Loads With",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Give every non-symlink reference the same seven-key preamble carrying routing and connection information, and restore the six-dimension scoring rubric the DEPTH retirement dropped, extended to the current artifact set and the two always-loaded layers",
+    "created_at": "2026-09-03T00:00:00Z",
+    "last_save_at": "2026-10-13T12:52:52.693Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md"
+    ],
+    "source_fingerprint": "sha256:fe9649f402de60821153fd3f52390c11b6124985551b54eb3f83c5d87e008ad1",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "a99567da8b1e335c428f63c6b5fe1da9bcfc09cae621c7fb404042dc03822d46"
+    },
+    "last_active_at": null
+  }
+}

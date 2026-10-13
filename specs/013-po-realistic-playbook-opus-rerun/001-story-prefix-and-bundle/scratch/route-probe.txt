@@ -1,0 +1,36 @@
+'$story Order tracking. Break it into tasks.'
+{
+ "confidence": null,
+ "energy": "STANDARD",
+ "intent": "STORY",
+ "needs_disambiguation": false,
+ "on_demand": [
+  "references/human-voice-rules.md"
+ ],
+ "resources": [
+  "references/hvr-core.md",
+  "references/conciseness.md",
+  "references/story-mode.md",
+  "assets/story-template.md"
+ ],
+ "shape": "STORY",
+ "source": "command"
+}
+'$story $task Order tracking. Break it into tasks.'
+{
+ "confidence": null,
+ "energy": "STANDARD",
+ "intent": "INTERACTIVE",
+ "needs_disambiguation": true,
+ "on_demand": [
+  "references/human-voice-rules.md"
+ ],
+ "resources": [
+  "references/hvr-core.md",
+  "references/conciseness.md",
+  "references/interactive-mode.md",
+  "assets/interactive-response-templates.md"
+ ],
+ "shape": null,
+ "source": "conflict"
+}

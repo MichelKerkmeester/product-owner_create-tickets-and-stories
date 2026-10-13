@@ -1,0 +1,2 @@
+gate refusal as expected: rol, because the working copy differs from its HEAD revision
+working-copy residency harness: 0 finding(s) for product-owner

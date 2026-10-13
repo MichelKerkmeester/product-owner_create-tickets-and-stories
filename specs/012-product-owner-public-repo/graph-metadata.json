@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "packet_id": "012-product-owner-public-repo",
+  "spec_folder": "012-product-owner-public-repo",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "product owner public repo",
+      "product-owner_create-tickets-and-stories",
+      "front-page readme",
+      "export gitignore",
+      "product owner public repo plan",
+      "front-page readme plan",
+      "first push plan",
+      "product owner public repo tasks",
+      "first push checklist",
+      "acceptance criteria",
+      "product owner public repo closure",
+      "implementation summary"
+    ],
+    "key_topics": [
+      "product",
+      "owner",
+      "public",
+      "repo",
+      "tickets-and-stories",
+      "front-page",
+      "readme",
+      "export",
+      "gitignore",
+      "plan",
+      "first",
+      "push"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md",
+      "sk-product-owner/references/hvr-core.md",
+      "sk-product-owner/references/conciseness.md",
+      "sk-product-owner/references/conciseness-rationale.md",
+      "sk-product-owner/references/human-voice-rules.md",
+      "sk-product-owner/SKILL.md",
+      "sk-product-owner/README.md",
+      "claude project/README.md",
+      "benchmark/format/validate-output-format.cjs",
+      "benchmark/gates/rule_parity.py",
+      "export/.gitkeep",
+      "benchmark/router/run_fixtures.sh",
+      "benchmark/format/run_fixtures.sh"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "hvr-core.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/hvr-core.md",
+        "source": "derived"
+      },
+      {
+        "name": "conciseness.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/conciseness.md",
+        "source": "derived"
+      },
+      {
+        "name": "conciseness-rationale.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/conciseness-rationale.md",
+        "source": "derived"
+      },
+      {
+        "name": "human-voice-rules.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/human-voice-rules.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "sk-product-owner/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "validate-output-format.cjs",
+        "kind": "file",
+        "path": "benchmark/format/validate-output-format.cjs",
+        "source": "derived"
+      },
+      {
+        "name": "rule_parity.py",
+        "kind": "file",
+        "path": "benchmark/gates/rule_parity.py",
+        "source": "derived"
+      },
+      {
+        "name": ".gitkeep",
+        "kind": "file",
+        "path": "export/.gitkeep",
+        "source": "derived"
+      },
+      {
+        "name": "run_fixtures.sh",
+        "kind": "script",
+        "path": "benchmark/router/run_fixtures.sh",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Publish Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose The",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Scope",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "`AI Systems/Product Owner/` now holds its own `.git` with a public GitHub remote, and its only commit is the GitHub-generated `LICENSE`",
+    "created_at": "2026-09-24T07:58:17Z",
+    "last_save_at": "2026-10-13T12:52:52.969Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:d34d3482dde9fde3da0999dbe4db3b50a1871b5ae89e4f1850ce3b0fd3c42aab",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "39d622c9c1463a1cc6f9e734e148fee87a023c613373a23c090d8e10a05093c1",
+      "plan.md": "4fd7f53cf9dcd0a379685877267070f7245deb66a054846e161b06717efddda3",
+      "tasks.md": "db2d59c689e223ac8c8b4c62895586c6186077df5d7e8c993f9ec09b0b26eba9",
+      "implementation-summary.md": "9ea58035e9f68e9902064d9e4025407cbe26642aa773439c9ffff6d7a8e24905"
+    },
+    "last_active_at": null
+  }
+}

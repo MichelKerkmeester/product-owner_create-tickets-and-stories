@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "packet_id": "013-po-realistic-playbook-opus-rerun/006-concise-writing",
+  "spec_folder": "013-po-realistic-playbook-opus-rerun/006-concise-writing",
+  "parent_id": "013-po-realistic-playbook-opus-rerun",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "concise writing caps",
+      "hand-edited benchmark exports",
+      "length cap gate warning",
+      "phase 6 concise writing",
+      "concise writing plan",
+      "length caps rollout",
+      "export rewrite verification",
+      "phase 6 plan",
+      "concise writing tasks",
+      "export rewrite tasks",
+      "length cap verification",
+      "phase 6 tasks"
+    ],
+    "key_topics": [
+      "concise",
+      "writing",
+      "caps",
+      "hand-edited",
+      "benchmark",
+      "exports",
+      "length",
+      "cap",
+      "gate",
+      "warning",
+      "phase",
+      "plan"
+    ],
+    "importance_tier": "important",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "sk-product-owner/SKILL.md",
+      "claude project/Custom Instructions.md",
+      "sk-product-owner/manual-testing-playbook/manual-testing-playbook.md",
+      "sk-product-owner/changelog/v0.15.0.0.md",
+      "benchmark/format/validate-output-format.cjs",
+      "scratch/fact-review-a.md",
+      "benchmark/format/README.md",
+      "sk-product-owner/references/conciseness.md",
+      "scratch/caps-before.txt",
+      "scratch/verify_rewrite.py",
+      "scratch/verify-after.txt"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "manual-testing-playbook.md",
+        "kind": "doc",
+        "path": "sk-product-owner/manual-testing-playbook/manual-testing-playbook.md",
+        "source": "derived"
+      },
+      {
+        "name": "v0.15.0.0.md",
+        "kind": "doc",
+        "path": "sk-product-owner/changelog/v0.15.0.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "validate-output-format.cjs",
+        "kind": "file",
+        "path": "benchmark/format/validate-output-format.cjs",
+        "source": "derived"
+      },
+      {
+        "name": "fact-review-a.md",
+        "kind": "doc",
+        "path": "scratch/fact-review-a.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "benchmark/format/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "conciseness.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/conciseness.md",
+        "source": "derived"
+      },
+      {
+        "name": "caps-before.txt",
+        "kind": "file",
+        "path": "scratch/caps-before.txt",
+        "source": "derived"
+      },
+      {
+        "name": "verify_rewrite.py",
+        "kind": "file",
+        "path": "scratch/verify_rewrite.py",
+        "source": "derived"
+      },
+      {
+        "name": "verify-after.txt",
+        "kind": "file",
+        "path": "scratch/verify-after.txt",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The benchmark exports read bloated: 109 bullets run over 30 words and 81 paragraphs over 60",
+    "created_at": "2026-09-26T06:39:08Z",
+    "last_save_at": "2026-10-13T12:52:54.604Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:1d9608cad0b2cdf197f231b5c7e659b19666ba2cc99be668725e289f10e52680",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "9deb6ed24ad8037390f45113ed03f59354127011f4cd04a67135390490c43c32",
+      "plan.md": "d0dc23552da074349cee31259d351d2f203f13dca9d35a82a40ead5b2ed8445d",
+      "tasks.md": "df6cbfdc582ca24406f3b399bf3bc07435646206e9a7daf5f6cdf851506edd81",
+      "implementation-summary.md": "8503bf25615cada9ddec5d4dcaccd5cf146c12cfe6f983c093565c8da9d000a1"
+    },
+    "last_active_at": null
+  }
+}

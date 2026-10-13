@@ -1,0 +1,5 @@
+model	seconds	exit	bytes
+deepseek-v4-flash-max	424.6	0	1580
+glm-5.3-flash-max	1458.3	0	2193
+sonnet-5-high	115.6	0	1130
+glm-5.3-flash-max-rerun	5762.2	0	2108

@@ -1,0 +1,1 @@
+checked 78 {'task': 47, 'story': 21, 'doc': 10} fails 0

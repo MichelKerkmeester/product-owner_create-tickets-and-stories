@@ -1,0 +1,27 @@
+{
+  "level": "2",
+  "specFolder": "012-product-owner-public-repo",
+  "description": "`AI Systems/Product Owner/` now holds its own `.git` with a public GitHub remote, and its only commit is the GitHub-generated `LICENSE`",
+  "keywords": [
+    "systems",
+    "product",
+    "owner",
+    "now",
+    "holds",
+    "own",
+    "git",
+    "public",
+    "github",
+    "remote",
+    "only",
+    "commit",
+    "github-generated",
+    "license"
+  ],
+  "lastUpdated": "2026-10-13T12:52:47.172Z",
+  "specId": "012",
+  "folderSlug": "product-owner-public-repo",
+  "parentChain": [],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

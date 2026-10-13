@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "packet_id": "008-router-and-skill-slimming",
+  "spec_folder": "008-router-and-skill-slimming",
+  "parent_id": null,
+  "children_ids": [
+    "008-router-and-skill-slimming/001-retire-depth",
+    "008-router-and-skill-slimming/002-router-contract-extraction",
+    "008-router-and-skill-slimming/003-router-coverage",
+    "008-router-and-skill-slimming/004-template-parity-and-bootstrap",
+    "008-router-and-skill-slimming/005-preamble-and-quality-scoring"
+  ],
+  "manual": {
+    "depends_on": [
+      {
+        "packet_id": "007-story-mode-and-shape-templates",
+        "reason": "Imported from legacy graph-metadata.json",
+        "source": "legacy"
+      }
+    ],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "optimize product owner routing",
+      "reduce skill.md size",
+      "deprecate depth framework",
+      "template overview section parity",
+      "router falls back too often"
+    ],
+    "key_topics": [
+      "optimize",
+      "product",
+      "owner",
+      "routing",
+      "reduce",
+      "skill",
+      "size",
+      "deprecate",
+      "depth",
+      "framework",
+      "template",
+      "overview"
+    ],
+    "importance_tier": "high",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "sk-product-owner/SKILL.md",
+      "benchmark/router/route_contract.py",
+      "benchmark/router/differential.py",
+      "sk-product-owner/README.md",
+      "claude project/README.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "route_contract.py",
+        "kind": "file",
+        "path": "benchmark/router/route_contract.py",
+        "source": "derived"
+      },
+      {
+        "name": "differential.py",
+        "kind": "file",
+        "path": "benchmark/router/differential.py",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "sk-product-owner/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Router Coverage",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Skill Slimming",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Template Parity",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Route",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Sixteen of twenty realistic requests fall through to a clarifying question. SKILL.md carries a 608-line pseudocode fence that a model does not need inline. DEPTH is always loaded and is being retired. The three new shape templates skipped the asset convention every other template follows.",
+    "created_at": "2026-09-03T00:00:00Z",
+    "last_save_at": "2026-10-13T12:52:52.267Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md"
+    ],
+    "source_fingerprint": "sha256:b626b84954dddbffffd7e003d26ec56c4d13c077105d58d1ea865f1bfe085b15",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "d53d5e34279f9fa50967b1329a62a38f9668b999f28af05c6117f98e66ae1285"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

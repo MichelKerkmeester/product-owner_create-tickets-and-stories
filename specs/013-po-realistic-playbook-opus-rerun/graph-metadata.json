@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "packet_id": "013-po-realistic-playbook-opus-rerun",
+  "spec_folder": "013-po-realistic-playbook-opus-rerun",
+  "parent_id": null,
+  "children_ids": [
+    "013-po-realistic-playbook-opus-rerun/001-story-prefix-and-bundle",
+    "013-po-realistic-playbook-opus-rerun/002-company-context-fixtures",
+    "013-po-realistic-playbook-opus-rerun/003-playbook-rewrite",
+    "013-po-realistic-playbook-opus-rerun/004-opus-run",
+    "013-po-realistic-playbook-opus-rerun/005-grading-and-report",
+    "013-po-realistic-playbook-opus-rerun/006-concise-writing",
+    "013-po-realistic-playbook-opus-rerun/007-drop-clarification-exports",
+    "013-po-realistic-playbook-opus-rerun/008-cut-exports-and-word-budget",
+    "013-po-realistic-playbook-opus-rerun/009-template-forms-and-checklists"
+  ],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "realistic product owner playbook",
+      "opus 5.5 medium playbook rerun",
+      "story export prefix",
+      "company context fixtures",
+      "packet goal",
+      "realistic playbook goal",
+      "076 completion criteria",
+      "goal binding"
+    ],
+    "key_topics": [
+      "realistic",
+      "product",
+      "owner",
+      "playbook",
+      "opus",
+      "medium",
+      "rerun",
+      "story",
+      "export",
+      "prefix",
+      "company",
+      "context"
+    ],
+    "importance_tier": "important",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "goal.md",
+      "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/manual-testing-playbook.md",
+      "AI Systems/Product Owner/claude project/Custom Instructions.md",
+      "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+      "001-story-prefix-and-bundle/goal.md",
+      "002-company-context-fixtures/goal.md",
+      "003-playbook-rewrite/goal.md",
+      "004-opus-run/goal.md",
+      "005-grading-and-report/goal.md",
+      "006-concise-writing/goal.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "manual-testing-playbook.md",
+        "kind": "doc",
+        "path": "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/manual-testing-playbook.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Packet",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Progress",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Four Opus",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Six Opus",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Epic References",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Doc Mode",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The Product Owner playbook measures whether the system follows its rules, but the tickets it produces look nothing like real engineering work",
+    "created_at": "2026-09-25T18:14:13Z",
+    "last_save_at": "2026-10-13T11:41:44.279Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "goal.md"
+    ],
+    "source_fingerprint": "sha256:d993e2d8df64693fcc9c5353988c6a501171d78590a248317ef4c84406e63243",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "031a76b8bda6eb7c4815c72e2a48df0c64ed688335e0ecf6f02afe35f21e232e"
+    },
+    "last_active_at": null
+  }
+}

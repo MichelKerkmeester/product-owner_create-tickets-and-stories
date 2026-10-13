@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "recordedBy": "upgrade-legacy",
+  "recordedAt": "2026-10-13T12:53:01.284Z",
+  "findings": [],
+  "refusals": [
+    {
+      "mode": "anchor-wrap",
+      "document": "spec.md",
+      "reason": "no ANCHOR marker anywhere, so the anchored template is not proven; left unchanged"
+    }
+  ]
+}

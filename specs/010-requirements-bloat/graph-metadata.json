@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "packet_id": "010-requirements-bloat",
+  "spec_folder": "010-requirements-bloat",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "requirements bloat",
+      "story requirements description",
+      "requirements bullet a build can fail",
+      "instagram reauth sheet requirements",
+      "story mode requirements rule",
+      "requirements bloat plan",
+      "story mode requirements edits",
+      "requirements description test",
+      "narration check fixture",
+      "requirements bloat tasks",
+      "story requirements classification",
+      "narration check fixture pair"
+    ],
+    "key_topics": [
+      "requirements",
+      "bloat",
+      "story",
+      "description",
+      "bullet",
+      "fail",
+      "instagram",
+      "reauth",
+      "sheet",
+      "mode",
+      "rule",
+      "plan"
+    ],
+    "importance_tier": "normal",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md",
+      "sk-product-owner/assets/story-template.md",
+      "sk-product-owner/references/story-mode.md",
+      "sk-product-owner/SKILL.md",
+      "claude project/Custom Instructions.md",
+      "sk-product-owner/references/quality-scoring.md",
+      "benchmark/format/validate-output-format.cjs",
+      "benchmark/format/run_fixtures.sh"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "story-template.md",
+        "kind": "doc",
+        "path": "sk-product-owner/assets/story-template.md",
+        "source": "derived"
+      },
+      {
+        "name": "story-mode.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/story-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "quality-scoring.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/quality-scoring.md",
+        "source": "derived"
+      },
+      {
+        "name": "validate-output-format.cjs",
+        "kind": "file",
+        "path": "benchmark/format/validate-output-format.cjs",
+        "source": "derived"
+      },
+      {
+        "name": "run_fixtures.sh",
+        "kind": "script",
+        "path": "benchmark/format/run_fixtures.sh",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Story Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Initial Instagram Sheet",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement Four",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "No Instagram",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Name",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Read",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Read",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Four of the five bullets under `Initial Instagram Sheet` in `Highlights - Onboarding - Instagram ReAuth.md` describe the screen rather than state a constraint",
+    "created_at": "2026-10-13T13:44:44.843Z",
+    "last_save_at": "2026-10-13T13:44:44.843Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:0fa9cde9213812ea9ced312ccdb02fc7aaa797b0a9bc46c946f8bd783a0b4196",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "7ba54ee87f9fbe581d7ef5e11cd69739a6eeb1f8b91b95272ad8835e3252dea7",
+      "plan.md": "4e5f2a92b47a4de8d9c73dd5c2305355d5711cfc93373e6b26e2eeedc4ddd99b",
+      "tasks.md": "b88f3c55616636dd77222bb640b413253d716f7149e381004ea92989910a89de",
+      "implementation-summary.md": "e708d62d215cc0cb28001987fc8785b6fdd8a7276be600d95d4e342c76e8346d"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

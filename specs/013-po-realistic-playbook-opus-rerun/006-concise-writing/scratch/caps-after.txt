@@ -1,0 +1,7 @@
+{
+ "files": 98,
+ "filesOver": 7,
+ "counts": {
+  "About opening holds N paragraphs, over the two-paragraph cap": 7
+ }
+}

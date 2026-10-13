@@ -1,0 +1,27 @@
+{
+  "level": "2",
+  "specFolder": "007-story-mode-and-shape-templates",
+  "description": "PRD Mode is renamed Story Mode, and its single 556-line template file is split so each artifact shape carries its own scaffold.",
+  "keywords": [
+    "prd",
+    "mode",
+    "renamed",
+    "story",
+    "single",
+    "556-line",
+    "template",
+    "file",
+    "split",
+    "artifact",
+    "shape",
+    "carries",
+    "own",
+    "scaffold"
+  ],
+  "lastUpdated": "2026-10-13T11:02:59.399Z",
+  "specId": "007",
+  "folderSlug": "story-mode-and-shape-templates",
+  "parentChain": [],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

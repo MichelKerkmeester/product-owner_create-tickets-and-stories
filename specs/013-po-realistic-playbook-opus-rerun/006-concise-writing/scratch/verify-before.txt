@@ -1,0 +1,283 @@
+FAIL claude project/PBG-001 - NNN - bug-ios-cart-badge-stale-after-remove.md
+  - 2 over-cap line(s): ['43: bullet runs 31 words, over the 25-word cap', '43: bullet holds 3 sentences, over the one-sentence cap']
+  . words 403 -> 403
+FAIL claude project/PBG-002 - NNN - bug-android-confirmation-total-missing-city-tax (turn 2).md
+  - 12 over-cap line(s): ['41: bullet runs 27 words, over the 25-word cap', '41: bullet holds 2 sentences, over the one-sentence cap', '42: bullet holds 2 sentences, over the one-sentence cap', '43: bullet holds 2 sentences, over the one-sentence cap', '45: bullet holds 2 sentences, over the one-sentence cap', '47: bullet runs 31 words, over the 25-word cap']
+  . words 832 -> 832
+FAIL claude project/PBG-002 - NNN - bug-android-confirmation-total-missing-city-tax.md
+  - 11 over-cap line(s): ['38: bullet runs 27 words, over the 25-word cap', '38: bullet holds 2 sentences, over the one-sentence cap', '39: bullet holds 2 sentences, over the one-sentence cap', '40: bullet holds 2 sentences, over the one-sentence cap', '43: bullet runs 31 words, over the 25-word cap', '43: bullet holds 2 sentences, over the one-sentence cap']
+  . words 795 -> 795
+FAIL claude project/PBG-003 - 001 - bug-reminders-late-after-march-clock-change-clarification.md
+  - 15 over-cap line(s): ['6: bullet runs 45 words, over the 25-word cap', '6: bullet holds 3 sentences, over the one-sentence cap', '7: bullet runs 30 words, over the 25-word cap', '7: bullet holds 2 sentences, over the one-sentence cap', '11: bullet runs 32 words, over the 25-word cap', '11: bullet holds 2 sentences, over the one-sentence cap']
+  . words 358 -> 358
+FAIL claude project/PBG-003 - 002 - bug-reminders-late-after-march-clock-change.md
+  - 18 over-cap line(s): ['42: bullet runs 26 words, over the 25-word cap', '42: bullet holds 2 sentences, over the one-sentence cap', '43: bullet runs 41 words, over the 25-word cap', '43: bullet holds 3 sentences, over the one-sentence cap', '45: bullet holds 2 sentences, over the one-sentence cap', '47: bullet runs 43 words, over the 25-word cap']
+  . words 1053 -> 1053
+FAIL claude project/PDK-001 - 001 - doc-promotions-stacking (turn 2).md
+  - format gate exit 1: /Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/export/benchmark/claude project/PDK-001 - 001 - doc-promotions-stacking (turn 2).md:12: paragraph runs 70 words, over the 60-word cap | /Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/export/benchmark/claude project/PDK-001 - 001 - doc-promotions-stacking (turn 2).md:12: paragraph holds 4 sentences, over the three-sentence cap | /Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/export/benchmark/claude project/PDK-001 - 001 - doc-promotions-stacking (turn 2).md
+  - 13 over-cap line(s): ['12: paragraph runs 70 words, over the 60-word cap', '12: paragraph holds 4 sentences, over the three-sentence cap', '19: bullet holds 2 sentences, over the one-sentence cap', '20: bullet holds 2 sentences, over the one-sentence cap', '21: bullet holds 2 sentences, over the one-sentence cap', '47: bullet holds 2 sentences, over the one-sentence cap']
+  . words 1652 -> 1652
+FAIL claude project/PDK-001 - 001 - doc-promotions-stacking.md
+  - format gate exit 1: /Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/export/benchmark/claude project/PDK-001 - 001 - doc-promotions-stacking.md:12: paragraph runs 68 words, over the 60-word cap | /Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/export/benchmark/claude project/PDK-001 - 001 - doc-promotions-stacking.md:12: paragraph holds 4 sentences, over the three-sentence cap | /Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/export/benchmark/claude project/PDK-001 - 001 - doc-promotions-stacking.md:20: bullet holds 2 sentenc
+  - 14 over-cap line(s): ['12: paragraph runs 68 words, over the 60-word cap', '12: paragraph holds 4 sentences, over the three-sentence cap', '20: bullet holds 2 sentences, over the one-sentence cap', '21: bullet holds 2 sentences, over the one-sentence cap', '47: bullet holds 2 sentences, over the one-sentence cap', '95: paragraph runs 61 words, over the 60-word cap']
+  . words 1710 -> 1710
+FAIL claude project/PDK-002 - 001 - doc-payment-webhook-failures-clarification.md
+  - 9 over-cap line(s): ['1: paragraph holds 4 sentences, over the three-sentence cap', '4: bullet holds 2 sentences, over the one-sentence cap', '12: bullet holds 2 sentences, over the one-sentence cap', '29: bullet runs 28 words, over the 25-word cap', '29: bullet holds 2 sentences, over the one-sentence cap', '30: bullet runs 26 words, over the 25-word cap']
+  . words 390 -> 390
+FAIL claude project/PDK-002 - 002 - doc-payment-webhook-failures-runbook.md
+  - 22 over-cap line(s): ['7: Overview opening holds 3 paragraphs, over the two-paragraph cap', '11: paragraph runs 65 words, over the 60-word cap', '11: paragraph holds 4 sentences, over the three-sentence cap', '13: paragraph holds 5 sentences, over the three-sentence cap', '17: bullet runs 28 words, over the 25-word cap', '17: bullet holds 2 sentences, over the one-sentence cap']
+  . words 1394 -> 1394
+FAIL claude project/PDK-003 - 001 - doc-sync-conflicts-lost-edits-status.md
+  - 28 over-cap line(s): ['7: paragraph holds 5 sentences, over the three-sentence cap', '9: paragraph holds 4 sentences, over the three-sentence cap', '23: paragraph runs 61 words, over the 60-word cap', '23: paragraph holds 5 sentences, over the three-sentence cap', '29: paragraph runs 69 words, over the 60-word cap', '29: paragraph holds 4 sentences, over the three-sentence cap']
+  . words 1517 -> 1517
+FAIL claude project/PDK-003 - 002 - doc-sync-conflict-options-proposal.md
+  - 40 over-cap line(s): ['7: Overview opening holds 3 paragraphs, over the two-paragraph cap', '11: paragraph holds 4 sentences, over the three-sentence cap', '19: paragraph holds 4 sentences, over the three-sentence cap', '23: paragraph runs 77 words, over the 60-word cap', '23: paragraph holds 5 sentences, over the three-sentence cap', '40: bullet runs 29 words, over the 25-word cap']
+  . words 1770 -> 1770
+FAIL claude project/PDK-004 - 001 - doc-loomlist-activity-emails-clarification.md
+  - 5 over-cap line(s): ['3: paragraph holds 4 sentences, over the three-sentence cap', '6: bullet runs 85 words, over the 25-word cap', '6: bullet holds 7 sentences, over the one-sentence cap', '14: paragraph runs 70 words, over the 60-word cap', '14: paragraph holds 5 sentences, over the three-sentence cap']
+  . words 383 -> 383
+FAIL claude project/PDK-004 - 002 - doc-loomlist-activity-emails.md
+  - format gate exit 1: /Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/export/benchmark/claude project/PDK-004 - 002 - doc-loomlist-activity-emails.md:9: paragraph runs 62 words, over the 60-word cap | /Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/export/benchmark/claude project/PDK-004 - 002 - doc-loomlist-activity-emails.md:16: bullet holds 2 sentences, over the one-sentence cap | /Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/export/benchmark/claude project/PDK-004 - 002 - doc-loomlist-activity-emails.md:17: bullet runs 3
+  - 23 over-cap line(s): ['9: paragraph runs 62 words, over the 60-word cap', '16: bullet holds 2 sentences, over the one-sentence cap', '17: bullet runs 34 words, over the 25-word cap', '17: bullet holds 3 sentences, over the one-sentence cap', '18: bullet holds 2 sentences, over the one-sentence cap', '19: bullet holds 2 sentences, over the one-sentence cap']
+  . words 1744 -> 1744
+FAIL claude project/PEP-001 - 001 - Epic-partner-hub-self-onboarding-clarification.md
+  - 17 over-cap line(s): ['4: bullet runs 46 words, over the 25-word cap', '4: bullet holds 4 sentences, over the one-sentence cap', '5: bullet runs 40 words, over the 25-word cap', '6: bullet runs 31 words, over the 25-word cap', '6: bullet holds 2 sentences, over the one-sentence cap', '10: bullet runs 27 words, over the 25-word cap']
+  . words 449 -> 449
+FAIL claude project/PEP-001 - 002 - Epic-partner-hub-self-onboarding.md
+  - 8 over-cap line(s): ['6: paragraph runs 74 words, over the 60-word cap', '6: paragraph holds 5 sentences, over the three-sentence cap', '10: paragraph runs 85 words, over the 60-word cap', '10: paragraph holds 5 sentences, over the three-sentence cap', '71: bullet holds 2 sentences, over the one-sentence cap', '139: bullet runs 27 words, over the 25-word cap']
+  . words 1306 -> 1306
+FAIL claude project/PEP-002 - 001 - Epic-offline-mode-clarification.md
+  - 11 over-cap line(s): ['4: bullet runs 37 words, over the 25-word cap', '4: bullet holds 4 sentences, over the one-sentence cap', '5: bullet runs 37 words, over the 25-word cap', '5: bullet holds 4 sentences, over the one-sentence cap', '6: bullet holds 2 sentences, over the one-sentence cap', '10: bullet runs 43 words, over the 25-word cap']
+  . words 257 -> 257
+FAIL claude project/PEP-002 - 002 - Epic-offline-mode.md
+  - 6 over-cap line(s): ['6: paragraph runs 68 words, over the 60-word cap', '6: paragraph holds 5 sentences, over the three-sentence cap', '33: bullet runs 26 words, over the 25-word cap', '36: bullet runs 36 words, over the 25-word cap', '42: paragraph runs 70 words, over the 60-word cap', '42: paragraph holds 4 sentences, over the three-sentence cap']
+  . words 978 -> 978
+FAIL claude project/PEP-003 - 001 - Epic-self-serve-returns.md
+  - format gate exit 1: /Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/export/benchmark/claude project/PEP-003 - 001 - Epic-self-serve-returns.md:6: paragraph runs 73 words, over the 60-word cap | /Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/export/benchmark/claude project/PEP-003 - 001 - Epic-self-serve-returns.md:6: paragraph holds 4 sentences, over the three-sentence cap | /Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/export/benchmark/claude project/PEP-003 - 001 - Epic-self-serve-returns.md:11: paragraph runs 64 words,
+  - 4 over-cap line(s): ['6: paragraph runs 73 words, over the 60-word cap', '6: paragraph holds 4 sentences, over the three-sentence cap', '11: paragraph runs 64 words, over the 60-word cap', '11: paragraph holds 4 sentences, over the three-sentence cap']
+  . words 899 -> 899
+FAIL claude project/PID-001 - 001 - task-due-today-filter-chip-clarification.md
+  - 13 over-cap line(s): ['4: bullet runs 36 words, over the 25-word cap', '4: bullet holds 3 sentences, over the one-sentence cap', '5: bullet runs 35 words, over the 25-word cap', '5: bullet holds 3 sentences, over the one-sentence cap', '8: bullet holds 2 sentences, over the one-sentence cap', '9: bullet holds 3 sentences, over the one-sentence cap']
+  . words 317 -> 317
+FAIL claude project/PID-001 - 002 - task-due-today-filter-chip.md
+  - 1 over-cap line(s): ['40: bullet runs 27 words, over the 25-word cap']
+  . words 468 -> 468
+FAIL claude project/PIR-001 - 001 - intake-guest-loyalty-points-clarification.md
+  - 11 over-cap line(s): ['3: paragraph holds 4 sentences, over the three-sentence cap', '17: bullet holds 2 sentences, over the one-sentence cap', '18: bullet holds 2 sentences, over the one-sentence cap', '21: bullet holds 2 sentences, over the one-sentence cap', '27: bullet runs 26 words, over the 25-word cap', '27: bullet holds 2 sentences, over the one-sentence cap']
+  . words 466 -> 466
+FAIL claude project/PIR-001 - 002 - Epic-guest-loyalty-points.md
+  - 2 over-cap line(s): ['6: paragraph holds 4 sentences, over the three-sentence cap', '33: bullet holds 2 sentences, over the one-sentence cap']
+  . words 734 -> 734
+FAIL claude project/PIR-002 - 001 - intake-wishlist-across-devices-clarification.md
+  - 12 over-cap line(s): ['5: bullet runs 32 words, over the 25-word cap', '5: bullet holds 3 sentences, over the one-sentence cap', '6: bullet runs 42 words, over the 25-word cap', '6: bullet holds 2 sentences, over the one-sentence cap', '7: bullet runs 32 words, over the 25-word cap', '7: bullet holds 2 sentences, over the one-sentence cap']
+  . words 469 -> 469
+FAIL claude project/PIR-002 - 002 - Story-customer-wishlist-account-wishlist-in-apps.md
+  - 3 over-cap line(s): ['17: paragraph runs 100 words, over the 60-word cap', '17: paragraph holds 5 sentences, over the three-sentence cap', '21: paragraph runs 69 words, over the 60-word cap']
+  . words 895 -> 895
+FAIL claude project/PST-001 - NNN - Story-free-cancellation-filter-clarification.md
+  - 2 over-cap line(s): ['5: paragraph runs 67 words, over the 60-word cap', '5: paragraph holds 4 sentences, over the three-sentence cap']
+  . words 253 -> 253
+FAIL claude project/PST-001 - NNN - Story-free-cancellation-filter.md
+  - 5 over-cap line(s): ['13: paragraph holds 4 sentences, over the three-sentence cap', '17: paragraph runs 76 words, over the 60-word cap', '17: paragraph holds 4 sentences, over the three-sentence cap', '33: bullet runs 32 words, over the 25-word cap', '44: bullet runs 30 words, over the 25-word cap']
+  . words 1271 -> 1271
+FAIL claude project/PST-002 - NNN - Story-member-sharing-view-only-links (turn 2).md
+  - 8 over-cap line(s): ['9: paragraph runs 63 words, over the 60-word cap', '9: paragraph holds 4 sentences, over the three-sentence cap', '17: paragraph runs 85 words, over the 60-word cap', '17: paragraph holds 4 sentences, over the three-sentence cap', '33: paragraph runs 82 words, over the 60-word cap', '33: paragraph holds 6 sentences, over the three-sentence cap']
+  . words 1761 -> 1761
+FAIL claude project/PST-002 - NNN - Story-member-sharing-view-only-links.md
+  - 8 over-cap line(s): ['9: paragraph runs 63 words, over the 60-word cap', '9: paragraph holds 4 sentences, over the three-sentence cap', '17: paragraph runs 85 words, over the 60-word cap', '17: paragraph holds 4 sentences, over the three-sentence cap', '32: paragraph runs 72 words, over the 60-word cap', '32: paragraph holds 6 sentences, over the three-sentence cap']
+  . words 1713 -> 1713
+FAIL claude project/PST-003 - fernhouse-save-card-draft (turn 2).md
+  - 6 over-cap line(s): ['13: paragraph runs 68 words, over the 60-word cap', '34: bullet holds 2 sentences, over the one-sentence cap', '35: bullet holds 2 sentences, over the one-sentence cap', '37: bullet holds 2 sentences, over the one-sentence cap', '56: bullet holds 2 sentences, over the one-sentence cap', '61: bullet runs 26 words, over the 25-word cap']
+  . words 1346 -> 1346
+FAIL claude project/PST-003 - fernhouse-save-card-draft.md
+  - 6 over-cap line(s): ['13: paragraph runs 68 words, over the 60-word cap', '34: bullet holds 2 sentences, over the one-sentence cap', '35: bullet holds 2 sentences, over the one-sentence cap', '37: bullet holds 2 sentences, over the one-sentence cap', '57: bullet holds 2 sentences, over the one-sentence cap', '62: bullet runs 27 words, over the 25-word cap']
+  . words 1295 -> 1295
+FAIL claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN - Story-order-tracking-timeline (turn 2).md
+  - 5 over-cap line(s): ['13: paragraph runs 82 words, over the 60-word cap', '13: paragraph holds 6 sentences, over the three-sentence cap', '17: paragraph runs 63 words, over the 60-word cap', '76: bullet runs 32 words, over the 25-word cap', '84: bullet runs 31 words, over the 25-word cap']
+  . words 1642 -> 1642
+FAIL claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN - Story-order-tracking-timeline.md
+  - 5 over-cap line(s): ['13: paragraph runs 82 words, over the 60-word cap', '13: paragraph holds 6 sentences, over the three-sentence cap', '17: paragraph runs 63 words, over the 60-word cap', '82: bullet runs 32 words, over the 25-word cap', '90: bullet runs 31 words, over the 25-word cap']
+  . words 1756 -> 1756
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.1 - task-ios-tracking-timeline.md
+  . words 320 -> 320
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.1 - task-tracking-webhook.md
+  . words 434 -> 434
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.2 - task-android-tracking-timeline.md
+  . words 320 -> 320
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.2 - task-packed-status.md
+  . words 121 -> 121
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.3 - task-web-tracking-timeline (turn 2).md
+  . words 325 -> 325
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.3 - task-web-tracking-timeline.md
+  . words 330 -> 330
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.4 - task-ios-tracking-timeline.md
+  . words 325 -> 325
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.4 - task-tracking-webhook.md
+  . words 421 -> 421
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.5 - task-android-tracking-timeline.md
+  . words 325 -> 325
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.6 - task-tracking-timeline-events.md
+  . words 180 -> 180
+FAIL claude project/PTK-001 - NNN - task-free-shipping-banner-copy.md
+  - 1 over-cap line(s): ['7: paragraph holds 5 sentences, over the three-sentence cap']
+  . words 219 -> 219
+FAIL claude project/PTK-002 - 001 - task-date-picker-stay-limits (turn 2).md
+  - 8 over-cap line(s): ['4: About opening holds 5 paragraphs, over the two-paragraph cap', '10: paragraph runs 66 words, over the 60-word cap', '10: paragraph holds 4 sentences, over the three-sentence cap', '12: paragraph holds 4 sentences, over the three-sentence cap', '41: bullet runs 27 words, over the 25-word cap', '72: bullet runs 27 words, over the 25-word cap']
+  . words 987 -> 987
+FAIL claude project/PTK-002 - 001 - task-date-picker-stay-limits.md
+  - 6 over-cap line(s): ['4: About opening holds 4 paragraphs, over the two-paragraph cap', '12: paragraph holds 4 sentences, over the three-sentence cap', '39: bullet runs 27 words, over the 25-word cap', '70: bullet runs 27 words, over the 25-word cap', '83: bullet runs 28 words, over the 25-word cap', '98: bullet runs 26 words, over the 25-word cap']
+  . words 906 -> 906
+FAIL claude project/PTK-003 - 001 - task-label-webhook-duplicates-and-late-labels (turn 2).md
+  - 12 over-cap line(s): ['3: About opening holds 4 paragraphs, over the two-paragraph cap', '9: paragraph runs 133 words, over the 60-word cap', '9: paragraph holds 7 sentences, over the three-sentence cap', '11: paragraph runs 82 words, over the 60-word cap', '11: paragraph holds 5 sentences, over the three-sentence cap', '35: paragraph runs 82 words, over the 60-word cap']
+  . words 1316 -> 1316
+FAIL claude project/PTK-003 - 001 - task-label-webhook-duplicates-and-late-labels.md
+  - 10 over-cap line(s): ['3: About opening holds 4 paragraphs, over the two-paragraph cap', '9: paragraph runs 133 words, over the 60-word cap', '9: paragraph holds 7 sentences, over the three-sentence cap', '11: paragraph runs 72 words, over the 60-word cap', '11: paragraph holds 4 sentences, over the three-sentence cap', '35: paragraph runs 66 words, over the 60-word cap']
+  . words 1183 -> 1183
+FAIL claude project/PTK-004 - NNN - task-recurring-todos (turn 2).md
+  - 5 over-cap line(s): ['3: About opening holds 7 paragraphs, over the two-paragraph cap', '7: paragraph runs 68 words, over the 60-word cap', '135: paragraph holds 4 sentences, over the three-sentence cap', '157: paragraph runs 67 words, over the 60-word cap', '157: paragraph holds 4 sentences, over the three-sentence cap']
+  . words 1227 -> 1227
+FAIL claude project/PTK-004 - NNN - task-recurring-todos-android.md
+  - 3 over-cap line(s): ['3: About opening holds 3 paragraphs, over the two-paragraph cap', '7: paragraph runs 61 words, over the 60-word cap', '7: paragraph holds 4 sentences, over the three-sentence cap']
+  . words 551 -> 551
+PASS claude project/PTK-004 - NNN - task-recurring-todos-be.md
+  . words 522 -> 522
+FAIL claude project/PTK-004 - NNN - task-recurring-todos-ios.md
+  - 1 over-cap line(s): ['3: About opening holds 3 paragraphs, over the two-paragraph cap']
+  . words 538 -> 538
+FAIL claude project/PTK-004 - NNN - task-recurring-todos-web.md
+  - 4 over-cap line(s): ['3: About opening holds 3 paragraphs, over the two-paragraph cap', '7: paragraph runs 61 words, over the 60-word cap', '7: paragraph holds 4 sentences, over the three-sentence cap', '64: bullet runs 27 words, over the 25-word cap']
+  . words 598 -> 598
+FAIL claude project/PTK-004 - NNN - task-recurring-todos.md
+  - 3 over-cap line(s): ['3: About opening holds 6 paragraphs, over the two-paragraph cap', '7: paragraph runs 68 words, over the 60-word cap', '119: paragraph holds 4 sentences, over the three-sentence cap']
+  . words 999 -> 999
+FAIL claude project/PTK-005 - NNN - task-android-recurring-todos (turn 2).md
+  - 4 over-cap line(s): ['3: About opening holds 3 paragraphs, over the two-paragraph cap', '7: paragraph runs 62 words, over the 60-word cap', '55: bullet runs 27 words, over the 25-word cap', '90: bullet runs 26 words, over the 25-word cap']
+  . words 956 -> 956
+FAIL claude project/PTK-005 - NNN - task-android-recurring-todos.md
+  - 3 over-cap line(s): ['3: About opening holds 3 paragraphs, over the two-paragraph cap', '56: bullet runs 27 words, over the 25-word cap', '89: bullet runs 26 words, over the 25-word cap']
+  . words 915 -> 915
+FAIL claude project/PTK-006 - 001 - task-booking-funnel-events-clarification.md
+  - 7 over-cap line(s): ['6: bullet runs 30 words, over the 25-word cap', '6: bullet holds 4 sentences, over the one-sentence cap', '15: bullet holds 2 sentences, over the one-sentence cap', '20: bullet holds 2 sentences, over the one-sentence cap', '23: bullet holds 2 sentences, over the one-sentence cap', '27: bullet runs 27 words, over the 25-word cap']
+  . words 404 -> 404
+FAIL claude project/PTK-006 - 002 - task-booking-funnel-event-checks.md
+  - 4 over-cap line(s): ['3: About opening holds 4 paragraphs, over the two-paragraph cap', '7: paragraph runs 77 words, over the 60-word cap', '7: paragraph holds 4 sentences, over the three-sentence cap', '9: paragraph runs 62 words, over the 60-word cap']
+  . words 729 -> 729
+FAIL skill/SBG-001 - 001 - bug-ios-cart-badge-stale-after-remove.md
+  - 2 over-cap line(s): ['43: bullet holds 2 sentences, over the one-sentence cap', '57: bullet runs 32 words, over the 25-word cap']
+  . words 522 -> 522
+FAIL skill/SBG-002 - 001 - bug-android-confirmation-total-missing-city-tax.md
+  - 13 over-cap line(s): ['46: bullet holds 2 sentences, over the one-sentence cap', '49: bullet runs 32 words, over the 25-word cap', '49: bullet holds 2 sentences, over the one-sentence cap', '53: bullet runs 37 words, over the 25-word cap', '53: bullet holds 3 sentences, over the one-sentence cap', '65: bullet holds 2 sentences, over the one-sentence cap']
+  . words 980 -> 980
+FAIL skill/SBG-003 - 001 - bug-reminders-late-after-clock-change-clarification.md
+  - 5 over-cap line(s): ['7: bullet runs 35 words, over the 25-word cap', '7: bullet holds 2 sentences, over the one-sentence cap', '8: bullet runs 32 words, over the 25-word cap', '8: bullet holds 3 sentences, over the one-sentence cap', '16: paragraph holds 4 sentences, over the three-sentence cap']
+  . words 332 -> 332
+FAIL skill/SBG-003 - 002 - bug-reminders-late-after-clock-change.md
+  - 14 over-cap line(s): ['3: About opening holds 3 paragraphs, over the two-paragraph cap', '7: paragraph runs 63 words, over the 60-word cap', '44: paragraph holds 4 sentences, over the three-sentence cap', '48: bullet runs 37 words, over the 25-word cap', '48: bullet holds 2 sentences, over the one-sentence cap', '54: bullet holds 2 sentences, over the one-sentence cap']
+  . words 1066 -> 1066
+FAIL skill/SDK-001 - 001 - doc-promotion-stacking.md
+  - 30 over-cap line(s): ['10: Overview opening holds 3 paragraphs, over the two-paragraph cap', '13: paragraph runs 102 words, over the 60-word cap', '13: paragraph holds 4 sentences, over the three-sentence cap', '15: paragraph runs 62 words, over the 60-word cap', '24: bullet holds 2 sentences, over the one-sentence cap', '25: bullet runs 35 words, over the 25-word cap']
+  . words 2757 -> 2757
+FAIL skill/SDK-002 - 001 - doc-payment-webhook-failures-clarification.md
+  - 5 over-cap line(s): ['5: paragraph holds 4 sentences, over the three-sentence cap', '12: paragraph runs 64 words, over the 60-word cap', '12: paragraph holds 5 sentences, over the three-sentence cap', '17: bullet runs 28 words, over the 25-word cap', '17: bullet holds 2 sentences, over the one-sentence cap']
+  . words 394 -> 394
+FAIL skill/SDK-002 - 002 - doc-payment-webhook-failures-runbook.md
+  - 13 over-cap line(s): ['11: paragraph holds 4 sentences, over the three-sentence cap', '17: paragraph runs 61 words, over the 60-word cap', '17: paragraph holds 4 sentences, over the three-sentence cap', '19: paragraph runs 73 words, over the 60-word cap', '30: bullet runs 27 words, over the 25-word cap', '42: paragraph holds 4 sentences, over the three-sentence cap']
+  . words 1351 -> 1351
+FAIL skill/SDK-003 - 001 - doc-sync-conflicts-lost-edits-clarification.md
+  - 2 over-cap line(s): ['9: paragraph runs 67 words, over the 60-word cap', '9: paragraph holds 4 sentences, over the three-sentence cap']
+  . words 338 -> 338
+FAIL skill/SDK-003 - 002 - doc-sync-conflict-options.md
+  - 8 over-cap line(s): ['12: paragraph runs 63 words, over the 60-word cap', '121: bullet runs 52 words, over the 25-word cap', '121: bullet holds 2 sentences, over the one-sentence cap', '123: bullet runs 40 words, over the 25-word cap', '123: bullet holds 2 sentences, over the one-sentence cap', '124: bullet runs 26 words, over the 25-word cap']
+  . words 2053 -> 2053
+FAIL skill/SDK-004 - 001 - doc-activity-emails-reference-clarification.md
+  - 6 over-cap line(s): ['7: bullet runs 49 words, over the 25-word cap', '7: bullet holds 2 sentences, over the one-sentence cap', '19: bullet runs 35 words, over the 25-word cap', '19: bullet holds 2 sentences, over the one-sentence cap', '20: bullet runs 46 words, over the 25-word cap', '20: bullet holds 3 sentences, over the one-sentence cap']
+  . words 408 -> 408
+FAIL skill/SDK-004 - 002 - doc-activity-emails-catalog.md
+  - 18 over-cap line(s): ['31: bullet runs 30 words, over the 25-word cap', '31: bullet holds 3 sentences, over the one-sentence cap', '35: bullet holds 2 sentences, over the one-sentence cap', '65: bullet holds 2 sentences, over the one-sentence cap', '67: bullet holds 2 sentences, over the one-sentence cap', '83: bullet holds 2 sentences, over the one-sentence cap']
+  . words 1567 -> 1567
+FAIL skill/SEP-001 - 001 - Epic-partner-self-onboarding.md
+  - 14 over-cap line(s): ['10: paragraph runs 81 words, over the 60-word cap', '10: paragraph holds 4 sentences, over the three-sentence cap', '36: bullet runs 34 words, over the 25-word cap', '46: paragraph runs 76 words, over the 60-word cap', '46: paragraph holds 5 sentences, over the three-sentence cap', '54: bullet runs 29 words, over the 25-word cap']
+  . words 1514 -> 1514
+FAIL skill/SEP-002 - 001 - Epic-offline-mode-clarification.md
+  - 2 over-cap line(s): ['7: paragraph holds 4 sentences, over the three-sentence cap', '9: paragraph holds 5 sentences, over the three-sentence cap']
+  . words 284 -> 284
+FAIL skill/SEP-002 - 002 - Epic-offline-mode.md
+  - 5 over-cap line(s): ['6: paragraph runs 82 words, over the 60-word cap', '6: paragraph holds 4 sentences, over the three-sentence cap', '17: bullet runs 28 words, over the 25-word cap', '37: bullet runs 28 words, over the 25-word cap', '68: paragraph runs 69 words, over the 60-word cap']
+  . words 969 -> 969
+FAIL skill/SEP-003 - 001 - Epic-self-serve-returns.md
+  - 3 over-cap line(s): ['6: paragraph runs 61 words, over the 60-word cap', '10: paragraph runs 63 words, over the 60-word cap', '30: bullet runs 26 words, over the 25-word cap']
+  . words 786 -> 786
+PASS skill/SID-001 - 001 - task-due-today-filter-chip-clarification.md
+  . words 280 -> 280
+FAIL skill/SID-001 - 002 - task-due-today-filter-chip.md
+  - 5 over-cap line(s): ['3: About opening holds 3 paragraphs, over the two-paragraph cap', '7: paragraph holds 4 sentences, over the three-sentence cap', '27: bullet runs 28 words, over the 25-word cap', '30: bullet runs 26 words, over the 25-word cap', '30: bullet holds 2 sentences, over the one-sentence cap']
+  . words 527 -> 527
+FAIL skill/SIR-001 - 001 - intake-guest-loyalty-points-clarification.md
+  - format gate exit 1: /Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/export/benchmark/skill/SIR-001 - 001 - intake-guest-loyalty-points-clarification.md:11: paragraph holds 4 sentences, over the three-sentence cap | /Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/export/benchmark/skill/SIR-001 - 001 - intake-guest-loyalty-points-clarification.md:22: bullet holds 3 sentences, over the one-sentence cap | /Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/export/benchmark/skill/SIR-001 - 001 - intake-guest-loyalty-points-clarificat
+  - 4 over-cap line(s): ['11: paragraph holds 4 sentences, over the three-sentence cap', '22: bullet holds 3 sentences, over the one-sentence cap', '24: bullet holds 2 sentences, over the one-sentence cap', '25: bullet holds 2 sentences, over the one-sentence cap']
+  . words 374 -> 374
+PASS skill/SIR-001 - 002 - Epic-guest-loyalty-points.md
+  . words 726 -> 726
+FAIL skill/SIR-002 - 001 - intake-wishlist-cross-device-clarification.md
+  - 6 over-cap line(s): ['5: paragraph runs 86 words, over the 60-word cap', '5: paragraph holds 5 sentences, over the three-sentence cap', '15: bullet runs 34 words, over the 25-word cap', '16: bullet runs 26 words, over the 25-word cap', '16: bullet holds 2 sentences, over the one-sentence cap', '21: bullet holds 2 sentences, over the one-sentence cap']
+  . words 329 -> 329
+FAIL skill/SIR-002 - 002 - Story-wishlist-saved-to-account-in-apps.md
+  - 1 over-cap line(s): ['30: paragraph runs 75 words, over the 60-word cap']
+  . words 932 -> 932
+PASS skill/SST-001 - 001 - Story-free-cancellation-filter-clarification.md
+  . words 211 -> 211
+FAIL skill/SST-001 - 002 - Story-free-cancellation-filter.md
+  - 8 over-cap line(s): ['15: paragraph runs 65 words, over the 60-word cap', '19: paragraph runs 103 words, over the 60-word cap', '36: bullet runs 26 words, over the 25-word cap', '38: bullet runs 29 words, over the 25-word cap', '38: bullet holds 2 sentences, over the one-sentence cap', '49: bullet runs 30 words, over the 25-word cap']
+  . words 1316 -> 1316
+FAIL skill/SST-002 - 001 - Story-view-only-share-links.md
+  - 5 over-cap line(s): ['21: paragraph runs 83 words, over the 60-word cap', '36: paragraph runs 83 words, over the 60-word cap', '36: paragraph holds 5 sentences, over the three-sentence cap', '172: bullet runs 57 words, over the 25-word cap', '172: bullet holds 3 sentences, over the one-sentence cap']
+  . words 1736 -> 1736
+FAIL skill/SST-003 - fernhouse-save-card-draft.md
+  - 3 over-cap line(s): ['13: paragraph runs 68 words, over the 60-word cap', '17: paragraph runs 73 words, over the 60-word cap', '144: bullet runs 30 words, over the 25-word cap']
+  . words 1313 -> 1313
+FAIL skill/SST-004 - 001 - Story-order-tracking/001 - Story-order-tracking.md
+  - 5 over-cap line(s): ['13: paragraph holds 4 sentences, over the three-sentence cap', '19: paragraph runs 78 words, over the 60-word cap', '49: bullet runs 26 words, over the 25-word cap', '57: bullet holds 2 sentences, over the one-sentence cap', '95: bullet runs 29 words, over the 25-word cap']
+  . words 1742 -> 1742
+PASS skill/SST-004 - 001 - Story-order-tracking/001.1 - task-ios-tracking-timeline.md
+  . words 368 -> 368
+PASS skill/SST-004 - 001 - Story-order-tracking/001.2 - task-android-tracking-timeline.md
+  . words 368 -> 368
+PASS skill/SST-004 - 001 - Story-order-tracking/001.3 - task-web-tracking-timeline.md
+  . words 378 -> 378
+FAIL skill/SST-004 - 001 - Story-order-tracking/001.4 - task-tracking-webhook.md
+  - 1 over-cap line(s): ['71: bullet runs 26 words, over the 25-word cap']
+  . words 598 -> 598
+FAIL skill/STK-001 - 001 - task-free-shipping-banner-copy.md
+  - 1 over-cap line(s): ['7: paragraph runs 63 words, over the 60-word cap']
+  . words 355 -> 355
+FAIL skill/STK-002 - 001 - task-date-picker-stay-limits.md
+  - 5 over-cap line(s): ['3: About opening holds 6 paragraphs, over the two-paragraph cap', '46: bullet holds 2 sentences, over the one-sentence cap', '48: bullet holds 2 sentences, over the one-sentence cap', '78: bullet runs 27 words, over the 25-word cap', '134: bullet runs 28 words, over the 25-word cap']
+  . words 1248 -> 1248
+FAIL skill/STK-003 - 001 - task-label-webhook-fix.md
+  - 8 over-cap line(s): ['3: About opening holds 5 paragraphs, over the two-paragraph cap', '7: paragraph runs 95 words, over the 60-word cap', '9: paragraph runs 70 words, over the 60-word cap', '34: paragraph runs 69 words, over the 60-word cap', '59: bullet runs 29 words, over the 25-word cap', '84: paragraph runs 76 words, over the 60-word cap']
+  . words 1290 -> 1290
+FAIL skill/STK-004 - 001 - task-recurring-todos-parent.md
+  - 5 over-cap line(s): ['3: About opening holds 5 paragraphs, over the two-paragraph cap', '7: paragraph runs 62 words, over the 60-word cap', '9: paragraph runs 74 words, over the 60-word cap', '9: paragraph holds 5 sentences, over the three-sentence cap', '51: bullet runs 31 words, over the 25-word cap']
+  . words 1205 -> 1205
+FAIL skill/STK-004 - 002 - task-recurring-todos-ios.md
+  - 1 over-cap line(s): ['3: About opening holds 3 paragraphs, over the two-paragraph cap']
+  . words 563 -> 563
+FAIL skill/STK-004 - 003 - task-recurring-todos-android.md
+  - 1 over-cap line(s): ['3: About opening holds 3 paragraphs, over the two-paragraph cap']
+  . words 577 -> 577
+FAIL skill/STK-004 - 004 - task-recurring-todos-web.md
+  - 3 over-cap line(s): ['3: About opening holds 3 paragraphs, over the two-paragraph cap', '7: paragraph runs 80 words, over the 60-word cap', '101: bullet runs 26 words, over the 25-word cap']
+  . words 640 -> 640
+FAIL skill/STK-004 - 005 - task-recurring-todos-be.md
+  - 2 over-cap line(s): ['7: paragraph runs 75 words, over the 60-word cap', '38: bullet runs 31 words, over the 25-word cap']
+  . words 647 -> 647
+FAIL skill/STK-005 - 001 - task-android-recurring-todos-subtask.md
+  - 2 over-cap line(s): ['3: About opening holds 4 paragraphs, over the two-paragraph cap', '9: paragraph runs 70 words, over the 60-word cap']
+  . words 954 -> 954
+FAIL skill/STK-006 - 001 - task-booking-funnel-events-clarification.md
+  - 1 over-cap line(s): ['16: paragraph holds 4 sentences, over the three-sentence cap']
+  . words 433 -> 433
+FAIL skill/STK-006 - 002 - task-booking-funnel-events.md
+  - 4 over-cap line(s): ['7: paragraph runs 90 words, over the 60-word cap', '7: paragraph holds 4 sentences, over the three-sentence cap', '9: paragraph runs 61 words, over the 60-word cap', '9: paragraph holds 4 sentences, over the three-sentence cap']
+  . words 972 -> 972
+17 of 98 passed

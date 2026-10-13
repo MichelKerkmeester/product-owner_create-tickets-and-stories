@@ -1,0 +1,157 @@
+{
+  "purpose": "Held-out generalisation probe for the Product Owner router. None of the probes appear in benchmark/router/fixtures.json or benchmark/router/differential_corpus.json, so a pass there measures whether the semantic patterns match intent rather than remembered wording. Keep the probes out of both files. The guards are the opposite by design: they restate inputs the fixtures already pin, so a routing change that breaks an excluded term or the create-a-task-to-write-a-PRD precedence shows up here as well as there.",
+  "probes": [
+    {
+      "input": "the checkout screen freezes when you tap pay twice",
+      "expect_intent": "BUG",
+      "expect_shape": null
+    },
+    {
+      "input": "the avatar shows a broken image after upload",
+      "expect_intent": "BUG",
+      "expect_shape": null
+    },
+    {
+      "input": "campaign list hangs forever on the loading spinner",
+      "expect_intent": "BUG",
+      "expect_shape": null
+    },
+    {
+      "input": "notifications stop arriving after you background the app",
+      "expect_intent": "BUG",
+      "expect_shape": null
+    },
+    {
+      "input": "the payout total is wrong for creators paid in two currencies",
+      "expect_intent": "BUG",
+      "expect_shape": null
+    },
+    {
+      "input": "saving a collab returns a 500 on staging every time",
+      "expect_intent": "BUG",
+      "expect_shape": null
+    },
+    {
+      "input": "tidy up the button labels in settings",
+      "expect_intent": "TASK",
+      "expect_shape": null
+    },
+    {
+      "input": "the empty state wording is off, make it match the rest of the app",
+      "expect_intent": "TASK",
+      "expect_shape": null
+    },
+    {
+      "input": "align the spacing on the creator card to the figma",
+      "expect_intent": "TASK",
+      "expect_shape": null
+    },
+    {
+      "input": "clean up the leftover feature flags in the payments module",
+      "expect_intent": "TASK",
+      "expect_shape": null
+    },
+    {
+      "input": "the modal padding is inconsistent between the two flows",
+      "expect_intent": "TASK",
+      "expect_shape": null
+    },
+    {
+      "input": "we need something written down explaining how the payout schedule works",
+      "expect_intent": "DOC",
+      "expect_shape": null
+    },
+    {
+      "input": "write the onboarding runbook for the support team",
+      "expect_intent": "DOC",
+      "expect_shape": null
+    },
+    {
+      "input": "put together a reference for the webhook payloads",
+      "expect_intent": "DOC",
+      "expect_shape": null
+    },
+    {
+      "input": "the new engineers need the ranking algorithm written up properly",
+      "expect_intent": "DOC",
+      "expect_shape": null
+    },
+    {
+      "input": "brands cant filter by engagement rate, they want to",
+      "expect_intent": "STORY",
+      "expect_shape": "STORY"
+    },
+    {
+      "input": "creators have no way to pause a campaign midway",
+      "expect_intent": "STORY",
+      "expect_shape": "STORY"
+    },
+    {
+      "input": "we are changing how the deal approval flow works",
+      "expect_intent": "STORY",
+      "expect_shape": "STORY"
+    },
+    {
+      "input": "brands are unable to save a shortlist of creators between sessions",
+      "expect_intent": "STORY",
+      "expect_shape": "STORY"
+    },
+    {
+      "input": "write the story for the new invite flow",
+      "expect_intent": "STORY",
+      "expect_shape": "STORY"
+    },
+    {
+      "input": "we need the whole creator verification programme",
+      "expect_intent": "STORY",
+      "expect_shape": "EPIC"
+    },
+    {
+      "input": "the full payments migration across web and mobile",
+      "expect_intent": "STORY",
+      "expect_shape": "EPIC"
+    },
+    {
+      "input": "this covers the entire onboarding initiative for next quarter",
+      "expect_intent": "STORY",
+      "expect_shape": "EPIC"
+    },
+    {
+      "input": "put together something the PM can turn into stories later",
+      "expect_intent": "STORY",
+      "expect_shape": "DRAFT"
+    },
+    {
+      "input": "rough notes for the PM on the referral idea",
+      "expect_intent": "STORY",
+      "expect_shape": "DRAFT"
+    }
+  ],
+  "guards": [
+    {
+      "input": "create a task to write a PRD",
+      "expect_intent": "TASK",
+      "expect_shape": null
+    },
+    {
+      "input": "redesign the export button, it is broken and crashing constantly with an error",
+      "expect_intent": "BUG",
+      "expect_shape": null
+    },
+    {
+      "input": "we should rework the settings page at some point",
+      "expect_intent": "INTERACTIVE",
+      "expect_shape": null
+    },
+    {
+      "input": "revamp the profile page",
+      "expect_intent": "INTERACTIVE",
+      "expect_shape": null
+    },
+    {
+      "input": "overhaul the search experience",
+      "expect_intent": "INTERACTIVE",
+      "expect_shape": null
+    }
+  ]
+}

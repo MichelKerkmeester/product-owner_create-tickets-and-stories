@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "packet_id": "005-product-owner-prd-delivery",
+  "spec_folder": "005-product-owner-prd-delivery",
+  "parent_id": null,
+  "children_ids": [],
+  "migrated": true,
+  "migration_source": "legacy",
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": [
+      {
+        "packet_id": "004-product-owner-prd-opening-restructure",
+        "reason": "Imported from legacy graph-metadata.json",
+        "source": "legacy"
+      }
+    ]
+  },
+  "derived": {
+    "trigger_phrases": [
+      "product owner story and epic templates",
+      "product owner prd template update",
+      "product owner epic template",
+      "prd estimation rabbit holes no-gos",
+      "product owner story epic plan",
+      "implement product owner epic template",
+      "product owner story epic tasks",
+      "product owner story epic implementation summary"
+    ],
+    "key_topics": [
+      "product",
+      "owner",
+      "story",
+      "epic",
+      "templates",
+      "prd",
+      "template",
+      "estimation",
+      "rabbit",
+      "holes",
+      "no-gos",
+      "plan"
+    ],
+    "importance_tier": "high",
+    "status": "draft",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md",
+      "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+      "Product Context/Tasks & Stories/Stories/Onboarding/26-08-13 - Creator - Onboarding v2 - Password reset.md",
+      "Product Context/Tasks & Stories/Stories/Onboarding/26-08-13 - Creator - Onboarding v2 - Sign-up - Post-Approval.md",
+      "Product Context/Tasks & Stories/Stories/Onboarding/26-08-13 - Creator - Onboarding v2 - Sign-up - Pre-Approval.md",
+      "Product Context/Tasks & Stories/Stories/Onboarding/26-08-13 - Epic - Creator - Onboarding v2.md",
+      "AI Systems/Product Owner/AGENTS.md",
+      "AI Systems/Product Owner/sk-product-owner/README.md",
+      "AI Systems/Product Owner/claude project/Custom Instructions.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "26-08-13 - Creator - Onboarding v2 - Password reset.md",
+        "kind": "doc",
+        "path": "Product Context/Tasks & Stories/Stories/Onboarding/26-08-13 - Creator - Onboarding v2 - Password reset.md",
+        "source": "derived"
+      },
+      {
+        "name": "26-08-13 - Creator - Onboarding v2 - Sign-up - Post-Approval.md",
+        "kind": "doc",
+        "path": "Product Context/Tasks & Stories/Stories/Onboarding/26-08-13 - Creator - Onboarding v2 - Sign-up - Post-Approval.md",
+        "source": "derived"
+      },
+      {
+        "name": "26-08-13 - Creator - Onboarding v2 - Sign-up - Pre-Approval.md",
+        "kind": "doc",
+        "path": "Product Context/Tasks & Stories/Stories/Onboarding/26-08-13 - Creator - Onboarding v2 - Sign-up - Pre-Approval.md",
+        "source": "derived"
+      },
+      {
+        "name": "26-08-13 - Epic - Creator - Onboarding v2.md",
+        "kind": "doc",
+        "path": "Product Context/Tasks & Stories/Stories/Onboarding/26-08-13 - Epic - Creator - Onboarding v2.md",
+        "source": "derived"
+      },
+      {
+        "name": "AGENTS.md",
+        "kind": "doc",
+        "path": "AI Systems/Product Owner/AGENTS.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "AI Systems/Product Owner/sk-product-owner/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner Story",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Epic Templates",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Align Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement The Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Change",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sequenced Story",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Begin Phase",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The Product Owner PRD template does not match the approved stories now used by the Barter team",
+    "created_at": "2026-08-13T11:45:20Z",
+    "last_save_at": "2026-10-13T11:10:05.850Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:8bed3c2bfb7e790102806d48202a93b013b6faf156e3c2510add58315b72a75a",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "975d47324bc5fb6a3d59fe1963a8f9c724e0a4eb1994602004c06fef7572ba53",
+      "plan.md": "eb5e657f1cf15ceaab9ee7b1060fe7dcdf344ae189a5dacb122d7c7529626c5a",
+      "tasks.md": "d198af0b8aceb3aa8180bf8f4b1936f10bfed01f451ad00dd5076232dde66bd1",
+      "implementation-summary.md": "cb99308daf7d5a6da177a3bcfa8ebb6b011e7f997a91c9c6d6fa32873f0c2f49"
+    },
+    "last_active_at": null
+  }
+}

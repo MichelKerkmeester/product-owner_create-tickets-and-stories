@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "packet_id": "003-product-owner-story-format-audit",
+  "spec_folder": "003-product-owner-story-format-audit",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "product owner story format audit",
+      "story mode template update",
+      "story house format reconciliation",
+      "five story analysis"
+    ],
+    "key_topics": [
+      "product",
+      "owner",
+      "story",
+      "format",
+      "audit",
+      "mode",
+      "template",
+      "house",
+      "reconciliation",
+      "five",
+      "analysis",
+      "adversarial"
+    ],
+    "importance_tier": "high",
+    "status": "planned",
+    "key_files": [
+      "spec.md",
+      "tasks.md",
+      "sk-product-owner/references/story-mode.md",
+      "sk-product-owner/SKILL.md",
+      "sk-product-owner/references/human-voice-rules.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "story-mode.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/story-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "human-voice-rules.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/human-voice-rules.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner Story Format Audit",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner Story Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Story Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Country Specific Targeting",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Managed Partners",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Metric Collection",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner Story Format Audit Three",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Settle Promo",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Push Messages",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Adversarial audit of five real Barter ClickUp stories against the Product Owner Story Mode standard, and an honest verdict on whether the story-creation rules, guidelines, and templates need updating.",
+    "created_at": "2026-10-13T12:52:54.989Z",
+    "last_save_at": "2026-10-13T12:52:54.989Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "tasks.md"
+    ],
+    "source_fingerprint": "sha256:8a7756efee0034a551eb3fc84283dab16180019f726cba118ff4fca201eb0438",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "1f192497c58122eb5015970e7b10fa1cfa733665bbc5b1e6179ae70225c0ae38",
+      "tasks.md": "8d3d3142b74356e852f0df0c2f3489b985a10b820d2bf32e2f9db5c434c90e89"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

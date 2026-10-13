@@ -1,0 +1,29 @@
+{
+  "level": "2",
+  "specFolder": "008-router-and-skill-slimming/004-template-parity-and-bootstrap",
+  "description": "Give the three shape templates the OVERVIEW structure every other asset uses, and bring the CLI bootstrap back in step with the renamed and",
+  "keywords": [
+    "give",
+    "three",
+    "shape",
+    "templates",
+    "overview",
+    "structure",
+    "every",
+    "asset",
+    "bring",
+    "cli",
+    "bootstrap",
+    "back",
+    "step",
+    "renamed"
+  ],
+  "lastUpdated": "2026-10-13T11:02:52.275Z",
+  "specId": "004",
+  "folderSlug": "template-parity-and-bootstrap",
+  "parentChain": [
+    "008-router-and-skill-slimming"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,221 @@
+PASS claude project/PBG-001 - NNN - bug-ios-cart-badge-stale-after-remove.md
+  . words 397 -> 317, cut 20%
+PASS claude project/PBG-002 - NNN - bug-android-confirmation-total-missing-city-tax (turn 2).md
+  . words 831 -> 721, cut 13%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PBG-002 - NNN - bug-android-confirmation-total-missing-city-tax.md
+  . words 796 -> 687, cut 14%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PBG-003 - 002 - bug-reminders-late-after-march-clock-change.md
+  . words 931 -> 775, cut 17%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PDK-001 - 001 - doc-promotions-stacking (turn 2).md
+  . words 1602 -> 1444, cut 10%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PDK-001 - 001 - doc-promotions-stacking.md
+  . words 1647 -> 1491, cut 9%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PDK-002 - 002 - doc-payment-webhook-failures-runbook.md
+  . words 1267 -> 967, cut 24%
+PASS claude project/PDK-003 - 001 - doc-sync-conflicts-lost-edits-status.md
+  . names no longer present, confirm each was a restatement: ["A's"]
+  . words 1456 -> 1161, cut 20%
+PASS claude project/PDK-003 - 002 - doc-sync-conflict-options-proposal.md
+  . words 1682 -> 1281, cut 24%
+PASS claude project/PDK-004 - 002 - doc-loomlist-activity-emails.md
+  . words 1704 -> 1363, cut 20%
+PASS claude project/PEP-001 - 002 - Epic-partner-hub-self-onboarding.md
+  . words 1303 -> 1128, cut 13%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PEP-002 - 002 - Epic-offline-mode.md
+  . words 976 -> 835, cut 14%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PEP-003 - 001 - Epic-self-serve-returns.md
+  . words 889 -> 791, cut 11%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PID-001 - 002 - task-due-today-filter-chip.md
+  . words 465 -> 383, cut 18%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PIR-001 - 002 - Epic-guest-loyalty-points.md
+  . words 732 -> 649, cut 11%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PIR-002 - 002 - Story-customer-wishlist-account-wishlist-in-apps.md
+  . words 882 -> 770, cut 13%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-001 - NNN - Story-free-cancellation-filter.md
+  . words 1260 -> 1068, cut 15%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-002 - NNN - Story-member-sharing-view-only-links (turn 2).md
+  . words 1734 -> 1549, cut 11%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-002 - NNN - Story-member-sharing-view-only-links.md
+  . words 1686 -> 1494, cut 11%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-003 - fernhouse-save-card-draft (turn 2).md
+  . words 1341 -> 1181, cut 12%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-003 - fernhouse-save-card-draft.md
+  . words 1288 -> 1116, cut 13%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN - Story-order-tracking-timeline (turn 2).md
+  . words 1637 -> 1489, cut 9%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN - Story-order-tracking-timeline.md
+  . words 1751 -> 1588, cut 9%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.1 - task-ios-tracking-timeline.md
+  . words 320 -> 297, cut 7%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.1 - task-tracking-webhook.md
+  . words 434 -> 404, cut 7%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.2 - task-android-tracking-timeline.md
+  . words 320 -> 297, cut 7%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.2 - task-packed-status.md
+  . words 121 -> 113, cut 7%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.3 - task-web-tracking-timeline (turn 2).md
+  . words 325 -> 303, cut 7%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.3 - task-web-tracking-timeline.md
+  . words 330 -> 302, cut 8%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.4 - task-ios-tracking-timeline.md
+  . words 325 -> 305, cut 6%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.4 - task-tracking-webhook.md
+  . words 421 -> 391, cut 7%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.5 - task-android-tracking-timeline.md
+  . words 325 -> 305, cut 6%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.6 - task-tracking-timeline-events.md
+  . words 180 -> 166, cut 8%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PTK-001 - NNN - task-free-shipping-banner-copy.md
+  . words 218 -> 189, cut 13%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PTK-002 - 001 - task-date-picker-stay-limits (turn 2).md
+  . names no longer present, confirm each was a restatement: ['English']
+  . words 972 -> 664, cut 32%
+PASS claude project/PTK-002 - 001 - task-date-picker-stay-limits.md
+  . words 867 -> 629, cut 27%
+KEPT claude project/PTK-003 - 001 - task-label-webhook-duplicates-and-late-labels (turn 2).md
+  . KEPT: 3: About opening holds 5 paragraphs, over the two-paragraph cap
+  . words 1300 -> 1040, cut 20%
+KEPT claude project/PTK-003 - 001 - task-label-webhook-duplicates-and-late-labels.md
+  . KEPT: 3: About opening holds 5 paragraphs, over the two-paragraph cap
+  . words 1180 -> 939, cut 20%
+PASS claude project/PTK-004 - NNN - task-recurring-todos (turn 2).md
+  . words 1193 -> 902, cut 24%
+PASS claude project/PTK-004 - NNN - task-recurring-todos-android.md
+  . words 550 -> 390, cut 29%
+PASS claude project/PTK-004 - NNN - task-recurring-todos-be.md
+  . words 522 -> 389, cut 25%
+PASS claude project/PTK-004 - NNN - task-recurring-todos-ios.md
+  . words 538 -> 377, cut 30%
+PASS claude project/PTK-004 - NNN - task-recurring-todos-web.md
+  . words 595 -> 420, cut 29%
+PASS claude project/PTK-004 - NNN - task-recurring-todos.md
+  . words 974 -> 764, cut 22%
+PASS claude project/PTK-005 - NNN - task-android-recurring-todos (turn 2).md
+  . words 950 -> 860, cut 9%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PTK-005 - NNN - task-android-recurring-todos.md
+  . words 911 -> 814, cut 11%
+  . LIGHT: cut under 20%, say why in the report
+PASS claude project/PTK-006 - 002 - task-booking-funnel-event-checks.md
+  . words 686 -> 558, cut 19%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SBG-001 - 001 - bug-ios-cart-badge-stale-after-remove.md
+  . words 515 -> 453, cut 12%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SBG-002 - 001 - bug-android-confirmation-total-missing-city-tax.md
+  . words 974 -> 858, cut 12%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SBG-003 - 002 - bug-reminders-late-after-clock-change.md
+  . words 948 -> 880, cut 7%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SDK-001 - 001 - doc-promotion-stacking.md
+  . words 2449 -> 1959, cut 20%
+PASS skill/SDK-002 - 002 - doc-payment-webhook-failures-runbook.md
+  . words 1281 -> 952, cut 26%
+PASS skill/SDK-003 - 002 - doc-sync-conflict-options.md
+  . names no longer present, confirm each was a restatement: ["Oskar's"]
+  . words 2035 -> 1649, cut 19%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SDK-004 - 002 - doc-activity-emails-catalog.md
+  . words 1540 -> 1380, cut 10%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SEP-001 - 001 - Epic-partner-self-onboarding.md
+  . words 1544 -> 1354, cut 12%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SEP-002 - 002 - Epic-offline-mode.md
+  . words 966 -> 877, cut 9%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SEP-003 - 001 - Epic-self-serve-returns.md
+  . words 780 -> 691, cut 11%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SID-001 - 002 - task-due-today-filter-chip.md
+  . words 486 -> 399, cut 18%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SIR-001 - 002 - Epic-guest-loyalty-points.md
+  . words 726 -> 675, cut 7%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SIR-002 - 002 - Story-wishlist-saved-to-account-in-apps.md
+  . words 932 -> 772, cut 17%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SST-001 - 002 - Story-free-cancellation-filter.md
+  . words 1285 -> 1209, cut 6%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SST-002 - 001 - Story-view-only-share-links.md
+  . words 1739 -> 1522, cut 12%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SST-003 - fernhouse-save-card-draft.md
+  . words 1298 -> 1120, cut 14%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SST-004 - 001 - Story-order-tracking/001 - Story-order-tracking.md
+  . words 1742 -> 1588, cut 9%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SST-004 - 001 - Story-order-tracking/001.1 - task-ios-tracking-timeline.md
+  . words 368 -> 319, cut 13%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SST-004 - 001 - Story-order-tracking/001.2 - task-android-tracking-timeline.md
+  . words 368 -> 319, cut 13%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SST-004 - 001 - Story-order-tracking/001.3 - task-web-tracking-timeline.md
+  . words 378 -> 322, cut 15%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/SST-004 - 001 - Story-order-tracking/001.4 - task-tracking-webhook.md
+  . words 595 -> 516, cut 13%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/STK-001 - 001 - task-free-shipping-banner-copy.md
+  . words 351 -> 277, cut 21%
+PASS skill/STK-002 - 001 - task-date-picker-stay-limits.md
+  . words 1228 -> 907, cut 26%
+PASS skill/STK-003 - 001 - task-label-webhook-fix.md
+  . words 1261 -> 996, cut 21%
+KEPT skill/STK-004 - 001 - task-recurring-todos-parent.md
+  . KEPT: 3: About opening holds 3 paragraphs, over the two-paragraph cap
+  . words 1173 -> 1061, cut 10%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/STK-004 - 002 - task-recurring-todos-ios.md
+  . words 539 -> 480, cut 11%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/STK-004 - 003 - task-recurring-todos-android.md
+  . words 552 -> 493, cut 11%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/STK-004 - 004 - task-recurring-todos-web.md
+  . words 614 -> 550, cut 10%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/STK-004 - 005 - task-recurring-todos-be.md
+  . words 626 -> 576, cut 8%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/STK-005 - 001 - task-android-recurring-todos-subtask.md
+  . words 895 -> 782, cut 13%
+  . LIGHT: cut under 20%, say why in the report
+PASS skill/STK-006 - 002 - task-booking-funnel-events.md
+  . words 940 -> 904, cut 4%
+  . LIGHT: cut under 20%, say why in the report
+78 of 78 passed; words 73942 -> 62906, cut 14.9%

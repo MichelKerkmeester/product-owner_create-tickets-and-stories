@@ -1,0 +1,30 @@
+{
+  "level": "2",
+  "specFolder": "008-router-and-skill-slimming/001-retire-depth",
+  "description": "Delete the 556-line always-loaded DEPTH reference and remove it from seventeen referencing files, rehoming anything still live rather than dropping it",
+  "keywords": [
+    "delete",
+    "556-line",
+    "always-loaded",
+    "depth",
+    "reference",
+    "remove",
+    "seventeen",
+    "referencing",
+    "files",
+    "rehoming",
+    "anything",
+    "still",
+    "live",
+    "rather",
+    "dropping"
+  ],
+  "lastUpdated": "2026-10-13T11:02:52.271Z",
+  "specId": "001",
+  "folderSlug": "retire-depth",
+  "parentChain": [
+    "008-router-and-skill-slimming"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

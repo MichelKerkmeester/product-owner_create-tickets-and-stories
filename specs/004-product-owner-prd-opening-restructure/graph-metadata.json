@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "packet_id": "004-product-owner-prd-opening-restructure",
+  "spec_folder": "004-product-owner-prd-opening-restructure",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "product owner prd opening restructure",
+      "story template update",
+      "about the problem our solution references expected outcomes",
+      "prd house format opening",
+      "story template opening"
+    ],
+    "key_topics": [
+      "product",
+      "owner",
+      "prd",
+      "opening",
+      "restructure",
+      "story",
+      "template",
+      "about",
+      "problem",
+      "solution",
+      "references",
+      "expected"
+    ],
+    "importance_tier": "high",
+    "status": "planned",
+    "key_files": [
+      "spec.md",
+      "tasks.md",
+      "claude project/Custom Instructions.md",
+      "claude project/README.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "claude project/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Opening Restructure",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Expected Outcomes",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Objective Change",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "User Story",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Source Analysis",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Skill",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Restructure the first part of a PRD / Story artifact to the team's real house opening — About narrative with lifecycle, Problem, Solution, References, Expected Outcomes — derived from the FS - Creator - Onboarding v2 epic, and review which current template sections become optional or redundant.",
+    "created_at": "2026-08-10T17:09:53Z",
+    "last_save_at": "2026-10-13T12:52:52.702Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "tasks.md"
+    ],
+    "source_fingerprint": "sha256:0ff00c207f8ed987a4bfb4bb73e6e4fb2e533816ad751b2cb7f809037962af39",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "e8cc1be271c4a0378be2e1896aa0d654c2549ef2ba9ce9b6a1a82048c8dc8a29",
+      "tasks.md": "39ed63d14163508eca1f068910d2a04d033e4a27f4e7c6f214505450b057b9fa"
+    },
+    "last_active_at": null
+  }
+}

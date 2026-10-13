@@ -1,0 +1,1 @@
+46 scenarios, 86 declared turns, 86 event streams read, 0 finding(s), expected claude claude-opus-5-5 at effort medium

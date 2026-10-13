@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "recordedBy": "upgrade-legacy",
+  "recordedAt": "2026-10-13T13:44:51.875Z",
+  "findings": [
+    {
+      "rule": "GREP_CONVENTION",
+      "detail": "path=README.md line=0 category=missing severity=error rawKey=- reason=Document has no frontmatter block, so it carries no retrievable trigger phrases"
+    }
+  ]
+}

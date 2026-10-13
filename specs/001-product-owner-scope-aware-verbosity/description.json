@@ -1,0 +1,22 @@
+{
+  "level": "1",
+  "specFolder": "001-product-owner-scope-aware-verbosity",
+  "description": "The Product Owner system has no contract tying output verbosity to request scope",
+  "keywords": [
+    "product",
+    "owner",
+    "system",
+    "contract",
+    "tying",
+    "output",
+    "verbosity",
+    "request",
+    "scope"
+  ],
+  "lastUpdated": "2026-10-13T11:02:48.080Z",
+  "specId": "001",
+  "folderSlug": "product-owner-scope-aware-verbosity",
+  "parentChain": [],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

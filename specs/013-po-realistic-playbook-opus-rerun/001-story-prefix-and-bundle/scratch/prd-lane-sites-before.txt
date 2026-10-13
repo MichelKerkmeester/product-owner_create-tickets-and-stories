@@ -1,0 +1,15 @@
+AI Systems/Product Owner/README.md:572:export/[###] - {task|bug|doc|PRD|Epic}-[description]-clarification.md
+AI Systems/Product Owner/AGENTS.md:79:export/[###] - {task|bug|doc|PRD|Epic}-[description]-clarification.md
+AI Systems/Product Owner/sk-product-owner/SKILL.md:207:- New task: `export/[###] - task-[description].md`. New bug: `export/[###] - bug-[description].md`. New Doc: `export/[###] - doc-[description].md`. New PRD Story: `export/[###] - PRD-[description].md`. New Epic: `export/[###] - Epic-[description].md`
+AI Systems/Product Owner/sk-product-owner/SKILL.md:208:- A clarification is exported too, in the routed artifact's lane, as `export/[###] - {task|bug|doc|PRD|Epic}-[description]-clarification.md`, using `intake` in place of the artifact word when no artifact was resolved. It holds the question and nothing else: no draft, no partial artifact, no answer. When the user replies, the artifact takes the next number in that lane and the clarification file is left untouched
+AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:25:**Output Path:** `export/[###] - {task|bug|doc|PRD|Epic}-[description]-clarification.md`
+AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:90:export/[###] - {task|bug|doc|PRD|Epic}-[description]-clarification.md
+AI Systems/Product Owner/sk-product-owner/assets/interactive-response-templates.md:26:**Output Path:** `export/[###] - {task|bug|doc|PRD|Epic}-[description]-clarification.md`
+AI Systems/Product Owner/claude project/Custom Instructions.md:226:- New PRD Story: `export/NNN - PRD-[description].md`
+AI Systems/Product Owner/claude project/Custom Instructions.md:228:- Clarification: `export/NNN - {task|bug|doc|PRD|Epic}-[description]-clarification.md`, using `intake` in place of the artifact word when no artifact was resolved. It carries the question and nothing else, and the artifact later takes the next number in that lane
+AI Systems/Product Owner/claude project/Custom Instructions.md:229:- PRD refinement: `export/[original-source-filename].md`
+AI Systems/Product Owner/claude project/knowledge/Product Owner - System - Interactive Mode - v0.404.md:67:export/[###] - {task|bug|doc|PRD|Epic}-[description]-clarification.md
+AI Systems/Product Owner/claude project/README.md:124:- New Task, Bug, Doc, Story and Epic exports report `export/NNN - {task|bug|doc|PRD|Epic}-[description].md`. A Task source sync retains the existing task filename.
+AI Systems/z — Claude Project Sync Loop/systems.py:3799:                             '- New PRD Story: `export/NNN - PRD-[description].md`\n'
+AI Systems/z — Claude Project Sync Loop/systems.py:3801:                             '- Clarification: `export/NNN - {task|bug|doc|PRD|Epic}-[description]-clarification.md`, '
+AI Systems/z — Claude Project Sync Loop/systems.py:3805:                             '- PRD refinement: `export/[original-source-filename].md`\n'

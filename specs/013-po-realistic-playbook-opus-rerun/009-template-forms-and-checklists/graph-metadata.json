@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "packet_id": "013-po-realistic-playbook-opus-rerun/009-template-forms-and-checklists",
+  "spec_folder": "013-po-realistic-playbook-opus-rerun/009-template-forms-and-checklists",
+  "parent_id": "013-po-realistic-playbook-opus-rerun",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "template forms",
+      "checklist bracket form",
+      "story requirements checklist",
+      "about heading h2",
+      "template forms plan",
+      "checklist bracket rollout",
+      "template forms tasks",
+      "checklist bracket tasks",
+      "acceptance criteria",
+      "closure gate",
+      "ac traceability",
+      "waiver adr"
+    ],
+    "key_topics": [
+      "template",
+      "forms",
+      "checklist",
+      "bracket",
+      "form",
+      "story",
+      "requirements",
+      "about",
+      "heading",
+      "plan",
+      "rollout",
+      "tasks"
+    ],
+    "importance_tier": "important",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md",
+      "claude project/Custom Instructions.md",
+      "scratch/transform.py",
+      "scratch/verify-exports.txt",
+      "scratch/verify-examples.txt"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "transform.py",
+        "kind": "file",
+        "path": "scratch/transform.py",
+        "source": "derived"
+      },
+      {
+        "name": "verify-exports.txt",
+        "kind": "file",
+        "path": "scratch/verify-exports.txt",
+        "source": "derived"
+      },
+      {
+        "name": "verify-examples.txt",
+        "kind": "file",
+        "path": "scratch/verify-examples.txt",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Interactive Mode",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Quality Scoring",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The operator's newest hand-written ClickUp exports use `## About`, `#### Problem` and `#### Solution`, a bold `Expected outcomes` label inside Solution and checkbox items under each Story requirement group",
+    "created_at": "2026-09-26T13:45:23Z",
+    "last_save_at": "2026-10-13T12:52:54.657Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:9e35f6b514d5df51d5bd7e2c047a4a5470ac8817272ccd613ee366bca3868cdd",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "4d0c1823dde81cea7478d98abd18638d7cca590a5ee86b0dc30373f08de9148d",
+      "plan.md": "87e3023bb52cf035b6db58fe3437dd0e4996df858468cd51ef87ee7ca9464c42",
+      "tasks.md": "8df6e2b9c1523dcd05e0112952cd6cd20d9bf4604412f9b8b1a6b54e72f61732",
+      "implementation-summary.md": "a91335db2e7054dd5e604ad6cee701f749989d5bc43fcecbffbb684893e77b03"
+    },
+    "last_active_at": null
+  }
+}

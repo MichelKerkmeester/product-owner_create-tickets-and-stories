@@ -1,0 +1,24 @@
+{
+  "level": "3",
+  "specFolder": "002-product-owner-mode-additions/001-product-owner-doc-mode",
+  "description": "Before this release, the Product Owner system had no documentation artifact type",
+  "keywords": [
+    "release",
+    "product",
+    "owner",
+    "system",
+    "documentation",
+    "artifact",
+    "type"
+  ],
+  "lastUpdated": "2026-07-14T16:36:10.238Z",
+  "specId": "001",
+  "folderSlug": "product-owner-doc-mode",
+  "parentChain": [
+    "002-product-owner-mode-additions"
+  ],
+  "memorySequence": 1,
+  "memoryNameHistory": [
+    "14-07-26_17-34__completed-product-owner-doc-mode-implementation.md"
+  ]
+}

@@ -1,0 +1,1 @@
+the declaration could not be read, so nothing was checked: /Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/systems.py: the declaration is not the one under version control, because the working copy differs from its HEAD revision

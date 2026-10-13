@@ -1,0 +1,17 @@
+skill/SBG-001 - 001 - bug-ios-cart-badge-stale-after-remove.md
+skill/SBG-002 - 001 - bug-android-confirmation-total-missing-city-tax.md
+skill/SBG-003 - 001 - bug-reminders-late-after-clock-change-clarification.md
+skill/SBG-003 - 002 - bug-reminders-late-after-clock-change.md
+skill/SID-001 - 001 - task-due-today-filter-chip-clarification.md
+skill/SID-001 - 002 - task-due-today-filter-chip.md
+skill/STK-001 - 001 - task-free-shipping-banner-copy.md
+skill/STK-002 - 001 - task-date-picker-stay-limits.md
+skill/STK-003 - 001 - task-label-webhook-fix.md
+skill/STK-004 - 001 - task-recurring-todos-parent.md
+skill/STK-004 - 002 - task-recurring-todos-ios.md
+skill/STK-004 - 003 - task-recurring-todos-android.md
+skill/STK-004 - 004 - task-recurring-todos-web.md
+skill/STK-004 - 005 - task-recurring-todos-be.md
+skill/STK-005 - 001 - task-android-recurring-todos-subtask.md
+skill/STK-006 - 001 - task-booking-funnel-events-clarification.md
+skill/STK-006 - 002 - task-booking-funnel-events.md

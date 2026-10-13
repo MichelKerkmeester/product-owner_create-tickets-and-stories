@@ -1,0 +1,22 @@
+claude project/PBG-001 - NNN - bug-ios-cart-badge-stale-after-remove.md
+claude project/PBG-002 - NNN - bug-android-confirmation-total-missing-city-tax (turn 2).md
+claude project/PBG-002 - NNN - bug-android-confirmation-total-missing-city-tax.md
+claude project/PBG-003 - 001 - bug-reminders-late-after-march-clock-change-clarification.md
+claude project/PBG-003 - 002 - bug-reminders-late-after-march-clock-change.md
+claude project/PID-001 - 001 - task-due-today-filter-chip-clarification.md
+claude project/PID-001 - 002 - task-due-today-filter-chip.md
+claude project/PTK-001 - NNN - task-free-shipping-banner-copy.md
+claude project/PTK-002 - 001 - task-date-picker-stay-limits (turn 2).md
+claude project/PTK-002 - 001 - task-date-picker-stay-limits.md
+claude project/PTK-003 - 001 - task-label-webhook-duplicates-and-late-labels (turn 2).md
+claude project/PTK-003 - 001 - task-label-webhook-duplicates-and-late-labels.md
+claude project/PTK-004 - NNN - task-recurring-todos (turn 2).md
+claude project/PTK-004 - NNN - task-recurring-todos-android.md
+claude project/PTK-004 - NNN - task-recurring-todos-be.md
+claude project/PTK-004 - NNN - task-recurring-todos-ios.md
+claude project/PTK-004 - NNN - task-recurring-todos-web.md
+claude project/PTK-004 - NNN - task-recurring-todos.md
+claude project/PTK-005 - NNN - task-android-recurring-todos (turn 2).md
+claude project/PTK-005 - NNN - task-android-recurring-todos.md
+claude project/PTK-006 - 001 - task-booking-funnel-events-clarification.md
+claude project/PTK-006 - 002 - task-booking-funnel-event-checks.md

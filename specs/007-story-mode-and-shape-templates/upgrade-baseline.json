@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "recordedBy": "upgrade-legacy",
+  "recordedAt": "2026-10-13T12:53:01.284Z",
+  "findings": [
+    {
+      "rule": "AC_CLOSURE",
+      "detail": "acceptance-criteria.md is required at Level 2 for packets created after 2026-08-30 (this packet: 2026-09-02)"
+    },
+    {
+      "rule": "ANCHORS_VALID",
+      "detail": "spec.md: no anchors found"
+    },
+    {
+      "rule": "FILE_EXISTS",
+      "detail": "plan.md"
+    },
+    {
+      "rule": "FILE_EXISTS",
+      "detail": "tasks.md"
+    },
+    {
+      "rule": "LEVEL_MATCH",
+      "detail": "Required file missing for Level 2: plan.md"
+    },
+    {
+      "rule": "LEVEL_MATCH",
+      "detail": "Required file missing for Level 2: tasks.md"
+    }
+  ],
+  "refusals": [
+    {
+      "mode": "anchor-wrap",
+      "document": "spec.md",
+      "reason": "no ANCHOR marker anywhere, so the anchored template is not proven; left unchanged"
+    }
+  ]
+}
