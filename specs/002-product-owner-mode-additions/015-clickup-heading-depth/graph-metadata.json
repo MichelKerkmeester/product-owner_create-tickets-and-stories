@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "packet_id": "002-product-owner-mode-additions/015-clickup-heading-depth",
+  "spec_folder": "002-product-owner-mode-additions/015-clickup-heading-depth",
+  "parent_id": "002-product-owner-mode-additions",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [],
+    "key_topics": [
+      "product",
+      "owner",
+      "artifacts",
+      "every",
+      "section",
+      "clickup",
+      "renders",
+      "very",
+      "large",
+      "user",
+      "wants",
+      "sparingly"
+    ],
+    "importance_tier": "normal",
+    "status": "planned",
+    "key_files": [
+      "spec.md",
+      "tasks.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Heading Depth",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Decision New",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Markdown Contract",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "H3",
+        "kind": "key_phrase",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Output Contract",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Doc Mode",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Doc Templates",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Story Mode",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Product Owner artifacts use H2 for every section, and ClickUp renders H2 very large. The user wants H2 used sparingly, with H3, H4 and bold text carrying normal structure.",
+    "created_at": "2026-10-13T12:52:54.959Z",
+    "last_save_at": "2026-10-13T12:52:54.959Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "tasks.md"
+    ],
+    "source_fingerprint": "sha256:cd55ecbc79b78c72038846c8014cbee76ae76f2146a391a267f402622320ddce",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "77045b4ba8d510ba35e64d43e44249c9938724a4bd59b21683d0a0f9f83ee1b0",
+      "tasks.md": "c44ea5a59b7582d022ec8a9cdd6900b477b290c31d12d7935950c9b1da12566e"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

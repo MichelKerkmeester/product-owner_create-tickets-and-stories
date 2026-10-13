@@ -1,0 +1,28 @@
+{
+  "level": "2",
+  "specFolder": "013-po-realistic-playbook-opus-rerun/009-template-forms-and-checklists",
+  "description": "The operator's newest hand-written ClickUp exports use `## About`, `#### Problem` and `#### Solution`, a bold `Expected outcomes` label inside",
+  "keywords": [
+    "operator",
+    "newest",
+    "hand-written",
+    "clickup",
+    "exports",
+    "about",
+    "problem",
+    "solution",
+    "bold",
+    "expected",
+    "outcomes",
+    "label",
+    "inside"
+  ],
+  "lastUpdated": "2026-10-13T12:52:47.210Z",
+  "specId": "009",
+  "folderSlug": "template-forms-and-checklists",
+  "parentChain": [
+    "013-po-realistic-playbook-opus-rerun"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

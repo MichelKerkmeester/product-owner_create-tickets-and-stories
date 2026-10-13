@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "packet_id": "002-product-owner-mode-additions/013-doc-narrative-shape",
+  "spec_folder": "002-product-owner-mode-additions/013-doc-narrative-shape",
+  "parent_id": "002-product-owner-mode-additions",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [],
+    "key_topics": [
+      "user",
+      "finds",
+      "doc",
+      "mode",
+      "output",
+      "too",
+      "much",
+      "logic",
+      "glossary",
+      "overview",
+      "heavy",
+      "label-bullet"
+    ],
+    "importance_tier": "normal",
+    "status": "planned",
+    "key_files": [
+      "spec.md",
+      "tasks.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Doc Narrative Shape",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Approval Field Test",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Doc Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem The",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Prose Is",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Class Citizen",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Narrative Overview",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The user finds Doc Mode output too much of a \"logic glossary and overview\": heavy label-bullet blocks, structure-first register. Doc Mode had four adaptive shapes (Guide, Catalo...",
+    "created_at": "2026-10-13T12:52:54.938Z",
+    "last_save_at": "2026-10-13T12:52:54.938Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "tasks.md"
+    ],
+    "source_fingerprint": "sha256:03bf8e6aef540dcef409beec8858124956551fd1ae1ec1b56bf40423c3108124",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "53c0dab187fd0f2e6cb9f2a16145a256ad3a1c95047c3e08824c4aa377ad3f31",
+      "tasks.md": "987fae540d80193715479c21af79356b12efe66221d0446e2ce886337afbc8a7"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

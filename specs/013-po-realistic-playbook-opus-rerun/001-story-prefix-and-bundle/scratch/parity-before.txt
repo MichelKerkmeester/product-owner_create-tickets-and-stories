@@ -1,0 +1,11 @@
+Product Owner parity, range origin/main..HEAD
+  pairs: 38 of 38 declared resolved, 38 sources, 0 deliberately unmirrored
+  adapted pairs: 0 declared, 0 omitted source line(s) held to the pair's files
+  shared sources: 4 checked, 4 of them vendored copies, 0 forked, 0 fork(s) declared with a reason
+  manifest: 38 named across 4 roll-up row(s), 38 on disk, declared total(s) [38]
+  kernel bumps: origin/main..HEAD contains no commit touching the kernel
+  version record: live kernel v1.13.0 named among 27 dated notes, a record of the version and not proof of a review
+  version claims: kernel v1.13.0 and Skill v1.9.0 live, README states ['1.13.0'] and ['1.9.0']
+  review-due drift: 34 of 34 owned pairs in step, 1 source change(s) confined to constructs a mirror never carries, 0 where the source caught up to an already-correct mirror, 0 cleared by a review recorded at the current source commit, 0 recorded review(s) whose recorded commit the source has moved past, 0 pair(s) whose history could not be read, 0 path(s) differing from their committed revision, 0 pair(s) with no record and a review due on the drift alone
+  review keys: compared for all 0 declared record(s) before any timestamp comparison ran, 0 still stand at the commit they name
+PASSED 38/38 declared pairs, seven checks

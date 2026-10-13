@@ -1,0 +1,6 @@
+[
+ [
+  "- New PRD Story: `export/NNN - PRD-[description].md`\n- New Epic: `export/NNN - Epic-[description].md`\n- Clarification: `export/NNN - {task|bug|doc|PRD|Epic}-[description]-clarification.md`, using `intake` in place of the artifact word when no artifact was resolved. It carries the question and nothing else, and the artifact later takes the next number in that lane",
+  "- New Story: `export/NNN - Story-[description].md`. A new Story asked for with its task breakdown is one folder, `export/NNN - Story-[description]/`, holding `NNN - Story-[description].md` and one `NNN.[n] - task-[description].md` per task, `n` counting from 1 in the Story's task order. The Story lists its tasks in a `#### **Tasks**` block inside About, each task follows Assets - Task Templates and names the Story in a `**Story**` block, and both link the sibling file. Render one Deliverable Block per file, Story first, each followed by its own `Export-equivalent path:` naming its file inside the folder, then one `HVR self-scan:` line for the set\n- New Epic: `export/NNN - Epic-[description].md`\n- Clarification: `export/NNN - {task|bug|doc|Story|Epic}-[description]-clarification.md`, using `intake` in place of the artifact word when no artifact was resolved. It carries the question and nothing else, and the artifact later takes the next number in that lane"
+ ]
+]

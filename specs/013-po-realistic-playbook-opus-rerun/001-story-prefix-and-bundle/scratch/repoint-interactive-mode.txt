@@ -1,0 +1,6 @@
+repointed 14 whole and 0 split reference(s) across 5 file(s):
+  Product Owner/claude project/README.md   [2 whole]
+  Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/task-command-flow.md   [2 whole]
+  Product Owner/sk-product-owner/manual-testing-playbook/project-interactive-routing/ambiguous-intake-energy-choice.md   [2 whole]
+  z — Claude Project Sync Loop/carrier_query_evidence.py   [2 whole]
+  z — Claude Project Sync Loop/systems.py   [6 whole]

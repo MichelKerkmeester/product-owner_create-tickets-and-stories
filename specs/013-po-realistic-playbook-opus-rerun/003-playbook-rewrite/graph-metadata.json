@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "packet_id": "013-po-realistic-playbook-opus-rerun/003-playbook-rewrite",
+  "spec_folder": "013-po-realistic-playbook-opus-rerun/003-playbook-rewrite",
+  "parent_id": "013-po-realistic-playbook-opus-rerun",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "playbook rewrite phase",
+      "ticket realism rubric",
+      "scenario attachments context folder",
+      "approval gate before the opus run",
+      "playbook rewrite plan",
+      "scenario writer brief",
+      "attachment staging runner",
+      "bundle subfolder collector",
+      "playbook rewrite tasks",
+      "scenario writer groups",
+      "run tooling selftest tasks",
+      "approval gate task"
+    ],
+    "key_topics": [
+      "playbook",
+      "rewrite",
+      "phase",
+      "ticket",
+      "realism",
+      "rubric",
+      "scenario",
+      "attachments",
+      "context",
+      "folder",
+      "approval",
+      "gate"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "scratch/root-citations.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "root-citations.md",
+        "kind": "doc",
+        "path": "scratch/root-citations.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Fix",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Defect",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Completion Criteria",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Verification Checklist",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Acceptance Criteria",
+        "kind": "proper_noun",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Twelve of the 14 scenarios are about payout pause and two about notification retry",
+    "created_at": "2026-09-25T18:14:15Z",
+    "last_save_at": "2026-10-13T12:52:53.027Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:d6e2ec9247270c3608d260c2973ecd3c21cbbac9bf8f514ad06115ff3328e360",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "60465d443ff9b7abd798bda8997641d14cecfef31c63b3d142d62f5ea02e7993",
+      "plan.md": "9f0976db49ea5e73e9a1c2024385c260213fdc1bce2c6a2273156d082d905de6",
+      "tasks.md": "43aa58ac2db4819c6085ad169611cbbb47cbf01e1887e877ffbe8f301dc03abe",
+      "implementation-summary.md": "d05267b6fc1caa024d6c8f4c9f4378131801197fecfddacc09f156f0e4e7d5ce"
+    },
+    "last_active_at": null
+  }
+}

@@ -1,0 +1,12 @@
+{
+ "files": 98,
+ "filesOver": 78,
+ "counts": {
+  "bullet runs N words, over the 25-word cap": 186,
+  "bullet holds N sentences, over the one-sentence cap": 244,
+  "paragraph runs N words, over the 60-word cap": 89,
+  "paragraph holds N sentences, over the three-sentence cap": 89,
+  "Overview opening holds N paragraphs, over the two-paragraph cap": 3,
+  "About opening holds N paragraphs, over the two-paragraph cap": 12
+ }
+}

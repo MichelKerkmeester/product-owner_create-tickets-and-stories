@@ -1,0 +1,29 @@
+{
+  "specFolder": "003-product-owner-story-format-audit",
+  "description": "Adversarial audit of five real Barter ClickUp stories against the Product Owner Story Mode standard, and an honest verdict on whether the",
+  "keywords": [
+    "adversarial",
+    "audit",
+    "five",
+    "real",
+    "barter",
+    "clickup",
+    "stories",
+    "against",
+    "product",
+    "owner",
+    "story",
+    "mode",
+    "standard",
+    "honest",
+    "verdict",
+    "whether"
+  ],
+  "lastUpdated": "2026-10-13T12:52:48.416Z",
+  "specId": "003",
+  "folderSlug": "product-owner-story-format-audit",
+  "parentChain": [],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "1"
+}

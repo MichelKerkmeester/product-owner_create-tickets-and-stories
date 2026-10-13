@@ -1,0 +1,98 @@
+skill   SBG-001 - 001 - bug-ios-cart-badge-stale-after-remove.md
+skill   SBG-002 - 001 - bug-android-confirmation-total-missing-city-tax.md
+skill   SBG-003 - 001 - bug-reminders-late-after-clock-change-clarification.md
+skill   SBG-003 - 002 - bug-reminders-late-after-clock-change.md
+skill   SDK-001 - 001 - doc-promotion-stacking.md
+skill   SDK-002 - 001 - doc-payment-webhook-failures-clarification.md
+skill   SDK-002 - 002 - doc-payment-webhook-failures-runbook.md
+skill   SDK-003 - 001 - doc-sync-conflicts-lost-edits-clarification.md
+skill   SDK-003 - 002 - doc-sync-conflict-options.md
+skill   SDK-004 - 001 - doc-activity-emails-reference-clarification.md
+skill   SDK-004 - 002 - doc-activity-emails-catalog.md
+skill   SEP-001 - 001 - Epic-partner-self-onboarding.md
+skill   SEP-002 - 001 - Epic-offline-mode-clarification.md
+skill   SEP-002 - 002 - Epic-offline-mode.md
+skill   SEP-003 - 001 - Epic-self-serve-returns.md
+skill   SID-001 - 001 - task-due-today-filter-chip-clarification.md
+skill   SID-001 - 002 - task-due-today-filter-chip.md
+skill   SIR-001 - 001 - intake-guest-loyalty-points-clarification.md
+skill   SIR-001 - 002 - Epic-guest-loyalty-points.md
+skill   SIR-002 - 001 - intake-wishlist-cross-device-clarification.md
+skill   SIR-002 - 002 - Story-wishlist-saved-to-account-in-apps.md
+skill   SST-001 - 001 - Story-free-cancellation-filter-clarification.md
+skill   SST-001 - 002 - Story-free-cancellation-filter.md
+skill   SST-002 - 001 - Story-view-only-share-links.md
+skill   SST-003 - fernhouse-save-card-draft.md
+skill   SST-004 - 001 - Story-order-tracking/001 - Story-order-tracking.md
+skill   SST-004 - 001 - Story-order-tracking/001.1 - task-ios-tracking-timeline.md
+skill   SST-004 - 001 - Story-order-tracking/001.2 - task-android-tracking-timeline.md
+skill   SST-004 - 001 - Story-order-tracking/001.3 - task-web-tracking-timeline.md
+skill   SST-004 - 001 - Story-order-tracking/001.4 - task-tracking-webhook.md
+skill   STK-001 - 001 - task-free-shipping-banner-copy.md
+skill   STK-002 - 001 - task-date-picker-stay-limits.md
+skill   STK-003 - 001 - task-label-webhook-fix.md
+skill   STK-004 - 001 - task-recurring-todos-parent.md
+skill   STK-004 - 002 - task-recurring-todos-ios.md
+skill   STK-004 - 003 - task-recurring-todos-android.md
+skill   STK-004 - 004 - task-recurring-todos-web.md
+skill   STK-004 - 005 - task-recurring-todos-be.md
+skill   STK-005 - 001 - task-android-recurring-todos-subtask.md
+skill   STK-006 - 001 - task-booking-funnel-events-clarification.md
+skill   STK-006 - 002 - task-booking-funnel-events.md
+project PBG-001 - NNN - bug-ios-cart-badge-stale-after-remove.md | turn 1 | fence | 2488 chars | # FE - iOS - CART - Cart badge keeps old count after an item
+project PBG-002 - NNN - bug-android-confirmation-total-missing-city-tax.md | turn 1 | fence | 4888 chars | # FE - Guest app - BOOK - Android confirmation screen total 
+project PBG-002 - NNN - bug-android-confirmation-total-missing-city-tax (turn 2).md | turn 2 | fence | 5082 chars | # FE - Guest app - BOOK - Android confirmation screen total 
+project PBG-003 - 001 - bug-reminders-late-after-march-clock-change-clarification.md | turn 1 | fence | 2082 chars | # Clarification: late reminders after the March clock change
+project PBG-003 - 002 - bug-reminders-late-after-march-clock-change.md | turn 2 | fence | 7767 chars | # FS - REM - Reminders arrive one hour late after the March 
+project PDK-001 - 001 - doc-promotions-stacking.md | turn 1 | fence | 9701 chars | # How discount codes and automatic promotions stack
+project PDK-001 - 001 - doc-promotions-stacking (turn 2).md | turn 2 | fence | 9327 chars | # How discount codes and automatic promotions stack
+project PDK-002 - 001 - doc-payment-webhook-failures-clarification.md | turn 1 | fence | 2305 chars | I'll create a new document on handling payment webhook failu
+project PDK-002 - 002 - doc-payment-webhook-failures-runbook.md | turn 2 | fence | 8719 chars | # Payment webhook failures runbook
+project PDK-003 - 001 - doc-sync-conflicts-lost-edits-status.md | turn 1 | fence | 8381 chars | # Sync conflicts and lost edits: where things stand
+project PDK-003 - 002 - doc-sync-conflict-options-proposal.md | turn 2 | fence | 9734 chars | # Sync conflicts: options to replace block-level last-writer
+project PDK-004 - 001 - doc-loomlist-activity-emails-clarification.md | turn 1 | fence | 2391 chars | I'll build the Loomlist activity emails reference page. Befo
+project PDK-004 - 002 - doc-loomlist-activity-emails.md | turn 2 | fence | 10041 chars | # Loomlist activity emails
+project PEP-001 - 001 - Epic-partner-hub-self-onboarding-clarification.md | turn 1 | fence | 2600 chars | I'll write the Epic from Freya's brief. Before I draft it, p
+project PEP-001 - 002 - Epic-partner-hub-self-onboarding.md | turn 2 | fence | 7304 chars | # Epic - Partner Hub - Self-onboarding
+project PEP-002 - 001 - Epic-offline-mode-clarification.md | turn 1 | fence | 1511 chars | I'll write the offline mode epic from Oskar's brief. Before 
+project PEP-002 - 002 - Epic-offline-mode.md | turn 2 | fence | 5449 chars | # Epic - Member - Offline mode
+project PEP-003 - 001 - Epic-self-serve-returns.md | turn 1 | fence | 4865 chars | # Epic - Customer - Self-serve returns
+project PID-001 - 001 - task-due-today-filter-chip-clarification.md | turn 1 | fence | 1778 chars | I'll create your task. Before drafting, please answer these 
+project PID-001 - 002 - task-due-today-filter-chip.md | turn 2 | fence | 2497 chars | # FE - Web - TODO - Due today filter chip
+project PIR-001 - 001 - intake-guest-loyalty-points-clarification.md | turn 1 | fence | 2685 chars | # Guest loyalty points: intake questions
+project PIR-001 - 002 - Epic-guest-loyalty-points.md | turn 2 | fence | 3904 chars | # Epic - Guest - Loyalty points
+project PIR-002 - 001 - intake-wishlist-across-devices-clarification.md | turn 1 | fence | 2614 chars | Before I draft, I need one answer covering everything below.
+project PIR-002 - 002 - Story-customer-wishlist-account-wishlist-in-apps.md | turn 2 | fence | 4645 chars | # Customer - Wishlist - Account wishlist in the apps
+project PST-001 - NNN - Story-free-cancellation-filter-clarification.md | turn 1 | fence | 1471 chars | # Guest - Search - Free cancellation filter, clarification
+project PST-001 - NNN - Story-free-cancellation-filter.md | turn 2 | fence | 6758 chars | # Guest - Search - Free cancellation filter
+project PST-002 - NNN - Story-member-sharing-view-only-links.md | turn 1 | fence | 8785 chars | # Member - Sharing - View-only links
+project PST-002 - NNN - Story-member-sharing-view-only-links (turn 2).md | turn 2 | fence | 9028 chars | # Member - Sharing - View-only links
+project PST-003 - fernhouse-save-card-draft.md | turn 1 | fence | 6734 chars | # Customer - Checkout - Save card for next time
+project PST-003 - fernhouse-save-card-draft (turn 2).md | turn 2 | fence | 6967 chars | # Customer - Checkout - Save card for next time
+project PST-004 - NNN - Story-order-tracking-timeline/NNN - Story-order-tracking-timeline.md | turn 1 | fence | 10038 chars | # Customer - Order tracking - Order page timeline
+project PST-004 - NNN - Story-order-tracking-timeline/NNN.1 - task-tracking-webhook.md | turn 1 | fence | 2600 chars | # BE - TRACK - Tracking webhook
+project PST-004 - NNN - Story-order-tracking-timeline/NNN.2 - task-packed-status.md | turn 1 | fence | 779 chars | # BE - TRACK - Packed status from the warehouse system
+project PST-004 - NNN - Story-order-tracking-timeline/NNN.3 - task-web-tracking-timeline.md | turn 1 | fence | 1995 chars | # FE - Web - TRACK - Order page tracking timeline
+project PST-004 - NNN - Story-order-tracking-timeline/NNN.4 - task-ios-tracking-timeline.md | turn 1 | fence | 1998 chars | # FE - iOS - TRACK - Order page tracking timeline
+project PST-004 - NNN - Story-order-tracking-timeline/NNN.5 - task-android-tracking-timeline.md | turn 1 | fence | 1998 chars | # FE - Android - TRACK - Order page tracking timeline
+project PST-004 - NNN - Story-order-tracking-timeline/NNN.6 - task-tracking-timeline-events.md | turn 1 | fence | 1125 chars | # DATA - TRACK - Tracking timeline events
+project PST-004 - NNN - Story-order-tracking-timeline/NNN - Story-order-tracking-timeline (turn 2).md | turn 2 | fence | 9329 chars | # Customer - Order tracking - Order page timeline
+project PST-004 - NNN - Story-order-tracking-timeline/NNN.1 - task-ios-tracking-timeline.md | turn 2 | fence | 1934 chars | # FE - iOS - TRACK - Order page tracking timeline
+project PST-004 - NNN - Story-order-tracking-timeline/NNN.2 - task-android-tracking-timeline.md | turn 2 | fence | 1934 chars | # FE - Android - TRACK - Order page tracking timeline
+project PST-004 - NNN - Story-order-tracking-timeline/NNN.3 - task-web-tracking-timeline (turn 2).md | turn 2 | fence | 1957 chars | # FE - Web - TRACK - Order page tracking timeline
+project PST-004 - NNN - Story-order-tracking-timeline/NNN.4 - task-tracking-webhook.md | turn 2 | fence | 2511 chars | # BE - TRACK - Tracking webhook
+project PTK-001 - NNN - task-free-shipping-banner-copy.md | turn 1 | fence | 1166 chars | # FE - PROMO - Shorten the free-shipping banner copy
+project PTK-002 - 001 - task-date-picker-stay-limits.md | turn 1 | fence | 5058 chars | <!-- Mode: Task | Template: Task Templates v0.102 -->
+project PTK-002 - 001 - task-date-picker-stay-limits (turn 2).md | turn 2 | fence | 5491 chars | <!-- Mode: Task | Template: Task Templates v0.102 -->
+project PTK-003 - 001 - task-label-webhook-duplicates-and-late-labels.md | turn 1 | fence | 6876 chars | # BE - SHIP - Label webhook duplicates and late labels
+project PTK-003 - 001 - task-label-webhook-duplicates-and-late-labels (turn 2).md | turn 2 | fence | 7663 chars | # BE - SHIP - Label webhook duplicates and late labels
+project PTK-004 - NNN - task-recurring-todos.md | turn 1 | fence | 5480 chars | # FS - TODO - Recurring to-dos
+project PTK-004 - NNN - task-recurring-todos-ios.md | turn 1 | fence | 2849 chars | # FE - iOS - TODO - Recurring to-dos
+project PTK-004 - NNN - task-recurring-todos-android.md | turn 1 | fence | 2927 chars | # FE - Android - TODO - Recurring to-dos
+project PTK-004 - NNN - task-recurring-todos-web.md | turn 1 | fence | 3160 chars | # FE - Web - TODO - Recurring to-dos
+project PTK-004 - NNN - task-recurring-todos-be.md | turn 1 | fence | 2711 chars | # BE - TODO - Recurring to-dos
+project PTK-004 - NNN - task-recurring-todos (turn 2).md | turn 2 | fence | 6718 chars | # FS - TODO - Recurring to-dos
+project PTK-005 - NNN - task-android-recurring-todos.md | turn 1 | fence | 4969 chars | # FE - Android - TODO - Recurring to-dos
+project PTK-005 - NNN - task-android-recurring-todos (turn 2).md | turn 2 | fence | 5230 chars | # FE - Android - TODO - Recurring to-dos
+project PTK-006 - 001 - task-booking-funnel-events-clarification.md | turn 1 | fence | 2416 chars | # Booking funnel events task: questions before drafting
+project PTK-006 - 002 - task-booking-funnel-event-checks.md | turn 2 | fence | 4808 chars | # DATA - Guest app - TRK - Booking funnel event checks and d

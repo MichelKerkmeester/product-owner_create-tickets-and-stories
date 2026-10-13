@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "packet_id": "011-holdout-review",
+  "spec_folder": "011-holdout-review",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "held-out review saved deals shelf",
+      "product owner requirements paraphrase",
+      "story drafts export path retired",
+      "holdout fixture benchmark",
+      "format gate prose semicolon",
+      "holdout review plan",
+      "phrase list explains states tells informs",
+      "baseline format gate fixtures",
+      "story rules judged by a held-out source",
+      "holdout review tasks",
+      "trap-by-trap verdict",
+      "ranked changes p0 to p3"
+    ],
+    "key_topics": [
+      "held-out",
+      "review",
+      "saved",
+      "deals",
+      "shelf",
+      "product",
+      "owner",
+      "requirements",
+      "paraphrase",
+      "story",
+      "drafts",
+      "export"
+    ],
+    "importance_tier": "normal",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md",
+      "sk-product-owner/references/story-mode.md",
+      "sk-product-owner/assets/story-template.md",
+      "benchmark/format/validate-output-format.cjs",
+      "specs/010-requirements-bloat/findings.md",
+      "benchmark/format/run_fixtures.sh"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "story-mode.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/story-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "story-template.md",
+        "kind": "doc",
+        "path": "sk-product-owner/assets/story-template.md",
+        "source": "derived"
+      },
+      {
+        "name": "validate-output-format.cjs",
+        "kind": "file",
+        "path": "benchmark/format/validate-output-format.cjs",
+        "source": "derived"
+      },
+      {
+        "name": "findings.md",
+        "kind": "doc",
+        "path": "specs/010-requirements-bloat/findings.md",
+        "source": "derived"
+      },
+      {
+        "name": "run_fixtures.sh",
+        "kind": "script",
+        "path": "benchmark/format/run_fixtures.sh",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Saved Deals Shelf",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement The Requirements",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Initial Instagram Sheet",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Judge",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview One",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern One",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Story Drafts",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Completion Criteria",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The Requirements rule had been rewritten twice, in `ba2bec3` and `095479a`, but it had never been tested against a source the skill had not already seen",
+    "created_at": "2026-10-13T13:44:44.858Z",
+    "last_save_at": "2026-10-13T13:44:44.858Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:16b61400b747419f51203f3ba7db50ca147df4ba2a78392b238195eb4ad4d68b",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "44eb3fac64ee5875a11ce03af559ae3870ca45f650def5efa0e5eb7dcd584d07",
+      "plan.md": "20db4bc1aa30de174e1d3e2e73503f56be1e221c535330be428dda4e724b7295",
+      "tasks.md": "fa5fa0186da50db4bbfe7fb9dfb52574859e8c5354bb0efc6ca8b3d129a5496a",
+      "implementation-summary.md": "0652fe8b58b955398f59add3413df9d2473bba6b2d75032a2ff6fe8f4548e189"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "packet_id": "013-po-realistic-playbook-opus-rerun/005-grading-and-report",
+  "spec_folder": "013-po-realistic-playbook-opus-rerun/005-grading-and-report",
+  "parent_id": "013-po-realistic-playbook-opus-rerun",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "opus run grading",
+      "ticket realism review",
+      "twin agreement adjudication",
+      "packet 076 closure",
+      "opus grading plan",
+      "grader batches by folder group",
+      "check_report.sh",
+      "packet closure checks",
+      "grading tasks",
+      "phase 5 verification",
+      "realism review tasks",
+      "packet closure tasks"
+    ],
+    "key_topics": [
+      "opus",
+      "run",
+      "grading",
+      "ticket",
+      "realism",
+      "review",
+      "twin",
+      "agreement",
+      "adjudication",
+      "packet",
+      "closure",
+      "plan"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "scratch/exports.txt",
+      "scratch/root-at-run.md",
+      "scratch/sources-at-run.txt",
+      "scratch/grading-brief.md",
+      "scratch/miss-cause-brief.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "exports.txt",
+        "kind": "file",
+        "path": "scratch/exports.txt",
+        "source": "derived"
+      },
+      {
+        "name": "root-at-run.md",
+        "kind": "doc",
+        "path": "scratch/root-at-run.md",
+        "source": "derived"
+      },
+      {
+        "name": "sources-at-run.txt",
+        "kind": "file",
+        "path": "scratch/sources-at-run.txt",
+        "source": "derived"
+      },
+      {
+        "name": "grading-brief.md",
+        "kind": "doc",
+        "path": "scratch/grading-brief.md",
+        "source": "derived"
+      },
+      {
+        "name": "miss-cause-brief.md",
+        "kind": "doc",
+        "path": "scratch/miss-cause-brief.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Five Opus",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Grading",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Grade",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Run output is not a result until each scenario is graded whole against the rules the runtime saw",
+    "created_at": "2026-09-25T18:14:18Z",
+    "last_save_at": "2026-10-13T12:52:54.536Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:6262b6781167f94267a5fef2c0f1cbbbb70480bbbbde708a587eb24ce0fd4129",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "3afe98fa41b502c73df1a63a61481ec293744a22cdaf96050910ef8af8abce1c",
+      "plan.md": "1cc0b5397ecbc215ff05adba26dba9a0909e7453ac239607eaa2a82baa8ca1d5",
+      "tasks.md": "019351afb1095842f48fab1a329d4a8e256a1bb264b4f99d93022112a4d2bd2d",
+      "implementation-summary.md": "66f22eb3891268f52e738307b343f68930aa1648a1d8a81ea85b56698c660ae8"
+    },
+    "last_active_at": null
+  }
+}

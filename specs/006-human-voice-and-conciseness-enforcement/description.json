@@ -1,0 +1,23 @@
+{
+  "level": "2",
+  "specFolder": "006-human-voice-and-conciseness-enforcement",
+  "description": "HVR is enforced by reference: a skill points at a 684-line document and nothing checks the output.",
+  "keywords": [
+    "hvr",
+    "enforced",
+    "reference",
+    "skill",
+    "points",
+    "684-line",
+    "document",
+    "nothing",
+    "checks",
+    "output"
+  ],
+  "lastUpdated": "2026-10-13T11:02:56.291Z",
+  "specId": "006",
+  "folderSlug": "human-voice-and-conciseness-enforcement",
+  "parentChain": [],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

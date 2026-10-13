@@ -1,0 +1,15 @@
+$prd     $p     no-PRD-  file (stem)
+4        3      0        AGENTS.md
+9        7      2        sk-product-owner/SKILL.md
+8        6      2        sk-product-owner/references/story-mode.md
+7        5      0        sk-product-owner/references/interactive-mode.md
+0        0      0        sk-product-owner/assets/story-template.md
+0        0      0        sk-product-owner/assets/epic-template.md
+0        0      0        sk-product-owner/assets/task-templates.md
+1        1      1        claude project/Custom Instructions.md
+6        4      2        claude project/knowledge/Product Owner - Templates - Story Mode
+7        5      0        claude project/knowledge/Product Owner - System - Interactive Mode
+0        0      0        claude project/knowledge/Product Owner - Assets - Task Templates
+0        0      0        claude project/knowledge/Product Owner - Assets - Story Template
+0        0      0        claude project/knowledge/Product Owner - Assets - Epic Template
+42       31     7        TOTAL

@@ -1,0 +1,27 @@
+{
+  "level": "2",
+  "specFolder": "013-po-realistic-playbook-opus-rerun/001-story-prefix-and-bundle",
+  "description": "A new Story saves as `export/[###] - PRD-[description].md` while its sibling saves as `export/[###] - Epic-[description].md`, so the one artifact kind",
+  "keywords": [
+    "new",
+    "story",
+    "saves",
+    "export",
+    "prd",
+    "description",
+    "while",
+    "sibling",
+    "epic",
+    "one",
+    "artifact",
+    "kind"
+  ],
+  "lastUpdated": "2026-10-13T12:52:47.178Z",
+  "specId": "001",
+  "folderSlug": "story-prefix-and-bundle",
+  "parentChain": [
+    "013-po-realistic-playbook-opus-rerun"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

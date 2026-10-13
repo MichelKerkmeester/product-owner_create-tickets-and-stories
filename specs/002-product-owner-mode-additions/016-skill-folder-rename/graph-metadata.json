@@ -1,0 +1,139 @@
+{
+  "schema_version": 1,
+  "packet_id": "002-product-owner-mode-additions/016-skill-folder-rename",
+  "spec_folder": "002-product-owner-mode-additions/016-skill-folder-rename",
+  "parent_id": "002-product-owner-mode-additions",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [],
+    "key_topics": [
+      "cli",
+      "packaging",
+      "lived",
+      "product",
+      "owner",
+      "skill",
+      "generic",
+      "name",
+      "folder",
+      "readme",
+      "developer",
+      "browsing"
+    ],
+    "importance_tier": "normal",
+    "status": "planned",
+    "key_files": [
+      "spec.md",
+      "tasks.md",
+      "sk-product-owner/README.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "sk-product-owner/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "Skill Folder Rename",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem The",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Requirement Item Standard",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem",
+        "kind": "heading",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "a",
+        "kind": "key_phrase",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "the",
+        "kind": "key_phrase",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Tasks: Skill Folder Rename + Skill README",
+        "kind": "quoted",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "importance_tier:",
+        "kind": "quoted",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "contextType:",
+        "kind": "quoted",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The CLI packaging lived at Product Owner/skill/, a generic name, and the folder had no README for a developer browsing it. The user wants the folder renamed to sk-product-owner ...",
+    "created_at": "2026-10-13T12:52:54.968Z",
+    "last_save_at": "2026-10-13T12:52:54.968Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "tasks.md"
+    ],
+    "source_fingerprint": "sha256:502d3ac37cdb7972e6d26d6dc7d2ccebf3deb1b770d2615e9cf4c897741123b7",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "c480bcf84d78927644b3fe33c1fcfbf5d7a87d04ba1cd7c624feb40ba69db799",
+      "tasks.md": "a456a7370c948a18b3532b3d594881cdc6b820376c2d42b95250b9ad205daeda"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

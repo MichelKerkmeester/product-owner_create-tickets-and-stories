@@ -1,0 +1,23 @@
+{
+  "specFolder": "002-product-owner-mode-additions/003-product-owner-clickup-handoff",
+  "description": "Consent-gated ClickUp delivery for Product Owner artifacts with markdown-preserving transport.",
+  "keywords": [
+    "consent-gated",
+    "clickup",
+    "delivery",
+    "product",
+    "owner",
+    "artifacts",
+    "markdown-preserving",
+    "transport"
+  ],
+  "lastUpdated": "2026-10-13T11:02:59.388Z",
+  "specId": "003",
+  "folderSlug": "product-owner-clickup-handoff",
+  "parentChain": [
+    "002-product-owner-mode-additions"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "1"
+}

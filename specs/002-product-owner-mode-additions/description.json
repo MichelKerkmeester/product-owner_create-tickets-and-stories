@@ -1,0 +1,29 @@
+{
+  "specFolder": "002-product-owner-mode-additions",
+  "description": "Parent spec for the Product Owner capability wave: Doc Mode, Story Mode, ClickUp handoff, per-mode example libraries, and the package rewiring that",
+  "keywords": [
+    "parent",
+    "spec",
+    "product",
+    "owner",
+    "capability",
+    "wave",
+    "doc",
+    "mode",
+    "story",
+    "clickup",
+    "handoff",
+    "per-mode",
+    "example",
+    "libraries",
+    "package",
+    "rewiring"
+  ],
+  "lastUpdated": "2026-10-13T11:02:59.346Z",
+  "specId": "002",
+  "folderSlug": "product-owner-mode-additions",
+  "parentChain": [],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "3"
+}

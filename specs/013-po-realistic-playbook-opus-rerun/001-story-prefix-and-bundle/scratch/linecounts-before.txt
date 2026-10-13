@@ -1,0 +1,10 @@
+     280 AGENTS.md
+     405 sk-product-owner/SKILL.md
+     253 claude project/Custom Instructions.md
+     460 sk-product-owner/references/story-mode.md
+     570 sk-product-owner/references/interactive-mode.md
+     285 sk-product-owner/assets/task-templates.md
+     435 claude project/knowledge/Product Owner - Templates - Story Mode - v0.401.md
+     544 claude project/knowledge/Product Owner - System - Interactive Mode - v0.404.md
+     266 claude project/knowledge/Product Owner - Assets - Task Templates - v0.101.md
+    3498 total

@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "packet_id": "013-po-realistic-playbook-opus-rerun/001-story-prefix-and-bundle",
+  "spec_folder": "013-po-realistic-playbook-opus-rerun/001-story-prefix-and-bundle",
+  "parent_id": "013-po-realistic-playbook-opus-rerun",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "story export prefix",
+      "story with nested tasks",
+      "story bundle folder",
+      "prd prefix removal",
+      "story prefix plan",
+      "story bundle plan",
+      "resync statement batch",
+      "cited lines snapshot",
+      "story prefix tasks",
+      "story bundle tasks",
+      "prd to story rename tasks",
+      "phase 1 verification checklist"
+    ],
+    "key_topics": [
+      "story",
+      "export",
+      "prefix",
+      "nested",
+      "tasks",
+      "bundle",
+      "folder",
+      "prd",
+      "removal",
+      "plan",
+      "resync",
+      "statement"
+    ],
+    "importance_tier": "normal",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "claude project/README.md",
+      "sk-product-owner/README.md",
+      "claude project/Custom Instructions.md",
+      "benchmark/router/run_fixtures.sh",
+      "scratch/cited-before.txt",
+      "scratch/snapshot_cited.sh",
+      "scratch/resync-pairs.json",
+      "scratch/residency_worktree.py",
+      "sk-product-owner/assets/task-templates.md",
+      "scratch/proof-grep-after.txt",
+      "scratch/counts-after.txt",
+      "scratch/route-probe.txt",
+      "scratch/emdash-check.txt",
+      "scratch/format-before.txt"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "claude project/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "run_fixtures.sh",
+        "kind": "script",
+        "path": "benchmark/router/run_fixtures.sh",
+        "source": "derived"
+      },
+      {
+        "name": "cited-before.txt",
+        "kind": "file",
+        "path": "scratch/cited-before.txt",
+        "source": "derived"
+      },
+      {
+        "name": "snapshot_cited.sh",
+        "kind": "script",
+        "path": "scratch/snapshot_cited.sh",
+        "source": "derived"
+      },
+      {
+        "name": "resync-pairs.json",
+        "kind": "config",
+        "path": "scratch/resync-pairs.json",
+        "source": "derived"
+      },
+      {
+        "name": "residency_worktree.py",
+        "kind": "file",
+        "path": "scratch/residency_worktree.py",
+        "source": "derived"
+      },
+      {
+        "name": "task-templates.md",
+        "kind": "doc",
+        "path": "sk-product-owner/assets/task-templates.md",
+        "source": "derived"
+      },
+      {
+        "name": "proof-grep-after.txt",
+        "kind": "file",
+        "path": "scratch/proof-grep-after.txt",
+        "source": "derived"
+      },
+      {
+        "name": "counts-after.txt",
+        "kind": "file",
+        "path": "scratch/counts-after.txt",
+        "source": "derived"
+      },
+      {
+        "name": "route-probe.txt",
+        "kind": "file",
+        "path": "scratch/route-probe.txt",
+        "source": "derived"
+      },
+      {
+        "name": "emdash-check.txt",
+        "kind": "file",
+        "path": "scratch/emdash-check.txt",
+        "source": "derived"
+      },
+      {
+        "name": "format-before.txt",
+        "kind": "file",
+        "path": "scratch/format-before.txt",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner Story",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Story Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "A new Story saves as `export/[###] - PRD-[description].md` while its sibling saves as `export/[###] - Epic-[description].md`, so the one artifact kind that Story Mode produces most often is named for a document type the system otherwise calls a Story",
+    "created_at": "2026-09-25T18:14:13Z",
+    "last_save_at": "2026-10-13T12:52:53.026Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:af29355e60218fec6795e5dd06fec99cb6637e81900ea66baeb35926990fcc26",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "754b5a7a7ecb1a306ff64fffc516cea88851315f887c7afa54b22a5f4a55b6d0",
+      "plan.md": "639a3ba379ae517552ed23117d55804363ab6ea39dcd8c22414f05df718167fa",
+      "tasks.md": "2b7459112a92a3a49644b0ff44ccf42a69e2e227115ac6a5dc6a0a64729b3af6",
+      "implementation-summary.md": "eb67dcd84e9023d91ecedfd1fb3a461d858b01e1ea972d9e669624135aba8258"
+    },
+    "last_active_at": null
+  }
+}

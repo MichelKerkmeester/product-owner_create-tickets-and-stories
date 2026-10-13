@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "packet_id": "009-story-drafts-rewrite",
+  "spec_folder": "009-story-drafts-rewrite",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "story drafts rewrite",
+      "deepseek v4 flash story rewrite",
+      "three-lane draft rewrite",
+      "per-surface acceptance criteria ceiling",
+      "story format gate two-pass",
+      "story drafts rewrite plan",
+      "three parallel rewrite lanes",
+      "criteria cleanup second pass",
+      "story shape benchmark models",
+      "story drafts rewrite tasks",
+      "first pass lane timings",
+      "criteria cleanup rerun"
+    ],
+    "key_topics": [
+      "story",
+      "drafts",
+      "rewrite",
+      "deepseek",
+      "flash",
+      "three-lane",
+      "draft",
+      "per-surface",
+      "acceptance",
+      "criteria",
+      "ceiling",
+      "format"
+    ],
+    "importance_tier": "normal",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Story Drafts",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sixteen Story Drafts",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement Sixteen Story Drafts",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Every",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner Story Drafts",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Story",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview One",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Completion Criteria",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Content Gallery",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Edit Reel",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Summary",
+        "kind": "proper_noun",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "Spec Folder",
+        "kind": "proper_noun",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Sixteen Story Drafts under `AI Systems/Product Owner/export/Story Drafts/` had to be rewritten in place as full Stories in the current house format, each one from its own draft and the `context.md` beside it, with no numbered export and no reference to the screenshots in that folder, because those get embedded in ClickUp later",
+    "created_at": "2026-10-13T13:44:44.826Z",
+    "last_save_at": "2026-10-13T13:44:44.826Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:5d6b74357632ff3a4ba773dacfff12d86bee8d0a65f2074ee62009cbbcca144a",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "9154aa575f06eab6e6152aca789d81edbc0735fb2e27a542d5343abac9df4cde",
+      "plan.md": "accdebdf0fe95d2b6f1dd8bfbc595fa9449c09ef7366499e5f6bb7b328995110",
+      "tasks.md": "5934ec24c49ddace397d5c9c771fac2483f641039d6c266529cd6f6f0e38782d",
+      "implementation-summary.md": "345a635612c9382209d5589382e461bda5527522a84bc3a5d8925d89f28fcf25"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

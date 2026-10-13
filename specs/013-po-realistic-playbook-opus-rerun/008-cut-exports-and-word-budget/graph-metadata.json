@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "packet_id": "013-po-realistic-playbook-opus-rerun/008-cut-exports-and-word-budget",
+  "spec_folder": "013-po-realistic-playbook-opus-rerun/008-cut-exports-and-word-budget",
+  "parent_id": "013-po-realistic-playbook-opus-rerun",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "cut exports word budget",
+      "second conciseness pass",
+      "per-artifact word budget",
+      "cut exports plan",
+      "word budget rollout",
+      "cut exports tasks",
+      "word budget tasks",
+      "acceptance criteria",
+      "closure gate",
+      "ac traceability",
+      "waiver adr",
+      "implementation summary"
+    ],
+    "key_topics": [
+      "cut",
+      "exports",
+      "word",
+      "budget",
+      "second",
+      "conciseness",
+      "pass",
+      "per-artifact",
+      "plan",
+      "rollout",
+      "tasks",
+      "acceptance"
+    ],
+    "importance_tier": "important",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md",
+      "sk-product-owner/SKILL.md",
+      "claude project/Custom Instructions.md",
+      "sk-product-owner/manual-testing-playbook/manual-testing-playbook.md",
+      "sk-product-owner/changelog/v0.16.0.0.md",
+      "sk-product-owner/README.md",
+      "scratch/verify_cut.py",
+      "scratch/fact-review-g1.md",
+      "scratch/verify-final.txt"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "manual-testing-playbook.md",
+        "kind": "doc",
+        "path": "sk-product-owner/manual-testing-playbook/manual-testing-playbook.md",
+        "source": "derived"
+      },
+      {
+        "name": "v0.16.0.0.md",
+        "kind": "doc",
+        "path": "sk-product-owner/changelog/v0.16.0.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "sk-product-owner/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "verify_cut.py",
+        "kind": "file",
+        "path": "scratch/verify_cut.py",
+        "source": "derived"
+      },
+      {
+        "name": "fact-review-g1.md",
+        "kind": "doc",
+        "path": "scratch/fact-review-g1.md",
+        "source": "derived"
+      },
+      {
+        "name": "verify-final.txt",
+        "kind": "file",
+        "path": "scratch/verify-final.txt",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Seven",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Measured",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The operator read the exports after phase 006 and found them still bloated",
+    "created_at": "2026-09-26T09:58:14Z",
+    "last_save_at": "2026-10-13T16:25:27.842Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:272c44cee8966f83e01af316dac38309fb6cb6729c6346095079edcaef9718f5",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "1c69aa635616d632405452a047e8851540c1075f574a6cff7b43eaf0fc8c82a5",
+      "plan.md": "386317fa5d0f1ea71ba944291bc38d3c00d6a19db687244ea88941c5f7cc1a8c",
+      "tasks.md": "d1a866a84e8dbb42fcf9911ace7e029a4275013fb34e361045141ef267f4e76c",
+      "implementation-summary.md": "d08f1ba946e9292751e6cfba29f774014ad3117eb1f8051fd2c3c4d9b36a5bc3"
+    },
+    "last_active_at": null
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "packet_id": "002-product-owner-mode-additions/002-product-owner-story-mode",
+  "spec_folder": "002-product-owner-mode-additions/002-product-owner-story-mode",
+  "parent_id": "002-product-owner-mode-additions",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "product owner story mode",
+      "story mode routing",
+      "story templates",
+      "user story examples"
+    ],
+    "key_topics": [
+      "product",
+      "owner",
+      "story",
+      "mode",
+      "routing",
+      "templates",
+      "user",
+      "examples",
+      "system",
+      "research-grounded",
+      "formats",
+      "three-tier"
+    ],
+    "importance_tier": "normal",
+    "status": "planned",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "research.md",
+      "scratch/Story - Fv2.5 - Feed Function - Rulesets (conventional rewrite).md",
+      "examples/barter-story-template.md",
+      "examples/barter-story-template-simple.md",
+      "examples/connextra-user-story.md",
+      "examples/job-story.md",
+      "examples/gherkin-acceptance-criteria.md",
+      "examples/epic-splitting.md",
+      "examples/definition-ready-done.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "research.md",
+        "kind": "doc",
+        "path": "research.md",
+        "source": "derived"
+      },
+      {
+        "name": "Story - Fv2.5 - Feed Function - Rulesets (conventional rewrite).md",
+        "kind": "doc",
+        "path": "scratch/Story - Fv2.5 - Feed Function - Rulesets (conventional rewrite).md",
+        "source": "derived"
+      },
+      {
+        "name": "barter-story-template.md",
+        "kind": "doc",
+        "path": "examples/barter-story-template.md",
+        "source": "derived"
+      },
+      {
+        "name": "barter-story-template-simple.md",
+        "kind": "doc",
+        "path": "examples/barter-story-template-simple.md",
+        "source": "derived"
+      },
+      {
+        "name": "connextra-user-story.md",
+        "kind": "doc",
+        "path": "examples/connextra-user-story.md",
+        "source": "derived"
+      },
+      {
+        "name": "job-story.md",
+        "kind": "doc",
+        "path": "examples/job-story.md",
+        "source": "derived"
+      },
+      {
+        "name": "gherkin-acceptance-criteria.md",
+        "kind": "doc",
+        "path": "examples/gherkin-acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "epic-splitting.md",
+        "kind": "doc",
+        "path": "examples/epic-splitting.md",
+        "source": "derived"
+      },
+      {
+        "name": "definition-ready-done.md",
+        "kind": "doc",
+        "path": "examples/definition-ready-done.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner Story Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Story Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implemented Story Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feed Function Rulesets",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Connextra Story",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "User Story Examples Research",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Approach One",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Rollback Delete",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "its",
+        "kind": "key_phrase",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Approach",
+        "kind": "heading",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Rollback",
+        "kind": "heading",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Story Mode for the Product Owner system: research-grounded story formats, a three-tier template family, and a routed STORY intent with interactive tier intelligence across both packagings.",
+    "created_at": "2026-10-13T12:52:54.913Z",
+    "last_save_at": "2026-10-13T12:52:54.913Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "research.md"
+    ],
+    "source_fingerprint": "sha256:5b818acd9fe5c43bd0dc0f7db0755314713216af419cbbcf5e48bcf6bbdd9c8d",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "2744585fdcfaec29e2fa00f8efc358682e8f7f17bc27eca038e4d276d0a1a8e6",
+      "plan.md": "ea2505cc6de56fbcbea6d7103585bc247b2db333ae7315df3100670663e1fbdf",
+      "tasks.md": "02df676a969262c38f1335268dafe42e4fa95d92e1cd0f232a3eb9492e5e0899",
+      "research.md": "07c268766481431afa751d0fabb0bd3ffdc308927a198cb169d13f8895cc5ae2"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "packet_id": "002-product-owner-mode-additions/017-skill-md-alignment",
+  "spec_folder": "002-product-owner-mode-additions/017-skill-md-alignment",
+  "parent_id": "002-product-owner-mode-additions",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [],
+    "key_topics": [
+      "sk-product-owner",
+      "skill",
+      "grown",
+      "lines",
+      "accretion",
+      "four",
+      "separate",
+      "python",
+      "fences",
+      "decorative",
+      "dicts",
+      "nothing"
+    ],
+    "importance_tier": "normal",
+    "status": "planned",
+    "key_files": [
+      "spec.md",
+      "tasks.md",
+      "sk-product-owner/SKILL.md",
+      "sk-product-owner/README.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "sk-product-owner/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "Advisor Metadata",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Related Documents",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "decorative",
+        "kind": "key_phrase",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "sk-doc",
+        "kind": "key_phrase",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "an",
+        "kind": "key_phrase",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Required Parity",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Mode",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Opening Contract",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Readability Floor",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "sk-product-owner/SKILL.md had grown to ~1190 lines by accretion: four separate Python fences with decorative dicts nothing executed, routing rules stated three ways in prose, an...",
+    "created_at": "2026-10-13T12:52:54.979Z",
+    "last_save_at": "2026-10-13T12:52:54.979Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "tasks.md"
+    ],
+    "source_fingerprint": "sha256:1d0fa7a7b8800808d3783acc318c8487b5ed17a8968a9e43472f91c183aa01a4",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "f6579dd4b5a8139fae536843b905fc40b957452aefd0be2c3c03de9a324b63bb",
+      "tasks.md": "520198faf809c60ff28758be91f5a3ca8235354c1cc6cd410827b1e5612d7601"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

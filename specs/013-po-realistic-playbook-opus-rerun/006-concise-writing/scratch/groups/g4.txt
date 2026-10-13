@@ -1,0 +1,17 @@
+claude project/PDK-001 - 001 - doc-promotions-stacking (turn 2).md
+claude project/PDK-001 - 001 - doc-promotions-stacking.md
+claude project/PDK-002 - 001 - doc-payment-webhook-failures-clarification.md
+claude project/PDK-002 - 002 - doc-payment-webhook-failures-runbook.md
+claude project/PDK-003 - 001 - doc-sync-conflicts-lost-edits-status.md
+claude project/PDK-003 - 002 - doc-sync-conflict-options-proposal.md
+claude project/PDK-004 - 001 - doc-loomlist-activity-emails-clarification.md
+claude project/PDK-004 - 002 - doc-loomlist-activity-emails.md
+claude project/PEP-001 - 001 - Epic-partner-hub-self-onboarding-clarification.md
+claude project/PEP-001 - 002 - Epic-partner-hub-self-onboarding.md
+claude project/PEP-002 - 001 - Epic-offline-mode-clarification.md
+claude project/PEP-002 - 002 - Epic-offline-mode.md
+claude project/PEP-003 - 001 - Epic-self-serve-returns.md
+claude project/PIR-001 - 001 - intake-guest-loyalty-points-clarification.md
+claude project/PIR-001 - 002 - Epic-guest-loyalty-points.md
+claude project/PIR-002 - 001 - intake-wishlist-across-devices-clarification.md
+claude project/PIR-002 - 002 - Story-customer-wishlist-account-wishlist-in-apps.md

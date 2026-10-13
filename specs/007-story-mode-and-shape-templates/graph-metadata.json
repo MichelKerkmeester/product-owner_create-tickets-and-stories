@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "packet_id": "007-story-mode-and-shape-templates",
+  "spec_folder": "007-story-mode-and-shape-templates",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": [
+      {
+        "packet_id": "006-human-voice-and-conciseness-enforcement",
+        "reason": "Imported from legacy graph-metadata.json",
+        "source": "legacy"
+      }
+    ]
+  },
+  "derived": {
+    "trigger_phrases": [
+      "rename prd mode to story mode",
+      "dedicated story draft template",
+      "dedicated epic template",
+      "split prd-templates",
+      "story mode shapes"
+    ],
+    "key_topics": [
+      "rename",
+      "prd",
+      "mode",
+      "story",
+      "dedicated",
+      "draft",
+      "template",
+      "epic",
+      "split",
+      "prd-templates",
+      "shapes",
+      "renamed"
+    ],
+    "importance_tier": "high",
+    "status": "planned",
+    "key_files": [
+      "spec.md",
+      "sk-product-owner/SKILL.md",
+      "benchmark/router/route_contract.py",
+      "claude project/Custom Instructions.md",
+      "benchmark/router/fixtures.json",
+      "benchmark/router/differential.py",
+      "benchmark/router/README.md",
+      "benchmark/format/validate-output-format.cjs",
+      "sk-product-owner/README.md",
+      "sk-product-owner/graph-metadata.json",
+      "claude project/README.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "route_contract.py",
+        "kind": "file",
+        "path": "benchmark/router/route_contract.py",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "fixtures.json",
+        "kind": "config",
+        "path": "benchmark/router/fixtures.json",
+        "source": "derived"
+      },
+      {
+        "name": "differential.py",
+        "kind": "file",
+        "path": "benchmark/router/differential.py",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "benchmark/router/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "validate-output-format.cjs",
+        "kind": "file",
+        "path": "benchmark/format/validate-output-format.cjs",
+        "source": "derived"
+      },
+      {
+        "name": "graph-metadata.json",
+        "kind": "config",
+        "path": "sk-product-owner/graph-metadata.json",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Story Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Shape Templates",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Story Draft",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Name",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "PRD Mode is renamed Story Mode, and its single 556-line template file is split so each artifact shape carries its own scaffold. Shared grammar stays in one place rather than being copied three ways, and a request loads only the shape it asked for.",
+    "created_at": "2026-09-02T00:00:00Z",
+    "last_save_at": "2026-10-13T12:52:52.687Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md"
+    ],
+    "source_fingerprint": "sha256:d4e399e36d4115a566df1d7ec58c533e387c347c4d4fb579ccab18cd0b8f2c44",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "c4abf9222d97568bcfe373bc3b52022877d27c85968ab1205a3c0220033a6f4f"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

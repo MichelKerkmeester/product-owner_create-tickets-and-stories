@@ -1,0 +1,36 @@
+PASS path mask keeps a real violation
+PASS path mask keeps the second violation
+PASS path mask keeps a dash with slashes on both sides
+PASS path mask exempts a dash inside a path
+PASS indented definition bullets are sanctioned
+PASS card-sanctioned shapes clear the gate
+PASS directory argument exits cleanly
+PASS opener check fires
+PASS heading echo check fires
+PASS hedge stack check fires
+PASS terminal recap check fires
+PASS all-TBD delivery section advises without blocking
+PASS a populated delivery slot stays silent
+PASS requirements narration fires on the first bullet
+PASS requirements narration fires on the second bullet
+PASS a quoted string and real constraints stay silent
+PASS mark-as-done divider fires
+PASS the sanctioned section close above a spacer stays silent
+PASS house grammar: a heading with no divider under it fires
+PASS house grammar: a hyphen rule fires
+PASS house grammar: a heading deeper than H4 fires
+PASS house grammar: a Checklist sub-block in Requirements fires
+PASS house grammar: a checkbox in Requirements fires
+PASS house grammar: asterisk emphasis fires
+PASS house grammar: the ellipsis cap fires
+PASS house grammar: the emoji cap fires
+PASS house grammar: a second PRIO marker fires
+PASS house grammar: a compliant house Story stays silent
+PASS house grammar: the TBD token never counts against the ellipsis cap
+PASS house grammar: the rules stay off a deliverable in another grammar
+PASS near-miss prose passes
+PASS opener check stays silent
+PASS heading echo check stays silent
+PASS one hedge stays silent
+PASS terminal recap check stays silent
+PASSED all format-validator fixtures

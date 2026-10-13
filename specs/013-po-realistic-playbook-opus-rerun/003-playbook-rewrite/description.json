@@ -1,0 +1,23 @@
+{
+  "level": "2",
+  "specFolder": "013-po-realistic-playbook-opus-rerun/003-playbook-rewrite",
+  "description": "Twelve of the 14 scenarios are about payout pause and two about notification retry",
+  "keywords": [
+    "twelve",
+    "scenarios",
+    "about",
+    "payout",
+    "pause",
+    "two",
+    "notification",
+    "retry"
+  ],
+  "lastUpdated": "2026-10-13T12:52:47.188Z",
+  "specId": "003",
+  "folderSlug": "playbook-rewrite",
+  "parentChain": [
+    "013-po-realistic-playbook-opus-rerun"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

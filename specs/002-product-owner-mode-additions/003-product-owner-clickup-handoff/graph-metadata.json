@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "packet_id": "002-product-owner-mode-additions/003-product-owner-clickup-handoff",
+  "spec_folder": "002-product-owner-mode-additions/003-product-owner-clickup-handoff",
+  "parent_id": "002-product-owner-mode-additions",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "clickup handoff",
+      "clickup consent gate",
+      "clickup markdown transport",
+      "markdown_description"
+    ],
+    "key_topics": [
+      "clickup",
+      "handoff",
+      "consent",
+      "gate",
+      "markdown",
+      "transport",
+      "consent-gated",
+      "delivery",
+      "product",
+      "owner",
+      "artifacts",
+      "markdown-preserving"
+    ],
+    "importance_tier": "high",
+    "status": "planned",
+    "key_files": [
+      "spec.md",
+      "tasks.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Acceptance Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Tracker",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "markdown-preserving",
+        "kind": "key_phrase",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Code Mode",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Integration Points",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Response Contract",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions Delivery Protocol",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Consent-gated ClickUp delivery for Product Owner artifacts with markdown-preserving transport.",
+    "created_at": "2026-10-13T12:52:54.927Z",
+    "last_save_at": "2026-10-13T12:52:54.927Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "tasks.md"
+    ],
+    "source_fingerprint": "sha256:4da89882443ff34933acff883f8e49be6ba56b4ce2b6afbc87f1412312fa9455",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "515e1c14d4190acabe84378ac4e2d56c7b8f9754f71bf00327f85f2ef9434d01",
+      "tasks.md": "94fdf0cb643920bca0914d6bd747905f7d7928efc64d1f02630ec6efb4f765d1"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

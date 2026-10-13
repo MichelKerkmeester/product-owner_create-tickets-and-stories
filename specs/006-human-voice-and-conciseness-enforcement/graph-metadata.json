@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "packet_id": "006-human-voice-and-conciseness-enforcement",
+  "spec_folder": "006-human-voice-and-conciseness-enforcement",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": [
+      {
+        "packet_id": "001-product-owner-scope-aware-verbosity",
+        "reason": "Imported from legacy graph-metadata.json",
+        "source": "legacy"
+      }
+    ]
+  },
+  "derived": {
+    "trigger_phrases": [
+      "enforce human voice rules",
+      "standalone hvr integration",
+      "make output concise not robotic",
+      "conciseness standard",
+      "hvr always loaded token cost",
+      "hvr enforcement without hooks"
+    ],
+    "key_topics": [
+      "enforce",
+      "human",
+      "voice",
+      "rules",
+      "standalone",
+      "hvr",
+      "integration",
+      "output",
+      "concise",
+      "robotic",
+      "conciseness",
+      "standard"
+    ],
+    "importance_tier": "high",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "sk-product-owner/SKILL.md",
+      "claude project/Custom Instructions.md",
+      "sk-product-owner/references/hvr-core.md",
+      "sk-product-owner/references/conciseness.md",
+      "benchmark/format/fixtures/conciseness-violation.md",
+      "benchmark/format/fixtures/conciseness-silent.md",
+      "benchmark/router/route_contract.py",
+      "benchmark/router/fixtures.json",
+      "benchmark/format/validate-output-format.cjs",
+      "benchmark/format/run_fixtures.sh",
+      "sk-product-owner/README.md",
+      "benchmark/router/README.md",
+      "claude project/README.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "hvr-core.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/hvr-core.md",
+        "source": "derived"
+      },
+      {
+        "name": "conciseness.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/conciseness.md",
+        "source": "derived"
+      },
+      {
+        "name": "conciseness-violation.md",
+        "kind": "doc",
+        "path": "benchmark/format/fixtures/conciseness-violation.md",
+        "source": "derived"
+      },
+      {
+        "name": "conciseness-silent.md",
+        "kind": "doc",
+        "path": "benchmark/format/fixtures/conciseness-silent.md",
+        "source": "derived"
+      },
+      {
+        "name": "route_contract.py",
+        "kind": "file",
+        "path": "benchmark/router/route_contract.py",
+        "source": "derived"
+      },
+      {
+        "name": "fixtures.json",
+        "kind": "config",
+        "path": "benchmark/router/fixtures.json",
+        "source": "derived"
+      },
+      {
+        "name": "validate-output-format.cjs",
+        "kind": "file",
+        "path": "benchmark/format/validate-output-format.cjs",
+        "source": "derived"
+      },
+      {
+        "name": "run_fixtures.sh",
+        "kind": "script",
+        "path": "benchmark/format/run_fixtures.sh",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "sk-product-owner/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Human Voice",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Conciseness Enforcement",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Product Context",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "HVR is enforced by reference: a skill points at a 684-line document and nothing checks the output. With no hooks available and no dependency on the sk-doc packet permitted, enforcement has to come from prevention and review, not interception. This packet builds a standalone HVR integration: an always-loaded card carrying every blocker inline, a self-scan the model must emit, a validator run at review time, and a conciseness layer above HVR.",
+    "created_at": "2026-09-02T00:00:00Z",
+    "last_save_at": "2026-10-13T12:52:52.640Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md"
+    ],
+    "source_fingerprint": "sha256:76d0402c3778baa17cb2f34d197e225d5271be916b703ca24b0d7cf17fb19d94",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "7a12ad22371ff56aee82862a85e11ffa8b0198c61eaea5533d363247c44e6871"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

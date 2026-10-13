@@ -1,0 +1,30 @@
+{
+  "specFolder": "002-product-owner-mode-additions/017-skill-md-alignment",
+  "description": "sk-product-owner/SKILL.md had grown to ~1190 lines by accretion: four separate Python fences with decorative dicts nothing executed, routing rules",
+  "keywords": [
+    "sk-product-owner",
+    "skill",
+    "grown",
+    "lines",
+    "accretion",
+    "four",
+    "separate",
+    "python",
+    "fences",
+    "decorative",
+    "dicts",
+    "nothing",
+    "executed",
+    "routing",
+    "rules"
+  ],
+  "lastUpdated": "2026-10-13T12:52:47.141Z",
+  "specId": "017",
+  "folderSlug": "skill-md-alignment",
+  "parentChain": [
+    "002-product-owner-mode-additions"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

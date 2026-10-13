@@ -1,0 +1,212 @@
+PASS claude project/PBG-001 - NNN - bug-ios-cart-badge-stale-after-remove.md
+  . words 403 -> 397
+PASS claude project/PBG-002 - NNN - bug-android-confirmation-total-missing-city-tax (turn 2).md
+  . words 832 -> 831
+PASS claude project/PBG-002 - NNN - bug-android-confirmation-total-missing-city-tax.md
+  . words 795 -> 796
+PASS claude project/PBG-003 - 001 - bug-reminders-late-after-march-clock-change-clarification.md
+  . words 358 -> 372
+PASS claude project/PBG-003 - 002 - bug-reminders-late-after-march-clock-change.md
+  . words 1053 -> 1037
+PASS claude project/PDK-001 - 001 - doc-promotions-stacking (turn 2).md
+  . words 1652 -> 1602
+PASS claude project/PDK-001 - 001 - doc-promotions-stacking.md
+  . words 1710 -> 1647
+PASS claude project/PDK-002 - 001 - doc-payment-webhook-failures-clarification.md
+  . words 390 -> 390
+PASS claude project/PDK-002 - 002 - doc-payment-webhook-failures-runbook.md
+  . new capitalized words, check none is an invented name: ['Pausing']
+  . words 1394 -> 1304
+PASS claude project/PDK-003 - 001 - doc-sync-conflicts-lost-edits-status.md
+  . new capitalized words, check none is an invented name: ["Joana's"]
+  . words 1517 -> 1456
+PASS claude project/PDK-003 - 002 - doc-sync-conflict-options-proposal.md
+  . new capitalized words, check none is an invented name: ["Marta's"]
+  . words 1770 -> 1682
+PASS claude project/PDK-004 - 001 - doc-loomlist-activity-emails-clarification.md
+  . words 383 -> 381
+PASS claude project/PDK-004 - 002 - doc-loomlist-activity-emails.md
+  . words 1744 -> 1704
+PASS claude project/PEP-001 - 001 - Epic-partner-hub-self-onboarding-clarification.md
+  . words 449 -> 457
+PASS claude project/PEP-001 - 002 - Epic-partner-hub-self-onboarding.md
+  . new capitalized words, check none is an invented name: ['After']
+  . words 1306 -> 1303
+PASS claude project/PEP-002 - 001 - Epic-offline-mode-clarification.md
+  . words 257 -> 265
+PASS claude project/PEP-002 - 002 - Epic-offline-mode.md
+  . words 978 -> 976
+PASS claude project/PEP-003 - 001 - Epic-self-serve-returns.md
+  . words 899 -> 889
+PASS claude project/PID-001 - 001 - task-due-today-filter-chip-clarification.md
+  . words 317 -> 332
+PASS claude project/PID-001 - 002 - task-due-today-filter-chip.md
+  . words 468 -> 465
+PASS claude project/PIR-001 - 001 - intake-guest-loyalty-points-clarification.md
+  . words 466 -> 453
+PASS claude project/PIR-001 - 002 - Epic-guest-loyalty-points.md
+  . words 734 -> 732
+PASS claude project/PIR-002 - 001 - intake-wishlist-across-devices-clarification.md
+  . words 469 -> 480
+PASS claude project/PIR-002 - 002 - Story-customer-wishlist-account-wishlist-in-apps.md
+  . words 895 -> 882
+PASS claude project/PST-001 - NNN - Story-free-cancellation-filter-clarification.md
+  . words 253 -> 246
+PASS claude project/PST-001 - NNN - Story-free-cancellation-filter.md
+  . words 1271 -> 1260
+PASS claude project/PST-002 - NNN - Story-member-sharing-view-only-links (turn 2).md
+  . words 1761 -> 1734
+PASS claude project/PST-002 - NNN - Story-member-sharing-view-only-links.md
+  . words 1713 -> 1686
+PASS claude project/PST-003 - fernhouse-save-card-draft (turn 2).md
+  . words 1346 -> 1341
+PASS claude project/PST-003 - fernhouse-save-card-draft.md
+  . words 1295 -> 1288
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN - Story-order-tracking-timeline (turn 2).md
+  . words 1642 -> 1637
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN - Story-order-tracking-timeline.md
+  . words 1756 -> 1751
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.1 - task-ios-tracking-timeline.md
+  . words 320 -> 320
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.1 - task-tracking-webhook.md
+  . words 434 -> 434
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.2 - task-android-tracking-timeline.md
+  . words 320 -> 320
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.2 - task-packed-status.md
+  . words 121 -> 121
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.3 - task-web-tracking-timeline (turn 2).md
+  . words 325 -> 325
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.3 - task-web-tracking-timeline.md
+  . words 330 -> 330
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.4 - task-ios-tracking-timeline.md
+  . words 325 -> 325
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.4 - task-tracking-webhook.md
+  . words 421 -> 421
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.5 - task-android-tracking-timeline.md
+  . words 325 -> 325
+PASS claude project/PST-004 - NNN - Story-order-tracking-timeline/NNN.6 - task-tracking-timeline-events.md
+  . words 180 -> 180
+PASS claude project/PTK-001 - NNN - task-free-shipping-banner-copy.md
+  . words 219 -> 218
+KEPT claude project/PTK-002 - 001 - task-date-picker-stay-limits (turn 2).md
+  . KEPT: 4: About opening holds 4 paragraphs, over the two-paragraph cap, left over the cap only where cutting would drop a fact
+  . words 987 -> 972
+PASS claude project/PTK-002 - 001 - task-date-picker-stay-limits.md
+  . words 906 -> 867
+KEPT claude project/PTK-003 - 001 - task-label-webhook-duplicates-and-late-labels (turn 2).md
+  . KEPT: 3: About opening holds 7 paragraphs, over the two-paragraph cap, left over the cap only where cutting would drop a fact
+  . words 1316 -> 1300
+KEPT claude project/PTK-003 - 001 - task-label-webhook-duplicates-and-late-labels.md
+  . KEPT: 3: About opening holds 7 paragraphs, over the two-paragraph cap, left over the cap only where cutting would drop a fact
+  . words 1183 -> 1180
+KEPT claude project/PTK-004 - NNN - task-recurring-todos (turn 2).md
+  . KEPT: 3: About opening holds 3 paragraphs, over the two-paragraph cap, left over the cap only where cutting would drop a fact
+  . words 1227 -> 1193
+PASS claude project/PTK-004 - NNN - task-recurring-todos-android.md
+  . words 551 -> 550
+PASS claude project/PTK-004 - NNN - task-recurring-todos-be.md
+  . words 522 -> 522
+PASS claude project/PTK-004 - NNN - task-recurring-todos-ios.md
+  . words 538 -> 538
+PASS claude project/PTK-004 - NNN - task-recurring-todos-web.md
+  . words 598 -> 595
+PASS claude project/PTK-004 - NNN - task-recurring-todos.md
+  . words 999 -> 974
+PASS claude project/PTK-005 - NNN - task-android-recurring-todos (turn 2).md
+  . words 956 -> 950
+PASS claude project/PTK-005 - NNN - task-android-recurring-todos.md
+  . words 915 -> 911
+PASS claude project/PTK-006 - 001 - task-booking-funnel-events-clarification.md
+  . words 404 -> 409
+PASS claude project/PTK-006 - 002 - task-booking-funnel-event-checks.md
+  . words 729 -> 686
+PASS skill/SBG-001 - 001 - bug-ios-cart-badge-stale-after-remove.md
+  . words 522 -> 515
+PASS skill/SBG-002 - 001 - bug-android-confirmation-total-missing-city-tax.md
+  . words 980 -> 974
+PASS skill/SBG-003 - 001 - bug-reminders-late-after-clock-change-clarification.md
+  . words 332 -> 336
+PASS skill/SBG-003 - 002 - bug-reminders-late-after-clock-change.md
+  . words 1066 -> 1054
+PASS skill/SDK-001 - 001 - doc-promotion-stacking.md
+  . words 2757 -> 2579
+PASS skill/SDK-002 - 001 - doc-payment-webhook-failures-clarification.md
+  . words 394 -> 389
+PASS skill/SDK-002 - 002 - doc-payment-webhook-failures-runbook.md
+  . words 1351 -> 1308
+PASS skill/SDK-003 - 001 - doc-sync-conflicts-lost-edits-clarification.md
+  . words 338 -> 331
+PASS skill/SDK-003 - 002 - doc-sync-conflict-options.md
+  . words 2053 -> 2035
+PASS skill/SDK-004 - 001 - doc-activity-emails-reference-clarification.md
+  . words 408 -> 402
+PASS skill/SDK-004 - 002 - doc-activity-emails-catalog.md
+  . words 1567 -> 1540
+PASS skill/SEP-001 - 001 - Epic-partner-self-onboarding.md
+  . new capitalized words, check none is an invented name: ['Nor']
+  . words 1514 -> 1544
+PASS skill/SEP-002 - 001 - Epic-offline-mode-clarification.md
+  . words 284 -> 281
+PASS skill/SEP-002 - 002 - Epic-offline-mode.md
+  . words 969 -> 966
+PASS skill/SEP-003 - 001 - Epic-self-serve-returns.md
+  . words 786 -> 780
+PASS skill/SID-001 - 001 - task-due-today-filter-chip-clarification.md
+  . words 280 -> 280
+PASS skill/SID-001 - 002 - task-due-today-filter-chip.md
+  . words 527 -> 486
+PASS skill/SIR-001 - 001 - intake-guest-loyalty-points-clarification.md
+  . words 374 -> 377
+PASS skill/SIR-001 - 002 - Epic-guest-loyalty-points.md
+  . words 726 -> 726
+PASS skill/SIR-002 - 001 - intake-wishlist-cross-device-clarification.md
+  . words 329 -> 328
+PASS skill/SIR-002 - 002 - Story-wishlist-saved-to-account-in-apps.md
+  . words 932 -> 932
+PASS skill/SST-001 - 001 - Story-free-cancellation-filter-clarification.md
+  . words 211 -> 211
+PASS skill/SST-001 - 002 - Story-free-cancellation-filter.md
+  . words 1316 -> 1285
+PASS skill/SST-002 - 001 - Story-view-only-share-links.md
+  . words 1736 -> 1739
+PASS skill/SST-003 - fernhouse-save-card-draft.md
+  . words 1313 -> 1298
+PASS skill/SST-004 - 001 - Story-order-tracking/001 - Story-order-tracking.md
+  . words 1742 -> 1742
+PASS skill/SST-004 - 001 - Story-order-tracking/001.1 - task-ios-tracking-timeline.md
+  . words 368 -> 368
+PASS skill/SST-004 - 001 - Story-order-tracking/001.2 - task-android-tracking-timeline.md
+  . words 368 -> 368
+PASS skill/SST-004 - 001 - Story-order-tracking/001.3 - task-web-tracking-timeline.md
+  . words 378 -> 378
+PASS skill/SST-004 - 001 - Story-order-tracking/001.4 - task-tracking-webhook.md
+  . words 598 -> 595
+PASS skill/STK-001 - 001 - task-free-shipping-banner-copy.md
+  . words 355 -> 351
+KEPT skill/STK-002 - 001 - task-date-picker-stay-limits.md
+  . KEPT: 3: About opening holds 3 paragraphs, over the two-paragraph cap, left over the cap only where cutting would drop a fact
+  . words 1248 -> 1228
+KEPT skill/STK-003 - 001 - task-label-webhook-fix.md
+  . KEPT: 3: About opening holds 5 paragraphs, over the two-paragraph cap, left over the cap only where cutting would drop a fact
+  . words 1290 -> 1261
+KEPT skill/STK-004 - 001 - task-recurring-todos-parent.md
+  . KEPT: 3: About opening holds 3 paragraphs, over the two-paragraph cap, left over the cap only where cutting would drop a fact
+  . new capitalized words, check none is an invented name: ["Anouk's", 'Sources']
+  . words 1205 -> 1173
+PASS skill/STK-004 - 002 - task-recurring-todos-ios.md
+  . words 563 -> 539
+PASS skill/STK-004 - 003 - task-recurring-todos-android.md
+  . new capitalized words, check none is an invented name: ['Like']
+  . words 577 -> 552
+PASS skill/STK-004 - 004 - task-recurring-todos-web.md
+  . new capitalized words, check none is an invented name: ['Like']
+  . words 640 -> 614
+PASS skill/STK-004 - 005 - task-recurring-todos-be.md
+  . words 647 -> 626
+PASS skill/STK-005 - 001 - task-android-recurring-todos-subtask.md
+  . words 954 -> 895
+PASS skill/STK-006 - 001 - task-booking-funnel-events-clarification.md
+  . words 433 -> 434
+PASS skill/STK-006 - 002 - task-booking-funnel-events.md
+  . words 972 -> 940
+98 of 98 passed, About openings over the cap counted as passing and listed as KEPT

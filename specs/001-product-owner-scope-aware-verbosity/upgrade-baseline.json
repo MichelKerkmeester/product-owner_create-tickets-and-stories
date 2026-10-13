@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "recordedBy": "upgrade-legacy",
+  "recordedAt": "2026-10-13T12:53:01.280Z",
+  "findings": [
+    {
+      "rule": "FILE_EXISTS",
+      "detail": "plan.md"
+    },
+    {
+      "rule": "FILE_EXISTS",
+      "detail": "tasks.md"
+    },
+    {
+      "rule": "LEVEL_MATCH",
+      "detail": "Required file missing for Level 1: plan.md"
+    },
+    {
+      "rule": "LEVEL_MATCH",
+      "detail": "Required file missing for Level 1: tasks.md"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+[
+ [
+  "# Product Owner - Custom Instructions - v1.18.0",
+  "# Product Owner - Custom Instructions - v1.19.0"
+ ],
+ [
+  "4. Use H3 generated Task and Bug section headers without leading icons or symbols.",
+  "4. Use `## About` at H2 and H3 for the other generated Task and Bug section headers, without leading icons or symbols."
+ ],
+ [
+  "use `*   ` for unordered bullets, `*   [ ]` for checklists and",
+  "use `*   ` for unordered bullets, `*   []` for checklists and"
+ ],
+ [
+  "then `### Problem`, `### Solution`, `#### **Expected outcomes**` and `#### **References**`)",
+  "then `#### Problem`, `#### Solution` closing on a bold `**Expected outcomes**` label with a `* * *` divider under it, and `#### **References**`)"
+ ],
+ [
+  "one constraint per bullet carrying its supplied value verbatim",
+  "one constraint per `- []` item carrying its supplied value verbatim"
+ ],
+ [
+  "no outcomes, no build checklist and no images.",
+  "no outcomes, no build steps, no `**Checklist**` label and no images."
+ ],
+ [
+  "carrying `### Problem`, `### Goal`, `### Solution` and `#### **References**`",
+  "carrying `#### Problem`, `#### Goal`, `#### Solution` and `#### **References**`"
+ ],
+ [
+  "Both anchor major sections at H2 with opening group sections at H3,",
+  "Both anchor major sections at H2 with opening group sections at H4,"
+ ],
+ [
+  "each closed with a `- [ ] _Mark as done, if the criteria are met_` line",
+  "each closed with a `- [] _Mark as done, if the criteria are met_` line"
+ ],
+ [
+  "An `###   ` spacer takes no divider above it,",
+  "An `####   ` spacer takes no divider above it,"
+ ],
+ [
+  "The `- [ ]` marker is reserved for that line and optional readiness or done gates, never a requirement checklist.",
+  "Every checkbox is written `[]`, never `[ ]` with a space, and it marks only requirement items, that line and optional readiness or done gates."
+ ],
+ [
+  "the task then shows raw `## About`, `**Checklist**` and `- [ ]` text",
+  "the task then shows raw `## About`, `**Checklist**` and `- []` text"
+ ],
+ [
+  "title: \"Product Owner - Templates - Doc Mode - v0.111\"",
+  "title: \"Product Owner - Templates - Doc Mode - v0.112\""
+ ],
+ [
+  "version: \"0.111\"",
+  "version: \"0.112\""
+ ],
+ [
+  "# Product Owner - Templates - Doc Mode - v0.111",
+  "# Product Owner - Templates - Doc Mode - v0.112"
+ ],
+ [
+  "- Use `*   [ ]` for document checklists.",
+  "- Use `*   []` for document checklists, with no space between the brackets."
+ ],
+ [
+  "11. Use ClickUp Markdown for a new Doc (exact `* * *` dividers, `*   ` bullets, `*   **Term** — definition`), the Barter house format for a new PRD (`*   ` bullets, Requirements limited to hard constraints with no checklist and omitted when there are none, a few numbered `1.` outcome-led acceptance criteria each closed with a `- [ ]` Mark-as-done line that no divider separates from the next criterion, a `* * *` section close directly above each `##   ` spacer heading, `- [ ]` used only for the Mark-as-done line and optional readiness or done gates, and a `## Delivery` close only where the requester asked for it or an open question or an undated external constraint forced it), and `-`/`- [ ]` for Task, Bug and Interactive.",
+  "11. Use ClickUp Markdown for a new Doc (exact `* * *` dividers, `*   ` bullets, `*   []` checklists, `*   **Term** — definition`), the Barter house format for a new PRD (`*   ` bullets, Requirements limited to hard constraints written as `- []` items under bold group names and omitted when there are none, a few numbered `1.` outcome-led acceptance criteria each closed with a `- []` Mark-as-done line that no divider separates from the next criterion, a `* * *` section close directly above each `##   ` spacer heading, `- []` also for optional readiness or done gates, and a `## Delivery` close only where the requester asked for it or an open question or an undated external constraint forced it), and `-`/`- []` for Task, Bug and Interactive. Write every checkbox `[]`, never `[ ]` with a space."
+ ],
+ [
+  "title: \"Product Owner - Rules - Quality Scoring - v0.100\"",
+  "title: \"Product Owner - Rules - Quality Scoring - v0.101\""
+ ],
+ [
+  "version: \"0.100\"",
+  "version: \"0.101\""
+ ],
+ [
+  "# Product Owner - Rules - Quality Scoring - v0.100",
+  "# Product Owner - Rules - Quality Scoring - v0.101"
+ ],
+ [
+  "so adding a build checklist or an outcome to one costs Relevance",
+  "so adding build steps or an outcome to one costs Relevance"
+ ],
+ [
+  "A Requirements bullet that reports what a screen says",
+  "A Requirements item that reports what a screen says"
+ ],
+ [
+  "it is scored per bullet rather than per section, because four such bullets sitting",
+  "it is scored per item rather than per section, because four such items sitting"
+ ],
+ [
+  "keeps requirements to hard constraints free of build checklists",
+  "keeps requirements to hard constraints free of build steps"
+ ],
+ [
+  "title: \"Product Owner - System - Interactive Mode - v0.407\"",
+  "title: \"Product Owner - System - Interactive Mode - v0.408\""
+ ],
+ [
+  "version: \"0.407\"",
+  "version: \"0.408\""
+ ],
+ [
+  "# Product Owner - System - Interactive Mode - v0.407",
+  "# Product Owner - System - Interactive Mode - v0.408"
+ ],
+ [
+  "Adding a build checklist to a requirement costs Relevance",
+  "Adding build steps to a requirement costs Relevance"
+ ],
+ [
+  "Each group is a bold-lead name, a divider and short `*   ` bullets, one constraint per bullet, stated as a fact or an instruction. Never a `**Checklist**` sub-block or `- [ ]` items, never a user outcome dressed as a constraint, and never a description of what a screen says, shows or contains. Every bullet is a sentence a build can fail: it names a value, a limit, a condition, an effect or a named flow a build could get wrong, and a bullet that names none of those is description the design already carries, struck rather than reworded. A bullet naming a presentation shape",
+  "Each group is a bold-lead name, a divider and short `- []` checklist items, one constraint per item, stated as a fact or an instruction. Never a `**Checklist**` label, never build steps, never `[ ]` with a space, never a user outcome dressed as a constraint, and never a description of what a screen says, shows or contains. Every item is a sentence a build can fail: it names a value, a limit, a condition, an effect or a named flow a build could get wrong, and an item that names none of those is description the design already carries, struck rather than reworded. An item naming a presentation shape"
+ ],
+ [
+  "and closes with `- [ ] _Mark as done, if the criteria are met_`.",
+  "and closes with `- [] _Mark as done, if the criteria are met_`."
+ ],
+ [
+  "- [ ] Tests added covering {each rule and guarantee stated above}, with CI green",
+  "- [] Tests added covering {each rule and guarantee stated above}, with CI green"
+ ],
+ [
+  "Requirements never carry a build checklist.",
+  "Requirements hold `- []` constraint items, never build steps."
+ ],
+ [
+  "numbered requirement groups and H3 section headings.",
+  "numbered requirement groups, an H2 About and H3 section headings under it."
+ ],
+ [
+  "The divider rules above cover `### About`,",
+  "The divider rules above cover `## About`,"
+ ],
+ [
+  "it is scored per bullet rather than per section.",
+  "it is scored per item rather than per section."
+ ],
+ [
+  "Every Requirements bullet is a sentence a build can fail, so a bullet that reports what a screen says",
+  "Every Requirements item is a `- []` checkbox holding a sentence a build can fail, so an item that reports what a screen says"
+ ]
+]

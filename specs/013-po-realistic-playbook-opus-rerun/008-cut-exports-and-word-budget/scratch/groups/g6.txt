@@ -1,0 +1,7 @@
+claude project/PDK-001 - 001 - doc-promotions-stacking (turn 2).md
+claude project/PDK-001 - 001 - doc-promotions-stacking.md
+skill/SDK-001 - 001 - doc-promotion-stacking.md
+skill/SEP-001 - 001 - Epic-partner-self-onboarding.md
+skill/SEP-002 - 002 - Epic-offline-mode.md
+skill/SEP-003 - 001 - Epic-self-serve-returns.md
+skill/SST-001 - 002 - Story-free-cancellation-filter.md

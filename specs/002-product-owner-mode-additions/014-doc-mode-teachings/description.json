@@ -1,0 +1,32 @@
+{
+  "specFolder": "002-product-owner-mode-additions/014-doc-mode-teachings",
+  "description": "The user wants Doc Mode (and the other modes a tiny bit) to learn from three strong documentation sources in the Public repo: the root README (tone",
+  "keywords": [
+    "user",
+    "wants",
+    "doc",
+    "mode",
+    "modes",
+    "tiny",
+    "bit",
+    "learn",
+    "three",
+    "strong",
+    "documentation",
+    "sources",
+    "public",
+    "repo",
+    "root",
+    "readme",
+    "tone"
+  ],
+  "lastUpdated": "2026-10-13T12:52:47.139Z",
+  "specId": "014",
+  "folderSlug": "doc-mode-teachings",
+  "parentChain": [
+    "002-product-owner-mode-additions"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}
