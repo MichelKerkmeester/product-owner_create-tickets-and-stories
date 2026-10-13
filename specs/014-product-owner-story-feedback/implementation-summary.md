@@ -111,7 +111,7 @@ Sources first, then each Project mirror with the same wording. The validator edi
 <!-- ANCHOR:limitations -->
 ## Known Limitations
 
-1. **Committed and pushed.** Product Owner `696538d` and Barter `0d275455` are on `main`.
+1. **Committed and pushed.** Product Owner `9bd89d9` and Barter `e17ef345` are on `main`.
 2. **The PM sees it only after upload.** The kernel and ten Knowledge documents must be replaced in the claude.ai Project.
 3. **One model, no full grading.** Haiku 5.5 followed the new rules in every Story and Epic, but the other 43 scenarios have no PASS or FAIL verdict yet.
 <!-- /ANCHOR:limitations -->

@@ -55,7 +55,7 @@ contextType: "general"
 
 - [x] T009 Format fixtures pass in Product Owner and the three shared-runner systems, reference parity identical
 - [x] T010 Router and rule parity pass, format gate output equals the HEAD baseline
-- [x] T011 Project parity 37/37 and pair divergence 37 pairs pass after commit (`696538d`, `0d275455`)
+- [x] T011 Project parity 37/37 and pair divergence 37 pairs pass after commit (`9bd89d9`, `e17ef345`)
 - [x] T012 Playbook signals for the new rules; full 46-scenario run on Haiku 5.5 high, every new Story and Epic follows the four rules (`benchmark/reports/2026-10-08--manual-testing-playbook--claude-haiku-5-5-high/`)
 - [x] T014 Story and Epic criteria number as `1 ) **{Title}**`; four-scenario Haiku check writes 22 of 22 criteria in the new form
 - [x] T013 Deliverables collected into `export/benchmark` with the collector's second-round clarification skip fixed
