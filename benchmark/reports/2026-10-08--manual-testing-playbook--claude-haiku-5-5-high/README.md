@@ -29,7 +29,7 @@ The refinement scenarios produced no Story to check, because they asked again on
 
 ## 2. Run integrity
 
-- The first runner process stopped after 31 of 46 scenarios when the session ended. The other 15 ran in `resume-1/` against the same unchanged working tree, HEAD `ac57adb`
+- The first runner process stopped after 31 of 46 scenarios when the session ended. The other 15 ran in `resume-1/` against the same unchanged working tree, HEAD `b43ede2`
 - `combined/` holds the 31 finished scenario folders from the first process and the 15 from `resume-1/`, the 46-scenario `manifest.json`, and a `run-status.json` built from the per-scenario status lines both processes printed
 - `python3 run/check_run.py combined --model claude-haiku-5-5 --effort high` exits 0: 46 scenarios, 86 declared turns, 86 event streams read, 0 findings
 

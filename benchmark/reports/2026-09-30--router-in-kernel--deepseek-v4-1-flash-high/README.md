@@ -12,7 +12,7 @@ The first pass on the new kernel drafted on turn 1 in `PTK-006`, `PST-001` and `
 
 | Kernel | Samples | Asked first | Folders |
 |---|---|---|---|
-| Previous, v1.19.0 at `10f7fee6` | 3 per scenario | 6 of 9 | kept in the session scratchpad, not tracked |
+| Previous, v1.19.0 at `c86f8b56` | 3 per scenario | 6 of 9 | kept in the session scratchpad, not tracked |
 | v1.20.0 before the fix | 4 per scenario | 4 of 12, Story 0 of 4 | the top level, `rerun-ask-first`, `rerun-ask-first-2`, `rerun-ask-first-3` |
 | v1.20.0 with the Ask before drafting line | 4 per scenario | 12 of 12 | `reinforced-1` to `reinforced-4` |
 
