@@ -698,6 +698,10 @@ function scoreSectionFindings(prose) {
 // only line of that shape is the fixed label, twenty-four times, no collisions.
 const DEAL_HEADLINE_HEADING = /^##\s+HEADLINE OPTIONS\s*$/;
 const DEAL_ABOUT_HEADING = /^##\s+ABOUT\s*$/;
+// The single-listing deal states the same two sections as H1 headings, where the
+// retired export wrote them as H2s.
+const DEAL_ABOUT_SECTION = /^#\s+About\s*$/;
+const DEAL_REQUIREMENTS_SECTION = /^#\s+Requirements\s*$/;
 const CREATOR_FIT_LABEL = '**Perfect for:**';
 const CREATOR_FIT_LABEL_SHAPE = /^\*\*[A-Za-z][A-Za-z' ]*? for:\*\*$/;
 // The creator-fit lead names the creator, not the deal. The deal Standards allow
@@ -726,6 +730,33 @@ const CONCISE_VARIATION = '**Most concise**';
 const VARIATION_LABEL = /^\*\*Most (?:valuable|authentic|concise)\*\*/;
 const DEAL_BULLET = /^[-*+]\s+\S/;
 
+// The single-listing deal states the same two sections as H1 headings and has no
+// headline menu, so the retired export's shape is what a document carrying them
+// is read for: a variation label, a numbered headline list, a title that tails a
+// value, an offer block without exactly one value line, Requirements outside its
+// five to seven lines, after-delivery material inside the deal and a section
+// heading that is neither of the two. All of it settles from the shape the
+// document states, so none of it needs a reader.
+const DEAL_VARIATION_LABEL = /\*\*Most (?:valuable|authentic|concise)\*\*/;
+const DEAL_NUMBERED_ITEM = /^\d+[.)]\s+\S/;
+const DEAL_HEADING = /^#{1,6}\s+\S/;
+const DEAL_SECTION_HEADING = /^##\s+\S/;
+const DEAL_VALUE_LINE = /^-\s*(?:Total value|Totale waarde|Gesamtwert)\s*:/;
+const DEAL_CONTENT_IDEAS = /Content ?ideas|Contentideeën|Content-Ideen/i;
+// A hashtag line is nothing but tags, which is what tells it apart from a heading:
+// there the `#` is followed by a space.
+const DEAL_HASHTAG_LINE = /^\s*#[^\s#]\S*(?:\s+#[^\s#]\S*)*\s*$/;
+const DEAL_TITLE_LIMIT = 65;
+const DEAL_OBLIGATION_FLOOR = 5;
+const DEAL_OBLIGATION_CEILING = 7;
+// A title closes on one emoji, so both title rules read the sentence without its
+// closing glyph. That glyph is punctuation the card fixes, so it is never part of
+// the character count and never stands between a value and the end of the line.
+const DEAL_CLOSING_GLYPHS = new RegExp(`(?:${PICTOGRAPH.source}|\\uFE0F|\\u200D|\\s)+$`, 'u');
+// A value inside the sentence is allowed, so only a separator directly before a
+// value at the end is the banned tail: ` | €75`, ` | €75 value`, ` - €145`.
+const DEAL_TITLE_VALUE_TAIL = /(?:[|/]\s*|\s[-–—]\s*)(?:[€$£]\s?\d[\d.,]*|\d[\d.,]*\s*(?:€|euro|eur|usd|gbp))(?:[,\s]*\b(?:value|worth)\b)?\s*$/i;
+
 // The Content ideas lead has no fixed wording and should have none, because the
 // rule tells the writer to match the deal's voice and the three worked examples
 // carry three different sentences. Structure is the whole of what a machine can
@@ -734,6 +765,11 @@ const DEAL_BULLET = /^[-*+]\s+\S/;
 function dealArtifactFindings(prose) {
   const rows = prose.map(({ index, raw, visible }) => ({ index, raw: raw.trim(), text: visible.trim() }));
   const carries = (heading) => rows.some(({ text }) => heading.test(text));
+  // The single-listing deal carries the two H1 sections and no headline menu, so
+  // the retired export's rules below never meet it and it is read on its own.
+  if (!carries(DEAL_HEADLINE_HEADING) && carries(DEAL_ABOUT_SECTION) && carries(DEAL_REQUIREMENTS_SECTION)) {
+    return singleListingFindings(rows);
+  }
   if (!carries(DEAL_HEADLINE_HEADING) || !carries(DEAL_ABOUT_HEADING)) return [];
 
   const nextContent = (position) => rows.slice(position + 1).find(({ text }) => text !== '') || null;
@@ -805,6 +841,94 @@ function dealArtifactFindings(prose) {
       }
     }
   }
+  return findings.sort((left, right) => left.index - right.index);
+}
+
+// The single-listing deal, read against the shape the card fixes for it. The
+// legacy path above never runs on one of these, and this one never runs on a
+// document carrying `## HEADLINE OPTIONS`, so neither shape's rules are spent on
+// the other.
+function singleListingFindings(rows) {
+  const findings = [];
+  const about = rows.findIndex(({ text }) => DEAL_ABOUT_SECTION.test(text));
+  const requirements = rows.findIndex(({ text }) => DEAL_REQUIREMENTS_SECTION.test(text));
+  // The deal ends where its after-delivery block starts, which is the first H2
+  // under the two H1 sections. Above the body sit the title, the frontmatter and,
+  // in a worked example, the intro line.
+  const afterDelivery = rows.findIndex((row, position) => position > about && DEAL_SECTION_HEADING.test(row.text));
+  const dealEnd = afterDelivery === -1 ? rows.length : afterDelivery;
+
+  // The retired shape leaked its variation label and its headline list above the
+  // title, so both are read over everything the after-delivery block does not own.
+  rows.slice(0, dealEnd).forEach(({ index, text }) => {
+    const label = text.match(DEAL_VARIATION_LABEL);
+    if (label) {
+      findings.push({ index, message: `variation label ${label[0]}, where a deal carries one listing rather than a menu of them` });
+    }
+    if (DEAL_NUMBERED_ITEM.test(text)) {
+      findings.push({ index, message: 'a numbered headline list, where a deal carries one title and no alternatives' });
+    }
+  });
+
+  // The title is the last line above `# About` that is neither blank nor a
+  // divider, because a worked example separates its own header and intro from the
+  // deal itself with `---`.
+  const above = rows.slice(0, about).filter(({ text }) => text !== '' && text !== '---');
+  const title = above[above.length - 1] || null;
+  if (title) {
+    const sentence = title.text.replace(DEAL_CLOSING_GLYPHS, '');
+    if (DEAL_TITLE_VALUE_TAIL.test(sentence)) {
+      findings.push({ index: title.index, message: 'title ends on a separator and a value, where the card allows a value inside the sentence and bans the tail' });
+    }
+    const length = [...sentence].length;
+    if (length > DEAL_TITLE_LIMIT) {
+      findings.push({ index: title.index, message: `title runs ${length} characters, over the ${DEAL_TITLE_LIMIT} the deal card allows` });
+    }
+  }
+
+  // The offer block is the About section, which its first divider or heading
+  // closes. A cash or budget line of its own never matches the value line, which
+  // is what keeps the count at one.
+  const aboutEnd = rows.findIndex((row, position) => position > about && (row.text === '---' || DEAL_HEADING.test(row.text)));
+  const valueLines = rows
+    .slice(about + 1, aboutEnd === -1 ? rows.length : aboutEnd)
+    .filter(({ text }) => DEAL_VALUE_LINE.test(text));
+  if (valueLines.length !== 1) {
+    findings.push({
+      index: valueLines.length ? valueLines[1].index : rows[about].index,
+      message: valueLines.length
+        ? `the offer block carries ${valueLines.length} value lines, where a deal states exactly one`
+        : 'the offer block carries no value line, where a deal states exactly one',
+    });
+  }
+
+  // Requirements holds one obligation per bullet, and the card's count stays
+  // between five and seven. The section ends at the next heading, so the count
+  // never reaches the after-delivery bullets.
+  const requirementsEnd = rows.findIndex((row, position) => position > requirements && DEAL_HEADING.test(row.text));
+  const obligations = rows
+    .slice(requirements + 1, requirementsEnd === -1 ? rows.length : requirementsEnd)
+    .filter(({ text }) => DEAL_BULLET.test(text)).length;
+  if (obligations < DEAL_OBLIGATION_FLOOR || obligations > DEAL_OBLIGATION_CEILING) {
+    findings.push({
+      index: rows[requirements].index,
+      message: `Requirements carries ${obligations} bullet lines, where a deal requires ${DEAL_OBLIGATION_FLOOR} to ${DEAL_OBLIGATION_CEILING}`,
+    });
+  }
+
+  // Content ideas and hashtags belong to the after-delivery block, and the deal
+  // body holds no section heading but the two H1s.
+  rows.slice(about, dealEnd).forEach(({ index, text }) => {
+    if (DEAL_CONTENT_IDEAS.test(text)) {
+      findings.push({ index, message: 'Content ideas inside the deal, where they belong in the after-delivery block' });
+    } else if (DEAL_HASHTAG_LINE.test(text)) {
+      findings.push({ index, message: 'hashtags inside the deal, where they belong in the after-delivery block' });
+    }
+    if (DEAL_HEADING.test(text) && !DEAL_ABOUT_SECTION.test(text) && !DEAL_REQUIREMENTS_SECTION.test(text)) {
+      findings.push({ index, message: `a section heading ${text} inside the deal body, which carries only # About and # Requirements` });
+    }
+  });
+
   return findings.sort((left, right) => left.index - right.index);
 }
 
