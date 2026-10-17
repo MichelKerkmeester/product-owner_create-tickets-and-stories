@@ -71,28 +71,28 @@
   },
   {
     "workflowMode": "sk-product-owner",
-    "leafResourceId": "assets/examples/story/prd-example-complete.md",
-    "diskPath": "assets/examples/story/prd-example-complete.md"
+    "leafResourceId": "assets/examples/story/story-example-complete.md",
+    "diskPath": "assets/examples/story/story-example-complete.md"
   },
   {
     "workflowMode": "sk-product-owner",
-    "leafResourceId": "assets/examples/story/prd-example-complex.md",
-    "diskPath": "assets/examples/story/prd-example-complex.md"
+    "leafResourceId": "assets/examples/story/story-example-complex.md",
+    "diskPath": "assets/examples/story/story-example-complex.md"
   },
   {
     "workflowMode": "sk-product-owner",
-    "leafResourceId": "assets/examples/story/prd-example-epic.md",
-    "diskPath": "assets/examples/story/prd-example-epic.md"
+    "leafResourceId": "assets/examples/story/story-example-epic.md",
+    "diskPath": "assets/examples/story/story-example-epic.md"
   },
   {
     "workflowMode": "sk-product-owner",
-    "leafResourceId": "assets/examples/story/prd-example-medium.md",
-    "diskPath": "assets/examples/story/prd-example-medium.md"
+    "leafResourceId": "assets/examples/story/story-example-medium.md",
+    "diskPath": "assets/examples/story/story-example-medium.md"
   },
   {
     "workflowMode": "sk-product-owner",
-    "leafResourceId": "assets/examples/story/prd-example-simple.md",
-    "diskPath": "assets/examples/story/prd-example-simple.md"
+    "leafResourceId": "assets/examples/story/story-example-simple.md",
+    "diskPath": "assets/examples/story/story-example-simple.md"
   },
   {
     "workflowMode": "sk-product-owner",

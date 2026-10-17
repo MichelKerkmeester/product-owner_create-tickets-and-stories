@@ -333,12 +333,12 @@ GENERIC_DOC_FRAME_RE = re.compile(
 BUG_ABOUT_DOCUMENTATION_RE = re.compile(
     r"\b(create|write|file) (a )?(bug report|defect report) (about|for|covering|on)\b[^.!?]{0,80}\b(documentation|docs|document|guide|reference)\b"
 )
-# A user story named as another artifact's subject is not PRD framing.
+# A user story named as another artifact's subject is not Story framing.
 STORY_AS_SUBJECT_RE = re.compile(
     r"\b(?:bug report|defect report|document|documentation)\b[^.!?]{0,80}\b(?:user )?stor(?:y|ies)\b"
 )
 # A negated action is not a request for the artifact it names.
-NEGATED_PRD_RE = re.compile(
+NEGATED_STORY_RE = re.compile(
     r"\b(?:do not|don'?t|never|not)\s+(?:write|create|draft)\b[^.!?]{0,40}\b(?:prd|stor(?:y|ies))\b"
 )
 # "task for/about the docs" and "task to write a PRD" name the other artifact as
@@ -351,7 +351,7 @@ TASK_OVER_OTHER_RE = re.compile(
 
 # Semantic topics (word-boundary, inflection-aware). Nine topics, weighting and
 # confidence overrides all mirror SKILL.md's SEMANTIC_TOPICS: documentation and
-# PRD synonyms carry a 0.85 override so a genuine hit routes directly instead of
+# Story synonyms carry a 0.85 override so a genuine hit routes directly instead of
 # needing four keyword hits like the unweighted topics. Insertion order is the
 # tie-break, so it is part of the contract and must stay as written.
 SEMANTIC_TOPICS: Dict[str, Dict[str, Any]] = {
@@ -389,7 +389,7 @@ SEMANTIC_TOPICS: Dict[str, Dict[str, Any]] = {
         "intent": "DOC",
         "confidence": 0.85,
     },
-    "prd": {
+    "story": {
         "synonyms": ["prd", "product requirements document", "user story", "write a story", "story for", "epic story", "epic", "write an epic", "create an epic", "epic for", "refine this epic", "acceptance scenarios", "given when then", "connextra", "definition of ready", "refine this story", "turn this into a story", "write a prd", "refine this prd", "draft for pm", "write a draft", "make a draft", "story", "changing how", "change how", "changing the way", "change the way"],
         "intent": "STORY",
         "confidence": 0.85,
@@ -405,7 +405,7 @@ SEMANTIC_TOPICS: Dict[str, Dict[str, Any]] = {
 # inconsistently ... make it consistent", "tidy up the button labels") is
 # ordinary backlog intake and scores through ui_refinement instead of arriving
 # at Task only by the quick-energy fallback. Behaviour-change wording ("we're
-# changing how creator ratings work") is a PRD request with no artifact noun in
+# changing how creator ratings work") is a Story request with no artifact noun in
 # it, and bare "story" joins the compound phrases so "one story or several"
 # scores the way bare "epic" already does.
 #
@@ -606,7 +606,7 @@ def detect_framing(text: str) -> Optional[str]:
         matches.add("DOC")
     if "STORY" in matches and len(matches) > 1 and STORY_AS_SUBJECT_RE.search(text_lower):
         matches.discard("STORY")
-    if "STORY" in matches and NEGATED_PRD_RE.search(text_lower):
+    if "STORY" in matches and NEGATED_STORY_RE.search(text_lower):
         matches.discard("STORY")
     if TASK_OVER_OTHER_RE.search(text_lower) and "TASK" in matches:
         return "TASK"

@@ -1,6 +1,6 @@
 # Product Owner - Examples - Story - Epic
 
-Instantiates the house PRD shape as an Epic: an About umbrella with Problem, Goal and Solution, a Scope of child stories grouped by lifecycle plus an Added Later group, a few release-level outcome-led Given/When/Then acceptance criteria, and the Delivery close, present because the request asked for a delivery view and sizing, with no Requirements section.
+Instantiates the house format as an Epic: an About umbrella with Problem, Goal and Solution, a Scope of child stories grouped by lifecycle plus an Added Later group, a few release-level outcome-led Given/When/Then acceptance criteria, and the Delivery close, present because the request asked for a delivery view and sizing, with no Requirements section.
 
 ---
 

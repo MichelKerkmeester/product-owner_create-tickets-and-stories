@@ -87,7 +87,7 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 | File | Role |
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy, Ticket realism rubric and root summary |
-| [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Line 85 the block without a Canvas panel, line 114 an explicit command still asks, line 157 house format with no build steps and no `PRD -` prefix, line 228 clarification label, line 229 the PRD refinement label, line 233 no `Path:`, `Saved:` or `Verified:` |
+| [`Custom Instructions.md`](../../../claude%20project/Custom%20Instructions.md) | Line 85 the block without a Canvas panel, line 114 an explicit command still asks, line 157 house format with no build steps and no `PRD -` prefix, line 228 clarification label, line 229 the Story or Epic refinement label, line 233 no `Path:`, `Saved:` or `Verified:` |
 | [`Product Owner - Templates - Story Mode.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode.md) | Line 126 no `**Checklist**` in Requirements, line 143 the H1 with no `PRD -` prefix, lines 200 to 210 the refinement workflow, line 207 create-time checks only on request, line 209 the source basename, line 210 restructure needs explicit leave, lines 360 to 363 the refined label |
 | [`Product Owner - Assets - Story Template.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Story%20Template.md) | Lines 21 to 85 Story scaffold |
 | [`Product Owner - Assets - Interactive Response Templates.md`](../../../claude%20project/knowledge/Product%20Owner%20-%20Assets%20-%20Interactive%20Response%20Templates.md) | Lines 91 to 104 Story context question, including the refinement operation |

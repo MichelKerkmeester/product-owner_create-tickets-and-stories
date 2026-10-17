@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "packet_id": "015-rename-prd-terminology-to-story-and-epic",
+  "spec_folder": "015-rename-prd-terminology-to-story-and-epic",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "rename prd terminology to story and epic",
+      "rename leftover prd terminology to story and epic",
+      "story value line label",
+      "story-example rename",
+      "rename prd terminology to story and epic plan",
+      "rename prd terminology to story and epic tasks",
+      "rename prd terminology to story and epic acceptance criteria",
+      "rename prd terminology to story and epic implementation summary"
+    ],
+    "key_topics": [
+      "rename",
+      "prd",
+      "terminology",
+      "story",
+      "epic",
+      "leftover",
+      "value",
+      "line",
+      "label",
+      "story-example",
+      "plan",
+      "tasks"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md",
+      "sk-product-owner/changelog/v1.2.0.0.md",
+      "claude project/Custom Instructions.md",
+      "claude project/README.md",
+      "benchmark/router/route_contract.py",
+      "sk-product-owner/SKILL.md",
+      "sk-product-owner/leaf-manifest.json",
+      "benchmark/router/run_fixtures.sh",
+      "benchmark/format/run_fixtures.sh"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.2.0.0.md",
+        "kind": "doc",
+        "path": "sk-product-owner/changelog/v1.2.0.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "claude project/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "route_contract.py",
+        "kind": "file",
+        "path": "benchmark/router/route_contract.py",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "leaf-manifest.json",
+        "kind": "config",
+        "path": "sk-product-owner/leaf-manifest.json",
+        "source": "derived"
+      },
+      {
+        "name": "run_fixtures.sh",
+        "kind": "script",
+        "path": "benchmark/router/run_fixtures.sh",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Every",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Each",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Product Owner produces two artifact kinds, Story and Epic, yet about fifty lines across the skill, the kernel, the Project knowledge and the READMEs still name the artifact a PRD or a product requirements document",
+    "created_at": "2026-10-17T12:08:24Z",
+    "last_save_at": "2026-10-17T13:57:21.001Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:6a97d545ee0977d44e8ad96a6875a4c57c9a598e78521a4b6e9aa05c8838431d",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "9d584121096a95e0277fe3aad595ff0f0c0fcd37db61a1f9460e5982180386a2",
+      "plan.md": "482fc52ee0b8004edd800ff6060ba8565617d96775fc40ccedc13181aff1585f",
+      "tasks.md": "6de32849311341fc05f2b93504c366bdf7df4fde575de75d5695e9370da8b156",
+      "implementation-summary.md": "4602fc47b84714e2cbed6fdf40d3b29ab2047bacff9443ea416f4dcb08232932"
+    },
+    "last_active_at": null
+  }
+}

@@ -1,6 +1,6 @@
 ---
 title: "sk-product-owner"
-description: "Product Owner skill for Barter: routes requests into tasks, bugs, PRDs, and source-safe product or engineering docs, exports every artifact before responding."
+description: "Product Owner skill for Barter: routes requests into tasks, bugs, stories, epics and source-safe product or engineering docs, exports every artifact before responding."
 trigger_phrases:
   - "product owner"
   - "$task"
@@ -9,12 +9,12 @@ trigger_phrases:
   - "$prd"
   - "$story"
   - "$epic"
-version: 1.1.0.0
+version: 1.2.0.0
 ---
 
 # sk-product-owner
 
-> Turns a half-formed product request into an export-ready task, bug report, product requirements document (PRD) or source-safe document, without inventing a single fact along the way.
+> Turns a half-formed product request into an export-ready task, bug report, Story, Epic or source-safe document, without inventing a single fact along the way.
 
 | Core layer | What it adds |
 |---|---|
@@ -221,7 +221,7 @@ Refinement is its own workflow: the existing document is the structural baseline
 
 ### Story Mode (`$story`, `$s`, `$prd`, `$p`, `$epic`, `$e`)
 
-Product requirements documents (PRDs) developers cut tickets from, produced in two artifact kinds rather than size tiers:
+The documents developers cut tickets from, produced in two artifact kinds rather than size tiers:
 
 | Kind | Shape |
 |---|---|
@@ -252,7 +252,7 @@ Acceptance criteria stay few, one per outcome the story exists to guarantee plus
 
 ### Interactive Mode (fallback, no command)
 
-Catches genuinely ambiguous requests. Instead of interviewing you across five messages it asks one consolidated question covering every unresolved decision, then waits. The question always names the artifact choice when intent is unclear, the essential missing inputs for the likeliest artifact (purpose and audience for a doc, role and value for a PRD, evidence for a bug) and any source conflict needing a ruling. Doc conflicts, missing PRD roles and colliding commands all funnel into the same single-question discipline, and Quick energy may skip preference questions but never this safety question.
+Catches genuinely ambiguous requests. Instead of interviewing you across five messages it asks one consolidated question covering every unresolved decision, then waits. The question always names the artifact choice when intent is unclear, the essential missing inputs for the likeliest artifact (purpose and audience for a doc, role and value for a Story, evidence for a bug) and any source conflict needing a ruling. Doc conflicts, missing Story roles and colliding commands all funnel into the same single-question discipline, and Quick energy may skip preference questions but never this safety question.
 
 ### Energy Levels
 
@@ -270,7 +270,7 @@ Catches genuinely ambiguous requests. Instead of interviewing you across five me
 | Phase | What it does |
 |---|---|
 | Discover | Establishes value, stakeholders, scope and (for Doc) source authority and claim classes |
-| Engineer | Selects the artifact shape, template or PRD kind and the sections that earn their place |
+| Engineer | Selects the artifact shape, template or artifact kind (Story or Epic) and the sections that earn their place |
 | Prototype | Drafts from the selected scaffold, or preserves the existing structure for a refinement |
 | Test | Runs the six quality dimensions, Human Voice Rules, source-fidelity and grammar gates |
 | Harmonize | Exports, verifies the read-back and assembles the response with its verdict |
@@ -281,9 +281,9 @@ Quality is scored on six dimensions with floors that block export when unmet: co
 
 ## 4. OUTPUT FORMAT
 
-### ClickUp Grammar (Doc and PRD artifacts)
+### ClickUp Grammar (Doc, Story and Epic artifacts)
 
-New Doc and PRD artifacts use the grammar ClickUp renders correctly:
+New Doc, Story and Epic artifacts use the grammar ClickUp renders correctly:
 
 ```markdown
 # Document Title
@@ -310,11 +310,11 @@ The load-bearing rules: `* * *` dividers only (never `---`), a divider immediate
 
 ### Heading Depth
 
-ClickUp renders H2 enormous, so depth stays balanced. H1 is the title only. H2 anchors a few major sections (Overview and the primary body section) and stays a minority, three or four H2s in a ten-heading document. H3 and H4 carry the working structure and bold paragraph leads replace anything deeper. Empty spacer headings (`##   `) exist only in ClickUp-bound content in a Doc artifact, never in its file export. A PRD is the opposite: its spacers belong to the Barter house format and stay in the saved file.
+ClickUp renders H2 enormous, so depth stays balanced. H1 is the title only. H2 anchors a few major sections (Overview and the primary body section) and stays a minority, three or four H2s in a ten-heading document. H3 and H4 carry the working structure and bold paragraph leads replace anything deeper. Empty spacer headings (`##   `) exist only in ClickUp-bound content in a Doc artifact, never in its file export. A Story or Epic is the opposite: its spacers belong to the Barter house format and stay in the saved file.
 
 ### Readability Floor
 
-One idea per paragraph with the takeaway first. Links sit at the end of the claims they support. Checklist items are short bold imperatives with rationale in the surrounding prose. Lists stay one level deep. Prose is a first-class citizen: a document that reads like a glossary when its reader needed a PRD has failed, whatever its shape.
+One idea per paragraph with the takeaway first. Links sit at the end of the claims they support. Checklist items are short bold imperatives with rationale in the surrounding prose. Lists stay one level deep. Prose is a first-class citizen: a document that reads like a glossary when its reader needed a Story has failed, whatever its shape.
 
 ### Task and Bug House Format
 
@@ -397,11 +397,11 @@ An attention line names the specific item. The verdict reports gate outcomes, it
 | `doc/doc-example-proposal.md` | Candidate design separated from verified current context |
 | `doc/doc-example-readme.md` | Folder README on the Narrative overview shape with an earned reading map |
 | `doc/doc-example-quick.md` | A Quick Guide dropping optional sections while every gate survives |
-| `story/prd-example-simple.md` | The smallest Story: no Requirements section because it has no hard constraint, two outcome-led acceptance criteria, and no Delivery section, so it ends on Acceptance criteria |
-| `story/prd-example-medium.md` | A Story with three independent requirements, acceptance criteria grouped by scenario |
-| `story/prd-example-complex.md` | A Story whose requirements share one mechanism described once in Solution, with the `← PRIO` marker |
-| `story/prd-example-complete.md` | The maximal Story: every optional enrichment populated as a reference for what is available |
-| `story/prd-example-epic.md` | The Epic shape: Goal, Scope with child stories, release-level acceptance criteria, no requirements |
+| `story/story-example-simple.md` | The smallest Story: no Requirements section because it has no hard constraint, two outcome-led acceptance criteria, and no Delivery section, so it ends on Acceptance criteria |
+| `story/story-example-medium.md` | A Story with three independent requirements, acceptance criteria grouped by scenario |
+| `story/story-example-complex.md` | A Story whose requirements share one mechanism described once in Solution, with the `← PRIO` marker |
+| `story/story-example-complete.md` | The maximal Story: every optional enrichment populated as a reference for what is available |
+| `story/story-example-epic.md` | The Epic shape: Goal, Scope with child stories, release-level acceptance criteria, no requirements |
 
 Every example uses invented products (Driftboard, Ledgerly, Prism, Fieldstack and friends), so the fixtures teach form without leaking real Barter material.
 

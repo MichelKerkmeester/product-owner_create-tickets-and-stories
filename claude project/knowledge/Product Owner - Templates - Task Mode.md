@@ -318,8 +318,8 @@ The kernel points here for the When To Use list:
 
 - Development tasks, subtasks, parent tasks, acceptance criteria, QA-ready requirements, and copy-consistency or casing standardisation work
 - Bug reports, defect writeups, reproduction steps, expected behavior, capture
-- Refinement of pasted task, bug, PRD or document content into backlog-ready or ClickUp-ready markdown
-- Product requirements documents (PRDs) with Connextra-adjacent house-format sections, numbered Given/When/Then acceptance criteria and a Mark-as-done checkbox per criterion
+- Refinement of pasted task, bug, Story or document content into backlog-ready or ClickUp-ready markdown
+- Stories and Epics with Connextra-adjacent house-format sections, numbered Given/When/Then acceptance criteria and a Mark-as-done checkbox per criterion
 - Product or engineering guides, catalogs, behavior references, runbooks, API or schema references, architecture documents, technical proposals and decision records
 
 The kernel points here for the backlog artefact rule:

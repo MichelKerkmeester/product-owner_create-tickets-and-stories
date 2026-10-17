@@ -6,7 +6,7 @@ importance_tier: important
 trigger_phrases:
   - "story template"
   - "story scaffold"
-  - "PRD house format"
+  - "Story house format"
   - "write a user story"
   - "story requirements section"
 version: 0.17.0.11

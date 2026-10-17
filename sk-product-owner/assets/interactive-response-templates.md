@@ -1,6 +1,6 @@
 ---
 title: "Product Owner - Assets - Interactive Response Templates"
-description: "Copy/apply response templates for Product Owner comprehensive, task, bug, PRD and document intake questions."
+description: "Copy/apply response templates for Product Owner comprehensive, task, bug, Story and document intake questions."
 contextType: general
 importance_tier: important
 trigger_phrases:
@@ -9,7 +9,7 @@ trigger_phrases:
   - "task format question"
   - "bug context question"
   - "story context question"
-  - "PRD context question"
+  - "Story context question"
   - "document context question"
   - "source authority question"
   - "one question intake"
@@ -59,7 +59,7 @@ Please provide the following information at once:
 **1. Deliverable type:**
 - Task - Development task with QA checklist
 - Bug - Defect report with evidence and reproduction steps
-- Story - Product requirements document in the Barter house format, new or refined, with numbered Given/When/Then acceptance criteria, and Connextra lines or Definition of Ready/Done gates only where the artifact earns them
+- Story - A Story or Epic in the Barter house format, new or refined, with numbered Given/When/Then acceptance criteria, and Connextra lines or Definition of Ready/Done gates only where the artifact earns them
 - Doc - Product or engineering guide, catalog, behavior reference, runbook, technical reference, or proposal; new or refined
 
 **2. Scope & complexity:**
@@ -116,11 +116,11 @@ I'll create your bug report. Quick questions:
 Use this when an explicit Story or Epic command selects Story intent, or when Story intent is selected but role, value, requirement shape or artifact kind (Story or Epic) cannot be inferred safely. Populate only unresolved fields and wait once.
 
 ```markdown
-I'll create or refine your PRD. Before drafting, I need the unresolved decisions below in one response:
+I'll create or refine your Story or Epic. Before drafting, I need the unresolved decisions below in one response:
 
-**Operation:** New PRD, or refine an existing one? For a refinement, which file - I will preserve its structure and only add or adjust what you name.
-**Role & value:** Who is the user, and what benefit should the PRD deliver? (This becomes the Connextra "As a ..., I want ..., so that ..." line.)
-**Requirements:** Which concrete requirements should the PRD cover? List them for a Story; if there are none - an initiative split across child stories with a Goal - it is an Epic.
+**Operation:** New Story or Epic, or refine an existing one? For a refinement, which file - I will preserve its structure and only add or adjust what you name.
+**Role & value:** Who is the user, and what benefit should the Story deliver? (This becomes the Connextra "As a ..., I want ..., so that ..." line.)
+**Requirements:** Which concrete requirements should the Story cover? List them for a Story; if there are none - an initiative split across child stories with a Goal - it is an Epic.
 **Shared machinery:** Do the requirements run through one common mechanism (a pipeline, rule ladder, state machine or lifecycle)? If so, describe it once.
 **Evidence & links:** Any governing docs, technical identifiers, thresholds or task links to carry into the spec blocks - exact values, please.
 **Validation:** What am I likely to assume incorrectly about the user or the promise?

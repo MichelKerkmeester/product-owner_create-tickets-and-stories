@@ -1,6 +1,6 @@
 ---
 title: "Product Owner - Examples - Story - Complete Reference"
-description: "The maximal house Story: every optional enrichment populated as a reference for what is available. A Problem section, a Solution that carries a User Story promise block, Expected outcomes and References, a Definition of Ready gate, Requirements holding only hard constraints with a PRD value line, a Rule block, a Which-means-that block and one priority marker on each group, outcome-led Given/When/Then acceptance criteria grouped by surface with Mark-as-done lines, a Definition of Done gate, plus a Delivery close present because the request asked for a delivery view and sizing. A reference for what is available, not the default a small Story needs."
+description: "The maximal house Story: every optional enrichment populated as a reference for what is available. A Problem section, a Solution that carries a User Story promise block, Expected outcomes and References, a Definition of Ready gate, Requirements holding only hard constraints with a Story value line, a Rule block, a Which-means-that block and one priority marker on each group, outcome-led Given/When/Then acceptance criteria grouped by surface with Mark-as-done lines, a Definition of Done gate, plus a Delivery close present because the request asked for a delivery view and sizing. A reference for what is available, not the default a small Story needs."
 contextType: general
 importance_tier: normal
 trigger_phrases: ["complete reference story example", "worked story example"]
@@ -73,7 +73,7 @@ Check off as met. Pull requirements into a sprint only when every box is checked
 * * *
 **Access windows** ← PRIO
 * * *
-**PRD:** As an organizer running a presale, I want each code to work only inside a set start and end time, so that early access opens and closes exactly when the presale is meant to run.
+**Story:** As an organizer running a presale, I want each code to work only inside a set start and end time, so that early access opens and closes exactly when the presale is meant to run.
 
 - [] Every code carries a start and an end, stored as `opens_at` and `closes_at` in `UTC`
 - [] A code redeems nothing outside that window
@@ -90,7 +90,7 @@ Which means that:
 
 **Redemption limits**
 * * *
-**PRD:** As an organizer protecting the presale allocation, I want each code to stop after a set number of uses, so that a shared or leaked code cannot drain more tickets than I intended.
+**Story:** As an organizer protecting the presale allocation, I want each code to stop after a set number of uses, so that a shared or leaked code cannot drain more tickets than I intended.
 
 - [] Every code carries a `max_redemptions` value
 - [] A redemption counts only against a confirmed order
@@ -107,7 +107,7 @@ Which means that:
 
 **Instant revoke**
 * * *
-**PRD:** As an organizer who spots a leaked code, I want to revoke it in one action, so that it stops working immediately without touching the codes that are still safe.
+**Story:** As an organizer who spots a leaked code, I want to revoke it in one action, so that it stops working immediately without touching the codes that are still safe.
 
 - [] Revoke applies to a single code, never to a presale or a batch
 - [] A revoked code is closed permanently and cannot be reopened

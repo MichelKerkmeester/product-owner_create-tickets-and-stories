@@ -10,7 +10,7 @@
       {
         "target": "mcp-tooling",
         "weight": 0.5,
-        "context": "hands an approved Task, Bug, Doc or PRD export to the ClickUp workflow mode for markdown-aware push after explicit user approval"
+        "context": "hands an approved Task, Bug, Doc, Story or Epic export to the ClickUp workflow mode for markdown-aware push after explicit user approval"
       }
     ],
     "siblings": [
@@ -87,7 +87,7 @@
     ],
     "intent_signals": [
       "backlog artifact creation or refinement",
-      "product requirements document creation or refinement",
+      "story and epic creation or refinement",
       "product or engineering documentation creation or refinement",
       "ClickUp-formatted export and handoff"
     ],

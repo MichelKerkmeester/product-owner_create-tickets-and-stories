@@ -484,6 +484,8 @@ The kernel points here for the shape-specific gate notes:
 
 Standard requires 3 or more of the five canonical perspectives (User, Business, Technical, Risk, Delivery) before delivery. Deep requires all five. Both perspective floors block delivery exactly like the dimension floors above.
 
+---
+
 ## 7. FORMATTING RULES
 
 **MUST for Interactive intake responses:** (1) Markdown dashes `-` for bullets, never emoji (2) Each bullet on separate line (3) Preserve multi-line structure (4) Bold headers + line break `**Header:**\n` (5) Empty lines between sections (6) No emojis in questions except numbered headers (7) Proper capitalization/grammar. This formatting rule does not apply to a generated Doc artifact, which uses the ClickUp contract in Templates - Doc Mode and Assets - Doc Templates.

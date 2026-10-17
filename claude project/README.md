@@ -8,7 +8,7 @@ Hand-maintained local package for the Product Owner claude.ai Project. The kerne
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- synthesized Project kernel v1.1.0 (routing authority, SKILL.md is not loaded in this Project)
+|-- Custom Instructions.md        <- synthesized Project kernel v1.2.0 (routing authority, SKILL.md is not loaded in this Project)
 |-- README.md                     <- upload manifest and hand-authored parity note
 `-- knowledge/                    <- upload all thirty-seven files as Project Knowledge
     |-- Product Owner - System - Interactive Mode.md
@@ -35,7 +35,7 @@ claude project/
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` v1.1.0 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.1.0.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
+`Custom Instructions.md` v1.2.0 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.0.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
 
 CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Block**, direct resource loading becomes Project Knowledge consultation, and the response reports an export-equivalent path. Refinements keep delivery metadata outside preserved content unless equivalent metadata already exists in the source.
 
@@ -123,7 +123,7 @@ Push shape: artifact H1 becomes the task name, Deliverable Block framing and pro
 - A `$story` request that asks for its task breakdown renders one Deliverable Block per file, Story first, each with its own `Export-equivalent path:` inside `export/NNN - Story-[description]/`. The Story's `#### **Tasks**` block links each `NNN.[n] - task-[description].md`, each task's `**Story**` block links the Story, and one `HVR self-scan:` line covers the set.
 - An approved task read-back uses `include_markdown_description=true` and confirms the rendered body matches the pushed artifact before delivery is reported complete.
 - An approved ClickUp document or page create uses markdown content with the markdown `content_format` value, never the plain `description` field.
-- New Doc artifacts use same-level empty spacer headings only in ClickUp-bound content, never in a file export. A PRD keeps its spacer headings in the export, because they belong to the Barter house format.
+- New Doc artifacts use same-level empty spacer headings only in ClickUp-bound content, never in a file export. A Story or Epic keeps its spacer headings in the export, because they belong to the Barter house format.
 
 ## Change Checklist
 

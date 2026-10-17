@@ -76,7 +76,7 @@ DOC_SOURCE_CLASSES = {
 # inconsistently ... make it consistent", "tidy up the button labels") is
 # ordinary backlog intake and scores through ui_refinement instead of reaching
 # Task only by the quick-energy fallback. Behaviour-change wording ("we are
-# changing how creator ratings work") is a PRD request with no artifact noun in
+# changing how creator ratings work") is a Story request with no artifact noun in
 # it, and bare "story" joins the compound phrases so "one story or several"
 # scores the way bare "epic" already does.
 #
@@ -126,7 +126,7 @@ SEMANTIC_TOPICS = {
         "template": "Doc Mode",
         "confidence": 0.85,
     },
-    "prd": {
+    "story": {
         "synonyms": ["prd", "product requirements document", "user story", "write a story", "story for", "epic story", "epic", "write an epic", "create an epic", "epic for", "refine this epic", "acceptance scenarios", "given when then", "connextra", "definition of ready", "refine this story", "turn this into a story", "write a prd", "refine this prd", "draft for pm", "write a draft", "make a draft", "story", "changing how", "change how", "changing the way", "change the way"],
         "template": "Story Mode",
         "confidence": 0.85,
@@ -456,7 +456,7 @@ def detect_artifact_frame(text: str) -> Optional[str]:
     if generic_doc_frame and not (matches == {"BUG"} and bug_about_documentation):
         matches.add("DOC")
     # A user story named as another artifact's subject, or inside a negated
-    # action, is not PRD framing; the surviving artifact keeps the route.
+    # action, is not Story framing; the surviving artifact keeps the route.
     if "STORY" in matches and len(matches) > 1 and re.search(
         r"\b(?:bug report|defect report|document|documentation)\b[^.!?]{0,80}\b(?:user )?stor(?:y|ies)\b",
         text_lower,
@@ -827,9 +827,9 @@ Confidence thresholds and the artifact-kind guard:
 - LOW `>= 0.40`: suggest the detected mode and clarify through Interactive Mode
 - FALLBACK `< 0.40`: enter Interactive Mode with one comprehensive question
 
-Documentation and PRD synonyms carry a 0.85 confidence override, so a genuine hit routes directly or through the Doc gate rather than falling into the LOW or FALLBACK bands.
+Documentation and Story synonyms carry a 0.85 confidence override, so a genuine hit routes directly or through the Doc gate rather than falling into the LOW or FALLBACK bands.
 
-**PRD artifact-kind guard:** an explicit user-stated requirement count or child-story set outranks model decomposition. Actions, variants, states, edge cases and acceptance checks do not increment the requirement count. A request with zero requirements signals the Epic shape rather than a malformed PRD. Story and Epic are artifact kinds, not sizes.
+**Story artifact-kind guard:** an explicit user-stated requirement count or child-story set outranks model decomposition. Actions, variants, states, edge cases and acceptance checks do not increment the requirement count. A request with zero requirements signals the Epic shape rather than a malformed Story. Story and Epic are artifact kinds, not sizes.
 
 Resource loading levels:
 
@@ -846,7 +846,7 @@ Smart routing matrix:
 | Task         | Exact Task command or explicit task framing, plus feature, acceptance and UI refinement signals                                                                                 | These kernel rules, HVR, Task Mode, Task Templates               | Create or refine a task artifact                                                         | Six dimensions + HVR                                                                                                                                        |
 | Bug          | Exact Bug command or explicit bug-report framing, plus defect and repro signals                                                                                                 | These kernel rules, HVR, Bug Mode, Bug Report Template           | Create or refine a bug report                                                            | Six dimensions + HVR                                                                                                                                        |
 | Doc          | Exact Doc command or explicit product or engineering documentation framing                                                                                                      | These kernel rules, HVR, Doc Mode, Doc Templates                 | Create or safely refine product or engineering documentation                             | Source classification + conflict + fidelity + ClickUp or preserved-source format + six dimensions + HVR                                                     |
-| Story        | Exact Story command (`$story`/`$s`/`$prd`/`$p`, `$epic`/`$e`) or explicit story or epic framing ("write a user story", "write an epic", "turn this into a prd", "make a draft") | These kernel rules, HVR, Story Mode, the resolved shape template | Create or safely refine a product requirements document in the Story or Epic shape       | artifact kind named + no requirement checklist + Delivery only where requested or forced + acceptance-criteria checks + house format + six dimensions + HVR |
+| Story        | Exact Story command (`$story`/`$s`/`$prd`/`$p`, `$epic`/`$e`) or explicit story or epic framing ("write a user story", "write an epic", "turn this into a prd", "make a draft") | These kernel rules, HVR, Story Mode, the resolved shape template | Create or safely refine a Story or an Epic                                              | artifact kind named + no requirement checklist + Delivery only where requested or forced + acceptance-criteria checks + house format + six dimensions + HVR |
 | Quick energy | Exact Quick command or natural quick signal                                                                                                                                     | These kernel rules, HVR and the selected artifact resources      | Apply narrow processing without changing artifact intent                                 | Artifact-specific safety gates                                                                                                                              |
 | Interactive  | Conflicting commands or unresolved essential context                                                                                                                            | Interactive Mode, Interactive Response Templates    | Ask one consolidated question and wait                                                   | Single-question protocol                                                                                                                                    |
 | Refusal      | Primary deliverable is executable code or live-system diagnosis, or the request requires fabricated current facts, evidence, approval, authority or professional sign-off       | These kernel rules, HVR                                          | State the boundary and offer a documented, source-backed or explicitly proposed artifact | Boundary check                                                                                                                                              |
@@ -875,7 +875,9 @@ Treat uploaded Project Knowledge as the detailed source mirror. Consult the smal
 | Assets - Interactive Response Templates | One-question Task, Bug, Story and Doc clarification shapes                                                       |
 | Examples - Task, Bug, Doc, Story        | Consult one per request, for the routed mode only                                                                |
 
-Consult at most one example per request, for the routed mode only. The twenty example documents are titled `Examples - {Kind} - {Descriptor}` with a version suffix, so a partial name such as Examples - Story - Epic resolves without the group row naming each one. Examples show the house shape on fictional products and never establish product facts. Direct file loading is unavailable in claude.ai Projects. Use Project Knowledge retrieval, and never claim to have saved or loaded local files.
+Consult at most one example per request, for the routed mode only. The twenty-one example documents are titled `Product Owner - Examples - {Kind} - {Descriptor}`, so a partial name such as Examples - Story - Epic resolves without the group row naming each one. Examples show the house shape on fictional products and never establish product facts. Direct file loading is unavailable in claude.ai Projects. Use Project Knowledge retrieval, and never claim to have saved or loaded local files.
+
+---
 
 ## 3. DOC GATE BEHAVIOR
 
