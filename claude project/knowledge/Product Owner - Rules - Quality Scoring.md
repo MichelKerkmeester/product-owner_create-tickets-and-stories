@@ -99,6 +99,8 @@ Read the dimensions against the resolved shape. Scoring one shape against anothe
 - **Bug:** Accuracy decides it. An observed behavior, reproduction step or root cause that no evidence supports fails, `Not provided` is the correct entry where an inference would otherwise go, and Completeness is scored against the evidence supplied rather than against a complete investigation
 - **Doc:** Accuracy and Relevance decide it, and the source-authority gate feeds Accuracy directly, so a claim whose subject no supplied source covers fails even when the ClickUp layout is spotless. For a refinement, Completeness is scored on the requested change plus preserved fidelity, never on gaps the source already carried
 
+---
+
 ## 5. THE FLOORS AND THE TWO ALWAYS-LOADED LAYERS
 
 Two layers load on every request and neither is a scored dimension. Knowing where each stops is what keeps the floors from double-counting them or, worse, trading against them.
@@ -126,15 +128,17 @@ The kernel points here for the pre-reply quality checklist:
 - Backlog content stays WHAT/WHY focused, and documentation may include source-backed technical HOW and clearly labelled technical proposals or recommendations
 - Identifiers, links, tables, literal copy and lifecycle labels remain faithful where supplied
 - No fabricated current requirements, evidence, root causes, platform details, implementation facts, approvals or sign-off appear
-- New Docs and PRDs follow the ClickUp divider/`*   ` bullet contract and the Barter house format respectively, and refinements preserve source formatting unless normalization was requested
-- Every new Doc heading is sentence case, and every PRD H2 section closes with a `* * *` directly above its `##   ` spacer
+- New Docs follow the ClickUp divider/`*   ` bullet contract and new Stories and Epics follow the Barter house format, and refinements preserve source formatting unless normalization was requested
+- Every new Doc heading is sentence case, and every Story and Epic H2 section closes with a `* * *` directly above its `##   ` spacer
 - The Doc gate blocked when a requested claim's subject was absent from the supplied sources, not only when a contract field was missing
-- A PRD names its artifact kind (Story or Epic), keeps requirements to hard constraints free of build steps and carries every supplied hard value verbatim, references no screenshot or image path, carries a Delivery section only where it was requested or forced, and carries no ticket header fields, story points or INVEST notes
+- A Story or Epic names its artifact kind, keeps requirements to hard constraints free of build steps and carries every supplied hard value verbatim, references no screenshot or image path, carries a Delivery section only where it was requested or forced, and carries no ticket header fields, story points or INVEST notes
 - HVR has no hard blockers, and the self-scan line reports the real count
 - Six-dimension floors pass. Quick narrows the artifact, never the floors, so a Quick delivery reports the same gate as checked
 - The Deliverable Block appears before commentary and is the only claimed delivery evidence
 - Response gives the correct export-equivalent path, quality status and summary only, adding one ClickUp delivery offer when ClickUp tooling is connected
 - No write happened to ClickUp or another external system without explicit approval in this conversation
+
+---
 
 ## 6. THE REVISION LADDER
 

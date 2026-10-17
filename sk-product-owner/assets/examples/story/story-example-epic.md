@@ -1,6 +1,6 @@
 ---
 title: "Product Owner - Examples - Story - Epic"
-description: "Instantiates the house PRD shape as an Epic: an About umbrella with Problem, Goal and Solution, a Scope of child stories grouped by lifecycle plus an Added Later group, a few release-level outcome-led Given/When/Then acceptance criteria, and the Delivery close, present because the request asked for a delivery view and sizing, with no Requirements section."
+description: "Instantiates the house format as an Epic: an About umbrella with Problem, Goal and Solution, a Scope of child stories grouped by lifecycle plus an Added Later group, a few release-level outcome-led Given/When/Then acceptance criteria, and the Delivery close, present because the request asked for a delivery view and sizing, with no Requirements section."
 contextType: general
 importance_tier: normal
 trigger_phrases: ["epic story example", "worked story example"]

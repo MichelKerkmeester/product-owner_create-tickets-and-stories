@@ -216,7 +216,7 @@ Three shapes count as framing without naming an artifact. Symptom wording such a
 
 #### Topics and Confidence
 
-Nine topics score a request that carries no command and no framing. `bug` routes to Bug, `documentation` to Doc, `prd` to Story and the other six to Task. Each word-boundary hit adds 0.25, capped at 0.95. One hit on `ui_refinement` scores at least 0.80, and one on `documentation` or `prd` at least 0.85. The trigger words live in [router-contract.md](sk-product-owner/references/router-contract.md).
+Nine topics score a request that carries no command and no framing. `bug` routes to Bug, `documentation` to Doc, `story` to Story and the other six to Task. Each word-boundary hit adds 0.25, capped at 0.95. One hit on `ui_refinement` scores at least 0.80, and one on `documentation` or `prd` at least 0.85. The trigger words live in [router-contract.md](sk-product-owner/references/router-contract.md).
 
 - 0.85 and up routes directly
 - 0.60 to 0.84 routes with a one-line confirmation of the mode
@@ -315,7 +315,7 @@ For an ambiguous request with no command, the question has seven numbered blocks
 **1. Deliverable type:**
 - Task - Development task with QA checklist
 - Bug - Defect report with evidence and reproduction steps
-- Story - Product requirements document in the Barter house format, new or refined, with numbered Given/When/Then acceptance criteria
+- Story - A Story or Epic in the Barter house format, new or refined, with numbered Given/When/Then acceptance criteria
 - Doc - Product or engineering guide, behavior reference, runbook, technical reference or proposal
 ```
 
@@ -494,7 +494,7 @@ The run did not keep the Story file itself. [The scenario's reply](benchmark/rep
 - `## Delivery` (Estimation, Rabbit holes, No-gos) is added only on request or when an `**Open:**` line or an undated external constraint forces it
 - No ticket header fields, story points or INVEST notes appear. The reply names the kind: Story or Epic
 
-Nine optional enrichments exist for a Story that earns them. They include a Connextra promise block, a Rule block for an exact threshold, Definition of Ready and Done gates and a single `← PRIO` marker. `prd-example-complete.md` shows seven of them in one Story, and most stories use none.
+Nine optional enrichments exist for a Story that earns them. They include a Connextra promise block, a Rule block for an exact threshold, Definition of Ready and Done gates and a single `← PRIO` marker. `story-example-complete.md` shows seven of them in one Story, and most stories use none.
 
 #### What Never Enters an Artifact
 
@@ -639,7 +639,7 @@ A route loads its template together with its mode reference. A worked example lo
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem and never loads `SKILL.md`.
 
-- `Custom Instructions.md` is the kernel, v1.1.0, aligned to skill v1.1.0.0. It carries the full router and rules and is the routing authority inside the Project
+- `Custom Instructions.md` is the kernel, v1.2.0, aligned to skill v1.2.0.0. It carries the full router and rules and is the routing authority inside the Project
 - `knowledge/` holds 37 files: 16 core documents (five mode references, six templates, four shared rule files and quality scoring) and the 21 worked examples
 - `README.md` holds the upload steps, the source-to-mirror map and the smoke matrix
 - `kernel-review.json` is a dated record of one kernel review, read by no tool
@@ -699,7 +699,7 @@ Silent fixtures pin the other side: a compliant house Story, the sanctioned deli
 
 #### The Manual Testing Playbook
 
-[The playbook](sk-product-owner/manual-testing-playbook/manual-testing-playbook.md) turns the contract into 14 two-turn conversations: seven for the skill (`S` IDs) and a twin of each for the Project (`P` IDs). The pairs cover the delivery identity, `$task` intake, `$bug` evidence, a Doc request with the notes still to come, two conflicting notes, a PRD from notes and an ambiguous request that must open with the energy choice.
+[The playbook](sk-product-owner/manual-testing-playbook/manual-testing-playbook.md) turns the contract into 14 two-turn conversations: seven for the skill (`S` IDs) and a twin of each for the Project (`P` IDs). The pairs cover the delivery identity, `$task` intake, `$bug` evidence, a Doc request with the notes still to come, two conflicting notes, a Story from notes and an ambiguous request that must open with the energy choice.
 
 #### Captured Runs
 
@@ -746,7 +746,7 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
 │   ├── reports/                     two captured playbook runs
 │   └── router/                      route_contract.py, 117 fixtures and the differential
 ├── claude project/
-│   ├── Custom Instructions.md       claude.ai kernel v1.1.0
+│   ├── Custom Instructions.md       claude.ai kernel v1.2.0
 │   ├── README.md                    upload steps, mirror map and smoke matrix
 │   ├── kernel-review.json           dated record of one kernel review
 │   └── knowledge/                   37 knowledge files
@@ -761,7 +761,7 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
     ├── leaf-aliases.json            generated identity map of those docs
     ├── assets/                      six templates
     │   └── examples/                21 worked artifacts in task/, bug/, doc/ and story/
-    ├── changelog/                   27 release notes, v0.1.0.0 to v1.1.0.0
+    ├── changelog/                   28 release notes, v0.1.0.0 to v1.2.0.0
     ├── manual-testing-playbook/     14 two-turn scenarios in 10 category folders
     └── references/                  11 rule files, loaded always, per route or on demand
 ```

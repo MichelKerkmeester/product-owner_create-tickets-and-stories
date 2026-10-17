@@ -109,7 +109,7 @@
     "refine this document"
   ],
 
-  "topic-prd": [
+  "topic-story": [
     "given when then acceptance scenarios in connextra form",
     "definition of ready for the checkout story",
     "the product requirements document is missing"
@@ -136,7 +136,7 @@
     "can you document the retry policy"
   ],
 
-  "framing-prd": [
+  "framing-story": [
     "story for saved searches",
     "epic for the billing overhaul",
     "epic story for billing",

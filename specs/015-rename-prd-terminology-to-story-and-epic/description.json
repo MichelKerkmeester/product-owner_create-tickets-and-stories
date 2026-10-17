@@ -1,0 +1,30 @@
+{
+  "specFolder": "015-rename-prd-terminology-to-story-and-epic",
+  "description": "Rename leftover PRD terminology to Story and Epic across the Product Owner skill, Claude Project, router benchmark and Sync Loop declaration",
+  "keywords": [
+    "rename",
+    "leftover",
+    "prd",
+    "terminology",
+    "story",
+    "epic",
+    "across",
+    "product",
+    "owner",
+    "skill",
+    "claude",
+    "project",
+    "router",
+    "benchmark",
+    "sync",
+    "loop",
+    "declaration"
+  ],
+  "lastUpdated": "2026-10-17T12:08:24.647Z",
+  "specId": "015",
+  "folderSlug": "rename-prd-terminology-to-story-and-epic",
+  "parentChain": [],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

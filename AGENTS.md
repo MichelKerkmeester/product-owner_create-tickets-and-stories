@@ -127,7 +127,7 @@ The `export/` save never asks permission. ClickUp is the opposite. When this run
 - Silently reconciling conflicting sources or repairing unrelated source defects
 - Using `---` dividers or generic `-` bullets in a new Doc artifact. Use `* * *` and `*   ` instead
 - Ending a newly authored or rewritten bullet item with a full stop
-- Placing a `* * *` divider between a PRD Mark-as-done checkbox and the next acceptance criterion. The section close directly above a `##   ` spacer heading is the sanctioned exception
+- Placing a `* * *` divider between a Story or Epic Mark-as-done checkbox and the next acceptance criterion. The section close directly above a `##   ` spacer heading is the sanctioned exception
 
 Violation of this protocol invalidates the response.
 
@@ -176,7 +176,7 @@ Load on demand through the skill router:
 - `sk-product-owner/references/task-mode.md` plus `sk-product-owner/assets/task-templates.md` for tasks, subtasks, parent tasks, acceptance criteria and source-sync work
 - `sk-product-owner/references/bug-mode.md` plus `sk-product-owner/assets/bug-report-template.md` for bugs, defects, reproduction steps and evidence work
 - `sk-product-owner/references/doc-mode.md` plus `sk-product-owner/assets/doc-templates.md` for new or refined product or engineering documentation
-- `sk-product-owner/references/story-mode.md` plus the one scaffold the resolved shape names (`assets/story-template.md` or `assets/epic-template.md`) for new or refined product requirements documents (PRDs)
+- `sk-product-owner/references/story-mode.md` plus the one scaffold the resolved shape names (`assets/story-template.md` or `assets/epic-template.md`) for new or refined Stories and Epics
 - `sk-product-owner/references/interactive-mode.md` plus `sk-product-owner/assets/interactive-response-templates.md` for ambiguity and one-question intake
 
 Load on demand, at most one per request: a worked example from `sk-product-owner/assets/examples/<mode>/` (task, bug, doc or story) when shaping a new artifact benefits from a filled instance.
@@ -191,7 +191,7 @@ Do not bulk-read optional resources or example folders.
 | `$task --subtask` | - | Create a subtask |
 | `$bug` | `$b` | Create a bug report |
 | `$doc` | `$d` | Create or refine product or engineering documentation |
-| `$story` | `$s` | Create or refine a product requirements document (PRD) in the Story shape (back-compat aliases `$prd` / `$p`) |
+| `$story` | `$s` | Create or refine a Story (back-compat aliases `$prd` / `$p`) |
 | `$epic` | `$e` | Create or refine a Story-Mode artifact in the Epic shape (Goal + Scope, no requirements) |
 | `$quick` | `$q` | Apply Quick energy to the selected artifact intent |
 

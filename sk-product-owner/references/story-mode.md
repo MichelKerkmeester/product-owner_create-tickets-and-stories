@@ -252,7 +252,7 @@ A Connextra value line under a requirement name, when the requirement's own "why
 ```markdown
 **{Requirement name}**
 * * *
-**PRD:** As a {role} {using this specific part}, I want {capability}, so that {benefit in the user's terms}.
+**Story:** As a {role} {using this specific part}, I want {capability}, so that {benefit in the user's terms}.
 
 - [] {Hard requirement}
 ```
@@ -417,11 +417,11 @@ For a Story with nested Tasks, read back every file in the folder, then reply wi
 
 ## 8. WORKED EXAMPLES
 
-- [`examples/story/prd-example-simple.md`](../assets/examples/story/prd-example-simple.md): a small Story with one requirement, a flat acceptance-criteria list and no Delivery section, so the artifact ends on Acceptance criteria
-- [`examples/story/prd-example-medium.md`](../assets/examples/story/prd-example-medium.md): a Story with several independent requirements and grouped acceptance criteria, and no Delivery section
-- [`examples/story/prd-example-complex.md`](../assets/examples/story/prd-example-complex.md): a Story whose requirements share one mechanism, described once in Solution, with a `← PRIO` marker
-- [`examples/story/prd-example-complete.md`](../assets/examples/story/prd-example-complete.md): the maximal Story, every optional enrichment populated, as a reference for what is available
-- [`examples/story/prd-example-epic.md`](../assets/examples/story/prd-example-epic.md): an Epic with a Goal, a Scope of child stories and an Added Later group, release-level acceptance criteria and no Requirements
+- [`examples/story/story-example-simple.md`](../assets/examples/story/story-example-simple.md): a small Story with one requirement, a flat acceptance-criteria list and no Delivery section, so the artifact ends on Acceptance criteria
+- [`examples/story/story-example-medium.md`](../assets/examples/story/story-example-medium.md): a Story with several independent requirements and grouped acceptance criteria, and no Delivery section
+- [`examples/story/story-example-complex.md`](../assets/examples/story/story-example-complex.md): a Story whose requirements share one mechanism, described once in Solution, with a `← PRIO` marker
+- [`examples/story/story-example-complete.md`](../assets/examples/story/story-example-complete.md): the maximal Story, every optional enrichment populated, as a reference for what is available
+- [`examples/story/story-example-epic.md`](../assets/examples/story/story-example-epic.md): an Epic with a Goal, a Scope of child stories and an Added Later group, release-level acceptance criteria and no Requirements
 - The four live Onboarding v2 stories and the Onboarding v2 epic (under `Product Context/Tasks & Stories/Stories/Onboarding/`) are the team-written reference for the Story and Epic shapes
 
 Load at most one worked example per request.
@@ -475,6 +475,6 @@ The kernel points here for the Story Mode consultation rule:
 
 16. Consult Story Mode plus the one scaffold the resolved shape names for Story work, resolve the artifact kind (Story or Epic) before consulting any scaffold and name it in the delivery response, keep requirements free of build steps, and add a Delivery close only where the requester asked for it or the artifact forced it.
 
-The kernel points here for this PRD prohibition:
+The kernel points here for this Story and Epic prohibition:
 
-14. Never put ticket header fields, story points or INVEST notes in a PRD artifact, never add build steps to a PRD requirement, and never restructure an existing PRD when the request is only to add PRD elements.
+14. Never put ticket header fields, story points or INVEST notes in a Story or Epic, never add build steps to a Story requirement, and never restructure an existing Story or Epic when the request is only to add Story elements.
