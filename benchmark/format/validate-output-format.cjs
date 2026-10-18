@@ -698,10 +698,24 @@ function scoreSectionFindings(prose) {
 // only line of that shape is the fixed label, twenty-four times, no collisions.
 const DEAL_HEADLINE_HEADING = /^##\s+HEADLINE OPTIONS\s*$/;
 const DEAL_ABOUT_HEADING = /^##\s+ABOUT\s*$/;
-// The single-listing deal states the same two sections as H1 headings, where the
-// retired export wrote them as H2s.
-const DEAL_ABOUT_SECTION = /^#\s+About\s*$/;
-const DEAL_REQUIREMENTS_SECTION = /^#\s+Requirements\s*$/;
+// The single-listing deal states the same two sections as headings, H2s under
+// the H1 title in the current shape and H1s in older exports, where the retired
+// export wrote them as uppercase H2s. Either way they are sections rather than
+// headlines, so neither carries the one closing emoji a headline is granted.
+const DEAL_ABOUT_SECTION = /^#{1,2}\s+About\s*$/;
+const DEAL_REQUIREMENTS_SECTION = /^#{1,2}\s+Requirements\s*$/;
+const DEAL_H1_SECTION = /^#\s+(?:About|Requirements)\s*$/;
+// A Product Owner story also states About and Requirements as H2s, so at that
+// level the two headings make a deal only beside a line no story carries: the
+// deal's value line or its offer or creator-fit label. The H1 form is the deal's
+// alone.
+function statesListingDeal(texts) {
+  if (!texts.some((text) => DEAL_ABOUT_SECTION.test(text))) return false;
+  if (!texts.some((text) => DEAL_REQUIREMENTS_SECTION.test(text))) return false;
+  if (texts.some((text) => DEAL_H1_SECTION.test(text))) return true;
+  return texts.some((text) => DEAL_VALUE_LINE.test(text) || DEAL_LISTING_LABEL.test(text));
+}
+const DEAL_LISTING_LABEL = /^(?:What you receive|Wat je ontvangt|Das erhältst du|Perfect for|Perfect voor|Perfekt für)$/;
 const CREATOR_FIT_LABEL = '**Perfect for:**';
 const CREATOR_FIT_LABEL_SHAPE = /^\*\*[A-Za-z][A-Za-z' ]*? for:\*\*$/;
 // The creator-fit lead names the creator, not the deal. The deal Standards allow
@@ -740,13 +754,13 @@ const DEAL_BULLET = /^[-*+]\s+\S/;
 const DEAL_VARIATION_LABEL = /\*\*Most (?:valuable|authentic|concise)\*\*/;
 const DEAL_NUMBERED_ITEM = /^\d+[.)]\s+\S/;
 const DEAL_HEADING = /^#{1,6}\s+\S/;
-const DEAL_SECTION_HEADING = /^##\s+\S/;
 const DEAL_VALUE_LINE = /^-\s*(?:Total value|Totale waarde|Gesamtwert)\s*:/;
 const DEAL_CONTENT_IDEAS = /Content ?ideas|Contentideeën|Content-Ideen/i;
 // A hashtag line is nothing but tags, which is what tells it apart from a heading:
 // there the `#` is followed by a space.
 const DEAL_HASHTAG_LINE = /^\s*#[^\s#]\S*(?:\s+#[^\s#]\S*)*\s*$/;
 const DEAL_TITLE_LIMIT = 65;
+const DEAL_TITLE_MARKER = /^#\s+/;
 const DEAL_OBLIGATION_FLOOR = 5;
 const DEAL_OBLIGATION_CEILING = 7;
 // A title closes on one emoji, so both title rules read the sentence without its
@@ -765,9 +779,9 @@ const DEAL_TITLE_VALUE_TAIL = /(?:[|/]\s*|\s[-–—]\s*)(?:[€$£]\s?\d[\d.,]*
 function dealArtifactFindings(prose) {
   const rows = prose.map(({ index, raw, visible }) => ({ index, raw: raw.trim(), text: visible.trim() }));
   const carries = (heading) => rows.some(({ text }) => heading.test(text));
-  // The single-listing deal carries the two H1 sections and no headline menu, so
+  // The single-listing deal carries the two sections and no headline menu, so
   // the retired export's rules below never meet it and it is read on its own.
-  if (!carries(DEAL_HEADLINE_HEADING) && carries(DEAL_ABOUT_SECTION) && carries(DEAL_REQUIREMENTS_SECTION)) {
+  if (!carries(DEAL_HEADLINE_HEADING) && statesListingDeal(rows.map(({ text }) => text))) {
     return singleListingFindings(rows);
   }
   if (!carries(DEAL_HEADLINE_HEADING) || !carries(DEAL_ABOUT_HEADING)) return [];
@@ -852,10 +866,11 @@ function singleListingFindings(rows) {
   const findings = [];
   const about = rows.findIndex(({ text }) => DEAL_ABOUT_SECTION.test(text));
   const requirements = rows.findIndex(({ text }) => DEAL_REQUIREMENTS_SECTION.test(text));
-  // The deal ends where its after-delivery block starts, which is the first H2
-  // under the two H1 sections. Above the body sit the title, the frontmatter and,
-  // in a worked example, the intro line.
-  const afterDelivery = rows.findIndex((row, position) => position > about && DEAL_SECTION_HEADING.test(row.text));
+  // The deal ends at the first heading below # Requirements, where the sections
+  // after the deal start: an older export's H2 After delivery or a current reply's
+  // H3 Content ideas. Above the body sit the title, the Company info card, the
+  // frontmatter and, in a worked example, the intro line.
+  const afterDelivery = rows.findIndex((row, position) => position > requirements && DEAL_HEADING.test(row.text));
   const dealEnd = afterDelivery === -1 ? rows.length : afterDelivery;
 
   // The retired shape leaked its variation label and its headline list above the
@@ -870,13 +885,14 @@ function singleListingFindings(rows) {
     }
   });
 
-  // The title is the last line above `# About` that is neither blank nor a
-  // divider, because a worked example separates its own header and intro from the
-  // deal itself with `---`.
+  // The title is the last line above About that is neither blank nor a divider,
+  // because the Company info card and a worked example's header sit above it,
+  // each closed by `---`. The current shape writes the title as an H1, so its
+  // marker comes off before the sentence is read.
   const above = rows.slice(0, about).filter(({ text }) => text !== '' && text !== '---');
   const title = above[above.length - 1] || null;
   if (title) {
-    const sentence = title.text.replace(DEAL_CLOSING_GLYPHS, '');
+    const sentence = title.text.replace(DEAL_TITLE_MARKER, '').replace(DEAL_CLOSING_GLYPHS, '');
     if (DEAL_TITLE_VALUE_TAIL.test(sentence)) {
       findings.push({ index: title.index, message: 'title ends on a separator and a value, where the card allows a value inside the sentence and bans the tail' });
     }
@@ -916,8 +932,8 @@ function singleListingFindings(rows) {
     });
   }
 
-  // Content ideas and hashtags belong to the after-delivery block, and the deal
-  // body holds no section heading but the two H1s.
+  // Content ideas and hashtags belong to the sections after the deal, and the
+  // deal body holds no section heading but About and Requirements.
   rows.slice(about, dealEnd).forEach(({ index, text }) => {
     if (DEAL_CONTENT_IDEAS.test(text)) {
       findings.push({ index, message: 'Content ideas inside the deal, where they belong in the after-delivery block' });
@@ -925,7 +941,7 @@ function singleListingFindings(rows) {
       findings.push({ index, message: 'hashtags inside the deal, where they belong in the after-delivery block' });
     }
     if (DEAL_HEADING.test(text) && !DEAL_ABOUT_SECTION.test(text) && !DEAL_REQUIREMENTS_SECTION.test(text)) {
-      findings.push({ index, message: `a section heading ${text} inside the deal body, which carries only # About and # Requirements` });
+      findings.push({ index, message: `a section heading ${text} inside the deal body, which carries only About and Requirements` });
     }
   });
 
