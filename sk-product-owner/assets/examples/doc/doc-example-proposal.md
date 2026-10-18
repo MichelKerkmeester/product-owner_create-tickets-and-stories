@@ -7,7 +7,7 @@ trigger_phrases: ["proposal doc example", "worked doc example"]
 version: 0.17.0.4
 ---
 
-# Proposal — dark mode rollout for Meridian Mobile
+# Proposal: dark mode rollout for Meridian Mobile
 
 * * *
 > **Status: Proposal**
@@ -82,8 +82,8 @@ Give users a way to choose a theme and have that choice remembered.
 
 | Option or direction | Benefit | Cost or risk | Evidence | Status |
 | ---| ---| ---| ---| --- |
-| Full token migration before any dark-mode release | One theme experience on release day | Delays all user-visible value until every screen passes audit | No full-app estimate. The Activity tab proves only that the token pattern works in one module | Unknown — estimate required |
-| Incremental migration with unmigrated screens forced to light theme | Releases audited screens sooner | Members cross between dark and forced-light screens during migration | Activity tab provides one module-level precedent | Proposed — no recommendation recorded |
+| Full token migration before any dark-mode release | One theme experience on release day | Delays all user-visible value until every screen passes audit | No full-app estimate. The Activity tab proves only that the token pattern works in one module | Unknown, estimate required |
+| Incremental migration with unmigrated screens forced to light theme | Releases audited screens sooner | Members cross between dark and forced-light screens during migration | Activity tab provides one module-level precedent | Proposed, no recommendation recorded |
 | Runtime theme overlay without token migration | Requires fewer screen-level changes | Hardcoded colors may invert into unreadable or off-brand combinations | No Meridian evidence supports this approach | Not recommended |
 * * *
 
@@ -111,10 +111,10 @@ No recommendation has been recorded yet. The Product Design lead is the proposed
 ## Open decisions
 * * *
 
-*   [] Full migration versus incremental migration — owner: Product Design lead, pending engineering feasibility estimate
+*   [] Full migration versus incremental migration (owner: Product Design lead, pending engineering feasibility estimate)
 *   [] Whether "System" appearance should be the default for new installs or whether "Light" remains default until dark mode is fully migrated
 *   [] Which screens are prioritized first if incremental migration is chosen
-*   [] Baseline count and target reduction for brightness-related support contacts — owner: Product Operations
+*   [] Baseline count and target reduction for brightness-related support contacts (owner: Product Operations)
 * * *
 
 ###   
@@ -131,6 +131,6 @@ No recommendation has been recorded yet. The Product Design lead is the proposed
 ### Source basis
 * * *
 
-*   Activity tab token implementation — current behavior, verified in the shipped app binary
-*   App-store reviews and support tickets mentioning nighttime brightness — unknown volume, used only as unquantified motivation
-*   Full-app hardcoded-color coverage — unknown until the per-screen audit is complete
+*   Activity tab token implementation: current behavior, verified in the shipped app binary
+*   App-store reviews and support tickets mentioning nighttime brightness: unknown volume, used only as unquantified motivation
+*   Full-app hardcoded-color coverage: unknown until the per-screen audit is complete

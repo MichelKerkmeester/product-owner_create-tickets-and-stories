@@ -14,11 +14,12 @@ word list, the phrase list, the metaphor list and the punctuation bans are
 system loads on every turn specifically so those terms stay in view while
 writing. A term added there is added here in the same change.
 
-`references/hvr-core.md` also names four narrow, system-granted exemptions to
-the em-dash ban (Section 2, "System-granted exemptions"). Two of them are
+`references/hvr-core.md` also names narrow, system-granted exemptions to
+the em-dash ban (Section 2, "System-granted exemptions"). Three of them are
 punctuation shapes that show up in real deliverables: the ClickUp definition
-delimiter (`*   **Term** — definition`) and the status-label delimiter
-(`Status: {class} — {qualifier}`). A line matching either shape is exempted
+delimiter (`*   **Term** — definition`), the status-label delimiter
+(`Status: {class} — {qualifier}`) and the Catalog entry delimiter
+(`### {Stable ID} — {Entry name}` and its index link). A line matching one shape is exempted
 from the em-dash count on that line, because the card grants the exemption
 there and nowhere else.
 
@@ -121,13 +122,17 @@ META_LINE = re.compile(
     r"^\s*(Mode|Energy|Template|Framework|Quality Score|Export path|"
     r"Export-equivalent path|Perspectives|Kernel-Version|Path|Verified)\s*:", re.I
 )
-# The two shapes `references/hvr-core.md` Section 2 grants as exceptions to
-# the em-dash ban: the ClickUp definition delimiter and the status-label
-# delimiter. A line matching either keeps every em dash on that line out of
-# the count, because the card's exemption is granted to the shape, not to a
-# document.
+# The shapes `references/hvr-core.md` Section 2 grants as exceptions to the
+# em-dash ban: the ClickUp definition delimiter, the status-label delimiter and
+# the Catalog entry delimiter on an entry heading or its index link. A line
+# matching one keeps every em dash on that line out of the count, because the
+# card's exemption is granted to the shape, not to a document.
 DEFINITION_DELIMITER_LINE = re.compile(r"^\s*[*\-]\s+\*\*[^*]+\*\*\s+—")
 STATUS_LABEL_LINE = re.compile(r"\bStatus:\s*.+—")
+CATALOG_STABLE_ID = r"(?:`[^`\s]+`|[A-Z][A-Z0-9]*[-_][A-Za-z0-9_-]+)"
+CATALOG_ENTRY_LINE = re.compile(
+    rf"^### {CATALOG_STABLE_ID} — [^—\s][^—]*$|^\* {{3}}\[{CATALOG_STABLE_ID} — [^\]—]+\]\(#[^)\s]+\)\s*$"
+)
 CURLY_QUOTES = re.compile("[‘’“”]")
 ELLIPSIS = re.compile(r"\.\.\.|…")
 # A bullet line (ClickUp `*   ` or a plain `-   `) whose content ends in a
@@ -180,7 +185,8 @@ def _exempt_em_dash_lines(text):
     """
     exempt = set()
     for i, line in enumerate(text.splitlines()):
-        if DEFINITION_DELIMITER_LINE.search(line) or STATUS_LABEL_LINE.search(line):
+        if (DEFINITION_DELIMITER_LINE.search(line) or STATUS_LABEL_LINE.search(line)
+                or CATALOG_ENTRY_LINE.search(line)):
             exempt.add(i)
     return exempt
 

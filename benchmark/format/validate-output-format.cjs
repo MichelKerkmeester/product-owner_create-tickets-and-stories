@@ -229,6 +229,17 @@ const SANCTIONED_DEFINITION = /^\* {3}\*\*.+?\*\* — /;
 // hide where the label ends and the scope begins.
 const SANCTIONED_STATUS = /^(?:\* {3})?(?:\*\*)?Status:(?:\*\*)?\s.+ — /;
 
+// A catalog entry is filed under a stable identifier and then named. The
+// identifier often carries hyphens or underscores of its own, so a hyphen or a
+// colon delimiter would blur where it ends. The shape counts only inside a
+// document that carries the catalog's own Index heading, and only on an H3
+// entry heading or on a bullet that links to an entry anchor and holds nothing
+// else, so the same dash anywhere else in that document still fails.
+const CATALOG_INDEX_HEADING = /^#{2,4} Index\s*$/;
+const CATALOG_STABLE_ID = '(?:`[^`\\s]+`|[A-Z][A-Z0-9]*[-_][A-Za-z0-9_-]+)';
+const SANCTIONED_CATALOG_HEADING = new RegExp(`^### ${CATALOG_STABLE_ID} — [^—\\s][^—]*$`);
+const SANCTIONED_CATALOG_LINK = new RegExp(`^\\* {3}\\[${CATALOG_STABLE_ID} — [^\\]—]+\\]\\(#[^)\\s]+\\)\\s*$`);
+
 // ─────────────────────────────────────────────────────────────────────────────
 // 5. WORD LISTS
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1322,6 +1333,7 @@ function analyse(file, source) {
   // it is machine-readable metadata, so a semicolon separating two clauses of
   // an Assumes field is a field separator and never reaches a reader as prose.
   const proseStart = frontmatterEnd(lines);
+  const catalogDocument = lines.some((line) => CATALOG_INDEX_HEADING.test(line));
   prose.filter(({ index }) => index >= proseStart).forEach(({ index, raw, masked }) => {
     const text = maskQuoted(masked);
     if (text.includes(';')) {
@@ -1335,6 +1347,9 @@ function analyse(file, source) {
     const bare = stripContainers(raw);
     if (emDashes && SANCTIONED_DEFINITION.test(bare)) emDashes -= 1;
     if (emDashes && SANCTIONED_STATUS.test(bare)) emDashes -= 1;
+    if (emDashes && catalogDocument && (SANCTIONED_CATALOG_HEADING.test(bare) || SANCTIONED_CATALOG_LINK.test(bare))) {
+      emDashes -= 1;
+    }
     if (emDashes > 0) {
       report(`${relative}:${index + 1}: prose em dash (HVR bans it, use a comma, colon or full stop)`, enforceHvr);
     }

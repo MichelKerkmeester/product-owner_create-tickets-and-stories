@@ -13,7 +13,7 @@ trigger_phrases:
   - "refine product documentation"
   - "refine technical documentation"
   - "source authority conflict"
-version: 0.17.0.12
+version: 0.17.0.13
 ---
 
 # Product Owner - Templates - Doc Mode
@@ -101,7 +101,7 @@ For every new Doc artifact:
 
 This Doc-specific ClickUp contract overrides the generic dash-bullet guidance in SKILL.md's Rules section. Task, Bug, and Interactive artifacts retain their own formatting rules. Refinements retain the supplied document's style unless the user explicitly requests ClickUp normalization.
 
-The exact `*   **Term** — definition` form, the `Status: {class} — {qualifier}` label from the Status language table and preserved source text narrowly override Human Voice Rules' general em-dash ban. The status label earns it because its qualifier routinely carries commas of its own, which a comma delimiter would then hide. Do not extend the exception to newly authored prose outside those two structural shapes.
+The exact `*   **Term** — definition` form, the `Status: {class} — {qualifier}` label from the Status language table, the Catalog entry heading `### {Stable ID} — {Entry name}` with its `*   [{Stable ID} — {Entry name}](#{entry-anchor})` link inside a Catalog that carries its Index heading, and preserved source text narrowly override Human Voice Rules' general em-dash ban. The status label earns it because its qualifier routinely carries commas of its own, which a comma delimiter would then hide, and the Catalog entry earns it because a stable ID often carries hyphens or underscores of its own. Do not extend the exception to newly authored prose outside those three structural shapes, so a Catalog title, an H2 or an entry heading with no stable ID still takes a colon.
 
 ---
 
@@ -407,11 +407,11 @@ export/[original-source-filename].md
 
 ### Response Contract
 
-In a filesystem-capable runtime, respond with the saved path, a compact quality summary, and a brief 2-3 sentence summary. Do not paste the full exported document into chat.
+In a filesystem-capable runtime, reply in the Delivery Reply Shape in `assets/interactive-response-templates.md` Section 3. Do not paste the full exported document into chat.
 
-The compact quality summary is a dimensioned verdict: one line each for Source safety, Shape fit, ClickUp layout, Readability, and Voice, each marked pass or attention. An attention line names the specific item, such as "Layout: attention — two headings missing the trailing divider". The dimensions map onto the Section 10 checklist groups, so the summary reports gate outcomes rather than adding a new gate. Source-safety, conflict, and export failures block delivery regardless of the verdict wording.
+The Doc quality line names five checks in order, Source safety, Shape fit, ClickUp layout, Readability and Voice, each marked pass or attention, and an attention names its item in brackets, such as `ClickUp layout attention (two headings missing the trailing divider)`. The checks map onto the Section 10 checklist groups, so the line reports gate outcomes rather than adding a new gate. Source-safety, conflict, and export failures block delivery regardless of the verdict wording.
 
-In a Claude Project runtime, deliver one markdown artifact and identify the same export-equivalent path in the response. The artifact name and the reported path must follow the same new-versus-refined filename contract.
+In a Claude Project runtime, deliver one markdown artifact, then reply in the same shape with the export-equivalent path line. The artifact name and the reported path must follow the same new-versus-refined filename contract.
 
 In either runtime, when ClickUp tooling is available, offer ClickUp delivery as an optional next step and wait for explicit approval. Never push a document or task to ClickUp unsolicited. An approved push follows the `mcp-tooling` ClickUp transport contract: markdown-aware parameters only, never the plain description field.
 
@@ -576,7 +576,7 @@ The kernel points here for these documentation prohibitions:
 1. Never turn a Doc request into unrequested live implementation or claim a documentation artifact is production code.
 2. Never present unsupported implementation guidance, code behavior, architecture, APIs, schemas, root causes, debugging evidence or operational evidence as established fact.
 3. Never present a technical selection, design, recommendation, or legal, compliance or security analysis as approved, shipped, or externally sanctioned without supplied authority.
-4. Never expand scope beyond the request, or invent requirements, evidence, root causes or platform details. An edge case, assumption or other addition the user did not supply is allowed only when the chat response names it as an addition, so the user can strike it. An addition the response does not name is an invented requirement. Naming an addition never makes invented evidence, a root cause or a platform detail acceptable.
+4. Never expand scope beyond the request, or invent requirements, evidence, root causes or platform details. An edge case, assumption or other addition the user did not supply is allowed only when the reply lists it under Open items, so the user can strike it. An addition the reply does not list is an invented requirement. Naming an addition never makes invented evidence, a root cause or a platform detail acceptable.
 
 The kernel points here for these source and refinement prohibitions:
 

@@ -9,7 +9,7 @@ trigger_phrases:
   - "$prd"
   - "$story"
   - "$epic"
-version: 1.2.0.0
+version: 1.2.1.0
 ---
 
 # sk-product-owner
@@ -109,7 +109,7 @@ Exact commands win over wording. Plain language routes by artifact framing: "cre
 
 Command tokens are exact and standalone: `$d,` counts, while `$document`, `$docs`, `$debug`, `$d.md` and embedded `$s` text do not. Negated phrasing ("this is not a quick task") never triggers Quick energy.
 
-The response carries the saved path, a compact quality verdict and the receipt line `Verified: read-back succeeded; N lines`. No receipt means the save did not verify and the artifact is undelivered.
+The response follows the Delivery Reply Shape in `assets/interactive-response-templates.md` Section 3: the `Path:` line, the receipt line `Verified: read-back succeeded; N lines`, the self-scan line, one quality line, a short summary, numbered Open items and one closing line. No receipt means the save did not verify and the artifact is undelivered.
 
 ---
 
@@ -361,17 +361,13 @@ export/[original-source-filename].md                 (refinement)
 
 New artifacts take the next free sequence number, and a refinement keeps the original basename so the human can reconcile it against the source. A planned path, a Write result or a remembered draft does not count as delivery. Only a successful Read of the saved file, reported as `Verified: read-back succeeded; N lines`, allows a path to appear in the response. A failed read-back forbids the `Path:` line entirely.
 
-Doc responses add a dimensioned quality verdict, one line per gate group:
+A Doc quality line names its five gate groups in order:
 
 ```text
-- Source safety: pass
-- Shape fit: pass
-- ClickUp layout: attention — two headings missing the trailing divider
-- Readability: pass
-- Voice: pass
+Quality: Source safety pass, Shape fit pass, ClickUp layout attention (two headings missing the trailing divider), Readability pass, Voice pass | Kind: Doc (Guide) | Energy: Standard
 ```
 
-An attention line names the specific item. The verdict reports gate outcomes, it is not a new gate, and source-safety, conflict or export failures block delivery regardless of its wording. In a claude.ai Project, where no filesystem exists, the same artifact arrives as one markdown deliverable labelled with its export-equivalent path.
+An attention names the specific item in brackets. The verdict reports gate outcomes, it is not a new gate, and source-safety, conflict or export failures block delivery regardless of its wording. In a claude.ai Project, where no filesystem exists, the same artifact arrives as one markdown deliverable labelled with its export-equivalent path.
 
 ---
 

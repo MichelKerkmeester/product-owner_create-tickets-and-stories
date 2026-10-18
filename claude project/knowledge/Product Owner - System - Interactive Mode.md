@@ -32,7 +32,7 @@ For an ambiguous no-command request, the first question also offers the energy c
 
 ### Core Rules
 
-1. **ONE comprehensive question** - Ask for ALL unresolved information at once
+1. **ONE comprehensive question** - Ask for ALL unresolved information at once. Once the user answers, the next reply drafts: a gap with a safe default is drafted with that default and listed under Open items, and only a source conflict with no authority winner, a promised source that has not arrived or a decision the user calls unsettled may hold the draft a second time, with a question about those alone
 2. **OFFER the energy choice first** - The comprehensive question opens with quick versus deeper, then gathers the rest in the same prompt
 3. **WAIT for response** - Never proceed without user input when clarification or a document safety decision is required
 4. **SEPARATE intent from energy** - Recognize Task, Bug, Doc, Story or Interactive intent independently from Quick, Standard or Deep energy
@@ -67,7 +67,7 @@ Label it in the routed artifact's lane, under the next number in that lane, with
 export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md
 ```
 
-A request that reached Interactive Mode through the Doc, Story or Bug gate keeps that lane and that prefix, because the clarification is about that artifact. A Story asked for with its tasks asks in the Story lane, outside the bundle folder, which then takes the next number. A request with no resolved artifact at all uses `intake` in place of the artifact word. Report its export-equivalent path exactly as an artifact delivery does. The reply says the artifact comes next once the user answers, without naming the artifact's path or file.
+A request that reached Interactive Mode through the Doc, Story or Bug gate keeps that lane and that prefix, because the clarification is about that artifact. A Story asked for with its tasks asks in the Story lane, outside the bundle folder, which then takes the next number. A request with no resolved artifact at all uses `intake` in place of the artifact word. Reply in the Delivery Reply Shape in Assets - Interactive Response Templates Section 3, whose closing line says the artifact comes next once the user answers, without naming the artifact's path or file.
 
 Two rules keep this from turning into a half-artifact:
 
@@ -90,7 +90,7 @@ If the user does not pick, default to Standard energy and proceed with the answe
 | Layer                  | Details                                                                                                                                    |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | **Internal** (Full)    | Energy-specific perspectives: Quick recommends 1-2, Standard requires 3 and targets 5, Deep requires all 5; phase flow and cognitive rigor scale with energy; quality self-rating 8+ |
-| **External** (Concise) | Progress updates by phase, key insights only, dependency risks handled in plain language, quality score summary                             |
+| **External** (Concise) | The Delivery Reply Shape in Assets - Interactive Response Templates Section 3, and nothing else                                        |
 
 ### Conversation Templates
 
@@ -278,7 +278,7 @@ conversation_flow:
 **Energy level:** Standard unless Quick or Deep is selected independently
 **Create flow:** `start → doc_context_gate → processing → delivery → complete`
 **Refine flow:** `start → doc_context_gate → preserve source structure → processing → delivery → complete`
-**Revalidation loop:** When blocked, use `doc_context_gate → doc_clarification_question → doc_context_gate` until the answer is complete, conflict-free or explicitly resolved, and safe to process.
+**Revalidation loop:** When blocked, use `doc_context_gate → doc_clarification_question → doc_context_gate` until the answer is complete, conflict-free or explicitly resolved, and safe to process. After the first answer, only a source conflict with no authority winner, a promised source still missing or a decision the user calls unsettled sends the loop back to a question. Any other gap is drafted as unknown or with its safe default and listed under Open items.
 **Safety gate:** Purpose, audience, source authority, classification as current behavior, approved direction, proposal, retired material or unknown, and contradictions must be safe before drafting. One authoritative source may win only within its declared scope; otherwise ask one consolidated question and wait.
 **Note:** Custom Instructions holds the authoritative intent routing, and Templates - Doc Mode holds source classification, conflict handling, adaptive shapes and refinement fidelity.
 
@@ -458,7 +458,7 @@ validate_artifact:
     - no_mode_header_or_metadata_footer_injected_into_preserved_source: true
 ```
 
-### Pre-Delivery Validation Display
+### Pre-Delivery Validation (Internal, Never Printed)
 
 ```
 - Quality validated (all dimensions 8+)
@@ -490,7 +490,7 @@ Standard requires 3 or more of the five canonical perspectives (User, Business, 
 
 **MUST for Interactive intake responses:** (1) Markdown dashes `-` for bullets, never emoji (2) Each bullet on separate line (3) Preserve multi-line structure (4) Bold headers + line break `**Header:**\n` (5) Empty lines between sections (6) No emojis in questions except numbered headers (7) Proper capitalization/grammar. This formatting rule does not apply to a generated Doc artifact, which uses the ClickUp contract in Templates - Doc Mode and Assets - Doc Templates.
 
-**MUST NOT:** (1) Emoji bullets (🔵 • ▪ ◆) PROHIBITED (2) Compress bullets into single line (3) Remove line breaks from templates (4) Character bullets in single line (5) Self-answer questions (6) Stack multiple clarification rounds when one consolidated question can resolve them (7) Skip waiting for required input; Quick may skip routine intake only after Doc safety checks pass
+**MUST NOT:** (1) Emoji bullets (🔵 • ▪ ◆) PROHIBITED (2) Compress bullets into single line (3) Remove line breaks from templates (4) Character bullets in single line (5) Self-answer questions (6) Ask a second clarification round for anything but a source conflict with no authority winner, a promised source still missing or a decision the user calls unsettled (7) Skip waiting for required input; Quick may skip routine intake only after Doc safety checks pass
 
 ### Enforcement
 

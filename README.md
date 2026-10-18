@@ -111,6 +111,7 @@ A request that lacks scope, evidence or source authority gets one question that 
 
 - An ambiguous request with no command opens that question with a Quick or Deeper choice
 - The question is saved as a file such as `export/001 - task-creator-payout-pause-clarification.md`. The answer becomes the next number in the same lane
+- One round only. Once you answer, the next reply drafts, and each gap with a safe default is listed under Open items for you to confirm or strike. Only a source conflict with no clear winner, a promised source that has not arrived or a decision you called unsettled earns a second question
 - `$quick` may skip routine Task and Bug questions. It never skips a Doc authority or conflict question
 
 ### Source-Safe Documentation
@@ -289,6 +290,8 @@ Product Owner asks before it guesses, and it asks once. For Doc work a second ga
 - A Doc request missing purpose, audience, source set, authority, status, shape or scope
 - A Story request where the role, the value, the requirements or the choice between Story and Epic cannot be inferred
 - Supplied sources that contradict each other with no clear winner
+
+It asks once. After your answer the next reply drafts, and every remaining gap with a safe default goes under Open items in the reply. A second question comes only for a source conflict with no clear winner, a promised source still missing or a decision you called unsettled.
 
 #### The Question Is a File
 
@@ -592,7 +595,7 @@ HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: "paused" and "pay
 Quality: single requirement group with a QA checklist (Quick task shape, no numbering needed for one group), every checklist item testable, About states the WHY, and the `---` dividers follow the task corpus.
 ```
 
-The reply never pastes the artifact. It carries the path, the receipt, the self-scan line, a quality summary and a two- or three-sentence summary, plus one ClickUp offer when ClickUp tooling is connected. A Doc reply gives one verdict line each for Source safety, Shape fit, ClickUp layout, Readability and Voice, marked pass or attention.
+The reply never pastes the artifact. It follows one Delivery Reply Shape: the path, the receipt, the self-scan line, one quality line, a two- or three-sentence summary, numbered Open items for every addition and assumption, and one closing line, the ClickUp offer when ClickUp tooling is connected. A Doc quality line names Source safety, Shape fit, ClickUp layout, Readability and Voice, each marked pass or attention.
 
 The same run shows why the receipt is checked rather than trusted. Every skill-side save was read back, yet the printed line count matched the file within one line in only 5 of 13 replies.
 
@@ -639,7 +642,7 @@ A route loads its template together with its mode reference. A worked example lo
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem and never loads `SKILL.md`.
 
-- `Custom Instructions.md` is the kernel, v1.2.0, aligned to skill v1.2.0.0. It carries the full router and rules and is the routing authority inside the Project
+- `Custom Instructions.md` is the kernel, v1.2.1, aligned to skill v1.2.1.0. It carries the full router and rules and is the routing authority inside the Project
 - `knowledge/` holds 37 files: 16 core documents (five mode references, six templates, four shared rule files and quality scoring) and the 21 worked examples
 - `README.md` holds the upload steps, the source-to-mirror map and the smoke matrix
 - `kernel-review.json` is a dated record of one kernel review, read by no tool
@@ -670,7 +673,9 @@ The live Project is a separate manual upload, so a matching local package proves
 | Command | What it checks | Result on this tree |
 |---|---|---|
 | `bash benchmark/router/run_fixtures.sh` | 117 route fixtures, then the differential against `router-contract.md` | `PASSED 117/117 fixtures` and `PASSED 189/189 differential inputs` |
-| `bash benchmark/format/run_fixtures.sh` | 35 cases over 13 fixture files through the output validator | One `PASS` line per case, then `PASSED all format-validator fixtures` |
+| `bash benchmark/format/run_fixtures.sh` | 59 cases over 19 fixture files through the output validator | One `PASS` line per case, then `PASSED all format-validator fixtures` |
+| `python3 benchmark/gates/example_lint.py` | Every worked example and Project example mirror through the output validator, and every worked reply against the Delivery Reply Shape | `PASSED 42 example files and the worked replies on both packagings` |
+| `bash benchmark/gates/run_gates.sh` | Router fixtures, format fixtures, rule parity, the example lint and its self-test in one run | `all 5 gates pass`, or `4 of 5 gates pass, 1 skipped` from a clone, where rule parity has no shared declaration to read |
 | `python3 benchmark/router/route_contract.py --self-check` | One sample per detection layer | `self-check passed 5 routing expectations` |
 | `node benchmark/format/validate-output-format.cjs "<file>"` | One saved artifact against the output rules | `Product Owner output format validation passed across 1 artifact file(s)` |
 | `bash benchmark/grader/check_report.sh <report-folder>` | The voice lint of every captured reply, then twin agreement | Writes `hvr-lint.csv` into the folder it reads |
@@ -688,7 +693,7 @@ Prose and code cannot drift apart without one of the four failing.
 
 #### What the Format Validator Catches
 
-- Prose em dashes, with a dash inside a file path left exempt
+- Prose em dashes, with a dash inside a file path left exempt, and the sanctioned definition, status and Catalog entry shapes left exempt
 - A divider between a Mark-as-done checkbox and the next criterion
 - House grammar breaks: a heading with no divider under it, a `---` rule, a heading deeper than H4, a Checklist or checkbox in Requirements, asterisk emphasis, a second `← PRIO` and too many ellipses or emoji
 - Requirements bullets that narrate a screen instead of stating a constraint
@@ -724,7 +729,7 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
 
 #### Maintainer Scripts
 
-`benchmark/parity/` holds five wrappers and `benchmark/gates/` holds `rule_parity.py`. They compare the Claude Project package against the skill sources by calling a shared sync toolkit that lives one folder above this repository in the maintainer's monorepo and is not published. From a clone they stop on the missing file: `rule_parity.py` and `run_parity.sh` both exit 2. Use the checks above instead.
+`benchmark/parity/` holds five wrappers and `benchmark/gates/` holds `rule_parity.py` beside the example lint and the gate runner. The first two compare the Claude Project package against the skill sources by calling a shared sync toolkit that lives one folder above this repository in the maintainer's monorepo and is not published. From a clone they stop on the missing file: `rule_parity.py` and `run_parity.sh` both exit 2. Use the checks above instead.
 
 &nbsp;
 
@@ -740,13 +745,13 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
 ├── SYNC.md                          manual parity method and dated review notes
 ├── benchmark/
 │   ├── format/                      output validator, 13 fixtures and their runner
-│   ├── gates/                       rule_parity.py, maintainer only
+│   ├── gates/                       rule_parity.py, example_lint.py and run_gates.sh
 │   ├── grader/                      hvr_lint.py, reply linter and twin comparison
 │   ├── parity/                      five wrappers into the shared parity gate, maintainer only
 │   ├── reports/                     two captured playbook runs
 │   └── router/                      route_contract.py, 117 fixtures and the differential
 ├── claude project/
-│   ├── Custom Instructions.md       claude.ai kernel v1.2.0
+│   ├── Custom Instructions.md       claude.ai kernel v1.2.1
 │   ├── README.md                    upload steps, mirror map and smoke matrix
 │   ├── kernel-review.json           dated record of one kernel review
 │   └── knowledge/                   37 knowledge files
@@ -761,7 +766,7 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
     ├── leaf-aliases.json            generated identity map of those docs
     ├── assets/                      six templates
     │   └── examples/                21 worked artifacts in task/, bug/, doc/ and story/
-    ├── changelog/                   28 release notes, v0.1.0.0 to v1.2.0.0
+    ├── changelog/                   29 release notes, v0.1.0.0 to v1.2.1.0
     ├── manual-testing-playbook/     14 two-turn scenarios in 10 category folders
     └── references/                  11 rule files, loaded always, per route or on demand
 ```

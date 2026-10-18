@@ -7,7 +7,7 @@ trigger_phrases: ["catalog doc example", "worked doc example"]
 version: 0.17.0.3
 ---
 
-# Prism Design System — color token roles
+# Prism Design System: color token roles
 
 * * *
 
@@ -200,5 +200,5 @@ This mixed-status catalog lists Prism color tokens by role, not raw value. Seven
 ### Sources
 * * *
 
-*   Prism token registry `4.8.2` — current behavior, verified against the shipped token package
-*   Design systems RFC-014 — proposal scope for `surface_overlay` and approved-direction scope for `accent_primary_pressed`
+*   Prism token registry `4.8.2`: current behavior, verified against the shipped token package
+*   Design systems RFC-014: proposal scope for `surface_overlay` and approved-direction scope for `accent_primary_pressed`

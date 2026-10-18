@@ -80,6 +80,9 @@ benchmark/format/
 +-- run_fixtures.sh
 +-- validate-output-format.cjs
 `-- fixtures/
+    +-- catalog-entry-no-index.md
+    +-- catalog-entry-silent.md
+    +-- catalog-entry-violation.md
     +-- conciseness-silent.md
     +-- conciseness-violation.md
     +-- delivery-placeholder-exempt.md
@@ -114,6 +117,9 @@ benchmark/format/
 +-- run_fixtures.sh
 +-- validate-output-format.cjs
 `-- fixtures/
+    +-- catalog-entry-no-index.md
+    +-- catalog-entry-silent.md
+    +-- catalog-entry-violation.md
     +-- conciseness-silent.md
     +-- conciseness-violation.md
     +-- delivery-placeholder-exempt.md
@@ -139,6 +145,9 @@ benchmark/format/
 |---|---|
 | `run_fixtures.sh` | Sets the validator and fixture paths, runs fixed cases and reports aggregate failure or success (`run_fixtures.sh:25-61, 169-173`) |
 | `validate-output-format.cjs` | Parses flags and targets, selects source or artifact mode, analyzes each file and reports the result (`validate-output-format.cjs:20-34, 51-78, 842-866, 1202-1344`) |
+| `fixtures/catalog-entry-silent.md` | Carries a Catalog with its Index heading, two entry headings and two entry links, each with one dash between the stable ID and the entry name, so the narrow Catalog grant clears the gate (`catalog-entry-silent.md:1-31`) |
+| `fixtures/catalog-entry-violation.md` | Keeps the Index heading and puts the same dash on a title, a heading with no stable ID, prose, a second dash, an H2 and a link with trailing text, each of which still blocks (`catalog-entry-violation.md:1-27`) |
+| `fixtures/catalog-entry-no-index.md` | Carries the entry heading and link shapes with no Index heading, so the grant earns nothing outside a Catalog (`catalog-entry-no-index.md:1-11`) |
 | `fixtures/conciseness-silent.md` | Holds near-miss cases for exact token binding, export read-back, one hedge, quoted vocabulary and fallback intake (`conciseness-silent.md:1-27`) |
 | `fixtures/conciseness-violation.md` | Holds opener, heading echo, hedge stack and terminal recap cases (`conciseness-violation.md:1-22`) |
 | `fixtures/delivery-placeholder-exempt.md` | Uses an explicit estimate and two placeholder slots so its Delivery section is not placeholder-only (`delivery-placeholder-exempt.md:20-39`) |

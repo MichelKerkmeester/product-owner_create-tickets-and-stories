@@ -8,7 +8,7 @@ Hand-maintained local package for the Product Owner claude.ai Project. The kerne
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- synthesized Project kernel v1.2.0 (routing authority, SKILL.md is not loaded in this Project)
+|-- Custom Instructions.md        <- synthesized Project kernel v1.2.1 (routing authority, SKILL.md is not loaded in this Project)
 |-- README.md                     <- upload manifest and hand-authored parity note
 `-- knowledge/                    <- upload all thirty-seven files as Project Knowledge
     |-- Product Owner - System - Interactive Mode.md
@@ -35,7 +35,7 @@ claude project/
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` v1.2.0 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.0.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
+`Custom Instructions.md` v1.2.1 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.1.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
 
 CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Block**, direct resource loading becomes Project Knowledge consultation, and the response reports an export-equivalent path. Refinements keep delivery metadata outside preserved content unless equivalent metadata already exists in the source.
 
@@ -111,7 +111,7 @@ Push shape: artifact H1 becomes the task name, Deliverable Block framing and pro
 - New Docs report `export/NNN - doc-[description].md`; refinements report `export/[original-source-filename].md`.
 - Task and Bug behavior remains compatible with the pinned v0.303 and v0.203 references.
 - New Docs balance heading depth: H2 stays a minority of headings and H3/H4 carry the rest, with no all-H2 wall.
-- Doc deliveries report their status in the chat reply beside the export-equivalent path, as a compact quality summary and the `HVR self-scan:` line, and never as a footer or verdict block inside the deliverable.
+- Doc deliveries report their status in the chat reply beside the export-equivalent path, as the quality line and the `HVR self-scan:` line of the Delivery Reply Shape, and never as a footer or verdict block inside the deliverable.
 - `$story`, `$s`, `$prd` and `$p` select Story; `$stories`, `$prds`, `$sort` and embedded `$s` do not; `create a task to write a PRD` stays Task.
 - A generated Story-Mode artifact names its artifact kind (Story or Epic), keeps the narrative first, uses Given/When/Then scenario bullets, closes with a Delivery section only when the requester asked for one or the artifact forces it, and carries no ticket header fields, story points or INVEST notes.
 - With the ClickUp connector present, every export response offers ClickUp delivery and nothing is written to ClickUp without explicit approval in that conversation.
@@ -133,8 +133,7 @@ Push shape: artifact H1 becomes the task name, Deliverable Block framing and pro
 - After a kernel change, record the review as a dated sentence in the system SYNC.md review notes: who reviewed, what changed, what was decided
 - Before live upload, run this system's own checks from its root. The sync compiler was
   retired and `check --system` no longer exists, so nothing is verified by invoking it:
-  - `bash benchmark/router/run_fixtures.sh`
-  - `bash benchmark/format/run_fixtures.sh`
+  - `bash benchmark/gates/run_gates.sh`, which runs the router and format fixtures, rule parity and the example lint
   - `bash benchmark/parity/run_parity.sh`
 - Remove superseded mirror filenames and search for stale version references.
 - Re-upload changed files to the live Project and run the smoke matrix.

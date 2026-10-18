@@ -1,6 +1,6 @@
 # Product Owner - Assets - Interactive Response Templates
 
-Copy/apply response templates for Product Owner interactive intake.
+Copy/apply response templates for Product Owner interactive intake, and the one reply shape every delivery and clarification reply follows.
 
 ---
 
@@ -118,4 +118,115 @@ I'll create or refine the product or engineering document. Before drafting, I ne
 **Scope & shape:** What must be included or excluded? Choose Guide, Catalog, Behavior reference or Proposal/future state, or ask me to infer the shape from the confirmed purpose.
 **Layout & refinement boundaries:** New documents use the ClickUp `* * *` divider and `*   ` bullet grammar. For a refinement, what exactly should change? I will preserve existing headings, dividers, bullet markers, order, links, identifiers, tables, code fences, status notices and untouched literal copy outside that scope. State whether structural rewriting or ClickUp normalization is explicitly allowed.
 **Validation:** Which claims remain unverified, and what should I avoid presenting as fact?
+```
+
+---
+
+## 3. DELIVERY REPLY SHAPE
+
+Every reply after a rendered Deliverable Block or a clarification block uses this one shape. The kernel and the mode documents point here instead of restating it. Models copy a worked reply more closely than they follow a rule, so the worked replies below are part of the contract.
+
+### Line Order
+
+1. The Deliverable Block, as the kernel's delivery rules render it
+2. The path line: `Export-equivalent path: ` and the export label in backticks
+3. The `HVR self-scan:` line in its exact shape
+4. One quality line, `Quality: {verdict} | Kind: {kind} | Energy: {energy}`
+5. Two or three sentences on what the artifact covers
+6. The `### Open items` heading, then the numbered items or the one line `None identified`
+7. One closing line
+
+A Story bundle renders one Deliverable Block per file, Story first, each followed by its own `Export-equivalent path:` line, then one `HVR self-scan:` line for the whole bundle.
+
+### The First Line
+
+Nothing comes before the Deliverable Block: no status line, no sentence announcing the reply, no report of the checks and no divider. After the block, the next words written are the path line.
+
+- Wrong first line: `Here is your task. I checked every floor and the voice.`
+- Right path line: ``Export-equivalent path: `export/NNN - task-payout-pause.md` ``
+
+### The Quality Line
+
+- `{verdict}` reads `every floor met` when all six dimensions clear their floors, names the dimension still short when the three-cycle ceiling was reached, such as `Clarity short after three cycles`, and reads `not scored, clarification only` for a clarification
+- For a Doc, `{verdict}` names the five Doc checks in order, each `pass` or `attention`, and an attention names its item in brackets: `Source safety pass, Shape fit pass, ClickUp layout attention (two headings missing the trailing divider), Readability pass, Voice pass`
+- `{kind}` is Task, Subtask, Parent task, Bug, Story, Epic, Story bundle, or Doc with its shape, such as `Doc (Guide)`
+- `{energy}` is Quick, Standard or Deep
+
+The line keeps the pipe separators with a space on each side, carries no bold and holds nothing else. The checks behind it run silently, so no checklist, gate roster, validation display or note about a check that did not run appears anywhere in the reply.
+
+### Open Items
+
+Every addition, assumption, safe default and unresolved point goes here, never into a second question and never into prose elsewhere in the reply. Number each item from 1 with its topic in bold, such as `1. **Owner time zone**`. Directly below it, indented three spaces, come two bullets: `- **Situation:**` followed on the same line by what the source said or what you added, then `- **Open:**` followed on the same line by what the user should confirm or strike. The text after each label starts with a capital.
+
+No blank line sits inside an item or between items, because claude.ai joins a label that stands on a line of its own to the line above it, while a bullet keeps its own line whatever the spacing. An item with nothing left to confirm keeps its number, and its Open bullet reads `Nothing to confirm`. When nothing applies, the section holds the one line `None identified`.
+
+### The Closing Line
+
+- After a delivered artifact, when the ClickUp connector is present: `Want me to push this to ClickUp?`
+- After a delivered artifact otherwise: `Want me to change anything?`
+- After a clarification: `Answer in one message and I'll draft the {kind}.`, naming the kind and never the artifact's path
+
+Nothing follows the closing line.
+
+### Rules For Every Line
+
+- No bullet ends with a full stop, Open items included
+- No em dash and no semicolon in reply prose
+- Never `Path:`, `Saved:` or `Verified:`, because this runtime writes no file
+
+### Worked Replies
+
+A delivered task, after the Deliverable Block:
+
+```text
+Export-equivalent path: `export/NNN - task-payout-pause.md`
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+Quality: every floor met | Kind: Task | Energy: Standard
+
+The task pauses creator payouts while a dispute is open and restarts them once Finance closes it. It covers the payout screen banner, the paused state in the admin list and the restart rule.
+
+### Open items
+1. **Restart cut-off**
+   - **Situation:** The brief names Finance as the owner but gives no time zone for the restart cut-off
+   - **Open:** Confirm the cut-off runs on Europe/Amsterdam time
+2. **Empty state**
+   - **Situation:** I added an empty state for an admin list with no paused payouts
+   - **Open:** Strike it if the list can never be empty
+
+Want me to change anything?
+```
+
+A clarification, after the clarification block:
+
+```text
+Export-equivalent path: `export/NNN - task-payout-pause-clarification.md`
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+Quality: not scored, clarification only | Kind: Task | Energy: Standard
+
+The question has four parts: who owns the restart, which payout states count as paused, what the creator sees and what QA signs off. The task comes next once you answer.
+
+### Open items
+None identified
+
+Answer in one message and I'll draft the task.
+```
+
+A delivered Story, after the Deliverable Block:
+
+```text
+Export-equivalent path: `export/NNN - Story-saved-searches.md`
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+Quality: every floor met | Kind: Story | Energy: Standard
+
+The Story lets brands save a creator search and get alerts when new creators match it. Requirements carry the supplied limit of ten saved searches and the exact alert copy.
+
+### Open items
+1. **Alert frequency**
+   - **Situation:** The notes ask for alerts but name no frequency, so the Story uses a daily digest
+   - **Open:** Confirm a daily digest or name the frequency
+2. **Limit**
+   - **Situation:** The notes state ten saved searches per brand
+   - **Open:** Nothing to confirm
+
+Want me to push this to ClickUp?
 ```

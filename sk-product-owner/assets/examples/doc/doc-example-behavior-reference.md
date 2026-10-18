@@ -7,7 +7,7 @@ trigger_phrases: ["behavior reference doc example", "worked doc example"]
 version: 0.17.0.4
 ---
 
-# Fieldnote Editor — form autosave behavior
+# Fieldnote Editor: form autosave behavior
 
 * * *
 > **Source basis**
@@ -227,4 +227,4 @@ The editor distinguishes "no network" from "server error" so it does not treat t
 ### Related references
 * * *
 
-*   [Fieldnote Editor — Field Validation Rules](https://docs.fieldnote.example/editor/field-validation)
+*   [Fieldnote Editor: Field Validation Rules](https://docs.fieldnote.example/editor/field-validation)

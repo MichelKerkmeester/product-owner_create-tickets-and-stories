@@ -86,6 +86,29 @@ check "indented definition bullets are sanctioned" 0 "validation passed" "prose 
 check "card-sanctioned shapes clear the gate" 0 "validation passed" "prose em dash" \
   "${FIXTURES}/sanctioned-shapes.md"
 
+# A catalog entry heading and its link carry one dash between the stable ID and
+# the entry name, and only inside a document with the catalog's Index heading.
+# The silent case proves both forms pass, the violation case proves the same
+# dash on a title, a heading with no stable ID, a second dash, an H2, a prose
+# sentence and a link with trailing text still blocks, and the no-index case
+# proves the shape alone earns nothing outside a catalog.
+check "catalog: entry headings and their links clear the gate" 0 "validation passed" "prose em dash" \
+  "${FIXTURES}/catalog-entry-silent.md"
+check "catalog: a dash in the title still fails" 1 "catalog-entry-violation.md:1: prose em dash" "" \
+  "${FIXTURES}/catalog-entry-violation.md"
+check "catalog: a heading with no stable ID still fails" 1 "catalog-entry-violation.md:13: prose em dash" "" \
+  "${FIXTURES}/catalog-entry-violation.md"
+check "catalog: a dash in prose still fails" 1 "catalog-entry-violation.md:17: prose em dash" "" \
+  "${FIXTURES}/catalog-entry-violation.md"
+check "catalog: a second dash on an entry heading still fails" 1 "catalog-entry-violation.md:19: prose em dash" "" \
+  "${FIXTURES}/catalog-entry-violation.md"
+check "catalog: an H2 entry heading still fails" 1 "catalog-entry-violation.md:23: prose em dash" "" \
+  "${FIXTURES}/catalog-entry-violation.md"
+check "catalog: a link with trailing text still fails" 1 "catalog-entry-violation.md:27: prose em dash" "" \
+  "${FIXTURES}/catalog-entry-violation.md"
+check "catalog: the entry shape outside a catalog still fails" 1 "catalog-entry-no-index.md:5: prose em dash" "" \
+  "${FIXTURES}/catalog-entry-no-index.md"
+
 # A directory argument takes the clean missing-target exit, never a stack trace.
 check "directory argument exits cleanly" 66 "not a regular file" "EISDIR" "${FIXTURES}"
 
