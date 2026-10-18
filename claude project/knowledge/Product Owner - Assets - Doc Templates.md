@@ -46,7 +46,7 @@ New documents use the same layout grammar as the canonical Feed documentation:
 - Use `*   ` for unordered list items. Do not emit hyphen bullets in a document artifact
 - Do not end a newly authored or rewritten bullet item with a full stop
 - Use `*   **{Term}** — {Definition}` for glossary, shorthand, state, or compact definition lists
-- Every heading in a Doc artifact is sentence case, including the scaffold names below. Capitalize the first word and whatever is a proper noun, an acronym or a literal identifier, and nothing else. `### Boundaries and exceptions`, never `### Boundaries and Exceptions`. This is the title-case ban in Rules - Human Voice Core, and Doc Mode holds no exemption from it: the card's only Doc exemptions are the definition delimiter above and the `Status: {class} — {qualifier}` label in the Status language table. A refinement keeps the supplied document's own heading case
+- Every heading in a Doc artifact is sentence case, including the scaffold names below. Capitalize the first word and whatever is a proper noun, an acronym or a literal identifier, and nothing else. `### Boundaries and exceptions`, never `### Boundaries and Exceptions`. This is the title-case ban in Rules - Human Voice Core, and Doc Mode holds no exemption from it: the only Doc exemptions are the definition delimiter above, the `Status: {class} — {qualifier}` label in the Status language table and the Catalog entry heading `### {Stable ID} — {Entry name}` with its link, and none of them touches heading case. A refinement keeps the supplied document's own heading case
 - Use `*   []` for checklist items, with no space between the brackets
 - Keep ordered procedures as numbered lists
 - Keep tables, code fences, blockquotes, links, identifiers, and literal copy in their source-supported form. A phrase the source sets in backticks is literal copy, a rule's own wording as much as an identifier, so it appears word for word in the sentence that states that rule, even where that sentence repeats its bold label, and a shorter label or a When and Then pair never stands in for it
@@ -766,4 +766,4 @@ Refined document:
 export/[original-source-filename].md
 ```
 
-Never overwrite the source fixture. Validate, render the Deliverable Block, re-read the rendered block, then report the export-equivalent path and a compact quality summary. This runtime writes no file, so there is nothing to verify on disk.
+Never overwrite the source fixture. Validate, render the Deliverable Block, re-read the rendered block, then reply in the Delivery Reply Shape in Assets - Interactive Response Templates Section 3. This runtime writes no file, so there is nothing to verify on disk.

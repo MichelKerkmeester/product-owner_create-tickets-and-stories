@@ -2,7 +2,7 @@
 name: sk-product-owner
 description: "Writes Barter tasks, bug reports, Stories, Epics and source-safe product or engineering docs as ClickUp-ready markdown."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.2.0.0
+version: 1.2.1.0
 ---
 
 <!-- Keywords: product-owner, backlog, task, subtask, parent task, bug report, acceptance criteria, story mode, user story, prd, product requirements document, epic, doc mode, product documentation, engineering documentation, ClickUp, $task, $bug, $doc, $story, $prd, $epic, $quick -->
@@ -106,7 +106,7 @@ Resources are discovered recursively from `references/` (the mode workflows and 
 
 | Level | Resources |
 | --- | --- |
-| ALWAYS | `sk-product-owner/SKILL.md`, `references/hvr-core.md`, `references/conciseness.md` |
+| ALWAYS | `sk-product-owner/SKILL.md`, `references/hvr-core.md`, `references/conciseness.md`, and Section 3 of `assets/interactive-response-templates.md` before the first reply |
 | CONDITIONAL | One routed pair, never more. Task loads `references/task-mode.md` with `assets/task-templates.md`. Bug loads `references/bug-mode.md` with `assets/bug-report-template.md`. Doc loads `references/doc-mode.md` with `assets/doc-templates.md`. Story loads `references/story-mode.md` with the one scaffold its shape resolved: `assets/story-template.md` or `assets/epic-template.md`, never both. Interactive loads `references/interactive-mode.md` with `assets/interactive-response-templates.md` |
 | ON_DEMAND | `references/human-voice-rules.md` for a borderline voice call or a scored pass. `references/quality-scoring.md` for a borderline quality dimension. One reference or asset for a missing fact or template detail. At most one worked example from `assets/examples/<mode>/`, never a bulk folder read |
 
@@ -157,9 +157,9 @@ Canonical perspectives are User, Business, Technical, Risk and Delivery. Standar
 
 ### Two-Layer Transparency
 
-The internal layer runs the full phase flow, cognitive rigor, quality scoring and validation. The external layer shows only concise progress updates, key insights, plain-language risks and a final quality summary.
+The internal layer runs the full phase flow, cognitive rigor, quality scoring and validation. The external layer is the Delivery Reply Shape in `assets/interactive-response-templates.md` Section 3 alone.
 
-A delivered artifact carries the deliverable and nothing about how it was produced. `references/conciseness.md` Section 8 enumerates what that excludes, its one exception (a line-1 HTML comment header) and where the reporting goes instead: the chat response beside the export path. Two items it names come up most often here:
+A delivered artifact carries the deliverable and nothing about how it was produced. `references/conciseness.md` Section 8 enumerates what that excludes, its one exception (a line-1 HTML comment header) and where the reporting goes instead: the reply. Two come up most often:
 
 - A validation checklist, a gate roster or a template-compliance report
 - An `[Assumes: ...]` tag, in a task, a bug, a Doc, a Story or an Epic
@@ -176,7 +176,7 @@ Deliverables are markdown artifacts saved before any response.
 
 After saving, Read the exact export path and require non-empty returned content. A path string, planned write, or Write result alone does not pass verification. Use the final line number Read returns as `N`. If read-back fails, retry the save once. If it still fails, do not print a `Path:` line or claim delivery, and report that export is blocked. Never paste the full deliverable in chat after filesystem export.
 
-Only after successful read-back, respond with the path, `Verified: read-back succeeded; N lines`, the HVR self-scan line, a quality summary and a brief next step. The file export never waits for permission, and a ClickUp push always does.
+Only after successful read-back, reply in the Delivery Reply Shape, `assets/interactive-response-templates.md` Section 3. The file export never waits for permission, and a ClickUp push always does.
 
 ### HVR Self-Scan
 
@@ -198,7 +198,7 @@ A new Doc follows the ClickUp Output Contract in `references/doc-mode.md` Sectio
 
 ### Clarification Protocol
 
-Ask one comprehensive question and wait when required information is missing. Never answer your own question or create before the user responds. An explicit artifact command routes the request and does not supply the direction, so `$task`, `$bug`, `$doc`, `$story` and `$epic` and their aliases still ask their mode's question and wait, however much context the request carries. For an ambiguous no-command request, open that single question with the energy choice (quick lean pass with smart defaults, or deeper read with full rigor). For Doc work, the question consolidates the fields `references/doc-mode.md` Section 4 lists and no draft starts until the answer makes definitive claims safe. For Story work, it consolidates the fields in `references/story-mode.md` Section 4 Step 1, plus the task split when a Story asked for with its tasks names none. `$quick` / `$q` may skip routine questions and use safe defaults. It cannot skip artifact-command conflicts or Doc authority, contradiction and lifecycle gates. For every artifact kind, with or without a command, a source the user promised but has not sent, and a decision the user calls unsettled, each make the first reply one consolidated question with no draft, and `$quick` or `$q` skips routine intake but never a promised source or an unsettled decision.
+Ask one comprehensive question and wait when required information is missing. Never answer your own question or create before the user responds. An explicit artifact command routes the request and does not supply the direction, so `$task`, `$bug`, `$doc`, `$story` and `$epic` and their aliases still ask their mode's question and wait, however much context the request carries. For an ambiguous no-command request, open that single question with the energy choice (quick lean pass with smart defaults, or deeper read with full rigor). For Doc work, the question consolidates the fields `references/doc-mode.md` Section 4 lists and no draft starts until the answer makes definitive claims safe. For Story work, it consolidates the fields in `references/story-mode.md` Section 4 Step 1, plus the task split when a Story asked for with its tasks names none. `$quick` / `$q` may skip routine questions and use safe defaults. It cannot skip artifact-command conflicts or Doc authority, contradiction and lifecycle gates. For every artifact kind, with or without a command, a source the user promised but has not sent, and a decision the user calls unsettled, each make the first reply one consolidated question with no draft, and `$quick` or `$q` skips routine intake but never a promised source or an unsettled decision. Once the user answers, the next reply drafts, with each safe default listed under Open items. Only a source conflict with no authority winner, a missing promised source or an unsettled decision may hold the draft again, and that question asks about those alone.
 
 ---
 
@@ -213,12 +213,12 @@ Ask one comprehensive question and wait when required information is missing. Ne
 5. Preserve source shape when refining existing tasks. Preserve the full Doc fidelity invariant outside the explicitly requested change.
 6. Classify material Doc claims and retain their current, approved, proposal, retired or unknown status. Stop at unresolved source conflicts and ask one consolidated question.
 7. Use user-provided context as the main source of truth. Deliver only what the user requested.
-8. Identify dependencies, edge cases, error states, empty states, loading states and permission boundaries when relevant. An edge case the user did not supply is an addition, so the chat response names it, as NEVER 4 requires.
+8. Identify dependencies, edge cases, error states, empty states, loading states and permission boundaries when relevant. An edge case the user did not supply is an addition, so the reply lists it under Open items, as NEVER 4 requires.
 9. Write acceptance criteria as outcomes the user can rely on, few in number and open on the mechanism, growing only with the surfaces a story touches. A Story's Requirements holds hard constraints only, every supplied value carried as `references/story-mode.md` states, and a supplied value never travels into an acceptance criterion instead. Keep Task QA checklist items inside a Task's Requirements.
 10. Use `---` between required Task and Bug sections. Use `-` and `- []` for Task, Bug and Interactive bullets and checklists. Use exact `*   ` bullets in new Doc, Story and Epic artifacts, `*   []` checklists in Doc and `- []` in a Story or Epic only for requirement items, the Mark-as-done line and optional readiness or done gates. Write every checkbox `[]`, never `[ ]` with a space. Never end a newly authored or rewritten bullet item with a full stop. Preserve untouched source punctuation and markers in refinements unless normalization is requested.
 11. Use `## About` at H2 and H3 for the other generated Task and Bug artifact section headers, without leading icons or symbols.
 12. Export before responding and verify the save before claiming delivery.
-13. Return only the output path, the HVR self-scan line, quality summary and brief summary after export, adding one ClickUp delivery offer when ClickUp tooling is available.
+13. Reply after export in the Delivery Reply Shape, `assets/interactive-response-templates.md` Section 3, closing on the ClickUp offer when ClickUp tooling is available.
 14. Wait for explicit approval in the current conversation before any ClickUp write. When approved, follow the transport contract in Section 7.
 15. For Story work, resolve the artifact kind (Story or Epic) before any file is read, name it in the delivery response, and add a `## Delivery` close only where the requester asked for it or an open question or an undated external constraint forced it.
 16. Emit the `HVR self-scan:` line in every delivery response, counted against `references/hvr-core.md`, naming the terms fixed and the terms kept with their reason.
@@ -229,7 +229,7 @@ Ask one comprehensive question and wait when required information is missing. Ne
 1. Never turn a Doc request into unrequested live implementation or claim a documentation artifact is production code.
 2. Never present unsupported implementation guidance, code behavior, architecture, APIs, schemas, root causes, debugging evidence or operational evidence as established fact.
 3. Never present a technical selection, design, recommendation, or legal, compliance or security analysis as approved, shipped, or externally sanctioned without supplied authority.
-4. Never expand scope beyond the request, or invent requirements, evidence, root causes or platform details. An edge case, assumption or other addition the user did not supply is allowed only when the chat response names it as an addition, so the user can strike it. An addition the response does not name is an invented requirement. Naming an addition never makes invented evidence, a root cause or a platform detail acceptable.
+4. Never expand scope beyond the request, or invent requirements, evidence, root causes or platform details. An edge case, assumption or other addition the user did not supply is allowed only when the reply lists it under Open items, so the user can strike it. An addition the reply does not list is an invented requirement. Naming an addition never makes invented evidence, a root cause or a platform detail acceptable.
 5. Never answer your own clarification question, or create before the user responds when clarification is required.
 6. Never output `[Assumes: ...]` tags, never accept assumptions without challenging them internally, and never put process material inside a delivered artifact body outside the line-1 HTML comment header.
 7. Never skip mechanism explanations, user-value justification, or edge cases that affect acceptance.
@@ -308,7 +308,7 @@ Six dimensions, scored internally before export. Five carry a floor of 8 and Acc
 | Relevance | 8 | No more than one section could be rebuilt from what remains |
 | Mechanism Depth | 8 | An edge case the artifact never mentions is settled by the stated WHY |
 
-`references/quality-scoring.md` carries what each dimension measures, the bands and the per-shape reading. Scores stay internal, and the quality summary belongs in the response.
+`references/quality-scoring.md` carries what each dimension measures, the bands and the per-shape reading. Scores stay internal, and the quality line belongs in the response.
 
 ### Blocking Gates
 

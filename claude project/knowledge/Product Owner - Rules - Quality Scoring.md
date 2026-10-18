@@ -14,7 +14,7 @@ A floor is blocking, not advisory. A dimension under its floor stops the export 
 
 ### What a score is not
 
-The score is internal. Two-layer transparency puts a plain quality summary in the chat response and never a Quality Score header inside the artifact, exactly as a Mode, Template, Perspectives or Energy header never enters one. For a Doc refinement the fidelity invariant makes that absolute, since injecting scoring metadata into preserved source structure is itself a fidelity break.
+The score is internal. Two-layer transparency puts the quality line of the Delivery Reply Shape in the reply and never a Quality Score header inside the artifact, exactly as a Mode, Template, Perspectives or Energy header never enters one. For a Doc refinement the fidelity invariant makes that absolute, since injecting scoring metadata into preserved source structure is itself a fidelity break.
 
 Scoring is also not a substitute for the hard blockers. A Human Voice blocker is binary and blocking on its own, so it never trades against a dimension that scored well.
 
@@ -135,7 +135,7 @@ The kernel points here for the pre-reply quality checklist:
 - HVR has no hard blockers, and the self-scan line reports the real count
 - Six-dimension floors pass. Quick narrows the artifact, never the floors, so a Quick delivery reports the same gate as checked
 - The Deliverable Block appears before commentary and is the only claimed delivery evidence
-- Response gives the correct export-equivalent path, quality status and summary only, adding one ClickUp delivery offer when ClickUp tooling is connected
+- Response follows the Delivery Reply Shape: the correct export-equivalent path, the HVR self-scan and quality lines, the summary, Open items and one closing line, the ClickUp offer when ClickUp tooling is connected
 - No write happened to ClickUp or another external system without explicit approval in this conversation
 
 ---
@@ -154,7 +154,7 @@ A single failure is a repair. Two or more say the shape was wrong before the wor
 
 Each dimension returns to the phase that owns it. Completeness and Relevance return to Discover, because both are decided by what was gathered and scoped. Actionability and Accuracy return to Engineer, where end states and feasibility are set. Clarity and Mechanism Depth return to Prototype, where the words are chosen.
 
-Three cycles is the ceiling. After the third, deliver the best version with a plain one-line note naming the dimension still short and why, and never open a fourth. The note goes in the chat response, alongside the export path and the self-scan line, never into the artifact.
+Three cycles is the ceiling. After the third, deliver the best version with the quality line naming the dimension still short, such as `Clarity short after three cycles`, and never open a fourth. The note goes in the reply, never into the artifact.
 ---
 
 The kernel points here for these delivery prohibitions:

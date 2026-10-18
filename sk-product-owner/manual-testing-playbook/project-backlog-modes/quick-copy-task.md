@@ -68,7 +68,7 @@ Capture the reply, the rendered block and which form it took, the export-equival
 ### Pass / fail
 
 - **Pass**: No question, one task block under an export-equivalent `task` label with the Quick Task sections, both new strings verbatim against both current strings, the thresholds, markets and surfaces as the context gives them, and no file claim
-- **Fail**: The runtime asks before drafting, prints `Path:` or `Saved:`, claims a file, rewords, drops or re-prices a string, moves the change to one surface, invents a limit, date or behavior without naming it as an addition, or leaves a template slot or placeholder link in the block
+- **Fail**: The runtime asks before drafting, prints `Path:` or `Saved:`, claims a file, rewords, drops or re-prices a string, moves the change to one surface, invents a limit, date or behavior without listing it under Open items, or leaves a template slot or placeholder link in the block
 
 ### Failure triage
 

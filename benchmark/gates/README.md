@@ -1,22 +1,24 @@
 ---
-title: "Gates: rule parity between a skill source and its Project mirror"
-description: "Counts a named rule's verbatim phrases on both sides of every systems.py-declared pair for Product Owner"
+title: "Gates: rule parity, example lint and the gate runner"
+description: "Counts a named rule's verbatim phrases on both sides of every declared pair, lints the worked examples and replies, and runs every gate from one command"
 trigger_phrases:
   - "rule parity"
   - "pair-level rule check"
 ---
 
-# Gates: rule parity between a skill source and its Project mirror
+# Gates: rule parity, example lint and the gate runner
 
 * * *
 
 ## 1. Overview
 
-`benchmark/gates/` holds the pair-level rule check for this system. `benchmark/parity/` already confirms every declared mirror exists and every kernel statement stays where it is declared to live. `benchmark/format/` already confirms a delivered artifact has the right shape. Neither reads whether a rule stated in a skill document is the same rule stated in its Project mirror, so a mirror can drift in wording while both of those stay green.
+`benchmark/gates/` holds the pair-level rule check, the example lint and the one runner for every gate this system owns. `benchmark/parity/` already confirms every declared mirror exists and every kernel statement stays where it is declared to live. `benchmark/format/` already confirms a delivered artifact has the right shape. Neither reads whether a rule stated in a skill document is the same rule stated in its Project mirror, so a mirror can drift in wording while both of those stay green.
 
 Current state:
 
-*   One file, `rule_parity.py`, and nothing else
+*   Three files: `rule_parity.py`, `example_lint.py` and `run_gates.sh`
+*   `example_lint.py` runs the system validator in artifact mode over every worked example and every Project example mirror, and reads the worked replies in the Delivery Reply Shape section of the response templates asset and its mirror line by line
+*   `run_gates.sh` runs the router fixtures, the format fixtures, rule parity, the example lint and its self-test, keeps going after a red gate and exits with the count of failures
 *   It reads the 38 declared pairs for `product-owner` from the shared `z — Claude Project Sync Loop/systems.py`, never from a local map
 *   It names six rules this system states and the verbatim spans that carry them, then counts each span on both sides of every pair
 *   It never writes `systems.py`, and it never writes anything under `sk-product-owner/` or `claude project/knowledge/`
@@ -28,6 +30,8 @@ Current state:
 | File | Responsibility |
 |---|---|
 | `rule_parity.py` | Loads `SYSTEMS['product-owner']['pairs']` from the shared declaration, reads each declared source and mirror, counts every rule phrase on both sides, and checks a floor per rule (how many pairs teach it today) |
+| `example_lint.py` | Validates every example under `sk-product-owner/assets/examples/` and every `Product Owner - Examples - *.md` mirror with its preamble set aside, then checks each worked reply for the path line, the read-back line on the skill only, the self-scan and quality lines, the Open items shape and one closing line. `--self-test` breaks one example and one reply in a scratch copy and requires both to fail |
+| `run_gates.sh` | Runs every gate above plus the router and format fixtures, prints `ok` or the failing gate's own output, and exits with the number of failed gates. The shared parity and residency checks stay in `benchmark/parity/`, because they refuse a declaration with uncommitted edits |
 
 * * *
 
@@ -68,8 +72,13 @@ Two things make `z — Claude Project Sync Loop/systems.py` unusual to read from
 From the system root:
 
 ```bash
+bash benchmark/gates/run_gates.sh
 python3 benchmark/gates/rule_parity.py
+python3 benchmark/gates/example_lint.py
+python3 benchmark/gates/example_lint.py --self-test
 ```
+
+The runner prints one line per gate and `all 5 gates pass` with exit 0 on a healthy tree. The example lint prints `PASSED N example files and the worked replies on both packagings`, or one line per finding naming the file and the real line, then `FAILED`. A run that finds no example file fails, because a lint that read nothing would print a pass it did not earn.
 
 Expected result on a healthy tree: a pair count, a per-rule count against its floor, then `PASSED 6 rules hold on both sides of every pair that teaches them`. Exit 0.
 

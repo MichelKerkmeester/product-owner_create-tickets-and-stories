@@ -68,7 +68,7 @@ Capture the reply, the side-effect ledger, the export path and read-back line, t
 ### Pass / fail
 
 - **Pass**: No question, one readable task export under the `task` word with the Quick Task sections, both new strings verbatim against both current strings, and the thresholds, markets and surfaces as the context gives them
-- **Fail**: The runtime asks before drafting, rewords, drops or re-prices a string, moves the change to one surface, invents a limit, date or behavior without naming it as an addition, or leaves a template slot or placeholder link in the body
+- **Fail**: The runtime asks before drafting, rewords, drops or re-prices a string, moves the change to one surface, invents a limit, date or behavior without listing it under Open items, or leaves a template slot or placeholder link in the body
 
 ### Failure triage
 

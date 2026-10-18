@@ -4,7 +4,7 @@ Instantiates Doc Templates section 5, Behavior Reference, at system scale with a
 
 ---
 
-# Vantage Billing — subscription lifecycle
+# Vantage Billing: subscription lifecycle
 
 * * *
 > **Source basis**
@@ -14,7 +14,7 @@ Instantiates Doc Templates section 5, Behavior Reference, at system scale with a
 
 ## Overview
 * * *
-Vantage bills each workspace on a recurring subscription, and every workspace sits in exactly one billing state at any moment. This reference walks that lifecycle end to end: the states a subscription moves between, how a renewal charges, what the system does when a charge fails, and how a member's own actions, cancelling, pausing or changing plan, interact with the automatic billing run. Engineers read it to maintain the service; support staff read it to explain, in plain terms, why a workspace was charged, kept active, or downgraded.
+Vantage bills each workspace on a recurring subscription, and every workspace sits in exactly one billing state at any moment. This reference walks that lifecycle end to end: the states a subscription moves between, how a renewal charges, what the system does when a charge fails, and how a member's own actions, cancelling, pausing or changing plan, interact with the automatic billing run. Engineers read it to maintain the service. Support staff read it to explain, in plain terms, why a workspace was charged, kept active, or downgraded.
 
 The lifecycle is deliberately small. A subscription is either trialing before it has ever paid, active and paid through the current period, past due while a failed charge is being retried, paused at the member's request, or canceled. Every rule in this document is a rule about how a subscription moves between those five states, and nothing moves a subscription except the rules below.
 
@@ -75,7 +75,7 @@ Each state defines what access the workspace has and what the billing run will d
 
 `active`
 *   **Meaning or role** — Paid and current for the running period, with full access to the workspace
-*   **Verified behavior** — On `current_period_end` the daily run charges the renewal. A success starts a fresh period and the state stays `active`; a failure moves it to `past_due` and opens dunning
+*   **Verified behavior** — On `current_period_end` the daily run charges the renewal. A success starts a fresh period and the state stays `active`. A failure moves it to `past_due` and opens dunning
 *   **Status** — Current behavior
 * * *
 
@@ -112,7 +112,7 @@ Renewal is the engine of the lifecycle: it is the recurring charge that keeps a 
 A subscription renews itself at the end of each period without the member acting. The daily run finds subscriptions that have reached their period boundary and charges them, and the outcome of that charge is what decides whether the workspace keeps uninterrupted access.
 
 *   **When** — The daily run reaches a subscription's `current_period_end` while it is `active`
-*   **Then** — It charges the plan amount. On success the period rolls forward and the state stays `active`; on failure the state moves to `past_due` and dunning begins
+*   **Then** — It charges the plan amount. On success the period rolls forward and the state stays `active`. On failure the state moves to `past_due` and dunning begins
 *   **Why** — Keeps access tied to a paid period without the member having to renew by hand each cycle
 *   **Status** — Current behavior
 * * *
@@ -122,7 +122,7 @@ A subscription renews itself at the end of each period without the member acting
 When a workspace changes plan partway through a period, the system settles the difference so nobody pays twice for the same time and nobody loses time they already bought. The direction of the change decides whether that settlement happens now or at the next renewal.
 
 *   **When** — A workspace changes plan mid-period while `active`
-*   **Then** — An upgrade takes effect immediately with a prorated charge for the rest of the period; a downgrade takes effect at the next `current_period_end`, with no charge taken now
+*   **Then** — An upgrade takes effect immediately with a prorated charge for the rest of the period. A downgrade takes effect at the next `current_period_end`, with no charge taken now
 *   **Why** — A member pays only for what they use, and a downgrade never strips paid-for capability early
 *   **Status** — Current behavior
 * * *
@@ -176,7 +176,7 @@ A pause is a billing hold, not a way out of an unpaid charge. It suspends renewa
 
 *   **When** — A member pauses while `active`
 *   **Then** — The state moves to `paused`, no charge runs, and access becomes read-only until the workspace resumes
-*   **How** — Pause is rejected while a subscription is `past_due`; the outstanding charge must clear first
+*   **How** — Pause is rejected while a subscription is `past_due`. The outstanding charge must clear first
 *   **Why** — Pause should never become a way to sit on an unpaid balance
 *   **Status** — Current behavior
 * * *
@@ -192,7 +192,7 @@ The automatic billing run and a member's actions can land in the same window, an
 | Cancel requested while `past_due` | Cancellation wins: dunning stops and the subscription cancels at period end | Current behavior |
 | A retry succeeds during the grace window | The subscription returns to `active` and dunning stops for that cycle | Current behavior |
 | Plan change requested while `past_due` | The change is blocked until the outstanding charge clears | Current behavior |
-| Pause requested while `past_due` | The pause is rejected; the failed charge must clear first | Current behavior |
+| Pause requested while `past_due` | The pause is rejected. The failed charge must clear first | Current behavior |
 * * *
 
 ###   
@@ -241,5 +241,5 @@ A few behaviors sit at the edge of the rules above and are easy to assume wrongl
 
 ### Related references
 * * *
-*   [Vantage Billing — Invoice and Proration Formulas](https://docs.vantage.example/billing/proration)
-*   [Vantage Billing — Payment Method Management](https://docs.vantage.example/billing/payment-methods)
+*   [Vantage Billing: Invoice and Proration Formulas](https://docs.vantage.example/billing/proration)
+*   [Vantage Billing: Payment Method Management](https://docs.vantage.example/billing/payment-methods)

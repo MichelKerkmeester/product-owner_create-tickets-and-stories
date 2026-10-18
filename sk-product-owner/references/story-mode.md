@@ -10,7 +10,7 @@ trigger_phrases:
   - "PRD with acceptance criteria"
   - "story vs epic"
   - "refine this PRD"
-version: 0.17.0.27
+version: 0.17.0.28
 ---
 
 # Product Owner - Templates - Story Mode
@@ -79,7 +79,7 @@ The house grammar every Story and Epic follows sits in section 3. These are the 
 - Every line of the source is accounted for, not only the lines under a screen heading. Accounted for means the change the line names lands in the draft, never that the line's own wording lands in Requirements. A line that gives a value is accounted for by that value, and a line that names a screen without giving one is accounted for by a single item pointing at the design. A change stated above the first heading, in a preamble, or for a surface the headings never name, such as the modal that opens the flow or a global change to all screens, is a supplied value like any other. It gets its own bold-lead group named for the surface it changes, and it is never folded into a neighbouring screen or dropped because the source did not give it a heading
 - Source prose is material, never copy. The Human Voice rules apply to what the artifact says, so a hedge, an opener, a filler phrase or a vague qualifier in the source is rewritten as a fact, an open constraint or a plain condition. Only exact product copy, identifiers, values and an open question the source words itself are carried verbatim, inside backticks, so an `**Open:**` line quotes the source's question and then names who settles it. A source that hedges whether a flow will run again and whether other flows will pick up its screens becomes an artifact that states the flow can run again and its screens are reused, because the hedges belonged to the author's uncertainty, not to the product
 - The default shape is lean. The optional enrichments in section 6 (value lines, Rule blocks, Which-means-that, Definition of Ready/Done, User Story promise block) are added only when the artifact earns them
-- User-supplied context is the main source of truth. Never invent requirements, evidence or links. An edge case, assumption or other addition the user did not supply is allowed only when the chat response names it as an addition, so the user can strike it. An addition the response does not name is an invented requirement, and naming one never makes invented evidence or a link acceptable
+- User-supplied context is the main source of truth. Never invent requirements, evidence or links. An edge case, assumption or other addition the user did not supply is allowed only when the reply lists it under Open items, so the user can strike it. An addition the reply does not list is an invented requirement, and naming one never makes invented evidence or a link acceptable
 - Apply every gate under Quick energy
 
 ---
@@ -409,7 +409,7 @@ export/[###] - Story-[description]/
 
 ### Response Contract
 
-Respond with the saved path, the artifact kind (Story or Epic), a compact quality summary and a brief next step. Validate the house grammar and honest Delivery state, save, then verify before reporting. In a Claude Project runtime, deliver one markdown artifact with the export-equivalent path. When ClickUp tooling is available, offer ClickUp delivery and wait for explicit approval, per the skill's ClickUp handoff rule.
+Reply in the Delivery Reply Shape in `assets/interactive-response-templates.md` Section 3, whose quality line names the artifact kind (Story or Epic). Validate the house grammar and honest Delivery state, save, then verify before reporting. In a Claude Project runtime, deliver one markdown artifact with the export-equivalent path. When ClickUp tooling is available, offer ClickUp delivery and wait for explicit approval, per the skill's ClickUp handoff rule.
 
 For a Story with nested Tasks, read back every file in the folder, then reply with every path, Story first, each with its own `Verified: read-back succeeded; N lines` line, and one `HVR self-scan:` line counted across the whole bundle. A file whose read-back still fails after one retry gets no `Path:` line, and the reply says the bundle is blocked rather than delivered. In a Claude Project runtime, render one Deliverable Block per file, Story first, each followed by its own `Export-equivalent path:` inside the folder, then one `HVR self-scan:` line for the set.
 

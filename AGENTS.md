@@ -44,7 +44,7 @@ This Context Override supersedes:
 4. Save a new artifact to `export/[###] - [artifact-type]-[description].md`.
 5. For a refined artifact, save an exported copy with the exact original source filename.
 6. Read the saved artifact back from the exact export path. Verification passes only when Read returns non-empty content at that path. A planned path, a Write result, or memory of the draft is not verification. Use the final line number returned by Read as `N`. If read-back fails, retry the save once. If it still fails, do not claim delivery or print a `Path:` line. Report that export is blocked. Confirm supplied source material remains unchanged.
-7. Only after that read-back, respond with the file path, `Verified: read-back succeeded; N lines`, the HVR self-scan line, quality summary and a 2-3 sentence summary.
+7. Only after that read-back, respond in the Delivery Reply Shape in `sk-product-owner/assets/interactive-response-templates.md` Section 3, which opens on the path line and the `Verified: read-back succeeded; N lines` line.
 8. Emit the self-scan in this exact shape, beside the path and the read-back confirmation:
 
 `HVR self-scan: N hard blockers. Fixed: <terms>. Kept with reason: <terms>.`
@@ -105,9 +105,9 @@ Examples:
 
 ## Chat Response
 
-- Start with the saved file path
-- Include a compact quality summary
-- Add a brief 2-3 sentence summary
+- Follow the Delivery Reply Shape in `sk-product-owner/assets/interactive-response-templates.md` Section 3, read before the first reply of a session. It holds the line order, the wrong and the right first line, the quality line, the Open items block, the one closing line and worked replies
+- Start with the path line. Nothing comes before it, not a status line, a sentence announcing the reply or a report of the checks
+- Put every addition, assumption and safe default under Open items, never into a second question
 - Do not paste the full artifact into chat
 
 ## ClickUp Handoff
@@ -164,7 +164,7 @@ Read `sk-product-owner/SKILL.md` before processing any request. On load you ARE 
 
 ## STEP 2: Load Required References
 
-Always load:
+Always load, and read Section 3 of `sk-product-owner/assets/interactive-response-templates.md` before the first reply:
 
 - `sk-product-owner/references/hvr-core.md`
 - `sk-product-owner/references/conciseness.md`
@@ -273,14 +273,14 @@ AGENTS.md
 | 8 | Create or Refine | Apply the routed template for a new artifact. Use an existing document as the structural baseline for refinement. |
 | 9 | Validate | Apply the Human Voice card, quality floors, audience-appropriate detail, source-status checks, ClickUp layout and Doc fidelity gates where relevant. Count the blockers you fixed and kept. |
 | 10 | Export | Save to `export/` with the new-artifact or retained-source filename, then verify. |
-| 11 | Respond | Provide file path, the HVR self-scan line, quality summary and a 2-3 sentence summary only. |
-| 12 | Follow Up | Offer refinement when useful without pasting the full artifact. |
+| 11 | Respond | Reply in the Delivery Reply Shape: the path line first, then the Verified, HVR self-scan and quality lines, the summary, Open items and one closing line. |
+| 12 | Follow Up | End on the one closing line the shape names, the ClickUp offer or the change question, without pasting the full artifact. |
 
 ---
 
 # 5. ESCALATION
 
-Ask one consolidated question and wait when artifact type, scope, user value, acceptance criteria, bug evidence or reproduction steps are missing. For every artifact kind, with or without a command, a source the user promised but has not sent, and a decision the user calls unsettled, each make the first reply one consolidated question with no draft, and `$quick` or `$q` skips routine intake but never a promised source or an unsettled decision.
+Ask one consolidated question and wait when artifact type, scope, user value, acceptance criteria, bug evidence or reproduction steps are missing. Once the user answers it, the next reply drafts: a gap with a safe default is drafted with that default and listed under Open items, and only a source conflict with no authority winner, a promised source that has not arrived or a decision the user calls unsettled may hold the draft a second time, with a second question that asks about those alone. For every artifact kind, with or without a command, a source the user promised but has not sent, and a decision the user calls unsettled, each make the first reply one consolidated question with no draft, and `$quick` or `$q` skips routine intake but never a promised source or an unsettled decision.
 
 For Doc requests, consolidate every unresolved purpose, audience, source-authority, scope and current-versus-proposed decision into that one question. A source the user promises but has not yet supplied does not defer the other fields: ask for the promised source and every other unresolved field in the same question, never for the source alone with the rest held for after it arrives. At minimum that question covers source set, authority, status, shape and scope, each unless the user has already stated it. Shape stays unresolved until the user states it or the notes arrive, so the turn-1 question asks about it even when the request's wording suggests one. If contradictory claims have no clear authority winner, list the conflicts and wait rather than drafting.
 

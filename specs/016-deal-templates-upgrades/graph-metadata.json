@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "packet_id": "016-deal-templates-upgrades",
+  "spec_folder": "016-deal-templates-upgrades",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "deal templates upgrades",
+      "delivery reply shape",
+      "one question round",
+      "example lint",
+      "catalog em dash grant",
+      "deal templates upgrades plan",
+      "deal templates upgrades tasks",
+      "deal templates upgrades acceptance criteria",
+      "deal templates upgrades implementation summary"
+    ],
+    "key_topics": [
+      "deal",
+      "templates",
+      "upgrades",
+      "delivery",
+      "reply",
+      "shape",
+      "one",
+      "question",
+      "round",
+      "example",
+      "lint",
+      "catalog"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md",
+      "sk-product-owner/assets/interactive-response-templates.md",
+      "claude project/Custom Instructions.md",
+      "benchmark/format/run_fixtures.sh",
+      "benchmark/gates/example_lint.py",
+      "benchmark/gates/run_gates.sh",
+      "sk-product-owner/SKILL.md",
+      "sk-product-owner/assets/doc-templates.md",
+      "benchmark/format/validate-output-format.cjs",
+      "benchmark/router/run_fixtures.sh"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "interactive-response-templates.md",
+        "kind": "doc",
+        "path": "sk-product-owner/assets/interactive-response-templates.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "run_fixtures.sh",
+        "kind": "script",
+        "path": "benchmark/format/run_fixtures.sh",
+        "source": "derived"
+      },
+      {
+        "name": "example_lint.py",
+        "kind": "file",
+        "path": "benchmark/gates/example_lint.py",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "doc-templates.md",
+        "kind": "doc",
+        "path": "sk-product-owner/assets/doc-templates.md",
+        "source": "derived"
+      },
+      {
+        "name": "validate-output-format.cjs",
+        "kind": "file",
+        "path": "benchmark/format/validate-output-format.cjs",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Deal Templates",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Delivery Reply Shape",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement In",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Every",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "In the 2026-10-08 Haiku 5.5 run the 43 skill replies opened in ten different ways, three with a sentence before the path, and 19 carried bullets ending in a full stop",
+    "created_at": "2026-10-18T16:36:42Z",
+    "last_save_at": "2026-10-18T17:09:54.175Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:6c951f2d1c4631f8d550725ab1e0dac3f4a1f90ff33ac2b30b291a896745422e",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "df32a63e21b3dd281c6646748a5a84dc264c657c209774167ba73036873caaa1",
+      "plan.md": "8cc2c06dc3776ef7972e372d7baf0a121b61bfad67c31244105afe20e03e7f89",
+      "tasks.md": "fd8ede97990839cb265e338a9a48fb54bc03da148c5bbe17599620bb07f7f100",
+      "implementation-summary.md": "5b728cc5ec7e7b7796d3115d26541ec3d8eb31138ff1cb987ae927d77c79a472"
+    },
+    "last_active_at": null
+  }
+}
