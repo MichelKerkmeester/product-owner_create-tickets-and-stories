@@ -1,0 +1,28 @@
+{
+  "iteration": 16,
+  "focus": "The gates that will judge the embedded skill",
+  "newInfoRatio": 1.0,
+  "status": "complete",
+  "noveltyJustification": "All six findings are new gate-mechanics evidence, including the third-location declaration surface that no earlier iteration found.",
+  "answeredQuestions": [],
+  "ruledOut": ["Treating the PO repo as the whole verification surface", "Shipping examples for a new mode without the reply-shape lines"],
+  "sourcesQueried": [
+    "AI Systems/Product Owner/benchmark/parity/README.md",
+    "AI Systems/Product Owner/benchmark/gates/README.md"
+  ],
+  "findings": [
+    {"id": "f-iter016-001", "label": "The parity gate is shared and external: it lives in AI Systems/z — Claude Project Sync Loop, and PO's benchmark/parity holds five thin wrappers that pass a system id or directory and exec into it.", "sources": ["AI Systems/Product Owner/benchmark/parity/README.md:15"]},
+    {"id": "f-iter016-002", "label": "Pair declarations come from the shared systems.py, which holds 38 pairs for product-owner; a new skill-to-knowledge pair must be declared there, a third surface beyond the two repositories.", "sources": ["AI Systems/Product Owner/benchmark/gates/README.md:22", "AI Systems/Product Owner/benchmark/gates/README.md:113"]},
+    {"id": "f-iter016-003", "label": "Rule parity counts verbatim spans on both sides of every declared pair with a per-rule floor, so a new mirrored rule needs a grep-stable span and a floor rather than a paraphrase.", "sources": ["AI Systems/Product Owner/benchmark/gates/README.md:23", "AI Systems/Product Owner/benchmark/gates/README.md:38"]},
+    {"id": "f-iter016-004", "label": "Example lint validates every worked example and every Project example mirror plus each worked reply's required lines, so a new mode with examples inherits that shape contract.", "sources": ["AI Systems/Product Owner/benchmark/gates/README.md:27"]},
+    {"id": "f-iter016-005", "label": "Receipts are a required check: a missing or stale dated upload receipt is a finding under --receipts, so a green gate never proves deployment.", "sources": ["AI Systems/Product Owner/benchmark/parity/README.md:31", "AI Systems/Product Owner/benchmark/parity/README.md:48"]},
+    {"id": "f-iter016-006", "label": "The shared residency check holds every declared kernel statement to the kernel or its declared home, so moving a rule into a new knowledge document requires updating the declaration.", "sources": ["AI Systems/Product Owner/benchmark/parity/README.md:34"]}
+  ],
+  "graphEvents": [
+    {"type": "node", "id": "q-gates", "kind": "QUESTION", "label": "Which gates judge an embedded skill"},
+    {"type": "node", "id": "f-iter016-third-surface", "kind": "FINDING", "label": "Pair declarations live in a third shared file"},
+    {"type": "node", "id": "src-gates-readme", "kind": "SOURCE", "label": "PO gates README", "path": "AI Systems/Product Owner/benchmark/gates/README.md"},
+    {"type": "edge", "id": "e-iter016-001", "source": "f-iter016-third-surface", "target": "q-gates", "relation": "ANSWERS"},
+    {"type": "edge", "id": "e-iter016-002", "source": "f-iter016-third-surface", "target": "src-gates-readme", "relation": "CITES"}
+  ]
+}

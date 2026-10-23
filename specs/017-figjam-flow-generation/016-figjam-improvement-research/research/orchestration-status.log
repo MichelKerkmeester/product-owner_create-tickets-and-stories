@@ -1,0 +1,18 @@
+{"event":"started","label":"deepseek","index":0,"attempt":1,"at":"2026-10-20T20:11:29.586Z","gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T20:13:13.238Z","duration_ms":60003,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T20:14:13.240Z","duration_ms":120005,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T20:15:13.241Z","duration_ms":180006,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T20:16:13.244Z","duration_ms":240009,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T20:17:13.246Z","duration_ms":300011,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T20:18:13.248Z","duration_ms":360013,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T20:19:13.250Z","duration_ms":420015,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T20:20:13.251Z","duration_ms":480016,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T20:21:13.253Z","duration_ms":540018,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T20:22:13.256Z","duration_ms":600021,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T20:23:13.257Z","duration_ms":660022,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T20:24:13.258Z","duration_ms":720023,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T20:25:13.261Z","duration_ms":780026,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T20:26:13.263Z","duration_ms":840028,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"completed","label":"deepseek","index":0,"attempt":1,"at":"2026-10-20T20:27:36.304Z","duration_ms":966717,"terminal":true,"gauges":{"lag":0,"pending":0,"failed":0},"skippedCount":15,"slotDurationMs":966706.486417}
+{"event":"metadata_refresh_failed","status":"warning","spec_folder":"specs/z-staging-po-016-research","at":"2026-10-20T20:27:36.306Z","generator":"generate-description.js","exit_code":1,"stderr_tail":"Could not generate description (missing spec.md or unreadable content)"}
+{"event":"metadata_refresh_failed","status":"warning","spec_folder":"specs/z-staging-po-016-research","at":"2026-10-20T20:27:36.412Z","generator":"backfill-graph-metadata.js","exit_code":1,"stderr_tail":"backfill-graph-metadata: target is not a spec folder (folder name is not NNN-slug and there is no spec.md): /Users/michelkerkmeester/MEGA/Development/AI Systems/specs/z-staging-po-016-research"}

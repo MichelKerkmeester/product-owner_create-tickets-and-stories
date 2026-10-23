@@ -1,0 +1,18 @@
+{
+  "specFolder": "017-figjam-flow-generation/029-extension-fixes/012-er-cardinality-caps",
+  "description": "Phase 12: er-cardinality-caps",
+  "keywords": [
+    "phase",
+    "er-cardinality-caps"
+  ],
+  "lastUpdated": "2026-10-21T08:00:00.000Z",
+  "specId": "012",
+  "folderSlug": "er-cardinality-caps",
+  "parentChain": [
+    "017-figjam-flow-generation",
+    "029-extension-fixes"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

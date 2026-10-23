@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/029-extension-fixes",
+  "description": "Phase 29: extension-fixes",
+  "keywords": [
+    "phase",
+    "extension-fixes"
+  ],
+  "lastUpdated": "2026-10-21T08:00:00.000Z",
+  "specId": "029",
+  "folderSlug": "extension-fixes",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

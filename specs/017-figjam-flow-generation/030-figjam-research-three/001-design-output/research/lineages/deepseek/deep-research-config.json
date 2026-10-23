@@ -1,0 +1,94 @@
+{
+  "topic": "How can Product Owner's sk-create-figjam produce FigJam diagrams that look and read better? Study the finished board as a reader meets it: layout direction and spacing, grouping and sections, visual hierarchy and where the eye lands first, colour roles, palette and contrast, the shape vocabulary, connector routing and labels, density limits and when to split, titles, legends, stickies and callouts, text size and label length, and how several diagrams sit on one board. Separate what generate_diagram decides from what Mermaid input can steer and what use_figma extensions add afterwards. Compare against the diagram design rules in sk-design-diagram and sk-design-fundamentals, and against public diagram style guides and FigJam guidance. Also judge how board quality is measured today (the rubric and the playbook's board quality scorecard) and how it could be measured better.",
+  "maxIterations": 5,
+  "minIterations": 3,
+  "convergenceThreshold": 0.05,
+  "stopPolicy": "max-iterations",
+  "antiConvergence": {
+    "minIterations": 3,
+    "convergenceMode": "off",
+    "stopPolicy": "fail-closed",
+    "divergent": {}
+  },
+  "stuckThreshold": 3,
+  "minIdeaObservations": 2,
+  "maxDurationMinutes": 120,
+  "maxToolCallsPerIteration": 24,
+  "maxMinutesPerIteration": 10,
+  "progressiveSynthesis": true,
+  "specFolder": "specs/z-staging-po-030a",
+  "createdAt": "2026-10-21T06:24:59.000Z",
+  "resource_map_present": false,
+  "resource_map": {
+    "emit": true
+  },
+  "status": "complete",
+  "executionMode": "auto",
+  "fanout_lineage_artifact_dir": "/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/z-staging-po-030a/research/lineages/deepseek",
+  "fanout": {
+    "lineageLabel": "deepseek",
+    "parentSpecFolder": "specs/z-staging-po-030a",
+    "siblingLineages": [
+      "deepseek"
+    ]
+  },
+  "executor": {
+    "kind": "cli-pi",
+    "model": "deepseek-v4.1-flash",
+    "reasoningEffort": "max",
+    "serviceTier": null,
+    "sandboxMode": "workspace-write",
+    "timeoutSeconds": 900
+  },
+  "lineage": {
+    "sessionId": "fanout-deepseek-1792563734045-6evjmk",
+    "parentSessionId": null,
+    "lineageMode": "new",
+    "allowedModes": [
+      "new",
+      "resume",
+      "restart"
+    ],
+    "deferredModes": [
+      "fork",
+      "completed-continue"
+    ],
+    "generation": 1,
+    "continuedFromRun": null
+  },
+  "nextRunAt": null,
+  "remainingDelayMs": null,
+  "reducer": {
+    "enabled": true,
+    "version": "1.0",
+    "registryFile": "findings-registry.json",
+    "dashboardFile": "deep-research-dashboard.md",
+    "strategyFile": "deep-research-strategy.md",
+    "machineOwnedSections": [
+      "key-questions",
+      "answered-questions",
+      "what-worked",
+      "what-failed",
+      "exhausted-approaches",
+      "ruled-out-directions",
+      "divergence-frontier",
+      "next-focus"
+    ]
+  },
+  "capabilityMatrixPath": ".skilled/skills/system-deep-loop/deep-research/assets/runtime-capabilities.json",
+  "capabilityMatrixDocPath": ".skilled/skills/system-deep-loop/deep-research/references/guides/capability-matrix.md",
+  "runtimeCapabilityResolver": ".skilled/skills/system-deep-loop/deep-research/scripts/runtime-capabilities.cjs",
+  "reducerScriptPath": ".skilled/skills/system-deep-loop/deep-research/scripts/reduce-state.cjs",
+  "pauseSentinelPath": "specs/z-staging-po-030a/research/lineages/deepseek/.deep-research-pause",
+  "archiveRoot": "research_archive",
+  "migrationWindowDays": 28,
+  "fileProtection": {
+    "deep-research-config.json": "immutable",
+    "deep-research-state.jsonl": "append-only",
+    "deep-research-strategy.md": "mutable",
+    "deep-research-dashboard.md": "auto-generated",
+    "findings-registry.json": "auto-generated",
+    "iteration-*.md": "write-once",
+    "research.md": "mutable"
+  }
+}

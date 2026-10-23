@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/004-parent-hub-conversion",
+  "spec_folder": "017-figjam-flow-generation/004-parent-hub-conversion",
+  "parent_id": "017-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "parent hub conversion",
+      "figjam phase 4",
+      "parent hub conversion plan",
+      "parent hub conversion tasks",
+      "parent hub conversion acceptance criteria",
+      "parent hub conversion goal",
+      "parent hub conversion implementation summary"
+    ],
+    "key_topics": [
+      "parent",
+      "hub",
+      "conversion",
+      "figjam",
+      "phase",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary"
+    ],
+    "importance_tier": "normal",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "sk-product-owner/SKILL.md",
+      "sk-product-owner/ROUTER.md",
+      "benchmark/gates/check_hub.py",
+      "scratch/convert.py",
+      "scratch/fixes.py",
+      "scratch/hub.patch",
+      "scratch/sync-loop.patch"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "ROUTER.md",
+        "kind": "doc",
+        "path": "sk-product-owner/ROUTER.md",
+        "source": "derived"
+      },
+      {
+        "name": "check_hub.py",
+        "kind": "file",
+        "path": "benchmark/gates/check_hub.py",
+        "source": "derived"
+      },
+      {
+        "name": "convert.py",
+        "kind": "file",
+        "path": "scratch/convert.py",
+        "source": "derived"
+      },
+      {
+        "name": "fixes.py",
+        "kind": "file",
+        "path": "scratch/fixes.py",
+        "source": "derived"
+      },
+      {
+        "name": "hub.patch",
+        "kind": "file",
+        "path": "scratch/hub.patch",
+        "source": "derived"
+      },
+      {
+        "name": "sync-loop.patch",
+        "kind": "file",
+        "path": "scratch/sync-loop.patch",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Convert Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Moneybird Accountant",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Documentation Map",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Clean Architecture",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Product Owner is a single skill",
+    "created_at": "2026-10-20T02:35:19Z",
+    "last_save_at": "2026-10-20T04:53:10.538Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:f39de9ba1486bd5d277b81b19eb79819c24fbc110074c36cd8412f09ae5008be",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "8631e4611e431d13ecb2cfb496ff84c5ce13676edf91a192eb93f7b82d8d0dd4",
+      "plan.md": "dc4c304313c9bf19dc325fcbab582cb3a82ea1ac4d4d83a8a883b63dbc8330b1",
+      "tasks.md": "11cf8f024dd664f0553586088b8029b02956ea9dc9e6749efa991c0ae9c8d254",
+      "implementation-summary.md": "a87f8aca8f3c79cf8e21b00b5ebf25b22e1ea7937c2671bd514bab385729636a"
+    },
+    "last_active_at": null
+  }
+}

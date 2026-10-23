@@ -1,0 +1,1882 @@
+{
+  "sessionId": "fanout-deepseek-1792443686484-iqx882",
+  "parentSessionId": null,
+  "lineageMode": "new",
+  "generation": 1,
+  "continuedFromRun": null,
+  "terminalStop": {
+    "stopReason": "maxIterationsReached",
+    "totalIterations": 20,
+    "answeredCount": 4,
+    "totalQuestions": 5,
+    "timestamp": "2026-10-19T21:13:56.834Z"
+  },
+  "keyQuestions": [
+    {
+      "id": "question-1-what-can-the-figma-mcp-build-read-and-refuse-inside-figjam-and-what-are-its-hard",
+      "inboxId": null,
+      "text": "What can the Figma MCP build, read and refuse inside FigJam, and what are its hard limits?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": null,
+      "resolved": false
+    },
+    {
+      "id": "question-2-how-does-each-input-type-screenshot-or-figma-frame-flow-or-product-doc-become-a-",
+      "inboxId": null,
+      "text": "How does each input type, screenshot or Figma frame flow or product doc, become a flow model before any FigJam write?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5,
+      "resolved": true
+    },
+    {
+      "id": "question-3-which-sk-design-diagram-flow-rules-carry-over-to-figjam-and-which-need-a-figjam-",
+      "inboxId": null,
+      "text": "Which sk-design-diagram flow rules carry over to FigJam, and which need a FigJam-native replacement?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 7,
+      "resolved": true
+    },
+    {
+      "id": "question-4-how-should-a-product-owner-copy-of-mcp-figma-be-embedded-plugin-packaged-and-syn",
+      "inboxId": null,
+      "text": "How should a Product Owner copy of mcp-figma be embedded, plugin-packaged and synced back to .skilled across two repositories?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 14,
+      "resolved": true
+    },
+    {
+      "id": "question-5-what-must-product-owner-change-to-become-a-parent-hub-and-which-media-editor-and",
+      "inboxId": null,
+      "text": "What must Product Owner change to become a parent hub, and which Media Editor and Moneybird Accountant lessons and risks apply?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 15,
+      "resolved": true
+    }
+  ],
+  "openQuestions": [
+    {
+      "id": "question-1-what-can-the-figma-mcp-build-read-and-refuse-inside-figjam-and-what-are-its-hard",
+      "inboxId": null,
+      "text": "What can the Figma MCP build, read and refuse inside FigJam, and what are its hard limits?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": null
+    }
+  ],
+  "resolvedQuestions": [
+    {
+      "id": "question-2-how-does-each-input-type-screenshot-or-figma-frame-flow-or-product-doc-become-a-",
+      "inboxId": null,
+      "text": "How does each input type, screenshot or Figma frame flow or product doc, become a flow model before any FigJam write?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5
+    },
+    {
+      "id": "question-3-which-sk-design-diagram-flow-rules-carry-over-to-figjam-and-which-need-a-figjam-",
+      "inboxId": null,
+      "text": "Which sk-design-diagram flow rules carry over to FigJam, and which need a FigJam-native replacement?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 7
+    },
+    {
+      "id": "question-4-how-should-a-product-owner-copy-of-mcp-figma-be-embedded-plugin-packaged-and-syn",
+      "inboxId": null,
+      "text": "How should a Product Owner copy of mcp-figma be embedded, plugin-packaged and synced back to .skilled across two repositories?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 14
+    },
+    {
+      "id": "question-5-what-must-product-owner-change-to-become-a-parent-hub-and-which-media-editor-and",
+      "inboxId": null,
+      "text": "What must Product Owner change to become a parent hub, and which Media Editor and Moneybird Accountant lessons and risks apply?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 15
+    }
+  ],
+  "carriedForwardOpenQuestions": [],
+  "uncoveredQuestions": [
+    "What can the Figma MCP build, read and refuse inside FigJam, and what are its hard limits?"
+  ],
+  "keyFindings": [
+    {
+      "id": "finding-1-4-every-figjam-write-is-classed-mutating-and-therefore-needs-confirmation-plus-an-",
+      "text": "Every FigJam write is classed MUTATING and therefore needs confirmation plus an explicit target plus a one-line rollback before it runs; destructive `fj delete` and arbitrary `fj eval` are omitted from the normal path entirely. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:51] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:184]",
+      "addedAtIteration": 1,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:17,51,149-152,184,190-191,222,235`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348,360,372`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17,32-40,68`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/README.md:16,26,78,99,109`"
+      ]
+    },
+    {
+      "id": "finding-1-1-figjam-authoring-exists-only-in-the-cli-surface-as-the-fj-command-group-fj-list-",
+      "text": "FigJam authoring exists only in the CLI surface, as the `fj` command group: `fj list|info|nodes` is read-only, `fj sticky|shape|text|connect|move|update` is mutating, `fj delete <nodeId> [-p]` is destructive, and `fj eval <code> [-p]` is arbitrary execution. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348]",
+      "addedAtIteration": 1,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:17,51,149-152,184,190-191,222,235`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348,360,372`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17,32-40,68`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/README.md:16,26,78,99,109`"
+      ]
+    },
+    {
+      "id": "finding-1-5-figjam-writes-cannot-run-headless-the-cli-drives-the-live-figma-desktop-app-over",
+      "text": "FigJam writes cannot run headless: the CLI drives the live Figma Desktop app over a local daemon on `127.0.0.1:3456`, needs the app open with a file, needs Node 18+, and treats macOS as the supported baseline with Linux and Windows experimental. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/README.md:26] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/README.md:99]",
+      "addedAtIteration": 1,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:17,51,149-152,184,190-191,222,235`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348,360,372`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17,32-40,68`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/README.md:16,26,78,99,109`"
+      ]
+    },
+    {
+      "id": "finding-1-6-the-documented-command-surface-drifts-from-the-source-so-a-figjam-verb-and-its-f",
+      "text": "The documented command surface drifts from the source, so a FigJam verb and its flags must be verified with `<bin> <command> --help` before being written into a Product Owner procedure; the skill records documented-but-unregistered commands and primitive-name drift as confirmed gaps. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:17] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:372]",
+      "addedAtIteration": 1,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:17,51,149-152,184,190-191,222,235`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348,360,372`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17,32-40,68`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/README.md:16,26,78,99,109`"
+      ]
+    },
+    {
+      "id": "finding-1-2-the-figma-mcp-direction-available-in-this-repo-is-read-only-design-context-the-r",
+      "text": "The Figma MCP direction available in this repo is read-only design context: the registered `figma` manual is the third-party Framelink `figma-developer-mcp` over stdio, which wraps the Figma REST API and \"does not drive Figma Desktop\", so it cannot create or edit FigJam nodes. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:35] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:68]",
+      "addedAtIteration": 1,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:17,51,149-152,184,190-191,222,235`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348,360,372`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17,32-40,68`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/README.md:16,26,78,99,109`"
+      ]
+    },
+    {
+      "id": "finding-1-3-the-skill-s-premise-is-cli-primary-with-an-optional-mcp-figma-ds-cli-is-the-cano",
+      "text": "The skill's premise is CLI-primary with an optional MCP: `figma-ds-cli` is the canonical binary, and a full read of the CLI repo found no MCP server inside it; an \"MCP for Figma\" is always a separate external server. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:360]",
+      "addedAtIteration": 1,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:17,51,149-152,184,190-191,222,235`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348,360,372`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17,32-40,68`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/README.md:16,26,78,99,109`"
+      ]
+    },
+    {
+      "id": "finding-2-6-inference-from-1-5-screenshot-input-needs-a-new-handler-that-a-selects-one-flow-",
+      "text": "Inference from 1-5: screenshot input needs a new handler that (a) selects one `Flow/<platform>` folder, (b) runs OCR and detection only on labels, states and target elements, and (c) emits nodes from filenames plus grounded OCR evidence, because no existing Product Owner surface consumes images. [INFERENCE: based on the AGENTS.md boundary list, the sk-vision tool inventory, and the screenshot folder layout]",
+      "addedAtIteration": 2,
+      "sources": [
+        "`Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/` (Flow and Components subtrees, both platforms)",
+        "`.skilled/sk-vision/SKILL.md:11,33-45`",
+        "`AI Systems/Product Owner/AGENTS.md:7,10`"
+      ]
+    },
+    {
+      "id": "finding-2-5-product-owner-today-has-no-figma-screenshot-or-diagram-routing-at-all-its-bootst",
+      "text": "Product Owner today has no Figma, screenshot or diagram routing at all: its bootstrap names exactly one skill, `sk-product-owner`, and lists backlog and doc artifacts as its outputs, with no image or diagram input in the boundary list. [SOURCE: AI Systems/Product Owner/AGENTS.md:7] [SOURCE: AI Systems/Product Owner/AGENTS.md:10]",
+      "addedAtIteration": 2,
+      "sources": [
+        "`Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/` (Flow and Components subtrees, both platforms)",
+        "`.skilled/sk-vision/SKILL.md:11,33-45`",
+        "`AI Systems/Product Owner/AGENTS.md:7,10`"
+      ]
+    },
+    {
+      "id": "finding-2-3-scale-is-a-selection-problem-not-a-processing-problem-the-corpus-holds-341-pngs-",
+      "text": "Scale is a selection problem, not a processing problem: the corpus holds 341 PNGs, so a Product Owner procedure must take one flow folder (7 steps in Change Location) rather than ingest the whole library. [SOURCE: Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/Flow]",
+      "addedAtIteration": 2,
+      "sources": [
+        "`Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/` (Flow and Components subtrees, both platforms)",
+        "`.skilled/sk-vision/SKILL.md:11,33-45`",
+        "`AI Systems/Product Owner/AGENTS.md:7,10`"
+      ]
+    },
+    {
+      "id": "finding-2-2-screenshot-filenames-encode-the-trigger-and-the-post-state-in-prose-dashboard-cl",
+      "text": "Screenshot filenames encode the trigger and the post-state in prose (\"Dashboard - Click_ Location Selector\", \"Dashboard - Location Change - Success\", \"Sheet - Menu - Locations - Click_ Location\"), so a flow folder yields node labels and transition intents without reading pixels first. [SOURCE: Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/Flow/Mobile/Sheet - Menu - Locations - Click_ Location.png]",
+      "addedAtIteration": 2,
+      "sources": [
+        "`Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/` (Flow and Components subtrees, both platforms)",
+        "`.skilled/sk-vision/SKILL.md:11,33-45`",
+        "`AI Systems/Product Owner/AGENTS.md:7,10`"
+      ]
+    },
+    {
+      "id": "finding-2-4-the-only-local-pixel-reader-available-to-a-text-only-model-is-sk-vision-which-ex",
+      "text": "The only local pixel reader available to a text-only model is `sk-vision`, which exposes 13 `sk_vision_*` tools for OCR, scene inspection, detection, pointing and pixel analysis with no API key and no cloud upload; its default posture is opt-in and idle, and a fresh clone needs a one-time Bun build before the tools work. [SOURCE: .skilled/sk-vision/SKILL.md:11] [SOURCE: .skilled/sk-vision/SKILL.md:38]",
+      "addedAtIteration": 2,
+      "sources": [
+        "`Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/` (Flow and Components subtrees, both platforms)",
+        "`.skilled/sk-vision/SKILL.md:11,33-45`",
+        "`AI Systems/Product Owner/AGENTS.md:7,10`"
+      ]
+    },
+    {
+      "id": "finding-2-1-the-screenshot-corpus-is-already-a-flow-model-on-disk-product-context-a-screensh",
+      "text": "The screenshot corpus is already a flow model on disk: `Product Context/a — Screenshots/<product>/<area>/Flows/<flow>/Flow/<platform>/` holds ordered step captures, while a sibling `Components/<platform>/` holds reusable states and variants. The Change Location flow ships 7 step images across Desktop and Mobile plus 6 component images. [SOURCE: Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/Flow/Desktop/Dashboard - Click_ Location Selector.png] [SOURCE: Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/Components/Desktop/Dropdown.png]",
+      "addedAtIteration": 2,
+      "sources": [
+        "`Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/` (Flow and Components subtrees, both platforms)",
+        "`.skilled/sk-vision/SKILL.md:11,33-45`",
+        "`AI Systems/Product Owner/AGENTS.md:7,10`"
+      ]
+    },
+    {
+      "id": "finding-3-4-a-frame-flow-is-still-enumerable-with-grounded-evidence-node-tree-yields-the-fra",
+      "text": "A frame flow is still enumerable with grounded evidence: `node tree` yields the frame hierarchy and names, `inspect` yields per-node specs, and `export screenshot` yields pixels that `sk-vision` can read, so a flow can be reconstructed node by node without guessing. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:112] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:137]",
+      "addedAtIteration": 3,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:108,112,137,149-152,153,203,248`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348,372`"
+      ]
+    },
+    {
+      "id": "finding-3-1-design-file-reading-is-a-separate-verb-family-from-figjam-writing-files-lists-op",
+      "text": "Design-file reading is a separate verb family from FigJam writing: `files` lists open design files, `node tree` and `node bindings` show hierarchy and bindings, `get`/`inspect` read node properties and specs, and `export screenshot|node|css|tailwind` writes files. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:108] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:112] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:153]",
+      "addedAtIteration": 3,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:108,112,137,149-152,153,203,248`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348,372`"
+      ]
+    },
+    {
+      "id": "finding-3-6-every-claim-in-1-5-is-documentation-grade-rather-than-live-verified-in-this-envi",
+      "text": "Every claim in 1-5 is documentation-grade rather than live-verified in this environment, because the CLI was not installed or executed here; the skill itself records the docs-versus-source drift as a confirmed gap and demands `<bin> <command> --help` before reliance. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:372] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:248]",
+      "addedAtIteration": 3,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:108,112,137,149-152,153,203,248`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348,372`"
+      ]
+    },
+    {
+      "id": "finding-3-5-large-design-files-fragment-on-read-extract-writes-design-md-and-auto-splits-int",
+      "text": "Large design files fragment on read: `extract` writes `DESIGN.md` and auto-splits into a `DESIGN-structure/` directory above roughly 50k tokens, so intake must pin one frame subtree instead of extracting a whole file. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:203]",
+      "addedAtIteration": 3,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:108,112,137,149-152,153,203,248`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348,372`"
+      ]
+    },
+    {
+      "id": "finding-3-3-no-cross-file-operation-is-documented-anywhere-in-the-skill-the-fj-verbs-act-on-",
+      "text": "No cross-file operation is documented anywhere in the skill: the `fj` verbs act on FigJam pages and nodes, the design verbs act on the open design file, and neither the tool surface nor the CLI reference names a \"copy design frames into a FigJam board\" path. [INFERENCE: based on the verb inventory at tool-surface.md:108-153 and the FigJam group at 149-152, plus the absence of any bridge row]",
+      "addedAtIteration": 3,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:108,112,137,149-152,153,203,248`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348,372`"
+      ]
+    },
+    {
+      "id": "finding-3-2-the-figjam-write-surface-contains-exactly-six-mutating-verbs-fj-sticky-shape-tex",
+      "text": "The FigJam write surface contains exactly six mutating verbs, `fj sticky|shape|text|connect|move|update`, and no image, frame, section, table, code-block or file-embed verb. A Figma frame therefore cannot be placed into a FigJam board through the documented surface; only its content can be retyped as FigJam nodes. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348]",
+      "addedAtIteration": 3,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:108,112,137,149-152,153,203,248`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348,372`"
+      ]
+    },
+    {
+      "id": "finding-4-6-inference-product-docs-supply-variables-steps-conditions-and-expected-outcomes-b",
+      "text": "Inference: product docs supply variables, steps, conditions and expected outcomes, but not states, visual hierarchy, platform split or coordinates, so a doc-sourced flow needs the most model-side invention of the three input types. [INFERENCE: based on the doc lane's artifact list at SKILL.md:29 and the export-first contract at AGENTS.md:37-46]",
+      "addedAtIteration": 4,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md:26,29,34,58,62`",
+        "`AI Systems/Product Owner/AGENTS.md:37,44,46`"
+      ]
+    },
+    {
+      "id": "finding-4-1-product-owner-s-only-existing-figma-touchpoint-is-textual-its-activation-trigger",
+      "text": "Product Owner's only existing Figma touchpoint is textual: its activation triggers include \"Figma feedback or product notes turned into task-ready outcomes\", so Figma enters the system as narrative to be rewritten, never as a visual artifact to be produced. [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:26]",
+      "addedAtIteration": 4,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md:26,29,34,58,62`",
+        "`AI Systems/Product Owner/AGENTS.md:37,44,46`"
+      ]
+    },
+    {
+      "id": "finding-4-4-routing-is-command-exact-with-confidence-thresholds-so-a-figjam-flow-request-has",
+      "text": "Routing is command-exact with confidence thresholds, so a FigJam flow request has to become a new intent and command; it cannot ride an existing lane without contradicting the router contract. [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:58] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:62]",
+      "addedAtIteration": 4,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md:26,29,34,58,62`",
+        "`AI Systems/Product Owner/AGENTS.md:37,44,46`"
+      ]
+    },
+    {
+      "id": "finding-4-3-the-doc-lane-explicitly-covers-behavior-references-runbooks-architecture-documen",
+      "text": "The doc lane explicitly covers behavior references, runbooks, architecture documents and technical proposals, which is exactly the prose that carries ordered steps, actors and conditions a flow model needs. [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:29]",
+      "addedAtIteration": 4,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md:26,29,34,58,62`",
+        "`AI Systems/Product Owner/AGENTS.md:37,44,46`"
+      ]
+    },
+    {
+      "id": "finding-4-5-the-export-protocol-is-a-blocking-requirement-to-save-every-artifact-as-markdown",
+      "text": "The export protocol is a blocking requirement to save every artifact as markdown under `export/` and verify it by read-back, so a FigJam-only deliverable has no compliant home unless the contract gains a named exception or a markdown receipt that points at the board. [SOURCE: AI Systems/Product Owner/AGENTS.md:37] [SOURCE: AI Systems/Product Owner/AGENTS.md:44] [SOURCE: AI Systems/Product Owner/AGENTS.md:46]",
+      "addedAtIteration": 4,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md:26,29,34,58,62`",
+        "`AI Systems/Product Owner/AGENTS.md:37,44,46`"
+      ]
+    },
+    {
+      "id": "finding-4-2-the-skill-has-five-artifact-lanes-task-bug-doc-story-and-epic-all-producing-clic",
+      "text": "The skill has five artifact lanes, task, bug, doc, story and epic, all producing ClickUp-ready markdown; none of them produces a diagram, canvas or FigJam artifact. [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:34]",
+      "addedAtIteration": 4,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md:26,29,34,58,62`",
+        "`AI Systems/Product Owner/AGENTS.md:37,44,46`"
+      ]
+    },
+    {
+      "id": "finding-5-6-because-figjam-is-the-only-output-named-by-the-topic-the-intermediate-model-must",
+      "text": "Because FigJam is the only output named by the topic, the intermediate model must stay transient: it can live as a fenced block inside the markdown receipt, but it must not become a second deliverable that competes with the board. [SOURCE: specs/z-staging-po-017-research/research/lineages/deepseek/deep-research-strategy.md:27]",
+      "addedAtIteration": 5,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:112,149,150`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348`",
+        "`AI Systems/Product Owner/AGENTS.md:46`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/deep-research-strategy.md:27`",
+        "Screenshot flow folders from iteration 2"
+      ]
+    },
+    {
+      "id": "finding-5-3-connector-creation-needs-node-identifiers-as-inputs-yet-the-skill-documents-no-r",
+      "text": "Connector creation needs node identifiers as inputs, yet the skill documents no return contract for the creation verbs; the only documented way to resolve ids after a write is reading them back through `fj nodes` or `fj info`. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348]",
+      "addedAtIteration": 5,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:112,149,150`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348`",
+        "`AI Systems/Product Owner/AGENTS.md:46`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/deep-research-strategy.md:27`",
+        "Screenshot flow folders from iteration 2"
+      ]
+    },
+    {
+      "id": "finding-5-5-evidence-bearing-nodes-are-feasible-and-cheap-product-owner-already-proves-read-",
+      "text": "Evidence-bearing nodes are feasible and cheap: Product Owner already proves read-back discipline as its completion gate, so each node can carry its source path while the board itself stays the only delivered artifact. [SOURCE: AI Systems/Product Owner/AGENTS.md:46]",
+      "addedAtIteration": 5,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:112,149,150`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348`",
+        "`AI Systems/Product Owner/AGENTS.md:46`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/deep-research-strategy.md:27`",
+        "Screenshot flow folders from iteration 2"
+      ]
+    },
+    {
+      "id": "finding-5-1-no-input-type-supplies-a-complete-edge-screenshots-supply-step-order-plus-a-trig",
+      "text": "No input type supplies a complete edge. Screenshots supply step order plus a trigger phrase in the filename, Figma frames supply hierarchy and names but not transitions, and product docs supply conditions and outcomes but not visual states; an edge of the form source, target and condition label must always be synthesized by the agent. [SOURCE: Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/Flow/Mobile/Sheet - Menu - Locations - Click_ Location.png] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:112]",
+      "addedAtIteration": 5,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:112,149,150`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348`",
+        "`AI Systems/Product Owner/AGENTS.md:46`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/deep-research-strategy.md:27`",
+        "Screenshot flow folders from iteration 2"
+      ]
+    },
+    {
+      "id": "finding-5-4-the-minimum-representation-therefore-is-nodes-carrying-an-id-a-kind-from-a-small",
+      "text": "The minimum representation therefore is: nodes carrying an id, a kind from a small vocabulary (start, end, step, decision, state, note), a label and a platform/source pointer; edges carrying a source, a target and an optional condition label; plus layout order and grouping hints, because move and update exist but no automatic layout verb does. [INFERENCE: derived from the verb inventory at tool-surface.md:150 and the input evidence in iteration 2-4]",
+      "addedAtIteration": 5,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:112,149,150`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348`",
+        "`AI Systems/Product Owner/AGENTS.md:46`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/deep-research-strategy.md:27`",
+        "Screenshot flow folders from iteration 2"
+      ]
+    },
+    {
+      "id": "finding-5-2-the-six-write-verbs-set-the-ceiling-on-what-the-model-may-contain-sticky-shape-a",
+      "text": "The six write verbs set the ceiling on what the model may contain: sticky, shape and text create nodes, connect creates an edge between nodes, and move and update position or relabel them. Images, tables, code blocks, sections and embedded files are outside the documented FigJam surface, so the model may not require them. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150]",
+      "addedAtIteration": 5,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:112,149,150`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348`",
+        "`AI Systems/Product Owner/AGENTS.md:46`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/deep-research-strategy.md:27`",
+        "Screenshot flow folders from iteration 2"
+      ]
+    },
+    {
+      "id": "finding-6-2-layout-and-labelling-rules-follow-flow-runs-top-to-bottom-a-diamond-conventional",
+      "text": "Layout and labelling rules follow: flow runs top to bottom, a diamond conventionally exits Yes to the right and No below, every outgoing arrow is labelled regardless of convention, coral appears only on the happy path or the single most consequential decision, and a crossing arrow gets a small arc jump. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:25] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:26]",
+      "addedAtIteration": 6,
+      "sources": [
+        "`.skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:15,20-32`",
+        "`.skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh:74-88`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:10,42`"
+      ]
+    },
+    {
+      "id": "finding-6-4-one-of-those-anti-patterns-is-already-machine-checked-on-the-ascii-path-the-vali",
+      "text": "One of those anti-patterns is already machine-checked on the ASCII path: the validator counts decision words and fails the run with an error when decision points exist but no YES/NO labels are found. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh:82]",
+      "addedAtIteration": 6,
+      "sources": [
+        "`.skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:15,20-32`",
+        "`.skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh:74-88`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:10,42`"
+      ]
+    },
+    {
+      "id": "finding-6-6-the-diagram-skill-itself-cannot-render-a-figjam-board-it-supports-only-html-svg-",
+      "text": "The diagram skill itself cannot render a FigJam board: it supports only `html-svg` and `ascii-markdown`, and its skip list names a canvas artifact as out of scope, so a FigJam path must port the rules rather than reuse the renderer. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:10] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:42]",
+      "addedAtIteration": 6,
+      "sources": [
+        "`.skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:15,20-32`",
+        "`.skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh:74-88`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:10,42`"
+      ]
+    },
+    {
+      "id": "finding-6-1-the-flowchart-type-is-defined-by-a-shape-carries-type-grammar-oval-for-start-and",
+      "text": "The flowchart type is defined by a shape-carries-type grammar: oval for start and end, rectangle for step or action, diamond for a decision with at most three exits, and a small filled ink dot for a merge point where branches rejoin. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:20]",
+      "addedAtIteration": 6,
+      "sources": [
+        "`.skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:15,20-32`",
+        "`.skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh:74-88`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:10,42`"
+      ]
+    },
+    {
+      "id": "finding-6-5-the-type-s-stated-fit-is-decision-logic-algorithms-user-facing-branching-flows-o",
+      "text": "The type's stated fit is decision logic, algorithms, user-facing branching flows, onboarding routing and support-triage trees, which matches the Product Owner input material rather than an architecture diagram's component vocabulary. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:15]",
+      "addedAtIteration": 6,
+      "sources": [
+        "`.skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:15,20-32`",
+        "`.skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh:74-88`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:10,42`"
+      ]
+    },
+    {
+      "id": "finding-6-3-three-anti-patterns-are-named-explicitly-using-fill-color-to-signal-node-type-a-",
+      "text": "Three anti-patterns are named explicitly: using fill color to signal node type, a decision with four or more exits, and unlabelled decision branches. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:29]",
+      "addedAtIteration": 6,
+      "sources": [
+        "`.skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:15,20-32`",
+        "`.skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh:74-88`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:10,42`"
+      ]
+    },
+    {
+      "id": "finding-7-5-edge-labelling-is-the-highest-risk-rule-if-fj-connect-cannot-carry-a-label-every",
+      "text": "Edge labelling is the highest-risk rule: if `fj connect` cannot carry a label, every condition becomes either a text node beside the connector or a suffix inside the target node's label, and the second option is the only one that cannot drift out of alignment. [INFERENCE: based on the six-verb surface at tool-surface.md:150 and the labelling rule at type-flowchart.md:25]",
+      "addedAtIteration": 7,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348`",
+        "`.skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:20-32`",
+        "`.skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh:82`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:42`"
+      ]
+    },
+    {
+      "id": "finding-7-2-four-rules-are-portable-unchanged-because-they-are-model-level-not-renderer-leve",
+      "text": "Four rules are portable unchanged because they are model-level, not renderer-level: a labelled exit on every edge, at most three exits per decision, no colour-encoded node types, and one emphasis colour used only for the happy path or a single consequential decision. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:25] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:29]",
+      "addedAtIteration": 7,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348`",
+        "`.skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:20-32`",
+        "`.skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh:82`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:42`"
+      ]
+    },
+    {
+      "id": "finding-7-1-shape-carries-type-survives-as-intent-but-not-as-a-verified-contract-fj-shape-ex",
+      "text": "Shape-carries-type survives as intent but not as a verified contract: `fj shape` exists, yet neither the tool surface nor the CLI reference enumerates which shape kinds or flags it accepts, so a FigJam vocabulary of rectangle, diamond and rounded shape must be confirmed with `--help` before it is written into the skill. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348]",
+      "addedAtIteration": 7,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348`",
+        "`.skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:20-32`",
+        "`.skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh:82`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:42`"
+      ]
+    },
+    {
+      "id": "finding-7-6-the-enforcement-layer-must-move-with-the-rules-the-ascii-validator-cannot-run-ag",
+      "text": "The enforcement layer must move with the rules: the ASCII validator cannot run against a FigJam board, and no FigJam validator exists, so the pipeline needs its own model check (three-exit ceiling, labelled branches, node-kind vocabulary) that runs before any write. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh:82] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:42]",
+      "addedAtIteration": 7,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348`",
+        "`.skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:20-32`",
+        "`.skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh:82`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:42`"
+      ]
+    },
+    {
+      "id": "finding-7-3-three-rules-are-unenforceable-in-figjam-and-need-a-substitute-the-merge-dot-has-",
+      "text": "Three rules are unenforceable in FigJam and need a substitute: the merge dot has no verb, so branches rejoin by connecting several edges to one target node; the arc jump for crossings has no equivalent, so crossings are avoided by column placement; and the HTML/SVG shape rendering has no import path, so shapes are created one node at a time. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150]",
+      "addedAtIteration": 7,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348`",
+        "`.skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:20-32`",
+        "`.skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh:82`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:42`"
+      ]
+    },
+    {
+      "id": "finding-7-4-top-to-bottom-layout-remains-a-rule-but-becomes-expensive-there-is-no-automatic-",
+      "text": "Top-to-bottom layout remains a rule but becomes expensive: there is no automatic layout verb in the FigJam group, only `move` and `update`, so the pipeline must compute positions for every node and edge instead of relying on a renderer. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150]",
+      "addedAtIteration": 7,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348`",
+        "`.skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:20-32`",
+        "`.skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh:82`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:42`"
+      ]
+    },
+    {
+      "id": "finding-8-3-graph-metadata-json-declares-skill-identity-and-inter-skill-edges-skill-id-famil",
+      "text": "`graph-metadata.json` declares skill identity and inter-skill edges: `skill_id`, `family`, `category`, `depends_on`, `enhances`, `siblings`, `conflicts_with` and `prerequisite_for`, plus domains and intent signals. A new skill must declare where it sits relative to `sk-product-owner` and the MCP transport, not just exist on disk. [SOURCE: AI Systems/Product Owner/sk-product-owner/graph-metadata.json:3] [SOURCE: AI Systems/Product Owner/sk-product-owner/graph-metadata.json:9]",
+      "addedAtIteration": 8,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:2,9,11`",
+        "`AI Systems/Product Owner/sk-product-owner/graph-metadata.json:3,9`",
+        "`AI Systems/Product Owner/sk-product-owner/leaf-aliases.json:1-8`",
+        "`AI Systems/Product Owner/AGENTS.md:7`",
+        "`AI Systems/Product Owner/.git` (nested repository)"
+      ]
+    },
+    {
+      "id": "finding-8-1-a-product-owner-skill-is-a-self-contained-leaf-package-with-a-fixed-part-list-sk",
+      "text": "A Product Owner skill is a self-contained leaf package with a fixed part list: `SKILL.md`, `graph-metadata.json`, `leaf-manifest.json`, `leaf-manifest.config.json`, `leaf-aliases.json`, plus `references/`, `assets/`, `changelog/`, `manual-testing-playbook/` and `README.md`. [SOURCE: AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:2]",
+      "addedAtIteration": 8,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:2,9,11`",
+        "`AI Systems/Product Owner/sk-product-owner/graph-metadata.json:3,9`",
+        "`AI Systems/Product Owner/sk-product-owner/leaf-aliases.json:1-8`",
+        "`AI Systems/Product Owner/AGENTS.md:7`",
+        "`AI Systems/Product Owner/.git` (nested repository)"
+      ]
+    },
+    {
+      "id": "finding-8-6-adding-a-second-skill-touches-four-surfaces-at-once-a-new-skill-directory-the-bo",
+      "text": "Adding a second skill touches four surfaces at once: a new skill directory, the bootstrap routing line in `AGENTS.md` that today names only `sk-product-owner`, the generated manifests, and the Project-side documentation; a package-only copy would not route. [SOURCE: AI Systems/Product Owner/AGENTS.md:7] [SOURCE: AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:9]",
+      "addedAtIteration": 8,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:2,9,11`",
+        "`AI Systems/Product Owner/sk-product-owner/graph-metadata.json:3,9`",
+        "`AI Systems/Product Owner/sk-product-owner/leaf-aliases.json:1-8`",
+        "`AI Systems/Product Owner/AGENTS.md:7`",
+        "`AI Systems/Product Owner/.git` (nested repository)"
+      ]
+    },
+    {
+      "id": "finding-8-4-product-owner-is-its-own-git-repository-nested-inside-the-workspace-which-is-the",
+      "text": "Product Owner is its own git repository nested inside the workspace, which is the concrete form of the \"two git repos\" in the topic; the skill package lives in the nested repo while the shared skill lives in the workspace repo. [SOURCE: AI Systems/Product Owner/.git]",
+      "addedAtIteration": 8,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:2,9,11`",
+        "`AI Systems/Product Owner/sk-product-owner/graph-metadata.json:3,9`",
+        "`AI Systems/Product Owner/sk-product-owner/leaf-aliases.json:1-8`",
+        "`AI Systems/Product Owner/AGENTS.md:7`",
+        "`AI Systems/Product Owner/.git` (nested repository)"
+      ]
+    },
+    {
+      "id": "finding-8-5-the-current-package-is-explicitly-a-standalone-single-mode-skill-with-no-mode-re",
+      "text": "The current package is explicitly a standalone single-mode skill with no `mode-registry.json`, so a parent-hub conversion is a structural change to how skills are declared, not a configuration toggle. [SOURCE: AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:9]",
+      "addedAtIteration": 8,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:2,9,11`",
+        "`AI Systems/Product Owner/sk-product-owner/graph-metadata.json:3,9`",
+        "`AI Systems/Product Owner/sk-product-owner/leaf-aliases.json:1-8`",
+        "`AI Systems/Product Owner/AGENTS.md:7`",
+        "`AI Systems/Product Owner/.git` (nested repository)"
+      ]
+    },
+    {
+      "id": "finding-8-2-the-manifest-is-generated-not-hand-maintained-the-config-names-generate-leaf-man",
+      "text": "The manifest is generated, not hand-maintained: the config names `generate-leaf-manifest.cjs` as the producer and says `leaf-aliases.json` is the derived identity projection, regenerated together through `ci-skill-root-metadata.cjs --fix`. An embedded skill therefore needs the generator in its loop or its manifests rot. [SOURCE: AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:11]",
+      "addedAtIteration": 8,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:2,9,11`",
+        "`AI Systems/Product Owner/sk-product-owner/graph-metadata.json:3,9`",
+        "`AI Systems/Product Owner/sk-product-owner/leaf-aliases.json:1-8`",
+        "`AI Systems/Product Owner/AGENTS.md:7`",
+        "`AI Systems/Product Owner/.git` (nested repository)"
+      ]
+    },
+    {
+      "id": "finding-9-1-plugin-identity-is-minimal-claude-plugin-plugin-json-carries-five-fields-name-ve",
+      "text": "Plugin identity is minimal: `.claude-plugin/plugin.json` carries five fields (name, version, description, author, license) plus keywords, and `.claude-plugin/marketplace.json` declares a one-plugin local marketplace whose source is `./`. [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/plugin.json:2] [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/marketplace.json:9]",
+      "addedAtIteration": 9,
+      "sources": [
+        "`AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/plugin.json:2-11`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/marketplace.json:9-14`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:15,24,31,76-83`"
+      ]
+    },
+    {
+      "id": "finding-9-6-runtime-cost-sits-outside-the-plugin-node-20-9-0-must-already-be-on-the-path-the",
+      "text": "Runtime cost sits outside the plugin: Node 20.9.0 must already be on the PATH the session sees, and one pinned ffmpeg build exists per platform. [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:24]",
+      "addedAtIteration": 9,
+      "sources": [
+        "`AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/plugin.json:2-11`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/marketplace.json:9-14`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:15,24,31,76-83`"
+      ]
+    },
+    {
+      "id": "finding-9-4-the-build-already-enforces-three-refusals-that-solve-the-duplicate-drift-problem",
+      "text": "The build already enforces three refusals that solve the duplicate-drift problem: it fails if any copied file differs from its source, refuses a server that unpacks with any link, and refuses a `plugin.json` that registers an MCP server. [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:83]",
+      "addedAtIteration": 9,
+      "sources": [
+        "`AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/plugin.json:2-11`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/marketplace.json:9-14`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:15,24,31,76-83`"
+      ]
+    },
+    {
+      "id": "finding-9-3-the-copied-skill-is-a-wholesale-copy-of-sk-media-editor-the-build-replaces-the-w",
+      "text": "The copied skill is a wholesale copy of `../../sk-media-editor/`, the build replaces the whole `skills/` folder each time, and the documented workflow is \"edit the skill there and rebuild\", with the copy never treated as a source. [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:83]",
+      "addedAtIteration": 9,
+      "sources": [
+        "`AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/plugin.json:2-11`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/marketplace.json:9-14`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:15,24,31,76-83`"
+      ]
+    },
+    {
+      "id": "finding-9-2-the-plugin-is-a-build-output-not-a-hand-authored-tree-npm-run-bundle-builds-a-pl",
+      "text": "The plugin is a build output, not a hand-authored tree: `npm run bundle` builds a platform bundle, `npm run plugin` unpacks `server/`, copies the skill into `skills/sk-media-editor/` and writes the `bin/` shims, and all three of those directories are explicitly not tracked. [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:31] [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:78]",
+      "addedAtIteration": 9,
+      "sources": [
+        "`AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/plugin.json:2-11`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/marketplace.json:9-14`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:15,24,31,76-83`"
+      ]
+    },
+    {
+      "id": "finding-9-5-the-plugin-registers-no-mcp-server-which-the-readme-names-as-an-accepted-cost-cl",
+      "text": "The plugin registers no MCP server, which the README names as an accepted cost: claude.ai and Cowork do not install a plugin carrying a `bin/` folder, so this plugin reaches Claude Code only and a claude.ai Project needs a separate Desktop extension that is an MCP server. [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:15]",
+      "addedAtIteration": 9,
+      "sources": [
+        "`AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/plugin.json:2-11`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/marketplace.json:9-14`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:15,24,31,76-83`"
+      ]
+    },
+    {
+      "id": "finding-10-3-a-safety-rule-that-treated-any-download-redirect-as-a-failure-made-installs-impo",
+      "text": "A safety rule that treated any download redirect as a failure made installs impossible on eight of ten pinned platform URLs, because GitHub serves release assets through a signed redirect; the rule was amended the same day to allow exactly one host-checked redirect. A protective rule can silently reduce platform coverage. [SOURCE: AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/decision-record.md:163] [SOURCE: AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/decision-record.md:179]",
+      "addedAtIteration": 10,
+      "sources": [
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55,122,132`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/acceptance-criteria.md:63`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/decision-record.md:163,179`",
+        "`AI Systems/Media Editor/sk-media-editor/changelog/v0.8.0.0.md:83,121`",
+        "`AI Systems/Product Owner/SYNC.md:44`"
+      ]
+    },
+    {
+      "id": "finding-10-5-a-skill-rename-propagated-into-every-packaging-surface-at-once-the-plugin-copy-p",
+      "text": "A skill rename propagated into every packaging surface at once: the plugin copy path, the Project knowledge names and the re-upload and rebuild steps all had to move in the same release, and the build's whole-folder replacement exists so an old-name copy cannot ship beside the new one. [SOURCE: AI Systems/Media Editor/sk-media-editor/changelog/v0.8.0.0.md:83] [SOURCE: AI Systems/Media Editor/sk-media-editor/changelog/v0.8.0.0.md:121]",
+      "addedAtIteration": 10,
+      "sources": [
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55,122,132`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/acceptance-criteria.md:63`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/decision-record.md:163,179`",
+        "`AI Systems/Media Editor/sk-media-editor/changelog/v0.8.0.0.md:83,121`",
+        "`AI Systems/Product Owner/SYNC.md:44`"
+      ]
+    },
+    {
+      "id": "finding-10-6-bundled-tool-behavior-differences-become-operator-decisions-rather-than-test-out",
+      "text": "Bundled-tool behavior differences become operator decisions rather than test outcomes: when the shipped ffmpeg changed how it copies audio into MP4, the phase recorded the trade-off and left the choice to the operator instead of silently re-encoding. [SOURCE: AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:122]",
+      "addedAtIteration": 10,
+      "sources": [
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55,122,132`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/acceptance-criteria.md:63`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/decision-record.md:163,179`",
+        "`AI Systems/Media Editor/sk-media-editor/changelog/v0.8.0.0.md:83,121`",
+        "`AI Systems/Product Owner/SYNC.md:44`"
+      ]
+    },
+    {
+      "id": "finding-10-1-claude-code-supplies-no-node-for-a-bundle-and-does-not-expand-a-bundle-s-folder-",
+      "text": "Claude Code supplies no Node for a bundle and does not expand a bundle's folder settings, so the plugin's `plugin.json` must run `node` and the README must document Node as an external requirement; the original Node 18 claim was superseded by the package's own 20.9.0 engines floor. [SOURCE: AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55] [SOURCE: AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/acceptance-criteria.md:63]",
+      "addedAtIteration": 10,
+      "sources": [
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55,122,132`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/acceptance-criteria.md:63`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/decision-record.md:163,179`",
+        "`AI Systems/Media Editor/sk-media-editor/changelog/v0.8.0.0.md:83,121`",
+        "`AI Systems/Product Owner/SYNC.md:44`"
+      ]
+    },
+    {
+      "id": "finding-10-2-the-plugin-build-resolves-a-skill-s-linked-rule-files-into-real-files-and-fails-",
+      "text": "The plugin build resolves a skill's linked rule files into real files and fails when any copied file differs from its source or when the unpacked server holds a link; Product Owner had already replaced four shared rule symlinks with regular-file copies for the same standalone-clone reason. [SOURCE: AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55] [SOURCE: AI Systems/Product Owner/SYNC.md:44]",
+      "addedAtIteration": 10,
+      "sources": [
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55,122,132`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/acceptance-criteria.md:63`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/decision-record.md:163,179`",
+        "`AI Systems/Media Editor/sk-media-editor/changelog/v0.8.0.0.md:83,121`",
+        "`AI Systems/Product Owner/SYNC.md:44`"
+      ]
+    },
+    {
+      "id": "finding-10-4-the-test-suite-resolved-a-development-binary-while-the-shipped-plugin-carried-a-",
+      "text": "The test suite resolved a development binary while the shipped plugin carried a different pinned build, and running against the shipped pair produced 45 failures unrelated to capability. Shipped-payload parity needs its own test pass, not the development dependency's word. [SOURCE: AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:122]",
+      "addedAtIteration": 10,
+      "sources": [
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55,122,132`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/acceptance-criteria.md:63`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/decision-record.md:163,179`",
+        "`AI Systems/Media Editor/sk-media-editor/changelog/v0.8.0.0.md:83,121`",
+        "`AI Systems/Product Owner/SYNC.md:44`"
+      ]
+    },
+    {
+      "id": "finding-11-5-a-hub-ships-its-own-consistency-checkers-check-route-table-py-proves-the-hub-fil",
+      "text": "A hub ships its own consistency checkers: `check-route-table.py` proves the hub files, the registry packets and their routers agree and that no packet `SKILL.md` embeds a router again, while `route-replay.py` scores packet chains against the routing rules. [SOURCE: AI Systems/Moneybird Accountant/SKILL.md:38]",
+      "addedAtIteration": 11,
+      "sources": [
+        "`AI Systems/Moneybird Accountant/hub-router.json:1-12`",
+        "`AI Systems/Moneybird Accountant/mode-registry.json:1-30`",
+        "`AI Systems/Moneybird Accountant/SKILL.md:10,30,32,38`",
+        "`AI Systems/Moneybird Accountant/cli-moneybird/ROUTER.md:1-20`"
+      ]
+    },
+    {
+      "id": "finding-11-1-a-parent-hub-is-two-small-registries-hub-router-json-carries-a-version-routerpol",
+      "text": "A parent hub is two small registries: `hub-router.json` carries a version, `routerPolicy` with `defaultMode`, `handoff` and `fallback`, plus per-mode keyword signals, and `mode-registry.json` carries the hub name and one row per mode with `workflowMode`, `packet`, `packetSkillName`, `packetKind` (workflow or tool), `router` and `default`. [SOURCE: AI Systems/Moneybird Accountant/hub-router.json:1] [SOURCE: AI Systems/Moneybird Accountant/mode-registry.json:1]",
+      "addedAtIteration": 11,
+      "sources": [
+        "`AI Systems/Moneybird Accountant/hub-router.json:1-12`",
+        "`AI Systems/Moneybird Accountant/mode-registry.json:1-30`",
+        "`AI Systems/Moneybird Accountant/SKILL.md:10,30,32,38`",
+        "`AI Systems/Moneybird Accountant/cli-moneybird/ROUTER.md:1-20`"
+      ]
+    },
+    {
+      "id": "finding-11-6-each-packet-under-the-hub-is-itself-a-full-package-with-its-own-router-md-skill-",
+      "text": "Each packet under the hub is itself a full package with its own `ROUTER.md`, `SKILL.md`, `graph-metadata.json`, leaf manifests, changelog, benchmark and playbook, so hub conversion composes packages rather than flattening them. [SOURCE: AI Systems/Moneybird Accountant/cli-moneybird/ROUTER.md:1]",
+      "addedAtIteration": 11,
+      "sources": [
+        "`AI Systems/Moneybird Accountant/hub-router.json:1-12`",
+        "`AI Systems/Moneybird Accountant/mode-registry.json:1-30`",
+        "`AI Systems/Moneybird Accountant/SKILL.md:10,30,32,38`",
+        "`AI Systems/Moneybird Accountant/cli-moneybird/ROUTER.md:1-20`"
+      ]
+    },
+    {
+      "id": "finding-11-3-routing-is-explicitly-two-stage-and-bounded-stage-one-picks-the-packet-from-the-",
+      "text": "Routing is explicitly two-stage and bounded: stage one picks the packet from the registry and signals, stage two is the packet's own router, so a request reads only the routing of the packets it actually uses. [SOURCE: AI Systems/Moneybird Accountant/SKILL.md:30]",
+      "addedAtIteration": 11,
+      "sources": [
+        "`AI Systems/Moneybird Accountant/hub-router.json:1-12`",
+        "`AI Systems/Moneybird Accountant/mode-registry.json:1-30`",
+        "`AI Systems/Moneybird Accountant/SKILL.md:10,30,32,38`",
+        "`AI Systems/Moneybird Accountant/cli-moneybird/ROUTER.md:1-20`"
+      ]
+    },
+    {
+      "id": "finding-11-4-the-default-mode-is-the-workflow-packet-and-a-request-starts-there-unless-it-nam",
+      "text": "The default mode is the workflow packet, and a request starts there unless it names a CLI operation; a strictly CLI-named request starts in the named tool packet, and a CLI name matches whole words only. [SOURCE: AI Systems/Moneybird Accountant/SKILL.md:32]",
+      "addedAtIteration": 11,
+      "sources": [
+        "`AI Systems/Moneybird Accountant/hub-router.json:1-12`",
+        "`AI Systems/Moneybird Accountant/mode-registry.json:1-30`",
+        "`AI Systems/Moneybird Accountant/SKILL.md:10,30,32,38`",
+        "`AI Systems/Moneybird Accountant/cli-moneybird/ROUTER.md:1-20`"
+      ]
+    },
+    {
+      "id": "finding-11-2-the-hub-s-own-skill-md-is-a-packet-picker-not-a-capability-it-states-that-the-re",
+      "text": "The hub's own `SKILL.md` is a packet picker, not a capability: it states that the repository root is a parent hub over three packets, that this file picks the packet, that the packet's `ROUTER.md` routes inside it, and that the packet's `SKILL.md` holds the contract. [SOURCE: AI Systems/Moneybird Accountant/SKILL.md:10]",
+      "addedAtIteration": 11,
+      "sources": [
+        "`AI Systems/Moneybird Accountant/hub-router.json:1-12`",
+        "`AI Systems/Moneybird Accountant/mode-registry.json:1-30`",
+        "`AI Systems/Moneybird Accountant/SKILL.md:10,30,32,38`",
+        "`AI Systems/Moneybird Accountant/cli-moneybird/ROUTER.md:1-20`"
+      ]
+    },
+    {
+      "id": "finding-12-3-a-fresh-reviewer-found-four-p1-defects-in-that-build-an-agents-md-read-order-tha",
+      "text": "A fresh reviewer found four P1 defects in that build: an `AGENTS.md` read order that contradicted the hub, a write-contract check that lost the accountant `SKILL.md` pointer line, four checks that passed with nothing to test, and about fifty stale pointers to `SKILL.md` section 2. [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:74]",
+      "addedAtIteration": 12,
+      "sources": [
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:54,74`",
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:54,56,58,78`"
+      ]
+    },
+    {
+      "id": "finding-12-1-hub-conversion-is-a-routing-move-with-a-small-surface-a-routing-only-root-skill-",
+      "text": "Hub conversion is a routing move with a small surface: a routing-only root `SKILL.md` picks the packet, `mode-registry.json` and `hub-router.json` name the packets and signals, each packet's former section 2 moves to a `ROUTER.md`, and each packet `SKILL.md` section 2 becomes a short pointer; the whole change shipped as one commit. [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:54]",
+      "addedAtIteration": 12,
+      "sources": [
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:54,74`",
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:54,56,58,78`"
+      ]
+    },
+    {
+      "id": "finding-12-5-hub-scoring-needed-its-own-evidence-the-follow-up-phase-rewrote-stage-one-resolu",
+      "text": "Hub scoring needed its own evidence: the follow-up phase rewrote stage-one resolution, added 19 HUB gold rows, and made the write-contract check hold `AGENTS.md`, the accountant `ROUTER.md` and the CLI `SKILL.md` to the contract each on its own; its review found prefix matching (\"Jortt clients\" hitting `jortt cli`) and a double handoff. [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:54] [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:78]",
+      "addedAtIteration": 12,
+      "sources": [
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:54,74`",
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:54,56,58,78`"
+      ]
+    },
+    {
+      "id": "finding-12-6-the-audit-surfaced-structural-metadata-debt-nine-phase-folders-lacked-descriptio",
+      "text": "The audit surfaced structural metadata debt: nine phase folders lacked `description.json` and `graph-metadata.json` and gained them in the follow-up phase. [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:58]",
+      "addedAtIteration": 12,
+      "sources": [
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:54,74`",
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:54,56,58,78`"
+      ]
+    },
+    {
+      "id": "finding-12-4-the-blast-radius-is-tooling-rather-than-prose-every-script-that-read-routing-had",
+      "text": "The blast radius is tooling rather than prose: every script that read routing had to read `ROUTER.md`, including the route table checker, route replay, exit-code parity, write-contract check, English-first and word-count checks, fragment checks, reference index, token baseline, eval runner and regression-trailer check, each with tests. [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:54]",
+      "addedAtIteration": 12,
+      "sources": [
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:54,74`",
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:54,56,58,78`"
+      ]
+    },
+    {
+      "id": "finding-12-2-the-first-design-used-one-root-router-md-for-all-three-packets-and-was-rejected-",
+      "text": "The first design used one root `ROUTER.md` for all three packets and was rejected on a measured token cost: an accountant request rose from 9,635 to 16,664 `o200k_base` tokens, an increase of roughly 73 percent, so the operator chose one router per packet and the move was rebuilt. [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:74]",
+      "addedAtIteration": 12,
+      "sources": [
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:54,74`",
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:54,56,58,78`"
+      ]
+    },
+    {
+      "id": "finding-13-5-kernel-review-is-a-human-gate-with-a-dated-artifact-claude-project-kernel-review",
+      "text": "Kernel review is a human gate with a dated artifact: `claude project/kernel-review.json` records reviewer, decision, `kernelSha256`, kernel version and aligned skill version, and says plainly that nothing reads the file because parity is checked by the parity benchmark plus hand reading. [SOURCE: AI Systems/Product Owner/claude project/kernel-review.json:1]",
+      "addedAtIteration": 13,
+      "sources": [
+        "`AI Systems/Product Owner/SYNC.md:9-17,44`",
+        "`AGENTS.md:127-140`",
+        "`AI Systems/Product Owner/claude project/kernel-review.json:1-14`",
+        "`AI Systems/Product Owner/claude project/knowledge/` (37 files)",
+        "`AI Systems/z — Knowledge/` (shared card library)"
+      ]
+    },
+    {
+      "id": "finding-13-2-no-manifest-lock-file-or-checksum-ledger-is-kept-the-retired-compiler-s-claude-p",
+      "text": "No manifest, lock file or checksum ledger is kept; the retired compiler's `claude-project.sync.json` and generated regions were archived, and parity is now a reviewer obligation rather than a generated artifact. [SOURCE: AI Systems/Product Owner/SYNC.md:17]",
+      "addedAtIteration": 13,
+      "sources": [
+        "`AI Systems/Product Owner/SYNC.md:9-17,44`",
+        "`AGENTS.md:127-140`",
+        "`AI Systems/Product Owner/claude project/kernel-review.json:1-14`",
+        "`AI Systems/Product Owner/claude project/knowledge/` (37 files)",
+        "`AI Systems/z — Knowledge/` (shared card library)"
+      ]
+    },
+    {
+      "id": "finding-13-1-product-owner-s-project-package-is-hand-written-under-a-four-step-manual-parity-",
+      "text": "Product Owner's Project package is hand-written under a four-step manual parity method: list each skill file against its Project counterpart, decide which paragraphs apply inside a Project, check the read-only drift list, and record each review as a dated sentence. [SOURCE: AI Systems/Product Owner/SYNC.md:9]",
+      "addedAtIteration": 13,
+      "sources": [
+        "`AI Systems/Product Owner/SYNC.md:9-17,44`",
+        "`AGENTS.md:127-140`",
+        "`AI Systems/Product Owner/claude project/kernel-review.json:1-14`",
+        "`AI Systems/Product Owner/claude project/knowledge/` (37 files)",
+        "`AI Systems/z — Knowledge/` (shared card library)"
+      ]
+    },
+    {
+      "id": "finding-13-4-shared-rule-cards-live-in-ai-systems-z-knowledge-and-product-owner-vendors-four-",
+      "text": "Shared rule cards live in `AI Systems/z — Knowledge/`, and Product Owner vendors four of them as regular-file copies because a symlink that climbs out of the repository resolves to nothing once the public repo is cloned; the parity declaration names them `vendored_shared_copies` so a card change turns the system red until the card is copied over its copy. [SOURCE: AI Systems/Product Owner/SYNC.md:44]",
+      "addedAtIteration": 13,
+      "sources": [
+        "`AI Systems/Product Owner/SYNC.md:9-17,44`",
+        "`AGENTS.md:127-140`",
+        "`AI Systems/Product Owner/claude project/kernel-review.json:1-14`",
+        "`AI Systems/Product Owner/claude project/knowledge/` (37 files)",
+        "`AI Systems/z — Knowledge/` (shared card library)"
+      ]
+    },
+    {
+      "id": "finding-13-6-the-result-is-a-three-hop-manual-chain-shared-card-then-vendored-skill-copy-then",
+      "text": "The result is a three-hop manual chain: shared card, then vendored skill copy, then Project mirror, with drift detected only by comparing commit timestamps between a skill file and its counterpart. [INFERENCE: based on the manual parity steps at SYNC.md:9-15 and the vendoring rule at SYNC.md:44]",
+      "addedAtIteration": 13,
+      "sources": [
+        "`AI Systems/Product Owner/SYNC.md:9-17,44`",
+        "`AGENTS.md:127-140`",
+        "`AI Systems/Product Owner/claude project/kernel-review.json:1-14`",
+        "`AI Systems/Product Owner/claude project/knowledge/` (37 files)",
+        "`AI Systems/z — Knowledge/` (shared card library)"
+      ]
+    },
+    {
+      "id": "finding-13-3-the-workspace-contract-agrees-and-adds-the-missing-piece-a-hand-written-mirror-p",
+      "text": "The workspace contract agrees and adds the missing piece: a hand-written mirror proves neither human review nor live deployment, review is recorded only after the named human confirms it, and deployment is claimed only with a current receipt and passing smoke evidence. [SOURCE: AGENTS.md:138]",
+      "addedAtIteration": 13,
+      "sources": [
+        "`AI Systems/Product Owner/SYNC.md:9-17,44`",
+        "`AGENTS.md:127-140`",
+        "`AI Systems/Product Owner/claude project/kernel-review.json:1-14`",
+        "`AI Systems/Product Owner/claude project/knowledge/` (37 files)",
+        "`AI Systems/z — Knowledge/` (shared card library)"
+      ]
+    },
+    {
+      "id": "finding-14-1-build-output-duplication-with-a-source-difference-refusal-is-the-only-drift-proo",
+      "text": "Build-output duplication with a source-difference refusal is the only drift-proof pattern demonstrated locally: the Media Editor plugin copies the skill on every build, replaces the whole folder, and fails when any copied file differs from its source. [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:83] [SOURCE: AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55]",
+      "addedAtIteration": 14,
+      "sources": [
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:83`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55`",
+        "`AI Systems/Product Owner/SYNC.md:9,17,44`",
+        "`AGENTS.md:127,138`"
+      ]
+    },
+    {
+      "id": "finding-14-4-no-local-precedent-exists-for-sharing-a-skill-through-a-git-submodule-a-subtree-",
+      "text": "No local precedent exists for sharing a skill through a git submodule, a subtree merge, or a published package; adopting one would be an unproven step in a phase whose scope is research, and none of the two precedents uses either. [INFERENCE: based on the two precedent records and the absence of submodule or package-publishing mechanics in both skill packages]",
+      "addedAtIteration": 14,
+      "sources": [
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:83`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55`",
+        "`AI Systems/Product Owner/SYNC.md:9,17,44`",
+        "`AGENTS.md:127,138`"
+      ]
+    },
+    {
+      "id": "finding-14-3-symlinks-are-disproven-in-this-workspace-a-link-that-climbs-out-of-the-repositor",
+      "text": "Symlinks are disproven in this workspace: a link that climbs out of the repository resolves to nothing once cloned, and the plugin build refuses any link in an unpacked payload. [SOURCE: AI Systems/Product Owner/SYNC.md:44] [SOURCE: AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55]",
+      "addedAtIteration": 14,
+      "sources": [
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:83`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55`",
+        "`AI Systems/Product Owner/SYNC.md:9,17,44`",
+        "`AGENTS.md:127,138`"
+      ]
+    },
+    {
+      "id": "finding-14-6-the-best-available-path-is-therefore-one-generated-hop-with-a-refusal-plus-one-m",
+      "text": "The best available path is therefore one generated hop with a refusal plus one manual hop with a dated record; claiming a fully automated sync would require abandoning the manual parity contract that the root rules require. [SOURCE: AGENTS.md:127] [SOURCE: AI Systems/Product Owner/SYNC.md:17]",
+      "addedAtIteration": 14,
+      "sources": [
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:83`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55`",
+        "`AI Systems/Product Owner/SYNC.md:9,17,44`",
+        "`AGENTS.md:127,138`"
+      ]
+    },
+    {
+      "id": "finding-14-5-the-first-hop-shared-skill-to-product-owner-copy-is-generatable-because-both-end",
+      "text": "The first hop, shared skill to Product Owner copy, is generatable because both ends are git-tracked files with a stable path; the second hop, copy to Claude Project mirror, is not, because the contract requires a per-paragraph human decision and a named reviewer's dated record. [SOURCE: AI Systems/Product Owner/SYNC.md:9] [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:83]",
+      "addedAtIteration": 14,
+      "sources": [
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:83`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55`",
+        "`AI Systems/Product Owner/SYNC.md:9,17,44`",
+        "`AGENTS.md:127,138`"
+      ]
+    },
+    {
+      "id": "finding-14-2-vendored-copies-with-an-explicit-declaration-are-the-fallback-when-generation-is",
+      "text": "Vendored copies with an explicit declaration are the fallback when generation is impossible, and Product Owner already runs that pattern for four shared rule cards, accepting that a card change turns the system red until the copy is refreshed. [SOURCE: AI Systems/Product Owner/SYNC.md:44]",
+      "addedAtIteration": 14,
+      "sources": [
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:83`",
+        "`AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55`",
+        "`AI Systems/Product Owner/SYNC.md:9,17,44`",
+        "`AGENTS.md:127,138`"
+      ]
+    },
+    {
+      "id": "finding-15-6-ordering-is-load-bearing-registries-first-then-the-packet-router-md-then-the-boo",
+      "text": "Ordering is load-bearing: registries first, then the packet `ROUTER.md`, then the bootstrap pointers, then the Project mirror, then the fixtures, because every later step cites the path the earlier step created. [INFERENCE: based on the Moneybird build order in its phase record and the PO bootstrap's path list]",
+      "addedAtIteration": 15,
+      "sources": [
+        "`AI Systems/Product Owner/AGENTS.md:159,186,200,230`",
+        "`AI Systems/Moneybird Accountant/SKILL.md:30`",
+        "`AI Systems/Product Owner/benchmark/router/run_fixtures.sh`",
+        "`AI Systems/Product Owner/benchmark/format/run_fixtures.sh`",
+        "`AI Systems/Product Owner/SYNC.md:19,20,27`"
+      ]
+    },
+    {
+      "id": "finding-15-4-product-owner-already-owns-the-checkers-a-hub-change-stresses-a-router-fixture-r",
+      "text": "Product Owner already owns the checkers a hub change stresses: a router fixture runner with a differential corpus and route contract, and a format fixture runner with its validator, both named as the system's own pre-upload verification. [SOURCE: AI Systems/Product Owner/benchmark/router/run_fixtures.sh:1] [SOURCE: AI Systems/Product Owner/benchmark/format/run_fixtures.sh:1] [SOURCE: AI Systems/Product Owner/SYNC.md:27]",
+      "addedAtIteration": 15,
+      "sources": [
+        "`AI Systems/Product Owner/AGENTS.md:159,186,200,230`",
+        "`AI Systems/Moneybird Accountant/SKILL.md:30`",
+        "`AI Systems/Product Owner/benchmark/router/run_fixtures.sh`",
+        "`AI Systems/Product Owner/benchmark/format/run_fixtures.sh`",
+        "`AI Systems/Product Owner/SYNC.md:19,20,27`"
+      ]
+    },
+    {
+      "id": "finding-15-1-product-owner-s-bootstrap-has-four-routing-surfaces-that-move-together-section-3",
+      "text": "Product Owner's bootstrap has four routing surfaces that move together: Section 3 STEP 1 names the skill to load, the Command Registry table lists every command, Routing Compatibility maps commands, and Document Loading Order plus the Full DAG list every path a request may read. [SOURCE: AI Systems/Product Owner/AGENTS.md:159] [SOURCE: AI Systems/Product Owner/AGENTS.md:186] [SOURCE: AI Systems/Product Owner/AGENTS.md:200] [SOURCE: AI Systems/Product Owner/AGENTS.md:230]",
+      "addedAtIteration": 15,
+      "sources": [
+        "`AI Systems/Product Owner/AGENTS.md:159,186,200,230`",
+        "`AI Systems/Moneybird Accountant/SKILL.md:30`",
+        "`AI Systems/Product Owner/benchmark/router/run_fixtures.sh`",
+        "`AI Systems/Product Owner/benchmark/format/run_fixtures.sh`",
+        "`AI Systems/Product Owner/SYNC.md:19,20,27`"
+      ]
+    },
+    {
+      "id": "finding-15-2-the-command-registry-is-a-closed-table-of-six-commands-plus-quick-so-a-figjam-fl",
+      "text": "The command registry is a closed table of six commands plus `$quick`, so a FigJam flow command must be added there and in every other place that lists commands, including the skill router and the Project kernel. [SOURCE: AI Systems/Product Owner/AGENTS.md:186]",
+      "addedAtIteration": 15,
+      "sources": [
+        "`AI Systems/Product Owner/AGENTS.md:159,186,200,230`",
+        "`AI Systems/Moneybird Accountant/SKILL.md:30`",
+        "`AI Systems/Product Owner/benchmark/router/run_fixtures.sh`",
+        "`AI Systems/Product Owner/benchmark/format/run_fixtures.sh`",
+        "`AI Systems/Product Owner/SYNC.md:19,20,27`"
+      ]
+    },
+    {
+      "id": "finding-15-3-the-hub-conversion-adds-two-registry-files-at-the-product-owner-root-and-makes-t",
+      "text": "The hub conversion adds two registry files at the Product Owner root and makes them stage one of Section 3, with the packet's own `ROUTER.md` as stage two, exactly as the Moneybird hub does today. [SOURCE: AI Systems/Product Owner/AGENTS.md:159] [SOURCE: AI Systems/Moneybird Accountant/SKILL.md:30]",
+      "addedAtIteration": 15,
+      "sources": [
+        "`AI Systems/Product Owner/AGENTS.md:159,186,200,230`",
+        "`AI Systems/Moneybird Accountant/SKILL.md:30`",
+        "`AI Systems/Product Owner/benchmark/router/run_fixtures.sh`",
+        "`AI Systems/Product Owner/benchmark/format/run_fixtures.sh`",
+        "`AI Systems/Product Owner/SYNC.md:19,20,27`"
+      ]
+    },
+    {
+      "id": "finding-15-5-the-project-mirror-needs-three-coordinated-edits-not-one-a-new-knowledge-documen",
+      "text": "The Project mirror needs three coordinated edits, not one: a new knowledge document for the new mode, the kernel's command list, and a kernel H1 version bump in the same change, because a Project reader sees only those files and a kernel whose rules moved while its version stood still cannot be dated. [SOURCE: AI Systems/Product Owner/SYNC.md:19] [SOURCE: AI Systems/Product Owner/SYNC.md:20]",
+      "addedAtIteration": 15,
+      "sources": [
+        "`AI Systems/Product Owner/AGENTS.md:159,186,200,230`",
+        "`AI Systems/Moneybird Accountant/SKILL.md:30`",
+        "`AI Systems/Product Owner/benchmark/router/run_fixtures.sh`",
+        "`AI Systems/Product Owner/benchmark/format/run_fixtures.sh`",
+        "`AI Systems/Product Owner/SYNC.md:19,20,27`"
+      ]
+    },
+    {
+      "id": "finding-16-4-example-lint-validates-every-worked-example-and-every-project-example-mirror-the",
+      "text": "Example lint validates every worked example and every Project example mirror, then reads each worked reply for its required lines, so a new mode that ships examples inherits that linter's shape requirements. [SOURCE: AI Systems/Product Owner/benchmark/gates/README.md:27]",
+      "addedAtIteration": 16,
+      "sources": [
+        "`AI Systems/Product Owner/benchmark/parity/README.md:15-48`",
+        "`AI Systems/Product Owner/benchmark/gates/README.md:22-38,113`"
+      ]
+    },
+    {
+      "id": "finding-16-2-pair-declarations-come-from-the-shared-systems-py-and-the-gate-reads-38-declared",
+      "text": "Pair declarations come from the shared `systems.py`, and the gate reads 38 declared pairs for `product-owner`; a new skill-to-knowledge pair must be declared there, which makes the shared declaration a third surface beyond the two repositories. [SOURCE: AI Systems/Product Owner/benchmark/gates/README.md:22] [SOURCE: AI Systems/Product Owner/benchmark/gates/README.md:113]",
+      "addedAtIteration": 16,
+      "sources": [
+        "`AI Systems/Product Owner/benchmark/parity/README.md:15-48`",
+        "`AI Systems/Product Owner/benchmark/gates/README.md:22-38,113`"
+      ]
+    },
+    {
+      "id": "finding-16-5-receipts-are-a-required-check-under-receipts-a-missing-or-stale-dated-upload-rec",
+      "text": "Receipts are a required check: under `--receipts` a missing or stale dated upload receipt is a finding and the run exits 1, so a green gate never proves deployment on its own. [SOURCE: AI Systems/Product Owner/benchmark/parity/README.md:31] [SOURCE: AI Systems/Product Owner/benchmark/parity/README.md:48]",
+      "addedAtIteration": 16,
+      "sources": [
+        "`AI Systems/Product Owner/benchmark/parity/README.md:15-48`",
+        "`AI Systems/Product Owner/benchmark/gates/README.md:22-38,113`"
+      ]
+    },
+    {
+      "id": "finding-16-3-rule-parity-counts-verbatim-spans-on-both-sides-of-every-declared-pair-with-a-pe",
+      "text": "Rule parity counts verbatim spans on both sides of every declared pair with a per-rule floor, and the gate names six rules with the exact phrases that carry them; a new mirrored rule needs a grep-stable span and a floor, not a paraphrase. [SOURCE: AI Systems/Product Owner/benchmark/gates/README.md:23] [SOURCE: AI Systems/Product Owner/benchmark/gates/README.md:38]",
+      "addedAtIteration": 16,
+      "sources": [
+        "`AI Systems/Product Owner/benchmark/parity/README.md:15-48`",
+        "`AI Systems/Product Owner/benchmark/gates/README.md:22-38,113`"
+      ]
+    },
+    {
+      "id": "finding-16-1-the-parity-gate-is-shared-and-lives-outside-the-product-owner-repository-ai-syst",
+      "text": "The parity gate is shared and lives outside the Product Owner repository: `AI Systems/z — Claude Project Sync Loop/` decides whether the hand-authored Project package matches its skill sources, and PO's `benchmark/parity/` holds only five wrappers that hand over a system id or directory and exec into it. [SOURCE: AI Systems/Product Owner/benchmark/parity/README.md:15]",
+      "addedAtIteration": 16,
+      "sources": [
+        "`AI Systems/Product Owner/benchmark/parity/README.md:15-48`",
+        "`AI Systems/Product Owner/benchmark/gates/README.md:22-38,113`"
+      ]
+    },
+    {
+      "id": "finding-16-6-the-shared-residency-check-holds-every-declared-kernel-statement-to-the-kernel-o",
+      "text": "The shared residency check holds every declared kernel statement to the kernel or to its declared home, so a rule that moves into a new knowledge document requires updating the declaration rather than only the prose. [SOURCE: AI Systems/Product Owner/benchmark/parity/README.md:34]",
+      "addedAtIteration": 16,
+      "sources": [
+        "`AI Systems/Product Owner/benchmark/parity/README.md:15-48`",
+        "`AI Systems/Product Owner/benchmark/gates/README.md:22-38,113`"
+      ]
+    },
+    {
+      "id": "finding-17-3-authentication-differs-by-transport-the-cli-needs-no-api-key-at-all-while-the-op",
+      "text": "Authentication differs by transport: the CLI needs no API key at all, while the optional MCP path needs a Figma personal access token in `.env` under the prefixed name `figma_FIGMA_API_KEY`; the daemon token at `~/.figma-ds-cli/.daemon-token` is a second credential that must never appear in output. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:80] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:123]",
+      "addedAtIteration": 17,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:54,57,123`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:80`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:151,190`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/README.md:109`",
+        "`AI Systems/Product Owner/LICENSE:1` and repository origin"
+      ]
+    },
+    {
+      "id": "finding-17-2-product-owner-ships-as-a-public-mit-repository-from-a-github-origin-so-an-embedd",
+      "text": "Product Owner ships as a public MIT repository from a GitHub origin, so an embedded skill copy, its examples and any board links become public content, and the vendored source's MIT terms travel with it. [SOURCE: AI Systems/Product Owner/LICENSE:1] [SOURCE: AI Systems/Product Owner/.git]",
+      "addedAtIteration": 17,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:54,57,123`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:80`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:151,190`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/README.md:109`",
+        "`AI Systems/Product Owner/LICENSE:1` and repository origin"
+      ]
+    },
+    {
+      "id": "finding-17-4-rate-limits-are-unpinned-the-skill-documents-none-and-the-mcp-path-wraps-the-fig",
+      "text": "Rate limits are unpinned: the skill documents none, and the MCP path wraps the Figma REST API whose quotas are external to this repository, so a batch flow-generation run has no documented ceiling to plan against. [INFERENCE: based on the absence of any rate-limit statement in the tool surface, CLI reference and MCP wiring documents]",
+      "addedAtIteration": 17,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:54,57,123`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:80`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:151,190`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/README.md:109`",
+        "`AI Systems/Product Owner/LICENSE:1` and repository origin"
+      ]
+    },
+    {
+      "id": "finding-17-1-the-figjam-surface-exists-only-in-the-unpublished-1-2-0-build-from-the-silships-",
+      "text": "The FigJam surface exists only in the unpublished 1.2.0 build from the silships repository: npm publishes only `figma-ds-cli@1.0.0`, and its `--help` lists no `daemon`, no `extract`, no safe `connect` and no `fj` at all, so a user following a normal install gets none of the FigJam verbs. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:54] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:57]",
+      "addedAtIteration": 17,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:54,57,123`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:80`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:151,190`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/README.md:109`",
+        "`AI Systems/Product Owner/LICENSE:1` and repository origin"
+      ]
+    },
+    {
+      "id": "finding-17-7-the-risk-that-research-can-reduce-is-the-version-gap-because-pinning-the-1-2-0-r",
+      "text": "The risk that research can reduce is the version gap, because pinning the 1.2.0 repo build and verifying `fj --help` turns an assumption into a known surface; the risks research cannot reduce are public exposure, external quotas and operator-dependent local runtime. [INFERENCE: derived from findings 1-6]",
+      "addedAtIteration": 17,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:54,57,123`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:80`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:151,190`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/README.md:109`",
+        "`AI Systems/Product Owner/LICENSE:1` and repository origin"
+      ]
+    },
+    {
+      "id": "finding-17-6-the-runtime-is-local-and-fragile-the-daemon-is-idle-timed-and-not-reboot-persist",
+      "text": "The runtime is local and fragile: the daemon is idle-timed and not reboot-persistent, macOS is the supported baseline, and yolo connect patches `app.asar` and breaks on Figma updates, so unattended or scheduled board generation is unsupported. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/README.md:109]",
+      "addedAtIteration": 17,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:54,57,123`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:80`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:151,190`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/README.md:109`",
+        "`AI Systems/Product Owner/LICENSE:1` and repository origin"
+      ]
+    },
+    {
+      "id": "finding-17-5-two-verbs-can-damage-a-real-board-fj-delete-is-destructive-and-fj-eval-is-arbitr",
+      "text": "Two verbs can damage a real board: `fj delete` is destructive and `fj eval` is arbitrary execution; a pipeline that needs a missing capability (images, tables) would be tempted to reach for `fj eval`, which is exactly the arbitrary path the skill's policy keeps out of the default flow. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:151] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:190]",
+      "addedAtIteration": 17,
+      "sources": [
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:54,57,123`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:80`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:151,190`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/README.md:109`",
+        "`AI Systems/Product Owner/LICENSE:1` and repository origin"
+      ]
+    },
+    {
+      "id": "finding-18-2-for-the-eventual-feature-figjam-is-the-only-output-excludes-every-artifact-the-d",
+      "text": "For the eventual feature, \"FigJam is the only output\" excludes every artifact the diagram skill currently ships: HTML/SVG documents, ASCII markdown flowcharts, PNG/SVG exports and redrawn draw.io or Mermaid sources, so the board itself must carry all the information. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:42]",
+      "addedAtIteration": 18,
+      "sources": [
+        "`specs/z-staging-po-017-research/goal.md:48,61,62`",
+        "`AI Systems/Product Owner/AGENTS.md:37,46`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:42`"
+      ]
+    },
+    {
+      "id": "finding-18-3-product-owner-s-protocol-blocks-delivery-until-a-markdown-artifact-is-saved-and-",
+      "text": "Product Owner's protocol blocks delivery until a markdown artifact is saved and read back from its exact path, so a board-only delivery requires a redefinition of the receipt rather than a silently dropped step. [SOURCE: AI Systems/Product Owner/AGENTS.md:37] [SOURCE: AI Systems/Product Owner/AGENTS.md:46]",
+      "addedAtIteration": 18,
+      "sources": [
+        "`specs/z-staging-po-017-research/goal.md:48,61,62`",
+        "`AI Systems/Product Owner/AGENTS.md:37,46`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:42`"
+      ]
+    },
+    {
+      "id": "finding-18-6-the-coherent-reading-is-one-delivered-artifact-the-figjam-board-plus-a-non-deliv",
+      "text": "The coherent reading is: one delivered artifact, the FigJam board, plus a non-deliverable verification receipt that records the node read-back and the model that produced it; without that distinction the topic and the protocol contradict each other. [INFERENCE: based on the board read-back at tool-surface.md:149 and the delivery gate at AGENTS.md:37-46]",
+      "addedAtIteration": 18,
+      "sources": [
+        "`specs/z-staging-po-017-research/goal.md:48,61,62`",
+        "`AI Systems/Product Owner/AGENTS.md:37,46`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:42`"
+      ]
+    },
+    {
+      "id": "finding-18-4-the-only-board-read-back-available-is-the-read-side-of-the-figjam-group-fj-list-",
+      "text": "The only board read-back available is the read side of the FigJam group, `fj list|info|nodes`, which can prove that pages and nodes exist but not that labels and edges are correct, so a correctness proof needs the intermediate model in text form as well. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149]",
+      "addedAtIteration": 18,
+      "sources": [
+        "`specs/z-staging-po-017-research/goal.md:48,61,62`",
+        "`AI Systems/Product Owner/AGENTS.md:37,46`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:42`"
+      ]
+    },
+    {
+      "id": "finding-18-5-the-packet-s-completion-criteria-put-two-obligations-on-the-synthesis-every-clai",
+      "text": "The packet's completion criteria put two obligations on the synthesis: every claim must be tagged confirmed or inferred, and there must be a copy-and-avoid section for each of the two precedents. [SOURCE: specs/z-staging-po-017-research/goal.md:61] [SOURCE: specs/z-staging-po-017-research/goal.md:62]",
+      "addedAtIteration": 18,
+      "sources": [
+        "`specs/z-staging-po-017-research/goal.md:48,61,62`",
+        "`AI Systems/Product Owner/AGENTS.md:37,46`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:42`"
+      ]
+    },
+    {
+      "id": "finding-18-1-the-phase-directive-is-stricter-than-the-topic-it-produces-findings-only-and-no-",
+      "text": "The phase directive is stricter than the topic: it produces findings only, and no file outside the research folder may change, so during research not even a FigJam board is touched. [SOURCE: specs/z-staging-po-017-research/goal.md:48]",
+      "addedAtIteration": 18,
+      "sources": [
+        "`specs/z-staging-po-017-research/goal.md:48,61,62`",
+        "`AI Systems/Product Owner/AGENTS.md:37,46`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149`",
+        "`.skilled/skills/sk-design/sk-design-diagram/SKILL.md:42`"
+      ]
+    },
+    {
+      "id": "finding-19-3-a-project-therefore-cannot-perform-a-figjam-write-there-is-no-cli-no-figma-deskt",
+      "text": "A Project therefore cannot perform a FigJam write: there is no CLI, no Figma Desktop and no daemon in that runtime, so the only possible Project role is to prepare and validate the flow model as a Deliverable Block and hand execution to the CLI runtime. [INFERENCE: based on findings 1-2 and the transport requirements in iteration 1]",
+      "addedAtIteration": 19,
+      "sources": [
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md:2,229,265,279`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17`",
+        "`AI Systems/Product Owner/SYNC.md:9`"
+      ]
+    },
+    {
+      "id": "finding-19-6-a-refusal-path-is-mandatory-and-consistent-with-the-kernel-a-project-asked-for-a",
+      "text": "A refusal path is mandatory and consistent with the kernel: a Project asked for a FigJam board must say it cannot write, render the model, and name the command the CLI would run, never claim a write it did not perform. [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:2]",
+      "addedAtIteration": 19,
+      "sources": [
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md:2,229,265,279`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17`",
+        "`AI Systems/Product Owner/SYNC.md:9`"
+      ]
+    },
+    {
+      "id": "finding-19-4-connector-mediated-capability-is-the-only-exception-pattern-the-kernel-already-s",
+      "text": "Connector-mediated capability is the only exception pattern the kernel already supports, and it is conditional and approval-gated; the repository's Framelink MCP is a Code Mode stdio server with an API key, not a claude.ai connector. [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:229] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17]",
+      "addedAtIteration": 19,
+      "sources": [
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md:2,229,265,279`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17`",
+        "`AI Systems/Product Owner/SYNC.md:9`"
+      ]
+    },
+    {
+      "id": "finding-19-5-the-parity-mirror-must-therefore-split-two-ways-rules-a-project-can-apply-such-a",
+      "text": "The parity mirror must therefore split two ways: rules a Project can apply, such as model building, the three-exit ceiling, labelled branches and refusal wording, and rules only the CLI runtime can execute, such as the write verbs, read-back and positioning, which need a runtime-only marker instead of a mirror. [SOURCE: AI Systems/Product Owner/SYNC.md:9]",
+      "addedAtIteration": 19,
+      "sources": [
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md:2,229,265,279`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17`",
+        "`AI Systems/Product Owner/SYNC.md:9`"
+      ]
+    },
+    {
+      "id": "finding-19-2-the-project-has-no-file-system-at-all-the-deliverable-is-the-rendered-canvas-art",
+      "text": "The Project has no file system at all: the deliverable is the rendered Canvas Artifact, the path-like names are labels rather than writes, and this protocol explicitly overrides any mirrored filesystem save-and-read-back instruction. [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:265] [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:279]",
+      "addedAtIteration": 19,
+      "sources": [
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md:2,229,265,279`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17`",
+        "`AI Systems/Product Owner/SYNC.md:9`"
+      ]
+    },
+    {
+      "id": "finding-19-1-the-project-kernel-is-advisory-only-by-declaration-a-claude-ai-project-cannot-re",
+      "text": "The Project kernel is advisory-only by declaration: a claude.ai Project cannot read or write local files, cannot run the CLI runtime, and can reach ClickUp only through the connector when it is present. [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:2]",
+      "addedAtIteration": 19,
+      "sources": [
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md:2,229,265,279`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17`",
+        "`AI Systems/Product Owner/SYNC.md:9`"
+      ]
+    },
+    {
+      "id": "finding-20-3-nine-findings-are-actionable-without-a-live-run-pin-1-2-0-from-the-repo-design-t",
+      "text": "Nine findings are actionable without a live run: pin 1.2.0 from the repo, design to the six-verb ceiling, treat Desktop and the daemon as prerequisites, split the Project mirror into applicable and runtime-only rules, declare the new pair in the shared `systems.py`, generate the duplicate with a source-difference refusal, follow the per-packet hub order, separate the board from its verification receipt, and treat public exposure as structural. [SOURCE: specs/z-staging-po-017-research/research/lineages/deepseek/iterations/iteration-007.md:1] [SOURCE: specs/z-staging-po-017-research/research/lineages/deepseek/iterations/iteration-016.md:1]",
+      "addedAtIteration": 20,
+      "sources": [
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/deep-research-strategy.md:34`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/iterations/iteration-007.md`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/iterations/iteration-016.md`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:367`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:83`",
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:74`",
+        "`specs/z-staging-po-017-research/plan.md:10` and `tasks.md:34`",
+        "`AI Systems/Moneybird Accountant/specs/011-skill-routing-research/003-research-expansion/research/lineages/deepseek-4/research.md:1`"
+      ]
+    },
+    {
+      "id": "finding-20-1-nineteen-iterations-are-recorded-and-three-of-the-five-key-questions-are-answere",
+      "text": "Nineteen iterations are recorded and three of the five key questions are answered at decision level: the input-to-model question (iteration 5), the rule-transfer question (iteration 7) and the sync-path question (iteration 14); the capability question is answered only up to the documented surface, because the CLI was never executed here. [SOURCE: specs/z-staging-po-017-research/research/lineages/deepseek/deep-research-strategy.md:34]",
+      "addedAtIteration": 20,
+      "sources": [
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/deep-research-strategy.md:34`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/iterations/iteration-007.md`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/iterations/iteration-016.md`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:367`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:83`",
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:74`",
+        "`specs/z-staging-po-017-research/plan.md:10` and `tasks.md:34`",
+        "`AI Systems/Moneybird Accountant/specs/011-skill-routing-research/003-research-expansion/research/lineages/deepseek-4/research.md:1`"
+      ]
+    },
+    {
+      "id": "finding-20-6-the-research-format-has-a-working-precedent-in-this-workspace-the-moneybird-rout",
+      "text": "The research format has a working precedent in this workspace: the Moneybird routing research lineage produced a fourteen-section `research.md` with a convergence appendix, so the synthesis can follow a house shape rather than invent one. [SOURCE: AI Systems/Moneybird Accountant/specs/011-skill-routing-research/003-research-expansion/research/lineages/deepseek-4/research.md:1]",
+      "addedAtIteration": 20,
+      "sources": [
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/deep-research-strategy.md:34`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/iterations/iteration-007.md`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/iterations/iteration-016.md`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:367`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:83`",
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:74`",
+        "`specs/z-staging-po-017-research/plan.md:10` and `tasks.md:34`",
+        "`AI Systems/Moneybird Accountant/specs/011-skill-routing-research/003-research-expansion/research/lineages/deepseek-4/research.md:1`"
+      ]
+    },
+    {
+      "id": "finding-20-5-the-synthesis-must-supply-the-later-phase-plan-itself-because-this-packet-s-plan",
+      "text": "The synthesis must supply the later-phase plan itself, because this packet's `plan.md` and `tasks.md` are still unfilled template scaffolds and only `goal.md` carries real acceptance criteria. [SOURCE: specs/z-staging-po-017-research/plan.md:10] [SOURCE: specs/z-staging-po-017-research/tasks.md:34]",
+      "addedAtIteration": 20,
+      "sources": [
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/deep-research-strategy.md:34`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/iterations/iteration-007.md`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/iterations/iteration-016.md`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:367`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:83`",
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:74`",
+        "`specs/z-staging-po-017-research/plan.md:10` and `tasks.md:34`",
+        "`AI Systems/Moneybird Accountant/specs/011-skill-routing-research/003-research-expansion/research/lineages/deepseek-4/research.md:1`"
+      ]
+    },
+    {
+      "id": "finding-20-4-the-two-precedents-converge-on-three-corrections-each-from-media-editor-duplicat",
+      "text": "The two precedents converge on three corrections each: from Media Editor, duplicate as an untracked build output, refuse links, and replace the whole copied folder every build; from Moneybird, one router per packet rather than one shared file, per-file contract checks, and hub-level gold rows for stage one. [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:83] [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:74]",
+      "addedAtIteration": 20,
+      "sources": [
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/deep-research-strategy.md:34`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/iterations/iteration-007.md`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/iterations/iteration-016.md`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:367`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:83`",
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:74`",
+        "`specs/z-staging-po-017-research/plan.md:10` and `tasks.md:34`",
+        "`AI Systems/Moneybird Accountant/specs/011-skill-routing-research/003-research-expansion/research/lineages/deepseek-4/research.md:1`"
+      ]
+    },
+    {
+      "id": "finding-20-2-the-unverified-set-is-now-explicit-no-live-figma-ds-cli-install-so-every-verb-fl",
+      "text": "The unverified set is now explicit: no live `figma-ds-cli` install, so every verb flag is documentation-grade; the unpublished 1.2.0 availability, `fj connect` label support, `fj shape` kinds, the node-id return contract, `fj info` output shape and any rate limit all need a live run. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:367]",
+      "addedAtIteration": 20,
+      "sources": [
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/deep-research-strategy.md:34`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/iterations/iteration-007.md`",
+        "`specs/z-staging-po-017-research/research/lineages/deepseek/iterations/iteration-016.md`",
+        "`.skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:367`",
+        "`AI Systems/Media Editor/runtime/claude-plugin/README.md:83`",
+        "`AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:74`",
+        "`specs/z-staging-po-017-research/plan.md:10` and `tasks.md:34`",
+        "`AI Systems/Moneybird Accountant/specs/011-skill-routing-research/003-research-expansion/research/lineages/deepseek-4/research.md:1`"
+      ]
+    }
+  ],
+  "ruledOutDirections": [
+    {
+      "id": "ruled-out-18e48b6dce85",
+      "text": "Assuming a headless server-side render step. There is no API-key path for authoring; closure of Desktop or a missing daemon stops the work.",
+      "contentHash": "18e48b6dce85",
+      "addedAtIteration": 1
+    },
+    {
+      "id": "ruled-out-358d98a3eae6",
+      "text": "Searching the mcp-figma skill for an official Figma Dev Mode MCP path. The reference explicitly places it out of scope for this skill, so it is not a fallback the Product Owner may rely on today.",
+      "contentHash": "358d98a3eae6",
+      "addedAtIteration": 1
+    },
+    {
+      "id": "ruled-out-c941000a9a36",
+      "text": "Treating \"Figma MCP\" as the FigJam writer. The MCP is a read surface for design context, so a Product Owner flow that claims \"the MCP builds the FigJam board\" is describing a capability the wired server does not have.",
+      "contentHash": "c941000a9a36",
+      "addedAtIteration": 1
+    },
+    {
+      "id": "ruled-out-13384793f0ae",
+      "text": "Looking for a Product Owner documentation file that already describes the screenshot library. No PO doc in the skill or bootstrap mentions screenshots, so there is no existing contract to extend.",
+      "contentHash": "13384793f0ae",
+      "addedAtIteration": 2
+    },
+    {
+      "id": "ruled-out-e665cb360a37",
+      "text": "Reading every screenshot in the corpus. 341 images with a per-flow structure means the folder, not the library, is the unit of work.",
+      "contentHash": "e665cb360a37",
+      "addedAtIteration": 2
+    },
+    {
+      "id": "ruled-out-580e0838f6f1",
+      "text": "Treating filenames as sufficient. Filenames give the step label and intent but not the on-screen control a step clicks, so OCR or detection is still needed for a grounded node.",
+      "contentHash": "580e0838f6f1",
+      "addedAtIteration": 2
+    },
+    {
+      "id": "ruled-out-6e98d95bc338",
+      "text": "Extracting whole files. The auto-split behavior makes a whole-file read a directory-producing operation, not a bounded input.",
+      "contentHash": "6e98d95bc338",
+      "addedAtIteration": 3
+    },
+    {
+      "id": "ruled-out-cb1274634c7a",
+      "text": "Searching the skill for an official Figma Dev Mode MCP bridge into FigJam. Iteration 1 already placed it out of scope; this iteration confirms nothing else bridges design files to FigJam boards.",
+      "contentHash": "cb1274634c7a",
+      "addedAtIteration": 3
+    },
+    {
+      "id": "ruled-out-4c62914957a2",
+      "text": "Transporting design frames into FigJam as embedded objects. There is no documented verb for it, and inventing one from the Figma Plugin API would mean `fj eval`, which the skill classes as arbitrary mutation.",
+      "contentHash": "4c62914957a2",
+      "addedAtIteration": 3
+    },
+    {
+      "id": "ruled-out-a53e9cb11f0c",
+      "text": "Looking for an existing diagram or canvas artifact type in the Product Owner skill. None exists in the lane list or in the export path pattern.",
+      "contentHash": "a53e9cb11f0c",
+      "addedAtIteration": 4
+    },
+    {
+      "id": "ruled-out-47a15b0af5cc",
+      "text": "Reusing the doc lane to emit a FigJam board. The lane's contract is markdown plus read-back, and a canvas has no read-back equivalent.",
+      "contentHash": "47a15b0af5cc",
+      "addedAtIteration": 4
+    },
+    {
+      "id": "ruled-out-1a518abdf936",
+      "text": "Treating the existing \"Figma feedback\" trigger as diagram input. It consumes prose about Figma, not a Figma file.",
+      "contentHash": "1a518abdf936",
+      "addedAtIteration": 4
+    },
+    {
+      "id": "ruled-out-123ad7862cbc",
+      "text": "A model that needs tables or embedded images. The six-verb surface cannot render either, so any such requirement would force `fj eval` and its arbitrary-mutation gate.",
+      "contentHash": "123ad7862cbc",
+      "addedAtIteration": 5
+    },
+    {
+      "id": "ruled-out-562a694b59f4",
+      "text": "Looking for a layout verb in the FigJam group. There is none; positioning is manual through move or update.",
+      "contentHash": "562a694b59f4",
+      "addedAtIteration": 5
+    },
+    {
+      "id": "ruled-out-411f91265293",
+      "text": "Trusting creation output to return ids. That contract is undocumented; a read-back step is the only grounded option.",
+      "contentHash": "411f91265293",
+      "addedAtIteration": 5
+    },
+    {
+      "id": "ruled-out-f3dfd08a578c",
+      "text": "Keeping the arc-jump crossing rule. It is an SVG geometry trick with no FigJam equivalent in the six-verb surface.",
+      "contentHash": "f3dfd08a578c",
+      "addedAtIteration": 6
+    },
+    {
+      "id": "ruled-out-ee46a4dbd455",
+      "text": "Reusing the HTML/SVG renderer for FigJam. FigJam has no documented HTML or SVG import verb, and the skill explicitly excludes canvas deliverables.",
+      "contentHash": "ee46a4dbd455",
+      "addedAtIteration": 6
+    },
+    {
+      "id": "ruled-out-dcd0804a908f",
+      "text": "Searching the ASCII validator for shape rules. It validates labels, arrows and nesting depth, not shape vocabulary, so shape semantics live only in the type reference.",
+      "contentHash": "dcd0804a908f",
+      "addedAtIteration": 6
+    },
+    {
+      "id": "ruled-out-393dee02243f",
+      "text": "Deferring layout to FigJam. No automatic layout verb exists, so a deferral would produce overlapping nodes.",
+      "contentHash": "393dee02243f",
+      "addedAtIteration": 7
+    },
+    {
+      "id": "ruled-out-69ee0ce0738f",
+      "text": "Looking for a FigJam-native validator in either skill package. Neither the mcp-figma skill nor the diagram skill ships one.",
+      "contentHash": "69ee0ce0738f",
+      "addedAtIteration": 7
+    },
+    {
+      "id": "ruled-out-10882797d891",
+      "text": "Porting the HTML/SVG taste gate wholesale. Its palette, typography and spacing rules describe a rendered page, not a board whose colours and shapes are FigJam primitives.",
+      "contentHash": "10882797d891",
+      "addedAtIteration": 7
+    },
+    {
+      "id": "ruled-out-11d56b3b58c3",
+      "text": "Encoding the diagram capability as a route inside `sk-product-owner`. The manifest config declares one workflow mode, and the router contract maps commands to artifact lanes, not to a second capability.",
+      "contentHash": "11d56b3b58c3",
+      "addedAtIteration": 8
+    },
+    {
+      "id": "ruled-out-aac0cb51b5db",
+      "text": "Looking for a `mode-registry.json` in the Product Owner package. It is absent by design.",
+      "contentHash": "aac0cb51b5db",
+      "addedAtIteration": 8
+    },
+    {
+      "id": "ruled-out-d0f89507da74",
+      "text": "Treating the embedded skill as a folder copy. Three of its files are generated projections, so a plain copy drifts from its own schema on the first edit.",
+      "contentHash": "d0f89507da74",
+      "addedAtIteration": 8
+    },
+    {
+      "id": "ruled-out-529b334770fc",
+      "text": "Copying the \"no MCP server\" choice for a FigJam plugin. Product Owner's writer is an external CLI binary rather than a bundled server, so the two cases do not share a transport.",
+      "contentHash": "529b334770fc",
+      "addedAtIteration": 9
+    },
+    {
+      "id": "ruled-out-ac727d7b0654",
+      "text": "Hand-maintaining the copy in the plugin directory. The build replaces it and fails on any divergence, so hand edits are rejected by design.",
+      "contentHash": "ac727d7b0654",
+      "addedAtIteration": 9
+    },
+    {
+      "id": "ruled-out-5dc05ec1d653",
+      "text": "Looking for a tracked plugin payload in git. The three payload directories are untracked by design, which is why this precedent answers the drift question so cleanly.",
+      "contentHash": "5dc05ec1d653",
+      "addedAtIteration": 9
+    },
+    {
+      "id": "ruled-out-7f77024b32c0",
+      "text": "Assuming the runtime supplies a Node runtime or expands bundle settings. The spike disproved both, and the manifest was rebuilt around that.",
+      "contentHash": "7f77024b32c0",
+      "addedAtIteration": 10
+    },
+    {
+      "id": "ruled-out-0c27651a9f10",
+      "text": "Looking for a plugin-specific parity tool in the PO repo. The parity lesson is transferable, but there is no shared checker to reuse.",
+      "contentHash": "0c27651a9f10",
+      "addedAtIteration": 10
+    },
+    {
+      "id": "ruled-out-1e292750d3f8",
+      "text": "Treating the development dependency as the shipped binary. The 45-failure run shows that shortcut fails silently.",
+      "contentHash": "1e292750d3f8",
+      "addedAtIteration": 10
+    },
+    {
+      "id": "ruled-out-5d7b8bd2d2f5",
+      "text": "Looking for a hub-level mode reference file. The hub has no mode docs of its own; all stage-two routing lives in packets.",
+      "contentHash": "5d7b8bd2d2f5",
+      "addedAtIteration": 11
+    },
+    {
+      "id": "ruled-out-03dace439aad",
+      "text": "Making a tool packet the default. The registry defaults to the workflow packet so a bare request cannot fall into a CLI execution.",
+      "contentHash": "03dace439aad",
+      "addedAtIteration": 11
+    },
+    {
+      "id": "ruled-out-94c8b881eea3",
+      "text": "Treating \"parent hub\" as a large single skill. The hub is a router plus independent packets, and the packet boundary is the unit of loading.",
+      "contentHash": "94c8b881eea3",
+      "addedAtIteration": 11
+    },
+    {
+      "id": "ruled-out-dbee021dd4a1",
+      "text": "Declaring the conversion done once the files exist. Two review rounds found P1s and unmatched mutants after the first green build.",
+      "contentHash": "dbee021dd4a1",
+      "addedAtIteration": 12
+    },
+    {
+      "id": "ruled-out-0d72a48297ce",
+      "text": "Looking for a hub conversion that avoided touching scripts. Every routing reader had to move; there is no compatibility shim in the record.",
+      "contentHash": "0d72a48297ce",
+      "addedAtIteration": 12
+    },
+    {
+      "id": "ruled-out-4f5fcd8b6057",
+      "text": "One shared router file for every packet. It was measured at +73 percent tokens on a default-path request and removed.",
+      "contentHash": "4f5fcd8b6057",
+      "addedAtIteration": 12
+    },
+    {
+      "id": "ruled-out-ca9cbb3c17c9",
+      "text": "Assuming an automated mirror still exists. The compiler is retired and the generated regions are archived.",
+      "contentHash": "ca9cbb3c17c9",
+      "addedAtIteration": 13
+    },
+    {
+      "id": "ruled-out-90821bd9f59d",
+      "text": "Looking for a checksum ledger to compare the two repositories. None is kept by design.",
+      "contentHash": "90821bd9f59d",
+      "addedAtIteration": 13
+    },
+    {
+      "id": "ruled-out-b1b16a6cc589",
+      "text": "Treating the git submodule or symlink as a clean sharing mechanism. The vendoring decision exists precisely because links fail in a standalone clone.",
+      "contentHash": "b1b16a6cc589",
+      "addedAtIteration": 13
+    },
+    {
+      "id": "ruled-out-978be30ab5d8",
+      "text": "A fully generated Project mirror. It would contradict the hand-parity contract and the review-recording rule.",
+      "contentHash": "978be30ab5d8",
+      "addedAtIteration": 14
+    },
+    {
+      "id": "ruled-out-026fb1fa4f95",
+      "text": "A published-package route for a skill-only artifact. Neither precedent publishes a skill; the plugin publishes a compiled server, which is a different problem.",
+      "contentHash": "026fb1fa4f95",
+      "addedAtIteration": 14
+    },
+    {
+      "id": "ruled-out-aea037e7ea8c",
+      "text": "Symlinks or submodules for the embedded skill. Both fail the clone requirement, and the plugin build rejects links outright.",
+      "contentHash": "aea037e7ea8c",
+      "addedAtIteration": 14
+    },
+    {
+      "id": "ruled-out-7faeeb4be411",
+      "text": "Adding the diagram capability as a seventh command inside the existing skill. The registry's five lanes are artifact modes with one workflow manifest; a canvas capability needs its own packet and router.",
+      "contentHash": "7faeeb4be411",
+      "addedAtIteration": 15
+    },
+    {
+      "id": "ruled-out-b53c150a8432",
+      "text": "Editing the Project kernel before the skill side lands. The kernel would then point at a path that does not exist yet.",
+      "contentHash": "b53c150a8432",
+      "addedAtIteration": 15
+    },
+    {
+      "id": "ruled-out-1d70f7a5817a",
+      "text": "Looking for a PO-level route-table checker equivalent to Moneybird's `check-route-table.py`. The PO repo has fixtures but not a hub consistency checker, so that tool would be new.",
+      "contentHash": "1d70f7a5817a",
+      "addedAtIteration": 15
+    },
+    {
+      "id": "ruled-out-d64c06804a62",
+      "text": "Looking for a gate that reads the skill source and the Project mirror for semantic equivalence. Rule parity counts declared phrases only; everything else is a reviewer obligation.",
+      "contentHash": "d64c06804a62",
+      "addedAtIteration": 16
+    },
+    {
+      "id": "ruled-out-641868d631e0",
+      "text": "Shipping examples for a new mode without the reply-shape lines the example linter reads.",
+      "contentHash": "641868d631e0",
+      "addedAtIteration": 16
+    },
+    {
+      "id": "ruled-out-162dc02dad84",
+      "text": "Treating the PO repo as the whole verification surface. Two of the required declarations live in the shared Sync Loop folder outside it.",
+      "contentHash": "162dc02dad84",
+      "addedAtIteration": 16
+    },
+    {
+      "id": "ruled-out-c2cbdb28fb84",
+      "text": "Planning against npm `latest`. It has no FigJam verbs, so a plan built on it would fail at the first write.",
+      "contentHash": "c2cbdb28fb84",
+      "addedAtIteration": 17
+    },
+    {
+      "id": "ruled-out-343588f7b9ad",
+      "text": "Searching for a documented rate limit. None exists in the skill; only the external API owner could supply it.",
+      "contentHash": "343588f7b9ad",
+      "addedAtIteration": 17
+    },
+    {
+      "id": "ruled-out-c8772e96159e",
+      "text": "Using `fj eval` to fill a capability gap. It converts a bounded pipeline into arbitrary execution against a live board.",
+      "contentHash": "c8772e96159e",
+      "addedAtIteration": 17
+    },
+    {
+      "id": "ruled-out-239f10cf242c",
+      "text": "Exports as a fallback. A PNG or SVG export is exactly what \"only output\" excludes.",
+      "contentHash": "239f10cf242c",
+      "addedAtIteration": 18
+    },
+    {
+      "id": "ruled-out-dce56bb44cfc",
+      "text": "Looking for a FigJam export verb that could serve as read-back proof. The FigJam group has no export verb.",
+      "contentHash": "dce56bb44cfc",
+      "addedAtIteration": 18
+    },
+    {
+      "id": "ruled-out-b54b83f5e961",
+      "text": "Treating the markdown receipt as a second output. It is verification evidence, not a deliverable, and calling it an output would contradict the topic.",
+      "contentHash": "b54b83f5e961",
+      "addedAtIteration": 18
+    },
+    {
+      "id": "ruled-out-8065070cae8c",
+      "text": "Assuming a Figma connector exists for claude.ai. Nothing in the repository registers one, and the existing Figma MCP is not a connector.",
+      "contentHash": "8065070cae8c",
+      "addedAtIteration": 19
+    },
+    {
+      "id": "ruled-out-b3e6f9cb133c",
+      "text": "Looking for a Project-side export path for a board. There is none; the Project cannot reach Figma at all.",
+      "contentHash": "b3e6f9cb133c",
+      "addedAtIteration": 19
+    },
+    {
+      "id": "ruled-out-4d7d2491eb2b",
+      "text": "Mirroring the FigJam write procedure into Project knowledge. It would instruct a runtime that cannot execute it, which the hand-parity method explicitly excludes.",
+      "contentHash": "4d7d2491eb2b",
+      "addedAtIteration": 19
+    },
+    {
+      "id": "ruled-out-aff4f9372eca",
+      "text": "Raising the confidence of any verb-level claim without a live run. The documentation gap is measured, not closable by more reading.",
+      "contentHash": "aff4f9372eca",
+      "addedAtIteration": 20
+    },
+    {
+      "id": "ruled-out-cf058b0d7030",
+      "text": "Searching for a local record of `fj` output formats. None exists, and the skill's own uncertainty list stands.",
+      "contentHash": "cf058b0d7030",
+      "addedAtIteration": 20
+    },
+    {
+      "id": "ruled-out-da20f700dd6d",
+      "text": "Treating the sibling Luna lineage as a source. It runs the same topic independently and is not evidence for this lineage's claims.",
+      "contentHash": "da20f700dd6d",
+      "addedAtIteration": 20
+    }
+  ],
+  "rejectedPatterns": [],
+  "rejectedPatternIndex": {
+    "maxEntries": 100,
+    "fuzzyThreshold": 0.85,
+    "entries": []
+  },
+  "rejectedPatternWarnings": [],
+  "suppressedCandidates": [],
+  "minIdeaObservations": 2,
+  "observedIdeas": [],
+  "promotedIdeas": [],
+  "suppressedIdeas": [],
+  "blockedStopHistory": [],
+  "graphConvergenceScore": 0,
+  "graphDecision": null,
+  "graphBlockers": [],
+  "divergence": {
+    "started": [],
+    "completed": [],
+    "failed": [],
+    "overrides": [],
+    "saturatedDirections": [],
+    "remainingFrontier": [],
+    "currentFocus": "",
+    "activePivotId": null,
+    "activeSourceIteration": null
+  },
+  "metrics": {
+    "iterationsCompleted": 20,
+    "openQuestions": 1,
+    "resolvedQuestions": 4,
+    "carriedForwardOpenQuestions": 0,
+    "keyFindings": 121,
+    "rejectedPatterns": 0,
+    "suppressedCandidates": 0,
+    "observedIdeas": 0,
+    "promotedIdeas": 0,
+    "suppressedIdeas": 0,
+    "convergenceScore": 0.45,
+    "coverageBySources": {
+      "code": 67,
+      "other": 50
+    },
+    "completedPivots": 0,
+    "failedPivots": 0,
+    "pivotOverrides": 0
+  },
+  "corruptionWarnings": [],
+  "inboxPath": "/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/z-staging-po-017-research/research/lineages/deepseek/inbox.jsonl",
+  "inboxWarnings": [],
+  "status": "COMPLETE",
+  "advisoryEvents": [],
+  "strategyWarnings": []
+}

@@ -1,0 +1,914 @@
+{
+  "sessionId": "fanout-deepseek-1792558554351-13ddom",
+  "parentSessionId": null,
+  "lineageMode": "new",
+  "generation": 1,
+  "continuedFromRun": null,
+  "terminalStop": {
+    "stopReason": "maxIterationsReached",
+    "totalIterations": 5,
+    "answeredCount": 5,
+    "totalQuestions": 5,
+    "timestamp": "2026-10-21T05:09:47.841Z"
+  },
+  "keyQuestions": [
+    {
+      "id": "question-1-q1-do-the-twelve-implemented-changes-match-the-corpus-line-and-earlier-research-",
+      "inboxId": null,
+      "text": "Q1: Do the twelve implemented changes match the corpus line and earlier research they came from, and where does the shipped wording leave out, overstate or misdirect a model?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 1,
+      "resolved": true
+    },
+    {
+      "id": "question-2-q2-what-can-public-documentation-settle-about-the-hosted-figma-mcp-tool-list-who",
+      "inboxId": null,
+      "text": "Q2: What can public documentation settle about the hosted Figma MCP tool list, whoami, the fields get_figjam returns, and whether use_figma allows setPluginData or setSharedPluginData?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 2,
+      "resolved": true
+    },
+    {
+      "id": "question-3-q3-what-figjam-skills-mcp-servers-plugins-and-figma-documentation-published-afte",
+      "inboxId": null,
+      "text": "Q3: What FigJam skills, MCP servers, plugins and Figma documentation published after the pins change or confirm the packet's position?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 3,
+      "resolved": true
+    },
+    {
+      "id": "question-4-q4-which-integration-gaps-remain-after-phases-017-to-028-the-router-s-combined-r",
+      "inboxId": null,
+      "text": "Q4: Which integration gaps remain after phases 017 to 028 - the router's combined-request handling, the claude.ai Project's Flow path, ClickUp handoff of a board URL, and the playbooks?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 4,
+      "resolved": true
+    },
+    {
+      "id": "question-5-q5-which-of-the-earlier-synthesis-s-rejected-ideas-and-unverified-claims-still-h",
+      "inboxId": null,
+      "text": "Q5: Which of the earlier synthesis's rejected ideas and unverified claims still hold, and which must be reversed now that the implementations are in place?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5,
+      "resolved": true
+    }
+  ],
+  "openQuestions": [],
+  "resolvedQuestions": [
+    {
+      "id": "question-1-q1-do-the-twelve-implemented-changes-match-the-corpus-line-and-earlier-research-",
+      "inboxId": null,
+      "text": "Q1: Do the twelve implemented changes match the corpus line and earlier research they came from, and where does the shipped wording leave out, overstate or misdirect a model?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 1
+    },
+    {
+      "id": "question-2-q2-what-can-public-documentation-settle-about-the-hosted-figma-mcp-tool-list-who",
+      "inboxId": null,
+      "text": "Q2: What can public documentation settle about the hosted Figma MCP tool list, whoami, the fields get_figjam returns, and whether use_figma allows setPluginData or setSharedPluginData?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 2
+    },
+    {
+      "id": "question-3-q3-what-figjam-skills-mcp-servers-plugins-and-figma-documentation-published-afte",
+      "inboxId": null,
+      "text": "Q3: What FigJam skills, MCP servers, plugins and Figma documentation published after the pins change or confirm the packet's position?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 3
+    },
+    {
+      "id": "question-4-q4-which-integration-gaps-remain-after-phases-017-to-028-the-router-s-combined-r",
+      "inboxId": null,
+      "text": "Q4: Which integration gaps remain after phases 017 to 028 - the router's combined-request handling, the claude.ai Project's Flow path, ClickUp handoff of a board URL, and the playbooks?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 4
+    },
+    {
+      "id": "question-5-q5-which-of-the-earlier-synthesis-s-rejected-ideas-and-unverified-claims-still-h",
+      "inboxId": null,
+      "text": "Q5: Which of the earlier synthesis's rejected ideas and unverified claims still hold, and which must be reversed now that the implementations are in place?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5
+    }
+  ],
+  "carriedForwardOpenQuestions": [],
+  "uncoveredQuestions": [],
+  "keyFindings": [
+    {
+      "id": "finding-1-3-write-a-bug-about-it-fails-because-bug-framing-needs-a-report-noun-or-a-symptom-",
+      "text": "**\"write a bug about it ...\" fails because BUG framing needs a report noun or a symptom, not the word bug.** Every BUG frame either names `bug report`/`defect report` [SOURCE: AI Systems/Product Owner/benchmark/router/route_contract.py:261] or a failure symptom such as a crash, a blank value or a 4xx code [SOURCE: AI Systems/Product Owner/benchmark/router/route_contract.py:298]. \"write a bug about it\" contains neither, and framing runs before the semantic topic scorer, so the bug topic's own `bug` synonym never gets a vote.",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/017-board-link-in-artifact` to `028-readback-direction`, each `implementation-summary.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`, `references/style-guide.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/story-template.md`, `assets/doc-templates.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`specs/z-staging-po-016b-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md`"
+      ]
+    },
+    {
+      "id": "finding-1-2-write-a-doc-about-onboarding-fails-because-the-doc-noun-alternation-has-no-bare-",
+      "text": "**\"write a doc about onboarding ...\" fails because the DOC noun alternation has no bare `doc`.** The list accepts `documentation|docs|document|guide|catalog|behavior reference|runbook|...` but not `doc` [SOURCE: AI Systems/Product Owner/benchmark/router/route_contract.py:305], so `write a doc` matches no DOC frame; the FLOW pattern for `figjam board` then owns the request [SOURCE: AI Systems/Product Owner/benchmark/router/route_contract.py:330]. The generic compound-name frame does not rescue it either, because its noun group repeats the same list [SOURCE: AI Systems/Product Owner/benchmark/router/route_contract.py:339].",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/017-board-link-in-artifact` to `028-readback-direction`, each `implementation-summary.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`, `references/style-guide.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/story-template.md`, `assets/doc-templates.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`specs/z-staging-po-016b-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md`"
+      ]
+    },
+    {
+      "id": "finding-1-7-the-setplugindata-hedge-leaves-the-choice-open-rather-than-bounded-the-packet-wr",
+      "text": "**The `setPluginData` hedge leaves the choice open rather than bounded.** The packet writes the tag \"because `use_figma` may refuse `setPluginData`\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:188]. Phase 022 softened this deliberately, and its limitation still records the question as open [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/022-created-node-tags/implementation-summary.md:96]. A \"may\" gives a model no rule for which call to make first, so the wrap-everything instruction becomes the only guidance.",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/017-board-link-in-artifact` to `028-readback-direction`, each `implementation-summary.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`, `references/style-guide.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/story-template.md`, `assets/doc-templates.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`specs/z-staging-po-016b-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md`"
+      ]
+    },
+    {
+      "id": "finding-1-10-the-hosted-route-paragraph-states-an-unverified-code-mode-fact-as-settled-it-say",
+      "text": "**The hosted-route paragraph states an unverified Code Mode fact as settled.** It says \"every manual Code Mode holds here is stdio and none reaches an HTTP server\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:180]. The earlier synthesis listed that as unverified and sourced it only to the vendored wiring guide's own inspection [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md:286]. The implementation promoted a limitation into a fact.",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/017-board-link-in-artifact` to `028-readback-direction`, each `implementation-summary.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`, `references/style-guide.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/story-template.md`, `assets/doc-templates.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`specs/z-staging-po-016b-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md`"
+      ]
+    },
+    {
+      "id": "finding-1-4-the-phase-018-limitation-understates-the-gap-it-records-it-says-the-two-phrasing",
+      "text": "**The phase 018 limitation understates the gap it records.** It says the two phrasings \"still route FLOW, because the DOC and BUG framings do not match those phrasings. This predates the phase.\" [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/018-artifact-plus-board-pair/implementation-summary.md:96]. The dependency is structural: a route can only carry `then` when an artifact intent wins first, and a request whose only frame is FLOW can never reach that branch. Any future phrasing that names a board strongly enough to frame FLOW is lost the same way, so the recorded limitation is not a phrasing accident.",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/017-board-link-in-artifact` to `028-readback-direction`, each `implementation-summary.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`, `references/style-guide.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/story-template.md`, `assets/doc-templates.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`specs/z-staging-po-016b-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md`"
+      ]
+    },
+    {
+      "id": "finding-1-1-the-phase-018-pair-rule-cannot-fire-for-either-request-the-dispatcher-names-and-",
+      "text": "**The phase 018 pair rule cannot fire for either request the dispatcher names, and the cause is framing, not the pair regex.** The pair rides on a route whose intent is one of `TASK`, `BUG`, `DOC` or `STORY` [SOURCE: AI Systems/Product Owner/benchmark/router/route_contract.py:718], while `detect_framing` discards `FLOW` only when a second artifact frame already matched [SOURCE: AI Systems/Product Owner/benchmark/router/route_contract.py:648]. The oracle returns `intent: FLOW, source: framing, needs_disambiguation: false` for both \"write a doc about onboarding and draw it on a figjam board\" and \"write a bug about it and add a figjam diagram\", so no artifact intent exists to carry a `then`.",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/017-board-link-in-artifact` to `028-readback-direction`, each `implementation-summary.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`, `references/style-guide.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/story-template.md`, `assets/doc-templates.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`specs/z-staging-po-016b-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md`"
+      ]
+    },
+    {
+      "id": "finding-1-9-the-repeated-label-rule-therefore-has-no-verification-path-at-all-phase-027-adde",
+      "text": "**The repeated-label rule therefore has no verification path at all.** Phase 027 added the four-or-more rule to the rubric and both type references, and its limitation records that \"the check script does not count repeated labels, so the rule is checked by hand\" [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/027-repeated-edge-labels/implementation-summary.md:95]. With the critic pass also not naming labels [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:78], no script, checklist screenshot or hand pass would catch a board that breaks it.",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/017-board-link-in-artifact` to `028-readback-direction`, each `implementation-summary.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`, `references/style-guide.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/story-template.md`, `assets/doc-templates.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`specs/z-staging-po-016b-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md`"
+      ]
+    },
+    {
+      "id": "finding-1-8-the-screenshot-critic-implemented-four-of-adobe-s-five-checks-and-skipped-the-tw",
+      "text": "**The screenshot critic implemented four of Adobe's five checks and skipped the two the packet cannot otherwise verify.** Adobe's critic checks clutter, weak visual hierarchy, accent misuse, redundant labels and caption match [SOURCE: specs/z-staging-po-016b-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:85]. The shipped board section checks stretching, overlap, label cut-off, crossings, wrong-join edges, accent placement and the `userIntent` answer [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:78], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:79]. Redundant labels and weak hierarchy are absent.",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/017-board-link-in-artifact` to `028-readback-direction`, each `implementation-summary.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`, `references/style-guide.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/story-template.md`, `assets/doc-templates.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`specs/z-staging-po-016b-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md`"
+      ]
+    },
+    {
+      "id": "finding-1-5-the-tag-instruction-does-not-say-where-the-list-of-created-nodes-comes-from-it-s",
+      "text": "**The tag instruction does not say where the list of created nodes comes from.** It says to \"tag every node the write created in one more `use_figma` call\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:188]. A fresh `use_figma` call starts from page state, so it can only find those nodes if the write's response returned their ids or if it filters by something stable. The packet states neither, and its own rollback rule meanwhile treats \"no returned id\" as a stop condition [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:190]. A model reading this must invent the discovery step.",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/017-board-link-in-artifact` to `028-readback-direction`, each `implementation-summary.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`, `references/style-guide.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/story-template.md`, `assets/doc-templates.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`specs/z-staging-po-016b-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md`"
+      ]
+    },
+    {
+      "id": "finding-1-6-the-tag-paragraph-mixes-the-stable-key-and-the-per-run-value-which-breaks-the-cr",
+      "text": "**The tag paragraph mixes the stable key and the per-run value, which breaks the cross-session case it exists for.** One sentence packs \"one namespace, with the diagram's name and a run id\" together [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:188], while the next paragraph relies on a later session recognising \"this work's tag\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:190]. If the run id is part of the key, a new session's key differs and the tag cannot be found, which is the exact revision failure rank 6 was meant to fix. The text never says which of the three is the key and which is the value.",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/017-board-link-in-artifact` to `028-readback-direction`, each `implementation-summary.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`, `references/style-guide.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/story-template.md`, `assets/doc-templates.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`specs/z-staging-po-016b-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md`"
+      ]
+    },
+    {
+      "id": "finding-2-6-get-figjam-returns-an-xml-outline-plus-screenshots-of-the-nodes-so-the-critic-pa",
+      "text": "**`get_figjam` returns an XML outline plus screenshots of the nodes, so the critic pass has a screenshot source it never names.** The tool page describes `get_figjam` as returning \"an XML outline of FigJam diagrams, similar to `get_metadata`, plus screenshots of the nodes\" [SOURCE: https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/], and the corpus skill says the XML carries \"IDs of pages, sections, stickies, connectors, and other nodes\" [SOURCE: specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use-figjam/SKILL.md:17]. The board section requires \"one screenshot of the diagram\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:78] without saying where it comes from, and `get_screenshot` fails on an empty node id [SOURCE: specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use-figjam/SKILL.md:21].",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`, `references/gotchas.md`, `references/plugin-api-standalone.index.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use-figjam/SKILL.md`, `skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`",
+        "`https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/`",
+        "`https://developers.figma.com/docs/plugins/api/properties/nodes-setsharedplugindata/`"
+      ]
+    },
+    {
+      "id": "finding-2-5-whoami-cannot-tell-which-plan-owns-the-file-so-the-plan-gate-is-not-a-whoami-cal",
+      "text": "**`whoami` cannot tell which plan owns the file, so the plan gate is not a `whoami` call.** Figma's spec skill says a caller \"MUST always call `whoami`\" first, and then warns that \"`whoami` does not identify which plan owns a file. If the plan is unclear, you MUST ask the user; never infer it from the file key or another plan's access\" [SOURCE: specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md:9]. Phase 025 added `whoami` to resolve the plan before the gate [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:183], which a model can read as \"whoami answered the plan question\". It answers the account's plans, not the file's.",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`, `references/gotchas.md`, `references/plugin-api-standalone.index.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use-figjam/SKILL.md`, `skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`",
+        "`https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/`",
+        "`https://developers.figma.com/docs/plugins/api/properties/nodes-setsharedplugindata/`"
+      ]
+    },
+    {
+      "id": "finding-2-3-whoami-returns-identity-plans-and-seats-and-create-new-file-already-asks-which-t",
+      "text": "**`whoami` returns identity, plans and seats, and `create_new_file` already asks which team when there are several.** Figma lists `whoami` as \"Gets your identity, plans, and seats\", marks it remote-only [SOURCE: https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/], and its `create_new_file` entry says the agent asks which team or organization to use when the account holds more than one plan [SOURCE: https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/]. The packet's phase 025 wording matches the \"several plans become one question\" behaviour but never names the field it must copy.",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`, `references/gotchas.md`, `references/plugin-api-standalone.index.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use-figjam/SKILL.md`, `skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`",
+        "`https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/`",
+        "`https://developers.figma.com/docs/plugins/api/properties/nodes-setsharedplugindata/`"
+      ]
+    },
+    {
+      "id": "finding-2-1-figma-documents-setplugindata-as-unsupported-inside-use-figma-and-names-setshare",
+      "text": "**Figma documents `setPluginData` as unsupported inside `use_figma`, and names `setSharedPluginData` as the supported call.** The corpus copy states \"`getPluginData()` / `setPluginData()` are **not supported** in `use_figma` — do not use them. Use `getSharedPluginData()` / `setSharedPluginData()` instead (these ARE supported)\" [SOURCE: specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md:28]. A second corpus copy repeats it in a gotchas entry [SOURCE: specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/references/gotchas.md:280], and its API index marks the mixin the same way [SOURCE: specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/references/plugin-api-standalone.index.md:232]. The packet's \"may refuse\" hedge [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:188] is therefore a documented prohibition read as a risk.",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`, `references/gotchas.md`, `references/plugin-api-standalone.index.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use-figjam/SKILL.md`, `skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`",
+        "`https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/`",
+        "`https://developers.figma.com/docs/plugins/api/properties/nodes-setsharedplugindata/`"
+      ]
+    },
+    {
+      "id": "finding-2-8-figma-s-documented-generate-diagram-type-list-does-not-name-a-user-flow-or-a-pro",
+      "text": "**Figma's documented `generate_diagram` type list does not name a user flow or a process.** The page lists \"Flowcharts, Gantt charts, state diagrams, sequence diagrams, architecture diagrams, and entity relationship diagrams (ERDs)\" [SOURCE: https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/]. The packet says the hosted route \"draws every type in Section 3\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:178], and Section 3 includes user flow and process. Two of the seven types rest on an inference the packet never states.",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`, `references/gotchas.md`, `references/plugin-api-standalone.index.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use-figjam/SKILL.md`, `skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`",
+        "`https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/`",
+        "`https://developers.figma.com/docs/plugins/api/properties/nodes-setsharedplugindata/`"
+      ]
+    },
+    {
+      "id": "finding-2-7-the-hosted-route-is-specifically-the-remote-server-and-three-of-its-tools-do-not",
+      "text": "**The \"hosted route\" is specifically the remote server, and three of its tools do not exist on the desktop server.** Figma marks `generate_diagram`, `use_figma`, `create_new_file` and `whoami` remote-only [SOURCE: https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/], while `get_figjam` and `get_screenshot` are not marked. The packet presents the hosted route as one thing with `fj` as its fallback [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:66], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:178], so a reader on the desktop server is left to discover that the primary write tool is absent.",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`, `references/gotchas.md`, `references/plugin-api-standalone.index.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use-figjam/SKILL.md`, `skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`",
+        "`https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/`",
+        "`https://developers.figma.com/docs/plugins/api/properties/nodes-setsharedplugindata/`"
+      ]
+    },
+    {
+      "id": "finding-2-9-the-corpus-already-contains-the-connector-direction-vocabulary-the-packet-s-read",
+      "text": "**The corpus already contains the connector-direction vocabulary the packet's read-back describes in prose.** The parser reads `connectorStartId` and `connectorEndId` and both arrowheads, treats `ARROW_*`, `TRIANGLE_FILLED` and `LINE_ARROW` as an arrow, and derives forward, reverse, bidirectional or undirected from the two caps [SOURCE: specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts:45], [SOURCE: specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts:48]. Phase 028's read-back says the same thing without a single field or cap name [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:218].",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`, `references/gotchas.md`, `references/plugin-api-standalone.index.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use-figjam/SKILL.md`, `skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`",
+        "`https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/`",
+        "`https://developers.figma.com/docs/plugins/api/properties/nodes-setsharedplugindata/`"
+      ]
+    },
+    {
+      "id": "finding-2-4-the-plan-field-has-a-name-and-a-format-the-packet-never-states-figma-s-plugin-an",
+      "text": "**The plan field has a name and a format the packet never states.** Figma's plugin and shader tools take a `planKey` \"in the format `(team|organization)::<numeric-id>`, copied from `whoami`\" [SOURCE: https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/]. The packet says only \"where the server reports a plan field, pass the plan the gate named\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:183].",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`, `references/gotchas.md`, `references/plugin-api-standalone.index.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use-figjam/SKILL.md`, `skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`",
+        "`https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/`",
+        "`https://developers.figma.com/docs/plugins/api/properties/nodes-setsharedplugindata/`"
+      ]
+    },
+    {
+      "id": "finding-2-10-the-same-parser-skips-a-connector-whose-endpoints-are-missing-which-the-packet-s",
+      "text": "**The same parser skips a connector whose endpoints are missing, which the packet's read-back has no rule for.** It drops connectors \"dangling in empty space (missing either endpoint) … without both endpoints there is no relation to express\" [SOURCE: specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts:13]. The packet counts every connector and compares endpoints [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:215], so a dangling connector on the board reads as a mismatch with no rule for what to do.",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`, `references/gotchas.md`, `references/plugin-api-standalone.index.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use-figjam/SKILL.md`, `skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`",
+        "`https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/`",
+        "`https://developers.figma.com/docs/plugins/api/properties/nodes-setsharedplugindata/`"
+      ]
+    },
+    {
+      "id": "finding-2-2-the-shared-plugin-data-namespace-needs-no-manifest-entry-so-a-fixed-namespace-wo",
+      "text": "**The shared-plugin-data namespace needs no manifest entry, so a fixed namespace works in any client.** Figma's own API page states the namespace is passed at the call site, needs at least three alphanumeric characters, and does not have to be declared in the manifest; data written that way is readable by other plugins [SOURCE: https://developers.figma.com/docs/plugins/api/properties/nodes-setsharedplugindata/]. That answers iteration 1 finding 6: the namespace can be stable, the diagram name is the key, and the run id belongs in the value.",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`, `references/gotchas.md`, `references/plugin-api-standalone.index.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use-figjam/SKILL.md`, `skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`, `references/quality-rubric.md`",
+        "`https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/`",
+        "`https://developers.figma.com/docs/plugins/api/properties/nodes-setsharedplugindata/`"
+      ]
+    },
+    {
+      "id": "finding-3-6-a-regenerating-caller-is-explicitly-told-that-every-write-without-a-filekey-make",
+      "text": "**A regenerating caller is explicitly told that every write without a `fileKey` makes a new draft file.** The skill says \"Every call to `generate_diagram` without a `fileKey` creates a new FigJam file in the user's drafts. Regenerating 4 times = 4 draft files to clean up\" [SOURCE: specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:102]. The packet carries the `fileKey` rule [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:185] but not the draft-file consequence, which is the cost a user actually sees.",
+      "addedAtIteration": 3,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/README.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`https://developers.figma.com/docs/plugins/api/ConnectorStrokeCap/`",
+        "`https://github.com/figma/mcp-server-guide/blob/main/skills/figma-generate-diagram/references/architecture.md`",
+        "`https://www.figma.com/blog/figjam-your-coding-agents-whiteboard/`"
+      ]
+    },
+    {
+      "id": "finding-3-2-an-architecture-diagram-is-not-one-node-so-the-packet-s-one-write-one-diagram-as",
+      "text": "**An architecture diagram is not one node, so the packet's one-write-one-diagram assumption does not hold for it.** The block says a `FIGMA_DIAGRAM_2026` write produces \"1–2 subgraph `SECTION` nodes … Multiple `SHAPE_WITH_TEXT` nodes at the page level … Multiple `CONNECTOR` nodes at the page level\" [SOURCE: specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md:67], [SOURCE: specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md:69]. The packet's tag step says \"tag every node the write created\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:188] and its rollback stops on any node it did not create [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:190], but neither text says an architecture is a page-level set that may include sections.",
+      "addedAtIteration": 3,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/README.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`https://developers.figma.com/docs/plugins/api/ConnectorStrokeCap/`",
+        "`https://github.com/figma/mcp-server-guide/blob/main/skills/figma-generate-diagram/references/architecture.md`",
+        "`https://www.figma.com/blog/figjam-your-coding-agents-whiteboard/`"
+      ]
+    },
+    {
+      "id": "finding-3-3-figma-s-connector-cap-type-is-wider-than-the-corpus-parser-s-list-and-includes-e",
+      "text": "**Figma's connector cap type is wider than the corpus parser's list, and includes ERD caps that the parser would read as no arrow.** The documented `ConnectorStrokeCap` union is `NONE`, `ARROW_EQUILATERAL`, `ARROW_LINES`, `TRIANGLE_FILLED`, `DIAMOND_FILLED`, `CIRCLE_FILLED` and five `ERD_*` values [SOURCE: https://developers.figma.com/docs/plugins/api/ConnectorStrokeCap/]. The corpus parser counts only an `ARROW_` prefix, `TRIANGLE_FILLED` or `LINE_ARROW` [SOURCE: specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts:45], and `LINE_ARROW` is not in the documented union at all. So an ERD read would classify a crows-foot connector as undirected.",
+      "addedAtIteration": 3,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/README.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`https://developers.figma.com/docs/plugins/api/ConnectorStrokeCap/`",
+        "`https://github.com/figma/mcp-server-guide/blob/main/skills/figma-generate-diagram/references/architecture.md`",
+        "`https://www.figma.com/blog/figjam-your-coding-agents-whiteboard/`"
+      ]
+    },
+    {
+      "id": "finding-3-5-figma-s-own-current-documentation-still-gives-two-call-shapes-which-confirms-the",
+      "text": "**Figma's own current documentation still gives two call shapes, which confirms the earlier synthesis's open claim rather than settling it.** The diagram skill requires `name` and `mermaidSyntax` and makes `fileKey` optional [SOURCE: specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:85], while the workflow block calls the same tool with `mermaid` and `editorType: \"figjam\"` [SOURCE: specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md:57], [SOURCE: specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md:59]. A model that reads only one of the two will \"correct\" a call that works.",
+      "addedAtIteration": 3,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/README.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`https://developers.figma.com/docs/plugins/api/ConnectorStrokeCap/`",
+        "`https://github.com/figma/mcp-server-guide/blob/main/skills/figma-generate-diagram/references/architecture.md`",
+        "`https://www.figma.com/blog/figjam-your-coding-agents-whiteboard/`"
+      ]
+    },
+    {
+      "id": "finding-3-8-the-architecture-layout-code-is-documented-as-a-parameter-value-not-a-type-name-",
+      "text": "**The architecture layout code is documented as a parameter value, not a type name.** Figma's architecture reference says the layout is \"controlled by the `useArchitectureLayoutCode` parameter on `generate_diagram`\" and the workflow block passes the literal `FIGMA_DIAGRAM_2026` [SOURCE: https://github.com/figma/mcp-server-guide/blob/main/skills/figma-generate-diagram/references/architecture.md], [SOURCE: specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md:58]. The packet already passes that exact value for architecture only, so this is a confirmation rather than a gap.",
+      "addedAtIteration": 3,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/README.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`https://developers.figma.com/docs/plugins/api/ConnectorStrokeCap/`",
+        "`https://github.com/figma/mcp-server-guide/blob/main/skills/figma-generate-diagram/references/architecture.md`",
+        "`https://www.figma.com/blog/figjam-your-coding-agents-whiteboard/`"
+      ]
+    },
+    {
+      "id": "finding-3-1-the-corpus-states-how-a-caller-finds-what-a-diagram-write-created-and-the-packet",
+      "text": "**The corpus states how a caller finds what a diagram write created, and the packet states nothing.** Figma's own block says to \"Capture whatever the tool returns — diagram node ID, or nothing (then fall back to scanning page children)\" [SOURCE: specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md:63]. That is the discovery rule iteration 1 finding 5 said the tag step lacks: the id from the tool call, or a page-children scan when the call returns nothing.",
+      "addedAtIteration": 3,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/README.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`https://developers.figma.com/docs/plugins/api/ConnectorStrokeCap/`",
+        "`https://github.com/figma/mcp-server-guide/blob/main/skills/figma-generate-diagram/references/architecture.md`",
+        "`https://www.figma.com/blog/figjam-your-coding-agents-whiteboard/`"
+      ]
+    },
+    {
+      "id": "finding-3-4-the-packet-s-read-back-chain-spends-a-rationed-resource-the-gate-never-mentions-",
+      "text": "**The packet's read-back chain spends a rationed resource the gate never mentions.** Figma limits read tools by plan: a Starter plan or a View or Collab seat is \"limited to up to 6 tool calls per month\", while tools that write are exempt [SOURCE: specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/README.md:8], [SOURCE: specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/README.md:6]. The packet requires a read-back, a screenshot and a tag call after the write [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:188], and its gate states the plan and the rollback but not the call allowance.",
+      "addedAtIteration": 3,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/README.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`https://developers.figma.com/docs/plugins/api/ConnectorStrokeCap/`",
+        "`https://github.com/figma/mcp-server-guide/blob/main/skills/figma-generate-diagram/references/architecture.md`",
+        "`https://www.figma.com/blog/figjam-your-coding-agents-whiteboard/`"
+      ]
+    },
+    {
+      "id": "finding-3-7-the-wider-web-adds-no-new-diagram-discipline-only-distribution-post-pin-public-m",
+      "text": "**The wider web adds no new diagram discipline, only distribution.** Post-pin public material is Figma's MCP skill family in a second client distribution (`figma-use-slides` for Slides, the community skills page) and a Figma blog post announcing the architecture layout and FigJam skills [SOURCE: https://github.com/figma/mcp-server-guide/blob/main/skills/figma-use-slides/SKILL.md], [SOURCE: https://www.figma.com/community/skills], [SOURCE: https://www.figma.com/blog/figjam-your-coding-agents-whiteboard/]. None of it contradicts the packet's protected behaviours, and none of it adds a check the packet lacks.",
+      "addedAtIteration": 3,
+      "sources": [
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/README.md`",
+        "`specs/z-staging-po-016b-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`https://developers.figma.com/docs/plugins/api/ConnectorStrokeCap/`",
+        "`https://github.com/figma/mcp-server-guide/blob/main/skills/figma-generate-diagram/references/architecture.md`",
+        "`https://www.figma.com/blog/figjam-your-coding-agents-whiteboard/`"
+      ]
+    },
+    {
+      "id": "finding-4-6-a-board-cannot-be-attached-to-clickup-so-the-body-link-is-the-only-route-and-tha",
+      "text": "**A board cannot be attached to ClickUp, so the body link is the only route and that makes the sequencing gap matter more.** The attachment tools take a local file: `clickup_request_attachment_upload` attaches \"a LOCAL file\" and `clickup_attach_task_file` attaches a file to a task [SOURCE: AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:150], [SOURCE: AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:151]. A FigJam board is not a file, so rank 1's body link is correct, and the only defence against finding 5 is to delay or repeat the offer.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/artifact-plus-board-pair.md`",
+        "`AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/018-artifact-plus-board-pair/implementation-summary.md`"
+      ]
+    },
+    {
+      "id": "finding-4-3-nothing-in-the-routing-gate-tests-either-failing-phrasing-the-gold-rows-and-rout",
+      "text": "**Nothing in the routing gate tests either failing phrasing.** The gold rows and router fixtures contain no request that pairs a Doc or a Bug with a FigJam output; the closest pair row is the Story form [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/018-artifact-plus-board-pair/implementation-summary.md:86]. Without a gold row the regression is invisible to the gate, which is why phase 018 could ship a limitation instead of a fix.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/artifact-plus-board-pair.md`",
+        "`AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/018-artifact-plus-board-pair/implementation-summary.md`"
+      ]
+    },
+    {
+      "id": "finding-4-8-the-clickup-push-itself-does-carry-the-link-once-it-exists-because-the-body-trav",
+      "text": "**The ClickUp push itself does carry the link once it exists, because the body travels verbatim.** The connector contract says the remaining body travels \"verbatim, already ClickUp-ready\" [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:248], so a board URL written into the artifact body reaches ClickUp with no extra tooling. That confirms rank 1's mechanism and moves the defect entirely onto ordering.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/artifact-plus-board-pair.md`",
+        "`AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/018-artifact-plus-board-pair/implementation-summary.md`"
+      ]
+    },
+    {
+      "id": "finding-4-2-the-hub-promises-a-doc-sourced-board-while-the-router-never-makes-the-doc-the-fl",
+      "text": "**The hub promises a doc-sourced board while the router never makes the doc.** The Flow row lists \"a doc\" among the sources Flow draws from [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:126]. A request that asks for the doc and the board together is routed to FLOW alone [SOURCE: AI Systems/Product Owner/benchmark/router/route_contract.py:648], so the promised doc never exists and Flow has no source to draw from. The row and the route contradict each other for exactly the case the dispatcher names.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/artifact-plus-board-pair.md`",
+        "`AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/018-artifact-plus-board-pair/implementation-summary.md`"
+      ]
+    },
+    {
+      "id": "finding-4-5-the-ordered-pair-hands-the-clickup-offer-to-the-user-before-the-board-url-exists",
+      "text": "**The ordered pair hands the ClickUp offer to the user before the board URL exists.** The kernel says the artifact is \"delivered first in its own reply shape\" and Flow Mode then runs [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:256], while the artifact's reply shape closes on the ClickUp offer [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:236], [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:296]. A user who accepts that offer pushes the artifact before the board URL is written back, so the pushed copy carries no link and the pair's whole point is lost on the push path.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/artifact-plus-board-pair.md`",
+        "`AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/018-artifact-plus-board-pair/implementation-summary.md`"
+      ]
+    },
+    {
+      "id": "finding-4-1-the-pair-rule-s-framing-blindness-is-replicated-in-the-kernel-so-the-fix-is-a-th",
+      "text": "**The pair rule's framing blindness is replicated in the kernel, so the fix is a three-copy change.** The kernel's router carries the same DOC noun alternation with no bare `doc` [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:559], matching the oracle's copy [SOURCE: AI Systems/Product Owner/benchmark/router/route_contract.py:305], and the same `FLOW` discard that only fires on a second match [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:601]. Any correction has to land in the oracle, the Router Contract copy and the kernel together, or the differential fails.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/artifact-plus-board-pair.md`",
+        "`AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/018-artifact-plus-board-pair/implementation-summary.md`"
+      ]
+    },
+    {
+      "id": "finding-4-4-the-playbook-covers-the-story-pair-and-the-task-subject-negative-and-no-doc-or-b",
+      "text": "**The playbook covers the Story pair and the Task-subject negative, and no Doc or Bug pair.** Four boundary scenarios exist, and the pair scenario is the Story one [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/artifact-plus-board-pair.md:15]. A tester following the playbook cannot reach the two phrasings that fail, so the playbook reports a clean run for a rule with a hole in it.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/artifact-plus-board-pair.md`",
+        "`AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/018-artifact-plus-board-pair/implementation-summary.md`"
+      ]
+    },
+    {
+      "id": "finding-4-7-the-project-s-flow-mirror-carries-every-phase-022-to-025-change-so-the-no-connec",
+      "text": "**The Project's Flow mirror carries every phase 022 to 025 change, so the no-connector path is not the gap.** The mirror names the tag step and its wrap rule [SOURCE: AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md:163], the rollback and its tag-aware replacement rule [SOURCE: AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md:165], the `whoami` step [SOURCE: AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md:158] and the plan question [SOURCE: AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md:229]. The Project path inherits iteration 2's plan-versus-file confusion and nothing worse.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md`",
+        "`AI Systems/Product Owner/benchmark/router/route_contract.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/artifact-plus-board-pair.md`",
+        "`AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md`",
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/018-artifact-plus-board-pair/implementation-summary.md`"
+      ]
+    },
+    {
+      "id": "finding-5-1-fourteen-of-section-5-s-fifteen-rejections-still-stand-and-one-needs-a-qualifica",
+      "text": "**Fourteen of Section 5's fifteen rejections still stand, and one needs a qualification rather than a reversal.** \"Counting redistributions as separate evidence\" is right about independence: a redistribution is one design decision, not three [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md:230]. It is wrong about currency. A discounted copy is one of the few places a changed rule can appear, which is exactly how iteration 2 settled the plugin-data question.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md` Sections 5 and 7",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/references/architecture.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/types/architecture.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    },
+    {
+      "id": "finding-5-2-the-lightspeedwp-is-an-older-copy-claim-is-refuted-by-content-not-by-date-the-pi",
+      "text": "**The \"lightspeedwp is an older copy\" claim is refuted by content, not by date.** The pinned `figma-use` skill and its gotchas contain no `pluginData` mention at all [SOURCE: specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use/SKILL.md:1], while the copy carries the prohibition as Critical Rule 3a [SOURCE: specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md:28]. A copy that holds a newer rule is newer, whatever the file dates say.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md` Sections 5 and 7",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/references/architecture.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/types/architecture.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    },
+    {
+      "id": "finding-5-3-the-call-shape-claim-should-change-label-rather-than-stay-open-section-7-recorde",
+      "text": "**The call-shape claim should change label rather than stay open.** Section 7 recorded \"which `generate_diagram` call shape the live server accepts\" as unknown [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md:280]. The pinned tree holds both shapes side by side, so the honest label is a documented contradiction, and the packet's run-time confirmation rule is the only safe instruction.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md` Sections 5 and 7",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/references/architecture.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/types/architecture.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    },
+    {
+      "id": "finding-5-5-the-clickup-rejection-was-right-about-attachments-and-too-broad-about-offers-it-",
+      "text": "**The ClickUp rejection was right about attachments and too broad about offers.** It rejected \"a ClickUp offer or attachment from the Flow reply\" together [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md:227]. The attachment half is confirmed by the tool surface, and the offer half is where iteration 4's sequencing defect lives, so the rejection should split rather than stand whole.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md` Sections 5 and 7",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/references/architecture.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/types/architecture.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    },
+    {
+      "id": "finding-5-7-the-one-section-7-claim-that-became-a-defect-is-the-code-mode-sentence-every-oth",
+      "text": "**The one Section 7 claim that became a defect is the Code Mode sentence.** Every other open claim stays open. The claim that Code Mode holds no HTTP manual was recorded as unchecked beyond the vendored guide [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md:286], and phase 019 then wrote it into the packet as settled fact [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:180]. That is the only place where an unverified claim hardened into instruction.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md` Sections 5 and 7",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/references/architecture.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/types/architecture.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    },
+    {
+      "id": "finding-5-6-the-packet-s-architecture-reference-already-matches-the-layout-s-hard-rules-so-l",
+      "text": "**The packet's architecture reference already matches the layout's hard rules, so lane guidance is not a gap.** The layout accepts `flowchart LR` only and requires subgraph ids from a fixed six-value set [SOURCE: specs/z-staging-po-016b-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/references/architecture.md:46], [SOURCE: specs/z-staging-po-016b-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/references/architecture.md:48]. The packet states the same six ids, the same direction and the no-styling rule, and its checker enforces them [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/architecture.md:78], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/architecture.md:87]. A proposal to add architecture guidance would duplicate text that is already correct and enforced.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md` Sections 5 and 7",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/references/architecture.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/types/architecture.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    },
+    {
+      "id": "finding-5-4-the-run-manifest-rejection-is-stronger-now-that-the-tag-mechanism-is-verified-se",
+      "text": "**The run-manifest rejection is stronger now that the tag mechanism is verified.** Section 5 rejected a disk manifest because the packet leaves no file [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md:226]. With `setSharedPluginData` documented as supported, the board can carry its own record, so a manifest would duplicate a mechanism that works.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md` Sections 5 and 7",
+        "`specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/lightspeedwp__.github/plugins/figma/figma-use/SKILL.md`",
+        "`specs/z-staging-po-016b-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/references/architecture.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/types/architecture.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    }
+  ],
+  "ruledOutDirections": [
+    {
+      "id": "ruled-out-e453180306b4",
+      "text": "Judging the accent (rank 4) or the self-edit guidance (rank 10) as incomplete. Both match the corpus lines: Adobe's \"if a reader could only take away one node\" test and its \"split it or pick one\" tie rule sit in the corpus [SOURCE: specs/z-staging-po-016b-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:22], [SOURCE: specs/z-staging-po-016b-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:32].",
+      "contentHash": "e453180306b4",
+      "addedAtIteration": 1
+    },
+    {
+      "id": "ruled-out-02568eddd1c1",
+      "text": "Looking for a `doc` token in the DOC frame list under another name: `docs` matches only the plural, so the singular is genuinely missing.",
+      "contentHash": "02568eddd1c1",
+      "addedAtIteration": 1
+    },
+    {
+      "id": "ruled-out-771c65db3b0d",
+      "text": "Re-reading all twelve changed files in full. The summaries name the exact anchors, and reading the four areas the summaries flag as uncertain concentrated the evidence.",
+      "contentHash": "771c65db3b0d",
+      "addedAtIteration": 1
+    },
+    {
+      "id": "ruled-out-aa85fad7d005",
+      "text": "Searching the packet for a script that counts connector labels. None exists, which confirms finding 9 rather than resolving it.",
+      "contentHash": "aa85fad7d005",
+      "addedAtIteration": 1
+    },
+    {
+      "id": "ruled-out-d629fd1b4157",
+      "text": "Treating the phase 018 limitation as authoritative. Its own wording (\"predates the phase\") was contradicted by the code path, so the code won.",
+      "contentHash": "d629fd1b4157",
+      "addedAtIteration": 1
+    },
+    {
+      "id": "ruled-out-e0786b03ed51",
+      "text": "Concluding `get_metadata` is a usable FigJam read. Figma restricts it to Figma Design, and the corpus says it fails on FigJam [SOURCE: specs/z-staging-po-016b-research/corpus/figma__mcp-server-guide/skills/figma-use-figjam/SKILL.md:20]. The packet never mentions it, so there is nothing to fix.",
+      "contentHash": "e0786b03ed51",
+      "addedAtIteration": 2
+    },
+    {
+      "id": "ruled-out-d7a66a5504fa",
+      "text": "Looking for a documented `planKey` field on `generate_diagram`. The tool page does not list one, so the packet's \"where the server reports a plan field\" conditional is the correct shape.",
+      "contentHash": "d7a66a5504fa",
+      "addedAtIteration": 2
+    },
+    {
+      "id": "ruled-out-37fd55058d73",
+      "text": "Reading `generate_image` as a route for the refused image stand-in. Figma's page confirms `use_figma` cannot add new images at all, which strengthens the packet's no-stand-in rule rather than reopening it [SOURCE: https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/].",
+      "contentHash": "37fd55058d73",
+      "addedAtIteration": 2
+    },
+    {
+      "id": "ruled-out-cbc2208bf16c",
+      "text": "Searching the corpus for a `get_figjam` response sample. None exists, so the exact XML attribute names for connector caps stay unproven; only the semantic set is settled.",
+      "contentHash": "cbc2208bf16c",
+      "addedAtIteration": 2
+    },
+    {
+      "id": "ruled-out-215b0824e65c",
+      "text": "Treating the root `mcp.json` 18-title list as the live tool list. The published page lists a different and larger set, including tools the packet never names, so the packet's \"confirm at run time\" rule remains right [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:182].",
+      "contentHash": "215b0824e65c",
+      "addedAtIteration": 2
+    },
+    {
+      "id": "ruled-out-bb2516b76f89",
+      "text": "Adopting `figma-use-slides` as a corpus source. It governs Slides writes and says nothing about FigJam boards.",
+      "contentHash": "bb2516b76f89",
+      "addedAtIteration": 3
+    },
+    {
+      "id": "ruled-out-22e443eef9d6",
+      "text": "Concluding the call shape is settled by the newer file. Both shapes are in the same pinned tree, so recency does not decide it.",
+      "contentHash": "22e443eef9d6",
+      "addedAtIteration": 3
+    },
+    {
+      "id": "ruled-out-28dc1e9412d0",
+      "text": "Fetching an independent third-party FigJam skill (a public `figjam-diagram-generator` skill). The blob URL returned 404, so nothing could be read and nothing is claimed from it.",
+      "contentHash": "28dc1e9412d0",
+      "addedAtIteration": 3
+    },
+    {
+      "id": "ruled-out-18a2e77252c6",
+      "text": "Searching for a published `get_figjam` XML sample. Still none, so attribute names stay unproven.",
+      "contentHash": "18a2e77252c6",
+      "addedAtIteration": 3
+    },
+    {
+      "id": "ruled-out-13f2e79d9ce3",
+      "text": "Treating the community skills page as evidence of a capability. It lists distributions, not behaviours [SOURCE: https://www.figma.com/community/skills].",
+      "contentHash": "13f2e79d9ce3",
+      "addedAtIteration": 3
+    },
+    {
+      "id": "ruled-out-eb87b3560f2a",
+      "text": "Looking for a gold row with \"figjam\" and \"doc\" in one request. The gold set holds no such row.",
+      "contentHash": "eb87b3560f2a",
+      "addedAtIteration": 4
+    },
+    {
+      "id": "ruled-out-2f29f4a9edbc",
+      "text": "Proposing a ClickUp attachment or a Figma embed for the board. The tool list has no board-attach path, and the earlier synthesis already rejected an attachment [SOURCE: AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:130].",
+      "contentHash": "2f29f4a9edbc",
+      "addedAtIteration": 4
+    },
+    {
+      "id": "ruled-out-585d301666e9",
+      "text": "Reading the Project's no-connector path as the remaining integration gap. Its mirror is current.",
+      "contentHash": "585d301666e9",
+      "addedAtIteration": 4
+    },
+    {
+      "id": "ruled-out-ac574ab9eef3",
+      "text": "Searching the playbook for a Doc-plus-board scenario. None exists under any name.",
+      "contentHash": "ac574ab9eef3",
+      "addedAtIteration": 4
+    },
+    {
+      "id": "ruled-out-478a8e193a7a",
+      "text": "Treating the kernel as the only copy to fix. The differential ties three copies together.",
+      "contentHash": "478a8e193a7a",
+      "addedAtIteration": 4
+    },
+    {
+      "id": "ruled-out-35eb9705178d",
+      "text": "Adding architecture lane guidance. The packet is already exact, so the change would be duplication.",
+      "contentHash": "35eb9705178d",
+      "addedAtIteration": 5
+    },
+    {
+      "id": "ruled-out-4a6d6517125e",
+      "text": "Keeping the pair gap as a recorded limitation. The gate can test it, so it is fixable within the phase-018 pattern.",
+      "contentHash": "4a6d6517125e",
+      "addedAtIteration": 5
+    },
+    {
+      "id": "ruled-out-5af29329917d",
+      "text": "Looking for a Section 7 claim that a public page settles to the packet's detriment. Only the Code Mode sentence qualified, and that is a wording defect rather than a factual one.",
+      "contentHash": "5af29329917d",
+      "addedAtIteration": 5
+    },
+    {
+      "id": "ruled-out-362411c33ed3",
+      "text": "Reversing a rejection on the strength of a single file. Only the \"older copy\" claim reversed, and only because a newer rule is present in one copy and absent in the pin.",
+      "contentHash": "362411c33ed3",
+      "addedAtIteration": 5
+    }
+  ],
+  "rejectedPatterns": [],
+  "rejectedPatternIndex": {
+    "maxEntries": 100,
+    "fuzzyThreshold": 0.85,
+    "entries": []
+  },
+  "rejectedPatternWarnings": [],
+  "suppressedCandidates": [],
+  "minIdeaObservations": 2,
+  "observedIdeas": [],
+  "promotedIdeas": [],
+  "suppressedIdeas": [],
+  "blockedStopHistory": [],
+  "graphConvergenceScore": 0,
+  "graphDecision": null,
+  "graphBlockers": [],
+  "divergence": {
+    "started": [],
+    "completed": [],
+    "failed": [],
+    "overrides": [],
+    "saturatedDirections": [],
+    "remainingFrontier": [],
+    "currentFocus": "",
+    "activePivotId": null,
+    "activeSourceIteration": null
+  },
+  "metrics": {
+    "iterationsCompleted": 5,
+    "openQuestions": 0,
+    "resolvedQuestions": 5,
+    "carriedForwardOpenQuestions": 0,
+    "keyFindings": 43,
+    "rejectedPatterns": 0,
+    "suppressedCandidates": 0,
+    "observedIdeas": 0,
+    "promotedIdeas": 0,
+    "suppressedIdeas": 0,
+    "convergenceScore": 0.85,
+    "coverageBySources": {
+      "code": 5,
+      "developers.figma.com": 3,
+      "other": 46,
+      "www.figma.com": 1
+    },
+    "completedPivots": 0,
+    "failedPivots": 0,
+    "pivotOverrides": 0
+  },
+  "corruptionWarnings": [],
+  "inboxPath": "/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/z-staging-po-016b-research/research/lineages/deepseek/inbox.jsonl",
+  "inboxWarnings": [],
+  "status": "COMPLETE",
+  "advisoryEvents": [],
+  "strategyWarnings": []
+}

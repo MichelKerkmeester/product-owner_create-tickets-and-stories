@@ -1,0 +1,21 @@
+The lineage is complete. Summary of what ran and what it produced, all under `specs/z-staging-po-030b/research/lineages/deepseek`:
+
+**Phase init** — `deep-research-config.json` (5 iterations, `stopPolicy: max-iterations`, convergence off), analyst strategy with 9 key questions, config row through `append-mode-event.cjs` (sequence 1), reducer bound to the lineage via `--artifact-dir`.
+
+**Phase main loop — 5 iterations, each run inline in this session**
+
+| # | Focus | newInfoRatio | Findings |
+|---|---|---|---|
+| 1 | What a vision model can and cannot read from a UI screenshot | 0.80 | 6 |
+| 2 | Ordering a screenshot set; screen vs state | 0.70 | 7 |
+| 3 | The action between screens; acceptance criteria as evidence | 0.62 | 6 |
+| 4 | What a Figma file already knows, and which read reaches it | 0.68 | 6 |
+| 5 | Type choice, chunking, checking the model against its sources | 0.55 | 6 |
+
+Each iteration wrote its narrative, its delta (iteration row + one finding row per finding with sources), and one canonical record through the append gateway, immediately after the iteration — sequences 2 to 6, every one with a receipt. The reducer ran after each, `corruptionCount` 0 and `iterationsCompleted` advancing 0→5.
+
+**Phase synthesis** — `research.md` ranks 13 changes, each naming the Product Owner file it changes and the source it comes from. The three that matter most: read the Figma reaction graph before frame content (the file already stores `reactions`; `use_figma` can reach it); keep one record per item with source, class and confidence (the provenance table gives a node a class but an inferred edge none); and check the model against its sources, because `flow_check.py` verifies only the model→board contract. The synthesis also lists what the packet already does better than all 22 corpus repos, 4 recorded mid-run conflicts with how each was settled, 6 ruled-out directions, and 8 unverified claims.
+
+The terminal record went through the canonical producer `synthesis-closeout.cjs` and then the gateway (sequence 7, `deep-research.ledger.synthesis-complete`) carrying `stopReason: "maxIterationsReached"`; a final reduce reports `Status: COMPLETE`, `Iteration: 5 of 5`, 9 of 9 questions resolved, 31 key findings. The only config write after init was the permitted `status: complete` flip. Nothing was written outside the lineage, and no screenshot, board URL or containment path was opened.
+
+FANOUT_LINEAGE_COMPLETE:deepseek

@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/027-repeated-edge-labels",
+  "description": "Phase 27: repeated-edge-labels",
+  "keywords": [
+    "phase",
+    "repeated-edge-labels"
+  ],
+  "lastUpdated": "2026-10-20T22:00:00.000Z",
+  "specId": "027",
+  "folderSlug": "repeated-edge-labels",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

@@ -1,0 +1,13 @@
+Deep research complete.
+Iterations: 20 | Stop reason: maxIterationsReached
+Questions answered: 5/5
+
+Artifacts:
+- `specs/z-staging-po-009-research/research/lineages/deepseek/research.md` (33 cited source lines)
+- 20 iteration files and 20 matching deltas
+- State: config, state.jsonl (synthesis_complete event seq 22), strategy, findings registry (235 findings), dashboard (COMPLETE)
+- 0 corruption warnings; closeout passed and the terminal event was accepted by the gateway
+
+Key results: 13 changes ranked, 4/4 known gaps resolved, 5/5 limits judged. Top findings — unchecked edge operators (`---`, `<-->`, `-.->`, `==>`) pass `flow_check.py` today; the page rule is impossible on the FigJam API and appears in eight statements across three surfaces; `fileKey` reuse is the revision mechanism Flow Mode lacks. External prerequisites remain: the Flow Mode files are untracked, and `validate_parity.py product-owner` exits 2 until the declaration is committed — so no parity pass is claimed.
+
+STATUS=OK PATH=specs/z-staging-po-009-research

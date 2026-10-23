@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/015-figjam-rebuild",
+  "description": "Phase 15: figjam-rebuild",
+  "keywords": [
+    "phase",
+    "figjam-rebuild"
+  ],
+  "lastUpdated": "2026-10-20T20:00:00.000Z",
+  "specId": "015",
+  "folderSlug": "figjam-rebuild",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

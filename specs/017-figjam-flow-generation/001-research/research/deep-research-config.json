@@ -1,0 +1,122 @@
+{
+  "topic": "How can Product Owner (AI Systems/Product Owner) turn screenshots, Figma flows and product docs into FigJam flows, with FigJam as the only output? Cover: FigJam capability and limits through the Figma MCP (.skilled/skills/mcp-tooling/mcp-figma); input handling per type; which sk-design-diagram flow chart rules (.skilled/skills/sk-design/sk-design-diagram) carry over to FigJam; embedding a duplicate of the mcp-figma skill in Product Owner; a Claude Code plugin following Media Editor (AI Systems/Media Editor/runtime/claude-plugin); a low-friction sync path from the embedded copy back to .skilled across two git repos; converting Product Owner to a parent hub following Moneybird Accountant (hub-router.json, mode-registry.json); lessons and mistakes from both precedents; risks. Each iteration opens a new question or deepens an earlier finding. Cite local file and line for every claim.",
+  "maxIterations": 20,
+  "convergenceThreshold": 0.05,
+  "antiConvergence": {
+    "minIterations": 3,
+    "convergenceMode": "off",
+    "stopPolicy": "fail-closed",
+    "divergent": {}
+  },
+  "stuckThreshold": 3,
+  "maxDurationMinutes": 480,
+  "maxToolCallsPerIteration": 24,
+  "maxMinutesPerIteration": 10,
+  "progressiveSynthesis": true,
+  "specFolder": "specs/z-staging-po-017-research",
+  "createdAt": "2026-10-19T21:01:17Z",
+  "status": "initialized",
+  "executionMode": "auto",
+  "executor": {
+    "kind": "native",
+    "model": null,
+    "reasoningEffort": null,
+    "serviceTier": null,
+    "sandboxMode": null,
+    "timeoutSeconds": 900
+  },
+  "lineage": {
+    "sessionId": "",
+    "parentSessionId": null,
+    "lineageMode": "new",
+    "allowedModes": [
+      "new",
+      "resume",
+      "restart"
+    ],
+    "deferredModes": [
+      "fork",
+      "completed-continue"
+    ],
+    "generation": 1,
+    "continuedFromRun": null
+  },
+  "reducer": {
+    "enabled": true,
+    "version": "1.0",
+    "registryFile": "research/findings-registry.json",
+    "dashboardFile": "research/deep-research-dashboard.md",
+    "strategyFile": "research/deep-research-strategy.md",
+    "machineOwnedSections": [
+      "key-questions",
+      "answered-questions",
+      "what-worked",
+      "what-failed",
+      "exhausted-approaches",
+      "ruled-out-directions",
+      "divergence-frontier",
+      "next-focus"
+    ]
+  },
+  "capabilityMatrixPath": ".skilled/skills/system-deep-loop/deep-research/assets/runtime-capabilities.json",
+  "capabilityMatrixDocPath": ".skilled/skills/system-deep-loop/deep-research/references/guides/capability-matrix.md",
+  "runtimeCapabilityResolver": ".skilled/skills/system-deep-loop/deep-research/scripts/runtime-capabilities.cjs",
+  "reducerScriptPath": ".skilled/skills/system-deep-loop/deep-research/scripts/reduce-state.cjs",
+  "pauseSentinelPath": "research/.deep-research-pause",
+  "archiveRoot": "research_archive",
+  "migrationWindowDays": 28,
+  "fileProtection": {
+    "deep-research-config.json": "immutable",
+    "deep-research-state.jsonl": "append-only",
+    "deep-research-strategy.md": "mutable",
+    "deep-research-dashboard.md": "auto-generated",
+    "findings-registry.json": "auto-generated",
+    "iteration-*.md": "write-once",
+    "research/research.md": "mutable"
+  },
+  "_optimizerManaged": {
+    "description": "Fields managed by the offline loop optimizer (042.004). See optimizer-manifest.json for the canonical tunable/locked field registry.",
+    "manifestPath": ".skilled/skills/system-spec-kit/runtime/cli/optimizer/optimizer-manifest.json",
+    "tunableFields": [
+      "convergenceThreshold",
+      "stuckThreshold",
+      "maxIterations"
+    ],
+    "lockedFields": [
+      "lineage",
+      "reducer",
+      "fileProtection",
+      "sessionId",
+      "status",
+      "antiConvergence.convergenceMode",
+      "antiConvergence.stopPolicy"
+    ],
+    "promotionMode": "advisory-only"
+  },
+  "researchTopic": "How can Product Owner (AI Systems/Product Owner) turn screenshots, Figma flows and product docs into FigJam flows, with FigJam as the only output? Cover: FigJam capability and limits through the Figma MCP (.skilled/skills/mcp-tooling/mcp-figma); input handling per type; which sk-design-diagram flow chart rules (.skilled/skills/sk-design/sk-design-diagram) carry over to FigJam; embedding a duplicate of the mcp-figma skill in Product Owner; a Claude Code plugin following Media Editor (AI Systems/Media Editor/runtime/claude-plugin); a low-friction sync path from the embedded copy back to .skilled across two git repos; converting Product Owner to a parent hub following Moneybird Accountant (hub-router.json, mode-registry.json); lessons and mistakes from both precedents; risks. Each iteration opens a new question or deepens an earlier finding. Cite local file and line for every claim.",
+  "resource_map": {
+    "emit": true
+  },
+  "fanout": {
+    "executors": [
+      {
+        "kind": "cli-pi",
+        "model": "deepseek-v4.1-flash",
+        "reasoningEffort": "max",
+        "timeoutSeconds": 1800,
+        "label": "deepseek",
+        "iterations": 20
+      },
+      {
+        "kind": "cli-codex",
+        "model": "gpt-6-luna",
+        "reasoningEffort": "max",
+        "serviceTier": "fast",
+        "timeoutSeconds": 1800,
+        "label": "luna",
+        "iterations": 8
+      }
+    ],
+    "concurrency": 2
+  }
+}

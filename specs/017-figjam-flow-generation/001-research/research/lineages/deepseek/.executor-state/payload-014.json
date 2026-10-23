@@ -1,0 +1,28 @@
+{
+  "iteration": 14,
+  "focus": "Scoring the sync options against proven mechanics",
+  "newInfoRatio": 0.8,
+  "status": "insight",
+  "noveltyJustification": "Four option judgments are new derived claims and one is a new absence finding; the remaining claims restate iteration 9 and 13 evidence, and the bonus reflects one two-hop model replacing five candidate options.",
+  "answeredQuestions": ["How should a Product Owner copy of mcp-figma be embedded, plugin-packaged and synced back to .skilled across two repositories?"],
+  "ruledOut": ["Symlinks or submodules for the embedded skill", "A fully generated Project mirror"],
+  "sourcesQueried": [
+    "AI Systems/Media Editor/runtime/claude-plugin/README.md",
+    "AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md",
+    "AI Systems/Product Owner/SYNC.md",
+    "AGENTS.md"
+  ],
+  "findings": [
+    {"id": "f-iter014-001", "label": "Build-output duplication with a source-difference refusal is the only locally demonstrated drift-proof pattern: the plugin copies the skill each build, replaces the folder, and fails when any copied file differs.", "sources": ["AI Systems/Media Editor/runtime/claude-plugin/README.md:83", "AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55"]},
+    {"id": "f-iter014-002", "label": "Vendored copies with an explicit declaration are the fallback when generation is impossible, as Product Owner already does for four shared rule cards.", "sources": ["AI Systems/Product Owner/SYNC.md:44"]},
+    {"id": "f-iter014-003", "label": "Symlinks are disproven: a link climbing out of the repository resolves to nothing once cloned, and the plugin build refuses links in an unpacked payload.", "sources": ["AI Systems/Product Owner/SYNC.md:44", "AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55"]},
+    {"id": "f-iter014-004", "label": "No local precedent exists for sharing a skill through a submodule, subtree merge or published package; neither precedent uses one and no record mentions one.", "sources": ["AI Systems/Media Editor/runtime/claude-plugin/README.md:83", "AI Systems/Product Owner/SYNC.md:9"]},
+    {"id": "f-iter014-005", "label": "The skill-to-copy hop is generatable because both ends are tracked files; the copy-to-Project hop is not, because the contract requires a per-paragraph human decision and a named reviewer's dated record.", "sources": ["AI Systems/Product Owner/SYNC.md:9", "AI Systems/Media Editor/runtime/claude-plugin/README.md:83"]},
+    {"id": "f-iter014-006", "label": "The best available path is one generated hop with a refusal plus one manual hop with a dated record; claiming fully automated sync would abandon the manual parity contract.", "sources": ["AGENTS.md:127", "AI Systems/Product Owner/SYNC.md:17"]}
+  ],
+  "graphEvents": [
+    {"type": "node", "id": "q-sync-options", "kind": "QUESTION", "label": "Which sync path is low-friction and defensible"},
+    {"type": "node", "id": "f-iter014-two-hop", "kind": "CLAIM", "label": "One generated hop plus one manual hop"},
+    {"type": "edge", "id": "e-iter014-001", "source": "f-iter014-two-hop", "target": "q-sync-options", "relation": "ANSWERS"}
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/011-figjam-packet-split",
+  "description": "Phase 11: figjam-packet-split",
+  "keywords": [
+    "phase",
+    "figjam-packet-split"
+  ],
+  "lastUpdated": "2026-10-20T09:38:56.134Z",
+  "specId": "011",
+  "folderSlug": "figjam-packet-split",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

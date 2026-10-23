@@ -1,0 +1,1717 @@
+{
+  "sessionId": "2026-10-20T05:23:58Z",
+  "parentSessionId": null,
+  "generation": 1,
+  "lineageMode": "new",
+  "continuedFromRun": null,
+  "terminalStop": null,
+  "status": "INITIALIZED",
+  "openFindings": [
+    {
+      "findingId": "R1-P1-001",
+      "severity": "P0",
+      "title": "Manifest paths can redirect sync writes outside package roots",
+      "file": "scripts/vendor-sync.py",
+      "line": 160,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P0",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R2-P0-001",
+      "severity": "P0",
+      "title": "Plugin build can delete an external skills directory through a symlinked parent",
+      "file": "scripts/build-plugin.py",
+      "line": 117,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P0",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R1-P1-001",
+      "severity": "P1",
+      "title": "Manifest paths can redirect sync writes outside package roots",
+      "file": "scripts/vendor-sync.py",
+      "line": 164,
+      "description": "Before any read or write, reject absolute paths and parent traversal, resolve local_path and upstream_path beneath their designated roots, and resolve every include entry beneath both package roots. Add scratch-world tests proving pull and push refuse escapes without touching the outside target.",
+      "findingClass": "class-of-bug",
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R1-P2-002",
+      "severity": "P1",
+      "title": "Plugin build can package content from a symlinked hub source",
+      "file": "scripts/build-plugin.py",
+      "line": 71,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R2-P1-001",
+      "severity": "P1",
+      "title": "Hosted rollback can clear unrelated content on the target page",
+      "file": "sk-product-owner/references/flow-mode.md",
+      "line": 116,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P1-001",
+      "severity": "P1",
+      "title": "Flow delivery reply conflicts with the global self-scan rule",
+      "file": "sk-product-owner/references/flow-mode.md",
+      "line": 136,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R5-P1-001",
+      "severity": "P1",
+      "title": "Clarification requests can be routed to the Figma tool packet",
+      "file": "hub-router.json",
+      "line": 6,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 5,
+      "lastSeen": 5,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 5,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R1-P2-002",
+      "severity": "P2",
+      "title": "Plugin build does not reject symlinked hub source files",
+      "file": "scripts/build-plugin.py",
+      "line": 71,
+      "description": "Reject symlinks for every HUB_FILES source before adding it to the map, and add a scratch self-test that plants a symlink at one root hub file and expects refusal.",
+      "findingClass": "class-of-bug",
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R2-P2-001",
+      "severity": "P2",
+      "title": "Fictional examples still contain clickable Figma URLs",
+      "file": "sk-product-owner/assets/examples/story/story-example-complete.md",
+      "line": 51,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R4-P2-001",
+      "severity": "P2",
+      "title": "Published benchmark totals disagree with the current checks",
+      "file": "README.md",
+      "line": 679,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R4-P2-002",
+      "severity": "P2",
+      "title": "Product Owner README contains a semicolon flagged by the voice gate",
+      "file": "sk-product-owner/README.md",
+      "line": 231,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R5-P2-001",
+      "severity": "P2",
+      "title": "Flow color limit has no check before or after the board write",
+      "file": "sk-product-owner/scripts/vendored/mermaid_extract.py",
+      "line": 726,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 5,
+      "lastSeen": 5,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 5,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    }
+  ],
+  "resolvedFindings": [],
+  "blockedStopHistory": [],
+  "persistentSameSeverity": [],
+  "severityChanged": [],
+  "repeatedFindings": [],
+  "dimensionCoverage": {
+    "correctness": true,
+    "security": true,
+    "traceability": true,
+    "maintainability": true
+  },
+  "findingsBySeverity": {
+    "P0": 2,
+    "P1": 5,
+    "P2": 5
+  },
+  "openFindingsCount": 12,
+  "resolvedFindingsCount": 0,
+  "convergenceScore": 0.7142857142857143,
+  "graphConvergenceScore": 0.725,
+  "graphDecision": "STOP_BLOCKED",
+  "graphBlockers": [
+    {
+      "count": 11,
+      "description": "Dimension coverage (50%) is below threshold (80%). 11 gap(s) found. STOP is blocked until all required dimensions have meaningful coverage.",
+      "severity": "blocking",
+      "type": "uncovered_dimensions"
+    }
+  ],
+  "graphSignals": {
+    "dimensionCoverage": 0.5,
+    "evidenceDensity": 0,
+    "findingStability": 1,
+    "hotspotSaturation": 1,
+    "p0ResolutionRate": 1,
+    "score": 0.725
+  },
+  "candidateCoverage": {
+    "covered": [
+      "benchmark_documentation_count_drift",
+      "flow_delivery_contract_conflict",
+      "flow_delivery_reply_conflict",
+      "flow_style_rule_enforcement",
+      "hosted_rollback_page_scope",
+      "hub_artifact_word_coverage",
+      "hub_source_symlink_bypass",
+      "hvr_punctuation_violation",
+      "manifest_path_escape",
+      "plugin_output_symlink_escape",
+      "plugin_output_symlink_reachability",
+      "plugin_source_symlink_exposure",
+      "plugin_source_symlink_leak",
+      "public_repo_example_url_policy",
+      "vendor_manifest_path_escape"
+    ],
+    "ruledOut": [
+      "change_location_model_conformance",
+      "code_comment_metadata_leak",
+      "duplicated_router_contract_drift",
+      "extractor_output_path_escape",
+      "feature_catalog_extra_sources_drift",
+      "flow_checker_parser_edges",
+      "flow_checker_seeded_rule_regression",
+      "flow_checker_symlink_input_escape",
+      "flow_route_cross_runtime_drift",
+      "hub_negation_contract",
+      "phase_acceptance_status_drift",
+      "playbook_citation_line_drift",
+      "plugin_manifest_contract",
+      "plugin_manifest_secret_or_mcp_registration",
+      "private_flow_or_board_leakage",
+      "router_contract_drift",
+      "vacuous_self_test",
+      "vendor_hash_drift",
+      "vendored_extractor_hash_drift"
+    ],
+    "deferred": [
+      "phase_closure_checklist_evidence",
+      "plugin_live_flow_activation"
+    ],
+    "blocked": [
+      "hosted_board_readback_evidence",
+      "outer_output_gate_runtime"
+    ],
+    "byBugClass": {
+      "manifest_path_escape": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1,
+          2
+        ]
+      },
+      "hub_source_symlink_bypass": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "flow_checker_seeded_rule_regression": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "router_contract_drift": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "vendor_hash_drift": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "outer_output_gate_runtime": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": true,
+        "iterations": [
+          1
+        ]
+      },
+      "plugin_output_symlink_escape": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "plugin_source_symlink_leak": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "hosted_rollback_page_scope": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2,
+          5
+        ]
+      },
+      "public_repo_example_url_policy": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "flow_checker_symlink_input_escape": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "extractor_output_path_escape": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "plugin_manifest_secret_or_mcp_registration": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "private_flow_or_board_leakage": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "vendored_extractor_hash_drift": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "outer_sync_loop_behavior": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "change_location_flow_model_provenance": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "mcp_figma_packet_behavior": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "flow_delivery_reply_conflict": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "phase_acceptance_status_drift": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "flow_route_cross_runtime_drift": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "playbook_citation_line_drift": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "feature_catalog_extra_sources_drift": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "phase_closure_checklist_evidence": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": true,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "plugin_live_flow_activation": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": true,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "hosted_board_readback_evidence": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": true,
+        "iterations": [
+          3
+        ]
+      },
+      "benchmark_documentation_count_drift": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "hvr_punctuation_violation": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "vacuous_self_test": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "duplicated_router_contract_drift": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "code_comment_metadata_leak": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "vendor_manifest_path_escape": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "plugin_output_symlink_reachability": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "plugin_source_symlink_exposure": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "flow_delivery_contract_conflict": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "hub_artifact_word_coverage": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "flow_style_rule_enforcement": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "hub_negation_contract": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "flow_checker_parser_edges": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "plugin_manifest_contract": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "change_location_model_conformance": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      }
+    }
+  },
+  "searchDebt": [
+    {
+      "iteration": 1,
+      "id": "SL-006",
+      "dimension": "correctness",
+      "targetRefs": [
+        "../z — Claude Project Sync Loop/systems.cjs",
+        "../z — Claude Project Sync Loop/validate-output-format.cjs"
+      ],
+      "bugClass": "outer_output_gate_runtime",
+      "disposition": "blocked",
+      "rationale": "The runtime attempt failed in host setup before any validator code executed.",
+      "evidenceRefs": [
+        "../z — Claude Project Sync Loop/systems.cjs:72",
+        "../z — Claude Project Sync Loop/systems.cjs:266",
+        "../z — Claude Project Sync Loop/validate-output-format.cjs:1291"
+      ],
+      "reason": "Restore a working Node runtime or required simdutf library, then rerun the outer validator."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-306",
+      "dimension": "traceability",
+      "targetRefs": [
+        "specs/017-figjam-flow-generation/005-flow-mode",
+        "specs/017-figjam-flow-generation/006-claude-code-plugin"
+      ],
+      "bugClass": "phase_closure_checklist_evidence",
+      "disposition": "deferred",
+      "rationale": "The source marks the phases open, so closure evidence is not yet claimed.",
+      "evidenceRefs": [
+        "specs/017-figjam-flow-generation/003-vendored-figma-and-sync/tasks.md:44",
+        "specs/017-figjam-flow-generation/003-vendored-figma-and-sync/implementation-summary.md:95",
+        "specs/017-figjam-flow-generation/004-parent-hub-conversion/tasks.md:44",
+        "specs/017-figjam-flow-generation/004-parent-hub-conversion/implementation-summary.md:97",
+        "specs/017-figjam-flow-generation/005-flow-mode/tasks.md:34",
+        "specs/017-figjam-flow-generation/005-flow-mode/implementation-summary.md:48",
+        "specs/017-figjam-flow-generation/006-claude-code-plugin/tasks.md:34",
+        "specs/017-figjam-flow-generation/006-claude-code-plugin/implementation-summary.md:48"
+      ],
+      "reason": "Revisit when either phase is proposed as complete or its acceptance criteria are updated."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-307",
+      "dimension": "traceability",
+      "targetRefs": [
+        "specs/017-figjam-flow-generation/005-flow-mode/goal.md",
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/change-location-flow-model.md"
+      ],
+      "bugClass": "hosted_board_readback_evidence",
+      "disposition": "blocked",
+      "rationale": "Static model review cannot prove a hosted FigJam write/read-back.",
+      "evidenceRefs": [
+        "specs/017-figjam-flow-generation/005-flow-mode/goal.md:59",
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/change-location-flow-model.md:17"
+      ],
+      "reason": "The review strategy records that no hosted Figma MCP was connected; the board criterion is explicitly blocked by environment."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-308",
+      "dimension": "traceability",
+      "targetRefs": [
+        "claude-plugin/.claude-plugin/plugin.json",
+        "specs/017-figjam-flow-generation/006-claude-code-plugin/acceptance-criteria.md"
+      ],
+      "bugClass": "plugin_live_flow_activation",
+      "disposition": "deferred",
+      "rationale": "The source leaves the live activation criterion open.",
+      "evidenceRefs": [
+        "claude-plugin/.claude-plugin/plugin.json:4",
+        "specs/017-figjam-flow-generation/006-claude-code-plugin/acceptance-criteria.md:57"
+      ],
+      "reason": "Defer until an authorized Claude --plugin-dir session can provide evidence."
+    }
+  ],
+  "ruledOutCandidates": [
+    {
+      "iteration": 1,
+      "id": "SL-003",
+      "dimension": "correctness",
+      "targetRefs": [
+        "sk-product-owner/scripts/flow_check.py"
+      ],
+      "bugClass": "flow_checker_seeded_rule_regression",
+      "disposition": "ruled_out",
+      "rationale": "No seeded rule regression was observed in the current self-test cases.",
+      "evidenceRefs": [
+        "sk-product-owner/scripts/flow_check.py:44",
+        "sk-product-owner/scripts/flow_check.py:70",
+        "benchmark/gates/run_gates.sh:47",
+        "sk-product-owner/scripts/flow_check.py:134"
+      ],
+      "reason": "The positive model passed and all six representative invalid models failed as expected."
+    },
+    {
+      "iteration": 1,
+      "id": "SL-004",
+      "dimension": "correctness",
+      "targetRefs": [
+        "benchmark/router/route_contract.py",
+        "benchmark/router/differential.py",
+        "benchmark/router/fixtures.json",
+        "benchmark/router/differential_corpus.json"
+      ],
+      "bugClass": "router_contract_drift",
+      "disposition": "ruled_out",
+      "rationale": "The assigned routing parity checks ran successfully.",
+      "evidenceRefs": [
+        "benchmark/router/route_contract.py:881",
+        "benchmark/gates/run_gates.sh:37",
+        "benchmark/router/differential.py:687"
+      ],
+      "reason": "No current fixture or differential mismatch was reported by the gate suite."
+    },
+    {
+      "iteration": 1,
+      "id": "SL-005",
+      "dimension": "correctness",
+      "targetRefs": [
+        "vendor.json",
+        "mcp-figma/**"
+      ],
+      "bugClass": "vendor_hash_drift",
+      "disposition": "ruled_out",
+      "rationale": "Recorded hashes matched both configured source trees during this run.",
+      "evidenceRefs": [
+        "vendor.json:1",
+        "benchmark/gates/run_gates.sh:43",
+        "scripts/build-plugin.py:87"
+      ],
+      "reason": "Vendor sync status reported 58 Figma files and one Mermaid extractor file in step."
+    },
+    {
+      "iteration": 2,
+      "id": "SL-205",
+      "dimension": "security",
+      "targetRefs": [
+        "sk-product-owner/scripts/flow_check.py"
+      ],
+      "bugClass": "flow_checker_symlink_input_escape",
+      "disposition": "ruled_out",
+      "rationale": "No tool-owned root containment contract is stated for caller-selected input.",
+      "evidenceRefs": [
+        "sk-product-owner/scripts/flow_check.py:70",
+        "sk-product-owner/scripts/flow_check.py:156"
+      ],
+      "reason": "No security-impacting escape was established for the read-only input path."
+    },
+    {
+      "iteration": 2,
+      "id": "SL-206",
+      "dimension": "security",
+      "targetRefs": [
+        "sk-product-owner/scripts/vendored/mermaid_extract.py"
+      ],
+      "bugClass": "extractor_output_path_escape",
+      "disposition": "ruled_out",
+      "rationale": "The reviewed output destination is caller-selected by design.",
+      "evidenceRefs": [
+        "sk-product-owner/scripts/vendored/mermaid_extract.py:1395",
+        "sk-product-owner/scripts/vendored/mermaid_extract.py:1413"
+      ],
+      "reason": "No untrusted model content controls the explicit output path."
+    },
+    {
+      "iteration": 2,
+      "id": "SL-207",
+      "dimension": "security",
+      "targetRefs": [
+        "claude-plugin/.claude-plugin/plugin.json",
+        "claude-plugin/.claude-plugin/marketplace.json"
+      ],
+      "bugClass": "plugin_manifest_secret_or_mcp_registration",
+      "disposition": "ruled_out",
+      "rationale": "Both JSON manifests were parsed and credential patterns searched.",
+      "evidenceRefs": [
+        "claude-plugin/.claude-plugin/plugin.json:1",
+        "claude-plugin/.claude-plugin/marketplace.json:1"
+      ],
+      "reason": "No MCP server registration or secret-like value was present."
+    },
+    {
+      "iteration": 2,
+      "id": "SL-209",
+      "dimension": "security",
+      "targetRefs": [
+        "sk-product-owner/references/flow-mode.md",
+        "sk-product-owner/assets/flow-templates.md",
+        "claude project/Custom Instructions.md"
+      ],
+      "bugClass": "private_flow_or_board_leakage",
+      "disposition": "ruled_out",
+      "rationale": "Focused Flow Mode sources contain generic workflow language, not the external Change Location model.",
+      "evidenceRefs": [
+        "sk-product-owner/references/flow-mode.md:74",
+        "sk-product-owner/references/flow-mode.md:114",
+        "sk-product-owner/assets/flow-templates.md:111",
+        "sk-product-owner/assets/flow-templates.md:121"
+      ],
+      "reason": "Search found no copied Barter flow or actual board/account/path data."
+    },
+    {
+      "iteration": 2,
+      "id": "SL-210",
+      "dimension": "security",
+      "targetRefs": [
+        "vendor.json",
+        "sk-product-owner/scripts/vendored/mermaid_extract.py"
+      ],
+      "bugClass": "vendored_extractor_hash_drift",
+      "disposition": "ruled_out",
+      "rationale": "Configured extractor bytes match their recorded digest.",
+      "evidenceRefs": [
+        "vendor.json:1",
+        "sk-product-owner/scripts/vendored/mermaid_extract.py:1"
+      ],
+      "reason": "Computed SHA-256 equals vendor.json entry."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-301",
+      "dimension": "traceability",
+      "targetRefs": [
+        "specs/017-figjam-flow-generation/003-vendored-figma-and-sync",
+        "specs/017-figjam-flow-generation/004-parent-hub-conversion",
+        "specs/017-figjam-flow-generation/005-flow-mode",
+        "specs/017-figjam-flow-generation/006-claude-code-plugin"
+      ],
+      "bugClass": "phase_acceptance_status_drift",
+      "disposition": "ruled_out",
+      "rationale": "The completion state is explicit; no false completion claim was found.",
+      "evidenceRefs": [
+        "specs/017-figjam-flow-generation/003-vendored-figma-and-sync/acceptance-criteria.md:52",
+        "specs/017-figjam-flow-generation/004-parent-hub-conversion/acceptance-criteria.md:52",
+        "specs/017-figjam-flow-generation/005-flow-mode/goal.md:57",
+        "specs/017-figjam-flow-generation/006-claude-code-plugin/goal.md:54",
+        "specs/017-figjam-flow-generation/003-vendored-figma-and-sync/tasks.md:44",
+        "specs/017-figjam-flow-generation/003-vendored-figma-and-sync/implementation-summary.md:95",
+        "specs/017-figjam-flow-generation/004-parent-hub-conversion/tasks.md:44",
+        "specs/017-figjam-flow-generation/004-parent-hub-conversion/implementation-summary.md:97",
+        "specs/017-figjam-flow-generation/005-flow-mode/tasks.md:34",
+        "specs/017-figjam-flow-generation/005-flow-mode/implementation-summary.md:48",
+        "specs/017-figjam-flow-generation/006-claude-code-plugin/tasks.md:34",
+        "specs/017-figjam-flow-generation/006-claude-code-plugin/implementation-summary.md:48"
+      ],
+      "reason": "Open phases are labeled unchecked/Unmet rather than complete."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-303",
+      "dimension": "traceability",
+      "targetRefs": [
+        "sk-product-owner/ROUTER.md",
+        "sk-product-owner/references/router-contract.md",
+        "benchmark/router/route_contract.py",
+        "claude project/Custom Instructions.md"
+      ],
+      "bugClass": "flow_route_cross_runtime_drift",
+      "disposition": "ruled_out",
+      "rationale": "The compared selectors and Flow resource mapping agree.",
+      "evidenceRefs": [
+        "sk-product-owner/ROUTER.md:36",
+        "sk-product-owner/ROUTER.md:50",
+        "sk-product-owner/references/router-contract.md:329",
+        "benchmark/router/route_contract.py:329",
+        "claude project/Custom Instructions.md:487",
+        "claude project/Custom Instructions.md:553"
+      ],
+      "reason": "No static Flow intent or resource-map drift was found."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-304",
+      "dimension": "traceability",
+      "targetRefs": [
+        "sk-product-owner/manual-testing-playbook/**"
+      ],
+      "bugClass": "playbook_citation_line_drift",
+      "disposition": "ruled_out",
+      "rationale": "Current line targets were checked after the remaps.",
+      "evidenceRefs": [
+        "sk-product-owner/manual-testing-playbook/manual-testing-playbook.md:151",
+        "sk-product-owner/manual-testing-playbook/skill-backlog-modes/data-tracking-task.md:1",
+        "sk-product-owner/manual-testing-playbook/skill-interactive-routing/conflicting-commands.md:1",
+        "sk-product-owner/manual-testing-playbook/skill-story-modes/story-with-nested-tasks.md:1"
+      ],
+      "reason": "No stale or out-of-range remapped target was found."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-305",
+      "dimension": "traceability",
+      "targetRefs": [
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/systems.cjs",
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/README.md",
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/feature-catalog/output-format-gate/output-format-validator.md"
+      ],
+      "bugClass": "feature_catalog_extra_sources_drift",
+      "disposition": "ruled_out",
+      "rationale": "The catalog and README match the registry behavior named in this scope.",
+      "evidenceRefs": [
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/systems.cjs:72",
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/systems.cjs:266",
+        "/Users/michelkerkme/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/README.md:318",
+        "/Users/michelkerkme/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/feature-catalog/output-format-gate/output-format-validator.md:32"
+      ],
+      "reason": "No extraSources documentation drift was found."
+    },
+    {
+      "iteration": 4,
+      "id": "SL-403",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "sk-product-owner/scripts/flow_check.py",
+        "benchmark/gates/check_hub.py",
+        "scripts/build-plugin.py",
+        "scripts/tests/test_vendor_sync.py"
+      ],
+      "bugClass": "vacuous_self_test",
+      "disposition": "ruled_out",
+      "rationale": "Source assertions and isolated fixtures do not show a vacuous pass path; runtime execution was outside this static pass.",
+      "evidenceRefs": [
+        "sk-product-owner/scripts/flow_check.py:134",
+        "benchmark/gates/check_hub.py:243",
+        "scripts/build-plugin.py:144",
+        "scripts/tests/test_vendor_sync.py:75"
+      ],
+      "reason": "Each reviewed harness contains a clean baseline or scratch-world setup and explicit expected results."
+    },
+    {
+      "iteration": 4,
+      "id": "SL-404",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "sk-product-owner/references/router-contract.md",
+        "benchmark/router/route_contract.py",
+        "benchmark/router/differential.py",
+        "benchmark/router/differential_corpus.json",
+        "claude project/Custom Instructions.md"
+      ],
+      "bugClass": "duplicated_router_contract_drift",
+      "disposition": "ruled_out",
+      "rationale": "The examined duplicated routing surfaces are joined by explicit copy, table, behavior and corpus guards.",
+      "evidenceRefs": [
+        "benchmark/router/differential.py:306",
+        "benchmark/router/differential.py:467",
+        "benchmark/router/differential.py:569",
+        "benchmark/router/differential.py:616",
+        "benchmark/router/differential_corpus.json:32",
+        "claude project/Custom Instructions.md:553"
+      ],
+      "reason": "Static guard paths cover the identified copies and inputs."
+    },
+    {
+      "iteration": 4,
+      "id": "SL-405",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "benchmark/gates/check_hub.py",
+        "benchmark/router/differential.py",
+        "scripts/build-plugin.py",
+        "scripts/tests/test_vendor_sync.py",
+        "sk-product-owner/scripts/flow_check.py",
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/systems.cjs",
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/validate-output-format.cjs"
+      ],
+      "bugClass": "code_comment_metadata_leak",
+      "disposition": "ruled_out",
+      "rationale": "The requested metadata patterns were absent from the searched comments.",
+      "evidenceRefs": [
+        "benchmark/gates/check_hub.py:1",
+        "benchmark/router/differential.py:1",
+        "scripts/build-plugin.py:1"
+      ],
+      "reason": "Exact comment search returned no matches."
+    },
+    {
+      "iteration": 5,
+      "id": "SL-508",
+      "dimension": "correctness",
+      "targetRefs": [
+        "hub-router.json",
+        "benchmark/gates/check_hub.py",
+        "SKILL.md"
+      ],
+      "bugClass": "hub_negation_contract",
+      "disposition": "ruled_out",
+      "rationale": "No unsafe current negation result was established; the extra alias routes conservatively to the default.",
+      "evidenceRefs": [
+        "hub-router.json:30",
+        "SKILL.md:34",
+        "benchmark/gates/check_hub.py:63",
+        "benchmark/gates/check_hub.py:66",
+        "benchmark/gates/check_hub.py:203",
+        "benchmark/gates/check_hub.py:212"
+      ],
+      "reason": "Current behavior follows the stated within-clause rule for reviewed forms; vocabulary parity is included in the artifactWords gate recommendation."
+    },
+    {
+      "iteration": 5,
+      "id": "SL-509",
+      "dimension": "correctness",
+      "targetRefs": [
+        "sk-product-owner/scripts/flow_check.py",
+        "sk-product-owner/scripts/vendored/mermaid_extract.py"
+      ],
+      "bugClass": "flow_checker_parser_edges",
+      "disposition": "ruled_out",
+      "rationale": "No acceptance bypass was found in the requested parser edges; style omission is tracked separately.",
+      "evidenceRefs": [
+        "sk-product-owner/scripts/vendored/mermaid_extract.py:357",
+        "sk-product-owner/scripts/vendored/mermaid_extract.py:390",
+        "sk-product-owner/scripts/vendored/mermaid_extract.py:659",
+        "sk-product-owner/scripts/vendored/mermaid_extract.py:711",
+        "sk-product-owner/scripts/vendored/mermaid_extract.py:791",
+        "sk-product-owner/scripts/flow_check.py:56"
+      ],
+      "reason": "The inspected edges map to explicit graph edges or fail closed under the documented Flow grammar."
+    },
+    {
+      "iteration": 5,
+      "id": "SL-510",
+      "dimension": "security",
+      "targetRefs": [
+        "claude-plugin/.claude-plugin/plugin.json",
+        "claude-plugin/.claude-plugin/marketplace.json",
+        "scripts/build-plugin.py"
+      ],
+      "bugClass": "plugin_manifest_contract",
+      "disposition": "ruled_out",
+      "rationale": "No current manifest mismatch or unexpected server registration was found.",
+      "evidenceRefs": [
+        "claude-plugin/.claude-plugin/plugin.json:1",
+        "claude-plugin/.claude-plugin/marketplace.json:1",
+        "scripts/build-plugin.py:110",
+        "scripts/build-plugin.py:113"
+      ],
+      "reason": "Reviewed manifest fields are consistent and builder checks align with skills-only shape."
+    },
+    {
+      "iteration": 5,
+      "id": "SL-511",
+      "dimension": "traceability",
+      "targetRefs": [
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/change-location-flow-model.md"
+      ],
+      "bugClass": "change_location_model_conformance",
+      "disposition": "ruled_out",
+      "rationale": "Internal counts, allowed node shapes, labels and provenance rows agree.",
+      "evidenceRefs": [
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/change-location-flow-model.md:5",
+        "/Users/michelkerkme/MEGA/Development/AI Systems/Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/change-location-flow-model.md:17",
+        "/Users/michelkerkme/MEGA/Development/AI Systems/Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/change-location-flow-model.md:19",
+        "/Users/michelkerkme/MEGA/Development/AI Systems/Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/change-location-flow-model.md:30"
+      ],
+      "reason": "Static comparison of model and its own provenance table found no inconsistency."
+    }
+  ],
+  "cleanSearchProof": [
+    {
+      "iteration": 1,
+      "id": "SL-003",
+      "dimension": "correctness",
+      "targetRefs": [
+        "sk-product-owner/scripts/flow_check.py"
+      ],
+      "bugClass": "flow_checker_seeded_rule_regression",
+      "disposition": "ruled_out",
+      "rationale": "No seeded rule regression was observed in the current self-test cases.",
+      "evidenceRefs": [
+        "sk-product-owner/scripts/flow_check.py:44",
+        "sk-product-owner/scripts/flow_check.py:70",
+        "benchmark/gates/run_gates.sh:47",
+        "sk-product-owner/scripts/flow_check.py:134"
+      ],
+      "proof": "The positive model passed and all six representative invalid models failed as expected."
+    },
+    {
+      "iteration": 1,
+      "id": "SL-004",
+      "dimension": "correctness",
+      "targetRefs": [
+        "benchmark/router/route_contract.py",
+        "benchmark/router/differential.py",
+        "benchmark/router/fixtures.json",
+        "benchmark/router/differential_corpus.json"
+      ],
+      "bugClass": "router_contract_drift",
+      "disposition": "ruled_out",
+      "rationale": "The assigned routing parity checks ran successfully.",
+      "evidenceRefs": [
+        "benchmark/router/route_contract.py:881",
+        "benchmark/gates/run_gates.sh:37",
+        "benchmark/router/differential.py:687"
+      ],
+      "proof": "No current fixture or differential mismatch was reported by the gate suite."
+    },
+    {
+      "iteration": 1,
+      "id": "SL-005",
+      "dimension": "correctness",
+      "targetRefs": [
+        "vendor.json",
+        "mcp-figma/**"
+      ],
+      "bugClass": "vendor_hash_drift",
+      "disposition": "ruled_out",
+      "rationale": "Recorded hashes matched both configured source trees during this run.",
+      "evidenceRefs": [
+        "vendor.json:1",
+        "benchmark/gates/run_gates.sh:43",
+        "scripts/build-plugin.py:87"
+      ],
+      "proof": "Vendor sync status reported 58 Figma files and one Mermaid extractor file in step."
+    },
+    {
+      "iteration": 2,
+      "id": "SL-205",
+      "dimension": "security",
+      "targetRefs": [
+        "sk-product-owner/scripts/flow_check.py"
+      ],
+      "bugClass": "flow_checker_symlink_input_escape",
+      "disposition": "ruled_out",
+      "rationale": "No tool-owned root containment contract is stated for caller-selected input.",
+      "evidenceRefs": [
+        "sk-product-owner/scripts/flow_check.py:70",
+        "sk-product-owner/scripts/flow_check.py:156"
+      ],
+      "proof": "No security-impacting escape was established for the read-only input path."
+    },
+    {
+      "iteration": 2,
+      "id": "SL-206",
+      "dimension": "security",
+      "targetRefs": [
+        "sk-product-owner/scripts/vendored/mermaid_extract.py"
+      ],
+      "bugClass": "extractor_output_path_escape",
+      "disposition": "ruled_out",
+      "rationale": "The reviewed output destination is caller-selected by design.",
+      "evidenceRefs": [
+        "sk-product-owner/scripts/vendored/mermaid_extract.py:1395",
+        "sk-product-owner/scripts/vendored/mermaid_extract.py:1413"
+      ],
+      "proof": "No untrusted model content controls the explicit output path."
+    },
+    {
+      "iteration": 2,
+      "id": "SL-207",
+      "dimension": "security",
+      "targetRefs": [
+        "claude-plugin/.claude-plugin/plugin.json",
+        "claude-plugin/.claude-plugin/marketplace.json"
+      ],
+      "bugClass": "plugin_manifest_secret_or_mcp_registration",
+      "disposition": "ruled_out",
+      "rationale": "Both JSON manifests were parsed and credential patterns searched.",
+      "evidenceRefs": [
+        "claude-plugin/.claude-plugin/plugin.json:1",
+        "claude-plugin/.claude-plugin/marketplace.json:1"
+      ],
+      "proof": "No MCP server registration or secret-like value was present."
+    },
+    {
+      "iteration": 2,
+      "id": "SL-209",
+      "dimension": "security",
+      "targetRefs": [
+        "sk-product-owner/references/flow-mode.md",
+        "sk-product-owner/assets/flow-templates.md",
+        "claude project/Custom Instructions.md"
+      ],
+      "bugClass": "private_flow_or_board_leakage",
+      "disposition": "ruled_out",
+      "rationale": "Focused Flow Mode sources contain generic workflow language, not the external Change Location model.",
+      "evidenceRefs": [
+        "sk-product-owner/references/flow-mode.md:74",
+        "sk-product-owner/references/flow-mode.md:114",
+        "sk-product-owner/assets/flow-templates.md:111",
+        "sk-product-owner/assets/flow-templates.md:121"
+      ],
+      "proof": "Search found no copied Barter flow or actual board/account/path data."
+    },
+    {
+      "iteration": 2,
+      "id": "SL-210",
+      "dimension": "security",
+      "targetRefs": [
+        "vendor.json",
+        "sk-product-owner/scripts/vendored/mermaid_extract.py"
+      ],
+      "bugClass": "vendored_extractor_hash_drift",
+      "disposition": "ruled_out",
+      "rationale": "Configured extractor bytes match their recorded digest.",
+      "evidenceRefs": [
+        "vendor.json:1",
+        "sk-product-owner/scripts/vendored/mermaid_extract.py:1"
+      ],
+      "proof": "Computed SHA-256 equals vendor.json entry."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-301",
+      "dimension": "traceability",
+      "targetRefs": [
+        "specs/017-figjam-flow-generation/003-vendored-figma-and-sync",
+        "specs/017-figjam-flow-generation/004-parent-hub-conversion",
+        "specs/017-figjam-flow-generation/005-flow-mode",
+        "specs/017-figjam-flow-generation/006-claude-code-plugin"
+      ],
+      "bugClass": "phase_acceptance_status_drift",
+      "disposition": "ruled_out",
+      "rationale": "The completion state is explicit; no false completion claim was found.",
+      "evidenceRefs": [
+        "specs/017-figjam-flow-generation/003-vendored-figma-and-sync/acceptance-criteria.md:52",
+        "specs/017-figjam-flow-generation/004-parent-hub-conversion/acceptance-criteria.md:52",
+        "specs/017-figjam-flow-generation/005-flow-mode/goal.md:57",
+        "specs/017-figjam-flow-generation/006-claude-code-plugin/goal.md:54",
+        "specs/017-figjam-flow-generation/003-vendored-figma-and-sync/tasks.md:44",
+        "specs/017-figjam-flow-generation/003-vendored-figma-and-sync/implementation-summary.md:95",
+        "specs/017-figjam-flow-generation/004-parent-hub-conversion/tasks.md:44",
+        "specs/017-figjam-flow-generation/004-parent-hub-conversion/implementation-summary.md:97",
+        "specs/017-figjam-flow-generation/005-flow-mode/tasks.md:34",
+        "specs/017-figjam-flow-generation/005-flow-mode/implementation-summary.md:48",
+        "specs/017-figjam-flow-generation/006-claude-code-plugin/tasks.md:34",
+        "specs/017-figjam-flow-generation/006-claude-code-plugin/implementation-summary.md:48"
+      ],
+      "proof": "Open phases are labeled unchecked/Unmet rather than complete."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-303",
+      "dimension": "traceability",
+      "targetRefs": [
+        "sk-product-owner/ROUTER.md",
+        "sk-product-owner/references/router-contract.md",
+        "benchmark/router/route_contract.py",
+        "claude project/Custom Instructions.md"
+      ],
+      "bugClass": "flow_route_cross_runtime_drift",
+      "disposition": "ruled_out",
+      "rationale": "The compared selectors and Flow resource mapping agree.",
+      "evidenceRefs": [
+        "sk-product-owner/ROUTER.md:36",
+        "sk-product-owner/ROUTER.md:50",
+        "sk-product-owner/references/router-contract.md:329",
+        "benchmark/router/route_contract.py:329",
+        "claude project/Custom Instructions.md:487",
+        "claude project/Custom Instructions.md:553"
+      ],
+      "proof": "No static Flow intent or resource-map drift was found."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-304",
+      "dimension": "traceability",
+      "targetRefs": [
+        "sk-product-owner/manual-testing-playbook/**"
+      ],
+      "bugClass": "playbook_citation_line_drift",
+      "disposition": "ruled_out",
+      "rationale": "Current line targets were checked after the remaps.",
+      "evidenceRefs": [
+        "sk-product-owner/manual-testing-playbook/manual-testing-playbook.md:151",
+        "sk-product-owner/manual-testing-playbook/skill-backlog-modes/data-tracking-task.md:1",
+        "sk-product-owner/manual-testing-playbook/skill-interactive-routing/conflicting-commands.md:1",
+        "sk-product-owner/manual-testing-playbook/skill-story-modes/story-with-nested-tasks.md:1"
+      ],
+      "proof": "No stale or out-of-range remapped target was found."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-305",
+      "dimension": "traceability",
+      "targetRefs": [
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/systems.cjs",
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/README.md",
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/feature-catalog/output-format-gate/output-format-validator.md"
+      ],
+      "bugClass": "feature_catalog_extra_sources_drift",
+      "disposition": "ruled_out",
+      "rationale": "The catalog and README match the registry behavior named in this scope.",
+      "evidenceRefs": [
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/systems.cjs:72",
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/systems.cjs:266",
+        "/Users/michelkerkme/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/README.md:318",
+        "/Users/michelkerkme/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/feature-catalog/output-format-gate/output-format-validator.md:32"
+      ],
+      "proof": "No extraSources documentation drift was found."
+    },
+    {
+      "iteration": 4,
+      "id": "SL-403",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "sk-product-owner/scripts/flow_check.py",
+        "benchmark/gates/check_hub.py",
+        "scripts/build-plugin.py",
+        "scripts/tests/test_vendor_sync.py"
+      ],
+      "bugClass": "vacuous_self_test",
+      "disposition": "ruled_out",
+      "rationale": "Source assertions and isolated fixtures do not show a vacuous pass path; runtime execution was outside this static pass.",
+      "evidenceRefs": [
+        "sk-product-owner/scripts/flow_check.py:134",
+        "benchmark/gates/check_hub.py:243",
+        "scripts/build-plugin.py:144",
+        "scripts/tests/test_vendor_sync.py:75"
+      ],
+      "proof": "Each reviewed harness contains a clean baseline or scratch-world setup and explicit expected results."
+    },
+    {
+      "iteration": 4,
+      "id": "SL-404",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "sk-product-owner/references/router-contract.md",
+        "benchmark/router/route_contract.py",
+        "benchmark/router/differential.py",
+        "benchmark/router/differential_corpus.json",
+        "claude project/Custom Instructions.md"
+      ],
+      "bugClass": "duplicated_router_contract_drift",
+      "disposition": "ruled_out",
+      "rationale": "The examined duplicated routing surfaces are joined by explicit copy, table, behavior and corpus guards.",
+      "evidenceRefs": [
+        "benchmark/router/differential.py:306",
+        "benchmark/router/differential.py:467",
+        "benchmark/router/differential.py:569",
+        "benchmark/router/differential.py:616",
+        "benchmark/router/differential_corpus.json:32",
+        "claude project/Custom Instructions.md:553"
+      ],
+      "proof": "Static guard paths cover the identified copies and inputs."
+    },
+    {
+      "iteration": 4,
+      "id": "SL-405",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "benchmark/gates/check_hub.py",
+        "benchmark/router/differential.py",
+        "scripts/build-plugin.py",
+        "scripts/tests/test_vendor_sync.py",
+        "sk-product-owner/scripts/flow_check.py",
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/systems.cjs",
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/z — Claude Project Sync Loop/validate-output-format.cjs"
+      ],
+      "bugClass": "code_comment_metadata_leak",
+      "disposition": "ruled_out",
+      "rationale": "The requested metadata patterns were absent from the searched comments.",
+      "evidenceRefs": [
+        "benchmark/gates/check_hub.py:1",
+        "benchmark/router/differential.py:1",
+        "scripts/build-plugin.py:1"
+      ],
+      "proof": "Exact comment search returned no matches."
+    },
+    {
+      "iteration": 5,
+      "id": "SL-508",
+      "dimension": "correctness",
+      "targetRefs": [
+        "hub-router.json",
+        "benchmark/gates/check_hub.py",
+        "SKILL.md"
+      ],
+      "bugClass": "hub_negation_contract",
+      "disposition": "ruled_out",
+      "rationale": "No unsafe current negation result was established; the extra alias routes conservatively to the default.",
+      "evidenceRefs": [
+        "hub-router.json:30",
+        "SKILL.md:34",
+        "benchmark/gates/check_hub.py:63",
+        "benchmark/gates/check_hub.py:66",
+        "benchmark/gates/check_hub.py:203",
+        "benchmark/gates/check_hub.py:212"
+      ],
+      "proof": "Current behavior follows the stated within-clause rule for reviewed forms; vocabulary parity is included in the artifactWords gate recommendation."
+    },
+    {
+      "iteration": 5,
+      "id": "SL-509",
+      "dimension": "correctness",
+      "targetRefs": [
+        "sk-product-owner/scripts/flow_check.py",
+        "sk-product-owner/scripts/vendored/mermaid_extract.py"
+      ],
+      "bugClass": "flow_checker_parser_edges",
+      "disposition": "ruled_out",
+      "rationale": "No acceptance bypass was found in the requested parser edges; style omission is tracked separately.",
+      "evidenceRefs": [
+        "sk-product-owner/scripts/vendored/mermaid_extract.py:357",
+        "sk-product-owner/scripts/vendored/mermaid_extract.py:390",
+        "sk-product-owner/scripts/vendored/mermaid_extract.py:659",
+        "sk-product-owner/scripts/vendored/mermaid_extract.py:711",
+        "sk-product-owner/scripts/vendored/mermaid_extract.py:791",
+        "sk-product-owner/scripts/flow_check.py:56"
+      ],
+      "proof": "The inspected edges map to explicit graph edges or fail closed under the documented Flow grammar."
+    },
+    {
+      "iteration": 5,
+      "id": "SL-510",
+      "dimension": "security",
+      "targetRefs": [
+        "claude-plugin/.claude-plugin/plugin.json",
+        "claude-plugin/.claude-plugin/marketplace.json",
+        "scripts/build-plugin.py"
+      ],
+      "bugClass": "plugin_manifest_contract",
+      "disposition": "ruled_out",
+      "rationale": "No current manifest mismatch or unexpected server registration was found.",
+      "evidenceRefs": [
+        "claude-plugin/.claude-plugin/plugin.json:1",
+        "claude-plugin/.claude-plugin/marketplace.json:1",
+        "scripts/build-plugin.py:110",
+        "scripts/build-plugin.py:113"
+      ],
+      "proof": "Reviewed manifest fields are consistent and builder checks align with skills-only shape."
+    },
+    {
+      "iteration": 5,
+      "id": "SL-511",
+      "dimension": "traceability",
+      "targetRefs": [
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/change-location-flow-model.md"
+      ],
+      "bugClass": "change_location_model_conformance",
+      "disposition": "ruled_out",
+      "rationale": "Internal counts, allowed node shapes, labels and provenance rows agree.",
+      "evidenceRefs": [
+        "/Users/michelkerkmeester/MEGA/Development/AI Systems/Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/change-location-flow-model.md:5",
+        "/Users/michelkerkme/MEGA/Development/AI Systems/Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/change-location-flow-model.md:17",
+        "/Users/michelkerkme/MEGA/Development/AI Systems/Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/change-location-flow-model.md:19",
+        "/Users/michelkerkme/MEGA/Development/AI Systems/Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/change-location-flow-model.md:30"
+      ],
+      "proof": "Static comparison of model and its own provenance table found no inconsistency."
+    }
+  ],
+  "searchCoverage": {
+    "requiredBugClasses": [
+      "vendor_manifest_path_escape",
+      "plugin_output_symlink_reachability",
+      "plugin_source_symlink_exposure",
+      "hosted_rollback_page_scope",
+      "flow_delivery_contract_conflict",
+      "hub_artifact_word_coverage",
+      "flow_style_rule_enforcement",
+      "hub_negation_contract",
+      "flow_checker_parser_edges",
+      "plugin_manifest_contract",
+      "change_location_model_conformance"
+    ],
+    "covered": [
+      "vendor_manifest_path_escape",
+      "plugin_output_symlink_reachability",
+      "plugin_source_symlink_exposure",
+      "hosted_rollback_page_scope",
+      "flow_delivery_contract_conflict",
+      "hub_artifact_word_coverage",
+      "flow_style_rule_enforcement"
+    ],
+    "ruledOut": [
+      "hub_negation_contract",
+      "flow_checker_parser_edges",
+      "plugin_manifest_contract",
+      "change_location_model_conformance"
+    ],
+    "deferred": [],
+    "blocked": [],
+    "graphCoverageMode": "graphless_fallback"
+  },
+  "traceability": {
+    "summary": {
+      "required": 0,
+      "executed": 0,
+      "pass": 0,
+      "partial": 0,
+      "fail": 0,
+      "blocked": 0,
+      "notApplicable": 0,
+      "gatingFailures": 0
+    },
+    "results": []
+  },
+  "divergence": {
+    "started": [],
+    "completed": [],
+    "failed": [],
+    "overrides": [],
+    "saturatedDirections": [],
+    "remainingFrontier": [],
+    "currentFocus": ""
+  },
+  "fieldWarnings": [],
+  "corruptionWarnings": []
+}

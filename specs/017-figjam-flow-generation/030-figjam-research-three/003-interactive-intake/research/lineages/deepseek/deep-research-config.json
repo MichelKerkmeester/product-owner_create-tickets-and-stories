@@ -1,0 +1,76 @@
+{
+  "topic": "Design an interactive intake for both sk-product-owner and sk-create-figjam that keeps asking the user questions until it is confident it understands the feature well enough to produce the FigJam output, and that spars with the user on what the board should convey and how it should look. Study the current behaviour first: sk-product-owner's Interactive Mode and its question templates, the router's clarification path, sk-create-figjam's gate and its ambiguity recovery, and the kernel's Interactive Mode. Then research: a confidence model with named facts the intake must know before drawing (the reader, the question the board answers, scope, entry and exit, actors, decisions, states, sources) and a threshold, a stop rule and a round cap so it never interrogates without end, how to ask few high-value questions per round, how to propose rather than only ask (a draft outline, two alternative framings, a Mermaid sketch before the board), how to challenge a brief that asks for too much or the wrong diagram type, how to record answers so later turns build on them, how this works when the user says just do it, how energy levels such as Quick and Standard change it, and how the Claude Project kernel would carry it. Use public sources on clarifying questions, requirements elicitation and design critique, Figma's own skills that ask before acting, and the repo's .skilled/skills/sk-prompt/ for its question-asking method. Earlier research to build on, read first: AI Systems/Product Owner/specs/017-figjam-flow-generation/009-figjam-skill-research/research/research.md and AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md (sections 1 to 9). Their changes are implemented, so do not re-propose them. Packet sources: AI Systems/Product Owner/sk-create-figjam/ (SKILL.md, references/flow-mode.md, references/style-guide.md, references/quality-rubric.md, references/hybrid-workflow.md, references/types/*.md, assets/flow-templates.md, assets/templates/*.md, assets/examples/*.md, scripts/flow_check.py, scripts/figjam_checks/*.py, manual-testing-playbook/), AI Systems/Product Owner/sk-product-owner/ (SKILL.md, references/interactive-mode.md, references/routing.md, references/router-contract.md, references/story-mode.md, references/doc-mode.md, assets/interactive-response-templates.md), the hub AI Systems/Product Owner/SKILL.md, AI Systems/Product Owner/AGENTS.md, the claude.ai kernel AI Systems/Product Owner/claude project/Custom Instructions.md and the vendored AI Systems/Product Owner/mcp-figma/. The corpus is 22 public repos under specs/z-staging-po-030c/corpus/ (Figma's own figma__mcp-server-guide skills among them). Every iteration either widens the sources (a new file, a new repo found with gh search, a public web page) or deepens an earlier finding, and names the earlier iteration it builds on. Never stop early. Cite every claim as [SOURCE: path:line] or [SOURCE: URL]. Name what the packets already do well, so nothing good is removed. Each ranked change names the Product Owner file it changes and the source it comes from. Never open AI Systems/Product Context, any screenshot or image file, any figma.com board URL or anything under a containment folder, and never quote Barter product flows. Examples use fictional companies such as Fernhouse, Loomlist and Roamstay. The synthesis proposes the intake loop as concrete changes: its confidence rule, stop rule, question bank, sparring step and where each lands in which Product Owner file, at least 8 ranked.",
+  "specFolder": "specs/z-staging-po-030c",
+  "maxIterations": 5,
+  "convergenceThreshold": 0.05,
+  "antiConvergence": {
+    "minIterations": 5,
+    "convergenceMode": "off",
+    "stopPolicy": "max-iterations"
+  },
+  "stuckThreshold": 3,
+  "maxDurationMinutes": 120,
+  "maxToolCallsPerIteration": 24,
+  "maxMinutesPerIteration": 10,
+  "progressiveSynthesis": false,
+  "resource_map": {
+    "emit": true
+  },
+  "createdAt": "2026-10-21T08:30:00Z",
+  "status": "complete",
+  "executionMode": "auto",
+  "fanout_lineage_artifact_dir": "/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/z-staging-po-030c/research/lineages/deepseek",
+  "executor": {
+    "kind": "cli-pi",
+    "model": "deepseek-v4.1-flash",
+    "reasoningEffort": "max",
+    "serviceTier": null,
+    "sandboxMode": "workspace-write",
+    "timeoutSeconds": 900
+  },
+  "lineage": {
+    "sessionId": "fanout-deepseek-1792563734045-t20sb9",
+    "parentSessionId": null,
+    "lineageMode": "new",
+    "allowedModes": [
+      "new",
+      "resume",
+      "restart"
+    ],
+    "deferredModes": [
+      "fork",
+      "completed-continue"
+    ],
+    "generation": 1,
+    "continuedFromRun": null
+  },
+  "reducer": {
+    "enabled": true,
+    "version": "1.0",
+    "registryFile": "findings-registry.json",
+    "dashboardFile": "deep-research-dashboard.md",
+    "strategyFile": "deep-research-strategy.md",
+    "machineOwnedSections": [
+      "key-questions",
+      "answered-questions",
+      "what-worked",
+      "what-failed",
+      "exhausted-approaches",
+      "ruled-out-directions",
+      "divergence-frontier",
+      "next-focus"
+    ]
+  },
+  "reducerScriptPath": ".skilled/skills/system-deep-loop/deep-research/scripts/reduce-state.cjs",
+  "capabilityMatrixPath": ".skilled/skills/system-deep-loop/deep-research/assets/runtime-capabilities.json",
+  "migrationWindowDays": 28,
+  "fileProtection": {
+    "deep-research-config.json": "immutable",
+    "deep-research-state.jsonl": "append-only",
+    "deep-research-strategy.md": "mutable",
+    "deep-research-dashboard.md": "auto-generated",
+    "findings-registry.json": "auto-generated",
+    "iteration-*.md": "write-once",
+    "research.md": "mutable"
+  }
+}

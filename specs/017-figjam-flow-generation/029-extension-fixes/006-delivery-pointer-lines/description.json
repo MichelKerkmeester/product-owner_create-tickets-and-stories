@@ -1,0 +1,18 @@
+{
+  "specFolder": "017-figjam-flow-generation/029-extension-fixes/006-delivery-pointer-lines",
+  "description": "Phase 6: delivery-pointer-lines",
+  "keywords": [
+    "phase",
+    "delivery-pointer-lines"
+  ],
+  "lastUpdated": "2026-10-21T08:00:00.000Z",
+  "specId": "006",
+  "folderSlug": "delivery-pointer-lines",
+  "parentChain": [
+    "017-figjam-flow-generation",
+    "029-extension-fixes"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

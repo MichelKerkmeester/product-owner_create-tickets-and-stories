@@ -1,0 +1,63 @@
+diff -ruN sa/README.md sb/README.md
+--- sa/README.md	2026-10-20 06:50:04
++++ sb/README.md	2026-10-20 06:50:04
+@@ -315,7 +315,7 @@
+ | `validate-output-format.cjs --system <id> <file>` | CLI | Lints explicit files as deliverables |
+ | `validate-output-format.cjs --system <id> --write` | CLI | Rewrites the source perimeter with the safe formatting fixes |
+ | `main(systemId, argv)` | Function | Runs one system's format validation and sets the process exit status |
+-| `sourcePerimeter(system)` | Function | Builds the source file list for a resolved system, leaving out the copies its entry declares as `vendoredShared` |
++| `sourcePerimeter(system)` | Function | Builds the source file list for a resolved system, adding the files its entry declares as `extraSources` and leaving out the copies it declares as `vendoredShared` |
+ | `markdownFiles(directory)` | Function | Lists non-symlink Markdown files under a directory |
+ | `resolve(id)`, `ids()` | Functions | Resolves one configured format system, or lists the configured ids |
+ | `run_fixtures.sh <entry> <blocking\|advisory> [dir]` | Shell CLI | Runs the fixture corpus through an entry script |
+diff -ruN sa/feature-catalog/output-format-gate/output-format-validator.md sb/feature-catalog/output-format-gate/output-format-validator.md
+--- sa/feature-catalog/output-format-gate/output-format-validator.md	2026-10-20 06:50:04
++++ sb/feature-catalog/output-format-gate/output-format-validator.md	2026-10-20 06:50:04
+@@ -29,7 +29,7 @@
+ 
+ ### The registry and the perimeter
+ 
+-`systems.cjs` names each system's directory, skill directory, cards, statistics variable, enforcement set and phrase contracts, and resolves an id to absolute paths. `sourcePerimeter` builds the source file list for a resolved system, leaving out the regular-file copies the entry declares as `vendoredShared` and naming the two always-loaded cards by their symlink path. `markdownFiles` lists non-symlink Markdown files under a directory, and the module exports `main`, `sourcePerimeter` and `markdownFiles` for entry scripts to call.
++`systems.cjs` names each system's directory, skill directory, cards, statistics variable, enforcement set and phrase contracts, and resolves an id to absolute paths. `sourcePerimeter` builds the source file list for a resolved system, adding the hub files the entry declares as `extraSources` and leaving out the regular-file copies it declares as `vendoredShared` and naming the two always-loaded cards by their symlink path. `markdownFiles` lists non-symlink Markdown files under a directory, and the module exports `main`, `sourcePerimeter` and `markdownFiles` for entry scripts to call.
+ 
+ ### Masking and exits
+ 
+diff -ruN sa/systems.cjs sb/systems.cjs
+--- sa/systems.cjs	2026-10-20 06:50:04
++++ sb/systems.cjs	2026-10-20 06:50:04
+@@ -66,9 +66,15 @@
+     // keep it in the model's own quality checklists, so the rule holds
+     // deliverables alone.
+     checkboxForm: { artifacts: 'blocking', sources: 'off' },
++    // The system is a parent hub, so the stage one hub file at the root and the
++    // packet router beside the skill are instruction surface the walk of
++    // references and assets never reaches.
++    extraSources: ['SKILL.md', 'skill:ROUTER.md'],
+     hvrEnforced: [
+       'AGENTS.md',
++      'SKILL.md',
+       'skill:SKILL.md',
++      'skill:ROUTER.md',
+       'skill:references/hvr-core.md',
+       'skill:references/conciseness.md',
+       'skill:references/story-mode.md',
+@@ -256,6 +262,8 @@
+     checkboxForm: system.checkboxForm || { artifacts: 'off', sources: 'off' },
+     // A system that grants no emoji shape keeps the card's one per piece.
+     emojiAllowance: system.emojiAllowance || 'card',
++    // A system with no hub has no instruction surface outside its skill folder.
++    extraSources: (system.extraSources || []).map((entry) => resolveIn(system, entry)),
+     hvrEnforced: system.hvrEnforced.map((entry) => resolveIn(system, entry)),
+     contracts: system.contracts.map((contract) => ({
+       file: resolveIn(system, contract.file),
+diff -ruN sa/validate-output-format.cjs sb/validate-output-format.cjs
+--- sa/validate-output-format.cjs	2026-10-20 06:50:04
++++ sb/validate-output-format.cjs	2026-10-20 06:50:04
+@@ -85,6 +85,7 @@
+   return [
+     path.join(system.systemRoot, 'AGENTS.md'),
+     path.join(system.skillRoot, 'SKILL.md'),
++    ...system.extraSources,
+     path.join(system.skillRoot, 'README.md'),
+     ...sharedCards,
+     ...discovered,

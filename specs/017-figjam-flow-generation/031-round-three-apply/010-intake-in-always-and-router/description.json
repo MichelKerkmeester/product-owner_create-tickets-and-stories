@@ -1,0 +1,18 @@
+{
+  "specFolder": "017-figjam-flow-generation/031-round-three-apply/010-intake-in-always-and-router",
+  "description": "Phase 10: intake-in-always-and-router",
+  "keywords": [
+    "phase",
+    "intake-in-always-and-router"
+  ],
+  "lastUpdated": "2026-10-21T08:00:00.000Z",
+  "specId": "010",
+  "folderSlug": "intake-in-always-and-router",
+  "parentChain": [
+    "017-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

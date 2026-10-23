@@ -1,0 +1,18 @@
+{
+  "specFolder": "017-figjam-flow-generation/030-figjam-research-three",
+  "description": "Phase 30: figjam-research-three",
+  "keywords": [
+    "phase",
+    "research",
+    "figjam-research-three"
+  ],
+  "lastUpdated": "2026-10-21T10:00:00.000Z",
+  "specId": "030",
+  "folderSlug": "figjam-research-three",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

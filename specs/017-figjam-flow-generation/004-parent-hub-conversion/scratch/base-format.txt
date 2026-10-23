@@ -1,0 +1,60 @@
+PASS path mask keeps a real violation
+PASS path mask keeps the second violation
+PASS path mask keeps a dash with slashes on both sides
+PASS path mask exempts a dash inside a path
+PASS indented definition bullets are sanctioned
+PASS card-sanctioned shapes clear the gate
+PASS catalog: entry headings and their links clear the gate
+PASS catalog: a dash in the title still fails
+PASS catalog: a heading with no stable ID still fails
+PASS catalog: a dash in prose still fails
+PASS catalog: a second dash on an entry heading still fails
+PASS catalog: an H2 entry heading still fails
+PASS catalog: a link with trailing text still fails
+PASS catalog: the entry shape outside a catalog still fails
+PASS directory argument exits cleanly
+PASS opener check fires
+PASS heading echo check fires
+PASS hedge stack check fires
+PASS terminal recap check fires
+PASS all-TBD delivery section advises without blocking
+PASS a populated delivery slot stays silent
+PASS requirements narration fires on the first item
+PASS requirements narration fires on the second item
+PASS a quoted string and real constraints stay silent
+PASS mark-as-done divider fires
+PASS the sanctioned section close above a spacer stays silent
+PASS checkbox form: a spaced requirement checkbox fires
+PASS checkbox form: a spaced Mark-as-done checkbox fires
+PASS checkbox form: the house form stays silent
+PASS mark-as-done divider fires on an old-form checkbox
+PASS house grammar: a heading with no divider under it fires
+PASS house grammar: a hyphen rule fires
+PASS house grammar: a heading deeper than H4 fires
+PASS house grammar: a Checklist label in Requirements fires
+PASS house grammar: a plain bullet in Requirements fires
+PASS house grammar: a checklist item in Requirements stays silent
+PASS house grammar: asterisk emphasis fires
+PASS house grammar: the ellipsis cap fires
+PASS house grammar: the emoji cap fires
+PASS house grammar: a second PRIO marker fires
+PASS house grammar: a compliant house Story stays silent
+PASS house grammar: the TBD token never counts against the ellipsis cap
+PASS house grammar: the rules stay off a deliverable in another grammar
+PASS near-miss prose passes
+PASS opener check stays silent
+PASS heading echo check stays silent
+PASS one hedge stays silent
+PASS terminal recap check stays silent
+PASS length caps: a third About paragraph warns
+PASS length caps: a bullet over 25 words warns
+PASS length caps: a two-sentence bullet warns
+PASS length caps: a paragraph over 60 words warns
+PASS length caps: a four-sentence paragraph warns
+PASS length caps: a requirement opening on a plain When is no Given/When/Then line
+PASS length caps: lines at the caps, code, tables, quotes and Given/When/Then stay silent
+PASS length caps: a References block inside About is not counted as its opening
+PASS length caps: a six-sentence Problem warns over its five-sentence cap
+PASS length caps: a Then line joining a second outcome with a comma and warns
+PASS length caps: a four-sentence Problem and a noun pair joined by and stay silent
+PASSED all format-validator fixtures

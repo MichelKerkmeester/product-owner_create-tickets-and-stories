@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/001-research",
+  "description": "Phase 1: research",
+  "keywords": [
+    "phase",
+    "research"
+  ],
+  "lastUpdated": "2026-10-19T20:55:22.702Z",
+  "specId": "001",
+  "folderSlug": "research",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

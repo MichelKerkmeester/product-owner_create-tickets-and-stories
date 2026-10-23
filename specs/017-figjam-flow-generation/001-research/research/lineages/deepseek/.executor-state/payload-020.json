@@ -1,0 +1,30 @@
+{
+  "iteration": 20,
+  "focus": "Closing the loop, separating what is known from what must be run",
+  "newInfoRatio": 0.45,
+  "status": "insight",
+  "noveltyJustification": "The consolidation and the actionable-versus-live-run split are new syntheses, one finding is new packet evidence, and the rest restate prior findings; the simplicity bonus reflects the handoff list replacing scattered caveats.",
+  "answeredQuestions": [],
+  "ruledOut": ["Raising confidence on verb-level claims without a live run", "Treating the sibling Luna lineage as a source"],
+  "sourcesQueried": [
+    "specs/z-staging-po-017-research/research/lineages/deepseek/deep-research-strategy.md",
+    "specs/z-staging-po-017-research/plan.md",
+    "specs/z-staging-po-017-research/tasks.md",
+    ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md",
+    "AI Systems/Media Editor/runtime/claude-plugin/README.md",
+    "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md"
+  ],
+  "findings": [
+    {"id": "f-iter020-001", "label": "Nineteen iterations are recorded and three of five key questions are answered at decision level: input-to-model, rule transfer, and sync path; the capability question stops at the documented surface because the CLI was never executed.", "sources": ["specs/z-staging-po-017-research/research/lineages/deepseek/deep-research-strategy.md:34"]},
+    {"id": "f-iter020-002", "label": "The unverified set: no live install, so all verb flags are documentation-grade, and 1.2.0 availability, fj connect labels, fj shape kinds, the node-id return contract, fj info output and rate limits all need a live run.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:367"]},
+    {"id": "f-iter020-003", "label": "Nine findings are actionable without a live run: pin 1.2.0, design to the six-verb ceiling, treat Desktop and daemon as prerequisites, split the Project mirror, declare the shared pair, generate the duplicate with a refusal, follow the hub order, separate board from receipt, and treat public exposure as structural.", "sources": ["specs/z-staging-po-017-research/research/lineages/deepseek/iterations/iteration-007.md", "specs/z-staging-po-017-research/research/lineages/deepseek/iterations/iteration-016.md"]},
+    {"id": "f-iter020-004", "label": "The precedents converge on six corrections: untracked build output, link refusal and whole-folder replacement from Media Editor; per-packet routers, per-file contract checks and hub gold rows from Moneybird.", "sources": ["AI Systems/Media Editor/runtime/claude-plugin/README.md:83", "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:74"]},
+    {"id": "f-iter020-005", "label": "The synthesis must supply the later-phase plan itself because plan.md and tasks.md are unfilled template scaffolds and only goal.md carries real acceptance criteria.", "sources": ["specs/z-staging-po-017-research/plan.md:10", "specs/z-staging-po-017-research/tasks.md:34"]},
+    {"id": "f-iter020-006", "label": "A house shape for the synthesis exists in the Moneybird routing research lineage: a fourteen-section research.md with a convergence appendix.", "sources": ["AI Systems/Moneybird Accountant/specs/011-skill-routing-research/003-research-expansion/research/lineages/deepseek-4/research.md:1"]}
+  ],
+  "graphEvents": [
+    {"type": "node", "id": "q-consolidation", "kind": "QUESTION", "label": "What remains unverified before synthesis"},
+    {"type": "node", "id": "f-iter020-handoff", "kind": "FINDING", "label": "Nine findings are actionable without a live run"},
+    {"type": "edge", "id": "e-iter020-001", "source": "f-iter020-handoff", "target": "q-consolidation", "relation": "ANSWERS"}
+  ]
+}

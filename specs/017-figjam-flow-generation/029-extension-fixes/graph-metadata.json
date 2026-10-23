@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/029-extension-fixes",
+  "spec_folder": "017-figjam-flow-generation/029-extension-fixes",
+  "parent_id": "017-figjam-flow-generation",
+  "children_ids": [
+    "017-figjam-flow-generation/029-extension-fixes/001-board-link-resave",
+    "017-figjam-flow-generation/029-extension-fixes/002-pair-phrasing-and-framing",
+    "017-figjam-flow-generation/029-extension-fixes/003-hosted-route-facts",
+    "017-figjam-flow-generation/029-extension-fixes/004-critic-pass-source",
+    "017-figjam-flow-generation/029-extension-fixes/005-tag-key-and-set",
+    "017-figjam-flow-generation/029-extension-fixes/006-delivery-pointer-lines",
+    "017-figjam-flow-generation/029-extension-fixes/007-revision-plan",
+    "017-figjam-flow-generation/029-extension-fixes/008-dangling-connectors",
+    "017-figjam-flow-generation/029-extension-fixes/009-pair-reply-ending",
+    "017-figjam-flow-generation/029-extension-fixes/010-repeated-label-check",
+    "017-figjam-flow-generation/029-extension-fixes/011-read-call-allowance",
+    "017-figjam-flow-generation/029-extension-fixes/012-er-cardinality-caps"
+  ],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "extension fixes phase parent spec",
+      "extension fixes goal"
+    ],
+    "key_topics": [
+      "extension",
+      "phase",
+      "parent",
+      "spec",
+      "goal",
+      "five",
+      "research",
+      "iterations",
+      "found",
+      "eight",
+      "twelve",
+      "shipped"
+    ],
+    "importance_tier": "important",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "goal.md",
+      "001-board-link-resave/goal.md",
+      "002-pair-phrasing-and-framing/goal.md",
+      "003-hosted-route-facts/goal.md",
+      "004-critic-pass-source/goal.md",
+      "005-tag-key-and-set/goal.md",
+      "006-delivery-pointer-lines/goal.md",
+      "007-revision-plan/goal.md",
+      "008-dangling-connectors/goal.md",
+      "009-pair-reply-ending/goal.md",
+      "010-repeated-label-check/goal.md",
+      "011-read-call-allowance/goal.md",
+      "012-er-cardinality-caps/goal.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Packet",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement Five",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Apply",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Decisions Frozen",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Flow",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Documentation Map",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "every",
+        "kind": "key_phrase",
+        "path": "goal.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Five more research iterations found that eight of the twelve shipped FigJam changes stop short and ranked five new ones",
+    "created_at": "2026-10-21T05:55:07.546Z",
+    "last_save_at": "2026-10-21T05:55:07.546Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "goal.md"
+    ],
+    "source_fingerprint": "sha256:0cad102436255d7b38a2485bdba8fb82a276c7eb23f5685ca80fb6630600d087",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "c9fbfdeb73e62d2b98ce676f23c0a81c8d7f7b2fa18231bce2c9463baf759ca5"
+    },
+    "last_active_child_id": "017-figjam-flow-generation/029-extension-fixes/012-er-cardinality-caps",
+    "last_active_at": null
+  }
+}

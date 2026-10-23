@@ -1,0 +1,18 @@
+{
+  "specFolder": "017-figjam-flow-generation/031-round-three-apply/022-chunk-allocation",
+  "description": "Phase 22: chunk-allocation",
+  "keywords": [
+    "phase",
+    "chunk-allocation"
+  ],
+  "lastUpdated": "2026-10-21T08:00:00.000Z",
+  "specId": "022",
+  "folderSlug": "chunk-allocation",
+  "parentChain": [
+    "017-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

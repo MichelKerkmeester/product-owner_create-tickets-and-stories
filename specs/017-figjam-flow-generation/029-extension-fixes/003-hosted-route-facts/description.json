@@ -1,0 +1,18 @@
+{
+  "specFolder": "017-figjam-flow-generation/029-extension-fixes/003-hosted-route-facts",
+  "description": "Phase 3: hosted-route-facts",
+  "keywords": [
+    "phase",
+    "hosted-route-facts"
+  ],
+  "lastUpdated": "2026-10-21T08:00:00.000Z",
+  "specId": "003",
+  "folderSlug": "hosted-route-facts",
+  "parentChain": [
+    "017-figjam-flow-generation",
+    "029-extension-fixes"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

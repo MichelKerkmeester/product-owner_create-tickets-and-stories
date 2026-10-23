@@ -1,0 +1,28 @@
+{
+  "iteration": 3,
+  "focus": "Figma frame flows as input, and the missing bridge into FigJam",
+  "newInfoRatio": 0.92,
+  "status": "complete",
+  "noveltyJustification": "Five findings are new evidence and one is a new inference from absence; the only partial overlap with iteration 1 is the drift caveat.",
+  "answeredQuestions": [],
+  "ruledOut": ["Transporting design frames into FigJam as embedded objects", "Extracting whole design files"],
+  "sourcesQueried": [
+    ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md",
+    ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md"
+  ],
+  "findings": [
+    {"id": "f-iter003-001", "label": "Design-file reading is a separate verb family from FigJam writing: files, node tree, get/inspect and export screenshot|node|css|tailwind all act on the open design file.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:108", ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:112", ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:153"]},
+    {"id": "f-iter003-002", "label": "The FigJam write surface has exactly six mutating verbs (sticky, shape, text, connect, move, update) and no image, frame, section, table, code-block or embed verb, so a Figma frame cannot be placed into a FigJam board through the documented surface.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150", ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348"]},
+    {"id": "f-iter003-003", "label": "No cross-file bridge from a design file to a FigJam board is documented anywhere in the skill; the two verb families never meet.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149", ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150"]},
+    {"id": "f-iter003-004", "label": "A frame flow is still enumerable with grounded evidence: node tree for hierarchy and names, inspect for specs, export screenshot plus sk-vision for pixels.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:112", ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:137"]},
+    {"id": "f-iter003-005", "label": "extract writes DESIGN.md and auto-splits into DESIGN-structure above roughly 50k tokens, so intake must pin one frame subtree rather than a whole file.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:203"]},
+    {"id": "f-iter003-006", "label": "All surface claims remain documentation-grade because the CLI was not executed here; the skill records the docs-versus-source drift as a confirmed gap and requires --help verification.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:367", ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:374", ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:248"]}
+  ],
+  "graphEvents": [
+    {"type": "node", "id": "q-input-figma", "kind": "QUESTION", "label": "How does a Figma frame flow become a flow model"},
+    {"type": "node", "id": "f-iter003-no-bridge", "kind": "FINDING", "label": "No documented design-to-FigJam bridge"},
+    {"type": "node", "id": "src-tool-surface-2", "kind": "SOURCE", "label": "mcp-figma tool surface", "path": ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md"},
+    {"type": "edge", "id": "e-iter003-001", "source": "f-iter003-no-bridge", "target": "q-input-figma", "relation": "ANSWERS"},
+    {"type": "edge", "id": "e-iter003-002", "source": "f-iter003-no-bridge", "target": "src-tool-surface-2", "relation": "CITES"}
+  ]
+}

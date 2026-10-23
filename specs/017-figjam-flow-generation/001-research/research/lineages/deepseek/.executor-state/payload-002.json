@@ -1,0 +1,29 @@
+{
+  "iteration": 2,
+  "focus": "Screenshots as a pre-structured flow model",
+  "newInfoRatio": 1.0,
+  "status": "complete",
+  "noveltyJustification": "All six findings were new to this lineage: the screenshot corpus layout, the filename-encoded transitions, the 341-image scale, the sk-vision tool contract and the absent Product Owner image routing had not been recorded before.",
+  "answeredQuestions": [],
+  "ruledOut": ["Reading every screenshot in the corpus", "Treating filenames as sufficient evidence"],
+  "sourcesQueried": [
+    "Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location",
+    ".skilled/sk-vision/SKILL.md",
+    "AI Systems/Product Owner/AGENTS.md"
+  ],
+  "findings": [
+    {"id": "f-iter002-001", "label": "The screenshot corpus is already a flow model on disk: Flow/<platform> holds ordered steps and Components/<platform> holds reusable states; Change Location has 7 step images across Desktop and Mobile plus 6 component images.", "sources": ["Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/Flow/Desktop/Dashboard - Click_ Location Selector.png", "Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/Components/Desktop/Dropdown.png"]},
+    {"id": "f-iter002-002", "label": "Screenshot filenames encode the trigger and the post-state in prose, so a flow folder yields node labels and transition intents before any pixel read.", "sources": ["Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/Flow/Mobile/Sheet - Menu - Locations - Click_ Location.png"]},
+    {"id": "f-iter002-003", "label": "Scale makes screenshot intake a selection problem: the corpus holds 341 PNGs, so one flow folder rather than the library is the unit of work.", "sources": ["Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location/Flow"]},
+    {"id": "f-iter002-004", "label": "sk-vision is the only local pixel reader for a text-only model: 13 sk_vision_* tools, no API key or cloud upload, opt-in and idle by default, with a one-time Bun build required.", "sources": [".skilled/sk-vision/SKILL.md:11", ".skilled/sk-vision/SKILL.md:38"]},
+    {"id": "f-iter002-005", "label": "Product Owner has no Figma, screenshot or diagram routing: its bootstrap names one skill, sk-product-owner, and its boundaries cover backlog and doc artifacts only.", "sources": ["AI Systems/Product Owner/AGENTS.md:7", "AI Systems/Product Owner/AGENTS.md:10"]},
+    {"id": "f-iter002-006", "label": "Screenshot intake needs a new handler that selects one Flow/<platform> folder, OCRs only labels and target elements, and emits nodes from filenames plus grounded OCR, because no existing Product Owner surface consumes images.", "sources": ["AI Systems/Product Owner/AGENTS.md:7", ".skilled/sk-vision/SKILL.md:11"]}
+  ],
+  "graphEvents": [
+    {"type": "node", "id": "q-input-screenshot", "kind": "QUESTION", "label": "How does a screenshot flow become a flow model"},
+    {"type": "node", "id": "f-iter002-corpus", "kind": "FINDING", "label": "Screenshot folders already encode flow order"},
+    {"type": "node", "id": "src-screenshot-tree", "kind": "SOURCE", "label": "Change Location screenshot flow", "path": "Product Context/a — Screenshots/Barter Managed/Dashboard/Flows/Change Location"},
+    {"type": "edge", "id": "e-iter002-001", "source": "f-iter002-corpus", "target": "q-input-screenshot", "relation": "ANSWERS"},
+    {"type": "edge", "id": "e-iter002-002", "source": "f-iter002-corpus", "target": "src-screenshot-tree", "relation": "CITES"}
+  ]
+}

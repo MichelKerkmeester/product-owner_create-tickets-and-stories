@@ -1,0 +1,533 @@
+{
+  "sessionId": "fanout-deepseek-1792563734045-dk52ro",
+  "parentSessionId": null,
+  "lineageMode": "new",
+  "generation": 1,
+  "continuedFromRun": null,
+  "terminalStop": {
+    "stopReason": "maxIterationsReached",
+    "totalIterations": 5,
+    "answeredCount": 9,
+    "totalQuestions": 9,
+    "timestamp": "2026-10-21T06:32:49.809Z"
+  },
+  "keyQuestions": [
+    {
+      "id": "question-1-what-can-a-vision-capable-model-reliably-read-from-a-ui-screenshot-and-which-rea",
+      "inboxId": null,
+      "text": "What can a vision-capable model reliably read from a UI screenshot, and which reads must Flow Mode re-check or refuse?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 1,
+      "resolved": true
+    },
+    {
+      "id": "question-2-how-should-a-set-of-screenshots-be-ordered-into-a-flow-when-the-filenames-carry-",
+      "inboxId": null,
+      "text": "How should a set of screenshots be ordered into a flow when the filenames carry no step number?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 2,
+      "resolved": true
+    },
+    {
+      "id": "question-3-how-should-a-screen-be-told-apart-from-a-state-and-how-should-loading-empty-and-",
+      "inboxId": null,
+      "text": "How should a screen be told apart from a state, and how should loading, empty and error states be modelled?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 2,
+      "resolved": true
+    },
+    {
+      "id": "question-4-how-should-the-action-that-moves-between-two-screens-be-found-and-what-happens-w",
+      "inboxId": null,
+      "text": "How should the action that moves between two screens be found, and what happens when it is only implied?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 3,
+      "resolved": true
+    },
+    {
+      "id": "question-5-what-should-flow-mode-read-from-a-figma-prototype-link-frame-name-or-prototype-c",
+      "inboxId": null,
+      "text": "What should Flow Mode read from a Figma prototype link, frame name or prototype connection, and which Figma read tool returns it?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 4,
+      "resolved": true
+    },
+    {
+      "id": "question-6-how-should-prose-rules-and-acceptance-criteria-become-decisions-and-branches-wit",
+      "inboxId": null,
+      "text": "How should prose rules and acceptance criteria become decisions and branches without inventing either?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 3,
+      "resolved": true
+    },
+    {
+      "id": "question-7-how-should-several-sources-be-merged-conflicts-resolved-provenance-kept-per-node",
+      "inboxId": null,
+      "text": "How should several sources be merged, conflicts resolved, provenance kept per node and gaps marked?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5,
+      "resolved": true
+    },
+    {
+      "id": "question-8-how-should-the-diagram-type-be-chosen-from-what-the-input-actually-holds-and-how",
+      "inboxId": null,
+      "text": "How should the diagram type be chosen from what the input actually holds, and how should a large input be chunked?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5,
+      "resolved": true
+    },
+    {
+      "id": "question-9-how-should-the-model-be-checked-against-its-sources-before-the-write-gate",
+      "inboxId": null,
+      "text": "How should the model be checked against its sources before the write gate?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5,
+      "resolved": true
+    }
+  ],
+  "openQuestions": [],
+  "resolvedQuestions": [
+    {
+      "id": "question-1-what-can-a-vision-capable-model-reliably-read-from-a-ui-screenshot-and-which-rea",
+      "inboxId": null,
+      "text": "What can a vision-capable model reliably read from a UI screenshot, and which reads must Flow Mode re-check or refuse?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 1
+    },
+    {
+      "id": "question-2-how-should-a-set-of-screenshots-be-ordered-into-a-flow-when-the-filenames-carry-",
+      "inboxId": null,
+      "text": "How should a set of screenshots be ordered into a flow when the filenames carry no step number?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 2
+    },
+    {
+      "id": "question-3-how-should-a-screen-be-told-apart-from-a-state-and-how-should-loading-empty-and-",
+      "inboxId": null,
+      "text": "How should a screen be told apart from a state, and how should loading, empty and error states be modelled?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 2
+    },
+    {
+      "id": "question-4-how-should-the-action-that-moves-between-two-screens-be-found-and-what-happens-w",
+      "inboxId": null,
+      "text": "How should the action that moves between two screens be found, and what happens when it is only implied?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 3
+    },
+    {
+      "id": "question-5-what-should-flow-mode-read-from-a-figma-prototype-link-frame-name-or-prototype-c",
+      "inboxId": null,
+      "text": "What should Flow Mode read from a Figma prototype link, frame name or prototype connection, and which Figma read tool returns it?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 4
+    },
+    {
+      "id": "question-6-how-should-prose-rules-and-acceptance-criteria-become-decisions-and-branches-wit",
+      "inboxId": null,
+      "text": "How should prose rules and acceptance criteria become decisions and branches without inventing either?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 3
+    },
+    {
+      "id": "question-7-how-should-several-sources-be-merged-conflicts-resolved-provenance-kept-per-node",
+      "inboxId": null,
+      "text": "How should several sources be merged, conflicts resolved, provenance kept per node and gaps marked?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5
+    },
+    {
+      "id": "question-8-how-should-the-diagram-type-be-chosen-from-what-the-input-actually-holds-and-how",
+      "inboxId": null,
+      "text": "How should the diagram type be chosen from what the input actually holds, and how should a large input be chunked?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5
+    },
+    {
+      "id": "question-9-how-should-the-model-be-checked-against-its-sources-before-the-write-gate",
+      "inboxId": null,
+      "text": "How should the model be checked against its sources before the write gate?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5
+    }
+  ],
+  "carriedForwardOpenQuestions": [
+    {
+      "text": "Figma prototype links, frame names and the read tools behind them.",
+      "addedAtIteration": 1,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Finding the action between two screens when it is only implied.",
+      "addedAtIteration": 1,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "The pre-gate check of a model against its sources.",
+      "addedAtIteration": 1,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Screen versus state, and how loading, empty and error states enter a model.",
+      "addedAtIteration": 1,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Ordering a screenshot set that carries no step numbers.",
+      "addedAtIteration": 1,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Merging sources, resolving conflicts, provenance per node and marking gaps.",
+      "addedAtIteration": 1,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Type choice from what the input holds, and chunking a large input.",
+      "addedAtIteration": 1,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Prose rules and acceptance criteria into decisions and branches.",
+      "addedAtIteration": 1,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Finding the action between two screens when it is only implied, now that an edge has an actor.",
+      "addedAtIteration": 2,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "What Flow Mode should read from a Figma prototype link, frame name or prototype connection, and which read tool returns it.",
+      "addedAtIteration": 3,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Merging sources, resolving conflicts, provenance per node and marking gaps in one stated procedure.",
+      "addedAtIteration": 3,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Whether a `figma.com/proto` URL carries navigation metadata the design URL does not. No corpus source describes its parameters, so this stays unverified and is not claimed.",
+      "addedAtIteration": 4,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "None from the strategy's set. The open items are the claims this lineage could not verify, listed in the synthesis.",
+      "addedAtIteration": 5,
+      "source": "iteration-markdown"
+    }
+  ],
+  "uncoveredQuestions": [],
+  "keyFindings": [
+    {
+      "id": "finding-1-5-figma-s-own-screenshot-reading-workflow-carries-a-named-uncertainty-vocabulary-t",
+      "text": "**Figma's own screenshot-reading workflow carries a named uncertainty vocabulary that Flow Mode lacks.** It separates the visible change from the trigger and allows \"unknown trigger when the cause is ambiguous\" [SOURCE: specs/z-staging-po-030b/corpus/figma__mcp-server-guide/workflow-skills/video-interaction-mapper/SKILL.md:102]. It requires an inferred target to be marked \"`inferred: true`, `uncertain: true`, `visible: false`, or `confidence: \\\"medium\\\"`/`\\\"low\\\"`\", and it suppresses such a marker by default \"so the canvas does not show a confident pulse over empty UI\" [SOURCE: specs/z-staging-po-030b/corpus/figma__mcp-server-guide/workflow-skills/video-interaction-mapper/SKILL.md:111]. Its edge case is blunt: \"Missing trigger evidence: use `Unknown trigger` instead of guessing\" [SOURCE: specs/z-staging-po-030b/corpus/figma__mcp-server-guide/workflow-skills/video-interaction-mapper/SKILL.md:317]. Flow Mode's equivalent rule is prose, \"A missing step ... is asked about or left as a named gap\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:144], with no per-item marker and no confidence channel inside the model. This is the single largest transferable idea found so far: a per-edge confidence label that the provenance table can carry.",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-3-small-text-fails-at-full-image-scale-and-the-repair-is-a-second-read-on-an-upsca",
+      "text": "**Small text fails at full-image scale, and the repair is a second read on an upscale.** `sk_vision_zoom` exists because it \"makes small text and fine details readable when the vision model misses them at full-image scale\", and \"this second-pass analysis is where zoomed text actually becomes readable\" [SOURCE: .skilled/skills/sk-vision/feature-catalog/pixel-analysis/zoom.md:18], [SOURCE: .skilled/skills/sk-vision/feature-catalog/pixel-analysis/zoom.md:26]. A dense dashboard screenshot read once at full size is therefore the worst case, and a node label drawn from it is the failure mode Figma names as a stretched shape: \"long labels stretch shapes\" [SOURCE: specs/z-staging-po-030b/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:320]. No packet rule says a label read from a screenshot is re-read on a crop before it is written.",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-6-the-before-after-pair-not-the-screenshot-is-the-unit-that-carries-a-trigger-figm",
+      "text": "**The before/after pair, not the screenshot, is the unit that carries a trigger.** Figma's workflow maps \"the important before/after states, infer what triggered each change\" [SOURCE: specs/z-staging-po-030b/corpus/figma__mcp-server-guide/workflow-skills/video-interaction-mapper/SKILL.md:20] and records, per moment, a `trigger`, a `short_label`, an `annotation` and the before and after targets [SOURCE: specs/z-staging-po-030b/corpus/figma__mcp-server-guide/workflow-skills/video-interaction-mapper/SKILL.md:130]. Flow Mode orders a flat list of files and then infers each move [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:111], which forces one order and one trigger per adjacent pair. Naming `(from, to, trigger, confidence)` as the intake record instead separates the two uncertainties — which screen follows which, and what moved between them — and is the change finding 4 and finding 5 both need.",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-1-the-default-local-vision-checkpoint-cannot-read-text-at-all-and-the-ocr-capable-",
+      "text": "**The default local vision checkpoint cannot read text at all, and the OCR-capable one is labelled approximate.** `sk_vision_ocr` \"requires a Moondream 3.x checkpoint. The default `moondream2` cannot transcribe text and fails loudly\", and its output must be treated \"as approximately correct because a preview checkpoint can repeat tokens. Verify against ground truth when exactness matters\" [SOURCE: .skilled/skills/sk-vision/SKILL.md:204]. The tool exists and is honest about its own error mode; Flow Mode's screenshot intake never names a read tool, a checkpoint or a verification step, and instead states that a click target \"is read off the image\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:113]. A node label retyped from a screenshot is therefore a transcription of an approximate read, and nothing in the packet records that. What the packet already does well and must keep: labels must use \"the product's or the source's own terms\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:169], so the fix is a verification route, not a looser label rule.",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-2-the-scene-read-classifies-it-does-not-measure-sk-vision-inspect-without-a-questi",
+      "text": "**The scene read classifies; it does not measure.** `sk_vision_inspect` without a question runs caption, scene and OCR and returns \"the scene read classifies image type, layout, elements, and state\" from \"a fixed prompt that asks for a type classification (UI screenshot, terminal, code, error dialog, document, chart/diagram, photo, or other), a layout description, notable elements, and current state\" [SOURCE: .skilled/skills/sk-vision/feature-catalog/scene-understanding/inspect.md:32]. Coordinates come from other tools, `sk_vision_point` returning \"normalized (0-1) center coordinates for a target\" [SOURCE: .skilled/skills/sk-vision/SKILL.md:172]. So \"the row under the cursor\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:113] is available only as a description unless a `point` or `detect` call is made, and Flow Mode names neither. The consequence is concrete: the label for the node that starts the next step is the least certain text in the model and is the one thing a user checks first.",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-4-two-screenshots-can-be-compared-by-measurement-which-settles-new-screen-or-new-s",
+      "text": "**Two screenshots can be compared by measurement, which settles \"new screen or new state\" without a caption.** `sk_vision_diff` \"answers 'what changed' for before/after screenshots, render regressions, and UI iterations\"; it returns \"the changed pixel percentage, up to 12 changed-region boxes in normalized coordinates\", and anti-aliasing is blurred out so it \"does not count as change\" [SOURCE: .skilled/skills/sk-vision/feature-catalog/pixel-analysis/diff.md:18], [SOURCE: .skilled/skills/sk-vision/feature-catalog/pixel-analysis/diff.md:22]. A pair with a small changed area inside one region reads as a state of the same screen; a pair whose changed area is the whole viewport reads as a different screen. Flow Mode has no such test today: it orders screenshots by filename grammar and asks one question when two orders fit [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:111], and never checks whether two supplied images are two screens or one screen in two states.",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-2-5-a-complete-flow-carries-an-error-exit-and-a-decision-s-no-branch-must-land-somew",
+      "text": "**A complete flow carries an error exit, and a decision's No branch must land somewhere.** The card grammar makes three requirements of every flow: \"At least one entry point (`START:`), at least one successful end (`END:`), at least one exit/error path (`EXIT:` or error handling)\" [SOURCE: specs/z-staging-po-030b/corpus/bluescaban__blueprints/docs/specs/card-grammar.md:22]. Its third inference rule requires both branches and states their defaults: \"Every `D:` (decision) must have at least TWO outgoing edges\", \"**Yes branch**: Continues the happy path\", \"**No branch**: Routes to error handling, alternative path, or exit\" [SOURCE: specs/z-staging-po-030b/corpus/bluescaban__blueprints/docs/specs/card-grammar.md:163], [SOURCE: specs/z-staging-po-030b/corpus/bluescaban__blueprints/docs/specs/card-grammar.md:165]. Flow Mode requires every node to have a way in and a way out and a stadium never mid-flow [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:57], and caps a decision at one to three labelled exits [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:56], but nothing requires a negative or error path to exist. A happy-path-only flow therefore passes `flow_check.py` today, and the empty and error views a screenshot set actually contains have no rule that asks for them.",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-2-a-screenshot-set-can-be-ordered-by-adjacency-before-any-filename-is-parsed-itera",
+      "text": "**A screenshot set can be ordered by adjacency before any filename is parsed.** Iteration 1 established that a pixel diff returns a changed percentage and up to twelve changed-region boxes [SOURCE: .skilled/skills/sk-vision/feature-catalog/pixel-analysis/diff.md:22]. A diff of every adjacent pair in the order supplied gives a chain: a pair that differs by a small region is one screen in two states, and a pair that differs across the viewport is two screens. That produces both the ordering evidence and the screen-versus-state verdict from one pass, and neither the packet's intake nor its check names it. What must stay: the packet's one-question rule when two orders fit [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:111], because adjacency cannot resolve a set that arrived shuffled.",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-6-an-edge-has-an-actor-and-the-packet-s-edge-carries-none-the-card-grammar-types-a",
+      "text": "**An edge has an actor, and the packet's edge carries none.** The card grammar types a step by who performs it: `S:` is a \"User-performed action\" and `SYS:` a \"System/app-performed action (automatic)\" [SOURCE: specs/z-staging-po-030b/corpus/bluescaban__blueprints/docs/specs/card-grammar.md:60], [SOURCE: specs/z-staging-po-030b/corpus/bluescaban__blueprints/docs/specs/card-grammar.md:61], and its cross-lane rule is the person-act to system-act to person-act chain [SOURCE: specs/z-staging-po-030b/corpus/bluescaban__blueprints/docs/specs/card-grammar.md:179]. Flow Mode's connector takes \"an optional label\" and nothing else [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:47]. Without an actor, \"what moves between screens\" cannot be told apart from \"what the system did while nobody acted\", which is precisely why a loading or error view gets invented as a screen instead of read as an outcome. It also gives the never-invent rule something to attach to: an automatically reached state is not a missing user action.",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-4-an-empty-loading-or-error-view-is-a-state-of-a-screen-until-a-different-trigger-",
+      "text": "**An empty, loading or error view is a state of a screen until a different trigger reaches it, and the trigger is the test.** Two screenshots of one screen differ by their data, not by a move; the SwiftUI rule draws that line with variants rather than frames [SOURCE: specs/z-staging-po-030b/corpus/lightspeedwp__.github/plugins/figma/figma-swiftui/references/code-to-design.md:183]. Figma's video workflow draws the same line at a finer grain: it lists the visual change that counts, and that list includes \"loaded content, selected state, validation state\" next to modal, drawer and navigation [SOURCE: specs/z-staging-po-030b/corpus/figma__mcp-server-guide/workflow-skills/video-interaction-mapper/SKILL.md:99]. So the rule the packet needs is a test, not a convention: a state becomes its own node only when a different action or event reaches it, or when a reader can be trapped in it. Otherwise it belongs in the label of its screen, and the detail goes under `Left out:` — the line the packet already ships [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:240]. Flow Mode already has the judgement that keeps this cheap: no two nodes that always travel together, and no node that can be removed without loss [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:39], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:37].",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-7-explicit-evidence-outranks-inference-and-the-grammar-states-that-precedence-as-a",
+      "text": "**Explicit evidence outranks inference, and the grammar states that precedence as a rule.** \"When you provide explicit definitions (e.g., `E:` edges), the system uses ONLY those. When omitted, the system infers intelligently based on context\" [SOURCE: specs/z-staging-po-030b/corpus/bluescaban__blueprints/docs/specs/card-grammar.md:26], [SOURCE: specs/z-staging-po-030b/corpus/bluescaban__blueprints/docs/specs/card-grammar.md:27]. Flow Mode has the seed of this in its conflict gate — \"An edge one source states and the other contradicts is a finding, not a connector\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:61] — but it is stated as a prohibition, not as an order of precedence, and it covers sources contradicting each other rather than a stated edge outranking an inferred one. The ordered ladder this research will rank is: an explicit source edge, then explicit numbering, then lane or container order, then screenshot adjacency, then the trigger grammar, then one question.",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-1-order-comes-from-a-structure-the-source-carries-and-four-structures-exist-the-pa",
+      "text": "**Order comes from a structure the source carries, and four structures exist; the packet names only the weakest.** A deck of numbered items means sequence: \"Numbers say 'sequence' or 'of 25' — use them when order or count is the point\", and its rule is to \"Number a decision flow; bullet a feature list\" [SOURCE: specs/z-staging-po-030b/corpus/prasantloki__figjam-builder/SKILL.md:34]. The card grammar orders by an explicit numbered step list inside a lane: \"Steps in the same lane connect sequentially\" [SOURCE: specs/z-staging-po-030b/corpus/bluescaban__blueprints/docs/specs/card-grammar.md:143], and by explicit edges wherever the author supplied them [SOURCE: specs/z-staging-po-030b/corpus/bluescaban__blueprints/docs/specs/card-grammar.md:141]. Iteration 1 found a third: the before/after pairing around a trigger [SOURCE: specs/z-staging-po-030b/corpus/figma__mcp-server-guide/workflow-skills/video-interaction-mapper/SKILL.md:20]. Flow Mode names a fourth only: the trigger grammar inside a filename, with one question when two orders fit [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:111]. So a set of screenshots with no filenames and no numbering — the common case — falls straight to the question, when two cheaper signals (pixel-diff adjacency, and the order the user supplied them in) were never read.",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-3-the-packet-s-own-shape-table-conflates-a-screen-with-an-action-and-says-nothing-",
+      "text": "**The packet's own shape table conflates a screen with an action, and says nothing at all about a state.** The four shapes are Stadium \"the flow starts or ends here\", Rectangle \"a screen or an action\", Rhombus \"a choice\", Circle \"a merge dot\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:42], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:43]. A screen and an action are the two things a person can be looking at or doing, and the same shape means both, so the intake has no slot in which to record which one it read. A state is absent from the table entirely. The consequence is visible in the alternative: Figma's SwiftUI guidance says to \"render one state in the primary frame, model the others as variants or separate frames\" for conditional rendering, and to \"model the resulting screen state (loaded, empty, loading spinner) as separate variants, not the hooks themselves\" [SOURCE: specs/z-staging-po-030b/corpus/lightspeedwp__.github/plugins/figma/figma-swiftui/references/code-to-design.md:180], [SOURCE: specs/z-staging-po-030b/corpus/lightspeedwp__.github/plugins/figma/figma-swiftui/references/code-to-design.md:183].",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-3-2-a-criterion-carries-an-outcome-and-deliberately-leaves-out-the-mechanism-so-a-th",
+      "text": "**A criterion carries an outcome and deliberately leaves out the mechanism, so a Then without a When is a named gap and never a pair to bridge.** \"A criterion states what the user can rely on once the work ships and the quality it has to have ... and leaves the mechanism to the developer\" [SOURCE: AI Systems/Product Owner/sk-product-owner/references/story-mode.md:151]. That is right for a Story and wrong for a flow: a Then is a node, and with no When there is no edge into it. Story criteria also \"verify screen-level behavior\" while Epic criteria \"stay release-level\" [SOURCE: AI Systems/Product Owner/sk-product-owner/references/story-mode.md:151], so an Epic's release-level criterion names no screen at all and cannot be a node. The intake therefore needs the rule: a criterion contributes an edge only when its When names an action, and a release-level criterion contributes none.",
+      "addedAtIteration": 3,
+      "sources": []
+    },
+    {
+      "id": "finding-3-6-a-support-ticket-can-prove-that-an-error-path-exists-and-cannot-prove-the-trigge",
+      "text": "**A support ticket can prove that an error path exists and cannot prove the trigger that reaches it.** No public source in the 22-repo corpus gives ticket-to-diagram guidance; a search for support-ticket and bug-report wording returned two unrelated hits. The nearest authority is Doc Mode's scope limit: \"Each authority signal is limited to the scope it actually covers\" [SOURCE: AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:175], and a present-tense report of one user's path is a claim about that path only. This is an inference from that rule, not a quoted one: a ticket is evidence of an exit or error state, and the action that produces it must come from a screen, a criterion or a question. Stating it prevents the commonest invention in this mode, which is inventing a trigger to make a reported error reachable.",
+      "addedAtIteration": 3,
+      "sources": []
+    },
+    {
+      "id": "finding-3-1-an-acceptance-criterion-is-already-a-labelled-edge-and-the-packet-reads-it-as-pr",
+      "text": "**An acceptance criterion is already a labelled edge, and the packet reads it as prose.** Each criterion \"holds `* **Given/When/Then/And**` ClickUp bullets\", and \"One outcome per Then or And line\" [SOURCE: AI Systems/Product Owner/sk-product-owner/references/story-mode.md:151]. Given names the starting condition, When names the action, Then names the outcome; that is a state, an edge and a state, in the order a user flow needs. The Flow intake files a Story under \"Product docs\" and asks only that every claim be classified and that each causal edge be \"asserted from both ends\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:119], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:120], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:123]. So the one input type that arrives pre-structured is flattened into prose before it is modelled. Reading the triples directly is the cheapest extraction gain found in this lineage so far.",
+      "addedAtIteration": 3,
+      "sources": []
+    },
+    {
+      "id": "finding-3-5-the-conflict-gate-ends-at-a-question-while-flow-mode-s-rule-ends-at-a-vanished-e",
+      "text": "**The conflict gate ends at a question, while Flow Mode's rule ends at a vanished edge, and the finding has no surface.** Doc Mode's gate compares claims, looks for a winner, and \"If no source clearly wins, stop composition\" and \"Ask one consolidated question ... Do not choose a winner\" [SOURCE: AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:184], [SOURCE: AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:186]. Flow Mode's version is \"An edge one source states and the other contradicts is a finding, not a connector\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:61]. Followed literally, that rule removes the connector and reports nothing the user can see: no node, no row, no `Left out:` line. A contradicted edge is the most important thing a reader of the board needs to know, and today it is the one thing with no surface. The fix is to give the finding a home the reply already has, not to add a line to the reply.",
+      "addedAtIteration": 3,
+      "sources": []
+    },
+    {
+      "id": "finding-3-3-the-house-already-has-a-legal-place-for-an-unknown-value-and-flow-mode-refuses-i",
+      "text": "**The house already has a legal place for an unknown value, and Flow Mode refuses it.** A Story keeps an undecided part visible with an \"`**Open:**` line under its name\" [SOURCE: AI Systems/Product Owner/sk-product-owner/references/story-mode.md:74], and a Delivery section leaves \"unknown values ... as `TBD...` rather than an inferred estimate, risk or exclusion\" [SOURCE: AI Systems/Product Owner/sk-product-owner/references/story-mode.md:155]. Flow Mode instead requires every label to use \"the product's or the source's own terms\" and sends anything missing to `Left out:` [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:169], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:240]. Neither rule is wrong, but they meet at a board drawn from a Story: a `TBD` value is the source's own word, so it is legal on a label, and dropping it instead would hide a decision the Story deliberately left open. This is a recorded source conflict, resolved below.",
+      "addedAtIteration": 3,
+      "sources": []
+    },
+    {
+      "id": "finding-3-4-the-provenance-table-classifies-a-node-and-not-an-edge-which-is-coarser-than-the",
+      "text": "**The provenance table classifies a node and not an edge, which is coarser than the rule it claims to apply.** \"One row per drawn item ... a node, a state, a participant, an entity or a task, and a sequence, a state diagram or an ER diagram adds one row per message, transition or relationship whose source differs from its ends\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md:110]. A plain user-flow connector has no row at all, so it has no class, even though it is the one item most likely to be inferred rather than read. Doc Mode classifies \"at section, field, table row, or individual claim level\" [SOURCE: AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:140], and its five classes include \"Unknown: Authority or lifecycle status cannot be established safely\" [SOURCE: AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:149]. The intake claims to apply that rule [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:120], so the table's missing edge row is a gap between the rule and the artifact that carries it.",
+      "addedAtIteration": 3,
+      "sources": []
+    },
+    {
+      "id": "finding-4-1-a-figma-file-already-states-its-own-navigation-graph-and-the-intake-never-reads-",
+      "text": "**A Figma file already states its own navigation graph, and the intake never reads it.** The plugin API exposes a `ReactionMixin` whose property is \"`reactions` (prototyping)\", beside a `FramePrototypingMixin` carrying `overflowDirection` and `numberOfFixedChildren` [SOURCE: specs/z-staging-po-030b/corpus/figma__mcp-server-guide/skills/figma-use/references/plugin-api-standalone.index.md:194], [SOURCE: specs/z-staging-po-030b/corpus/figma__mcp-server-guide/skills/figma-use/references/plugin-api-standalone.index.md:198]. A reaction is the designer's own answer to \"what moves from this frame\", stored on the node. Flow Mode's Figma intake reads \"node by node\" for content and then infers every move, and its only structural rule is that \"No verb copies a design frame onto a board, so frame content is retyped into the model\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:116], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:117]. So the strongest evidence for the edges — the only evidence in the whole intake that is stated rather than inferred — is skipped by a rule about content copying.",
+      "addedAtIteration": 4,
+      "sources": []
+    },
+    {
+      "id": "finding-4-5-a-frame-name-and-the-screen-s-visible-heading-can-disagree-and-no-rule-says-whic",
+      "text": "**A frame name and the screen's visible heading can disagree, and no rule says which wins.** The packet's label rule is the strongest in the packet: \"Labels use the product's or the source's own terms\" and proper nouns are never renamed [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:169]. But the Figma route gives two candidate words for one node — the layer name the designer typed, and the heading the screen shows — and frame names are commonly shorthand, a ticket key or a duplicate marker. Nothing in Section 4 or the provenance table decides. This is iteration 3 finding 5's conflict class arriving at the Figma route specifically: the two candidates are both \"the source's words\", so neither the never-invent rule nor the remove test can settle it.",
+      "addedAtIteration": 4,
+      "sources": []
+    },
+    {
+      "id": "finding-4-3-a-reaction-s-trigger-and-action-classify-the-move-which-is-the-screen-versus-sta",
+      "text": "**A reaction's trigger and action classify the move, which is the screen-versus-state test the packet lacks.** One corpus implementation lists triggers \"CLICK, HOVER, etc.\" and actions \"NAVIGATE, OVERLAY, BACK\" [SOURCE: specs/z-staging-po-030b/corpus/arinspunk__claude-talk-to-figma-mcp/CHANGELOG.md:29]. Read against iteration 2 finding 4: `NAVIGATE` to another frame is a different screen and earns a node; `OVERLAY` is a layer appearing over the same screen, which is a state unless its own trigger traps the reader; `BACK` is a return edge to a node already drawn, not a new node. That is a three-way classification computed from the file, with no vision read and no guess.",
+      "addedAtIteration": 4,
+      "sources": []
+    },
+    {
+      "id": "finding-4-6-reading-the-graph-first-is-cheap-the-packet-s-cost-rule-is-about-content-and-rea",
+      "text": "**Reading the graph first is cheap; the packet's cost rule is about content and reads as if it were about the file.** \"A whole-file read is token-heavy and is never the first read\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:116] is correct for frame content and misleading for the reaction graph: one script that returns `id`, `name` and `reactions` for each top-level frame is a single call and yields every node and edge candidate at once. The packet's rule then pushes the intake toward exactly the pattern that costs most — one content read per frame — before any edge is known. Narrowing the rule to content, and adding a graph read as the first Figma step, changes the cost profile without touching the write path.",
+      "addedAtIteration": 4,
+      "sources": []
+    },
+    {
+      "id": "finding-4-4-the-node-id-in-a-figma-url-is-not-the-node-id-the-api-takes-and-the-packet-s-ins",
+      "text": "**The node id in a Figma URL is not the node id the API takes, and the packet's instruction is literally wrong for a hyphenated URL.** A design URL carries `node-id=609-35535`, and the documented parsing rule is \"Parse `fileKey` = `ABC123`, `nodeId` = `609:35535`\" [SOURCE: specs/z-staging-po-030b/corpus/lightspeedwp__.github/plugins/figma/figma-generate-design/SKILL.md:80]. Flow Mode says only \"Take the `fileKey` and `nodeId` from the URL and read node by node\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:116]. A reader who copies `609-35535` gets a lookup that fails or, worse, a different node. It is one clause and it is the first step of the whole Figma intake.",
+      "addedAtIteration": 4,
+      "sources": []
+    },
+    {
+      "id": "finding-4-2-the-read-that-reaches-reactions-is-use-figma-which-the-packet-uses-only-as-a-wri",
+      "text": "**The read that reaches reactions is `use_figma`, which the packet uses only as a write tool.** A published skill walks a component and returns \"its full node tree with resolved token bindings, main-component references, and prototype reactions\", and it does so with `use_figma`, `get_design_context` and `get_metadata` [SOURCE: specs/z-staging-po-030b/corpus/figma__community-resources/agent_skills/README.md:105], [SOURCE: specs/z-staging-po-030b/corpus/figma__community-resources/agent_skills/README.md:106]. `use_figma` runs plugin JavaScript in the file, which is why it can read a plugin-API property at all. In Flow Mode, `use_figma` appears only in Section 6: the tag call, the rollback and the delete-after-yes [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:190], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:195]. A read-only `use_figma` call is not a write route, and the packet has no slot for it, so the intake is limited to the hosted read tools by accident rather than by decision.",
+      "addedAtIteration": 4,
+      "sources": []
+    },
+    {
+      "id": "finding-5-2-chunking-exists-only-on-the-output-side-so-the-first-diagram-is-drawn-before-any",
+      "text": "**Chunking exists only on the output side, so the first diagram is drawn before anything decides how the input divides.** The packet's budget rules are all about the diagram: \"A budget per type ... Over budget, split rather than shrink\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:162], and the cuts run in a fixed order before an overview and detail split [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:170]. The matching fidelity requirement is that \"Every source step lands in one of the diagrams or is listed as left out\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md:91]. Those two rules point in opposite directions when the input is large: the split is decided from the model, and the ledger is checked against the sources afterwards. Deciding the chunk plan from the ordered source list first makes the ledger checkable and turns the split into an allocation rather than a correction.",
+      "addedAtIteration": 5,
+      "sources": []
+    },
+    {
+      "id": "finding-5-4-the-one-place-a-source-re-read-pays-is-the-rows-where-a-mistake-is-silent-readin",
+      "text": "**The one place a source re-read pays is the rows where a mistake is silent.** Reading every source twice to verify the model would defeat the budget and the token cost that the intake already worries about [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:116]. But a row whose class is `current behavior` and whose evidence is a quoted line is already the cheapest kind to trust, while a row whose edge is inferred, or whose class is approved direction, proposal or unknown, is exactly the row a reader cannot check for themselves. Bounding the re-read to those rows — one narrow reread per row, with the reason recorded — is the shape the `@deep-research` read-budget rule already uses for its own evidence [SOURCE: .skilled/agents/deep-research.md:42]. That keeps the pass inside the existing one-question intake instead of adding a second round of questions.",
+      "addedAtIteration": 5,
+      "sources": []
+    },
+    {
+      "id": "finding-5-5-the-ordered-procedure-this-lineage-supports-assembled-from-its-own-findings-each",
+      "text": "**The ordered procedure this lineage supports, assembled from its own findings.** Each clause names the iteration that produced it, so the synthesis can rank by evidence rather than by preference: read the Figma reaction graph first where the input is a design file (iteration 4 finding 1); order the remaining items by the precedence ladder, explicit edge then numbering then container then adjacency then filename grammar then one question (iteration 2 finding 7, deepened by iteration 4 finding 3); record every item as a node or an edge with source, class and confidence (iteration 1 findings 5 and 6, iteration 3 finding 4); classify a state against its screen by the trigger that reaches it (iteration 2 finding 4); read acceptance criteria as Given/When/Then triples and a Then with no When as a gap (iteration 3 findings 1 and 2); give a contradicted or contradicted-in-part edge a surface the reply already has (iteration 3 finding 5); test the chosen type against the needs row before modelling (finding 1 above); allocate chunks from the source list before drawing (finding 2 above); and re-read only the unverifiable rows before the gate (finding 4 above). Every clause is a change to how the input is read, and none of them touches the write path, the read-back or the reply.",
+      "addedAtIteration": 5,
+      "sources": []
+    },
+    {
+      "id": "finding-5-3-the-pre-write-check-protects-the-model-to-board-contract-and-reads-no-source-at-",
+      "text": "**The pre-write check protects the model-to-board contract and reads no source at all.** `flow_check.py` states its own scope: \"A board is slow to fix once it exists ... Worse, the generator silently drops much of what Mermaid can say, so a model can promise a reader something the board never shows\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py:8], [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py:10]. It \"parses text only and never renders or runs anything in a label\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py:26]. Every rule it enforces is a property of the model — shape, id, label length, connector direction, lane membership, repeated labels [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py:215]. So the provenance table and the `Left out:` list are claims nothing verifies, and the check's own words name the unverified contract: a model can promise a reader something the board never shows, and equally a model can promise a reader something the source never said.",
+      "addedAtIteration": 5,
+      "sources": []
+    },
+    {
+      "id": "finding-5-1-the-type-is-chosen-from-the-reader-s-question-and-the-table-that-says-what-the-t",
+      "text": "**The type is chosen from the reader's question, and the table that says what the type needs is never used as a test.** Section 3 states the rule plainly: \"The question the reader needs answered picks the type\", and \"Ask before drawing when two types fit\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:75]. Four sections later the intake carries a \"What each type needs\" table whose rows are exactly the evidence a type requires — a user flow needs \"the screens in order, the trigger for each move, every choice and its outcomes\", a state diagram \"the states, the event behind each move and any guard\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:134], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:138]. Nothing connects the two: a request answered by a state diagram, supplied with a screenshot set that shows no events, passes straight to intake and the events are then invented or dropped. The needs table already exists, so the change is to make it a gate rather than a note.",
+      "addedAtIteration": 5,
+      "sources": []
+    },
+    {
+      "id": "finding-5-6-what-the-packet-already-does-better-than-every-corpus-source-and-what-the-change",
+      "text": "**What the packet already does better than every corpus source, and what the change must not remove.** The model-to-board contract is stronger than anything found in 22 repositories: a fail-closed pre-write check [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py:12], a read-back compared with the model rather than with memory [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:217], a rollback that deletes only what this write created [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:195], and a fidelity ledger that names what the board does not hold [SOURCE: AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md:119]. The corpus's own screenshot-reading workflow has no checker and no expected model; it verifies by looking at its output [SOURCE: specs/z-staging-po-030b/corpus/figma__mcp-server-guide/workflow-skills/video-interaction-mapper/SKILL.md:265]. The input side is the thin half, and the entire ranked list this lineage will propose lives there: a record per item, a class per edge, a stated inference order, and one source re-read before the gate.",
+      "addedAtIteration": 5,
+      "sources": []
+    }
+  ],
+  "ruledOutDirections": [],
+  "rejectedPatterns": [],
+  "rejectedPatternIndex": {
+    "maxEntries": 100,
+    "fuzzyThreshold": 0.85,
+    "entries": []
+  },
+  "rejectedPatternWarnings": [],
+  "suppressedCandidates": [],
+  "minIdeaObservations": 2,
+  "observedIdeas": [],
+  "promotedIdeas": [],
+  "suppressedIdeas": [],
+  "blockedStopHistory": [],
+  "graphConvergenceScore": 0,
+  "graphDecision": null,
+  "graphBlockers": [],
+  "divergence": {
+    "started": [],
+    "completed": [],
+    "failed": [],
+    "overrides": [],
+    "saturatedDirections": [],
+    "remainingFrontier": [],
+    "currentFocus": "",
+    "activePivotId": null,
+    "activeSourceIteration": null
+  },
+  "metrics": {
+    "iterationsCompleted": 5,
+    "openQuestions": 0,
+    "resolvedQuestions": 9,
+    "carriedForwardOpenQuestions": 13,
+    "keyFindings": 31,
+    "rejectedPatterns": 0,
+    "suppressedCandidates": 0,
+    "observedIdeas": 0,
+    "promotedIdeas": 0,
+    "suppressedIdeas": 0,
+    "convergenceScore": 0.55,
+    "coverageBySources": {},
+    "completedPivots": 0,
+    "failedPivots": 0,
+    "pivotOverrides": 0
+  },
+  "corruptionWarnings": [],
+  "inboxPath": "/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/z-staging-po-030b/research/lineages/deepseek/inbox.jsonl",
+  "inboxWarnings": [],
+  "status": "COMPLETE",
+  "advisoryEvents": [],
+  "strategyWarnings": []
+}

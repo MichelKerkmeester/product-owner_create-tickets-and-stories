@@ -1,0 +1,29 @@
+{
+  "iteration": 15,
+  "focus": "The Product Owner parent-hub change list",
+  "newInfoRatio": 0.85,
+  "status": "insight",
+  "noveltyJustification": "Four findings are new PO-specific change-surface evidence and one is a new ordering claim; the two remaining restate hub anatomy from iteration 11.",
+  "answeredQuestions": ["What must Product Owner change to become a parent hub, and which Media Editor and Moneybird Accountant lessons and risks apply?"],
+  "ruledOut": ["Adding the diagram capability as a seventh command inside the existing skill", "Editing the Project kernel before the skill side lands"],
+  "sourcesQueried": [
+    "AI Systems/Product Owner/AGENTS.md",
+    "AI Systems/Moneybird Accountant/SKILL.md",
+    "AI Systems/Product Owner/benchmark/router/run_fixtures.sh",
+    "AI Systems/Product Owner/benchmark/format/run_fixtures.sh",
+    "AI Systems/Product Owner/SYNC.md"
+  ],
+  "findings": [
+    {"id": "f-iter015-001", "label": "Four PO routing surfaces move together: Section 3 STEP 1 (which skill to load), the Command Registry table, Routing Compatibility, and Document Loading Order plus the Full DAG.", "sources": ["AI Systems/Product Owner/AGENTS.md:159", "AI Systems/Product Owner/AGENTS.md:186", "AI Systems/Product Owner/AGENTS.md:200", "AI Systems/Product Owner/AGENTS.md:230"]},
+    {"id": "f-iter015-002", "label": "The command registry is a closed table of six commands plus $quick, so a FigJam command must be added there, in the skill router and in the Project kernel.", "sources": ["AI Systems/Product Owner/AGENTS.md:186"]},
+    {"id": "f-iter015-003", "label": "Hub conversion adds two registry files at the PO root as stage one of Section 3, with the packet ROUTER.md as stage two, following the Moneybird hub pattern.", "sources": ["AI Systems/Product Owner/AGENTS.md:159", "AI Systems/Moneybird Accountant/SKILL.md:30"]},
+    {"id": "f-iter015-004", "label": "PO already owns the checkers a hub change stresses: a router fixture runner with a differential corpus and route contract, and a format fixture runner with its validator, both named as pre-upload verification.", "sources": ["AI Systems/Product Owner/benchmark/router/run_fixtures.sh:1", "AI Systems/Product Owner/benchmark/format/run_fixtures.sh:1", "AI Systems/Product Owner/SYNC.md:27"]},
+    {"id": "f-iter015-005", "label": "The Project mirror needs three coordinated edits: a new knowledge document for the mode, the kernel's command list, and a kernel H1 version bump in the same change.", "sources": ["AI Systems/Product Owner/SYNC.md:19", "AI Systems/Product Owner/SYNC.md:20"]},
+    {"id": "f-iter015-006", "label": "Ordering is load-bearing: registries, then packet ROUTER.md, then bootstrap pointers, then Project mirror, then fixtures, because each step cites the path the previous one created.", "sources": ["AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:54", "AI Systems/Product Owner/AGENTS.md:230"]}
+  ],
+  "graphEvents": [
+    {"type": "node", "id": "q-hub-change-list", "kind": "QUESTION", "label": "What does the PO hub conversion require"},
+    {"type": "node", "id": "f-iter015-surfaces", "kind": "FINDING", "label": "Four PO routing surfaces must move together"},
+    {"type": "edge", "id": "e-iter015-001", "source": "f-iter015-surfaces", "target": "q-hub-change-list", "relation": "ANSWERS"}
+  ]
+}

@@ -1,0 +1,1196 @@
+{
+  "sessionId": "fanout-deepseek-1792563734045-t20sb9",
+  "parentSessionId": null,
+  "lineageMode": "new",
+  "generation": 1,
+  "continuedFromRun": null,
+  "terminalStop": {
+    "stopReason": "maxIterationsReached",
+    "totalIterations": 5,
+    "answeredCount": 5,
+    "totalQuestions": 5,
+    "timestamp": "2026-10-21T06:32:26.508Z"
+  },
+  "keyQuestions": [
+    {
+      "id": "question-1-what-do-sk-product-owner-interactive-mode-the-router-clarification-path-sk-creat",
+      "inboxId": null,
+      "text": "What do sk-product-owner Interactive Mode, the router clarification path, sk-create-figjam's gate and the kernel do today, and where does the flow stop short of a board?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 1,
+      "resolved": true
+    },
+    {
+      "id": "question-2-which-named-facts-must-a-board-intake-establish-before-drawing-and-what-confiden",
+      "inboxId": null,
+      "text": "Which named facts must a board intake establish before drawing, and what confidence model, threshold and stop rule make it confident enough to draw?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 3,
+      "resolved": true
+    },
+    {
+      "id": "question-3-how-should-the-intake-spar-with-the-user-through-proposals-a-draft-outline-two-a",
+      "inboxId": null,
+      "text": "How should the intake spar with the user through proposals - a draft outline, two alternative framings, a Mermaid sketch - instead of only asking questions?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5,
+      "resolved": true
+    },
+    {
+      "id": "question-4-how-should-intake-answers-persist-across-turns-and-what-changes-when-the-user-sa",
+      "inboxId": null,
+      "text": "How should intake answers persist across turns, and what changes when the user says just do it or selects Quick energy?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 4,
+      "resolved": true
+    },
+    {
+      "id": "question-5-how-should-the-intake-challenge-an-over-broad-brief-or-the-wrong-diagram-type-an",
+      "inboxId": null,
+      "text": "How should the intake challenge an over-broad brief or the wrong diagram type, and how does the Claude Project kernel carry the loop?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5,
+      "resolved": true
+    }
+  ],
+  "openQuestions": [],
+  "resolvedQuestions": [
+    {
+      "id": "question-1-what-do-sk-product-owner-interactive-mode-the-router-clarification-path-sk-creat",
+      "inboxId": null,
+      "text": "What do sk-product-owner Interactive Mode, the router clarification path, sk-create-figjam's gate and the kernel do today, and where does the flow stop short of a board?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 1
+    },
+    {
+      "id": "question-2-which-named-facts-must-a-board-intake-establish-before-drawing-and-what-confiden",
+      "inboxId": null,
+      "text": "Which named facts must a board intake establish before drawing, and what confidence model, threshold and stop rule make it confident enough to draw?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 3
+    },
+    {
+      "id": "question-3-how-should-the-intake-spar-with-the-user-through-proposals-a-draft-outline-two-a",
+      "inboxId": null,
+      "text": "How should the intake spar with the user through proposals - a draft outline, two alternative framings, a Mermaid sketch - instead of only asking questions?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5
+    },
+    {
+      "id": "question-4-how-should-intake-answers-persist-across-turns-and-what-changes-when-the-user-sa",
+      "inboxId": null,
+      "text": "How should intake answers persist across turns, and what changes when the user says just do it or selects Quick energy?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 4
+    },
+    {
+      "id": "question-5-how-should-the-intake-challenge-an-over-broad-brief-or-the-wrong-diagram-type-an",
+      "inboxId": null,
+      "text": "How should the intake challenge an over-broad brief or the wrong diagram type, and how does the Claude Project kernel carry the loop?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5
+    }
+  ],
+  "carriedForwardOpenQuestions": [],
+  "uncoveredQuestions": [],
+  "keyFindings": [
+    {
+      "id": "finding-1-8-energy-scales-depth-not-exploration-quick-shortens-intake-and-the-protected-list",
+      "text": "**Energy scales depth, not exploration: Quick shortens intake and the protected list is artifact-shaped.** The energy choice opens the comprehensive question and defaults to Standard [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:102], [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:109]. Quick may skip routine intake but never Doc purpose, audience, source authority, contradiction handling or claim status [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:109], [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:305]. The protected list is Doc facts; no board fact is protected at Quick energy [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:9].",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/interactive-response-templates.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/routing.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/AGENTS.md`"
+      ]
+    },
+    {
+      "id": "finding-1-5-flow-mode-has-no-intake-loop-at-all-it-asks-only-in-five-enumerated-situations-t",
+      "text": "**Flow Mode has no intake loop at all; it asks only in five enumerated situations.** Those are two types fitting [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:75], two step orders fitting or no authoritative source winning [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:111], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:121], an unclear plan or file [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:274], and a read-back that differs from the model [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:258]. Otherwise the packet's only escalation is an ON_DEMAND pointer to Interactive Mode \"when the sources, the type, the target file or the order cannot be settled\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/SKILL.md:65], and the packet's escalation paragraph still says \"ask one question\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/SKILL.md:185].",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/interactive-response-templates.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/routing.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/AGENTS.md`"
+      ]
+    },
+    {
+      "id": "finding-1-3-nothing-measures-confidence-the-state-machine-has-a-wait-not-a-threshold-the-sta",
+      "text": "**Nothing measures confidence; the state machine has a wait, not a threshold.** The states are `start`, `comprehensive_question`, `processing`, `delivery` and `complete`, and the question state waits for input once before moving on [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:188], [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:194]. The quality self-rating scores the question being asked, not the understanding behind it: clarity, completeness, assumption challenge, perspective diversity and mechanism depth, each at 8 or above [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:431], [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:436]. A well-scored question can still leave the reader and the board's message unknown.",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/interactive-response-templates.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/routing.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/AGENTS.md`"
+      ]
+    },
+    {
+      "id": "finding-1-9-the-current-test-contract-forbids-the-loop-this-brief-asks-for-fj-020-s-pass-con",
+      "text": "**The current test contract forbids the loop this brief asks for.** FJ-020's pass condition is one question naming both artifacts, and its fail condition is reached if \"more than one question is asked\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md:29]. A multi-round intake therefore needs a named, deliberate exception and a new scenario family, not a quiet loosening of the one-question rule.",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/interactive-response-templates.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/routing.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/AGENTS.md`"
+      ]
+    },
+    {
+      "id": "finding-1-7-the-gate-is-a-consent-gate-not-a-comprehension-check-step-7-names-the-target-pla",
+      "text": "**The gate is a consent gate, not a comprehension check.** Step 7 names the target plan and file, what will be written, any planned extensions, the read calls the write will spend and the rollback, then waits for a yes [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:65]. The kernel's Flow Mode Delivery repeats the same list and the read-back condition [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:254]. Every named fact is write-side. None asks the user to confirm the board's message, its reader, its accent or its detail level.",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/interactive-response-templates.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/routing.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/AGENTS.md`"
+      ]
+    },
+    {
+      "id": "finding-1-1-the-intake-is-single-shot-by-written-contract-so-there-is-nothing-today-to-cap-a",
+      "text": "**The intake is single-shot by written contract, so there is nothing today to cap at N rounds.** The architecture is `Start -> Single Question (ALL info) -> Wait -> Process -> Deliver` [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:54]. Core rule 1 asks for all unresolved information at once, and only a source conflict with no authority winner, a promised source not yet sent or a decision the user calls unsettled may hold the draft a second time [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:58]. The MUST NOT list names the same prohibition: \"Ask a second clarification round for anything but a source conflict with no authority winner, a promised source still missing or a decision the user calls unsettled\" [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:519]. The kernel repeats the one-consolidated-question rule [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:9], [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:114].",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/interactive-response-templates.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/routing.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/AGENTS.md`"
+      ]
+    },
+    {
+      "id": "finding-1-6-the-packet-already-holds-a-facts-model-in-prose-the-two-dials-the-pre-drawing-te",
+      "text": "**The packet already holds a facts model in prose: the two dials, the pre-drawing test, the never-invent rule and the per-type needs table.** Detail level defaults to Balanced, audience to Mixed, and each is a stated choice the user can change [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:150], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:151]. Before drawing, the packet asks whether a list, table or paragraph would serve better [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:89]. It maps an undrawable request to the nearest drawable type [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:95], and states that a missing step, service, field or date is asked about or left as a named gap, never invented [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:144]. The per-type needs table already lists what a gantt needs versus what a sequence needs [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:132]. These are the raw facts, stated once, with no completeness test that would say which are still unknown.",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/interactive-response-templates.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/routing.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/AGENTS.md`"
+      ]
+    },
+    {
+      "id": "finding-1-4-the-router-s-clarification-path-answers-which-artifact-not-what-does-the-board-s",
+      "text": "**The router's clarification path answers \"which artifact\", not \"what does the board say\".** Confidence bands route HIGH at 0.85 or above, LOW at 0.40 or above into Interactive Mode, and anything under 0.40 into Interactive Mode with one comprehensive question [SOURCE: AI Systems/Product Owner/sk-product-owner/references/routing.md:38], [SOURCE: AI Systems/Product Owner/sk-product-owner/references/routing.md:40], [SOURCE: AI Systems/Product Owner/sk-product-owner/references/routing.md:41]. The contract describes the fallback as the one clarifying question [SOURCE: AI Systems/Product Owner/sk-product-owner/references/routing.md:77]. The kernel states the same floor [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:37]. No band distinguishes a settled artifact from an unsettled board.",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/interactive-response-templates.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/routing.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/AGENTS.md`"
+      ]
+    },
+    {
+      "id": "finding-1-2-the-single-question-is-one-fixed-template-across-every-artifact-kind-not-a-plan-",
+      "text": "**The single question is one fixed template across every artifact kind, not a plan derived from what is missing.** The comprehensive template asks the same six blocks in the same order, opening with an energy choice and ending with \"Assumptions to challenge\" [SOURCE: AI Systems/Product Owner/sk-product-owner/assets/interactive-response-templates.md:53], [SOURCE: AI Systems/Product Owner/sk-product-owner/assets/interactive-response-templates.md:59], [SOURCE: AI Systems/Product Owner/sk-product-owner/assets/interactive-response-templates.md:81]. It carries no board-specific fact such as the reader or the question the board answers, so a FigJam request either inherits artifact-shaped questions or leaves the packet [SOURCE: AI Systems/Product Owner/sk-product-owner/assets/interactive-response-templates.md:59].",
+      "addedAtIteration": 1,
+      "sources": [
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/assets/interactive-response-templates.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/routing.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "`AI Systems/Product Owner/AGENTS.md`"
+      ]
+    },
+    {
+      "id": "finding-2-7-a-machine-readable-board-plan-already-exists-as-a-precedent-with-a-purpose-field",
+      "text": "**A machine-readable board plan already exists as a precedent, with a purpose field and named omissions.** `ompug`'s diagram plan gives every diagram a `purpose` defined as \"one sentence: what question this diagram answers\" [SOURCE: specs/z-staging-po-030c/corpus/ompug__diagram-codebase/docs/DESIGN.md:157], a `notes` list for what was left out [SOURCE: specs/z-staging-po-030c/corpus/ompug__diagram-codebase/docs/DESIGN.md:173] and a `skipped` array carrying `{type, reason}` [SOURCE: specs/z-staging-po-030c/corpus/ompug__diagram-codebase/docs/DESIGN.md:148]. Oversized diagrams are split, \"never truncated silently\" [SOURCE: specs/z-staging-po-030c/corpus/ompug__diagram-codebase/docs/DESIGN.md:193]. The packet's provenance table and `Left out:` line cover the omissions but not the purpose sentence as a written field.",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/ompug__diagram-codebase/docs/DESIGN.md`",
+        "`specs/z-staging-po-030c/corpus/prasantloki__figjam-builder/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    },
+    {
+      "id": "finding-2-1-figma-s-own-diagram-skill-carries-the-same-one-question-doctrine-and-the-packet-",
+      "text": "**Figma's own diagram skill carries the same one-question doctrine, and the packet quotes it almost verbatim, so the loop has to go past upstream rather than match it.** Figma says to ask one or two focused questions when the description is thin and closes with \"One good question beats one wasted diagram\" [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:69]. Flow Mode carries the same sentence and the same examples [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:144]. The good behaviour to keep is the high-value question; the gap is that neither source asks a second round when the answer is still thin.",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/ompug__diagram-codebase/docs/DESIGN.md`",
+        "`specs/z-staging-po-030c/corpus/prasantloki__figjam-builder/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    },
+    {
+      "id": "finding-2-2-figma-s-project-plan-skill-is-the-corpus-s-one-real-multi-round-intake-and-it-mo",
+      "text": "**Figma's project-plan skill is the corpus's one real multi-round intake, and it models rounds as typed steps.** Every step declares `[Type: Research | Confirm | Write]`, with `Confirm` meaning no board writes and a user decision gate, and `Write` meaning a screenshot plus a question after it [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md:227], [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md:229]. A read-only step ends in a self-check, and the self-check is allowed to fail and loop: \"Enough signal to draft candidate section cards in Step 2. If not, loop back and ask\" [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md:255].",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/ompug__diagram-codebase/docs/DESIGN.md`",
+        "`specs/z-staging-po-030c/corpus/prasantloki__figjam-builder/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    },
+    {
+      "id": "finding-2-4-it-caps-the-shape-of-a-round-not-the-number-of-rounds-at-most-four-questions-per",
+      "text": "**It caps the shape of a round, not the number of rounds: at most four questions per call.** The multi-select fires \"per batch of ≤4 candidates (max 4 questions per call, 4 options each → up to 16 candidates per call)\" [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md:276]. Nothing in the skill bounds how many rounds it may take, so its intake can loop for as long as gaps remain. This is the exact failure the round cap must prevent.",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/ompug__diagram-codebase/docs/DESIGN.md`",
+        "`specs/z-staging-po-030c/corpus/prasantloki__figjam-builder/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    },
+    {
+      "id": "finding-2-5-it-proposes-rather-than-only-asks-and-the-proposal-carries-four-fields-plus-a-pr",
+      "text": "**It proposes rather than only asks, and the proposal carries four fields plus a preview.** Each candidate section card names a title, a one-line description, why it was suggested and a default block shape, and the user ticks the set [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md:276], [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md:279]. Content is then proposed with its shape and a short preview, and the answer is Yes, Edit or Skip [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md:319]. That is the sparring step the brief asks for, in a working example.",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/ompug__diagram-codebase/docs/DESIGN.md`",
+        "`specs/z-staging-po-030c/corpus/prasantloki__figjam-builder/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    },
+    {
+      "id": "finding-2-6-its-answers-persist-as-a-named-object-with-explicit-skips-the-selected-set-is-st",
+      "text": "**Its answers persist as a named object with explicit skips.** The selected set is stored as `approved_sections` and never re-derived [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md:279]. An edited section is re-shown and re-asked, and a skipped section is marked `skipped` and never written [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md:320]. Recorded answers, edits and declines are all first-class state, which is what makes later turns build on earlier ones.",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/ompug__diagram-codebase/docs/DESIGN.md`",
+        "`specs/z-staging-po-030c/corpus/prasantloki__figjam-builder/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    },
+    {
+      "id": "finding-2-3-its-confidence-test-is-a-per-section-readiness-state-not-a-score-each-approved-s",
+      "text": "**Its confidence test is a per-section readiness state, not a score.** Each approved section must be either `ready` (no gaps) or carry a specific non-empty gap list [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md:298]. The gap list holds \"specific facts the user must supply, framed as answerable questions (no 'figure it out yourself' gaps)\" [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md:295]. That is a named-fact model with a binary threshold per fact, which is the shape the brief asks for.",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/ompug__diagram-codebase/docs/DESIGN.md`",
+        "`specs/z-staging-po-030c/corpus/prasantloki__figjam-builder/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    },
+    {
+      "id": "finding-2-10-one-fact-is-already-must-ask-and-never-inferred-which-is-the-model-for-a-hard-fa",
+      "text": "**One fact is already MUST-ask and never inferred, which is the model for a hard fact.** Figma's Specs skill requires `whoami` before any call, forbids inferring the plan from a file key, and stops the workflow when the plan is unclear [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md:9]. The packet adopted the plan rule at its gate [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:65]. A confidence model should borrow this \"never infer, always ask\" class for the reader and the board's question rather than only for the plan.",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/ompug__diagram-codebase/docs/DESIGN.md`",
+        "`specs/z-staging-po-030c/corpus/prasantloki__figjam-builder/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    },
+    {
+      "id": "finding-2-8-the-asking-that-does-exist-upstream-is-scope-bounding-not-comprehension-building",
+      "text": "**The asking that does exist upstream is scope-bounding, not comprehension-building.** `prasantloki`'s builder asks the user which sections matter for a board over 200 nodes instead of reading it all, because it is \"faster and more useful\" [SOURCE: specs/z-staging-po-030c/corpus/prasantloki__figjam-builder/SKILL.md:417]. Figma's own skill asks which variation to keep and remembers the answer for the session [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:112]. Both ask to bound work or to settle a preference, and neither asks what the board must convince its reader of.",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/ompug__diagram-codebase/docs/DESIGN.md`",
+        "`specs/z-staging-po-030c/corpus/prasantloki__figjam-builder/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    },
+    {
+      "id": "finding-2-9-the-nearest-thing-to-a-cap-on-asking-upstream-is-a-cap-on-regenerating-adobe-sto",
+      "text": "**The nearest thing to a cap on asking upstream is a cap on regenerating.** Adobe stops after two regenerations on the same complaint and says to \"stop, ask what's specifically wrong\" [SOURCE: specs/z-staging-po-030c/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md:161]. Figma's skill sets the same two-attempt bound [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:98]. The packet already carries that bound [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:262]. A cap on the repair loop is not a cap on the intake loop, and no corpus source has the second.",
+      "addedAtIteration": 2,
+      "sources": [
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md`",
+        "`specs/z-staging-po-030c/corpus/ompug__diagram-codebase/docs/DESIGN.md`",
+        "`specs/z-staging-po-030c/corpus/prasantloki__figjam-builder/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`"
+      ]
+    },
+    {
+      "id": "finding-3-11-a-design-review-starts-by-agreeing-on-the-problem-and-its-questions-change-by-st",
+      "text": "**A design review starts by agreeing on the problem, and its questions change by stage.** Google's guidance says to \"first clearly articulate (and agree!) on the problem you are trying to solve\", maps early work to the problem, mid-stage to the solution and late stage to implementation, and warns that pulling later-stage questions forward gets less actionable insight [SOURCE: https://design.google/library/reviewing-the-design-review]. For a board the problem stage is the message and reader, and the solution stage is the model; judging layout before agreeing on the message is the same category error.",
+      "addedAtIteration": 3,
+      "sources": [
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://design.google/library/reviewing-the-design-review",
+        "https://thecrit.co/resources/design-critique-questions",
+        "https://pages.graphics.cs.wisc.edu/VisSnacks/tutorials/4-critique/",
+        "https://assets.ctfassets.net/bncv3c2gt878/4mvcQWNWhWQ0sgiKWCakEU/cce06a8bdc4d3e274ca47eb72d60fbe0/Gause_-_Context-Free_Questions.pdf (unreadable)",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`"
+      ]
+    },
+    {
+      "id": "finding-3-10-a-reusable-probe-set-exists-for-challenging-a-vague-answer-concrete-scenario-edg",
+      "text": "**A reusable probe set exists for challenging a vague answer: concrete scenario, edge case, contradiction, terminology, scale, failure mode and boundary.** The deep-clarification skill names each with an example, and requires a vague answer to be grilled rather than accepted: \"a vague answer is not an answer; it is the next thing to grill\" [SOURCE: https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md], [SOURCE: https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md]. This is the question bank's raw material for the facts a user answers loosely, such as \"show the whole process\" or \"keep it simple\".",
+      "addedAtIteration": 3,
+      "sources": [
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://design.google/library/reviewing-the-design-review",
+        "https://thecrit.co/resources/design-critique-questions",
+        "https://pages.graphics.cs.wisc.edu/VisSnacks/tutorials/4-critique/",
+        "https://assets.ctfassets.net/bncv3c2gt878/4mvcQWNWhWQ0sgiKWCakEU/cce06a8bdc4d3e274ca47eb72d60fbe0/Gause_-_Context-Free_Questions.pdf (unreadable)",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`"
+      ]
+    },
+    {
+      "id": "finding-3-13-both-failure-poles-are-named-in-public-practice-which-fixes-what-the-threshold-i",
+      "text": "**Both failure poles are named in public practice, which fixes what the threshold is for.** Premature convergence is \"the root cause of underspecified features\", so bounded clarification is not automatically a virtue [SOURCE: https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md]. Its own anti-patterns list the other pole: do not keep probing after the user signals convergence [SOURCE: https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md]. The intake needs both a floor (never draw under-specified) and a ceiling (never interrogate past it), and the brief's threshold is the floor.",
+      "addedAtIteration": 3,
+      "sources": [
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://design.google/library/reviewing-the-design-review",
+        "https://thecrit.co/resources/design-critique-questions",
+        "https://pages.graphics.cs.wisc.edu/VisSnacks/tutorials/4-critique/",
+        "https://assets.ctfassets.net/bncv3c2gt878/4mvcQWNWhWQ0sgiKWCakEU/cce06a8bdc4d3e274ca47eb72d60fbe0/Gause_-_Context-Free_Questions.pdf (unreadable)",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`"
+      ]
+    },
+    {
+      "id": "finding-3-5-confirmation-is-a-separate-step-from-coverage-the-understanding-is-played-back-a",
+      "text": "**Confirmation is a separate step from coverage: the understanding is played back and confirmed before anything is written.** The method's \"confirm before acting\" step plays back the capability, its boundaries, its failure behaviour and the still-open assumptions, and waits [SOURCE: https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md]. The packet's gate confirms the write, not the understanding; this is the missing playback step, and it is cheap because the model already exists by then [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:65].",
+      "addedAtIteration": 3,
+      "sources": [
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://design.google/library/reviewing-the-design-review",
+        "https://thecrit.co/resources/design-critique-questions",
+        "https://pages.graphics.cs.wisc.edu/VisSnacks/tutorials/4-critique/",
+        "https://assets.ctfassets.net/bncv3c2gt878/4mvcQWNWhWQ0sgiKWCakEU/cce06a8bdc4d3e274ca47eb72d60fbe0/Gause_-_Context-Free_Questions.pdf (unreadable)",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`"
+      ]
+    },
+    {
+      "id": "finding-3-12-critique-practice-adds-the-questions-that-make-how-it-should-look-discussable-wi",
+      "text": "**Critique practice adds the questions that make \"how it should look\" discussable without taste assertions.** A critique-question library opens with \"where does your eye go first\", asks whether that is the most important element, then spacing groupings and whether a squint still shows the primary element [SOURCE: https://thecrit.co/resources/design-critique-questions]. Other critique teaching orders the moves as describe, then pinpoint purpose, then evaluate, and forbids prescribing [SOURCE: https://pages.graphics.cs.wisc.edu/VisSnacks/tutorials/4-critique/]. These are the look questions the packet's rubric applies after the write, and the brief wants them asked before it.",
+      "addedAtIteration": 3,
+      "sources": [
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://design.google/library/reviewing-the-design-review",
+        "https://thecrit.co/resources/design-critique-questions",
+        "https://pages.graphics.cs.wisc.edu/VisSnacks/tutorials/4-critique/",
+        "https://assets.ctfassets.net/bncv3c2gt878/4mvcQWNWhWQ0sgiKWCakEU/cce06a8bdc4d3e274ca47eb72d60fbe0/Gause_-_Context-Free_Questions.pdf (unreadable)",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`"
+      ]
+    },
+    {
+      "id": "finding-3-9-every-question-carries-a-recommended-answer-which-is-the-small-scale-form-of-spa",
+      "text": "**Every question carries a recommended answer, which is the small-scale form of sparring.** The deep-clarification skill states each question with \"a recommended answer\" drawn from the codebase, an ADR or domain knowledge, then waits [SOURCE: https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md]. This is the same move the project-plan card makes at section scale [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md:319]. A board intake can propose the reader, the board's question and the detail level rather than ask open questions about them.",
+      "addedAtIteration": 3,
+      "sources": [
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://design.google/library/reviewing-the-design-review",
+        "https://thecrit.co/resources/design-critique-questions",
+        "https://pages.graphics.cs.wisc.edu/VisSnacks/tutorials/4-critique/",
+        "https://assets.ctfassets.net/bncv3c2gt878/4mvcQWNWhWQ0sgiKWCakEU/cce06a8bdc4d3e274ca47eb72d60fbe0/Gause_-_Context-Free_Questions.pdf (unreadable)",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`"
+      ]
+    },
+    {
+      "id": "finding-3-8-evidence-first-resolution-removes-questions-that-the-supplied-sources-can-answer",
+      "text": "**Evidence-first resolution removes questions that the supplied sources can answer.** The deep-clarification skill checks the codebase before asking and, when it finds the answer, states the finding and asks only whether it is still current [SOURCE: https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md]. Flow Mode already reads the sources, classifies claims and applies Doc Mode's authority order, so a board intake that asks a fact the supplied schema or doc already states would spend a round on nothing [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:121].",
+      "addedAtIteration": 3,
+      "sources": [
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://design.google/library/reviewing-the-design-review",
+        "https://thecrit.co/resources/design-critique-questions",
+        "https://pages.graphics.cs.wisc.edu/VisSnacks/tutorials/4-critique/",
+        "https://assets.ctfassets.net/bncv3c2gt878/4mvcQWNWhWQ0sgiKWCakEU/cce06a8bdc4d3e274ca47eb72d60fbe0/Gause_-_Context-Free_Questions.pdf (unreadable)",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`"
+      ]
+    },
+    {
+      "id": "finding-3-1-public-practice-already-has-a-coverage-guarantee-a-named-dimension-set-each-row-",
+      "text": "**Public practice already has a coverage guarantee: a named dimension set, each row either captured or explicitly assumed.** The method states that \"the same set of dimensions must be covered wherever a requirement is elicited\" and that a requirement is not finished until every dimension is captured or \"explicitly recorded as an unconfirmed assumption\"; leaving a dimension blank is the one thing it forbids [SOURCE: https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md]. Its dimension table covers outcome, purpose, boundaries and edge cases, failure behaviour, glossary terms, rationale and out-of-scope [SOURCE: https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md]. The brief's named facts (reader, question, scope, entry and exit, actors, decisions, states, sources) are the board-shaped instance of the same idea.",
+      "addedAtIteration": 3,
+      "sources": [
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://design.google/library/reviewing-the-design-review",
+        "https://thecrit.co/resources/design-critique-questions",
+        "https://pages.graphics.cs.wisc.edu/VisSnacks/tutorials/4-critique/",
+        "https://assets.ctfassets.net/bncv3c2gt878/4mvcQWNWhWQ0sgiKWCakEU/cce06a8bdc4d3e274ca47eb72d60fbe0/Gause_-_Context-Free_Questions.pdf (unreadable)",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`"
+      ]
+    },
+    {
+      "id": "finding-3-6-rounds-and-batching-are-in-open-conflict-across-public-practice-and-the-resoluti",
+      "text": "**Rounds and batching are in open conflict across public practice, and the resolution is dependency order.** A deep-clarification skill forbids batching: \"one question at a time\", wait for the response, and \"do not batch questions\" [SOURCE: https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md]. Figma's project-plan intake batches up to four multiple-choice questions per call [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md:276]. The reconciliation is in the deep-clarification skill's own first step: map the decision tree and resolve dependent decisions first [SOURCE: https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md]. Independent facts can share a round; a fact that changes the next question cannot.",
+      "addedAtIteration": 3,
+      "sources": [
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://design.google/library/reviewing-the-design-review",
+        "https://thecrit.co/resources/design-critique-questions",
+        "https://pages.graphics.cs.wisc.edu/VisSnacks/tutorials/4-critique/",
+        "https://assets.ctfassets.net/bncv3c2gt878/4mvcQWNWhWQ0sgiKWCakEU/cce06a8bdc4d3e274ca47eb72d60fbe0/Gause_-_Context-Free_Questions.pdf (unreadable)",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`"
+      ]
+    },
+    {
+      "id": "finding-3-4-the-negative-space-pass-adds-a-question-no-checklist-can-generate-what-should-th",
+      "text": "**The negative-space pass adds a question no checklist can generate: what should this guarantee that it does not?** Before confirming, the method asks that inverse question once, reads the description back as a promise and checks both halves, and asks what the capability must refuse, not only what it must do [SOURCE: https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md]. This is the mechanism for challenging an over-broad brief that iteration 5 will need.",
+      "addedAtIteration": 3,
+      "sources": [
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://design.google/library/reviewing-the-design-review",
+        "https://thecrit.co/resources/design-critique-questions",
+        "https://pages.graphics.cs.wisc.edu/VisSnacks/tutorials/4-critique/",
+        "https://assets.ctfassets.net/bncv3c2gt878/4mvcQWNWhWQ0sgiKWCakEU/cce06a8bdc4d3e274ca47eb72d60fbe0/Gause_-_Context-Free_Questions.pdf (unreadable)",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`"
+      ]
+    },
+    {
+      "id": "finding-3-3-the-outcome-row-is-the-spine-and-the-one-most-often-missed-and-it-needs-a-checka",
+      "text": "**The outcome row is the spine and the one most often missed, and it needs a checkable criterion rather than a workflow.** The method warns that criteria describing steps \"read as thorough and verify nothing\", and asks for a fit criterion phrased so the answer is yes or no [SOURCE: https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md]. For a board the equivalent sentence is what must be true for its reader afterwards, which is exactly the `userIntent` sentence the write call already carries but the intake never establishes [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:186].",
+      "addedAtIteration": 3,
+      "sources": [
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://design.google/library/reviewing-the-design-review",
+        "https://thecrit.co/resources/design-critique-questions",
+        "https://pages.graphics.cs.wisc.edu/VisSnacks/tutorials/4-critique/",
+        "https://assets.ctfassets.net/bncv3c2gt878/4mvcQWNWhWQ0sgiKWCakEU/cce06a8bdc4d3e274ca47eb72d60fbe0/Gause_-_Context-Free_Questions.pdf (unreadable)",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`"
+      ]
+    },
+    {
+      "id": "finding-3-2-the-stop-rule-separates-assumed-from-unasked-which-is-the-distinction-a-confiden",
+      "text": "**The stop rule separates \"assumed\" from \"unasked\", which is the distinction a confidence model needs.** A row may be marked assumed only where the answer cannot be obtained, and the guess must name what would settle it; \"`assumed` is for unobtainable answers, never for unasked questions\", and marking something assumed while someone who could answer is present \"is not honesty; it is declining to ask\" [SOURCE: https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md]. That maps directly onto the FigJam case: a thin brief is an unasked question, not an assumption to fill.",
+      "addedAtIteration": 3,
+      "sources": [
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://design.google/library/reviewing-the-design-review",
+        "https://thecrit.co/resources/design-critique-questions",
+        "https://pages.graphics.cs.wisc.edu/VisSnacks/tutorials/4-critique/",
+        "https://assets.ctfassets.net/bncv3c2gt878/4mvcQWNWhWQ0sgiKWCakEU/cce06a8bdc4d3e274ca47eb72d60fbe0/Gause_-_Context-Free_Questions.pdf (unreadable)",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`"
+      ]
+    },
+    {
+      "id": "finding-3-7-two-stopping-rules-from-practice-can-be-adopted-almost-verbatim-diminishing-retu",
+      "text": "**Two stopping rules from practice can be adopted almost verbatim: diminishing returns and a hard question budget.** The deep-clarification skill ends when every branch is explored and the user confirms, when the user asks to stop, when three consecutive questions yield no new information, or when the session exceeds 15 questions without convergence and unresolved items are parked [SOURCE: https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md]. Three consecutive no-new-information answers and a total question budget are both testable on a transcript, which the packet's current contract is not.",
+      "addedAtIteration": 3,
+      "sources": [
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://design.google/library/reviewing-the-design-review",
+        "https://thecrit.co/resources/design-critique-questions",
+        "https://pages.graphics.cs.wisc.edu/VisSnacks/tutorials/4-critique/",
+        "https://assets.ctfassets.net/bncv3c2gt878/4mvcQWNWhWQ0sgiKWCakEU/cce06a8bdc4d3e274ca47eb72d60fbe0/Gause_-_Context-Free_Questions.pdf (unreadable)",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md`"
+      ]
+    },
+    {
+      "id": "finding-4-4-just-do-it-already-has-vocabulary-in-interactive-mode-no-questions-selects-quick",
+      "text": "**\"Just do it\" already has vocabulary in Interactive Mode: `no questions` selects Quick, and `skip depth` is the only route to Raw.** Energy language maps quick, fast and no-questions wording to Quick, and `$quick` never changes artifact intent [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:237], [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:239]. Raw energy skips the phase flow only when the user explicitly requests \"skip depth\", and `$quick` never selects Raw [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:75]. So the intake loop needs no new command; it needs a rule for each existing level.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`.skilled/skills/sk-prompt/SKILL.md`",
+        "`.skilled/skills/sk-prompt/manual-testing-playbook/smart-routing/unknown-fallback-checklist.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md"
+      ]
+    },
+    {
+      "id": "finding-4-12-inference-a-durable-record-should-be-a-brief-block-in-the-working-model-replayed",
+      "text": "**[INFERENCE] A durable record should be a `Brief` block in the working model, replayed in every round and carried into the gate, never a board node.** An extension the gate did not name needs its own yes, so a brief sticky would cost a second gate and change the deliverable [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:168], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:67]. A chat-only replay matches the kernel's constraint from finding 8, and in the CLI it can be written into the artifact's clarification lane once the export contract allows a filled brief rather than a question only (finding 7).",
+      "addedAtIteration": 4,
+      "sources": [
+        "`.skilled/skills/sk-prompt/SKILL.md`",
+        "`.skilled/skills/sk-prompt/manual-testing-playbook/smart-routing/unknown-fallback-checklist.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md"
+      ]
+    },
+    {
+      "id": "finding-4-11-inference-the-energy-mapping-that-follows-from-findings-1-4-6-and-7-is-quick-dra",
+      "text": "**[INFERENCE] The energy mapping that follows from findings 1, 4, 6 and 7 is: Quick draws after a single confirmation of proposed facts, Standard runs the loop to confidence, Deep adds the alternative framings and a sketch.** Quick would still confirm the reader and the board's question in one message, because finding 6 shows Flow Mode already protects the write; Standard would cap at three rounds; Deep would cap at five and add the sparring step. The counts are chosen to fit `sk-prompt`'s 10/3/0 ladder at a lower scale for a conversation with a person, not measured.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`.skilled/skills/sk-prompt/SKILL.md`",
+        "`.skilled/skills/sk-prompt/manual-testing-playbook/smart-routing/unknown-fallback-checklist.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md"
+      ]
+    },
+    {
+      "id": "finding-4-6-flow-mode-already-refuses-to-let-quick-skip-the-write-safeguards-which-is-the-pr",
+      "text": "**Flow Mode already refuses to let Quick skip the write safeguards, which is the precedent for letting it skip rounds but never the confirmation.** Its `$flow` section says Quick energy \"skips nothing here, because the check and the gate guard a write to a shared Figma plan\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:51]. Read against finding 5, the asymmetry is already deliberate: Quick may drop exploration, never the check, the gate or the read-back.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`.skilled/skills/sk-prompt/SKILL.md`",
+        "`.skilled/skills/sk-prompt/manual-testing-playbook/smart-routing/unknown-fallback-checklist.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md"
+      ]
+    },
+    {
+      "id": "finding-4-10-public-practice-treats-the-decisions-summary-as-part-of-the-deliverable-with-a-c",
+      "text": "**Public practice treats the decisions summary as part of the deliverable, with a confidence beside each decision.** The deep-clarification skill captures decisions inline and closes with a table of decision, justification and confidence, plus assumptions and open items [SOURCE: https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md]. It also requires a clarification summary before continuing, which is the playback step iteration 3 finding 5 named [SOURCE: https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md]. The packet has no equivalent recap anywhere in its Flow reply.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`.skilled/skills/sk-prompt/SKILL.md`",
+        "`.skilled/skills/sk-prompt/manual-testing-playbook/smart-routing/unknown-fallback-checklist.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md"
+      ]
+    },
+    {
+      "id": "finding-4-5-quick-is-allowed-to-skip-routine-intake-and-the-facts-it-may-never-skip-are-doc-",
+      "text": "**Quick is allowed to skip routine intake, and the facts it may never skip are Doc-shaped, which leaves the board unprotected.** Quick may skip routine questions and use safe defaults but never bypasses Doc purpose, audience, source authority, contradictions or claim status [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:109], [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:305]. The kernel names the same protected set for Task, Bug, Story, Epic and Doc and has no board entry [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:9].",
+      "addedAtIteration": 4,
+      "sources": [
+        "`.skilled/skills/sk-prompt/SKILL.md`",
+        "`.skilled/skills/sk-prompt/manual-testing-playbook/smart-routing/unknown-fallback-checklist.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md"
+      ]
+    },
+    {
+      "id": "finding-4-9-some-of-the-record-already-exists-but-only-for-one-turn-the-provenance-table-the",
+      "text": "**Some of the record already exists, but only for one turn: the provenance table, the `Left out:` line and the `userIntent` sentence.** The model carries a provenance table mapping each node to its source and source class [SOURCE: AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md:110], and the reply restates what was left out [SOURCE: AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md:137]. The `userIntent` sentence is sent with the write and never shown as a confirmed fact [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:186]. Each is discarded before the next request, so a second turn rebuilds the brief from scratch.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`.skilled/skills/sk-prompt/SKILL.md`",
+        "`.skilled/skills/sk-prompt/manual-testing-playbook/smart-routing/unknown-fallback-checklist.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md"
+      ]
+    },
+    {
+      "id": "finding-4-7-the-clarification-export-holds-the-question-and-nothing-else-and-flow-mode-saves",
+      "text": "**The clarification export holds the question and nothing else, and Flow Mode saves nothing at all, so today an intake answer has no durable home.** A clarification file holds the question and no speculative draft, partial artifact or answer, and the later artifact is a new export under the next number [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:97], [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:98]. Flow Mode writes no file, so it saves nothing, including its question [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:85]. Any intake record must therefore be produced deliberately, not inherited from the clarification file.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`.skilled/skills/sk-prompt/SKILL.md`",
+        "`.skilled/skills/sk-prompt/manual-testing-playbook/smart-routing/unknown-fallback-checklist.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md"
+      ]
+    },
+    {
+      "id": "finding-4-8-the-kernel-cannot-save-a-file-so-its-intake-record-can-only-be-the-conversation-",
+      "text": "**The kernel cannot save a file, so its intake record can only be the conversation and a re-rendered reply.** The kernel renders a Deliverable Block because the Project cannot write files, and Flow Mode renders none because its deliverable is a board [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:234], [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:252]. A Project-side intake record must be replayed in each reply, or restated in the Flow gate; it cannot be a Knowledge write.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`.skilled/skills/sk-prompt/SKILL.md`",
+        "`.skilled/skills/sk-prompt/manual-testing-playbook/smart-routing/unknown-fallback-checklist.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md"
+      ]
+    },
+    {
+      "id": "finding-4-2-the-repo-already-has-a-non-interactive-path-that-never-asks-and-states-every-ass",
+      "text": "**The repo already has a non-interactive path that never asks and states every assumption instead.** `sk-prompt` says an agent or other non-interactive run \"never asks: it proceeds on stated assumptions and flags each one in the transparency report\", while `$raw` skips questions entirely [SOURCE: .skilled/skills/sk-prompt/SKILL.md:340]. That is the exact shape \"just do it\" needs: a draft with named defaults, not a refusal and not a silent guess.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`.skilled/skills/sk-prompt/SKILL.md`",
+        "`.skilled/skills/sk-prompt/manual-testing-playbook/smart-routing/unknown-fallback-checklist.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md"
+      ]
+    },
+    {
+      "id": "finding-4-1-the-repo-already-scales-the-number-of-internal-rounds-by-energy-which-is-the-pre",
+      "text": "**The repo already scales the number of internal rounds by energy, which is the precedent for an energy-scaled intake cap.** `sk-prompt` runs DEPTH for 10 rounds on text modes, 3 for `$short` and 0 for `$raw` [SOURCE: .skilled/skills/sk-prompt/SKILL.md:341]. The rounds are internal reasoning passes rather than user questions, so the mechanism transfers as a count that energy selects, not as a number to copy.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`.skilled/skills/sk-prompt/SKILL.md`",
+        "`.skilled/skills/sk-prompt/manual-testing-playbook/smart-routing/unknown-fallback-checklist.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md"
+      ]
+    },
+    {
+      "id": "finding-4-3-the-repo-already-states-a-numeric-escalation-threshold-on-a-detection-confidence",
+      "text": "**The repo already states a numeric escalation threshold on a detection confidence, which shows a threshold can live in a skill contract.** `sk-prompt` escalates when mode-detection confidence is under 50% and asks what type of prompt is being made [SOURCE: .skilled/skills/sk-prompt/SKILL.md:378], [SOURCE: .skilled/skills/sk-prompt/SKILL.md:379]. It is a threshold on intent detection, not on feature understanding, but it settles that a stated number is in keeping with the house style.",
+      "addedAtIteration": 4,
+      "sources": [
+        "`.skilled/skills/sk-prompt/SKILL.md`",
+        "`.skilled/skills/sk-prompt/manual-testing-playbook/smart-routing/unknown-fallback-checklist.md`",
+        "`AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md`",
+        "`AI Systems/Product Owner/sk-product-owner/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`",
+        "https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md",
+        "https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md"
+      ]
+    },
+    {
+      "id": "finding-5-10-inference-a-brief-completeness-check-cannot-live-inside-flow-check-py-because-th",
+      "text": "**[INFERENCE] A brief-completeness check cannot live inside `flow_check.py`, because that check reads Mermaid and the brief precedes the model.** The check runs on the model before the write gate [SOURCE: AI Systems/Product Owner/sk-create-figjam/SKILL.md:170], and its self-test proves each rule fails on a planted model [SOURCE: AI Systems/Product Owner/sk-create-figjam/SKILL.md:198], [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py:206]. The brief therefore needs its own rubric walk, in the same \"judged by hand\" position the quality rubric occupies before the gate, not a new script rule.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/SKILL.md`",
+        "`AI Systems/Product Owner/ROUTER.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`"
+      ]
+    },
+    {
+      "id": "finding-5-11-inference-the-ranked-changes-that-follow-are-eight-and-only-three-touch-more-tha",
+      "text": "**[INFERENCE] The ranked changes that follow are eight, and only three touch more than one file.** They are: the nine-fact confidence model with captured/assumed/corrected states; the round cap and stop rule keyed to energy; the question bank with recommended answers; the sparring step with three proposals; the challenge rules for an over-broad brief and a wrong type; the Brief block and per-round replay; the just-do-it and Quick rules; and the kernel plus test-contract parity. The three multi-file ones are the confidence model (flow-mode, rubric, kernel), the Brief block (flow-mode, flow-templates, Interactive Mode knowledge) and the parity pair (kernel, two knowledge files).",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/SKILL.md`",
+        "`AI Systems/Product Owner/ROUTER.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`"
+      ]
+    },
+    {
+      "id": "finding-5-5-a-flow-request-loads-only-the-flow-leaf-pair-so-an-intake-that-lives-in-interact",
+      "text": "**A Flow request loads only the Flow leaf pair, so an intake that lives in Interactive Mode would never load on a Flow route.** One dominant intent routes one leaf set, and two intents that tie take the INTERACTIVE set and its one question [SOURCE: AI Systems/Product Owner/ROUTER.md:37]. FLOW's leaves are `flow-mode.md` and `flow-templates.md` [SOURCE: AI Systems/Product Owner/ROUTER.md:91], [SOURCE: AI Systems/Product Owner/ROUTER.md:92]. The hub starts `$flow` in the `sk-create-figjam` packet directly [SOURCE: AI Systems/Product Owner/SKILL.md:53]. The intake loop therefore belongs in `flow-mode.md`, with only the shared rules pointing at it.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/SKILL.md`",
+        "`AI Systems/Product Owner/ROUTER.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`"
+      ]
+    },
+    {
+      "id": "finding-5-1-the-challenge-ladder-for-a-wrong-or-oversized-request-already-exists-and-it-is-c",
+      "text": "**The challenge ladder for a wrong or oversized request already exists, and it is complete once a type is named.** It asks whether a list, table or paragraph would serve better [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:89], maps an undrawable kind to the nearest drawable type and says so plainly [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:93], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:95], keeps a per-type budget and splits rather than shrinks [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:162], and runs cuts in a fixed order [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:170]. What it cannot do is challenge a brief that names no type at all, because the ladder starts at the type.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/SKILL.md`",
+        "`AI Systems/Product Owner/ROUTER.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`"
+      ]
+    },
+    {
+      "id": "finding-5-6-the-kernel-can-carry-policy-but-not-a-state-machine-and-it-already-says-what-to-",
+      "text": "**The kernel can carry policy but not a state machine, and it already says what to do when a detail is missing.** It states that when a Knowledge detail is unavailable, the Project should \"state the assumption and ask one comprehensive question rather than inventing a parameter\" [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:57]. It cannot write files and renders a Deliverable Block only because it cannot [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:234]. So the kernel carries the cap, the protected facts, the one-confirmation rule and the replay sentence, while the round mechanics stay in the mirrored Flow Mode knowledge.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/SKILL.md`",
+        "`AI Systems/Product Owner/ROUTER.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`"
+      ]
+    },
+    {
+      "id": "finding-5-7-the-kernel-s-flow-row-and-flow-mode-delivery-would-each-need-one-sentence-and-it",
+      "text": "**The kernel's Flow row and Flow Mode Delivery would each need one sentence, and its Knowledge table already has the two mirrors the loop must edit.** The routing table's Flow row names sources and output but no intake [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:126]. Flow Mode Delivery lists the gate facts and the reply lines but no rounds [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:254]. The Knowledge table names \"Templates - Flow Mode\" as covering type choice, intake, shared rules, the gate and read-back, and \"System - Interactive Mode\" for ambiguity and one-question intake [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:207], [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:210]. A kernel change is therefore a two-sentence edit plus a hand-written mirror update in the two knowledge files, which is the manual parity method.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/SKILL.md`",
+        "`AI Systems/Product Owner/ROUTER.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`"
+      ]
+    },
+    {
+      "id": "finding-5-2-the-nearest-type-mapping-is-already-a-proposal-rather-than-a-question-which-is-t",
+      "text": "**The nearest-type mapping is already a proposal rather than a question, which is the sparring pattern in miniature.** The packet offers the kind that answers the same question instead of asking what the user meant [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:95]. That is the shape the whole intake should take: propose an interpretation, let the user accept or correct it.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/SKILL.md`",
+        "`AI Systems/Product Owner/ROUTER.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`"
+      ]
+    },
+    {
+      "id": "finding-5-9-the-playbook-is-organised-by-group-so-the-loop-s-scenarios-have-a-home-and-a-nam",
+      "text": "**The playbook is organised by group, so the loop's scenarios have a home and a naming pattern already.** Scenarios are grouped as `boundaries/`, `board-creation/`, `board-quality/` and `board-write/`, with one file per scenario and a pass/fail line [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md:29]. At least four new scenarios are implied by the research: a thin brief, an over-broad brief, the wrong type, and just-do-it at Quick energy.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/SKILL.md`",
+        "`AI Systems/Product Owner/ROUTER.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`"
+      ]
+    },
+    {
+      "id": "finding-5-4-the-remove-test-depends-on-a-sentence-the-intake-never-establishes-so-an-over-br",
+      "text": "**The remove test depends on a sentence the intake never establishes, so an over-broad brief cannot be diagnosed before the model exists.** The rubric says every node must serve the `userIntent` sentence and that a node which cannot be removed without losing a step stays [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:38], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:37]. That sentence is only composed at the write call [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:186]. Settling it in the intake would let the rubric's first test run on the outline instead of after the model.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/SKILL.md`",
+        "`AI Systems/Product Owner/ROUTER.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`"
+      ]
+    },
+    {
+      "id": "finding-5-8-the-test-contract-needs-a-carve-out-before-it-can-test-the-loop-because-one-scen",
+      "text": "**The test contract needs a carve-out before it can test the loop, because one scenario fails a run that asks twice.** FJ-020 passes if exactly one question names both artifacts and fails if more than one question is asked [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md:29]. That is correct for an artifact conflict and wrong for a board intake, so the pass condition needs to distinguish \"one question to settle the artifact\" from \"rounds to settle the board\", and the exception has to be named in the scenario rather than assumed.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/SKILL.md`",
+        "`AI Systems/Product Owner/ROUTER.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`"
+      ]
+    },
+    {
+      "id": "finding-5-3-the-type-table-is-written-as-the-reader-s-questions-so-the-question-bank-s-type-",
+      "text": "**The type table is written as the reader's questions, so the question bank's type fact already exists.** Each row is a question a reader could ask, from \"which screens does a person pass through\" to \"which tasks and phases are active when\", with the type that answers it [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:79], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:85]. The intake can ask which question the board answers by quoting these rows rather than inventing vocabulary.",
+      "addedAtIteration": 5,
+      "sources": [
+        "`AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/SKILL.md`",
+        "`AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py`",
+        "`AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md`",
+        "`AI Systems/Product Owner/SKILL.md`",
+        "`AI Systems/Product Owner/ROUTER.md`",
+        "`AI Systems/Product Owner/claude project/Custom Instructions.md`"
+      ]
+    }
+  ],
+  "ruledOutDirections": [
+    {
+      "id": "ruled-out-6625b2798dd6",
+      "text": "**Reading the router's 0.85 band as an intake confidence.** It scores artifact intent from keywords, so a request can route to FLOW at HIGH confidence with a one-line brief [SOURCE: AI Systems/Product Owner/sk-product-owner/references/routing.md:38]. Routing confidence and board confidence are different scales.",
+      "contentHash": "6625b2798dd6",
+      "addedAtIteration": 1
+    },
+    {
+      "id": "ruled-out-e13fe2df4076",
+      "text": "**Treating Interactive Mode's five quality dimensions as the confidence model.** They score the question's phrasing, and each can be 8+ while the reader, scope and board message stay unknown [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:431]. The confidence model has to score understanding of the feature, not the question text.",
+      "contentHash": "e13fe2df4076",
+      "addedAtIteration": 1
+    },
+    {
+      "id": "ruled-out-235605411099",
+      "text": "Searching `sk-create-figjam` for an existing intake questionnaire found only the type/order/plan questions listed in finding 5. The packet's intake is source reading (Section 4), not interviewing.",
+      "contentHash": "235605411099",
+      "addedAtIteration": 1
+    },
+    {
+      "id": "ruled-out-0202c4c8374f",
+      "text": "**Copying `approved_sections` as a literal mechanism.** It stores a set of board sections; the intake needs a set of facts with a status each. The precedent is the stored answer object, not its schema.",
+      "contentHash": "0202c4c8374f",
+      "addedAtIteration": 2
+    },
+    {
+      "id": "ruled-out-5a03bade8810",
+      "text": "**Treating the four-questions-per-call limit as the round cap.** It caps one message's width, and the project-plan skill loops without a round bound [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md:276], [SOURCE: specs/z-staging-po-030c/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md:255].",
+      "contentHash": "5a03bade8810",
+      "addedAtIteration": 2
+    },
+    {
+      "id": "ruled-out-e1637f4b2374",
+      "text": "Adobe's Spectrum diagram material is a house-style critic, not an intake. It adds no question structure beyond the two-attempt stop [SOURCE: specs/z-staging-po-030c/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md:161].",
+      "contentHash": "e1637f4b2374",
+      "addedAtIteration": 2
+    },
+    {
+      "id": "ruled-out-b7fbd3af0521",
+      "text": "Search for a confidence score or numeric threshold in the corpus. The only numbers are node, edge and attempt budgets; no skill scores its own understanding. Corpus-wide search returned no match.",
+      "contentHash": "b7fbd3af0521",
+      "addedAtIteration": 2
+    },
+    {
+      "id": "ruled-out-7e99f97629f4",
+      "text": "**Adopting a fixed 15-question budget as the round cap.** The figure counts questions, and the brief's unit is a round; a round may carry one to three questions, so the budget has to be expressed in rounds and in no-new-information answers [SOURCE: https://raw.githubusercontent.com/microsoft/devsquad-copilot/main/.github/plugins/devsquad/skills/deep-clarification/SKILL.md].",
+      "contentHash": "7e99f97629f4",
+      "addedAtIteration": 3
+    },
+    {
+      "id": "ruled-out-3489b0a0eb3f",
+      "text": "**Copying the seven-dimension checklist wholesale.** Its dimensions are requirement-shaped (glossary, ADR rationale). The board model needs its own nine facts, borrowing the coverage rule rather than the rows [SOURCE: https://github.com/svenroth-ai/shipwright/blob/main/shared/requirement-elicitation.md].",
+      "contentHash": "3489b0a0eb3f",
+      "addedAtIteration": 3
+    },
+    {
+      "id": "ruled-out-326545b970e0",
+      "text": "**Treating Google's stage list as a schema.** It describes a review conversation's focus, not the intake's stored state [SOURCE: https://design.google/library/reviewing-the-design-review].",
+      "contentHash": "326545b970e0",
+      "addedAtIteration": 3
+    },
+    {
+      "id": "ruled-out-95d3ddb85bcb",
+      "text": "A search for a numeric confidence threshold on clarification in requirements engineering returned no authoritative number. Practice states completeness and stop conditions, not a calibrated score.",
+      "contentHash": "95d3ddb85bcb",
+      "addedAtIteration": 3
+    },
+    {
+      "id": "ruled-out-c9dbdbdd8a14",
+      "text": "The Gause–Weinberg context-free-question extract returned an image-only PDF of 148 characters, so its examples could not be quoted directly; the secondary descriptions of context-free questions were read from the search index instead and are not used as evidence here.",
+      "contentHash": "c9dbdbdd8a14",
+      "addedAtIteration": 3
+    },
+    {
+      "id": "ruled-out-abca16f2179a",
+      "text": "**Mapping \"just do it\" to Raw energy.** Raw is reachable only by explicit \"skip depth\" language and skips the phase flow, which would skip the check and the gate that Flow Mode protects [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:75], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:51].",
+      "contentHash": "abca16f2179a",
+      "addedAtIteration": 4
+    },
+    {
+      "id": "ruled-out-dd876248891c",
+      "text": "**Putting the brief on the board as a sticky or a section.** It is a write outside the diagram and needs its own yes, because an extension the gate did not name is not covered by the first yes [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:168].",
+      "contentHash": "dd876248891c",
+      "addedAtIteration": 4
+    },
+    {
+      "id": "ruled-out-13f4ce5a3547",
+      "text": "**Reusing the clarification export file as the intake record.** The contract forbids the file holding anything but the question, and a project-side run cannot write it at all [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:97], [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:234].",
+      "contentHash": "13f4ce5a3547",
+      "addedAtIteration": 4
+    },
+    {
+      "id": "ruled-out-0adc7921a77d",
+      "text": "Search for a state file in `sk-create-figjam`. The packet has no persistent state outside the model and the provenance table, by design.",
+      "contentHash": "0adc7921a77d",
+      "addedAtIteration": 4
+    },
+    {
+      "id": "ruled-out-29adb7236f6f",
+      "text": "Search for an existing per-turn recap in the packet. Section 8 lists the reply's lines from the board URL to the HVR self-scan, and none of them is a brief [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:235], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:240].",
+      "contentHash": "29adb7236f6f",
+      "addedAtIteration": 4
+    },
+    {
+      "id": "ruled-out-f1bf4a3b25bd",
+      "text": "**A script rule in `flow_check.py` for brief completeness.** The check's input is the model, and the brief is settled before the model [SOURCE: AI Systems/Product Owner/sk-create-figjam/SKILL.md:170].",
+      "contentHash": "f1bf4a3b25bd",
+      "addedAtIteration": 5
+    },
+    {
+      "id": "ruled-out-ad95335ff0fd",
+      "text": "**Adding a new packet or a new Knowledge file for the loop.** The loop is a step inside Flow Mode, and the kernel's Knowledge table already names Flow Mode as owning \"intake\" [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:207]. A new file would double the parity surface for no gain.",
+      "contentHash": "ad95335ff0fd",
+      "addedAtIteration": 5
+    },
+    {
+      "id": "ruled-out-13180263b037",
+      "text": "**Putting the intake in `sk-product-owner/references/interactive-mode.md`.** A Flow route does not load it, and the hub starts `$flow` in the other packet [SOURCE: AI Systems/Product Owner/SKILL.md:53], [SOURCE: AI Systems/Product Owner/ROUTER.md:37].",
+      "contentHash": "13180263b037",
+      "addedAtIteration": 5
+    },
+    {
+      "id": "ruled-out-d0b8bddd890b",
+      "text": "Search for an existing intake test in the playbook: all 25 scenario files cover routing, board creation, board quality, board writes and boundaries; none covers an under-specified brief.",
+      "contentHash": "d0b8bddd890b",
+      "addedAtIteration": 5
+    },
+    {
+      "id": "ruled-out-6d12570465dd",
+      "text": "Search for any state file or cache in `sk-create-figjam`: none exists, by design.",
+      "contentHash": "6d12570465dd",
+      "addedAtIteration": 5
+    }
+  ],
+  "rejectedPatterns": [],
+  "rejectedPatternIndex": {
+    "maxEntries": 100,
+    "fuzzyThreshold": 0.85,
+    "entries": []
+  },
+  "rejectedPatternWarnings": [],
+  "suppressedCandidates": [],
+  "minIdeaObservations": 2,
+  "observedIdeas": [],
+  "promotedIdeas": [],
+  "suppressedIdeas": [],
+  "blockedStopHistory": [],
+  "graphConvergenceScore": 0,
+  "graphDecision": null,
+  "graphBlockers": [],
+  "divergence": {
+    "started": [],
+    "completed": [],
+    "failed": [],
+    "overrides": [],
+    "saturatedDirections": [],
+    "remainingFrontier": [],
+    "currentFocus": "",
+    "activePivotId": null,
+    "activeSourceIteration": null
+  },
+  "metrics": {
+    "iterationsCompleted": 5,
+    "openQuestions": 0,
+    "resolvedQuestions": 5,
+    "carriedForwardOpenQuestions": 0,
+    "keyFindings": 55,
+    "rejectedPatterns": 0,
+    "suppressedCandidates": 0,
+    "observedIdeas": 0,
+    "promotedIdeas": 0,
+    "suppressedIdeas": 0,
+    "convergenceScore": 0.55,
+    "coverageBySources": {
+      "assets.ctfassets.net": 1,
+      "design.google": 1,
+      "github.com": 1,
+      "other": 43,
+      "pages.graphics.cs.wisc.edu": 1,
+      "raw.githubusercontent.com": 1,
+      "thecrit.co": 1
+    },
+    "completedPivots": 0,
+    "failedPivots": 0,
+    "pivotOverrides": 0
+  },
+  "corruptionWarnings": [],
+  "inboxPath": "/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/z-staging-po-030c/research/lineages/deepseek/inbox.jsonl",
+  "inboxWarnings": [],
+  "status": "COMPLETE",
+  "advisoryEvents": [],
+  "strategyWarnings": []
+}

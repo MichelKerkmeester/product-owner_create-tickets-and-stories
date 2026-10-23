@@ -1,0 +1,27 @@
+{
+  "iteration": 19,
+  "focus": "What the claude.ai Project can do with a FigJam capability",
+  "newInfoRatio": 0.9,
+  "status": "complete",
+  "noveltyJustification": "Five findings are new kernel and mirror-split evidence; the fourth restates the MCP transport boundary from iteration 1.",
+  "answeredQuestions": [],
+  "ruledOut": ["Mirroring the FigJam write procedure into Project knowledge", "Assuming a Figma connector exists for claude.ai"],
+  "sourcesQueried": [
+    "AI Systems/Product Owner/claude project/Custom Instructions.md",
+    ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md",
+    "AI Systems/Product Owner/SYNC.md"
+  ],
+  "findings": [
+    {"id": "f-iter019-001", "label": "The Project kernel is advisory-only: a claude.ai Project cannot read or write local files, cannot run the CLI runtime, and reaches ClickUp only through the connector when present.", "sources": ["AI Systems/Product Owner/claude project/Custom Instructions.md:2"]},
+    {"id": "f-iter019-002", "label": "The Project has no file system: the deliverable is the rendered Canvas Artifact, path-like names are labels, and this protocol overrides mirrored filesystem save-and-read-back instructions.", "sources": ["AI Systems/Product Owner/claude project/Custom Instructions.md:265", "AI Systems/Product Owner/claude project/Custom Instructions.md:279"]},
+    {"id": "f-iter019-003", "label": "A Project cannot perform a FigJam write: no CLI, no Desktop, no daemon, so its only role is to prepare and validate the flow model and hand execution to the CLI runtime.", "sources": ["AI Systems/Product Owner/claude project/Custom Instructions.md:2", ".skilled/skills/mcp-tooling/mcp-figma/README.md:26"]},
+    {"id": "f-iter019-004", "label": "Connector-mediated capability is the only exception pattern the kernel supports and it is conditional and approval-gated; the repo's Framelink MCP is a Code Mode stdio server with an API key, not a connector.", "sources": ["AI Systems/Product Owner/claude project/Custom Instructions.md:229", ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17"]},
+    {"id": "f-iter019-005", "label": "The parity mirror splits two ways: Project-applicable rules (model building, exit ceiling, labelled branches, refusal wording) and runtime-only rules (write verbs, read-back, positioning) that need a runtime-only marker.", "sources": ["AI Systems/Product Owner/SYNC.md:9"]},
+    {"id": "f-iter019-006", "label": "A refusal path is mandatory and consistent with the kernel: say it cannot write, render the model, name the command the CLI would run, and never claim a write that did not happen.", "sources": ["AI Systems/Product Owner/claude project/Custom Instructions.md:2"]}
+  ],
+  "graphEvents": [
+    {"type": "node", "id": "q-project-side", "kind": "QUESTION", "label": "What can a Project do with a FigJam capability"},
+    {"type": "node", "id": "f-iter019-split", "kind": "CLAIM", "label": "Parity mirror splits into Project-applicable and runtime-only rules"},
+    {"type": "edge", "id": "e-iter019-001", "source": "f-iter019-split", "target": "q-project-side", "relation": "ANSWERS"}
+  ]
+}

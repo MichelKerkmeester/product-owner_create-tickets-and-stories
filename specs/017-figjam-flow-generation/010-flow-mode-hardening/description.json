@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/010-flow-mode-hardening",
+  "description": "Phase 10: flow-mode-hardening",
+  "keywords": [
+    "phase",
+    "flow-mode-hardening"
+  ],
+  "lastUpdated": "2026-10-20T09:38:56.134Z",
+  "specId": "010",
+  "folderSlug": "flow-mode-hardening",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

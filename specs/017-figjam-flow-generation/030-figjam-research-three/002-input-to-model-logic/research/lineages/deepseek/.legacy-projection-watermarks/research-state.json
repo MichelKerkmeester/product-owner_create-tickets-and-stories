@@ -1,0 +1,17 @@
+{
+  "watermark_version": 1,
+  "artifact_id": "research-state",
+  "ledger_id": "deep-research-ledger",
+  "ledger_sequence": 7,
+  "ledger_record_hash": "b0ff176c7e9c2918367da683921f4e676e6daea274c8f7fee591d9c0758cb099",
+  "projection_version": "legacy-research-state@1",
+  "reducer_version": "deep-research-state-reducer@1",
+  "replay_fingerprint": "9362b9cc8196fee5020fe542bd743191abfe03b766b05d3569bfd8b473480d91",
+  "base_sha": "0000000000000000000000000000000000000000",
+  "base_digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "prior_ledger_sequence": 6,
+  "prior_output_digest": "169639f97280cb05a11f4217f18fffd6702b31d18b254235f9135569c7e70d0b",
+  "output_digest": "e5a05118e6b17f276168e346ecb1bc2e4d7485616dd39599f1eaf4faac4fe89f",
+  "output_byte_length": 1146,
+  "refreshed_at": "2026-10-21T06:32:50.420Z"
+}

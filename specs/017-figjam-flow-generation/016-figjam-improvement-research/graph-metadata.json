@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/016-figjam-improvement-research",
+  "spec_folder": "017-figjam-flow-generation/016-figjam-improvement-research",
+  "parent_id": "017-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "figjam improvement research",
+      "figjam improvement research plan",
+      "figjam improvement research tasks",
+      "figjam improvement research acceptance criteria",
+      "figjam improvement research goal",
+      "figjam improvement research implementation summary"
+    ],
+    "key_topics": [
+      "figjam",
+      "improvement",
+      "research",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "phase",
+      "grew"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "research/research.md",
+      "research/.gitignore",
+      "research/findings-registry.json",
+      "claude project/Custom Instructions.md",
+      "sk-product-owner/references/story-mode.md",
+      "sk-product-owner/assets/story-template.md",
+      "sk-product-owner/assets/epic-template.md",
+      "sk-product-owner/references/task-mode.md",
+      "sk-product-owner/assets/bug-report-template.md",
+      "sk-product-owner/assets/doc-templates.md",
+      "sk-product-owner/references/routing.md",
+      "sk-product-owner/references/router-contract.md",
+      "benchmark/router/route_contract.py",
+      "benchmark/hub-routing-cases.json"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "research.md",
+        "kind": "doc",
+        "path": "research/research.md",
+        "source": "derived"
+      },
+      {
+        "name": ".gitignore",
+        "kind": "file",
+        "path": "research/.gitignore",
+        "source": "derived"
+      },
+      {
+        "name": "findings-registry.json",
+        "kind": "config",
+        "path": "research/findings-registry.json",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "story-mode.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/story-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "story-template.md",
+        "kind": "doc",
+        "path": "sk-product-owner/assets/story-template.md",
+        "source": "derived"
+      },
+      {
+        "name": "epic-template.md",
+        "kind": "doc",
+        "path": "sk-product-owner/assets/epic-template.md",
+        "source": "derived"
+      },
+      {
+        "name": "task-mode.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/task-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "bug-report-template.md",
+        "kind": "doc",
+        "path": "sk-product-owner/assets/bug-report-template.md",
+        "source": "derived"
+      },
+      {
+        "name": "doc-templates.md",
+        "kind": "doc",
+        "path": "sk-product-owner/assets/doc-templates.md",
+        "source": "derived"
+      },
+      {
+        "name": "routing.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/routing.md",
+        "source": "derived"
+      },
+      {
+        "name": "router-contract.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/router-contract.md",
+        "source": "derived"
+      },
+      {
+        "name": "route_contract.py",
+        "kind": "file",
+        "path": "benchmark/router/route_contract.py",
+        "source": "derived"
+      },
+      {
+        "name": "hub-routing-cases.json",
+        "kind": "config",
+        "path": "benchmark/hub-routing-cases.json",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Phase 015 grew sk-create-figjam to seven diagram types from the 009 corpus and sk-design-diagram",
+    "created_at": "2026-10-20T20:46:14.742Z",
+    "last_save_at": "2026-10-21T05:30:27.959Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "research/research.md"
+    ],
+    "source_fingerprint": "sha256:c9bc55e95622a5e048030be3e3d5049824776c8be5ffa6baa2b449483c214d7f",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "46b9e1028c81124a4ea02de75e5f7178fd7ff91165d145a510902be38bfeef6b",
+      "plan.md": "14c4fd69802a1a7eaa3fac09e3f3e1dbe3bc8f67d84652744a5c621b70b02343",
+      "tasks.md": "bdff38784316aefc35a0c90bed2b5604f7c4c12665fd99cbecc415ef4689fe9c",
+      "implementation-summary.md": "be56cf78f3dc338cc550fdea57875eeef83c75b012df000f0923032b68b73de1",
+      "research/research.md": "807d4bcb5ced297c2db5eb170f2906b5a7aa6fc37e436f7752412312f93c0dab"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

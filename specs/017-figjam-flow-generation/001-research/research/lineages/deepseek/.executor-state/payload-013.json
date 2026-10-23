@@ -1,0 +1,30 @@
+{
+  "iteration": 13,
+  "focus": "The sync reality that already exists between the two repositories",
+  "newInfoRatio": 1.0,
+  "status": "complete",
+  "noveltyJustification": "All six findings are new sync-mechanism evidence, including the three-hop chain that no earlier iteration traced.",
+  "answeredQuestions": [],
+  "ruledOut": ["Assuming an automated mirror still exists", "Treating a symlink or submodule as a clean sharing mechanism"],
+  "sourcesQueried": [
+    "AI Systems/Product Owner/SYNC.md",
+    "AGENTS.md",
+    "AI Systems/Product Owner/claude project/kernel-review.json",
+    "AI Systems/Product Owner/claude project/knowledge"
+  ],
+  "findings": [
+    {"id": "f-iter013-001", "label": "Product Owner's Project package is hand-written under a four-step manual parity method: list sources against counterparts, decide which paragraphs apply, check the read-only drift list, and record each review as a dated sentence.", "sources": ["AI Systems/Product Owner/SYNC.md:9"]},
+    {"id": "f-iter013-002", "label": "No manifest, lock file or checksum ledger is kept; the retired compiler's sync file and generated regions were archived, so parity is a reviewer obligation.", "sources": ["AI Systems/Product Owner/SYNC.md:17"]},
+    {"id": "f-iter013-003", "label": "The workspace contract says a hand-written mirror proves neither human review nor deployment; review is recorded only after the named human confirms it and deployment only with a receipt and smoke evidence.", "sources": ["AGENTS.md:138"]},
+    {"id": "f-iter013-004", "label": "Shared rule cards live in AI Systems/z — Knowledge, and Product Owner vendors four as regular-file copies because symlinks resolve to nothing in a cloned public repo; the parity declaration names them vendored_shared_copies so a card change turns the system red until copied.", "sources": ["AI Systems/Product Owner/SYNC.md:44"]},
+    {"id": "f-iter013-005", "label": "Kernel review is a human gate with a dated artifact recording reviewer, decision, kernelSha256, kernel version and aligned skill version, plus a note that nothing reads it and parity is checked by benchmark plus hand reading.", "sources": ["AI Systems/Product Owner/claude project/kernel-review.json:1"]},
+    {"id": "f-iter013-006", "label": "The sync surface is a three-hop manual chain (shared card to vendored copy to Project mirror) with drift detected only by comparing commit timestamps.", "sources": ["AI Systems/Product Owner/SYNC.md:9", "AI Systems/Product Owner/SYNC.md:44"]}
+  ],
+  "graphEvents": [
+    {"type": "node", "id": "q-sync-current", "kind": "QUESTION", "label": "How do the two repositories stay in step today"},
+    {"type": "node", "id": "f-iter013-three-hop", "kind": "FINDING", "label": "Three-hop manual parity chain"},
+    {"type": "node", "id": "src-po-sync", "kind": "SOURCE", "label": "Product Owner SYNC.md", "path": "AI Systems/Product Owner/SYNC.md"},
+    {"type": "edge", "id": "e-iter013-001", "source": "f-iter013-three-hop", "target": "q-sync-current", "relation": "ANSWERS"},
+    {"type": "edge", "id": "e-iter013-002", "source": "f-iter013-three-hop", "target": "src-po-sync", "relation": "CITES"}
+  ]
+}

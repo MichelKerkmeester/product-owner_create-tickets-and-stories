@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/005-flow-mode",
+  "description": "Phase 5: flow-mode",
+  "keywords": [
+    "phase",
+    "flow-mode"
+  ],
+  "lastUpdated": "2026-10-20T02:35:20.860Z",
+  "specId": "005",
+  "folderSlug": "flow-mode",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

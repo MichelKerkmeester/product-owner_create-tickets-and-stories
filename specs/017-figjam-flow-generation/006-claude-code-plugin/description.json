@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/006-claude-code-plugin",
+  "description": "Phase 6: claude-code-plugin",
+  "keywords": [
+    "phase",
+    "claude-code-plugin"
+  ],
+  "lastUpdated": "2026-10-20T02:35:21.834Z",
+  "specId": "006",
+  "folderSlug": "claude-code-plugin",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

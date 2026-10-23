@@ -1,0 +1,2127 @@
+{
+  "sessionId": "fanout-deepseek-1792527089584-nrdj43",
+  "parentSessionId": null,
+  "lineageMode": "new",
+  "generation": 1,
+  "continuedFromRun": null,
+  "terminalStop": {
+    "stopReason": "maxIterationsReached",
+    "totalIterations": 10,
+    "answeredCount": 5,
+    "totalQuestions": 5,
+    "timestamp": "2026-10-20T20:26:07.629Z"
+  },
+  "keyQuestions": [
+    {
+      "id": "question-1-q1-which-diagram-types-diagram-kinds-and-model-rules-does-the-public-figjam-figm",
+      "inboxId": null,
+      "text": "Q1: Which diagram types, diagram kinds and model rules does the public FigJam/Figma corpus expose that the packet's seven types do not cover?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5,
+      "resolved": true
+    },
+    {
+      "id": "question-2-q2-which-layout-colour-density-and-board-quality-measurement-practices-in-the-co",
+      "inboxId": null,
+      "text": "Q2: Which layout, colour, density and board-quality measurement practices in the corpus exceed the packet's style guide, quality rubric and manual-testing scorecard?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 6,
+      "resolved": true
+    },
+    {
+      "id": "question-3-q3-how-do-public-projects-handle-board-read-back-revision-filekey-reuse-failure-",
+      "inboxId": null,
+      "text": "Q3: How do public projects handle board read-back, revision, fileKey reuse, failure and retry, and delivery, and what does the packet handle differently?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 8,
+      "resolved": true
+    },
+    {
+      "id": "question-4-q4-how-does-a-flow-request-reach-sk-create-figjam-through-the-product-owner-hub-",
+      "inboxId": null,
+      "text": "Q4: How does a Flow request reach sk-create-figjam through the Product Owner hub and sk-product-owner, and where does the handoff back to a Story, Epic, Doc, Task or Bug break?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 7,
+      "resolved": true
+    },
+    {
+      "id": "question-5-q5-what-must-the-claude-ai-kernel-and-knowledge-files-change-so-a-claude-project",
+      "inboxId": null,
+      "text": "Q5: What must the claude.ai kernel and knowledge files change so a Claude Project without a Figma connector can still run Flow, and should a board URL reach ClickUp through the vendored mcp-click-up?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 9,
+      "resolved": true
+    }
+  ],
+  "openQuestions": [],
+  "resolvedQuestions": [
+    {
+      "id": "question-1-q1-which-diagram-types-diagram-kinds-and-model-rules-does-the-public-figjam-figm",
+      "inboxId": null,
+      "text": "Q1: Which diagram types, diagram kinds and model rules does the public FigJam/Figma corpus expose that the packet's seven types do not cover?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5
+    },
+    {
+      "id": "question-2-q2-which-layout-colour-density-and-board-quality-measurement-practices-in-the-co",
+      "inboxId": null,
+      "text": "Q2: Which layout, colour, density and board-quality measurement practices in the corpus exceed the packet's style guide, quality rubric and manual-testing scorecard?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 6
+    },
+    {
+      "id": "question-3-q3-how-do-public-projects-handle-board-read-back-revision-filekey-reuse-failure-",
+      "inboxId": null,
+      "text": "Q3: How do public projects handle board read-back, revision, fileKey reuse, failure and retry, and delivery, and what does the packet handle differently?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 8
+    },
+    {
+      "id": "question-4-q4-how-does-a-flow-request-reach-sk-create-figjam-through-the-product-owner-hub-",
+      "inboxId": null,
+      "text": "Q4: How does a Flow request reach sk-create-figjam through the Product Owner hub and sk-product-owner, and where does the handoff back to a Story, Epic, Doc, Task or Bug break?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 7
+    },
+    {
+      "id": "question-5-q5-what-must-the-claude-ai-kernel-and-knowledge-files-change-so-a-claude-project",
+      "inboxId": null,
+      "text": "Q5: What must the claude.ai kernel and knowledge files change so a Claude Project without a Figma connector can still run Flow, and should a board URL reach ClickUp through the vendored mcp-click-up?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 9
+    }
+  ],
+  "carriedForwardOpenQuestions": [
+    {
+      "text": "Q2: layout, colour, density and board-quality measurement.",
+      "addedAtIteration": 2,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Q3: read-back, revision, fileKey reuse, failure/retry, delivery.",
+      "addedAtIteration": 2,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Q1: type/kind and model-rule coverage.",
+      "addedAtIteration": 2,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Q4: request routing and artifact handoff.",
+      "addedAtIteration": 2,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Q5: claude.ai kernel without a Figma connector, and ClickUp.",
+      "addedAtIteration": 2,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Q3: read-back, revision, fileKey reuse, failure/retry, delivery (delivery now has corpus evidence; revision and retry still need the routing and execution surfaces).",
+      "addedAtIteration": 6,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Q3: read-back, revision, fileKey reuse, failure and retry (partly covered; the revision and retry surfaces still need a direct read).",
+      "addedAtIteration": 7,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Q5: the claude.ai kernel without a Figma connector, and ClickUp.",
+      "addedAtIteration": 7,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Q5: the claude.ai kernel without a Figma connector, and whether a board URL should reach ClickUp through the vendored transport.",
+      "addedAtIteration": 8,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "None open. Q1 to Q5 are answered; iteration 10 turns the findings into ranked recommendations.",
+      "addedAtIteration": 9,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "None. The ranking is the deliverable.",
+      "addedAtIteration": 10,
+      "source": "iteration-markdown"
+    }
+  ],
+  "uncoveredQuestions": [],
+  "keyFindings": [
+    {
+      "id": "finding-1-6-flow-check-py-self-test-re-measures-every-palette-row-proves-each-rule-fails-on-",
+      "text": "`flow_check.py --self-test` re-measures every palette row, proves each rule fails on a planted model, and runs the shipped templates, worked examples and the `claude project/knowledge/` mirrors through the same check, skipping mirrors that are absent in a plugin install rather than counting them as passes [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py:181], [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py:221], [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py:230].",
+      "addedAtIteration": 1,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/SKILL.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/style-guide.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py",
+        "AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md"
+      ]
+    },
+    {
+      "id": "finding-1-5-colour-handling-is-grounded-in-measured-contrast-and-records-its-own-departures-",
+      "text": "Colour handling is grounded in measured contrast and records its own departures: the palette block is the single accepted pair list, two ratio columns are measured against a 4.5:1 text gate and a 3.0:1 mark gate, and seven strokes are explicitly recorded as below the mark gate with the reason they are kept [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:58], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:105], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:115].",
+      "addedAtIteration": 1,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/SKILL.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/style-guide.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py",
+        "AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md"
+      ]
+    },
+    {
+      "id": "finding-1-10-delivery-forbids-a-file-shaped-substitute-when-neither-route-is-reachable-the-pa",
+      "text": "Delivery forbids a file-shaped substitute: when neither route is reachable the packet offers the checked model in the reply and never renders a Mermaid, HTML, SVG or PNG stand-in, and no file may be left in `export/` [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:203], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:230], [SOURCE: AI Systems/Product Owner/sk-create-figjam/SKILL.md:177].",
+      "addedAtIteration": 1,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/SKILL.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/style-guide.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py",
+        "AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md"
+      ]
+    },
+    {
+      "id": "finding-1-9-gap-found-extension-quality-is-gated-by-intent-not-by-a-check-the-gate-must-name",
+      "text": "Gap found: extension quality is gated by intent, not by a check. The gate must name any planned extension, but `flow_check.py` reads only Mermaid, so pins, stickies, tints, legend placement and overlap are verified only by the human scorecard's Hygiene and Legibility dimensions on a screenshot [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:67], [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py:6], [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:84].",
+      "addedAtIteration": 1,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/SKILL.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/style-guide.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py",
+        "AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md"
+      ]
+    },
+    {
+      "id": "finding-1-8-read-back-is-honest-about-its-own-limits-per-type-counts-compared-with-the-model",
+      "text": "Read-back is honest about its own limits: per-type counts compared with the model, a node-by-node `get_figjam` read on the hosted route and `fj nodes -l` on the desktop route, an explicit `Read-back: not possible` line when the connector has no read tool, and a `, read visually` suffix when only a screenshot could be read [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:209], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:215], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:224].",
+      "addedAtIteration": 1,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/SKILL.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/style-guide.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py",
+        "AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md"
+      ]
+    },
+    {
+      "id": "finding-1-1-the-packet-s-strongest-asset-is-a-fail-closed-pre-write-check-rather-than-post-h",
+      "text": "The packet's strongest asset is a fail-closed pre-write check rather than post-hoc review: `flow_check.py` refuses a Mermaid kind the board generator cannot draw and enforces the shared model rules before any board exists, and its own docstring states why — the generator silently drops much of what Mermaid can say, so a model can promise a reader something the board never shows [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py:6], [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py:64].",
+      "addedAtIteration": 1,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/SKILL.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/style-guide.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py",
+        "AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md"
+      ]
+    },
+    {
+      "id": "finding-1-4-the-rubric-adds-a-delete-first-judgment-pass-the-script-cannot-make-the-remove-t",
+      "text": "The rubric adds a delete-first judgment pass the script cannot make — the remove test (\"a diagram is done when nothing can be removed\") plus signal, provenance and reply checks — but it is prose with checkbox state, not a machine-readable record; the only scored artifact is the manual playbook's seven-dimension scorecard with a 12-of-14 pass line [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:33], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:35], [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:75], [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:87].",
+      "addedAtIteration": 1,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/SKILL.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/style-guide.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py",
+        "AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md"
+      ]
+    },
+    {
+      "id": "finding-1-2-the-seven-types-are-paired-with-an-explicit-nearest-drawable-mapping-and-the-gen",
+      "text": "The seven types are paired with an explicit nearest-drawable mapping, and the generator's unsupported-kind list is duplicated in prose and in code, so a pie, mindmap, Venn, C4, git graph or requirement request is answered with the nearest type or a plain no instead of a failed tool call [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:93], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:95], [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py:63].",
+      "addedAtIteration": 1,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/SKILL.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/style-guide.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py",
+        "AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md"
+      ]
+    },
+    {
+      "id": "finding-1-3-the-shared-model-rule-set-is-unusually-complete-for-a-board-generator-no-emoji-m",
+      "text": "The shared model rule set is unusually complete for a board generator: no emoji, markup or literal `\\n`, labels of at most 40 characters on one line, camelCase ids with a keyword ban, a per-type budget defaulting to 9 nodes and 12 connectors, colour only from the style guide, and a hard prohibition on moving generated nodes [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:159], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:162], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:164].",
+      "addedAtIteration": 1,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/SKILL.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/style-guide.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py",
+        "AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md"
+      ]
+    },
+    {
+      "id": "finding-1-7-the-write-route-is-more-careful-than-a-one-shot-generation-hosted-first-the-firs",
+      "text": "The write route is more careful than a one-shot generation: hosted-first, the first call creates a new file and every later diagram or revision passes that `fileKey`, a failed or timed-out call is explicitly not proof that nothing landed, a retry happens only after reading the target, and rollback deletes only nodes this write created [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:183], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:184], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:187].",
+      "addedAtIteration": 1,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/SKILL.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/style-guide.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py",
+        "AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md"
+      ]
+    },
+    {
+      "id": "finding-2-6-blocks-diagram-section-md-documents-a-supported-diagram-placed-into-a-board-sect",
+      "text": "`blocks/diagram-section.md` documents a supported \"diagram placed into a board section\" recipe: create a white section with an H2, call `generate_diagram`, collect every new page-level node, compute the bounding box, reparent all of them, then resize to `max(1200, width+64)` and clear the placeholder [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md:3], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md:67], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md:79]. It also documents the failure mode: reparenting a long-bend connector caches stale elbow waypoints, so the reliable fix is to capture each connector spec, delete and recreate [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md:143], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md:196]. The packet's absolute \"never move a generated node\" rule blocks this whole pattern, which matters whenever a Flow diagram must live inside a larger board or a plan [SOURCE: AI Systems/Product Owner/sk-create-figjam/SKILL.md:180].",
+      "addedAtIteration": 2,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/foundation/layout.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md (grep only)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/figma-power/POWER.md"
+      ]
+    },
+    {
+      "id": "finding-2-5-plan-board-content-turns-board-layout-into-measurable-rules-4px-spacing-multiple",
+      "text": "`plan-board-content` turns board layout into measurable rules: 4px spacing multiples, tight 60-92px versus loose 200-400px versus zone 1000px+ distances, a named type scale with Inter only, a white wrapper section around the whole board, and stickies in a fixed 240x240 or 416x240 grid [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md:17], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md:23], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md:85], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md:229]. The packet deliberately skips a board grid because the generator owns layout [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:129], but the same numbers govern where an extension's legend and stickies land.",
+      "addedAtIteration": 2,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/foundation/layout.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md (grep only)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/figma-power/POWER.md"
+      ]
+    },
+    {
+      "id": "finding-2-8-skills-figquery-is-a-byte-identical-redistribution-of-skills-for-the-diagram-ski",
+      "text": "`skills-figquery/` is a byte-identical redistribution of `skills/` for the diagram skill (recursive diff reports no differences), so the new folder adds packaging reach, not a second opinion on diagram quality. The actual new guidance is the `figma-use-figjam` reference set and `workflow-skills/`, which do not exist in the older `skills/` tree.",
+      "addedAtIteration": 2,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/foundation/layout.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md (grep only)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/figma-power/POWER.md"
+      ]
+    },
+    {
+      "id": "finding-2-7-the-corpus-contradicts-itself-on-the-tool-schema-the-diagram-skill-passes-mermai",
+      "text": "The corpus contradicts itself on the tool schema: the diagram skill passes `mermaidSyntax` with no `editorType` [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:85], while the project-plan block passes `mermaid` plus `editorType: \"figjam\"` [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md:57], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md:59]. This is evidence for the packet's rule to list connected tools first and confirm the schema at run time rather than copy a documented call [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:180].",
+      "addedAtIteration": 2,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/foundation/layout.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md (grep only)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/figma-power/POWER.md"
+      ]
+    },
+    {
+      "id": "finding-2-2-the-corpus-lists-four-universal-mermaid-constraints-the-packet-s-shared-rule-lis",
+      "text": "The corpus lists four universal Mermaid constraints the packet's shared rule list does not carry: special characters in labels must be quoted, sequence `Note over/left of/right of` are silently stripped, gantt `classDef`/`class` styling is stripped, and any `use_figma` extension must stay inside FigJam APIs because `figma.createPage()` throws there [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:54], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:55], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:56], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:57]. The packet's rules cover emoji, markup, label length, ids, budget, colour and layout, not the generator's silent drops [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:159].",
+      "addedAtIteration": 2,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/foundation/layout.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md (grep only)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/figma-power/POWER.md"
+      ]
+    },
+    {
+      "id": "finding-2-3-the-corpus-names-generator-limits-as-a-user-facing-hand-off-the-tool-cannot-chan",
+      "text": "The corpus names generator limits as a user-facing hand-off: the tool cannot change fonts, move individual shapes or edit node-by-node, so the recommendation is to edit in Figma or regenerate [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:25], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:30]. The packet forbids post-generation moves but never tells the user how to edit the result themselves [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:164].",
+      "addedAtIteration": 2,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/foundation/layout.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md (grep only)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/figma-power/POWER.md"
+      ]
+    },
+    {
+      "id": "finding-2-12-the-corpus-ranks-where-hybrid-extensions-pay-off-flowchart-annotation-first-erd-",
+      "text": "The corpus ranks where hybrid extensions pay off: flowchart annotation first, ERD domain colour-coding second, sequence/state/gantt conservative [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md:27], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md:29], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md:31]. The packet gates extensions by asking the user, not by a per-type value ranking, so it has no equivalent triage.",
+      "addedAtIteration": 2,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/foundation/layout.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md (grep only)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/figma-power/POWER.md"
+      ]
+    },
+    {
+      "id": "finding-2-11-the-corpus-ships-the-base-diagram-link-before-extensions-run-and-treats-partial-",
+      "text": "The corpus ships the base diagram link before extensions run and treats partial extension failure as acceptable progress [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md:107], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md:115]. The packet's delivery is a single reply after every step, so the user sees nothing until extensions and read-back finish [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:219], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:224].",
+      "addedAtIteration": 2,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/foundation/layout.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md (grep only)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/figma-power/POWER.md"
+      ]
+    },
+    {
+      "id": "finding-2-4-the-newer-commit-adds-a-full-figjam-node-api-surface-under-skills-figquery-figma",
+      "text": "The newer commit adds a full FigJam node API surface under `skills-figquery/figma-use-figjam`: sections, tables, code blocks, labels, stickies, connectors, batch modify, colour palettes and node positioning, and says to load the `plan-board-content` reference for any board-content request [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/SKILL.md:50], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/SKILL.md:53], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/SKILL.md:60]. The packet's extension surface is narrower — pins, stickies, tints, legends — with no section, table or code-block verb [SOURCE: AI Systems/Product Owner/sk-create-figjam/SKILL.md:151], [SOURCE: AI Systems/Product Owner/sk-create-figjam/SKILL.md:195].",
+      "addedAtIteration": 2,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/foundation/layout.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md (grep only)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/figma-power/POWER.md"
+      ]
+    },
+    {
+      "id": "finding-2-1-the-newer-commit-turns-the-diagram-skill-into-a-mandatory-precondition-you-must-",
+      "text": "The newer commit turns the diagram skill into a mandatory precondition: \"You MUST load this skill before every `generate_diagram` tool call\", with per-type routing and an explicit instruction to ask when architecture and flowchart are both plausible [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:3], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:8], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:45]. The packet has the same idea as a load rule [SOURCE: AI Systems/Product Owner/sk-create-figjam/SKILL.md:168], but the corpus states it as a hard precondition on the tool call, which is stronger against a runtime that skips skill loading.",
+      "addedAtIteration": 2,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/foundation/layout.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md (grep only)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/figma-power/POWER.md"
+      ]
+    },
+    {
+      "id": "finding-2-10-the-packet-is-also-stronger-on-pre-write-verification-figma-s-official-path-goes",
+      "text": "The packet is also stronger on pre-write verification: Figma's official path goes from Step 4 context gathering to Step 6 tool call with no model checker, and finds problems only in the post-generation step [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:59], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:81], while the packet refuses to write a model that `flow_check.py` failed [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:63].",
+      "addedAtIteration": 2,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/foundation/layout.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md (grep only)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/figma-power/POWER.md"
+      ]
+    },
+    {
+      "id": "finding-2-9-the-packet-is-stronger-than-figma-s-own-skill-on-provenance-the-corpus-says-only",
+      "text": "The packet is stronger than Figma's own skill on provenance: the corpus says only \"gather enough real information\" and \"don't invent edges, labels or entities\" [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:61], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md:71], while the packet classifies every claim into five source classes, applies an authority order and a conflict gate, and labels proposal or unknown items instead of drawing them as current behavior [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:120], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:121], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:122].",
+      "addedAtIteration": 2,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/workflow.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/foundation/layout.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md (grep only)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/figma-power/POWER.md"
+      ]
+    },
+    {
+      "id": "finding-3-6-density-is-the-widest-gap-figma-s-soft-caps-are-about-20-nodes-20-30-consider-su",
+      "text": "Density is the widest gap: Figma's soft caps are about 20 nodes, 20–30 \"consider subgraphs\", 30+ split, and its checklist allows about 25 [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:329], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:350]; the packet hard-caps a user flow at 9 nodes and a process or architecture at 9 nodes and 12 connectors, with a lane exception of 12/16 [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:64], [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py:44], [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py:45]. The packet's cap protects the manual scorecard's 100%-zoom legibility, but it forces a split of an ordinary 12-step flow that Figma's own layout is documented to hold.",
+      "addedAtIteration": 3,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/lightspeedwp__.github/plugins/figma/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py"
+      ]
+    },
+    {
+      "id": "finding-3-5-direction-is-a-direct-conflict-figma-defaults-to-flowchart-lr-and-switches-to-td",
+      "text": "Direction is a direct conflict: Figma defaults to `flowchart LR` and switches to `TD` for hierarchies and wide sibling sets [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:26], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:27]; the packet defaults user flows to top-to-bottom and reserves left-to-right for short sequential flows [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:60]. The packet gives a reason (fan-out and platform splits), the corpus does not, but neither ties the choice to a measured layout outcome.",
+      "addedAtIteration": 3,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/lightspeedwp__.github/plugins/figma/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py"
+      ]
+    },
+    {
+      "id": "finding-3-9-per-type-read-back-is-a-packet-only-capability-every-packet-type-ends-with-count",
+      "text": "Per-type read-back is a packet-only capability: every packet type ends with counts measured on the board against the model, with an example line [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:93], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:98], while the corpus's flowchart reference ends at the tool call and has no post-write comparison [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:400], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:405].",
+      "addedAtIteration": 3,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/lightspeedwp__.github/plugins/figma/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py"
+      ]
+    },
+    {
+      "id": "finding-3-3-shape-semantics-converge-figma-s-shape-carries-the-label-principle-and-the-packe",
+      "text": "Shape semantics converge: Figma's \"shape carries the label\" principle and the packet's judged-by-hand rule are the same instruction — never repeat in text what the shape already says [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:60], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:66], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:71]. Nothing is lost by keeping the packet rule.",
+      "addedAtIteration": 3,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/lightspeedwp__.github/plugins/figma/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py"
+      ]
+    },
+    {
+      "id": "finding-3-11-the-architecture-layout-code-rule-matches-exactly-only-an-architecture-passes-us",
+      "text": "The architecture layout code rule matches exactly: only an architecture passes `useArchitectureLayoutCode`, and a generic flowchart must not [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:407], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:182].",
+      "addedAtIteration": 3,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/lightspeedwp__.github/plugins/figma/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py"
+      ]
+    },
+    {
+      "id": "finding-3-2-the-corpus-documents-eighteen-mermaid-shapes-that-render-as-distinct-figjam-shap",
+      "text": "The corpus documents eighteen Mermaid shapes that render as distinct FigJam shapes and three stroke types with four end caps [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:35], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:56], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:75]. The packet deliberately restricts a user flow to four shapes and solid one-way arrows [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:40], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:47], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:55]. The restriction buys one meaning per shape but costs the dotted \"happens later\" and thick \"critical path\" semantics the generator supports [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:78], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:79].",
+      "addedAtIteration": 3,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/lightspeedwp__.github/plugins/figma/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py"
+      ]
+    },
+    {
+      "id": "finding-3-10-the-merge-dot-is-a-packet-invention-with-no-counterpart-in-the-corpus-s-shape-vo",
+      "text": "The merge dot is a packet invention with no counterpart in the corpus's shape vocabulary: a wordless circle where branches rejoin, which solves the platform-split rejoin that Figma handles with subgraphs or duplicated nodes [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:45], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:58], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:35]. It is one of the packet's clear advantages and must not be removed.",
+      "addedAtIteration": 3,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/lightspeedwp__.github/plugins/figma/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py"
+      ]
+    },
+    {
+      "id": "finding-3-4-the-nine-light-fill-stroke-pairs-in-the-packet-s-palette-are-exactly-figma-s-bui",
+      "text": "The nine light fill/stroke pairs in the packet's palette are exactly Figma's built-in pairs [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:285], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:63]. Figma additionally permits saturated fills for strong emphasis while warning that Mermaid cannot set text colour [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:295]; the packet refuses those fills because white text on a saturated fill measures 1.85:1 [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:118]. The packet's refusal is better grounded than the vendor's permission.",
+      "addedAtIteration": 3,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/lightspeedwp__.github/plugins/figma/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py"
+      ]
+    },
+    {
+      "id": "finding-3-8-the-packet-s-architecture-type-is-machine-checked-further-than-the-corpus-s-plac",
+      "text": "The packet's architecture type is machine-checked further than the corpus's placement guidance: it fixes six lanes and an allowed-edge table with dotted lanes [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py:50], [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py:52], while the corpus documents that the architecture layout promotes only some subgraphs to sections and inlines the rest, which is why reparenting must wrap every new node [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md:68], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/references/blocks/diagram-section.md:69]. The packet's lane table is the stronger model; the corpus's note is the stronger warning about what the board actually contains.",
+      "addedAtIteration": 3,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/lightspeedwp__.github/plugins/figma/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py"
+      ]
+    },
+    {
+      "id": "finding-3-7-the-packet-s-checker-already-automates-most-of-figma-s-eight-item-pre-call-check",
+      "text": "The packet's checker already automates most of Figma's eight-item pre-call checklist: orphan nodes, decision exits and missing exit labels, merge-dot words, and node/connector budgets are code rules [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py:127], [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py:143], [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py:148], [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py:221], against Figma's model-executed checklist [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:343]. The two Figma items with no packet counterpart are the generic cycle audit and the subgraph audit, and the packet answers both by forbidding subgraphs in a user flow and by checking cycles only for architecture [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py:319].",
+      "addedAtIteration": 3,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/lightspeedwp__.github/plugins/figma/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py"
+      ]
+    },
+    {
+      "id": "finding-3-1-the-three-public-distributions-are-one-rule-set-not-three-opinions-openai-plugin",
+      "text": "The three public distributions are one rule set, not three opinions: `openai__plugins` differs from the Figma guide only in `references/workflow.md`, and `lightspeedwp__.github` is an older, shorter copy carrying repository badges at the top of its references [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md:1], [SOURCE: specs/z-staging-po-016-research/corpus/lightspeedwp__.github/plugins/figma/figma-generate-diagram/references/flowchart.md:3]. Any difference between the packet and \"public FigJam work\" is therefore mostly a difference from Figma's own vendor guidance.",
+      "addedAtIteration": 3,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/openai__plugins/plugins/figma/skills/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/lightspeedwp__.github/plugins/figma/figma-generate-diagram/ (diff)",
+        "specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/references/flowchart.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py"
+      ]
+    },
+    {
+      "id": "finding-4-5-answer-from-board-returns-node-level-citations-or-an-explicit-insufficient-evide",
+      "text": "`answer_from_board` returns node-level citations or an explicit insufficient-evidence result, and every evidence row carries `modelDerived` so board text and model interpretation stay distinguishable [SOURCE: specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/README.md:22], [SOURCE: specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/evidence.ts:23], [SOURCE: specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/evidence.ts:383]. The packet's `Read-back:` line is a count with no per-item evidence pointer and no insufficient-evidence outcome; its only honest failure mode is \"not possible, the connector has no read tool\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:224].",
+      "addedAtIteration": 4,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ulasbilgen__mcp-skills-plugins/figma-desktop-plugin/skills/mcp-figma-desktop/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/README.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/boardDiff.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/tools/diffBoard.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/evidence.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-version-history/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-blame-node/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-4-4-diff-board-compares-two-snapshots-for-added-removed-and-modified-clusters-nodes-",
+      "text": "`diff_board` compares two snapshots for added, removed and modified clusters, nodes, table cells, connections and arrows [SOURCE: specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/README.md:23], [SOURCE: specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/boardDiff.ts:7], [SOURCE: specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/boardDiff.ts:75]. The packet's revision check is a read-back count against the model; there is no pre/post diff, so a second write beside the first is caught only by the count mismatch the packet warns about [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:246].",
+      "addedAtIteration": 4,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ulasbilgen__mcp-skills-plugins/figma-desktop-plugin/skills/mcp-figma-desktop/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/README.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/boardDiff.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/tools/diffBoard.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/evidence.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-version-history/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-blame-node/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-4-3-figjam-context-mcp-skips-the-download-when-figma-reports-the-same-file-version-a",
+      "text": "`figjam-context-mcp` skips the download when Figma reports the same file version as the last ingest and stores one snapshot per distinct board state [SOURCE: specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/README.md:78], [SOURCE: specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/README.md:89]. The packet has no version check and no snapshot, so a repeated read-back re-reads the board with no baseline to compare against.",
+      "addedAtIteration": 4,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ulasbilgen__mcp-skills-plugins/figma-desktop-plugin/skills/mcp-figma-desktop/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/README.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/boardDiff.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/tools/diffBoard.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/evidence.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-version-history/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-blame-node/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-4-8-figma-blame-node-binary-searches-immutable-versions-to-find-which-version-introd",
+      "text": "`figma-blame-node` binary-searches immutable versions to find which version introduced a node or property, because existence is monotonic and around eight probes cover roughly 200 versions [SOURCE: specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-blame-node/SKILL.md:15], [SOURCE: specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-blame-node/SKILL.md:20]. This is the audit trail a Product Owner would want after a board changes between reviews; the packet has no equivalent.",
+      "addedAtIteration": 4,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ulasbilgen__mcp-skills-plugins/figma-desktop-plugin/skills/mcp-figma-desktop/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/README.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/boardDiff.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/tools/diffBoard.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/evidence.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-version-history/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-blame-node/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-4-11-get-figjam-returns-the-full-node-tree-as-xml-with-page-section-sticky-and-connec",
+      "text": "`get_figjam` returns the full node tree as XML with page, section, sticky and connector IDs, and the corpus uses that tree to anchor extensions [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/SKILL.md:17]. The packet's rule to read node by node and never whole-board [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:68] saves tokens on a large board but costs the section and sticky IDs an extension needs on the packet's own small diagram.",
+      "addedAtIteration": 4,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ulasbilgen__mcp-skills-plugins/figma-desktop-plugin/skills/mcp-figma-desktop/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/README.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/boardDiff.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/tools/diffBoard.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/evidence.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-version-history/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-blame-node/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-4-12-mcp-figma-desktop-confirms-the-figjam-tool-boundary-the-packet-relies-on-get-fig",
+      "text": "`mcp-figma-desktop` confirms the FigJam tool boundary the packet relies on — `get_figjam` for `/board/` URLs, not `get_design_context` — and adds an image option the packet's read-back does not mention [SOURCE: specs/z-staging-po-016-research/corpus/ulasbilgen__mcp-skills-plugins/figma-desktop-plugin/skills/mcp-figma-desktop/SKILL.md:59], [SOURCE: specs/z-staging-po-016-research/corpus/ulasbilgen__mcp-skills-plugins/figma-desktop-plugin/skills/mcp-figma-desktop/SKILL.md:67], [SOURCE: specs/z-staging-po-016-research/corpus/ulasbilgen__mcp-skills-plugins/figma-desktop-plugin/skills/mcp-figma-desktop/SKILL.md:305]. Images on a board are counted by no packet read-back rule.",
+      "addedAtIteration": 4,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ulasbilgen__mcp-skills-plugins/figma-desktop-plugin/skills/mcp-figma-desktop/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/README.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/boardDiff.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/tools/diffBoard.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/evidence.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-version-history/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-blame-node/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-4-1-parse-figjam-derives-connector-semantics-from-the-board-itself-rather-than-from-",
+      "text": "`parse-figjam` derives connector semantics from the board itself rather than from a label: it reads `connectorStart.endpointNodeId` and `connectorEnd.endpointNodeId`, then checks both stroke caps for direction and `strokeDashes` for relationship type [SOURCE: specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md:44], [SOURCE: specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md:50], [SOURCE: specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md:80]. The packet's read-back requires every board connector to join the same two ends in the same direction with the same label but never says how direction is derived from the board [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:212].",
+      "addedAtIteration": 4,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ulasbilgen__mcp-skills-plugins/figma-desktop-plugin/skills/mcp-figma-desktop/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/README.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/boardDiff.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/tools/diffBoard.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/evidence.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-version-history/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-blame-node/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-4-2-parse-figjam-refuses-to-assume-colour-meanings-it-groups-nodes-by-fill-uses-a-se",
+      "text": "`parse-figjam` refuses to assume colour meanings: it groups nodes by fill, uses a SECTION named `legend` to map colours to meanings when one exists, and asks the user when colour variation is significant without a legend [SOURCE: specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md:54], [SOURCE: specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md:57], [SOURCE: specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md:58]. The packet's palette assigns fixed meanings and its read-back never reverse-maps a board's colours [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:77].",
+      "addedAtIteration": 4,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ulasbilgen__mcp-skills-plugins/figma-desktop-plugin/skills/mcp-figma-desktop/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/README.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/boardDiff.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/tools/diffBoard.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/evidence.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-version-history/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-blame-node/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-4-6-connector-direction-is-computed-from-the-two-caps-and-resolves-to-forward-revers",
+      "text": "Connector direction is computed from the two caps and resolves to forward, reverse, bidirectional or undirected [SOURCE: specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts:40], [SOURCE: specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts:48]. This is the concrete algorithm the packet's read-back needs but does not name; the packet's user-flow type allows only forward arrows, so its check would pass a reversed arrow it failed to notice in the model [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:59].",
+      "addedAtIteration": 4,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ulasbilgen__mcp-skills-plugins/figma-desktop-plugin/skills/mcp-figma-desktop/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/README.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/boardDiff.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/tools/diffBoard.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/evidence.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-version-history/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-blame-node/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-4-10-the-packet-s-read-back-is-stronger-in-one-decisive-respect-it-compares-the-board",
+      "text": "The packet's read-back is stronger in one decisive respect: it compares the board with an expected model and refuses to call a board done on a mismatch [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:228]. The corpus tools report what exists or what changed; none has an expected model to compare against, so they can describe a wrong board accurately but cannot declare it wrong.",
+      "addedAtIteration": 4,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ulasbilgen__mcp-skills-plugins/figma-desktop-plugin/skills/mcp-figma-desktop/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/README.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/boardDiff.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/tools/diffBoard.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/evidence.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-version-history/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-blame-node/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-4-9-the-same-sources-draw-the-claude-ai-boundary-explicitly-rest-plus-shell-skills-d",
+      "text": "The same sources draw the claude.ai boundary explicitly: REST-plus-shell skills do not run in plain Claude Desktop or claude.ai chat, and Figma connector OAuth does not authorize REST calls, so a personal access token is required [SOURCE: specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-version-history/SKILL.md:17]. That is direct evidence that the claude.ai kernel cannot use REST-based read-back or version history, and must either use connector tools or say the read is unavailable [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:224].",
+      "addedAtIteration": 4,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ulasbilgen__mcp-skills-plugins/figma-desktop-plugin/skills/mcp-figma-desktop/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/README.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/boardDiff.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/tools/diffBoard.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/evidence.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-version-history/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-blame-node/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-4-7-version-history-is-a-rest-only-capability-southleft-states-it-is-not-reachable-t",
+      "text": "Version history is a REST-only capability: `southleft` states it is not reachable through the Plugin API, `use_figma` or the native Figma MCP, snapshots at a version are immutable, and a page-structure diff costs two calls while a component diff costs two per node [SOURCE: specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-blame-node/SKILL.md:3], [SOURCE: specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-version-history/SKILL.md:9], [SOURCE: specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-version-history/SKILL.md:65]. The packet's rollback is Undo, a version restore, or deleting only self-created nodes, and it never records which version the write produced [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:187], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:199].",
+      "addedAtIteration": 4,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/rrichardsonv__parse-figjam/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ulasbilgen__mcp-skills-plugins/figma-desktop-plugin/skills/mcp-figma-desktop/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/README.md",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/boardDiff.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/tools/diffBoard.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/evidence.ts",
+        "specs/z-staging-po-016-research/corpus/ecestnrkl__figjam-mcp/src/lib/connectorGraph.ts",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-version-history/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/southleft__figma-console-mcp-skills/skills/figma-blame-node/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-5-4-figjam-builder-documents-a-concrete-large-board-reading-ladder-get-figjam-with-i",
+      "text": "`figjam-builder` documents a concrete large-board reading ladder: `get_figjam` with images first; if text is illegible or the call times out, read child IDs only, then metadata in batches of about 30, then screenshot 4–6 nodes in parallel, halving the batch on a timeout [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:378], [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:382], [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:395], [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:412]. The packet's rule to read node by node and never whole-board is the opposite first move, and it has no timeout or batch rule [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:68].",
+      "addedAtIteration": 5,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/tmcw__figjam-mermaid/README.md",
+        "specs/z-staging-po-016-research/corpus/lauragalera__figjam-erd-plugin (listing)",
+        "specs/z-staging-po-016-research/corpus/bluescaban__blueprints (listing)"
+      ]
+    },
+    {
+      "id": "finding-5-5-figjam-builder-documents-a-plugin-api-trap-the-packet-s-extension-path-will-hit-",
+      "text": "`figjam-builder` documents a plugin-API trap the packet's extension path will hit if it ever wraps a diagram in a section: a child's `x`/`y` are section-local, so adding `section.x` doubles the offset and pushes content outside the section [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:237], [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:248]. It also documents `upload_assets` with a five-per-call limit and ten-minute expiry [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:274].",
+      "addedAtIteration": 5,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/tmcw__figjam-mermaid/README.md",
+        "specs/z-staging-po-016-research/corpus/lauragalera__figjam-erd-plugin (listing)",
+        "specs/z-staging-po-016-research/corpus/bluescaban__blueprints (listing)"
+      ]
+    },
+    {
+      "id": "finding-5-2-figjam-builder-has-a-board-quality-grammar-the-packet-lacks-at-diagram-scale-ele",
+      "text": "`figjam-builder` has a board-quality grammar the packet lacks at diagram scale: eleven design principles, three palette tiers with a job per tier (accent for marks, vibrant for signal, muted for zones), paired type roles rather than a size ramp, and a fourteen-item audit pass [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:26], [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:154], [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:359]. The packet's one-accent rule is a diagram-specific subset of that system [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:31].",
+      "addedAtIteration": 5,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/tmcw__figjam-mermaid/README.md",
+        "specs/z-staging-po-016-research/corpus/lauragalera__figjam-erd-plugin (listing)",
+        "specs/z-staging-po-016-research/corpus/bluescaban__blueprints (listing)"
+      ]
+    },
+    {
+      "id": "finding-5-1-figjam-builder-states-the-limitation-the-packet-s-layout-rule-assumes-but-never-",
+      "text": "`figjam-builder` states the limitation the packet's layout rule assumes but never argues: generative diagram tools optimise for compactness, not breathing room, so \"when the flow matters, hand-build it or accept the limitation\" [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:46]. The packet answers the same problem by forbidding moves and splitting the model [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:164], but has no hand-built escape hatch for a flow whose spatial relationships carry the argument.",
+      "addedAtIteration": 5,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/tmcw__figjam-mermaid/README.md",
+        "specs/z-staging-po-016-research/corpus/lauragalera__figjam-erd-plugin (listing)",
+        "specs/z-staging-po-016-research/corpus/bluescaban__blueprints (listing)"
+      ]
+    },
+    {
+      "id": "finding-5-7-mermaid-jam-exposes-diagram-kinds-the-packet-cannot-draw-journey-mindmap-timelin",
+      "text": "`mermaid-jam` exposes diagram kinds the packet cannot draw: journey, mindmap, timeline, and markdown user-flow notes, with sequence flattened into interaction cards and explicit diagnostics for pie, gantt, ERD and class [SOURCE: specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md:32], [SOURCE: specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md:37], [SOURCE: specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md:44]. This is the first corpus evidence that public FigJam work covers more kinds than the hosted generator, so the packet's nearest-type answer is a real capability gap rather than a generator limit [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:93].",
+      "addedAtIteration": 5,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/tmcw__figjam-mermaid/README.md",
+        "specs/z-staging-po-016-research/corpus/lauragalera__figjam-erd-plugin (listing)",
+        "specs/z-staging-po-016-research/corpus/bluescaban__blueprints (listing)"
+      ]
+    },
+    {
+      "id": "finding-5-9-mermaid-jam-gives-line-level-diagnostics-before-generation-and-always-contains-i",
+      "text": "`mermaid-jam` gives line-level diagnostics before generation and always contains its output in a FigJam section [SOURCE: specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md:28], [SOURCE: specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md:30]. The packet matches the diagnostics and exceeds them with a rule check, but has no section wrapper, which is why its diagrams cannot be moved as one unit later.",
+      "addedAtIteration": 5,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/tmcw__figjam-mermaid/README.md",
+        "specs/z-staging-po-016-research/corpus/lauragalera__figjam-erd-plugin (listing)",
+        "specs/z-staging-po-016-research/corpus/bluescaban__blueprints (listing)"
+      ]
+    },
+    {
+      "id": "finding-5-8-mermaid-jam-keeps-a-revision-model-the-packet-lacks-it-preserves-manually-moved-",
+      "text": "`mermaid-jam` keeps a revision model the packet lacks: it preserves manually moved node positions during updates when IDs match, and offers a rules-based \"Revise\" cleanup for rough Mermaid or markdown source [SOURCE: specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md:27], [SOURCE: specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md:86]. The packet forbids moving generated nodes at all and has no automated model cleanup beyond \"fix or split\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:238].",
+      "addedAtIteration": 5,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/tmcw__figjam-mermaid/README.md",
+        "specs/z-staging-po-016-research/corpus/lauragalera__figjam-erd-plugin (listing)",
+        "specs/z-staging-po-016-research/corpus/bluescaban__blueprints (listing)"
+      ]
+    },
+    {
+      "id": "finding-5-10-tmcw-figjam-mermaid-runs-the-reverse-direction-the-packet-never-runs-stickies-an",
+      "text": "`tmcw__figjam-mermaid` runs the reverse direction the packet never runs: stickies and connectors on a board become a Mermaid flowchart, with arrow styles except a filled triangle, and it explicitly does not yet support other element kinds or selection-only export [SOURCE: specs/z-staging-po-016-research/corpus/tmcw__figjam-mermaid/README.md:3], [SOURCE: specs/z-staging-po-016-research/corpus/tmcw__figjam-mermaid/README.md:9]. For the Product Owner, that is the bridge from a board back into a Doc or a Story, and the README's support list names its fidelity limit.",
+      "addedAtIteration": 5,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/tmcw__figjam-mermaid/README.md",
+        "specs/z-staging-po-016-research/corpus/lauragalera__figjam-erd-plugin (listing)",
+        "specs/z-staging-po-016-research/corpus/bluescaban__blueprints (listing)"
+      ]
+    },
+    {
+      "id": "finding-5-3-the-audit-pass-contains-the-check-that-most-directly-improves-the-packet-s-read-",
+      "text": "The audit pass contains the check that most directly improves the packet's read-back: \"trace every required edge source-to-target in the screenshot; neither a connector count nor a collision-free bounding box proves clarity\" [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:323], [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:371]. The packet's `Read-back:` line is exactly a count plus a connector comparison, so it can pass a board whose arrows route ambiguously [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:224].",
+      "addedAtIteration": 5,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/tmcw__figjam-mermaid/README.md",
+        "specs/z-staging-po-016-research/corpus/lauragalera__figjam-erd-plugin (listing)",
+        "specs/z-staging-po-016-research/corpus/bluescaban__blueprints (listing)"
+      ]
+    },
+    {
+      "id": "finding-5-11-the-packet-s-measured-contrast-gate-remains-stronger-than-the-corpus-palette-sys",
+      "text": "The packet's measured contrast gate remains stronger than the corpus palette systems: `figjam-builder` gives hex values and tiers but no contrast measurement, and it permits vibrant fills for signal [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:157], while the packet records a 4.5:1 text gate, a 3.0:1 mark gate and its departures [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:105]. Nothing in the corpus should displace the packet's measurement.",
+      "addedAtIteration": 5,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/tmcw__figjam-mermaid/README.md",
+        "specs/z-staging-po-016-research/corpus/lauragalera__figjam-erd-plugin (listing)",
+        "specs/z-staging-po-016-research/corpus/bluescaban__blueprints (listing)"
+      ]
+    },
+    {
+      "id": "finding-5-6-two-independent-corpus-sources-converge-on-the-same-board-constants-4px-spacing-",
+      "text": "Two independent corpus sources converge on the same board constants — 4px spacing multiples, Inter only, a white wrapper section, tight clusters of 60–92px, loose 200–400px, zone breaks at 1000px+ [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:131], [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:135], [SOURCE: specs/z-staging-po-016-research/corpus/figma__mcp-server-guide/skills-figquery/figma-use-figjam/references/plan-board-content.md:17]. The packet has none of these numbers because it never places a board wrapper, which is precisely what an extension beside a diagram needs.",
+      "addedAtIteration": 5,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/tmcw__figjam-mermaid/README.md",
+        "specs/z-staging-po-016-research/corpus/lauragalera__figjam-erd-plugin (listing)",
+        "specs/z-staging-po-016-research/corpus/bluescaban__blueprints (listing)"
+      ]
+    },
+    {
+      "id": "finding-6-12-diagram-codebase-documents-readable-thresholds-between-the-packet-and-figma-25-n",
+      "text": "`diagram-codebase` documents readable thresholds between the packet and Figma: 25 nodes and 30 edges per diagram, a master diagram of 12–20, nesting at most two, and oversized diagrams split with every omission listed in the diagram's notes rather than truncated silently [SOURCE: specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md:192], [SOURCE: specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md:193]. The packet's 9-node cap is the strictest of the three sources, and its `Left out:` line is the only omission record [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:77].",
+      "addedAtIteration": 6,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/figma__architecture-diagram-components/README.md"
+      ]
+    },
+    {
+      "id": "finding-6-11-diagram-codebase-runs-the-packet-s-gate-as-a-durable-artifact-a-plan-with-a-purp",
+      "text": "`diagram-codebase` runs the packet's gate as a durable artifact: a plan with a purpose sentence per diagram and a content hash [SOURCE: specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md:157], [SOURCE: specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md:175], a `publish/review.md` listing exactly what will leave the machine [SOURCE: specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md:59], and a `manifest.json` with phases, per-diagram status, Figma ids and the pending action [SOURCE: specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md:60]. The packet's gate is a spoken message and its reply has no run manifest, so a resumed session cannot tell which nodes it wrote.",
+      "addedAtIteration": 6,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/figma__architecture-diagram-components/README.md"
+      ]
+    },
+    {
+      "id": "finding-6-13-figma-architecture-diagram-components-is-a-manual-community-component-library-no",
+      "text": "`figma__architecture-diagram-components` is a manual community component library, not generated guidance: it offers owned-versus-external service variants and icon overlays that `generate_diagram` cannot express [SOURCE: specs/z-staging-po-016-research/corpus/figma__architecture-diagram-components/README.md:23]. It marks the boundary of what a generated architecture can show, and the packet should not promise ownership variants it cannot draw.",
+      "addedAtIteration": 6,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/figma__architecture-diagram-components/README.md"
+      ]
+    },
+    {
+      "id": "finding-6-9-hferello-ai-independently-corroborates-the-packet-s-architecture-lane-table-only",
+      "text": "`hferello__ai` independently corroborates the packet's architecture lane table: only `flowchart LR`, every node inside one of `client`, `gateway`, `service`, `datastore`, `external`, `async`, dotted edges for async and external, never connecting to a subgraph id, and one independently deployable unit per node [SOURCE: specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md:8], [SOURCE: specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md:10], [SOURCE: specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md:12], [SOURCE: specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md:16], [SOURCE: specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md:41]. The packet's checker goes further by machine-checking the same table, lane count and cycles [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py:47], [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py:266], [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/flowchart.py:319].",
+      "addedAtIteration": 6,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/figma__architecture-diagram-components/README.md"
+      ]
+    },
+    {
+      "id": "finding-6-10-hferello-ai-supplies-the-doc-integration-pattern-q4-needs-the-markdown-arch-flow",
+      "text": "`hferello__ai` supplies the Doc integration pattern Q4 needs: the markdown `arch-flow.md` is the source of truth, the diagram is optional and never blocks the doc, node labels must match the ASCII boxes and pseudocode, the returned board link is written back under a `## Visual diagram` heading, and a missing MCP tool means finish the doc and tell the user [SOURCE: specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md:153], [SOURCE: specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md:166], [SOURCE: specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md:168], [SOURCE: specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md:170], [SOURCE: specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md:173]. The packet's only product is the board; it has no doc-side link-back [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:221].",
+      "addedAtIteration": 6,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/figma__architecture-diagram-components/README.md"
+      ]
+    },
+    {
+      "id": "finding-6-8-adobe-adds-a-delivery-target-the-packet-forbids-export-a-high-resolution-screens",
+      "text": "Adobe adds a delivery target the packet forbids: export a high-resolution screenshot, compute each diagram's bounding box from board coordinates, crop per diagram, normalize the near-white FigJam canvas to white, and embed the image with real alt text in a published article [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md:98], [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md:113], [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md:117]. The packet forbids rendering the diagram as an image or leaving any file behind [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:203], so a Doc that needs an inline figure has no route.",
+      "addedAtIteration": 6,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/figma__architecture-diagram-components/README.md"
+      ]
+    },
+    {
+      "id": "finding-6-7-adobe-closes-the-loop-the-packet-leaves-open-after-the-write-a-bounded-diagram-c",
+      "text": "Adobe closes the loop the packet leaves open after the write: a bounded `diagram-critic` pass on the Mermaid source plus a screenshot, checking clutter, hierarchy, accent misuse, redundant labels and whether the caption matches the canvas, applied in one batch and then stopped [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:82]. The packet's post-write check is a read-back count, with no critic pass [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:228].",
+      "addedAtIteration": 6,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/figma__architecture-diagram-components/README.md"
+      ]
+    },
+    {
+      "id": "finding-6-2-adobe-encodes-ordering-without-hue-increasing-precedence-is-shown-as-a-light-to-",
+      "text": "Adobe encodes ordering without hue: increasing precedence is shown as a light-to-dark neutral step, not a distinct colour per stage [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:36]. The packet has no equivalent rule for a gantt phase or a process lane that needs ordering, only the one-accent rule [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:31].",
+      "addedAtIteration": 6,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/figma__architecture-diagram-components/README.md"
+      ]
+    },
+    {
+      "id": "finding-6-6-adobe-enforces-cross-diagram-consistency-on-a-shared-board-same-corner-radius-ty",
+      "text": "Adobe enforces cross-diagram consistency on a shared board — same corner radius, type treatment, connector weight and accent discipline — so a reader does not notice that diagram 5 differs from diagram 2 [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:76]. The packet supports several diagrams on one board through fileKey reuse [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:183], but its rubric and reply are per-diagram only.",
+      "addedAtIteration": 6,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/figma__architecture-diagram-components/README.md"
+      ]
+    },
+    {
+      "id": "finding-6-5-adobe-requires-one-message-per-diagram-and-a-one-sentence-figure-caption-and-any",
+      "text": "Adobe requires one message per diagram and a one-sentence figure caption, and anything that does not serve that sentence is cut, including \"for completeness\" nodes [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:69]. The packet asks for the reader's question before drawing [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:75], but never asks for the caption or uses it as a cut test in the reply.",
+      "addedAtIteration": 6,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/figma__architecture-diagram-components/README.md"
+      ]
+    },
+    {
+      "id": "finding-6-3-adobe-says-connectors-recede-always-a-dark-neutral-never-coloured-to-match-an-ad",
+      "text": "Adobe says connectors recede: always a dark neutral, never coloured to match an adjacent node, and repetitive edge labels should be dropped — four or more identical labels should become zero or one [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:44], [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:50]. The packet allows the accent on happy-path connectors [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:83] and does not check redundant labels, so a process diagram can repeat one edge label on every connector and still pass.",
+      "addedAtIteration": 6,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/figma__architecture-diagram-components/README.md"
+      ]
+    },
+    {
+      "id": "finding-6-1-adobe-s-house-style-gives-the-packet-a-selection-procedure-its-rubric-lacks-blue",
+      "text": "Adobe's house style gives the packet a selection procedure its rubric lacks: blue is reserved for \"the one node the diagram exists to explain\", never assigned by habit or position, at most one per diagram, and if two nodes feel equally important the diagram should be split [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:20], [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:22]. The packet's rubric offers a menu of candidates — happy path, riskiest decision, costliest handoff, error state — without a test for choosing one [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:47].",
+      "addedAtIteration": 6,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/figma__architecture-diagram-components/README.md"
+      ]
+    },
+    {
+      "id": "finding-6-4-adobe-s-layout-discipline-adds-three-rules-the-packet-has-no-counterpart-for-a-h",
+      "text": "Adobe's layout discipline adds three rules the packet has no counterpart for: a header label once per column rather than the phase name repeated in every node, consistent node size and corner radius inside one diagram, and parallel chains sharing alignment so they read as restatements of one pattern [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:56]. The packet's process lanes name work handlers but have no column-header rule [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/process.md:58].",
+      "addedAtIteration": 6,
+      "sources": [
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/references/figjam-architecture.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/figma__architecture-diagram-components/README.md"
+      ]
+    },
+    {
+      "id": "finding-7-11-a-flow-request-that-names-an-artifact-crosses-three-routing-surfaces-before-any-",
+      "text": "A Flow request that names an artifact crosses three routing surfaces before any Flow guidance loads: the hub keeps it in the Product Owner packet, that packet's router hands it on, and only then does the FigJam packet's Section 2 pick a type [SOURCE: AI Systems/Product Owner/SKILL.md:60], [SOURCE: AI Systems/Product Owner/AGENTS.md:166]. The hub's own note that this request \"is still read as Flow there\" shows the seam is known, but no artifact context is carried across it.",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/ROUTER.md",
+        "AI Systems/Product Owner/hub-router.json",
+        "AI Systems/Product Owner/mode-registry.json",
+        "AI Systems/Product Owner/AGENTS.md",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/references/routing.md",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/references/story-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md"
+      ]
+    },
+    {
+      "id": "finding-7-6-an-artifact-word-beats-figjam-framing-figjam-wording-beside-another-artifact-s-f",
+      "text": "An artifact word beats FigJam framing: FigJam wording beside another artifact's framing is that artifact's subject, so it never makes a conflict, and the artifact's leaf set loads alone [SOURCE: AI Systems/Product Owner/sk-product-owner/references/routing.md:26], [SOURCE: AI Systems/Product Owner/ROUTER.md:37]. A request such as \"write a runbook with a FigJam process diagram\" therefore never loads Flow Mode, so the diagram cannot be produced by the skill that was asked.",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/ROUTER.md",
+        "AI Systems/Product Owner/hub-router.json",
+        "AI Systems/Product Owner/mode-registry.json",
+        "AI Systems/Product Owner/AGENTS.md",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/references/routing.md",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/references/story-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md"
+      ]
+    },
+    {
+      "id": "finding-7-12-clickup-is-a-separate-vendored-transport-and-the-templates-defer-images-to-click",
+      "text": "ClickUp is a separate vendored transport, and the templates defer images to ClickUp embedding after export, so the only legal cross-system path for a generated board is a link in the artifact's `References` sub-groups, never an attachment [SOURCE: AI Systems/Product Owner/sk-product-owner/assets/story-template.md:103], [SOURCE: AI Systems/Product Owner/ROUTER.md:95]. This bounds any ClickUp integration to a URL written into an artifact, not a file upload.",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/ROUTER.md",
+        "AI Systems/Product Owner/hub-router.json",
+        "AI Systems/Product Owner/mode-registry.json",
+        "AI Systems/Product Owner/AGENTS.md",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/references/routing.md",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/references/story-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md"
+      ]
+    },
+    {
+      "id": "finding-7-7-doc-mode-preserves-only-diagrams-already-supplied-as-text-and-has-no-instruction",
+      "text": "Doc Mode preserves only diagrams already supplied as text and has no instruction to commission a board or insert a board link [SOURCE: AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:275]. The corpus's doc-first pattern — doc authoritative, diagram optional, labels matching the doc, board link written back under a heading — is exactly the missing half [SOURCE: specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md:170].",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/ROUTER.md",
+        "AI Systems/Product Owner/hub-router.json",
+        "AI Systems/Product Owner/mode-registry.json",
+        "AI Systems/Product Owner/AGENTS.md",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/references/routing.md",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/references/story-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md"
+      ]
+    },
+    {
+      "id": "finding-7-2-flow-is-an-explicit-sibling-route-with-its-own-leaf-set-flow-figjam-and-figjam-o",
+      "text": "Flow is an explicit sibling route with its own leaf set: `$flow`, `$figjam` and FigJam output wording load `flow-mode.md` plus `flow-templates.md`, and the packet then adds the chosen type's reference and template [SOURCE: AI Systems/Product Owner/ROUTER.md:33], [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:57].",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/ROUTER.md",
+        "AI Systems/Product Owner/hub-router.json",
+        "AI Systems/Product Owner/mode-registry.json",
+        "AI Systems/Product Owner/AGENTS.md",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/references/routing.md",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/references/story-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md"
+      ]
+    },
+    {
+      "id": "finding-7-1-routing-is-genuinely-two-stage-the-hub-picks-one-of-four-modes-from-the-registry",
+      "text": "Routing is genuinely two-stage: the hub picks one of four modes from the registry and policy, then `ROUTER.md` maps intent to packet-qualified leaves, and the packet's own Section 2 routes inside the packet [SOURCE: AI Systems/Product Owner/SKILL.md:38], [SOURCE: AI Systems/Product Owner/ROUTER.md:21]. The separation is sound and the FigJam packet is a peer mode, not a sub-route of Doc or Task.",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/ROUTER.md",
+        "AI Systems/Product Owner/hub-router.json",
+        "AI Systems/Product Owner/mode-registry.json",
+        "AI Systems/Product Owner/AGENTS.md",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/references/routing.md",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/references/story-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md"
+      ]
+    },
+    {
+      "id": "finding-7-10-stage-one-refuses-ordered-bundles-by-design-orderedbundle-is-never-formed-at-sta",
+      "text": "Stage one refuses ordered bundles by design: `orderedBundle` is never formed at stage one and two packets' signals start in the default mode, which asks which comes first [SOURCE: AI Systems/Product Owner/hub-router.json:15], [SOURCE: AI Systems/Product Owner/SKILL.md:79]. A Story plus its flow therefore costs a question even when the order is obvious: the artifact first, the diagram from it.",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/ROUTER.md",
+        "AI Systems/Product Owner/hub-router.json",
+        "AI Systems/Product Owner/mode-registry.json",
+        "AI Systems/Product Owner/AGENTS.md",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/references/routing.md",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/references/story-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md"
+      ]
+    },
+    {
+      "id": "finding-7-8-story-mode-forbids-the-very-value-a-board-should-supply-it-never-invents-a-figma",
+      "text": "Story Mode forbids the very value a board should supply: it never invents a Figma destination or a ClickUp link, and a Story or Epic never carries an image, a screenshot reference or a file path to one, because images are embedded in ClickUp after export [SOURCE: AI Systems/Product Owner/sk-product-owner/references/story-mode.md:163], [SOURCE: AI Systems/Product Owner/sk-product-owner/assets/story-template.md:103]. A board URL returned later in the same session is not \"supplied\" under this wording, so a Story that asks for a flow cannot legally carry the result.",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/ROUTER.md",
+        "AI Systems/Product Owner/hub-router.json",
+        "AI Systems/Product Owner/mode-registry.json",
+        "AI Systems/Product Owner/AGENTS.md",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/references/routing.md",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/references/story-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md"
+      ]
+    },
+    {
+      "id": "finding-7-5-the-flow-reply-is-terminal-and-self-contained-the-reply-carries-the-board-its-pr",
+      "text": "The Flow reply is terminal and self-contained: \"the reply carries the board, its proof and the self-scan, and nothing else\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:221]. Since no Story, Doc or Task is written afterwards, the produced board URL has no route back into the request that motivated it.",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/ROUTER.md",
+        "AI Systems/Product Owner/hub-router.json",
+        "AI Systems/Product Owner/mode-registry.json",
+        "AI Systems/Product Owner/AGENTS.md",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/references/routing.md",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/references/story-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md"
+      ]
+    },
+    {
+      "id": "finding-7-3-the-handoff-is-prose-not-a-resolvable-resource-the-product-owner-resource-map-st",
+      "text": "The handoff is prose, not a resolvable resource: the Product Owner resource map still lists a FLOW lane, but a guard drops it because the pair lives in the other packet, and Section 2 hands the route over instead [SOURCE: AI Systems/Product Owner/sk-product-owner/references/router-contract.md:146], [SOURCE: AI Systems/Product Owner/sk-product-owner/references/router-contract.md:149], [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:72]. Nothing in the router can load the FigJam packet's leaves itself.",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/ROUTER.md",
+        "AI Systems/Product Owner/hub-router.json",
+        "AI Systems/Product Owner/mode-registry.json",
+        "AI Systems/Product Owner/AGENTS.md",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/references/routing.md",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/references/story-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md"
+      ]
+    },
+    {
+      "id": "finding-7-9-the-registry-records-no-handoff-shape-the-figjam-mode-declares-its-workflowmode-",
+      "text": "The registry records no handoff shape: the FigJam mode declares its `workflowMode`, `packetKind`, `backendKind` as a checked-model board, its tool surface, packet name and aliases, and nothing about inputs, an artifact it serves or a write-back [SOURCE: AI Systems/Product Owner/mode-registry.json:87], [SOURCE: AI Systems/Product Owner/mode-registry.json:102]. Any integration must be invented in prose unless the registry gains a field, even though the registry is already the authority for mode selection.",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/ROUTER.md",
+        "AI Systems/Product Owner/hub-router.json",
+        "AI Systems/Product Owner/mode-registry.json",
+        "AI Systems/Product Owner/AGENTS.md",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/references/routing.md",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/references/story-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md"
+      ]
+    },
+    {
+      "id": "finding-7-4-the-two-halves-have-incompatible-completion-protocols-every-artifact-must-be-sav",
+      "text": "The two halves have incompatible completion protocols: every artifact must be saved to `export/` before the reply, while Flow Mode is the single exemption and saves nothing, answering with the board URL, read-back, `Left out:` line and self-scan [SOURCE: AI Systems/Product Owner/AGENTS.md:37], [SOURCE: AI Systems/Product Owner/AGENTS.md:39], [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:170]. There is no shared artifact between the halves.",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/ROUTER.md",
+        "AI Systems/Product Owner/hub-router.json",
+        "AI Systems/Product Owner/mode-registry.json",
+        "AI Systems/Product Owner/AGENTS.md",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/references/routing.md",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/references/story-mode.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md"
+      ]
+    },
+    {
+      "id": "finding-8-5-adobe-independently-caps-regeneration-at-two-attempts-on-the-same-complaint-and-",
+      "text": "Adobe independently caps regeneration at two attempts on the same complaint and then asks what is specifically wrong or suggests editing in FigJam [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md:161]. Two unrelated skills converging on a two-attempt stop is the strongest evidence in the run that the packet's bound is right, and that unbounded update loops are the failure mode to avoid.",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-8-9-extension-failure-is-explicit-partial-success-the-diagram-stands-and-the-reply-r",
+      "text": "Extension failure is explicit partial success: the diagram stands and the reply reports what landed and what did not [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:249]. This is the formal version of the link-first rule iteration 4 found in the corpus's board-content planning.",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-8-4-mismatch-repair-is-ordered-and-bounded-report-the-measured-counts-delete-the-cre",
+      "text": "Mismatch repair is ordered and bounded: report the measured counts, delete the created nodes, regenerate with the same `fileKey` only after the user agrees, because a second write beside the first duplicates the diagram, and after two attempts at the same diagram stop and ask what is wrong [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:245].",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-8-6-read-back-is-a-model-to-board-comparison-by-count-label-endpoints-direction-and-",
+      "text": "Read-back is a model-to-board comparison by count, label, endpoints, direction and the type's own extras, never a memory comparison [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:211], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:212]. The packet then separates a visual read: when only a screenshot could be read, the line says so, because a picture cannot prove which nodes a connector joins [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:215].",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-8-1-revision-continuity-is-keyed-to-the-file-not-the-session-the-first-call-carries-",
+      "text": "Revision continuity is keyed to the file, not the session: the first call carries no `fileKey` and creates a file, and every later diagram of the same work and every revision passes that file's `fileKey` so the work stays on one board [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:182]. The corpus matches the principle, with `diagram-codebase` reusing one FigJam file for `--resume` and `--update` [SOURCE: specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md:232].",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-8-10-revision-is-all-or-nothing-at-diagram-granularity-the-packet-forbids-moving-a-ge",
+      "text": "Revision is all-or-nothing at diagram granularity: the packet forbids moving a generated node and fixes a bad layout only by splitting or reshaping the model [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:164]. `mermaid-jam` instead preserves manually moved positions on update when ids match and can reset to a deterministic layout [SOURCE: specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md:27], [SOURCE: specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md:83], and `diagram-codebase` regenerates only the diagrams affected by changed files [SOURCE: specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md:192].",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-8-3-rollback-is-scoped-to-what-this-write-created-a-new-file-is-its-own-rollback-an-",
+      "text": "Rollback is scoped to what this write created: a new file is its own rollback, an existing board deletes only the nodes and connectors the write created, through `use_figma` and only after the user agrees, and the run stops if a node to delete was not created by this write [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:186]. No corpus source defines a scoped rollback; `diagram-codebase` instead tracks a manifest with Figma ids and a pending action [SOURCE: specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md:60].",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-8-11-the-fj-fallback-changes-read-back-semantics-every-edge-label-is-its-own-fj-text-",
+      "text": "The `fj` fallback changes read-back semantics: every edge label is its own `fj text` node, which the read-back counts as a label and never as a node [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:196]. The same model therefore produces different counts on the two routes, and the packet says so; the corpus's local plugins hide the distinction.",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-8-13-the-9-node-and-12-connector-budget-with-split-not-shrink-and-ordered-cuts-is-the",
+      "text": "The 9-node and 12-connector budget, with split-not-shrink and ordered cuts, is the strictest density rule in the corpus, and the no-move rule is why: a generator that owns layout cannot be rescued by dragging, so the budget protects legibility before the write [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:162], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:170]. The rubric adds a compression step before any split: two nodes that always travel together are one node [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:39].",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-8-8-the-plan-is-fixed-before-the-write-for-a-stated-disclosure-reason-a-board-in-the",
+      "text": "The plan is fixed before the write for a stated disclosure reason: a board in the wrong plan is visible to that plan's members as soon as it lands [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:253]. No corpus source has a confidentiality gate; `diagram-codebase`'s nearest equivalent is a review file listing what will leave the machine.",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-8-2-the-retry-rule-is-the-strongest-in-the-corpus-because-it-refuses-to-assume-failu",
+      "text": "The retry rule is the strongest in the corpus because it refuses to assume failure means nothing landed: a failed or timed-out call is not proof, the target file is read before a retry, the retry happens only when the diagram is absent, and a failed first call has no `fileKey`, so the user is asked to look for a new draft before any retry [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:183]. `figjam-builder` only halves batch size on timeout [SOURCE: specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md:412].",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-8-7-the-rubric-s-board-check-is-deliberately-narrow-and-visual-one-screenshot-must-s",
+      "text": "The rubric's board check is deliberately narrow and visual: one screenshot must show no stretched shape, no cut label and no overlap with existing board content, and nothing may have been moved, resized or restyled after generation [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:76], [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:78]. Together with finding 6 this gives two checks on one artifact, structural and visual, a division Adobe collapses into a single critic pass.",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-8-12-with-no-route-at-all-the-packet-refuses-a-stand-in-it-names-what-is-missing-offe",
+      "text": "With no route at all the packet refuses a stand-in: it names what is missing, offers the checked model for the user to keep, and never renders the diagram as an image, an HTML page or a Mermaid file [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:203]. Every corpus alternative that hits a wall produces a file instead — Adobe embeds a PNG, `mermaid-jam` writes a board, `figjam-mermaid` emits Mermaid text.",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md",
+        "specs/z-staging-po-016-research/corpus/prasantloki__figjam-builder/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-9-7-clickup-delivery-through-the-connector-is-body-only-and-markdown-aware-create-or",
+      "text": "ClickUp delivery through the connector is body-only and markdown-aware: create or update a task with `markdown_description`, turn the artifact's H1 into the task name, never use the plain `description` field, and read back with `include: [\"description\"]` before reporting delivery [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:242], [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:246]. A board URL is not an artifact body, so this contract gives it no slot of its own.",
+      "addedAtIteration": 9,
+      "sources": [
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/SYNC.md"
+      ]
+    },
+    {
+      "id": "finding-9-2-flow-is-the-one-exception-to-the-deliverable-block-because-its-deliverable-is-a-",
+      "text": "Flow is the one exception to the Deliverable Block, because its deliverable is a board, and the kernel's Flow Mode Delivery reproduces the CLI's reply contract: board URL, `Read-back:`, `Extensions:` when extended, `Left out:` when cut, and the `HVR self-scan:` line, with `Read-back: not possible, the connector has no read tool` when no read tool exists [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:250], [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:254].",
+      "addedAtIteration": 9,
+      "sources": [
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/SYNC.md"
+      ]
+    },
+    {
+      "id": "finding-9-13-the-mcp-click-up-packet-is-deliberately-not-mirrored-into-the-project-because-a-",
+      "text": "The `mcp-click-up` packet is deliberately not mirrored into the Project, because a Project reaches ClickUp through its own connector [SOURCE: AI Systems/Product Owner/SYNC.md:75]. That decision keeps the package small and makes the kernel's ClickUp contract the only Project-side authority, which is why finding 10 must be fixed in the kernel rather than in a mirrored transport file.",
+      "addedAtIteration": 9,
+      "sources": [
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/SYNC.md"
+      ]
+    },
+    {
+      "id": "finding-9-9-the-canonical-slot-already-exists-in-the-artifact-templates-the-story-and-epic-r",
+      "text": "The canonical slot already exists in the artifact templates: the Story and Epic References block has a `Flows` sub-label, and the artifact may carry supplied links but never an image, a screenshot reference or a file path [SOURCE: AI Systems/Product Owner/sk-product-owner/assets/story-template.md:103]. A board URL written under `Flows` is therefore the one legal backlog carrier, and it survives the ClickUp push because the body travels verbatim after the H1 and internal comments are stripped [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:248].",
+      "addedAtIteration": 9,
+      "sources": [
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/SYNC.md"
+      ]
+    },
+    {
+      "id": "finding-9-10-the-clickup-offer-never-fires-for-a-board-the-kernel-offers-clickup-publishing-a",
+      "text": "The ClickUp offer never fires for a board: the kernel offers ClickUp publishing after every Deliverable Block when the connector is present, and Flow Mode renders no block at all, so a generated board can never trigger the offer in a Project [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:236], [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:295]. This is the concrete integration break on Q5's ClickUp half, and it is a one-line addition to Flow Mode Delivery rather than a routing change.",
+      "addedAtIteration": 9,
+      "sources": [
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/SYNC.md"
+      ]
+    },
+    {
+      "id": "finding-9-4-the-flow-knowledge-mirror-states-the-same-fallback-more-tightly-the-block-is-lab",
+      "text": "The Flow Knowledge mirror states the same fallback more tightly: the block is labelled as the model and never as the board, no image or HTML page is a stand-in, and the Desktop `figma-ds-cli` route is unavailable in a Project [SOURCE: AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md:168]. This is the best-worded no-connector rule in the whole system.",
+      "addedAtIteration": 9,
+      "sources": [
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/SYNC.md"
+      ]
+    },
+    {
+      "id": "finding-9-12-the-parity-method-is-manual-and-documented-after-a-skill-change-list-each-skill-",
+      "text": "The parity method is manual and documented: after a skill change, list each skill file against its Project counterpart by name, decide what applies inside a Project, and update the kernel or knowledge file by hand or record why no Project-facing change is needed [SOURCE: AI Systems/Product Owner/SYNC.md:10]. The records also state that the kernel's v1.2.2 review is pending, which is the correct status to carry into the synthesis rather than claiming a reviewed package [SOURCE: AI Systems/Product Owner/SYNC.md:78].",
+      "addedAtIteration": 9,
+      "sources": [
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/SYNC.md"
+      ]
+    },
+    {
+      "id": "finding-9-6-the-project-cannot-run-flow-check-py-so-the-mirror-converts-the-script-into-a-ru",
+      "text": "The Project cannot run `flow_check.py`, so the mirror converts the script into a rule-by-rule check of the model before anything is written [SOURCE: AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md:40]. The substitution is sound, but it makes the Project's check quality depend entirely on mirror fidelity, which is why the parity gate matters more here than in the CLI.",
+      "addedAtIteration": 9,
+      "sources": [
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/SYNC.md"
+      ]
+    },
+    {
+      "id": "finding-9-11-the-project-has-no-hub-which-is-why-the-kernel-carries-the-flow-regexes-directly",
+      "text": "The Project has no hub, which is why the kernel carries the FLOW regexes directly instead of deferring to `ROUTER.md` [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:570]. The stage-two handoff defect from iteration 7 therefore does not reproduce in a Project; the equivalent defect there is the missing ClickUp offer, not a missing route.",
+      "addedAtIteration": 9,
+      "sources": [
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/SYNC.md"
+      ]
+    },
+    {
+      "id": "finding-9-1-the-project-kernel-is-advisory-by-construction-it-cannot-write-or-read-local-fil",
+      "text": "The Project kernel is advisory by construction: it cannot write or read local files, run the CLI runtime or call ClickUp except through the claude.ai connector, renders every deliverable as a Deliverable Block, and never claims a save, verification or push it did not perform [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:2]. This is the correct shape for Q5: the question is not whether a Project can match the CLI, but what it can honestly deliver.",
+      "addedAtIteration": 9,
+      "sources": [
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/SYNC.md"
+      ]
+    },
+    {
+      "id": "finding-9-8-the-transport-does-support-comment-threads-and-attachments-clickup-create-commen",
+      "text": "The transport does support comment threads and attachments: `clickup_create_comment` and the threaded comment tools exist, and `clickup_attach_task_file` plus `clickup_request_attachment_upload` handle files [SOURCE: AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:102], [SOURCE: AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:150]. An attachment is a file upload, not a URL, so the attachment tools are the wrong carrier for a FigJam board; a comment or a body link is the right one.",
+      "addedAtIteration": 9,
+      "sources": [
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/SYNC.md"
+      ]
+    },
+    {
+      "id": "finding-9-5-there-is-a-parity-gap-inside-the-package-the-kernel-s-sentence-omits-the-mirror-",
+      "text": "There is a parity gap inside the package: the kernel's sentence omits the mirror's \"never as the board\" qualifier and its image and HTML ban, so a reader who loads only the kernel gets a weaker rule than one who also retrieves the Knowledge file [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:255], [SOURCE: AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md:168]. The fix is one sentence, not a redesign.",
+      "addedAtIteration": 9,
+      "sources": [
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/SYNC.md"
+      ]
+    },
+    {
+      "id": "finding-9-3-with-no-figma-connector-the-kernel-says-so-never-claims-a-board-exists-and-offer",
+      "text": "With no Figma connector the kernel says so, never claims a board exists, and offers the checked model as a fenced Mermaid block labelled as the model [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:255]. A Project therefore already runs Flow as far as a verified model and returns something the user can keep, which answers the first half of Q5 without new machinery.",
+      "addedAtIteration": 9,
+      "sources": [
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/SYNC.md"
+      ]
+    },
+    {
+      "id": "finding-10-1-rank-1-replace-the-accent-menu-with-an-accent-test-and-a-one-message-caption-the",
+      "text": "**Rank 1 — replace the accent menu with an accent test and a one-message caption.** The packet lists four candidates for its single accent and never says how to choose [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:47]; Adobe states the test as \"the one node the diagram exists to explain\", forbids choosing by position, and requires a one-sentence caption that cuts everything not serving it [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:22], [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:69]. Change `references/style-guide.md` Signal and `references/quality-rubric.md` Section 3, and add the caption to the model and the reply. Evidence: two independent rules, one packet gap, every diagram affected.",
+      "addedAtIteration": 10,
+      "sources": [
+        "specs/z-staging-po-016-research/research/lineages/deepseek/iterations/iteration-001.md through iteration-009.md",
+        "specs/z-staging-po-016-research/research/lineages/deepseek/findings-registry.json",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-10-10-rank-10-integration-offer-clickup-after-a-flow-reply-as-a-link-and-never-an-atta",
+      "text": "**Rank 10 — integration: offer ClickUp after a Flow reply, as a link and never an attachment.** The ClickUp offer follows a Deliverable Block, and Flow renders none, so a board can never trigger it in a Project [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:295], [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:250]. The transport supports comments and file attachments, but an attachment is a file upload [SOURCE: AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:102], [SOURCE: AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:150], so the board URL belongs in a task body's `Flows` group or a comment. Change the kernel's Flow Mode Delivery and `sk-product-owner/references/task-mode.md`.",
+      "addedAtIteration": 10,
+      "sources": [
+        "specs/z-staging-po-016-research/research/lineages/deepseek/iterations/iteration-001.md through iteration-009.md",
+        "specs/z-staging-po-016-research/research/lineages/deepseek/findings-registry.json",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-10-11-rank-11-integration-close-the-no-connector-parity-gap-and-name-the-model-not-boa",
+      "text": "**Rank 11 — integration: close the no-connector parity gap and name the model-not-board rule once.** The Flow Knowledge mirror states the rule correctly — offer the checked model, labelled as the model and never as the board, with no image or HTML stand-in [SOURCE: AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md:168] — while the kernel's sentence offers the block without that qualifier [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:255]. Change the kernel sentence only; the knowledge file already carries the stronger rule.",
+      "addedAtIteration": 10,
+      "sources": [
+        "specs/z-staging-po-016-research/research/lineages/deepseek/iterations/iteration-001.md through iteration-009.md",
+        "specs/z-staging-po-016-research/research/lineages/deepseek/findings-registry.json",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-10-12-rank-12-define-a-revision-as-a-scoped-rewrite-under-the-same-filekey-and-name-wh",
+      "text": "**Rank 12 — define a revision as a scoped rewrite under the same fileKey, and name what cannot be revised.** The packet reuses `fileKey` and deletes only what the write created [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:182], but it has no revision mode: a bad layout is fixed only by splitting or reshaping, never by moving nodes [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:164], while `diagram-codebase` regenerates only affected diagrams [SOURCE: specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/README.md:192] and `mermaid-jam` preserves moved positions [SOURCE: specs/z-staging-po-016-research/corpus/memi-design__mermaid-jam/README.md:27]. Change `references/flow-mode.md` Section 9 to state a revision contract: same fileKey, delete the diagram's own nodes, re-check, re-read, and report what changed.",
+      "addedAtIteration": 10,
+      "sources": [
+        "specs/z-staging-po-016-research/research/lineages/deepseek/iterations/iteration-001.md through iteration-009.md",
+        "specs/z-staging-po-016-research/research/lineages/deepseek/findings-registry.json",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-10-2-rank-2-add-a-redundant-label-rule-and-a-neutral-ordering-ramp-adobe-drops-four-o",
+      "text": "**Rank 2 — add a redundant-label rule and a neutral ordering ramp.** Adobe drops four or more identical edge labels to zero or one and shows precedence as a light-to-dark neutral step rather than one hue per stage [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:36], [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:50]. The packet's style guide only says most diagrams need no colour [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:31], and its process and gantt types have no ordering rule. Change `references/style-guide.md` and the type references' judged-by-hand lists.",
+      "addedAtIteration": 10,
+      "sources": [
+        "specs/z-staging-po-016-research/research/lineages/deepseek/iterations/iteration-001.md through iteration-009.md",
+        "specs/z-staging-po-016-research/research/lineages/deepseek/findings-registry.json",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-10-3-rank-3-add-a-bounded-post-write-critic-pass-the-packet-checks-the-board-for-stru",
+      "text": "**Rank 3 — add a bounded post-write critic pass.** The packet checks the board for structural counts and for visual defects [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:76], but it never re-reads the rendered board against the diagram's one message; Adobe runs a bounded critic on the Mermaid plus a screenshot, applies findings in one batch and stops [SOURCE: specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md:82]. The packet's two-attempt stop already bounds the loop [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:245], so the critic costs one pass. Change `references/quality-rubric.md` Section 6 and `references/flow-mode.md` Section 7.",
+      "addedAtIteration": 10,
+      "sources": [
+        "specs/z-staging-po-016-research/research/lineages/deepseek/iterations/iteration-001.md through iteration-009.md",
+        "specs/z-staging-po-016-research/research/lineages/deepseek/findings-registry.json",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-10-4-rank-4-emit-a-run-manifest-with-the-model-s-audit-trail-the-reply-counts-nodes-a",
+      "text": "**Rank 4 — emit a run manifest with the model's audit trail.** The reply counts nodes and connectors but leaves no durable record of the fileKey, the node ids written, the pending action or which model items were skipped [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:224]. `diagram-codebase` keeps exactly that as a manifest and a publish review, plus a per-diagram content hash [SOURCE: specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md:59], [SOURCE: specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md:60], [SOURCE: specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md:175]. Change `references/flow-mode.md` Section 8, `assets/flow-templates.md` and the check script's output; the manifest is the prerequisite for any later revision mode.",
+      "addedAtIteration": 10,
+      "sources": [
+        "specs/z-staging-po-016-research/research/lineages/deepseek/iterations/iteration-001.md through iteration-009.md",
+        "specs/z-staging-po-016-research/research/lineages/deepseek/findings-registry.json",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-10-5-rank-5-add-a-coverage-and-skipped-report-beside-left-out-diagram-codebase-record",
+      "text": "**Rank 5 — add a coverage and skipped report beside `Left out:`.** `diagram-codebase` records skipped diagram types with reasons and a coverage object of model nodes drawn in which diagram [SOURCE: specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md:148]. The packet's only omission record is the `Left out:` line, which reports cuts but not coverage [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:226]. Change the provenance table and the reply contract so every source item is accounted for as drawn, split or skipped with a reason.",
+      "addedAtIteration": 10,
+      "sources": [
+        "specs/z-staging-po-016-research/research/lineages/deepseek/iterations/iteration-001.md through iteration-009.md",
+        "specs/z-staging-po-016-research/research/lineages/deepseek/findings-registry.json",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-10-6-rank-6-make-the-budget-type-specific-instead-of-one-global-nine-the-packet-appli",
+      "text": "**Rank 6 — make the budget type-specific instead of one global nine.** The packet applies 9 nodes and 12 connectors to every type [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:162], while the corpus allows 25 nodes and 30 edges, 12–20 for a master, and splits oversized diagrams with every omission in notes [SOURCE: specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md:192], [SOURCE: specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md:193]. The evidence supports per-type caps, not a blanket raise: a gantt with dated milestones and an ER with key fields carry more legitimate nodes than a user flow. Change each `references/types/*.md` budget and the check's per-type limits.",
+      "addedAtIteration": 10,
+      "sources": [
+        "specs/z-staging-po-016-research/research/lineages/deepseek/iterations/iteration-001.md through iteration-009.md",
+        "specs/z-staging-po-016-research/research/lineages/deepseek/findings-registry.json",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-10-7-rank-7-integration-write-the-board-url-back-into-the-artifact-that-asked-for-it-",
+      "text": "**Rank 7 — integration: write the board URL back into the artifact that asked for it.** The Flow reply is terminal and carries the board, its proof and the self-scan and nothing else [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:221], and no surface writes the URL into a Story, Epic, Doc or Task. The Story template already has the exact slot — a `Flows` sub-label under References that may carry supplied links and never an image or path [SOURCE: AI Systems/Product Owner/sk-product-owner/assets/story-template.md:103] — and `hferello` shows the doc-first pattern of finishing the doc, then adding a `## Visual diagram` section with the board link [SOURCE: specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md:170], [SOURCE: specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md:173]. Change `sk-product-owner/references/story-mode.md`, `assets/story-template.md` Notes, `references/doc-mode.md` and `references/task-mode.md` so a board produced in the same session counts as a supplied link.",
+      "addedAtIteration": 10,
+      "sources": [
+        "specs/z-staging-po-016-research/research/lineages/deepseek/iterations/iteration-001.md through iteration-009.md",
+        "specs/z-staging-po-016-research/research/lineages/deepseek/findings-registry.json",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-10-8-rank-8-integration-carry-the-artifact-into-flow-mode-as-its-source-a-flow-reques",
+      "text": "**Rank 8 — integration: carry the artifact into Flow Mode as its source.** A Flow request that names an artifact is kept in the Product Owner packet and handed on with no artifact context [SOURCE: AI Systems/Product Owner/SKILL.md:60], so the diagram cannot quote the Story's or Doc's own words. `hferello` makes the markdown doc the source of truth and requires node labels to match it [SOURCE: specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md:166], [SOURCE: specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md:168]. Change `sk-create-figjam/references/flow-mode.md` Section 4 to accept an artifact path or body as a source class, and `sk-product-owner/references/router-contract.md` to pass the artifact reference across the handoff.",
+      "addedAtIteration": 10,
+      "sources": [
+        "specs/z-staging-po-016-research/research/lineages/deepseek/iterations/iteration-001.md through iteration-009.md",
+        "specs/z-staging-po-016-research/research/lineages/deepseek/findings-registry.json",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md"
+      ]
+    },
+    {
+      "id": "finding-10-9-rank-9-integration-define-the-artifact-then-diagram-order-at-stage-one-stage-one",
+      "text": "**Rank 9 — integration: define the artifact-then-diagram order at stage one.** Stage one never forms an ordered bundle, so two packets' signals start in the default mode and cost a question [SOURCE: AI Systems/Product Owner/hub-router.json:15], [SOURCE: AI Systems/Product Owner/SKILL.md:79]. When the request names an artifact and a FigJam output, the order is determined: artifact first, diagram from it. Change the hub stage-one rules and `routerPolicy.outcomes`, plus the `ROUTER.md` tie rule that currently loads the artifact set alone [SOURCE: AI Systems/Product Owner/ROUTER.md:37].",
+      "addedAtIteration": 10,
+      "sources": [
+        "specs/z-staging-po-016-research/research/lineages/deepseek/iterations/iteration-001.md through iteration-009.md",
+        "specs/z-staging-po-016-research/research/lineages/deepseek/findings-registry.json",
+        "AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md",
+        "AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "specs/z-staging-po-016-research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/references/diagram-house-style.md",
+        "specs/z-staging-po-016-research/corpus/ompug__diagram-codebase/docs/DESIGN.md",
+        "specs/z-staging-po-016-research/corpus/hferello__ai/arch-flow/SKILL.md"
+      ]
+    }
+  ],
+  "ruledOutDirections": [
+    {
+      "id": "ruled-out-94e4f2fc903e",
+      "text": "Judging board visual quality from screenshots or board URLs: the run's constraints forbid opening screenshots or board URLs, so every layout claim must come from documentation, code or the scorecard's written thresholds. Visual scoring is treated as an operator step the packet already defines.",
+      "contentHash": "94e4f2fc903e",
+      "addedAtIteration": 1
+    },
+    {
+      "id": "ruled-out-e3663b6558df",
+      "text": "No dead end yet; iteration 1 establishes the baseline. The `manual-testing-playbook` scenario files are numerous and were not needed for the baseline beyond Section 3.",
+      "contentHash": "e3663b6558df",
+      "addedAtIteration": 1
+    },
+    {
+      "id": "ruled-out-1547290b1fc8",
+      "text": "Treating the packet's seven types as the corpus comparison unit alone: type names differ across projects (flowchart/workflow/architecture/state), so later iterations compare by capability and rule, not by label.",
+      "contentHash": "1547290b1fc8",
+      "addedAtIteration": 1
+    },
+    {
+      "id": "ruled-out-fd812dda6a9c",
+      "text": "Copying the documented `mermaid`/`editorType` call shape into the packet: the corpus contradicts itself, and the packet's runtime schema check is the safer rule.",
+      "contentHash": "fd812dda6a9c",
+      "addedAtIteration": 2
+    },
+    {
+      "id": "ruled-out-7b4c72c5efc3",
+      "text": "Looking for a new diagram type in the newer commit: the supported-type set is unchanged (`flowchart`, `sequenceDiagram`, `stateDiagram`, `gantt`, `erDiagram`), so any type-coverage improvement must come from another corpus repo, not from this commit.",
+      "contentHash": "7b4c72c5efc3",
+      "addedAtIteration": 2
+    },
+    {
+      "id": "ruled-out-4c82f4a3fec5",
+      "text": "Treating `skills-figquery/` as an independent second source: it is a byte-identical copy of `skills/` for the diagram skill, so citing both would double-count one source.",
+      "contentHash": "4c82f4a3fec5",
+      "addedAtIteration": 2
+    },
+    {
+      "id": "ruled-out-2b98dfda976c",
+      "text": "Adopting Figma's eighteen-shape vocabulary for a user flow: the packet's four-shape rule is what lets the check assign one meaning per shape, and the corpus itself warns that most Mermaid shapes silently fall back to rectangles.",
+      "contentHash": "2b98dfda976c",
+      "addedAtIteration": 3
+    },
+    {
+      "id": "ruled-out-da4cabb19fce",
+      "text": "Counting `openai__plugins` and `lightspeedwp__.github` as independent evidence: one is identical apart from the hybrid workflow reference, the other an older truncated copy, so citing all three as separate sources would inflate the evidence base.",
+      "contentHash": "da4cabb19fce",
+      "addedAtIteration": 3
+    },
+    {
+      "id": "ruled-out-c9b04efb14ec",
+      "text": "Looking for a per-type read-back in the corpus's type references: none exists; the corpus validates before the call and stops at the tool call.",
+      "contentHash": "c9b04efb14ec",
+      "addedAtIteration": 3
+    },
+    {
+      "id": "ruled-out-21089067d59c",
+      "text": "Building version history into the packet: it is REST-only, requires a personal access token, and therefore cannot be a claude.ai Project capability.",
+      "contentHash": "21089067d59c",
+      "addedAtIteration": 4
+    },
+    {
+      "id": "ruled-out-ebc88e406c7f",
+      "text": "Nothing read this iteration was unusable. `atezer__FMCP` was listed but its skills are design-system and token workflows with no FigJam diagram or read-back surface worth citing here.",
+      "contentHash": "ebc88e406c7f",
+      "addedAtIteration": 4
+    },
+    {
+      "id": "ruled-out-8a82e4448fed",
+      "text": "Treating `get_board_context`'s BM25 retrieval and vision clustering as a read-back model for the packet: those tools interpret a board the packet did not draw, while the packet's read-back has an expected model and exact counts. Their diff and evidence ideas transfer; the retrieval pipeline does not.",
+      "contentHash": "8a82e4448fed",
+      "addedAtIteration": 4
+    },
+    {
+      "id": "ruled-out-76a7413a8c39",
+      "text": "`lauragalera__figjam-erd-plugin` and `bluescaban__blueprints` were listed but not read; their ERD and flow-export surfaces are candidates for a later iteration, not dead ends. The iteration spent its remaining budget on the builder grammar because it bears directly on Q2.",
+      "contentHash": "76a7413a8c39",
+      "addedAtIteration": 5
+    },
+    {
+      "id": "ruled-out-d2a666061c4f",
+      "text": "Adopting `figjam-builder`'s vibrant palette tiers for diagram fills: its vibrant tier is for board signal sections and stickies, while the packet's diagram fills are governed by a measured contrast gate that the vibrant values would fail.",
+      "contentHash": "d2a666061c4f",
+      "addedAtIteration": 5
+    },
+    {
+      "id": "ruled-out-380a4db69062",
+      "text": "Treating `tmcw__figjam-mermaid` as a full read-back: it reads stickies and connectors only, so it cannot verify shapes, sections, tables or labels.",
+      "contentHash": "380a4db69062",
+      "addedAtIteration": 5
+    },
+    {
+      "id": "ruled-out-c608cd308218",
+      "text": "Adopting Adobe's full export-and-embed pipeline inside Flow Mode: it conflicts with the packet's no-file rule and needs a site build; it belongs to a Doc or publication route, not to the board reply.",
+      "contentHash": "c608cd308218",
+      "addedAtIteration": 6
+    },
+    {
+      "id": "ruled-out-9274339a85a3",
+      "text": "No dead end. The component library was thin on rules but useful as a capability boundary.",
+      "contentHash": "9274339a85a3",
+      "addedAtIteration": 6
+    },
+    {
+      "id": "ruled-out-3d2f1bc4698a",
+      "text": "Treating the architecture component library as a rule source: it is a manual asset library, and its variants cannot be generated.",
+      "contentHash": "3d2f1bc4698a",
+      "addedAtIteration": 6
+    },
+    {
+      "id": "ruled-out-44046a35a516",
+      "text": "No dead end. The routing files were long but each answered a specific question.",
+      "contentHash": "44046a35a516",
+      "addedAtIteration": 7
+    },
+    {
+      "id": "ruled-out-e580831fad51",
+      "text": "Proposing a file attachment pipeline into ClickUp: the templates forbid images and image paths in artifacts, so a link is the only legal carrier.",
+      "contentHash": "e580831fad51",
+      "addedAtIteration": 7
+    },
+    {
+      "id": "ruled-out-fa5b0af5dbb1",
+      "text": "Treating the Flow lane in `router-contract.md` as loadable: the guard drops it by design and the lane exists only for Project knowledge naming.",
+      "contentHash": "fa5b0af5dbb1",
+      "addedAtIteration": 7
+    },
+    {
+      "id": "ruled-out-bfda4304d950",
+      "text": "Adopting a preserve-positions update model inside Flow Mode: the packet's generator owns layout, so preserved positions cannot be reconciled with its no-move rule without a hand-built route it does not have.",
+      "contentHash": "bfda4304d950",
+      "addedAtIteration": 8
+    },
+    {
+      "id": "ruled-out-bcbdb886e382",
+      "text": "No dead end. The packet's Sections 5 to 9 answered the question directly and the corpus supplied only two genuine divergences.",
+      "contentHash": "bcbdb886e382",
+      "addedAtIteration": 8
+    },
+    {
+      "id": "ruled-out-f7107c3f4dae",
+      "text": "Replacing the model-to-board read-back with a screenshot-only check: the packet's own rule states a picture cannot prove which nodes a connector joins.",
+      "contentHash": "f7107c3f4dae",
+      "addedAtIteration": 8
+    },
+    {
+      "id": "ruled-out-23b700db2465",
+      "text": "Attaching a screenshot of the board to a ClickUp task as the carrier: the artifact rules forbid images and image paths, and a picture cannot prove joins.",
+      "contentHash": "23b700db2465",
+      "addedAtIteration": 9
+    },
+    {
+      "id": "ruled-out-a7c427cafdcf",
+      "text": "Building a Project-side check script substitute beyond the rule-by-rule mirror: the mirror already converts the script's checks and a Project cannot execute one.",
+      "contentHash": "a7c427cafdcf",
+      "addedAtIteration": 9
+    },
+    {
+      "id": "ruled-out-8a7d247dba95",
+      "text": "Mirroring `mcp-click-up` into the Project: a Project uses its own connector and the packet's CLI verbs do not exist there.",
+      "contentHash": "8a7d247dba95",
+      "addedAtIteration": 9
+    },
+    {
+      "id": "ruled-out-5b9592a350da",
+      "text": "No dead end. The kernel and mirror were both explicit, and the only gap was a sentence.",
+      "contentHash": "5b9592a350da",
+      "addedAtIteration": 9
+    },
+    {
+      "id": "ruled-out-5c9bbcdf433b",
+      "text": "No dead end. The ranking was constrained by evidence strength, not by missing material.",
+      "contentHash": "5c9bbcdf433b",
+      "addedAtIteration": 10
+    },
+    {
+      "id": "ruled-out-85cb69eeda87",
+      "text": "Proposing a new packet for diagrams. The hub already routes Flow to a sibling packet, and the integration findings are fixes inside existing files.",
+      "contentHash": "85cb69eeda87",
+      "addedAtIteration": 10
+    },
+    {
+      "id": "ruled-out-f4b843678dca",
+      "text": "Ranking the source-coverage gaps above the delivery gaps. Coverage reporting is valuable, but the manifest (Rank 4) is what makes coverage trustworthy.",
+      "contentHash": "f4b843678dca",
+      "addedAtIteration": 10
+    }
+  ],
+  "rejectedPatterns": [],
+  "rejectedPatternIndex": {
+    "maxEntries": 100,
+    "fuzzyThreshold": 0.85,
+    "entries": []
+  },
+  "rejectedPatternWarnings": [],
+  "suppressedCandidates": [],
+  "minIdeaObservations": 2,
+  "observedIdeas": [],
+  "promotedIdeas": [],
+  "suppressedIdeas": [],
+  "blockedStopHistory": [],
+  "graphConvergenceScore": 0,
+  "graphDecision": null,
+  "graphBlockers": [],
+  "divergence": {
+    "started": [],
+    "completed": [],
+    "failed": [],
+    "overrides": [],
+    "saturatedDirections": [],
+    "remainingFrontier": [],
+    "currentFocus": "",
+    "activePivotId": null,
+    "activeSourceIteration": null
+  },
+  "metrics": {
+    "iterationsCompleted": 10,
+    "openQuestions": 0,
+    "resolvedQuestions": 5,
+    "carriedForwardOpenQuestions": 11,
+    "keyFindings": 119,
+    "rejectedPatterns": 0,
+    "suppressedCandidates": 0,
+    "observedIdeas": 0,
+    "promotedIdeas": 0,
+    "suppressedIdeas": 0,
+    "convergenceScore": 0.42,
+    "coverageBySources": {
+      "other": 62
+    },
+    "completedPivots": 0,
+    "failedPivots": 0,
+    "pivotOverrides": 0
+  },
+  "corruptionWarnings": [],
+  "inboxPath": "/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/z-staging-po-016-research/research/lineages/deepseek/inbox.jsonl",
+  "inboxWarnings": [],
+  "status": "COMPLETE",
+  "advisoryEvents": [],
+  "strategyWarnings": []
+}

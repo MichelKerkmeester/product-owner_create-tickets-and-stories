@@ -1,0 +1,826 @@
+{
+  "sessionId": "fanout-luna-1792443686484-iqx882",
+  "parentSessionId": null,
+  "lineageMode": "new",
+  "generation": 1,
+  "continuedFromRun": null,
+  "terminalStop": null,
+  "keyQuestions": [
+    {
+      "id": "question-1-what-figjam-creation-and-editing-capabilities-and-limits-does-the-local-figma-mc",
+      "inboxId": null,
+      "text": "What FigJam creation and editing capabilities and limits does the local Figma MCP expose?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 1,
+      "resolved": true
+    },
+    {
+      "id": "question-2-how-should-product-owner-ingest-screenshots-figma-flows-and-product-documentatio",
+      "inboxId": null,
+      "text": "How should Product Owner ingest screenshots, Figma flows, and product documentation into a FigJam-only output?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 2,
+      "resolved": true
+    },
+    {
+      "id": "question-3-which-sk-design-diagram-flowchart-rules-transfer-to-figjam-and-what-must-be-adap",
+      "inboxId": null,
+      "text": "Which sk-design-diagram flowchart rules transfer to FigJam, and what must be adapted?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 3,
+      "resolved": true
+    },
+    {
+      "id": "question-4-how-should-product-owner-embed-mcp-figma-and-sync-improvements-to-skilled-across",
+      "inboxId": null,
+      "text": "How should Product Owner embed mcp-figma and sync improvements to .skilled across the two git repositories?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 4,
+      "resolved": true
+    },
+    {
+      "id": "question-5-what-should-product-owner-copy-or-avoid-from-media-editor-s-claude-code-plugin-a",
+      "inboxId": null,
+      "text": "What should Product Owner copy or avoid from Media Editor’s Claude Code plugin and Moneybird Accountant’s parent hub?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 8,
+      "resolved": true
+    }
+  ],
+  "openQuestions": [],
+  "resolvedQuestions": [
+    {
+      "id": "question-1-what-figjam-creation-and-editing-capabilities-and-limits-does-the-local-figma-mc",
+      "inboxId": null,
+      "text": "What FigJam creation and editing capabilities and limits does the local Figma MCP expose?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 1
+    },
+    {
+      "id": "question-2-how-should-product-owner-ingest-screenshots-figma-flows-and-product-documentatio",
+      "inboxId": null,
+      "text": "How should Product Owner ingest screenshots, Figma flows, and product documentation into a FigJam-only output?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 2
+    },
+    {
+      "id": "question-3-which-sk-design-diagram-flowchart-rules-transfer-to-figjam-and-what-must-be-adap",
+      "inboxId": null,
+      "text": "Which sk-design-diagram flowchart rules transfer to FigJam, and what must be adapted?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 3
+    },
+    {
+      "id": "question-4-how-should-product-owner-embed-mcp-figma-and-sync-improvements-to-skilled-across",
+      "inboxId": null,
+      "text": "How should Product Owner embed mcp-figma and sync improvements to .skilled across the two git repositories?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 4
+    },
+    {
+      "id": "question-5-what-should-product-owner-copy-or-avoid-from-media-editor-s-claude-code-plugin-a",
+      "inboxId": null,
+      "text": "What should Product Owner copy or avoid from Media Editor’s Claude Code plugin and Moneybird Accountant’s parent hub?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 8
+    }
+  ],
+  "carriedForwardOpenQuestions": [
+    {
+      "text": "Which sk-design-diagram flowchart rules transfer to FigJam, and what must be adapted?",
+      "addedAtIteration": 1,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "How should Product Owner embed mcp-figma and sync improvements to .skilled across the two git repositories?",
+      "addedAtIteration": 1,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "What should Product Owner copy or avoid from Media Editor’s Claude Code plugin and Moneybird Accountant’s parent hub?",
+      "addedAtIteration": 1,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "How should Product Owner ingest screenshots, Figma flows, and product documentation into a FigJam-only output?",
+      "addedAtIteration": 1,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Which concrete risks should gate the build phases?",
+      "addedAtIteration": 4,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Which build risks should block or sequence the proposed phases?",
+      "addedAtIteration": 5,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "What should Product Owner copy or avoid from Moneybird Accountant’s parent hub?",
+      "addedAtIteration": 5,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Which routing mistakes did Moneybird’s reviews uncover, and which of its controls should Product Owner adopt?",
+      "addedAtIteration": 6,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Which combined architecture risks should sequence the build phases?",
+      "addedAtIteration": 6,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "What integrated risks and ordered implementation phases best fit the findings so far?",
+      "addedAtIteration": 7,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Whether the current installed figma-ds-cli build exposes the documented FigJam arguments and can safely create/read back a representative board; this run did not perform a live CLI or board check. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:165] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:95]",
+      "addedAtIteration": 8,
+      "source": "iteration-markdown"
+    }
+  ],
+  "uncoveredQuestions": [],
+  "keyFindings": [
+    {
+      "id": "finding-1-3-the-figjam-cli-namespace-separates-read-operations-fj-list-info-nodes-from-write",
+      "text": "The FigJam CLI namespace separates read operations (fj list, info, nodes) from write operations (sticky, shape, text, connect, move, update); fj delete is destructive and fj eval is arbitrary execution. This gives a documented FigJam-native output surface while keeping the risk class visible per operation. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149]",
+      "addedAtIteration": 1,
+      "sources": [
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:18, 32, 42, 46, 54, 62",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17, 32-35, 95-114, 146-148",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152, 181-191",
+        ".skilled/skills/mcp-tooling/mcp-figma/feature-catalog/render-and-create/render-and-create.md:18-36"
+      ]
+    },
+    {
+      "id": "finding-1-4-the-figjam-writing-route-inherits-desktop-and-version-dependencies-the-skill-say",
+      "text": "The FigJam-writing route inherits Desktop and version dependencies: the skill says the CLI needs Figma Desktop installed and open, and its complete command surface requires figma-ds-cli 1.2.0 from the silships repository because npm only publishes a minimal 1.0.0 build. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:18] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:54]",
+      "addedAtIteration": 1,
+      "sources": [
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:18, 32, 42, 46, 54, 62",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17, 32-35, 95-114, 146-148",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152, 181-191",
+        ".skilled/skills/mcp-tooling/mcp-figma/feature-catalog/render-and-create/render-and-create.md:18-36"
+      ]
+    },
+    {
+      "id": "finding-1-5-the-local-figma-skill-requires-confirmation-an-explicit-target-and-a-rollback-no",
+      "text": "The local Figma skill requires confirmation, an explicit target, and a rollback note before FigJam write verbs; destructive actions and arbitrary evaluation have stricter explicit-request rules. Product Owner should therefore separate source interpretation from board mutation and define how a user authorizes the target board before any generated output is written. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:181] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:190]",
+      "addedAtIteration": 1,
+      "sources": [
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:18, 32, 42, 46, 54, 62",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17, 32-35, 95-114, 146-148",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152, 181-191",
+        ".skilled/skills/mcp-tooling/mcp-figma/feature-catalog/render-and-create/render-and-create.md:18-36"
+      ]
+    },
+    {
+      "id": "finding-1-1-the-local-mcp-figma-contract-makes-framelink-mcp-an-optional-read-context-path-i",
+      "text": "The local mcp-figma contract makes Framelink MCP an optional read-context path into the agent and keeps Figma Desktop CLI as the primary author, modify, and export surface. The documented MCP route therefore cannot create FigJam by itself; a FigJam-only workflow needs the CLI FigJam surface as its board-writing step. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:32] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:42]",
+      "addedAtIteration": 1,
+      "sources": [
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:18, 32, 42, 46, 54, 62",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17, 32-35, 95-114, 146-148",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152, 181-191",
+        ".skilled/skills/mcp-tooling/mcp-figma/feature-catalog/render-and-create/render-and-create.md:18-36"
+      ]
+    },
+    {
+      "id": "finding-1-2-the-local-wiring-notes-identify-two-live-confirmed-framelink-tools-figma-get-fig",
+      "text": "The local wiring notes identify two live-confirmed Framelink tools: figma_get_figma_data and figma_download_figma_images. The tool names and schemas are not pinned; the manual warns to discover the registered tool list and call schema before use because the package is @latest. The cited live discovery is dated 2026-06-14, so this run does not treat it as current runtime verification. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:95] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:112]",
+      "addedAtIteration": 1,
+      "sources": [
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:18, 32, 42, 46, 54, 62",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:17, 32-35, 95-114, 146-148",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152, 181-191",
+        ".skilled/skills/mcp-tooling/mcp-figma/feature-catalog/render-and-create/render-and-create.md:18-36"
+      ]
+    },
+    {
+      "id": "finding-2-5-figjam-only-output-needs-a-dedicated-flow-route-or-explicit-mode-boundary-curren",
+      "text": "FigJam-only output needs a dedicated flow route or explicit mode boundary: current Product Owner Doc Mode promises one Markdown artifact and a Markdown export path, while the parent spec excludes HTML/SVG and requires FigJam as the only output. Keep any normalization model internal and place source/status notes in FigJam text or stickies so the board remains the sole deliverable. [SOURCE: AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:64] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:79] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:82] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149] [INFERENCE: based on those sources]",
+      "addedAtIteration": 2,
+      "sources": [
+        ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:32-43, 93-114, 124-148",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:237-250, 348-358",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:64-68, 139-188, 200-244",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:195-216",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:77-83"
+      ]
+    },
+    {
+      "id": "finding-2-2-for-a-figma-flow-accept-a-figma-url-extract-its-filekey-and-optional-nodeid-disc",
+      "text": "For a Figma flow, accept a Figma URL, extract its fileKey and optional nodeId, discover the live tool schema, then read the smallest relevant node scope and referenced images. The local manual says tools and schemas can change under @latest and recommends node-scoped reads when the schema permits because responses can be token-heavy. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:95] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:129] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:146]",
+      "addedAtIteration": 2,
+      "sources": [
+        ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:32-43, 93-114, 124-148",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:237-250, 348-358",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:64-68, 139-188, 200-244",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:195-216",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:77-83"
+      ]
+    },
+    {
+      "id": "finding-2-4-for-product-docs-classify-each-material-claim-as-current-behavior-approved-direc",
+      "text": "For product docs, classify each material claim as current behavior, approved direction, proposal, retired, or unknown; keep status markers with the claim, and stop silent reconciliation when no scoped source authority resolves a conflict. This provides the source-to-transition evidence rules for a FigJam flow derived from written requirements. [SOURCE: AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:141] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:168] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:181]",
+      "addedAtIteration": 2,
+      "sources": [
+        ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:32-43, 93-114, 124-148",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:237-250, 348-358",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:64-68, 139-188, 200-244",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:195-216",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:77-83"
+      ]
+    },
+    {
+      "id": "finding-2-1-input-handling-should-branch-by-source-type-before-flow-synthesis-local-figma-mc",
+      "text": "Input handling should branch by source type before flow synthesis: local Figma MCP provides Figma file/node context, while Product Owner Doc Mode supplies source classification and authority rules for written product material. Treating all three inputs as the same MCP payload would cross two documented boundaries. [INFERENCE: based on .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:32 and AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:141]",
+      "addedAtIteration": 2,
+      "sources": [
+        ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:32-43, 93-114, 124-148",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:237-250, 348-358",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:64-68, 139-188, 200-244",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:195-216",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:77-83"
+      ]
+    },
+    {
+      "id": "finding-2-3-the-local-mcp-manual-documents-file-node-retrieval-and-downloading-figma-referen",
+      "text": "The local MCP manual documents file/node retrieval and downloading Figma-referenced images, but no direct screenshot-upload or OCR tool. The separate screenshot-url CLI command captures a URL or recreates a webpage into Figma, so it does not establish a supported path for arbitrary attached screenshots. Use screenshots as visual source evidence and keep unobserved transitions marked unknown until supported. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:112] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:250] [INFERENCE: based on .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:112 and AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:149]",
+      "addedAtIteration": 2,
+      "sources": [
+        ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:32-43, 93-114, 124-148",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:237-250, 348-358",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:64-68, 139-188, 200-244",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:195-216",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:77-83"
+      ]
+    },
+    {
+      "id": "finding-3-3-carry-over-restraint-and-readable-density-but-convert-the-existing-9-node-split-",
+      "text": "Carry over restraint and readable density, but convert the existing 9-node split heuristic and 4px grid into FigJam layout guidance instead of treating them as proven FigJam limits. The diagram skill defines one idea per node, removable redundant links, a target density of 4/10, and a 4px grid in its own coordinate system. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:260] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:266] [INFERENCE: FigJam has a different canvas and command model, documented at .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149]",
+      "addedAtIteration": 3,
+      "sources": [
+        ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:17-37",
+        ".skilled/skills/sk-design/sk-design-diagram/SKILL.md:228-250, 260-272, 289-305",
+        ".skilled/skills/sk-design/sk-design-diagram/references/foundations/output-spec.md:23-49",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348"
+      ]
+    },
+    {
+      "id": "finding-3-4-do-not-carry-over-the-existing-delivery-mechanics-format-presets-and-svg-viewbox",
+      "text": "Do not carry over the existing delivery mechanics: format presets and SVG viewBoxes, HTML wrappers, SVG role/aria/title/desc markup, mandatory inline masks, HTML/SVG validators, and corpus checks are tied to the current HTML/SVG or ASCII formats. A FigJam-only mode needs a board-native quality gate and FigJam read-back, not an HTML/SVG export sidecar. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:235] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:241] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:270] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/foundations/output-spec.md:23]",
+      "addedAtIteration": 3,
+      "sources": [
+        ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:17-37",
+        ".skilled/skills/sk-design/sk-design-diagram/SKILL.md:228-250, 260-272, 289-305",
+        ".skilled/skills/sk-design/sk-design-diagram/references/foundations/output-spec.md:23-49",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348"
+      ]
+    },
+    {
+      "id": "finding-3-2-keep-connector-legibility-rules-favor-orthogonal-paths-keep-each-branch-label-cl",
+      "text": "Keep connector legibility rules: favor orthogonal paths, keep each branch label clear of its connector, prevent overlaps and hidden routes, fan connectors apart at shared node edges, and route around unrelated nodes. These are semantic readability constraints; the SVG-specific bend radii, pixel gaps, mask rectangles, and bridge-path recipe need FigJam-native equivalents and should not be copied literally. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:291] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:295] [INFERENCE: based on the SVG geometry in those rules and .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150]",
+      "addedAtIteration": 3,
+      "sources": [
+        ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:17-37",
+        ".skilled/skills/sk-design/sk-design-diagram/SKILL.md:228-250, 260-272, 289-305",
+        ".skilled/skills/sk-design/sk-design-diagram/references/foundations/output-spec.md:23-49",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348"
+      ]
+    },
+    {
+      "id": "finding-3-5-the-documented-figjam-surface-exposes-read-verbs-list-info-nodes-write-verbs-sti",
+      "text": "The documented FigJam surface exposes read verbs (list, info, nodes), write verbs (sticky, shape, text, connect, move, update), destructive delete, and arbitrary eval, but the summary does not pin shape types or connector-routing parameters. Verify those details with the live CLI help before designing the adapter; route ordinary generation through named shape/text/connect commands and keep delete/eval out of the default path. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:152] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:265]",
+      "addedAtIteration": 3,
+      "sources": [
+        ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:17-37",
+        ".skilled/skills/sk-design/sk-design-diagram/SKILL.md:228-250, 260-272, 289-305",
+        ".skilled/skills/sk-design/sk-design-diagram/references/foundations/output-spec.md:23-49",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348"
+      ]
+    },
+    {
+      "id": "finding-3-1-the-flowchart-grammar-transfers-start-end-action-decision-and-merge-each-retain-",
+      "text": "The flowchart grammar transfers: start/end, action, decision, and merge each retain distinct shape roles; the flow stays top-to-bottom; every decision exit is labeled; and a diamond has at most three exits. Color remains an accent rather than a type code. Map these semantics to FigJam-native shapes after confirming the available shape variants. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:20] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:25] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:30]",
+      "addedAtIteration": 3,
+      "sources": [
+        ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:17-37",
+        ".skilled/skills/sk-design/sk-design-diagram/SKILL.md:228-250, 260-272, 289-305",
+        ".skilled/skills/sk-design/sk-design-diagram/references/foundations/output-spec.md:23-49",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348"
+      ]
+    },
+    {
+      "id": "finding-4-2-copying-mcp-figma-s-instructions-does-not-provide-its-tools-product-owner-curren",
+      "text": "Copying mcp-figma’s instructions does not provide its tools: Product Owner currently declares Read, Write, Edit, Glob, Grep, WebFetch, and WebSearch, while mcp-figma declares Bash and Code Mode MCP; its documented CLI path also depends on an open Figma Desktop file, Node.js 18 or newer, and the full CLI version. Make the plugin/runtime expose and verify those dependencies before the FigJam route claims generation capability. [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:4] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:4] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:5] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:18] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:54] [INFERENCE: copied skill instructions do not themselves add missing runtime tools]",
+      "addedAtIteration": 4,
+      "sources": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:1-5, 42-111, 330-344",
+        "AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:1-11",
+        "AI Systems/Product Owner/SYNC.md:6-18",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:60-84",
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:1-18, 89-111",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152"
+      ]
+    },
+    {
+      "id": "finding-4-1-product-owner-routes-one-primary-intent-to-one-resource-lane-and-discovers-routa",
+      "text": "Product Owner routes one primary intent to one resource lane and discovers routable material from references and assets; its manifest declares references, assets, and the manual-testing playbook as its leaf roots, so embedding mcp-figma requires an explicit FigJam route and resource inventory rather than an unreferenced folder copy. [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:44] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:103] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:109] [SOURCE: AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:4] [SOURCE: AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:11]",
+      "addedAtIteration": 4,
+      "sources": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:1-5, 42-111, 330-344",
+        "AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:1-11",
+        "AI Systems/Product Owner/SYNC.md:6-18",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:60-84",
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:1-18, 89-111",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152"
+      ]
+    },
+    {
+      "id": "finding-4-4-product-owner-s-sync-md-governs-manual-parity-from-its-skill-sources-to-the-clau",
+      "text": "Product Owner’s SYNC.md governs manual parity from its skill sources to the Claude Project kernel and knowledge files; it says the compiler is retired and keeps no manifest, lock, or checksum ledger, so this procedure does not solve the separate cross-repository vendoring problem. Document vendor sync independently from Claude Project review. [SOURCE: AI Systems/Product Owner/SYNC.md:8] [SOURCE: AI Systems/Product Owner/SYNC.md:10] [SOURCE: AI Systems/Product Owner/SYNC.md:15]",
+      "addedAtIteration": 4,
+      "sources": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:1-5, 42-111, 330-344",
+        "AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:1-11",
+        "AI Systems/Product Owner/SYNC.md:6-18",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:60-84",
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:1-18, 89-111",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152"
+      ]
+    },
+    {
+      "id": "finding-4-5-the-figjam-specification-names-the-shared-skilled-copy-as-the-current-source-and",
+      "text": "The FigJam specification names the shared .skilled copy as the current source and asks for changes to flow back from Product Owner; read-only Git-root discovery confirms these are separate repositories, so a low-friction sync helper should take explicit source and destination roots, offer a drift check and patch export, refuse ambiguous/diverged files, and update the vendored copy only after the shared-source change is reviewed and accepted. [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:64] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:67] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:83] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:2] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:6] [INFERENCE: read-only git rev-parse showed different repository roots; a reviewed patch followed by re-vendoring preserves the shared source as authority]",
+      "addedAtIteration": 4,
+      "sources": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:1-5, 42-111, 330-344",
+        "AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:1-11",
+        "AI Systems/Product Owner/SYNC.md:6-18",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:60-84",
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:1-18, 89-111",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152"
+      ]
+    },
+    {
+      "id": "finding-4-3-the-upstream-skill-covers-broad-figma-authoring-modification-export-and-optional",
+      "text": "The upstream skill covers broad Figma authoring, modification, export, and optional context retrieval, while the Product Owner specification requires FigJam as the only output; retain a verbatim vendored upstream subtree and put the output restriction in a narrow Product Owner FigJam route/adapter that exposes only named FigJam commands by default. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:14] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:89] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:152] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:77] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:82] [INFERENCE: a thin route keeps product-specific limits from forking upstream Figma behavior]",
+      "addedAtIteration": 4,
+      "sources": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:1-5, 42-111, 330-344",
+        "AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:1-11",
+        "AI Systems/Product Owner/SYNC.md:6-18",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:60-84",
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:1-18, 89-111",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149-152"
+      ]
+    },
+    {
+      "id": "finding-5-3-do-not-reproduce-media-editor-s-platform-bundle-unless-product-owner-needs-a-cus",
+      "text": "Do not reproduce Media Editor’s platform bundle unless Product Owner needs a custom FigJam server: Media Editor builds a platform-specific server bundle and plugin shim around its own runtime, while mcp-figma documents an already-installed figma-ds-cli that requires Figma Desktop, Node.js, and version 1.2.0 or newer; for this workflow, a thin plugin should preflight that existing CLI and expose the FigJam route. [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:31] [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:38] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:4] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:18] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:54] [INFERENCE: the current FigJam command surface is external, so bundling Media Editor’s separate server would add an unnecessary runtime]",
+      "addedAtIteration": 5,
+      "sources": [
+        "AI Systems/Media Editor/runtime/claude-plugin/README.md:7-25, 29-52, 70-95",
+        "AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/plugin.json:1-9",
+        "AI Systems/Media Editor/runtime/scripts/build-plugin.ts:337-433",
+        "AI Systems/Media Editor/runtime/tests/packaging/build-plugin.vitest.ts:418-440",
+        "AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:48-59, 143-155, 194-203",
+        "AI Systems/Product Owner/SYNC.md:8-15",
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:4-18, 54"
+      ]
+    },
+    {
+      "id": "finding-5-4-keep-the-claude-code-plugin-and-product-owner-s-claude-project-packaging-as-sepa",
+      "text": "Keep the Claude Code plugin and Product Owner’s Claude Project packaging as separate targets: Media Editor documents that the bin plugin does not install in claude.ai or Cowork and uses its Desktop extension there, while Product Owner’s SYNC.md separately governs manually authored Project mirrors. [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:15] [SOURCE: AI Systems/Product Owner/SYNC.md:8] [SOURCE: AI Systems/Product Owner/SYNC.md:10]",
+      "addedAtIteration": 5,
+      "sources": [
+        "AI Systems/Media Editor/runtime/claude-plugin/README.md:7-25, 29-52, 70-95",
+        "AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/plugin.json:1-9",
+        "AI Systems/Media Editor/runtime/scripts/build-plugin.ts:337-433",
+        "AI Systems/Media Editor/runtime/tests/packaging/build-plugin.vitest.ts:418-440",
+        "AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:48-59, 143-155, 194-203",
+        "AI Systems/Product Owner/SYNC.md:8-15",
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:4-18, 54"
+      ]
+    },
+    {
+      "id": "finding-5-5-media-editor-s-shipped-binary-review-found-an-ffmpeg-9-output-format-change-that",
+      "text": "Media Editor’s shipped-binary review found an ffmpeg 9 output-format change that made ten filter-gated tools appear unavailable, and its dated summary records 39 tools while the current packaging test expects 40; Product Owner should smoke-test the actual installed figma-ds-cli version and FigJam read/write calls, and keep dated evidence distinct from current source assertions. [SOURCE: AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:59] [SOURCE: AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:150] [SOURCE: AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:153] [SOURCE: AI Systems/Media Editor/runtime/tests/packaging/build-plugin.vitest.ts:423] [SOURCE: AI Systems/Media Editor/runtime/tests/packaging/build-plugin.vitest.ts:432] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:18] [INFERENCE: current runtime behavior must be checked independently of a dated report or static assertion]",
+      "addedAtIteration": 5,
+      "sources": [
+        "AI Systems/Media Editor/runtime/claude-plugin/README.md:7-25, 29-52, 70-95",
+        "AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/plugin.json:1-9",
+        "AI Systems/Media Editor/runtime/scripts/build-plugin.ts:337-433",
+        "AI Systems/Media Editor/runtime/tests/packaging/build-plugin.vitest.ts:418-440",
+        "AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:48-59, 143-155, 194-203",
+        "AI Systems/Product Owner/SYNC.md:8-15",
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:4-18, 54"
+      ]
+    },
+    {
+      "id": "finding-5-2-reuse-the-source-to-plugin-copy-check-but-keep-it-as-a-separate-step-from-the-cr",
+      "text": "Reuse the source-to-plugin copy check, but keep it as a separate step from the cross-repository vendor sync: Media Editor replaces the generated skills folder, copies its tracked skill, compares shipped-file hashes, rejects a mismatching copy, and verifies package/plugin/server versions before writing the output. [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:83] [SOURCE: AI Systems/Media Editor/runtime/scripts/build-plugin.ts:337] [SOURCE: AI Systems/Media Editor/runtime/scripts/build-plugin.ts:363] [SOURCE: AI Systems/Media Editor/runtime/scripts/build-plugin.ts:402] [SOURCE: AI Systems/Media Editor/runtime/scripts/build-plugin.ts:408] [SOURCE: AI Systems/Media Editor/runtime/scripts/build-plugin.ts:411]",
+      "addedAtIteration": 5,
+      "sources": [
+        "AI Systems/Media Editor/runtime/claude-plugin/README.md:7-25, 29-52, 70-95",
+        "AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/plugin.json:1-9",
+        "AI Systems/Media Editor/runtime/scripts/build-plugin.ts:337-433",
+        "AI Systems/Media Editor/runtime/tests/packaging/build-plugin.vitest.ts:418-440",
+        "AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:48-59, 143-155, 194-203",
+        "AI Systems/Product Owner/SYNC.md:8-15",
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:4-18, 54"
+      ]
+    },
+    {
+      "id": "finding-5-1-the-reusable-plugin-shell-is-a-claude-code-plugin-manifest-and-readme-plus-a-ski",
+      "text": "The reusable plugin shell is a Claude Code plugin manifest and README plus a skills folder and optional bin shim; Claude Code adds the plugin bin folder to Bash PATH, and the Media Editor plugin is explicitly Claude Code-only because its bin-based command is not installed by claude.ai or Cowork. [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:9] [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:15] [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:70]",
+      "addedAtIteration": 5,
+      "sources": [
+        "AI Systems/Media Editor/runtime/claude-plugin/README.md:7-25, 29-52, 70-95",
+        "AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/plugin.json:1-9",
+        "AI Systems/Media Editor/runtime/scripts/build-plugin.ts:337-433",
+        "AI Systems/Media Editor/runtime/tests/packaging/build-plugin.vitest.ts:418-440",
+        "AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:48-59, 143-155, 194-203",
+        "AI Systems/Product Owner/SYNC.md:8-15",
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:4-18, 54"
+      ]
+    },
+    {
+      "id": "finding-6-5-a-figjam-flow-generation-experience-is-more-than-a-cli-packet-moneybird-s-hub-ma",
+      "text": "A FigJam flow-generation experience is more than a CLI packet: Moneybird’s hub makes its default accountant packet own real workflow rules and only hands off concrete Moneybird or Jortt operations, so Product Owner should keep source authority, conflict resolution, diagram quality, and FigJam-only delivery in its workflow packet and hand off only named board operations to mcp-figma. [SOURCE: AI Systems/Moneybird Accountant/SKILL.md:32] [SOURCE: AI Systems/Moneybird Accountant/SKILL.md:34] [SOURCE: AI Systems/Moneybird Accountant/SKILL.md:55] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:73] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:79] [INFERENCE: workflow policy belongs in the default product workflow rather than the low-level CLI packet]",
+      "addedAtIteration": 6,
+      "sources": [
+        "AI Systems/Moneybird Accountant/AGENTS.md:36-50",
+        "AI Systems/Moneybird Accountant/SKILL.md:8-55",
+        "AI Systems/Moneybird Accountant/hub-router.json:1-13",
+        "AI Systems/Moneybird Accountant/mode-registry.json:1-30",
+        "AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/check-route-table.py:201,868-952",
+        "AI Systems/Moneybird Accountant/sk-moneybird-accountant/feature-catalog/reference-and-state/hub-and-packet-routers.md:32-57",
+        "AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:1-11",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:42-74",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:64-84"
+      ]
+    },
+    {
+      "id": "finding-6-1-moneybird-separates-packet-selection-from-packet-behavior-root-skill-md-is-stage",
+      "text": "Moneybird separates packet selection from packet behavior: root SKILL.md is stage one, mode-registry.json maps each packet folder, skill name, kind, and router, hub-router.json supplies the default and stage-one signals, and each packet’s ROUTER.md and SKILL.md own stage two and its contract. [SOURCE: AI Systems/Moneybird Accountant/SKILL.md:10] [SOURCE: AI Systems/Moneybird Accountant/SKILL.md:30] [SOURCE: AI Systems/Moneybird Accountant/SKILL.md:44] [SOURCE: AI Systems/Moneybird Accountant/mode-registry.json:4] [SOURCE: AI Systems/Moneybird Accountant/hub-router.json:2] [SOURCE: AI Systems/Moneybird Accountant/hub-router.json:8]",
+      "addedAtIteration": 6,
+      "sources": [
+        "AI Systems/Moneybird Accountant/AGENTS.md:36-50",
+        "AI Systems/Moneybird Accountant/SKILL.md:8-55",
+        "AI Systems/Moneybird Accountant/hub-router.json:1-13",
+        "AI Systems/Moneybird Accountant/mode-registry.json:1-30",
+        "AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/check-route-table.py:201,868-952",
+        "AI Systems/Moneybird Accountant/sk-moneybird-accountant/feature-catalog/reference-and-state/hub-and-packet-routers.md:32-57",
+        "AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:1-11",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:42-74",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:64-84"
+      ]
+    },
+    {
+      "id": "finding-6-4-product-owner-is-explicitly-a-standalone-single-mode-skill-today-with-one-workfl",
+      "text": "Product Owner is explicitly a standalone single-mode skill today, with one workflowMode and references/assets/playbook roots; parent-hub conversion therefore needs a root hub contract plus the two hub JSON files and a bootstrap load-order change, while retaining the existing skill as the default packet instead of trying to make its current manifest behave like a registry. [SOURCE: AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:2] [SOURCE: AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:4] [SOURCE: AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:11] [SOURCE: AI Systems/Moneybird Accountant/AGENTS.md:36] [SOURCE: AI Systems/Moneybird Accountant/AGENTS.md:42] [SOURCE: AI Systems/Moneybird Accountant/AGENTS.md:44]",
+      "addedAtIteration": 6,
+      "sources": [
+        "AI Systems/Moneybird Accountant/AGENTS.md:36-50",
+        "AI Systems/Moneybird Accountant/SKILL.md:8-55",
+        "AI Systems/Moneybird Accountant/hub-router.json:1-13",
+        "AI Systems/Moneybird Accountant/mode-registry.json:1-30",
+        "AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/check-route-table.py:201,868-952",
+        "AI Systems/Moneybird Accountant/sk-moneybird-accountant/feature-catalog/reference-and-state/hub-and-packet-routers.md:32-57",
+        "AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:1-11",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:42-74",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:64-84"
+      ]
+    },
+    {
+      "id": "finding-6-3-the-cleanest-fit-is-to-keep-product-owner-s-existing-backlog-and-documentation-w",
+      "text": "The cleanest fit is to keep Product Owner’s existing backlog and documentation workflow as the default workflow packet and model embedded mcp-figma as a tool packet; mixed screenshot, Figma, or product-document requests remain Product Owner work, which classifies sources and governs the FigJam-only result before handing board operations to the tool packet. [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:44] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:54] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:64] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:67] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:79] [INFERENCE: the FigJam tool packet should own board calls while Product Owner retains input classification and final-output policy]",
+      "addedAtIteration": 6,
+      "sources": [
+        "AI Systems/Moneybird Accountant/AGENTS.md:36-50",
+        "AI Systems/Moneybird Accountant/SKILL.md:8-55",
+        "AI Systems/Moneybird Accountant/hub-router.json:1-13",
+        "AI Systems/Moneybird Accountant/mode-registry.json:1-30",
+        "AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/check-route-table.py:201,868-952",
+        "AI Systems/Moneybird Accountant/sk-moneybird-accountant/feature-catalog/reference-and-state/hub-and-packet-routers.md:32-57",
+        "AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:1-11",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:42-74",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:64-84"
+      ]
+    },
+    {
+      "id": "finding-6-2-the-current-moneybird-checker-encodes-one-default-workflow-packet-and-classifies",
+      "text": "The current Moneybird checker encodes one default workflow packet and classifies every non-default packet as a tool packet; it also verifies packet names, routers, default agreement, and that hub signals name the registry modes. [SOURCE: AI Systems/Moneybird Accountant/mode-registry.json:5] [SOURCE: AI Systems/Moneybird Accountant/mode-registry.json:13] [SOURCE: AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/check-route-table.py:201] [SOURCE: AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/check-route-table.py:903] [SOURCE: AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/check-route-table.py:944] [SOURCE: AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/check-route-table.py:947]",
+      "addedAtIteration": 6,
+      "sources": [
+        "AI Systems/Moneybird Accountant/AGENTS.md:36-50",
+        "AI Systems/Moneybird Accountant/SKILL.md:8-55",
+        "AI Systems/Moneybird Accountant/hub-router.json:1-13",
+        "AI Systems/Moneybird Accountant/mode-registry.json:1-30",
+        "AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/check-route-table.py:201,868-952",
+        "AI Systems/Moneybird Accountant/sk-moneybird-accountant/feature-catalog/reference-and-state/hub-and-packet-routers.md:32-57",
+        "AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:1-11",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:42-74",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:64-84"
+      ]
+    },
+    {
+      "id": "finding-7-4-moneybird-s-initial-route-suite-was-green-despite-four-untested-mutants-then-fre",
+      "text": "Moneybird’s initial route suite was green despite four untested mutants, then fresh reviews found more stage-one and negation gaps; the recorded process adds one gold row or failing case per fix and checks that old gold routes do not regress, so Product Owner needs the same build-time route replay and a live plugin/CLI smoke pass as separate checks. [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:78] [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:103] [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/implementation-summary.md:78] [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/implementation-summary.md:105]",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:78-105, 116-119",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/spec.md:64-70",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/implementation-summary.md:76-80, 103-123",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/scratch/verification/review-parent.md:14-40, 63-69, 84-98",
+        "AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/route-replay/routing-gold.json:4943-4969",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:44-74, 89-100",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:77-84",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:179-191"
+      ]
+    },
+    {
+      "id": "finding-7-2-product-owner-currently-scores-the-word-figma-as-a-ui-refinement-task-signal-whi",
+      "text": "Product Owner currently scores the word Figma as a UI-refinement Task signal, while its new specification makes FigJam the requested output; route by explicit output intent such as a dedicated FigJam command or “make a FigJam flow,” keep ordinary Figma feedback in Task Mode, and let mixed source requests begin in Product Owner before any tool handoff. [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:44] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:51] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:59] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:71] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:97] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:79] [INFERENCE: output intent is a more stable routing signal than whether an input mentions Figma]",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:78-105, 116-119",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/spec.md:64-70",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/implementation-summary.md:76-80, 103-123",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/scratch/verification/review-parent.md:14-40, 63-69, 84-98",
+        "AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/route-replay/routing-gold.json:4943-4969",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:44-74, 89-100",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:77-84",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:179-191"
+      ]
+    },
+    {
+      "id": "finding-7-5-the-current-moneybird-review-still-reports-46-misses-in-741-reviewer-prompts-and",
+      "text": "The current Moneybird review still reports 46 misses in 741 reviewer prompts and 128 in 5,920 generated combinations, and its audit states that resolver results do not prove a live model follows the route; keep Product Owner’s natural-language router small, use exact commands for high-confidence FigJam intent, and verify representative live routing instead of treating a passing fixture corpus as runtime proof. [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/implementation-summary.md:109] [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/implementation-summary.md:122] [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/scratch/verification/review-parent.md:98] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:59] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:60] [INFERENCE: static route fixtures and live agent behavior require separate evidence]",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:78-105, 116-119",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/spec.md:64-70",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/implementation-summary.md:76-80, 103-123",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/scratch/verification/review-parent.md:14-40, 63-69, 84-98",
+        "AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/route-replay/routing-gold.json:4943-4969",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:44-74, 89-100",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:77-84",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:179-191"
+      ]
+    },
+    {
+      "id": "finding-7-3-the-first-filing-gate-repair-exposed-a-second-defect-testing-raw-text-for-a-refu",
+      "text": "The first filing-gate repair exposed a second defect: testing raw text for a refusal let “Don’t submit anything” suppress a valid purchase-invoice handoff; Product Owner should test negated, quoted, and contextual Figma/CLI mentions so mentions alone never authorize or trigger board writes, which remain gated mutating commands. [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:78] [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:90] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:179] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:184] [INFERENCE: Figma tool names inside negation or explanation should not be treated as a request to mutate a board]",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:78-105, 116-119",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/spec.md:64-70",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/implementation-summary.md:76-80, 103-123",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/scratch/verification/review-parent.md:14-40, 63-69, 84-98",
+        "AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/route-replay/routing-gold.json:4943-4969",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:44-74, 89-100",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:77-84",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:179-191"
+      ]
+    },
+    {
+      "id": "finding-7-1-the-first-moneybird-hub-resolver-had-confirmed-false-routes-prefix-matching-made",
+      "text": "The first Moneybird hub resolver had confirmed false routes: prefix matching made the CLI signal catch “Jortt clients,” and naming a CLI could send a Jortt-to-Moneybird migration request to the CLI packet alone, bypassing the accountant workflow; later gold rows now pin whole-word matching and the migration chain. [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:78] [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/spec.md:68] [SOURCE: AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/route-replay/routing-gold.json:4943] [SOURCE: AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/route-replay/routing-gold.json:4964] [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/scratch/verification/review-parent.md:14] [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/scratch/verification/review-parent.md:25]",
+      "addedAtIteration": 7,
+      "sources": [
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:78-105, 116-119",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/spec.md:64-70",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/implementation-summary.md:76-80, 103-123",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/scratch/verification/review-parent.md:14-40, 63-69, 84-98",
+        "AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/route-replay/routing-gold.json:4943-4969",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:44-74, 89-100",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:77-84",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:179-191"
+      ]
+    },
+    {
+      "id": "finding-8-5-build-a-thin-claude-code-plugin-around-the-installed-figma-ds-cli-rather-than-bu",
+      "text": "Build a thin Claude Code plugin around the installed figma-ds-cli rather than bundling Media Editor’s custom server; expose preflight/version/help, safe FigJam reads, explicit-target gated writes, and board read-back. Convert Product Owner to a Moneybird-style hub with its current workflow as the sole default workflow packet and mcp-figma as a non-default tool packet, then pin routes for explicit FigJam output intent, ordinary Figma UI feedback, negation, quoted tool names, and mixed inputs. Moneybird’s prefix-match, raw-negation, and corpus/live-model gaps show why gold-route replay, mutation guards, and live smoke must be separate gates. Sequence feasibility first, then vendor/sync, hub/router, flow engine, plugin, and integrated checks; Figma auth/rate limits, drifting @latest schemas, secrets, and output gating remain risks. [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:9] [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:15] [SOURCE: AI Systems/Media Editor/runtime/claude-plugin/README.md:83] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:4] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:18] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:181] [SOURCE: AI Systems/Moneybird Accountant/mode-registry.json:5] [SOURCE: AI Systems/Moneybird Accountant/mode-registry.json:13] [SOURCE: AI Systems/Moneybird Accountant/hub-router.json:4] [SOURCE: AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/check-route-table.py:903] [SOURCE: AI Systems/Moneybird Accountant/sk-moneybird-accountant/scripts/check-route-table.py:944] [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:78] [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/implementation-summary.md:109] [SOURCE: AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/implementation-summary.md:122] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/001-research/spec.md:79] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/001-research/spec.md:143] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/001-research/spec.md:145] [INFERENCE: the proposed phase sequence and verification gates are risk-based recommendations]",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:44, 73, 97",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:64-84",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:141-160, 168-186",
+        "AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:2-11",
+        "AI Systems/Product Owner/SYNC.md:8-15",
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:4-18",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:95-148",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:145-184",
+        ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:20-32",
+        ".skilled/skills/sk-design/sk-design-diagram/SKILL.md:260-295",
+        "AI Systems/Media Editor/runtime/claude-plugin/README.md:9-83",
+        "AI Systems/Moneybird Accountant/SKILL.md:30-38",
+        "AI Systems/Moneybird Accountant/mode-registry.json:5-27",
+        "AI Systems/Moneybird Accountant/hub-router.json:2-12",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:78-105",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/implementation-summary.md:78-123"
+      ]
+    },
+    {
+      "id": "finding-8-3-carry-over-flow-semantics-distinct-node-types-top-down-direction-decisions-with-",
+      "text": "Carry over flow semantics—distinct node types, top-down direction, decisions with at most three exits, labeled branches, and restrained density—but implement the geometry with FigJam-native objects: preserve orthogonal routing and readable, non-overlapping, unobscured connectors while translating SVG-specific masks, pixel gaps, bridges, and grid enforcement into verified FigJam equivalents. The parent spec forbids HTML/SVG output, so validators and export contracts for those formats do not carry over. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:20] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:25] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:260] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:264] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:291] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:295] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:79] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:82] [INFERENCE: FigJam-native geometry must be measured in a prototype before any SVG spacing thresholds are reused]",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:44, 73, 97",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:64-84",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:141-160, 168-186",
+        "AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:2-11",
+        "AI Systems/Product Owner/SYNC.md:8-15",
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:4-18",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:95-148",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:145-184",
+        ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:20-32",
+        ".skilled/skills/sk-design/sk-design-diagram/SKILL.md:260-295",
+        "AI Systems/Media Editor/runtime/claude-plugin/README.md:9-83",
+        "AI Systems/Moneybird Accountant/SKILL.md:30-38",
+        "AI Systems/Moneybird Accountant/mode-registry.json:5-27",
+        "AI Systems/Moneybird Accountant/hub-router.json:2-12",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:78-105",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/implementation-summary.md:78-123"
+      ]
+    },
+    {
+      "id": "finding-8-2-for-figma-links-parse-filekey-nodeid-and-request-scoped-design-data-or-reference",
+      "text": "For Figma links, parse fileKey/nodeId and request scoped design data or referenced images only after live MCP tool/schema discovery; the manual lists the MCP as file/node retrieval and image download, while FigJam creation uses the CLI’s fj write verbs. The manuals document screenshot-url for website captures into Figma but do not establish arbitrary local screenshot OCR/import, so treat screenshot extraction as an unresolved adapter spike. Product docs should preserve claim-level current/approved/proposal/retired/unknown status and stop composition when authority does not resolve a conflict. [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:95] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:112] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:129] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:145] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:141] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:143] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:168] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:181] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:184] [INFERENCE: screenshot OCR/import is not proven by the consulted MCP and CLI references]",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:44, 73, 97",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:64-84",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:141-160, 168-186",
+        "AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:2-11",
+        "AI Systems/Product Owner/SYNC.md:8-15",
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:4-18",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:95-148",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:145-184",
+        ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:20-32",
+        ".skilled/skills/sk-design/sk-design-diagram/SKILL.md:260-295",
+        "AI Systems/Media Editor/runtime/claude-plugin/README.md:9-83",
+        "AI Systems/Moneybird Accountant/SKILL.md:30-38",
+        "AI Systems/Moneybird Accountant/mode-registry.json:5-27",
+        "AI Systems/Moneybird Accountant/hub-router.json:2-12",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:78-105",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/implementation-summary.md:78-123"
+      ]
+    },
+    {
+      "id": "finding-8-1-recommended-architecture-keep-product-owner-as-the-workflow-owner-for-source-cla",
+      "text": "Recommended architecture: keep Product Owner as the workflow owner for source classification, flow semantics, and FigJam-only delivery, while routing explicitly requested board reads and writes to an embedded mcp-figma tool packet; this matches Moneybird’s default-workflow/non-default-tool split and avoids making a low-level CLI own the product workflow. [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:44] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:73] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:64] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:79] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:82] [SOURCE: AI Systems/Moneybird Accountant/SKILL.md:30] [SOURCE: AI Systems/Moneybird Accountant/mode-registry.json:5] [INFERENCE: Product Owner should remain the default workflow packet and mcp-figma should be a tool packet]",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:44, 73, 97",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:64-84",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:141-160, 168-186",
+        "AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:2-11",
+        "AI Systems/Product Owner/SYNC.md:8-15",
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:4-18",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:95-148",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:145-184",
+        ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:20-32",
+        ".skilled/skills/sk-design/sk-design-diagram/SKILL.md:260-295",
+        "AI Systems/Media Editor/runtime/claude-plugin/README.md:9-83",
+        "AI Systems/Moneybird Accountant/SKILL.md:30-38",
+        "AI Systems/Moneybird Accountant/mode-registry.json:5-27",
+        "AI Systems/Moneybird Accountant/hub-router.json:2-12",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:78-105",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/implementation-summary.md:78-123"
+      ]
+    },
+    {
+      "id": "finding-8-4-vendor-the-mcp-figma-subtree-as-a-clearly-owned-copy-plus-a-narrow-product-owner",
+      "text": "Vendor the mcp-figma subtree as a clearly owned copy plus a narrow Product Owner FigJam adapter; keep the shared .skilled source authoritative and sync accepted improvements through an explicit diff/patch review before re-vendoring, since Product Owner’s parity note governs only its hand-written Claude Project mirrors and keeps no manifest, lock, or checksum ledger. Product Owner’s current manifest is a standalone single-mode manifest, so the vendor package should not be mistaken for a hub registry. [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:64] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:67] [SOURCE: AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:83] [SOURCE: AI Systems/Product Owner/SYNC.md:8] [SOURCE: AI Systems/Product Owner/SYNC.md:10] [SOURCE: AI Systems/Product Owner/SYNC.md:15] [SOURCE: AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:2] [SOURCE: AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:11] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:2] [SOURCE: .skilled/skills/mcp-tooling/mcp-figma/SKILL.md:18] [INFERENCE: a reviewed one-way patch and re-vendor cycle reduces silent divergence across the two repositories]",
+      "addedAtIteration": 8,
+      "sources": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:44, 73, 97",
+        "AI Systems/Product Owner/specs/017-figjam-flow-generation/spec.md:64-84",
+        "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:141-160, 168-186",
+        "AI Systems/Product Owner/sk-product-owner/leaf-manifest.config.json:2-11",
+        "AI Systems/Product Owner/SYNC.md:8-15",
+        ".skilled/skills/mcp-tooling/mcp-figma/SKILL.md:4-18",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:95-148",
+        ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:145-184",
+        ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:20-32",
+        ".skilled/skills/sk-design/sk-design-diagram/SKILL.md:260-295",
+        "AI Systems/Media Editor/runtime/claude-plugin/README.md:9-83",
+        "AI Systems/Moneybird Accountant/SKILL.md:30-38",
+        "AI Systems/Moneybird Accountant/mode-registry.json:5-27",
+        "AI Systems/Moneybird Accountant/hub-router.json:2-12",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:78-105",
+        "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/019-review-findings-fixes/implementation-summary.md:78-123"
+      ]
+    }
+  ],
+  "ruledOutDirections": [],
+  "rejectedPatterns": [],
+  "rejectedPatternIndex": {
+    "maxEntries": 100,
+    "fuzzyThreshold": 0.85,
+    "entries": []
+  },
+  "rejectedPatternWarnings": [],
+  "suppressedCandidates": [],
+  "minIdeaObservations": 2,
+  "observedIdeas": [],
+  "promotedIdeas": [],
+  "suppressedIdeas": [],
+  "blockedStopHistory": [],
+  "graphConvergenceScore": 0,
+  "graphDecision": null,
+  "graphBlockers": [],
+  "divergence": {
+    "started": [],
+    "completed": [],
+    "failed": [],
+    "overrides": [],
+    "saturatedDirections": [],
+    "remainingFrontier": [],
+    "currentFocus": "",
+    "activePivotId": null,
+    "activeSourceIteration": null
+  },
+  "metrics": {
+    "iterationsCompleted": 8,
+    "openQuestions": 0,
+    "resolvedQuestions": 5,
+    "carriedForwardOpenQuestions": 11,
+    "keyFindings": 40,
+    "rejectedPatterns": 0,
+    "suppressedCandidates": 0,
+    "observedIdeas": 0,
+    "promotedIdeas": 0,
+    "suppressedIdeas": 0,
+    "convergenceScore": 0.52,
+    "coverageBySources": {
+      "code": 56
+    },
+    "completedPivots": 0,
+    "failedPivots": 0,
+    "pivotOverrides": 0
+  },
+  "corruptionWarnings": [],
+  "inboxPath": "/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/z-staging-po-017-research/research/lineages/luna/inbox.jsonl",
+  "inboxWarnings": [],
+  "status": "INITIALIZED",
+  "advisoryEvents": [],
+  "strategyWarnings": []
+}

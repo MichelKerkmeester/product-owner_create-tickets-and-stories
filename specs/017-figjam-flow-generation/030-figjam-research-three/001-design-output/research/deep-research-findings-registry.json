@@ -1,0 +1,647 @@
+{
+  "mergedFrom": [
+    "deepseek"
+  ],
+  "lineageExecutors": {
+    "deepseek": {
+      "kind": "cli-pi",
+      "model": "deepseek-v4.1-flash",
+      "reasoningEffort": "max"
+    }
+  },
+  "openQuestions": [],
+  "resolvedQuestions": [
+    {
+      "id": "question-1-which-board-qualities-does-sk-create-figjam-decide-today-and-for-each-one-does-g",
+      "inboxId": null,
+      "text": "Which board qualities does sk-create-figjam decide today, and for each one, does generate_diagram own it, can the Mermaid model steer it, or does a use_figma extension add it afterwards?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 1,
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "question-2-which-diagram-design-rules-in-sk-design-diagram-and-sk-design-fundamentals-have-",
+      "inboxId": null,
+      "text": "Which diagram design rules in sk-design-diagram and sk-design-fundamentals have no counterpart in the FigJam packet, and which of those gaps can a FigJam board actually carry?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 2,
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "question-3-what-layout-spacing-grouping-connector-routing-density-and-section-behaviour-do-",
+      "inboxId": null,
+      "text": "What layout, spacing, grouping, connector-routing, density and section behaviour do the 22-repo corpus and Figma's own published skills demonstrate that a Mermaid model or the generator can steer?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 3,
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "question-4-how-should-a-board-holding-several-diagrams-be-composed-titles-sections-legends-",
+      "inboxId": null,
+      "text": "How should a board holding several diagrams be composed — titles, sections, legends, reading order and spacing between diagrams — so a reader meets it in the intended order?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 4,
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "question-5-how-is-board-quality-measured-today-across-references-quality-rubric-md-and-the-",
+      "inboxId": null,
+      "text": "How is board quality measured today across references/quality-rubric.md and the manual-testing-playbook scorecard, and what would measure it better?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 5,
+      "_lineages": [
+        "deepseek"
+      ]
+    }
+  ],
+  "keyFindings": [
+    {
+      "id": "finding-1-1-the-packet-already-carries-an-explicit-three-layer-ownership-model-and-that-mode",
+      "text": "**The packet already carries an explicit three-layer ownership model, and that model is a genuine strength worth protecting.** `flow-mode.md` names the generator as layout owner (\"The generator owns the layout. Never move a generated node or rewire its connectors\"), the model as the means by which a bad layout is fixed (\"a layout that reads badly is fixed by splitting the diagram or reshaping the model, not by dragging\"), and `hybrid-workflow.md` as the additive layer (\"Every addition is a new node beside or behind the diagram\"). Any improvement must land in one of those three layers, not invent a fourth. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:164] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:17]",
+      "addedAtIteration": 1,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-1-10-read-back-verifies-existence-direction-and-label-text-and-never-verifies-order-p",
+      "text": "**Read-back verifies existence, direction and label text, and never verifies order, position or adjacency.** The read-back counts nodes, connectors, labels and decision exits, compares each connector's two ends and its end caps, and names a dangling connector a mismatch — all of which is genuinely rigorous for what it covers. It says out loud that \"Direction comes from the connector, never from its position on the board\", which is exactly the sentence that leaves position unverified: a board whose nodes landed in an order no reader would follow still passes read-back. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:219] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:223] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:95]",
+      "addedAtIteration": 1,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-1-11-the-scorecard-finally-makes-layout-scorable-but-its-layout-dimension-is-a-crossi",
+      "text": "**The scorecard finally makes layout scorable, but its Layout dimension is a crossing counter and its Clarity dimension is three questions.** Layout's three bands are \"no overlap, no connector crossing and one reading direction that matches the model\" (2), \"no overlap and one crossing\" (1), and \"any overlap, or two or more crossings\" (0). Clarity is a fresh reader answering \"the scenario's three questions\" from one screenshot. Nothing scores whitespace, grouping, sectioning, title presence, edge-label placement, or whether the board has a beginning. The passing bar is 12 of 14 with Fidelity, Hygiene and Reply at 2, so a board can fail nothing that is specifically about how it reads. [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:81] [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:83] [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:87]",
+      "addedAtIteration": 1,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-1-12-the-packet-is-already-strong-where-most-diagram-skills-are-weak-it-refuses-to-in",
+      "text": "**The packet is already strong where most diagram skills are weak: it refuses to invent, refuses to restyle, and writes down why a feature is absent.** \"A diagram of a real, partial system beats a polished one of an imagined system\", the two dials (detail level, audience) are set before modelling, a fourth decision exit is split into two decisions rather than squeezed in, and the style guide records a measured departure table with the numbers behind each refusal. These are the parts of the packet that make it trustworthy, and none of the changes this lineage will rank touches them. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:144] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:150] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:56] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:111]",
+      "addedAtIteration": 1,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-1-2-layout-direction-is-the-only-geometric-lever-the-mermaid-model-actually-owns-and",
+      "text": "**Layout direction is the only geometric lever the Mermaid model actually owns, and each type pins it differently.** A user flow runs `flowchart TD` or `flowchart LR` and is laid out by the generator's ELK engine; a process \"runs `TD` or `LR`\" with \"one direction for every process diagram in the file\"; an architecture is \"`flowchart LR` only\" through a separate grid layout that \"errors or silently mis-draws when its rules are broken\"; a state diagram is `stateDiagram-v2` running \"`LR` or `TB`\"; a gantt chart's axis unit is \"picked from the chart's length\" by the generator. So direction is steerable for four types, fixed for architecture, and unavailable for gantt. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:38] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/process.md:44] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/process.md:75] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/architecture.md:78] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/state.md:60] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/gantt.md:16]",
+      "addedAtIteration": 1,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-1-3-spacing-has-no-rule-in-the-model-layer-at-all-every-number-in-the-packet-belongs",
+      "text": "**Spacing has no rule in the model layer at all; every number in the packet belongs to the extension layer.** The only measurements stated anywhere are extension clearances: a sticky sits \"40 pixels clear\" of its node, a section resizes to its stickies \"plus 32 pixels on every side\", a title is \"64 pixels clear of its top edge\", the legend column starts at the widest existing node plus 250 pixels and stacks at a 32-pixel gap, and a tint rectangle is \"24 pixels larger on every side\". The gap between two generated nodes is never specified, because the packet treats it as generator property. That is the single largest unowned surface in the packet: node spacing, rank spacing and edge clearance are the qualities a reader calls \"cramped\" or \"airy\", and no layer here is asked to think about them. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:114] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:148] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:150] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:101] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:118]",
+      "addedAtIteration": 1,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-1-4-titles-exist-only-as-an-optional-extension-and-the-generator-s-own-title-field-i",
+      "text": "**Titles exist only as an optional extension, and the generator's own title field is left undefined.** The packet says \"A title is a text node above the diagram, 64 pixels clear of its top edge, in charcoal `#1E1E1E`, naming what the reader is looking at\" — inside the extension recipe, gated like any other addition, and only reached when the gate named an extension. Meanwhile the write call sets `name` \"to a distinct title that matches its hand-off\", and nothing in the packet says whether that name renders on the board or lives only in the file's layer list. A reader arriving at a board with no extension gets no title, and a multi-diagram board gets no headings above its parts. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:150] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:186]",
+      "addedAtIteration": 1,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-1-5-grouping-is-type-gated-rather-than-a-design-decision-and-one-clause-removes-the-",
+      "text": "**Grouping is type-gated rather than a design decision, and one clause removes the board's own grouping primitive.** Sections are explicitly barred from holding generated content — \"A section never wraps a generated node, because adding a node to a section moves it\" — so on a generated diagram, grouping survives only as an architecture lane, a process lane (`subgraph` with 2–6 lanes, never nested) or a gantt section. A user flow is forbidden any subgraph at all. The consequence is that the one on-board grouping affordance a reader recognises instantly, the FigJam section, is available only for legend stickies. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:148] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/process.md:58] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/process.md:72] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:55] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/architecture.md:42]",
+      "addedAtIteration": 1,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-1-6-density-is-measured-as-a-node-count-only-so-a-diagram-can-pass-its-budget-and-st",
+      "text": "**Density is measured as a node count only, so a diagram can pass its budget and still be unreadable.** The budgets are node- and item-shaped: at most 9 nodes and one accent for a user flow, sk-design-diagram's general 9 nodes and 12 connectors, at most 12 gantt tasks with sections once there are more than 8 and at most 5 parallel bars in a section. Nothing measures the relationship between content and area — connector-to-node ratio, labels per unit area, longest path depth, or the number of connectors that must cross the diagram to reach their target. Two models of 9 nodes can produce a calm board and an unreadable one. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:64] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:162] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/gantt.md:67]",
+      "addedAtIteration": 1,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-1-7-a-multi-diagram-board-has-no-composition-rule-later-diagrams-reuse-the-filekey-a",
+      "text": "**A multi-diagram board has no composition rule: later diagrams reuse the `fileKey` and nothing says where they land or how they read in sequence.** The packet's multi-diagram thinking is entirely about identity and rollback — \"Every later diagram of the same work and every revision passes that file's `fileKey`, so the work stays on one board\", and the tag is keyed by the diagram's name \"because a later session can rebuild it\". There is no rule for the gap between diagrams, for a shared heading band, for a numbered reading order, or for which diagram a reader should meet first. FigJam itself has sections and a page, both of which are usable, but the packet's section clause (finding 5) closes the obvious route. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:187] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:190] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:148]",
+      "addedAtIteration": 1,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-1-8-colour-roles-are-deliberate-and-well-recorded-but-two-of-the-seven-types-are-eff",
+      "text": "**Colour roles are deliberate and well-recorded, but two of the seven types are effectively colourless and the reason is structural.** An architecture \"takes no colour from the model\", because its layout \"assigns shapes and colours by lane\" and \"the check refuses styling there\". Sequence, state and ER lose Mermaid styling altogether, so their colour arrives only as a status tint behind a group. The style guide is honest about what did not translate — \"Fonts and the type ramp\", \"The 4px grid, node sizes and connector routing\", \"The bottom legend strip\" — and it explains each omission. That candour is a strength; what is missing is a replacement rule for the hierarchy work those omitted tokens used to do. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:48] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:128] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:129] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:130]",
+      "addedAtIteration": 1,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-1-9-text-size-is-explicitly-not-steerable-and-the-only-text-control-left-is-length-l",
+      "text": "**Text size is explicitly not steerable, and the only text control left is length.** Labels are capped at \"at most 40 characters on one line\" and gantt task names at 40 with no colon, while font family, size and weight are listed under what did not translate: \"The generator sets FigJam's font, and the tool cannot change it afterwards\". The one typographic lever the packet does hold is the hybrid title (charcoal `#1E1E1E`) and the 20px digit inside a pin. So a board's type hierarchy is currently one size for every label, and \"where the eye lands first\" can only be carried by shape count, accent and label length. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:160] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:128] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:81]",
+      "addedAtIteration": 1,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-2-1-the-comparator-states-a-minimum-gap-between-nodes-as-a-number-the-figjam-packet-",
+      "text": "**The comparator states a minimum gap between nodes as a number; the FigJam packet states none.** `output-spec.md` fixes \"Min gap between nodes\" at 24 for the standard ramp, 40 for a presentation ramp and 24 for print, alongside a 40px outer margin and a 60px legend strip. The FigJam packet's only gaps are extension clearances (iteration 001, finding 3). The generator owns node geometry, so the *gap itself* is not steerable — but the reason a gap collapses into the 40px band is that the model put too many nodes on one rank or too long a label on one box, and both of those are steerable. The carryable form of the rule is a model-side constraint that protects the gap, not a gap measurement. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/foundations/output-spec.md:79] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/foundations/output-spec.md:65] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:114]",
+      "addedAtIteration": 2,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-2-10-the-comparator-scales-its-type-ramp-with-the-reading-distance-the-figjam-packet-",
+      "text": "**The comparator scales its type ramp with the reading distance; the FigJam packet has no size dial, and this is the one place its own \"two dials\" claim understates the problem.** `output-spec.md` scales node names from 12 to 16 to 12 across standard, presentation and print ramps, and draws the consequence: \"Presentation ramp implies fewer nodes — 16px names in 64px boxes eat the canvas.\" The FigJam packet says four dials reduce to two because \"A FigJam board fixes the format and the size\". That is right about format and optimistic about size: a board read on a projector, or a board holding six diagrams, is further away than a single diagram read on a laptop, and its node names do not grow. Since the generator's font cannot be changed afterwards (iteration 001, finding 9), the *only* way to honour the comparator's insight is to reduce node count and label length when the board is meant for a wall — a decision the packet's current dials cannot express. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/foundations/output-spec.md:71] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/foundations/output-spec.md:81] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:148]",
+      "addedAtIteration": 2,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-2-11-the-comparator-s-status-tint-treatment-is-the-inverse-of-the-figjam-one-and-the-",
+      "text": "**The comparator's status-tint treatment is the inverse of the FigJam one, and the FigJam direction is measurably worse.** `color-system.md` says the default for status pills and badges is \"dark colored text on a light colored tint\", because \"A green `800` on a green `100` easily clears AAA, keeps the semantic color, and sits quietly in the hierarchy\". The FigJam palette does the same thing for its accent pairs — light fill, charcoal text — and measures 11.21:1 to 14.61:1, which is a strength. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:64] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:66] But the *status tint* recipe paints a rounded rectangle behind a group in the accent pair's own colours, so a tint covers area at the same saturation as the accent that marks the focal node. The style guide's own departure table already admits seven strokes sit under the 3.0:1 mark gate; a full-field tint multiplies that area by the size of the group. [SOURCE: .skilled/skills/sk-design/sk-design-fundamentals/references/color-system.md:126] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:63] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:118]",
+      "addedAtIteration": 2,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-2-12-the-comparator-s-strongest-single-instruction-is-one-the-figjam-packet-must-not-",
+      "text": "**The comparator's strongest single instruction is one the FigJam packet must not adopt, and saying so is itself the finding.** \"NEVER reproduce a Mermaid renderer layout — imports get an editorial layout; automatic spacing and routing are replaced, not copied.\" The FigJam packet's whole architecture is the opposite: hand the model to the generator and let it lay the diagram out. Adopting the comparator rule would mean abandoning `generate_diagram`, which the packet's own type files make impossible for architecture (the grid layout is the only way it draws). The transferable part is narrower and more useful: where the comparator rejects a renderer's layout, it is rejecting *automatic spacing that ignores grouping*. A board can honour that intent without replacing the renderer, by giving the generator a model that has fewer competing ranks and a grouping the reader can see. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:279] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/architecture.md:16]",
+      "addedAtIteration": 2,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-2-2-proximity-is-the-comparator-s-named-fix-for-ambiguous-grouping-and-the-figjam-pa",
+      "text": "**Proximity is the comparator's named fix for ambiguous grouping, and the FigJam packet has no proximity rule at all.** The diagnosis table resolves \"Ambiguous grouping — which label goes with which field, which heading owns this paragraph\" with one sentence: \"More space *around* a group than *within* it\". The FigJam packet does own a spacing decision that could express proximity — a status tint is drawn \"24 pixels larger on every side\" — but it never states the relationship the tint should have to its contents' own spacing, so a tint can hug two nodes that are 200 pixels apart and read as one loose rectangle rather than a group. [SOURCE: .skilled/skills/sk-design/sk-design-fundamentals/references/diagnosis-table.md:50] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:118]",
+      "addedAtIteration": 2,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-2-3-the-comparator-zones-a-diagram-above-9-nodes-the-figjam-packet-only-ever-splits-",
+      "text": "**The comparator zones a diagram above 9 nodes; the FigJam packet only ever splits.** `output-spec.md` makes zoning mandatory above 9 nodes — \"every node belongs to a labeled zone (2–4 zones, hairline-bordered, `paper-2` fill, mono uppercase zone label at top-left)\" — and says why: \"An unzoned 20-node diagram is a wiring diagram, not a schematic.\" The FigJam packet's answer to the same pressure is always a split: \"Over budget, split rather than shrink\", and for a user flow \"A longer flow splits into diagrams that hand off through a named end and a start with the same label\". Splitting is a stronger default than zoning, but it produces a board of small diagrams with no visible relationship between them (iteration 001, finding 7), which is exactly what zoning was invented to prevent. The gap is that no FigJam type has a zoning option between \"one diagram\" and \"two diagrams\". [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/foundations/output-spec.md:103] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:170] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:77]",
+      "addedAtIteration": 2,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-2-4-the-comparator-has-five-mandatory-connector-rules-the-figjam-packet-has-one-prox",
+      "text": "**The comparator has five mandatory connector rules; the FigJam packet has one proxy for all five.** The mandatory set is: orthogonal right-angle connectors only, a 6–10px visible gap between an arrow label and its stroke with an opaque mask behind the label, no two connectors sharing a stroke path, fanned attach points at least 12px apart on a shared edge, and no connector routed behind a non-endpoint box. The FigJam packet's parallel is a single scorecard line — \"no connector crossing\" for a 2, \"one crossing\" for a 1 — plus a read-back that checks endpoints and end caps. Because the generator routes, four of the five are not steerable; what *is* steerable is whether the model creates the conditions where they fail: a long label on a connector inside a dense rank, two edges between the same pair of nodes, or a declaration order that forces an edge to reach across the diagram. The packet currently names none of those as model-side causes. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:291] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:292] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:294] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:295] [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:81]",
+      "addedAtIteration": 2,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-2-5-the-comparator-carries-a-density-dial-with-a-target-not-just-a-ceiling-sk-design",
+      "text": "**The comparator carries a density dial with a target, not just a ceiling.** `sk-design-diagram` states \"density at target 4/10 — enough to be technically complete, not so dense it needs a guide. Above 9 nodes it's probably two diagrams\", where 4/10 is a stated target a reviewer can judge against rather than a cap. The FigJam packet has ceilings (9 nodes, 12 gantt tasks, 5 parallel bars) and no target, so the only two states it can express are \"inside budget\" and \"split\". A board drawn at 2/10 and a board drawn at 9/10 pass the same check. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:264] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:64]",
+      "addedAtIteration": 2,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-2-6-shape-as-hierarchy-is-a-hard-comparator-rule-that-four-of-the-seven-figjam-types",
+      "text": "**Shape-as-hierarchy is a hard comparator rule that four of the seven FigJam types cannot satisfy, and the packet never says so.** The comparator: \"NEVER draw identical boxes for every node — node type → treatment encodes hierarchy.\" A user flow has four shapes with fixed meanings and a process adds lanes and stores, so those two types are genuinely stronger than the comparator here. But a sequence diagram has lifelines and arrows, an ER diagram has one table shape, a state diagram has rounded states and one start/end marker, and a gantt chart has bars. In those four types, every node of the same kind draws identically, so all hierarchy has to arrive from the extension layer — and the packet treats extensions as optional. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:282] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:40] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/process.md:58]",
+      "addedAtIteration": 2,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-2-7-the-comparator-requires-a-legend-that-covers-every-type-used-and-nothing-extra-t",
+      "text": "**The comparator requires a legend that covers every type used and nothing extra; the FigJam legend is a column of numbered stickies and covers only annotations.** The comparator's rule is \"Legend covers every type used — and nothing extra\", and the legend is a horizontal strip inside the `viewBox` with the height expanded by about 60px. The FigJam packet's legend is scoped to pins (\"a small numbered circle sits on each annotated node's top-left corner, and the matching stickies stand in a column to the right\"), and it explicitly keeps the strip out (\"The bottom legend strip\" is listed under what did not translate). So a board that uses four shapes, a lane and a status tint has no legend for any of them, and the reader is expected to infer the vocabulary. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:358] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:189] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:66] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:130]",
+      "addedAtIteration": 2,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-2-8-the-comparator-gives-every-diagram-a-title-and-a-one-sentence-description-as-a-d",
+      "text": "**The comparator gives every diagram a title and a one-sentence description as a delivery contract; the FigJam packet gives the board neither.** `sk-design-diagram`'s accessible SVG contract requires a `<title>` that is \"the short name of the subject — roughly the page `<h1>`, ~60 characters or fewer\" and a `<desc>` that is \"one sentence stating what the diagram shows in reader terms — describe content, not geometry\". The FigJam equivalents exist but are unused as a contract: the generator's `name` argument, the `userIntent` sentence that is already sent on every call, and the optional title text node. Nothing requires the title node and `name` to be the same string, and nothing puts the `userIntent` sentence on the board or in the reply. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:246] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/SKILL.md:247] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:186] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:150]",
+      "addedAtIteration": 2,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-2-9-the-comparator-s-review-contract-demands-a-location-an-offending-value-and-a-fix",
+      "text": "**The comparator's review contract demands a location, an offending value and a fix per finding; the scorecard produces a number per dimension.** `review-checklist.md` opens with \"Every finding names a file, a line, the criterion it violates, and the fix\" and its report format requires \"a count of zero explicitly rather than omitting the tier. A missing tier reads as 'not checked'\". The playbook scorecard gives seven 0/1/2 dimensions with \"one reason per score\" [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:72] — so \"Layout 1\" is a score with a reason, not a finding with a location. A board that lost a point cannot be repaired from the score alone, and a dimension that was never examined scores a silent 2. [SOURCE: .skilled/skills/sk-design/sk-design-fundamentals/references/review-checklist.md:17] [SOURCE: .skilled/skills/sk-design/sk-design-fundamentals/references/review-checklist.md:149] [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:79]",
+      "addedAtIteration": 2,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-3-1-figma-s-own-board-skill-states-a-reading-order-for-a-board-and-the-packet-has-no",
+      "text": "**Figma's own board skill states a reading order for a board, and the packet has none.** It opens with \"**Reading direction and grouping**: Left-to-right, top-to-bottom. Context on the left, evidence in the middle, proposal/asks on the right. Supporting detail and appendix below.\" That is a three-zone narrative order with an appendix band — a rule a reader can be walked through. `sk-create-figjam` has per-type direction (iteration 001, finding 2) and no statement about how a reader traverses the finished board. [SOURCE: specs/z-staging-po-030a/corpus/lightspeedwp__.github/plugins/figma/figma-use-figjam/references/plan-board-content.md:38]",
+      "addedAtIteration": 3,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-3-10-the-corpus-makes-text-size-a-computable-function-of-viewing-distance-which-resol",
+      "text": "**The corpus makes text size a computable function of viewing distance, which resolves the packet's missing size dial into something measurable.** The method is \"Normalize the overview review to a maximum dimension of 1200px. Before building, estimate `reviewScale = min(1, 1200 / max(wrapperWidth, wrapperHeight))`. Divide the rendered-size targets below by `reviewScale` to get starting canvas font sizes\", with rendered targets at the 1200px overview — board title 44-56px, section heading 32-44px, body 13-18px, metadata 10-13px — and two governing sentences: \"Viewing distance overrides the nominal preset\", and \"The floor is a legibility requirement, not a recommendation to make every role equally loud\". Because the generated diagram's font cannot be changed (iteration 001, finding 9), this is the one usable route to the comparator's reading-distance insight from iteration 002, finding 10: compute the review scale, then decide node count and label length from the rendered size the board will actually be read at. [SOURCE: specs/z-staging-po-030a/corpus/prasantloki__figjam-builder/references/typography-grammar.md:24] [SOURCE: specs/z-staging-po-030a/corpus/prasantloki__figjam-builder/references/typography-grammar.md:36] [SOURCE: specs/z-staging-po-030a/corpus/prasantloki__figjam-builder/references/typography-grammar.md:38] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:128]",
+      "addedAtIteration": 3,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-3-11-the-corpus-supplies-the-two-pass-review-method-the-scorecard-s-layout-and-clarit",
+      "text": "**The corpus supplies the two-pass review method the scorecard's Layout and Clarity dimensions are missing.** \"Run the two-zoom review: 1. Overview zoom: identify what actually wins first, second, and last. If that order differs from the plan, revise scale, position, contrast, or grouping. 2. Reading zoom: verify comfortable line length, clean phrase-boundary wraps, breathing room, connector labels, and absence of clipping or overlap\", followed by four questions including \"Would removing one card, tint, label, or connector make the argument clearer?\" and the verdict \"A structurally valid board can still be compositionally unresolved. Ship only when both zoom levels work.\" The playbook currently screenshots at 100% zoom only and scores Layout on crossings, so the overview pass — the one that would catch a board with no first glance — never happens. [SOURCE: specs/z-staging-po-030a/corpus/prasantloki__figjam-builder/references/composition-grammar.md:106] [SOURCE: specs/z-staging-po-030a/corpus/prasantloki__figjam-builder/references/composition-grammar.md:118] [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:80]",
+      "addedAtIteration": 3,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-3-12-the-corpus-s-geometry-audit-defines-the-collision-tests-a-board-review-can-actua",
+      "text": "**The corpus's geometry audit defines the collision tests a board review can actually run, including one the packet's read-back cannot.** It requires \"at least 12px and prefer the 16-32px text-stack range\" between vertically consecutive text blocks whose horizontal spans overlap, checks every non-connector child against its intended parent bounds, and — the important one — \"Judge connector crossings from the rendered screenshot; a connector bounding box does not describe its path.\" The packet's read-back compares node and connector counts from a node list and explicitly refuses to read position; the corpus says the crossing judgment must come from the image, which the packet already captures but never uses for that purpose. [SOURCE: specs/z-staging-po-030a/corpus/prasantloki__figjam-builder/references/composition-grammar.md:98] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:223]",
+      "addedAtIteration": 3,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-3-13-figma-s-own-sticky-geometry-contradicts-the-packet-s-legend-column-by-the-platfo",
+      "text": "**Figma's own sticky geometry contradicts the packet's legend column, by the platform's own fixed numbers.** Stickies \"are 240x240 (square) or 416x240 (wide, for longer text). These sizes are fixed; stickies cannot be resized\", and \"**Always lay out stickies in a grid.** Rows and columns, consistent 64px gap\". The packet stacks legend stickies in a single column at a 32-pixel gap. A 32px gap between 240px-tall fixed-size stickies puts the legend column at half the platform's own grid rhythm, which is why the packet's legend reads as a list rather than as a FigJam object. [SOURCE: specs/z-staging-po-030a/corpus/lightspeedwp__.github/plugins/figma/figma-use-figjam/references/plan-board-content.md:254] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:103]",
+      "addedAtIteration": 3,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-3-14-the-packet-already-matches-or-beats-figma-s-own-guidance-on-the-parts-that-const",
+      "text": "**The packet already matches or beats Figma's own guidance on the parts that constrain content, and that should be said plainly so nothing good is traded away.** The packet's shared rules are stricter than Figma's universal constraints in three places — a 40-character label cap where Figma caps nothing, a per-type node budget where Figma states none, and a named shape vocabulary per type where Figma's own fallback archetype only says \"distinct fills per node type\". The corpus adds layout and measurement vocabulary; it does not add content discipline. [SOURCE: specs/z-staging-po-030a/corpus/lightspeedwp__.github/plugins/figma/figma-generate-diagram/SKILL.md:49] [SOURCE: specs/z-staging-po-030a/corpus/lightspeedwp__.github/plugins/figma/figma-use-figjam/references/plan-board-content.md:339] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:160]",
+      "addedAtIteration": 3,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-3-2-figma-states-the-board-s-spacing-language-as-three-named-distances-and-they-are-",
+      "text": "**Figma states the board's spacing language as three named distances, and they are an order of magnitude larger than the comparator's node gap.** \"**Tight clustering** (60-92px) = same thought. **Loose spacing** (200-400px) = different topics. **Zone breaks** (1000px+) = different part of the board.\" A board's smallest unit of meaning is therefore 60px, not the 24px minimum gap `output-spec.md` gives between nodes. This is the decisive fact for spacing in this lineage: the FigJam packet cannot adopt the comparator's diagram-side spacing scale, and the board-side scale it should adopt instead is this one. [SOURCE: specs/z-staging-po-030a/corpus/lightspeedwp__.github/plugins/figma/figma-use-figjam/references/plan-board-content.md:42] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/foundations/output-spec.md:79]",
+      "addedAtIteration": 3,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-3-3-figma-requires-every-board-to-have-an-entry-point-in-a-form-the-packet-already-a",
+      "text": "**Figma requires every board to have an entry point, in a form the packet already almost has.** \"**Every board needs an entry point**: Board title (60-96px) at top-left, clearly visible at overview zoom. For templates, add a meta/instructions section. For meetings, a colored agenda sticky.\" The packet's title recipe — a text node 64px above the diagram in charcoal — matches the *position* but not the *scale* (a FigJam text node at default size is a label, not a 60-96px title) and not the *default* (it is an optional extension). Iteration 002, finding 8 identified the missing title contract; this finding supplies its numbers. [SOURCE: specs/z-staging-po-030a/corpus/lightspeedwp__.github/plugins/figma/figma-use-figjam/references/plan-board-content.md:82] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:150]",
+      "addedAtIteration": 3,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-3-4-sections-nest-on-a-figjam-board-by-design-so-the-packet-s-a-section-never-wraps-",
+      "text": "**Sections nest on a FigJam board by design, so the packet's \"a section never wraps a generated node\" rule is a policy about moving nodes, not a platform limit.** Figma's guidance is \"**Always wrap the entire board in one top-level white section**\" and \"Sections nest. A board is a section that contains zone sections, which contain card sections.\" The packet's caution is real — `position-figjam-nodes.md` confirms a node's coordinates become parent-relative after `appendChild`, and that \"After adding nodes to a section, you MUST check that the section encompasses its children\" — but the prohibition is protecting the generated layout from a side effect, not reporting an impossibility. A board could still be sectioned *if* the sectioning is done without moving the generated geometry, or if the whole diagram is generated inside a section from the start. [SOURCE: specs/z-staging-po-030a/corpus/lightspeedwp__.github/plugins/figma/figma-use-figjam/references/plan-board-content.md:92] [SOURCE: specs/z-staging-po-030a/corpus/lightspeedwp__.github/plugins/figma/figma-use-figjam/references/position-figjam-nodes.md:85] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:148]",
+      "addedAtIteration": 3,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-3-5-figma-s-own-diagram-skill-says-the-fix-for-a-cramped-or-tangled-generated-diagra",
+      "text": "**Figma's own diagram skill says the fix for a cramped or tangled generated diagram is better Mermaid, and stops there.** \"**Don't reposition nodes.** ELK's layout is what it is for now. If the diagram looks cramped or tangled, the fix is better Mermaid, not manual repositioning via `use_figma`.\" This confirms the packet's layer choice independently (iteration 001, finding 1) and identifies the missing artifact precisely: nobody in either source says *what* \"better Mermaid\" is. That is the gap the packet should close, because it is the only lever the generator leaves. [SOURCE: specs/z-staging-po-030a/corpus/lightspeedwp__.github/plugins/figma/figma-generate-diagram/references/workflow.md:148]",
+      "addedAtIteration": 3,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-3-6-figma-treats-a-title-block-and-a-legend-as-ordinary-extension-work-not-as-except",
+      "text": "**Figma treats a title block and a legend as ordinary extension work, not as exceptional requests.** Its hybrid-workflow guidance lists them among the tasks that need no inspection at all: \"**Inspection is optional.** Skip `get_figjam` when your extensions don't need precise anchoring (e.g., adding a title text block above the diagram, adding a legend off to one side).\" The packet instead routes every extension through \"Extend when the request asks for something the model cannot carry\", which makes a title conditional on a request. Two different default postures, and Figma's is the one that produces a board a stranger can read. [SOURCE: specs/z-staging-po-030a/corpus/lightspeedwp__.github/plugins/figma/figma-generate-diagram/references/workflow.md:70] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:29]",
+      "addedAtIteration": 3,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-3-7-the-corpus-contains-a-formal-glance-order-method-that-maps-exactly-onto-the-rese",
+      "text": "**The corpus contains a formal glance-order method that maps exactly onto the research question's \"where the eye lands first\".** \"Before placing nodes, write three short lines: 1. First glance: the one claim, decision, or object that should win within two seconds. 2. Second glance: the evidence or relationship that advances the argument. 3. Last glance: risks, metadata, appendix, or other material that should remain available without competing.\" It also warns against the packet's own likely failure: \"Repeating the primary sentence in both a board title and a hero card creates two focal objects for one idea.\" The packet has one accent rule at node level and nothing at board level. [SOURCE: specs/z-staging-po-030a/corpus/prasantloki__figjam-builder/references/composition-grammar.md:5]",
+      "addedAtIteration": 3,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-3-8-the-corpus-states-a-focus-budget-per-section-which-is-the-board-level-analogue-o",
+      "text": "**The corpus states a focus budget per section, which is the board-level analogue of the packet's one-accent rule.** \"One primary focal object per section. Two or three secondary objects may support it. Everything else should be quieter through smaller scale, lower contrast, simpler containers, or later position\", with the ordering \"position and visual mass first, typography second, and color as reinforcement\". The packet's accent rule says \"at most one accent, on the node a reader would keep if they could keep only one\" — the same instinct, scoped to a diagram rather than a board, and without the \"everything else should be quieter\" half that does the actual work. [SOURCE: specs/z-staging-po-030a/corpus/prasantloki__figjam-builder/references/composition-grammar.md:17] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:49]",
+      "addedAtIteration": 3,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-3-9-the-corpus-gives-spacing-a-semantic-scale-keyed-to-relationship-which-is-the-mis",
+      "text": "**The corpus gives spacing a semantic scale keyed to relationship, which is the missing half of the packet's proximity rule.** \"Spacing communicates grouping before labels do. Use a clear progression: 16-32px between title, body, and metadata within one text stack. 32-48px of card padding for normal narrative content. 60-92px between peer objects in the same thought. 160-240px between distinct groups inside one section.\" The closing rule is the one the packet needs most: \"Unrelated groups should never be closer than the text blocks inside a card.\" The packet's only grouping affordance is a tint expanded 24px on every side — a constant, where the corpus asks for a ratio between *within-group* and *between-group* distance. [SOURCE: specs/z-staging-po-030a/corpus/prasantloki__figjam-builder/references/composition-grammar.md:25] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:118]",
+      "addedAtIteration": 3,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-4-1-the-packet-s-page-claim-is-half-wrong-and-correcting-the-reason-matters-more-tha",
+      "text": "**The packet's page claim is half wrong, and correcting the reason matters more than the correction.** `flow-mode.md` states \"A FigJam file has one page and no write can add another, so a page is never the target.\" Figma's own documentation says the opposite about the file: \"FigJam files can contain multiple pages, giving you more space to explore... There is no limit to the amount of pages you can create in FigJam\", and lists exactly the reasons a board would want them — separate work streams, recurring meetings, divider pages, and reducing board size and load time. The second half of the packet's sentence is true and is the part that governs behaviour: no *write* can add a page, because `figma.createPage()` throws in a FigJam file. The rule survives; the sentence should be reworded to say that a tool cannot add a page while a person can, because that difference is what lets a multi-diagram board grow past one canvas when the reader needs it. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:65] [SOURCE: https://help.figma.com/hc/en-us/articles/24005082123159-Create-and-manage-pages-in-FigJam] [SOURCE: specs/z-staging-po-030a/corpus/lightspeedwp__.github/plugins/figma/figma-generate-diagram/SKILL.md:59]",
+      "addedAtIteration": 4,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-4-10-the-lane-order-reversal-is-a-concrete-defect-risk-the-packet-s-read-back-would-n",
+      "text": "**The lane-order reversal is a concrete defect risk the packet's read-back would not catch as a meaning error.** If sibling subgraphs render \"in the reverse of the declaration order\", a process whose lanes are declared in the order the work happens can land with its lanes in the opposite order — and the packet's read-back counts lanes and checks that each step sits in one, never that the lanes are in the order the reader needs. A board can therefore pass read-back while reading right-to-left through a process. [SOURCE: https://line9.ai/mermaid/layout] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/process.md:72]",
+      "addedAtIteration": 4,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-4-11-a-published-design-source-separates-micro-from-macro-whitespace-which-names-the-",
+      "text": "**A published design source separates micro from macro whitespace, which names the two spacing systems a board needs at once.** The Dell EMC design-diagramming material defines whitespace as \"the part of the diagram left unused\", splits it into macro and micro, and calls the balance between positive and negative space \"essential to create a functional and esthetic diagram\"; micro whitespace is \"small pieces of space between shapes, lines, titles, icons\". That is the missing vocabulary for this lineage's central spacing problem: iteration 003's 60-92 / 200-400 / 1000+ bands are macro whitespace, and the node gap the packet cannot measure is micro. A board needs both, and they are decided in different layers. [SOURCE: https://learning.dell.com/content/dam/dell-emc/documents/en-us/2015KS_Pantyukhin-Principles_of_Design_Diagramming.pdf]",
+      "addedAtIteration": 4,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-4-12-public-accessibility-guidance-adds-the-one-remedy-the-packet-s-tint-recipe-omits",
+      "text": "**Public accessibility guidance adds the one remedy the packet's tint recipe omits: pair colour with line style, not only with a label.** IBM's technical-diagram guidance says connectors \"can also use different colors. However, to avoid color blindness accessibility issues, it's best to use color in combination with labels or line styles so that any difference can be accessible to all users.\" The packet's style guide already refuses to let colour carry meaning alone, which is a genuine strength, but its tint recipe encodes group membership with fill and stroke only and gives no line-style channel. The cheap repair is available and already inside the palette record: the stroke dash patterns the comparator uses for optional and security nodes. [SOURCE: https://www.ibm.com/design/language/infographics/technical-diagrams/design/] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:33] [SOURCE: .skilled/skills/sk-design/sk-design-diagram/references/foundations/style-guide.md:143]",
+      "addedAtIteration": 4,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-4-13-crossings-can-be-judged-before-the-board-exists-because-they-are-a-property-of-t",
+      "text": "**Crossings can be judged before the board exists, because they are a property of the graph rather than of the renderer.** A published layout skill classifies the graph first and names \"nearly planar topology where crossing count dominates readability\" as one of its classes, then picks a renderer from the class. The packet generates first and judges crossings afterwards, from a screenshot, at a cost of a wasted write. Its existing pre-write script is the natural home for a planarity hint: count the edge set, flag the pairs that must cross, and split or re-rank before the gate rather than after the board exists. [SOURCE: https://github.com/openai/plugins/blob/main/plugins/build-web-data-visualization/skills/node-link-and-diagram-layout/SKILL.md] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:68]",
+      "addedAtIteration": 4,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-4-2-a-figjam-section-can-be-created-around-objects-that-already-exist-so-the-packet-",
+      "text": "**A FigJam section can be created *around* objects that already exist, so the packet can group a generated diagram without moving a single node.** Figma documents \"Create section from selection\": select and drag the objects, right-click, \"Create section\". Sections exist to \"Cluster objects together without having to group them\" and to \"Contain objects that can be moved together around the board\". The packet's prohibition — \"A section never wraps a generated node, because adding a node to a section moves it\" — is protecting against `appendChild`, which is the wrong affordance for a diagram that already exists. Wrapping from selection gives the grouping with no coordinate change, so the prohibition can be narrowed to the append path rather than the whole idea. [SOURCE: https://help.figma.com/hc/en-us/articles/4939765379351-Organize-your-FigJam-board-with-sections] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:148]",
+      "addedAtIteration": 4,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-4-3-sections-bring-four-board-level-capabilities-the-packet-uses-none-of-and-each-on",
+      "text": "**Sections bring four board-level capabilities the packet uses none of, and each one maps to a quality the scorecard already scores.** Figma lists: cluster without grouping, contain as a movable unit, \"Hide sections of the board that can be revealed when needed\", \"Link collaborators to a specific section of the board\", and \"Set as thumbnail\". The first is grouping (Layout), the second is what makes a diagram feel like one object rather than a cluster of loose nodes, the third is how a board can hold an appendix without competing (Clarity), the fourth is how a reply can point a reader at the right part of a six-diagram board (Reply), and the fifth decides what a reader sees first in the file browser — the board's own first glance. [SOURCE: https://help.figma.com/hc/en-us/articles/4939765379351-Organize-your-FigJam-board-with-sections]",
+      "addedAtIteration": 4,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-4-4-section-titles-are-first-class-objects-and-the-packet-s-floating-title-node-comp",
+      "text": "**Section titles are first-class objects, and the packet's floating title node competes with them.** Figma's help documents \"Edit section title\", a toolbar control and a double-click path, plus a way to remove a title when \"the section has no title text inside it\". Figma's own board skill draws the matching conclusion and clears the name — \"**Clear all section names** unless the section has no title text inside it\" — so on a FigJam board there are exactly two title mechanisms and the rule is to pick one per region. The packet has neither: it writes a 64px-clear charcoal text node only when an extension was asked for, and never names the diagram in a way the board's own navigation can show. [SOURCE: https://help.figma.com/hc/en-us/articles/4939765379351-Organize-your-FigJam-board-with-sections] [SOURCE: specs/z-staging-po-030a/corpus/lightspeedwp__.github/plugins/figma/figma-use-figjam/references/plan-board-content.md:106] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md:150]",
+      "addedAtIteration": 4,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-4-5-locking-is-the-missing-safety-mechanism-that-would-let-a-diagram-be-generated-in",
+      "text": "**Locking is the missing safety mechanism that would let a diagram be generated inside its own section.** Figma's section lock offers \"**Lock all** to prevent the section and its contents from being moved or edited\" and \"**Lock background only** to prevent the section from being moved or deleted while its content is still editable\". The packet refuses sections because `appendChild` moves the node; a locked section background is exactly the state in which that move cannot happen quietly. This is recorded as a route to verify rather than a ruled fact, because no source states what the hosted generator does when the target region is locked, and the packet's own rule forbids claiming an unobserved generator behaviour. [SOURCE: https://help.figma.com/hc/en-us/articles/4939765379351-Organize-your-FigJam-board-with-sections] [SOURCE: specs/z-staging-po-030a/corpus/lightspeedwp__.github/plugins/figma/figma-use-figjam/references/position-figjam-nodes.md:85]",
+      "addedAtIteration": 4,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-4-6-multi-diagram-composition-already-has-a-published-shape-one-outer-section-one-zo",
+      "text": "**Multi-diagram composition already has a published shape: one outer section, one zone section per diagram, on Figma's own gaps.** Figma's board skill says \"Always wrap the entire board in one top-level white section\" and \"Sections nest. A board is a section that contains zone sections, which contain card sections\", with `siblingGapH: 92` and `siblingGapV: 120` between sibling sections and 68/60/100/80 padding inside one. Applying that to a multi-diagram board is a direct mapping: one board wrapper, one zone section per diagram, each zone named with the diagram's title, 92px between zones in a row and 120px between rows. The packet currently has no spacing figure at all between two diagrams. [SOURCE: specs/z-staging-po-030a/corpus/lightspeedwp__.github/plugins/figma/figma-use-figjam/references/plan-board-content.md:92] [SOURCE: specs/z-staging-po-030a/corpus/lightspeedwp__.github/plugins/figma/figma-use-figjam/references/plan-board-content.md:117]",
+      "addedAtIteration": 4,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-4-7-the-board-should-be-able-to-carry-a-numbered-reading-order-because-every-source-",
+      "text": "**The board should be able to carry a numbered reading order, because every source describes one and none describes a way to signal it.** Figma's board skill fixes the direction (\"left-to-right, top-to-bottom\", context then evidence then asks then appendix); the composition grammar fixes the glance order (first, second, last); a published architecture-diagramming deck states the goal as \"Easy to read: our audience should be able to understand our diagram in seconds\" and \"Standalone: major parts must make sense without additional explanation\". A six-diagram board currently gives a reader no signal about which diagram is first. A section title with an ordinal in it — \"1 · Booking states\" — is the cheapest available form, and it costs nothing the packet forbids. [SOURCE: specs/z-staging-po-030a/corpus/lightspeedwp__.github/plugins/figma/figma-use-figjam/references/plan-board-content.md:38] [SOURCE: https://www.lasssim.com/wp-content/uploads/2022/06/WeAreDevelopers_Lasselsberger_Simon_220610.pdf] [SOURCE: specs/z-staging-po-030a/corpus/prasantloki__figjam-builder/references/composition-grammar.md:5]",
+      "addedAtIteration": 4,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-4-8-reshape-the-model-needs-a-lever-table-because-most-mermaid-layout-hints-do-nothi",
+      "text": "**\"Reshape the model\" needs a lever table, because most Mermaid layout hints do nothing and one of them does the opposite of what a reader expects.** Mermaid's own layout note is blunt: \"None of these *place* a node, they are requests that the renderer may override\", and \"The `&` syntax looks as if it might group nodes or put them on the same rank. It does not.\" The levers that do something are narrower than the packet assumes: extra dashes extend an edge by at least a rank but are \"not implemented in ELK\"; invisible links move nodes but with an \"unpredictable effect\"; a subgraph constrains its contents but adds a box that has to be hidden; **subgraph declaration order reverses the rendered order of sibling subgraphs**; and node declaration order \"has a bearing on the order in which they are included… but is then often overridden… to try to prevent lines from crossing\". [SOURCE: https://line9.ai/mermaid/layout]",
+      "addedAtIteration": 4,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-4-9-because-the-figjam-generator-is-elk-based-the-one-length-hint-the-packet-could-h",
+      "text": "**Because the FigJam generator is ELK-based, the one length hint the packet could have used is unavailable, which leaves exactly three model-side levers.** The packet's own type reference says a user flow is \"laid out by the generator's ELK engine\", and Mermaid's note says the extra-dash length hint is \"Stock Mermaid — dagre only — not implemented in ELK\". What survives on ELK is: direction (already used), node declaration order (unused, and subordinate to crossing minimisation), and the edge set plus subgraph presence (used for lanes only). \"Reshape the model\" should therefore be written as those three levers with their limits, rather than as a general invitation to try syntax. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/user-flow.md:38] [SOURCE: https://line9.ai/mermaid/layout]",
+      "addedAtIteration": 4,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-5-1-the-scorecard-measures-the-three-things-a-machine-can-prove-and-one-thing-a-stra",
+      "text": "**The scorecard measures the three things a machine can prove and one thing a stranger can answer, and everything else in between is unmeasured.** Fidelity is \"every read-back count matches the model\"; Reply is the shape of the reply line; Hygiene is \"no generated node moved, resized or restyled\"; Clarity is \"a fresh reader… answers the scenario's three questions\". Between Fidelity and Clarity sits the entire question of whether the board has a beginning, a grouping and a breathing rhythm, and no dimension asks it. [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:79] [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:83]",
+      "addedAtIteration": 5,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-5-10-the-scorecard-s-pass-condition-already-has-the-right-shape-it-is-a-floor-plus-th",
+      "text": "**The scorecard's pass condition already has the right shape: it is a floor plus three dimensions that must be perfect.** \"A scored board passes at 12 of 14 or more, with Fidelity, Hygiene and Reply at 2 and no dimension at 0.\" That structure — a total floor, plus mandatory-perfect dimensions, plus a per-dimension floor of zero — is a good design and should survive any change to what the dimensions are. What it is missing is a mandatory dimension that covers composition, which is the one thing a reader notices before any count. [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:87]",
+      "addedAtIteration": 5,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-5-2-clarity-is-the-closest-thing-to-a-reading-test-and-its-three-questions-are-conte",
+      "text": "**Clarity is the closest thing to a reading test, and its three questions are content questions, not hierarchy questions.** Every scenario's questions are of the form \"What does a customer see more than 30 days after delivery?\", \"Which two ways can the item go back?\" — answerable by scanning the labels in any order. A reader can score 3 of 3 on a board whose first glance is a footnote, which is precisely the failure the corpus's two-zoom review is built to catch. [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/user-flow-board-quality.md:31] [SOURCE: specs/z-staging-po-030a/corpus/prasantloki__figjam-builder/references/composition-grammar.md:106]",
+      "addedAtIteration": 5,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-5-3-layout-is-a-single-counter-with-three-bands-and-it-conflates-three-different-fai",
+      "text": "**Layout is a single counter with three bands, and it conflates three different failures.** \"2: no overlap, no connector crossing and one reading direction that matches the model. 1: no overlap and one crossing. 0: any overlap, or two or more crossings\" treats a crossing, a shared trunk that makes edge ownership ambiguous, and a connector label sitting on its stroke as the same defect — or as no defect when the count is low. The corpus explicitly separates them: \"Avoid shared trunks when they make edge ownership ambiguous\", \"Keep labels at the 24px metadata floor, offset from paths and nodes\", and \"Judge connector crossings from the rendered screenshot; a connector bounding box does not describe its path\". [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:81] [SOURCE: specs/z-staging-po-030a/corpus/prasantloki__figjam-builder/references/composition-grammar.md:98]",
+      "addedAtIteration": 5,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-5-4-an-unexamined-dimension-scores-a-silent-2-and-a-scored-dimension-with-no-locatio",
+      "text": "**An unexamined dimension scores a silent 2, and a scored dimension with no location cannot be repaired.** The rubric's own honesty standard is higher than the scorecard's: it says \"A missing tier reads as 'not checked'\", and every finding must carry \"a location, the offending code, the fix, and the criterion\". The scorecard reports seven numbers and one reason per score. A \"Layout 1\" tells a later operator that something crossed, not which connector or which pair of nodes, so the next session cannot fix it without re-deriving the whole review. [SOURCE: .skilled/skills/sk-design/sk-design-fundamentals/references/review-checklist.md:149] [SOURCE: .skilled/skills/sk-design/sk-design-fundamentals/references/review-checklist.md:17] [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:72]",
+      "addedAtIteration": 5,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-5-5-hygiene-is-a-compound-dimension-so-one-broken-clause-hides-the-other-three-2-no-",
+      "text": "**Hygiene is a compound dimension, so one broken clause hides the other three.** \"2: no generated node moved, resized or restyled between the first and the last read, no extension covers a label, nothing outside the write changed and nothing was written to `export/`. 0: any of these broken.\" Four independent invariants share a single bit, which means a board can lose the dimension for the least important of them while the report cannot say which. The packet's own `fileProtection` block already enumerates these as separate properties, so the atomic version is available for free. [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:84] [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md:246]",
+      "addedAtIteration": 5,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-5-6-nothing-is-measured-at-two-zooms-so-a-board-is-only-ever-read-the-way-its-author",
+      "text": "**Nothing is measured at two zooms, so a board is only ever read the way its author already reads it.** Every scenario screenshots \"at 100% zoom\". The corpus's review method requires an overview pass specifically because \"If that order differs from the plan, revise scale, position, contrast, or grouping\" — a judgment that cannot be made at reading zoom, where the author is standing too close to see that the first glance landed on a legend instead of the decision. [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:80] [SOURCE: specs/z-staging-po-030a/corpus/prasantloki__figjam-builder/references/composition-grammar.md:106]",
+      "addedAtIteration": 5,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-5-7-there-is-no-scored-board-to-compare-against-so-scores-are-not-comparable-across-",
+      "text": "**There is no scored board to compare against, so scores are not comparable across sessions or types.** The packet ships text models (`assets/examples/`, `assets/templates/`) that are checked by `flow_check.py`, and board-quality scenarios produce a score per run — but no board is kept as a scored reference. The corpus's typography method needs an anchor for exactly this reason: rendered-size targets only mean something against a normalised overview of a known board. Without an anchor, a 12-of-14 has no meaning beyond \"someone thought it was fine\". [SOURCE: AI Systems/Product Owner/sk-create-figjam/SKILL.md:198] [SOURCE: specs/z-staging-po-030a/corpus/prasantloki__figjam-builder/references/typography-grammar.md:24]",
+      "addedAtIteration": 5,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-5-8-several-board-qualities-are-computable-from-what-the-checker-already-parses-so-b",
+      "text": "**Several board qualities are computable from what the checker already parses, so better measurement does not require a new machine.** `check_block` already returns a profile, a size string and a direction, counting nodes, connectors, participants, messages, entities, tasks and sections, and it already enforces one direction family across diagrams of one flow. From that same parse a second group of measures is free: rank width (the widest set of nodes at one depth), fan-out per node, edges-per-node ratio, longest path, the count of label characters against the 40-character cap already held in `MAX_LABEL_CHARS`, and a must-cross edge-pair estimate from the edge set. Those are exactly the numbers a floating-point scorecard cannot produce and a pre-write slot can. [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py:100] [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/common.py:21]",
+      "addedAtIteration": 5,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "id": "finding-5-9-a-measured-score-should-ship-with-the-fixture-that-produced-it-and-the-packet-al",
+      "text": "**A measured score should ship with the fixture that produced it, and the packet already has the place for it.** The design comparator keeps its scored corpus in `benchmark/reports/<date>--<playbook-id>/` with `results.csv` and a findings file per run, so a regression is a diff rather than an opinion. `sk-create-figjam`'s playbook records a scorecard verdict per session but keeps no series, so nobody can say whether the board quality is rising. [SOURCE: .skilled/skills/sk-design/sk-design-diagram/benchmark/reports/README.md] [SOURCE: AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md:87]",
+      "addedAtIteration": 5,
+      "sources": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    }
+  ],
+  "ruledOutDirections": [],
+  "metrics": {
+    "iterationsCompleted": 5,
+    "openQuestions": 0,
+    "resolvedQuestions": 5,
+    "keyFindings": 61,
+    "sourceFindings": 61,
+    "reconstructionGaps": 0,
+    "convergenceScore": 0.8,
+    "coverageBySources": {}
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/032-clickup-push-targets",
+  "description": "Phase 32: clickup-push-targets",
+  "keywords": [
+    "phase",
+    "clickup-push-targets"
+  ],
+  "lastUpdated": "2026-10-21T08:00:00.000Z",
+  "specId": "032",
+  "folderSlug": "clickup-push-targets",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

@@ -1,0 +1,31 @@
+{"event":"started","label":"deepseek","index":0,"attempt":1,"at":"2026-10-20T07:40:40.369Z","gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:42:02.179Z","duration_ms":60004,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:43:02.181Z","duration_ms":120005,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:44:02.183Z","duration_ms":180007,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:45:02.184Z","duration_ms":240008,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:46:02.186Z","duration_ms":300010,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:47:02.188Z","duration_ms":360012,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:48:02.189Z","duration_ms":420013,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:49:02.190Z","duration_ms":480014,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:50:02.192Z","duration_ms":540016,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:51:02.192Z","duration_ms":600016,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:52:02.193Z","duration_ms":660017,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:53:02.194Z","duration_ms":720018,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:54:02.201Z","duration_ms":780025,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:55:02.201Z","duration_ms":840025,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:56:02.200Z","duration_ms":900025,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:57:02.202Z","duration_ms":960026,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:58:02.202Z","duration_ms":1020026,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T07:59:02.203Z","duration_ms":1080027,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T08:00:02.204Z","duration_ms":1140028,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T08:01:02.205Z","duration_ms":1200029,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T08:02:02.207Z","duration_ms":1260031,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T08:03:02.208Z","duration_ms":1320032,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T08:04:02.209Z","duration_ms":1380033,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T08:05:02.210Z","duration_ms":1440034,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-20T08:06:02.211Z","duration_ms":1500035,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"type":"event","event":"containment_advisory","severity":"warning","at":"2026-10-20T08:06:54.057Z","label":"deepseek","run_id":"1792482040367-nu2bmb","loop_type":"research","spec_folder":"specs/z-staging-po-009-research","iteration":1,"gauges":{"lag":1,"pending":0,"failed":0},"violations":[{"path":"AI Systems/Product Owner/specs/017-figjam-flow-generation/009-figjam-skill-research/goal.md","kind":"untracked","status":"??"}],"detected":[{"path":"AI Systems/Product Owner/specs/017-figjam-flow-generation/009-figjam-skill-research/goal.md","action":"preserved_untracked","ok":true}]}
+{"event":"timestamp_anomaly","status":"warning","severity":"warning","label":"deepseek","at":"2026-10-20T08:06:54.061Z","state_log":"/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/z-staging-po-009-research/research/lineages/deepseek/deep-research-state.jsonl","window":{"start_at_iso":"2026-10-20T07:40:40.371Z","end_at_iso":"2026-10-20T08:06:54.061Z","tolerance_ms":120000},"counts":{"anomalous":14,"untimestamped":0,"unparseable":0,"total":22},"sample":[{"index":7,"reason":"after_window","timestamp":"2026-10-20T08:12:00Z","deltaMs":185939},{"index":8,"reason":"after_window","timestamp":"2026-10-20T08:18:00Z","deltaMs":545939},{"index":9,"reason":"after_window","timestamp":"2026-10-20T08:24:00Z","deltaMs":905939},{"index":10,"reason":"after_window","timestamp":"2026-10-20T08:30:00Z","deltaMs":1265939},{"index":11,"reason":"after_window","timestamp":"2026-10-20T08:40:00Z","deltaMs":1865939}]}
+{"event":"completed","label":"deepseek","index":0,"attempt":1,"at":"2026-10-20T08:06:54.084Z","duration_ms":1573714,"terminal":true,"gauges":{"lag":0,"pending":0,"failed":0},"skippedCount":25,"slotDurationMs":1573682.196708}
+{"event":"metadata_refresh_ok","status":"ok","spec_folder":"specs/z-staging-po-009-research","at":"2026-10-20T08:06:54.092Z","generator":"generate-description.js"}
+{"event":"metadata_refresh_failed","status":"warning","spec_folder":"specs/z-staging-po-009-research","at":"2026-10-20T08:06:54.287Z","generator":"backfill-graph-metadata.js","exit_code":1,"stderr_tail":"backfill-graph-metadata: target is not a spec folder (folder name \"z-staging-po-009-research\" is not NNN-slug): /Users/michelkerkmeester/MEGA/Development/AI Systems/specs/z-staging-po-009-research"}
