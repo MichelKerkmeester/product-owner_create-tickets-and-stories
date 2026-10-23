@@ -1,0 +1,16 @@
+The DeepSeek lineage for `specs/product-owner/018-product-owner-deep-review/002-sk-create-figjam` is complete on disk.
+
+**Artifacts** (`specs/product-owner/018-product-owner-deep-review/002-sk-create-figjam/review/lineages/deepseek/`)
+- `iterations/iteration-001..005.md` — correctness, security, traceability, maintainability, consolidation; each ends with `Review verdict: CONDITIONAL`
+- `deltas/iter-001..005.jsonl` — matching structured records
+- `review-report.md` — all 9 core sections, verdict recomputed from the registry
+- `deep-review-findings-registry.json`, `deep-review-dashboard.md`, `deep-review-strategy.md` (§17 retrospective added)
+- `.scratch/` — five evidence models used to prove findings by execution
+
+**State** — every row went through `append-mode-event.cjs`, then `reduce-state.cjs` after each one. Ledger sequences 1–7: `run_initialized`, five `iteration_recorded`, `synthesis_complete` with `stopReason: maxIterationsReached`. Projection: 7 state rows, dashboard `Status: COMPLETE`, 11 open / 0 resolved, all four dimensions covered.
+
+**Result** — 0 P0, 1 P1, 10 P2. The P1: `scripts/figjam_checks/flowchart.py:47` sets `USER_FLOW: (9, None)`, so a user flow never faces the 12-connector budget `references/flow-mode.md:298` states — proved by a nine-node, thirteen-connector model passing with exit 0. Confirmed clean: all 81 local links, the 52-file playbook index, the ten-row palette table and its ratios, every other type's budget, and the vendored digest.
+
+Nothing in the reviewed packet was modified, and nothing outside the lineage was written this session (an earlier `/tmp/targetpaths.txt` from the pre-setup phase is the one exception, already on disk before the first iteration).
+
+FANOUT_LINEAGE_COMPLETE:deepseek

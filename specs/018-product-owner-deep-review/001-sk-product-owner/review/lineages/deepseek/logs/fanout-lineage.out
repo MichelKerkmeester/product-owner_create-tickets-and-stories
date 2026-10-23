@@ -1,0 +1,17 @@
+Review lineage complete. Summary of what ran and what it produced:
+
+**Setup bound** — `target=AI Systems/Product Owner/sk-product-owner`, `specFolder=specs/product-owner/018-product-owner-deep-review/001-sk-product-owner`, `maxIterations=5`, `convergence=0.1`, `mode=review`, `dimensions=correctness,security,traceability,maintainability`. Reviewed against the bound steer (packet source only; Project packaging, export output, specs and screenshots untouched).
+
+**Five iterations, each written then handed to the append gateway (exit 0, ledger sequences 1–6) and reduced:**
+
+| Iter | Dimension | Findings |
+|---|---|---|
+| 1 | correctness | 1 P1 (Project delivery proof inside the skill rubric), 2 P2 (missing `z — Knowledge/` root, 48-vs-50 scenario count) |
+| 2 | traceability | 1 P1 (router contract's fence vs the oracle it names: 2,992 vs 3,598 tokens, disjoint functions), 4 P2 (ALWAYS lane, Quick fallback, root-relative citations, example bundle) |
+| 3 | maintainability | 4 P2 (three over-cap examples, duplicated contract preamble, kernel fragments, missing preamble) |
+| 4 | security | 2 P2 (no untrusted-input rule, unconstrained export slug); no secrets, write path gated three times |
+| 5 | traceability/playbook | 1 P2 (no Narrative overview scenario); both P1s re-read and confirmed |
+
+**Terminal state** — registry 15 active (0 P0, 2 P1, 13 P2), all four dimensions covered, `searchDebtCount: 0`; `review-report.md` carries all nine core sections plus Dimension Expansion Map, Search Ledger and Audit Appendix; close-out recorded `deep_review.synthesis_complete` with `stopReason: maxIterationsReached`, verdict CONDITIONAL; config flipped to `complete`. Every write landed inside `specs/product-owner/018-product-owner-deep-review/001-sk-product-owner/review/lineages/deepseek`.
+
+FANOUT_LINEAGE_COMPLETE:deepseek

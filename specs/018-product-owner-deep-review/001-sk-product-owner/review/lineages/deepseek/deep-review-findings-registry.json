@@ -1,0 +1,1007 @@
+{
+  "sessionId": "fanout-deepseek-1792580414886-kf3maf",
+  "parentSessionId": null,
+  "generation": 1,
+  "lineageMode": "new",
+  "continuedFromRun": null,
+  "terminalStop": null,
+  "status": "INITIALIZED",
+  "openFindings": [
+    {
+      "findingId": "DR-DS-001",
+      "severity": "P1",
+      "title": "quality-scoring.md carries Project-only delivery rules (Deliverable Block, export-equivalent path) that contradict the skill export contract",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/quality-scoring.md",
+      "line": 160,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "DR-DS-004",
+      "severity": "P1",
+      "title": "router-contract.md asserts it is the exact source that proves the oracle never drifts, but its Python fence and benchmark/router/route_contract.py are different programs",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+      "line": 17,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "DR-DS-002",
+      "severity": "P2",
+      "title": "SKILL.md names a z — Knowledge/ discovery root that does not exist in the packet",
+      "file": "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+      "line": 67,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "DR-DS-003",
+      "severity": "P2",
+      "title": "SKILL.md understates the manual-testing playbook as 48 scenarios against 50 on disk",
+      "file": "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+      "line": 319,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "DR-DS-005",
+      "severity": "P2",
+      "title": "The contract's ALWAYS lane loads two of the six resources the bootstrap marks ALWAYS and skips its own first entry by name",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+      "line": 137,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "DR-DS-006",
+      "severity": "P2",
+      "title": "Quick energy falls back to Task in the contract but not in the routing rules",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+      "line": 851,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "DR-DS-007",
+      "severity": "P2",
+      "title": "Oracle paths are written system-root-relative inside packet-relative prose",
+      "file": "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+      "line": 44,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "DR-DS-008",
+      "severity": "P2",
+      "title": "The README worked example links five bundle siblings the examples tree does not ship",
+      "file": "AI Systems/Product Owner/sk-product-owner/assets/examples/doc/doc-example-readme.md",
+      "line": 60,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "DR-DS-009",
+      "severity": "P2",
+      "title": "Three worked examples break the packet's own word caps",
+      "file": "AI Systems/Product Owner/sk-product-owner/assets/examples/doc/doc-example-how-it-works.md",
+      "line": 10,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "DR-DS-010",
+      "severity": "P2",
+      "title": "The router contract repeats its own opening paragraph and its Section 1 payload",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+      "line": 33,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "DR-DS-011",
+      "severity": "P2",
+      "title": "The quality rubric carries kernel-owned index fragments including a delivery-prohibition list starting at item 7",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/quality-scoring.md",
+      "line": 183,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "DR-DS-012",
+      "severity": "P2",
+      "title": "The routing reference omits the preamble fields the packet requires of every reference",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/routing.md",
+      "line": 1,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "DR-DS-013",
+      "severity": "P2",
+      "title": "Nothing in the packet treats pasted source material as untrusted data",
+      "file": "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+      "line": 30,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "DR-DS-014",
+      "severity": "P2",
+      "title": "The export filename description is unconstrained in three of the four modes that build a path from user wording",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/task-mode.md",
+      "line": 22,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "DR-DS-015",
+      "severity": "P2",
+      "title": "The playbook has no scenario for the Narrative overview Doc shape",
+      "file": "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/manual-testing-playbook.md",
+      "line": 24,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 5,
+      "lastSeen": 5,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 5,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    }
+  ],
+  "resolvedFindings": [],
+  "blockedStopHistory": [],
+  "persistentSameSeverity": [],
+  "severityChanged": [],
+  "repeatedFindings": [],
+  "dimensionCoverage": {
+    "correctness": true,
+    "security": true,
+    "traceability": true,
+    "maintainability": true
+  },
+  "findingsBySeverity": {
+    "P0": 0,
+    "P1": 2,
+    "P2": 13
+  },
+  "openFindingsCount": 15,
+  "resolvedFindingsCount": 0,
+  "convergenceScore": 0,
+  "graphConvergenceScore": 0,
+  "graphDecision": null,
+  "graphBlockers": [],
+  "graphSignals": {},
+  "candidateCoverage": {
+    "covered": [
+      "contract_contradiction",
+      "contract_drift",
+      "dangling_link",
+      "doc_gap",
+      "doc_path_claim",
+      "doc_standard_gap",
+      "duplicated_text",
+      "example_budget",
+      "missing_untrusted_input_rule",
+      "mixed_authorship",
+      "path_base_ambiguity",
+      "path_construction_gap",
+      "playbook_coverage_gap",
+      "stale_count"
+    ],
+    "ruledOut": [
+      "anchor_drift",
+      "contract_contradiction",
+      "cross_runtime_parity",
+      "doc_scaffold_divider_breach",
+      "example_budget",
+      "external_write_gate",
+      "percent_encoded_parent_link",
+      "placeholder_link_syntax",
+      "playbook_coverage_gap",
+      "secret_exposure",
+      "spaced_checkbox_in_scaffolds",
+      "story_scaffold_grammar_breach"
+    ],
+    "deferred": [],
+    "blocked": [],
+    "byBugClass": {
+      "contract_contradiction": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "doc_path_claim": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "stale_count": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "security_boundary": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1,
+          2,
+          3
+        ]
+      },
+      "template_rule_drift": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1,
+          2
+        ]
+      },
+      "contract_drift": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "doc_gap": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "path_base_ambiguity": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "dangling_link": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "placeholder_link_syntax": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "percent_encoded_parent_link": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "example_budget": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "duplicated_text": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "mixed_authorship": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "doc_standard_gap": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "doc_scaffold_divider_breach": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "story_scaffold_grammar_breach": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "spaced_checkbox_in_scaffolds": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "playbook_capability": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3,
+          4
+        ]
+      },
+      "missing_untrusted_input_rule": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "path_construction_gap": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "secret_exposure": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "external_write_gate": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "playbook_coverage_gap": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "anchor_drift": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "cross_runtime_parity": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      }
+    }
+  },
+  "searchDebt": [],
+  "ruledOutCandidates": [
+    {
+      "iteration": 1,
+      "id": "SL-004",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/references/routing.md"
+      ],
+      "bugClass": "contract_contradiction",
+      "disposition": "ruled_out",
+      "rationale": "No contradiction at the band boundaries",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/references/routing.md:31"
+      ],
+      "reason": "Thresholds agree; the Story/Epic carve-out is documented in the routing detail"
+    },
+    {
+      "iteration": 3,
+      "id": "SL-013",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/assets/examples"
+      ],
+      "bugClass": "example_budget",
+      "disposition": "ruled_out",
+      "rationale": "Example grammar holds; the budget is the sole example defect",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/assets/examples/doc/doc-example-guide.md:9"
+      ],
+      "reason": "Grammar is consistent across all 22 examples; only the word caps break"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-014",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner"
+      ],
+      "bugClass": "secret_exposure",
+      "disposition": "ruled_out",
+      "rationale": "Exposure path is closed at the file level",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/clickup-push-targets.md:15",
+        "AI Systems/Product Owner/.env.example:7"
+      ],
+      "reason": "No secret exists in the packet and the environment contract keeps it out of tracked files"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-017",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md"
+      ],
+      "bugClass": "external_write_gate",
+      "disposition": "ruled_out",
+      "rationale": "Write path is well defended",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:191"
+      ],
+      "reason": "Three independent gates confirmed by direct read"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-019",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook"
+      ],
+      "bugClass": "anchor_drift",
+      "disposition": "ruled_out",
+      "rationale": "No drift to report",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/story-refinement.md:15"
+      ],
+      "reason": "Anchors current and in range today; fragility recorded as an edge case, not a defect"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-020",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook"
+      ],
+      "bugClass": "cross_runtime_parity",
+      "disposition": "ruled_out",
+      "rationale": "No parity defect",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/manual-testing-playbook.md:45"
+      ],
+      "reason": "Parity holds by name and kind; runtime-proof divergence is the documented design"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-021",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/references/quality-scoring.md",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md"
+      ],
+      "bugClass": "playbook_coverage_gap",
+      "disposition": "ruled_out",
+      "rationale": "Adversarial replay complete; nothing to downgrade",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/references/quality-scoring.md:160",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md:17"
+      ],
+      "reason": "Re-read confirmed both P1 findings rather than dissolving them"
+    }
+  ],
+  "cleanSearchProof": [
+    {
+      "iteration": 1,
+      "id": "SL-004",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/references/routing.md"
+      ],
+      "bugClass": "contract_contradiction",
+      "disposition": "ruled_out",
+      "rationale": "No contradiction at the band boundaries",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/references/routing.md:31"
+      ],
+      "proof": "Thresholds agree; the Story/Epic carve-out is documented in the routing detail"
+    },
+    {
+      "iteration": 3,
+      "id": "SL-013",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/assets/examples"
+      ],
+      "bugClass": "example_budget",
+      "disposition": "ruled_out",
+      "rationale": "Example grammar holds; the budget is the sole example defect",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/assets/examples/doc/doc-example-guide.md:9"
+      ],
+      "proof": "Grammar is consistent across all 22 examples; only the word caps break"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-014",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner"
+      ],
+      "bugClass": "secret_exposure",
+      "disposition": "ruled_out",
+      "rationale": "Exposure path is closed at the file level",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/clickup-push-targets.md:15",
+        "AI Systems/Product Owner/.env.example:7"
+      ],
+      "proof": "No secret exists in the packet and the environment contract keeps it out of tracked files"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-017",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md"
+      ],
+      "bugClass": "external_write_gate",
+      "disposition": "ruled_out",
+      "rationale": "Write path is well defended",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:191"
+      ],
+      "proof": "Three independent gates confirmed by direct read"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-019",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook"
+      ],
+      "bugClass": "anchor_drift",
+      "disposition": "ruled_out",
+      "rationale": "No drift to report",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/story-refinement.md:15"
+      ],
+      "proof": "Anchors current and in range today; fragility recorded as an edge case, not a defect"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-020",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook"
+      ],
+      "bugClass": "cross_runtime_parity",
+      "disposition": "ruled_out",
+      "rationale": "No parity defect",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/manual-testing-playbook.md:45"
+      ],
+      "proof": "Parity holds by name and kind; runtime-proof divergence is the documented design"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-021",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/references/quality-scoring.md",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md"
+      ],
+      "bugClass": "playbook_coverage_gap",
+      "disposition": "ruled_out",
+      "rationale": "Adversarial replay complete; nothing to downgrade",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/references/quality-scoring.md:160",
+        "AI Systems/Product Owner/sk-product-owner/references/router-contract.md:17"
+      ],
+      "proof": "Re-read confirmed both P1 findings rather than dissolving them"
+    }
+  ],
+  "searchCoverage": {
+    "requiredBugClasses": [
+      "playbook_coverage_gap",
+      "anchor_drift",
+      "cross_runtime_parity"
+    ],
+    "covered": [
+      "playbook_coverage_gap"
+    ],
+    "ruledOut": [
+      "anchor_drift",
+      "cross_runtime_parity"
+    ],
+    "deferred": [],
+    "blocked": [],
+    "graphCoverageMode": "graphless_fallback"
+  },
+  "traceability": {
+    "summary": {
+      "required": 0,
+      "executed": 0,
+      "pass": 0,
+      "partial": 0,
+      "fail": 0,
+      "blocked": 0,
+      "notApplicable": 0,
+      "gatingFailures": 0
+    },
+    "results": []
+  },
+  "divergence": {
+    "started": [],
+    "completed": [],
+    "failed": [],
+    "overrides": [],
+    "saturatedDirections": [],
+    "remainingFrontier": [],
+    "currentFocus": ""
+  },
+  "fieldWarnings": [],
+  "corruptionWarnings": []
+}

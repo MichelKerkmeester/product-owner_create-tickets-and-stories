@@ -1,0 +1,17 @@
+{
+  "specFolder": "018-product-owner-deep-review",
+  "description": "Product Owner deep review",
+  "keywords": [
+    "product",
+    "owner",
+    "deep",
+    "review"
+  ],
+  "lastUpdated": "2026-10-21T12:00:00.000Z",
+  "specId": "018",
+  "folderSlug": "product-owner-deep-review",
+  "parentChain": [],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

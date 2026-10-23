@@ -1,0 +1,18 @@
+{
+  "specFolder": "018-product-owner-deep-review/001-sk-product-owner",
+  "description": "Phase 1: sk-product-owner deep review",
+  "keywords": [
+    "phase",
+    "review",
+    "sk-product-owner"
+  ],
+  "lastUpdated": "2026-10-21T12:00:00.000Z",
+  "specId": "001",
+  "folderSlug": "sk-product-owner",
+  "parentChain": [
+    "018-product-owner-deep-review"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

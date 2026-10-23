@@ -1,0 +1,128 @@
+{
+  "topic": "Review: specs/product-owner/018-product-owner-deep-review/005-whole-repo",
+  "mode": "review",
+  "sessionId": "fanout-deepseek-1792580494888-r714jg",
+  "parentSessionId": null,
+  "lineageMode": "new",
+  "generation": 1,
+  "continuedFromRun": null,
+  "migrationWindowEndsAt": "",
+  "maxIterations": 5,
+  "convergenceThreshold": 0.1,
+  "antiConvergence": {
+    "minIterations": 2,
+    "convergenceMode": "off",
+    "stopPolicy": "max-iterations",
+    "divergent": {}
+  },
+  "stuckThreshold": 2,
+  "maxDurationMinutes": 120,
+  "maxToolCallsPerIteration": 12,
+  "maxMinutesPerIteration": 10,
+  "progressiveSynthesis": false,
+  "stopPolicy": "max-iterations",
+  "specFolder": "specs/product-owner/018-product-owner-deep-review/005-whole-repo",
+  "createdAt": "2026-10-21T13:03:00.000Z",
+  "status": "initialized",
+  "releaseReadinessState": "in-progress",
+  "executionMode": "auto",
+  "executor": {
+    "kind": "cli-pi",
+    "model": "deepseek-v4.1-flash",
+    "reasoningEffort": "max",
+    "serviceTier": null,
+    "sandboxMode": "workspace-write",
+    "timeoutSeconds": 900
+  },
+  "reviewTarget": "specs/product-owner/018-product-owner-deep-review/005-whole-repo",
+  "reviewTargetType": "spec-folder",
+  "reviewDimensions": [
+    "correctness",
+    "security",
+    "traceability",
+    "maintainability"
+  ],
+  "resource_map_present": false,
+  "resource_map": {
+    "emit": true
+  },
+  "reviewScopeFiles": [
+    "AI Systems/Product Owner/AGENTS.md",
+    "AI Systems/Product Owner/README.md",
+    "AI Systems/Product Owner/SKILL.md",
+    "AI Systems/Product Owner/ROUTER.md",
+    "AI Systems/Product Owner/SYNC.md",
+    "AI Systems/Product Owner/mode-registry.json",
+    "AI Systems/Product Owner/hub-router.json",
+    "AI Systems/Product Owner/leaf-manifest.json",
+    "AI Systems/Product Owner/vendor.json",
+    "AI Systems/Product Owner/.env.example",
+    "AI Systems/Product Owner/.gitignore",
+    "AI Systems/Product Owner/changelog/",
+    "AI Systems/Product Owner/claude project/Custom Instructions.md",
+    "AI Systems/Product Owner/claude project/kernel-review.json",
+    "AI Systems/Product Owner/claude project/knowledge/",
+    "AI Systems/Product Owner/scripts/build-plugin.py",
+    "AI Systems/Product Owner/scripts/vendor-sync.py",
+    "AI Systems/Product Owner/scripts/tests/",
+    "AI Systems/Product Owner/benchmark/hub-routing-cases.json",
+    "AI Systems/Product Owner/benchmark/gates/",
+    "AI Systems/Product Owner/benchmark/grader/",
+    "AI Systems/Product Owner/benchmark/format/",
+    "AI Systems/Product Owner/benchmark/parity/",
+    "AI Systems/Product Owner/benchmark/router/",
+    "AI Systems/Product Owner/benchmark/README.md",
+    "AI Systems/Product Owner/manual-testing-playbook/",
+    "AI Systems/Product Owner/sk-product-owner/",
+    "AI Systems/Product Owner/sk-create-figjam/",
+    "AI Systems/Product Owner/mcp-click-up/",
+    "AI Systems/Product Owner/mcp-figma/"
+  ],
+  "severityThreshold": "P2",
+  "crossReference": {
+    "core": [
+      "spec_code",
+      "checklist_evidence"
+    ],
+    "overlay": [
+      "skill_agent",
+      "agent_cross_runtime",
+      "feature_catalog_code",
+      "playbook_capability"
+    ]
+  },
+  "qualityGateThreshold": true,
+  "runtimeCapabilityResolver": ".skilled/skills/system-deep-loop/deep-review/scripts/runtime-capabilities.cjs",
+  "reducerScriptPath": ".skilled/skills/system-deep-loop/runtime/scripts/reduce-state.cjs",
+  "fileProtection": {
+    "deep-review-config.json": "immutable",
+    "deep-review-state.jsonl": "append-only",
+    "deep-review-findings-registry.json": "auto-generated",
+    "deep-review-strategy.md": "mutable",
+    "deep-review-dashboard.md": "auto-generated",
+    ".deep-review-pause": "operator-controlled",
+    "review-report.md": "mutable",
+    "review-report-v*.md": "write-once",
+    "iteration-*.md": "write-once"
+  },
+  "reducer": {
+    "enabled": true,
+    "inputs": [
+      "latestJSONLDelta",
+      "newIterationFile",
+      "priorReducedState"
+    ],
+    "outputs": [
+      "findingsRegistry",
+      "dashboardMetrics",
+      "strategyUpdates"
+    ],
+    "metrics": [
+      "dimensionsCovered",
+      "findingsBySeverity",
+      "openFindings",
+      "resolvedFindings",
+      "convergenceScore"
+    ]
+  }
+}

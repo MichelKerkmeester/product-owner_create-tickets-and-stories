@@ -1,0 +1,19 @@
+{
+  "stem": "deep_review.synthesis_complete",
+  "scope": {
+    "runId": "fanout-deepseek-1792580434639-g9yydk",
+    "sessionId": "fanout-deepseek-1792580434639-g9yydk"
+  },
+  "data": {
+    "mode": "review",
+    "totalIterations": 5,
+    "activeP0": 0,
+    "activeP1": 1,
+    "activeP2": 10,
+    "dimensionCoverage": 1,
+    "verdict": "CONDITIONAL",
+    "releaseReadinessState": "conditional",
+    "stopReason": "maxIterationsReached"
+  },
+  "occurredAt": "2026-10-21T11:13:40Z"
+}

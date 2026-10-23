@@ -1,0 +1,59 @@
+{
+  "topic": "Read-only deep review of the Product Owner sk-create-figjam packet (SKILL.md routing, references, assets, examples, Python checks)",
+  "mode": "review",
+  "reviewTarget": "AI Systems/Product Owner/sk-create-figjam",
+  "reviewTargetType": "skill",
+  "reviewDimensions": ["correctness", "security", "traceability", "maintainability"],
+  "resource_map_present": false,
+  "sessionId": "fanout-deepseek-1792580434639-g9yydk",
+  "parentSessionId": null,
+  "lineageMode": "new",
+  "generation": 1,
+  "continuedFromRun": null,
+  "maxIterations": 5,
+  "convergenceThreshold": 0.1,
+  "convergenceMode": "off",
+  "stopPolicy": "max-iterations",
+  "stuckThreshold": 2,
+  "severityThreshold": "P2",
+  "crossReference": {
+    "core": ["spec_code", "checklist_evidence"],
+    "overlay": ["skill_agent", "agent_cross_runtime", "feature_catalog_code", "playbook_capability"]
+  },
+  "qualityGateThreshold": true,
+  "releaseReadinessState": "in-progress",
+  "specFolder": "002-sk-create-figjam",
+  "artifactDir": "specs/product-owner/018-product-owner-deep-review/002-sk-create-figjam/review/lineages/deepseek",
+  "createdAt": "2026-10-21T13:05:00Z",
+  "status": "initialized",
+  "executionMode": "AUTONOMOUS",
+  "fanout": {
+    "lineage": "deepseek",
+    "executor": "cli-pi",
+    "model": "deepseek-v4.1-flash",
+    "loopType": "review"
+  },
+  "fileProtection": {
+    "deep-review-config.json": "immutable",
+    "deep-review-state.jsonl": "append-only",
+    "deep-review-findings-registry.json": "auto-generated",
+    "deep-review-strategy.md": "mutable",
+    "deep-review-dashboard.md": "auto-generated",
+    ".deep-review-pause": "operator-controlled",
+    "review-report.md": "mutable",
+    "review-report-v*.md": "write-once",
+    "iteration-*.md": "write-once"
+  },
+  "reducer": {
+    "enabled": true,
+    "inputs": ["latestJSONLDelta", "newIterationFile", "priorReducedState"],
+    "outputs": ["findingsRegistry", "dashboardMetrics", "strategyUpdates"],
+    "metrics": [
+      "dimensionsCovered",
+      "findingsBySeverity",
+      "openFindings",
+      "resolvedFindings",
+      "convergenceScore"
+    ]
+  }
+}

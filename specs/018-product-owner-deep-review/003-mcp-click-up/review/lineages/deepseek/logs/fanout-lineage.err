@@ -1,0 +1,2 @@
+Warning: No models match pattern "minimax/MiniMax-M3"
+{"timestamp":"2026-10-21T11:02:11.426Z","runtime":"pi","status":"ok","freshness":"live","durationMs":365,"cacheHit":false,"skillLabel":"system-deep-loop","emittedBytes":305,"directivesSuppressed":false}
