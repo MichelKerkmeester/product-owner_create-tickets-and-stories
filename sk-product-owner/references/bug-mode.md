@@ -40,11 +40,9 @@ Use Bug Mode for:
 - Bugs with clear observed behavior and expected behavior
 - Bugs supported by screenshots, screen recordings, logs or design references
 
-Use Task Mode instead for:
-- Grouped bugs or refinement tasks
-- Bug consolidation tickets
-- Bug fixes combined with feature work
-- Tasks titled `Refinement + Bugs`
+### Bug-to-Task Routing Contract
+
+A Bug report covers one isolated defect. Requests to group bugs, consolidate bug reports into a ticket, create a bug-fix task, combine bug fixes with feature work or create `Refinement + Bugs` route to Task Mode. An explicit `$bug` command still follows the command-first rule in `references/routing.md`.
 
 ### Command: `$bug`
 
@@ -62,9 +60,10 @@ Use Task Mode instead for:
 - Do not answer your own questions when clarification is required
 - Stopping to ask still produces a file. Export the question as `export/[###] - bug-[description]-clarification.md`, holding the question and nothing else, so the request is not lost between sessions. The artifact takes the next number in the lane once the user answers
 - Do not include a table of contents in generated bug reports
-- Keep one bug per report unless the user explicitly requests grouped bugs
+- Keep each Bug report to one isolated defect. Group requests follow the Bug-to-Task Routing Contract above
 - Preserve the fixed template order
 - Capture screenshots, screen recordings, logs and references where they fit the reported bug
+- For a paired FigJam output, use the template’s `References` > `Flows` group only after the board read-back matches the model, as Flow Mode Section 8 states
 - Do not invent missing details. Use `Not provided` when a field matters but no value was supplied
 - Keep the checklist exactly as defined in the template
 - Stay in WHAT and WHY, not HOW
@@ -271,6 +270,8 @@ Templates: see **Assets - Bug Report Template**.
 ---
 
 ## 5. FINAL REMINDERS
+
+- ClickUp delivery offers and approval follow `SKILL.md` Section 7, ClickUp Handoff
 
 1. Keep the About and Bug structure fixed
 2. Preserve user-provided screenshots, screen recordings, logs and Figma references

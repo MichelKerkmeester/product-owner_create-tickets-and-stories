@@ -18,12 +18,12 @@ version: 1.2.1.0
 
 | Core layer | What it adds |
 |---|---|
-| 🧭 **Smart Router** | Five artifact intents behind exact commands, artifact framing and semantic scoring |
+| 🧭 **Smart Router** | Six artifact intents behind exact commands, artifact framing and semantic scoring, with Flow handed to its own packet |
 | 🧠 **Energy-Scaled Thinking** | Five phases with energy levels, so a copy tweak and a behavior reference each get fitting rigor |
 | 🔒 **Source Safety** | Five claim classes, a conflict gate that stops instead of guessing and a hard no-fabrication rule |
 | 📤 **Export-First Delivery** | Every artifact saves to disk and verifies with a read-back receipt before you see a summary |
 | 📋 **ClickUp-Native Output** | The exact divider, bullet and heading grammar ClickUp renders correctly, consent-gated on push |
-| 📚 **20 Worked Examples** | Filled artifacts on fictional products, loaded one at a time when a template needs a demonstration |
+| 📚 **20 Fictional Worked Examples** | Filled artifacts on fictional products, loaded one at a time when a template needs a demonstration |
 
 ---
 
@@ -31,7 +31,7 @@ version: 1.2.1.0
 
 ### What This Is
 
-This folder is the CLI packaging of the Product Owner system: one skill that turns product requests into five kinds of backlog and documentation artifacts. `SKILL.md` carries the router, the identity and every rule. `references/` holds one workflow file per mode plus the shared voice, conciseness and scoring references. `assets/` holds the templates each mode fills and 20 worked examples the model can consult one at a time. A cold model bootstraps through `../AGENTS.md` and from that point on it IS the Product Owner: routing, gates and delivery rules replace generic assistant behavior.
+This folder is the CLI packaging of the Product Owner system: one skill that turns product requests into five kinds of backlog and documentation artifacts. User flows drawn on a FigJam board live in the sibling [`../sk-create-figjam/`](../sk-create-figjam/SKILL.md) packet. `SKILL.md` carries the identity, every rule and, in Section 2, the router, with its detail in `references/routing.md`. The hub `../SKILL.md` picks this packet and the hub `../ROUTER.md` maps its intents to the leaves they load. `references/` holds one workflow file per mode plus the shared voice, conciseness and scoring references. `assets/` holds the templates each mode fills and 20 worked examples the model can consult one at a time. A cold model bootstraps through `../AGENTS.md` and from that point on it IS the Product Owner: routing, gates and delivery rules replace generic assistant behavior.
 
 Everything the skill produces lands as a markdown file in `../export/` before any response is written, and a second packaging of the same brain lives in `../claude project/` for claude.ai.
 
@@ -113,7 +113,7 @@ The response follows the Delivery Reply Shape in `assets/interactive-response-te
 
 ---
 
-## 3. THE FIVE MODES
+## 3. THE MODES
 
 ### Task Mode (`$task`, `$t`, `$task --subtask`)
 
@@ -228,7 +228,7 @@ The documents developers cut tickets from, produced in two artifact kinds rather
 | Story | `$story` `$s` `$prd` `$p`. One feature area: a Problem of three to five sentences and a Solution, Requirements only when there are hard constraints to state (no outcomes, no build steps), a few outcome-led acceptance criteria, and a `## Delivery` close only where the requester asked for it or the artifact forced it |
 | Epic | `$epic` `$e`. An initiative split across child stories: an About carrying a Goal, a `## Scope` of child stories, release-level acceptance criteria, and the same opt-in Delivery close, with no Requirements of its own |
 
-Both kinds share one markdown grammar, which lives once in `references/story-mode.md` rather than being copied into each scaffold, and each kind carries its own scaffold that a request loads on its own. A Story's `## Requirements` names each requirement as a bold paragraph lead followed by short `- []` constraint items holding only the hard requirements the delivery has to satisfy, with every hard value the source supplied carried across verbatim in its own units and notation; it never carries a `**Checklist**` label or build steps, because the verifiable detail lives in the acceptance criteria and the child tasks the story feeds. An Epic swaps that whole section for a `## Scope` listing its child stories, and swaps the Expected outcomes label that closes a Story's Solution for a `#### Goal` section. Problem, Goal and Solution sit at H4 in both kinds. Everything else is shared.
+Both kinds share one markdown grammar, which lives once in `references/story-mode.md` rather than being copied into each scaffold, and each kind carries its own scaffold that a request loads on its own. A Story's `## Requirements` names each requirement as a bold paragraph lead followed by short `- []` constraint items holding only the hard requirements the delivery has to satisfy, with every hard value the source supplied carried across verbatim in its own units and notation. It never carries a `**Checklist**` label or build steps, because the verifiable detail lives in the acceptance criteria and the child tasks the story feeds. An Epic swaps that whole section for a `## Scope` listing its child stories, and swaps the Expected outcomes label that closes a Story's Solution for a `#### Goal` section. Problem, Goal and Solution sit at H4 in both kinds. Everything else is shared.
 
 Across every Product Owner artifact, newly authored or rewritten bullet items never end with a full stop. Source-preserving refinements keep untouched punctuation unless the user requests normalization.
 
@@ -250,16 +250,20 @@ The Mark-as-done checkbox is the last line in a criterion block. The next criter
 
 Acceptance criteria stay few, one per outcome the story exists to guarantee plus the edges that matter, each a numbered block of `Given`, `When`, `Then` and an optional `And` carrying observable outcomes, never ticket fields, story points or INVEST notes. The count grows with the surfaces the story touches, never with its size or its requirement count. Story criteria verify screen-level behavior while Epic criteria stay release-level. A `## Delivery` section (Estimation, Rabbit holes and No-gos, in that order) is opt-in: it closes the artifact where the requester asked for it or where an open question or an undated external constraint forced it, with unknown values left as `TBD...` rather than an inferred estimate, risk or exclusion, and Acceptance criteria is the last section otherwise. The H1 is the plain hyphen path with no `PRD -` prefix and no `BO`/`BE`/`FE` short codes: `# {Persona} - {Area} - {Feature}` for a Story, `# Epic - {Persona} - {Area}` for an Epic. An explicitly stated requirement count or child-story set is authoritative. Clauses and edge cases inside one requirement never spawn extra requirements, and shared machinery is described once in `### Solution` (Story) or `## Scope` (Epic) rather than promoting the artifact to a separate shape.
 
+### Flow Mode (`$flow`, `$figjam`)
+
+Flow Mode draws a user flow on a FigJam board and is its own packet, [`../sk-create-figjam/`](../sk-create-figjam/SKILL.md). The hub sends a Flow request there first. The router here keeps both commands, so a conflict such as `$task $flow` still asks one question, and a Flow route that reaches this packet hands off to that one.
+
 ### Interactive Mode (fallback, no command)
 
-Catches genuinely ambiguous requests. Instead of interviewing you across five messages it asks one consolidated question covering every unresolved decision, then waits. The question always names the artifact choice when intent is unclear, the essential missing inputs for the likeliest artifact (purpose and audience for a doc, role and value for a Story, evidence for a bug) and any source conflict needing a ruling. Doc conflicts, missing Story roles and colliding commands all funnel into the same single-question discipline, and Quick energy may skip preference questions but never this safety question.
+Catches genuinely ambiguous requests. Instead of interviewing you across five messages it asks one consolidated question covering every unresolved decision, then waits. The question always names the artifact choice when intent is unclear, the essential missing inputs for the likeliest artifact (purpose and audience for a doc, role and value for a Story, evidence for a bug) and any source conflict needing a ruling. Doc conflicts, missing Story roles and colliding commands all funnel into the same single-question discipline, and Quick energy may skip preference questions but never this safety question. Every question states what the input already shows and a recommended answer, so a user who does not know can take it, and an unanswered fact is drafted on that recommendation and listed under Open items. A FigJam board intake still short of Flow Mode's draw-ready threshold is the one other reason for a second round.
 
 ### Energy Levels
 
 | Energy | Effect |
 |---|---|
 | Raw | Explicit "skip depth": skips the phase flow, keeps every safety and delivery gate |
-| Quick (`$quick`, `$q`) | Narrowest honest artifact, smart defaults, no gate skipped |
+| Quick (`$quick`, `$q`, "just do it") | Narrowest honest artifact, smart defaults, no gate skipped |
 | Standard | Full phase flow, the default |
 | Deep | Expanded analysis for complex, high-risk or multi-source work |
 
@@ -328,18 +332,21 @@ Task, Bug and Interactive artifacts keep their own format: an H2 About with H3 s
 
 The file export never waits for approval. The ClickUp write always does. When ClickUp tooling is available the export response offers a push as a next step and waits for an explicit yes, every time, even when a previous message already approved one. Nothing is ever pushed unsolicited.
 
+### Push Targets
+
+Where a push lands is a local setting. Copy `../claude project/templates/Product Owner - Local - Push Targets.md` into `../claude project/local/`, which is gitignored, and add each ClickUp list and doc by name under the team that owns it. The offer names the one that fits and adds a private ClickUp doc, asks which when several could fit, and asks where when none does. A document lands as a new page in the named doc. `SKILL.md` Section 7 holds the full rule.
+
 ### Transport Contract
 
 Markdown survives a push only through the markdown-aware parameters:
 
 | Operation | Parameter |
 |---|---|
-| Create task | `markdown_description` |
-| Update task | `markdown_content` (connector: `markdown_description`) |
-| Create doc or page | `content` with `content_format: "markdown"` |
-| Read back | `include_markdown_description=true` |
+| Create or update task | `markdown_description` |
+| Create, update or read a document page | `content_format: "text/md"` |
+| Read back | `include: ["description"]` on `clickup_get_task` |
 
-The plain `description` field stores markdown as literal text: visible `###` and `**` in ClickUp means the wrong parameter was used. The contract is identical across every surface that can reach ClickUp, the claude.ai connector, Code Mode's `clickup_official` tools and the raw v2 API, only the update-parameter name differs as noted above.
+The plain `description` field stores markdown as literal text: visible `###` and `**` in ClickUp means the wrong parameter was used. The table is the vendored [`../mcp-click-up/`](../mcp-click-up/SKILL.md) packet's contract for Code Mode's `clickup_official` tools, which owns it. The raw v2 API also accepts `markdown_content` on a task update.
 
 ### Push Shape
 
@@ -405,7 +412,7 @@ Every example uses invented products (Driftboard, Ledgerly, Prism, Fieldstack an
 
 ## 8. DUAL PACKAGING
 
-This folder is authoritative. A second packaging lives in `../claude project/` for upload to a claude.ai Project: `Custom Instructions.md` is a hand-synthesized kernel carrying the full router and rules, and is the routing authority in that Project because `SKILL.md` itself is not mirrored there. `knowledge/` holds thirty-seven documents drawn from `references/` and `assets/`. Nothing regenerates them. The AI System Sync Compiler is retired, no manifest, lock file or checksum ledger is kept, and every knowledge document is written by hand under the manual parity method. The four shared rule files under `references/` (`hvr-core.md`, `conciseness.md`, `conciseness-rationale.md` and `human-voice-rules.md`) are regular-file copies of cards in `z — Knowledge/`, carried as copies so this system also works as its own repository. Their Project mirrors are byte copies of the same cards, and the parity gate holds both to the cards byte for byte, so neither can fork from the shared source. `../SYNC.md` holds that parity note and the method.
+This folder is authoritative. A second packaging lives in `../claude project/` for upload to a claude.ai Project: `Custom Instructions.md` is a hand-synthesized kernel carrying the full router and rules, and is the routing authority in that Project because `SKILL.md` itself is not mirrored there. `knowledge/` holds thirty-nine documents drawn from `references/` and `assets/` here and in `../sk-create-figjam/`. Nothing regenerates them. The AI System Sync Compiler is retired, no manifest, lock file or checksum ledger is kept, and every knowledge document is written by hand under the manual parity method. The four shared rule files under `references/` (`hvr-core.md`, `conciseness.md`, `conciseness-rationale.md` and `human-voice-rules.md`) are regular-file copies of cards in `z — Knowledge/`, carried as copies so this system also works as its own repository. Their Project mirrors are byte copies of the same cards, and the parity gate holds both to the cards byte for byte, so neither can fork from the shared source. `../SYNC.md` holds that parity note and the method.
 
 ---
 
@@ -446,19 +453,21 @@ This README and `SKILL.md` both carry the three-part skill version in frontmatte
 
 | Document | Purpose |
 |---|---|
-| [`SKILL.md`](./SKILL.md) | Executable router, energy-scaled thinking process, rules, and export protocol |
+| [`references/routing.md`](references/routing.md) | Routing detail: the steps, thresholds, topics and Story shapes behind `SKILL.md` Section 2 |
+| [`SKILL.md`](SKILL.md) | Energy-scaled thinking process, rules, and export protocol |
 | [`../AGENTS.md`](../AGENTS.md) | CLI bootstrap and identity handoff for a cold model |
+| [`../sk-create-figjam/SKILL.md`](../sk-create-figjam/SKILL.md) | Flow Mode, its own packet: the workflow, the patterns and the pre-write check |
 | [`../SYNC.md`](../SYNC.md) | Hand-authored parity note and manual parity method for the Claude Project package |
-| [`references/task-mode.md`](./references/task-mode.md) | Task, subtask, and parent-task workflow and structure rules |
-| [`references/bug-mode.md`](./references/bug-mode.md) | Bug workflow, evidence handling, and QA checklist |
-| [`references/doc-mode.md`](./references/doc-mode.md) | Doc creation, refinement, source-authority, and fidelity rules |
-| [`references/story-mode.md`](./references/story-mode.md) | The shared house grammar, Story and Epic shape selection, the optional enrichments, and refinement fidelity |
-| [`references/interactive-mode.md`](./references/interactive-mode.md) | Single-question intake flow and state handling |
-| [`references/hvr-core.md`](./references/hvr-core.md) | ALWAYS-loaded Human Voice card: every hard blocker inline, plus the self-scan contract |
-| [`references/conciseness.md`](./references/conciseness.md) | ALWAYS-loaded conciseness layer: the reconstruction test, the named cut and keep rules, and format choice |
-| [`references/human-voice-rules.md`](./references/human-voice-rules.md) | Voice and style rules every artifact passes, ON_DEMAND behind the card |
-| [`references/router-contract.md`](./references/router-contract.md) | The Smart Router as running Python, the exact algorithm the benchmark checks `route_contract.py` against, ON_DEMAND for a reader who needs it |
-| [`assets/story-template.md`](./assets/story-template.md) | The Story scaffold |
-| [`assets/epic-template.md`](./assets/epic-template.md) | The Epic scaffold |
-| [`assets/examples/`](./assets/examples/) | 21 worked examples across task, bug, doc, and story, 20 of them on fictional products |
-| [`../claude project/README.md`](../claude%20project/README.md) | Upload guide and structure map for the Claude Project packaging |
+| [`references/task-mode.md`](references/task-mode.md) | Task, subtask, and parent-task workflow and structure rules |
+| [`references/bug-mode.md`](references/bug-mode.md) | Bug workflow, evidence handling, and QA checklist |
+| [`references/doc-mode.md`](references/doc-mode.md) | Doc creation, refinement, source-authority, and fidelity rules |
+| [`references/story-mode.md`](references/story-mode.md) | The shared house grammar, Story and Epic shape selection, the optional enrichments, and refinement fidelity |
+| [`references/interactive-mode.md`](references/interactive-mode.md) | Single-question intake flow and state handling |
+| [`references/hvr-core.md`](references/hvr-core.md) | ALWAYS-loaded Human Voice card: every hard blocker inline, plus the self-scan contract |
+| [`references/conciseness.md`](references/conciseness.md) | ALWAYS-loaded conciseness layer: the reconstruction test, the named cut and keep rules, and format choice |
+| [`references/human-voice-rules.md`](references/human-voice-rules.md) | Voice and style rules every artifact passes, ON_DEMAND behind the card |
+| [`references/router-contract.md`](references/router-contract.md) | The Smart Router as running Python, the exact algorithm the benchmark checks `route_contract.py` against, ON_DEMAND for a reader who needs it |
+| [`assets/story-template.md`](assets/story-template.md) | The Story scaffold |
+| [`assets/epic-template.md`](assets/epic-template.md) | The Epic scaffold |
+| [`assets/examples/`](assets/examples/) | 21 worked examples across task, bug, doc, and story, 20 of them on fictional products |
+| [`../../claude project/README.md`](../claude%20project/README.md) | Upload guide and structure map for the Claude Project packaging |

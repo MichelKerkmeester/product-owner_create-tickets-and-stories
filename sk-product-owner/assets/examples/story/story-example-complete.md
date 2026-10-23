@@ -48,13 +48,13 @@ As an organizer running a presale:
 #### **References**
 * * *
 Components
-*   [Page | Presale composer](https://www.figma.com/design/marquee/presale?node-id=1-2)
-*   [Visuals | Windows & limits](https://www.figma.com/design/marquee/presale-visuals?node-id=3-4)
+*   [Page | Presale composer](figma-url)
+*   [Visuals | Windows & limits](figma-url)
 Flows
-*   [Set a window and cap](https://www.figma.com/design/marquee/presale-flows?node-id=5-6)
-*   [Revoke a code](https://www.figma.com/design/marquee/presale-flows?node-id=7-8)
+*   [Set a window and cap](figma-url)
+*   [Revoke a code](figma-url)
 Lifecycle
-*   [Presale code lifecycle](https://www.figma.com/board/marquee/presale-lifecycle?node-id=9-10)
+*   [Presale code lifecycle](figma-url)
 Spec
 *   [Marquee - Presale Code Lifecycle Spec](https://docs.marquee.example/presale/codes)
 * * *

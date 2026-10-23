@@ -63,6 +63,7 @@ Four worked examples instantiate this scaffold:
 
 **Flows**
 - [{Flow name}]({figma-url})
+{For paired board links, follow Templates - Flow Mode Section 8.}
 
 **Components**
 - [{Component name}]({figma-url})

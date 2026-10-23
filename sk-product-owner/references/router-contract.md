@@ -14,15 +14,15 @@ version: 0.17.0.5
 
 # Product Owner - Router Contract
 
-The Smart Router expressed as running Python, one level below the prose routing rules in `SKILL.md` Section 2. This is the algorithm those rules summarize, and the exact source `benchmark/router/differential.py` executes to prove `benchmark/router/route_contract.py` never drifts from it.
+The Smart Router expressed as running Python, one level below the prose routing rules in `../SKILL.md` Section 2 and `routing.md`. This is the algorithm those rules summarize, and `../../benchmark/router/differential.py` executes it to hold `../../benchmark/router/route_contract.py` equal to it.
 
 **Loading Condition:** ON-DEMAND
 **Purpose:** Provides the exact router algorithm, primary detection, phase order, semantic scoring, confidence thresholds, resource loading and Story/Epic shape resolution, for a reader who needs the precise regex or scoring behavior rather than the summarized rule
 **Scope:** Primary detection, phase order, semantic topic scoring, confidence thresholds, resource loading, Story/Epic shape resolution and the Doc context gate
 **Output Path:** None. This file decides which resources a request loads, and writes no artifact
-**Loads With:** nothing. It is read alone, one level below the prose routing rules in `SKILL.md` Section 2, when a request needs the exact algorithm rather than the rule
-**Routed By:** nothing automatic. A reader opens it deliberately, and `benchmark/router/differential.py` extracts its Python fence on every gate run to prove `benchmark/router/route_contract.py` never drifts from it
-**Hands Off To:** nothing. It is the leaf authority that `SKILL.md` Section 2 summarizes, and the resource map inside it names the mode reference each route loads
+**Loads With:** nothing. It is read alone, one level below the prose routing rules in `../SKILL.md` Section 2 and `routing.md`, when a request needs the exact algorithm rather than the rule
+**Routed By:** nothing automatic. A reader opens it deliberately, and `../../benchmark/router/differential.py` extracts its Python fence on every gate run and holds `../../benchmark/router/route_contract.py` equal to it
+**Hands Off To:** nothing. It is the leaf authority that `../SKILL.md` Section 2 and `routing.md` summarize, and the resource map inside it names the mode reference each route loads
 
 ---
 
@@ -30,7 +30,7 @@ The Smart Router expressed as running Python, one level below the prose routing 
 
 ### Purpose
 
-The Smart Router expressed as running Python, one level below the prose routing rules in `SKILL.md` Section 2. This is the algorithm those rules summarize, and the exact source `benchmark/router/differential.py` executes to prove `benchmark/router/route_contract.py` never drifts from it.
+The router itself, as code. Section 2 below is the whole of it, and the prose rules point here when they need the exact regex or score.
 
 ---
 
@@ -46,7 +46,7 @@ from typing import Optional
 
 SKILL_ROOT = Path(__file__).resolve().parent
 RESOURCE_BASES = (SKILL_ROOT / "references", SKILL_ROOT / "assets")
-DEFAULT_RESOURCE = "references/interactive-mode.md"
+DEFAULT_RESOURCE = ["references/hvr-core.md", "references/conciseness.md"]
 CONFIDENCE_THRESHOLDS = {"HIGH": 0.85, "MEDIUM": 0.60, "LOW": 0.40}
 TOKEN_START = r"(?<![\w$])"
 TOKEN_END = r"(?![\w$/-]|\.[\w])"
@@ -134,15 +134,15 @@ SEMANTIC_TOPICS = {
 }
 
 RESOURCE_MAP = {
-    "ALWAYS": [
-        "sk-product-owner/SKILL.md",
-        "references/hvr-core.md",
-        "references/conciseness.md",
-    ],
+    "ALWAYS": DEFAULT_RESOURCE,
     "TASK": ["references/task-mode.md", "assets/task-templates.md"],
     "BUG": ["references/bug-mode.md", "assets/bug-report-template.md"],
     "DOC": ["references/doc-mode.md", "assets/doc-templates.md"],
     "STORY": ["references/story-mode.md"],
+    # The Flow pair lives in the sk-create-figjam packet, so the guard drops it
+    # here and SKILL.md Section 2 hands a Flow route to that packet. A Project keeps the
+    # same names as its Flow Knowledge files, which is why the lane stays.
+    "FLOW": ["references/flow-mode.md", "assets/flow-templates.md"],
     "INTERACTIVE": ["references/interactive-mode.md", "assets/interactive-response-templates.md"],
     "ON_DEMAND": ["references/human-voice-rules.md"],
 }
@@ -163,6 +163,11 @@ SHAPE_TEMPLATES = {
 # Most specific shape first. An epic noun names the initiative, and every
 # other requirements framing is a Story.
 SHAPE_PRECEDENCE = ("EPIC", "STORY")
+ENERGY_SIGNAL_VOCABULARY = {
+    "QUICK": ["quick", "fast", "no questions", "just do it"],
+    "RAW": ["skip depth"],
+    "DEEP": ["deep", "think longer", "full depth", "complex multi-source work"],
+}
 
 # Story-lane framing, grouped by the shape each group names. The groups are
 # the one copy: detect_artifact_frame flattens them for intent detection and
@@ -325,6 +330,10 @@ def detect_controls(text: str) -> dict:
     # separate intent, so it never conflicts with $story.
     if has_exact_token(normalized, "$epic") or has_exact_token(normalized, "$e"):
         artifact_commands.add("STORY")
+    # Flow Mode answers to both names people use for it, and to no single
+    # letter, because $f would read as a fast-energy control.
+    if has_exact_token(normalized, "$flow") or has_exact_token(normalized, "$figjam"):
+        artifact_commands.add("FLOW")
 
     # "quick"/"fast" set energy only when they frame the request itself; as subject
     # matter ("crashes when scrolling fast") they must not skip intake gates.
@@ -332,7 +341,8 @@ def detect_controls(text: str) -> dict:
         r"^(?:please\s+)?(?:quick|fast)\b"
         r"|\b(?:quick|fast)\s+(?:task|subtask|bug|doc|document|draft|version|pass|one|check|write-?up)\b"
         r"|\b(?:make|keep)\s+(?:it|this|that)\s+(?:quick|fast)\b"
-        r"|\bno[ -]?questions\b",
+        r"|\bno[ -]?questions\b"
+        r"|\bjust\s+do\s+it\b",
         normalized,
         flags=re.IGNORECASE,
     ))
@@ -343,10 +353,17 @@ def detect_controls(text: str) -> dict:
     ):
         natural_quick = False
     quick = has_exact_token(normalized, "$quick") or has_exact_token(normalized, "$q") or natural_quick
+    raw = bool(re.search(r"\bskip\s+depth\b", normalized, flags=re.IGNORECASE)) and not bool(
+        re.search(r"\b(?:do not|don't|dont|never|not)\s+skip\s+depth\b", normalized, flags=re.IGNORECASE)
+    )
+    deep = any(
+        re.search(r"\b" + r"\s+".join(map(re.escape, signal.split())) + r"\b", normalized, flags=re.IGNORECASE)
+        for signal in ENERGY_SIGNAL_VOCABULARY["DEEP"]
+    )
     return {
         "artifact_commands": artifact_commands,
         "subtask": subtask,
-        "energy": "QUICK" if quick else "STANDARD",
+        "energy": "QUICK" if quick else "RAW" if raw else "DEEP" if deep else "STANDARD",
     }
 
 def detect_artifact_frame(text: str) -> Optional[str]:
@@ -375,6 +392,7 @@ def detect_artifact_frame(text: str) -> Optional[str]:
         "BUG": [
             r"\b(create|write|file) (a )?(bug report|defect report)\b",
             r"\bbug report about\b",
+            r"\b(?:write|file|log) (?:a |an )?bug (?:about|for)\b",
             # A symptom report often carries no defect noun at all: "the app
             # crashes on rotate during upload", "the checkout screen freezes
             # when you tap pay twice" and "notifications stop arriving after
@@ -420,7 +438,7 @@ def detect_artifact_frame(text: str) -> Optional[str]:
             r"\bdocument how\b",
             r"^(please )?document\b",
             r"\b(can you|could you|please) document\b",
-            rf"\b{DOC_AUTHOR_VERBS} (an? )?(product |engineering |technical |system )?(documentation|docs|document|guide|catalog|behavior reference|runbook|troubleshooting guide|implementation guide|future-state proposal|technical proposal|decision record)\b",
+            rf"\b{DOC_AUTHOR_VERBS} (an? )?(product |engineering |technical |system )?(documentation|docs|document|doc|guide|catalog|behavior reference|runbook|troubleshooting guide|implementation guide|future-state proposal|technical proposal|decision record)\b",
             rf"\b{DOC_AUTHOR_VERBS} (an? )?(api|schema|architecture|system|implementation|configuration|technical|engineering|operational|security|compliance) (documentation|docs|document|guide|reference|catalog|runbook|proposal|recommendation|analysis|decision record|plan)\b",
             rf"\b{DOC_AUTHOR_VERBS} (an? )?(rfc|adr)\b",
             r"\b(recommend|select|choose|compare|analyze|analyse)\b.{0,120}\band document (it|the (decision|recommendation|analysis|selection))\b",
@@ -442,6 +460,13 @@ def detect_artifact_frame(text: str) -> Optional[str]:
             # is a bug being filed rather than a guide being commissioned.
             r"^(?!.*\b(?:bug|defect|repro|crash(?:es|ed|ing)?|incident)\b)"
             r".*\b(?:written|writing) (?:up|down)\b",
+        ],
+        # A FigJam board is asked for by naming the output, never by the word
+        # "figma" alone, which stays UI refinement feedback for Task Mode.
+        "FLOW": [
+            r"\bfigjam (?:(?:user|process|architecture|sequence|state|er|gantt|data) )?(?:flow|flowchart|board|diagram|chart|map)s?\b",
+            r"\b(?:flow|flowchart|diagram|chart|board|map)s? (?:in|on|into) (?:a |the )?figjam\b",
+            r"\b(?:make|create|build|draw|generate|turn)\b[^.!?]{0,60}\bfigjam\b",
         ],
     }
     matches = {intent for intent, patterns in frames.items() if any(re.search(pattern, text_lower) for pattern in patterns)}
@@ -475,7 +500,22 @@ def detect_artifact_frame(text: str) -> Optional[str]:
         r"\b(task|subtask|parent task)\s+(?:to\s+(?:document|write|create|draft|refine)|(?:for|about|covering|on))\b",
         text_lower,
     ))
+    bug_group_task = bool(re.search(
+        r"\b(?:group(?:ed|ing)?|consolidat(?:e|es|ed|ing|ion)|combine|bundle)\b[^.!?]{0,70}"
+        r"\b(?:bugs?|defects?|issues?)\b[^.!?]{0,50}\b(?:into|as|with)\s+(?:one\s+)?(?:task|ticket)\b"
+        r"|\b(?:create|write|draft|make|open)\s+(?:a\s+)?(?:bug\s+)?consolidation\s+ticket\b"
+        r"|\b(?:bug[ -]?fix|defect[ -]?fix)\s+(?:task|ticket)\b"
+        r"|\b(?:task|ticket)\s+(?:for|to)\s+(?:a\s+)?(?:bug[ -]?fix|defect[ -]?fix)\b"
+        r"|\brefinement\s*\+\s*bugs?\b",
+        text_lower,
+    ))
+    # A FigJam board named beside another artifact keeps that artifact's frame,
+    # whether the board is its subject or a second output the route records.
+    if "FLOW" in matches and len(matches) > 1:
+        matches.discard("FLOW")
     if task_over_other and "TASK" in matches:
+        return "TASK"
+    if bug_group_task:
         return "TASK"
     if len(matches) > 1:
         return "CONFLICT"
@@ -610,6 +650,25 @@ def evaluate_doc_context(doc_context: Optional[dict]) -> dict:
 
     return {"status": "READY", "draft_allowed": True, "clarification_fields": []}
 
+# A FigJam board named beside another artifact is that artifact's subject when
+# nothing asks for the diagram itself, as in "write a task to fix the figjam
+# board export". An output verb that reaches FigJam before another artifact
+# noun, or a board the request joins with "with", "plus" or "and", is a second
+# output instead, so the pair keeps both artifacts and the artifact still
+# exports first. The opener counts after a comma, a full stop, "then", "and
+# then" or "also", because those are the ways a second output follows the first.
+FIGJAM_SECOND_OUTPUT_RE = re.compile(
+    r"(?:^|\band\s+|\bthen\s+|\balso\s+|[.!?]\s+|,\s+)(?:make|draw|create|add|build|sketch|map|put)\b"
+    r"(?!\s+(?:a|an|the)?\s*(?:task|subtask|bug|issue|story|document|doc|runbook|prd|ticket|spec)\b)"
+    r"[^.!?]{0,30}\bfigjam\b"
+    r"|\b(?:with|plus|and) (?:a |an |the )?figjam "
+    r"(?:(?:user|process|architecture|sequence|state|er|gantt|data) )?"
+    r"(?:flow|flowchart|board|diagram|chart|map)s?\b"
+    r"|\bfigjam\b[^.!?]{0,60}\b(?:flow|flowchart|board|diagram|chart|map)s?\b"
+    r"[^.!?]{0,30}\b(?:then|and then)\s+(?:write|create|draft|make|turn)\b"
+    r"[^.!?]{0,40}\b(?:task|subtask|bug|issue|story|document|doc|runbook|prd|ticket|spec)\b"
+)
+
 def finalize_artifact_route(
     primary: str,
     energy: str,
@@ -630,6 +689,9 @@ def finalize_artifact_route(
     if shape:
         load_if_available(SHAPE_TEMPLATES[shape], inventory, loaded, seen)
 
+    # The pair forms only on an artifact route, since a bare Flow request is the
+    # diagram itself.
+    second_output = primary in {"TASK", "BUG", "DOC", "STORY"} and bool(FIGJAM_SECOND_OUTPUT_RE.search(text.lower()))
     result = {
         "intent": primary,
         "energy": energy,
@@ -637,6 +699,7 @@ def finalize_artifact_route(
         "shape": shape,
         "resources": loaded,
         **metadata,
+        "then": "FLOW" if second_output else None,
     }
     if primary != "DOC":
         return result
@@ -649,9 +712,12 @@ def finalize_artifact_route(
     if gate["status"] == "BLOCKED":
         for reference in RESOURCE_MAP["INTERACTIVE"]:
             load_if_available(reference, inventory, loaded, seen)
+        # A route that asks a question produces no artifact yet, so it promises
+        # no paired output.
         result.update({
             "intent": "INTERACTIVE",
             "requested_intent": "DOC",
+            "then": None,
             "source": "Doc context gate",
             "clarification": gate["clarification"],
             "clarification_fields": gate["clarification_fields"],
@@ -671,8 +737,7 @@ def route_product_owner_resources(user_input: str, doc_context: Optional[dict] =
     loaded = []
     seen = set()
     for reference in RESOURCE_MAP["ALWAYS"]:
-        if reference != "sk-product-owner/SKILL.md":
-            load_if_available(reference, inventory, loaded, seen)
+        load_if_available(reference, inventory, loaded, seen)
 
     controls = detect_controls(text)
     commands = controls["artifact_commands"]
@@ -820,6 +885,10 @@ Phase detection order:
 8. Route every Doc selection through the source-authority and conflict gate before drafting, including under Quick energy. Quick may skip routine intake and use safe defaults. It never bypasses artifact-command conflicts or a Doc's source-authority, contradiction and lifecycle gates.
 9. Consult only the Knowledge the selected intent needs.
 
+Route result fields:
+
+An artifact route result carries `intent`, `energy` and `source`. The resolver emits `then: "FLOW"` when a paired board is requested. The paired-output handoff, board gate, read-back and artifact link placement are owned by `sk-create-figjam/references/flow-mode.md` Section 8.
+
 Confidence thresholds and the artifact-kind guard:
 
 - HIGH `>= 0.85`: route directly, no clarification
@@ -883,7 +952,7 @@ Consult at most one example per request, for the routed mode only. The twenty-on
 
 Executable contract:
 
-The kernel carries this router as Section 11, Router Code, with its comments removed, and that section is the authority for exact routing behaviour in a Project: the full token and phrase regexes, the semantic topic tables and their scoring, the shape-precedence patterns, and the resource map behind the loading levels above. This Project cannot execute Python and does not need to, because the prose, tables and thresholds above encode the same decision procedure and never drift from it. Every `references/...` or `assets/...` resource stem the contract names maps to the matching uploaded Knowledge doc, guarded so a missing doc degrades to a smaller resource set instead of a dead reference.
+The kernel carries this router as Section 10, Router Code, with its comments removed, and that section is the authority for exact routing behaviour in a Project: the full token and phrase regexes, the semantic topic tables and their scoring, the shape-precedence patterns, and the resource map behind the loading levels above. This Project cannot execute Python and does not need to, because the prose, tables and thresholds above encode the same decision procedure and never drift from it. Every `references/...` or `assets/...` resource stem the contract names maps to the matching uploaded Knowledge doc, guarded so a missing doc degrades to a smaller resource set instead of a dead reference.
 
 Every Doc selection passes through the contract's `finalize_artifact_route` gate. `PENDING` means Doc intent is selected but drafting is blocked until the request and supplied sources are evaluated. Re-running the gate against the derived Doc context returns `BLOCKED` (consults Interactive Mode Knowledge, asks one consolidated question) or `READY` (drafting permitted). The gate tests substance as well as process: its six procedural checks confirm that a purpose, an audience, a source set, an authority, a conflict review and a scope exist, and all six can pass over sources that say nothing about what the document is being asked to claim, so the gate also matches the subjects the request asks for claims about against the subjects the supplied sources cover and blocks on any subject no source reaches. A comparison request is the clearest case, because it names two subjects, a source set commonly covers one, and the missing half would otherwise be written from nothing. The `load(...)` and `show_user(...)` calls in that contract name the skill's own execution actions. In this Project they describe consulting the matching Knowledge doc and stating the detected mode inline, never a file read, write or save this Project performs.
 
@@ -903,6 +972,7 @@ Operating model tables:
 | Interactive     | Conflicting commands, unclear artifact, missing safe inputs                                                                                                                                                       | One consolidated intake question, then wait                                 | Interactive Mode, Interactive Response Templates, HVR        |
 | Energy   | Signals                                                   | Behavior                                                                                         |
 | ----------| -----------------------------------------------------------| --------------------------------------------------------------------------------------------------|
-| Quick    | `$quick`, `$q`, quick, fast, no questions                 | Narrowest useful artifact with routine defaults allowed. All source-safety gates remain blocking |
+| Quick    | `$quick`, `$q`, quick, fast, no questions, just do it     | Narrowest useful artifact with routine defaults allowed. All source-safety gates remain blocking |
+| Raw      | Only the explicit phrase `skip depth`                     | Skip the phase flow. Quick and just-do-it never select Raw                                      |
 | Standard | Default                                                   | Full quality-gated artifact with proportionate Project Knowledge consultation                    |
 | Deep     | deep, think longer, full depth, complex multi-source work | Extended rigor and broader in-scope source reconciliation                                        |

@@ -28,10 +28,10 @@ On the Cartwell checkout page, the country selector inside the payment modal's b
 **References:**
 
 **Flows**
-- [Checkout - Payment modal](https://www.figma.com/file/cartwell-ds/checkout-flow?node-id=214-3550)
+- [Checkout - Payment modal](figma-url)
 
 **Components**
-- [Country select](https://www.figma.com/file/cartwell-ds/form-components?node-id=88-410)
+- [Country select](figma-url)
 
 ---
 

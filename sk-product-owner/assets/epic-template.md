@@ -71,7 +71,7 @@ In order to get there, we will:
 
 #### **References**
 * * *
-{Supplied links only, grouped under plain labels. Omit the whole section when none are supplied, and never leave it empty or invent a link.}
+{Supplied links only, grouped under plain labels. Omit the whole section when none are supplied, and never leave it empty or invent a link. Paired FigJam board link placement follows Flow Mode Section 8.}
 Components
 *   [{link}]({url})
 Flows

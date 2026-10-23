@@ -29,7 +29,7 @@ Every later skill scenario assumes the runtime can save a file, read it back and
 - Runtime profile: skill, from `AGENTS.md` with `SKILL.md` and the `sk-product-owner/` resources loaded
 - Precondition: A disposable copy with an empty `export/` folder and `loomlist-context.md` staged at `context/loomlist-context.md`. This handover runs first in the skill set
 - Expected execution process: Start a fresh skill session, submit Turn 1, inspect the clarification export, submit Turn 2 in the same session, then inspect the task export and compare both replies
-- Expected signals: Turn 1 routes by command to Task Mode, which asks its context question once and waits (`AGENTS.md` line 287, `references/task-mode.md` line 50). The question is saved as `export/[###] - task-due-today-chip-clarification.md`, holding the question and nothing else, read back, and the reply carries that path, the `Verified: read-back succeeded` line with its line count and the `HVR self-scan:` line (`AGENTS.md` lines 79 and 82). Turn 2 saves `export/[###] - task-due-today-chip.md` on the next number, reads it back and replies path first with the `Verified:` line, the `HVR self-scan:` line and the quality line (`AGENTS.md` lines 46 and 47). The task carries its H1, `## About` and `### Requirements` (`references/task-mode.md` lines 72 to 78) and keeps the Turn 2 facts: Web as the platform, the chip right after Overdue, to-dos not checked off that are due today in the owner's time zone, the due-date sort, one active chip at a time, and `filter_selected` sent with `due_today`
+- Expected signals: Turn 1 routes by command to Task Mode, which asks its context question once and waits (`AGENTS.md` line 303, `references/task-mode.md` line 50). The question is saved as `export/[###] - task-due-today-chip-clarification.md`, holding the question and nothing else, read back, and the reply carries that path, the `Verified: read-back succeeded` line with its line count and the `HVR self-scan:` line (`AGENTS.md` lines 81 and 84). Turn 2 saves `export/[###] - task-due-today-chip.md` on the next number, reads it back and replies path first with the `Verified:` line, the `HVR self-scan:` line and the quality line (`AGENTS.md` lines 48 and 49). The task carries its H1, `## About` and `### Requirements` (`references/task-mode.md` lines 72 to 78) and keeps the Turn 2 facts: Web as the platform, the chip right after Overdue, to-dos not checked off that are due today in the owner's time zone, the due-date sort, one active chip at a time, and `filter_selected` sent with `due_today`
 - Desired user-visible outcome: A saved task-lane question, then a saved task for the "Due today" chip, each reported path first with the skill-only delivery lines
 - Size band (advisory): 30 to 70 lines for the Turn 2 task body
 - Pass/fail: PASS if both replies name a readable `export/` path and print the `Verified: read-back succeeded` line and the `HVR self-scan:` line, the Turn 1 file holds only the question under a `task` lane `-clarification` name, and the Turn 2 file is a `task` on the next number carrying its H1, `## About` and `### Requirements` with the Turn 2 facts intact and no invented fact or unfilled slot. FAIL if either reply prints `Export-equivalent path:`, claims no file was written or speaks of a Canvas Artifact, Turn 1 drafts the task instead of asking, a named path does not read back, or the task scopes work on iOS or Android, renames "Due today" or drops the owner's time zone
@@ -63,7 +63,7 @@ Step 1 fixes the baseline with the attachment in place. Step 2 produces one clar
 
 ### Evidence
 
-Capture both replies, the per-turn side-effect ledger, the export folder listing after each turn, both read-back results, both `HVR self-scan:` lines and both file bodies. For each delivery, record the line count the reply printed beside the final line number its Read call returned, which `AGENTS.md` line 46 makes the value of `N`.
+Capture both replies, the per-turn side-effect ledger, the export folder listing after each turn, both read-back results, both `HVR self-scan:` lines and both file bodies. For each delivery, record the line count the reply printed beside the final line number its Read call returned, which `AGENTS.md` line 48 makes the value of `N`.
 
 Identity split proof from the worktree root:
 
@@ -84,7 +84,7 @@ Fixture payload (skill delivery line): `Verified: read-back succeeded` followed 
 ### Failure triage
 
 1. Re-run Turn 1 in a clean session and inspect the export folder before reading the reply
-2. Compare the delivery wording with the skill delivery contract in `AGENTS.md` lines 46 to 50 and the clarification rule at lines 79 and 82
+2. Compare the delivery wording with the skill delivery contract in `AGENTS.md` lines 48 to 52 and the clarification rule at lines 79 and 82
 3. If the runtime emits Project vocabulary, state the identity failure at the top of the run report and keep grading the skill set, as the root's Handovers in an automated run section asks
 
 | Feature ID | Feature name | Scenario name / objective | Exact prompt | Exact command sequence | Expected signals | Evidence | Pass/fail criteria | Failure triage |
@@ -99,7 +99,7 @@ Fixture payload (skill delivery line): `Verified: read-back succeeded` followed 
 |---|---|
 | [Root playbook](../manual-testing-playbook.md) | Shared execution policy and root summary |
 | [`AGENTS.md`](../../../AGENTS.md) | Skill identity, filesystem delivery and clarification export contract |
-| [`SKILL.md`](../../SKILL.md) | Routing, export and read-back rules |
+| [`SKILL.md`](../../SKILL.md) and [`references/routing.md`](../../references/routing.md) | Routing, export and read-back rules |
 | [`task-mode.md`](../../references/task-mode.md) | Routed Task Mode workflow and its context question rule |
 | [`task-templates.md`](../../assets/task-templates.md) | Routed task scaffold |
 | [`interactive-response-templates.md`](../../assets/interactive-response-templates.md) | Task Format Question the Turn 1 clarification follows |

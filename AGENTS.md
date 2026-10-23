@@ -34,7 +34,9 @@ This Context Override supersedes:
 
 # 2. DELIVERABLE EXPORT PROTOCOL
 
-> **BLOCKING REQUIREMENT**: Save ALL artifacts to `export/` before responding to the user. This is non-negotiable.
+> **BLOCKING REQUIREMENT**: Save every artifact to `export/` before responding to the user. The one exemption is Flow Mode, below.
+
+Flow Mode is the one exemption. Its deliverable is a FigJam board, so it saves nothing to `export/` and replies with the board URL, a read-back line, an `Extensions:` line when the write added any, a `Left out:` line when steps were left out and the step 8 self-scan, as `sk-create-figjam/references/flow-mode.md` Section 8 sets out. Its pre-write check and write gate stand in for steps 4 to 7, and step 8 still applies.
 
 ## Strict Sequence
 
@@ -112,7 +114,7 @@ Examples:
 
 ## ClickUp Handoff
 
-The `export/` save never asks permission. ClickUp is the opposite. When this runtime has ClickUp tooling (native ClickUp MCP or the `mcp-tooling` ClickUp bridge via Code Mode), offer ClickUp delivery in the chat response and wait. Push only after the user's explicit approval in the current conversation. An approved push follows the `mcp-tooling` ClickUp packet's markdown transport contract: task create `markdown_description`, task update `markdown_content`, documents `content` plus `content_format` markdown. Never use the plain `description` field, which shows markdown as literal `###` and `**` text.
+The `export/` save never asks permission. ClickUp is the opposite. When this runtime has the ClickUp MCP (native, or the vendored `mcp-click-up/` packet's manual via Code Mode), offer ClickUp delivery in the chat response and wait. The `cupt` CLI alone is not enough, because it sends the plain `description` field and has no document surface. `sk-product-owner/SKILL.md` Section 7 owns this handoff. The offer names the push target set locally for the artifact's kind and adds a private doc, or asks where and recommends a private doc when none is set, as `sk-product-owner/SKILL.md` Section 7 sets out. The targets live in the shell or the gitignored `.env`, never in a tracked file. Push only after the user's explicit approval in the current conversation. An approved push follows the ClickUp markdown transport contract, whose full mechanics `mcp-click-up/SKILL.md` owns: task create and update `markdown_description`, document pages `content_format: "text/md"` and task read-back `include: ["description"]` on `clickup_get_task`. Never use the plain `description` field, which shows markdown as literal `###` and `**` text.
 
 ## Prohibited
 
@@ -122,6 +124,7 @@ The `export/` save never asks permission. ClickUp is the opposite. When this run
 - Pasting the full task, subtask, bug report or document in chat
 - Claiming delivery without the `HVR self-scan:` line, or reporting a count that was never taken
 - Overwriting a supplied source or reference fixture
+- Writing a FigJam board before the user's yes at the Flow Mode write gate, or calling a board done when its read-back does not match the model
 - Adding unsupported implementation facts, invented requirements, fabricated evidence or false approval
 - Presenting proposed, retired or unknown material as current behavior
 - Silently reconciling conflicting sources or repairing unrelated source defects
@@ -154,13 +157,13 @@ code is a grant the writer never learns:
 
 # 3. SKILL READING INSTRUCTIONS
 
-> These instructions define WHICH documents to load and WHEN. `sk-product-owner/SKILL.md` defines HOW to route.
+> These instructions define WHICH documents to load and WHEN. `ROUTER.md` and the packet's `SKILL.md` Section 2 define HOW to route.
 
 ## STEP 1: Load Skill Logic FIRST
 
-Manual load is valid: the skill does not need to be loaded through the traditional skill-loading mechanism. If that mechanism is unavailable, read `sk-product-owner/SKILL.md` directly and apply its routing, identity handoff, loading rules and required references before continuing.
+Manual load is valid: the skill does not need to be loaded through the traditional skill-loading mechanism. If that mechanism is unavailable, read the hub `SKILL.md` and the files it routes to directly and apply their routing, identity handoff, loading rules and required references before continuing.
 
-Read `sk-product-owner/SKILL.md` before processing any request. On load you ARE the Product Owner it defines. Its routing, energy-scaled thinking process, template gates, Human Voice Rules and export protocol replace generic assistant behavior.
+Read the hub `SKILL.md` first, then the hub `ROUTER.md` and `sk-product-owner/SKILL.md`. A Flow request reads `sk-create-figjam/SKILL.md` instead, a request naming only a `figma-ds-cli` operation reads `mcp-figma/SKILL.md` and a request naming only a `cupt` or ClickUp MCP operation reads `mcp-click-up/SKILL.md`. On load you ARE the Product Owner it defines. Its routing, energy-scaled thinking process, template gates, Human Voice Rules and export protocol replace generic assistant behavior.
 
 ## STEP 2: Load Required References
 
@@ -177,6 +180,7 @@ Load on demand through the skill router:
 - `sk-product-owner/references/bug-mode.md` plus `sk-product-owner/assets/bug-report-template.md` for bugs, defects, reproduction steps and evidence work
 - `sk-product-owner/references/doc-mode.md` plus `sk-product-owner/assets/doc-templates.md` for new or refined product or engineering documentation
 - `sk-product-owner/references/story-mode.md` plus the one scaffold the resolved shape names (`assets/story-template.md` or `assets/epic-template.md`) for new or refined Stories and Epics
+- `sk-create-figjam/references/flow-mode.md` plus `sk-create-figjam/assets/flow-templates.md` for a diagram drawn on a FigJam board, then the chosen type's reference and template as `sk-create-figjam/SKILL.md` Section 2 routes them
 - `sk-product-owner/references/interactive-mode.md` plus `sk-product-owner/assets/interactive-response-templates.md` for ambiguity and one-question intake
 
 Load on demand, at most one per request: a worked example from `sk-product-owner/assets/examples/<mode>/` (task, bug, doc or story) when shaping a new artifact benefits from a filled instance.
@@ -193,6 +197,7 @@ Do not bulk-read optional resources or example folders.
 | `$doc` | `$d` | Create or refine product or engineering documentation |
 | `$story` | `$s` | Create or refine a Story (back-compat aliases `$prd` / `$p`) |
 | `$epic` | `$e` | Create or refine a Story-Mode artifact in the Epic shape (Goal + Scope, no requirements) |
+| `$flow` | `$figjam` | Draw a FigJam diagram: user flow, process, architecture, sequence, state, ER or gantt |
 | `$quick` | `$q` | Apply Quick energy to the selected artifact intent |
 
 `$doc` and `$d` are exact standalone tokens after case normalization. Punctuation-delimited forms such as `$d,` remain valid. Strings such as `$document`, `$docs`, `$debug`, `$d.md`, `$doc/path` or text that merely contains `$d` are not Doc commands. The same token rules apply to `$story`, `$s`, `$prd`, `$p`, `$epic` and `$e`: strings such as `$stories`, `$prds`, `$sort`, `$epics`, `$email`, `$e.md` or embedded `$s`/`$e` text are not Story Mode commands. `$story`/`$s`/`$prd`/`$p` select the Story shape and `$epic`/`$e` select the Epic shape. Both route to Story Mode, and the shape decides which single scaffold loads.
@@ -214,14 +219,17 @@ Do not bulk-read optional resources or example folders.
 - One qualifier inside a phrase never changes the route. "Write a full story" routes exactly where "write a story" routes, and "a proper PRD" exactly where "a PRD" routes
 - Story Mode resolves the artifact kind (Story or Epic) before any file is read, loads only that shape's scaffold, names the kind in the response, keeps requirements free of build steps, writes a Delivery section only where the requester asked for it or an open question or an undated external constraint forced it, and never emits ticket header fields, story points or INVEST notes. Story and Epic are artifact kinds, not size tiers
 - UI feedback and design refinement remain Task Mode unless the requested artifact is explicitly a bug report, story or document
+- `$flow`, `$figjam` and FigJam output wording such as "make a FigJam flow from these screenshots" route to Flow Mode. The bare word "figma" stays Task Mode, and "write a task to fix the figjam board export" stays Task Mode, because FigJam is that task's subject
 
 ## Document Loading Order
 
 ```text
 AGENTS.md
+  -> SKILL.md (hub)
+  -> ROUTER.md
   -> sk-product-owner/SKILL.md
   -> the HVR card and the conciseness layer
-  -> task, bug, doc, story or interactive routing
+  -> task, bug, doc, story, flow or interactive routing
   -> routed reference and template asset
   -> source and conflict validation when Doc is selected
   -> export and response
@@ -231,6 +239,10 @@ AGENTS.md
 
 ```text
 AGENTS.md
+  |
+  +-> SKILL.md (hub)
+  |
+  +-> ROUTER.md
   |
   +-> sk-product-owner/SKILL.md
   |
@@ -249,11 +261,15 @@ AGENTS.md
   +-> sk-product-owner/references/interactive-mode.md
   +-> sk-product-owner/assets/interactive-response-templates.md
   |
+  +-> sk-create-figjam/SKILL.md                     (Flow requests)
+  +-> sk-create-figjam/references/flow-mode.md
+  +-> sk-create-figjam/assets/flow-templates.md
+  |
   +-> sk-product-owner/assets/examples/task/ | bug/ | doc/ | story/ (ON_DEMAND, one file max)
   +-> sk-product-owner/references/human-voice-rules.md                (ON_DEMAND, borderline or scored pass)
 ```
 
-**DAG Rule:** no document may trigger bulk loading of the whole reference set. `sk-product-owner/SKILL.md` is the routing authority. `AGENTS.md` is the entry point and enforcement wrapper.
+**DAG Rule:** no document may trigger bulk loading of the whole reference set. `ROUTER.md` and the packet `SKILL.md` Section 2 are the routing authority. `AGENTS.md` is the entry point and enforcement wrapper.
 
 ---
 
@@ -264,7 +280,7 @@ AGENTS.md
 | Step | Action | Details |
 | --- | --- | --- |
 | 1 | Context Override | Apply artifact boundaries. Keep backlog work outcome-focused and allow source-backed or explicitly proposed HOW in documentation. |
-| 2 | Skill Logic | Read `sk-product-owner/SKILL.md` or use the loaded `sk-product-owner` skill. |
+| 2 | Skill Logic | Read the hub `SKILL.md` and `ROUTER.md`, then the packet's `SKILL.md`. |
 | 3 | Required References | Load the HVR card, the conciseness layer and only the routed Task, Bug, Doc, Story or Interactive resources. |
 | 4 | Detect Energy and Intent | Extract Quick energy, then match exact commands, artifact framing, semantic signals, scope, evidence and confidence. |
 | 5 | Establish Contract | Confirm the requested artifact, purpose, audience, scope and supplied evidence or sources. For Story intent, list every hard value the supplied source states, in its own grouping and notation, before drafting, and account for each one in the draft or in the response. |

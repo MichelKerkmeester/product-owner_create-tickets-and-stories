@@ -47,7 +47,7 @@ Use Story Mode for:
 
 Use another mode when the requested artifact is different:
 
-- A single implementation unit is Task Mode
+- A single implementation unit is Task Mode only when the request asks for a task. An explicit Story or PRD request stays Story Mode even when it yields one implementation task
 - A defect with evidence and reproduction steps is Bug Mode
 - Knowledge documentation (guides, catalogs, behavior references, proposals) is Doc Mode
 - "Create a task from this PRD" is Task Mode using the PRD as source context
@@ -160,7 +160,7 @@ These apply to every Story and every Epic:
 - Heading depth: H1 is the title only. Major sections (`## Problem` and `## Solution` in a Story, `## About` in an Epic, `## Requirements` or `## Scope`, `## Acceptance criteria`, `## Delivery`) anchor at H2. The Epic's opening group sections sit at H4 (`#### Problem`, `#### Goal`, `#### Solution`), as do scenario groups inside Acceptance criteria (`#### {Group}`), and `#### **References**` sits at H4-bold. `**Expected outcomes**` and `**User Story**` are bold labels with a `* * *` divider under them inside Solution, never headings, because they belong to Solution rather than standing as sections of their own. Requirement names use bold paragraph leads (`**{Requirement name}**`). Gates and spec sub-blocks use H4-bold headings (`#### **Rule**`). Sub-labels inside References are plain paragraph text (`Components`, `Flows`, `Lifecycle`), not bold. Nothing goes deeper than H4
 - Preserve technical identifiers exactly, even when they look misspelled or use local notation (for example `Below 2.500 followers`). Flag oddities in prose instead of normalizing them
 - Exact expressions, thresholds, field names and event names travel in backticks
-- Links appear only when supplied. Never invent a Figma destination or a ClickUp link. Images are embedded in ClickUp after export, so a Story or Epic never carries an image, a screenshot reference or a file path to one
+- Links appear only when supplied. Never invent a Figma destination or a ClickUp link. Paired FigJam outputs follow the handoff, read-back and link-placement contract in Flow Mode Section 8. Images are embedded in ClickUp after export, so a Story or Epic never carries an image, a screenshot reference or a file path to one
 
 ### The H1 title
 
@@ -383,7 +383,7 @@ Never overwrite the supplied source.
 
 ### Story With Nested Tasks
 
-A new Story asked for together with its task breakdown, such as `$story` with "break it into tasks", is one dependent deliverable rather than two independent artifacts, so it needs no question about which artifact to make. Two explicit artifact commands such as `$story $task` stay a conflict. The bundle applies to a new Story only, because a refined Story keeps its source filename.
+Story Mode owns the Story-with-tasks path and the Story-to-Task boundary. A new Story asked for with its task breakdown is one dependent deliverable, saved under `export/[###] - Story-[description]/` with task files at `[###].[n] - task-[description].md` in the Story's task order. It needs no question about which artifact to make. Two explicit artifact commands such as `$story $task` remain a conflict routed to Interactive Mode. The bundle applies to a new Story only, because a refined Story keeps its source filename.
 
 It saves as one folder under one number:
 
@@ -409,7 +409,7 @@ export/[###] - Story-[description]/
 
 ### Response Contract
 
-Reply in the Delivery Reply Shape in `assets/interactive-response-templates.md` Section 3, whose quality line names the artifact kind (Story or Epic). Validate the house grammar and honest Delivery state, save, then verify before reporting. In a Claude Project runtime, deliver one markdown artifact with the export-equivalent path. When ClickUp tooling is available, offer ClickUp delivery and wait for explicit approval, per the skill's ClickUp handoff rule.
+Reply in the Delivery Reply Shape in `assets/interactive-response-templates.md` Section 3, whose quality line names the artifact kind (Story or Epic). Validate the house grammar and honest Delivery state, save, then verify before reporting. In a Claude Project runtime, deliver one markdown artifact with the export-equivalent path. ClickUp delivery offers and approval follow `SKILL.md` Section 7, ClickUp Handoff.
 
 For a Story with nested Tasks, read back every file in the folder, then reply with every path, Story first, each with its own `Verified: read-back succeeded; N lines` line, and one `HVR self-scan:` line counted across the whole bundle. A file whose read-back still fails after one retry gets no `Path:` line, and the reply says the bundle is blocked rather than delivered. In a Claude Project runtime, render one Deliverable Block per file, Story first, each followed by its own `Export-equivalent path:` inside the folder, then one `HVR self-scan:` line for the set.
 
@@ -471,10 +471,10 @@ Load at most one worked example per request.
 Final reminders: resolve the shape first, across Story and Epic, and load only that shape's scaffold. Narrative comes first. Acceptance criteria prove the promise and trace to requirements (Story) or state release outcomes (Epic). Requirements hold `- []` constraint items, never build steps. `## Delivery` is opt-in and closes the artifact where it is written. Export first and verify.
 ---
 
-The kernel points here for the Story Mode consultation rule:
+Story Mode consultation rule:
 
 16. Consult Story Mode plus the one scaffold the resolved shape names for Story work, resolve the artifact kind (Story or Epic) before consulting any scaffold and name it in the delivery response, keep requirements free of build steps, and add a Delivery close only where the requester asked for it or the artifact forced it.
 
-The kernel points here for this Story and Epic prohibition:
+Story and Epic prohibition:
 
 14. Never put ticket header fields, story points or INVEST notes in a Story or Epic, never add build steps to a Story requirement, and never restructure an existing Story or Epic when the request is only to add Story elements.

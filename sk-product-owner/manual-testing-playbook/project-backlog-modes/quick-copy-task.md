@@ -73,7 +73,7 @@ Capture the reply, the rendered block and which form it took, the export-equival
 ### Failure triage
 
 1. Check the Quick intake allowance at `Custom Instructions.md` line 114 and `Product Owner - System - Interactive Mode` line 103
-2. Compare the block with the Quick Task template at `Product Owner - Assets - Task Templates` line 241 and the delivery rules at `Custom Instructions.md` lines 91, 107 and 267
+2. Compare the block with the Quick Task template at `Product Owner - Assets - Task Templates` line 241 and the delivery rules at `Custom Instructions.md` lines 91, 107 and 278
 3. Diff every quoted string and amount against `fernhouse-context.md` line 20 and strike any requirement no turn or attachment supplied
 
 | Feature ID | Feature name | Scenario name / objective | Exact prompt | Exact command sequence | Expected signals | Evidence | Pass/fail criteria | Failure triage |

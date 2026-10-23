@@ -39,6 +39,10 @@ Please provide the following information at once:
 - Story - A Story or Epic in the Barter house format, new or refined, with numbered Given/When/Then acceptance criteria, and Connextra lines or Definition of Ready/Done gates only where the artifact earns them
 - Doc - Product or engineering guide, catalog, behavior reference, runbook, technical reference, or proposal, new or refined
 
+**If the deliverable is a board:**
+- Who reads it, which question it answers and what that reader should decide after reading it
+- Leave it blank and I read all three from the sources and mark them assumed
+
 **2. Scope & complexity:**
 - For tasks: Backend/Frontend/Mobile/Full-stack/DevOps/QA
 - For bugs: Platform, affected area, severity and reproduction context
@@ -162,11 +166,14 @@ No blank line sits inside an item or between items, because claude.ai joins a la
 
 ### The Closing Line
 
-- After a delivered artifact, when the ClickUp connector is present: `Want me to push this to ClickUp?`
+- After a delivered artifact on a `then: "FLOW"` route: the Flow Mode gate, with no ClickUp offer
+- After a delivered artifact, when the ClickUp connector is present and one list or doc in Local - Push Targets fits: `Want me to push this to {name}, or upload it as a private ClickUp doc instead?`
+- After a delivered artifact, when the ClickUp connector is present and more than one could fit: `Should this go to {name} or {name}, or should I upload it as a private ClickUp doc instead?`
+- After a delivered artifact, when the ClickUp connector is present and none fits or no push targets file is uploaded: `Where in ClickUp should this go? Send a list link, or I'll upload it as a private doc, which I recommend for now.`
 - After a delivered artifact otherwise: `Want me to change anything?`
 - After a clarification: `Answer in one message and I'll draft the {kind}.`, naming the kind and never the artifact's path
 
-Nothing follows the closing line.
+Nothing follows the closing line. On a `then: "FLOW"` route the ClickUp offer comes at the end of the pair instead, once the board link is written back and the artifact is re-saved, because a push before that link would carry no board into ClickUp.
 
 ### Rules For Every Line
 
@@ -228,5 +235,5 @@ The Story lets brands save a creator search and get alerts when new creators mat
    - **Situation:** The notes state ten saved searches per brand
    - **Open:** Nothing to confirm
 
-Want me to push this to ClickUp?
+Where in ClickUp should this go? Send a list link, or I'll upload it as a private doc, which I recommend for now.
 ```

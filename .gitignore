@@ -6,5 +6,30 @@ export/*
 !export/.gitkeep
 !export/benchmark/
 
+# Local credentials: .env stays on this machine, .env.example is the tracked key list
+.env
+.env.*
+!.env.example
+
+# A filled copy of the push targets file, made from claude project/templates/, stays here
+claude project/local/
+click-up-links.md
+
 # Spec folders are tracked; this overrides the global /specs ignore
 !/specs/
+
+# The runtime configs are tracked so a clone can start Code Mode; they hold no secret, only
+# ${VAR} references that .env fills in. This overrides the global ignore of both files.
+!/.utcp_config.json
+!/opencode.json
+
+# claude-plugin/skills/: built by scripts/build-plugin.py from the tracked sources, never edited by hand
+claude-plugin/skills/
+
+# Deep-loop write-containment snapshots copy files from the whole working tree,
+# private Barter screenshots and documents included, so they never enter this public repo
+specs/**/containment/
+
+# The vendored Code Mode server's dependencies and build, made locally by npm ci and npm run build
+mcp-code-mode/mcp-server/node_modules/
+mcp-code-mode/mcp-server/dist/

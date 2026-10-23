@@ -25,10 +25,10 @@ In the Loopline Android app, selecting the `4032x3024`, `8.7MB` JPEG test photo 
 **References:**
 
 **Flows**
-- [Composer - Attach photo](https://www.figma.com/file/loopline-mobile/composer?node-id=55-201)
+- [Composer - Attach photo](figma-url)
 
 **Components**
-- [Photo attachment picker](https://www.figma.com/file/loopline-mobile/composer?node-id=55-244)
+- [Photo attachment picker](figma-url)
 
 ---
 

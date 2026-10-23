@@ -12,7 +12,7 @@ This scenario validates the Doc intake question under an explicit command and an
 
 ## 1. OVERVIEW
 
-`$doc` routes the request and does not supply the Doc context, so the runtime still asks its question and waits (`AGENTS.md` line 287). Turn 1 names both attachments but states no reader, authority, status, shape or scope. `AGENTS.md` line 285 and `doc-mode.md` line 198 set the question's minimum: source set, authority, status, shape and scope, each unless the user already stated it. The notes' own follow-up list names a runbook, so the question may propose a Guide or runbook for the user to confirm (`doc-mode.md` line 260). Turn 2 asks for a runbook, which is the Guide shape (`doc-mode.md` line 264).
+`$doc` routes the request and does not supply the Doc context, so the runtime still asks its question and waits (`AGENTS.md` line 303). Turn 1 names both attachments but states no reader, authority, status, shape or scope. `AGENTS.md` line 301 and `doc-mode.md` line 198 set the question's minimum: source set, authority, status, shape and scope, each unless the user already stated it. The notes' own follow-up list names a runbook, so the question may propose a Guide or runbook for the user to confirm (`doc-mode.md` line 260). Turn 2 asks for a runbook, which is the Guide shape (`doc-mode.md` line 264).
 
 The notes mix statuses. The alert on `payments.webhook.4xx_rate` and the rotation order are done, while accepting the old and the new signing secret for `1 hour` during a rotation is only `proposed`. Turn 2 asks for today's process and for the follow-ups with where each one stands, so a correct runbook lists the dual-secret window as proposed and never gives it as a step.
 
@@ -75,9 +75,9 @@ Capture both replies, the side-effect ledger, both export paths and read-back li
 
 ### Failure triage
 
-1. Check the explicit-command rule in `AGENTS.md` line 287 and the minimum question fields in `AGENTS.md` line 285 and `doc-mode.md` line 198
+1. Check the explicit-command rule in `AGENTS.md` line 303 and the minimum question fields in `AGENTS.md` line 301 and `doc-mode.md` line 198
 2. Compare the question with the Doc Context and Clarification Question in `interactive-response-templates.md` line 129
-3. Re-read the runbook against `context/roamstay-payment-webhook-incident-notes.md`, restore the step order and every exact value, and put the proposed label back on the dual-secret window (`AGENTS.md` line 126, `doc-mode.md` line 154)
+3. Re-read the runbook against `context/roamstay-payment-webhook-incident-notes.md`, restore the step order and every exact value, and put the proposed label back on the dual-secret window (`AGENTS.md` line 129, `doc-mode.md` line 154)
 
 | Feature ID | Feature name | Scenario name / objective | Exact prompt | Exact command sequence | Expected signals | Evidence | Pass/fail criteria | Failure triage |
 |---|---|---|---|---|---|---|---|---|

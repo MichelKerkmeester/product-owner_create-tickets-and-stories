@@ -18,13 +18,14 @@ Built for agent CLIs that read `AGENTS.md` and for claude.ai Projects through `c
 
 **What's inside**
 
-- **Smart Router** - exact `$` commands, artifact framing and nine scored topics resolve each request to Task, Bug, Doc, Story or Interactive
+- **Smart Router** - exact `$` commands, artifact framing and nine scored topics resolve each request to Task, Bug, Doc, Story, Flow or Interactive
 - **One-Question Intake** - every missing fact goes into one consolidated question, saved as a `-clarification` file before anything is drafted
 - **Source-Safe Docs** - five claim classes, a four-step authority order and a gate that blocks any claim no source covers
-- **Artifact Templates** - four task shapes, a fixed bug report, five Doc shapes and the Barter house Story and Epic, with 21 worked examples
+- **Artifact Templates** - four task shapes, a fixed bug report, five Doc shapes and the Barter house Story and Epic, with 21 worked examples and 7 FigJam examples
 - **Blocking Quality Floors** - six dimensions scored out of 10, with a floor of 8 for five of them and 9 for Accuracy
-- **Verified Delivery** - numbered export files, a read-back receipt and a ClickUp push only after an explicit yes
-- **Checks Without a Model** - 117 router fixtures, 189 differential inputs and 35 format cases run from a fresh clone
+- **Verified Delivery** - numbered export files, a read-back receipt and a ClickUp push only after an explicit yes, to the target you set locally or a private doc
+- **FigJam Diagrams** - seven diagram types drawn after an intake that recommends an answer to every question, checked before the write and read back from the board
+- **Checks Without a Model** - 141 router fixtures, 234 differential inputs and 59 format cases run from a fresh clone
 
 &nbsp;
 
@@ -36,7 +37,7 @@ Three building blocks carry a request through Product Owner:
 
 1. **Routing**
 
-   `SKILL.md` Section 2 resolves one route before any template loads. A command wins first, then artifact framing, then a topic score.
+   The hub `SKILL.md` picks the packet, the hub `ROUTER.md` maps the request to the leaves it loads, and the packet's `SKILL.md` Section 2 resolves one route before any template loads. A FigJam diagram goes to `sk-create-figjam/` instead. A command wins first, then artifact framing, then a topic score.
 
 2. **Shaping**
 
@@ -154,7 +155,7 @@ git clone https://github.com/MichelKerkmeester/product-owner_create-tickets-and-
 cd product-owner_create-tickets-and-stories
 ```
 
-Open the folder in an agent CLI that reads `AGENTS.md` and point the model at that file. It reads `sk-product-owner/SKILL.md` and works as the Product Owner from then on. There is no package to install and no API key to set. The router checks need Bash and Python 3, and the format check needs Node.js.
+Open the folder in an agent CLI that reads `AGENTS.md` and point the model at that file. It reads the hub `SKILL.md` and `ROUTER.md`, then `sk-product-owner/SKILL.md`, and works as the Product Owner from then on. Writing tickets, stories and docs needs no package and no API key. The router checks need Bash and Python 3, and the format check needs Node.js. Pushing to ClickUp or reading Figma takes the one-time Code Mode setup below.
 
 ### Verify Installation
 
@@ -163,11 +164,34 @@ bash benchmark/router/run_fixtures.sh
 ```
 
 ```text
-PASSED 117/117 fixtures
-PASSED 189/189 differential inputs (9 topics, 114 synonyms in parity, 61 SKILL.md triggers checked)
+PASSED 141/141 fixtures
+PASSED 234/234 differential inputs (9 topics, 114 synonyms in parity, 61 routing.md triggers checked)
 ```
 
 The check calls no model and no network. Section 11 lists the format check and the rest.
+
+### Connect ClickUp and Figma (optional)
+
+In Claude Desktop or claude.ai, the Project uses ClickUp's and Figma's own connectors instead, and [USER-GUIDE.md](./USER-GUIDE.md) walks through adding them, switching them on and checking they work. The steps below are for terminal agents.
+
+The repository carries its own Code Mode setup: `.utcp_config.json` registers the `clickup_official` and `figma` manuals, and `.mcp.json` and `opencode.json` start the vendored server in `mcp-code-mode/` through `scripts/code-mode.cjs`. The server needs Node 24, because its `isolated-vm` sandbox has no build for a later Node, and the launcher finds an installed Node 24 through nvm, fnm, volta or `PATH` even when your default `node` is newer.
+
+```bash
+cp .env.example .env                      # figma_FIGMA_API_KEY, optional
+nvm install 24                            # or any manager, as long as a Node 24 is installed
+cd mcp-code-mode/mcp-server && nvm exec 24 npm ci && nvm exec 24 npm run build && cd ../..
+```
+
+Flow Mode draws through Figma's hosted MCP when the agent CLI connects it, and through Figma Desktop when it does not. The desktop route uses `figma-ds-cli` and draws user flows and processes with no lanes, node by node into the FigJam file you have open. It is set up once per machine:
+
+```bash
+bash mcp-figma/scripts/install.sh          # figma-ds-cli 1.2.0 or later, from the silships repository
+figma-ds-cli --version                     # must print 1.2.0 or later
+```
+
+Then, in Figma Desktop, import the bridge plugin once through Plugins, Development, Import plugin from manifest, picking `~/.figma-ds-cli/source/plugin/manifest.json`. That folder is hidden, so on macOS press Cmd+Shift+G in the file picker and paste the path. In each session, open the FigJam file, run Plugins, Development, FigCli and keep it open, then run `figma-ds-cli connect --safe`. Safe mode patches nothing. The plain `figma-ds-cli connect` patches Figma Desktop and breaks when Figma updates, so use it only on purpose and undo it with `figma-ds-cli unpatch`. `mcp-figma/INSTALL-GUIDE.md` covers the daemon and troubleshooting.
+
+Your ClickUp push targets live in `claude project/local/Product Owner - Local - Push Targets.md`, which git ignores: each list and doc by name under its team, filled from `claude project/templates/`. The delivery offer names the one that fits, asks when several could, and without the file asks where. The Claude Project reads the same file once you upload it. Restart the agent CLI so it reads `.mcp.json` or `opencode.json`. The first ClickUp call opens a ClickUp sign-in in the browser, since `mcp-remote` authenticates with OAuth and needs no key. `node_modules/` and `dist/` stay local and gitignored, and a later `scripts/vendor-sync.py pull` keeps them.
 
 ### First Use
 
@@ -180,8 +204,9 @@ A feature name is not a scope, so the reply saves one question as `export/001 - 
 ### Use It in a claude.ai Project
 
 1. Paste `claude project/Custom Instructions.md` into the custom instructions of a Project named **Product Owner**
-2. Remove superseded knowledge uploads, then upload all 37 files in `claude project/knowledge/` with their filenames unchanged
+2. Remove superseded knowledge uploads, then upload all 63 files in `claude project/knowledge/` with their filenames unchanged
 3. Run the smoke matrix in [the Project README](claude%20project/README.md) and confirm a Deliverable Block appears first, since a Project cannot write files
+4. Optionally fill `claude project/templates/Product Owner - Local - Push Targets.md` with your ClickUp lists and docs by team, keep the copy in the gitignored `claude project/local/` and upload it to your own Project, so the ClickUp offer names the one that fits. [USER-GUIDE.md](./USER-GUIDE.md) Section 4 walks through it
 
 &nbsp;
 
@@ -271,7 +296,7 @@ python3 benchmark/router/route_contract.py --request "write an epic for creator 
 #### Energy Levels
 
 - Raw skips the phase flow, while safety and delivery rules still apply. Only the words "skip depth" select it, never `$quick`
-- Quick comes from `$quick`, `$q` or "quick" and "fast" as framing. It runs Discover, Prototype and Harmonize, with 1 to 2 perspectives recommended
+- Quick comes from `$quick`, `$q` or "quick", "fast" and "just do it" as framing. It runs Discover, Prototype and Harmonize, with 1 to 2 perspectives recommended
 - Standard is the default for every mode. It runs Discover, Engineer, Prototype, Test and Harmonize with at least 3 perspectives and a target of 5
 - Deep is for complex, high-risk or multi-source work. It extends the full flow and uses all 5 perspectives
 
@@ -603,16 +628,21 @@ The same run shows why the receipt is checked rather than trusted. Every skill-s
 
 The push has to use a parameter that keeps the markdown:
 
-- Create a task with `markdown_description`
-- Update a task with `markdown_content`. The claude.ai connector uses `markdown_description` here
-- Create a document or page with `content` and `content_format: "markdown"`
-- Read a task back with `include_markdown_description=true`
+- Create or update a task with `markdown_description`. The ClickUp MCP has no `markdown_content` parameter
+- Create, update or read a document page with `content_format: "text/md"`
+- Read a task back with `include: ["description"]` on `clickup_get_task`
+
+`mcp-click-up/SKILL.md` owns this contract.
 
 The plain `description` field stores markdown as literal text, so visible `###` or `**` in ClickUp means the wrong parameter was used.
 
 - The export never asks permission. A ClickUp create, update or delete always does, as an explicit yes in the current conversation. An earlier yes does not carry forward
 - The artifact's H1 becomes the ClickUp name and leaves the body. HTML comments and process metadata are stripped. Everything else travels verbatim
 - After a push the task is read back with markdown enabled to confirm the formatting survived
+
+#### Push Targets
+
+Copy `claude project/templates/Product Owner - Local - Push Targets.md` into `claude project/local/`, which is gitignored, and add each ClickUp list and doc by name under the team that owns it. When one fits the artifact, the reply offers it and a private doc. When several could fit, it asks which, and when none does, it asks where and recommends a private doc. A document lands as a new page in the named doc. The claude.ai Project reads the same file once you upload it to your own Project.
 
 #### What Git Keeps
 
@@ -626,7 +656,7 @@ A route loads its template together with its mode reference. A worked example lo
 
 #### Template Assets
 
-[sk-product-owner/assets/](sk-product-owner/assets/) holds six templates. Five cover Task, Bug, Doc, Story and Epic. The sixth, `interactive-response-templates.md`, holds the comprehensive question plus the Task, Bug, Story and Doc questions.
+[sk-product-owner/assets/](sk-product-owner/assets/) holds six templates. Five cover Task, Bug, Doc, Story and Epic. `interactive-response-templates.md` holds the comprehensive question plus the Task, Bug, Story and Doc questions.
 
 #### Worked Examples
 
@@ -634,7 +664,7 @@ A route loads its template together with its mode reference. A worked example lo
 
 #### Reference Files
 
-[sk-product-owner/references/](sk-product-owner/references/) holds 11 rule files. `hvr-core.md` and `conciseness.md` load on every request. The five mode files, `task-mode.md`, `bug-mode.md`, `doc-mode.md`, `story-mode.md` and `interactive-mode.md`, load with their route. `quality-scoring.md`, `router-contract.md`, `human-voice-rules.md` and `conciseness-rationale.md` load on demand.
+[sk-product-owner/references/](sk-product-owner/references/) holds 12 rule files. `hvr-core.md` and `conciseness.md` load on every request. The five mode files, `task-mode.md`, `bug-mode.md`, `doc-mode.md`, `story-mode.md` and `interactive-mode.md`, load with their route. Flow Mode's `flow-mode.md` and `flow-templates.md` live in [sk-create-figjam/](sk-create-figjam/SKILL.md), its own packet, with one reference per diagram type, a style guide, a quality rubric, the hybrid workflow and the pre-write check `scripts/flow_check.py`. `quality-scoring.md`, `routing.md`, `router-contract.md`, `human-voice-rules.md` and `conciseness-rationale.md` load on demand.
 
 &nbsp;
 
@@ -642,8 +672,8 @@ A route loads its template together with its mode reference. A worked example lo
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem and never loads `SKILL.md`.
 
-- `Custom Instructions.md` is the kernel, v1.2.1, aligned to skill v1.2.1.0. It carries the full router and rules and is the routing authority inside the Project
-- `knowledge/` holds 37 files: 16 core documents (five mode references, six templates, four shared rule files and quality scoring) and the 21 worked examples
+- `Custom Instructions.md` is the kernel, v1.2.2, aligned to skill v1.2.1.0. It carries the full router and rules and is the routing authority inside the Project
+- `knowledge/` holds 63 files: 35 core documents (six mode references, seven templates, four shared rule files, quality scoring, the connector setup reference and the 16 FigJam type, type template, style, quality and hybrid documents) and the 28 worked examples
 - `README.md` holds the upload steps, the source-to-mirror map and the smoke matrix
 - `kernel-review.json` is a dated record of one kernel review, read by no tool
 
@@ -672,24 +702,26 @@ The live Project is a separate manual upload, so a matching local package proves
 
 | Command | What it checks | Result on this tree |
 |---|---|---|
-| `bash benchmark/router/run_fixtures.sh` | 117 route fixtures, then the differential against `router-contract.md` | `PASSED 117/117 fixtures` and `PASSED 189/189 differential inputs` |
+| `bash benchmark/router/run_fixtures.sh` | 141 route fixtures, then the differential against `router-contract.md` | `PASSED 141/141 fixtures` and `PASSED 234/234 differential inputs` |
 | `bash benchmark/format/run_fixtures.sh` | 59 cases over 19 fixture files through the output validator | One `PASS` line per case, then `PASSED all format-validator fixtures` |
-| `python3 benchmark/gates/example_lint.py` | Every worked example and Project example mirror through the output validator, and every worked reply against the Delivery Reply Shape | `PASSED 42 example files and the worked replies on both packagings` |
-| `bash benchmark/gates/run_gates.sh` | Router fixtures, format fixtures, rule parity, the example lint and its self-test in one run | `all 5 gates pass`, or `4 of 5 gates pass, 1 skipped` from a clone, where rule parity has no shared declaration to read |
+| `python3 benchmark/gates/example_lint.py` | Every worked example and Project example mirror through the output validator, and every worked reply against the Delivery Reply Shape | `PASSED 56 example files and the worked replies on both packagings` |
+| `python3 benchmark/gates/check_hub.py` | The hub files at the root, the registry packets, their routing sections and the stage one gold rows | `PASSED the hub, 4 registry packets and 41 gold rows` |
+| `bash benchmark/gates/run_gates.sh` | Router fixtures, format fixtures, rule parity, example lint, vendor sync, plugin freshness, Markdown links, hub and Flow checks, leaf-map parity, their self-tests and the two sk-create-skill contracts | `all 15 gates pass`, or `10 of 15 gates pass, 5 skipped` from a clone with no generated plugin copy or shared skill folder |
 | `python3 benchmark/router/route_contract.py --self-check` | One sample per detection layer | `self-check passed 5 routing expectations` |
 | `node benchmark/format/validate-output-format.cjs "<file>"` | One saved artifact against the output rules | `Product Owner output format validation passed across 1 artifact file(s)` |
 | `bash benchmark/grader/check_report.sh <report-folder>` | The voice lint of every captured reply, then twin agreement | Writes `hvr-lint.csv` into the folder it reads |
 
 #### What the Router Differential Proves
 
-`route_contract.py` is the router as a program. `router-contract.md` carries the same router as pseudocode, which is what the skill reads. `differential.py` lifts that pseudocode out of the markdown, runs it and compares the two on four guards:
+`route_contract.py` is the router as a program. `router-contract.md` carries the same router as pseudocode, which is what the skill reads. `differential.py` lifts that pseudocode out of the markdown, runs it and compares the two on five guards:
 
+- Prose-table parity: the routing prose stays within the executable topic table
 - Copy parity: the kernel's Router Code section is the same code block with its comments removed, and no Router Contract Knowledge document ships
 - Table parity: topics and their order, overrides, thresholds, regexes, resource lanes and the fallback checklist match value for value
-- Behavior parity: every corpus input matches layer by layer (energy, commands, framing, top topic and score) and then as a whole route object
 - Corpus coverage: every command, alias, false-prefix case and topic is exercised
+- Per-input behavior parity: every corpus input matches layer by layer (energy, commands, framing, top topic and score) and then as a whole route object
 
-Prose and code cannot drift apart without one of the four failing.
+Prose and code cannot drift apart without one of the five failing.
 
 #### What the Format Validator Catches
 
@@ -704,7 +736,7 @@ Silent fixtures pin the other side: a compliant house Story, the sanctioned deli
 
 #### The Manual Testing Playbook
 
-[The playbook](sk-product-owner/manual-testing-playbook/manual-testing-playbook.md) turns the contract into 14 two-turn conversations: seven for the skill (`S` IDs) and a twin of each for the Project (`P` IDs). The pairs cover the delivery identity, `$task` intake, `$bug` evidence, a Doc request with the notes still to come, two conflicting notes, a Story from notes and an ambiguous request that must open with the energy choice.
+[The playbook](sk-product-owner/manual-testing-playbook/manual-testing-playbook.md) turns the contract into 68 conversations: 34 for the skill (`S` IDs) and a twin of each for the Project (`P` IDs), set at Roamstay, Loomlist and Fernhouse. The baseline backlog and document scenarios cover 8 tasks, 3 bugs, 5 docs, 5 Stories and 4 Epics. Eight routing scenarios per runtime cover Flow pairing, Story bundles, Bug pairing and grouping, clarification lanes, Quick fallback, energy resolution and ClickUp handoff. The playbook includes one Flow Mode request run with no Figma connector, which ends in a checked model and no board. The routing additions contribute 20 user turns per runtime, including seven independent energy probes, for 136 turns in all.
 
 #### Captured Runs
 
@@ -729,49 +761,69 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
 
 #### Maintainer Scripts
 
-`benchmark/parity/` holds five wrappers and `benchmark/gates/` holds `rule_parity.py` beside the example lint and the gate runner. The first two compare the Claude Project package against the skill sources by calling a shared sync toolkit that lives one folder above this repository in the maintainer's monorepo and is not published. From a clone they stop on the missing file: `rule_parity.py` and `run_parity.sh` both exit 2. Use the checks above instead.
+`benchmark/parity/` holds five wrappers and `benchmark/gates/` holds `rule_parity.py` beside the example lint, the hub check and the gate runner. The first two compare the Claude Project package against the skill sources by calling a shared sync toolkit that lives one folder above this repository in the maintainer's monorepo and is not published. From a clone they stop on the missing file: `rule_parity.py` and `run_parity.sh` both exit 2. Use the checks above instead.
 
 &nbsp;
 
 ## 12. 🗂️ REPOSITORY STRUCTURE
 
 ```text
-.
-├── .gitignore                       keeps export/ local except the benchmark deliverables
+.                                    the repository root is the hub: one skill identity over four packets
+├── SKILL.md                         hub, picks the packet for a request
+├── ROUTER.md                        stage two, maps each intent to the leaves it loads
+├── mode-registry.json               the four modes, the discriminator and the repository paths
+├── hub-router.json                  stage one commands, signals and the default packet
+├── description.json                 hub advisor descriptor
+├── graph-metadata.json              the one skill graph identity
+├── leaf-manifest.json               generated list of the routed docs
+├── changelog/                       hub release notes
+├── manual-testing-playbook/         7 hub routing scenarios
+├── mcp-click-up/                    vendored ClickUp packet, kept in step by scripts/vendor-sync.py
+├── mcp-code-mode/                   vendored Code Mode server, built locally under Node 24, kept in step by scripts/vendor-sync.py
+├── mcp-figma/                       vendored Figma packet, kept in step by scripts/vendor-sync.py
+├── sk-create-figjam/                FigJam diagram packet: seven type references, flow_check.py and 68 playbook scenarios
+├── sk-product-owner/
+│   ├── README.md                    skill guide
+│   ├── SKILL.md                     rules, delivery protocol and its router in Section 2
+│   ├── assets/                      six templates
+│   │   └── examples/                21 worked artifacts in task/, bug/, doc/ and story/
+│   ├── changelog/                   29 release notes, v0.1.0.0 to v1.2.1.0
+│   ├── manual-testing-playbook/     68 scenarios in 12 category folders
+│   └── references/                  12 rule files, loaded always, per route or on demand
+├── .env.example                     the Code Mode credential keys, copied to a gitignored .env
+├── .mcp.json                        starts Code Mode for Claude Code through scripts/code-mode.cjs
+├── .utcp_config.json                the Code Mode manuals: clickup_official and figma
+├── .gitignore                       keeps export/, .env and the Code Mode build local, except the benchmark deliverables
 ├── AGENTS.md                        CLI entry point, export protocol and command registry
 ├── Favicon.jpg                      repository icon
 ├── LICENSE                          MIT license
 ├── README.md                        this guide
 ├── SYNC.md                          manual parity method and dated review notes
+├── USER-GUIDE.md                    connecting ClickUp and Figma to the Project in Claude Desktop
 ├── benchmark/
-│   ├── format/                      output validator, 13 fixtures and their runner
-│   ├── gates/                       rule_parity.py, example_lint.py and run_gates.sh
+│   ├── README.md                    the hub's routing baseline
+│   ├── hub-routing-cases.json       the hub's 41 gold rows
+│   ├── format/                      output validator, 19 fixtures and their runner
+│   ├── gates/                       rule_parity.py, example_lint.py, check_hub.py and run_gates.sh
 │   ├── grader/                      hvr_lint.py, reply linter and twin comparison
 │   ├── parity/                      five wrappers into the shared parity gate, maintainer only
-│   ├── reports/                     two captured playbook runs
-│   └── router/                      route_contract.py, 117 fixtures and the differential
+│   ├── reports/                     dated playbook and benchmark runs
+│   └── router/                      route_contract.py, 141 fixtures and the differential
 ├── claude project/
-│   ├── Custom Instructions.md       claude.ai kernel v1.2.1
+│   ├── Custom Instructions.md       claude.ai kernel v1.2.2
 │   ├── README.md                    upload steps, mirror map and smoke matrix
 │   ├── kernel-review.json           dated record of one kernel review
-│   └── knowledge/                   37 knowledge files
+│   └── knowledge/                   63 knowledge files
+├── claude-plugin/                   Claude Code plugin manifests, skills/ rebuilt by scripts/build-plugin.py
 ├── export/                          generated artifacts, ignored by git
 │   └── benchmark/                   empty until the next playbook run is collected
-└── sk-product-owner/
-    ├── README.md                    skill guide
-    ├── SKILL.md                     router, rules and delivery protocol
-    ├── graph-metadata.json          skill graph edges and trigger phrases
-    ├── leaf-manifest.config.json    which folders hold the routed docs
-    ├── leaf-manifest.json           generated list of the routed docs
-    ├── leaf-aliases.json            generated identity map of those docs
-    ├── assets/                      six templates
-    │   └── examples/                21 worked artifacts in task/, bug/, doc/ and story/
-    ├── changelog/                   29 release notes, v0.1.0.0 to v1.2.1.0
-    ├── manual-testing-playbook/     14 two-turn scenarios in 10 category folders
-    └── references/                  11 rule files, loaded always, per route or on demand
+├── opencode.json                    starts Code Mode for OpenCode through scripts/code-mode.cjs
+├── scripts/                         vendor-sync.py, build-plugin.py, code-mode.cjs, the vendor sync tests and vendored/code-mode, the Code Mode launcher
+├── specs/                           spec packets for changes to this system
+└── vendor.json                      upstream record of the vendored packets
 ```
 
-`AGENTS.md` points an agent CLI at the skill. A claude.ai Project reads `claude project/Custom Instructions.md` and the files under `claude project/knowledge/` instead.
+`mode-registry.json` lists the repository's own entries, from `specs/` to `vendor.json`, in its `repo-root-hub` extension, so the skilled checkers read only the hub and its packets as the skill. `AGENTS.md` points an agent CLI at the skill. A claude.ai Project reads `claude project/Custom Instructions.md` and the files under `claude project/knowledge/` instead.
 
 &nbsp;
 
@@ -809,6 +861,10 @@ In the chat reply only. A score written inside the artifact is itself a defect, 
 
 No. The local file is saved first, without asking. A ClickUp write waits for an explicit yes in the current conversation, every time.
 
+**Q: Where does a ClickUp push go?**
+
+To the list or doc in your push targets catalog, `claude project/local/Product Owner - Local - Push Targets.md`, whose name and team fit the artifact. The offer names it and also offers a private doc, asks which when several could fit, and asks where with a private doc recommended when none does. The claude.ai Project uses the same file once you upload it.
+
 **Q: Do I need the claude.ai package?**
 
 No. The CLI skill is complete on its own. The Project package exists for people who work in claude.ai.
@@ -839,7 +895,7 @@ The model printed a different number than the read returned. Trust the file on d
 
 **ClickUp shows raw `###` or `**`**
 
-The push used the plain `description` field. Push again with `markdown_description` or `markdown_content`.
+The push used the plain `description` field. Push again with `markdown_description`.
 
 **UI feedback routed to Bug**
 
@@ -864,7 +920,10 @@ It writes `hvr-lint.csv` beside the replies it lints. Run it on a copy of the fo
 **System guides**
 
 - **[→ Agent Bootstrap](AGENTS.md)** - entry point, export protocol and command registry
-- **[→ Product Owner Skill](sk-product-owner/SKILL.md)** - router, rules and delivery protocol
+- **[→ Hub](SKILL.md)** - picks the packet for a request
+- **[→ Hub Router](ROUTER.md)** - maps each intent to the leaves it loads
+- **[→ Product Owner Routing](sk-product-owner/references/routing.md)** - routing steps, thresholds, topics and Story shapes
+- **[→ Product Owner Skill](sk-product-owner/SKILL.md)** - rules and delivery protocol
 - **[→ Skill README](sk-product-owner/README.md)** - mode-by-mode guide to the skill folder
 - **[→ Task Mode](sk-product-owner/references/task-mode.md)** - task, parent-task and subtask rules
 - **[→ Bug Mode](sk-product-owner/references/bug-mode.md)** - defect evidence and reproduction rules
@@ -874,8 +933,8 @@ It writes `hvr-lint.csv` beside the replies it lints. Run it on a copy of the fo
 - **[→ Quality Scoring](sk-product-owner/references/quality-scoring.md)** - bands, per-shape reading and the revision ladder
 - **[→ Router Contract](sk-product-owner/references/router-contract.md)** - the router as running Python
 - **[→ Worked Examples](sk-product-owner/assets/examples/)** - 21 filled artifacts by mode
-- **[→ Manual Testing Playbook](sk-product-owner/manual-testing-playbook/manual-testing-playbook.md)** - the 14 scenarios and their pass criteria
-- **[→ Latest Release Notes](sk-product-owner/changelog/v0.9.4.0.md)** - v0.9.4.0, the closed Doc intake field list
+- **[→ Manual Testing Playbook](sk-product-owner/manual-testing-playbook/manual-testing-playbook.md)** - the 68 scenarios and their pass criteria
+- **[→ Latest Release Notes](sk-product-owner/changelog/v1.2.1.0.md)** - v1.2.1.0, one reply shape and one question round. The [hub release note](changelog/v1.0.0.0.md) records the parent-hub packaging
 
 **Claude Project package**
 

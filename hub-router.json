@@ -1,0 +1,261 @@
+{
+  "skill": "product-owner",
+  "version": "1.0.0.0",
+  "routerPolicy": {
+    "defaultMode": "sk-product-owner",
+    "ambiguityDelta": 1,
+    "tieBreak": [
+      "sk-product-owner",
+      "sk-create-figjam",
+      "mcp-click-up",
+      "mcp-figma"
+    ],
+    "outcomes": {
+      "single": "one packet's commands or signals route to that one mode",
+      "orderedBundle": "never formed at stage one: signals of two packets start in the default mode, whose Interactive Mode asks which artifact or operation comes first, except a FigJam second output beside an artifact, which forms an ordered pair in stage two with the artifact first, while two artifacts still ask",
+      "defer": "a request with no packet command and no packet signal starts in the default mode, and a request it cannot route there gets one clarifying question"
+    },
+    "defaultResource": [
+      "ROUTER.md",
+      "mode-registry.json"
+    ],
+    "defaultResourceSemantics": "fallback-only",
+    "defaultResourceContract": "A routed request loads exactly the selected mode's declared resources. defaultResource is consulted only when the root ROUTER.md matches no intent, and then only as the suggestion offered beside the clarifying question.",
+    "stageOneOrder": [
+      {
+        "id": "packet-commands",
+        "kind": "commands",
+        "reads": [
+          "routerPolicy.packetCommands",
+          "routerPolicy.energyCommands",
+          "routerPolicy.defaultMode"
+        ]
+      },
+      {
+        "id": "artifact-request-before-opening-signal",
+        "kind": "artifact-request",
+        "reads": [
+          "vocabularyClasses.artifact-request-verbs",
+          "vocabularyClasses.artifact-request-fillers",
+          "vocabularyClasses.artifact-request-nouns",
+          "vocabularyClasses.artifact-request-indefinite-verbs",
+          "vocabularyClasses.artifact-request-indefinite-openers",
+          "routerPolicy.defaultMode"
+        ]
+      },
+      {
+        "id": "opening-packet-signal",
+        "kind": "opening-signal",
+        "reads": [
+          "routerSignals",
+          "vocabularyClasses",
+          "routerPolicy.defaultMode"
+        ]
+      },
+      {
+        "id": "default-artifact-word",
+        "kind": "artifact-word",
+        "reads": [
+          "routerSignals[defaultMode]",
+          "vocabularyClasses",
+          "routerPolicy.defaultMode"
+        ]
+      },
+      {
+        "id": "single-packet-signal",
+        "kind": "single-signal",
+        "reads": [
+          "routerSignals",
+          "vocabularyClasses",
+          "routerPolicy.negations",
+          "routerPolicy.defaultMode"
+        ]
+      },
+      {
+        "id": "default-mode",
+        "kind": "default",
+        "reads": [
+          "routerPolicy.defaultMode"
+        ]
+      }
+    ],
+    "packetCommands": {
+      "sk-create-figjam": [
+        "$flow",
+        "$figjam"
+      ]
+    },
+    "energyCommands": [
+      "$quick",
+      "$q"
+    ],
+    "negations": [
+      "not",
+      "no",
+      "never",
+      "without",
+      "don't",
+      "dont",
+      "skip"
+    ]
+  },
+  "routerSignals": {
+    "sk-product-owner": {
+      "weight": 4,
+      "classes": [
+        "product-owner-artifacts"
+      ],
+      "resources": [
+        "sk-product-owner/SKILL.md"
+      ]
+    },
+    "sk-create-figjam": {
+      "weight": 4,
+      "classes": [
+        "figjam-aliases"
+      ],
+      "resources": [
+        "sk-create-figjam/SKILL.md"
+      ]
+    },
+    "mcp-click-up": {
+      "weight": 4,
+      "classes": [
+        "clickup-aliases"
+      ],
+      "resources": [
+        "mcp-click-up/SKILL.md"
+      ]
+    },
+    "mcp-figma": {
+      "weight": 4,
+      "classes": [
+        "figma-aliases"
+      ],
+      "resources": [
+        "mcp-figma/SKILL.md"
+      ]
+    }
+  },
+  "vocabularyClasses": {
+    "artifact-request-verbs": {
+      "keywords": [
+        "write",
+        "create",
+        "draft",
+        "make",
+        "turn into",
+        "turn this into",
+        "turn that into",
+        "turn it into",
+        "turn these into"
+      ]
+    },
+    "artifact-request-indefinite-verbs": {
+      "keywords": [
+        "add"
+      ]
+    },
+    "artifact-request-indefinite-openers": {
+      "keywords": [
+        "a",
+        "an",
+        "new",
+        "another"
+      ]
+    },
+    "artifact-request-fillers": {
+      "keywords": [
+        "a",
+        "an",
+        "the",
+        "this",
+        "that",
+        "it",
+        "these",
+        "new",
+        "full",
+        "proper",
+        "user",
+        "technical",
+        "me"
+      ]
+    },
+    "artifact-request-nouns": {
+      "keywords": [
+        "task",
+        "tasks",
+        "subtask",
+        "subtasks",
+        "bug",
+        "bugs",
+        "ticket",
+        "tickets",
+        "story",
+        "stories",
+        "prd",
+        "prds",
+        "epic",
+        "epics",
+        "doc",
+        "docs",
+        "document",
+        "documents",
+        "guide",
+        "guides",
+        "runbook",
+        "runbooks"
+      ]
+    },
+    "product-owner-artifacts": {
+      "note": "The artifact words. A request naming one starts in the default mode even when it also names a tool, because Product Owner writes ClickUp-native artifacts about Figma, FigJam and ClickUp work. The bare words figma and clickup are deliberately absent: the Product Owner router reads figma as UI refinement feedback, and clickup is usually a subject.",
+      "keywords": [
+        "task",
+        "tasks",
+        "subtask",
+        "subtasks",
+        "bug",
+        "bugs",
+        "ticket",
+        "tickets",
+        "story",
+        "stories",
+        "prd",
+        "prds",
+        "epic",
+        "epics",
+        "doc",
+        "docs",
+        "document",
+        "documentation",
+        "guide",
+        "guides",
+        "runbook",
+        "runbooks",
+        "clarification",
+        "clarifications",
+        "clarify",
+        "clarifying"
+      ]
+    },
+    "figjam-aliases": {
+      "keywords": [
+        "figjam"
+      ]
+    },
+    "clickup-aliases": {
+      "keywords": [
+        "mcp-click-up",
+        "cupt",
+        "clickup mcp"
+      ]
+    },
+    "figma-aliases": {
+      "keywords": [
+        "figma-ds-cli",
+        "mcp-figma",
+        "figma cli"
+      ]
+    }
+  }
+}

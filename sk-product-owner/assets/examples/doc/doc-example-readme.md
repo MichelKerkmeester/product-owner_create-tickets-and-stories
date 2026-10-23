@@ -57,8 +57,8 @@ Two threads stay open. One is engineering merging the decided fix so the runbook
 
 Open these in order. Each one assumes you already read the ones before it.
 
-*   [`diagnosis-double-payout.md`](diagnosis-double-payout.md): start here for the root cause narrative and the specific event ids involved
-*   [`runbook-payout-reconciliation.md`](runbook-payout-reconciliation.md): read next if you're on call today and need to manually reconcile a duplicate payout
-*   [`decision-idempotency-keys.md`](decision-idempotency-keys.md): the forward-fix decision, its owner and why a post-hoc dedup pass was rejected
-*   [`evidence/webhook-payloads/`](evidence/webhook-payloads/): the raw captured Meridian payloads behind the diagnosis. Open only to verify a specific event id
-*   [`evidence/payout-ledger-exports/`](evidence/payout-ledger-exports/): the ledger rows Finance is auditing against for the open exposure question
+*   `diagnosis-double-payout.md`: start here for the root cause narrative and the specific event ids involved
+*   `runbook-payout-reconciliation.md`: read next if you're on call today and need to manually reconcile a duplicate payout
+*   `decision-idempotency-keys.md`: the forward-fix decision, its owner and why a post-hoc dedup pass was rejected
+*   `evidence/webhook-payloads/`: the raw captured Meridian payloads behind the diagnosis. Open only to verify a specific event id
+*   `evidence/payout-ledger-exports/`: the ledger rows Finance is auditing against for the open exposure question

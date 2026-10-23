@@ -1,0 +1,102 @@
+{
+  "modes": [
+    {
+      "leaves": [
+        "references/cupt-commands.md",
+        "references/mcp-tools.md",
+        "references/troubleshooting.md"
+      ],
+      "packet": "mcp-click-up",
+      "workflowMode": "mcp-click-up"
+    },
+    {
+      "leaves": [
+        "assets/env-template.md",
+        "assets/utcp-figma-manual.md",
+        "references/figma-cli-reference.md",
+        "references/mcp-wiring.md",
+        "references/tool-surface.md",
+        "references/troubleshooting.md"
+      ],
+      "packet": "mcp-figma",
+      "workflowMode": "mcp-figma"
+    },
+    {
+      "leaves": [
+        "assets/examples/architecture-loomlist-sync.md",
+        "assets/examples/er-roamstay-stays.md",
+        "assets/examples/gantt-loomlist-offline.md",
+        "assets/examples/process-fernhouse-refund.md",
+        "assets/examples/sequence-roamstay-checkout.md",
+        "assets/examples/state-roamstay-booking.md",
+        "assets/examples/user-flow-fernhouse-return.md",
+        "assets/flow-templates.md",
+        "assets/templates/architecture.md",
+        "assets/templates/er.md",
+        "assets/templates/gantt.md",
+        "assets/templates/process.md",
+        "assets/templates/sequence.md",
+        "assets/templates/state.md",
+        "references/flow-mode.md",
+        "references/hybrid-workflow.md",
+        "references/quality-rubric.md",
+        "references/style-guide.md",
+        "references/types/architecture.md",
+        "references/types/er.md",
+        "references/types/gantt.md",
+        "references/types/process.md",
+        "references/types/sequence.md",
+        "references/types/state.md",
+        "references/types/user-flow.md"
+      ],
+      "packet": "sk-create-figjam",
+      "workflowMode": "sk-create-figjam"
+    },
+    {
+      "leaves": [
+        "assets/bug-report-template.md",
+        "assets/doc-templates.md",
+        "assets/epic-template.md",
+        "assets/examples/bug/bug-example-backend-api.md",
+        "assets/examples/bug/bug-example-frontend-visual.md",
+        "assets/examples/bug/bug-example-mobile-crash.md",
+        "assets/examples/bug/bug-example-quick.md",
+        "assets/examples/doc/doc-example-behavior-reference.md",
+        "assets/examples/doc/doc-example-catalog.md",
+        "assets/examples/doc/doc-example-guide.md",
+        "assets/examples/doc/doc-example-how-it-works.md",
+        "assets/examples/doc/doc-example-proposal.md",
+        "assets/examples/doc/doc-example-quick.md",
+        "assets/examples/doc/doc-example-readme.md",
+        "assets/examples/story/story-example-complete.md",
+        "assets/examples/story/story-example-complex.md",
+        "assets/examples/story/story-example-epic.md",
+        "assets/examples/story/story-example-medium.md",
+        "assets/examples/story/story-example-simple.md",
+        "assets/examples/task/task-example-ds-variables.md",
+        "assets/examples/task/task-example-quick.md",
+        "assets/examples/task/task-example-standard-feature.md",
+        "assets/examples/task/task-example-subtask.md",
+        "assets/examples/task/task-example-ui-refinement.md",
+        "assets/interactive-response-templates.md",
+        "assets/story-template.md",
+        "assets/task-templates.md",
+        "references/bug-mode.md",
+        "references/conciseness-rationale.md",
+        "references/conciseness.md",
+        "references/doc-mode.md",
+        "references/human-voice-rules.md",
+        "references/hvr-core.md",
+        "references/interactive-mode.md",
+        "references/quality-scoring.md",
+        "references/router-contract.md",
+        "references/routing.md",
+        "references/story-mode.md",
+        "references/task-mode.md"
+      ],
+      "packet": "sk-product-owner",
+      "workflowMode": "sk-product-owner"
+    }
+  ],
+  "resourceContractVersion": 1
+}

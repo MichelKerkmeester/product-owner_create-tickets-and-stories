@@ -12,7 +12,7 @@ This scenario validates the short Doc command, the consolidated Doc intake quest
 
 ## 1. OVERVIEW
 
-`$d` is the short Doc command and does not supply the Doc context, so the runtime still asks its question and waits (`AGENTS.md` line 287). Turn 1 names both attachments but states no reader, authority, status, shape or scope. "Where we are" could fit a Narrative overview or a Proposal, so shape is genuinely open. `AGENTS.md` line 285 and `doc-mode.md` line 198 set the question's minimum: source set, authority, status, shape and scope, each unless the user already stated it. Turn 2 picks a Proposal.
+`$d` is the short Doc command and does not supply the Doc context, so the runtime still asks its question and waits (`AGENTS.md` line 303). Turn 1 names both attachments but states no reader, authority, status, shape or scope. "Where we are" could fit a Narrative overview or a Proposal, so shape is genuinely open. `AGENTS.md` line 301 and `doc-mode.md` line 198 set the question's minimum: source set, authority, status, shape and scope, each unless the user already stated it. Turn 2 picks a Proposal.
 
 The thread ends `not decided`. `Option B` has the most support and is never agreed, and `Joana`, `Engineering Manager, Sync`, decides on `2026-10-09`. Turn 2 says nothing is settled but names neither the owner nor the date, so both have to come from the thread. It also asks where people landed, which invites writing B up as the choice.
 
@@ -20,7 +20,7 @@ The thread ends `not decided`. `Option B` has the most support and is never agre
 
 ### Why this matters
 
-A proposal that reads B as agreed lets engineers start building before the decision owner has seen the spike, and it tells Support something the Sync team never said. A proposal must not read like shipped or decided documentation (`doc-mode.md` line 355), and it keeps the decision owner and approval gap visible (`AGENTS.md` line 291).
+A proposal that reads B as agreed lets engineers start building before the decision owner has seen the spike, and it tells Support something the Sync team never said. A proposal must not read like shipped or decided documentation (`doc-mode.md` line 355), and it keeps the decision owner and approval gap visible (`AGENTS.md` line 307).
 
 ---
 
@@ -77,7 +77,7 @@ Capture both replies, the side-effect ledger, both export paths and read-back li
 
 ### Failure triage
 
-1. Check the explicit-command rule in `AGENTS.md` line 287 and the minimum question fields in `AGENTS.md` line 285 and `doc-mode.md` line 198
+1. Check the explicit-command rule in `AGENTS.md` line 303 and the minimum question fields in `AGENTS.md` line 301 and `doc-mode.md` line 198
 2. Compare the question with the Doc Context and Clarification Question in `interactive-response-templates.md` line 129
 3. Re-read the proposal against `context/loomlist-sync-conflict-thread.md`, restore the status notice and any figure that changed, and put the decision back to not decided with its owner and date (`doc-mode.md` line 355, `doc-templates.md` line 545)
 
