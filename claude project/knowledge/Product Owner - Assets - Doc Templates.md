@@ -436,6 +436,7 @@ Worked example: **Examples - Doc - Behavior Reference** shows a state machine wi
 - Keep contradictory behavior outside the settled rules and apply the conflict gate in Templates - Doc Mode
 - Include verified implementation mechanisms when the engineering audience needs them
 - Use explicit proposal labels for inferred designs, recommendations, troubleshooting paths, or architecture not established as current
+- For paired FigJam outputs, link placement in `Related references` follows Templates - Flow Mode Section 8
 
 | Section | Include when |
 | --- | --- |

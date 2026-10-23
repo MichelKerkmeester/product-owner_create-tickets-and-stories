@@ -1,12 +1,12 @@
 ---
 title: "Product Owner: Manual Testing Playbook"
 description: "Operator-facing directory, execution policy and release-readiness guide for the two-runtime Product Owner manual validation package."
-version: 2.5.1.0
+version: 2.5.3.0
 ---
 
 # Product Owner: Manual Testing Playbook
 
-This package turns the Product Owner contract into 46 reproducible conversations across two runtimes, each one a realistic request at one of three fictional companies. The skill set (`S`-prefixed IDs) runs the system from `AGENTS.md` with `sk-product-owner/` loaded. The Project set (`P`-prefixed IDs) runs the same system from `claude project/Custom Instructions.md` with that system's knowledge documents attached. The root owns shared policy and indexing. Each linked scenario file owns one synchronized Turn 1 prompt, its attachment list, a conversation chain, one nine-field execution table and current source anchors.
+This package turns the Product Owner contract into 68 reproducible conversations across two runtimes, each one a realistic request at one of three fictional companies. The skill set (`S`-prefixed IDs) runs the system from `AGENTS.md` with `sk-product-owner/` loaded. The Project set (`P`-prefixed IDs) runs the same system from `claude project/Custom Instructions.md` with that system's knowledge documents attached. The root owns shared policy and indexing. Each linked scenario file owns synchronized prompts, its attachment list, a conversation chain, one nine-field execution table and current source anchors.
 
 ---
 
@@ -19,28 +19,30 @@ A scenario run is complete only after its `PASS`, `FAIL` or `SKIP` outcome and r
 
 ## 1. OVERVIEW
 
-The playbook covers 46 scenarios in two mirrored sets of 23, grouped under ten category folders and set at Roamstay, Loomlist and Fernhouse. No alternate or supplemental scenario files are part of the package.
+The playbook covers 68 scenarios in two mirrored sets of 34, grouped under twelve category folders and set at Roamstay, Loomlist and Fernhouse. No alternate or supplemental scenario files are part of the package.
 
-Each set ends in 7 tasks, 3 bugs, 5 Stories, 4 Epics and 4 docs. The interactive pair supplies one of those Epics and one of those Stories. Its Turn 1 asks one intake question, and Turn 2 picks an Epic at Deeper energy in `SIR-001` and `PIR-001` and a Story at Quick energy in `SIR-002` and `PIR-002`. One Story is a refinement of a supplied draft, and one is a bundle holding 4 nested tasks. Three scenarios per set run one turn and the other 20 run two, 86 turns in all.
+The baseline backlog and document scenarios cover 8 tasks, 3 bugs, 5 Stories, 4 Epics and 5 docs. The existing Flow Mode scenario ends in a checked flow model with no board because no Figma route is connected. The original 26 conversations per runtime include one Story refinement and one bundle holding 4 nested tasks. Eight added routing scenarios per runtime validate the hand-off contracts. They contribute 20 user turns each, including seven fresh energy probes, for 136 turns across both runtimes.
 
 ### Coverage map
 
 | Category | IDs | Count | Primary surface |
 |---|---|---:|---|
 | Skill identity | `SID-001` | 1 | Skill delivery contract handover on a Loomlist task |
-| Skill backlog modes | `STK-001..STK-006`, `SBG-001..SBG-003` | 9 | Quick, FE, BE and DATA tasks, a parent and subtask pair and three bug depths, filesystem delivery |
-| Skill document modes | `SDK-001..SDK-004` | 4 | Behavior reference, runbook, proposal and the catalog conflict gate |
+| Skill backlog modes | `STK-001..STK-007`, `SBG-001..SBG-003` | 10 | Quick, FE, BE and DATA tasks, a parent and subtask pair, three bug depths and the ClickUp push targets, filesystem delivery |
+| Skill document modes | `SDK-001..SDK-005` | 5 | Behavior reference, runbook, proposal, the catalog conflict gate and a narrative status overview |
 | Skill story modes | `SST-001..SST-004`, `SEP-001..SEP-003` | 7 | Stories with hard values and forced Delivery, a refinement, the Story bundle and three Epics |
-| Skill interactive routing | `SIR-001`, `SIR-002` | 2 | Vague intake ending in an Epic and conflicting commands ending in a Story, intake clarification export |
+| Skill interactive routing | `SIR-001..SIR-010` | 10 | Vague intake, command conflict, Flow pairing, Story bundles, Bug pairing and grouping, Task clarification, Quick fallback, energy resolution and ClickUp handoff |
+| Skill flow modes | `SFL-001` | 1 | A `$flow` model, the pre-write check and the write gate with no Figma route, nothing under `export/` |
 | Project identity | `PID-001` | 1 | Project Deliverable Block handover on a Loomlist task |
-| Project backlog modes | `PTK-001..PTK-006`, `PBG-001..PBG-003` | 9 | The same tasks and bugs as Deliverable Blocks |
-| Project document modes | `PDK-001..PDK-004` | 4 | The same docs and the conflict stop in a Project |
+| Project backlog modes | `PTK-001..PTK-007`, `PBG-001..PBG-003` | 10 | The same tasks and bugs as Deliverable Blocks, and a ClickUp offer that always asks where |
+| Project document modes | `PDK-001..PDK-005` | 5 | The same docs and the conflict stop in a Project |
 | Project story modes | `PST-001..PST-004`, `PEP-001..PEP-003` | 7 | The same Stories, bundle and Epics as Deliverable Blocks |
-| Project interactive routing | `PIR-001`, `PIR-002` | 2 | Vague intake ending in an Epic and conflicting commands ending in a Story, clarification block |
+| Project interactive routing | `PIR-001..PIR-010` | 10 | Vague intake, command conflict, Flow pairing, Story bundles, Bug pairing and grouping, Task clarification, Quick fallback, energy resolution and ClickUp handoff |
+| Project flow modes | `PFL-001` | 1 | The same flow with no Figma connector, a fenced model and no Deliverable Block |
 
 ### Two runtimes, one system
 
-Both sets test the same Product Owner contract against the surface that actually runs it, never one system tested twice. A skill-side reply is only genuine when it names a real readable path under `export/` and prints the read-back verification line. A Project-side reply is only genuine when it renders the Deliverable Block as a Canvas Artifact, or as its own block where the runtime has no Canvas panel (section 5), reports `Export-equivalent path:` and makes no claim that a file was saved, written or read back. A reply that could have come from either runtime fails the scenario that produced it. The handover files `SID-001` and `PID-001` carry the four greps that prove the vocabulary split, and every other scenario names its runtime's handover as a precondition.
+Both sets test the same Product Owner contract against the surface that actually runs it, never one system tested twice. A skill-side reply is only genuine when it names a real readable path under `export/` and prints the read-back verification line. A Project-side reply is only genuine when it renders the Deliverable Block as a Canvas Artifact, or as its own block where the runtime has no Canvas panel (section 5), reports `Export-equivalent path:` and makes no claim that a file was saved, written or read back. A reply that could have come from either runtime fails the scenario that produced it. Flow Mode is the one exception to both proofs, because its deliverable is a FigJam board: `SFL-001` saves nothing under `export/` and `PFL-001` renders no Deliverable Block and no `Export-equivalent path:`. The handover files `SID-001` and `PID-001` carry the four greps that prove the vocabulary split, and every other scenario names its runtime's handover as a precondition.
 
 ### Realistic test model
 
@@ -54,7 +56,7 @@ Run every scenario against the real runtime. Do not mock responses.
 
 ### No-feature-catalog exception
 
-This skill has no canonical feature catalog. Scenario files link directly to current skill, reference, asset and Project sources, and to the company fixtures they attach. Section 18 is the source cross-reference.
+This skill has no canonical feature catalog. Scenario files link directly to current skill, reference, asset and Project sources, and to the company fixtures they attach. Section 20 is the source cross-reference.
 
 ### Natural Turn 1 coverage
 
@@ -103,7 +105,7 @@ The skill sandbox copy leaves out `benchmark/`, so staging is the only way a fix
 |---|---|---|---|---|---|---|
 | 1 | Operator capture | Operator capture | Exact paths | Exact paths | Exact paths | Yes/No with reason |
 
-Clarification turns may create only the expected `-clarification` export on the skill side. A Story with its tasks creates one bundle folder holding the Story and its task files, and a refinement creates one export under its source's file name. A follow-up change to a doc the same scenario already delivered, as in `SDK-001`, either updates that export in place or creates one on the next number, and both are allowed. No turn may create, modify or delete anything under `context/`. Project-side runs create no files at all.
+Clarification turns may create only the expected `-clarification` export on the skill side. A Story with its tasks creates one bundle folder holding the Story and its task files, and a refinement creates one export under its source's file name. A follow-up change to a doc the same scenario already delivered, as in `SDK-001`, either updates that export in place or creates one on the next number, and both are allowed. A Flow Mode turn creates nothing under `export/`. No turn may create, modify or delete anything under `context/`. Project-side runs create no files at all.
 
 ---
 
@@ -115,7 +117,7 @@ Clarification turns may create only the expected `-clarification` export on the 
 - Per-turn state-retention notes
 - Per-turn side-effect ledger on the skill side
 - Resource or knowledge-routing notes when observable
-- Export read-back proof on the skill side, or Deliverable Block capture on the Project side
+- Export read-back proof on the skill side, or Deliverable Block capture on the Project side, except in Flow Mode, which writes no export and renders no block
 - The `HVR self-scan:` line from every delivery response
 - Final `PASS`, `FAIL` or justified `SKIP` with rationale
 
@@ -151,12 +153,12 @@ Each scenario's Fail bullet names the likely failures and is not a complete list
 
 ### Clarification turns
 
-A clarification is a delivery on both runtimes. `references/interactive-mode.md` line 85 exports it like any other deliverable and line 93 reports its path exactly as an artifact delivery does. The `Product Owner - System - Interactive Mode` knowledge file says the same for the Project at lines 62 and 70. The `HVR self-scan:` line belongs to every delivery response (`SKILL.md` line 183, `Custom Instructions.md` line 95). Every turn-1 clarification check in this package therefore includes these:
+A clarification is a delivery on both runtimes, except in Flow Mode, which writes no file and asks its clarification in chat. `references/interactive-mode.md` line 85 exports it like any other deliverable and line 93 reports its path exactly as an artifact delivery does. The `Product Owner - System - Interactive Mode` knowledge file says the same for the Project at lines 62 and 70. The `HVR self-scan:` line belongs to every delivery response (`SKILL.md` line 133, `Custom Instructions.md` line 95). Every turn-1 clarification check in this package therefore includes these:
 
 - Skill side: the question-only file saved under its lane's `-clarification` name and read back, and a reply carrying its path, the `Verified: read-back succeeded; N lines` line and the `HVR self-scan:` line. Whether the reply also prints the question is not graded either way. `references/interactive-mode.md` asks the user the question, while `AGENTS.md` Section 2 keeps a full artifact out of chat and the file is that artifact. The tension is logged as a follow-up finding
 - Project side: the question rendered as its own block, then `Export-equivalent path:` with the `-clarification` name and the `HVR self-scan:` line
 
-The lane is the routed artifact's word, one of `{task|bug|doc|Story|Epic}`, or `intake` when no artifact was resolved (`SKILL.md` line 174, `Custom Instructions.md` line 272). A Story asked for with its tasks asks in the Story lane at the top of `export/`, outside the bundle folder, and the folder takes the next number (`references/interactive-mode.md` line 93, line 70 of the knowledge file).
+The lane is the routed artifact's word, one of `{task|bug|doc|Story|Epic}`, or `intake` when no artifact was resolved (`SKILL.md` line 124, `Custom Instructions.md` line 288). A Story asked for with its tasks asks in the Story lane at the top of `export/`, outside the bundle folder, and the folder takes the next number (`references/interactive-mode.md` line 93, line 70 of the knowledge file).
 
 ### Rendering without a Canvas panel
 
@@ -164,11 +166,11 @@ The kernel delivers every artifact as a Canvas Artifact in the side Canvas panel
 
 ### Export names
 
-The `[description]` part of every path a scenario names is illustrative, because the rules fix the pattern and not the slug (`SKILL.md` lines 173 and 174, `Custom Instructions.md` lines 267 to 272). Grade the artifact word (`task`, `bug`, `doc`, `Story`, `Epic` or `intake`) and the `-clarification` suffix on both runtimes. On the skill side grade the order too, with the clarification first and the artifact on the next number. On the Project side `[NNN]` is a placeholder the human reconciles (`Custom Instructions.md` line 277), so number order is not graded there.
+The `[description]` part of every path a scenario names is illustrative, because the rules fix the pattern and not the slug (`SKILL.md` lines 123 and 124, `Custom Instructions.md` lines 283 to 288). Grade the artifact word (`task`, `bug`, `doc`, `Story`, `Epic` or `intake`) and the `-clarification` suffix on both runtimes. On the skill side grade the order too, with the clarification first and the artifact on the next number. On the Project side `[NNN]` is a placeholder the human reconciles (`Custom Instructions.md` line 293), so number order is not graded there.
 
-A new Story asked for with its tasks saves as one bundle folder, `export/[###] - Story-[description]/`, holding `[###] - Story-[description].md` and one `[###].[n] - task-[description].md` per task (`AGENTS.md` lines 84 to 91, `references/story-mode.md` lines 384 to 401, `Custom Instructions.md` line 270). Grade the folder, the artifact word on every file in it and `n` counting from 1 in the Story's task order, on both runtimes. The `n` suffix is not a number the human reconciles. On the Project side each file gets its own Deliverable Block, Story first, each with its own `Export-equivalent path:` inside the folder.
+A new Story asked for with its tasks saves as one bundle folder, `export/[###] - Story-[description]/`, holding `[###] - Story-[description].md` and one `[###].[n] - task-[description].md` per task (`AGENTS.md` lines 86 to 93, `references/story-mode.md` lines 384 to 401, `Custom Instructions.md` line 286). Grade the folder, the artifact word on every file in it and `n` counting from 1 in the Story's task order, on both runtimes. The `n` suffix is not a number the human reconciles. On the Project side each file gets its own Deliverable Block, Story first, each with its own `Export-equivalent path:` inside the folder.
 
-A refinement keeps its source file name, with no number and no artifact word (`AGENTS.md` lines 70 to 73, `SKILL.md` line 175, `Custom Instructions.md` lines 273 to 275). The refinement of `context/fernhouse-save-card-draft.md` therefore exports `export/fernhouse-save-card-draft.md` on the skill side and reports that same name as its `Export-equivalent path:` on the Project side. Grade that exact name on both runtimes. It carries no number, so there is no number order to grade for it. The source in `context/` stays unchanged.
+A refinement keeps its source file name, with no number and no artifact word (`AGENTS.md` lines 72 to 75, `SKILL.md` line 125, `Custom Instructions.md` lines 289 to 291). The refinement of `context/fernhouse-save-card-draft.md` therefore exports `export/fernhouse-save-card-draft.md` on the skill side and reports that same name as its `Export-equivalent path:` on the Project side. Grade that exact name on both runtimes. It carries no number, so there is no number order to grade for it. The source in `context/` stays unchanged.
 
 ### Handovers in an automated run
 
@@ -176,7 +178,7 @@ Every scenario runs in its own fresh sandbox or conversation, so a handover hand
 
 ### Identity handover rule
 
-`SID-001` and `PID-001` prove the runtime, not only the artifact. A reply that could have come from either runtime is a `FAIL`. Both handovers are the same two-turn `$task` chain for a Loomlist task. `$task` still asks its context question before drafting (`AGENTS.md` line 287), so Turn 1 delivers the task-lane clarification and Turn 2, the answer, delivers the task on the next number. Turn 2 answers the question rather than asking about the delivery, so each turn is a delivery and the proof is graded on both. The skill side must name a real readable `export/` path and print the read-back confirmation fixture `Verified: read-back succeeded` with its line count. The Project side must render the Deliverable Block, or the clarification question as its own block, in the form Rendering without a Canvas panel describes when there is no panel, and report `Export-equivalent path:`. Its reply passes when it makes no claim that any file was saved, written or read back, and no promise to write or save one, such as "I'll write the task as `export/002 - ...`", and no forecast of the next artifact's path, such as "the task will be `export/002 - ...`", each of which is a file claim too. It does not have to say out loud that no file was written. The skill proof string is `read-back succeeded` and the Project proof string is `Canvas Artifact`. Each handover file carries the four greps that show a proof string appears only in its own identity file. The Project string proves the packaging through those greps and is not required in a reply.
+`SID-001` and `PID-001` prove the runtime, not only the artifact. A reply that could have come from either runtime is a `FAIL`. Both handovers are the same two-turn `$task` chain for a Loomlist task. `$task` still asks its context question before drafting (`AGENTS.md` line 303), so Turn 1 delivers the task-lane clarification and Turn 2, the answer, delivers the task on the next number. Turn 2 answers the question rather than asking about the delivery, so each turn is a delivery and the proof is graded on both. The skill side must name a real readable `export/` path and print the read-back confirmation fixture `Verified: read-back succeeded` with its line count. The Project side must render the Deliverable Block, or the clarification question as its own block, in the form Rendering without a Canvas panel describes when there is no panel, and report `Export-equivalent path:`. Its reply passes when it makes no claim that any file was saved, written or read back, and no promise to write or save one, such as "I'll write the task as `export/002 - ...`", and no forecast of the next artifact's path, such as "the task will be `export/002 - ...`", each of which is a file claim too. It does not have to say out loud that no file was written. The skill proof string is `read-back succeeded` and the Project proof string is `Canvas Artifact`. Each handover file carries the four greps that show a proof string appears only in its own identity file. The Project string proves the packaging through those greps and is not required in a reply.
 
 ### Defect severity
 
@@ -184,7 +186,7 @@ Record both the verdict and the severity that drove it.
 
 Blocking, any one of which is a `FAIL`:
 
-- An invented fact: a requirement, value, status, approval or behavior the user never supplied. The one exception is a disclosed addition: an edge case, assumption or other addition the reply lists under its Open items is not an invented fact and does not fail the scenario (`SKILL.md` line 232, `Custom Instructions.md` line 110). A reply that lists a criterion or other whole item under Open items has named every clause inside it. An addition the reply does not list stays blocking, and listing never excuses an invented status, approval, evidence, root cause or platform detail, or any other item in this list. A root cause the artifact labels as an unverified hypothesis, the way the skill's own bug examples do (`assets/examples/bug/bug-example-mobile-crash.md` line 68, the Project's Mobile Crash example line 67), is not an invented root cause. A cause stated as fact, or one cause given to two separate issues, still is
+- An invented fact: a requirement, value, status, approval or behavior the user never supplied. The one exception is a disclosed addition: an edge case, assumption or other addition the reply lists under its Open items is not an invented fact and does not fail the scenario (`SKILL.md` line 182, `Custom Instructions.md` line 110). A reply that lists a criterion or other whole item under Open items has named every clause inside it. An addition the reply does not list stays blocking, and listing never excuses an invented status, approval, evidence, root cause or platform detail, or any other item in this list. A root cause the artifact labels as an unverified hypothesis, the way the skill's own bug examples do (`assets/examples/bug/bug-example-mobile-crash.md` line 70, the Project's Mobile Crash example line 67), is not an invented root cause. A cause stated as fact, or one cause given to two separate issues, still is
 - A protected fact altered: a supplied value generalized, a conflict silently resolved or a proposal promoted to current behavior
 - A path claim with no readable file behind it on the skill side, or any file claim at all on the Project side, where a promise to write or save a file counts as one, such as "I'll write the task as `export/002 - ...`", and so does a forecast of the next artifact's path, such as "the task will be `export/002 - ...`"
 - A missing `HVR self-scan:` line or a count that was never taken
@@ -224,11 +226,12 @@ The system is ready only when every scenario has evidence, no scenario is `FAIL`
 | Wave | Scenarios | Isolation |
 |---|---|---|
 | 1 | `SID-001`, `PID-001` | One fresh session per runtime, handovers run first |
-| 2 | `STK-001..STK-006`, `PTK-001..PTK-006` | Separate task baselines per runtime, the parent and subtask pair included |
+| 2 | `STK-001..STK-007`, `PTK-001..PTK-007` | Separate task baselines per runtime, the parent and subtask pair and the ClickUp offer included |
 | 3 | `SBG-001..SBG-003`, `PBG-001..PBG-003` | Separate bug baselines per runtime |
-| 4 | `SDK-001..SDK-004`, `PDK-001..PDK-004` | Separate doc baselines, clarification exports allowed |
+| 4 | `SDK-001..SDK-005`, `PDK-001..PDK-005` | Separate doc baselines, clarification exports allowed |
 | 5 | `SST-001..SST-004`, `SEP-001..SEP-003`, `PST-001..PST-004`, `PEP-001..PEP-003` | Story and Epic baselines, one bundle folder and one refinement export allowed |
-| 6 | `SIR-001..SIR-002`, `PIR-001..PIR-002` | Intake clarification baselines |
+| 6 | `SIR-001..SIR-010`, `PIR-001..PIR-010` | Fresh routing baselines, including seven independent energy probes |
+| 7 | `SFL-001`, `PFL-001` | No Figma route or connector, no export allowed |
 
 Every wave stages each scenario's attachments into its own sandbox before the baseline. One coordinator owns exact prompts, attachment staging, sandbox isolation, ledgers and final verdicts. Workers may execute independent IDs in separate sandboxes or Projects.
 
@@ -254,7 +257,7 @@ Desired user-visible outcome: A saved task-lane question, then a saved task for 
 
 ---
 
-## 8. SKILL BACKLOG MODES (`STK-001..STK-006`, `SBG-001..SBG-003`)
+## 8. SKILL BACKLOG MODES (`STK-001..STK-007`, `SBG-001..SBG-003`)
 
 ### STK-001 | Quick copy task
 
@@ -352,6 +355,22 @@ Desired user-visible outcome: One saved task-lane question, then a saved DATA ta
 
 > **Feature file:** [STK-006](skill-backlog-modes/data-tracking-task.md)
 
+### STK-007 | ClickUp push targets
+
+#### Description
+
+Verify the closing line offers the local push target with a private doc option, or asks where with a private doc recommended when none is set.
+
+#### Scenario contract
+
+Prompt: `$quick $task Change the free-shipping banner to "Free shipping over €50" and "Free shipping over £45", the current copy in context/fernhouse-context.md wraps to two lines on small phones.`
+
+Desired user-visible outcome: The same saved task in two runs, offered to the local list with a private doc option when one is set and with a where question when none is.
+
+#### Test execution
+
+> **Feature file:** [STK-007](skill-backlog-modes/clickup-push-targets.md)
+
 ### SBG-001 | Quick bug
 
 #### Description
@@ -402,7 +421,7 @@ Desired user-visible outcome: One evidence question saved as a clarification, th
 
 ---
 
-## 9. SKILL DOCUMENT MODES (`SDK-001..SDK-004`)
+## 9. SKILL DOCUMENT MODES (`SDK-001..SDK-005`)
 
 ### SDK-001 | Behavior reference
 
@@ -467,6 +486,22 @@ Desired user-visible outcome: A clarification export that names the conflict, th
 #### Test execution
 
 > **Feature file:** [SDK-004](skill-document-modes/catalog-conflict-gate.md)
+
+### SDK-005 | Narrative status overview
+
+#### Description
+
+Verify no-command Doc routing that drafts a prose-first Narrative overview on Loomlist's lost edits at once for a newcomer, keeps every option proposed and the decision with its owner, then applies a follow-up change.
+
+#### Scenario contract
+
+Prompt: `Can you document where things stand on the lost edits between devices, as a status overview Priya can read on her first day on the Sync team? Start with context/loomlist-sync-conflict-thread.md, and context/loomlist-context.md has the company background.`
+
+Desired user-visible outcome: A status overview Priya can read in one sitting to know what is going wrong, why, what the team is weighing and who decides when, then a revision that answers the question she is most likely to ask.
+
+#### Test execution
+
+> **Feature file:** [SDK-005](skill-document-modes/narrative-status-overview.md)
 
 ---
 
@@ -586,7 +621,7 @@ Desired user-visible outcome: One lean Fernhouse Epic in the first reply, ready 
 
 ---
 
-## 11. SKILL INTERACTIVE ROUTING (`SIR-001..SIR-002`)
+## 11. SKILL INTERACTIVE ROUTING (`SIR-001..SIR-010`)
 
 ### SIR-001 | Vague intake, kind and energy
 
@@ -620,9 +655,156 @@ Desired user-visible outcome: One question that resolves the command conflict, s
 
 > **Feature file:** [SIR-002](skill-interactive-routing/conflicting-commands.md)
 
+### SIR-003 | Flow first paired Story route
+
+#### Description
+
+Verify that a FigJam opening signal followed by a Story request reaches the Product Owner packet and carries an ordered Story then Flow route.
+
+#### Scenario contract
+
+Prompt: `figjam the checkout flow, then write a story`
+
+Desired user-visible outcome: The request stays in the Product Owner lane, delivers the Story first and hands the user flow to Flow Mode without inventing a board URL.
+
+#### Test execution
+
+> **Feature file:** [SIR-003](skill-interactive-routing/flow-first-story-pair.md)
+
+### SIR-004 | Story bundle after command conflict
+
+#### Description
+
+Verify that a new Story with tasks uses the bundle path, while explicit $story $task commands first remain an Interactive conflict.
+
+#### Scenario contract
+
+Prompt: `$story $task Write a Story for Fernhouse order tracking, with one frontend task and one carrier-webhook task.`
+
+Desired user-visible outcome: The user resolves the command conflict, then receives a Story folder with the Story and two ordered Task files.
+
+#### Test execution
+
+> **Feature file:** [SIR-004](skill-interactive-routing/story-bundle-command-conflict.md)
+
+### SIR-005 | Bug paired with a FigJam sequence
+
+#### Description
+
+Verify that a Bug route can carry a paired Flow output and uses the existing Flows reference slot only after a matching board read-back.
+
+#### Scenario contract
+
+Prompt: `$quick $bug On the Fernhouse checkout, one tap on Pay charges twice in 2 of 5 tries. Expected one charge, actual two. Add a FigJam sequence diagram of the attempt.`
+
+Desired user-visible outcome: The Bug route carries the paired Flow request, and the report has no unverified board link.
+
+#### Test execution
+
+> **Feature file:** [SIR-005](skill-interactive-routing/bug-with-figjam-pair.md)
+
+### SIR-006 | Grouped bugs route to Task
+
+#### Description
+
+Verify that grouped bugs, a consolidation ticket and bug-fix work route to Task Mode.
+
+#### Scenario contract
+
+Prompt: `$quick Make one bug-fix task for these three Fernhouse checkout defects: payment double-submits, the address clears after a decline, and retry is disabled after a timeout. Keep all three in one checkout reliability task for the Storefront team. Success means none can recur in the checkout suite.`
+
+Desired user-visible outcome: One Task covers the grouped defects and the stated success condition.
+
+#### Test execution
+
+> **Feature file:** [SIR-006](skill-interactive-routing/grouped-bugs-to-task.md)
+
+### SIR-007 | Task clarification keeps the Task lane
+
+#### Description
+
+Verify that missing Task context uses the task clarification label rather than the generic intake lane.
+
+#### Scenario contract
+
+Prompt: `$task Improve checkout reliability for Fernhouse.`
+
+Desired user-visible outcome: One Task-lane clarification precedes the Task.
+
+#### Test execution
+
+> **Feature file:** [SIR-007](skill-interactive-routing/task-clarification-lane.md)
+
+### SIR-008 | Quick without an artifact uses Task fallback
+
+#### Description
+
+Verify that a bare Quick energy command retains the narrow Task fallback.
+
+#### Scenario contract
+
+Prompt: `$q`
+
+Desired user-visible outcome: A bare $q request reaches the Quick Task fallback and stays in the Task lane.
+
+#### Test execution
+
+> **Feature file:** [SIR-008](skill-interactive-routing/quick-task-fallback.md)
+
+### SIR-009 | Raw and Deep energy resolution
+
+#### Description
+
+Verify explicit skip depth selects Raw, documented Deep words select Deep, and Quick always wins over Raw.
+
+#### Scenario contract
+
+Prompt: `skip depth and write a task to add a clear error state when checkout fails`
+
+Desired user-visible outcome: Raw comes only from skip depth. Deep comes from documented signals. Quick takes precedence.
+
+#### Test execution
+
+> **Feature file:** [SIR-009](skill-interactive-routing/raw-and-deep-energy.md)
+
+### SIR-010 | ClickUp handoff follows one owner
+
+#### Description
+
+Verify mode guidance points to the one ClickUp Handoff owner and the reply waits for approval without a ClickUp write.
+
+#### Scenario contract
+
+Prompt: `$quick $task Disable Confirm after its first tap until the checkout response returns. Re-enable it after an error so the shopper can retry.`
+
+Desired user-visible outcome: The delivery reply offers ClickUp as the next step and performs no ClickUp write.
+
+#### Test execution
+
+> **Feature file:** [SIR-010](skill-interactive-routing/clickup-handoff-owner.md)
+
 ---
 
-## 12. PROJECT IDENTITY (`PID-001`)
+## 12. SKILL FLOW MODES (`SFL-001`)
+### SFL-001 | Flow gate with no route
+
+#### Description
+
+Verify that a `$flow` request from a short Fernhouse spec builds a model that passes `flow_check.py`, stops before any write and, with no Figma route connected, names the missing route, offers the checked model and claims no board.
+
+#### Scenario contract
+
+Prompt: `$flow Make a FigJam flow of back-in-stock alerts from Lotte's spec below, as a new board in our Fernhouse Product plan. Company background is in context/fernhouse-context.md. Spec: a customer on the product page of a sold-out item taps "Notify me". A signed-in customer's alert is saved to their account straight away. A guest types an email address first, then the alert is saved. When the item is back in stock the customer gets one email. Push alerts in the app are a proposal only, nobody has agreed them yet.`
+
+Desired user-visible outcome: A checked back-in-stock flow model and a write gate that waits, then a plain account of the missing Figma route with the model to keep and no board claimed.
+
+#### Test execution
+
+> **Feature file:** [SFL-001](skill-flow-modes/flow-gate-no-route.md)
+
+---
+
+## 13. PROJECT IDENTITY (`PID-001`)
 
 ### PID-001 | Project identity handover
 
@@ -642,7 +824,7 @@ Desired user-visible outcome: A rendered task-lane question, then a rendered tas
 
 ---
 
-## 13. PROJECT BACKLOG MODES (`PTK-001..PTK-006`, `PBG-001..PBG-003`)
+## 14. PROJECT BACKLOG MODES (`PTK-001..PTK-007`, `PBG-001..PBG-003`)
 
 ### PTK-001 | Quick copy task
 
@@ -740,6 +922,22 @@ Desired user-visible outcome: One task-lane question block, then a DATA task blo
 
 > **Feature file:** [PTK-006](project-backlog-modes/data-tracking-task.md)
 
+### PTK-007 | ClickUp push targets
+
+#### Description
+
+Verify a Project with the ClickUp connector always asks where, with a private doc recommended, because it holds no local push targets.
+
+#### Scenario contract
+
+Prompt: `$quick $task Change the free-shipping banner to "Free shipping over €50" and "Free shipping over £45", the current copy in context/fernhouse-context.md wraps to two lines on small phones.`
+
+Desired user-visible outcome: The rendered task, ending on a where question that recommends a private doc.
+
+#### Test execution
+
+> **Feature file:** [PTK-007](project-backlog-modes/clickup-push-targets.md)
+
 ### PBG-001 | Quick bug
 
 #### Description
@@ -790,7 +988,7 @@ Desired user-visible outcome: One evidence question rendered as a clarification 
 
 ---
 
-## 14. PROJECT DOCUMENT MODES (`PDK-001..PDK-004`)
+## 15. PROJECT DOCUMENT MODES (`PDK-001..PDK-005`)
 
 ### PDK-001 | Behavior reference
 
@@ -856,9 +1054,25 @@ Desired user-visible outcome: A clarification block that names the conflict, the
 
 > **Feature file:** [PDK-004](project-document-modes/catalog-conflict-gate.md)
 
+### PDK-005 | Narrative status overview
+
+#### Description
+
+Verify no-command Doc routing that renders a prose-first Narrative overview on Loomlist's lost edits at once for a newcomer, keeps every option proposed and the decision with its owner, then applies a follow-up change.
+
+#### Scenario contract
+
+Prompt: `Can you document where things stand on the lost edits between devices, as a status overview Priya can read on her first day on the Sync team? Start with context/loomlist-sync-conflict-thread.md, and context/loomlist-context.md has the company background.`
+
+Desired user-visible outcome: A status overview block Priya can read in one sitting to know what is going wrong, why, what the team is weighing and who decides when, then a revision that answers the question she is most likely to ask.
+
+#### Test execution
+
+> **Feature file:** [PDK-005](project-document-modes/narrative-status-overview.md)
+
 ---
 
-## 15. PROJECT STORY MODES (`PST-001..PST-004`, `PEP-001..PEP-003`)
+## 16. PROJECT STORY MODES (`PST-001..PST-004`, `PEP-001..PEP-003`)
 
 ### PST-001 | Story hard values
 
@@ -974,7 +1188,7 @@ Desired user-visible outcome: One lean Fernhouse Epic block in the first reply, 
 
 ---
 
-## 16. PROJECT INTERACTIVE ROUTING (`PIR-001..PIR-002`)
+## 17. PROJECT INTERACTIVE ROUTING (`PIR-001..PIR-010`)
 
 ### PIR-001 | Vague intake, kind and energy
 
@@ -1008,21 +1222,169 @@ Desired user-visible outcome: One question that resolves the command conflict, r
 
 > **Feature file:** [PIR-002](project-interactive-routing/conflicting-commands.md)
 
+### PIR-003 | Flow first paired Story route
+
+#### Description
+
+Verify that a FigJam opening signal followed by a Story request reaches the Product Owner packet and carries an ordered Story then Flow route.
+
+#### Scenario contract
+
+Prompt: `figjam the checkout flow, then write a story`
+
+Desired user-visible outcome: The request stays in the Product Owner lane, delivers the Story first and hands the user flow to Flow Mode without inventing a board URL.
+
+#### Test execution
+
+> **Feature file:** [PIR-003](project-interactive-routing/flow-first-story-pair.md)
+
+### PIR-004 | Story bundle after command conflict
+
+#### Description
+
+Verify that a new Story with tasks uses the bundle path, while explicit $story $task commands first remain an Interactive conflict.
+
+#### Scenario contract
+
+Prompt: `$story $task Write a Story for Fernhouse order tracking, with one frontend task and one carrier-webhook task.`
+
+Desired user-visible outcome: The user resolves the command conflict, then receives a Story folder with the Story and two ordered Task files.
+
+#### Test execution
+
+> **Feature file:** [PIR-004](project-interactive-routing/story-bundle-command-conflict.md)
+
+### PIR-005 | Bug paired with a FigJam sequence
+
+#### Description
+
+Verify that a Bug route can carry a paired Flow output and uses the existing Flows reference slot only after a matching board read-back.
+
+#### Scenario contract
+
+Prompt: `$quick $bug On the Fernhouse checkout, one tap on Pay charges twice in 2 of 5 tries. Expected one charge, actual two. Add a FigJam sequence diagram of the attempt.`
+
+Desired user-visible outcome: The Bug route carries the paired Flow request, and the report has no unverified board link.
+
+#### Test execution
+
+> **Feature file:** [PIR-005](project-interactive-routing/bug-with-figjam-pair.md)
+
+### PIR-006 | Grouped bugs route to Task
+
+#### Description
+
+Verify that grouped bugs, a consolidation ticket and bug-fix work route to Task Mode.
+
+#### Scenario contract
+
+Prompt: `$quick Make one bug-fix task for these three Fernhouse checkout defects: payment double-submits, the address clears after a decline, and retry is disabled after a timeout. Keep all three in one checkout reliability task for the Storefront team. Success means none can recur in the checkout suite.`
+
+Desired user-visible outcome: One Task covers the grouped defects and the stated success condition.
+
+#### Test execution
+
+> **Feature file:** [PIR-006](project-interactive-routing/grouped-bugs-to-task.md)
+
+### PIR-007 | Task clarification keeps the Task lane
+
+#### Description
+
+Verify that missing Task context uses the task clarification label rather than the generic intake lane.
+
+#### Scenario contract
+
+Prompt: `$task Improve checkout reliability for Fernhouse.`
+
+Desired user-visible outcome: One Task-lane clarification precedes the Task.
+
+#### Test execution
+
+> **Feature file:** [PIR-007](project-interactive-routing/task-clarification-lane.md)
+
+### PIR-008 | Quick without an artifact uses Task fallback
+
+#### Description
+
+Verify that a bare Quick energy command retains the narrow Task fallback.
+
+#### Scenario contract
+
+Prompt: `$q`
+
+Desired user-visible outcome: A bare $q request reaches the Quick Task fallback and stays in the Task lane.
+
+#### Test execution
+
+> **Feature file:** [PIR-008](project-interactive-routing/quick-task-fallback.md)
+
+### PIR-009 | Raw and Deep energy resolution
+
+#### Description
+
+Verify explicit skip depth selects Raw, documented Deep words select Deep, and Quick always wins over Raw.
+
+#### Scenario contract
+
+Prompt: `skip depth and write a task to add a clear error state when checkout fails`
+
+Desired user-visible outcome: Raw comes only from skip depth. Deep comes from documented signals. Quick takes precedence.
+
+#### Test execution
+
+> **Feature file:** [PIR-009](project-interactive-routing/raw-and-deep-energy.md)
+
+### PIR-010 | ClickUp handoff follows one owner
+
+#### Description
+
+Verify mode guidance points to the one ClickUp Handoff owner and the reply waits for approval without a ClickUp write.
+
+#### Scenario contract
+
+Prompt: `$quick $task Disable Confirm after its first tap until the checkout response returns. Re-enable it after an error so the shopper can retry.`
+
+Desired user-visible outcome: The delivery reply offers ClickUp as the next step and performs no ClickUp write.
+
+#### Test execution
+
+> **Feature file:** [PIR-010](project-interactive-routing/clickup-handoff-owner.md)
+
 ---
 
-## 17. AUTOMATED VALIDATION CROSS-REFERENCE
+## 18. PROJECT FLOW MODES (`PFL-001`)
+### PFL-001 | Flow gate with no route
+
+#### Description
+
+Verify that a `$flow` request from a short Fernhouse spec builds a model that keeps the flowchart rules, stops before any write and, with no Figma connector, offers the model as a fenced block labelled as the model and claims no board.
+
+#### Scenario contract
+
+Prompt: `$flow Make a FigJam flow of back-in-stock alerts from Lotte's spec below, as a new board in our Fernhouse Product plan. Company background is in context/fernhouse-context.md. Spec: a customer on the product page of a sold-out item taps "Notify me". A signed-in customer's alert is saved to their account straight away. A guest types an email address first, then the alert is saved. When the item is back in stock the customer gets one email. Push alerts in the app are a proposal only, nobody has agreed them yet.`
+
+Desired user-visible outcome: A checked back-in-stock flow model and a write gate that waits, then a plain note that the Project has no Figma connector, with the model to keep in a fenced block and no board claimed.
+
+#### Test execution
+
+> **Feature file:** [PFL-001](project-flow-modes/flow-gate-no-route.md)
+
+---
+
+## 19. AUTOMATED VALIDATION CROSS-REFERENCE
 
 | Check | Coverage | Playbook overlap |
 |---|---|---|
-| [`../../benchmark/router/run_fixtures.sh`](../../benchmark/router/run_fixtures.sh) | Router differential against `route_contract.py` | Turn 1 routing of every ID, most directly `STK-003`, `STK-005`, `STK-006`, `SBG-003`, `SDK-003`, `SST-003`, `SEP-001..SEP-003`, `SIR-001`, `SIR-002` and their Project mirrors |
+| [`../../benchmark/router/run_fixtures.sh`](../../benchmark/router/run_fixtures.sh) | Router differential against `route_contract.py` | Turn 1 routing of every ID, most directly `STK-003`, `STK-005`, `STK-006`, `SBG-003`, `SDK-003`, `SST-003`, `SEP-001..SEP-003`, `SIR-001..SIR-010` and their Project mirrors |
 | [`../../benchmark/format/run_fixtures.sh`](../../benchmark/format/run_fixtures.sh) | Output-format gate on this system's instruction surface | All delivered artifact shapes |
 | [`../../benchmark/parity/`](../../benchmark/parity/) scripts | Kernel-to-skill parity and residency checks | `PID-001`, `SID-001` |
+| [`../../sk-create-figjam/scripts/flow_check.py`](../../sk-create-figjam/scripts/flow_check.py) | Flowchart rules on a Flow Mode model, with a self-test the gate runner calls | `SFL-001`, `PFL-001` |
 | Playbook package validator | Paths, IDs, sections, prompts, tables, links | This package |
-| Real manual execution | Runtime behavior and side effects | All 46 IDs, `SID-001` to `PIR-002` |
+| Real manual execution | Runtime behavior and side effects | All 68 IDs, `SID-001` to `PFL-001` |
 
 ---
 
-## 18. SOURCE CROSS-REFERENCE INDEX
+## 20. SOURCE CROSS-REFERENCE INDEX
 
 | Feature ID | Feature name | Category | Feature file | Primary source |
 |---|---|---|---|---|
@@ -1033,6 +1395,7 @@ Desired user-visible outcome: One question that resolves the command conflict, r
 | STK-004 | Parent task with subtasks | Skill backlog modes | [STK-004](skill-backlog-modes/parent-task-with-subtasks.md) | [`task-mode.md`](../references/task-mode.md) |
 | STK-005 | Supplied parent subtask | Skill backlog modes | [STK-005](skill-backlog-modes/supplied-parent-subtask.md) | [`task-mode.md`](../references/task-mode.md) |
 | STK-006 | Data tracking task | Skill backlog modes | [STK-006](skill-backlog-modes/data-tracking-task.md) | [`task-mode.md`](../references/task-mode.md) |
+| STK-007 | ClickUp push targets | Skill backlog modes | [STK-007](skill-backlog-modes/clickup-push-targets.md) | [`SKILL.md`](../SKILL.md) |
 | SBG-001 | Quick bug | Skill backlog modes | [SBG-001](skill-backlog-modes/quick-bug.md) | [`bug-mode.md`](../references/bug-mode.md) |
 | SBG-002 | Support ticket bug | Skill backlog modes | [SBG-002](skill-backlog-modes/support-ticket-bug.md) | [`bug-mode.md`](../references/bug-mode.md) |
 | SBG-003 | Two-platform log bug | Skill backlog modes | [SBG-003](skill-backlog-modes/two-platform-log-bug.md) | [`bug-mode.md`](../references/bug-mode.md) |
@@ -1040,6 +1403,7 @@ Desired user-visible outcome: One question that resolves the command conflict, r
 | SDK-002 | Incident runbook | Skill document modes | [SDK-002](skill-document-modes/incident-runbook.md) | [`doc-mode.md`](../references/doc-mode.md) |
 | SDK-003 | Proposal with a decision owner | Skill document modes | [SDK-003](skill-document-modes/proposal-decision-owner.md) | [`doc-mode.md`](../references/doc-mode.md) |
 | SDK-004 | Catalog conflict gate | Skill document modes | [SDK-004](skill-document-modes/catalog-conflict-gate.md) | [`doc-mode.md`](../references/doc-mode.md) |
+| SDK-005 | Narrative status overview | Skill document modes | [SDK-005](skill-document-modes/narrative-status-overview.md) | [`doc-mode.md`](../references/doc-mode.md) |
 | SST-001 | Story hard values | Skill story modes | [SST-001](skill-story-modes/story-hard-values.md) | [`story-mode.md`](../references/story-mode.md) |
 | SST-002 | Story forced delivery | Skill story modes | [SST-002](skill-story-modes/story-forced-delivery.md) | [`story-mode.md`](../references/story-mode.md) |
 | SST-003 | Story refinement | Skill story modes | [SST-003](skill-story-modes/story-refinement.md) | [`story-mode.md`](../references/story-mode.md) |
@@ -1049,6 +1413,15 @@ Desired user-visible outcome: One question that resolves the command conflict, r
 | SEP-003 | Epic quick energy | Skill story modes | [SEP-003](skill-story-modes/epic-quick-energy.md) | [`story-mode.md`](../references/story-mode.md) |
 | SIR-001 | Vague intake, kind and energy | Skill interactive routing | [SIR-001](skill-interactive-routing/vague-intake-kind-and-energy.md) | [`interactive-mode.md`](../references/interactive-mode.md) |
 | SIR-002 | Conflicting commands | Skill interactive routing | [SIR-002](skill-interactive-routing/conflicting-commands.md) | [`interactive-mode.md`](../references/interactive-mode.md) |
+| SIR-003 | Flow first paired Story route | Skill interactive routing | [SIR-003](skill-interactive-routing/flow-first-story-pair.md) | [`flow-mode.md`](../../sk-create-figjam/references/flow-mode.md) |
+| SIR-004 | Story bundle after command conflict | Skill interactive routing | [SIR-004](skill-interactive-routing/story-bundle-command-conflict.md) | [`story-mode.md`](../references/story-mode.md) |
+| SIR-005 | Bug paired with a FigJam sequence | Skill interactive routing | [SIR-005](skill-interactive-routing/bug-with-figjam-pair.md) | [`bug-mode.md`](../references/bug-mode.md) |
+| SIR-006 | Grouped bugs route to Task | Skill interactive routing | [SIR-006](skill-interactive-routing/grouped-bugs-to-task.md) | [`bug-mode.md`](../references/bug-mode.md) |
+| SIR-007 | Task clarification keeps the Task lane | Skill interactive routing | [SIR-007](skill-interactive-routing/task-clarification-lane.md) | [`interactive-mode.md`](../references/interactive-mode.md) |
+| SIR-008 | Quick without an artifact uses Task fallback | Skill interactive routing | [SIR-008](skill-interactive-routing/quick-task-fallback.md) | [`routing.md`](../references/routing.md) |
+| SIR-009 | Raw and Deep energy resolution | Skill interactive routing | [SIR-009](skill-interactive-routing/raw-and-deep-energy.md) | [`interactive-mode.md`](../references/interactive-mode.md) |
+| SIR-010 | ClickUp handoff follows one owner | Skill interactive routing | [SIR-010](skill-interactive-routing/clickup-handoff-owner.md) | [`SKILL.md`](../SKILL.md) |
+| SFL-001 | Flow gate with no route | Skill flow modes | [SFL-001](skill-flow-modes/flow-gate-no-route.md) | [`flow-mode.md`](../../sk-create-figjam/references/flow-mode.md) |
 | PID-001 | Project identity handover | Project identity | [PID-001](project-identity/identity-handover.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PTK-001 | Quick copy task | Project backlog modes | [PTK-001](project-backlog-modes/quick-copy-task.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PTK-002 | Design notes FE task | Project backlog modes | [PTK-002](project-backlog-modes/design-notes-fe-task.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
@@ -1056,6 +1429,7 @@ Desired user-visible outcome: One question that resolves the command conflict, r
 | PTK-004 | Parent task with subtasks | Project backlog modes | [PTK-004](project-backlog-modes/parent-task-with-subtasks.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PTK-005 | Supplied parent subtask | Project backlog modes | [PTK-005](project-backlog-modes/supplied-parent-subtask.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PTK-006 | Data tracking task | Project backlog modes | [PTK-006](project-backlog-modes/data-tracking-task.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
+| PTK-007 | ClickUp push targets | Project backlog modes | [PTK-007](project-backlog-modes/clickup-push-targets.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PBG-001 | Quick bug | Project backlog modes | [PBG-001](project-backlog-modes/quick-bug.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PBG-002 | Support ticket bug | Project backlog modes | [PBG-002](project-backlog-modes/support-ticket-bug.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PBG-003 | Two-platform log bug | Project backlog modes | [PBG-003](project-backlog-modes/two-platform-log-bug.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
@@ -1063,6 +1437,7 @@ Desired user-visible outcome: One question that resolves the command conflict, r
 | PDK-002 | Incident runbook | Project document modes | [PDK-002](project-document-modes/incident-runbook.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PDK-003 | Proposal with a decision owner | Project document modes | [PDK-003](project-document-modes/proposal-decision-owner.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PDK-004 | Catalog conflict gate | Project document modes | [PDK-004](project-document-modes/catalog-conflict-gate.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
+| PDK-005 | Narrative status overview | Project document modes | [PDK-005](project-document-modes/narrative-status-overview.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PST-001 | Story hard values | Project story modes | [PST-001](project-story-modes/story-hard-values.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PST-002 | Story forced delivery | Project story modes | [PST-002](project-story-modes/story-forced-delivery.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PST-003 | Story refinement | Project story modes | [PST-003](project-story-modes/story-refinement.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
@@ -1072,3 +1447,12 @@ Desired user-visible outcome: One question that resolves the command conflict, r
 | PEP-003 | Epic quick energy | Project story modes | [PEP-003](project-story-modes/epic-quick-energy.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PIR-001 | Vague intake, kind and energy | Project interactive routing | [PIR-001](project-interactive-routing/vague-intake-kind-and-energy.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PIR-002 | Conflicting commands | Project interactive routing | [PIR-002](project-interactive-routing/conflicting-commands.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
+| PIR-003 | Flow first paired Story route | Project interactive routing | [PIR-003](project-interactive-routing/flow-first-story-pair.md) | [`Product Owner - Templates - Flow Mode.md`](../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Flow%20Mode.md) |
+| PIR-004 | Story bundle after command conflict | Project interactive routing | [PIR-004](project-interactive-routing/story-bundle-command-conflict.md) | [`Product Owner - Templates - Story Mode.md`](../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Story%20Mode.md) |
+| PIR-005 | Bug paired with a FigJam sequence | Project interactive routing | [PIR-005](project-interactive-routing/bug-with-figjam-pair.md) | [`Product Owner - Templates - Bug Mode.md`](../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Bug%20Mode.md) |
+| PIR-006 | Grouped bugs route to Task | Project interactive routing | [PIR-006](project-interactive-routing/grouped-bugs-to-task.md) | [`Product Owner - Templates - Bug Mode.md`](../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Bug%20Mode.md) |
+| PIR-007 | Task clarification keeps the Task lane | Project interactive routing | [PIR-007](project-interactive-routing/task-clarification-lane.md) | [`Product Owner - System - Interactive Mode.md`](../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode.md) |
+| PIR-008 | Quick without an artifact uses Task fallback | Project interactive routing | [PIR-008](project-interactive-routing/quick-task-fallback.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
+| PIR-009 | Raw and Deep energy resolution | Project interactive routing | [PIR-009](project-interactive-routing/raw-and-deep-energy.md) | [`Product Owner - System - Interactive Mode.md`](../../claude%20project/knowledge/Product%20Owner%20-%20System%20-%20Interactive%20Mode.md) |
+| PIR-010 | ClickUp handoff follows one owner | Project interactive routing | [PIR-010](project-interactive-routing/clickup-handoff-owner.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
+| PFL-001 | Flow gate with no route | Project flow modes | [PFL-001](project-flow-modes/flow-gate-no-route.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |

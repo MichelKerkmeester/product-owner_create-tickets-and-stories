@@ -1,0 +1,53 @@
+{
+  "load_variables_from": [
+    {
+      "variable_loader_type": "dotenv",
+      "env_file_path": ".env"
+    }
+  ],
+  "tool_repository": {
+    "tool_repository_type": "in_memory"
+  },
+  "tool_search_strategy": {
+    "tool_search_strategy_type": "tag_and_description_word_match"
+  },
+  "manual_call_templates": [
+    {
+      "name": "clickup_official",
+      "call_template_type": "mcp",
+      "config": {
+        "mcpServers": {
+          "clickup_official": {
+            "transport": "stdio",
+            "command": "npx",
+            "args": [
+              "-y",
+              "mcp-remote",
+              "https://mcp.clickup.com/mcp"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "figma",
+      "call_template_type": "mcp",
+      "config": {
+        "mcpServers": {
+          "figma": {
+            "transport": "stdio",
+            "command": "npx",
+            "args": [
+              "-y",
+              "figma-developer-mcp@latest",
+              "--stdio"
+            ],
+            "env": {
+              "FIGMA_API_KEY": "${FIGMA_API_KEY}"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

@@ -48,13 +48,13 @@ In order to get there, we will:
 #### **References**
 * * *
 Components
-*   [Page | Door Check-in](https://www.figma.com/design/EXAMPLE0000/Gatherwell-Check-in-v2?node-id=1-100)
-*   [Component | Ticket result card](https://www.figma.com/design/EXAMPLE0000/Gatherwell-Check-in-v2?node-id=1-240)
+*   [Page | Door Check-in](figma-url)
+*   [Component | Ticket result card](figma-url)
 
 Flows
-*   [Door scan](https://www.figma.com/design/EXAMPLE0000/Gatherwell-Check-in-v2?node-id=2-100)
-*   [Manual lookup](https://www.figma.com/design/EXAMPLE0000/Gatherwell-Check-in-v2?node-id=2-200)
-*   [Offline capture and sync](https://www.figma.com/design/EXAMPLE0000/Gatherwell-Check-in-v2?node-id=2-300)
+*   [Door scan](figma-url)
+*   [Manual lookup](figma-url)
+*   [Offline capture and sync](figma-url)
 
 ## Scope
 * * *

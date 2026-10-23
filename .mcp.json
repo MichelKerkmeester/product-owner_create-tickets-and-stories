@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "code_mode": {
+      "command": "node",
+      "args": [
+        "scripts/code-mode.cjs"
+      ],
+      "env": {
+        "UTCP_CONFIG_FILE": ".utcp_config.json"
+      }
+    }
+  }
+}

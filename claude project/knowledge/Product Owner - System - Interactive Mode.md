@@ -32,7 +32,7 @@ For an ambiguous no-command request, the first question also offers the energy c
 
 ### Core Rules
 
-1. **ONE comprehensive question** - Ask for ALL unresolved information at once. Once the user answers, the next reply drafts: a gap with a safe default is drafted with that default and listed under Open items, and only a source conflict with no authority winner, a promised source that has not arrived or a decision the user calls unsettled may hold the draft a second time, with a question about those alone
+1. **ONE comprehensive question** - Ask for ALL unresolved information at once. Once the user answers, the next reply drafts: a gap with a safe default is drafted with that default and listed under Open items, and only a source conflict with no authority winner, a promised source that has not arrived or a decision the user calls unsettled or a board intake still short of Flow Mode's draw-ready threshold and stop rule may hold the draft a second time, with a question about those alone. For a board that second round asks three things only: who reads it, which question it answers and what the reader should decide
 2. **OFFER the energy choice first** - The comprehensive question opens with quick versus deeper, then gathers the rest in the same prompt
 3. **WAIT for response** - Never proceed without user input when clarification or a document safety decision is required
 4. **SEPARATE intent from energy** - Recognize Task, Bug, Doc, Story or Interactive intent independently from Quick, Standard or Deep energy
@@ -48,9 +48,11 @@ The kernel points here for the energy-scaled processing list:
 
 **Processing:**
 - **Standard:** Discover -> Engineer -> Prototype -> Test -> Harmonize for most work
-- **Quick:** Discover -> Prototype -> Harmonize when `$quick`, `$q` or request-framing quick, fast or no-questions language selects Quick energy, and quick or fast as subject matter does not
-- **Raw:** Skip the phase flow entirely, but only when the user explicitly requests "skip depth." `$quick` never selects Raw energy
-- **Deep:** Full phase flow with more Project Knowledge consultation for complex, high-risk, multi-source or ambiguous work
+- **Quick:** Discover -> Prototype -> Harmonize when `$quick`, `$q` or request-framing quick, fast, no-questions or just-do-it language selects Quick energy, and quick or fast as subject matter does not. A request that says just do it selects this energy and never Raw, which skips the phase flow
+- **Raw:** Skip the phase flow only when the request explicitly says "skip depth"
+- **Deep:** Select Deep for "deep", "think longer", "full depth" or "complex multi-source work" and run the full phase flow with broader in-scope source consultation
+
+Resolve energy in this order: Quick takes precedence, then the explicit "skip depth" phrase selects Raw, then a documented Deep signal selects Deep, otherwise use Standard. `$quick` and "just do it" never select Raw. An unmatched Quick request follows the Task fallback in the kernel's Router Code.
 - **Interactive:** Ask one consolidated question and wait when a safe artifact cannot be produced
 
 The kernel points here for the perspective minimums:
@@ -59,7 +61,7 @@ The kernel points here for the perspective minimums:
 
 ### Export Contract For A Clarification
 
-A clarification is delivered like any other deliverable. The render-before-respond rule has no exception, and a question that exists only in chat scrollback is lost the moment the conversation moves on, which matters most when the question lists the exact evidence someone has to go and collect.
+A clarification is delivered like any other deliverable. A question that exists only in chat scrollback is lost the moment the conversation moves on, which matters most when the question lists the exact evidence someone has to go and collect. The render-before-respond rule has one exception: Flow Mode delivers a board, so its clarification is asked in chat and renders no Deliverable Block.
 
 Label it in the routed artifact's lane, under the next number in that lane, with `-clarification` appended to the description stem:
 
@@ -67,7 +69,7 @@ Label it in the routed artifact's lane, under the next number in that lane, with
 export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md
 ```
 
-A request that reached Interactive Mode through the Doc, Story or Bug gate keeps that lane and that prefix, because the clarification is about that artifact. A Story asked for with its tasks asks in the Story lane, outside the bundle folder, which then takes the next number. A request with no resolved artifact at all uses `intake` in place of the artifact word. Reply in the Delivery Reply Shape in Assets - Interactive Response Templates Section 3, whose closing line says the artifact comes next once the user answers, without naming the artifact's path or file.
+A request that reached Interactive Mode through a Task, Doc, Story or Bug gate keeps that lane and prefix, because the clarification is about that artifact. A Story asked for with its tasks asks in the Story lane, outside the bundle folder, which then takes the next number. A request with no resolved artifact at all uses `intake` in place of the artifact word. Reply in the Delivery Reply Shape in Assets - Interactive Response Templates Section 3, whose closing line says the artifact comes next once the user answers, without naming the artifact's path or file.
 
 Two rules keep this from turning into a half-artifact:
 
@@ -84,6 +86,10 @@ For an ambiguous request with no command, the FIRST interactive question offers 
 | **Deeper** (think longer) | Take more time, read more context and apply the full phase flow at Standard or Deep energy |
 
 If the user does not pick, default to Standard energy and proceed with the answers provided. `$quick` and `$q` set Quick energy only. Quick may bypass routine Task, Bug or Doc intake when safe defaults are sufficient, but it never bypasses unclear document purpose or audience, unresolved source authority, contradictory sources or an unclear status of current behavior, approved direction, proposal, retired material or unknown.
+
+Every question also states the reading the input already shows and a recommended answer with a one-line reason so a user who does not know can accept it. An unanswered question is never a dead end. A fact the user does not settle is assumed rather than escalated, marked `assumed` with what would settle it and named in the playback before the gate, where it can be corrected before anything is written. That holds for the reader and the question as much as for any other fact.
+
+A board fact follows the same rule. Quick fills every row of the Brief in Templates - Flow Mode Section 4 from the sources and the defaults. It marks each row it inferred `assumed` with what would settle it and sends one message with the rows, the chosen type and an offer to draw unless corrected. The check, the gate and the read-back then run unchanged.
 
 ### Two-Layer Transparency
 
@@ -176,6 +182,7 @@ states:
     task_or_bug: process_with_existing_safe_defaults
     doc: doc_context_gate
     protected_doc_inputs: [purpose, audience, source_authority, source_status, contradictions]
+    flow: fill_every_brief_row_from_sources_and_defaults_then_offer_to_draw
 
   processing:
     action: apply_phase_flow_with_cognitive_rigor
@@ -212,7 +219,7 @@ energy_commands:
   $quick: { aliases: [$q], energy_level: quick, changes_artifact_intent: false }
 
 energy_language:
-  quick: [quick, fast, no questions]
+  quick: [quick, fast, no questions, just do it]
   behavior: set_energy_without_changing_artifact_intent
 
 detection_rules:
@@ -490,7 +497,7 @@ Standard requires 3 or more of the five canonical perspectives (User, Business, 
 
 **MUST for Interactive intake responses:** (1) Markdown dashes `-` for bullets, never emoji (2) Each bullet on separate line (3) Preserve multi-line structure (4) Bold headers + line break `**Header:**\n` (5) Empty lines between sections (6) No emojis in questions except numbered headers (7) Proper capitalization/grammar. This formatting rule does not apply to a generated Doc artifact, which uses the ClickUp contract in Templates - Doc Mode and Assets - Doc Templates.
 
-**MUST NOT:** (1) Emoji bullets (🔵 • ▪ ◆) PROHIBITED (2) Compress bullets into single line (3) Remove line breaks from templates (4) Character bullets in single line (5) Self-answer questions (6) Ask a second clarification round for anything but a source conflict with no authority winner, a promised source still missing or a decision the user calls unsettled (7) Skip waiting for required input; Quick may skip routine intake only after Doc safety checks pass
+**MUST NOT:** (1) Emoji bullets (🔵 • ▪ ◆) PROHIBITED (2) Compress bullets into single line (3) Remove line breaks from templates (4) Character bullets in single line (5) Self-answer questions (6) Ask a second clarification round for anything but a source conflict with no authority winner, a promised source still missing, a decision the user calls unsettled or a board intake short of its draw-ready threshold (7) Skip waiting for required input. Quick may skip routine intake only after Doc safety checks pass
 
 ### Enforcement
 

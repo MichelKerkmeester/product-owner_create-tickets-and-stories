@@ -457,6 +457,7 @@ Worked example: [`examples/doc/doc-example-behavior-reference.md`](examples/doc/
 - Keep contradictory behavior outside the settled rules and apply the Doc Mode conflict gate
 - Include verified implementation mechanisms when the engineering audience needs them
 - Use explicit proposal labels for inferred designs, recommendations, troubleshooting paths, or architecture not established as current
+- For paired FigJam outputs, link placement in `Related references` follows Flow Mode Section 8
 
 | Section | Include when |
 | --- | --- |

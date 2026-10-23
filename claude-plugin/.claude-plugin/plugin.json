@@ -1,0 +1,10 @@
+{
+  "name": "product-owner",
+  "version": "1.2.1",
+  "description": "Write tasks, bugs, Stories, Epics and docs as a Product Owner, and draw user flows from screenshots, Figma flows and product docs onto FigJam boards.",
+  "author": {
+    "name": "Michel Kerkmeester"
+  },
+  "license": "MIT",
+  "keywords": ["product-owner", "backlog", "story", "figjam", "flow", "figma"]
+}

@@ -12,13 +12,13 @@ This scenario validates source-conflict handling when two supplied sources disag
 
 ## 1. OVERVIEW
 
-The command fixes Doc Mode. The two email sources agree on every entry but one. `context/loomlist-notification-spec.md` sends `EM-01`, the `Daily digest`, at `08:00` in the `recipient's local time`. `context/loomlist-email-template-inventory.md` sends it at `07:00 UTC`. Neither file calls itself canonical or the other outdated, and the inventory's later last-edited date settles nothing, because a newer timestamp is not an authority rule (`doc-mode.md` lines 158 and 188). So Turn 1 must stop composition (line 184), list the conflict under one consolidated question that also covers the other open fields, export that question and wait (`AGENTS.md` line 285, `doc-mode.md` line 529). Drafting a catalog, or choosing a time, is the primary failure.
+The command fixes Doc Mode. The two email sources agree on every entry but one. `context/loomlist-notification-spec.md` sends `EM-01`, the `Daily digest`, at `08:00` in the `recipient's local time`. `context/loomlist-email-template-inventory.md` sends it at `07:00 UTC`. Neither file calls itself canonical or the other outdated, and the inventory's later last-edited date settles nothing, because a newer timestamp is not an authority rule (`doc-mode.md` lines 158 and 188). So Turn 1 must stop composition (line 184), list the conflict under one consolidated question that also covers the other open fields, export that question and wait (`AGENTS.md` line 301, `doc-mode.md` line 529). Drafting a catalog, or choosing a time, is the primary failure.
 
 Turn 2 designates the spec for the send time, the top of the authority order (`doc-mode.md` line 170), and the inventory for the template names, since each source's authority covers only its own scope (line 175). The catalog then carries `08:00` in the recipient's local time for `EM-01`.
 
 ### Why this matters
 
-A catalog is where Support looks when a member asks why their digest came when it did. A silently chosen or blended send time turns one source's stale claim into the answer every agent repeats, which is exactly what the conflict gate exists to stop (`AGENTS.md` line 127).
+A catalog is where Support looks when a member asks why their digest came when it did. A silently chosen or blended send time turns one source's stale claim into the answer every agent repeats, which is exactly what the conflict gate exists to stop (`AGENTS.md` line 130).
 
 ---
 

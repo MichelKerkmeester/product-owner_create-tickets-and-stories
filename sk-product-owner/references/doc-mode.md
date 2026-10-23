@@ -413,7 +413,7 @@ The Doc quality line names five checks in order, Source safety, Shape fit, Click
 
 In a Claude Project runtime, deliver one markdown artifact, then reply in the same shape with the export-equivalent path line. The artifact name and the reported path must follow the same new-versus-refined filename contract.
 
-In either runtime, when ClickUp tooling is available, offer ClickUp delivery as an optional next step and wait for explicit approval. Never push a document or task to ClickUp unsolicited. An approved push follows the `mcp-tooling` ClickUp transport contract: markdown-aware parameters only, never the plain description field.
+ClickUp delivery offers and approval follow `SKILL.md` Section 7, ClickUp Handoff. An approved push follows the transport contract in `../../mcp-click-up/SKILL.md`, which owns the markdown-aware parameters.
 
 ---
 
@@ -555,34 +555,34 @@ Preserve the reference, mark the dependency as missing or not supplied, and avoi
 - Export first and verify the file
 ---
 
-The kernel points here for the refinement fidelity rule:
+Refinement fidelity rule:
 
 6. Preserve source shape when refining an existing task. Preserve the full Doc fidelity invariant (basename, heading text/hierarchy/order, dividers, spacer headings, bullet markers, indentation, links, identifiers, tables, code fences, literal copy and status labels) outside the explicitly requested change.
 
-The kernel points here for the source classification rule:
+Source classification rule:
 
 7. Classify material Doc claims as current behavior, approved direction, proposal, retired material or unknown, at section, row or claim level when a source mixes statuses.
 
-The kernel points here for the source of truth rule:
+Source of truth rule:
 
 8. Use the user-provided context as the main source of truth, then the scoped Project Knowledge. Never turn general Knowledge into unrelated product or engineering facts.
 
-The kernel points here for the ClickUp and house format rule:
+ClickUp and house format rule:
 
 11. Use ClickUp Markdown for a new Doc (exact `* * *` dividers, `*   ` bullets, `*   []` checklists, `*   **Term** — definition`), the Barter house format for a new Story or Epic (`*   ` bullets, Requirements limited to hard constraints written as `- []` items under bold group names and omitted when there are none, a few numbered `1.` outcome-led acceptance criteria each closed with a `- []` Mark-as-done line that no divider separates from the next criterion, a `* * *` section close directly above each `##   ` spacer heading, `- []` also for optional readiness or done gates, and a `## Delivery` close only where the requester asked for it or an open question or an undated external constraint forced it), and `-`/`- []` for Task, Bug and Interactive. Write every checkbox `[]`, never `[ ]` with a space. Never end a newly authored or rewritten bullet item with a full stop. Preserve untouched source punctuation and markers in refinements unless normalization is requested.
 
-The kernel points here for these documentation prohibitions:
+Documentation prohibitions:
 
 1. Never turn a Doc request into unrequested live implementation or claim a documentation artifact is production code.
 2. Never present unsupported implementation guidance, code behavior, architecture, APIs, schemas, root causes, debugging evidence or operational evidence as established fact.
 3. Never present a technical selection, design, recommendation, or legal, compliance or security analysis as approved, shipped, or externally sanctioned without supplied authority.
 4. Never expand scope beyond the request, or invent requirements, evidence, root causes or platform details. An edge case, assumption or other addition the user did not supply is allowed only when the reply lists it under Open items, so the user can strike it. An addition the reply does not list is an invented requirement. Naming an addition never makes invented evidence, a root cause or a platform detail acceptable.
 
-The kernel points here for these source and refinement prohibitions:
+Source and refinement prohibitions:
 
 10. Never merge contradictory sources silently, never promote approved direction, proposals, retired material or unknown claims into current product behavior, and never treat recency or duplicate bytes as source authority.
 11. Never rewrite an existing document's structure, identifiers, links, tables, literal copy or status labels outside requested scope. Never fill a current-state gap with invented technical detail or hide proposal status.
 
-The kernel points here for this new Doc format prohibition:
+New Doc format prohibition:
 
 12. Never emit generic hyphen bullets or `---` dividers in a new Doc artifact.

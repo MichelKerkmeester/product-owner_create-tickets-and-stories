@@ -19,6 +19,7 @@ Use Task Mode for:
 - Synced tasks updated to match pasted source material or corpus style
 - Parent tasks that link or track child subtasks
 - Subtasks covering one area within a parent task
+- Story bundle task paths and the `$story $task` conflict follow Templates - Story Mode Section 7
 - Feature work, enhancements, acceptance criteria and refinement of existing task content
 
 ### Command: `$task`
@@ -111,7 +112,7 @@ Number requirement groups only when the task carries two or more. A single group
 
 ### Naming a parent or related work with no link
 
-A parent task, related task, ticket or epic is often named before it exists as a link. Give it its own bullet as backticked plain text, `` - `{Task title}` ``, which is the shape `**Epic**` already uses. Never fabricate a ClickUp or Figma URL to complete the link, never drop the named parent because no link was supplied, and never push it into About as prose where a reader looking for the relationship will not find it. When the link arrives later, the bullet becomes an ordinary markdown link in place.
+A parent task, related task, ticket or epic is often named before it exists as a link. Give it its own bullet as backticked plain text, `` - `{Task title}` ``, which is the shape `**Epic**` already uses. Never fabricate a ClickUp or Figma URL to complete the link, never drop the named parent because no link was supplied, and never push it into About as prose where a reader looking for the relationship will not find it. When the link arrives later, the bullet becomes an ordinary markdown link in place. Paired FigJam outputs follow the handoff, read-back and link-placement contract in Flow Mode Section 8.
 
 ### Divider Rules
 
@@ -305,6 +306,8 @@ Templates: the canonical task, parent task, subtask and quick task scaffolds are
 ---
 
 ## 6. FINAL REMINDERS
+
+- ClickUp delivery offers and approval follow Custom Instructions Section 9, Delivery Protocol.
 
 1. Keep the core structure fixed and the context block flexible
 2. Preserve source structure when syncing an existing task

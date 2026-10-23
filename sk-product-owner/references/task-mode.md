@@ -19,7 +19,7 @@ Task-mode guidance aligned to the current Product Owner task corpus. This versio
 **Loading Condition:** ON-DEMAND
 **Purpose:** Provides task-mode workflow, standards and structure rules for `$task` and `$t` requests
 **Scope:** Task mode overview, delivery standards, structure rules, error recovery and task template usage pointer
-**Output Path:** `export/[existing-task-name].md` or `export/[###] - task-[description].md`
+**Output Path:** `export/[existing-task-name].md` or `export/[###] - task-[description].md`. Story bundle task paths and the `$story $task` conflict follow the contract in `story-mode.md` Section 7.
 **Loads With:** `assets/task-templates.md` as the paired scaffold, beside the always-loaded `references/hvr-core.md` and `references/conciseness.md`
 **Routed By:** `$task`, `$t`, `$task --subtask`, task framing, the feature, acceptance, user_need, technical_task and integration semantic topics, and the ui_refinement topic on its 0.80 override
 **Hands Off To:** `references/interactive-mode.md` when scope, user value or testable acceptance criteria cannot be inferred, which returns here once the user answers
@@ -131,7 +131,7 @@ Number requirement groups only when the task carries two or more. A single group
 
 ### Naming a parent or related work with no link
 
-A parent task, related task, ticket or epic is often named before it exists as a link. Give it its own bullet as backticked plain text, `` - `{Task title}` ``, which is the shape `**Epic**` already uses. Never fabricate a ClickUp or Figma URL to complete the link, never drop the named parent because no link was supplied, and never push it into About as prose where a reader looking for the relationship will not find it. When the link arrives later, the bullet becomes an ordinary markdown link in place.
+A parent task, related task, ticket or epic is often named before it exists as a link. Give it its own bullet as backticked plain text, `` - `{Task title}` ``, which is the shape `**Epic**` already uses. Never fabricate a ClickUp or Figma URL to complete the link, never drop the named parent because no link was supplied, and never push it into About as prose where a reader looking for the relationship will not find it. When the link arrives later, the bullet becomes an ordinary markdown link in place. Paired FigJam outputs follow the handoff, read-back and link-placement contract in Flow Mode Section 8.
 
 ### Divider Rules
 
@@ -326,6 +326,8 @@ Templates: see [task-templates.md](../assets/task-templates.md).
 
 ## 6. FINAL REMINDERS
 
+- ClickUp delivery offers and approval follow `SKILL.md` Section 7, ClickUp Handoff
+
 1. Keep the core structure fixed and the context block flexible
 2. Preserve source structure when syncing an existing task
 3. Use category headings when they make the task easier to scan
@@ -334,7 +336,7 @@ Templates: see [task-templates.md](../assets/task-templates.md).
 6. Deliver only the requested task scope
 ---
 
-The kernel points here for the When To Use list:
+When To Use list:
 
 - Development tasks, subtasks, parent tasks, acceptance criteria, QA-ready requirements, and copy-consistency or casing standardisation work
 - Bug reports, defect writeups, reproduction steps, expected behavior, capture
@@ -342,14 +344,14 @@ The kernel points here for the When To Use list:
 - Stories and Epics with Connextra-adjacent house-format sections, numbered Given/When/Then acceptance criteria and a Mark-as-done checkbox per criterion
 - Product or engineering guides, catalogs, behavior references, runbooks, API or schema references, architecture documents, technical proposals and decision records
 
-The kernel points here for the backlog artefact rule:
+Backlog artefact rule:
 
 5. Keep backlog artifacts outcome-focused. Keep documentation facts, analysis, recommendations and proposals in their correct authority state.
 
-The kernel points here for the dependency and edge case rule:
+Dependency and edge case rule:
 
 9. Identify dependencies, edge cases, error states, empty states, loading states and permission boundaries when relevant.
 
-The kernel points here for the acceptance criteria rule:
+Acceptance criteria rule:
 
 10. Write acceptance criteria as outcomes the user can rely on, few in number and open on the mechanism, growing only with the surfaces a story touches. In a Story, Requirements holds hard constraints only, carries every hard value the source supplied with its value, units and notation intact, mirrors the source's own screen or surface grouping where it has one, names each shared screen's reuse map as a constraint, and is omitted only where the source supplies none. Every Requirements item is a `- []` checkbox holding a sentence a build can fail, so an item that reports what a screen says, shows or contains, naming no value, limit, condition, effect or named flow a build could get wrong, is description and is struck rather than reworded, and copy a screenshot supplies is quoted verbatim in backticks or dropped. A supplied value never travels into an acceptance criterion instead. Keep the Task QA checklist inside a Task's Requirements.

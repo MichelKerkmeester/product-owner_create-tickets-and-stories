@@ -1,0 +1,180 @@
+{
+  "skill": "product-owner",
+  "version": "1.0.0.0",
+  "resourceContractVersion": 1,
+  "description": "Declarative mode registry: the single source of truth for the discriminator (workflowMode/packetKind/backendKind) plus the advisorRouting projection for product-owner. The hub reads this file to resolve a mode. Every mode routes by hub membership (routingClass 'metadata'), so the advisor routes the single identity product-owner and the hub picks the mode. The shared parent-hub contract requires an empty toolSurface.bashAllowlist array where no shell command is approved.",
+  "discriminator": {
+    "workflowMode": "Public mode key, equal to the packet folder. Stable identity used by the hub router and this registry. Carried by every mode.",
+    "packetKind": "The axis discriminator: 'workflow' for sk-product-owner, sk-create-figjam and mcp-click-up, whose operations write files or change external workflow state; 'transport' for mcp-figma, which bridges Figma Desktop and stays read-only in this workspace.",
+    "backendKind": "Which backend runs the mode: template-scaffold for sk-product-owner, which fills its artifact templates and exports them; checked-model-board for sk-create-figjam, which checks a Mermaid model and writes it to a FigJam board; cli-plus-mcp for mcp-click-up; figma-desktop-transport for mcp-figma."
+  },
+  "advisorRoutingContract": {
+    "routingClass": "How the advisor finds the mode. Every product-owner mode is 'metadata' = resolved by hub membership, so no mode carries an advisor map entry.",
+    "packetSkillName": "The packet's SKILL.md name. The packet folder IS its packetSkillName for every mode, so grandfatheredFolderMismatch is false throughout.",
+    "grandfatheredFolderMismatch": "true only when a packet folder differs from its packetSkillName. No product-owner mode has a mismatch.",
+    "command": "The bound slash command for the mode. No mode has one: Product Owner reads $ commands from the request text, and hub-router.json routerPolicy.packetCommands owns which $ commands start which packet."
+  },
+  "extensions": {
+    "transport-axis": {
+      "description": "Declares the TRANSPORT axis. mcp-figma bridges Figma Desktop through figma-ds-cli: its document mutations land in Figma, and its export commands save requested artifacts to an explicit output path, so mutatesWorkspace stays false and Write/Edit/Task stay forbidden. It decides no design and no artifact itself: sk-create-figjam uses its fj route to write a checked user flow or simple process.",
+      "transports": [
+        "mcp-figma"
+      ],
+      "crossHubPairing": {}
+    },
+    "vendored-packets": {
+      "description": "mcp-figma and mcp-click-up are byte copies of the shared .skilled skills. vendor.json records each upstream path, commit and file hashes, and scripts/vendor-sync.py status, pull and push keep them in step, so nothing inside them is edited here. They carry no Product Owner changes and route inside their own SKILL.md. vendor.json also carries mcp-code-mode, the Code Mode server the repository's own .mcp.json and opencode.json start, and its launcher under scripts/vendored/code-mode. Neither is a mode, so neither is listed here.",
+      "manifest": "vendor.json",
+      "packets": [
+        "mcp-figma",
+        "mcp-click-up"
+      ]
+    },
+    "repo-root-hub": {
+      "description": "The hub is the Product Owner repository root. repoPaths lists the top-level entries that belong to the repository rather than the skill: the spec packets, the exports, the Claude Project package, the built plugin, the system gates and the repository files beside them. The skilled checkers skip them, and the hub id is the folder name Product Owner in kebab case.",
+      "repoPaths": [
+        "specs",
+        "export",
+        "claude project",
+        "claude-plugin",
+        "benchmark",
+        "AGENTS.md",
+        "SYNC.md",
+        "vendor.json",
+        "LICENSE",
+        "Favicon.jpg",
+        "mcp-code-mode",
+        "opencode.json"
+      ]
+    }
+  },
+  "modes": [
+    {
+      "workflowMode": "sk-product-owner",
+      "packetKind": "workflow",
+      "backendKind": "template-scaffold",
+      "toolSurface": {
+        "allowed": [
+          "Read",
+          "Write",
+          "Edit",
+          "Glob",
+          "Grep",
+          "WebFetch",
+          "WebSearch"
+        ],
+        "forbidden": [],
+        "mutatesWorkspace": true,
+        "bashAllowlist": []
+      },
+      "packet": "sk-product-owner",
+      "packetSkillName": "sk-product-owner",
+      "grandfatheredFolderMismatch": false,
+      "command": null,
+      "aliases": [
+        "task",
+        "bug",
+        "story",
+        "epic",
+        "prd",
+        "doc"
+      ],
+      "advisorRouting": {
+        "routingClass": "metadata"
+      }
+    },
+    {
+      "workflowMode": "sk-create-figjam",
+      "packetKind": "workflow",
+      "backendKind": "checked-model-board",
+      "toolSurface": {
+        "allowed": [
+          "Read",
+          "Write",
+          "Edit",
+          "Bash",
+          "Glob",
+          "Grep",
+          "mcp__code_mode__call_tool_chain"
+        ],
+        "forbidden": [],
+        "mutatesWorkspace": true,
+        "bashAllowlist": []
+      },
+      "packet": "sk-create-figjam",
+      "packetSkillName": "sk-create-figjam",
+      "grandfatheredFolderMismatch": false,
+      "command": null,
+      "aliases": [
+        "figjam"
+      ],
+      "advisorRouting": {
+        "routingClass": "metadata"
+      }
+    },
+    {
+      "workflowMode": "mcp-click-up",
+      "packetKind": "workflow",
+      "backendKind": "cli-plus-mcp",
+      "toolSurface": {
+        "allowed": [
+          "Read",
+          "Write",
+          "Edit",
+          "Bash",
+          "Glob",
+          "Grep",
+          "mcp__code_mode__call_tool_chain"
+        ],
+        "forbidden": [],
+        "mutatesWorkspace": true,
+        "bashAllowlist": []
+      },
+      "packet": "mcp-click-up",
+      "packetSkillName": "mcp-click-up",
+      "grandfatheredFolderMismatch": false,
+      "command": null,
+      "aliases": [
+        "mcp-click-up",
+        "cupt",
+        "clickup mcp"
+      ],
+      "advisorRouting": {
+        "routingClass": "metadata"
+      }
+    },
+    {
+      "workflowMode": "mcp-figma",
+      "packetKind": "transport",
+      "backendKind": "figma-desktop-transport",
+      "toolSurface": {
+        "allowed": [
+          "Read",
+          "Bash",
+          "Grep",
+          "Glob",
+          "mcp__code_mode__call_tool_chain"
+        ],
+        "forbidden": [
+          "Write",
+          "Edit",
+          "Task"
+        ],
+        "mutatesWorkspace": false,
+        "bashAllowlist": []
+      },
+      "packet": "mcp-figma",
+      "packetSkillName": "mcp-figma",
+      "grandfatheredFolderMismatch": false,
+      "command": null,
+      "aliases": [
+        "figma-ds-cli",
+        "mcp-figma",
+        "figma cli"
+      ],
+      "advisorRouting": {
+        "routingClass": "metadata"
+      }
+    }
+  ]
+}

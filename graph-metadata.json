@@ -1,0 +1,134 @@
+{
+  "schema_version": 2,
+  "skill_id": "product-owner",
+  "family": "sk-hub",
+  "category": "backlog-and-documentation",
+  "deprecated": false,
+  "edges": {
+    "depends_on": [],
+    "enhances": [
+      {
+        "target": "mcp-tooling",
+        "weight": 0.5,
+        "context": "carries vendored copies of the mcp-click-up and mcp-figma packets and pushes an approved Task, Bug, Doc, Story or Epic export through the ClickUp transport after explicit user approval"
+      }
+    ],
+    "siblings": [
+      {
+        "target": "sk-doc",
+        "weight": 0.3,
+        "context": "documentation-authoring peer; sk-doc authors OpenCode components and general docs, product-owner owns Barter backlog artifacts, source-safe product and engineering documentation and FigJam diagrams"
+      }
+    ],
+    "conflicts_with": [],
+    "prerequisite_for": []
+  },
+  "domains": [
+    "product-owner",
+    "mode-registry",
+    "hub-router",
+    "workflowMode",
+    "packetKind",
+    "product-management",
+    "backlog",
+    "product-requirements-documents",
+    "user-stories",
+    "bug-reports",
+    "acceptance-criteria",
+    "product-documentation",
+    "engineering-documentation",
+    "clickup",
+    "figjam-flows"
+  ],
+  "intent_signals": [
+    "create task",
+    "write bug report",
+    "write user story",
+    "document how X works",
+    "create api reference",
+    "create architecture proposal",
+    "refine this document",
+    "refine this story",
+    "draw a user flow on a figjam board",
+    "draw a sequence diagram in figjam"
+  ],
+  "derived": {
+    "trigger_phrases": [
+      "product-owner",
+      "product owner",
+      "$task",
+      "$bug",
+      "$doc",
+      "$story",
+      "$epic",
+      "$flow",
+      "$figjam",
+      "sk-product-owner",
+      "sk-create-figjam",
+      "figjam flow",
+      "figjam diagram",
+      "cupt",
+      "figma-ds-cli"
+    ],
+    "key_topics": [
+      "product-owner",
+      "mode-registry",
+      "hub-router",
+      "workflowMode",
+      "packetKind",
+      "backendKind",
+      "toolSurface",
+      "backlog artifacts",
+      "figjam flows",
+      "figjam diagrams"
+    ],
+    "intent_signals": [
+      "write a Barter task, bug, Story, Epic or doc",
+      "draw a user flow or another diagram on a FigJam board",
+      "run a cupt or figma-ds-cli operation"
+    ],
+    "source_docs": [
+      "SKILL.md",
+      "README.md",
+      "ROUTER.md",
+      "mode-registry.json",
+      "hub-router.json",
+      "sk-product-owner/SKILL.md",
+      "sk-create-figjam/SKILL.md",
+      "mcp-click-up/SKILL.md",
+      "mcp-figma/SKILL.md"
+    ],
+    "key_files": [
+      "SKILL.md",
+      "ROUTER.md",
+      "mode-registry.json",
+      "hub-router.json",
+      "graph-metadata.json",
+      "sk-product-owner/SKILL.md",
+      "sk-create-figjam/SKILL.md"
+    ],
+    "entities": [
+      {
+        "name": "product-owner",
+        "kind": "skill",
+        "path": "SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "sk-product-owner",
+        "kind": "skill",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "sk-create-figjam",
+        "kind": "skill",
+        "path": "sk-create-figjam/SKILL.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "product-owner is the single public skill identity for the Product Owner system. It routes a request to one of four packets through mode-registry.json and hub-router.json: sk-product-owner writes Barter tasks, bugs, Stories, Epics and docs, sk-create-figjam draws FigJam diagrams, from user flows to sequence, state, ER and gantt charts, and the vendored mcp-click-up and mcp-figma packets carry the ClickUp and Figma Desktop transports. The advisor sees one hub, and packetKind separates the workflow packets from the Figma transport.",
+    "created_at": "2026-01-01T00:00:00Z",
+    "last_updated_at": "2026-10-20T18:00:00Z"
+  }
+}

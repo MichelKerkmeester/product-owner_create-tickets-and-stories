@@ -8,34 +8,56 @@ Hand-maintained local package for the Product Owner claude.ai Project. The kerne
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- synthesized Project kernel v1.2.1 (routing authority, SKILL.md is not loaded in this Project)
+|-- Custom Instructions.md        <- synthesized Project kernel v1.2.2 (routing authority, SKILL.md is not loaded in this Project)
 |-- README.md                     <- upload manifest and hand-authored parity note
-`-- knowledge/                    <- upload all thirty-seven files as Project Knowledge
+|-- templates/                    <- Product Owner - Local - Push Targets.md, filled and uploaded per user, never shared
+|-- local/                        <- gitignored home for a filled push targets copy
+`-- knowledge/                    <- upload all 63 files as Project Knowledge
     |-- Product Owner - System - Interactive Mode.md
     |-- Product Owner - Templates - Task Mode.md
     |-- Product Owner - Templates - Bug Mode.md
     |-- Product Owner - Templates - Doc Mode.md
     |-- Product Owner - Templates - Story Mode.md
+    |-- Product Owner - Templates - Flow Mode.md
+    |-- Product Owner - Templates - Flow Type - User Flow.md
+    |-- Product Owner - Templates - Flow Type - Process.md
+    |-- Product Owner - Templates - Flow Type - Architecture.md
+    |-- Product Owner - Templates - Flow Type - Sequence.md
+    |-- Product Owner - Templates - Flow Type - State.md
+    |-- Product Owner - Templates - Flow Type - ER.md
+    |-- Product Owner - Templates - Flow Type - Gantt.md
+    |-- Product Owner - Templates - Flow Hybrid Workflow.md
     |-- Product Owner - Assets - Task Templates.md
     |-- Product Owner - Assets - Bug Report Template.md
     |-- Product Owner - Assets - Interactive Response Templates.md
     |-- Product Owner - Assets - Doc Templates.md
     |-- Product Owner - Assets - Story Template.md
     |-- Product Owner - Assets - Epic Template.md
+    |-- Product Owner - Assets - Flow Templates.md
+    |-- Product Owner - Assets - Flow Templates - Process.md
+    |-- Product Owner - Assets - Flow Templates - Architecture.md
+    |-- Product Owner - Assets - Flow Templates - Sequence.md
+    |-- Product Owner - Assets - Flow Templates - State.md
+    |-- Product Owner - Assets - Flow Templates - ER.md
+    |-- Product Owner - Assets - Flow Templates - Gantt.md
     |-- Product Owner - Rules - Human Voice Core.md
     |-- Product Owner - Rules - Human Voice - EN.md
     |-- Product Owner - Rules - Conciseness.md
     |-- Product Owner - Rules - Conciseness - On Demand Rationale.md
     |-- Product Owner - Rules - Quality Scoring.md
+    |-- Product Owner - Rules - Flow Style Guide.md
+    |-- Product Owner - Rules - Flow Quality Rubric.md
+    |-- Product Owner - Reference - Connector Setup.md
     |-- Product Owner - Examples - Task - ... (5 files)
     |-- Product Owner - Examples - Bug - ... (4 files)
     |-- Product Owner - Examples - Doc - ... (7 files)
-    `-- Product Owner - Examples - Story - ... (5 files)
+    |-- Product Owner - Examples - Story - ... (5 files)
+    `-- Product Owner - Examples - Flow - ... (7 files)
 ```
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` v1.2.1 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.1.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
+`Custom Instructions.md` v1.2.2 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.1.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
 
 CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Block**, direct resource loading becomes Project Knowledge consultation, and the response reports an export-equivalent path. Refinements keep delivery metadata outside preserved content unless equivalent metadata already exists in the source.
 
@@ -54,6 +76,32 @@ CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Bloc
 | `sk-product-owner/assets/doc-templates.md` | `Product Owner - Assets - Doc Templates.md` |
 | `sk-product-owner/assets/story-template.md` | `Product Owner - Assets - Story Template.md` |
 | `sk-product-owner/assets/epic-template.md` | `Product Owner - Assets - Epic Template.md` |
+| `sk-create-figjam/references/flow-mode.md` | `Product Owner - Templates - Flow Mode.md` |
+| `sk-create-figjam/assets/flow-templates.md` | `Product Owner - Assets - Flow Templates.md` |
+| `sk-create-figjam/references/types/user-flow.md` | `Product Owner - Templates - Flow Type - User Flow.md` |
+| `sk-create-figjam/references/types/process.md` | `Product Owner - Templates - Flow Type - Process.md` |
+| `sk-create-figjam/references/types/architecture.md` | `Product Owner - Templates - Flow Type - Architecture.md` |
+| `sk-create-figjam/references/types/sequence.md` | `Product Owner - Templates - Flow Type - Sequence.md` |
+| `sk-create-figjam/references/types/state.md` | `Product Owner - Templates - Flow Type - State.md` |
+| `sk-create-figjam/references/types/er.md` | `Product Owner - Templates - Flow Type - ER.md` |
+| `sk-create-figjam/references/types/gantt.md` | `Product Owner - Templates - Flow Type - Gantt.md` |
+| `sk-create-figjam/references/hybrid-workflow.md` | `Product Owner - Templates - Flow Hybrid Workflow.md` |
+| `sk-create-figjam/references/style-guide.md` | `Product Owner - Rules - Flow Style Guide.md` |
+| `sk-create-figjam/references/quality-rubric.md` | `Product Owner - Rules - Flow Quality Rubric.md` |
+| `USER-GUIDE.md` | `Product Owner - Reference - Connector Setup.md` |
+| `sk-create-figjam/assets/templates/process.md` | `Product Owner - Assets - Flow Templates - Process.md` |
+| `sk-create-figjam/assets/templates/architecture.md` | `Product Owner - Assets - Flow Templates - Architecture.md` |
+| `sk-create-figjam/assets/templates/sequence.md` | `Product Owner - Assets - Flow Templates - Sequence.md` |
+| `sk-create-figjam/assets/templates/state.md` | `Product Owner - Assets - Flow Templates - State.md` |
+| `sk-create-figjam/assets/templates/er.md` | `Product Owner - Assets - Flow Templates - ER.md` |
+| `sk-create-figjam/assets/templates/gantt.md` | `Product Owner - Assets - Flow Templates - Gantt.md` |
+| `sk-create-figjam/assets/examples/user-flow-fernhouse-return.md` | `Product Owner - Examples - Flow - User Flow.md` |
+| `sk-create-figjam/assets/examples/process-fernhouse-refund.md` | `Product Owner - Examples - Flow - Process.md` |
+| `sk-create-figjam/assets/examples/architecture-loomlist-sync.md` | `Product Owner - Examples - Flow - Architecture.md` |
+| `sk-create-figjam/assets/examples/sequence-roamstay-checkout.md` | `Product Owner - Examples - Flow - Sequence.md` |
+| `sk-create-figjam/assets/examples/state-roamstay-booking.md` | `Product Owner - Examples - Flow - State.md` |
+| `sk-create-figjam/assets/examples/er-roamstay-stays.md` | `Product Owner - Examples - Flow - ER.md` |
+| `sk-create-figjam/assets/examples/gantt-loomlist-offline.md` | `Product Owner - Examples - Flow - Gantt.md` |
 | `sk-product-owner/references/hvr-core.md` | `Product Owner - Rules - Human Voice Core.md` |
 | `sk-product-owner/references/conciseness.md` | `Product Owner - Rules - Conciseness.md` |
 | `sk-product-owner/references/human-voice-rules.md` | `Product Owner - Rules - Human Voice - EN.md` |
@@ -73,18 +121,22 @@ When the Project has the claude.ai ClickUp connector, the kernel offers ClickUp 
 
 - Task create and update: `markdown_description` on `clickup_create_task` / `clickup_update_task`
 - Documents and pages: markdown content with the markdown (`text/md`) content format
+- Task read-back: `clickup_get_task` with `include: ["description"]`
 - Never the plain `description` field — ClickUp stores it literally and the task shows raw `## About` / `**Checklist**` / `- []` text
 
 Push shape: artifact H1 becomes the task name, Deliverable Block framing and processing metadata stay out of ClickUp, and the body travels verbatim.
+
+Push targets come from a private Knowledge file, `Product Owner - Local - Push Targets.md`, which each user fills from `templates/` and uploads to their own Project only. It names ClickUp lists and docs by team. A filled copy belongs in the gitignored `local/` folder, where the skill reads the same file. When one list or doc fits, the offer names it, when several could fit it asks which, and a document lands as a new page in the named doc through `clickup_create_document_page`. Otherwise it asks where and recommends a private doc, which takes two calls: `clickup_create_document` with `visibility: "PRIVATE"` and `create_page: false`, then `clickup_create_document_page` with the artifact as `content` and `content_format: "text/md"`.
 
 ## Set Up the Live Project
 
 1. Create or open a claude.ai Project named **Product Owner**.
 2. Paste `Custom Instructions.md` into the Project custom instructions field.
 3. Remove superseded Project Knowledge uploads.
-4. Upload all thirty-seven files in `knowledge/` with filenames unchanged (sixteen core files plus the twenty-one Examples mirrors).
+4. Upload all 63 files in `knowledge/` with filenames unchanged (35 core files plus the 28 Examples mirrors).
 5. Run the smoke matrix below.
 6. Confirm the Deliverable Block appears first and the reported path follows the create or refinement contract.
+7. To deliver to ClickUp or draw on FigJam, add the two connectors and run their checks as `../USER-GUIDE.md` sets out.
 
 ## Smoke Matrix
 
@@ -113,15 +165,20 @@ Push shape: artifact H1 becomes the task name, Deliverable Block framing and pro
 - New Docs balance heading depth: H2 stays a minority of headings and H3/H4 carry the rest, with no all-H2 wall.
 - Doc deliveries report their status in the chat reply beside the export-equivalent path, as the quality line and the `HVR self-scan:` line of the Delivery Reply Shape, and never as a footer or verdict block inside the deliverable.
 - `$story`, `$s`, `$prd` and `$p` select Story; `$stories`, `$prds`, `$sort` and embedded `$s` do not; `create a task to write a PRD` stays Task.
+- `$flow`, `$figjam` and `put the launch plan on a FigJam gantt chart` select Flow Mode, which picks the diagram type from the reader's question, checks the model rule by rule and waits for a yes before any write. `write a task to tidy the figjam board labels` stays Task.
+- `$figjam a mindmap of the launch themes` names the mindmap as a kind the Figma connector cannot draw and offers a table or a list, with no connector call.
 - A generated Story-Mode artifact names its artifact kind (Story or Epic), keeps the narrative first, uses Given/When/Then scenario bullets, closes with a Delivery section only when the requester asked for one or the artifact forces it, and carries no ticket header fields, story points or INVEST notes.
 - With the ClickUp connector present, every export response offers ClickUp delivery and nothing is written to ClickUp without explicit approval in that conversation.
+- With no connector switched on in the chat, an export reply closes on `Want me to change anything?` with no push offer, and the first such reply of the conversation offers once, in its last sentence before Open items, to walk the user through adding the connectors.
+- With no Figma connector, `$flow` gives the checked model as a Mermaid block and prints no `Read-back:` line.
+- In claude.ai in a browser, with both connectors switched on, the ClickUp offer and the FigJam write gate behave as they do in Claude Desktop.
 - An approved ClickUp push uses `markdown_description` (never plain `description`) and the created task renders real headings, bold and checkboxes with zero literal `###`, `**` or `- []` text.
 - `$task`, `$bug` and `$story` each consult only their own routed knowledge pair (Task Mode + Task Templates, Bug Mode + Bug Report Template, Story Mode + the one scaffold the resolved shape names) and load no unrelated mode resource. A `$story` request consults Story Template and never Epic Template.
 - `skip depth` explicitly selects Raw energy and skips the phase flow. `$quick` never selects Raw, and Raw never fires without the explicit phrase.
 - `$quick $story` and `$story $quick` (and the `$prd`/`$p` aliases, and `$epic`/`$e`) both select Story with Quick energy, matching the `$quick $doc` / `$doc $quick` order equivalence.
 - New Task, Bug, Doc, Story and Epic exports report `export/NNN - {task|bug|doc|Story|Epic}-[description].md`. A Task source sync retains the existing task filename.
 - A `$story` request that asks for its task breakdown renders one Deliverable Block per file, Story first, each with its own `Export-equivalent path:` inside `export/NNN - Story-[description]/`. The Story's `#### **Tasks**` block links each `NNN.[n] - task-[description].md`, each task's `**Story**` block links the Story, and one `HVR self-scan:` line covers the set.
-- An approved task read-back uses `include_markdown_description=true` and confirms the rendered body matches the pushed artifact before delivery is reported complete.
+- An approved task read-back uses `clickup_get_task` with `include: ["description"]` and confirms the rendered body matches the pushed artifact before delivery is reported complete.
 - An approved ClickUp document or page create uses markdown content with the markdown `content_format` value, never the plain `description` field.
 - New Doc artifacts use same-level empty spacer headings only in ClickUp-bound content, never in a file export. A Story or Epic keeps its spacer headings in the export, because they belong to the Barter house format.
 

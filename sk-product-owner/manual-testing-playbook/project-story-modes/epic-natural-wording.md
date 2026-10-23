@@ -76,7 +76,7 @@ Capture both replies, both rendered blocks, the two export-equivalent labels, th
 
 ### Failure triage
 
-1. Check the natural framing rule in `Product Owner - Templates - Story Mode` line 107 and the Epic clarification label in `Custom Instructions.md` line 272
+1. Check the natural framing rule in `Product Owner - Templates - Story Mode` line 107 and the Epic clarification label in `Custom Instructions.md` line 288
 2. Check the Epic scaffold and its Notes For Use in `Product Owner - Assets - Epic Template` lines 22 to 103
 3. Reconcile Scope, Goal and the dependency against `loomlist-offline-mode-brief.md`, and strike any Web item or conflict-handling decision
 

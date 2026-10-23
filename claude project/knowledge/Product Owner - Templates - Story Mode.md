@@ -24,7 +24,7 @@ Use Story Mode for:
 
 Use another mode when the requested artifact is different:
 
-- A single implementation unit is Task Mode
+- A single implementation unit is Task Mode only when the request asks for a task. An explicit Story or PRD request stays Story Mode even when it yields one implementation task
 - A defect with evidence and reproduction steps is Bug Mode
 - Knowledge documentation (guides, catalogs, behavior references, proposals) is Doc Mode
 - "Create a task from this PRD" is Task Mode using the PRD as source context
@@ -136,7 +136,7 @@ These apply to every Story and every Epic:
 - Heading depth: H1 is the title only. Major sections (`## Problem` and `## Solution` in a Story, `## About` in an Epic, `## Requirements` or `## Scope`, `## Acceptance criteria`, `## Delivery`) anchor at H2. The Epic's opening group sections sit at H4 (`#### Problem`, `#### Goal`, `#### Solution`), as do scenario groups inside Acceptance criteria (`#### {Group}`), and `#### **References**` sits at H4-bold. `**Expected outcomes**` and `**User Story**` are bold labels with a `* * *` divider under them inside Solution, never headings, because they belong to Solution rather than standing as sections of their own. Requirement names use bold paragraph leads (`**{Requirement name}**`). Gates and spec sub-blocks use H4-bold headings (`#### **Rule**`). Sub-labels inside References are plain paragraph text (`Components`, `Flows`, `Lifecycle`), not bold. Nothing goes deeper than H4
 - Preserve technical identifiers exactly, even when they look misspelled or use local notation (for example `Below 2.500 followers`). Flag oddities in prose instead of normalizing them
 - Exact expressions, thresholds, field names and event names travel in backticks
-- Links appear only when supplied. Never invent a Figma destination or a ClickUp link. Images are embedded in ClickUp after export, so a Story or Epic never carries an image, a screenshot reference or a file path to one
+- Links appear only when supplied. Never invent a Figma destination or a ClickUp link. Paired FigJam outputs follow the handoff, read-back and link-placement contract in Flow Mode Section 8. Images are embedded in ClickUp after export, so a Story or Epic never carries an image, a screenshot reference or a file path to one
 
 ### The H1 title
 
@@ -359,7 +359,7 @@ Never overwrite the supplied source.
 
 ### Story With Nested Tasks
 
-A new Story asked for together with its task breakdown, such as `$story` with "break it into tasks", is one dependent deliverable rather than two independent artifacts, so it needs no question about which artifact to make. Two explicit artifact commands such as `$story $task` stay a conflict. The bundle applies to a new Story only, because a refined Story keeps its source filename.
+Story Mode owns the Story-with-tasks path and the Story-to-Task boundary. A new Story asked for with its task breakdown is one dependent deliverable, rendered in one numbered folder with each Task named `[###].[n] - task-[description].md` in the Story's task order. It needs no question about which artifact to make. Two explicit artifact commands such as `$story $task` remain a conflict routed to Interactive Mode. The bundle applies to a new Story only, because a refined Story keeps its source filename.
 
 Its export-equivalent paths name one folder under one number:
 
@@ -385,7 +385,7 @@ Its export-equivalent paths name one folder under one number:
 
 ### Response Contract
 
-Reply in the Delivery Reply Shape in Assets - Interactive Response Templates Section 3, whose quality line names the artifact kind (Story or Epic). Validate the house grammar and the honest Delivery state, then render one markdown Deliverable Block before reporting. When ClickUp tooling is connected, offer ClickUp delivery and wait for explicit approval, per the ClickUp handoff rule.
+Reply in the Delivery Reply Shape in Assets - Interactive Response Templates Section 3, whose quality line names the artifact kind (Story or Epic). Validate the house grammar and the honest Delivery state, then render one markdown Deliverable Block before reporting. ClickUp delivery offers and approval follow Custom Instructions Section 9, Delivery Protocol.
 
 For a Story with nested Tasks, render one Deliverable Block per file, Story first, each followed by its own `Export-equivalent path:` naming its file inside the folder, then one `HVR self-scan:` line counted across the whole set.
 

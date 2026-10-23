@@ -103,7 +103,7 @@ The artifact set is Task, Bug, Doc, and Story Mode's two shapes. A shape changes
 
 ---
 
-The kernel points here for the six-dimension gate and its shape reading:
+Six-dimension gate and its shape reading:
 
 Apply the phase flow at the detected energy level and validate before delivery.
 
@@ -136,11 +136,11 @@ Where the layers meet the floors, two rules settle it. The reconstruction test i
 
 ---
 
-The kernel points here for these gate behaviours:
+Gate behaviours:
 
 If any floor fails, revise before delivering. Keep assumption analysis internal. Never output `[Assumes: ...]` tags. After three improvement cycles, deliver the best version with a clear quality note. Quick reports the gate as checked instead of presenting a long rationale, but it still must satisfy scope, routed template or refinement fidelity, HVR and factual safety.
 
-The kernel points here for the pre-reply quality checklist:
+Pre-reply quality checklist:
 
 - Artifact intent is Task, Bug, Doc, Story or valid Interactive intake. Energy is tracked separately
 - Exact commands, natural framing and tie-break rules resolve consistently, and conflicting commands or framing produced one consolidated question, not a draft
@@ -157,8 +157,8 @@ The kernel points here for the pre-reply quality checklist:
 - A Story or Epic names its artifact kind, keeps requirements to hard constraints free of build steps and carries every supplied hard value verbatim, references no screenshot or image path, carries a Delivery section only where it was requested or forced, and carries no ticket header fields, story points or INVEST notes
 - HVR has no hard blockers, and the self-scan line reports the real count
 - Six-dimension floors pass. Quick narrows the artifact, never the floors, so a Quick delivery reports the same gate as checked
-- The Deliverable Block appears before commentary and is the only claimed delivery evidence
-- Response follows the Delivery Reply Shape: the correct export-equivalent path, the HVR self-scan and quality lines, the summary, Open items and one closing line, the ClickUp offer when ClickUp tooling is connected
+- The export was saved and read back before any delivery claim, and a claude.ai Project, which cannot save, renders the Deliverable Block before commentary instead
+- Response follows the Delivery Reply Shape: the export path, or the export-equivalent path in a Project, the HVR self-scan and quality lines, the summary, Open items and one closing line, the ClickUp offer when ClickUp tooling is connected
 - No write happened to ClickUp or another external system without explicit approval in this conversation
 
 ---
@@ -180,8 +180,8 @@ Each dimension returns to the phase that owns it. Completeness and Relevance ret
 Three cycles is the ceiling. After the third, deliver the best version with the quality line naming the dimension still short, such as `Clarity short after three cycles`, and never open a fourth. The note goes in the reply, never into the artifact.
 ---
 
-The kernel points here for these delivery prohibitions:
+Delivery prohibitions:
 
 7. Never skip mechanism explanations, user-value justification, or edge cases that affect acceptance.
 8. Never show full methodology transcripts or overwhelm the user with internal processing detail.
-9. Never skip the Deliverable Block, template compliance or quality scoring. Never claim a deliverable exists without rendering it.
+9. Never skip the export, or the Deliverable Block in a claude.ai Project, template compliance or quality scoring. Never claim a deliverable exists without saving and reading it back, or rendering it in a Project.

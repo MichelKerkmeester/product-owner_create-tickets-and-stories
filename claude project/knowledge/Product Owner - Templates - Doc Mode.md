@@ -387,7 +387,7 @@ Render one markdown Deliverable Block, then reply in the Delivery Reply Shape in
 
 The Doc quality line names five checks in order, Source safety, Shape fit, ClickUp layout, Readability and Voice, each marked pass or attention, and an attention names its item in brackets, such as `ClickUp layout attention (two headings missing the trailing divider)`. The checks map onto the Section 10 checklist groups, so the line reports gate outcomes rather than adding a new gate. Source-safety, conflict, and path-contract failures block delivery regardless of the verdict wording.
 
-When ClickUp tooling is connected, offer ClickUp delivery as an optional next step and wait for explicit approval. Never push a document or task to ClickUp unsolicited. An approved push uses markdown-aware parameters only, never the plain description field.
+ClickUp delivery offers and approval follow Custom Instructions Section 9, Delivery Protocol. An approved push follows the markdown transport contract in the vendored ClickUp packet.
 
 ---
 

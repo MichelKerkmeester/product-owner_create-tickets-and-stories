@@ -83,6 +83,7 @@ Worked example: [`examples/bug/bug-example-quick.md`](examples/bug/bug-example-q
 
 **Flows**
 - [{Flow name}]({figma-url})
+{For paired board links, follow Flow Mode Section 8.}
 
 **Components**
 - [{Component name}]({figma-url})

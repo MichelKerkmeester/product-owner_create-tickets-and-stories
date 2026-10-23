@@ -1,0 +1,226 @@
+---
+title: "mcp-click-up Installation Guide"
+description: "Installation and configuration for ClickUp task management through the cupt CLI and the ClickUp MCP path."
+version: 1.0.2.0
+---
+
+# mcp-click-up Installation Guide
+
+Complete installation and configuration for ClickUp task management, providing AI assistants with two complementary surfaces. The cupt CLI is the primary tool: daily task operations (list, complete, note, time, tag) with per-list status resolution, dry-run safety, and `--json` output. The official ClickUp MCP is the secondary surface, launched through Code Mode for task creation, documents and workspace search.
+
+> **Package:** `cupt` (PyPI) | **Dependencies:** Python 3.8+, pipx (or pip); Node.js 18+ for the MCP path
+> **Phase-by-phase validation:** the install and verification checkpoints live in [§2 Prerequisites & Installation](#2-prerequisites--installation) through [§5 Verification](#5-verification) below.
+
+**Version:** 1.0.2.0 | **Updated:** 2026-10-21
+
+---
+
+## 0. AI-FIRST INSTALL GUIDE
+
+Copy and paste this prompt to your AI assistant to get installation help:
+
+```
+Run the embedded install script from the mcp-click-up folder, wherever it sits:
+  bash scripts/install.sh
+
+It will:
+  1. Install cupt via pipx (or pip fallback)
+  2. Print the official ClickUp MCP config snippet to stdout
+
+Then:
+  cupt auth                              # Authenticate interactively
+  # OR:
+  cupt config --api-token pk_YOUR_TOKEN  # Set token directly
+
+Verify:
+  cupt --version    # -> cupt X.Y.Z
+  cupt status       # -> workspace name + user
+
+For MCP: copy the printed `clickup_official` manual into .utcp_config.json's
+manual_call_templates (Code Mode's config, not opencode.json). It launches
+`npx -y mcp-remote https://mcp.clickup.com/mcp` over stdio and signs in with OAuth.
+```
+
+### Quick Success Check (30 seconds)
+
+```bash
+cupt --version && cupt status && cupt list --today --json | head -5
+```
+
+All three succeed: the CLI surface is fully working. Not working? Go to [Troubleshooting](#6-troubleshooting).
+
+---
+
+## 1. OVERVIEW
+
+| Component | Source | Package | Install | Required For |
+|-----------|--------|---------|---------|-------------|
+| **cupt CLI** | [github.com/newz2000/cupt](https://github.com/newz2000/cupt) · [PyPI](https://pypi.org/project/cupt/) | `cupt` | `pipx install cupt` or `bash mcp-servers/clickup-cli/setup.sh` | Daily task ops (primary) |
+| **Official ClickUp MCP** | Hosted ClickUp MCP server | `https://mcp.clickup.com/mcp` | `.utcp_config.json` manual using stdio via `npx -y mcp-remote https://mcp.clickup.com/mcp`, then one OAuth approval | Task creation, documents, search (secondary) |
+
+### When to Install What
+
+```
+Need ClickUp access?
+  │
+  ├─ Daily task ops (list, done, note, time, tag)?
+  │     → cupt CLI only (Sections 2-3)
+  │
+  └─ Create tasks, documents, search?
+        → cupt CLI + MCP config (Sections 2-4)
+```
+
+### Architecture
+
+```
+Agent
+  │
+  ├── cupt list / done / note / time / tag
+  │     └── ClickUp REST API v2 (via cupt)
+  │
+  └── call_tool_chain("clickup_official.clickup_official_*")
+        └── Code Mode MCP
+              └── Official ClickUp MCP server
+                    └── ClickUp REST API v2
+```
+
+---
+
+## 2. PREREQUISITES & INSTALLATION
+
+### Prerequisites
+
+- **Python 3.8+** — `python3 --version`
+- **pipx** (recommended) or **pip** — `pipx --version`; install via `brew install pipx && pipx ensurepath` (macOS) or `python3 -m pip install --user pipx`
+- **For MCP only:** Node.js 18+ and npx, plus a ClickUp account that can approve the OAuth prompt
+
+### Install cupt
+
+```bash
+# Recommended — isolated environment
+pipx install cupt
+
+# Fallback — user pip (no isolation)
+pip install --user cupt
+
+# Verify
+cupt --version    # -> cupt 0.7.1 (or newer)
+which cupt
+```
+
+**PATH fix if installed but not found:** `pipx ensurepath && source ~/.zshrc`.
+
+---
+
+## 3. AUTHENTICATION
+
+**Option A — Personal API Token (recommended for individuals):** generate a `pk_` token at https://app.clickup.com/settings/apps, then:
+
+```bash
+cupt config --api-token pk_YOUR_TOKEN_HERE
+```
+
+A token typed on the command line lands in your shell history. Run `cupt auth` instead where you can, or clear the line from history afterwards, for example with `history -d` in bash.
+
+**Option B — OAuth (recommended for teams):** create an app with redirect URL `http://localhost:4321`, then run the interactive wizard:
+
+```bash
+cupt auth
+```
+
+**Optional defaults:**
+
+```bash
+cupt config --workspace-id 1234567    # From cupt status output
+cupt config --default-list 9876543    # Default list for lookups
+cupt config --show                    # Review current config
+```
+
+**Verify:** `cupt status` shows workspace name + user; `cupt teams` lists at least one team. A 401 means re-authenticate with `cupt logout && cupt auth`.
+
+---
+
+## 4. MCP CONFIGURATION (OPTIONAL)
+
+The official server is launched over stdio by the `clickup_official` manual with `npx -y mcp-remote https://mcp.clickup.com/mcp`. The first launch opens a browser window for one OAuth approval. No API key is needed.
+
+**Code Mode (`.utcp_config.json`, the path this skill uses):**
+
+```json
+{
+  "name": "clickup_official",
+  "call_template_type": "mcp",
+  "config": {
+    "mcpServers": {
+      "clickup_official": {
+        "transport": "stdio",
+        "command": "npx",
+        "args": ["-y", "mcp-remote", "https://mcp.clickup.com/mcp"]
+      }
+    }
+  }
+}
+```
+
+Restart your AI client after updating the config. Tool naming is `clickup_official.clickup_official_clickup_{tool}`, because every server tool name already starts with `clickup_`. Confirm a name with `tool_info()` when a call reports it missing. Configuration notes for other stdio clients: [`mcp-servers/clickup-mcp/README.md`](mcp-servers/clickup-mcp/README.md).
+
+**MCP smoke test (Code Mode):**
+
+```typescript
+// The `code` string passed to mcp__code_mode__call_tool_chain
+(async () => {
+  const tree = await clickup_official.clickup_official_clickup_get_workspace_hierarchy({ max_depth: 1 });
+  console.log(JSON.stringify(tree).slice(0, 500));
+})();
+// Should print the workspace's spaces
+```
+
+---
+
+## 5. VERIFICATION
+
+```bash
+cupt --version                        # -> cupt X.Y.Z
+cupt status                           # -> workspace name + user
+cupt teams                            # -> team list
+cupt list --today --json              # -> [] or task array (both valid)
+cupt list --tag nonexistent --json    # -> [] (confirms empty-queue handling)
+```
+
+Run every check above end to end when an install misbehaves or when validating a fresh machine; [§6 Troubleshooting](#6-troubleshooting) maps each failure to its fix.
+
+---
+
+## 6. TROUBLESHOOTING
+
+| Symptom | Cause | Fix |
+|---------|-------|-----|
+| `command not found: cupt` | PATH or install issue | `pipx install cupt && pipx ensurepath && source ~/.zshrc` |
+| `AuthError: No credentials` | Not authenticated | `cupt auth` or `cupt config --api-token pk_xxx` |
+| `cupt status` shows 401 | Expired or revoked token | `cupt logout && cupt auth` |
+| `cupt list --team X` slow (>20s) | Client-side team filter | Add `--tag Y` to narrow the result set |
+| MCP: connection fails | Manual missing, stdio launch fails, or the OAuth approval has lapsed | Add/fix the `clickup_official` manual, verify `npx -y mcp-remote https://mcp.clickup.com/mcp`, approve OAuth again |
+| MCP: tool not found | Wrong tool name | Use `clickup_official.clickup_official_{tool_name}` (all lowercase, underscores) |
+| Python version error | Python < 3.8 | Install Python 3.8+ via Homebrew or python.org |
+
+Full diagnosis and recovery: [`references/troubleshooting.md`](references/troubleshooting.md).
+
+---
+
+## 7. RESOURCES
+
+| Resource | Purpose |
+|----------|---------|
+| [`SKILL.md`](SKILL.md) | Routing rules, agent invariants, quick-reference cheat sheet |
+| [`README.md`](README.md) | Human-facing overview with feature tables and FAQ |
+| [`references/troubleshooting.md`](references/troubleshooting.md) | Full diagnosis and recovery for install failures (loaded by the smart router on INSTALL intent alongside this guide) |
+| [`references/cupt-commands.md`](references/cupt-commands.md) | Complete cupt command reference with `--json` variants |
+| [`references/mcp-tools.md`](references/mcp-tools.md) | Official MCP tool catalog: priorities + invocation |
+| [`feature-catalog/FEATURE-CATALOG.md`](feature-catalog/FEATURE-CATALOG.md) | Full cupt + MCP feature inventory |
+| [`examples/README.md`](examples/README.md) | Production scripts: task queue + time tracking |
+| [`mcp-servers/clickup-cli/README.md`](mcp-servers/clickup-cli/README.md) | cupt install pointer |
+| [`mcp-servers/clickup-mcp/README.md`](mcp-servers/clickup-mcp/README.md) | Official MCP server configuration notes |
+
+---
+
+**Need help?** See [Troubleshooting](#6-troubleshooting) or load the `mcp-click-up` skill for detailed workflows.
