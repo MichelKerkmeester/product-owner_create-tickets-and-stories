@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "packet_id": "019-runtime-and-project-optimization/013-push-target-catalog",
+  "spec_folder": "019-runtime-and-project-optimization/013-push-target-catalog",
+  "parent_id": "019-runtime-and-project-optimization",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "push target catalog",
+      "push target catalog plan",
+      "push target catalog tasks",
+      "push target catalog acceptance criteria",
+      "push target catalog goal",
+      "push target catalog implementation summary"
+    ],
+    "key_topics": [
+      "push",
+      "target",
+      "catalog",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "targets",
+      "held"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "claude project/Custom Instructions.md",
+      "claude project/templates/Product Owner - Local - Push Targets.md",
+      "sk-product-owner/SKILL.md",
+      "sk-product-owner/README.md",
+      "sk-product-owner/assets/interactive-response-templates.md",
+      "claude project/README.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner - Local - Push Targets.md",
+        "kind": "doc",
+        "path": "claude project/templates/Product Owner - Local - Push Targets.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "sk-product-owner/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "interactive-response-templates.md",
+        "kind": "doc",
+        "path": "sk-product-owner/assets/interactive-response-templates.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement Push",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Replace",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Scope",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Push Targets",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Each",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Fix",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Push targets held one link per artifact kind, but the operator's ClickUp has several lists and docs per team, so a single slot per kind cannot express where an artifact belongs",
+    "created_at": "2026-10-22T10:12:42.437Z",
+    "last_save_at": "2026-10-22T10:12:42.437Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:d5b5e653063f8d8deba5dc8eca9d4b58c781eade756d7b1aa01af9f3c3062c22",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "dc773f6fa660f34cd1a6e680e5e8d5e0577eaa51f0de0b86f21e10889515ffde",
+      "plan.md": "cba8bb3cea7bdacf99ba695ffc804a4283288277cd6a8e524f42051d43c2f88c",
+      "tasks.md": "d94b1deb966276b15ff8bac4f930ec78f4b74166d13e63dd6ab02d89d0d08721",
+      "implementation-summary.md": "0cac0db2e6ccd93aad94d09fb6a9fb9823023d83a508405df7b1041472e51eec"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

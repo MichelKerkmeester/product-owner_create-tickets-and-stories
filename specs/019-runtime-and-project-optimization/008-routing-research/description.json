@@ -1,0 +1,17 @@
+{
+  "specFolder": "019-runtime-and-project-optimization/008-routing-research",
+  "description": "Phase 8: Routing, mode links and repository hygiene research",
+  "keywords": [
+    "routing",
+    "research"
+  ],
+  "lastUpdated": "2026-10-21T18:00:00.000Z",
+  "specId": "008",
+  "folderSlug": "routing-research",
+  "parentChain": [
+    "019-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

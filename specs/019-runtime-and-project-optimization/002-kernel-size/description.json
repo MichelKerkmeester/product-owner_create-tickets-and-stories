@@ -1,0 +1,17 @@
+{
+  "specFolder": "019-runtime-and-project-optimization/002-kernel-size",
+  "description": "Phase 2: Kernel size",
+  "keywords": [
+    "kernel",
+    "size"
+  ],
+  "lastUpdated": "2026-10-21T18:00:00.000Z",
+  "specId": "002",
+  "folderSlug": "kernel-size",
+  "parentChain": [
+    "019-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

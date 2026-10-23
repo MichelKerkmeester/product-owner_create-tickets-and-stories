@@ -1,0 +1,18 @@
+{
+  "specFolder": "019-runtime-and-project-optimization/013-push-target-catalog",
+  "description": "Phase 13: named push-target catalog for the Project and the skill",
+  "keywords": [
+    "push",
+    "target",
+    "catalog"
+  ],
+  "lastUpdated": "2026-10-21T18:00:00.000Z",
+  "specId": "013",
+  "folderSlug": "push-target-catalog",
+  "parentChain": [
+    "019-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

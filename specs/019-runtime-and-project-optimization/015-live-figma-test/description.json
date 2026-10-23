@@ -1,0 +1,18 @@
+{
+  "specFolder": "019-runtime-and-project-optimization/015-live-figma-test",
+  "description": "Phase 15: live Figma playbook run on DeepSeek V4.1 Flash max",
+  "keywords": [
+    "live",
+    "figma",
+    "test"
+  ],
+  "lastUpdated": "2026-10-21T18:00:00.000Z",
+  "specId": "015",
+  "folderSlug": "live-figma-test",
+  "parentChain": [
+    "019-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

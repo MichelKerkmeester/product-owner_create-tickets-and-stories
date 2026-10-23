@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "packet_id": "019-runtime-and-project-optimization",
+  "spec_folder": "019-runtime-and-project-optimization",
+  "parent_id": null,
+  "children_ids": [
+    "019-runtime-and-project-optimization/001-runtime-config",
+    "019-runtime-and-project-optimization/002-kernel-size",
+    "019-runtime-and-project-optimization/003-knowledge-retrieval",
+    "019-runtime-and-project-optimization/004-behavior-check",
+    "019-runtime-and-project-optimization/005-claude-project-review",
+    "019-runtime-and-project-optimization/006-claude-project-fixes",
+    "019-runtime-and-project-optimization/007-project-ux-and-mode-fixes",
+    "019-runtime-and-project-optimization/008-routing-research",
+    "019-runtime-and-project-optimization/009-routing-research-fixes",
+    "019-runtime-and-project-optimization/010-routing-p0-fixes",
+    "019-runtime-and-project-optimization/011-project-push-targets",
+    "019-runtime-and-project-optimization/015-live-figma-test",
+    "019-runtime-and-project-optimization/016-figma-desktop-setup"
+  ],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "runtime and project optimization phase parent spec",
+      "runtime and project optimization goal"
+    ],
+    "key_topics": [
+      "runtime",
+      "project",
+      "optimization",
+      "phase",
+      "parent",
+      "spec",
+      "goal",
+      "public",
+      "product",
+      "owner",
+      "repository",
+      "vendors"
+    ],
+    "importance_tier": "important",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "goal.md",
+      "001-runtime-config/goal.md",
+      "002-kernel-size/goal.md",
+      "003-knowledge-retrieval/goal.md",
+      "004-behavior-check/goal.md",
+      "005-claude-project-review/goal.md",
+      "006-claude-project-fixes/goal.md",
+      "007-project-ux-and-mode-fixes/goal.md",
+      "008-routing-research/goal.md",
+      "009-routing-research-fixes/goal.md",
+      "010-routing-p0-fixes/goal.md",
+      "011-project-push-targets/goal.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Progress",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Packet",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Decisions Frozen",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Code Mode",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Documentation Map",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Project",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The public Product Owner repository vendors mcp-click-up and mcp-figma but carries no runtime config for them, and its Code Mode launcher exists only in the private .skilled tree, so a clone cannot reach ClickUp or Figma",
+    "created_at": "2026-10-21T13:45:25.618Z",
+    "last_save_at": "2026-10-22T07:45:45.237Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "goal.md"
+    ],
+    "source_fingerprint": "sha256:17c843c92517c4f478092b77c7b41ce15f987adf0a7b9203e0ce7387a8db8739",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "03918472715082d92ecae5ccd790c9b31468fbc808a5fd18d52526f4b0b9e376"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

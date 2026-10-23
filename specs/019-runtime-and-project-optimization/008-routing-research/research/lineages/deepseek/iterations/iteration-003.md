@@ -1,0 +1,71 @@
+# Iteration 3: How the modes connect: hand-offs, energies and the then-FLOW pair
+
+## Focus
+Question 3: task with subtask and parent, bug, doc and its shapes, story and epic, story with its task breakdown, interactive fallback, quick/standard/deep/raw energy, flow with its seven types and the then-FLOW pairing, refinement and the ClickUp handoff. Read each mode reference header, the interactive mode conversation architecture, the four scaffolds, route_contract's energy and pairing code, and the figjam flow mode's intake and return path, then recorded every hand-off that is undefined, duplicated or contradictory.
+
+## Findings
+1. The hub and the packet disagree about what happens to a Flow request the default packet keeps. The hub says that packet hands it on to sk-create-figjam; the packet's own Section 2 says two artifact commands are a conflict routed to one consolidated question. The gold row for $task $flow expects the default packet, so the packet's conflict rule governs and the hub sentence is wrong for the command case. Fix: hub SKILL.md line 60. [SOURCE: AI Systems/Product Owner/SKILL.md:60] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:59] [SOURCE: AI Systems/Product Owner/benchmark/hub-routing-cases.json:1-60]
+2. The paired-output rule allows a Bug beside a FigJam board, but the bug scaffold has no Flows group to receive the board URL: the executable route forms the pair for TASK, BUG, DOC and STORY, while only the task, story, epic and doc scaffolds carry the destination. A bug with a diagram is therefore promised a link the artifact cannot hold. Fix: bug-report-template.md or the pair condition. [SOURCE: AI Systems/Product Owner/sk-product-owner/references/router-contract.md:670-681] [SOURCE: AI Systems/Product Owner/sk-product-owner/assets/bug-report-template.md:1-60] [SOURCE: AI Systems/Product Owner/sk-product-owner/assets/task-templates.md:55]
+3. Two of the four documented energies have no route. The prose defines Raw, Quick, Standard and Deep, and lets a user ask for Deep or 'skip depth' for Raw, while the executable contract resolves only QUICK or STANDARD and carries no Deep or skip-depth pattern, so the same request routes Standard in code and Raw in prose. Fix: route_contract.py detect_energy and its fixtures, or delete the unreachable levels. [SOURCE: AI Systems/Product Owner/benchmark/router/route_contract.py:627-633] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:97-102] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:73-77]
+4. The Bug-to-Task hand-off is undefined at routing time. Bug Mode sends grouped bugs, consolidation tickets, bug-fix-plus-feature work and Refinement + Bugs tickets to Task Mode, but no router signal, framing pattern or topic reaches that decision: the contract routes bug and defect wording to BUG and has no grouped-bug vocabulary. Fix: bug-mode.md lines 43-47 or the topic table. [SOURCE: AI Systems/Product Owner/sk-product-owner/references/bug-mode.md:43-47] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/routing.md:59-69]
+5. The Story-to-Task boundary contradicts itself. Story Mode says a single implementation unit is Task Mode, and in the same section defines a Story as covering one or more requirements that become implementation tasks, so a one-requirement request is a Task by the first sentence and a Story by the second. Nothing states which reading wins before routing. Fix: story-mode.md lines 42-50. [SOURCE: AI Systems/Product Owner/sk-product-owner/references/story-mode.md:40-55]
+6. The Quick fallback is stated three ways. routing.md keeps the narrow Task fallback under Quick energy below the confidence floor; interactive-mode lets Quick bypass routine Task, Bug or Doc intake; the packet SKILL.md states the fallback with no Quick exception at all. A reader who follows Section 2 asks a question the prose elsewhere says Quick skips. Fix: sk-product-owner/SKILL.md line 62. [SOURCE: AI Systems/Product Owner/sk-product-owner/references/routing.md:49] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:109] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:62]
+7. Interactive Mode's clarification-lane sentence omits Task while the template it prints and the packet SKILL.md both include it: one line says a request that reached Interactive through the Doc, Story or Bug gate keeps that lane, and the code block beside it offers task as a prefix. A Task clarification therefore has a template and no stated lane rule. Fix: interactive-mode.md line 93. [SOURCE: AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md:87-93] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:125]
+8. The Story bundle's task path exists in only two of the three places that define a task's output path: Story Mode and the task template say a bundled task saves as [###].[n] - task-[description].md inside the Story folder, while task-mode.md offers only the standalone task path and never mentions the bundle. A reader who loads only Task Mode writes the wrong path. Fix: task-mode.md line 22. [SOURCE: AI Systems/Product Owner/sk-product-owner/references/task-mode.md:22] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/story-mode.md:388-401] [SOURCE: AI Systems/Product Owner/sk-product-owner/assets/task-templates.md:160]
+9. The ClickUp hand-off has one owner but three pointer forms: the packet SKILL.md Section 7 owns it and says AGENTS.md and the kernel point there, doc-mode names 'Section 7 Push Targets', Story Mode names 'the skill's ClickUp handoff rule' with no section, and SKILL.md rule 14 names 'the transport contract in Section 7' although the transport contract itself belongs to the vendored mcp-click-up packet. The owner is right; the pointers are not uniform, and one is unfindable by name. Fix: story-mode.md line 412. [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:173] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:281-293] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/doc-mode.md:416] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/story-mode.md:412]
+
+## Ruled Out
+- Treating the Story-with-nested-tasks bundle as a two-artifact conflict: Story Mode explicitly says it is one dependent deliverable and only two explicit commands conflict
+- Treating the Doc shapes as inconsistent: the five shapes are named identically in routing.md, doc-mode.md and doc-templates.md
+- Treating 'Section 7 Push Targets' as a dangling pointer: Section 7 INTEGRATION POINTS does contain a Push Targets subsection
+
+## Dead Ends
+- Looking for a Flows group in the bug report template: the scaffold has no such group, which is what makes the Bug-plus-FigJam pair unwritable
+- Looking for a Deep or Raw branch in the executable router: detect_energy has two returns and no other energy vocabulary
+
+## Edge Cases
+- Ambiguous input: Question 3 asks for undefined, duplicated or contradictory hand-offs; each finding names which of the three it is in its own text
+- Contradictory evidence: The Story/Task boundary and the Flow hand-back are both internal contradictions rather than drift between a source and a copy; they are recorded as findings, not corrected
+- Missing dependencies: The seven Flow types were read from the figjam packet's type table and are internally consistent; no separate finding was raised
+- Partial success: The ClickUp transport mechanics inside the vendored packet were read only for its pointer, not audited, because that packet is out of scope
+
+## Sources Consulted
+- specs/z-staging-po-019s/research/lineages/deepseek/steer.md
+- AI Systems/Product Owner/SKILL.md
+- AI Systems/Product Owner/sk-product-owner/SKILL.md
+- AI Systems/Product Owner/sk-product-owner/references/task-mode.md
+- AI Systems/Product Owner/sk-product-owner/references/bug-mode.md
+- AI Systems/Product Owner/sk-product-owner/references/doc-mode.md
+- AI Systems/Product Owner/sk-product-owner/references/story-mode.md
+- AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md
+- AI Systems/Product Owner/sk-product-owner/references/routing.md
+- AI Systems/Product Owner/sk-product-owner/references/router-contract.md
+- AI Systems/Product Owner/sk-product-owner/assets/task-templates.md
+- AI Systems/Product Owner/sk-product-owner/assets/bug-report-template.md
+- AI Systems/Product Owner/sk-product-owner/assets/story-template.md
+- AI Systems/Product Owner/sk-product-owner/assets/epic-template.md
+- AI Systems/Product Owner/benchmark/router/route_contract.py
+- AI Systems/Product Owner/sk-create-figjam/SKILL.md
+- AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md
+
+## Assessment
+- New information ratio: 0.7
+- Questions addressed: Where is a hand-off between modes undefined, duplicated or contradictory?
+- Questions answered: Where is a hand-off between modes undefined, duplicated or contradictory?
+
+## Reflection
+- What worked and why: Reading each mode's Hands Off To header beside its command list exposed the two contradictions quickly, because the header states the hand-off and the command list states the exception
+- What did not work and why: The first pass assumed the Doc shape count had drifted; the five shapes match in all three files, so that lead was dropped
+- What I would do differently: Start with the executable route's own conditions (energy returns, pair condition, lane keys) and check each against the scaffolds, which is where the missing Flows group surfaced
+
+## Questions Remaining
+- Is routing embedded in the right Claude Project layer, and what could shrink without losing a rule that must fire every turn?
+- What are the concrete, ranked routing and mode-link changes, each with the files it touches, its risk, the gate that proves it and the byte effect on the kernel?
+- Which README claims are stale against the files they describe?
+- Which scripts, functions, flags and config entries are dead code?
+- Which references, assets, examples and playbook files are dead documents?
+- How does the Product Owner's own Python, shell, JavaScript and JSON deviate from the sk-code-skilled standards?
+- What is the ranked synthesis of every finding, and what can the repository not settle?
+
+## Recommended Next Focus
+Question 4: routing in the Claude Project. Read the kernel's Section 2, 4, 7, 8 and 11 plus the knowledge index, measure what the kernel repeats, and separate the rules that must fire every turn from the ones a retrieved Knowledge doc can carry.

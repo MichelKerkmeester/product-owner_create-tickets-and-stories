@@ -1,0 +1,120 @@
+{
+  "iteration": 8,
+  "focusTitle": "Dead documents: references, assets, examples and playbooks nothing loads",
+  "focus": "Question 8: decide whether any reference, asset, example or playbook file is unreachable. Searches performed: listed every leaf in leaf-manifest.json and checked each exists on disk; compared every file under both packets' references/ and assets/ against the leaf list; read both SKILL.md Section 2 lane tables and checked each leaf against an ALWAYS, CONDITIONAL or ON_DEMAND token; extracted every markdown link from every .md file outside benchmark/reports/ and checked each target exists; counted inbound links per file; walked all three playbook folders and compared linked scenario files with files on disk; grepped every knowledge filename against all non-knowledge text.",
+  "findings": [
+    {
+      "severity": "P1",
+      "label": "No dead document exists in either in-scope packet. All 73 leaves exist, the 64 reference and asset files in the two owner packets are exactly the leaf list with no file outside it, both lane tables cover every leaf through a named file or a named directory, all three playbook indexes link every scenario on disk (52 of 52, 52 of 52, 7 of 7), the 35 company fixtures are named by the scenarios that use them, and the 29 packet changelog notes are linked from README and SKILL.md. Fix: none. [SOURCE: AI Systems/Product Owner/leaf-manifest.json:1-20] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:71-73] [SOURCE: AI Systems/Product Owner/sk-create-figjam/SKILL.md:63-65]",
+      "sources": [
+        "AI Systems/Product Owner/leaf-manifest.json",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-create-figjam/SKILL.md"
+      ]
+    },
+    {
+      "severity": "P1",
+      "label": "A markdown link graph is the wrong reachability test here and would delete the routing sources if trusted: 549 files have no inbound markdown link, including every routed reference, every asset and every playbook scenario, because the runtime reaches them through leaf-manifest.json, the ROUTER map and the lane tokens, not through prose links. The authoritative tests are those three, and only folders outside the packets (playbooks, changelog, benchmark) are fairly judged by links. Fix: none; record the method so a future cleanup does not run an orphan-link delete. [SOURCE: AI Systems/Product Owner/leaf-manifest.json:1-20] [SOURCE: AI Systems/Product Owner/ROUTER.md:36-60] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:71-73]",
+      "sources": [
+        "AI Systems/Product Owner/leaf-manifest.json",
+        "AI Systems/Product Owner/ROUTER.md",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md"
+      ]
+    },
+    {
+      "severity": "P2",
+      "label": "The 21 example knowledge mirrors are reachable only by a naming convention, never by name: no non-knowledge file mentions any of them, and the kernel reaches all 21 through one group row plus the rule that titles read Examples - {Kind} - {Descriptor}. A renamed example silently falls out of retrieval and no gate in the sync loop would notice, because the format gate reads the kernel and the drift comparison reads file names only. Fix: add a check that every knowledge file still matches the prefix pattern the kernel states. [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:222-224] [SOURCE: AI Systems/Product Owner/claude project/README.md:49-53]",
+      "sources": [
+        "AI Systems/Product Owner/claude project/Custom Instructions.md",
+        "AI Systems/Product Owner/claude project/README.md"
+      ]
+    },
+    {
+      "severity": "P2",
+      "label": "The hub's own release note is the one document with no inbound link: README links the packet's latest note and describes the hub changelog folder in the tree, but never links changelog/v1.0.0.0.md, so the file is reachable only by browsing the folder. Fix: link it from the README release line beside the packet note. [SOURCE: AI Systems/Product Owner/README.md:768] [SOURCE: AI Systems/Product Owner/README.md:926] [SOURCE: AI Systems/Product Owner/changelog/v1.0.0.0.md:1-5]",
+      "sources": [
+        "AI Systems/Product Owner/README.md",
+        "AI Systems/Product Owner/changelog/v1.0.0.0.md"
+      ]
+    },
+    {
+      "severity": "P2",
+      "label": "Thirteen in-scope files write template placeholders as markdown links, so a link checker reports 14 broken links that are not drift: task-templates.md alone has three forms of [{name}](figma-url). No link gate can be added to the repository until these are exempted or rewritten, which is why link integrity is unverified today while every other document claim is gated. Fix: write placeholders as code spans or angle-bracket URLs, then add a link check to run_gates.sh. [SOURCE: AI Systems/Product Owner/sk-product-owner/assets/task-templates.md:57] [SOURCE: AI Systems/Product Owner/sk-product-owner/assets/story-template.md:1-40]",
+      "sources": [
+        "AI Systems/Product Owner/sk-product-owner/assets/task-templates.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/story-template.md"
+      ]
+    },
+    {
+      "severity": "P2",
+      "label": "The vendored mcp-code-mode packet carries 13 genuinely broken links: its doctor commands point at ../../../../commands/doctor/mcp.md, which resolves to AI Systems/commands/doctor/, while the real file sits under .skilled/commands/doctor/. A reader of those playbooks cannot open the command they test. Fix: correct the path upstream in the shared skill and pull it through scripts/vendor-sync.py; editing the copy here would be reverted by the next pull. [SOURCE: AI Systems/Product Owner/mcp-code-mode/manual-testing-playbook/doctor-commands/doctor-mcp-debug.md:80] [SOURCE: AI Systems/Product Owner/scripts/vendor-sync.py:1-30]",
+      "sources": [
+        "AI Systems/Product Owner/mcp-code-mode/manual-testing-playbook/doctor-commands/doctor-mcp-debug.md",
+        "AI Systems/Product Owner/scripts/vendor-sync.py"
+      ]
+    },
+    {
+      "severity": "P2",
+      "label": "references/routing.md is the one reference file with no lane token: the three lane rows name the other eleven references and both asset templates, while routing.md appears only in prose after the table and in the hub ROUTER's keyword note. A reader who loads lanes mechanically never opens the file that holds the routing steps, the confidence thresholds and the Story shape rules. Fix: add it to the ALWAYS or CONDITIONAL row. [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:71-77] [SOURCE: AI Systems/Product Owner/ROUTER.md:113]",
+      "sources": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/ROUTER.md"
+      ]
+    }
+  ],
+  "ruledOut": [
+    "Calling figjam assets/templates/user-flow.md dead: no such file exists, and user flow patterns live in assets/flow-templates.md, which every Flow route loads",
+    "Calling the 35 benchmark company fixtures dead: every one is named by at least one playbook scenario",
+    "Calling the figjam playbook's 52 scenarios unlinked: its index links them with a Feature File anchor the first extractor missed"
+  ],
+  "deadEnds": [
+    "Counting inbound markdown links as reachability: it marked 549 files orphan, including every routed reference, because the manifest and the lane tables are the real load path",
+    "Searching for a leaf that no lane names: every leaf is covered either by name or by a directory token, so the only miss is routing.md getting prose mention instead of a lane"
+  ],
+  "edgeCases": {
+    "ambiguous": "Question 8 asks what nothing loads; a file named only in prose is loaded by a reader who follows the prose, so routing.md is reported as unlaned rather than dead",
+    "contradictory": "The Project README lists example files by wildcard while the kernel names a prefix rule; both are consistent, and the convention is what makes 21 unnamed files reachable",
+    "missing": "No link check runs anywhere, so link integrity rests on this one manual pass",
+    "partial": "The vendored packets were only spot-checked, because their content is owned upstream and a local edit would be reverted"
+  },
+  "sources": [
+    "specs/z-staging-po-019s/research/lineages/deepseek/steer.md",
+    "AI Systems/Product Owner/leaf-manifest.json",
+    "AI Systems/Product Owner/ROUTER.md",
+    "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+    "AI Systems/Product Owner/sk-create-figjam/SKILL.md",
+    "AI Systems/Product Owner/sk-product-owner/references/routing.md",
+    "AI Systems/Product Owner/sk-product-owner/assets/task-templates.md",
+    "AI Systems/Product Owner/sk-product-owner/assets/story-template.md",
+    "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/manual-testing-playbook.md",
+    "AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md",
+    "AI Systems/Product Owner/manual-testing-playbook/manual-testing-playbook.md",
+    "AI Systems/Product Owner/changelog/v1.0.0.0.md",
+    "AI Systems/Product Owner/README.md",
+    "AI Systems/Product Owner/claude project/Custom Instructions.md",
+    "AI Systems/Product Owner/claude project/README.md",
+    "AI Systems/Product Owner/mcp-code-mode/manual-testing-playbook/doctor-commands/doctor-mcp-debug.md",
+    "AI Systems/Product Owner/scripts/vendor-sync.py"
+  ],
+  "questionsAddressed": [
+    "Which references, assets, examples and playbook files are dead documents?"
+  ],
+  "questionsAnswered": [
+    "Which references, assets, examples and playbook files are dead documents?"
+  ],
+  "questionsRemaining": [
+    "How does the Product Owner's own Python, shell, JavaScript and JSON deviate from the sk-code-skilled standards?",
+    "What is the ranked synthesis of every finding, and what can the repository not settle?"
+  ],
+  "reflection": {
+    "worked": "Testing reachability through leaf-manifest, ROUTER and the lane tables instead of the link graph answered the question with evidence and cleared 73 leaves at once",
+    "failed": "The first link pass compared encoded URLs and normalized paths differently, so valid claude-project links looked broken and every file looked orphaned",
+    "differently": "Establish the load path first, then test reachability against it, and use links only for the folders the runtime never reads"
+  },
+  "status": "complete",
+  "newInfoRatio": 0.62,
+  "noveltyJustification": "The iteration clears the dead-document question, shows why a link-graph answer would be wrong, isolates the hub release note and routing.md as the only two reachability misses, and finds 13 real broken links in a vendored packet that must be fixed upstream.",
+  "nextFocus": "Question 9: code standards. Read the sk-code-skilled standards that apply to this repository's Python, shell, JavaScript and JSON, then compare the Product Owner's own files against them clause by clause.",
+  "timestamp": "2026-10-21T18:25:00Z",
+  "durationMs": 0
+}

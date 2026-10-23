@@ -1,0 +1,17 @@
+{
+  "specFolder": "019-runtime-and-project-optimization/003-knowledge-retrieval",
+  "description": "Phase 3: Knowledge retrieval",
+  "keywords": [
+    "knowledge",
+    "retrieval"
+  ],
+  "lastUpdated": "2026-10-21T18:00:00.000Z",
+  "specId": "003",
+  "folderSlug": "knowledge-retrieval",
+  "parentChain": [
+    "019-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

@@ -1,0 +1,21 @@
+Lineage complete — all ten iterations executed inline in this session, each rendered, appended through the gateway, reduced, and gate-verified; synthesis written and closed out.
+
+## Result
+
+**Path:** `specs/z-staging-po-019s/research/lineages/deepseek/`
+- `iterations/iter-001…010.md` (10), `deltas/iter-001…010.jsonl` (10)
+- `research.md` (12,135 B synthesis), `deep-research-dashboard.md` (COMPLETE)
+- `deep-research-state.jsonl`: 12 rows (run init, 10 iterations, `synthesis_complete`); registry: `status COMPLETE`, `stopReason max-iterations`, 88 key findings, 10/10 questions answered, 0 open, `corruptionCount 0`
+
+## What the research established
+
+- **P0 — stage one has three authorities and no precedence.** Hub prose, `ROUTER.md` and `hub-router.json` all state the rules; rules 3 and 4 collide on a tool-first-plus-artifact request and no gold row covers it. `DEFAULT_RESOURCE` names different resources in two files and is read by nothing; `router-contract.md`'s ALWAYS entry can never load.
+- **P0 — two leaf maps, no comparison.** `RESOURCE_MAP` and `leaf-manifest.json` disagree on key sets, and the FLOW lane escapes differential table parity, leaving FigJam routing without an executable contract.
+- **P0 — seven undefined mode hand-offs** (Flow hand-back, Story/Task boundary, Bug+FigJam paired output, Bug→Task, Interactive Task omission, three Quick fallbacks, Raw/Deep unroutable energies).
+- **P1 — gates reach the code, not the prose.** Only Section 11 is parity-held; `check_hub` replays gold rows against its own replica; 5 guards documented as 4; 37 gold rows documented as 33. Kernel: 70,010 B, 27,025 B of it locked by parity, 12,202 B (17%) shrinkable.
+- **P1 — nothing checks the build.** Plugin copy one line stale (`just do it` branch missing), `build-plugin.py` in no gate, no link check, 13 vendored broken links, placeholders written as links.
+- **Cleared:** no dead code file, no dead document, shellcheck-clean, 22/22 Python compile, 10/10 JSON well formed. Real leftovers are four unread config entries, one unlaned reference, one unlinked hub changelog note.
+
+**Provenance disclosed, not hidden:** iteration 1's timestamp/duration were hand-written, not clock-read; all `durationMs` are placeholders; route proof comes from deltas because the projection lacks leaf-dispatch fields. The append-only ledger was not edited.
+
+FANOUT_LINEAGE_COMPLETE:deepseek

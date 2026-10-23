@@ -1,0 +1,67 @@
+# Iteration 5: Ranked routing and mode-link changes with files, risk, gate and kernel bytes
+
+## Focus
+Question 5: turn the routing, hand-off and layer findings of iterations 1 to 4 into ranked, concrete changes. For each one, name the files it touches, its risk, the gate that proves it and its kernel byte effect, using measured segment sizes rather than estimates. Byte figures were taken from the files as they stand today: hub SKILL.md Stage One Rules 1,906 bytes, its Outcomes block 726, its compiled-router directive 883; kernel Section 5 7,597, Section 7 1,230, Section 8 3,375; the router-contract DEFAULT_RESOURCE line 51; the kernel's pointer lines 1,657.
+
+## Findings
+1. Change 1, highest value at low risk: make hub-router.json the single stage-one authority and reduce the hub SKILL.md Stage One Rules and Outcomes blocks to a pointer at routerPolicy.stageOneOrder and routerPolicy.outcomes. Files: SKILL.md, hub-router.json. Risk: medium, because prose is what a model reads and a pointer loses the worked examples in rules 3 and 4. Gate: the 37 gold rows in benchmark/hub-routing-cases.json through check_hub.py, plus a new assertion that the pointer names stageOneOrder. Kernel bytes: none. CLI bytes: about 2,632 from SKILL.md. [SOURCE: AI Systems/Product Owner/SKILL.md:48-82] [SOURCE: AI Systems/Product Owner/hub-router.json:24-30] [SOURCE: AI Systems/Product Owner/benchmark/gates/check_hub.py:277-293]
+2. Change 2, cheapest real defect: delete DEFAULT_RESOURCE from router-contract.md or give it the value ROUTER.md states, then add it to differential's table parity so it cannot disagree again. Files: sk-product-owner/references/router-contract.md, benchmark/router/differential.py. Risk: low, because nothing reads the constant today. Gate: a new differential comparison beside CONFIDENCE_THRESHOLDS and the lane maps. Kernel bytes: none. CLI bytes: 51 removed or rewritten. [SOURCE: AI Systems/Product Owner/sk-product-owner/references/router-contract.md:49] [SOURCE: AI Systems/Product Owner/ROUTER.md:37] [SOURCE: AI Systems/Product Owner/benchmark/router/differential.py:496-520]
+3. Change 3: state first-match-wins in the hub rule text and add the missing collision row to the gold set, a request that opens with a tool signal and names an artifact, for example 'figma-ds-cli fj nodes and write a task for the spacing', expected in the default packet. Files: SKILL.md, benchmark/hub-routing-cases.json. Risk: low, because the ordering already decides the answer and the task only documents it. Gate: check_hub.py replay, which fails today only if the prose and the expected row disagree. Kernel bytes: none. [SOURCE: AI Systems/Product Owner/SKILL.md:54-55] [SOURCE: AI Systems/Product Owner/benchmark/hub-routing-cases.json:1-60]
+4. Change 4: correct the hub's Flow hand-back sentence so it matches the packet, which asks one consolidated question on two artifact commands and hands off only when the request is otherwise a single artifact. Files: SKILL.md line 60. Risk: low. Gate: the existing $task $flow gold row, which already expects the default packet. Kernel bytes: none; CLI bytes: a few dozen. [SOURCE: AI Systems/Product Owner/SKILL.md:60] [SOURCE: AI Systems/Product Owner/sk-product-owner/SKILL.md:57-59]
+5. Change 5, the only change that alters an artifact grammar: either add a Flows group to the bug scaffold or remove BUG from the paired-output condition. The first keeps a bug-plus-diagram request writable; the second keeps the promise honest and is the smaller edit. Files: assets/bug-report-template.md or router-contract.md line 672, plus the corpus and format fixtures for either choice. Risk: medium, because it changes what a delivered bug may contain. Gate: differential fixtures for the route and benchmark/format/run_fixtures.sh for the scaffold. Kernel bytes: none directly, but the kernel's Section 5 house-format paragraph would follow a template change. [SOURCE: AI Systems/Product Owner/sk-product-owner/references/router-contract.md:670-681] [SOURCE: AI Systems/Product Owner/sk-product-owner/assets/bug-report-template.md:1-40] [SOURCE: AI Systems/Product Owner/benchmark/format/run_fixtures.sh:1-40]
+6. Change 6: resolve the energy mismatch in one direction. Either teach the resolver Deep and Raw and add corpus rows for 'think longer', 'full depth' and 'skip depth', or delete Raw and Deep from the prose and from the kernel's energy table. The first preserves a documented capability; the second is honest about a two-energy router. Files: route_contract.py, router-contract.md, kernel Section 4, fixtures and corpus. Risk: medium, because it changes a delivered route object. Gate: differential coverage, which requires a corpus input per energy before it can pass. Kernel bytes: up to about 400 if the table shrinks. [SOURCE: AI Systems/Product Owner/benchmark/router/route_contract.py:627-633] [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:129-134] [SOURCE: AI Systems/Product Owner/benchmark/router/differential.py:620-644]
+7. Change 7, highest risk and the one to schedule last: unify the leaf maps. Today ROUTER.md's map is held by the skilled root-router contract and router-contract's map by differential, and they disagree on key set. Making one own the lanes and deriving or deleting the other touches a gate on each side. Files: ROUTER.md, router-contract.md, differential.py, root-router-contract use. Risk: high, because both gates read the map they own and a bad merge can strand a lane. Gate: differential table parity plus the skilled hub contract through run_gates.sh. Kernel bytes: none for the CLI map, but if the derived copy changes, the kernel's Section 11 changes with it. [SOURCE: AI Systems/Product Owner/ROUTER.md:66-103] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/router-contract.md:136-152] [SOURCE: AI Systems/Product Owner/benchmark/gates/run_gates.sh:41-54]
+8. Change 8, the largest kernel saving: reduce Section 5 to the two invariants and three pointers, keeping the source-authority order (278 bytes) and one-line house-format and ClickUp invariants, and moving the 925, 1,029 and 3,168 byte paragraphs to the Doc Mode and Story Mode knowledge docs that own them. Files: claude project/Custom Instructions.md, and the matching knowledge files if an invariant moves. Risk: medium-high, because a chunked retrieval could miss a moved rule. Gate: no automated gate proves rule retention; differential proves only that Section 11 still matches, so this needs a live Project read and the hand parity review SYNC.md describes. Kernel bytes: about -4,600. [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:138-166] [SOURCE: AI Systems/Product Owner/SYNC.md:8-20]
+9. Change 9: fold the Section 7 routing matrix into Section 4's table and the Section 8 consultation table into Section 2's domains list, keeping one lane map instead of three. Files: claude project/Custom Instructions.md. Risk: low-medium, because the surviving table must carry every trigger the removed one had. Gate: none automated; a diff read of the three tables before and after. Kernel bytes: about -4,605 combined. [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:55-64] [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:180-227]
+10. Change 10: collapse the 18 Full detail lines to one pointer per target and drop the six-line Section 10 heading that states no checklist. Files: claude project/Custom Instructions.md. Risk: low, because every target stays named and nothing new is asserted. Gate: none automated; a pointer-resolution check would be three lines in the format gate. Kernel bytes: about -1,433. [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:84-117] [SOURCE: AI Systems/Product Owner/claude project/Custom Instructions.md:317-322]
+
+## Ruled Out
+- Trimming Section 11 to shrink the kernel: copy parity makes the kernel and router-contract.md a single edit, so a kernel-only trim cannot land
+- Adding a compiled activation manifest for product-owner to make the directive live: the hub gate and the gold rows would then measure a router nobody exercised, and admission needs a scored scenario per mode first
+- Deleting the stage-one prose without moving its worked examples into hub-router.json: the examples in rules 3 and 4 are the only place the tool-signal-versus-artifact collision is explained
+
+## Dead Ends
+- Looking for a gate that would prove a kernel prose deletion safe: none exists; only the hand parity review in SYNC.md covers rule retention
+
+## Edge Cases
+- Ambiguous input: The question asks for kernel bytes where they apply; changes 1 to 7 report none or a small table effect, and only 8 to 10 change the kernel
+- Contradictory evidence: Change 5 can be done two opposite ways, adding a destination or removing a promise; the finding names the smaller edit and the trade-off rather than picking silently
+- Missing dependencies: No gate measures whether a moved kernel rule still fires in a live Project, which is why change 8 carries the highest residual risk
+- Partial success: Byte figures are measured segment sizes, not projected totals after formatting; totals therefore carry a small rounding margin
+
+## Sources Consulted
+- specs/z-staging-po-019s/research/lineages/deepseek/steer.md
+- AI Systems/Product Owner/SKILL.md
+- AI Systems/Product Owner/hub-router.json
+- AI Systems/Product Owner/ROUTER.md
+- AI Systems/Product Owner/sk-product-owner/references/router-contract.md
+- AI Systems/Product Owner/sk-product-owner/SKILL.md
+- AI Systems/Product Owner/sk-product-owner/assets/bug-report-template.md
+- AI Systems/Product Owner/benchmark/router/differential.py
+- AI Systems/Product Owner/benchmark/router/route_contract.py
+- AI Systems/Product Owner/benchmark/gates/check_hub.py
+- AI Systems/Product Owner/benchmark/gates/run_gates.sh
+- AI Systems/Product Owner/benchmark/format/run_fixtures.sh
+- AI Systems/Product Owner/benchmark/hub-routing-cases.json
+- AI Systems/Product Owner/claude project/Custom Instructions.md
+- AI Systems/Product Owner/SYNC.md
+
+## Assessment
+- New information ratio: 0.6
+- Questions addressed: What are the concrete, ranked routing and mode-link changes, each with the files it touches, its risk, the gate that proves it and the byte effect on the kernel?
+- Questions answered: What are the concrete, ranked routing and mode-link changes, each with the files it touches, its risk, the gate that proves it and the byte effect on the kernel?
+
+## Reflection
+- What worked and why: Ranking by gate coverage as well as by value put changes 2, 3 and 4 first, because each is a small edit with an existing gate that would prove it
+- What did not work and why: The first version of change 7 proposed deleting router-contract's map, which differential needs as the executed reference; the option was rewritten as an ownership decision
+- What I would do differently: For each change, name the gate before the edit; a change with no gate belongs behind the hand review, not in the first batch
+
+## Questions Remaining
+- Which README claims are stale against the files they describe?
+- Which scripts, functions, flags and config entries are dead code?
+- Which references, assets, examples and playbook files are dead documents?
+- How does the Product Owner's own Python, shell, JavaScript and JSON deviate from the sk-code-skilled standards?
+- What is the ranked synthesis of every finding, and what can the repository not settle?
+
+## Recommended Next Focus
+Question 6: README currency. Check the root README, USER-GUIDE, the Claude Project README, both packet READMEs, the benchmark, scripts and manual-testing-playbook READMEs against the files, counts, paths, commands and versions they claim.
