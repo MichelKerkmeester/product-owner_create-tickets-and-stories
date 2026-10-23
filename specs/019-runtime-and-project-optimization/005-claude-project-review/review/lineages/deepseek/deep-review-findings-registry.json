@@ -1,0 +1,731 @@
+{
+  "sessionId": "fanout-deepseek-1792598333413-h7kxu3",
+  "parentSessionId": null,
+  "generation": 1,
+  "lineageMode": "new",
+  "continuedFromRun": null,
+  "terminalStop": {
+    "stopReason": "maxIterationsReached",
+    "totalIterations": 3,
+    "timestamp": "2026-10-21T16:11:02.340Z"
+  },
+  "status": "COMPLETE",
+  "openFindings": [
+    {
+      "findingId": "R1-P1-001",
+      "severity": "P1",
+      "title": "Kernel ALWAYS 1 and ALWAYS 6 state the Deliverable-Block and ClickUp-offer rules without the Flow exception the same block grants",
+      "file": "AI Systems/Product Owner/claude project/Custom Instructions.md",
+      "line": 82,
+      "description": "Kernel ALWAYS 1 and ALWAYS 6 state the Deliverable-Block and ClickUp-offer rules without the Flow exception the same block grants",
+      "findingClass": "cross_file_contradiction",
+      "deltaStatus": "active",
+      "scopeProof": "read the cited line before recording",
+      "affectedSurfaceHints": [
+        "Product Owner claude.ai Project kernel",
+        "Project Knowledge mirrors"
+      ],
+      "contentHash": "770fba8d88149d0e698a1147e873e22ed5b8c3b607c4fbcd186008f53d362169",
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R1-P1-002",
+      "severity": "P1",
+      "title": "Just do it selects Quick energy in the knowledge mirror and the skill but not in the kernel router code or its Quick row",
+      "file": "AI Systems/Product Owner/claude project/Custom Instructions.md",
+      "line": 511,
+      "description": "Just do it selects Quick energy in the knowledge mirror and the skill but not in the kernel router code or its Quick row",
+      "findingClass": "routing_drift",
+      "deltaStatus": "active",
+      "scopeProof": "read the cited line before recording",
+      "affectedSurfaceHints": [
+        "Product Owner claude.ai Project kernel",
+        "Project Knowledge mirrors"
+      ],
+      "contentHash": "2fcdb1f5ebce16dfeebbb8844a05198c44fca470a945ac031001f8f55bc98b97",
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R2-P1-001",
+      "severity": "P1",
+      "title": "Only the CLI Code Mode install is documented for ClickUp and Figma, so a Project user is never told how to add or enable either connector",
+      "file": "AI Systems/Product Owner/README.md",
+      "line": 173,
+      "description": "Only the CLI Code Mode install is documented for ClickUp and Figma, so a Project user is never told how to add or enable either connector",
+      "findingClass": "missing_surface_instructions",
+      "deltaStatus": "active",
+      "scopeProof": "read the cited line before recording",
+      "affectedSurfaceHints": [
+        "Product Owner setup documentation",
+        "claude.ai Project onboarding"
+      ],
+      "contentHash": "0c07aae6f6377149b2ebc3c6d1ac17852f95de8f8e39ed9ab0a350b560f93567",
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R2-P1-002",
+      "severity": "P1",
+      "title": "The Figma connector has no setup, enablement or surface statement although Flow Mode Delivery depends on it",
+      "file": "AI Systems/Product Owner/claude project/Custom Instructions.md",
+      "line": 255,
+      "description": "The Figma connector has no setup, enablement or surface statement although Flow Mode Delivery depends on it",
+      "findingClass": "missing_surface_instructions",
+      "deltaStatus": "active",
+      "scopeProof": "read the cited line before recording",
+      "affectedSurfaceHints": [
+        "Product Owner setup documentation",
+        "claude.ai Project onboarding"
+      ],
+      "contentHash": "8521b2c7aac3c3b4e33eb9580c8b92c58332dcc0c3f7f17caf1d9802a933f625",
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P1-001",
+      "severity": "P1",
+      "title": "The private-doc recipe omits name and parent plus the container-resolution rule the source skill carries",
+      "file": "AI Systems/Product Owner/claude project/Custom Instructions.md",
+      "line": 299,
+      "description": "The private-doc recipe omits name and parent plus the container-resolution rule the source skill carries",
+      "findingClass": "missing_required_parameter",
+      "deltaStatus": "active",
+      "scopeProof": "read the cited line before recording",
+      "affectedSurfaceHints": [
+        "Product Owner ClickUp transport",
+        "Product Owner Flow Mode Figma transport"
+      ],
+      "contentHash": "9487c2488bb0241c11dadea59ba1a3a5f95f37b9a3c1e27d7a1cdc31ec638051",
+      "dimension": "correctness",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P1-002",
+      "severity": "P1",
+      "title": "Flow knowledge asserts a Figma connector tool set no repository document evidences for that surface",
+      "file": "AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+      "line": 311,
+      "description": "Flow knowledge asserts a Figma connector tool set no repository document evidences for that surface",
+      "findingClass": "unverified_capability_claim",
+      "deltaStatus": "active",
+      "scopeProof": "read the cited line before recording",
+      "affectedSurfaceHints": [
+        "Product Owner ClickUp transport",
+        "Product Owner Flow Mode Figma transport"
+      ],
+      "contentHash": "e89b82f239366ed264671c6c819bd323527021506757245b6584ed8c284a53ea",
+      "dimension": "correctness",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R1-P2-001",
+      "severity": "P2",
+      "title": "Flow Quality Rubric mirror tells the reader to load a skill path that does not exist in the Project",
+      "file": "AI Systems/Product Owner/claude project/knowledge/Product Owner - Rules - Flow Quality Rubric.md",
+      "line": 11,
+      "description": "Flow Quality Rubric mirror tells the reader to load a skill path that does not exist in the Project",
+      "findingClass": "parity_residue",
+      "deltaStatus": "active",
+      "scopeProof": "read the cited line before recording",
+      "affectedSurfaceHints": [
+        "Product Owner claude.ai Project kernel",
+        "Project Knowledge mirrors"
+      ],
+      "contentHash": "2dc436b805d70a512e283a120bf51d8647a50695194de9e5ab431a5084cc9e14",
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R1-P2-002",
+      "severity": "P2",
+      "title": "Package README contradicts itself on the example count and omits Flow from the route summary",
+      "file": "AI Systems/Product Owner/README.md",
+      "line": 24,
+      "description": "Package README contradicts itself on the example count and omits Flow from the route summary",
+      "findingClass": "stale_counts",
+      "deltaStatus": "active",
+      "scopeProof": "read the cited line before recording",
+      "affectedSurfaceHints": [
+        "Product Owner claude.ai Project kernel",
+        "Project Knowledge mirrors"
+      ],
+      "contentHash": "9769b1d4a09d5ceba6127b9543f02d938fbef7291e0060b4c40267e1d46c1273",
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R1-P2-003",
+      "severity": "P2",
+      "title": "Kernel ask-first rules enumerate every command except $flow and $figjam",
+      "file": "AI Systems/Product Owner/claude project/Custom Instructions.md",
+      "line": 115,
+      "description": "Kernel ask-first rules enumerate every command except $flow and $figjam",
+      "findingClass": "incomplete_enumeration",
+      "deltaStatus": "active",
+      "scopeProof": "read the cited line before recording",
+      "affectedSurfaceHints": [
+        "Product Owner claude.ai Project kernel",
+        "Project Knowledge mirrors"
+      ],
+      "contentHash": "468dffe496f263b9d5666298127a7ee317a113a4af5e6f96558a0e7785a4a814",
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R2-P2-001",
+      "severity": "P2",
+      "title": "Neither connector has a check-that-it-works step with an expected result",
+      "file": "AI Systems/Product Owner/claude project/README.md",
+      "line": 166,
+      "description": "Neither connector has a check-that-it-works step with an expected result",
+      "findingClass": "missing_validation",
+      "deltaStatus": "active",
+      "scopeProof": "read the cited line before recording",
+      "affectedSurfaceHints": [
+        "Product Owner setup documentation",
+        "claude.ai Project onboarding"
+      ],
+      "contentHash": "dcbd1579bf73e7bb132b6bd07028da3b2dde31b4de125eb6ce41020c50a4b49f",
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R2-P2-002",
+      "severity": "P2",
+      "title": "No troubleshooting entry covers a missing or disabled connector, and the one ClickUp symptom is written for the CLI",
+      "file": "AI Systems/Product Owner/README.md",
+      "line": 882,
+      "description": "No troubleshooting entry covers a missing or disabled connector, and the one ClickUp symptom is written for the CLI",
+      "findingClass": "documentation_gap",
+      "deltaStatus": "active",
+      "scopeProof": "read the cited line before recording",
+      "affectedSurfaceHints": [
+        "Product Owner setup documentation",
+        "claude.ai Project onboarding"
+      ],
+      "contentHash": "fd36c8bef0d4cd9ae13ce1f16e3a213b6fe4676e5734af5a4df7e9669962cf4e",
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P2-001",
+      "severity": "P2",
+      "title": "ClickUp parameters are evidenced for the Code Mode manual, which the packet says was not the claude.ai connector",
+      "file": "AI Systems/Product Owner/mcp-click-up/SKILL.md",
+      "line": 26,
+      "description": "ClickUp parameters are evidenced for the Code Mode manual, which the packet says was not the claude.ai connector",
+      "findingClass": "provenance_doubt",
+      "deltaStatus": "active",
+      "scopeProof": "read the cited line before recording",
+      "affectedSurfaceHints": [
+        "Product Owner ClickUp transport",
+        "Product Owner Flow Mode Figma transport"
+      ],
+      "contentHash": "01be22c76d8817574c4b3634857a9d4c2c31d0fd7680b01698c0ba77a6786078",
+      "dimension": "correctness",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P2-002",
+      "severity": "P2",
+      "title": "The Flow tag step assumes the connector exposes a Figma Plugin API method",
+      "file": "AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+      "line": 320,
+      "description": "The Flow tag step assumes the connector exposes a Figma Plugin API method",
+      "findingClass": "unverified_capability_claim",
+      "deltaStatus": "active",
+      "scopeProof": "read the cited line before recording",
+      "affectedSurfaceHints": [
+        "Product Owner ClickUp transport",
+        "Product Owner Flow Mode Figma transport"
+      ],
+      "contentHash": "4e7b17f511f91e3cdaf915dd09c48c891ade1f87dec392e18b0c029fdc1adbec",
+      "dimension": "correctness",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    }
+  ],
+  "resolvedFindings": [],
+  "blockedStopHistory": [],
+  "persistentSameSeverity": [],
+  "severityChanged": [],
+  "repeatedFindings": [],
+  "dimensionCoverage": {
+    "correctness": true,
+    "security": false,
+    "traceability": true,
+    "maintainability": true
+  },
+  "findingsBySeverity": {
+    "P0": 0,
+    "P1": 6,
+    "P2": 7
+  },
+  "openFindingsCount": 13,
+  "resolvedFindingsCount": 0,
+  "convergenceScore": 0.74,
+  "graphConvergenceScore": 0,
+  "graphDecision": null,
+  "graphBlockers": [],
+  "graphSignals": {},
+  "candidateCoverage": {
+    "covered": [
+      "cross_file_contradiction",
+      "documentation_gap",
+      "incomplete_enumeration",
+      "missing_required_parameter",
+      "missing_surface_instructions",
+      "missing_validation",
+      "parity_residue",
+      "provenance_doubt",
+      "routing_drift",
+      "rule_loss_on_dedupe",
+      "stale_counts",
+      "unverified_capability_claim"
+    ],
+    "ruledOut": [
+      "missing_required_parameter",
+      "rule_loss_on_dedupe",
+      "surface_conflation"
+    ],
+    "deferred": [],
+    "blocked": [],
+    "byBugClass": {
+      "rule_loss_on_dedupe": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "cross_file_contradiction": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "routing_drift": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "parity_residue": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "stale_counts": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "incomplete_enumeration": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "missing_surface_instructions": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "missing_validation": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "documentation_gap": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "surface_conflation": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "missing_required_parameter": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "unverified_capability_claim": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "provenance_doubt": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      }
+    }
+  },
+  "searchDebt": [],
+  "ruledOutCandidates": [
+    {
+      "iteration": 1,
+      "id": "SL-001",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/claude project/Custom Instructions.md"
+      ],
+      "bugClass": "rule_loss_on_dedupe",
+      "disposition": "ruled_out",
+      "rationale": "every deleted sentence either survives verbatim elsewhere or is a reformulation whose rule is present; no rule was lost",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/SYNC.md:83"
+      ],
+      "reason": "sentence-level coverage test on the full knowledge set"
+    },
+    {
+      "iteration": 2,
+      "id": "SL-011",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Media Editor/USER-GUIDE.md"
+      ],
+      "bugClass": "surface_conflation",
+      "disposition": "ruled_out",
+      "rationale": "the Media Editor limitation is a local-runtime fact and does not transfer to remote connectors",
+      "evidenceRefs": [
+        "AI Systems/Media Editor/USER-GUIDE.md:27"
+      ],
+      "reason": "the two connectors are remote services and the repository records no local requirement"
+    },
+    {
+      "iteration": 3,
+      "id": "SL-016",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md"
+      ],
+      "bugClass": "missing_required_parameter",
+      "disposition": "ruled_out",
+      "rationale": "the parameter names and values are the documented ones for the hosted server",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:125"
+      ],
+      "reason": "the server schema and the kernel agree"
+    }
+  ],
+  "cleanSearchProof": [
+    {
+      "iteration": 1,
+      "id": "SL-001",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/claude project/Custom Instructions.md"
+      ],
+      "bugClass": "rule_loss_on_dedupe",
+      "disposition": "ruled_out",
+      "rationale": "every deleted sentence either survives verbatim elsewhere or is a reformulation whose rule is present; no rule was lost",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/SYNC.md:83"
+      ],
+      "proof": "sentence-level coverage test on the full knowledge set"
+    },
+    {
+      "iteration": 2,
+      "id": "SL-011",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Media Editor/USER-GUIDE.md"
+      ],
+      "bugClass": "surface_conflation",
+      "disposition": "ruled_out",
+      "rationale": "the Media Editor limitation is a local-runtime fact and does not transfer to remote connectors",
+      "evidenceRefs": [
+        "AI Systems/Media Editor/USER-GUIDE.md:27"
+      ],
+      "proof": "the two connectors are remote services and the repository records no local requirement"
+    },
+    {
+      "iteration": 3,
+      "id": "SL-016",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md"
+      ],
+      "bugClass": "missing_required_parameter",
+      "disposition": "ruled_out",
+      "rationale": "the parameter names and values are the documented ones for the hosted server",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:125"
+      ],
+      "proof": "the server schema and the kernel agree"
+    }
+  ],
+  "searchCoverage": {
+    "requiredBugClasses": [
+      "missing_required_parameter",
+      "unverified_capability_claim",
+      "provenance_doubt"
+    ],
+    "covered": [
+      "missing_required_parameter",
+      "unverified_capability_claim",
+      "provenance_doubt"
+    ],
+    "ruledOut": [],
+    "deferred": [],
+    "blocked": [],
+    "graphCoverageMode": "graphless_fallback"
+  },
+  "traceability": {
+    "summary": {
+      "required": 0,
+      "executed": 0,
+      "pass": 0,
+      "partial": 0,
+      "fail": 0,
+      "blocked": 0,
+      "notApplicable": 0,
+      "gatingFailures": 0
+    },
+    "results": []
+  },
+  "divergence": {
+    "started": [],
+    "completed": [],
+    "failed": [],
+    "overrides": [],
+    "saturatedDirections": [],
+    "remainingFrontier": [],
+    "currentFocus": ""
+  },
+  "fieldWarnings": [],
+  "corruptionWarnings": []
+}

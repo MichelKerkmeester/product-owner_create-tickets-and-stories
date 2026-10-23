@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "packet_id": "019-runtime-and-project-optimization/012-scripts-alignment",
+  "spec_folder": "019-runtime-and-project-optimization/012-scripts-alignment",
+  "parent_id": "019-runtime-and-project-optimization",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "scripts alignment",
+      "scripts alignment plan",
+      "scripts alignment tasks",
+      "scripts alignment acceptance criteria",
+      "scripts alignment goal",
+      "scripts alignment implementation summary"
+    ],
+    "key_topics": [
+      "scripts",
+      "alignment",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "folder",
+      "fails",
+      "sk-code-skilled"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "scripts/build-plugin.py",
+      "scripts/vendor-sync.py",
+      "scripts/tests/test_vendor_sync.py",
+      "scripts/code-mode.cjs",
+      "scripts/README.md",
+      "scripts/tests/README.md",
+      "scripts/vendored/README.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "build-plugin.py",
+        "kind": "file",
+        "path": "scripts/build-plugin.py",
+        "source": "derived"
+      },
+      {
+        "name": "vendor-sync.py",
+        "kind": "file",
+        "path": "scripts/vendor-sync.py",
+        "source": "derived"
+      },
+      {
+        "name": "test_vendor_sync.py",
+        "kind": "file",
+        "path": "scripts/tests/test_vendor_sync.py",
+        "source": "derived"
+      },
+      {
+        "name": "code-mode.cjs",
+        "kind": "file",
+        "path": "scripts/code-mode.cjs",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "scripts/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement The",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Align",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Scope",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "File Path",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Each",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Fix",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The scripts folder fails the sk-code-skilled alignment verifier with missing code READMEs, and its owned scripts were never checked against the Python and JavaScript checklists",
+    "created_at": "2026-10-22T10:12:32.939Z",
+    "last_save_at": "2026-10-22T10:12:32.939Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:53a3f4361e77856f1109499acf082e27f4ea9dae6237f8444f1360adf55e3232",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "0172b9f5807f8af9d188f7b0200c344c3bad3f14a036d119f9b56c659f58c2eb",
+      "plan.md": "32ce2a31143b2e2f21289d74d028756ad07252e26f6d333c53202c0cc3e08d8a",
+      "tasks.md": "698449cf5602191d91a354f8012ad9634f840e9a01318b172b674f9221f10e99",
+      "implementation-summary.md": "fe286654cfb08c05d100f55d3088e0579fae1d915e21fb78642b8b5d95fe8e9a"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

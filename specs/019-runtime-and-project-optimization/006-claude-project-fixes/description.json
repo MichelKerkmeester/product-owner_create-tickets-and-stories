@@ -1,0 +1,18 @@
+{
+  "specFolder": "019-runtime-and-project-optimization/006-claude-project-fixes",
+  "description": "Phase 6: Claude Project review fixes and user guide",
+  "keywords": [
+    "claude",
+    "project",
+    "fixes"
+  ],
+  "lastUpdated": "2026-10-21T18:00:00.000Z",
+  "specId": "006",
+  "folderSlug": "claude-project-fixes",
+  "parentChain": [
+    "019-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

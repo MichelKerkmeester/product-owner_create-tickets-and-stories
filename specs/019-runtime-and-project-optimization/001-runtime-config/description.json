@@ -1,0 +1,17 @@
+{
+  "specFolder": "019-runtime-and-project-optimization/001-runtime-config",
+  "description": "Phase 1: Runtime config in the public repo",
+  "keywords": [
+    "runtime",
+    "config"
+  ],
+  "lastUpdated": "2026-10-21T18:00:00.000Z",
+  "specId": "001",
+  "folderSlug": "runtime-config",
+  "parentChain": [
+    "019-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

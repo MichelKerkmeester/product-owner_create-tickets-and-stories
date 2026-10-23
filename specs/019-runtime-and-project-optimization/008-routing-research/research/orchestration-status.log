@@ -1,0 +1,27 @@
+{"event":"started","label":"deepseek","index":0,"attempt":1,"at":"2026-10-21T18:08:26.704Z","gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:10:26.815Z","duration_ms":60001,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:11:26.817Z","duration_ms":120003,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:12:26.818Z","duration_ms":180004,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:13:26.821Z","duration_ms":240007,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:14:26.823Z","duration_ms":300009,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:15:26.824Z","duration_ms":360010,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:16:26.827Z","duration_ms":420013,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:17:26.829Z","duration_ms":480015,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:18:26.831Z","duration_ms":540017,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:19:26.833Z","duration_ms":600019,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:20:26.835Z","duration_ms":660021,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:21:26.836Z","duration_ms":720022,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:22:26.836Z","duration_ms":780022,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:23:26.838Z","duration_ms":840024,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:24:26.840Z","duration_ms":900026,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:25:26.843Z","duration_ms":960029,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:26:26.844Z","duration_ms":1020030,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:27:26.847Z","duration_ms":1080033,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:28:26.849Z","duration_ms":1140035,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:29:26.851Z","duration_ms":1200037,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:30:26.854Z","duration_ms":1260040,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:31:26.857Z","duration_ms":1320043,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T18:32:26.860Z","duration_ms":1380046,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"completed","label":"deepseek","index":0,"attempt":1,"at":"2026-10-21T18:33:58.446Z","duration_ms":1531741,"terminal":true,"gauges":{"lag":0,"pending":0,"failed":0},"skippedCount":24,"slotDurationMs":1531724.309958}
+{"event":"metadata_refresh_ok","status":"ok","spec_folder":"specs/z-staging-po-019s","at":"2026-10-21T18:33:58.448Z","generator":"generate-description.js"}
+{"event":"metadata_refresh_failed","status":"warning","spec_folder":"specs/z-staging-po-019s","at":"2026-10-21T18:33:59.102Z","generator":"backfill-graph-metadata.js","exit_code":1,"stderr_tail":"backfill-graph-metadata: target is not a spec folder (folder name \"z-staging-po-019s\" is not NNN-slug): specs/z-staging-po-019s"}

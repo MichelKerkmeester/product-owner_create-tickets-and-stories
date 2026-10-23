@@ -1,0 +1,58 @@
+{
+  "run_id": "1792598333413-h7kxu3",
+  "loop_type": "review",
+  "spec_folder": "specs/z-staging-po-019r",
+  "base_artifact_dir": "/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/z-staging-po-019r/review",
+  "total_cli_lineages": 1,
+  "orphaned_lineages": [],
+  "total": 1,
+  "succeeded": 1,
+  "failed": 0,
+  "all_failed": false,
+  "completed_with_containment_advisory": 1,
+  "gauges": {
+    "lag": 0,
+    "pending": 0,
+    "failed": 0
+  },
+  "failure_classes": {
+    "timeout": 0,
+    "exit": 0,
+    "salvage_miss": 0,
+    "artifact_miss": 0,
+    "projection_refusal": 0,
+    "unattributed_state_log": 0,
+    "needs_input": 0
+  },
+  "timestamp_anomalies": [
+    {
+      "label": "deepseek",
+      "state_log": "/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/z-staging-po-019r/review/lineages/deepseek/deep-review-state.jsonl",
+      "window": {
+        "start_at_iso": "2026-10-21T15:58:53.419Z",
+        "end_at_iso": "2026-10-21T16:13:24.554Z",
+        "tolerance_ms": 120000
+      },
+      "counts": {
+        "anomalous": 2,
+        "untimestamped": 0,
+        "unparseable": 0,
+        "total": 5
+      },
+      "sample": [
+        {
+          "index": 2,
+          "reason": "after_window",
+          "timestamp": "2026-10-21T16:20:00.000Z",
+          "deltaMs": 275446
+        },
+        {
+          "index": 3,
+          "reason": "after_window",
+          "timestamp": "2026-10-21T16:34:00.000Z",
+          "deltaMs": 1115446
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+# Iteration 1: Parent hub routing: stage one, stage two and the smallest source set
+
+## Focus
+Question 1 of the staging spec: how the Product Owner parent routes a request to a mode, where that logic is stated more than once, where the copies disagree, and the smallest set of routing sources that still serves the CLI, the hub and the Claude Project. Sources read: the hub SKILL.md, ROUTER.md, mode-registry.json, hub-router.json and leaf-manifest.json; both packet SKILL.md files; sk-product-owner/references/routing.md and router-contract.md; the hub gate and the differential gate; the skilled root-router contract; the Claude Project kernel's routing sections. The lineage steer file was read first and binds this run.
+
+## Findings
+1. Stage one routing exists in three forms that nothing compares as a set: seven prose rules in the hub SKILL.md, five ordered bullets in hub-router.json routerPolicy.stageOneOrder, and the Python replica route_stage_one() in benchmark/gates/check_hub.py. Only the gold rows compare them, so a rule no row exercises drifts silently. Fix: keep one prose copy in hub-router.json and reduce SKILL.md Stage One Rules to a pointer. [SOURCE: AI Systems/Product Owner/SKILL.md:50-58] [SOURCE: AI Systems/Product Owner/hub-router.json:24-30] [SOURCE: AI Systems/Product Owner/benchmark/gates/check_hub.py:239-268]
+2. Hub SKILL.md rules 3 and 4 are both stated as absolute and contradict each other for a request that opens with a tool signal and also names an artifact: rule 3 sends it to the tool packet 'even when it names an artifact', rule 4 sends it to the default packet 'even when it names a tool'. Only the rule numbering resolves the collision, and no gold row covers that input class, because the nearest row inserts a leading 'run'. Fix: state first-match-wins in the rule text and add a collision row. [SOURCE: AI Systems/Product Owner/SKILL.md:54-55] [SOURCE: AI Systems/Product Owner/benchmark/hub-routing-cases.json:1-60]
+3. The same constant, DEFAULT_RESOURCE, names different resources for the same packet: ROUTER.md calls it the two Human Voice cards loaded on every request, while sk-product-owner/references/router-contract.md sets it to references/interactive-mode.md. Both files present themselves as the routing authority a reader can apply. Fix: router-contract.md line 49. [SOURCE: AI Systems/Product Owner/ROUTER.md:37] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/router-contract.md:49]
+4. The two maps each described as the single machine-readable projection disagree on key set: ROUTER.md maps nine intents including CLICK_UP and FIGMA, while router-contract.md maps ALWAYS, ON_DEMAND, TASK, BUG, DOC, STORY, FLOW and INTERACTIVE and carries no CLICK_UP or FIGMA lane at all. Different gates read each file, so no check compares the two maps. Fix: declare which file owns the lane set and derive the other. [SOURCE: AI Systems/Product Owner/ROUTER.md:66-103] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/router-contract.md:136-152]
+5. The hub SKILL.md says check_hub.py checks that the hub files, the registry, 'the router' and the packets agree, but check_hub's router check asserts only two ROUTER.md frontmatter lines and never reads the intent model or RESOURCE_MAP; that block is held instead by the skilled root-router contract RRC-004 and RRC-006, invoked from a different gate row. Fix: SKILL.md line 82. [SOURCE: AI Systems/Product Owner/SKILL.md:82] [SOURCE: AI Systems/Product Owner/benchmark/gates/check_hub.py:142-146] [SOURCE: .skilled/skills/sk-doc/sk-create-skill/scripts/lib/root-router-contract.cjs:13-25]
+6. ROUTER.md says no Product Owner gate runs the leaf-route replay, which is true of leaf-route-replay.cjs but reads as if the block were unverified. run_gates.sh does run the skilled hub contract, and that contract resolves every RESOURCE_MAP path on disk and against leaf-manifest.json. Fix: name the gate that does run, in ROUTER.md line 43. [SOURCE: AI Systems/Product Owner/ROUTER.md:43] [SOURCE: AI Systems/Product Owner/benchmark/gates/run_gates.sh:52-53]
+7. The compiled-router directive cannot fire for this hub: running it now returns the legacy sentinel, so five always-loaded lines in the hub SKILL.md describe a serving path that never serves product-owner. Either ship the activation manifest the directive needs or move the directive out of the always-loaded section. Fix: SKILL.md lines 40-46. [SOURCE: AI Systems/Product Owner/SKILL.md:40-46] [SOURCE: .skilled/bin/compiled-route.cjs:1-40]
+8. The test that turns a FigJam mention into a paired second output is defined only in the prose and the executable contract (an output verb aimed at FigJam, or a with/plus/and join). hub-router.json's orderedBundle text and the hub SKILL.md outcomes name the exception without the test, so a stage-one-only reader cannot decide the pair. Fix: hub-router.json line 15. [SOURCE: AI Systems/Product Owner/hub-router.json:15] [SOURCE: AI Systems/Product Owner/SKILL.md:79] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/routing.md:34] [SOURCE: AI Systems/Product Owner/sk-product-owner/references/router-contract.md:641-648]
+9. The smallest set that still serves all three surfaces is four sources plus one implementation: mode-registry.json for mode identity, hub-router.json for stage-one policy, ROUTER.md RESOURCE_MAP for stage two, packet SKILL.md Section 2 for intra-packet detail, and router-contract.md as the one router implementation whose derived copies (route_contract.py, kernel Section 11) the differential gate holds equal. The hub SKILL.md stage-one prose, hub-router's stageOneOrder prose, routing.md's steps and check_hub's replica are duplicates of those four. Fix: hub SKILL.md and hub-router.json. [SOURCE: AI Systems/Product Owner/SKILL.md:48-74] [SOURCE: AI Systems/Product Owner/hub-router.json:4-50] [SOURCE: AI Systems/Product Owner/ROUTER.md:41-103] [SOURCE: AI Systems/Product Owner/benchmark/router/differential.py:28-43]
+
+## Ruled Out
+- Treating the compiled router as the current stage-one authority: the command returns {"servingAuthority":"legacy"} for product-owner, so the legacy rules are the live authority
+- Treating leaf-manifest.json as a routing source: it is a generated inventory of (workflowMode, leaf) pairs with no intent or policy
+- Treating mode-registry.json aliases as hub routing keywords: they are advisor aliases (task, bug, story, epic, prd, doc, figjam, cupt) and are not read by stage one
+
+## Dead Ends
+- Looking for a Product Owner activation manifest for compiled routing under .skilled: no manifest exists, and the resolver falls back to legacy by design
+
+## Edge Cases
+- Ambiguous input: The spec asks for 'the smallest set ... that still serves the CLI, the hub and the Claude Project'; the Project cannot execute Python over files, so its minimum necessarily includes a copied implementation, which the answer treats as a gated derivative rather than a fifth source
+- Contradictory evidence: Rules 3 and 4 of the hub SKILL.md contradict each other on one input class; recorded as a finding, with the ordering as the only resolver
+- Missing dependencies: No live advisor daemon was consulted; the compiled-route command was run directly instead
+- Partial success: Runtime check of the compiled router succeeded; no gate was executed, because this run is read-only and outside the target repository
+
+## Sources Consulted
+- specs/z-staging-po-019s/research/lineages/deepseek/steer.md
+- AI Systems/Product Owner/SKILL.md
+- AI Systems/Product Owner/ROUTER.md
+- AI Systems/Product Owner/mode-registry.json
+- AI Systems/Product Owner/hub-router.json
+- AI Systems/Product Owner/leaf-manifest.json
+- AI Systems/Product Owner/sk-product-owner/SKILL.md
+- AI Systems/Product Owner/sk-create-figjam/SKILL.md
+- AI Systems/Product Owner/sk-product-owner/references/routing.md
+- AI Systems/Product Owner/sk-product-owner/references/router-contract.md
+- AI Systems/Product Owner/benchmark/gates/check_hub.py
+- AI Systems/Product Owner/benchmark/gates/run_gates.sh
+- AI Systems/Product Owner/benchmark/hub-routing-cases.json
+- AI Systems/Product Owner/benchmark/router/differential.py
+- AI Systems/Product Owner/claude project/Custom Instructions.md
+- .skilled/skills/sk-doc/sk-create-skill/scripts/lib/root-router-contract.cjs
+- .skilled/bin/compiled-route.cjs
+
+## Assessment
+- New information ratio: 0.74
+- Questions addressed: How does the Product Owner parent route a request to a mode, where is routing logic stated more than once, where do the copies disagree, and what is the smallest set of routing sources that still serves the CLI, the hub and the Claude Project?
+- Questions answered: How does the Product Owner parent route a request to a mode, where is routing logic stated more than once, where do the copies disagree, and what is the smallest set of routing sources that still serves the CLI, the hub and the Claude Project?
+
+## Reflection
+- What worked and why: Reading the hub files first and then their gates separated the live authority from the descriptive copies; running the compiled-route command settled a claim no document could settle alone
+- What did not work and why: The first pass treated ROUTER.md as ungated because check_hub does not read it; the skilled hub contract does, through a different gate row
+- What I would do differently: Start from run_gates.sh and walk each row to the file it reads, then compare prose copies against that map
+
+## Questions Remaining
+- Which router copies are held equal by a gate such as benchmark/router/differential.py, and which drift unchecked?
+- Where is a hand-off between modes undefined, duplicated or contradictory?
+- Is routing embedded in the right Claude Project layer, and what could shrink without losing a rule that must fire every turn?
+- What are the concrete, ranked routing and mode-link changes, each with the files it touches, its risk, the gate that proves it and the byte effect on the kernel?
+- Which README claims are stale against the files they describe?
+- Which scripts, functions, flags and config entries are dead code?
+- Which references, assets, examples and playbook files are dead documents?
+- How does the Product Owner's own Python, shell, JavaScript and JSON deviate from the sk-code-skilled standards?
+- What is the ranked synthesis of every finding, and what can the repository not settle?
+
+## Recommended Next Focus
+Question 2: which router copies are held equal by a gate, and which drift unchecked. Walk every row of run_gates.sh to the file it reads, then check the kernel copy, route_contract.py, router-contract.md and the figjam packet against their gates.
