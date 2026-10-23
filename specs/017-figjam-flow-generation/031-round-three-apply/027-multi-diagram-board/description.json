@@ -1,0 +1,18 @@
+{
+  "specFolder": "017-figjam-flow-generation/031-round-three-apply/027-multi-diagram-board",
+  "description": "Phase 27: multi-diagram-board",
+  "keywords": [
+    "phase",
+    "multi-diagram-board"
+  ],
+  "lastUpdated": "2026-10-21T08:00:00.000Z",
+  "specId": "027",
+  "folderSlug": "multi-diagram-board",
+  "parentChain": [
+    "017-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

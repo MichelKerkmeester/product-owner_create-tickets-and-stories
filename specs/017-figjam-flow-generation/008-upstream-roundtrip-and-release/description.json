@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/008-upstream-roundtrip-and-release",
+  "description": "Phase 8: upstream-roundtrip-and-release",
+  "keywords": [
+    "phase",
+    "upstream-roundtrip-and-release"
+  ],
+  "lastUpdated": "2026-10-20T02:35:23.784Z",
+  "specId": "008",
+  "folderSlug": "upstream-roundtrip-and-release",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

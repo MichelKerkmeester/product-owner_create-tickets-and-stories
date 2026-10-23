@@ -1,0 +1,28 @@
+{
+  "iteration": 12,
+  "focus": "What the Moneybird hub conversion actually cost",
+  "newInfoRatio": 1.0,
+  "status": "complete",
+  "noveltyJustification": "All six findings are new measured cost and defect evidence from the hub conversion record, none of which earlier iterations read.",
+  "answeredQuestions": [],
+  "ruledOut": ["One shared router file for every packet", "Declaring the conversion done once the files exist"],
+  "sourcesQueried": [
+    "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md",
+    "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md"
+  ],
+  "findings": [
+    {"id": "f-iter012-001", "label": "Hub conversion is a routing move with a small surface: routing-only root SKILL.md, two registries, one ROUTER.md per packet, pointer text in each packet SKILL.md, shipped as one commit.", "sources": ["AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:54"]},
+    {"id": "f-iter012-002", "label": "One root ROUTER.md for all packets was rejected on measured cost: an accountant request rose from 9,635 to 16,664 o200k_base tokens, about 73 percent, so per-packet routers replaced it.", "sources": ["AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:74"]},
+    {"id": "f-iter012-003", "label": "A fresh reviewer found four P1s: an AGENTS.md read order contradicting the hub, a lost pointer line in the write-contract check, four checks passing with nothing to test, and about fifty stale pointers to SKILL.md section 2.", "sources": ["AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:74"]},
+    {"id": "f-iter012-004", "label": "The blast radius is tooling, not prose: route table check, route replay, exit-code parity, write-contract check, English-first and word-count checks, fragment checks, reference index, token baseline, eval runner and regression-trailer check all had to read ROUTER.md.", "sources": ["AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md:54"]},
+    {"id": "f-iter012-005", "label": "Hub scoring needed its own evidence: a rewritten stage-one resolver, 19 HUB gold rows and per-file contract checks, whose review found prefix matching and a double handoff.", "sources": ["AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:54", "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:78"]},
+    {"id": "f-iter012-006", "label": "The audit surfaced structural metadata debt: nine phase folders lacked description.json and graph-metadata.json.", "sources": ["AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/018-hub-scoring-and-contract-gaps/implementation-summary.md:58"]}
+  ],
+  "graphEvents": [
+    {"type": "node", "id": "q-hub-lessons", "kind": "QUESTION", "label": "What did the hub conversion cost and break"},
+    {"type": "node", "id": "f-iter012-router-cost", "kind": "FINDING", "label": "One shared router cost 73 percent more tokens"},
+    {"type": "node", "id": "src-hub-phase17", "kind": "SOURCE", "label": "Hub conversion implementation summary", "path": "AI Systems/Moneybird Accountant/specs/013-skill-routing-implementation/017-parent-hub-and-router/implementation-summary.md"},
+    {"type": "edge", "id": "e-iter012-001", "source": "f-iter012-router-cost", "target": "q-hub-lessons", "relation": "ANSWERS"},
+    {"type": "edge", "id": "e-iter012-002", "source": "f-iter012-router-cost", "target": "src-hub-phase17", "relation": "CITES"}
+  ]
+}

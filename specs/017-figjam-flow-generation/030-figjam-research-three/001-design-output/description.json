@@ -1,0 +1,19 @@
+{
+  "specFolder": "017-figjam-flow-generation/030-figjam-research-three/001-design-output",
+  "description": "Phase 1: design-output",
+  "keywords": [
+    "phase",
+    "research",
+    "design-output"
+  ],
+  "lastUpdated": "2026-10-21T10:00:00.000Z",
+  "specId": "001",
+  "folderSlug": "design-output",
+  "parentChain": [
+    "017-figjam-flow-generation",
+    "030-figjam-research-three"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

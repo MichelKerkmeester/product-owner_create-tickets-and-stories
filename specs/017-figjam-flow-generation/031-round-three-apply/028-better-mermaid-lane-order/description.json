@@ -1,0 +1,18 @@
+{
+  "specFolder": "017-figjam-flow-generation/031-round-three-apply/028-better-mermaid-lane-order",
+  "description": "Phase 28: better-mermaid-lane-order",
+  "keywords": [
+    "phase",
+    "better-mermaid-lane-order"
+  ],
+  "lastUpdated": "2026-10-21T08:00:00.000Z",
+  "specId": "028",
+  "folderSlug": "better-mermaid-lane-order",
+  "parentChain": [
+    "017-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

@@ -1,0 +1,22 @@
+figma/mcp-server-guide 056adaf7
+figma/community-resources d868fb1f
+figma/architecture-diagram-components c22de634
+adobe/spectrum-design-data 900b522b
+hferello/ai 181b6fd7
+prasantloki/figjam-builder 2a271c94
+rrichardsonv/parse-figjam 2722e737
+ecestnrkl/figjam-mcp 8b484791
+bluescaban/blueprints 2b987625
+arinspunk/claude-talk-to-figma-mcp c7adf243
+ulasbilgen/mcp-skills-plugins c61e27d4
+tmcw/figjam-mermaid 57cf9174
+lauragalera/figjam-erd-plugin 71bda9d7
+lightspeedwp/.github 8f28eca8
+openai/plugins 0722921d
+amo-tech-ai/rocket-path-ai (009 pin)
+atezer/FMCP (009 pin)
+IamTheLime/dotfiles (009 pin)
+memi-design/mermaid-jam (009 pin)
+mkaralevich/pi-figma-labor (009 pin)
+ompug/diagram-codebase (009 pin)
+southleft/figma-console-mcp-skills (009 pin)

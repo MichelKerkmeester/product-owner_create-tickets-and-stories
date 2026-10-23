@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/031-round-three-apply/009-kernel-carries-loop",
+  "spec_folder": "017-figjam-flow-generation/031-round-three-apply/009-kernel-carries-loop",
+  "parent_id": "017-figjam-flow-generation/031-round-three-apply",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "kernel carries loop",
+      "kernel carries loop plan",
+      "kernel carries loop tasks",
+      "kernel carries loop acceptance criteria",
+      "kernel carries loop goal",
+      "kernel carries loop implementation summary"
+    ],
+    "key_topics": [
+      "kernel",
+      "carries",
+      "loop",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "flow",
+      "row"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "claude project/Custom Instructions.md",
+      "claude project/knowledge/Product Owner - Templates - Flow Mode.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner - Templates - Flow Mode.md",
+        "kind": "doc",
+        "path": "claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Flow",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Proposal",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Flow Mode Delivery",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The Flow row names sources and output with no intake, and a Project cannot hold a state machine or write a file, so turn state survives only in the conversation",
+    "created_at": "2026-10-21T07:48:55.312Z",
+    "last_save_at": "2026-10-21T07:48:55.312Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:6970bf9d3fd0fb9e48e16b11b7570cf3e617a8c7331df9d1d42d459c30a6a682",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "3150510d6d2b753b4e878977670c4e2571779bdd8624946654dcb99ce5761c92",
+      "plan.md": "3978978803ada04457ba183ed29d9c624a1aef0aecf7257736e01fac3bc80897",
+      "tasks.md": "e86ba89b21997daf2f4edd07e38cef3370ab266a42ad378c72a20ef8f4402268",
+      "implementation-summary.md": "c9d09cb4981601ac499817a8f1941e4df6b9bbcc6ae866497921818f1e6fc987"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

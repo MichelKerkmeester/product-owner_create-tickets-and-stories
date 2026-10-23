@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/025-plan-whoami",
+  "description": "Phase 25: plan-whoami",
+  "keywords": [
+    "phase",
+    "plan-whoami"
+  ],
+  "lastUpdated": "2026-10-20T22:00:00.000Z",
+  "specId": "025",
+  "folderSlug": "plan-whoami",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

@@ -1,0 +1,18 @@
+{
+  "specFolder": "017-figjam-flow-generation/031-round-three-apply/019-source-evidence-limits",
+  "description": "Phase 19: source-evidence-limits",
+  "keywords": [
+    "phase",
+    "source-evidence-limits"
+  ],
+  "lastUpdated": "2026-10-21T08:00:00.000Z",
+  "specId": "019",
+  "folderSlug": "source-evidence-limits",
+  "parentChain": [
+    "017-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

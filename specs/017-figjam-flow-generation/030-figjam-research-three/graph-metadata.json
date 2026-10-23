@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/030-figjam-research-three",
+  "spec_folder": "017-figjam-flow-generation/030-figjam-research-three",
+  "parent_id": "017-figjam-flow-generation",
+  "children_ids": [
+    "017-figjam-flow-generation/030-figjam-research-three/001-design-output",
+    "017-figjam-flow-generation/030-figjam-research-three/002-input-to-model-logic",
+    "017-figjam-flow-generation/030-figjam-research-three/003-interactive-intake"
+  ],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "figjam research round three phase parent spec",
+      "figjam research round three goal"
+    ],
+    "key_topics": [
+      "figjam",
+      "research",
+      "round",
+      "three",
+      "phase",
+      "parent",
+      "spec",
+      "goal",
+      "packet",
+      "checks",
+      "model",
+      "structure"
+    ],
+    "importance_tier": "important",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "goal.md",
+      "001-design-output/goal.md",
+      "002-input-to-model-logic/goal.md",
+      "003-interactive-intake/goal.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Packet",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement The",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Answer",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Decisions Frozen",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "No Product Owner",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Documentation Map",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "1. DURABLE DIRECTIVE",
+        "kind": "heading",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Decisions",
+        "kind": "heading",
+        "path": "goal.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The FigJam packet checks a model's structure, but three questions are still open: how a finished board can look and read better, how the AI should read screenshots and product logic into a correct model, and how both packets should keep asking, and push back, until they know enough to draw the right board",
+    "created_at": "2026-10-21T06:41:38.256Z",
+    "last_save_at": "2026-10-21T06:41:38.256Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "goal.md"
+    ],
+    "source_fingerprint": "sha256:bfc438c7a0bffa692858f1612746d8fa95cf186e3f0654d57bd68b2e90ca285e",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "b2f8ff5847dc29a26f9c474443bac5cff89f2b6c678b904ea4ba1e5d488aac67"
+    },
+    "last_active_child_id": "017-figjam-flow-generation/030-figjam-research-three/003-interactive-intake",
+    "last_active_at": null
+  }
+}

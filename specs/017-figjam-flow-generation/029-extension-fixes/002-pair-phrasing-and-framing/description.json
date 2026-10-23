@@ -1,0 +1,18 @@
+{
+  "specFolder": "017-figjam-flow-generation/029-extension-fixes/002-pair-phrasing-and-framing",
+  "description": "Phase 2: pair-phrasing-and-framing",
+  "keywords": [
+    "phase",
+    "pair-phrasing-and-framing"
+  ],
+  "lastUpdated": "2026-10-21T08:00:00.000Z",
+  "specId": "002",
+  "folderSlug": "pair-phrasing-and-framing",
+  "parentChain": [
+    "017-figjam-flow-generation",
+    "029-extension-fixes"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

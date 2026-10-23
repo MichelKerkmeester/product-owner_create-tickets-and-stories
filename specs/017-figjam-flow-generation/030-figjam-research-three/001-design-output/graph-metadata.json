@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/030-figjam-research-three/001-design-output",
+  "spec_folder": "017-figjam-flow-generation/030-figjam-research-three/001-design-output",
+  "parent_id": "017-figjam-flow-generation/030-figjam-research-three",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "design output research",
+      "design output research plan",
+      "design output research tasks",
+      "design output research acceptance criteria",
+      "design output research goal",
+      "design output research implementation summary"
+    ],
+    "key_topics": [
+      "design",
+      "output",
+      "research",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "packet",
+      "checks"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "research/research.md",
+      "research/.gitignore",
+      "manual-testing-playbook/manual-testing-playbook.md",
+      ".skilled/skills/sk-design/sk-design-diagram/SKILL.md",
+      ".skilled/skills/sk-design/sk-design-fundamentals/references/diagnosis-table.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "research.md",
+        "kind": "doc",
+        "path": "research/research.md",
+        "source": "derived"
+      },
+      {
+        "name": ".gitignore",
+        "kind": "file",
+        "path": "research/.gitignore",
+        "source": "derived"
+      },
+      {
+        "name": "manual-testing-playbook.md",
+        "kind": "doc",
+        "path": "manual-testing-playbook/manual-testing-playbook.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": ".skilled/skills/sk-design/sk-design-diagram/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "diagnosis-table.md",
+        "kind": "doc",
+        "path": ".skilled/skills/sk-design/sk-design-fundamentals/references/diagnosis-table.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "research/research.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Fan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The packet checks a model's structure, but how good the finished board looks and reads has been judged by hand and only partly researched",
+    "created_at": "2026-10-21T06:41:27.825Z",
+    "last_save_at": "2026-10-21T06:41:27.825Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "research/research.md"
+    ],
+    "source_fingerprint": "sha256:677101e41d6ade04b5e98b3b55787e7cac81d733682efb7bc190c4c819712ea5",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "734053ce63d944e31ac4368b3f95aefd5b668c34088ff009d3411ba8e5dc182b",
+      "plan.md": "b44d203d2207fe33fa29bd797b9d5c1b996490d461f8670678d08c2351644fa9",
+      "tasks.md": "77c8c274a9548beb1c77046355a5e9f7ac0ef56529dba4840e4370fd3a5aaf45",
+      "implementation-summary.md": "6d3de45e037fa7e3586bc485a6d0d87c1535a93c87c61ede9f17767ef9cedf4d",
+      "research/research.md": "3798693d9d54a68566fd278cb762528b2c5dc143fe3d92e753d22efabe1fb5ae"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

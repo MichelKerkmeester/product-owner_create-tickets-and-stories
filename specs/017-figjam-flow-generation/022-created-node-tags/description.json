@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/022-created-node-tags",
+  "description": "Phase 22: created-node-tags",
+  "keywords": [
+    "phase",
+    "created-node-tags"
+  ],
+  "lastUpdated": "2026-10-20T22:00:00.000Z",
+  "specId": "022",
+  "folderSlug": "created-node-tags",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

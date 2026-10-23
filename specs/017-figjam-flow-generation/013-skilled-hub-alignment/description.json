@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/013-skilled-hub-alignment",
+  "description": "Phase 13: skilled-hub-alignment",
+  "keywords": [
+    "phase",
+    "skilled-hub-alignment"
+  ],
+  "lastUpdated": "2026-10-20T16:56:29.000Z",
+  "specId": "013",
+  "folderSlug": "skilled-hub-alignment",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

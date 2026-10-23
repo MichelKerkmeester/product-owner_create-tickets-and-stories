@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/018-artifact-plus-board-pair",
+  "description": "Phase 18: artifact-plus-board-pair",
+  "keywords": [
+    "phase",
+    "artifact-plus-board-pair"
+  ],
+  "lastUpdated": "2026-10-20T22:00:00.000Z",
+  "specId": "018",
+  "folderSlug": "artifact-plus-board-pair",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

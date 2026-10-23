@@ -1,0 +1,18 @@
+{
+  "specFolder": "017-figjam-flow-generation/031-round-three-apply/007-po-lane-board-block",
+  "description": "Phase 7: po-lane-board-block",
+  "keywords": [
+    "phase",
+    "po-lane-board-block"
+  ],
+  "lastUpdated": "2026-10-21T08:00:00.000Z",
+  "specId": "007",
+  "folderSlug": "po-lane-board-block",
+  "parentChain": [
+    "017-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

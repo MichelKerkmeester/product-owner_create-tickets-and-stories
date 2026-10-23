@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/031-round-three-apply/021-contradicted-item-surface",
+  "spec_folder": "017-figjam-flow-generation/031-round-three-apply/021-contradicted-item-surface",
+  "parent_id": "017-figjam-flow-generation/031-round-three-apply",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "contradicted item surface",
+      "contradicted item surface plan",
+      "contradicted item surface tasks",
+      "contradicted item surface acceptance criteria",
+      "contradicted item surface goal",
+      "contradicted item surface implementation summary"
+    ],
+    "key_topics": [
+      "contradicted",
+      "item",
+      "surface",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "followed",
+      "literally"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "sk-create-figjam/references/flow-mode.md",
+      "sk-create-figjam/references/quality-rubric.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "flow-mode.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/references/flow-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "quality-rubric.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/references/quality-rubric.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Proposal",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Completion Criteria",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Verification Checklist",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Followed literally the rule removes the connector and reports nothing a reader can see, and an unreported deletion is worse than a drawn guess",
+    "created_at": "2026-10-21T07:49:16.349Z",
+    "last_save_at": "2026-10-21T07:49:16.349Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:b3f3011fd902e1f4ecf45ace119695a04f3d3c907e82e161e78d5dc090aa1b35",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "301b5c140aaf3820d2e8bef047b20f4d11895babb28fca52287bf47ced0e8d21",
+      "plan.md": "f8521b45489d771c7a13499f5d0c3efbc58b1ee2409fca5269a07e4a6a5672d0",
+      "tasks.md": "690cfea8fa443a64d0473cf2d469d7145cafb94db6c1e280e6a2595a532cafaf",
+      "implementation-summary.md": "3b40cca1218fd77952ba15cd12af34d0d8ecbb989e70d6bff591e6aa60df69cc"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

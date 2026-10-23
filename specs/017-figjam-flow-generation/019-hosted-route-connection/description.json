@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/019-hosted-route-connection",
+  "description": "Phase 19: hosted-route-connection",
+  "keywords": [
+    "phase",
+    "hosted-route-connection"
+  ],
+  "lastUpdated": "2026-10-20T22:00:00.000Z",
+  "specId": "019",
+  "folderSlug": "hosted-route-connection",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

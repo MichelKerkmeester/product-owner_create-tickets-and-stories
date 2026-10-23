@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/031-round-three-apply/023-pre-gate-reread",
+  "spec_folder": "017-figjam-flow-generation/031-round-three-apply/023-pre-gate-reread",
+  "parent_id": "017-figjam-flow-generation/031-round-three-apply",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "pre gate reread",
+      "pre gate reread plan",
+      "pre gate reread tasks",
+      "pre gate reread acceptance criteria",
+      "pre gate reread goal",
+      "pre gate reread implementation summary"
+    ],
+    "key_topics": [
+      "pre",
+      "gate",
+      "reread",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "nothing",
+      "reads"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "sk-create-figjam/references/flow-mode.md",
+      "sk-create-figjam/references/quality-rubric.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "flow-mode.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/references/flow-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "quality-rubric.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/references/quality-rubric.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Proposal",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Completion Criteria",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Verification Checklist",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Nothing reads a source, so the provenance table and the `Left out:` list are claims no check verifies, and a model can equally promise what the source never said",
+    "created_at": "2026-10-21T07:49:19.771Z",
+    "last_save_at": "2026-10-21T07:49:19.771Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:f99f2a24484baebf0017307102450eb814a86ff2da1bf559e38d0663db55e69d",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "0b587a3aa3a53af7fa7a01aa5c916c1048f67decd2fd939cc4c0772a3a7053d3",
+      "plan.md": "8ed150ffc0b94e957ae0918e3c6eb598282af4573ac70e6f66d4868577f48cf1",
+      "tasks.md": "7ac0bc506e15e6920e12139358d35f77b1304dd8ad7ffa758c6d2f40bba4206e",
+      "implementation-summary.md": "43b5dabf5f1663c8349650bb6ed81827deb6558a0ebb2b5b0258600b167205c0"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

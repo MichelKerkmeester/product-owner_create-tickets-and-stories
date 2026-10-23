@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/005-flow-mode",
+  "spec_folder": "017-figjam-flow-generation/005-flow-mode",
+  "parent_id": "017-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "flow mode",
+      "figjam phase 5",
+      "flow mode plan",
+      "flow mode tasks",
+      "flow mode acceptance criteria",
+      "flow mode goal",
+      "flow mode implementation summary"
+    ],
+    "key_topics": [
+      "flow",
+      "mode",
+      "figjam",
+      "phase",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "product"
+    ],
+    "importance_tier": "normal",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "sk-product-owner/scripts/flow_check.py",
+      "sk-product-owner/scripts/vendored/mermaid_extract.py"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "flow_check.py",
+        "kind": "file",
+        "path": "sk-product-owner/scripts/flow_check.py",
+        "source": "derived"
+      },
+      {
+        "name": "mermaid_extract.py",
+        "kind": "file",
+        "path": "sk-product-owner/scripts/vendored/mermaid_extract.py",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Flow Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Add Flow Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Progress",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Documentation Map",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Clean Architecture",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Current Role",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Change Location",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Context",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Product Owner has no mode that produces diagrams, and its export protocol blocks every reply until a markdown file is saved, which does not fit a board delivered in Figma",
+    "created_at": "2026-10-20T02:35:20Z",
+    "last_save_at": "2026-10-20T09:45:37.879Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:4e59d07ea5fe3e1a5b16ff48877f96dce97c0506e23c32393a02305c9a64d7cc",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "3fd4c9e165024d6bf23b94769505ff5f7fce89d266fb91824e65f0234ebada5d",
+      "plan.md": "998a1e830d037fc68f18cc6d72531b7b13a2496f09c3c63053c91148e8b16301",
+      "tasks.md": "af34415eb8c3686520e609fb6b1172d890687db3347630a2d430ce3d2b338805",
+      "implementation-summary.md": "a5f82fe5f1e87581a94f39522ce8b0562766a816cc50d976e92da1dd30892a46"
+    },
+    "last_active_at": null
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/007-project-mirror",
+  "description": "Phase 7: project-mirror",
+  "keywords": [
+    "phase",
+    "project-mirror"
+  ],
+  "lastUpdated": "2026-10-20T02:35:22.805Z",
+  "specId": "007",
+  "folderSlug": "project-mirror",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

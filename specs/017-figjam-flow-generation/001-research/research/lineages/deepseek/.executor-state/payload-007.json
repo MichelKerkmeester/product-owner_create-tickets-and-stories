@@ -1,0 +1,28 @@
+{
+  "iteration": 7,
+  "focus": "Which flowchart rules survive FigJam, and what replaces the rest",
+  "newInfoRatio": 0.7,
+  "status": "insight",
+  "noveltyJustification": "Four classifications are new derived claims and two restate prior evidence; the simplicity bonus reflects one three-layer rule model replacing rule-by-rule reasoning.",
+  "answeredQuestions": ["Which sk-design-diagram flow rules carry over to FigJam, and which need a FigJam-native replacement?"],
+  "ruledOut": ["Porting the HTML/SVG taste gate wholesale", "Deferring layout to FigJam"],
+  "sourcesQueried": [
+    ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md",
+    ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md",
+    ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md",
+    ".skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh"
+  ],
+  "findings": [
+    {"id": "f-iter007-001", "label": "Shape-carries-type survives as intent but not as a verified contract: neither reference enumerates fj shape's accepted shape kinds or flags, so a rectangle/diamond/rounded vocabulary needs --help confirmation.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150", ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:348"]},
+    {"id": "f-iter007-002", "label": "Four rules are portable unchanged because they are model-level: labelled exits, at most three exits per decision, no colour-encoded node types, and one emphasis colour for the happy path or a single consequential decision.", "sources": [".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:25", ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:29"]},
+    {"id": "f-iter007-003", "label": "Three rules are unenforceable in FigJam: the merge dot becomes several edges into one target, the arc jump becomes column placement, and HTML/SVG shape rendering becomes one-node-at-a-time creation.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150"]},
+    {"id": "f-iter007-004", "label": "Top-to-bottom layout stays a rule but becomes costly: move and update are the only positioning verbs, so the pipeline must compute every node position itself.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150"]},
+    {"id": "f-iter007-005", "label": "Edge labelling is the highest-risk rule: if fj connect cannot carry a label, conditions must live as text nodes beside connectors or as suffixes in the target node label, and only the second cannot drift out of alignment.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:150", ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:25"]},
+    {"id": "f-iter007-006", "label": "Enforcement must move with the rules: no FigJam validator exists, so the pipeline needs its own model check for the three-exit ceiling, labelled branches and node-kind vocabulary before any write.", "sources": [".skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh:82", ".skilled/skills/sk-design/sk-design-diagram/SKILL.md:42"]}
+  ],
+  "graphEvents": [
+    {"type": "node", "id": "q-rule-transfer-2", "kind": "QUESTION", "label": "Which flow rules carry over to FigJam"},
+    {"type": "node", "id": "f-iter007-layers", "kind": "CLAIM", "label": "Only model-level rules transfer; rendering rules need substitutes"},
+    {"type": "edge", "id": "e-iter007-001", "source": "f-iter007-layers", "target": "q-rule-transfer-2", "relation": "ANSWERS"}
+  ]
+}

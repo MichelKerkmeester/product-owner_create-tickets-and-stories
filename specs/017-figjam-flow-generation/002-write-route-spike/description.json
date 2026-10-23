@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/002-write-route-spike",
+  "description": "Phase 2: write-route-spike",
+  "keywords": [
+    "phase",
+    "write-route-spike"
+  ],
+  "lastUpdated": "2026-10-20T02:35:17.910Z",
+  "specId": "002",
+  "folderSlug": "write-route-spike",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

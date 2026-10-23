@@ -1,0 +1,10 @@
+  5170 AGENTS.md
+   --- missing SKILL.md
+   --- missing sk-product-owner/ROUTER.md
+  7318 sk-product-owner/SKILL.md
+  2519 sk-product-owner/references/hvr-core.md
+  3466 sk-product-owner/references/conciseness.md
+  3230 sk-product-owner/references/task-mode.md
+  1447 sk-product-owner/assets/task-templates.md
+  3208 sk-product-owner/assets/interactive-response-templates.md
+ 26358 TOTAL

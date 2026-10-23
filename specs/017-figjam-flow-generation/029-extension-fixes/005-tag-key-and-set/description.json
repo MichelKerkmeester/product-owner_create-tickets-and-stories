@@ -1,0 +1,18 @@
+{
+  "specFolder": "017-figjam-flow-generation/029-extension-fixes/005-tag-key-and-set",
+  "description": "Phase 5: tag-key-and-set",
+  "keywords": [
+    "phase",
+    "tag-key-and-set"
+  ],
+  "lastUpdated": "2026-10-21T08:00:00.000Z",
+  "specId": "005",
+  "folderSlug": "tag-key-and-set",
+  "parentChain": [
+    "017-figjam-flow-generation",
+    "029-extension-fixes"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

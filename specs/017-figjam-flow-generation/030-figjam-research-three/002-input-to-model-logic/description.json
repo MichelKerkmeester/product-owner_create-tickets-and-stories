@@ -1,0 +1,19 @@
+{
+  "specFolder": "017-figjam-flow-generation/030-figjam-research-three/002-input-to-model-logic",
+  "description": "Phase 2: input-to-model-logic",
+  "keywords": [
+    "phase",
+    "research",
+    "input-to-model-logic"
+  ],
+  "lastUpdated": "2026-10-21T10:00:00.000Z",
+  "specId": "002",
+  "folderSlug": "input-to-model-logic",
+  "parentChain": [
+    "017-figjam-flow-generation",
+    "030-figjam-research-three"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

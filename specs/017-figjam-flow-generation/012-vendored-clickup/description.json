@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/012-vendored-clickup",
+  "description": "Phase 12: vendored-clickup",
+  "keywords": [
+    "phase",
+    "vendored-clickup"
+  ],
+  "lastUpdated": "2026-10-20T09:38:56.134Z",
+  "specId": "012",
+  "folderSlug": "vendored-clickup",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

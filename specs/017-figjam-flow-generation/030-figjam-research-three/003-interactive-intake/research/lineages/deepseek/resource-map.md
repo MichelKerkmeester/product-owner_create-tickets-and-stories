@@ -1,0 +1,77 @@
+---
+title: "Resource Map — Design an interactive intake for both sk-product-owner and sk-create-figjam that keeps asking the user questions until it is confident it understands the feature well enough to produce the FigJam output, and that spars with the user on what the board should convey and how it should look. Study the current behaviour first: sk-product-owner's Interactive Mode and its question templates, the router's clarification path, sk-create-figjam's gate and its ambiguity recovery, and the kernel's Interactive Mode. Then research: a confidence model with named facts the intake must know before drawing (the reader, the question the board answers, scope, entry and exit, actors, decisions, states, sources) and a threshold, a stop rule and a round cap so it never interrogates without end, how to ask few high-value questions per round, how to propose rather than only ask (a draft outline, two alternative framings, a Mermaid sketch before the board), how to challenge a brief that asks for too much or the wrong diagram type, how to record answers so later turns build on them, how this works when the user says just do it, how energy levels such as Quick and Standard change it, and how the Claude Project kernel would carry it. Use public sources on clarifying questions, requirements elicitation and design critique, Figma's own skills that ask before acting, and the repo's .skilled/skills/sk-prompt/ for its question-asking method. Earlier research to build on, read first: AI Systems/Product Owner/specs/017-figjam-flow-generation/009-figjam-skill-research/research/research.md and AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md (sections 1 to 9). Their changes are implemented, so do not re-propose them. Packet sources: AI Systems/Product Owner/sk-create-figjam/ (SKILL.md, references/flow-mode.md, references/style-guide.md, references/quality-rubric.md, references/hybrid-workflow.md, references/types/*.md, assets/flow-templates.md, assets/templates/*.md, assets/examples/*.md, scripts/flow_check.py, scripts/figjam_checks/*.py, manual-testing-playbook/), AI Systems/Product Owner/sk-product-owner/ (SKILL.md, references/interactive-mode.md, references/routing.md, references/router-contract.md, references/story-mode.md, references/doc-mode.md, assets/interactive-response-templates.md), the hub AI Systems/Product Owner/SKILL.md, AI Systems/Product Owner/AGENTS.md, the claude.ai kernel AI Systems/Product Owner/claude project/Custom Instructions.md and the vendored AI Systems/Product Owner/mcp-figma/. The corpus is 22 public repos under research/corpus/ (Figma's own figma__mcp-server-guide skills among them). Every iteration either widens the sources (a new file, a new repo found with gh search, a public web page) or deepens an earlier finding, and names the earlier iteration it builds on. Never stop early. Cite every claim as [SOURCE: path:line] or [SOURCE: URL]. Name what the packets already do well, so nothing good is removed. Each ranked change names the Product Owner file it changes and the source it comes from. Never open AI Systems/Product Context, any screenshot or image file, any figma.com board URL or anything under a containment folder, and never quote Barter product flows. Examples use fictional companies such as Fernhouse, Loomlist and Roamstay. The synthesis proposes the intake loop as concrete changes: its confidence rule, stop rule, question bank, sparring step and where each lands in which Product Owner file, at least 8 ranked."
+description: "Auto-generated research resource map from convergence evidence."
+---
+# Resource Map
+
+<!-- SPECKIT_TEMPLATE_SOURCE: resource-map | v1.1 -->
+
+---
+
+## Summary
+
+- **Total references**: 21
+- **By category**: READMEs=0, Documents=13, Commands=0, Agents=0, Skills=1, Specs=6, Scripts=1, Tests=0, Config=0, Meta=0
+- **Missing on disk**: 0
+- **Scope**: research convergence output for z-staging-po-030c
+- **Generated**: 2026-10-21T06:30:38.265Z
+
+> **Action vocabulary**: `Created` · `Updated` · `Analyzed` · `Removed` · `Cited` · `Validated` · `Moved` · `Renamed`.
+> **Status vocabulary**: `OK` · `MISSING` · `PLANNED`.
+
+## 2. Documents
+
+> Long-form markdown artifacts that are not READMEs: guides, specs, references, install docs, catalogs, playbooks.
+
+| Path | Action | Status | Note |
+|------|--------|--------|------|
+| AI Systems/Product Owner/claude project/Custom Instructions.md | Cited | OK | Citations=3; Iterations=3 |
+| AI Systems/Product Owner/ROUTER.md | Cited | OK | Citations=1; Iterations=1 |
+| AI Systems/Product Owner/sk-create-figjam/assets/flow-templates.md | Cited | OK | Citations=1; Iterations=1 |
+| AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md | Cited | OK | Citations=2; Iterations=2 |
+| AI Systems/Product Owner/sk-create-figjam/references/flow-mode.md | Cited | OK | Citations=5; Iterations=5 |
+| AI Systems/Product Owner/sk-create-figjam/references/hybrid-workflow.md | Cited | OK | Citations=1; Iterations=1 |
+| AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md | Cited | OK | Citations=1; Iterations=1 |
+| AI Systems/Product Owner/sk-create-figjam/SKILL.md | Cited | OK | Citations=2; Iterations=2 |
+| AI Systems/Product Owner/sk-product-owner/assets/interactive-response-templates.md | Cited | OK | Citations=1; Iterations=1 |
+| AI Systems/Product Owner/sk-product-owner/references/interactive-mode.md | Cited | OK | Citations=2; Iterations=2 |
+| AI Systems/Product Owner/sk-product-owner/references/routing.md | Cited | OK | Citations=1; Iterations=1 |
+| AI Systems/Product Owner/sk-product-owner/SKILL.md | Cited | OK | Citations=2; Iterations=2 |
+| AI Systems/Product Owner/SKILL.md | Cited | OK | Citations=1; Iterations=1 |
+
+---
+
+## 5. Skills
+
+> `.skilled/skills/**` including `SKILL.md`, `references/`, `assets/`, `feature-catalog/`, `manual-testing-playbook/`, `scripts/`, `shared/`, `runtime/`.
+
+| Path | Action | Status | Note |
+|------|--------|--------|------|
+| .skilled/skills/sk-prompt/SKILL.md | Cited | OK | Citations=1; Iterations=1 |
+
+---
+
+## 6. Specs
+
+> `.opencode/specs/**` and `specs/**`. Takes precedence over `Config` for spec-folder JSON metadata.
+
+| Path | Action | Status | Note |
+|------|--------|--------|------|
+| research/corpus/adobe__spectrum-design-data/.ai/skills/spectrum-diagrams/SKILL.md | Cited | OK | Citations=1; Iterations=1 |
+| research/corpus/figma__mcp-server-guide/skills/figma-generate-diagram/SKILL.md | Cited | OK | Citations=1; Iterations=1 |
+| research/corpus/figma__mcp-server-guide/skills/figma-spec/SKILL.md | Cited | OK | Citations=1; Iterations=1 |
+| research/corpus/figma__mcp-server-guide/workflow-skills/generate-project-plan/SKILL.md | Cited | OK | Citations=2; Iterations=2 |
+| research/corpus/ompug__diagram-codebase/docs/DESIGN.md | Cited | OK | Citations=1; Iterations=1 |
+| research/corpus/prasantloki__figjam-builder/SKILL.md | Cited | OK | Citations=1; Iterations=1 |
+
+---
+
+## 7. Scripts
+
+> Executable or build/test scripts: `.sh`, `.js`, `.ts`, `.mjs`, `.cjs`, `.py`.
+
+| Path | Action | Status | Note |
+|------|--------|--------|------|
+| AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py | Cited | OK | Citations=1; Iterations=1 |
+
+---

@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/014-hub-to-root",
+  "spec_folder": "017-figjam-flow-generation/014-hub-to-root",
+  "parent_id": "017-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "hub to root",
+      "repo-root-hub product owner",
+      "phase 14 hub to root",
+      "hub to root plan",
+      "hub to root tasks",
+      "hub to root acceptance criteria",
+      "hub to root goal",
+      "hub to root implementation summary"
+    ],
+    "key_topics": [
+      "hub",
+      "root",
+      "repo-root-hub",
+      "product",
+      "owner",
+      "phase",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "benchmark/README.md",
+      "benchmark/hub-routing-cases.json",
+      "benchmark/gates/check_hub.py",
+      "benchmark/gates/run_gates.sh",
+      "benchmark/format/validate-output-format.cjs",
+      "scripts/build-plugin.py",
+      "changelog/v1.0.0.0.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "benchmark/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "hub-routing-cases.json",
+        "kind": "config",
+        "path": "benchmark/hub-routing-cases.json",
+        "source": "derived"
+      },
+      {
+        "name": "check_hub.py",
+        "kind": "file",
+        "path": "benchmark/gates/check_hub.py",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "validate-output-format.cjs",
+        "kind": "file",
+        "path": "benchmark/format/validate-output-format.cjs",
+        "source": "derived"
+      },
+      {
+        "name": "build-plugin.py",
+        "kind": "file",
+        "path": "scripts/build-plugin.py",
+        "source": "derived"
+      },
+      {
+        "name": "v1.0.0.0.md",
+        "kind": "doc",
+        "path": "changelog/v1.0.0.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Moneybird Accountant",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Skilled",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The skilled checkers read a whole folder as the skill, so phase 013 had to put the hub in `product-owner/` to pass",
+    "created_at": "2026-10-20T18:57:16.619Z",
+    "last_save_at": "2026-10-20T18:57:16.619Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:4dfd70081be428c36497f166479c9a0494feb8eb9d9b7f8d82d5fc8c0f981ca3",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "ba232bd7d9c1093aca53d069549c225465e4e38107141c27935319a4bec93c2d",
+      "plan.md": "0e8d94f0a97fdeefd3dd41d5a991f25deef3ca12cc74fe0c1ad0c22ed2972196",
+      "tasks.md": "450335d7e4b263cc4ac686f7c6dc89d60017b29d8e04af759059454b6c37d2bd",
+      "implementation-summary.md": "b6c19f6f160fb14b55cb6b188310dec2e4725393b74393fb6a216246889d5199"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

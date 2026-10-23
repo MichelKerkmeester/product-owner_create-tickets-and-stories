@@ -1,0 +1,31 @@
+{
+  "iteration": 10,
+  "focus": "Mistakes the Media Editor plugin already paid for",
+  "newInfoRatio": 1.0,
+  "status": "complete",
+  "noveltyJustification": "All six findings are new failure evidence from the plugin phase documents, and none of the earlier iterations read those sources.",
+  "answeredQuestions": [],
+  "ruledOut": ["Assuming the runtime supplies a Node runtime or expands bundle settings", "Treating the development dependency as the shipped binary"],
+  "sourcesQueried": [
+    "AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md",
+    "AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/acceptance-criteria.md",
+    "AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/decision-record.md",
+    "AI Systems/Media Editor/sk-media-editor/changelog/v0.8.0.0.md",
+    "AI Systems/Product Owner/SYNC.md"
+  ],
+  "findings": [
+    {"id": "f-iter010-001", "label": "Claude Code supplies no Node for a bundle and does not expand bundle folder settings, so plugin.json must run node and the README must document Node as external; the Node 18 claim was superseded by the 20.9.0 engines floor.", "sources": ["AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55", "AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/acceptance-criteria.md:63"]},
+    {"id": "f-iter010-002", "label": "The plugin build resolves linked rule files into real files and fails on any copied file that differs from source or any link in the unpacked server; Product Owner already replaced four shared rule symlinks with copies for the standalone-clone reason.", "sources": ["AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:55", "AI Systems/Product Owner/SYNC.md:44"]},
+    {"id": "f-iter010-003", "label": "A rule treating any download redirect as failure made installs impossible on eight of ten pinned platform URLs, and it was amended to allow exactly one host-checked redirect; a protective rule can silently cut platform coverage.", "sources": ["AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/decision-record.md:163", "AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/decision-record.md:179"]},
+    {"id": "f-iter010-004", "label": "Tests resolved a development binary while the shipped plugin carried a different pinned build, and the shipped-payload run produced 45 capability-unrelated failures; shipped parity needs its own test pass.", "sources": ["AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:122"]},
+    {"id": "f-iter010-005", "label": "A skill rename propagated into the plugin copy path, the Project knowledge names and the rebuild and re-upload steps in one release, with whole-folder replacement so an old-name copy cannot ship beside the new one.", "sources": ["AI Systems/Media Editor/sk-media-editor/changelog/v0.8.0.0.md:83", "AI Systems/Media Editor/sk-media-editor/changelog/v0.8.0.0.md:121"]},
+    {"id": "f-iter010-006", "label": "Bundled-tool behavior differences become operator decisions rather than test outcomes, as when a shipped ffmpeg changed how it copies audio into MP4 and the phase recorded the trade-off for the operator.", "sources": ["AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md:122"]}
+  ],
+  "graphEvents": [
+    {"type": "node", "id": "q-plugin-lessons", "kind": "QUESTION", "label": "What mistakes did the plugin precedent already pay for"},
+    {"type": "node", "id": "f-iter010-parity-failures", "kind": "FINDING", "label": "Build parity refusals and shipped-payload gaps"},
+    {"type": "node", "id": "src-plugin-impl", "kind": "SOURCE", "label": "Plugin implementation summary", "path": "AI Systems/Media Editor/specs/003-media-editor-extension/008-claude-code-plugin/implementation-summary.md"},
+    {"type": "edge", "id": "e-iter010-001", "source": "f-iter010-parity-failures", "target": "q-plugin-lessons", "relation": "ANSWERS"},
+    {"type": "edge", "id": "e-iter010-002", "source": "f-iter010-parity-failures", "target": "src-plugin-impl", "relation": "CITES"}
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "iteration": 6,
+  "focus": "The flowchart rules sk-design-diagram actually enforces",
+  "newInfoRatio": 0.95,
+  "status": "complete",
+  "noveltyJustification": "All six findings are new rule-level evidence; only the existence of the diagram skill was previously known.",
+  "answeredQuestions": [],
+  "ruledOut": ["Reusing the HTML/SVG renderer for FigJam", "Keeping the arc-jump crossing rule"],
+  "sourcesQueried": [
+    ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md",
+    ".skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh",
+    ".skilled/skills/sk-design/sk-design-diagram/SKILL.md"
+  ],
+  "findings": [
+    {"id": "f-iter006-001", "label": "The flowchart type uses a shape-carries-type grammar: oval for start/end, rectangle for step, diamond for a decision with at most three exits, and a filled dot for a merge point.", "sources": [".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:20"]},
+    {"id": "f-iter006-002", "label": "Layout rules: top-to-bottom flow, Yes right and No below from a diamond, every outgoing arrow labelled, coral only on the happy path or one consequential decision, arc jump for crossings.", "sources": [".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:25", ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:26"]},
+    {"id": "f-iter006-003", "label": "Three anti-patterns are named: fill color signalling node type, a decision with four or more exits, and unlabelled decision branches.", "sources": [".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:29"]},
+    {"id": "f-iter006-004", "label": "The ASCII validator already machine-checks decision labelling and fails when decision words appear with no YES/NO labels.", "sources": [".skilled/skills/sk-design/sk-design-diagram/scripts/validate-flowchart.sh:82"]},
+    {"id": "f-iter006-005", "label": "The flowchart type is aimed at decision logic, branching user flows, onboarding routing and triage trees, which matches Product Owner input material rather than architecture vocabulary.", "sources": [".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md:15"]},
+    {"id": "f-iter006-006", "label": "sk-design-diagram supports only html-svg and ascii-markdown and its skip list names canvas artifacts, so FigJam must port the rules rather than reuse the renderer.", "sources": [".skilled/skills/sk-design/sk-design-diagram/SKILL.md:10", ".skilled/skills/sk-design/sk-design-diagram/SKILL.md:42"]}
+  ],
+  "graphEvents": [
+    {"type": "node", "id": "q-rule-transfer", "kind": "QUESTION", "label": "Which flow rules carry over to FigJam"},
+    {"type": "node", "id": "f-iter006-grammar", "kind": "FINDING", "label": "Shape-carries-type flowchart grammar"},
+    {"type": "node", "id": "src-flowchart-type", "kind": "SOURCE", "label": "type-flowchart.md", "path": ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md"},
+    {"type": "edge", "id": "e-iter006-001", "source": "f-iter006-grammar", "target": "q-rule-transfer", "relation": "SUPPORTS"},
+    {"type": "edge", "id": "e-iter006-002", "source": "f-iter006-grammar", "target": "src-flowchart-type", "relation": "CITES"}
+  ]
+}

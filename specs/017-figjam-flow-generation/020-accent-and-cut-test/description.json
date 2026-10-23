@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/020-accent-and-cut-test",
+  "description": "Phase 20: accent-and-cut-test",
+  "keywords": [
+    "phase",
+    "accent-and-cut-test"
+  ],
+  "lastUpdated": "2026-10-20T22:00:00.000Z",
+  "specId": "020",
+  "folderSlug": "accent-and-cut-test",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

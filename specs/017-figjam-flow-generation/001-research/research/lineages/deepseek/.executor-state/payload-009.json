@@ -1,0 +1,29 @@
+{
+  "iteration": 9,
+  "focus": "The Media Editor plugin as a packaging precedent",
+  "newInfoRatio": 1.0,
+  "status": "complete",
+  "noveltyJustification": "All six findings are new plugin-build evidence; the plugin was only knew by name before this iteration.",
+  "answeredQuestions": [],
+  "ruledOut": ["Hand-maintaining the copy in the plugin directory", "Copying the no-MCP-server choice for a FigJam plugin"],
+  "sourcesQueried": [
+    "AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/plugin.json",
+    "AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/marketplace.json",
+    "AI Systems/Media Editor/runtime/claude-plugin/README.md"
+  ],
+  "findings": [
+    {"id": "f-iter009-001", "label": "Plugin identity is minimal: a five-field plugin.json plus a one-plugin local marketplace whose source is ./.", "sources": ["AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/plugin.json:2", "AI Systems/Media Editor/runtime/claude-plugin/.claude-plugin/marketplace.json:9"]},
+    {"id": "f-iter009-002", "label": "The plugin is a build output: npm run plugin unpacks server/, copies the skill into skills/sk-media-editor/ and writes bin/ shims, and all three directories are untracked.", "sources": ["AI Systems/Media Editor/runtime/claude-plugin/README.md:31", "AI Systems/Media Editor/runtime/claude-plugin/README.md:78"]},
+    {"id": "f-iter009-003", "label": "The copied skill is a wholesale copy of ../../sk-media-editor/, the build replaces the whole skills folder each time, and the copy is never treated as a source.", "sources": ["AI Systems/Media Editor/runtime/claude-plugin/README.md:83"]},
+    {"id": "f-iter009-004", "label": "The build enforces three refusals that solve duplicate drift: any copied file differing from its source, a server unpacking with links, and a plugin.json registering an MCP server.", "sources": ["AI Systems/Media Editor/runtime/claude-plugin/README.md:83"]},
+    {"id": "f-iter009-005", "label": "The plugin registers no MCP server, an accepted cost: claude.ai and Cowork refuse a plugin with a bin folder, so it reaches Claude Code only and a claude.ai Project needs an MCP-based Desktop extension.", "sources": ["AI Systems/Media Editor/runtime/claude-plugin/README.md:15"]},
+    {"id": "f-iter009-006", "label": "Runtime cost sits outside the plugin: Node 20.9.0 must already be on the session PATH, and one pinned ffmpeg build exists per platform.", "sources": ["AI Systems/Media Editor/runtime/claude-plugin/README.md:24"]}
+  ],
+  "graphEvents": [
+    {"type": "node", "id": "q-plugin-precedent", "kind": "QUESTION", "label": "What is the Claude Code plugin precedent"},
+    {"type": "node", "id": "f-iter009-build-output", "kind": "FINDING", "label": "Duplicate skill is a build output with a parity refusal"},
+    {"type": "node", "id": "src-plugin-readme", "kind": "SOURCE", "label": "Media Editor plugin README", "path": "AI Systems/Media Editor/runtime/claude-plugin/README.md"},
+    {"type": "edge", "id": "e-iter009-001", "source": "f-iter009-build-output", "target": "q-plugin-precedent", "relation": "ANSWERS"},
+    {"type": "edge", "id": "e-iter009-002", "source": "f-iter009-build-output", "target": "src-plugin-readme", "relation": "CITES"}
+  ]
+}

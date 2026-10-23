@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/021-board-critic-pass",
+  "description": "Phase 21: board-critic-pass",
+  "keywords": [
+    "phase",
+    "board-critic-pass"
+  ],
+  "lastUpdated": "2026-10-20T22:00:00.000Z",
+  "specId": "021",
+  "folderSlug": "board-critic-pass",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

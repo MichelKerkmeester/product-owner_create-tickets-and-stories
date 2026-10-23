@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/017-board-link-in-artifact",
+  "description": "Phase 17: board-link-in-artifact",
+  "keywords": [
+    "phase",
+    "board-link-in-artifact"
+  ],
+  "lastUpdated": "2026-10-20T22:00:00.000Z",
+  "specId": "017",
+  "folderSlug": "board-link-in-artifact",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

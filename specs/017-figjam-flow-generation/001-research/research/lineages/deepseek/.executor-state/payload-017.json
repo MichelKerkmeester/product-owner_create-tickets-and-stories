@@ -1,0 +1,30 @@
+{
+  "iteration": 17,
+  "focus": "The risk register, ranked by what research can reduce",
+  "newInfoRatio": 0.9,
+  "status": "complete",
+  "noveltyJustification": "The published-versus-repo version gap, the licence and origin posture and the reducibility ranking are all new; the auth and runtime risks restate earlier evidence.",
+  "answeredQuestions": [],
+  "ruledOut": ["Planning against npm latest", "Using fj eval to fill a capability gap"],
+  "sourcesQueried": [
+    ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md",
+    ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md",
+    ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md",
+    ".skilled/skills/mcp-tooling/mcp-figma/README.md",
+    "AI Systems/Product Owner/LICENSE"
+  ],
+  "findings": [
+    {"id": "f-iter017-001", "label": "The FigJam surface exists only in the unpublished 1.2.0 repo build: npm publishes 1.0.0, whose help lists no daemon, no extract, no safe connect and no fj, so a normal install yields none of the FigJam verbs.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:54", ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:57"]},
+    {"id": "f-iter017-002", "label": "Product Owner ships as a public MIT repository from a GitHub origin, so an embedded skill copy and its examples become public content and the vendored source's MIT terms travel with it.", "sources": ["AI Systems/Product Owner/LICENSE:1", "AI Systems/Product Owner/.git"]},
+    {"id": "f-iter017-003", "label": "Authentication differs by transport: the CLI needs no API key, the optional MCP needs a prefixed Figma personal access token in .env, and the daemon token is a second credential that must never appear in output.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:80", ".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:123"]},
+    {"id": "f-iter017-004", "label": "Rate limits are unpinned: the skill documents none and the MCP path wraps an external REST API, so batch flow generation has no documented ceiling to plan against.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149", ".skilled/skills/mcp-tooling/mcp-figma/references/mcp-wiring.md:68"]},
+    {"id": "f-iter017-005", "label": "Two verbs can damage a real board: fj delete is destructive and fj eval is arbitrary, and a pipeline missing images or tables would be tempted to reach for the arbitrary path the policy excludes.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:151", ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:190"]},
+    {"id": "f-iter017-006", "label": "The runtime is local and fragile: the daemon is idle-timed and not reboot-persistent, macOS is the supported baseline, and yolo connect patches app.asar and breaks on Figma updates.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/README.md:109"]},
+    {"id": "f-iter017-007", "label": "Only the version gap is reducible by research (pin the 1.2.0 repo build and verify fj --help); public exposure, external quotas and the local runtime are structural risks that can only be named.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/figma-cli-reference.md:57", "AI Systems/Product Owner/LICENSE:1"]}
+  ],
+  "graphEvents": [
+    {"type": "node", "id": "q-risks", "kind": "QUESTION", "label": "Which risks exist and which are reducible"},
+    {"type": "node", "id": "f-iter017-version-gap", "kind": "FINDING", "label": "FigJam verbs only exist in the unpublished repo build"},
+    {"type": "edge", "id": "e-iter017-001", "source": "f-iter017-version-gap", "target": "q-risks", "relation": "ANSWERS"}
+  ]
+}

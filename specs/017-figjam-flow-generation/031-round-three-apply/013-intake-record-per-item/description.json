@@ -1,0 +1,18 @@
+{
+  "specFolder": "017-figjam-flow-generation/031-round-three-apply/013-intake-record-per-item",
+  "description": "Phase 13: intake-record-per-item",
+  "keywords": [
+    "phase",
+    "intake-record-per-item"
+  ],
+  "lastUpdated": "2026-10-21T08:00:00.000Z",
+  "specId": "013",
+  "folderSlug": "intake-record-per-item",
+  "parentChain": [
+    "017-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

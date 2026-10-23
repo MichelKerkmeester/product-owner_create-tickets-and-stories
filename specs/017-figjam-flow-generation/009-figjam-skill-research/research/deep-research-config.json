@@ -1,0 +1,113 @@
+{
+  "topic": "What should Product Owner's Flow Mode adopt from the strongest public FigJam diagram skills? Flow Mode turns screenshots, Figma flows and product docs into a checked Mermaid model and writes it to FigJam through the hosted Figma MCP generate_diagram tool, with figma-ds-cli fj as the Desktop fallback. Its sources: AI Systems/Product Owner/sk-product-owner/references/flow-mode.md, AI Systems/Product Owner/sk-product-owner/assets/flow-templates.md, AI Systems/Product Owner/sk-product-owner/scripts/flow_check.py, AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md, AI Systems/Product Owner/claude project/knowledge/Product Owner - Assets - Flow Templates.md and the Flow Mode Delivery section of AI Systems/Product Owner/claude project/Custom Instructions.md. The corpus is eight public repos pinned under specs/z-staging-po-009-research/corpus/: figma__mcp-server-guide (Figma's official figma-generate-diagram and figma-use-figjam skills and their references), IamTheLime__dotfiles (figjam-diagrams), southleft__figma-console-mcp-skills (figjam-create-content), mkaralevich__pi-figma-labor (figjam-create), amo-tech-ai__rocket-path-ai (figjam-diagrams), atezer__FMCP (figjam-diagram-builder), ompug__diagram-codebase and memi-design__mermaid-jam. Compare rules, checks, write routes, read-back and verification, failure and retry handling, file and page handling, layout, colour, shapes, density, label rules, iteration and fileKey reuse, hybrid generate_diagram plus use_figma extension, and delivery. Give an adopt or reject verdict, with reasons, on four known gaps: FigJam files have one implicit page and figma.createPage throws, so Flow Mode's new-page rule and page rollback; emojis in Mermaid; reserved node IDs end, subgraph and graph; underscores in node IDs. Also judge Flow Mode's deliberate limits against the corpus: top-to-bottom only, 9 nodes, 3 exits per decision, one accent colour, four shapes. Never stop early: every iteration either widens the corpus (a new repo found with gh search, a new file or a new question) or deepens an earlier finding, and names the earlier iteration it builds on. Cite every claim as [SOURCE: path:line]. The synthesis ranks at least 10 improvements, each naming the Flow Mode file it changes and the corpus file it comes from. Never open AI Systems/Product Context, any screenshot, any board URL or anything under a containment folder, and never quote Barter product flows.",
+  "maxIterations": 20,
+  "convergenceThreshold": 0.05,
+  "antiConvergence": {
+    "minIterations": 3,
+    "convergenceMode": "off",
+    "stopPolicy": "fail-closed",
+    "divergent": {}
+  },
+  "stuckThreshold": 3,
+  "maxDurationMinutes": 480,
+  "maxToolCallsPerIteration": 24,
+  "maxMinutesPerIteration": 10,
+  "progressiveSynthesis": true,
+  "specFolder": "specs/z-staging-po-009-research",
+  "createdAt": "2026-10-20T07:40:36Z",
+  "status": "initialized",
+  "executionMode": "auto",
+  "executor": {
+    "kind": "native",
+    "model": null,
+    "reasoningEffort": null,
+    "serviceTier": null,
+    "sandboxMode": null,
+    "timeoutSeconds": 900
+  },
+  "lineage": {
+    "sessionId": "",
+    "parentSessionId": null,
+    "lineageMode": "new",
+    "allowedModes": [
+      "new",
+      "resume",
+      "restart"
+    ],
+    "deferredModes": [
+      "fork",
+      "completed-continue"
+    ],
+    "generation": 1,
+    "continuedFromRun": null
+  },
+  "reducer": {
+    "enabled": true,
+    "version": "1.0",
+    "registryFile": "research/findings-registry.json",
+    "dashboardFile": "research/deep-research-dashboard.md",
+    "strategyFile": "research/deep-research-strategy.md",
+    "machineOwnedSections": [
+      "key-questions",
+      "answered-questions",
+      "what-worked",
+      "what-failed",
+      "exhausted-approaches",
+      "ruled-out-directions",
+      "divergence-frontier",
+      "next-focus"
+    ]
+  },
+  "capabilityMatrixPath": ".skilled/skills/system-deep-loop/deep-research/assets/runtime-capabilities.json",
+  "capabilityMatrixDocPath": ".skilled/skills/system-deep-loop/deep-research/references/guides/capability-matrix.md",
+  "runtimeCapabilityResolver": ".skilled/skills/system-deep-loop/deep-research/scripts/runtime-capabilities.cjs",
+  "reducerScriptPath": ".skilled/skills/system-deep-loop/deep-research/scripts/reduce-state.cjs",
+  "pauseSentinelPath": "research/.deep-research-pause",
+  "archiveRoot": "research_archive",
+  "migrationWindowDays": 28,
+  "fileProtection": {
+    "deep-research-config.json": "immutable",
+    "deep-research-state.jsonl": "append-only",
+    "deep-research-strategy.md": "mutable",
+    "deep-research-dashboard.md": "auto-generated",
+    "findings-registry.json": "auto-generated",
+    "iteration-*.md": "write-once",
+    "research/research.md": "mutable"
+  },
+  "_optimizerManaged": {
+    "description": "Fields managed by the offline loop optimizer (042.004). See optimizer-manifest.json for the canonical tunable/locked field registry.",
+    "manifestPath": ".skilled/skills/system-spec-kit/runtime/cli/optimizer/optimizer-manifest.json",
+    "tunableFields": [
+      "convergenceThreshold",
+      "stuckThreshold",
+      "maxIterations"
+    ],
+    "lockedFields": [
+      "lineage",
+      "reducer",
+      "fileProtection",
+      "sessionId",
+      "status",
+      "antiConvergence.convergenceMode",
+      "antiConvergence.stopPolicy"
+    ],
+    "promotionMode": "advisory-only"
+  },
+  "researchTopic": "What should Product Owner's Flow Mode adopt from the strongest public FigJam diagram skills? Flow Mode turns screenshots, Figma flows and product docs into a checked Mermaid model and writes it to FigJam through the hosted Figma MCP generate_diagram tool, with figma-ds-cli fj as the Desktop fallback. Its sources: AI Systems/Product Owner/sk-product-owner/references/flow-mode.md, AI Systems/Product Owner/sk-product-owner/assets/flow-templates.md, AI Systems/Product Owner/sk-product-owner/scripts/flow_check.py, AI Systems/Product Owner/claude project/knowledge/Product Owner - Templates - Flow Mode.md, AI Systems/Product Owner/claude project/knowledge/Product Owner - Assets - Flow Templates.md and the Flow Mode Delivery section of AI Systems/Product Owner/claude project/Custom Instructions.md. The corpus is eight public repos pinned under specs/z-staging-po-009-research/corpus/: figma__mcp-server-guide (Figma's official figma-generate-diagram and figma-use-figjam skills and their references), IamTheLime__dotfiles (figjam-diagrams), southleft__figma-console-mcp-skills (figjam-create-content), mkaralevich__pi-figma-labor (figjam-create), amo-tech-ai__rocket-path-ai (figjam-diagrams), atezer__FMCP (figjam-diagram-builder), ompug__diagram-codebase and memi-design__mermaid-jam. Compare rules, checks, write routes, read-back and verification, failure and retry handling, file and page handling, layout, colour, shapes, density, label rules, iteration and fileKey reuse, hybrid generate_diagram plus use_figma extension, and delivery. Give an adopt or reject verdict, with reasons, on four known gaps: FigJam files have one implicit page and figma.createPage throws, so Flow Mode's new-page rule and page rollback; emojis in Mermaid; reserved node IDs end, subgraph and graph; underscores in node IDs. Also judge Flow Mode's deliberate limits against the corpus: top-to-bottom only, 9 nodes, 3 exits per decision, one accent colour, four shapes. Never stop early: every iteration either widens the corpus (a new repo found with gh search, a new file or a new question) or deepens an earlier finding, and names the earlier iteration it builds on. Cite every claim as [SOURCE: path:line]. The synthesis ranks at least 10 improvements, each naming the Flow Mode file it changes and the corpus file it comes from. Never open AI Systems/Product Context, any screenshot, any board URL or anything under a containment folder, and never quote Barter product flows.",
+  "resource_map": {
+    "emit": true
+  },
+  "fanout": {
+    "executors": [
+      {
+        "label": "deepseek",
+        "kind": "cli-pi",
+        "model": "deepseek-v4.1-flash",
+        "reasoningEffort": "max",
+        "iterations": 20,
+        "timeoutSeconds": 1800
+      }
+    ],
+    "concurrency": 1
+  }
+}

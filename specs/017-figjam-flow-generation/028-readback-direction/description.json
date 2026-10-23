@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/028-readback-direction",
+  "description": "Phase 28: readback-direction",
+  "keywords": [
+    "phase",
+    "readback-direction"
+  ],
+  "lastUpdated": "2026-10-20T22:00:00.000Z",
+  "specId": "028",
+  "folderSlug": "readback-direction",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/030-figjam-research-three/003-interactive-intake",
+  "spec_folder": "017-figjam-flow-generation/030-figjam-research-three/003-interactive-intake",
+  "parent_id": "017-figjam-flow-generation/030-figjam-research-three",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "interactive intake research",
+      "interactive intake research plan",
+      "interactive intake research tasks",
+      "interactive intake research acceptance criteria",
+      "interactive intake research goal",
+      "interactive intake research implementation summary"
+    ],
+    "key_topics": [
+      "interactive",
+      "intake",
+      "research",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "packets",
+      "ask"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "research/research.md",
+      "research/.gitignore",
+      "claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+      "claude project/knowledge/Product Owner - Assets - Flow Templates.md",
+      ".skilled/skills/sk-prompt/SKILL.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "research.md",
+        "kind": "doc",
+        "path": "research/research.md",
+        "source": "derived"
+      },
+      {
+        "name": ".gitignore",
+        "kind": "file",
+        "path": "research/.gitignore",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner - Templates - Flow Mode.md",
+        "kind": "doc",
+        "path": "claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner - Assets - Flow Templates.md",
+        "kind": "doc",
+        "path": "claude project/knowledge/Product Owner - Assets - Flow Templates.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": ".skilled/skills/sk-prompt/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "research/research.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Fan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Both packets ask one bounded round of questions and then draw, so a thin brief yields a board that answers the wrong question",
+    "created_at": "2026-10-21T06:41:36.452Z",
+    "last_save_at": "2026-10-21T06:41:36.452Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "research/research.md"
+    ],
+    "source_fingerprint": "sha256:7cafd5410440fc14506cd88c5a22ab221f369df21c582b27f2993777044fa8b9",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "576042c3a71bb2e340969849bfd167454b81f26c57c6da409bed87b665ca826e",
+      "plan.md": "7e3d0947f6a312bfeec204ace896c2ddc504c790378d17d7f7220ffb0b1befa7",
+      "tasks.md": "c6b11e9c684b57b9b6de36a4a8a2e36100c812beeacd99b09f1e03cb3f91be85",
+      "implementation-summary.md": "46dcafaed754294ac39cddc777576197f34a9fea610aa1c3161d5a7ea90d0ed9",
+      "research/research.md": "07b35127ac52a652e74369785d6b8094b014a1a7875b511a8793c374661667f4"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/009-figjam-skill-research",
+  "description": "Phase 9: figjam-skill-research",
+  "keywords": [
+    "phase",
+    "figjam-skill-research"
+  ],
+  "lastUpdated": "2026-10-20T07:37:46.531Z",
+  "specId": "009",
+  "folderSlug": "figjam-skill-research",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

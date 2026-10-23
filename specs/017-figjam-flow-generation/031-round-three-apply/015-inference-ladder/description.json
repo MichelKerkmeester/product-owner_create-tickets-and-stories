@@ -1,0 +1,18 @@
+{
+  "specFolder": "017-figjam-flow-generation/031-round-three-apply/015-inference-ladder",
+  "description": "Phase 15: inference-ladder",
+  "keywords": [
+    "phase",
+    "inference-ladder"
+  ],
+  "lastUpdated": "2026-10-21T08:00:00.000Z",
+  "specId": "015",
+  "folderSlug": "inference-ladder",
+  "parentChain": [
+    "017-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

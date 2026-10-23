@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/023-kernel-no-connector-sentence",
+  "description": "Phase 23: kernel-no-connector-sentence",
+  "keywords": [
+    "phase",
+    "kernel-no-connector-sentence"
+  ],
+  "lastUpdated": "2026-10-20T22:00:00.000Z",
+  "specId": "023",
+  "folderSlug": "kernel-no-connector-sentence",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

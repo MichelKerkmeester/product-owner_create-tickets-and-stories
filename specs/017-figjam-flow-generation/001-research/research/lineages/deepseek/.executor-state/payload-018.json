@@ -1,0 +1,28 @@
+{
+  "iteration": 18,
+  "focus": "What FigJam is the only output actually constrains",
+  "newInfoRatio": 0.85,
+  "status": "insight",
+  "noveltyJustification": "Four findings are new readings of the packet and protocol together; two restate known constraints from iteration 3 and 4, and the bonus reflects the receipt-versus-deliverable distinction that resolves the contradiction.",
+  "answeredQuestions": [],
+  "ruledOut": ["Treating the markdown receipt as a second output", "Exports as a fallback"],
+  "sourcesQueried": [
+    "specs/z-staging-po-017-research/goal.md",
+    "AI Systems/Product Owner/AGENTS.md",
+    ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md",
+    ".skilled/skills/sk-design/sk-design-diagram/SKILL.md"
+  ],
+  "findings": [
+    {"id": "f-iter018-001", "label": "The phase directive is stricter than the topic: findings only, and no file outside the research folder changes, so during research no board is touched.", "sources": ["specs/z-staging-po-017-research/goal.md:48"]},
+    {"id": "f-iter018-002", "label": "FigJam-only excludes every artifact the diagram skill ships: HTML/SVG documents, ASCII markdown flowcharts, PNG/SVG exports and drawio or Mermaid redraws.", "sources": [".skilled/skills/sk-design/sk-design-diagram/SKILL.md:42"]},
+    {"id": "f-iter018-003", "label": "Product Owner blocks delivery until a markdown artifact is saved and read back from its exact path, so board-only delivery requires redefining the receipt rather than dropping the step.", "sources": ["AI Systems/Product Owner/AGENTS.md:37", "AI Systems/Product Owner/AGENTS.md:46"]},
+    {"id": "f-iter018-004", "label": "The only board read-back is fj list|info|nodes, which proves nodes exist but not that labels and edges are correct, so a correctness proof also needs the model in text.", "sources": [".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149"]},
+    {"id": "f-iter018-005", "label": "The packet's completion criteria require the synthesis to tag every claim confirmed or inferred and to carry a copy-and-avoid section for each precedent.", "sources": ["specs/z-staging-po-017-research/goal.md:61", "specs/z-staging-po-017-research/goal.md:62"]},
+    {"id": "f-iter018-006", "label": "The coherent reading is one delivered artifact (the board) plus a non-deliverable verification receipt recording the node read-back and the model that produced it; otherwise topic and protocol contradict.", "sources": ["AI Systems/Product Owner/AGENTS.md:37", ".skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:149"]}
+  ],
+  "graphEvents": [
+    {"type": "node", "id": "q-only-output", "kind": "QUESTION", "label": "What does FigJam-only forbid and how is delivery proven"},
+    {"type": "node", "id": "f-iter018-receipt", "kind": "CLAIM", "label": "Board is the artifact; receipt is verification only"},
+    {"type": "edge", "id": "e-iter018-001", "source": "f-iter018-receipt", "target": "q-only-output", "relation": "ANSWERS"}
+  ]
+}

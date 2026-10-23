@@ -1,0 +1,86 @@
+{
+  "topic": "Five extra iterations on phase 016's research into Product Owner's sk-create-figjam packet and its integration with sk-product-owner. Read the earlier synthesis first, in full: AI Systems/Product Owner/specs/017-figjam-flow-generation/016-figjam-improvement-research/research/research.md (its citations under research/corpus/ resolve to the same repos under specs/z-staging-po-016b-research/corpus/). All 12 of its ranked changes are now implemented, as phases 017 to 028 of the packet (each phase's implementation-summary.md under AI Systems/Product Owner/specs/017-figjam-flow-generation/0NN-*/ says what it changed): the verified board URL in the artifact's Flows group, the artifact-plus-board pair through the router's then field, the hosted route connection, the accent and cut test, the screenshot critic pass, node tags as metadata, the kernel no-connector sentence, the Flow delivery pointers, the plan through whoami, self-edit guidance, repeated edge labels and read-back direction. Do not re-propose any of the 12. Work these, one or more per iteration, and name the earlier iteration or research.md section each builds on: (1) read the changed sources and check each implemented change against the corpus line it came from, naming anything the implementation left out, got wrong or worded so a model would misread it; (2) deepen what research.md section 5 rejected and section 7 left unverified, and settle what can be settled from public docs: the hosted Figma MCP tool list, whoami, the fields get_figjam returns, and whether use_figma allows setPluginData or setSharedPluginData; (3) widen the corpus with web search for FigJam skills, MCP servers, plugins and Figma docs published after the pins, citing URLs where no local file exists; (4) find integration gaps that remain, among them the known router gap where \"write a doc about onboarding and draw it on a figjam board\" and \"write a bug about it and add a figjam diagram\" still route to FLOW alone, the claude.ai Project's Flow path, ClickUp handoff of a board URL and the playbooks.",
+  "maxIterations": 5,
+  "convergenceThreshold": 0.05,
+  "antiConvergence": {
+    "minIterations": 3,
+    "convergenceMode": "off",
+    "stopPolicy": "max-iterations",
+    "divergent": {}
+  },
+  "stuckThreshold": 3,
+  "maxDurationMinutes": 240,
+  "maxToolCallsPerIteration": 24,
+  "maxMinutesPerIteration": 20,
+  "progressiveSynthesis": false,
+  "specFolder": "specs/z-staging-po-016b-research",
+  "createdAt": "2026-10-21T05:01:12.000Z",
+  "status": "initialized",
+  "executionMode": "auto",
+  "executor": {
+    "kind": "cli-pi",
+    "model": "deepseek-v4.1-flash",
+    "reasoningEffort": "max",
+    "serviceTier": null,
+    "sandboxMode": "workspace-write",
+    "timeoutSeconds": 1800
+  },
+  "lineage": {
+    "sessionId": "fanout-deepseek-1792558554351-13ddom",
+    "parentSessionId": null,
+    "lineageMode": "new",
+    "allowedModes": ["new", "resume", "restart"],
+    "deferredModes": ["fork", "completed-continue"],
+    "generation": 1,
+    "continuedFromRun": null
+  },
+  "reducer": {
+    "enabled": true,
+    "version": "1.0",
+    "registryFile": "research/findings-registry.json",
+    "dashboardFile": "research/deep-research-dashboard.md",
+    "strategyFile": "research/deep-research-strategy.md",
+    "machineOwnedSections": [
+      "key-questions",
+      "answered-questions",
+      "what-worked",
+      "what-failed",
+      "exhausted-approaches",
+      "ruled-out-directions",
+      "divergence-frontier",
+      "next-focus"
+    ]
+  },
+  "capabilityMatrixPath": ".skilled/skills/system-deep-loop/deep-research/assets/runtime-capabilities.json",
+  "capabilityMatrixDocPath": ".skilled/skills/system-deep-loop/deep-research/references/guides/capability-matrix.md",
+  "runtimeCapabilityResolver": ".skilled/skills/system-deep-loop/deep-research/scripts/runtime-capabilities.cjs",
+  "reducerScriptPath": ".skilled/skills/system-deep-loop/deep-research/scripts/reduce-state.cjs",
+  "pauseSentinelPath": "research/.deep-research-pause",
+  "archiveRoot": "research_archive",
+  "migrationWindowDays": 28,
+  "fileProtection": {
+    "deep-research-config.json": "immutable",
+    "deep-research-state.jsonl": "append-only",
+    "deep-research-strategy.md": "mutable",
+    "deep-research-dashboard.md": "auto-generated",
+    "findings-registry.json": "auto-generated",
+    "iteration-*.md": "write-once",
+    "research/research.md": "mutable"
+  },
+  "resource_map": {
+    "emit": true
+  },
+  "fanout": {
+    "executors": [
+      {
+        "label": "deepseek",
+        "kind": "cli-pi",
+        "model": "deepseek-v4.1-flash",
+        "reasoningEffort": "max",
+        "iterations": 5,
+        "timeoutSeconds": 1800
+      }
+    ],
+    "concurrency": 1
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/009-figjam-skill-research",
+  "spec_folder": "017-figjam-flow-generation/009-figjam-skill-research",
+  "parent_id": "017-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "figjam skill research",
+      "phase 9 figjam skill research",
+      "figjam skill research plan",
+      "figjam skill research tasks",
+      "figjam skill research acceptance criteria",
+      "figjam skill research goal",
+      "figjam skill research implementation summary"
+    ],
+    "key_topics": [
+      "figjam",
+      "skill",
+      "research",
+      "phase",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "flow"
+    ],
+    "importance_tier": "normal",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "research/research.md",
+      "sk-product-owner/references/flow-mode.md",
+      "sk-product-owner/assets/flow-templates.md",
+      "sk-product-owner/scripts/flow_check.py"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "research.md",
+        "kind": "doc",
+        "path": "research/research.md",
+        "source": "derived"
+      },
+      {
+        "name": "flow-mode.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/flow-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "flow-templates.md",
+        "kind": "doc",
+        "path": "sk-product-owner/assets/flow-templates.md",
+        "source": "derived"
+      },
+      {
+        "name": "flow_check.py",
+        "kind": "file",
+        "path": "sk-product-owner/scripts/flow_check.py",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Flow Mode",
+        "kind": "proper_noun",
+        "path": "research/research.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Progress",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Clean Architecture",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Current Role",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Flow Mode was built without comparing it to the public FigJam diagram skills, Figma's own among them",
+    "created_at": "2026-10-20T07:37:45Z",
+    "last_save_at": "2026-10-20T08:25:31.103Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "research/research.md"
+    ],
+    "source_fingerprint": "sha256:c8e1435ac72015697dd781b698a13013d8666e96b1e81e5ff6073dbdb07e7628",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "6b71a65c22f053baccbe674f9e4e5e86ed3cbe3bda624b539352afb575a7bdd4",
+      "plan.md": "9fa2226946b9de2815e6bc04dd9f76e177a5f998d9f70c3bf4c7af748bc597d4",
+      "tasks.md": "6b7f22fe0249e1d3b67207f1d6860b973bf615d747b827f3418b8dc230df31c6",
+      "implementation-summary.md": "3256be6f74ff4a4eceb43b93a99962fb5e5ff2834eced62e60e5922f3a12344a",
+      "research/research.md": "204eb758e799cee0e5d98b5851a9a9629999cdca45b6f16f793f4a025f75fe80"
+    },
+    "last_active_at": null
+  }
+}

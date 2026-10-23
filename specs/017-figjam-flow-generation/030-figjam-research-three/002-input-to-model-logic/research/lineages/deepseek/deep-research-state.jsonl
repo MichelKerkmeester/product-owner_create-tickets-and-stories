@@ -1,0 +1,7 @@
+{"type":"config","topic":"How can the AI most reliably turn screenshots, Figma flows and product logic into a correct FigJam model?","maxIterations":5,"generation":1,"timestamp":"2026-10-21T06:26:12.221Z"}
+{"type":"iteration","iteration":1,"run":1,"status":"complete","newInfoRatio":0.8,"ruledOut":[],"timestamp":"2026-10-21T06:27:22.272Z"}
+{"type":"iteration","iteration":2,"run":2,"status":"complete","newInfoRatio":0.7,"ruledOut":[],"timestamp":"2026-10-21T06:28:50.103Z"}
+{"type":"iteration","iteration":3,"run":3,"status":"complete","newInfoRatio":0.62,"ruledOut":[],"timestamp":"2026-10-21T06:29:43.920Z"}
+{"type":"iteration","iteration":4,"run":4,"status":"complete","newInfoRatio":0.68,"ruledOut":[],"timestamp":"2026-10-21T06:30:35.674Z"}
+{"type":"iteration","iteration":5,"run":5,"status":"complete","newInfoRatio":0.55,"ruledOut":[],"timestamp":"2026-10-21T06:31:17.636Z"}
+{"type":"event","event":"synthesis_complete","stem":"deep_research.synthesis_complete","lineageId":"deepseek","runId":"deepseek","answeredCount":9,"stopReason":"maxIterationsReached","totalIterations":5,"totalQuestions":9,"timestamp":"2026-10-21T06:32:49.809Z"}

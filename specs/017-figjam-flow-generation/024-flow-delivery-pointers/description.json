@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/024-flow-delivery-pointers",
+  "description": "Phase 24: flow-delivery-pointers",
+  "keywords": [
+    "phase",
+    "flow-delivery-pointers"
+  ],
+  "lastUpdated": "2026-10-20T22:00:00.000Z",
+  "specId": "024",
+  "folderSlug": "flow-delivery-pointers",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}
