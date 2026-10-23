@@ -1,0 +1,21 @@
+{"event":"started","label":"deepseek","index":0,"attempt":1,"at":"2026-10-21T11:00:54.704Z","gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:03:07.750Z","duration_ms":60001,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:04:09.169Z","duration_ms":121420,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"shared_checkout_detected","label":"deepseek","at":"2026-10-21T11:05:12.288Z","severity":"warning","newly_dirty_paths":12,"churn_threshold":3,"cumulative_dirty_paths":12,"churn_cumulative_threshold":12,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:05:12.397Z","duration_ms":184648,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:06:12.398Z","duration_ms":244649,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:07:12.398Z","duration_ms":304649,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:08:12.400Z","duration_ms":364651,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:09:12.407Z","duration_ms":424658,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:10:12.612Z","duration_ms":484863,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:11:12.622Z","duration_ms":544873,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:12:12.624Z","duration_ms":604875,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:13:12.625Z","duration_ms":664876,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:14:12.626Z","duration_ms":724877,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:15:12.627Z","duration_ms":784878,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:16:12.628Z","duration_ms":844879,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:17:12.629Z","duration_ms":904880,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"timestamp_anomaly","status":"warning","severity":"warning","label":"deepseek","at":"2026-10-21T11:18:48.547Z","state_log":"/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/product-owner/018-product-owner-deep-review/003-mcp-click-up/review/lineages/deepseek/deep-review-state.jsonl","window":{"start_at_iso":"2026-10-21T11:00:54.708Z","end_at_iso":"2026-10-21T11:18:48.547Z","tolerance_ms":120000},"counts":{"anomalous":3,"untimestamped":0,"unparseable":0,"total":7},"sample":[{"index":3,"reason":"after_window","timestamp":"2026-10-21T11:22:40Z","deltaMs":111453},{"index":4,"reason":"after_window","timestamp":"2026-10-21T11:31:20Z","deltaMs":631453},{"index":5,"reason":"after_window","timestamp":"2026-10-21T11:40:05Z","deltaMs":1156453}]}
+{"event":"completed","label":"deepseek","index":0,"attempt":1,"at":"2026-10-21T11:18:48.554Z","duration_ms":1073848,"terminal":true,"gauges":{"lag":0,"pending":0,"failed":0},"skippedCount":16,"slotDurationMs":1073831.91025}
+{"event":"metadata_refresh_ok","status":"ok","spec_folder":"specs/product-owner/018-product-owner-deep-review/003-mcp-click-up","at":"2026-10-21T11:18:48.556Z","generator":"generate-description.js"}
+{"event":"metadata_refresh_failed","status":"warning","spec_folder":"specs/product-owner/018-product-owner-deep-review/003-mcp-click-up","at":"2026-10-21T11:18:48.769Z","generator":"backfill-graph-metadata.js","exit_code":1,"stderr_tail":"backfill-graph-metadata: target is not a spec folder (folder name \"003-mcp-click-up\" is not NNN-slug): /Users/michelkerkmeester/MEGA/Development/AI Systems/specs/product-owner/018-product-owner-deep-review/003-mcp-click-up"}

@@ -1,0 +1,17 @@
+{"event":"started","label":"deepseek","index":0,"attempt":1,"at":"2026-10-21T11:00:34.644Z","gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:02:48.272Z","duration_ms":60000,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:03:49.010Z","duration_ms":120738,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"shared_checkout_detected","label":"deepseek","at":"2026-10-21T11:04:52.358Z","severity":"warning","newly_dirty_paths":8,"churn_threshold":3,"cumulative_dirty_paths":8,"churn_cumulative_threshold":12,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:04:52.495Z","duration_ms":184223,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:05:52.599Z","duration_ms":244327,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:06:52.600Z","duration_ms":304328,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:07:52.601Z","duration_ms":364329,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:08:52.602Z","duration_ms":424330,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:09:52.604Z","duration_ms":484332,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:10:52.605Z","duration_ms":544333,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:11:52.606Z","duration_ms":604334,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:12:52.607Z","duration_ms":664335,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:13:52.609Z","duration_ms":724337,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:14:52.610Z","duration_ms":784338,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"metadata_refresh_ok","status":"ok","spec_folder":"specs/product-owner/018-product-owner-deep-review/002-sk-create-figjam","at":"2026-10-21T11:17:09.618Z","generator":"generate-description.js"}
+{"event":"metadata_refresh_failed","status":"warning","spec_folder":"specs/product-owner/018-product-owner-deep-review/002-sk-create-figjam","at":"2026-10-21T11:17:09.815Z","generator":"backfill-graph-metadata.js","exit_code":1,"stderr_tail":"backfill-graph-metadata: target is not a spec folder (folder name \"002-sk-create-figjam\" is not NNN-slug): /Users/michelkerkmeester/MEGA/Development/AI Systems/specs/product-owner/018-product-owner-deep-review/002-sk-create-figjam"}

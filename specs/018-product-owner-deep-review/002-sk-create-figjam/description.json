@@ -1,0 +1,18 @@
+{
+  "specFolder": "018-product-owner-deep-review/002-sk-create-figjam",
+  "description": "Phase 2: sk-create-figjam deep review",
+  "keywords": [
+    "phase",
+    "review",
+    "sk-create-figjam"
+  ],
+  "lastUpdated": "2026-10-21T12:00:00.000Z",
+  "specId": "002",
+  "folderSlug": "sk-create-figjam",
+  "parentChain": [
+    "018-product-owner-deep-review"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

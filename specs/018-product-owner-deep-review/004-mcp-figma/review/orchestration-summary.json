@@ -1,0 +1,64 @@
+{
+  "run_id": "1792580474713-m4jej7",
+  "loop_type": "review",
+  "spec_folder": "specs/product-owner/018-product-owner-deep-review/004-mcp-figma",
+  "base_artifact_dir": "/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/product-owner/018-product-owner-deep-review/004-mcp-figma/review",
+  "total_cli_lineages": 1,
+  "orphaned_lineages": [],
+  "total": 1,
+  "succeeded": 1,
+  "failed": 0,
+  "all_failed": false,
+  "completed_with_containment_advisory": 0,
+  "gauges": {
+    "lag": 0,
+    "pending": 0,
+    "failed": 0
+  },
+  "failure_classes": {
+    "timeout": 0,
+    "exit": 0,
+    "salvage_miss": 0,
+    "artifact_miss": 0,
+    "projection_refusal": 0,
+    "unattributed_state_log": 0,
+    "needs_input": 0
+  },
+  "timestamp_anomalies": [
+    {
+      "label": "deepseek",
+      "state_log": "/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/product-owner/018-product-owner-deep-review/004-mcp-figma/review/lineages/deepseek/deep-review-state.jsonl",
+      "window": {
+        "start_at_iso": "2026-10-21T11:01:14.723Z",
+        "end_at_iso": "2026-10-21T11:17:20.053Z",
+        "tolerance_ms": 120000
+      },
+      "counts": {
+        "anomalous": 3,
+        "untimestamped": 0,
+        "unparseable": 0,
+        "total": 7
+      },
+      "sample": [
+        {
+          "index": 3,
+          "reason": "after_window",
+          "timestamp": "2026-10-21T11:22:10.000Z",
+          "deltaMs": 169947
+        },
+        {
+          "index": 4,
+          "reason": "after_window",
+          "timestamp": "2026-10-21T11:30:40.000Z",
+          "deltaMs": 679947
+        },
+        {
+          "index": 5,
+          "reason": "after_window",
+          "timestamp": "2026-10-21T11:36:15.000Z",
+          "deltaMs": 1014947
+        }
+      ]
+    }
+  ]
+}

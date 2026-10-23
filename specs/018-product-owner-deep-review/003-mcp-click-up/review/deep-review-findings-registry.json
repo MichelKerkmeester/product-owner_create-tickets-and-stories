@@ -1,0 +1,538 @@
+{
+  "mergedFrom": [
+    "deepseek"
+  ],
+  "lineageExecutors": {
+    "deepseek": {
+      "kind": "cli-pi",
+      "model": "deepseek-v4.1-flash",
+      "reasoningEffort": "max"
+    }
+  },
+  "mergedVerdict": "CONDITIONAL",
+  "openFindings": [
+    {
+      "findingId": "R1-P2-003",
+      "severity": "P2",
+      "title": "A symlink inside a vendored packet escapes the plugin build refusal path as an uncaught exception",
+      "file": "AI Systems/Product Owner/scripts/build-plugin.py",
+      "line": 114,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "R3-P2-001",
+      "severity": "P2",
+      "title": "doc-mode.md names mcp-tooling as the transport owner, a packet that does not exist in this repository",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md",
+      "line": 416,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "traceability",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "traceability"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "R2-P1-001",
+      "severity": "P1",
+      "title": "doctor.sh hard-codes a five-level walk to .utcp_config.json, so in the vendored packet its only Code Mode check is a guaranteed false negative",
+      "file": "AI Systems/Product Owner/mcp-click-up/scripts/doctor.sh",
+      "line": 71,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "security",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "security"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "R4-P2-002",
+      "severity": "P2",
+      "title": "Every run command the packet documents uses the upstream .skilled path, which exists in Product Owner only through an untracked symlink",
+      "file": "AI Systems/Product Owner/mcp-click-up/INSTALL-GUIDE.md",
+      "line": 24,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "R4-P2-001",
+      "severity": "P2",
+      "title": "INSTALL-GUIDE.md states two different versions of itself and dates its own content before the server state it describes",
+      "file": "AI Systems/Product Owner/mcp-click-up/INSTALL-GUIDE.md",
+      "line": 14,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "R1-P2-002",
+      "severity": "P2",
+      "title": "pull deletes the local copy before it copies, so an interrupted pull leaves the vendored packet truncated",
+      "file": "AI Systems/Product Owner/scripts/vendor-sync.py",
+      "line": 221,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "R5-P2-002",
+      "severity": "P2",
+      "title": "The ClickUp handoff contract has three independent authors and no stated owner",
+      "file": "AI Systems/Product Owner/AGENTS.md",
+      "line": 117,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "maintainability",
+      "firstSeen": 5,
+      "lastSeen": 5,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 5,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "maintainability"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "R2-P2-002",
+      "severity": "P2",
+      "title": "The Code Mode bridge runs an unpinned third-party package on every launch",
+      "file": "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+      "line": 20,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "security",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "security"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "R5-P2-001",
+      "severity": "P2",
+      "title": "The command surface and its counts are hand-restated in three layers, and the latest strict validator pass did not catch the disagreement",
+      "file": "AI Systems/Product Owner/mcp-click-up/feature-catalog/FEATURE-CATALOG.md",
+      "line": 17,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "maintainability",
+      "firstSeen": 5,
+      "lastSeen": 5,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 5,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "maintainability"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "R3-P1-001",
+      "severity": "P1",
+      "title": "The hub counts a cupt-only runtime as ClickUp tooling, so it promises a push the packet cannot perform",
+      "file": "AI Systems/Product Owner/AGENTS.md",
+      "line": 117,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "traceability",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "traceability"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "R3-P2-002",
+      "severity": "P2",
+      "title": "The packet's INSTALL route loads a packet-root file the hub's leaf contract cannot register",
+      "file": "AI Systems/Product Owner/ROUTER.md",
+      "line": 19,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "traceability",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "traceability"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "R5-P2-003",
+      "severity": "P2",
+      "title": "The packet's router declares an assets discovery base that does not exist",
+      "file": "AI Systems/Product Owner/mcp-click-up/SKILL.md",
+      "line": 105,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "maintainability",
+      "firstSeen": 5,
+      "lastSeen": 5,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 5,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "maintainability"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "R3-P1-002",
+      "severity": "P1",
+      "title": "The private-doc push recipe omits a required parameter and folds page creation into the create call",
+      "file": "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+      "line": 306,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "traceability",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "traceability"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "R1-P2-001",
+      "severity": "P2",
+      "title": "The recorded upstream commit is never checked, so a mis-pinned manifest still reports in step",
+      "file": "AI Systems/Product Owner/scripts/vendor-sync.py",
+      "line": 236,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "R2-P2-001",
+      "severity": "P2",
+      "title": "The token guidance puts a ClickUp API token on the command line with no shell-history warning",
+      "file": "AI Systems/Product Owner/mcp-click-up/INSTALL-GUIDE.md",
+      "line": 120,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "security",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "security"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "R4-P1-001",
+      "severity": "P1",
+      "title": "Two packet documents say cupt add creates a task; four others say cupt has no create command",
+      "file": "AI Systems/Product Owner/mcp-click-up/feature-catalog/cupt-global-flags/json-flag.md",
+      "line": 19,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    }
+  ],
+  "resolvedFindings": [],
+  "findingsBySeverity": {
+    "P0": 0,
+    "P1": 4,
+    "P2": 12
+  },
+  "openFindingsCount": 16,
+  "resolvedFindingsCount": 0,
+  "activeP0": 0,
+  "activeP1": 4,
+  "activeP2": 12
+}

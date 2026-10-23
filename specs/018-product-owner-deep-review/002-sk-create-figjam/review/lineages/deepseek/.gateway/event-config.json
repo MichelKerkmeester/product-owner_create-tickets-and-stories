@@ -1,0 +1,24 @@
+{
+  "stem": "deep_review.run_initialized",
+  "scope": {
+    "runId": "fanout-deepseek-1792580434639-g9yydk",
+    "sessionId": "fanout-deepseek-1792580434639-g9yydk",
+    "generation": 1
+  },
+  "data": {
+    "target": {
+      "targetId": "sk-create-figjam",
+      "targetType": "directory",
+      "artifactRef": "sk-create-figjam",
+      "sourceDigest": "2571b1480a6badf6502b235f3ca3637009911e4bc10fe40c0f09cdbfa79d717c",
+      "contentDigest": "57ba0433ac396be08b2a055028cfdf8a962df94b40341e6d0f13b12f36ee968f"
+    },
+    "lineageMode": "fresh",
+    "maxIterations": 5,
+    "convergencePolicyVersion": "1.0.0",
+    "reviewModeContractDigest": "de092fff8160aeae41f6fa9f892afb6bce6171d24b12306f28481cdc9204a00c",
+    "initialReleaseReadinessState": "not-assessed",
+    "topic": "Read-only deep review of the Product Owner sk-create-figjam packet: SKILL.md routing, references, assets, examples and the Python checks under scripts/."
+  },
+  "occurredAt": "2026-10-21T11:03:09Z"
+}

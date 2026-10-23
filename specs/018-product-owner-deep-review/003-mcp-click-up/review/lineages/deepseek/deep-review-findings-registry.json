@@ -1,0 +1,1027 @@
+{
+  "sessionId": "fanout-deepseek-1792580454700-vajsq8",
+  "parentSessionId": null,
+  "generation": 1,
+  "lineageMode": "new",
+  "continuedFromRun": null,
+  "terminalStop": {
+    "stopReason": "maxIterationsReached",
+    "totalIterations": 5,
+    "timestamp": "2026-10-21T11:15:37.174Z"
+  },
+  "status": "COMPLETE",
+  "openFindings": [
+    {
+      "findingId": "R2-P1-001",
+      "severity": "P1",
+      "title": "doctor.sh hard-codes a five-level walk to .utcp_config.json, so in the vendored packet its only Code Mode check is a guaranteed false negative",
+      "file": "AI Systems/Product Owner/mcp-click-up/scripts/doctor.sh",
+      "line": 71,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "security",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "security"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P1-001",
+      "severity": "P1",
+      "title": "The hub counts a cupt-only runtime as ClickUp tooling, so it promises a push the packet cannot perform",
+      "file": "AI Systems/Product Owner/AGENTS.md",
+      "line": 117,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "traceability",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "traceability"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P1-002",
+      "severity": "P1",
+      "title": "The private-doc push recipe omits a required parameter and folds page creation into the create call",
+      "file": "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+      "line": 306,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "traceability",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "traceability"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R4-P1-001",
+      "severity": "P1",
+      "title": "Two packet documents say cupt add creates a task; four others say cupt has no create command",
+      "file": "AI Systems/Product Owner/mcp-click-up/feature-catalog/cupt-global-flags/json-flag.md",
+      "line": 19,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R1-P2-001",
+      "severity": "P2",
+      "title": "The recorded upstream commit is never checked, so a mis-pinned manifest still reports in step",
+      "file": "AI Systems/Product Owner/scripts/vendor-sync.py",
+      "line": 236,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R1-P2-002",
+      "severity": "P2",
+      "title": "pull deletes the local copy before it copies, so an interrupted pull leaves the vendored packet truncated",
+      "file": "AI Systems/Product Owner/scripts/vendor-sync.py",
+      "line": 221,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R1-P2-003",
+      "severity": "P2",
+      "title": "A symlink inside a vendored packet escapes the plugin build refusal path as an uncaught exception",
+      "file": "AI Systems/Product Owner/scripts/build-plugin.py",
+      "line": 114,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R2-P2-001",
+      "severity": "P2",
+      "title": "The token guidance puts a ClickUp API token on the command line with no shell-history warning",
+      "file": "AI Systems/Product Owner/mcp-click-up/INSTALL-GUIDE.md",
+      "line": 120,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "security",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "security"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R2-P2-002",
+      "severity": "P2",
+      "title": "The Code Mode bridge runs an unpinned third-party package on every launch",
+      "file": "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+      "line": 20,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "security",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "security"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P2-001",
+      "severity": "P2",
+      "title": "doc-mode.md names mcp-tooling as the transport owner, a packet that does not exist in this repository",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/doc-mode.md",
+      "line": 416,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "traceability",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "traceability"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P2-002",
+      "severity": "P2",
+      "title": "The packet's INSTALL route loads a packet-root file the hub's leaf contract cannot register",
+      "file": "AI Systems/Product Owner/ROUTER.md",
+      "line": 19,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "traceability",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "traceability"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R4-P2-001",
+      "severity": "P2",
+      "title": "INSTALL-GUIDE.md states two different versions of itself and dates its own content before the server state it describes",
+      "file": "AI Systems/Product Owner/mcp-click-up/INSTALL-GUIDE.md",
+      "line": 14,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R4-P2-002",
+      "severity": "P2",
+      "title": "Every run command the packet documents uses the upstream .skilled path, which exists in Product Owner only through an untracked symlink",
+      "file": "AI Systems/Product Owner/mcp-click-up/INSTALL-GUIDE.md",
+      "line": 24,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R5-P2-001",
+      "severity": "P2",
+      "title": "The command surface and its counts are hand-restated in three layers, and the latest strict validator pass did not catch the disagreement",
+      "file": "AI Systems/Product Owner/mcp-click-up/feature-catalog/FEATURE-CATALOG.md",
+      "line": 17,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "maintainability",
+      "firstSeen": 5,
+      "lastSeen": 5,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 5,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "maintainability"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R5-P2-002",
+      "severity": "P2",
+      "title": "The ClickUp handoff contract has three independent authors and no stated owner",
+      "file": "AI Systems/Product Owner/AGENTS.md",
+      "line": 117,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "maintainability",
+      "firstSeen": 5,
+      "lastSeen": 5,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 5,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "maintainability"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R5-P2-003",
+      "severity": "P2",
+      "title": "The packet's router declares an assets discovery base that does not exist",
+      "file": "AI Systems/Product Owner/mcp-click-up/SKILL.md",
+      "line": 105,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "maintainability",
+      "firstSeen": 5,
+      "lastSeen": 5,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 5,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "maintainability"
+      ],
+      "mergedFindingIds": []
+    }
+  ],
+  "resolvedFindings": [],
+  "blockedStopHistory": [],
+  "persistentSameSeverity": [],
+  "severityChanged": [],
+  "repeatedFindings": [],
+  "dimensionCoverage": {
+    "correctness": true,
+    "security": true,
+    "traceability": true,
+    "maintainability": true
+  },
+  "findingsBySeverity": {
+    "P0": 0,
+    "P1": 4,
+    "P2": 12
+  },
+  "openFindingsCount": 16,
+  "resolvedFindingsCount": 0,
+  "convergenceScore": 0.906,
+  "graphConvergenceScore": 0,
+  "graphDecision": null,
+  "graphBlockers": [],
+  "graphSignals": {},
+  "candidateCoverage": {
+    "covered": [
+      "broken_link",
+      "capability_mismatch",
+      "commit_pin_unverified",
+      "contradictory_command_surface",
+      "credential_exposure",
+      "dead_vocabulary",
+      "duplicated_fact",
+      "gate_scheduling",
+      "layout_dependent_path",
+      "leaf_coverage",
+      "manifest_hash_drift",
+      "non_atomic_write",
+      "parameter_drift",
+      "path_resolution",
+      "stale_reference",
+      "supply_chain",
+      "uncaught_error_path",
+      "unowned_contract",
+      "version_drift"
+    ],
+    "ruledOut": [
+      "broken_link",
+      "command_injection",
+      "destructive_command",
+      "manifest_hash_drift",
+      "playbook_duplication",
+      "push_target_name_drift",
+      "stale_reference",
+      "supply_chain",
+      "transport_drift",
+      "version_drift"
+    ],
+    "deferred": [],
+    "blocked": [],
+    "byBugClass": {
+      "manifest_hash_drift": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "commit_pin_unverified": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "non_atomic_write": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "uncaught_error_path": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "path_resolution": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "credential_exposure": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "supply_chain": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "command_injection": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "destructive_command": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "capability_mismatch": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "parameter_drift": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "stale_reference": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "leaf_coverage": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "version_drift": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3,
+          4
+        ]
+      },
+      "transport_drift": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "push_target_name_drift": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "broken_link": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "layout_dependent_path": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "contradictory_command_surface": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "duplicated_fact": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "unowned_contract": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "dead_vocabulary": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "gate_scheduling": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "playbook_duplication": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      }
+    }
+  },
+  "searchDebt": [],
+  "ruledOutCandidates": [
+    {
+      "iteration": 1,
+      "id": "SL-1-1",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/vendor.json"
+      ],
+      "bugClass": "manifest_hash_drift",
+      "disposition": "ruled_out",
+      "rationale": "hashes and byte comparison both agree for all 178 files",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/scripts/vendor-sync.py:236",
+        "AI Systems/Product Owner/mcp-click-up/SKILL.md:1"
+      ],
+      "reason": "verified byte-identical and hash-consistent"
+    },
+    {
+      "iteration": 2,
+      "id": "SL-2-4",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/examples/task-queue-workflow.sh",
+        "AI Systems/Product Owner/mcp-click-up/examples/time-tracking-workflow.sh"
+      ],
+      "bugClass": "command_injection",
+      "disposition": "ruled_out",
+      "rationale": "no dynamic evaluation path exists",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/examples/task-queue-workflow.sh:157-176",
+        "AI Systems/Product Owner/mcp-click-up/examples/task-queue-workflow.sh:161-167"
+      ],
+      "reason": "arrays plus quoted expansion, no eval"
+    },
+    {
+      "iteration": 2,
+      "id": "SL-2-5",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/scripts/install.sh"
+      ],
+      "bugClass": "supply_chain",
+      "disposition": "ruled_out",
+      "rationale": "intended and documented behaviour, so not recorded as a defect",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/mcp-servers/clickup-cli/README.md:37"
+      ],
+      "reason": "documented design, not drift"
+    },
+    {
+      "iteration": 3,
+      "id": "SL-3-4",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/description.json"
+      ],
+      "bugClass": "version_drift",
+      "disposition": "ruled_out",
+      "rationale": "the hub's own version-authority paragraph holds",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/SKILL.md:14"
+      ],
+      "reason": "all four read 1.0.0.0"
+    },
+    {
+      "iteration": 3,
+      "id": "SL-3-5",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/.env.example"
+      ],
+      "bugClass": "stale_reference",
+      "disposition": "ruled_out",
+      "rationale": "names and closing lines match verbatim",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:298-301"
+      ],
+      "reason": "identical across three files"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-4-4",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up"
+      ],
+      "bugClass": "broken_link",
+      "disposition": "ruled_out",
+      "rationale": "every link resolves",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/manual-testing-playbook/recovery-and-failure/missing-auth.md:44"
+      ],
+      "reason": "0 broken links"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-5-4",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/manual-testing-playbook/manual-testing-playbook.md"
+      ],
+      "bugClass": "playbook_duplication",
+      "disposition": "ruled_out",
+      "rationale": "documented split, 8 hub files against 43 packet files",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/manual-testing-playbook/manual-testing-playbook.md:11"
+      ],
+      "reason": "ownership is assigned in the hub playbook"
+    }
+  ],
+  "cleanSearchProof": [
+    {
+      "iteration": 1,
+      "id": "SL-1-1",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/vendor.json"
+      ],
+      "bugClass": "manifest_hash_drift",
+      "disposition": "ruled_out",
+      "rationale": "hashes and byte comparison both agree for all 178 files",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/scripts/vendor-sync.py:236",
+        "AI Systems/Product Owner/mcp-click-up/SKILL.md:1"
+      ],
+      "proof": "verified byte-identical and hash-consistent"
+    },
+    {
+      "iteration": 2,
+      "id": "SL-2-4",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/examples/task-queue-workflow.sh",
+        "AI Systems/Product Owner/mcp-click-up/examples/time-tracking-workflow.sh"
+      ],
+      "bugClass": "command_injection",
+      "disposition": "ruled_out",
+      "rationale": "no dynamic evaluation path exists",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/examples/task-queue-workflow.sh:157-176",
+        "AI Systems/Product Owner/mcp-click-up/examples/task-queue-workflow.sh:161-167"
+      ],
+      "proof": "arrays plus quoted expansion, no eval"
+    },
+    {
+      "iteration": 2,
+      "id": "SL-2-5",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/scripts/install.sh"
+      ],
+      "bugClass": "supply_chain",
+      "disposition": "ruled_out",
+      "rationale": "intended and documented behaviour, so not recorded as a defect",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/mcp-servers/clickup-cli/README.md:37"
+      ],
+      "proof": "documented design, not drift"
+    },
+    {
+      "iteration": 3,
+      "id": "SL-3-4",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/description.json"
+      ],
+      "bugClass": "version_drift",
+      "disposition": "ruled_out",
+      "rationale": "the hub's own version-authority paragraph holds",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/SKILL.md:14"
+      ],
+      "proof": "all four read 1.0.0.0"
+    },
+    {
+      "iteration": 3,
+      "id": "SL-3-5",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/.env.example"
+      ],
+      "bugClass": "stale_reference",
+      "disposition": "ruled_out",
+      "rationale": "names and closing lines match verbatim",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:298-301"
+      ],
+      "proof": "identical across three files"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-4-4",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up"
+      ],
+      "bugClass": "broken_link",
+      "disposition": "ruled_out",
+      "rationale": "every link resolves",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/manual-testing-playbook/recovery-and-failure/missing-auth.md:44"
+      ],
+      "proof": "0 broken links"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-5-4",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/manual-testing-playbook/manual-testing-playbook.md"
+      ],
+      "bugClass": "playbook_duplication",
+      "disposition": "ruled_out",
+      "rationale": "documented split, 8 hub files against 43 packet files",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/manual-testing-playbook/manual-testing-playbook.md:11"
+      ],
+      "proof": "ownership is assigned in the hub playbook"
+    }
+  ],
+  "searchCoverage": {
+    "requiredBugClasses": [
+      "duplicated_fact",
+      "unowned_contract",
+      "dead_vocabulary",
+      "gate_scheduling"
+    ],
+    "covered": [
+      "duplicated_fact",
+      "unowned_contract",
+      "dead_vocabulary",
+      "gate_scheduling"
+    ],
+    "ruledOut": [
+      "playbook_duplication"
+    ],
+    "deferred": [],
+    "blocked": [],
+    "graphCoverageMode": "graphless_fallback"
+  },
+  "traceability": {
+    "summary": {
+      "required": 0,
+      "executed": 0,
+      "pass": 0,
+      "partial": 0,
+      "fail": 0,
+      "blocked": 0,
+      "notApplicable": 0,
+      "gatingFailures": 0
+    },
+    "results": []
+  },
+  "divergence": {
+    "started": [],
+    "completed": [],
+    "failed": [],
+    "overrides": [],
+    "saturatedDirections": [],
+    "remainingFrontier": [],
+    "currentFocus": ""
+  },
+  "fieldWarnings": [],
+  "corruptionWarnings": []
+}

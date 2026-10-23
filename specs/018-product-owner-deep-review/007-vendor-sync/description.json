@@ -1,0 +1,17 @@
+{
+  "specFolder": "018-product-owner-deep-review/007-vendor-sync",
+  "description": "Phase 7: Vendored packet sync",
+  "keywords": [
+    "vendor",
+    "sync"
+  ],
+  "lastUpdated": "2026-10-21T14:00:00.000Z",
+  "specId": "007",
+  "folderSlug": "vendor-sync",
+  "parentChain": [
+    "018-product-owner-deep-review"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

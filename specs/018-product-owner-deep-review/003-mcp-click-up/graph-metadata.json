@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "packet_id": "018-product-owner-deep-review/003-mcp-click-up",
+  "spec_folder": "018-product-owner-deep-review/003-mcp-click-up",
+  "parent_id": "018-product-owner-deep-review",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "mcp click up deep review",
+      "mcp click up deep review plan",
+      "mcp click up deep review tasks",
+      "mcp click up deep review acceptance criteria",
+      "mcp click up deep review goal",
+      "mcp click up deep review implementation summary"
+    ],
+    "key_topics": [
+      "mcp",
+      "click",
+      "deep",
+      "review",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "nothing"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "review/staging-scope.md",
+      "review/lineages/deepseek/deep-review-findings-registry.json"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "staging-scope.md",
+        "kind": "doc",
+        "path": "review/staging-scope.md",
+        "source": "derived"
+      },
+      {
+        "name": "deep-review-findings-registry.json",
+        "kind": "config",
+        "path": "review/lineages/deepseek/deep-review-findings-registry.json",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Fan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Completion Criteria",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Verification Checklist",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Verification Protocol",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Nothing has reviewed `mcp-click-up/`, the vendored ClickUp packet",
+    "created_at": "2026-10-21T11:00:42.710Z",
+    "last_save_at": "2026-10-21T11:24:49.639Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:4bb845854586c9db68b675c5dfbcebf56a3d687142df87a29f4cd1c0764d8123",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "e6124d2a893f446a4d2cd0916c3303833116c53e5f441434c2bc578c695a349c",
+      "plan.md": "47faf251ef0424fb82ed84fd6746e0490146ec3878fb7ea221e630154e8ee610",
+      "tasks.md": "cb9f4e640e10ed053ba01b0e92eabf9a44ef232cece256be4f3b51f5b02a035b",
+      "implementation-summary.md": "ac54514ec6d52ed58cc045e2b223f4fb8c1c8bbd4efedcb5fa43dd8b9cc2b0ff"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

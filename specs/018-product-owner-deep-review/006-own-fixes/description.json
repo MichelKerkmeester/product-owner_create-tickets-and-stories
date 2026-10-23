@@ -1,0 +1,17 @@
+{
+  "specFolder": "018-product-owner-deep-review/006-own-fixes",
+  "description": "Phase 6: Product Owner own fixes",
+  "keywords": [
+    "own",
+    "fixes"
+  ],
+  "lastUpdated": "2026-10-21T14:00:00.000Z",
+  "specId": "006",
+  "folderSlug": "own-fixes",
+  "parentChain": [
+    "018-product-owner-deep-review"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

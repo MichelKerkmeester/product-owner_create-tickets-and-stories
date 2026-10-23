@@ -1,0 +1,19 @@
+{"event":"started","label":"deepseek","index":0,"attempt":1,"at":"2026-10-21T11:01:14.720Z","gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:03:27.539Z","duration_ms":60001,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:04:30.645Z","duration_ms":123107,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"shared_checkout_detected","label":"deepseek","at":"2026-10-21T11:05:31.721Z","severity":"warning","newly_dirty_paths":21,"churn_threshold":3,"cumulative_dirty_paths":21,"churn_cumulative_threshold":12,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:05:31.799Z","duration_ms":184261,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:06:31.800Z","duration_ms":244262,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:07:31.802Z","duration_ms":304264,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:08:31.803Z","duration_ms":364265,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:09:31.804Z","duration_ms":424266,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:10:31.821Z","duration_ms":484283,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:11:31.822Z","duration_ms":544284,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:12:31.823Z","duration_ms":604285,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:13:31.855Z","duration_ms":664317,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:14:31.856Z","duration_ms":724318,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:15:31.859Z","duration_ms":784321,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"timestamp_anomaly","status":"warning","severity":"warning","label":"deepseek","at":"2026-10-21T11:17:20.053Z","state_log":"/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/product-owner/018-product-owner-deep-review/004-mcp-figma/review/lineages/deepseek/deep-review-state.jsonl","window":{"start_at_iso":"2026-10-21T11:01:14.723Z","end_at_iso":"2026-10-21T11:17:20.053Z","tolerance_ms":120000},"counts":{"anomalous":3,"untimestamped":0,"unparseable":0,"total":7},"sample":[{"index":3,"reason":"after_window","timestamp":"2026-10-21T11:22:10.000Z","deltaMs":169947},{"index":4,"reason":"after_window","timestamp":"2026-10-21T11:30:40.000Z","deltaMs":679947},{"index":5,"reason":"after_window","timestamp":"2026-10-21T11:36:15.000Z","deltaMs":1014947}]}
+{"event":"completed","label":"deepseek","index":0,"attempt":1,"at":"2026-10-21T11:17:20.056Z","duration_ms":965335,"terminal":true,"gauges":{"lag":0,"pending":0,"failed":0},"skippedCount":15,"slotDurationMs":965323.068666}
+{"event":"metadata_refresh_ok","status":"ok","spec_folder":"specs/product-owner/018-product-owner-deep-review/004-mcp-figma","at":"2026-10-21T11:17:20.057Z","generator":"generate-description.js"}
+{"event":"metadata_refresh_failed","status":"warning","spec_folder":"specs/product-owner/018-product-owner-deep-review/004-mcp-figma","at":"2026-10-21T11:17:20.179Z","generator":"backfill-graph-metadata.js","exit_code":1,"stderr_tail":"backfill-graph-metadata: target is not a spec folder (folder name \"004-mcp-figma\" is not NNN-slug): /Users/michelkerkmeester/MEGA/Development/AI Systems/specs/product-owner/018-product-owner-deep-review/004-mcp-figma"}

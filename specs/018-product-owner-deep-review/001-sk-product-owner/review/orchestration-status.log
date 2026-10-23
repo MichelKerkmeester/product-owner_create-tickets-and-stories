@@ -1,0 +1,16 @@
+{"event":"started","label":"deepseek","index":0,"attempt":1,"at":"2026-10-21T11:00:14.891Z","gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:02:28.510Z","duration_ms":60001,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:03:29.618Z","duration_ms":121109,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"shared_checkout_detected","label":"deepseek","at":"2026-10-21T11:04:32.358Z","severity":"warning","newly_dirty_paths":7,"churn_threshold":3,"cumulative_dirty_paths":7,"churn_cumulative_threshold":12,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:04:32.462Z","duration_ms":183953,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:05:32.464Z","duration_ms":243955,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:06:32.465Z","duration_ms":303956,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:07:32.467Z","duration_ms":363958,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:08:32.468Z","duration_ms":423959,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:09:32.469Z","duration_ms":483960,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:10:32.470Z","duration_ms":543961,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"progress","label":"deepseek","at":"2026-10-21T11:11:32.471Z","duration_ms":603962,"gauges":{"lag":1,"pending":0,"failed":0}}
+{"event":"timestamp_anomaly","status":"warning","severity":"warning","label":"deepseek","at":"2026-10-21T11:13:38.674Z","state_log":"/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/product-owner/018-product-owner-deep-review/001-sk-product-owner/review/lineages/deepseek/deep-review-state.jsonl","window":{"start_at_iso":"2026-10-21T11:00:14.895Z","end_at_iso":"2026-10-21T11:13:38.674Z","tolerance_ms":120000},"counts":{"anomalous":1,"untimestamped":0,"unparseable":0,"total":7},"sample":[{"index":5,"reason":"after_window","timestamp":"2026-10-21T11:16:30Z","deltaMs":51326}]}
+{"event":"completed","label":"deepseek","index":0,"attempt":1,"at":"2026-10-21T11:13:38.684Z","duration_ms":803791,"terminal":true,"gauges":{"lag":0,"pending":0,"failed":0},"skippedCount":12,"slotDurationMs":803773.187167}
+{"event":"metadata_refresh_ok","status":"ok","spec_folder":"specs/product-owner/018-product-owner-deep-review/001-sk-product-owner","at":"2026-10-21T11:13:38.686Z","generator":"generate-description.js"}
+{"event":"metadata_refresh_failed","status":"warning","spec_folder":"specs/product-owner/018-product-owner-deep-review/001-sk-product-owner","at":"2026-10-21T11:13:38.963Z","generator":"backfill-graph-metadata.js","exit_code":1,"stderr_tail":"backfill-graph-metadata: target is not a spec folder (folder name \"001-sk-product-owner\" is not NNN-slug): /Users/michelkerkmeester/MEGA/Development/AI Systems/specs/product-owner/018-product-owner-deep-review/001-sk-product-owner"}

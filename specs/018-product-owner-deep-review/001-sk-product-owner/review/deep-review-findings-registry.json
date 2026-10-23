@@ -1,0 +1,506 @@
+{
+  "mergedFrom": [
+    "deepseek"
+  ],
+  "lineageExecutors": {
+    "deepseek": {
+      "kind": "cli-pi",
+      "model": "deepseek-v4.1-flash",
+      "reasoningEffort": "max"
+    }
+  },
+  "mergedVerdict": "CONDITIONAL",
+  "openFindings": [
+    {
+      "findingId": "DR-DS-013",
+      "severity": "P2",
+      "title": "Nothing in the packet treats pasted source material as untrusted data",
+      "file": "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+      "line": 30,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "DR-DS-007",
+      "severity": "P2",
+      "title": "Oracle paths are written system-root-relative inside packet-relative prose",
+      "file": "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+      "line": 44,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "DR-DS-001",
+      "severity": "P1",
+      "title": "quality-scoring.md carries Project-only delivery rules (Deliverable Block, export-equivalent path) that contradict the skill export contract",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/quality-scoring.md",
+      "line": 160,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "DR-DS-006",
+      "severity": "P2",
+      "title": "Quick energy falls back to Task in the contract but not in the routing rules",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+      "line": 851,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "DR-DS-004",
+      "severity": "P1",
+      "title": "router-contract.md asserts it is the exact source that proves the oracle never drifts, but its Python fence and benchmark/router/route_contract.py are different programs",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+      "line": 17,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "DR-DS-002",
+      "severity": "P2",
+      "title": "SKILL.md names a z — Knowledge/ discovery root that does not exist in the packet",
+      "file": "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+      "line": 67,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "DR-DS-003",
+      "severity": "P2",
+      "title": "SKILL.md understates the manual-testing playbook as 48 scenarios against 50 on disk",
+      "file": "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+      "line": 319,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "DR-DS-005",
+      "severity": "P2",
+      "title": "The contract's ALWAYS lane loads two of the six resources the bootstrap marks ALWAYS and skips its own first entry by name",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+      "line": 137,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "DR-DS-014",
+      "severity": "P2",
+      "title": "The export filename description is unconstrained in three of the four modes that build a path from user wording",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/task-mode.md",
+      "line": 22,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "DR-DS-015",
+      "severity": "P2",
+      "title": "The playbook has no scenario for the Narrative overview Doc shape",
+      "file": "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/manual-testing-playbook.md",
+      "line": 24,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 5,
+      "lastSeen": 5,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 5,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "DR-DS-011",
+      "severity": "P2",
+      "title": "The quality rubric carries kernel-owned index fragments including a delivery-prohibition list starting at item 7",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/quality-scoring.md",
+      "line": 183,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "DR-DS-008",
+      "severity": "P2",
+      "title": "The README worked example links five bundle siblings the examples tree does not ship",
+      "file": "AI Systems/Product Owner/sk-product-owner/assets/examples/doc/doc-example-readme.md",
+      "line": 60,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "DR-DS-010",
+      "severity": "P2",
+      "title": "The router contract repeats its own opening paragraph and its Section 1 payload",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/router-contract.md",
+      "line": 33,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "DR-DS-012",
+      "severity": "P2",
+      "title": "The routing reference omits the preamble fields the packet requires of every reference",
+      "file": "AI Systems/Product Owner/sk-product-owner/references/routing.md",
+      "line": 1,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    },
+    {
+      "findingId": "DR-DS-009",
+      "severity": "P2",
+      "title": "Three worked examples break the packet's own word caps",
+      "file": "AI Systems/Product Owner/sk-product-owner/assets/examples/doc/doc-example-how-it-works.md",
+      "line": 10,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": [],
+      "_lineages": [
+        "deepseek"
+      ]
+    }
+  ],
+  "resolvedFindings": [],
+  "findingsBySeverity": {
+    "P0": 0,
+    "P1": 2,
+    "P2": 13
+  },
+  "openFindingsCount": 15,
+  "resolvedFindingsCount": 0,
+  "activeP0": 0,
+  "activeP1": 2,
+  "activeP2": 13
+}

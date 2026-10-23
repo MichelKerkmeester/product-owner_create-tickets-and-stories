@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "packet_id": "018-product-owner-deep-review/001-sk-product-owner",
+  "spec_folder": "018-product-owner-deep-review/001-sk-product-owner",
+  "parent_id": "018-product-owner-deep-review",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "sk product owner deep review",
+      "sk product owner deep review plan",
+      "sk product owner deep review tasks",
+      "sk product owner deep review acceptance criteria",
+      "sk product owner deep review goal",
+      "sk product owner deep review implementation summary"
+    ],
+    "key_topics": [
+      "product",
+      "owner",
+      "deep",
+      "review",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "nothing"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "review/staging-scope.md",
+      "review/lineages/deepseek/deep-review-findings-registry.json"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "staging-scope.md",
+        "kind": "doc",
+        "path": "review/staging-scope.md",
+        "source": "derived"
+      },
+      {
+        "name": "deep-review-findings-registry.json",
+        "kind": "config",
+        "path": "review/lineages/deepseek/deep-review-findings-registry.json",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Fan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Completion Criteria",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Verification Checklist",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Verification Protocol",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Nothing has reviewed `sk-product-owner/`, the default workflow packet that writes tasks, bugs, Stories, Epics and docs on its own since packet 017 reshaped it",
+    "created_at": "2026-10-21T11:00:36.108Z",
+    "last_save_at": "2026-10-21T11:24:42.850Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:443ca337d0ffc77aea8556db3f9fe65b009dcde092ab3ca152215a01ea949431",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "35c9c623e8ee7e0dfb59da545049c377ae42bb1fc34a3a2c0b890bc6c43fe47b",
+      "plan.md": "0cb2924aec865e89d4795cb903df9fef6e034077a30576a802b41febed925991",
+      "tasks.md": "0a672927270955012a6e12746c0ad9c5009e3fafaf484f98534c601563aec521",
+      "implementation-summary.md": "77cf06781cf4c550fc29dd58e2e7247f7aced03092b80a3f08f624962047daaf"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

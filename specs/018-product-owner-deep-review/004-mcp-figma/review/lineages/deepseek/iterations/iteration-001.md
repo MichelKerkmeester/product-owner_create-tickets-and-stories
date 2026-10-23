@@ -1,0 +1,147 @@
+# Iteration 1 - Correctness
+
+**Dimension:** correctness
+**Iteration:** 1 of 5
+**Target:** `AI Systems/Product Owner/mcp-figma/` (58 vendored files), `AI Systems/Product Owner/vendor.json`, `AI Systems/Product Owner/scripts/vendor-sync.py`
+**Route:** Resolved route: mode=review target_agent=deep-review, execution=single_review_iteration
+**Sources read this iteration:** steer.md (lineage), spec.md, `mcp-figma/SKILL.md`, `README.md`, `INSTALL-GUIDE.md`, `references/tool-surface.md`, `references/mcp-wiring.md`, `assets/utcp-figma-manual.md`, `assets/env-template.md`, `scripts/_common.sh`, `scripts/doctor.sh`, `scripts/install.sh`, `scripts/connect-safe.sh`, `scripts/connect-yolo.sh`, `scripts/daemon.sh`, `scripts/unpatch.sh`, `scripts/print-utcp-snippets.sh`, `vendor.json`, `scripts/vendor-sync.py`; oracle: the installed `figma-ds-cli` 1.2.0 (`--version`, `--help`, `create --help`, `set --help`, `unstack|combos|use --help`).
+
+## Files Reviewed
+
+| File | What was checked |
+|---|---|
+| `AI Systems/Product Owner/mcp-figma/references/tool-surface.md` | Every command-table row that names a top-level verb, against the installed binary's real command tree |
+| `AI Systems/Product Owner/mcp-figma/SKILL.md` | ALWAYS/NEVER rule set against what the helper scripts actually enforce |
+| `AI Systems/Product Owner/mcp-figma/scripts/_common.sh` | The single binary-resolution helper every script sources |
+| `AI Systems/Product Owner/mcp-figma/scripts/connect-safe.sh` | Exit-status contract of the guided safe connect |
+| `AI Systems/Product Owner/mcp-figma/scripts/doctor.sh` | Repo-root resolution for the optional-MCP check |
+| `AI Systems/Product Owner/mcp-figma/scripts/install.sh` | Flag parsing and the verbose branch |
+| `AI Systems/Product Owner/mcp-figma/INSTALL-GUIDE.md` | Version metadata against the packet version |
+| `AI Systems/Product Owner/vendor.json` | 58 recorded sha256 values, re-computed from disk |
+| `AI Systems/Product Owner/scripts/vendor-sync.py` | Three-tree logic: status, pull guard, push guard, base_commit write |
+
+## Positive verification (carried into synthesis)
+
+- **Vendored copy is in step.** All 58 paths recorded in `vendor.json` exist locally with byte-identical content (0 changed, 0 added, 0 removed), the upstream tree at `.skilled/skills/mcp-tooling/mcp-figma` is byte-identical to the same 58 hashes, and `base_commit` `293caa90…` is the commit `git log -1` reports for that upstream folder. The "silent drift" failure the manifest exists to prevent has not occurred.
+- **The binary the packet names is the binary that exists.** `figma-ds-cli --version` returns `1.2.0`, matching the packet's "full surface is 1.2.0, npm only publishes the minimal 1.0.0" claim, and the naming trap is real: `figma` (the unrelated unic binary) is not on PATH while `figma-cli` and `figma-ds-cli` both are.
+- **Gating classes match the binary's own labels where the binary labels itself:** `figma-ds-cli arrange --help` calls itself destructive ("Arrange ALL top-level frames on canvas"), exactly as `tool-surface.md:102` records, and `create --help` confirms `rect|rectangle`, `ellipse|circle`, `autolayout|al` are `create` subcommands.
+- **All 11 shell files parse** (`bash -n` clean) and the 8 scripts plus 2 examples carry the execute bit.
+
+## Findings by Severity
+
+### P0 Findings
+
+None. No finding this iteration reaches P0: nothing here can corrupt a Figma document or leak a credential without a further operator action, and the one command-table error is mitigated by the same file's own "verify with `--help` before relying on any row" instruction.
+
+### P1 Findings
+
+**R1-P1-001 - `tool-surface.md` inverts the truth about the primitive verbs: it declares them top-level aliases and calls the real form "drift".**
+
+The row claims the primitives run as bare top-level commands and that the working `create rect/...` form is documentation drift. The installed binary says the opposite: the top-level command list contains no `rect`, `ellipse`, `text`, `line`, `group`, `autolayout` or `al`, while `figma-ds-cli create --help` lists `rect|rectangle`, `ellipse|circle`, `text`, `line`, `component`, `group`, `autolayout|al`. An agent following the row runs `figma-ds-cli rect …`, which falls back to printing the root usage text instead of creating anything.
+
+[SOURCE: mcp-figma/references/tool-surface.md:98]
+
+- **Claim:** `rect`, `ellipse`, `text`, `line`, `component`, `group`, `autolayout` and `al` are top-level command aliases in `figma-ds-cli` 1.2.0, and the `create <primitive>` form is drift.
+- **evidenceRefs:** `AI Systems/Product Owner/mcp-figma/references/tool-surface.md:98`; `figma-ds-cli --help` (72 top-level commands, none of the eight); `figma-ds-cli create --help` (lists all eight as subcommands); `figma-ds-cli rect --help` (prints root usage, no `rect` command).
+- **counterevidenceSought:** looked for a lazily registered alias set or a hidden command; the top-level help is generated by the same commander instance that dispatches, so a command that does not appear cannot be dispatched. Also checked whether the packet pins a different build than the installed one: it pins `main`/1.2.0, which is what is installed.
+- **alternativeExplanation:** the row may describe a newer `main` than 1.2.0. Rejected for this release: the packet's own frontmatter and INSTALL-GUIDE pin 1.2.0, and 1.2.0 is what ships.
+- **finalSeverity:** P1. **confidence:** high.
+- **downgradeTrigger:** if `figma-ds-cli@1.2.0` from the repo does accept bare `rect`, the row is right and this finding drops away.
+- **Fix site (upstream):** `.skilled/skills/mcp-tooling/mcp-figma/references/tool-surface.md:98` - record `create rect|ellipse|text|line|component|group|autolayout|al` as the real form and delete the "REFERENCE.md form is drift" clause.
+
+**R1-P1-002 - The shared helper resolves `figma-cli` without the silships check the skill makes mandatory, so the naming trap it documents cannot actually fail closed.**
+
+`SKILL.md` ALWAYS rule 1 requires the `figma-cli` name to be accepted only after `--version`/`--help` proves it is the silships build, and to fail closed otherwise. `_common.sh` is the one place every script resolves the binary, and it accepts any `figma-cli` on PATH on sight. `doctor.sh:22` then reports that unchecked name as `ok`.
+
+[SOURCE: mcp-figma/scripts/_common.sh:21]
+[SOURCE: mcp-figma/SKILL.md:268]
+
+- **Claim:** the mandatory identity verification is not implemented in the function the packet routes all binary resolution through.
+- **evidenceRefs:** `AI Systems/Product Owner/mcp-figma/scripts/_common.sh:19-23` (no `--version`/`--help` probe); `AI Systems/Product Owner/mcp-figma/SKILL.md:268`; `AI Systems/Product Owner/mcp-figma/scripts/doctor.sh:22`.
+- **counterevidenceSought:** checked whether verification happens at the call sites instead - `install.sh:119` warns about the name but still proceeds, and `doctor.sh` only reports. No call site verifies before use.
+- **alternativeExplanation:** the helper's comment says the repo build is the only source of a `figma-cli` binary, so the check may be considered unnecessary. That is the exact assumption SKILL.md refuses to make.
+- **finalSeverity:** P1 (missing validation on a security-adjacent identity check). **confidence:** medium-high.
+- **downgradeTrigger:** if every documented install path can only produce a silships `figma-cli`, the check is redundant and this becomes P2.
+- **Fix site (upstream):** `.skilled/skills/mcp-tooling/mcp-figma/scripts/_common.sh:19-23` - probe the `figma-cli` candidate (`--version`/`--help` and confirm the silships usage string) before returning it, and return failure when the probe fails.
+
+**R1-P1-003 - `connect-safe.sh` exits 0 after doing nothing whenever stdin is not a TTY.**
+
+Line 20 detects a non-interactive shell, prints "Re-run in a terminal", and exits `0`. A zero exit is the success signal the INSTALL-GUIDE checkpoints and any agent driving this skill read, so a no-op is indistinguishable from a completed safe connect. The packet's own primary consumer is an agent running Bash non-interactively, which is exactly the branch that never connects.
+
+[SOURCE: mcp-figma/scripts/connect-safe.sh:20]
+
+- **Claim:** the guided connect reports success without connecting.
+- **evidenceRefs:** `AI Systems/Product Owner/mcp-figma/scripts/connect-safe.sh:20-23`; reproduced: `bash scripts/connect-safe.sh </dev/null` printed the non-interactive notice and exited `0`.
+- **counterevidenceSought:** checked whether a later line re-tests connectivity - no; the script `exit 0`s on the spot.
+- **alternativeExplanation:** "already connected" is a legitimate success state, so exiting 0 could be right. The message says nothing was attempted, and no `daemon status` ran to establish that state.
+- **finalSeverity:** P1. **confidence:** high.
+- **downgradeTrigger:** if a caller contract documents that this script is interactive-only and its 0 means "declined", the impact is a documentation fix at most.
+- **Fix site (upstream):** `.skilled/skills/mcp-tooling/mcp-figma/scripts/connect-safe.sh:20` - exit non-zero (for example `2`, "not attempted") or run `daemon status` and exit 0 only when it proves a live connection.
+
+**R1-P1-004 - `doctor.sh` resolves `.utcp_config.json` one directory above the repository root once the packet is vendored, so the optional-MCP check reports a false negative.**
+
+`UTCP="$HERE/../../../../../.utcp_config.json"` is correct at the upstream nesting depth (`.skilled/skills/mcp-tooling/mcp-figma/scripts` → five levels reaches the folder holding `.skilled`). Vendored at `AI Systems/Product Owner/mcp-figma/scripts` the same five levels land on `/Users/michelkerkmeester/MEGA/Development`, which holds no `.utcp_config.json`, while the real file sits at `AI Systems/.utcp_config.json` four levels up and does contain a `figma` manual. Doctor therefore prints "`.utcp_config.json` not found at expected repo root" in the one repository where it ships.
+
+[SOURCE: mcp-figma/scripts/doctor.sh:48]
+
+- **Claim:** the doctor's optional-MCP check cannot see the repository's real Code Mode config in the vendored position.
+- **evidenceRefs:** `AI Systems/Product Owner/mcp-figma/scripts/doctor.sh:48-51`; resolution check: five levels up = `/Users/michelkerkmeester/MEGA/Development/.utcp_config.json` (absent), four levels up = `AI Systems/.utcp_config.json` (present, `manual_call_templates` includes `figma`).
+- **counterevidenceSought:** confirmed the file that exists actually carries the `figma` manual, so the check would pass had it resolved; confirmed the upstream depth is genuinely five, which is why this only bites the copy.
+- **alternativeExplanation:** the depth may be intentionally the upstream one and the copy expected to be read in place. That is not how this repository ships or reads it, and `vendor.json` records the copy as the shipped location.
+- **finalSeverity:** P1 (degraded diagnostics on the only automated verification of the optional path). **confidence:** high.
+- **downgradeTrigger:** if the packet is only ever executed from the upstream tree, the defect is latent and becomes P2.
+- **Fix site (upstream):** `.skilled/skills/mcp-tooling/mcp-figma/scripts/doctor.sh:48` - find the root by walking up to the folder that holds `.skilled` (or `.utcp_config.json`), the way `vendor-sync.py:74-84` already does, instead of counting levels.
+
+### P2 Findings
+
+**R1-P2-001 - The `--verbose` test can never be false, so the quiet path is dead.**
+
+`[ -n "${VERBOSE:-}" ]` tests non-emptiness, and `VERBOSE` is initialised to `0`, which is non-empty. The verbose branch is always taken, so `install.sh --source repo` prints raw `git pull` output whether or not `--verbose` was passed and the silenced alternative on line 98 is unreachable.
+
+[SOURCE: mcp-figma/scripts/install.sh:95]
+
+- **Fix site (upstream):** `.skilled/skills/mcp-tooling/mcp-figma/scripts/install.sh:95` - compare `[ "$VERBOSE" = 1 ]`.
+
+**R1-P2-002 - The install guide's version metadata trails the packet by two minor versions.**
+
+`SKILL.md` and `README.md` declare `1.1.3.0`; `INSTALL-GUIDE.md` still declares `1.0.0.0` in its frontmatter and header and its Version History ends at `1.0.0.0`, so a reader has no record of the 1.1.x changes in the one document that gates installation.
+
+[SOURCE: mcp-figma/INSTALL-GUIDE.md:4]
+[SOURCE: mcp-figma/INSTALL-GUIDE.md:14]
+[SOURCE: mcp-figma/README.md:11]
+
+- **Fix site (upstream):** `.skilled/skills/mcp-tooling/mcp-figma/INSTALL-GUIDE.md:4` and `:14`, plus the Version History table.
+
+**R1-P2-003 - `vendor-sync.py` can write a null `base_commit` and then report "in step at None".**
+
+`upstream_commit()` returns `None` when `git log` fails or prints nothing (no repo at the resolved path, or an untracked upstream folder). `pull_package` writes that `None` straight into the manifest, and `status_package` interpolates it into its success line, so a run that could not establish provenance still reports "in step".
+
+[SOURCE: scripts/vendor-sync.py:135]
+[SOURCE: scripts/vendor-sync.py:262]
+[SOURCE: scripts/vendor-sync.py:236]
+
+- **Fix site:** `AI Systems/Product Owner/scripts/vendor-sync.py:135` - raise `SetupError` (exit 2) rather than returning `None`, or refuse the manifest write and say the base commit could not be resolved.
+
+## Traceability Checks
+
+| Protocol | Level | Status | Evidence |
+|---|---|---|---|
+| `spec_code` | core | partial | The staging `spec.md` names three in-scope surfaces; all three were opened this iteration. `mcp-figma/` is vendored byte-identically, so its findings are upstream findings. |
+| `checklist_evidence` | core | notApplicable | The staging folder carries no `checklist.md`; there is no checklist to hold evidence against. |
+| `skill_agent` | overlay | pending | Agent-side use of the packet is iteration 4's subject. |
+| `agent_cross_runtime` | overlay | notApplicable | The packet ships no runtime agent definition. |
+| `feature_catalog_code` | overlay | pending | Iteration 2/4 subject. |
+| `playbook_capability` | overlay | pending | Iteration 4 subject. |
+
+## Ruled out this iteration
+
+- **"The vendored copy has drifted from upstream"** - 58/58 hashes match on both sides; `base_commit` is the folder's real last-touching commit. Ruled out with evidence, not assumption.
+- **"`vendor.json` is missing files or carries stale entries"** - 58 recorded, 58 on disk, zero added or removed on either tree.
+- **"`vendor-sync.py` `pull` can overwrite local edits"** - the two-sided guard at `pull_package` refuses whenever the local tree diverges from both the manifest and upstream; traced all four combinations of local/upstream divergence and each either refuses or loses nothing.
+- **"The shell scripts are syntactically broken"** - `bash -n` clean across all 11 files.
+
+## Next Dimension
+
+Iteration 2 (security): the daemon token's lifecycle and what any code path can print, secret handling in the `.env`/`.utcp_config.json` path, whether the documented destructive gate and the export no-overwrite rule can be bypassed by a shorthand the packet itself recommends, and whether `install.sh` pulls executable code from a mutable ref.
+
+Review verdict: CONDITIONAL

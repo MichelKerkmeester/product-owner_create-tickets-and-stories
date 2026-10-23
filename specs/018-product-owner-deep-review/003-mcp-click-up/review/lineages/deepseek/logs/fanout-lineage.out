@@ -1,0 +1,23 @@
+**Lineage complete — deep-review, spec `003-mcp-click-up` (Product Owner `mcp-click-up` vendoring).**
+
+Verdict: **CONDITIONAL** — 0 P0, 4 P1, 12 P2 active, 0 resolved, 4 of 4 dimensions.
+
+**P1 findings**
+| ID | Issue | Fix site |
+|---|---|---|
+| R2-P1-001 | `doctor.sh:71` walks a fixed five levels for `.utcp_config.json`, so the vendored copy reports the Code Mode config missing even though `AI Systems/.utcp_config.json` registers it | upstream `mcp-click-up/scripts/doctor.sh` |
+| R3-P1-001 | `AGENTS.md:117` counts a bare `cupt` CLI as ClickUp tooling and offers a push the packet says has no route there | `Product Owner/AGENTS.md` |
+| R3-P1-002 | `sk-product-owner/SKILL.md:306`'s private-doc recipe omits required `create_page` and folds the page write into a create call that takes no content | `sk-product-owner/SKILL.md` |
+| R4-P1-001 | `json-flag.md:19` and two catalog lines claim `cupt add` creates a task; four packet documents and `cupt-commands.md` deny any create command | upstream feature catalog |
+
+What held up: byte-identical copy (`vendor-sync.py status` in step, `diff -rq` empty, 178/178 hashes match), the invariant gated twice (release gate + plugin refusal), 0 broken links across 171 packet Markdown files, and agreement on transport params, push-target names and routing vocabulary.
+
+**Files written** (all inside `specs/product-owner/018-product-owner-deep-review/003-mcp-click-up/review/lineages/deepseek/`): `iterations/iteration-001…005.md`, `deltas/iter-001…005.jsonl`, `review-report.md`, `.executor-state/iter-001…005.json` + `closeout/synthesis_complete.json`, plus reducer-owned `deep-review-config.json` (status `complete`), `deep-review-state.jsonl`, `deep-review-findings-registry.json`, `deep-review-dashboard.md`, `deep-review-strategy.md`. No files outside the lineage were modified; no git mutations.
+
+**Checks run:** all state rows through `append-mode-event.cjs` (ledger seq 1–7, no direct state-log writes); `reduce-state.cjs` after every iteration and after synthesis (`openFindings 16`, `convergenceScore 0.906`, `corruption 0`); `verify-iteration.cjs` passes for all five; 32 `[SOURCE: …]` tags in the report and narratives re-resolved to existing lines after fixing three missing `scripts/` prefixes.
+
+**Recorded divergences, not patched:** the strategy table still prints `playbook_capability` as `pending` and `traceability.summary` reads `0/0`, because the iteration 4–5 check rows carried no `evidence` array and reducer blocks are machine-owned; both facts are stated in the report rather than hand-fixed.
+
+**Remaining human/external steps:** settle whether `cupt` can create before wording W2, open the two upstream packet changes (doctor path, `cupt add`), then re-sync the `claude project/` mirror if the hub text changes.
+
+FANOUT_LINEAGE_COMPLETE:deepseek

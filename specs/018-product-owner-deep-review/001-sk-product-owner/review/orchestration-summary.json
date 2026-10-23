@@ -1,0 +1,52 @@
+{
+  "run_id": "1792580414886-kf3maf",
+  "loop_type": "review",
+  "spec_folder": "specs/product-owner/018-product-owner-deep-review/001-sk-product-owner",
+  "base_artifact_dir": "/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/product-owner/018-product-owner-deep-review/001-sk-product-owner/review",
+  "total_cli_lineages": 1,
+  "orphaned_lineages": [],
+  "total": 1,
+  "succeeded": 1,
+  "failed": 0,
+  "all_failed": false,
+  "completed_with_containment_advisory": 0,
+  "gauges": {
+    "lag": 0,
+    "pending": 0,
+    "failed": 0
+  },
+  "failure_classes": {
+    "timeout": 0,
+    "exit": 0,
+    "salvage_miss": 0,
+    "artifact_miss": 0,
+    "projection_refusal": 0,
+    "unattributed_state_log": 0,
+    "needs_input": 0
+  },
+  "timestamp_anomalies": [
+    {
+      "label": "deepseek",
+      "state_log": "/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/product-owner/018-product-owner-deep-review/001-sk-product-owner/review/lineages/deepseek/deep-review-state.jsonl",
+      "window": {
+        "start_at_iso": "2026-10-21T11:00:14.895Z",
+        "end_at_iso": "2026-10-21T11:13:38.674Z",
+        "tolerance_ms": 120000
+      },
+      "counts": {
+        "anomalous": 1,
+        "untimestamped": 0,
+        "unparseable": 0,
+        "total": 7
+      },
+      "sample": [
+        {
+          "index": 5,
+          "reason": "after_window",
+          "timestamp": "2026-10-21T11:16:30Z",
+          "deltaMs": 51326
+        }
+      ]
+    }
+  ]
+}
