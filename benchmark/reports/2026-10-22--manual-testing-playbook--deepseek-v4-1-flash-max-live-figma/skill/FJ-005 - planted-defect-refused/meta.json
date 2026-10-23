@@ -1,0 +1,69 @@
+{
+ "id": "FJ-005",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/pre-write-check/planted-defect-refused.md",
+ "twin": "SJ-005",
+ "model": "llmgateway/deepseek-v4.1-flash",
+ "thinking": "max",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-FJ-005-ab5f1ced",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 30.35,
+   "tool_calls": 13,
+   "tools_used": [
+    "ls",
+    "read",
+    "ls",
+    "read",
+    "ls",
+    "bash",
+    "ls",
+    "read",
+    "read",
+    "read",
+    "bash",
+    "bash",
+    "bash"
+   ],
+   "input_tokens": 15519,
+   "output_tokens": 3383,
+   "reasoning_tokens": 1596,
+   "cost_usd": 0.004810002,
+   "model_s": 30.13,
+   "startup_s": 0.17,
+   "stop_reason": "stop",
+   "response_models": [
+    "luminal/deepseek-v4.1-flash"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "As the operator, run the sk-create-figjam check on a sequence model with an aliased participant and a note. Verify it fails and names both rules. Return the output and exit status."
+  }
+ ]
+}

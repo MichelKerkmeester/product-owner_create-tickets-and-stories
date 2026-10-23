@@ -1,0 +1,150 @@
+{
+ "id": "FJ-017",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-write/hybrid-extension-written.md",
+ "twin": "SJ-017",
+ "model": "llmgateway/deepseek-v4.1-flash#max",
+ "thinking": "max",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "ses_e982918b8ffe7KLEgfEn9ltG4x",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 195.83,
+   "tool_calls": 27,
+   "tools_used": [
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "execute",
+    "shell",
+    "read",
+    "read",
+    "shell",
+    "shell",
+    "shell",
+    "grep",
+    "shell",
+    "execute",
+    "execute",
+    "shell",
+    "shell",
+    "shell"
+   ],
+   "input_tokens": 83267,
+   "output_tokens": 2633,
+   "reasoning_tokens": 22446,
+   "cost_usd": 0.027911039400000004,
+   "model_s": 193.51,
+   "startup_s": 2.29,
+   "stop_reason": "tool-calls",
+   "response_models": [
+    "llmgateway/deepseek-v4.1-flash#max"
+   ],
+   "session_id": "ses_e982918b8ffe7KLEgfEn9ltG4x",
+   "inner_calls": [
+    "search",
+    "search",
+    "search",
+    "figma.whoami",
+    "search",
+    "search"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 211.13,
+   "tool_calls": 15,
+   "tools_used": [
+    "execute",
+    "shell",
+    "shell",
+    "execute",
+    "execute",
+    "execute",
+    "execute",
+    "execute",
+    "execute",
+    "execute",
+    "execute",
+    "execute",
+    "execute",
+    "execute",
+    "shell"
+   ],
+   "input_tokens": 14839,
+   "output_tokens": 3570,
+   "reasoning_tokens": 24815,
+   "cost_usd": 0.022473692999999996,
+   "model_s": 208.09,
+   "startup_s": 3.01,
+   "stop_reason": "tool-calls",
+   "response_models": [
+    "llmgateway/deepseek-v4.1-flash#max"
+   ],
+   "session_id": "ses_e982918b8ffe7KLEgfEn9ltG4x",
+   "inner_calls": [
+    "search",
+    "search",
+    "figma.generate_diagram",
+    "figma.create_session",
+    "figma.use_figma",
+    "figma.get_figjam",
+    "figma.get_screenshot",
+    "figma.use_figma",
+    "figma.get_figjam",
+    "figma.get_screenshot",
+    "figma.use_figma",
+    "figma.get_figjam",
+    "figma.get_screenshot",
+    "figma.use_figma",
+    "figma.use_figma"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, go ahead."
+  }
+ ]
+}

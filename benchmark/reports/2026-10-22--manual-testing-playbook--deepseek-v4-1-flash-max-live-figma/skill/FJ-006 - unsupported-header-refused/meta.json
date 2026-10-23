@@ -1,0 +1,78 @@
+{
+ "id": "FJ-006",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/pre-write-check/unsupported-header-refused.md",
+ "twin": "SJ-006",
+ "model": "llmgateway/deepseek-v4.1-flash",
+ "thinking": "max",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-FJ-006-948cfa40",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 54.21,
+   "tool_calls": 22,
+   "tools_used": [
+    "ls",
+    "find",
+    "ls",
+    "read",
+    "ls",
+    "read",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash"
+   ],
+   "input_tokens": 13989,
+   "output_tokens": 6395,
+   "reasoning_tokens": 3934,
+   "cost_usd": 0.006705269999999998,
+   "model_s": 54.01,
+   "startup_s": 0.16,
+   "stop_reason": "stop",
+   "response_models": [
+    "luminal/deepseek-v4.1-flash"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "As the operator, run the sk-create-figjam check on a pie chart model. Verify it fails and points at the type table. Return the output and exit status."
+  }
+ ]
+}

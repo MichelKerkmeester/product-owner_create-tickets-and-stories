@@ -1,0 +1,79 @@
+{
+ "id": "FJ-021",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/figjam-as-task-subject.md",
+ "twin": "SJ-021",
+ "model": "llmgateway/deepseek-v4.1-flash",
+ "thinking": "max",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-FJ-021-100a11a0",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - task-tidy-figjam-board-labels.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 83.44,
+   "tool_calls": 19,
+   "tools_used": [
+    "bash",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "bash",
+    "read",
+    "read",
+    "read",
+    "bash",
+    "read",
+    "bash",
+    "write",
+    "read",
+    "bash",
+    "edit",
+    "read",
+    "bash"
+   ],
+   "input_tokens": 34176,
+   "output_tokens": 11743,
+   "reasoning_tokens": 9148,
+   "cost_usd": 0.013300392,
+   "model_s": 83.17,
+   "startup_s": 0.22,
+   "stop_reason": "stop",
+   "response_models": [
+    "luminal/deepseek-v4.1-flash"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - task-tidy-figjam-board-labels.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "write a task to tidy the figjam board labels"
+  }
+ ]
+}

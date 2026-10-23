@@ -1,0 +1,69 @@
+{
+ "id": "PDK-001",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-document-modes/behavior-reference.md",
+ "twin": "SDK-001",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-PDK-001-ac793edb",
+ "attempts": 3,
+ "failures": [
+  {
+   "attempt": 1,
+   "turn": 1,
+   "status": "stop-error",
+   "rc": 0
+  },
+  {
+   "attempt": 2,
+   "turn": 1,
+   "status": "stop-error",
+   "rc": 0
+  },
+  {
+   "attempt": 3,
+   "turn": 1,
+   "status": "stop-error",
+   "rc": 0
+  }
+ ],
+ "completed": false,
+ "turns_declared": 2,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "stop-error",
+   "wall_s": 0.84,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.0,
+   "model_s": 0.45,
+   "startup_s": 0.38,
+   "stop_reason": "error",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "Can you document how discount codes and automatic promotions stack? Start with context/fernhouse-promotions-rules.md, and context/fernhouse-context.md has the company background."
+  }
+ ]
+}

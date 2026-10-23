@@ -1,0 +1,78 @@
+{
+ "id": "FJ-001",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/type-choice/sequence-from-api-brief.md",
+ "twin": "SJ-001",
+ "model": "llmgateway/deepseek-v4.1-flash",
+ "thinking": "max",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-FJ-001-c8bc1f20",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 109.91,
+   "tool_calls": 22,
+   "tools_used": [
+    "bash",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "bash",
+    "read",
+    "read",
+    "read",
+    "bash",
+    "read",
+    "read",
+    "read",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash"
+   ],
+   "input_tokens": 50464,
+   "output_tokens": 15844,
+   "reasoning_tokens": 13603,
+   "cost_usd": 0.018650783999999997,
+   "model_s": 109.64,
+   "startup_s": 0.23,
+   "stop_reason": "stop",
+   "response_models": [
+    "luminal/deepseek-v4.1-flash"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam draw the Roamstay checkout payment as a sequence diagram on a new board in our Roamstay Product plan. From the payments brief: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold, tells the partner hub and answers the app with 201."
+  }
+ ]
+}

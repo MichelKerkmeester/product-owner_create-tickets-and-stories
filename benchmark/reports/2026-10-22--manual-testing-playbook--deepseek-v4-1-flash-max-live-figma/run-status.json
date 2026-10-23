@@ -1,0 +1,402 @@
+[
+ {
+  "id": "FJ-001",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-002",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-003",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-004",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-005",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-006",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-007",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-008",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-010",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-011",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-012",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-013",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-014",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-015",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-016",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-017",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-019",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-020",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-021",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-022",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-023",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-024",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 2,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-025",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-026",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-027",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-028",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-029",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-030",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-031",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-032",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-033",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-034",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 3,
+  "turns_declared": 3
+ },
+ {
+  "id": "FJ-036",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-037",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-038",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-039",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-040",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-041",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ },
+ {
+  "id": "FJ-042",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJ-043",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJH-001",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJN-001",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJR-001",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJR-002",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJR-003",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJR-004",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJR-005",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJR-006",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "FJR-007",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 1,
+  "turns_declared": 1
+ },
+ {
+  "id": "SFL-001",
+  "side": "skill",
+  "status": "ok",
+  "attempts": 1,
+  "turns_run": 2,
+  "turns_declared": 2
+ }
+]

@@ -94,6 +94,9 @@ ARTIFACT_COMMANDS: Dict[str, str] = {
     # $epic/$e is the same Story intent under a different shape rather than a
     # separate intent, so it never conflicts with $story.
     "$epic": "STORY", "$e": "STORY",
+    # Flow Mode answers to both names people use for it, and to no single
+    # letter, because $f would read as a fast-energy control.
+    "$flow": "FLOW", "$figjam": "FLOW",
 }
 
 # Which shape each Story command selects. The intent picks the mode reference,
@@ -112,6 +115,11 @@ SHAPE_PRECEDENCE = ("EPIC", "STORY")
 # `$quick`/`$q` and natural quick/fast framing set energy only; they never
 # select an artifact intent by themselves.
 QUICK_TOKENS = {"$quick", "$q"}
+ENERGY_SIGNAL_VOCABULARY = {
+    "QUICK": ["quick", "fast", "no questions", "just do it"],
+    "RAW": ["skip depth"],
+    "DEEP": ["deep", "think longer", "full depth", "complex multi-source work"],
+}
 # "quick" and "fast" set energy only when they frame the request itself. As
 # subject matter ("crashes when scrolling fast") they must not skip an intake
 # gate, and a denial ("this is not a quick fix") must not read as the override.
@@ -119,7 +127,8 @@ NATURAL_QUICK_RE = re.compile(
     r"^(?:please\s+)?(?:quick|fast)\b"
     r"|\b(?:quick|fast)\s+(?:task|subtask|bug|doc|document|draft|version|pass|one|check|write-?up)\b"
     r"|\b(?:make|keep)\s+(?:it|this|that)\s+(?:quick|fast)\b"
-    r"|\bno[ -]?questions\b",
+    r"|\bno[ -]?questions\b"
+    r"|\bjust\s+do\s+it\b",
     re.IGNORECASE,
 )
 NEGATED_QUICK_RE = re.compile(
@@ -257,6 +266,12 @@ FRAME_PATTERNS: Dict[str, List[str]] = {
     "BUG": [
         r"\b(create|write|file) (a )?(bug report|defect report)\b",
         r"\bbug report about\b",
+        # The report is asked for as a bare bug with its subject attached as
+        # often as it is asked for by the noun, and the verb plus "about" or
+        # "for" is what separates the report from the repair. "fix the bug in
+        # the export" names no report at all, while "write a bug about the
+        # export" does.
+        r"\b(?:write|file|log) (?:a |an )?bug (?:about|for)\b",
         # A symptom report often carries no defect noun at all: "the app
         # crashes on rotate during upload", "the checkout screen freezes when
         # you tap pay twice" and "notifications stop arriving after you
@@ -282,14 +297,16 @@ FRAME_PATTERNS: Dict[str, List[str]] = {
         r"|stops? \w+ing|stopped \w+ing"
         r"|(?:is|are|was|were|looks?|comes? out) (?:completely |totally |just )?"
         r"(?:wrong|incorrect|duplicated|garbled))\b",
-        r"^(?!.*\b(?:bug|fix(?:es|ed|ing)?|issue|defect|error|crash(?:es|ed|ing)?|repro)\b).*\b(?:this|it|that)\s+is\s+broken\b",
+        r"^(?!.*\b(?:bug|fix(?:es|ed|ing)?|issue|defect|error|"
+        r"crash(?:es|ed|ing)?|repro)\b).*\b(?:this|it|that)\s+is\s+broken\b",
         # A report can also name the broken value instead of the failure:
         # "the follower count shows -- for tiktok" and "the avatar shows a
         # broken image after upload" have no word from the bug topic's
         # vocabulary in them at all, and the verb is whichever one the surface
         # suggests rather than "shows" alone.
         r"\b(?:shows?|showing|displays?|displaying|renders?|rendering)\s+(?:-{1,2}|nothing|blank|null|undefined)(?!\w)",
-        r"\b(?:shows?|showing|displays?|displaying|renders?|rendering)\s+(?:a |an |the )?(?:broken|blank|empty|garbled|corrupted|placeholder)\b",
+        r"\b(?:shows?|showing|displays?|displaying|renders?|rendering)\s+"
+        r"(?:a |an |the )?(?:broken|blank|empty|garbled|corrupted|placeholder)\b",
         # A failing call is named by its status code rather than by a symptom
         # word, and a 4xx or 5xx in a request is always a defect report.
         r"\b(?:returns?|returning|throws?|throwing|gives?|giving)\s+(?:a |an )?[45]\d\d\b",
@@ -299,12 +316,22 @@ FRAME_PATTERNS: Dict[str, List[str]] = {
         r"\bdocument how\b",
         r"^(please )?document\b",
         r"\b(can you|could you|please) document\b",
-        rf"\b{DOC_AUTHOR_VERBS} (an? )?(product |engineering |technical |system )?(documentation|docs|document|guide|catalog|behavior reference|runbook|troubleshooting guide|implementation guide|future-state proposal|technical proposal|decision record)\b",
-        rf"\b{DOC_AUTHOR_VERBS} (an? )?(api|schema|architecture|system|implementation|configuration|technical|engineering|operational|security|compliance) (documentation|docs|document|guide|reference|catalog|runbook|proposal|recommendation|analysis|decision record|plan)\b",
+        # The short form is how the request is usually typed. "write a doc
+        # about the rollout" asks for the same document as the long form.
+        rf"\b{DOC_AUTHOR_VERBS} (an? )?(product |engineering |technical |system )?"
+        r"(documentation|docs|document|doc|guide|catalog|behavior reference|runbook|troubleshooting guide|"
+        r"implementation guide|future-state proposal|technical proposal|decision record)\b",
+        rf"\b{DOC_AUTHOR_VERBS} (an? )?(api|schema|architecture|system|implementation|configuration|technical|"
+        r"engineering|operational|security|compliance) "
+        r"(documentation|docs|document|guide|reference|catalog|runbook|proposal|recommendation|analysis|"
+        r"decision record|plan)\b",
         rf"\b{DOC_AUTHOR_VERBS} (an? )?(rfc|adr)\b",
-        r"\b(recommend|select|choose|compare|analyze|analyse)\b.{0,120}\band document (it|the (decision|recommendation|analysis|selection))\b",
-        r"\b(refine|update|edit) (this |the |an? )?(product |engineering |technical |api |schema |architecture |system )?(documentation|docs|document|guide|reference|catalog|runbook|proposal|decision record)\b",
-        r"\b(refine|update|edit) (this |the )?[a-z0-9][\w .&/()'-]{0,80} (documentation|docs|document|guide|reference|catalog|runbook|proposal|decision record)\b",
+        r"\b(recommend|select|choose|compare|analyze|analyse)\b.{0,120}"
+        r"\band document (it|the (decision|recommendation|analysis|selection))\b",
+        r"\b(refine|update|edit) (this |the |an? )?(product |engineering |technical |api |schema |architecture |"
+        r"system )?(documentation|docs|document|guide|reference|catalog|runbook|proposal|decision record)\b",
+        r"\b(refine|update|edit) (this |the )?[a-z0-9][\w .&/()'-]{0,80} "
+        r"(documentation|docs|document|guide|reference|catalog|runbook|proposal|decision record)\b",
         # Explanation framing can ask for the artifact by function instead of
         # by name: "write up the notification provider comparison" and
         # "something for the team explaining the reel rules" are both
@@ -321,17 +348,27 @@ FRAME_PATTERNS: Dict[str, List[str]] = {
         r"^(?!.*\b(?:bug|defect|repro|crash(?:es|ed|ing)?|incident)\b)"
         r".*\b(?:written|writing) (?:up|down)\b",
     ],
+    # A FigJam board is asked for by naming the output, never by the word
+    # "figma" alone, which stays UI refinement feedback for Task Mode.
+    "FLOW": [
+        r"\bfigjam (?:(?:user|process|architecture|sequence|state|er|gantt|data) )?"
+        r"(?:flow|flowchart|board|diagram|chart|map)s?\b",
+        r"\b(?:flow|flowchart|diagram|chart|board|map)s? (?:in|on|into) (?:a |the )?figjam\b",
+        r"\b(?:make|create|build|draw|generate|turn)\b[^.!?]{0,60}\bfigjam\b",
+    ],
 }
 
 # A documentation noun still carries Doc framing when a compound name sits
 # between the verb and the noun ("write an ingest pipeline runbook"), which the
 # fixed adjective list above cannot reach.
 GENERIC_DOC_FRAME_RE = re.compile(
-    rf"\b{DOC_AUTHOR_VERBS} (an? )?(?:[a-z0-9][\w+./-]* ){{0,5}}(documentation|docs|document|guide|reference|catalog|runbook|proposal|recommendation|decision record)\b"
+    rf"\b{DOC_AUTHOR_VERBS} (an? )?(?:[a-z0-9][\w+./-]* ){{0,5}}"
+    r"(documentation|docs|document|guide|reference|catalog|runbook|proposal|recommendation|decision record)\b"
 )
 # A bug report whose subject is the documentation is still a bug report.
 BUG_ABOUT_DOCUMENTATION_RE = re.compile(
-    r"\b(create|write|file) (a )?(bug report|defect report) (about|for|covering|on)\b[^.!?]{0,80}\b(documentation|docs|document|guide|reference)\b"
+    r"\b(create|write|file) (a )?(bug report|defect report) (about|for|covering|on)\b"
+    r"[^.!?]{0,80}\b(documentation|docs|document|guide|reference)\b"
 )
 # A user story named as another artifact's subject is not Story framing.
 STORY_AS_SUBJECT_RE = re.compile(
@@ -346,6 +383,35 @@ NEGATED_STORY_RE = re.compile(
 # route. "task and ... guide" stays a genuine multi-artifact conflict.
 TASK_OVER_OTHER_RE = re.compile(
     r"\b(task|subtask|parent task)\s+(?:to\s+(?:document|write|create|draft|refine)|(?:for|about|covering|on))\b"
+)
+BUG_GROUP_TASK_RE = re.compile(
+    r"\b(?:group(?:ed|ing)?|consolidat(?:e|es|ed|ing|ion)|combine|bundle)\b[^.!?]{0,70}"
+    r"\b(?:bugs?|defects?|issues?)\b[^.!?]{0,50}\b(?:into|as|with)\s+(?:one\s+)?(?:task|ticket)\b"
+    r"|\b(?:create|write|draft|make|open)\s+(?:a\s+)?(?:bug\s+)?consolidation\s+ticket\b"
+    r"|\b(?:bug[ -]?fix|defect[ -]?fix)\s+(?:task|ticket)\b"
+    r"|\b(?:task|ticket)\s+(?:for|to)\s+(?:a\s+)?(?:bug[ -]?fix|defect[ -]?fix)\b"
+    r"|\brefinement\s*\+\s*bugs?\b",
+    re.IGNORECASE,
+)
+
+# A FigJam board named beside another artifact is that artifact's subject when
+# nothing asks for the diagram itself, as in "write a task to fix the figjam
+# board export". An output verb that opens its own clause and reaches FigJam
+# before another artifact noun, or a board the request joins with "with",
+# "plus" or "and", is a second output instead, so the pair keeps both
+# artifacts and the artifact still exports first. The opener counts after a
+# comma, a full stop, "then", "and then" or "also", because those are the ways
+# a second output follows the first.
+FIGJAM_SECOND_OUTPUT_RE = re.compile(
+    r"(?:^|\band\s+|\bthen\s+|\balso\s+|[.!?]\s+|,\s+)(?:make|draw|create|add|build|sketch|map|put)\b"
+    r"(?!\s+(?:a|an|the)?\s*(?:task|subtask|bug|issue|story|document|doc|runbook|prd|ticket|spec)\b)"
+    r"[^.!?]{0,30}\bfigjam\b"
+    r"|\b(?:with|plus|and) (?:a |an |the )?figjam "
+    r"(?:(?:user|process|architecture|sequence|state|er|gantt|data) )?"
+    r"(?:flow|flowchart|board|diagram|chart|map)s?\b"
+    r"|\bfigjam\b[^.!?]{0,60}\b(?:flow|flowchart|board|diagram|chart|map)s?\b"
+    r"[^.!?]{0,30}\b(?:then|and then)\s+(?:write|create|draft|make|turn)\b"
+    r"[^.!?]{0,40}\b(?:task|subtask|bug|issue|story|document|doc|runbook|prd|ticket|spec)\b"
 )
 
 
@@ -380,17 +446,36 @@ SEMANTIC_TOPICS: Dict[str, Dict[str, Any]] = {
         "intent": "TASK",
     },
     "ui_refinement": {
-        "synonyms": ["feedback", "polish", "tidy up", "clean up", "tighten up", "design parity", "Figma alignment", "visual QA", "UI tweak", "spacing", "alignment", "wording", "label", "capitalisation", "capitalization", "capitalised", "capitalized", "casing", "sentence case", "title case", "consistent", "consistency", "inconsistent", "inconsistently", "figma"],
+        "synonyms": [
+            "feedback", "polish", "tidy up", "clean up", "tighten up", "design parity", "Figma alignment",
+            "visual QA", "UI tweak", "spacing", "alignment", "wording", "label", "capitalisation",
+            "capitalization", "capitalised", "capitalized", "casing", "sentence case", "title case", "consistent",
+            "consistency", "inconsistent", "inconsistently", "figma",
+        ],
         "intent": "TASK",
         "confidence": 0.80,
     },
     "documentation": {
-        "synonyms": ["document how", "write a guide", "create a catalog", "behavior reference", "product documentation", "engineering documentation", "engineering docs", "technical documentation", "technical docs", "api documentation", "api docs", "api reference", "schema documentation", "schema docs", "schema reference", "system behavior reference", "architecture document", "architecture documentation", "architecture docs", "architecture recommendation", "implementation guide", "configuration guide", "runbook", "troubleshooting guide", "technical proposal", "technical recommendation", "decision record", "future-state proposal", "refine this document"],
+        "synonyms": [
+            "document how", "write a guide", "create a catalog", "behavior reference", "product documentation",
+            "engineering documentation", "engineering docs", "technical documentation", "technical docs",
+            "api documentation", "api docs", "api reference", "schema documentation", "schema docs",
+            "schema reference", "system behavior reference", "architecture document", "architecture documentation",
+            "architecture docs", "architecture recommendation", "implementation guide", "configuration guide",
+            "runbook", "troubleshooting guide", "technical proposal", "technical recommendation", "decision record",
+            "future-state proposal", "refine this document",
+        ],
         "intent": "DOC",
         "confidence": 0.85,
     },
     "story": {
-        "synonyms": ["prd", "product requirements document", "user story", "write a story", "story for", "epic story", "epic", "write an epic", "create an epic", "epic for", "refine this epic", "acceptance scenarios", "given when then", "connextra", "definition of ready", "refine this story", "turn this into a story", "write a prd", "refine this prd", "draft for pm", "write a draft", "make a draft", "story", "changing how", "change how", "changing the way", "change the way"],
+        "synonyms": [
+            "prd", "product requirements document", "user story", "write a story", "story for", "epic story", "epic",
+            "write an epic", "create an epic", "epic for", "refine this epic", "acceptance scenarios",
+            "given when then", "connextra", "definition of ready", "refine this story", "turn this into a story",
+            "write a prd", "refine this prd", "draft for pm", "write a draft", "make a draft", "story",
+            "changing how", "change how", "changing the way", "change the way",
+        ],
         "intent": "STORY",
         "confidence": 0.85,
     },
@@ -435,13 +520,19 @@ CONFIDENCE_THRESHOLDS = {"HIGH": 0.85, "MEDIUM": 0.60, "LOW": 0.40}
 # 2. ROUTE OBJECT SCHEMA (FIXED FIELD SET; UNKNOWN OR DUPLICATE FIELDS REJECT)
 # ───────────────────────────────────────────────────────────────
 
-ROUTE_FIELDS = ["intent", "energy", "source", "shape", "confidence", "needs_disambiguation", "resources", "on_demand"]
+ROUTE_FIELDS = [
+    "intent", "energy", "source", "shape", "confidence", "needs_disambiguation", "resources", "on_demand", "then"
+]
 
-INTENT_VALUES = ["TASK", "BUG", "DOC", "STORY", "INTERACTIVE"]
+INTENT_VALUES = ["TASK", "BUG", "DOC", "STORY", "FLOW", "INTERACTIVE"]
 # Only the Story intent carries a shape. Every other route leaves it None, so
 # a shape appearing on a Task or Doc route is a bug the schema catches.
 SHAPE_VALUES = ["STORY", "EPIC", None]
-ENERGY_VALUES = ["QUICK", "STANDARD"]
+# A paired output is the one deliverable a route hands on after its own
+# artifact. Flow is the only kind the router knows, so the enum stays closed
+# until a second kind exists.
+THEN_VALUES = ["FLOW", None]
+ENERGY_VALUES = ["QUICK", "RAW", "STANDARD", "DEEP"]
 SOURCE_VALUES = ["command", "framing", "semantic", "fallback", "quick-fallback", "conflict"]
 
 # ───────────────────────────────────────────────────────────────
@@ -452,6 +543,7 @@ SOURCE_VALUES = ["command", "framing", "semantic", "fallback", "quick-fallback",
 # resource set instead of a dead path or a crash.
 SKILL_ROOT = Path(__file__).resolve().parent.parent.parent / "sk-product-owner"
 RESOURCE_BASES = ("references", "assets")
+DEFAULT_RESOURCE = ["references/hvr-core.md", "references/conciseness.md"]
 
 # The Human Voice card carries every hard blocker inline, so the terms are in
 # view while writing. The conciseness layer sits above it, governing quantity
@@ -459,13 +551,17 @@ RESOURCE_BASES = ("references", "assets")
 # because a length problem cannot be caught by a term list. The full standard
 # behind the card stays out of the always-on tier and loads only to
 # adjudicate a borderline term or run a scored pass.
-ALWAYS = ["references/hvr-core.md", "references/conciseness.md"]
+ALWAYS = DEFAULT_RESOURCE
 ON_DEMAND = ["references/human-voice-rules.md"]
 RESOURCE_MAP: Dict[str, List[str]] = {
     "TASK": ["references/task-mode.md", "assets/task-templates.md"],
     "BUG": ["references/bug-mode.md", "assets/bug-report-template.md"],
     "DOC": ["references/doc-mode.md", "assets/doc-templates.md"],
     "STORY": ["references/story-mode.md"],
+    # The Flow pair lives in the sk-create-figjam packet, so the guard drops it
+    # here and SKILL.md Section 2 hands a Flow route to that packet. A Project keeps the
+    # same names as its Flow Knowledge files, which is why the lane stays.
+    "FLOW": ["references/flow-mode.md", "assets/flow-templates.md"],
     "INTERACTIVE": ["references/interactive-mode.md", "assets/interactive-response-templates.md"],
 }
 
@@ -481,7 +577,8 @@ SHAPE_TEMPLATES: Dict[str, str] = {
 # One consolidated intake question governs every ambiguous or conflicting
 # turn: the router asks once, then waits, and never guesses the artifact.
 DISAMBIGUATION_CHECKLIST = [
-    "Confirm whether the user needs a task, subtask, parent task, bug report, user story or product/engineering document",
+    "Confirm whether the user needs a task, subtask, parent task, bug report, user story "
+    "or product/engineering document",
     "Confirm scope, platform, user value and desired outcome",
     "Ask for evidence or reproduction steps when bug indicators appear",
     "For documentation, confirm purpose, audience, source authority and source classification",
@@ -581,11 +678,20 @@ def detect_commands(text: str) -> Set[str]:
 
 
 def detect_energy(text: str) -> str:
-    """Resolve QUICK or STANDARD energy for a request."""
+    """Resolve the documented energy, with Quick taking precedence over Raw."""
     if has_exact_token(text, "$quick") or has_exact_token(text, "$q"):
         return "QUICK"
     if NATURAL_QUICK_RE.search(text) and not NEGATED_QUICK_RE.search(text):
         return "QUICK"
+    if re.search(r"\bskip\s+depth\b", text, re.IGNORECASE) and not re.search(
+        r"\b(?:do not|don't|dont|never|not)\s+skip\s+depth\b", text, re.IGNORECASE
+    ):
+        return "RAW"
+    if any(
+        re.search(r"\b" + r"\s+".join(map(re.escape, signal.split())) + r"\b", text, re.IGNORECASE)
+        for signal in ENERGY_SIGNAL_VOCABULARY["DEEP"]
+    ):
+        return "DEEP"
     return "STANDARD"
 
 
@@ -608,7 +714,15 @@ def detect_framing(text: str) -> Optional[str]:
         matches.discard("STORY")
     if "STORY" in matches and NEGATED_STORY_RE.search(text_lower):
         matches.discard("STORY")
+    # A FigJam board named beside another artifact keeps that artifact's frame
+    # whether the board is its subject or a second output, because the artifact
+    # exports and reads back first either way. The route object records which
+    # of the two it is.
+    if "FLOW" in matches and len(matches) > 1:
+        matches.discard("FLOW")
     if TASK_OVER_OTHER_RE.search(text_lower) and "TASK" in matches:
+        return "TASK"
+    if BUG_GROUP_TASK_RE.search(text_lower):
         return "TASK"
     if len(matches) > 1:
         return "CONFLICT"
@@ -674,6 +788,9 @@ def score_semantic_topics(text: str) -> Tuple[str, float, str]:
 def _route(intent: str, energy: str, source: str, confidence: Optional[float],
            needs_disambiguation: bool, text: str = "") -> Dict[str, Any]:
     shape = resolve_shape(intent, text)
+    # The paired output rides on the route instead of the intent, so the
+    # artifact keeps its lane and gains one named follow-up.
+    second_output = intent in {"TASK", "BUG", "DOC", "STORY"} and bool(FIGJAM_SECOND_OUTPUT_RE.search(text.lower()))
     return {
         "intent": intent,
         "energy": energy,
@@ -683,6 +800,7 @@ def _route(intent: str, energy: str, source: str, confidence: Optional[float],
         "needs_disambiguation": needs_disambiguation,
         "resources": resources_for(intent, shape),
         "on_demand": on_demand_for(intent, shape),
+        "then": "FLOW" if second_output else None,
     }
 
 
@@ -747,6 +865,10 @@ def validate_route_object(obj: Dict[str, Any]) -> List[str]:
         errors.append(f"shape on a non-Story route: {obj.get('intent')}")
     if obj.get("shape") is None and obj.get("intent") == "STORY":
         errors.append("Story route resolved no shape, so no scaffold would load")
+    if obj.get("then") not in THEN_VALUES:
+        errors.append(f"bad then: {obj.get('then')}")
+    if obj.get("then") is not None and obj.get("intent") not in {"TASK", "BUG", "DOC", "STORY"}:
+        errors.append(f"then on a route that produces no artifact: {obj.get('intent')}")
     confidence = obj.get("confidence")
     if confidence is not None and not (isinstance(confidence, (int, float)) and 0.0 <= confidence <= 1.0):
         errors.append(f"bad confidence: {confidence!r}")

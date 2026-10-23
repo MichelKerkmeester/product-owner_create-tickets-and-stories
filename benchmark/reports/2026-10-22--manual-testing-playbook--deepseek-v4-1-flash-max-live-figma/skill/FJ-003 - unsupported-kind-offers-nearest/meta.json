@@ -1,0 +1,76 @@
+{
+ "id": "FJ-003",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/type-choice/unsupported-kind-offers-nearest.md",
+ "twin": "SJ-003",
+ "model": "llmgateway/deepseek-v4.1-flash",
+ "thinking": "max",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-FJ-003-dedfb182",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 97.42,
+   "tool_calls": 20,
+   "tools_used": [
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "bash",
+    "bash",
+    "bash",
+    "read",
+    "read",
+    "read",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "read",
+    "bash",
+    "bash"
+   ],
+   "input_tokens": 57304,
+   "output_tokens": 13847,
+   "reasoning_tokens": 11979,
+   "cost_usd": 0.018401016,
+   "model_s": 97.12,
+   "startup_s": 0.26,
+   "stop_reason": "stop",
+   "response_models": [
+    "luminal/deepseek-v4.1-flash"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam a mindmap of the Roamstay launch themes: guest trust, partner onboarding, pricing and reviews"
+  }
+ ]
+}

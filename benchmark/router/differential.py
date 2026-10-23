@@ -6,7 +6,7 @@
 """Differential gate between the executable router and the router contract's pseudocode.
 
 `references/router-contract.md` carries a Smart Router pseudocode block, the
-exact algorithm the skill's prose routing section in `SKILL.md` summarizes,
+exact algorithm the skill's prose routing in `references/routing.md` summarizes,
 and the executable route contract carries the same router as running Python.
 The Claude Project kernel ends with the same code minus its comments, because
 the kernel is the one file a Project reads on every turn while a Knowledge
@@ -17,7 +17,7 @@ against the route contract on every input in the corpus.
 
 Five guards fire, each on its own:
 
-0. Prose parity. `SKILL.md` is what a model actually reads, and it carries a
+0. Prose parity. `references/routing.md` is what a model actually reads, and it carries a
    compact semantic topic table so a request reaching the scoring step can be
    routed from the prose alone. That table is a summary rather than a copy, so
    it is checked as a subset: every topic it names must exist in the
@@ -27,7 +27,7 @@ Five guards fire, each on its own:
    the reader to score vocabulary the router does not carry.
 1. Copy parity. The kernel's closing Router Code section is held equal to the
    reference block minus its comments, line for line and as a parsed syntax
-   tree, while SKILL.md grows no python fence of its own and no Router
+   tree, while SKILL.md and routing.md grow no python fence and no Router
    Contract Knowledge document returns as a second routing copy nothing
    compares.
 2. Table parity. Semantic topics (order included, since order is the score
@@ -75,8 +75,13 @@ if str(HERE) not in sys.path:
 import route_contract as rc  # noqa: E402  (needs HERE on the path first)
 
 REPO_ROOT = HERE.parent.parent
-SKILL_MD = REPO_ROOT / "sk-product-owner" / "SKILL.md"
-ROUTER_CONTRACT_MD = REPO_ROOT / "sk-product-owner" / "references" / "router-contract.md"
+SKILL_ROOT = REPO_ROOT / "sk-product-owner"
+SKILL_MD = SKILL_ROOT / "SKILL.md"
+# SKILL.md Section 2 keeps the command map and the loading levels, and the topic
+# table and the contract pointer live in references/routing.md, so they are read
+# there, and both files are held free of a pasted router.
+ROUTER_MD = SKILL_ROOT / "references" / "routing.md"
+ROUTER_CONTRACT_MD = SKILL_ROOT / "references" / "router-contract.md"
 PROJECT_MD = REPO_ROOT / "claude project" / "Custom Instructions.md"
 CORPUS_PATH = HERE / "differential_corpus.json"
 FIXTURES_PATH = HERE / "fixtures.json"
@@ -89,7 +94,7 @@ PSEUDOCODE_HEADING = "### Smart Router Pseudocode"
 # when retrieval happens to pull it. The kernel is in context on every turn, so
 # it carries the code, and carries it without comments because the comments
 # explain the design to a maintainer and change nothing a model routes.
-KERNEL_ROUTER_HEADING = "## 11. ROUTER CODE"
+KERNEL_ROUTER_HEADING = "## 10. ROUTER CODE"
 SKILL_TOPIC_TABLE_HEADING = "### Semantic Topics"
 CONTRACT_HEADING = "### Executable Contract"
 
@@ -164,15 +169,15 @@ REQUIRED_FALSE_PREFIXES = [
 # ───────────────────────────────────────────────────────────────
 
 def parse_skill_topic_table() -> List[Tuple[str, str, List[str], Optional[float]]]:
-    """Read the semantic topic table out of SKILL.md.
+    """Read the semantic topic table out of routing.md.
 
     Returns (topic, route label, trigger words, override) per row. The heading
     anchors the search, and the first non-table line after the rows begin ends
     it, so an unrelated later table cannot be read as more topics.
     """
-    text = SKILL_MD.read_text(encoding="utf-8")
+    text = ROUTER_MD.read_text(encoding="utf-8")
     if SKILL_TOPIC_TABLE_HEADING not in text:
-        raise LookupError(f"SKILL.md has no {SKILL_TOPIC_TABLE_HEADING!r} section")
+        raise LookupError(f"routing.md has no {SKILL_TOPIC_TABLE_HEADING!r} section")
     tail = text[text.index(SKILL_TOPIC_TABLE_HEADING):]
     rows: List[Tuple[str, str, List[str], Optional[float]]] = []
     for line in tail.splitlines()[1:]:
@@ -193,7 +198,7 @@ def parse_skill_topic_table() -> List[Tuple[str, str, List[str], Optional[float]
 
 
 def check_prose_table_parity() -> List[str]:
-    """Prove the table in SKILL.md is a true subset of the executable tables.
+    """Prove the table in routing.md is a true subset of the executable tables.
 
     Prose and code drift silently in both directions. Guard 2 already pins the
     pseudocode against the contract, but neither of those is the surface a
@@ -211,7 +216,7 @@ def check_prose_table_parity() -> List[str]:
     contract_topics = list(rc.SEMANTIC_TOPICS)
     if prose_topics != contract_topics:
         return [
-            f"prose parity topic order: SKILL.md {prose_topics}, contract {contract_topics}"
+            f"prose parity topic order: routing.md {prose_topics}, contract {contract_topics}"
         ]
 
     for topic, route, triggers, override in rows:
@@ -219,11 +224,11 @@ def check_prose_table_parity() -> List[str]:
         expected_intent = config["intent"]
         if ROUTE_LABEL_TO_INTENT.get(route) != expected_intent:
             failures.append(
-                f"prose parity route[{topic}]: SKILL.md {route!r}, contract {expected_intent!r}"
+                f"prose parity route[{topic}]: routing.md {route!r}, contract {expected_intent!r}"
             )
         if override != config.get("confidence"):
             failures.append(
-                f"prose parity override[{topic}]: SKILL.md {override!r}, "
+                f"prose parity override[{topic}]: routing.md {override!r}, "
                 f"contract {config.get('confidence')!r}"
             )
         if len(triggers) < MIN_PROSE_TRIGGERS:
@@ -235,7 +240,7 @@ def check_prose_table_parity() -> List[str]:
         unknown = [trigger for trigger in triggers if trigger not in synonyms]
         if unknown:
             failures.append(
-                f"prose parity triggers[{topic}]: {unknown} are printed in SKILL.md "
+                f"prose parity triggers[{topic}]: {unknown} are printed in routing.md "
                 "but are not synonyms the router scores"
             )
     return failures
@@ -307,7 +312,7 @@ def check_copy_parity() -> List[str]:
     comment, because a Project always reads the kernel and retrieves Knowledge
     only by relevance, so a router kept in a document alone routed a turn only
     when retrieval happened to pull it. No Router Contract Knowledge document
-    is uploaded, and SKILL.md carries no copy, because the CLI reads the
+    is uploaded, and neither SKILL.md nor routing.md carries a copy, because the CLI reads the
     reference itself.
 
     Each copy is compared as bytes after its derivation rather than as
@@ -327,23 +332,25 @@ def check_copy_parity() -> List[str]:
 
     contract_block = extract_pseudocode(ROUTER_CONTRACT_MD)
     kernel_text = PROJECT_MD.read_text(encoding="utf-8")
-    skill_text = SKILL_MD.read_text(encoding="utf-8")
+    router_text = ROUTER_MD.read_text(encoding="utf-8")
 
-    if PYTHON_FENCE_RE.search(skill_text):
-        failures.append(
-            "copy parity: SKILL.md carries a python fence, so the router exists in a "
-            "copy no guard executes and no guard compares against the reference that owns it "
-            f"({ROUTER_CONTRACT_MD.name})"
-        )
-    pasted = sorted({
-        f"def {node.name}(" for node in ast.parse(contract_block).body
-        if isinstance(node, ast.FunctionDef) and f"def {node.name}(" in skill_text
-    })
-    if pasted:
-        failures.append(
-            f"copy parity: SKILL.md carries the contract's own definitions {pasted}, so the "
-            "router is inlined under a fence tag no list anticipates, or under none at all"
-        )
+    for prose_path in (SKILL_MD, ROUTER_MD):
+        prose_text = prose_path.read_text(encoding="utf-8")
+        if PYTHON_FENCE_RE.search(prose_text):
+            failures.append(
+                f"copy parity: {prose_path.name} carries a python fence, so the router exists in a "
+                "copy no guard executes and no guard compares against the reference that owns it "
+                f"({ROUTER_CONTRACT_MD.name})"
+            )
+        pasted = sorted({
+            f"def {node.name}(" for node in ast.parse(contract_block).body
+            if isinstance(node, ast.FunctionDef) and f"def {node.name}(" in prose_text
+        })
+        if pasted:
+            failures.append(
+                f"copy parity: {prose_path.name} carries the contract's own definitions {pasted}, so the "
+                "router is inlined under a fence tag no list anticipates, or under none at all"
+            )
 
     kernel_fences = len(PYTHON_FENCE_RE.findall(kernel_text))
     if kernel_fences != 1:
@@ -398,16 +405,16 @@ def check_copy_parity() -> List[str]:
             "Project loads every conversation"
         )
 
-    if CONTRACT_HEADING not in skill_text:
+    if CONTRACT_HEADING not in router_text:
         failures.append(
-            f"copy parity: SKILL.md has no {CONTRACT_HEADING!r} section, so the reference it "
+            f"copy parity: routing.md has no {CONTRACT_HEADING!r} section, so the reference it "
             "points at is named by nothing a model reads"
         )
     else:
         relative = f"references/{ROUTER_CONTRACT_MD.name}"
-        if relative not in _section(skill_text, CONTRACT_HEADING):
+        if relative not in _section(router_text, CONTRACT_HEADING):
             failures.append(
-                f"copy parity: SKILL.md's {CONTRACT_HEADING.strip('# ')} section names no path "
+                f"copy parity: routing.md's {CONTRACT_HEADING.strip('# ')} section names no path "
                 f"to {relative}, so the executable contract is unreachable from the prose that "
                 "replaced it"
             )
@@ -486,20 +493,18 @@ def check_table_parity(skill: types.ModuleType) -> List[str]:
             compare(f"confidence[{topic}]", expected[2], actual[2])
             compare(f"intent[{topic}]", expected[3], actual[3])
 
+    compare("DEFAULT_RESOURCE", skill.DEFAULT_RESOURCE, rc.DEFAULT_RESOURCE)
     compare("CONFIDENCE_THRESHOLDS", skill.CONFIDENCE_THRESHOLDS, rc.CONFIDENCE_THRESHOLDS)
+    compare("ENERGY_SIGNAL_VOCABULARY", skill.ENERGY_SIGNAL_VOCABULARY, rc.ENERGY_SIGNAL_VOCABULARY)
     compare("TOKEN_START", skill.TOKEN_START, rc.TOKEN_START)
     compare("TOKEN_END", skill.TOKEN_END, rc.TOKEN_END)
     compare("PHRASE_GAP_WORDS", skill.PHRASE_GAP_WORDS, rc.PHRASE_GAP_WORDS)
     compare("PHRASE_GAP", skill.PHRASE_GAP, rc.PHRASE_GAP)
     compare("FRAME_MODIFIER", skill.FRAME_MODIFIER, rc.FRAME_MODIFIER)
 
-    # The skill's ALWAYS lane names the skill document itself and then skips it
-    # while loading, because the document is already in context. The contract
-    # lists only what it actually preloads.
-    skill_always = [n for n in skill.RESOURCE_MAP["ALWAYS"] if n != "sk-product-owner/SKILL.md"]
-    compare("ALWAYS", skill_always, rc.ALWAYS)
+    compare("ALWAYS", skill.RESOURCE_MAP["ALWAYS"], rc.ALWAYS)
     compare("ON_DEMAND", skill.RESOURCE_MAP["ON_DEMAND"], rc.ON_DEMAND)
-    for intent in ("TASK", "BUG", "DOC", "STORY", "INTERACTIVE"):
+    for intent in ("TASK", "BUG", "DOC", "STORY", "FLOW", "INTERACTIVE"):
         compare(f"RESOURCE_MAP[{intent}]", skill.RESOURCE_MAP[intent], rc.RESOURCE_MAP[intent])
 
     # The shape tables decide which single scaffold the Story lane loads. They
@@ -511,6 +516,49 @@ def check_table_parity(skill: types.ModuleType) -> List[str]:
     compare("SHAPE_PRECEDENCE", skill.SHAPE_PRECEDENCE, rc.SHAPE_PRECEDENCE)
     compare("SHAPE_FRAMES", skill.SHAPE_FRAMES, rc.SHAPE_FRAMES)
     compare("disambiguation checklist", skill.UNKNOWN_FALLBACK_CHECKLIST, rc.DISAMBIGUATION_CHECKLIST)
+    return failures
+
+
+def check_kernel_surface_parity() -> List[str]:
+    """Hold the kernel's Section 4 command and energy table to the resolver."""
+    text = PROJECT_MD.read_text(encoding="utf-8")
+    heading = "## 4. OPERATING MODEL"
+    if heading not in text:
+        return [f"kernel surface parity: missing {heading!r}"]
+    section = _section(text, heading)
+    table_lines = [line for line in section.splitlines() if line.lstrip().startswith("|")]
+    commands = set(re.findall(r"\$[a-z][\w-]*(?:\s+--[\w-]+)?", "\n".join(table_lines), re.I))
+    contract_commands = set(rc.ARTIFACT_COMMANDS) | set(rc.QUICK_TOKENS) | {"$task --subtask"}
+    failures = []
+    if commands != contract_commands:
+        failures.append(
+            "kernel surface parity commands: missing from contract "
+            f"{sorted(commands - contract_commands)}, missing from kernel Section 4 {sorted(contract_commands - commands)}"
+        )
+
+    kernel_signals = set()
+    for line in table_lines:
+        cells = [cell.strip() for cell in line.strip().strip("|").split("|")]
+        if len(cells) < 3 or cells[0].lower() not in {"quick", "raw", "deep"}:
+            continue
+        signal_cell = re.sub(r"`\$[a-z][\w-]*`", "", cells[1], flags=re.I)
+        signal_cell = re.sub(r"(?i)^only the explicit phrase\s+", "", signal_cell)
+        kernel_signals.update(
+            phrase.strip().lower()
+            for phrase in signal_cell.split(",")
+            if phrase.strip()
+        )
+    contract_signals = {
+        signal
+        for energy in ("QUICK", "RAW", "DEEP")
+        for signal in rc.ENERGY_SIGNAL_VOCABULARY[energy]
+    }
+    if kernel_signals != contract_signals:
+        failures.append(
+            "kernel surface parity energy signals: missing from contract "
+            f"{sorted(kernel_signals - contract_signals)}, missing from kernel Section 4 "
+            f"{sorted(contract_signals - kernel_signals)}"
+        )
     return failures
 
 
@@ -557,6 +605,9 @@ def skill_route(skill: types.ModuleType, text: str) -> Dict[str, Any]:
         "needs_disambiguation": raw["intent"] == "INTERACTIVE",
         "resources": resources,
         "on_demand": on_demand,
+        # The pseudocode writes the paired output on its artifact route alone,
+        # so an absent key and a null one are the same answer here.
+        "then": raw.get("then"),
     }
 
 
@@ -690,6 +741,7 @@ def main() -> int:
 
     skill = build_skill_router()
     failures.extend(check_table_parity(skill))
+    failures.extend(check_kernel_surface_parity())
 
     corpus = load_corpus()
     failures.extend(check_coverage(skill, corpus))
@@ -712,7 +764,7 @@ def main() -> int:
     print(f"PASSED {len(corpus)}/{len(corpus)} differential inputs "
           f"({len(rc.SEMANTIC_TOPICS)} topics, "
           f"{sum(len(c['synonyms']) for c in rc.SEMANTIC_TOPICS.values())} synonyms in parity, "
-          f"{sum(len(row[2]) for row in prose_rows)} SKILL.md triggers checked)")
+          f"{sum(len(row[2]) for row in prose_rows)} routing.md triggers checked)")
     return 0
 
 

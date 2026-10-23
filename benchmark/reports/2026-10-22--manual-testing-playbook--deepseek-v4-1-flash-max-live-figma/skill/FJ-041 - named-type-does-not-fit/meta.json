@@ -1,0 +1,153 @@
+{
+ "id": "FJ-041",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/named-type-does-not-fit.md",
+ "twin": "SJ-041",
+ "model": "llmgateway/deepseek-v4.1-flash#max",
+ "thinking": "max",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "ses_e980824f2ffeyfEhagABL8TAZD",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 197.0,
+   "tool_calls": 23,
+   "tools_used": [
+    "glob",
+    "shell",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "execute",
+    "execute",
+    "shell",
+    "read",
+    "grep",
+    "read",
+    "shell",
+    "execute",
+    "read",
+    "read",
+    "shell",
+    "shell",
+    "shell"
+   ],
+   "input_tokens": 67278,
+   "output_tokens": 2139,
+   "reasoning_tokens": 23386,
+   "cost_usd": 0.024831802799999997,
+   "model_s": 194.89,
+   "startup_s": 2.07,
+   "stop_reason": "tool-calls",
+   "response_models": [
+    "llmgateway/deepseek-v4.1-flash#max"
+   ],
+   "session_id": "ses_e980824f2ffeyfEhagABL8TAZD",
+   "inner_calls": [
+    "search",
+    "search",
+    "search",
+    "search",
+    "search",
+    "search",
+    "search",
+    "search",
+    "search",
+    "search",
+    "search",
+    "search",
+    "figma.whoami"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam a state diagram of the Fernhouse return flow on a new board in our Fernhouse Product plan: a customer opens an order, taps Return an item, picks a reason, chooses a refund or store credit and sees a confirmation"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 119.15,
+   "tool_calls": 17,
+   "tools_used": [
+    "execute",
+    "shell",
+    "execute",
+    "execute",
+    "execute",
+    "execute",
+    "execute",
+    "execute",
+    "execute",
+    "read",
+    "execute",
+    "execute",
+    "execute",
+    "execute",
+    "execute",
+    "execute",
+    "shell"
+   ],
+   "input_tokens": 29618,
+   "output_tokens": 2527,
+   "reasoning_tokens": 10973,
+   "cost_usd": 0.0157784652,
+   "model_s": 116.69,
+   "startup_s": 2.43,
+   "stop_reason": "tool-calls",
+   "response_models": [
+    "llmgateway/deepseek-v4.1-flash#max"
+   ],
+   "session_id": "ses_e980824f2ffeyfEhagABL8TAZD",
+   "inner_calls": [
+    "figma.whoami",
+    "search",
+    "opencode.read_mcp_resource",
+    "opencode.read_mcp_resource",
+    "figma.generate_diagram",
+    "figma.create_session",
+    "figma.get_figjam",
+    "search",
+    "opencode.read_mcp_resource",
+    "opencode.read_mcp_resource",
+    "opencode.read_mcp_resource",
+    "figma.use_figma",
+    "figma.get_figjam"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "use your recommendation"
+  }
+ ]
+}

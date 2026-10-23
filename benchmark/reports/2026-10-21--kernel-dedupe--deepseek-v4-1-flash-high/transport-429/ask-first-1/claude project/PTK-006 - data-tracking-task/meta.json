@@ -1,0 +1,69 @@
+{
+ "id": "PTK-006",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/data-tracking-task.md",
+ "twin": "STK-006",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-PTK-006-6e26cf8e",
+ "attempts": 3,
+ "failures": [
+  {
+   "attempt": 1,
+   "turn": 1,
+   "status": "stop-error",
+   "rc": 0
+  },
+  {
+   "attempt": 2,
+   "turn": 1,
+   "status": "stop-error",
+   "rc": 0
+  },
+  {
+   "attempt": 3,
+   "turn": 1,
+   "status": "stop-error",
+   "rc": 0
+  }
+ ],
+ "completed": false,
+ "turns_declared": 2,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "stop-error",
+   "wall_s": 0.86,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.0,
+   "model_s": 0.5,
+   "startup_s": 0.35,
+   "stop_reason": "error",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "Can you write a task for the booking funnel events in Nadia's tracking plan, context/roamstay-booking-funnel-tracking-plan.md? Our conventions are in context/roamstay-context.md."
+  }
+ ]
+}

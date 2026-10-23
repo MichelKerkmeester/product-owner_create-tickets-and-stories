@@ -1,0 +1,211 @@
+{
+  "version": "1.0.0.0",
+  "description": "Hub gold rows: the requests most likely to be misrouted when packets sit beside the default one. ../../benchmark/gates/check_hub.py replays each against hub-router.json and requires the expected workflowMode.",
+  "cases": [
+    {
+      "label": "a bare request",
+      "request": "the onboarding checklist skips step two for new creators",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "the existing figma Task fixture",
+      "request": "figma says the padding is 8px off on the empty state",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a figma-ds-cli-only request",
+      "request": "figma-ds-cli fj nodes",
+      "expect": "mcp-figma"
+    },
+    {
+      "label": "a negated figma-ds-cli mention",
+      "request": "do not use figma-ds-cli, the empty state padding is off",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a negation far back in its clause",
+      "request": "do not under any circumstances use figma-ds-cli",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a curly-apostrophe negation",
+      "request": "don’t use figma-ds-cli, fix the padding",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a negation in an earlier clause",
+      "request": "don't worry, figma-ds-cli fj nodes",
+      "expect": "mcp-figma"
+    },
+    {
+      "label": "a tool named inside a task request",
+      "request": "run figma-ds-cli fj nodes and write a task for the spacing",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "an artifact request after an opening Figma signal",
+      "request": "figma-ds-cli fj nodes and write a task for the spacing",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "an artifact request after an opening FigJam signal",
+      "request": "figjam the checkout flow, then write a story",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a tool named beside a command",
+      "request": "$d figma-ds-cli fj nodes",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a tool named inside a document request",
+      "request": "document how figma-ds-cli handles auth",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a tool named inside a PRD request",
+      "request": "write a PRD for the figma-ds-cli rollout",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a tool named inside a clarification request",
+      "request": "I need a clarification about the figma-ds-cli setup",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a clarifying-questions request naming a tool",
+      "request": "ask me clarifying questions about the figma cli export",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "the Flow command",
+      "request": "$flow the location change from these screenshots",
+      "expect": "sk-create-figjam"
+    },
+    {
+      "label": "the Flow alias under Quick energy",
+      "request": "$q $figjam the signup flow",
+      "expect": "sk-create-figjam"
+    },
+    {
+      "label": "FigJam output wording",
+      "request": "make a FigJam flow from these screenshots",
+      "expect": "sk-create-figjam"
+    },
+    {
+      "label": "a command conflict naming Flow",
+      "request": "$task $flow the onboarding checklist",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "FigJam inside a task request",
+      "request": "write a task to tidy the figjam board labels",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a negated FigJam mention",
+      "request": "no figjam needed, the export drops the last row",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a cupt command line naming tasks",
+      "request": "cupt list my open tasks",
+      "expect": "mcp-click-up"
+    },
+    {
+      "label": "a ClickUp MCP request",
+      "request": "search the clickup mcp for the roadmap folder",
+      "expect": "mcp-click-up"
+    },
+    {
+      "label": "a bare clickup mention",
+      "request": "the clickup import drops the assignee",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a ClickUp tool inside a doc request",
+      "request": "write a doc on how cupt handles time tracking",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "signals of two packets",
+      "request": "use cupt and figma-ds-cli to sync the spacing",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a FigJam sequence diagram",
+      "request": "draw the checkout payment as a sequence diagram in FigJam",
+      "expect": "sk-create-figjam"
+    },
+    {
+      "label": "a FigJam ER diagram",
+      "request": "make a FigJam ER diagram of the stays model from the schema note",
+      "expect": "sk-create-figjam"
+    },
+    {
+      "label": "a FigJam gantt chart",
+      "request": "put the launch plan on a FigJam gantt chart",
+      "expect": "sk-create-figjam"
+    },
+    {
+      "label": "a doc about a FigJam architecture",
+      "request": "document how the FigJam architecture board was built",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a FigJam user flow from screenshots",
+      "request": "make a FigJam flow of the signup screens from these screenshots",
+      "expect": "sk-create-figjam"
+    },
+    {
+      "label": "a FigJam process with lanes",
+      "request": "draw how a refund moves between support, the warehouse and finance as a FigJam process with a lane per team",
+      "expect": "sk-create-figjam"
+    },
+    {
+      "label": "a FigJam architecture diagram",
+      "request": "draw the services behind block sync as a FigJam architecture diagram",
+      "expect": "sk-create-figjam"
+    },
+    {
+      "label": "a FigJam state diagram",
+      "request": "put the booking status lifecycle on a FigJam state diagram",
+      "expect": "sk-create-figjam"
+    },
+    {
+      "label": "a FigJam state request in plain words",
+      "request": "in FigJam, show which statuses an order can be in and what moves it between them",
+      "expect": "sk-create-figjam"
+    },
+    {
+      "label": "a story with a FigJam flow beside it",
+      "request": "write a story for the Fernhouse return flow and make a FigJam flow of its screens",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a runbook with a FigJam process beside it",
+      "request": "write a runbook for refunds with a FigJam process diagram",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a doc with a FigJam board beside it",
+      "request": "write a doc about Roamstay onboarding and draw it on a figjam board",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a bug with a FigJam diagram beside it",
+      "request": "write a bug about the Loomlist export and add a figjam diagram",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a cupt command line acting on an existing task",
+      "request": "cupt add the task to the sprint",
+      "expect": "mcp-click-up"
+    },
+    {
+      "label": "a cupt command line asking for a new task",
+      "request": "cupt add a task for the login bug",
+      "expect": "sk-product-owner"
+    }
+  ]
+}

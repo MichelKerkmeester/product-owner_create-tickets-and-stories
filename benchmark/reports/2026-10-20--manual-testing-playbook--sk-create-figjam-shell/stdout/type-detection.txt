@@ -1,0 +1,14 @@
+38:$flow | $figjam               -> Flow Mode
+39:FigJam output wording         -> Flow Mode ("make a FigJam flow ...", "a sequence diagram in FigJam")
+40:$quick | $q                   -> no effect, Flow Mode runs at Standard energy
+41:another artifact command      -> hand back to the Product Owner packet, whose Interactive Mode asks one question
+42:another artifact's framing    -> hand back to the Product Owner packet, FigJam is then that artifact's subject
+48:screens, a person's path, signup, onboarding         -> user-flow
+49:who does what, runbook, handoff, swimlane, lanes     -> process
+50:services, components, system, infrastructure         -> architecture
+51:calls, messages, API order, request and response     -> sequence
+52:status, lifecycle, transitions                       -> state
+53:tables, entities, schema, data model, fields         -> er
+54:plan, schedule, timeline of work, phases, roadmap    -> gantt
+55:two types fit                                        -> ask which question the reader has, as flow-mode.md Section 3 sets out
+56:no type fits                                         -> say the board cannot draw it and offer the nearest drawable type

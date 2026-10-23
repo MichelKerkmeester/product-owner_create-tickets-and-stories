@@ -1,0 +1,35 @@
+  diagram 1, architecture: ok, 7 nodes and 6 connectors
+  diagram 2, architecture: ok, 6 nodes and 6 connectors
+PASSED 2 diagram(s) in architecture.md
+  diagram 1, ER: ok, 3 entities and 2 relationships
+  diagram 2, ER: ok, 3 entities and 2 relationships
+  diagram 3, ER: ok, 3 entities and 2 relationships
+PASSED 3 diagram(s) in er.md
+  diagram 1, gantt: ok, 7 tasks in 3 sections
+  diagram 2, gantt: ok, 4 tasks in 2 sections
+PASSED 2 diagram(s) in gantt.md
+  diagram 1, process: ok, 7 nodes and 7 connectors
+  diagram 2, process: ok, 6 nodes and 6 connectors
+  diagram 3, process: ok, 8 nodes and 7 connectors
+PASSED 3 diagram(s) in process.md
+  diagram 1, sequence: ok, 3 participants and 4 messages
+  diagram 2, sequence: ok, 4 participants and 5 messages
+PASSED 2 diagram(s) in sequence.md
+  diagram 1, state: ok, 4 states and 6 transitions
+  diagram 2, state: ok, 5 states and 8 transitions
+  diagram 3, state: ok, 5 states and 9 transitions
+PASSED 3 diagram(s) in state.md
+  diagram 1, architecture: ok, 9 nodes and 8 connectors
+PASSED 1 diagram(s) in architecture-loomlist-sync.md
+  diagram 1, ER: ok, 6 entities and 6 relationships
+PASSED 1 diagram(s) in er-roamstay-stays.md
+  diagram 1, gantt: ok, 6 tasks in 3 sections
+PASSED 1 diagram(s) in gantt-loomlist-offline.md
+  diagram 1, process: ok, 8 nodes and 8 connectors
+PASSED 1 diagram(s) in process-fernhouse-refund.md
+  diagram 1, sequence: ok, 4 participants and 7 messages
+PASSED 1 diagram(s) in sequence-roamstay-checkout.md
+  diagram 1, state: ok, 7 states and 12 transitions
+PASSED 1 diagram(s) in state-roamstay-booking.md
+  diagram 1, user flow: ok, 9 nodes and 9 connectors
+PASSED 1 diagram(s) in user-flow-fernhouse-return.md

@@ -1,0 +1,74 @@
+{
+ "id": "FJ-020",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md",
+ "twin": "SJ-020",
+ "model": "llmgateway/deepseek-v4.1-flash",
+ "thinking": "max",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-FJ-020-a3fee8dc",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [
+   "export/001 - intake-fernhouse-onboarding-checklist-clarification.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 53.29,
+   "tool_calls": 14,
+   "tools_used": [
+    "bash",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "bash",
+    "bash",
+    "bash",
+    "write",
+    "read",
+    "bash"
+   ],
+   "input_tokens": 35957,
+   "output_tokens": 6930,
+   "reasoning_tokens": 5629,
+   "cost_usd": 0.010443582,
+   "model_s": 53.03,
+   "startup_s": 0.22,
+   "stop_reason": "stop",
+   "response_models": [
+    "luminal/deepseek-v4.1-flash"
+   ],
+   "ledger": {
+    "created": [
+     "export/001 - intake-fernhouse-onboarding-checklist-clarification.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$task $flow the Fernhouse onboarding checklist"
+  }
+ ]
+}

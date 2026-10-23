@@ -2338,5 +2338,332 @@
         "references/human-voice-rules.md"
       ]
     }
+  },
+  {
+    "input": "$flow the location change from these screenshots",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$figjam the signup flow from the product doc",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "make a FigJam flow from these screenshots",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "put the launch plan on a FigJam gantt chart",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "a FigJam sequence diagram of the checkout payment",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "write a task to fix the figjam board export",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$figjam $task fix the empty state padding",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "conflict",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$flowchart the login journey",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.25,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "write a task to make the figjam labels readable",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "write a task to tidy the figjam board labels",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "write a story for saved searches and make a FigJam flow of its screens",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "then": "FLOW"
+    }
+  },
+  {
+    "input": "write a runbook for refunds with a FigJam process diagram",
+    "expect": {
+      "intent": "DOC",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": "FLOW"
+    }
+  },
+  {
+    "input": "write a story for Fernhouse saved searches, then make a figjam diagram of it",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "then": "FLOW"
+    }
+  },
+  {
+    "input": "write a story for Fernhouse saved searches and then draw a figjam flow of it",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "then": "FLOW"
+    }
+  },
+  {
+    "input": "write a story for Fernhouse saved searches. Then draw a figjam flow of it",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "then": "FLOW"
+    }
+  },
+  {
+    "input": "write a story for Fernhouse saved searches plus a figjam diagram",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "then": "FLOW"
+    }
+  },
+  {
+    "input": "write a story for Fernhouse saved searches and a figjam user flow",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "then": "FLOW"
+    }
+  },
+  {
+    "input": "write a story for Fernhouse saved searches and also draw a figjam flow",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "then": "FLOW"
+    }
+  },
+  {
+    "input": "write a doc about Roamstay onboarding and draw it on a figjam board",
+    "expect": {
+      "intent": "DOC",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": "FLOW"
+    }
+  },
+  {
+    "input": "write a bug about the Loomlist export and add a figjam diagram",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": "FLOW"
+    }
+  },
+  {
+    "input": "write a doc about Roamstay onboarding",
+    "expect": {
+      "intent": "DOC",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "write a bug about the Loomlist export",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "file a bug for the Loomlist export",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "turn this doc into a figjam board",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
   }
 ]

@@ -1,0 +1,24 @@
+{
+  "run_label": "2026-10-20--manual-testing-playbook--sk-create-figjam-shell",
+  "date": "2026-10-20",
+  "playbook": "sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md",
+  "runtime": "shell, Python 3.9.6, from the Product Owner root",
+  "executed": 15,
+  "skipped": 17,
+  "not_run": [
+    "FJ-001",
+    "FJ-002",
+    "FJ-003",
+    "FJ-007",
+    "FJ-009",
+    "FJ-010",
+    "FJ-011",
+    "FJ-012",
+    "FJ-013",
+    "FJ-018",
+    "FJ-020",
+    "FJ-021",
+    "FJ-035"
+  ],
+  "not_run_reason": "conversational scenarios need a fresh model session with the packet loaded, and FJ-018 and FJ-035 need Figma Desktop with the figma-ds-cli daemon, which was not checked"
+}

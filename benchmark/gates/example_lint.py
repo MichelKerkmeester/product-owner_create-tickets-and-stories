@@ -47,6 +47,8 @@ ROOT = Path(os.environ.get("PO_ROOT") or HERE.parent.parent)
 
 VALIDATOR = Path("benchmark/format/validate-output-format.cjs")
 EXAMPLES = Path("sk-product-owner/assets/examples")
+# The FigJam worked examples are mirrored into the Project as well, so both sides are read.
+FIGJAM_EXAMPLES = Path("sk-create-figjam/assets/examples")
 KNOWLEDGE = Path("claude project/knowledge")
 MIRROR_GLOB = "Product Owner - Examples - *.md"
 REPLY_SOURCE = Path("sk-product-owner/assets/interactive-response-templates.md")
@@ -67,7 +69,11 @@ ITEM_SITUATION = re.compile(r"^ {3}- \*\*Situation:\*\* [A-Z0-9`]")
 ITEM_OPEN = re.compile(r"^ {3}- \*\*Open:\*\* [A-Z0-9`]")
 CLOSING_LINES = (
     re.compile(r"^Want me to change anything\?$"),
-    re.compile(r"^Want me to push this to ClickUp\?$"),
+    re.compile(r"^Want me to push this to .+, or upload it as a private ClickUp doc instead\?$"),
+    re.compile(
+        r"^Where in ClickUp should this go\? Send a list link, or I'll upload it as a private doc, "
+        r"which I recommend for now\.$"
+    ),
     re.compile(r"^Answer in one message and I'll draft the [A-Za-z ]+\.$"),
 )
 FINDING_LINE = re.compile(r"^(?P<path>.+?):(?P<line>\d+): (?P<message>.+)$")
@@ -98,7 +104,7 @@ def strip_mirror_preamble(text: str) -> tuple[str, int]:
 def example_findings() -> tuple[list[str], int]:
     """Lint every source example and every mirrored example, return findings and the file count."""
     findings: list[str] = []
-    sources = sorted((ROOT / EXAMPLES).rglob("*.md"))
+    sources = sorted((ROOT / EXAMPLES).rglob("*.md")) + sorted((ROOT / FIGJAM_EXAMPLES).rglob("*.md"))
     mirrors = sorted((ROOT / KNOWLEDGE).glob(MIRROR_GLOB))
     for path in sources:
         status, blocking = validate(path)
@@ -268,7 +274,9 @@ def self_test() -> int:
     results = []
     with tempfile.TemporaryDirectory(prefix="po-example-lint-selftest-") as scratch:
         tree = Path(scratch)
-        for relative in (VALIDATOR, Path("sk-product-owner"), REPLY_MIRROR):
+        # The validator walks the FigJam packet beside the skill when it loads,
+        # so the scratch tree carries it too.
+        for relative in (VALIDATOR, Path("sk-product-owner"), Path("sk-create-figjam"), REPLY_MIRROR):
             source = original / relative
             target = tree / relative
             target.parent.mkdir(parents=True, exist_ok=True)
@@ -289,7 +297,12 @@ def self_test() -> int:
             results.append(("a broken example fails", lint() == 1))
             example.write_text(example.read_text(encoding="utf-8").replace(" — broken", ""), encoding="utf-8")
             reply = tree / REPLY_SOURCE
-            reply.write_text(reply.read_text(encoding="utf-8").replace("```text\nPath: `export/009", "```text\nExport complete.\nPath: `export/009", 1), encoding="utf-8")
+            reply.write_text(
+                reply.read_text(encoding="utf-8").replace(
+                    "```text\nPath: `export/009", "```text\nExport complete.\nPath: `export/009", 1
+                ),
+                encoding="utf-8",
+            )
             results.append(("a reply with a sentence before the path fails", lint() == 1))
         finally:
             ROOT = original

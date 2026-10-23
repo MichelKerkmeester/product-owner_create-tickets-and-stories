@@ -1,0 +1,69 @@
+{
+ "id": "PIR-002",
+ "side": "project",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-interactive-routing/conflicting-commands.md",
+ "twin": "SIR-002",
+ "model": "opencode-go/deepseek-v4.1-flash",
+ "thinking": "high",
+ "tools": [
+  "read",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-PIR-002-a470ee24",
+ "attempts": 3,
+ "failures": [
+  {
+   "attempt": 1,
+   "turn": 1,
+   "status": "stop-error",
+   "rc": 0
+  },
+  {
+   "attempt": 2,
+   "turn": 1,
+   "status": "stop-error",
+   "rc": 0
+  },
+  {
+   "attempt": 3,
+   "turn": 1,
+   "status": "stop-error",
+   "rc": 0
+  }
+ ],
+ "completed": false,
+ "turns_declared": 2,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "stop-error",
+   "wall_s": 0.75,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.0,
+   "model_s": 0.43,
+   "startup_s": 0.3,
+   "stop_reason": "error",
+   "response_models": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$bug $story Not sure if this is a bug or a story, customers lose their app wishlist when they change phones and cannot see it on web, CS has 412 contacts on it, see context/fernhouse-context.md and context/fernhouse-wishlist-feedback.md"
+  }
+ ]
+}

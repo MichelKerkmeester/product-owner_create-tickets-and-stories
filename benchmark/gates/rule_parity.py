@@ -49,7 +49,7 @@ Environment:
             `claude project/knowledge/` are resolved under. The shared
             declaration itself is always read from its one real location,
             never from this override, so a sandboxed run still checks the
-            genuine 38 pairs against substitute file content.
+            genuine 63 pairs against substitute file content.
 """
 import os
 import sys
@@ -129,6 +129,36 @@ RULES = {
         "phrases": ("Bullet items never end with a full stop.",),
         "min_pairs": 1,
     },
+    # The user flow's two limits a board cannot be fixed past once written.
+    # They live in the user flow type reference, so the floor is that one pair,
+    # and a mirror that loosens either limit leaves the count unequal.
+    "a flow decision has at most 3 labelled exits and a diagram at most 9 nodes": {
+        "phrases": ("**A decision has 1 to 3 exits, each labelled.**", "**At most 9 nodes,**"),
+        "min_pairs": 1,
+    },
+    # The rest of Flow Mode's model rules and its write safety. A bold lead
+    # only proves the rule is named on both sides, not that it says the same
+    # thing, so where the statement is the contract the phrase is the whole
+    # sentence: the shape and direction limits, the label cap with its number,
+    # the accent pairing, the retry rule, the rollback stop and the two-attempt
+    # stop. A mirror that appends a qualifier to one of those keeps its bold
+    # lead but loses the sentence.
+    "flow models keep connected nodes, solid arrows, one direction, short labels and camelCase ids": {
+        "phrases": (
+            "**Four shapes only.**",
+            "**Every node connected, every step with a way in and a way out.**",
+            "**Solid one-way arrows only.**",
+            "**Top to bottom or left to right,**",
+            "**camelCase ids,**",
+            "No other shape, no subgraph and never a colour per type",
+            "at most 40 characters",
+            "Each fill takes only the stroke FigJam pairs it with, and a connector takes either the stroke or nothing.",
+            "Read the target file before a retry, and retry only when the diagram is absent.",
+            "Stop if a node to delete was not created by this write.",
+            "After two attempts at the same diagram, stop and ask what is wrong rather than regenerating again.",
+        ),
+        "min_pairs": 7,
+    },
 }
 
 # ───────────────────────────────────────────────────────────────
@@ -188,11 +218,13 @@ def body(path, drop_frontmatter=True):
 def inside(root, path):
     """Whether a resolved path stays under root, checked lexically.
 
-    Four of this system's declared sources are shared rule files
+    Sources are fenced at the system root rather than the skill folder,
+    because Flow Mode's two sources sit in the sibling `sk-create-figjam/`
+    packet. Four of this system's declared sources are shared rule files
     (`hvr-core.md`, `human-voice-rules.md`, `conciseness.md`,
     `conciseness-rationale.md`), carried here as regular-file copies of cards
     in the shared knowledge tree. A system that carries them as symlinks
-    instead would have every one resolve outside the skill root and be
+    instead would have every one resolve outside the system root and be
     rejected as an escape, taking every rule they teach out of the count along
     with them. `abspath` normalises `..` segments and relative components
     without following a symlink, so a row that climbs out or names an
@@ -231,9 +263,19 @@ def main() -> int:
     for mirror, source in pairs.items():
         source_path = os.path.join(SKILL, source)
         mirror_path = os.path.join(KNOWLEDGE, mirror)
-        if not inside(SKILL, source_path):
+        # A source may sit in any packet of this system, so the fence is the
+        # system root rather than the skill folder the paths are relative to.
+        if not inside(CW, source_path):
             findings.append(
-                f"{source}: the declaration points outside the skill root, so this "
+                f"{source}: the declaration points outside the system root, so this "
+                f"pair was not compared"
+            )
+            continue
+        # A source inside the Project package would be compared with a mirror,
+        # possibly itself, and report parity nothing measured.
+        if inside(os.path.dirname(KNOWLEDGE), source_path):
+            findings.append(
+                f"{source}: the declaration points into the Project package, so this "
                 f"pair was not compared"
             )
             continue

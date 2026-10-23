@@ -1,0 +1,75 @@
+{
+ "id": "FJ-014",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/pre-write-check/user-flow-over-budget.md",
+ "twin": "SJ-014",
+ "model": "llmgateway/deepseek-v4.1-flash",
+ "thinking": "max",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "product-owner-FJ-014-72942b35",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 1,
+ "turns_run": 1,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 68.43,
+   "tool_calls": 19,
+   "tools_used": [
+    "ls",
+    "read",
+    "read",
+    "ls",
+    "ls",
+    "read",
+    "read",
+    "bash",
+    "grep",
+    "read",
+    "read",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "bash",
+    "read",
+    "bash"
+   ],
+   "input_tokens": 26430,
+   "output_tokens": 9377,
+   "reasoning_tokens": 6425,
+   "cost_usd": 0.010459308,
+   "model_s": 68.17,
+   "startup_s": 0.22,
+   "stop_reason": "stop",
+   "response_models": [
+    "luminal/deepseek-v4.1-flash"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "As the operator, run the sk-create-figjam check on a straight user flow of 10 nodes. Verify it fails on the node budget. Return the output and exit status."
+  }
+ ]
+}
