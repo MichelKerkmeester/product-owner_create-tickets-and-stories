@@ -148,7 +148,7 @@ NOT_JUST_X_BUT = re.compile(r"not (?:just|only) .{1,40}? but", re.I)
 # ───────────────────────────────────────────────────────────────
 
 
-def extract_deliverable(raw: str):
+def extract_deliverable(raw: str) -> tuple[str, str]:
     """Return (text, confidence): the reply body with delivery metadata cut.
 
     Prefer the structured shape a Product Owner reply is supposed to carry:
@@ -165,7 +165,7 @@ def extract_deliverable(raw: str):
     return text, ("high" if found_scan else "low")
 
 
-def samples(pattern, text, n=2):
+def samples(pattern, text, n=2) -> list[str]:
     """Up to `n` context windows around each match, for the samples list."""
     out = []
     for m in pattern.finditer(text):
@@ -176,7 +176,7 @@ def samples(pattern, text, n=2):
     return out
 
 
-def _exempt_em_dash_lines(text):
+def _exempt_em_dash_lines(text: str) -> set[int]:
     """Line numbers (0-based) where a granted delimiter shape sits.
 
     Returned as a set of line indices so the em-dash scan below can drop a
@@ -196,11 +196,11 @@ def _exempt_em_dash_lines(text):
 # ───────────────────────────────────────────────────────────────
 
 
-def lint(text: str, confidence: str = "high"):
+def lint(text: str, confidence: str = "high") -> list[dict[str, object]]:
     """Every hard-blocker finding in `text`, each typed, counted and sampled."""
     v = []
 
-    def add(kind, pat, severity="hard", count=None, sample_list=None):
+    def add(kind, pat, severity="hard", count=None, sample_list=None) -> None:
         """Record a finding, either from a pattern scanned fresh over `text`
         or from a pre-filtered hit list the caller already built (`count`
         and `sample_list` both given, `pat` used only to type the entry)."""
@@ -267,7 +267,7 @@ def lint(text: str, confidence: str = "high"):
 # ───────────────────────────────────────────────────────────────
 
 
-def main():
+def main() -> None:
     """Lint one reply file and print the finding report as JSON."""
     if len(sys.argv) < 2:
         print("usage: hvr_lint.py <reply file>", file=sys.stderr)

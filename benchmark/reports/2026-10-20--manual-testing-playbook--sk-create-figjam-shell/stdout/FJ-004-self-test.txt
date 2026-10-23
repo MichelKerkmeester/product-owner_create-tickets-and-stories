@@ -1,0 +1,149 @@
+PASS  a user flow with one accent passes
+PASS  a left-to-right user flow in shorthand hex passes
+PASS  a laned process passes
+PASS  an architecture passes
+PASS  a sequence passes
+PASS  a state machine passes
+PASS  an ER model passes
+PASS  a gantt chart passes
+PASS  a sequence beside a user flow passes
+PASS  an unsupported kind fails with 'a pie block: the board generator does not draw it'
+PASS  an unknown flowchart type fails with 'is no flowchart type'
+PASS  a type comment that contradicts its header fails with 'the header already names the kind'
+PASS  an emoji fails with 'carries an emoji'
+PASS  markdown emphasis in a label fails with 'carries markup'
+PASS  single-star emphasis in a label fails with 'carries markup'
+PASS  an html tag in a label fails with 'carries markup'
+PASS  a literal backslash-n in a label fails with 'literal \n'
+PASS  a four-exit decision fails with 'exits, at most 3'
+PASS  an unlabelled decision exit fails with 'has no label'
+PASS  a decision with no exit fails with 'has no exit'
+PASS  a shape a user flow does not use fails with 'which this diagram does not use'
+PASS  a merge dot with a label fails with 'merge dot m carries the label'
+PASS  a stadium mid-flow fails with 'sits mid-flow'
+PASS  a step with no way out fails with 'has no way out'
+PASS  a step with no way in fails with 'has no way in'
+PASS  a 10-node user flow fails with '10 nodes, at most 9'
+PASS  a line break in a label fails with 'label carries a line break'
+PASS  an unquoted parenthesis fails with 'put it in double quotes'
+PASS  an unquoted colon in an edge label fails with 'put it in double quotes'
+PASS  a right-to-left flow fails with 'direction RL'
+PASS  two directions in one flow fails with 'run LR and TD'
+PASS  a fill outside the FigJam palette fails with 'is not a FigJam light fill'
+PASS  a stroke outside the FigJam palette fails with 'is not a FigJam palette stroke'
+PASS  a fill with another pair's stroke fails with 'but FigJam pairs it with #66d575'
+PASS  a connector in a second colour fails with '2 accent colours'
+PASS  a second fill after a semicolon fails with '2 accent colours'
+PASS  a saturated fill fails with 'is not a FigJam light fill'
+PASS  a reserved node id fails with 'is reserved'
+PASS  an underscore in a node id fails with 'holds an underscore'
+PASS  a hyphen in a node id fails with 'is not camelCase'
+PASS  a dotted connector in a user flow fails with 'is not a one-way arrow this diagram draws: write -->,'
+PASS  a long connector fails with 'long or invisible connector'
+PASS  an invisible link fails with 'long or invisible connector'
+PASS  a node with no connector fails with 'node c has no connector'
+PASS  a label over 40 characters fails with 'at most 40'
+PASS  a subgraph in a user flow fails with 'a user flow has no subgraphs'
+PASS  one lane fails with '1 lanes, a laned process has 2 to 6'
+PASS  a step outside every lane fails with 'sits outside every lane'
+PASS  nested lanes fails with 'lanes do not nest'
+PASS  an edge to a lane fails with 'joins the lane right'
+PASS  a lane in an accent colour fails with 'a lane takes the neutral pair'
+PASS  a thick connector in a process fails with 'write --> or -.->'
+PASS  a 10-node process without lanes fails with '10 nodes, at most 9'
+PASS  a 13-node laned process fails with '13 nodes, at most 12'
+PASS  an architecture running top to bottom fails with 'an architecture runs left to right'
+PASS  an architecture lane with an unknown id fails with 'lane services is not one of'
+PASS  an architecture node outside a lane fails with 'the layout cannot place it'
+PASS  styling in an architecture fails with 'the architecture layout colours each lane itself'
+PASS  a client reaching a service directly fails with 'not in the allowed-edge table'
+PASS  a solid edge to an external system fails with 'write it dotted'
+PASS  an unlabelled external edge fails with 'label it "Service: Purpose"'
+PASS  a forward cycle in an architecture fails with 'form a cycle'
+PASS  two edges between one pair fails with 'repeats a pair already joined'
+PASS  a service with no way out fails with 'needs a way in and a way out'
+PASS  a participant alias fails with 'which the generator drops'
+PASS  an actor keyword fails with 'write participant'
+PASS  a note in a sequence fails with 'a note is dropped by the generator'
+PASS  a loop fragment fails with 'a loop fragment is dropped'
+PASS  an activation shorthand fails with 'is an activation, which is dropped'
+PASS  a cross arrow fails with 'the cross is not drawn'
+PASS  an unlabelled message fails with 'has no label'
+PASS  a semicolon in a message fails with 'holds a semicolon'
+PASS  a cryptic participant id fails with 'is what the board shows'
+PASS  an undeclared third participant fails with 'participant Payments is not declared'
+PASS  six participants fails with '6 participants, at most 5'
+PASS  thirteen messages fails with '13 messages, at most 12'
+PASS  the legacy state header fails with 'write stateDiagram-v2'
+PASS  a note in a state machine fails with 'phantom states'
+PASS  styling in a state machine fails with 'phantom states'
+PASS  a machine with no entry fails with 'start it with [*]'
+PASS  an unlabelled transition fails with 'name the event that triggers it'
+PASS  a nested composite fails with 'draw the inner machine as its own diagram'
+PASS  a transition into another composite fails with 'reaches into another composite'
+PASS  a one-exit choice fails with 'a choice has 2 to 3'
+PASS  an unguarded choice exit fails with 'has no guard label'
+PASS  ten states fails with '10 states, at most 9'
+PASS  an alias in a relationship line fails with 'an alias inside a relationship line'
+PASS  an undocumented cardinality fails with 'is not one Figma documents'
+PASS  an unlabelled relationship fails with 'has no label'
+PASS  an unquoted two-word relationship label fails with 'put it in double quotes'
+PASS  an entity with no PK fails with 'lists attributes but no PK'
+PASS  an underscore in an entity id fails with 'holds an underscore'
+PASS  two spellings of one type fails with 'is spelled String and string'
+PASS  styling in an ER model fails with 'styling, which the generator drops'
+PASS  an entity in no relationship fails with 'takes part in no relationship'
+PASS  eleven attributes fails with 'lists 11 attributes, at most 10'
+PASS  a malformed attribute fails with 'an attribute is written type name'
+PASS  a gantt with no dateFormat fails with 'has no dateFormat'
+PASS  a gantt in an odd date format fails with 'write YYYY-MM-DD'
+PASS  styling in a gantt fails with 'axisFormat is stripped or ignored'
+PASS  a gantt anchored on a dependency fails with 'the first task needs a date'
+PASS  a dependency on an undefined task fails with 'after d9 names no task'
+PASS  minutes on a date chart fails with 'is in minutes on a date chart'
+PASS  a milestone with a duration fails with 'a milestone has a zero duration'
+PASS  the vert tag fails with 'the vert tag'
+PASS  a start in the wrong format fails with 'does not match dateFormat'
+PASS  thirteen tasks fails with '13 tasks, at most 12'
+PASS  nine tasks in one section fails with 'group a chart over 8 tasks into sections'
+PASS  six parallel bars fails with 'runs 6 bars at once, at most 5'
+PASS  examples/architecture-loomlist-sync.md passes
+PASS  examples/er-roamstay-stays.md passes
+PASS  examples/gantt-loomlist-offline.md passes
+PASS  examples/process-fernhouse-refund.md passes
+PASS  examples/sequence-roamstay-checkout.md passes
+PASS  examples/state-roamstay-booking.md passes
+PASS  examples/user-flow-fernhouse-return.md passes
+PASS  assets/flow-templates.md passes
+PASS  templates/architecture.md passes
+PASS  templates/er.md passes
+PASS  templates/gantt.md passes
+PASS  templates/process.md passes
+PASS  templates/sequence.md passes
+PASS  templates/state.md passes
+PASS  Product Owner - Assets - Flow Templates.md passes
+PASS  Product Owner - Assets - Flow Templates - Architecture.md passes
+PASS  Product Owner - Assets - Flow Templates - ER.md passes
+PASS  Product Owner - Assets - Flow Templates - Gantt.md passes
+PASS  Product Owner - Assets - Flow Templates - Process.md passes
+PASS  Product Owner - Assets - Flow Templates - Sequence.md passes
+PASS  Product Owner - Assets - Flow Templates - State.md passes
+PASS  Product Owner - Examples - Flow - Architecture.md passes
+PASS  Product Owner - Examples - Flow - ER.md passes
+PASS  Product Owner - Examples - Flow - Gantt.md passes
+PASS  Product Owner - Examples - Flow - Process.md passes
+PASS  Product Owner - Examples - Flow - Sequence.md passes
+PASS  Product Owner - Examples - Flow - State.md passes
+PASS  Product Owner - Examples - Flow - User Flow.md passes
+PASS  the palette record names the pairs the check accepts
+PASS  the Light green row measures 13.87:1 and 1.85:1
+PASS  the Light teal row measures 14.61:1 and 1.73:1
+PASS  the Light blue row measures 12.66:1 and 2.44:1
+PASS  the Light violet row measures 11.21:1 and 4.57:1
+PASS  the Light pink row measures 11.26:1 and 3.13:1
+PASS  the Light red row measures 11.72:1 and 2.65:1
+PASS  the Light orange row measures 13.25:1 and 2.05:1
+PASS  the Light yellow row measures 14.28:1 and 1.53:1
+PASS  the Light gray row measures 11.81:1 and 2.1:1
+PASS  the Lane row measures 15.29:1 and 2.1:1
+148 of 148 self-test checks passed

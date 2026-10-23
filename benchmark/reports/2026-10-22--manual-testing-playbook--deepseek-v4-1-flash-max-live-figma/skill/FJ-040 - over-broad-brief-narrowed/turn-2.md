@@ -1,0 +1,5 @@
+[Fernhouse product board in <figma-plan-1>](<figma-url>
+Read-back: 7 of 7 nodes, 6 of 6 connectors and 3 of 3 lanes in zone 1, start here: 1. Signup to delivery, 11 of 11 nodes, 11 of 11 connectors, 4 of 4 decision exits labelled and 4 of 4 lanes in zone 2, with zone 2 lane order reading Customer, Warehouse operator, CS agent, Payment provider against the model's Customer, CS agent, Warehouse operator, Payment provider, a lane-order mismatch
+Extensions: 7 of 7 lane labels, 0 overlaps
+Left out: signup screens and a billing flow, which the context does not describe, the service-level architecture and internal services, outside the process question, promotions, browse and cart, tracking and wishlist, outside the five named areas, and the dispatch cut-off, collection time and parcel limits, cut for balanced detail
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

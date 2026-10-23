@@ -1,0 +1,4 @@
+  diagram 1, sequence: line 2: G carries the alias GuestApp, which the generator drops: the id is what the board shows, so make the id readable
+  diagram 1, sequence: line 5: a note is dropped by the generator: draw it afterwards through the hybrid workflow
+  diagram 1, sequence: participant id G is what the board shows: write a readable name of 3 to 20 characters, such as AuthServer
+FAILED 1 of 1 diagram(s) in seq.md

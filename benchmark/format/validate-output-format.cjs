@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+'use strict';
 // ───────────────────────────────────────────────────────────────────
 // MODULE: Output Format Validator
 // ───────────────────────────────────────────────────────────────────
@@ -15,7 +16,8 @@ const path = require('path');
 // ─────────────────────────────────────────────────────────────────────────────
 
 const systemRoot = path.resolve(__dirname, '../..');
-const skillRoot = path.join(systemRoot, 'sk-product-owner');
+const hubRoot = systemRoot;
+const skillRoot = path.join(hubRoot, 'sk-product-owner');
 
 const args = process.argv.slice(2);
 const write = args.includes('--write');
@@ -56,6 +58,14 @@ const sharedCopies = new Set(
 const sourceFiles = [
   path.join(systemRoot, 'AGENTS.md'),
   path.join(skillRoot, 'SKILL.md'),
+  // The system is a parent hub, so the hub's stage one and stage two files and
+  // the FigJam diagram packet beside the skill are instruction surface the walk
+  // of references and assets never reaches.
+  path.join(hubRoot, 'SKILL.md'),
+  path.join(hubRoot, 'ROUTER.md'),
+  ...['SKILL.md', 'README.md'].map((file) => path.join(hubRoot, 'sk-create-figjam', file)),
+  ...markdownFiles(path.join(hubRoot, 'sk-create-figjam', 'references')),
+  ...markdownFiles(path.join(hubRoot, 'sk-create-figjam', 'assets')),
   path.join(skillRoot, 'README.md'),
   path.join(skillRoot, 'references', 'hvr-core.md'),
   path.join(skillRoot, 'references', 'conciseness.md'),
@@ -104,7 +114,10 @@ if (unreadable.length) {
 // the writer is given and the list the gate holds cannot drift apart.
 const hvrEnforced = new Set([
   path.join(systemRoot, 'AGENTS.md'),
+  path.join(hubRoot, 'SKILL.md'),
+  path.join(hubRoot, 'ROUTER.md'),
   path.join(skillRoot, 'SKILL.md'),
+  path.join(skillRoot, 'references', 'routing.md'),
   path.join(skillRoot, 'references', 'hvr-core.md'),
   path.join(skillRoot, 'references', 'conciseness.md'),
   path.join(skillRoot, 'references', 'story-mode.md'),

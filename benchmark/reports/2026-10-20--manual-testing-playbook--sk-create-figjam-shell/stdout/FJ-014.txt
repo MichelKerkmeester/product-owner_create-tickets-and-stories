@@ -1,0 +1,2 @@
+  diagram 1, user flow: 10 nodes, at most 9: split the flow
+FAILED 1 of 1 diagram(s) in budget.md

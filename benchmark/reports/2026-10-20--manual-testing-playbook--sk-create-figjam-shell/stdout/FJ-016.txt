@@ -1,0 +1,2 @@
+  diagram 1, architecture: the block carries styling: the architecture layout colours each lane itself, drop it
+FAILED 1 of 1 diagram(s) in archstyle.md

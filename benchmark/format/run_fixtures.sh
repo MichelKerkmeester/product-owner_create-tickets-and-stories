@@ -15,6 +15,7 @@
 #   0 - Every case passed
 #   1 - At least one case failed
 #   2 - The script directory could not be entered, so nothing ran
+# Deliberately omit -e so every fixture runs and failures can be counted.
 set -uo pipefail
 cd "$(dirname "$0")" || exit 2
 
@@ -38,6 +39,8 @@ check() {
   status=$?
   if [ "$status" -ne "$expected_exit" ]; then
     echo "FAIL ${name}: expected exit ${expected_exit}, got ${status}"
+    # Keep sed's line-wise prefixing for captured multiline output.
+    # shellcheck disable=SC2001
     echo "${output}" | sed 's/^/     /'
     failures=$((failures + 1))
     return
@@ -48,12 +51,16 @@ check() {
   # advisory report into a false fixture failure.
   if [ -n "$pattern" ] && ! grep -q -- "$pattern" <<< "$output"; then
     echo "FAIL ${name}: output missing ${pattern}"
+    # Keep sed's line-wise prefixing for captured multiline output.
+    # shellcheck disable=SC2001
     echo "${output}" | sed 's/^/     /'
     failures=$((failures + 1))
     return
   fi
   if [ -n "$antipattern" ] && grep -q -- "$antipattern" <<< "$output"; then
     echo "FAIL ${name}: output unexpectedly contains ${antipattern}"
+    # Keep sed's line-wise prefixing for captured multiline output.
+    # shellcheck disable=SC2001
     echo "${output}" | sed 's/^/     /'
     failures=$((failures + 1))
     return

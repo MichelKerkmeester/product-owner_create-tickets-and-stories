@@ -100,7 +100,7 @@ that appears in both.
   scoring, matching the skill's own tie-break order.
 - **Word-boundary keywords**: `bug` matches "file a bug" but never
   "debugging". `issue` and `broken` score BUG, but a synonym embedded inside
-  a longer word never contributes a hit. Nine topics carry the 94 synonyms,
+  a longer word never contributes a hit. Nine topics carry the 114 synonyms,
   and their table order is the tie-break when two topics score the same, so
   the order is part of the contract
 - **A `$token` is a control, not subject matter**: token-shaped text is
@@ -142,16 +142,17 @@ that appears in both.
 ## Drift guard
 
 `sk-product-owner/references/router-contract.md` carries the same router as
-pseudocode, and `SKILL.md`'s prose routing section states the two must never
+pseudocode, and the packet's prose routing in `SKILL.md` Section 2 and
+`references/routing.md` states the two must never
 drift. Nothing executes prose, so `differential.py` executes it: the fenced
 block is lifted out of the markdown, run as a real module with no-op stubs for
 its two side effects, and compared against this contract.
 
-Four guards fire independently.
+Five guards fire independently: prose-table parity, copy parity, table parity, corpus coverage and per-input behavior parity.
 
 - **Copy parity**: the kernel ends with the same block minus its comments
   under its own Router Code section, held equal to the stripped reference
-  line for line and as a parsed tree, while `SKILL.md` grows no python fence
+  line for line and as a parsed tree, while `SKILL.md` and `routing.md` grow no python fence
   and no Router Contract document returns to the knowledge root
 - **Table parity**: semantic topics with their order, confidence overrides,
   thresholds, token and phrase regexes, resource lanes and the disambiguation

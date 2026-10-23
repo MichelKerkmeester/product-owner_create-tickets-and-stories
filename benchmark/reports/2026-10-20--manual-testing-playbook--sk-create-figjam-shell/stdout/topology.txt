@@ -1,0 +1,32 @@
+BLOCK (unknown id)  board-write/architecture-write-lanes.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  board-write/fj-route-user-flow.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  board-write/gantt-with-no-route.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  board-write/gate-names-extension.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  board-write/hybrid-extension-written.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  board-write/write-and-read-back.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  boundaries/command-conflict-asks.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  boundaries/figjam-as-task-subject.md  class=null  excluded_from_denominators=true
+PASS  FJH-001  intra-routing-recall/holdout-state-plain-words.md  pairs=5  mode=sk-create-figjam
+PASS  FJN-001  intra-routing-recall/negative-task-about-figjam.md  pairs=0  mode=UNKNOWN
+PASS  FJR-003  intra-routing-recall/route-architecture.md  pairs=5  mode=sk-create-figjam
+PASS  FJR-006  intra-routing-recall/route-er.md  pairs=5  mode=sk-create-figjam
+PASS  FJR-007  intra-routing-recall/route-gantt.md  pairs=5  mode=sk-create-figjam
+PASS  FJR-002  intra-routing-recall/route-process.md  pairs=5  mode=sk-create-figjam
+PASS  FJR-004  intra-routing-recall/route-sequence.md  pairs=5  mode=sk-create-figjam
+PASS  FJR-005  intra-routing-recall/route-state.md  pairs=5  mode=sk-create-figjam
+PASS  FJR-001  intra-routing-recall/route-user-flow.md  pairs=4  mode=sk-create-figjam
+BLOCK (unknown id)  pre-write-check/architecture-styling-refused.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  pre-write-check/off-palette-colour-refused.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  pre-write-check/planted-defect-refused.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  pre-write-check/self-test-every-type.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  pre-write-check/unsupported-header-refused.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  pre-write-check/user-flow-over-budget.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  type-choice/architecture-with-layout-code.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  type-choice/laned-process-from-handoffs.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  type-choice/sequence-from-api-brief.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  type-choice/timeline-offers-gantt.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  type-choice/two-types-fit-asks.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  type-choice/unsupported-kind-offers-nearest.md  class=null  excluded_from_denominators=true
+BLOCK (unknown id)  type-choice/user-flow-from-product-doc.md  class=null  excluded_from_denominators=true
+
+verdict=PASS valid=9 blocked=0 unenrolled=21 total=30

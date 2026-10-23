@@ -21,6 +21,7 @@
 #   0 - Every check passed
 #   1 - At least one check failed
 #   2 - The run was refused before anything was checked
+# Deliberately omit -e so both contract checks run and their statuses can be combined.
 set -uo pipefail
 cd "$(dirname "$0")" || exit 2
 

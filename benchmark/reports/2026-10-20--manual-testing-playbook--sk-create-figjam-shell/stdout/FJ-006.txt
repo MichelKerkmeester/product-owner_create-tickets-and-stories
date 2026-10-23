@@ -1,0 +1,2 @@
+  diagram 1, unknown: a pie block: the board generator does not draw it, see references/flow-mode.md Section 3
+FAILED 1 of 1 diagram(s) in pie.md

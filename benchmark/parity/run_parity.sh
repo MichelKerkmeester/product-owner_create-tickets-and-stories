@@ -12,6 +12,7 @@
 # Exit Codes:
 #   2 - The script directory could not be entered, so nothing ran
 #   any - Otherwise the delegated checker's own status, since exec replaces this process
+# This wrapper uses exec to preserve the shared checker's exact status, so -e adds no reporting value.
 set -uo pipefail
 cd "$(dirname "$0")" || exit 2
 

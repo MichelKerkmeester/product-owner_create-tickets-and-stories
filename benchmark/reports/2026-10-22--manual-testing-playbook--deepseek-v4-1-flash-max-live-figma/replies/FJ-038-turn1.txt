@@ -1,0 +1,9 @@
+Nothing in this session drew a Fernhouse return board, so there is no board here to change. I hold no board link, no file key and no Figma connector on this runtime, which means no node to locate, nothing to read back and nothing to write. The only Fernhouse return artifact in the workspace is the worked example at `sk-create-figjam/assets/examples/user-flow-fernhouse-return.md`, a packet fixture rather than a board. Its nodes are Order list, Order detail, Within 30 days?, Contact support, Pick a reason, Drop-off or pickup?, Choose a drop-off point, Book a courier pickup and Return confirmed. None carries the label Approve return. The refund example beside it does hold an `Approve the claim` node, if that is the one you have in mind.
+
+Both changes sit outside what Flow Mode does to a diagram. Moving a node is a drag in FigJam, and a bigger label is a font choice there, because the generator sets the font and nothing afterwards changes it. Flow Mode never repositions, resizes or restyles a node the generator drew, so I name the node for you to drag instead of touching it, and in that flow the nearest label is Return confirmed.
+
+A redraw is the route only if the placement should come from the diagram rather than from a drag. That reshapes the model, with direction, declaration order, the edge set and the subgraphs as the only levers, and it needs the board link plus a yes at the write gate before anything lands. A redraw still cannot enlarge the text.
+
+Send the board link if you want a redraw planned. If no board exists, say so and I will draw the returns flow from `context/fernhouse-context.md` Key flows item 6, starting with the one question the diagram type depends on.
+
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

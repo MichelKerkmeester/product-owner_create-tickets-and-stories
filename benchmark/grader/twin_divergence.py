@@ -11,10 +11,10 @@ every scenario twice: once as the skill, `S`-prefixed, from `AGENTS.md` with
 `claude project/Custom Instructions.md` with the knowledge set attached. Both
 sides are declared as one contract over the same prompt (Section 4's "Prompt
 synchronization gate" requires the two runtimes' Turn 1 text to match
-character for character), and the playbook's own coverage map pairs seven
-categories across the two runtimes: identity (`ID`), backlog task (`TK`),
-backlog bug (`BG`), document (`DK`, twice), story (`ST`) and interactive
-routing (`IR`). No script previously read a finished run's results across
+character for character), and the playbook's own coverage map pairs eight
+category codes across the two runtimes: identity (`ID`), backlog task (`TK`),
+backlog bug (`BG`), document (`DK`), story (`ST`), epic (`EP`), interactive
+routing (`IR`) and flow (`FL`). No script previously read a finished run's results across
 that pairing, so a divergence between the two runtimes was only as visible as
 whichever reader happened to compare two rows by hand.
 
@@ -56,7 +56,7 @@ import re
 import sys
 from pathlib import Path
 
-# S|P + two letters (ID, TK, BG, DK, ST, IR today) + "-" + digits, confirmed
+# S|P + two letters (ID, TK, BG, DK, ST, EP, IR, FL today) + "-" + digits, confirmed
 # against this playbook's own coverage map rather than assumed from another
 # system's scheme.
 ID = re.compile(r"^([SP])([A-Z]{2})-(\d+)$")

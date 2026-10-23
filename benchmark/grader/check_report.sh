@@ -26,6 +26,7 @@
 #   2 - Both checks reported findings or could not run
 #   64 - No run report directory was given
 #   66 - The run report directory does not exist
+# Deliberately omit -e so both report checks run and findings can be counted.
 set -uo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 # Not ${1:?...}, which exits 1, and 1 already means one check reported findings.
