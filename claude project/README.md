@@ -10,6 +10,7 @@ Hand-maintained local package for the Product Owner claude.ai Project. The kerne
 claude project/
 |-- Custom Instructions.md        <- synthesized Project kernel v1.2.3 (routing authority, SKILL.md is not loaded in this Project)
 |-- README.md                     <- upload manifest and hand-authored parity note
+|-- kernel-review.json            <- dated record of one kernel review, read by no tool
 |-- templates/                    <- Product Owner - Local - Push Targets.md, filled and uploaded per user, never shared
 |-- local/                        <- gitignored home for a filled push targets copy
 `-- knowledge/                    <- upload all 64 files as Project Knowledge
@@ -167,7 +168,7 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 - A Doc refinement preserves the source's divider, bullet, heading and spacing style unless the user explicitly requests ClickUp normalization.
 - A Doc refinement retains its original basename, structure, links, identifiers, tables, literal copy and status markers outside requested scope.
 - New Docs report `export/NNN - doc-[description].md`; refinements report `export/[original-source-filename].md`.
-- Task and Bug behavior remains compatible with the pinned v0.303 and v0.203 references.
+- Task and Bug output keeps the shapes `Product Owner - Templates - Task Mode.md` and `Product Owner - Templates - Bug Mode.md` set out.
 - New Docs balance heading depth: H2 stays a minority of headings and H3/H4 carry the rest, with no all-H2 wall.
 - Doc deliveries report their status in the chat reply beside the export-equivalent path, as the quality line and the `HVR self-scan:` line of the Delivery Reply Shape, and never as a footer or verdict block inside the deliverable.
 - `$story`, `$s`, `$prd` and `$p` select Story; `$stories`, `$prds`, `$sort` and embedded `$s` do not; `create a task to write a PRD` stays Task.
@@ -200,7 +201,7 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 - After a kernel change, record the review as a dated sentence in the system SYNC.md review notes: who reviewed, what changed, what was decided
 - Before live upload, run this system's own checks from its root. The sync compiler was
   retired and `check --system` no longer exists, so nothing is verified by invoking it:
-  - `bash benchmark/gates/run_gates.sh`, which runs the router and format fixtures, rule parity and the example lint
+  - `bash benchmark/gates/run_gates.sh`, which runs the router and format fixtures, rule parity, the example lint and the other 11 of its 15 gates
   - `bash benchmark/parity/run_parity.sh`
 - Remove superseded mirror filenames and search for stale version references.
 - Re-upload changed files to the live Project and run the smoke matrix.

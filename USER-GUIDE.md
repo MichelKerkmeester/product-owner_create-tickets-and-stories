@@ -123,4 +123,5 @@ Start a request with one of these, or describe what you want in plain words:
 - [README.md](./README.md): What Product Owner is, and the command-line setup for terminal agents
 - [claude project/README.md](./claude%20project/README.md): What the Project contains and how to upload it
 - [mcp-click-up/SKILL.md](./mcp-click-up/SKILL.md): The ClickUp tools and their parameters
-- [mcp-figma/SKILL.md](./mcp-figma/SKILL.md): The Figma tools the diagram flow uses
+- [sk-create-figjam/SKILL.md](./sk-create-figjam/SKILL.md): The diagram flow and the Figma connector tools it calls
+- [mcp-figma/SKILL.md](./mcp-figma/SKILL.md): The Figma Desktop tools of the terminal route

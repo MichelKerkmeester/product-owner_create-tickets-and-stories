@@ -64,7 +64,8 @@ Every request resolves to one stable object:
   ],
   "on_demand": [
     "references/human-voice-rules.md"
-  ]
+  ],
+  "then": null
 }
 ```
 
@@ -76,7 +77,9 @@ on the Story lane and `null` everywhere else, and the schema rejects
 both a shape on another intent and a Story route that resolved none, since
 that route would load no scaffold. `resources` is what the route preloads and
 `on_demand` is what it names without loading, and the schema rejects any file
-that appears in both.
+that appears in both. `then` is `FLOW` when a Task, Bug, Doc or Story
+request also asks for a FigJam output beside it and `null` everywhere else,
+and the schema rejects it on a route that produces no artifact.
 
 ## Decision rules (durable rationale)
 
@@ -129,7 +132,8 @@ that appears in both.
 - **Confidence-gated directness**: Standard energy routes directly at 0.60
   and above and asks one consolidated question below it. Quick energy trusts
   the same score down to 0.40, and only below that falls back to Task, the
-  narrow safe default from SKILL.md's Detection Sequence rule 12. This
+  narrow safe default the Routing Compatibility list in `AGENTS.md` and
+  `references/router-contract.md` both state. This
   mirrors the live router's HIGH/MEDIUM/LOW/FALLBACK bands without asserting
   the exact prose difference between a MEDIUM confirmation line and a LOW
   clarify target, since neither changes the fixed-field route object.
@@ -156,7 +160,7 @@ drift. Nothing executes prose, so `differential.py` executes it: the fenced
 block is lifted out of the markdown, run as a real module with no-op stubs for
 its two side effects, and compared against this contract.
 
-Eight guards fire independently: prose-table parity, copy parity, table parity, corpus coverage, per-input behavior parity, hub vocabulary reach, stage agreement and Flow type detection.
+Nine guards fire independently: prose-table parity, copy parity, table parity, kernel surface parity, corpus coverage, per-input behavior parity, hub vocabulary reach, stage agreement and Flow type detection.
 
 - **Copy parity**: the kernel ends with the same block minus its comments
   under its own Router Code section, held equal to the stripped reference
@@ -166,6 +170,10 @@ Eight guards fire independently: prose-table parity, copy parity, table parity, 
   thresholds, token and phrase regexes, resource lanes and the disambiguation
   checklist must match value for value, so a table drifts loudly even when no
   input happens to expose it
+- **Kernel surface parity**: the commands and the Quick, Raw and Deep energy
+  signals in the kernel's Section 4 table must equal the contract's command
+  and energy vocabulary, so the kernel cannot name a command or signal the
+  router does not resolve
 - **Behavior parity**: every corpus input is compared layer by layer (energy,
   commands, framing, top topic and score) and then as a whole route object, so
   a failure names which layer drifted rather than only which answer changed

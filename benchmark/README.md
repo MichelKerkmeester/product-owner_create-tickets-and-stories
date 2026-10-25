@@ -35,5 +35,12 @@ Run both from the repository root. The first replays every row against `../hub-r
 |---|---|
 | [`hub-routing-cases.json`](hub-routing-cases.json) | The gold rows: label, request and expected `workflowMode` |
 | `README.md` | This index |
+| `fixtures/companies/` | The three fictional company folders the manual testing playbook attaches: Fernhouse, Loomlist and Roamstay |
+| [`format/`](format/README.md) | The output format validator and its fixture runner |
+| [`gates/`](gates/README.md) | Rule parity, example lint, the hub and leaf map checks, the Markdown link check and `run_gates.sh` |
+| [`grader/`](grader/README.md) | The reply linter and twin comparison over a finished playbook report |
+| [`parity/`](parity/README.md) | The wrappers into the shared Sync Loop parity gate |
+| `reports/` | The dated run folders |
+| [`router/`](router/README.md) | The executable route contract, its fixtures and the differential gate |
 
 A dated run that records more than a pass belongs in a `reports/<run-label>/` folder beside these files.

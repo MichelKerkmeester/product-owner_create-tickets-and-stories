@@ -23,6 +23,7 @@ These files are vendored through `scripts/vendor-sync.py`. Never edit them here.
 
 ```text
 scripts/vendored/
++-- README.md
 `-- code-mode/
     +-- README.md
     +-- mcp-code-mode-launcher.cjs
