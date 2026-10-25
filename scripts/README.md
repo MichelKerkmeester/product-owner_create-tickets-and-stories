@@ -42,6 +42,7 @@ Repository operator
 
 ```text
 scripts/
++-- README.md
 +-- code-mode.cjs
 +-- vendor-sync.py
 +-- tests/

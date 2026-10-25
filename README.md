@@ -25,7 +25,7 @@ Built for agent CLIs that read `AGENTS.md` and for claude.ai Projects through `c
 - **Blocking Quality Floors** - six dimensions scored out of 10, with a floor of 8 for five of them and 9 for Accuracy
 - **Verified Delivery** - numbered export files, a read-back receipt and a ClickUp push only after an explicit yes, to the target you set locally or a private doc
 - **FigJam Diagrams** - seven diagram types drawn after an intake that recommends an answer to every question, checked before the write and read back from the board
-- **Checks Without a Model** - 141 router fixtures, 234 differential inputs and 59 format cases run from a fresh clone
+- **Checks Without a Model** - 188 router fixtures, 281 differential inputs and 59 format cases run from a fresh clone
 
 &nbsp;
 
@@ -164,8 +164,8 @@ bash benchmark/router/run_fixtures.sh
 ```
 
 ```text
-PASSED 141/141 fixtures
-PASSED 234/234 differential inputs (9 topics, 114 synonyms in parity, 61 routing.md triggers checked)
+PASSED 188/188 fixtures
+PASSED 281/281 differential inputs (9 topics, 114 synonyms in parity, 61 routing.md triggers checked)
 ```
 
 The check calls no model and no network. Section 11 lists the format check and the rest.
@@ -199,7 +199,7 @@ Your ClickUp push targets live in `claude project/local/Product Owner - Local - 
 $task I need a task for the creator payout pause feature.
 ```
 
-A feature name is not a scope, so the reply saves one question as `export/001 - task-creator-payout-pause-clarification.md` and drafts nothing. Answer it in one message and the task lands in `export/002 - task-creator-payout-pause.md`. This is playbook scenario `STK-001`, and a collected playbook run keeps both files under that prefix.
+A feature name is not a scope, so the reply saves one question as `export/001 - task-creator-payout-pause-clarification.md` and drafts nothing. Answer it in one message and the task lands in `export/002 - task-creator-payout-pause.md`. Playbook scenario `SIR-007` checks the same path with its own request.
 
 ### Use It in a claude.ai Project
 
@@ -224,6 +224,7 @@ Every request resolves to one route object before a template loads. Quick change
 | `$doc` | `$d` | Doc | `doc-mode.md` with `doc-templates.md` |
 | `$story` | `$s`, `$prd`, `$p` | Story, Story shape | `story-mode.md` with `story-template.md` |
 | `$epic` | `$e` | Story, Epic shape | `story-mode.md` with `epic-template.md` |
+| `$flow` | `$figjam` | Flow | `flow-mode.md` with `flow-templates.md`, from `sk-create-figjam/` |
 | `$quick` | `$q` | Energy only | nothing extra |
 
 Tokens match whole, after case normalization. `$d,` counts, while `$document`, `$debug`, `$epics` and `$e.md` do not. [AGENTS.md](AGENTS.md) spells out the token rules.
@@ -242,7 +243,7 @@ Three shapes count as framing without naming an artifact. Symptom wording such a
 
 #### Topics and Confidence
 
-Nine topics score a request that carries no command and no framing. `bug` routes to Bug, `documentation` to Doc, `story` to Story and the other six to Task. Each word-boundary hit adds 0.25, capped at 0.95. One hit on `ui_refinement` scores at least 0.80, and one on `documentation` or `prd` at least 0.85. The trigger words live in [router-contract.md](sk-product-owner/references/router-contract.md).
+Nine topics score a request that carries no command and no framing. `bug` routes to Bug, `documentation` to Doc, `story` to Story and the other six to Task. Each word-boundary hit adds 0.25, capped at 0.95. One hit on `ui_refinement` scores at least 0.80, and one on `documentation` or `story` at least 0.85. The trigger words live in [router-contract.md](sk-product-owner/references/router-contract.md).
 
 - 0.85 and up routes directly
 - 0.60 to 0.84 routes with a one-line confirmation of the mode
@@ -287,11 +288,12 @@ python3 benchmark/router/route_contract.py --request "write an epic for creator 
   ],
   "on_demand": [
     "references/human-voice-rules.md"
-  ]
+  ],
+  "then": null
 }
 ```
 
-`confidence` is `null` for command, framing and conflict routes and a number for semantic and fallback routes. `shape` is set only on the Story lane, which is why an Epic request loads `epic-template.md` and never `story-template.md`. `resources` is what the route preloads and `on_demand` is what it names without loading.
+`confidence` is `null` for command, framing and conflict routes and a number for semantic and fallback routes. `shape` is set only on the Story lane, which is why an Epic request loads `epic-template.md` and never `story-template.md`. `resources` is what the route preloads and `on_demand` is what it names without loading. `then` is `FLOW` when an artifact request also asks for a FigJam board, and `null` otherwise.
 
 #### Energy Levels
 
@@ -702,26 +704,30 @@ The live Project is a separate manual upload, so a matching local package proves
 
 | Command | What it checks | Result on this tree |
 |---|---|---|
-| `bash benchmark/router/run_fixtures.sh` | 141 route fixtures, then the differential against `router-contract.md` | `PASSED 141/141 fixtures` and `PASSED 234/234 differential inputs` |
+| `bash benchmark/router/run_fixtures.sh` | 188 route fixtures, then the differential against `router-contract.md` | `PASSED 188/188 fixtures` and `PASSED 281/281 differential inputs` |
 | `bash benchmark/format/run_fixtures.sh` | 59 cases over 19 fixture files through the output validator | One `PASS` line per case, then `PASSED all format-validator fixtures` |
 | `python3 benchmark/gates/example_lint.py` | Every worked example and Project example mirror through the output validator, and every worked reply against the Delivery Reply Shape | `PASSED 56 example files and the worked replies on both packagings` |
-| `python3 benchmark/gates/check_hub.py` | The hub files at the root, the registry packets, their routing sections and the stage one gold rows | `PASSED the hub, 4 registry packets and 41 gold rows` |
+| `python3 benchmark/gates/check_hub.py` | The hub files at the root, the registry packets, their routing sections and the stage one gold rows | `PASSED the hub, 4 registry packets and 51 gold rows` |
 | `bash benchmark/gates/run_gates.sh` | Router fixtures, format fixtures, rule parity, example lint, vendor sync, Markdown links, hub and Flow checks, the board composer, leaf-map parity, their self-tests and the two sk-create-skill contracts | `all 15 gates pass`, or `11 of 15 gates pass, 4 skipped` from a clone with no shared skill folder |
-| `python3 benchmark/router/route_contract.py --self-check` | One sample per detection layer | `self-check passed 5 routing expectations` |
+| `python3 benchmark/router/route_contract.py --self-check` | One sample per detection layer | `self-check passed 9 routing expectations` |
 | `node benchmark/format/validate-output-format.cjs "<file>"` | One saved artifact against the output rules | `Product Owner output format validation passed across 1 artifact file(s)` |
 | `bash benchmark/grader/check_report.sh <report-folder>` | The voice lint of every captured reply, then twin agreement | Writes `hvr-lint.csv` into the folder it reads |
 
 #### What the Router Differential Proves
 
-`route_contract.py` is the router as a program. `router-contract.md` carries the same router as pseudocode, which is what the skill reads. `differential.py` lifts that pseudocode out of the markdown, runs it and compares the two on five guards:
+`route_contract.py` is the router as a program. `router-contract.md` carries the same router as pseudocode, which is what the skill reads. `differential.py` lifts that pseudocode out of the markdown, runs it and compares the two on nine guards:
 
 - Prose-table parity: the routing prose stays within the executable topic table
 - Copy parity: the kernel's Router Code section is the same code block with its comments removed, and no Router Contract Knowledge document ships
 - Table parity: topics and their order, overrides, thresholds, regexes, resource lanes and the fallback checklist match value for value
 - Corpus coverage: every command, alias, false-prefix case and topic is exercised
 - Per-input behavior parity: every corpus input matches layer by layer (energy, commands, framing, top topic and score) and then as a whole route object
+- Hub vocabulary reach: a request built from a verb and an artifact noun in `hub-router.json` reaches an artifact, not the backlog question
+- Stage agreement: a request the hub sends to the FigJam packet is a Flow route here too
+- Flow type detection: the type table in `sk-create-figjam/SKILL.md` picks the type `flow_types.json` pins for each phrasing
+- Kernel surface parity: the kernel's Section 4 command and energy table matches the resolver
 
-Prose and code cannot drift apart without one of the five failing.
+Prose and code cannot drift apart without one of the nine failing.
 
 #### What the Format Validator Catches
 
@@ -740,7 +746,7 @@ Silent fixtures pin the other side: a compliant house Story, the sanctioned deli
 
 #### Captured Runs
 
-Two runs of the full playbook sit in `benchmark/reports/`, each with its verdicts, grading notes and captured replies.
+`benchmark/reports/` holds 15 dated runs. The first two runs of the full playbook each keep their verdicts, grading notes and captured replies there.
 
 - The 2026-09-17 run, Claude Sonnet 5 at medium effort, scored 4 PASS and 3 FAIL on the skill and 2 PASS and 5 FAIL on the Project. Twins disagreed in 2 of 7 pairs, and 3 of 28 replies were lint-clean
 - The 2026-09-18 run, GLM 5.3 Flash through Pi at high thinking, scored 6 PASS and 1 PARTIAL on each side. No twins disagreed, and 14 of 28 replies were lint-clean
@@ -757,11 +763,11 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
 
 #### What `export/benchmark/` Shows
 
-`export/benchmark/` is empty. The deliverables of the earlier runs were removed so the next playbook run starts from a clean folder, and that run's collector fills it again, one file per scenario export or Deliverable Block. Each captured run keeps its replies, verdicts and grading notes in its own folder under `benchmark/reports/`.
+`export/benchmark/` holds 58 files: the newest deliverable per scenario from the captured playbook runs, in `skill/` and `claude project/`, with no clarification file. A collected playbook run adds one file per scenario export or Deliverable Block. Each captured run keeps its replies, verdicts and grading notes in its own folder under `benchmark/reports/`.
 
 #### Maintainer Scripts
 
-`benchmark/parity/` holds five wrappers and `benchmark/gates/` holds `rule_parity.py` beside the example lint, the hub check and the gate runner. The first two compare the Claude Project package against the skill sources by calling a shared sync toolkit that lives one folder above this repository in the maintainer's monorepo and is not published. From a clone they stop on the missing file: `rule_parity.py` and `run_parity.sh` both exit 2. Use the checks above instead.
+`benchmark/parity/` holds five wrappers and `benchmark/gates/` holds `rule_parity.py` beside the example lint, the hub check, the Markdown link check, the leaf-map parity check and the gate runner. The first two compare the Claude Project package against the skill sources by calling a shared sync toolkit that lives one folder above this repository in the maintainer's monorepo and is not published. From a clone they stop on the missing file: `rule_parity.py` and `run_parity.sh` both exit 2. Use the checks above instead.
 
 &nbsp;
 
@@ -781,7 +787,7 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
 ├── mcp-click-up/                    vendored ClickUp packet, kept in step by scripts/vendor-sync.py
 ├── mcp-code-mode/                   vendored Code Mode server, built locally under Node 24, kept in step by scripts/vendor-sync.py
 ├── mcp-figma/                       vendored Figma packet, kept in step by scripts/vendor-sync.py
-├── sk-create-figjam/                FigJam diagram packet: seven type references, flow_check.py and 68 playbook scenarios
+├── sk-create-figjam/                FigJam diagram packet: seven type references, flow_check.py, the board composer and 52 playbook scenarios
 ├── sk-product-owner/
 │   ├── README.md                    skill guide
 │   ├── SKILL.md                     rules, delivery protocol and its router in Section 2
@@ -802,27 +808,30 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
 ├── USER-GUIDE.md                    connecting ClickUp and Figma to the Project in Claude Desktop
 ├── benchmark/
 │   ├── README.md                    the hub's routing baseline
-│   ├── hub-routing-cases.json       the hub's 41 gold rows
+│   ├── hub-routing-cases.json       the hub's 51 gold rows
+│   ├── fixtures/                    the three fictional companies the playbook attaches
 │   ├── format/                      output validator, 19 fixtures and their runner
-│   ├── gates/                       rule_parity.py, example_lint.py, check_hub.py and run_gates.sh
+│   ├── gates/                       rule_parity.py, example_lint.py, check_hub.py, check_markdown_links.py, check_leaf_map_parity.py and run_gates.sh
 │   ├── grader/                      hvr_lint.py, reply linter and twin comparison
 │   ├── parity/                      five wrappers into the shared parity gate, maintainer only
 │   ├── reports/                     dated playbook and benchmark runs
-│   └── router/                      route_contract.py, 141 fixtures and the differential
+│   └── router/                      route_contract.py, 188 fixtures and the differential
 ├── claude project/
 │   ├── Custom Instructions.md       claude.ai kernel v1.2.3
 │   ├── README.md                    upload steps, mirror map and smoke matrix
 │   ├── kernel-review.json           dated record of one kernel review
-│   └── knowledge/                   64 knowledge files
+│   ├── knowledge/                   64 knowledge files
+│   ├── local/                       your push targets, ignored by git
+│   └── templates/                   the push targets template
 ├── export/                          generated artifacts, ignored by git
-│   └── benchmark/                   empty until the next playbook run is collected
+│   └── benchmark/                   the newest deliverable per scenario from the captured runs
 ├── opencode.json                    starts Code Mode for OpenCode through scripts/code-mode.cjs
 ├── scripts/                         vendor-sync.py, code-mode.cjs, the vendor sync tests and vendored/code-mode, the Code Mode launcher
 ├── specs/                           spec packets for changes to this system
 └── vendor.json                      upstream record of the vendored packets
 ```
 
-`mode-registry.json` lists the repository's own entries, from `specs/` to `vendor.json`, in its `repo-root-hub` extension, so the skilled checkers read only the hub and its packets as the skill. `AGENTS.md` points an agent CLI at the skill. A claude.ai Project reads `claude project/Custom Instructions.md` and the files under `claude project/knowledge/` instead.
+`mode-registry.json` lists the repository's own entries, from `specs/` to `opencode.json`, in its `repo-root-hub` extension, so the skilled checkers read only the hub and its packets as the skill. `AGENTS.md` points an agent CLI at the skill. A claude.ai Project reads `claude project/Custom Instructions.md` and the files under `claude project/knowledge/` instead.
 
 &nbsp;
 
