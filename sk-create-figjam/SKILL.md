@@ -2,7 +2,7 @@
 name: sk-create-figjam
 description: "Draws FigJam diagrams, from user flows to sequence, state, ER and gantt, as checked Mermaid models composed into framed boards."
 allowed-tools: [Read, Write, Edit, Bash, Glob, Grep, mcp__code_mode__call_tool_chain]
-version: 1.0.2.0
+version: 1.0.3.0
 ---
 
 <!-- Keywords: sk-create-figjam, flow mode, figjam, user flow, process, architecture, sequence diagram, state diagram, er diagram, gantt, flowchart, mermaid, board, $flow, $figjam -->
@@ -64,7 +64,7 @@ runbook, timeline of work     -> confirm the type with the reader, because a run
 | --- | --- |
 | ALWAYS | the hub `../SKILL.md` and `../ROUTER.md`, this file, `../sk-product-owner/references/hvr-core.md` and `../sk-product-owner/references/conciseness.md` |
 | CONDITIONAL | `references/flow-mode.md` with `assets/flow-templates.md` on every Flow route. Then the type's `references/types/<type>.md` and, for every type but user flow, `assets/templates/<type>.md`. `references/quality-rubric.md` with `references/style-guide.md` before the gate, because the rubric checks the palette and the spacing bands against the style guide |
-| ON_DEMAND | `references/hybrid-workflow.md` when the gate names an extension. `assets/examples/` for a worked example of the type. `../sk-product-owner/references/human-voice-rules.md` for a borderline voice call. `../mcp-figma/SKILL.md` for the `fj` route. `../sk-product-owner/references/interactive-mode.md` when the sources, the type, the target file or the order cannot be settled |
+| ON_DEMAND | `references/hybrid-workflow.md` when the gate names an extension. `assets/figjam-design.md` when a request changes how every board looks or a `DESIGN` line needs explaining. `assets/examples/` for a worked example of the type. `../sk-product-owner/references/human-voice-rules.md` for a borderline voice call. `../mcp-figma/SKILL.md` for the `fj` route. `../sk-product-owner/references/interactive-mode.md` when the sources, the type, the target file or the order cannot be settled |
 
 ### Resource Discovery
 
@@ -90,6 +90,7 @@ TYPE_SIGNALS = {
 QUALITY_RUBRIC = "references/quality-rubric.md"
 STYLE_GUIDE = "references/style-guide.md"
 HYBRID_WORKFLOW = "references/hybrid-workflow.md"
+BOARD_DESIGN = "assets/figjam-design.md"
 UNKNOWN_FALLBACK = {
     "load_level": "UNKNOWN_FALLBACK",
     "needs_disambiguation": True,
@@ -124,7 +125,7 @@ def type_resources(diagram_type):
         resources.append(f"assets/templates/{diagram_type}.md")
     return resources
 
-def route_flow(is_flow_request, diagram_type=None, extension=False):
+def route_flow(is_flow_request, diagram_type=None, extension=False, restyle=False):
     if not is_flow_request:
         return UNKNOWN_FALLBACK
     inventory = discover_markdown_resources()
@@ -148,6 +149,8 @@ def route_flow(is_flow_request, diagram_type=None, extension=False):
     load_if_present(STYLE_GUIDE)
     if extension:
         load_if_present(HYBRID_WORKFLOW)
+    if restyle:
+        load_if_present(BOARD_DESIGN)
     return {"resources": loaded, "diagram_type": diagram_type}
 ```
 
@@ -170,11 +173,12 @@ sk-create-figjam/
   assets/flow-templates.md       user flow patterns, the provenance table, the intake questions and the reply for every type
   assets/templates/              patterns that pass the check, one file per type beyond user flow
   assets/examples/               one worked example per type on fictional companies
-  assets/compose-board.js        the use_figma code that composes a board, with its model left to fill
+  assets/compose-board.js        the use_figma code that composes a board, with its model and theme left to fill
+  assets/figjam-design.md        the design every board is drawn in, one json token block a team edits, with its floors
   scripts/flow_check.py          the pre-write check for every type and its self-test
   scripts/compose_board.py       fills the composer's model from a checked diagram and proves every shipped model composes
   scripts/compose-trace.mjs      runs the filled composer against a recording stand-in for Figma, for the self-test's geometry checks
-  scripts/figjam_checks/         the per-type rule modules, the layout measures, the shared palette, the board geometry checks and the planted fixtures
+  scripts/figjam_checks/         the per-type rule modules, the layout measures, the shared palette, the design reader, the board geometry checks and the planted fixtures
   scripts/vendored/              the Mermaid extractor, a byte copy kept in step through ../vendor.json at the repository root
 ```
 
@@ -219,7 +223,8 @@ The packet runs under the Product Owner bootstrap in [`../AGENTS.md`](../AGENTS.
 - [`assets/flow-templates.md`](assets/flow-templates.md) - The user flow patterns, the provenance table and the reply
 - [`assets/templates/`](assets/templates/) and [`assets/examples/`](assets/examples/) - Patterns and worked examples per type
 - [`scripts/flow_check.py`](scripts/flow_check.py) - The pre-write check. `--self-test` proves every rule fails on a planted model
-- [`scripts/compose_board.py`](scripts/compose_board.py) and [`assets/compose-board.js`](assets/compose-board.js) - The composer. `--self-test` proves every shipped model composes, draws the counts the check counted, fits one `use_figma` call and draws a board whose edges cross no box, share no magnet and whose zones stay apart
+- [`scripts/compose_board.py`](scripts/compose_board.py) and [`assets/compose-board.js`](assets/compose-board.js) - The composer. `--self-test` proves every shipped model composes, draws the counts the check counted, fits one `use_figma` call and draws a board whose edges cross no box, share no magnet and whose zones stay apart, and that the design file names every token, keeps every floor and falls back on a broken edit
+- [`assets/figjam-design.md`](assets/figjam-design.md) - The board design: what each colour means, the accent, the type sizes, the lines, the zone tints and the key's words. `scripts/compose_board.py --design-check` prints what it resolves to
 - [`../mcp-figma/SKILL.md`](../mcp-figma/SKILL.md) - `figma-ds-cli` mechanics for the `fj` route and its mutating gate
 
 ---

@@ -6,7 +6,8 @@
 // the script's return value, and the error it threw, if any. A connector also reports its end caps,
 // dash pattern, stroke and weight, so the arrow a message draws can be measured, and a shape reports its
 // stroke, weight and fill, so the accent can be measured against every other mark. Text is measured with fixed
-// Inter proportions, so the geometry is a model of the board and never a screenshot of it.
+// Inter proportions, so the geometry is a model of the board and never a screenshot of it. Each text reports the
+// font it was set in, and two planted families fail to load, so the composer's font fallbacks can be proved.
 // Usage: node compose-trace.mjs <filled-code.js>
 // Exit: 0 the trace was printed, including when the script under test threw, since that error rides in the
 // JSON. 1 the file could not be read, with Node's error on stderr.
@@ -91,7 +92,11 @@ export async function trace(code) {
   const make = (Kind, type) => () => { const n = new Kind(page, type); page.children.push(n); return n; };
   const figma = {
     currentPage: page,
-    loadFontAsync: async () => {},
+    // A family named Missing never loads, and one named Semi has its third weight only as SemiBold, so a test can
+    // prove both of the composer's font fallbacks.
+    loadFontAsync: async ({ family, style }) => {
+      if (family === 'Missing' || (family === 'Semi' && style === 'Semi Bold')) throw new Error(`${family} ${style} is not installed`);
+    },
     createText: make(Text),
     createShapeWithText: make(Node, 'SHAPE_WITH_TEXT'),
     createConnector: make(Node, 'CONNECTOR'),
@@ -112,7 +117,7 @@ export async function trace(code) {
       } else {
         nodes.push({ id: c.id, name: c.name || '', type: c.type, shape: c.shapeType, x: a.x, y: a.y, w: c.width, h: c.height,
           text: c.type === 'TEXT' ? c.characters : (c.text ? c.text.characters : ''), parent: n.name || '',
-          weight: c.strokeWeight, stroke: c.strokes, fill: c.fills });
+          weight: c.strokeWeight, stroke: c.strokes, fill: c.fills, font: c.type === 'TEXT' ? c.fontName : c.text && c.text.fontName });
       }
       walk(c);
     }

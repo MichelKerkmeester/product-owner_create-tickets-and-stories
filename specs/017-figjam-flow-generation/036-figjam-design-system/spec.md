@@ -23,9 +23,9 @@ contextType: "general"
 | **Created** | 2026-10-25 |
 | **Branch** | `main` |
 | **Parent Spec** | ../spec.md |
-| **Phase** | 36 of 36 |
+| **Phase** | 36 of 37 |
 | **Predecessor** | 035-first-glance-and-routing |
-| **Successor** | None. The ranked changes feed a later sk-create-figjam revision |
+| **Successor** | 037-figjam-design-spec |
 | **Handoff Criteria** | research/research.md exists with at least 10 ranked design changes and a design spec file recommendation, and the operator has chosen what to apply |
 <!-- /ANCHOR:metadata -->
 

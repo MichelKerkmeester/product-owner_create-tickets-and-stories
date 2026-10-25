@@ -9,7 +9,7 @@ trigger_phrases:
   - "figjam swimlane"
   - "process lanes"
   - "approval flow figjam"
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # FigJam Type - Process
@@ -59,7 +59,7 @@ A lane is a subgraph with a readable label, `subgraph agent ["CS agent"]`, holdi
 
 Connectors are `-->` for the flow and `-.->` for an optional, asynchronous or later step, such as a log write.
 
-On the board each lane is a band in a light tint, named after its label, stacked in the order the model declares them, and every step sits inside its lane's band. The kinds take their colours from `references/style-guide.md` Section 2: a store is a violet cylinder, data entering or leaving a teal parallelogram and a sub-process a white predefined-process shape. A process without lanes may group its steps into stages with `%% zone:` lines.
+On the board each lane is a band in a light tint, named after its label, stacked in the order the model declares them, and every step sits inside its lane's band. The kinds take their shapes from `references/style-guide.md` Section 2 and their colour roles from `assets/figjam-design.md`: a store is a cylinder in the `store` role, data entering or leaving a parallelogram in the `io` role and a sub-process a predefined-process shape in the `neutral` role. A process without lanes may group its steps into stages with `%% zone:` lines.
 
 ---
 
@@ -94,7 +94,7 @@ Over budget, cut in sk-design-diagram's degrade order and stop as soon as the di
 
 ## 5. COLOUR, ZONES AND NOTES
 
-The composer colours every step by its kind. A user flow and a process each carry exactly one `style` line, which marks the first glance. A styled goal, failing end or decision keeps its kind and takes a pink outline. A styled step is drawn light pink. The line marks meaning: on an end it names the goal or, in light red, a failure, and on a step it puts that step in focus. Figma's guidance gives every subgraph a different tint, and sk-design-diagram keeps containers neutral so the marked step stays the strongest signal. The composer takes both: each lane gets its own tint, pale enough that a lane reads as a container and never as a mark. Notes on a step, such as a service level or a failure rate, go on through `references/hybrid-workflow.md`.
+The composer colours every step by its kind. A user flow and a process each carry exactly one `style` line, which marks the first glance. A styled goal, failing end or decision keeps its kind and takes the accent's outline. A styled step is drawn in the accent's pair. The line marks meaning: on an end it names the goal or, in light red, a failure, and on a step it puts that step in focus. Figma's guidance gives every subgraph a different tint, and sk-design-diagram keeps containers neutral so the marked step stays the strongest signal. The composer takes both: each lane gets its own tint by the zone rule in `references/style-guide.md` Section 2, pale enough that a lane reads as a container and never as a mark. Notes on a step, such as a service level or a failure rate, go on through `references/hybrid-workflow.md`.
 
 ---
 

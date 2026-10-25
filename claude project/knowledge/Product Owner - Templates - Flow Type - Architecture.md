@@ -1,6 +1,6 @@
 # Product Owner - Templates - Flow Type - Architecture
 
-An architecture shows which deployable parts make up a system and how they connect. The composer places every part by the lane it sits in, one column per lane, and colours it by that lane. Figma's generated fallback uses its own lane layout, which errors or silently mis-draws when its rules are broken, so the check holds every one of them on both routes.
+An architecture shows which deployable parts make up a system and how they connect. The composer places every part by the lane it sits in, one column per lane, and the lane sets the part's kind and colour role. Figma's generated fallback uses its own lane layout, which errors or silently mis-draws when its rules are broken, so the check holds every one of them on both routes.
 
 ---
 
@@ -33,7 +33,7 @@ Every node sits in one of six lanes. The lane id is fixed and the label is free:
 | `external` | Payment, identity, monitoring and other outside services |
 | `async` | Message infrastructure such as a queue or an event stream |
 
-The composer runs the lanes as columns, each a tinted section named after its label. The board stands the lanes in the order client, gateway, service, async, datastore, external, so a queue sits beside the service that writes to it. The accepted lane vocabulary and its check order are unchanged. It assigns shapes and colours by lane: a client is light teal, a gateway light blue, a service white, a store a violet cylinder, an outside system light gray and a queue an orange queue shape. So every node is written `id[Label]` with no style.
+The composer runs the lanes as columns, each a tinted section named after its label. The board stands the lanes in the order client, gateway, service, async, datastore, external, so a queue sits beside the service that writes to it. The accepted lane vocabulary and its check order are unchanged. It assigns each lane's kind: a client takes the `client` role, a gateway the `gateway` role, a service the `neutral` role, a store the `store` role in a cylinder, an outside system the `external` role and a queue the `queue` role in a queue shape, and Assets - Flow Board Design names the swatch each role draws. So every node is written `id[Label]` with no style.
 
 ### Allowed edges
 

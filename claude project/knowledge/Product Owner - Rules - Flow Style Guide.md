@@ -1,6 +1,6 @@
 # Product Owner - Rules - Flow Style Guide
 
-The one source for colour, type and spacing on a FigJam board. The composer in Assets - Flow Board Composer draws every board from the tables below. Every hex a model or a note extension uses comes from them, and no other is used.
+The rules for colour, type and spacing on a FigJam board. The composer in Assets - Flow Board Composer draws every board in the design Assets - Flow Board Design holds, which ships as the tables below record. Every hex a model, a design or a note extension uses comes from the palette in Section 3, and no other is used.
 
 ---
 
@@ -14,7 +14,9 @@ Three rules carry the board:
 - **The key names every colour.** The composer draws one key under the diagram, with a sample of every kind, line and arrow the board uses and nothing else, so a reader never meets a colour the board does not explain
 - **Colour never carries meaning alone.** Most kinds also differ by shape, such as a diamond for a decision or a cylinder for a data store. Where two kinds share a shape and differ only by colour, such as a goal and an exit, the label names the outcome and the key names both, so a reader who cannot tell the fills apart still reads the board
 
-The board carries one accent, a heavy pink outline on the node, message or task the first glance names. A user flow or a process marks it with a `style` line, and a model without one is not written. The other five types may name it with a `%% focus:` line. A `style` line does not colour a node on the board. It tells the composer what the node means, as Section 3 sets out.
+The board's look is a design a team can change. Assets - Flow Board Design holds it as tokens: the palette pair each colour role draws, the role each kind takes, the accent, the type sizes, the line colours, the zone tints and the words on the key. The tables below record the shipped design. A design that changes a token changes the board and not this guide, and a token that breaks a gate in Section 4 or a floor in that file's Section 7 is never sent.
+
+The board carries one accent, by default a heavy pink outline on the node, message or task the first glance names. A user flow or a process marks it with a `style` line, and a model without one is not written. The other five types may name it with a `%% focus:` line. A `style` line does not colour a node on the board. It tells the composer what the node means, as Section 3 sets out.
 
 ---
 
@@ -55,24 +57,24 @@ The lane a part sits in fixes its kind: a client is light teal, an edge or gatew
 | Choice | 56 pixel diamond | Light yellow | Choice |
 | Fork or join | 16 by 96 pixel bar | Charcoal | Fork or join |
 | Entity | Card with its fields | White | Entity |
-| Participant | Rounded rectangle, drawn again at the foot of its lifeline | Light blue | Participant |
-| Planned, in progress, done, critical | Bar, the critical one with a heavier outline and `, critical` after its length | White, light blue, light gray, light red | Planned, In progress, Done, Critical, heavy outline |
+| Participant | Rounded rectangle, drawn again smaller at the foot of its lifeline | White | Participant |
+| Planned, in progress, done, critical | Bar, the planned one outlined in the connector gray and the critical one with a heavier outline and `, critical` after its length | White, light blue, light gray, light red | Planned, In progress, Done, Critical, heavy outline |
 | Milestone | 32 pixel diamond | Light yellow | Milestone |
 
-A sequence numbers every message with a violet pin at the left edge, and its key names the pin `Step number`.
+A sequence numbers every message with a pin in the `marker` role, violet as shipped, beside its sender's lifeline, and its key names the pin `Step number`.
 
 ### Lines and zones
 
 | Element | Colour | Notes |
 |---|---|---|
 | Connector | Gray `#757575`, 2 pixels | Dashed for an optional or proposed edge, and for an async or outside call on an architecture |
-| Request, reply | Charcoal solid and gray dashed, both with a closed head | Sequence |
+| Request, reply | Gray solid and gray dashed, both with a closed head | Sequence |
 | Async message, async reply | Blue `#3DADFF`, solid or dashed, with an open head | Sequence |
 | Lifeline | Light gray `#B3B3B3`, dashed | Sequence |
 | Accent | Pink `#F849C1`, 8 pixels around a node or bar and 4 pixels along a sequence message | The only pink and the only heavy line on a board |
 | Relationship | Gray, solid when identifying and dashed when not, no arrow | ER, with the cardinality in the label |
-| Zone | A section in a light tint, named in 24 pixel type | Tints cycle blue, orange, teal, yellow, violet and pink, so two neighbouring zones never read as one |
-| Key | A light gray section under the diagram | One sample per mark the board uses |
+| Zone | A section in a light tint, named in 24 pixel type | Tints cycle blue, orange, teal, yellow and violet. A zone skips a tint any kind inside it draws and the tint of any zone beside it, so a tint never hides its members and two neighbouring zones never read as one. A gantt section takes its band the same way |
+| Key | A light gray section under the diagram and as wide as it | One sample per mark the board uses, in one order on every board of a type with the focus last, wrapping onto a new row at the diagram's edge |
 | Board | A white section around everything | Named after the title |
 
 ---
@@ -81,7 +83,7 @@ A sequence numbers every message with a violet pin at the left edge, and its key
 
 ### Accent and lane pairs
 
-A model uses exactly the pairs in this record. Each fill takes only the stroke FigJam pairs it with, and a connector takes either the stroke or nothing. The lane pair is Figma's own suggestion for a diagram's one container, and it never counts as the accent. The composer draws every kind from the same pairs, with white, charcoal and dark gray for the pseudo-states, the merge dot and the pins. The light pink pair is the accent's and no kind draws it.
+A model uses exactly the pairs in this record. Each fill takes only the stroke FigJam pairs it with, and a connector takes either the stroke or nothing. The lane pair is Figma's own suggestion for a diagram's one container, and it never counts as the accent. The composer draws every kind from the same pairs, with white for the plain kinds, charcoal for the pseudo-states, dark gray for the merge dot and the violet label preset for the pins. The light pink pair is the accent's and no kind draws it. A design may give the accent another pair, and then that pair is the accent's alone.
 
 The two ratio columns are measured: dark text on the fill against the 4.5:1 text gate, and the stroke on a white canvas against the 3.0:1 mark gate.
 
@@ -169,28 +171,29 @@ The canvas is measured as white. FigJam's canvas is near white with a dot grid, 
 
 ## 5. TYPE AND GRID
 
-The house diagram guide's type ramp and grid carry over, because the composer sets the font itself. Every board uses Inter at one scale:
+The house diagram guide's type ramp and grid carry over, because the composer sets the font itself. Every board uses one family at one scale, Inter unless a design names another. A family FigJam cannot load falls back to Inter with a warning:
 
 | Text | Size | Weight |
 |---|---|---|
 | Title | 64 | Bold |
-| Subtitle | 28 | Regular, wrapped at the diagram's width between 960 and 1440 pixels |
+| Subtitle | 28 | Regular, wrapped at the diagram's width between 960 and 1440 pixels and then narrowed while it keeps its number of lines, so its lines come out even |
 | Zone and key names | 24 | Semi Bold |
 | Node label | 20 | Medium |
-| Edge label, key entry, source line | 16 | Medium on a connector, Regular elsewhere |
-| Entity field, gantt bar length, step pin | 14 to 16 | Regular or Medium |
+| Edge label, key entry, source line | 18 | Medium on a connector, Regular elsewhere |
+| Entity field | 16 | Regular |
+| Gantt bar length, step pin | 14 | Medium |
 
 Every position and size sits on an 8 pixel grid. A shape grows from its kind's base size until its label fits inside it, with a 32 pixel inset in a round shape whose text FigJam clips to the inscribed box, and every shape of one kind on a board takes the size of the largest, so a rank reads as one row.
 
 The scale is tuned for a laptop at overview zoom. Reading distance does not change it, as Templates - Flow Mode Section 4 sets out, and buys fewer nodes and shorter labels instead.
 
-Skins and brand onboarding still stay behind. A board is shared and recoloured in FigJam, so a brand palette would turn every swatch into a custom colour. A brand colour asked for by name is a hand edit after the write, and the reply says it is off-palette.
+A design re-maps meanings onto the pairs in Section 3 and never adds a colour. A board is shared and recoloured in FigJam, so a brand palette would turn every swatch into a custom colour. A brand colour asked for by name is a hand edit after the write, and the reply says it is off-palette.
 
 ---
 
 ## 6. WHAT HOLDS THE RECORD
 
-The command-line skill's check holds these pairs and re-measures both ratio columns of every row, so a pair this record does not name is never used in a Project either. The composer in Assets - Flow Board Composer holds the kinds, the tints and the type scale every board draws, and the command-line skill's self-test measures the accent's hue, weight and ink on every board it composes.
+The command-line skill's check holds these pairs and re-measures both ratio columns of every row, so a pair this record does not name is never used in a Project either. The composer in Assets - Flow Board Composer holds the built-in design, the swatches, the tints and the shapes, and Assets - Flow Board Design holds the design a board is drawn in with the `THEME` the composer takes. The command-line skill's self-test measures the accent's hue, weight and ink on every board it composes and fails when the design leaves out a token or breaks a floor.
 
 ---
 
@@ -209,6 +212,6 @@ Two rules follow from the bands:
 - Two unrelated groups are never closer than the text blocks inside a card, so the gap between groups always reads wider than the gap within one
 - A wrapper is larger than the group's own internal gap and smaller than the gap to the next group, so its edge never falls on a neighbour
 
-The composer spaces the diagram on fixed steps: 80 pixels between two nodes in one rank, 136 between ranks, widened so an edge label fits its gap, a 48 pixel zone margin under a 96 pixel zone heading, 48 pixels between two zones, 80 pixels of board margin and 64 pixels above the key. Those steps are the composer's, and a board that reads cramped is fixed in the model rather than by changing them. The composer also routes every edge clear of the zones: no run lies along a zone's border, within 16 pixels outside it or 40 inside, so a line in the 48 pixel gap between two zones keeps to its middle, and no edge runs through a zone it neither starts nor ends in. An architecture therefore stands its lanes in the order client, gateway, service, async, datastore, external, so a queue sits beside the service that writes to it and an edge into it does not cross the stores. A node has four magnets, so each edge leaves from its own while one is free. Edges that only arrive may share a magnet once the others are taken, and then lie together for no more than 200 pixels, so a fourth client merges into the gateway near the target instead of looping across its zone to a free magnet. Any other two runs lie at least 56 pixels apart or share no more than a 56 pixel stub, so two edges never read as near-parallel lines, and a label keeps 8 pixels of air from every other line. A bend that lands on another edge counts as a crossing however short the jog after it, so two edges touch only where they merge into one magnet. The bands govern what a person or a note places: the legend column 200 pixels clear of the diagram, a sticky beside its node and the 400 pixels between two boards of one piece of work.
+The composer spaces the diagram on fixed steps: 80 pixels between two nodes in one rank, 136 between ranks, widened so an edge label fits its gap, a 48 pixel zone margin under a 96 pixel zone heading, 48 pixels between two zones, 80 pixels of board margin and 64 pixels above the key. Those steps are the composer's, and a board that reads cramped is fixed in the model rather than by changing them. Zones that share a row line up at the top unless an edge skips a zone in that row, and so do the cards of an ER diagram, and an edge routed outside the nodes widens the diagram rather than running into the title or the board's margin. The composer also routes every edge clear of the zones: no run lies along a zone's border, within 16 pixels outside it or 40 inside, so a line in the 48 pixel gap between two zones keeps to its middle, and no edge runs through a zone it neither starts nor ends in. An architecture therefore stands its lanes in the order client, gateway, service, async, datastore, external, so a queue sits beside the service that writes to it and an edge into it does not cross the stores. A node has four magnets, so each edge leaves from its own while one is free. Edges that only arrive may share a magnet once the others are taken, and then lie together for no more than 200 pixels, so a fourth client merges into the gateway near the target instead of looping across its zone to a free magnet. Any other two runs lie at least 56 pixels apart or share no more than a 56 pixel stub, so two edges never read as near-parallel lines, and a label keeps 8 pixels of air from every other line. A bend that lands on another edge counts as a crossing however short the jog after it, so two edges touch only where they merge into one magnet. The bands govern what a person or a note places: the legend column 200 pixels clear of the diagram, a sticky beside its node and the 400 pixels between two boards of one piece of work.
 
 Stickies stand on FigJam's own grid, a gap of 64 pixels from the sticky beside them, aligned to the top left of the space they fill. A column of stickies keeps that grid, which is why its rows read as one list rather than as separate notes.

@@ -8,12 +8,12 @@ Hand-maintained local package for the Product Owner claude.ai Project. The kerne
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- synthesized Project kernel v1.2.3 (routing authority, SKILL.md is not loaded in this Project)
+|-- Custom Instructions.md        <- synthesized Project kernel v1.2.4 (routing authority, SKILL.md is not loaded in this Project)
 |-- README.md                     <- upload manifest and hand-authored parity note
 |-- kernel-review.json            <- dated record of one kernel review, read by no tool
 |-- templates/                    <- Product Owner - Local - Push Targets.md, filled and uploaded per user, never shared
 |-- local/                        <- gitignored home for a filled push targets copy
-`-- knowledge/                    <- upload all 64 files as Project Knowledge
+`-- knowledge/                    <- upload all 65 files as Project Knowledge
     |-- Product Owner - System - Interactive Mode.md
     |-- Product Owner - Templates - Task Mode.md
     |-- Product Owner - Templates - Bug Mode.md
@@ -35,6 +35,7 @@ claude project/
     |-- Product Owner - Assets - Story Template.md
     |-- Product Owner - Assets - Epic Template.md
     |-- Product Owner - Assets - Flow Board Composer.md
+    |-- Product Owner - Assets - Flow Board Design.md
     |-- Product Owner - Assets - Flow Templates.md
     |-- Product Owner - Assets - Flow Templates - Process.md
     |-- Product Owner - Assets - Flow Templates - Architecture.md
@@ -59,7 +60,7 @@ claude project/
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` v1.2.3 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.2.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
+`Custom Instructions.md` v1.2.4 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.2.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
 
 CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Block**, direct resource loading becomes Project Knowledge consultation, and the response reports an export-equivalent path. Refinements keep delivery metadata outside preserved content unless equivalent metadata already exists in the source.
 
@@ -81,6 +82,7 @@ CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Bloc
 | `sk-create-figjam/references/flow-mode.md` | `Product Owner - Templates - Flow Mode.md` |
 | `sk-create-figjam/assets/flow-templates.md` | `Product Owner - Assets - Flow Templates.md` |
 | `sk-create-figjam/assets/compose-board.js` | `Product Owner - Assets - Flow Board Composer.md` |
+| `sk-create-figjam/assets/figjam-design.md` | `Product Owner - Assets - Flow Board Design.md` |
 | `sk-create-figjam/references/types/user-flow.md` | `Product Owner - Templates - Flow Type - User Flow.md` |
 | `sk-create-figjam/references/types/process.md` | `Product Owner - Templates - Flow Type - Process.md` |
 | `sk-create-figjam/references/types/architecture.md` | `Product Owner - Templates - Flow Type - Architecture.md` |
@@ -140,7 +142,7 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 1. Create or open a claude.ai Project named **Product Owner**.
 2. Paste `Custom Instructions.md` into the Project custom instructions field.
 3. Remove superseded Project Knowledge uploads.
-4. Upload all 64 files in `knowledge/` with filenames unchanged (36 core files plus the 28 Examples mirrors).
+4. Upload all 65 files in `knowledge/` with filenames unchanged (37 core files plus the 28 Examples mirrors).
 5. Run the smoke matrix below.
 6. Confirm the Deliverable Block appears first and the reported path follows the create or refinement contract.
 7. To deliver to ClickUp or draw on FigJam, add the two connectors and run their checks as `../USER-GUIDE.md` sets out.
@@ -175,7 +177,7 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 - `$flow`, `$figjam` and `put the launch plan on a FigJam gantt chart` select Flow Mode, which picks the diagram type from the reader's question, checks the model rule by rule and waits for a yes before any write. `write a task to tidy the figjam board labels` stays Task.
 - `$figjam a mindmap of the launch themes` names the mindmap as a kind the Figma connector cannot draw and offers a table or a list, with no connector call.
 - A `$flow` request replies in order: the intake or one proposed Brief, then a playback of the reading, then a gate as its own reply. A `Yes` to the Brief or the playback writes nothing, and only a `Yes` to the gate writes
-- With a Figma connector that lists `use_figma`, the board is composed in one `use_figma` call. Before it fills the model, the Project shows the composer code came back whole: 1,088 lines and 43,623 characters, a first line `const MODEL=__MODEL__;` and a last line `};` after `createdCount:created.length,`. When it cannot show all three it writes through `generate_diagram` and says the board was generated rather than composed
+- With a Figma connector that lists `use_figma`, the board is composed in one `use_figma` call. Before it fills the model, the Project shows the composer code came back whole: 1,161 lines and 46,569 characters, a first line `const MODEL=__MODEL__;`, a second line `const THEME=__THEME__;` and a last line `};` after `createdCount:created.length,`. When it cannot show all four it writes through `generate_diagram` and says the board was generated rather than composed
 - A thrown error that starts `nothing was drawn` is not retried with the same model and the board is not read. The Project regroups the zones, checks the model again and says the first compose drew nothing
 - A revision of a written board composes the new board first, reads it back and asks for a second `Yes` before it deletes the old board section
 - A generated Story-Mode artifact names its artifact kind (Story or Epic), keeps the narrative first, uses Given/When/Then scenario bullets, closes with a Delivery section only when the requester asked for one or the artifact forces it, and carries no ticket header fields, story points or INVEST notes.
@@ -210,5 +212,5 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 
 - Backlog artifacts remain WHAT/WHY focused. Docs may cover source-backed technical HOW, supplied implementation facts, architecture, APIs, schemas, debugging or operational procedures and clearly labelled technical proposals or recommendations. Never fabricate current facts, evidence, approval, authority or professional sign-off.
 - Project Knowledge may be retrieved as chunks, so the kernel repeats the routing, source-safety and delivery gates.
-- The Flow Board Composer file is 53,764 bytes and its code block is 43,623 characters on 1,088 lines, so retrieval may return it in chunks. The call takes at most 50,000 characters, which leaves under 6,400 for the model JSON written compact, and the largest shipped example model runs about 2,400. Whether claude.ai retrieval returns the code block whole is UNKNOWN until the live Project test runs, and the guide's whole-file test and the `generate_diagram` fallback cover a miss
+- The Flow Board Composer file is 56,944 bytes and its code block is 46,569 characters on 1,161 lines, so retrieval may return it in chunks. The call takes at most 50,000 characters, which leaves about 3,400 for the model JSON and the `THEME` line written compact, and the largest shipped example model runs about 2,300. Whether claude.ai retrieval returns the code block whole is UNKNOWN until the live Project test runs, and the guide's whole-file test and the `generate_diagram` fallback cover a miss
 - The local package is hand-maintained and the live claude.ai Project is manually uploaded, so local parity does not prove live deployment currency.

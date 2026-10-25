@@ -9,7 +9,7 @@ trigger_phrases:
   - "remove test"
   - "figjam review checklist"
   - "figjam design rubric"
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # FigJam Diagram Quality Rubric
@@ -102,6 +102,7 @@ After the write, before the reply:
 - [ ] The read-back counts match the model, as the type's reference sets them out
 - [ ] Each provenance row whose class is not current behavior or whose edge is inferred was re-read against its source before the gate, and the row records the reason. A row that quotes a source line was not re-read
 - [ ] The write returned no warning, and its counts match the counts the model expects
+- [ ] The `COMPOSED` line named the design the board was drawn in, and each `DESIGN` warning it counted became a `Finding:` line naming the token and the shipped value the board used instead
 - [ ] The overview is the screenshot the composing call returned, and `get_figjam` supplies the outline with a screenshot of each node
 - [ ] A node that needs its own view is read with `get_screenshot` and a node id from that read, because the tool fails without one
 - [ ] Two screenshots of the board were taken for this pass: one of the whole board in a single frame and one at 100% zoom. Composition is judged on the overview, because a crossing and a crowded label are invisible at reading size
@@ -113,6 +114,7 @@ After the write, before the reply:
 - [ ] Each zone holds its own nodes and no other, and no zone overlaps another
 - [ ] The same screenshot shows no connector crossing and no edge that reads as joining the wrong node. Each edge is followed by eye from end to end, because a connector count does not prove that a route is clear
 - [ ] Every colour on the board matches its entry in the key, the marked node sits where Section 3 places it, and the board answers the `userIntent` sentence without the model beside it
+- [ ] Every fill on the board resolves to a role in the active design, as `assets/figjam-design.md` holds it, no zone tint shares a hue with a kind inside it or with the accent, and no note added a colour the design does not name
 - [ ] The marked node reads first, and no other node competes with it
 - [ ] A screenshot finding is reported, and it is fixed only by reshaping the model and composing again after a yes, inside the two-attempt bound `references/flow-mode.md` Section 9 sets
 - [ ] Each extension landed where planned and covers no composed node's label
@@ -123,7 +125,7 @@ After the write, before the reply:
 
 ## 7. THE DESIGN RUBRIC
 
-The checklists above decide whether a board may ship. The design rubric scores how well it reads, so two boards of the same model, or a board before and after a change, can be compared on something firmer than a glance. Score the overview screenshot on eight criteria, each 0, 1 or 2, for a total out of 16. A criterion scores 2 when it holds everywhere on the board, 1 when it holds with one named exception and 0 when it fails in two places or more.
+The checklists above decide whether a board may ship. The design rubric scores how well it reads, so two boards of the same model, or a board before and after a change, can be compared on something firmer than a glance. Score the overview screenshot on nine criteria, each 0, 1 or 2, for a total out of 18. A criterion scores 2 when it holds everywhere on the board, 1 when it holds with one named exception and 0 when it fails in two places or more.
 
 | Criterion | Scores 2 when |
 |---|---|
@@ -135,8 +137,9 @@ The checklists above decide whether a board may ship. The design rubric scores h
 | Connector clarity | No connector crosses another or runs through a node or a zone title, two edges never lie on one stretch long enough to carry a label, every label sits on its own edge and clear of every other line and every end joins its node cleanly |
 | Key and source | The key names every mark and nothing else, and the source line names the sources and what was left out |
 | Proportion | The board reads wider than tall or close to square, with no tall strip, no large empty region and margins on the grid |
+| Matches the active design | Every kind draws the pair its role names in `assets/figjam-design.md`, the title block and type sizes match every other board, the key lists its entries in the design's order with the focus last, every line takes the design's look and no zone tint shares a hue with a kind inside it |
 
-Every score below 2 names the label or the zone it sits on and one fix, in the same shape Section 6 asks of a finding. A comparison between two boards scores both on the same eight criteria and reports both totals, criterion by criterion, so a gain on one criterion never hides a loss on another.
+Every score below 2 names the label or the zone it sits on and one fix, in the same shape Section 6 asks of a finding. A comparison between two boards scores both on the same nine criteria and reports both totals, criterion by criterion, so a gain on one criterion never hides a loss on another.
 
 ---
 

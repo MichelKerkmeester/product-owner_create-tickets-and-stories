@@ -8,8 +8,8 @@ The code that composes a checked Flow model into a framed FigJam board, and how 
 
 1. Check the Mermaid model against Templates - Flow Mode Section 5 and the chosen Flow Type, exactly as for any write
 2. Write the MODEL as one JSON object, following Section 2 for its type. Every value comes from the checked model, never from memory of the sources
-3. Copy the code in Section 4 whole, from its first line to its last, and replace the one `__MODEL__` in its first line with that JSON. Change nothing else, because one dropped line breaks the board and the call cannot tell you which. The code came back whole only when all three hold: it runs 1,088 lines and 43,623 characters, its first line is `const MODEL=__MODEL__;` and its last two lines are `createdCount:created.length,` and `};`. If any one fails, it did not come back whole
-4. Send the result as the `code` of one `use_figma` call, one diagram per call, after the gate's yes. The whole call must stay under 50,000 characters. The code takes 43,054 of them once `__MODEL__` is replaced, so the model JSON, written compact with no space after a comma or a colon, must stay under 6,900 characters. The largest shipped example model runs about 2,400. A diagram that will not fit is split, never trimmed
+3. Copy the code in Section 4 whole, from its first line to its last. Replace the one `__MODEL__` in its first line with that JSON and the one `__THEME__` in its second line with the `THEME` line in Assets - Flow Board Design, `{}` for the shipped design. Change nothing else, because one dropped line breaks the board and the call cannot tell you which. The code came back whole only when all four hold: it runs 1,161 lines and 46,569 characters, its first line is `const MODEL=__MODEL__;`, its second line is `const THEME=__THEME__;` and its last two lines are `createdCount:created.length,` and `};`. If any one fails, it did not come back whole
+4. Send the result as the `code` of one `use_figma` call, one diagram per call, after the gate's yes. The whole call must stay under 50,000 characters. The code takes 46,551 of them before its two placeholders are filled, so the model JSON, written compact with no space after a comma or a colon, and the `THEME` line together must stay under 3,400 characters. The shipped `{}` costs 2, and the largest shipped example model runs about 2,300. A diagram that will not fit is split, never trimmed
 5. Read the return value. It holds `boardId`, `tag`, `counts` beside `expect`, the `elements` and `links` it drew with their ids, `warnings` and a screenshot of the board. Counts that differ from `expect`, or any warning, are a finding reported as measured. A thrown error that starts `nothing was drawn` means two zones would have overlapped and nothing was written to the board. Do not retry the same model and do not read the board. Split or regroup the zones in the model, check it again against Templates - Flow Mode Section 5 and fill the code again. Say in the reply that the first compose drew nothing
 6. Read the board back with `get_figjam` on `boardId`, as Templates - Flow Mode Section 7 sets out
 
@@ -86,74 +86,91 @@ Replace `__MODEL__` and nothing else.
 
 ```javascript
 const MODEL=__MODEL__;
-const h=(r,g,b)=>({r:r/255,g:g/255,b:b/255});
-const solid=(c)=>[{type:'SOLID',color:c}];
-const DARK=h(0x1e,0x1e,0x1e);
-const WHITE=h(0xff,0xff,0xff);
-const LINE=h(0x75,0x75,0x75);
-const FAINT=h(0xd9,0xd9,0xd9);
-const LIFELINE=h(0xb3,0xb3,0xb3);
-const ASYNC=h(0x3d,0xad,0xff);
-const SHAPE={
-white:{fill:WHITE,stroke:h(0xb3,0xb3,0xb3),text:DARK},
-black:{fill:DARK,stroke:h(0xb3,0xb3,0xb3),text:WHITE},
-darkGray:{fill:LINE,stroke:h(0x5e,0x5e,0x5e),text:WHITE},
-violet:{fill:h(0x87,0x4f,0xff),stroke:h(0x54,0x27,0xb4),text:WHITE},
-lightBlue:{fill:h(0xc2,0xe5,0xff),stroke:h(0x3d,0xad,0xff),text:DARK},
-lightGreen:{fill:h(0xcd,0xf4,0xd3),stroke:h(0x66,0xd5,0x75),text:DARK},
-lightYellow:{fill:h(0xff,0xec,0xbd),stroke:h(0xff,0xc9,0x43),text:DARK},
-lightOrange:{fill:h(0xff,0xe0,0xc2),stroke:h(0xff,0x9e,0x42),text:DARK},
-lightRed:{fill:h(0xff,0xcd,0xc2),stroke:h(0xff,0x75,0x56),text:DARK},
-lightViolet:{fill:h(0xdc,0xcc,0xff),stroke:h(0x87,0x4f,0xff),text:DARK},
-lightPink:{fill:h(0xff,0xc2,0xec),stroke:h(0xf8,0x49,0xc1),text:DARK},
-lightTeal:{fill:h(0xc6,0xfa,0xf6),stroke:h(0x5a,0xd8,0xcc),text:DARK},
-lightGray:{fill:FAINT,stroke:h(0xb3,0xb3,0xb3),text:DARK},
+const THEME=__THEME__;
+const SWATCH={
+white:['#FFFFFF','#B3B3B3','#1E1E1E'],black:['#1E1E1E','#B3B3B3','#FFFFFF'],
+darkGray:['#757575','#5E5E5E','#FFFFFF'],violet:['#874FFF','#5427B4','#FFFFFF'],
+lightBlue:['#C2E5FF','#3DADFF','#1E1E1E'],lightGreen:['#CDF4D3','#66D575','#1E1E1E'],
+lightYellow:['#FFECBD','#FFC943','#1E1E1E'],lightOrange:['#FFE0C2','#FF9E42','#1E1E1E'],
+lightRed:['#FFCDC2','#FF7556','#1E1E1E'],lightViolet:['#DCCCFF','#874FFF','#1E1E1E'],
+lightPink:['#FFC2EC','#F849C1','#1E1E1E'],lightTeal:['#C6FAF6','#5AD8CC','#1E1E1E'],
+lightGray:['#D9D9D9','#B3B3B3','#1E1E1E'],
 };
 const TINT={
-gray:h(0xf9,0xf9,0xf9),green:h(0xeb,0xff,0xee),teal:h(0xf1,0xfe,0xfd),
-blue:h(0xf5,0xfb,0xff),violet:h(0xf8,0xf5,0xff),pink:h(0xff,0xf0,0xfa),
-red:h(0xff,0xf5,0xf5),orange:h(0xff,0xf7,0xf0),yellow:h(0xff,0xfb,0xf0),
+gray:'#F9F9F9',green:'#EBFFEE',teal:'#F1FEFD',blue:'#F5FBFF',violet:'#F8F5FF',
+pink:'#FFF0FA',red:'#FFF5F5',orange:'#FFF7F0',yellow:'#FFFBF0',
 };
-const TINT_CYCLE=['blue','orange','teal','yellow','violet','pink'];
-const KINDS={
-start:{shape:'ROUNDED_RECTANGLE',color:'lightBlue',key:'Where it starts'},
-screen:{shape:'ROUNDED_RECTANGLE',color:'white',key:'Screen or step'},
-step:{shape:'ROUNDED_RECTANGLE',color:'white',key:'Step'},
-decision:{shape:'DIAMOND',color:'lightYellow',key:'Decision'},
-success:{shape:'ROUNDED_RECTANGLE',color:'lightGreen',key:'Goal reached'},
-exit:{shape:'ROUNDED_RECTANGLE',color:'lightOrange',key:'Leaves the flow'},
-error:{shape:'ROUNDED_RECTANGLE',color:'lightRed',key:'Error or blocked'},
-focus:{shape:'ROUNDED_RECTANGLE',color:'lightPink',key:'In focus'},
-merge:{shape:'ELLIPSE',color:'darkGray',key:'Paths join',fixed:[24,24]},
-datastore:{shape:'ENG_DATABASE',color:'lightViolet',key:'Data store'},
-subprocess:{shape:'PREDEFINED_PROCESS',color:'white',key:'Sub-process'},
-io:{shape:'PARALLELOGRAM_RIGHT',color:'lightTeal',key:'Input or output'},
-client:{shape:'ROUNDED_RECTANGLE',color:'lightTeal',key:'App or client'},
-gateway:{shape:'ROUNDED_RECTANGLE',color:'lightBlue',key:'Edge or gateway'},
-service:{shape:'ROUNDED_RECTANGLE',color:'white',key:'Service'},
-queue:{shape:'ENG_QUEUE',color:'lightOrange',key:'Queue or stream'},
-external:{shape:'ROUNDED_RECTANGLE',color:'lightGray',key:'Outside system'},
-state:{shape:'ROUNDED_RECTANGLE',color:'white',key:'State'},
-firstState:{shape:'ROUNDED_RECTANGLE',color:'lightBlue',key:'First state'},
-finalState:{shape:'ROUNDED_RECTANGLE',color:'lightGray',key:'Final state'},
-initial:{shape:'ELLIPSE',color:'black',key:'Start',fixed:[32,32]},
-final:{shape:'ELLIPSE',color:'black',key:'End',fixed:[32,32],ring:true},
-choice:{shape:'DIAMOND',color:'lightYellow',key:'Choice',fixed:[56,56]},
-fork:{shape:'SQUARE',color:'black',key:'Fork or join',fixed:[16,96]},
-entity:{shape:'SQUARE',color:'white',key:'Entity'},
-participant:{shape:'ROUNDED_RECTANGLE',color:'lightBlue',key:'Participant'},
-planned:{shape:'ROUNDED_RECTANGLE',color:'white',key:'Planned'},
-active:{shape:'ROUNDED_RECTANGLE',color:'lightBlue',key:'In progress'},
-done:{shape:'ROUNDED_RECTANGLE',color:'lightGray',key:'Done'},
-crit:{shape:'ROUNDED_RECTANGLE',color:'lightRed',key:'Critical, heavy outline',heavy:true},
-milestone:{shape:'DIAMOND',color:'lightYellow',key:'Milestone',fixed:[32,32]},
+const D={
+role:{
+entry:'lightBlue',neutral:'white',goal:'lightGreen',exit:'lightOrange',error:'lightRed',
+decision:'lightYellow',store:'lightViolet',io:'lightTeal',client:'lightTeal',gateway:'lightBlue',
+queue:'lightOrange',external:'lightGray',inProgress:'lightBlue',done:'lightGray',pseudo:'black',
+junction:'darkGray',marker:'violet',
+},
+accent:{pair:'lightPink',node:8,message:4},
+kind:{
+initial:{role:'pseudo',key:'Start'},
+start:{role:'entry',key:'Where it starts'},
+firstState:{role:'entry',key:'First state'},
+client:{role:'client',key:'App or client'},
+gateway:{role:'gateway',key:'Edge or gateway'},
+participant:{role:'neutral',key:'Participant'},
+screen:{role:'neutral',key:'Screen or step'},
+step:{role:'neutral',key:'Step'},
+state:{role:'neutral',key:'State'},
+service:{role:'neutral',key:'Service'},
+subprocess:{role:'neutral',key:'Sub-process'},
+io:{role:'io',key:'Input or output'},
+entity:{role:'neutral',key:'Entity'},
+queue:{role:'queue',key:'Queue or stream'},
+decision:{role:'decision',key:'Decision'},
+choice:{role:'decision',key:'Choice'},
+fork:{role:'pseudo',key:'Fork or join'},
+merge:{role:'junction',key:'Paths join'},
+success:{role:'goal',key:'Goal reached'},
+exit:{role:'exit',key:'Leaves the flow'},
+error:{role:'error',key:'Error or blocked'},
+finalState:{role:'done',key:'Final state'},
+final:{role:'pseudo',key:'End'},
+datastore:{role:'store',key:'Data store'},
+external:{role:'external',key:'Outside system'},
+done:{role:'done',key:'Done'},
+active:{role:'inProgress',key:'In progress'},
+planned:{role:'neutral',key:'Planned'},
+crit:{role:'error',key:'Critical, heavy outline'},
+milestone:{role:'decision',key:'Milestone'},
+focus:{key:'In focus'},
+},
+type:{family:'Inter',title:64,subtitle:28,zone:24,node:20,label:18,field:16,small:14},
+line:{color:'#757575',async:'#3DADFF',lifeline:'#B3B3B3',weight:2},
+zone:{cycle:['blue','orange','teal','yellow','violet']},
+key:{
+title:'Key',tint:'gray',pin:'Step number',dashedOptional:'Optional or proposed',
+dashedAsync:'Async or outside call',identifying:'Identifying',nonIdentifying:'Non-identifying',
+twoWay:'Both ways',request:'Request',reply:'Reply',async:'Async message',asyncReply:'Async reply',
+},
 };
+const T=(function merge(a,b){
+for(const k in b)a[k]=b[k]&&typeof b[k]==='object'&&!Array.isArray(b[k])&&a[k]?merge(a[k],b[k]):b[k];
+return a;
+})(D,THEME);
+const SHAPES={
+decision:'DIAMOND',choice:'DIAMOND',milestone:'DIAMOND',merge:'ELLIPSE',initial:'ELLIPSE',
+final:'ELLIPSE',datastore:'ENG_DATABASE',queue:'ENG_QUEUE',subprocess:'PREDEFINED_PROCESS',
+io:'PARALLELOGRAM_RIGHT',fork:'SQUARE',entity:'SQUARE',
+};
+const FIXED={merge:[24,24],initial:[32,32],final:[32,32],choice:[56,56],fork:[16,96],milestone:[32,32]};
+const OUTLINE={final:'ring',crit:'heavy',planned:'line'};
+const shapeOf=(kind)=>SHAPES[kind]||'ROUNDED_RECTANGLE';
+const pairOf=(kind)=>SWATCH[kind==='focus'?T.accent.pair:T.role[T.kind[kind].role]]||SWATCH.white;
+const ACCENT=SWATCH[T.accent.pair][1];
+const INK='#1E1E1E';
 const OFF_PATH=new Set(['exit','error']);
 const ROUND=new Set(['DIAMOND','ELLIPSE','HEXAGON','OCTAGON']);
 const GRID=8;
 const snap=(v)=>Math.round(v/GRID)*GRID;
 const up8=(v)=>Math.ceil(v/GRID)*GRID;
-const TYPE={node:20,label:16,title:64,subtitle:28,zone:24,field:16};
+const TYPE=T.type;
 const PARA=4;
 const RANK_GAP=136;
 const CROSS_GAP=80;
@@ -161,15 +178,19 @@ const ZONE_GAP=48;
 const ZONE_HEAD=96;
 const ZONE_PAD=48;
 const BOARD_PAD=80;
-const MEDIUM={family:'Inter',style:'Medium'};
-const REGULAR={family:'Inter',style:'Regular'};
-const SEMI={family:'Inter',style:'Semi Bold'};
-const BOLD={family:'Inter',style:'Bold'};
-await Promise.all([MEDIUM,REGULAR,SEMI,BOLD].map((f)=>figma.loadFontAsync(f)));
+const solid=(x)=>[{type:'SOLID',color:{r:parseInt(x.slice(1,3),16)/255,g:parseInt(x.slice(3,5),16)/255,b:parseInt(x.slice(5,7),16)/255}}];
 const warnings=[];
 const created=[];
 const elements=[];
 const links=[];
+const STYLES=['Medium','Regular','Semi Bold','Bold'];
+const load=(family)=>Promise.all(STYLES.map((style)=>figma.loadFontAsync({family,style}).then(()=>style,(err)=>{
+if(style!=='Semi Bold')throw err;
+return figma.loadFontAsync({family,style:'SemiBold'}).then(()=>'SemiBold');
+})));
+let FAMILY=TYPE.family,NAMES;
+try{NAMES=await load(FAMILY);}catch(err){warnings.push(`the font ${FAMILY} did not load, so the board is set in Inter`);FAMILY='Inter';NAMES=await load(FAMILY);}
+const[MEDIUM,REGULAR,SEMI,BOLD]=NAMES.map((style)=>({family:FAMILY,style}));
 const measurer=figma.createText();
 measurer.fontName=MEDIUM;
 function natural(chars,font,size){
@@ -203,7 +224,7 @@ const t=figma.createText();
 t.fontName=font;
 t.fontSize=size;
 t.characters=chars;
-t.fills=solid(DARK);
+t.fills=solid(INK);
 parent.appendChild(t);
 if(width){t.textAutoResize='HEIGHT';t.resize(width,t.height);}
 t.x=x;
@@ -212,24 +233,23 @@ created.push(t.id);
 return t;
 }
 function paint(s,kind,accent){
-const k=KINDS[kind];
-const pair=SHAPE[k.color];
+const pair=pairOf(kind),o=OUTLINE[kind];
 const hot=accent||kind==='focus';
-s.fills=solid(pair.fill);
-s.strokes=solid(hot?SHAPE.lightPink.stroke:(k.ring?h(0xb3,0xb3,0xb3):pair.stroke));
-try{s.strokeWeight=hot?8:(k.ring?6:(k.heavy?4:2));}catch(err){}
+s.fills=solid(pair[0]);
+s.strokes=solid(hot?ACCENT:o==='line'?T.line.color:pair[1]);
+try{s.strokeWeight=hot?T.accent.node:o==='ring'?6:o==='heavy'?4:2;}catch(err){}
 return pair;
 }
 function shape(parent,kind,label,x,y,w,hh,name,size,accent){
 const s=figma.createShapeWithText();
-s.shapeType=KINDS[kind].shape;
+s.shapeType=shapeOf(kind);
 s.name=name;
 const pair=paint(s,kind,accent);
 if(label){
 s.text.fontName=MEDIUM;
 s.text.fontSize=size||TYPE.node;
 s.text.characters=label;
-s.text.fills=solid(pair.text);
+s.text.fills=solid(pair[2]);
 }
 s.resize(w,hh);
 parent.appendChild(s);
@@ -237,6 +257,14 @@ s.x=x;
 s.y=y;
 created.push(s.id);
 return s;
+}
+function marker(parent,digit,x,y,name){
+const p=shape(parent,'initial',digit,x,y,32,32,name,TYPE.small);
+const m=SWATCH[T.role.marker];
+p.fills=solid(m[0]);
+p.strokes=solid(m[1]);
+p.text.fills=solid(m[2]);
+return p;
 }
 function anchor(parent,cx,cy,name){
 const a=figma.createShapeWithText();
@@ -264,8 +292,8 @@ c.connectorStart=end(from,o.m0);
 c.connectorEnd=end(to,o.m1);
 c.connectorStartStrokeCap=o.startCap||'NONE';
 c.connectorEndStrokeCap=o.endCap===undefined?'ARROW_LINES':o.endCap;
-c.strokes=solid(o.color||LINE);
-c.strokeWeight=o.weight||2;
+c.strokes=solid(o.color||T.line.color);
+c.strokeWeight=o.weight||T.line.weight;
 c.dashPattern=o.dashed?[10,6]:[];
 if(o.label){
 c.text.fontName=MEDIUM;
@@ -286,6 +314,19 @@ sec.fills=solid(TINT[tint]||TINT.gray);
 created.push(sec.id);
 text(sec,label,SEMI,TYPE.zone,32,32);
 return sec;
+}
+const tinted=[];
+function tintFor(i,kinds,label,x,y,w,h){
+const c=T.zone.cycle,g=2*ZONE_GAP,order=[...c.slice(i%c.length),...c.slice(0,i%c.length)];
+const hues=new Set(kinds.map((k)=>(T.role[(T.kind[k]||{}).role]||T.accent.pair).replace('light','').toLowerCase()));
+const near=tinted.filter((z)=>z.x<x+w+g&&x<z.x+z.w+g&&z.y<y+h+g&&y<z.y+z.h+g).map((z)=>z.t);
+let t=order.find((t)=>!hues.has(t)&&!near.includes(t));
+if(!t){
+t=order.find((t)=>!near.includes(t))||order[0];
+warnings.push(`zone ${label} repeats the ${t} tint of ${near.includes(t) ? 'a zone beside it' : 'a step inside it'}, because the tint cycle has none left for it`);
+}
+tinted.push({x,y,w,h,t});
+return t;
 }
 function layered(items,edges,opt){
 const LR=opt.LR;
@@ -433,13 +474,15 @@ const q=[];
 for(const b of blocks)for(let k=0;k<b.n;k++)q.push(b.sum/b.w);
 return rows.map((it,i)=>q[i]+it.off);
 };
+const half=(id)=>(opt.top&&LR?0:crossSize.get(id)/2);
+const mid=(id)=>snap(cross.get(id))-half(id)+crossSize.get(id)/2;
 const gapBetween=(a,b)=>(zoned&&lane.get(a)!==lane.get(b)?CROSS_GAP+ZONE_HEAD+ZONE_PAD+ZONE_GAP:CROSS_GAP);
 const place=(whole,desired)=>{
 const parts=stacked?[...new Set(whole.map((id)=>lane.get(id)))].map((k)=>whole.filter((id)=>lane.get(id)===k)):[whole];
 for(const list of parts){
 let off=0;
 const rows=list.map((id,i)=>{
-if(i>0)off+=(crossSize.get(list[i-1])+crossSize.get(id))/2+gapBetween(list[i-1],id);
+if(i>0)off+=crossSize.get(list[i-1])-half(list[i-1])+half(id)+gapBetween(list[i-1],id);
 return spine.has(id)?{d:0,w:1000,off}:{d:desired(id),w:1,off};
 });
 pav(rows).forEach((p,i)=>cross.set(list[i],p));
@@ -479,9 +522,9 @@ pos+=extent[r];
 }
 const box=new Map();
 for(const n of items){
-const c=snap(cross.get(n.id)),rc=snap(centre[rank.get(n.id)]);
-const cx=LR?rc:c,cy=LR?c:rc;
-box.set(n.id,{x:cx-n.w/2,y:cy-n.h/2,w:n.w,h:n.h});
+const c=snap(cross.get(n.id)),r=rank.get(n.id);
+box.set(n.id,LR?{x:snap(centre[r])-n.w/2,y:c-half(n.id),w:n.w,h:n.h}
+:{x:c-n.w/2,y:opt.top?snap(centre[r]-extent[r]/2):snap(centre[r])-n.h/2,w:n.w,h:n.h});
 }
 const point=(along,across)=>(LR?{x:along,y:across}:{x:across,y:along});
 const waypoints=new Map();
@@ -489,8 +532,8 @@ for(const[i,ds]of chain){
 const first=ds[0],last=ds[ds.length-1];
 waypoints.set(i,{
 lane:lane.get(first),
-a:point(snap(gapMid[rank.get(first)]),snap(cross.get(first))),
-b:point(snap(gapMid[rank.get(last)+1]),snap(cross.get(last))),
+a:point(snap(gapMid[rank.get(first)]),snap(mid(first))),
+b:point(snap(gapMid[rank.get(last)+1]),snap(mid(last))),
 });
 }
 const laneSpan=new Map();
@@ -500,7 +543,7 @@ for(let k=0;k<=zones.length;k++){
 const members=items.filter((n)=>lane.get(n.id)===k).map((n)=>n.id);
 if(!members.length)continue;
 const spans=members.map((id)=>{const b=box.get(id);return LR?[b.y,b.y+b.h]:[b.x,b.x+b.w];})
-.concat(dummies.filter((d)=>lane.get(d)===k).map((d)=>[snap(cross.get(d))-8,snap(cross.get(d))+8]));
+.concat(dummies.filter((d)=>lane.get(d)===k).map((d)=>[mid(d)-8,mid(d)+8]));
 const lo=Math.min(...spans.map((v)=>v[0]));
 const hi=Math.max(...spans.map((v)=>v[1]));
 const start=lo-(LR?ZONE_HEAD:ZONE_PAD);
@@ -531,23 +574,40 @@ const extra=loops?ZONE_PAD:0;
 return{x:x0-ZONE_PAD,y:y0-ZONE_HEAD,w:x1-x0+2*ZONE_PAD+(LR?0:extra),
 h:y1-y0+ZONE_HEAD+ZONE_PAD+(LR?extra:0)};
 });
-const clash=[];
-if(opt.zoneMode==='group'){
+const clashes=()=>{
+const found=[];
 zoneBox.forEach((a,i)=>{
 if(!a)return;
 zoneBox.forEach((b,j)=>{
 if(b&&j>i&&a.x<b.x+b.w&&b.x<a.x+a.w&&a.y<b.y+b.h&&b.y<a.y+a.h){
-clash.push(`zones ${zones[i].id} and ${zones[j].id} overlap`);
+found.push(`zones ${zones[i].id} and ${zones[j].id} overlap`);
 }
 });
 items.forEach((n)=>{
 const b=box.get(n.id);
 if(n.zone!==zones[i].id&&b.x<a.x+a.w&&a.x<b.x+b.w&&b.y<a.y+a.h&&a.y<b.y+b.h){
-clash.push(`node ${n.id} sits inside zone ${zones[i].id} without belonging to it`);
+found.push(`node ${n.id} sits inside zone ${zones[i].id} without belonging to it`);
 }
 });
 });
+return found;
+};
+if(!stacked&&zones.length>1){
+const[p,s,q]=LR?['y','h','x']:['x','w','y'];
+const fitted=zoneBox.map((b)=>b&&{...b});
+const before=clashes().length;
+const ids=zones.map((_,i)=>i).filter((i)=>zoneBox[i]).sort((a,b)=>zoneBox[a][p]-zoneBox[b][p]);
+for(let i=0,j;i<ids.length;i=j){
+let reach=zoneBox[ids[i]][p]+zoneBox[ids[i]][s];
+for(j=i+1;j<ids.length&&zoneBox[ids[j]][p]<reach;j++)reach=Math.max(reach,zoneBox[ids[j]][p]+zoneBox[ids[j]][s]);
+const at=new Map(ids.slice(i,j).sort((a,b)=>zoneBox[a][q]-zoneBox[b][q]).map((z,k)=>[z,k]));
+if(edges.some((e)=>at.has(lane.get(e.from))&&at.has(lane.get(e.to))&&Math.abs(at.get(lane.get(e.from))-at.get(lane.get(e.to)))>1))continue;
+const lo=zoneBox[ids[i]][p];
+ids.slice(i,j).forEach((z)=>{zoneBox[z][s]+=zoneBox[z][p]-lo;zoneBox[z][p]=lo;});
 }
+if(clashes().length>before)zoneBox.forEach((b,i)=>b&&Object.assign(b,fitted[i]));
+}
+const clash=opt.zoneMode==='group'?clashes():[];
 const frames=[...all,...zoneBox.filter(Boolean)];
 const dx=Math.min(...frames.map((b)=>b.x)),dy=Math.min(...frames.map((b)=>b.y));
 for(const b of[...all,...zoneBox.filter(Boolean)]){b.x-=dx;b.y-=dy;}
@@ -573,24 +633,24 @@ function buildGraph(M){
 const LR=(M.direction||'LR')==='LR';
 const cards=new Map();
 const items=M.nodes.map((n)=>{
-if(!KINDS[n.kind]){warnings.push(`kind ${n.kind} on ${n.id} is unknown, drawn as a step`);n.kind='step';}
-const k=KINDS[n.kind];
+if(!T.kind[n.kind]){warnings.push(`kind ${n.kind} on ${n.id} is unknown, drawn as a step`);n.kind='step';}
+const f=FIXED[n.kind];
 let s;
-if(k.fixed)s={w:k.fixed[0],h:k.fixed[1]};
+if(f)s={w:f[0],h:f[1]};
 else if(n.kind==='entity'){const card=entityCard(n);cards.set(n.id,card);s={w:card.w,h:card.h};}
-else s=fit(n.label,k.shape);
+else s=fit(n.label,shapeOf(n.kind));
 return{id:n.id,w:s.w,h:s.h,zone:n.zone,offPath:OFF_PATH.has(n.kind),goal:n.kind==='success',kind:n.kind};
 });
 const classMax=new Map();
 for(const it of items){
-if(KINDS[it.kind].fixed||it.kind==='entity')continue;
-const cls=KINDS[it.kind].shape;
+if(FIXED[it.kind]||it.kind==='entity')continue;
+const cls=shapeOf(it.kind);
 const m=classMax.get(cls)||{w:0,h:0};
 classMax.set(cls,{w:Math.max(m.w,it.w),h:Math.max(m.h,it.h)});
 }
 for(const it of items){
-if(KINDS[it.kind].fixed||it.kind==='entity')continue;
-Object.assign(it,classMax.get(KINDS[it.kind].shape));
+if(FIXED[it.kind]||it.kind==='entity')continue;
+Object.assign(it,classMax.get(shapeOf(it.kind)));
 }
 const nodeIds=new Set(M.nodes.map((n)=>n.id));
 const zoneIds=new Set((M.zones||[]).map((z)=>z.id));
@@ -604,9 +664,9 @@ const firstOf=(zid)=>(M.nodes.find((n)=>n.zone===zid)||{}).id;
 const layoutEdges=edges
 .map((e)=>({from:zoneIds.has(e.from)?firstOf(e.from):e.from,to:zoneIds.has(e.to)?firstOf(e.to):e.to,lw:e.lw}))
 .filter((e)=>e.from&&e.to&&e.from!==e.to);
-const zones=(M.zones||[]).map((z,i)=>({...z,tint:z.tint||TINT_CYCLE[i%TINT_CYCLE.length]}));
-let L=layered(items,layoutEdges,{LR,zones,zoneMode:M.zoneMode});
-if(L.clash.length)L=layered(items,layoutEdges,{LR,zones,zoneMode:M.zoneMode,stack:true});
+const zones=(M.zones||[]).map((z)=>({...z,kinds:M.nodes.filter((n)=>n.zone===z.id).map((n)=>n.kind)}));
+let L=layered(items,layoutEdges,{LR,zones,top:M.profile==='er',zoneMode:M.zoneMode});
+if(L.clash.length)L=layered(items,layoutEdges,{LR,zones,top:M.profile==='er',zoneMode:M.zoneMode,stack:true});
 if(L.clash.length)throw new Error(`nothing was drawn: ${L.clash.join(', ')}`);
 zones.forEach((z,i)=>{if(!L.zoneBox[i])warnings.push(`zone ${z.id} holds no node`);});
 const boxOf=(id)=>L.box.get(id)||L.zoneBox[zones.findIndex((z)=>z.id===id)];
@@ -827,16 +887,21 @@ const used=new Set(list.map((v)=>v.split(' ')[1]));
 const taken=[...used].some((m)=>list.filter((v)=>v.split(' ')[1]===m).length>1&&list.some((v)=>v.split(' ')[1]===m&&v.endsWith(' 0')));
 if(used.size<Math.min(4,list.length)&&taken)warnings.push(`two edges share a magnet on ${id} while another is free`);
 });
+const pts=jobs.flatMap((job)=>job.cur.lines.flatMap((l)=>l.pts));
+const grow=(vs,m)=>[Math.min(0,...vs.map((v)=>(v<0?-up8(24-v):0))),Math.max(m,...vs.map((v)=>(v>m?up8(v+24):m)))];
+const[x0,x1]=grow(pts.map((v)=>v.x),L.width),[y0,y1]=grow(pts.map((v)=>v.y),L.height);
 const kinds=[...new Set([...M.nodes.map((n)=>n.kind),...M.nodes.filter((n)=>n.accent).map(()=>'focus')])];
 const marked=M.nodes.find((n)=>n.accent);
 const key=kinds.map((kind)=>(kind==='focus'&&marked?{kind,like:marked.kind}:{kind}));
 for(const style of M.edgeStyles||[])key.push({line:style});
 return{
-width:L.width,height:L.height,key,
+width:x1-x0,height:y1-y0,key,
 draw(board,ox,oy){
+ox-=x0;
+oy-=y0;
 const zoneNodes=zones.map((z,i)=>{
 const b=L.zoneBox[i];
-return b?zoneSection(board,z.label,z.tint,ox+b.x,oy+b.y,b.w,b.h):null;
+return b?zoneSection(board,z.label,tintFor(i,z.kinds,z.label,ox+b.x,oy+b.y,b.w,b.h),ox+b.x,oy+b.y,b.w,b.h):null;
 });
 const zoneOf=new Map(zones.map((z,i)=>[z.id,zoneNodes[i]]));
 const shapes=new Map();
@@ -845,7 +910,7 @@ const b=L.box.get(n.id);
 const parent=zoneOf.get(n.zone)||board;
 const px=parent===board?0:parent.x,py=parent===board?0:parent.y;
 const card=cards.get(n.id);
-const label=card?[n.label,...card.lines].join('\n'):(KINDS[n.kind].fixed?'':n.label);
+const label=card?[n.label,...card.lines].join('\n'):(FIXED[n.kind]?'':n.label);
 const s=shape(parent,n.kind,label,ox+b.x-px,oy+b.y-py,b.w,b.h,`node:${n.id}`,0,n.accent);
 if(card){
 s.text.fontName=REGULAR;
@@ -889,19 +954,21 @@ via:pts?'waypoints':undefined});
 };
 }
 const ARROWS={
-request:{dashed:false,cap:'ARROW_EQUILATERAL',color:DARK,key:'Request'},
-reply:{dashed:true,cap:'ARROW_EQUILATERAL',color:LINE,key:'Reply'},
-async:{dashed:false,cap:'ARROW_LINES',color:ASYNC,key:'Async message'},
-asyncReply:{dashed:true,cap:'ARROW_LINES',color:ASYNC,key:'Async reply'},
-focus:{dashed:false,cap:'ARROW_EQUILATERAL',color:SHAPE.lightPink.stroke,key:'In focus',weight:4},
+request:{cap:'ARROW_EQUILATERAL'},
+reply:{dashed:true,cap:'ARROW_EQUILATERAL'},
+async:{cap:'ARROW_LINES',color:T.line.async},
+asyncReply:{dashed:true,cap:'ARROW_LINES',color:T.line.async},
+focus:{cap:'ARROW_EQUILATERAL',color:ACCENT,weight:T.accent.message},
 };
 function buildSequence(M){
 const sizes=M.participants.map((p)=>fit(p.label,'ROUNDED_RECTANGLE'));
 const pw=Math.max(...sizes.map((s)=>s.w));
 const ph=Math.max(...sizes.map((s)=>s.h));
+const tall=natural('Ag',MEDIUM,TYPE.label).h;
+const fh=up8(tall+24);
+const ROW=up8(tall+40);
 const index=new Map(M.participants.map((p,i)=>[p.id,i]));
-const PIN=72;
-const centres=M.participants.map((_,i)=>PIN+pw/2+i*(pw+96));
+const centres=M.participants.map((_,i)=>pw/2+i*(pw+96));
 const near=(a,b)=>(b>a?a+1:a-1);
 const SELF_DROP=40;
 const selfReach=(m)=>up8(natural(m.label,MEDIUM,TYPE.label).w+64);
@@ -921,14 +988,13 @@ const lo=Math.min(a,near(a,b)),hi=Math.max(a,near(a,b));
 const short=need-(centres[hi]-centres[lo]);
 if(short>0)for(let i=hi;i<centres.length;i++)centres[i]+=up8(short);
 }
-const ROW=72;
 const top=ph+48;
 const rows=[];
 let y=top;
 for(const m of M.messages){rows.push(y);y+=m.from===m.to?ROW+SELF_DROP:ROW;}
 const bottom=y+16;
 const width=centres[centres.length-1]+Math.max(pw/2,reach);
-const height=bottom+ph;
+const height=bottom+fh;
 const used=[...new Set([...M.messages.map((m)=>m.arrow),...M.messages.filter((m)=>m.accent).map(()=>'focus')])];
 const key=[{kind:'participant'},...used.map((a)=>({arrow:a})),{pin:true}];
 return{
@@ -937,17 +1003,17 @@ draw(board,ox,oy){
 const heads=M.participants.map((p,i)=>{
 const x=ox+centres[i]-pw/2;
 const head=shape(board,'participant',p.label,x,oy,pw,ph,`node:${p.id}`);
-const foot=shape(board,'participant',p.label,x,oy+bottom,pw,ph,`foot:${p.id}`);
+const foot=shape(board,'participant',p.label,x,oy+bottom,pw,fh,`foot:${p.id}`,TYPE.label);
 elements.push({id:head.id,model:p.id,kind:'participant',text:p.label});
 const life=connect(board,head,foot,{name:`life:${p.id}`,line:'STRAIGHT',m0:'BOTTOM',m1:'TOP',
-endCap:'NONE',color:LIFELINE});
+endCap:'NONE',color:T.line.lifeline});
 life.dashPattern=[6,6];
 return head;
 });
 M.messages.forEach((m,k)=>{
 const yy=oy+rows[k];
 const a=index.get(m.from),b=index.get(m.to);
-const style={...(ARROWS[m.arrow]||ARROWS.request),...(m.accent?{color:ARROWS.focus.color,weight:4}:{})};
+const style={...(ARROWS[m.arrow]||ARROWS.request),...(m.accent?{color:ACCENT,weight:T.accent.message}:{})};
 const self=a===b;
 const x=ox+centres[a];
 const start=anchor(board,x,yy,`at:${k}:from`);
@@ -970,11 +1036,7 @@ name:`edge:${m.from}->${m.to}:${k + 1}`,line:'STRAIGHT',m0:'POINT',m1:'POINT',
 label:from===start?m.label:'',dashed:style.dashed,endCap:style.cap,color:style.color,weight:style.weight,
 });
 links.push({id:c.id,from:heads[a].id,to:heads[b].id,model:`${m.from}->${m.to}`,label:m.label});
-const pin=shape(board,'initial',String(k+1),ox+8,yy-16,32,32,`step:${k + 1}`,14);
-const v=SHAPE.violet;
-pin.fills=solid(v.fill);
-pin.strokes=solid(v.stroke);
-pin.text.fills=solid(WHITE);
+marker(board,String(k+1),x+(b<a?16:-48),yy-16,`step:${k + 1}`);
 });
 },
 };
@@ -987,7 +1049,7 @@ const scale=day?Math.min(96,Math.max(8,snap(1680/span))):Math.min(8,Math.max(1,1
 const tick=day?(span<=14?1:span<=70?7:span<=200?14:28):(span<=180?30:60);
 const tasks=M.sections.flatMap((s)=>s.tasks);
 const nameCol=up8(Math.max(240,...tasks.map((t)=>natural(t.name,MEDIUM,TYPE.label).w+48),
-...M.sections.map((s)=>natural(s.label,SEMI,TYPE.node).w+64)));
+...M.sections.map((s)=>natural(s.label,SEMI,TYPE.zone).w+64)));
 const AXIS=56,ROW=56,BAR=32,HEAD=72;
 const timeW=up8(span*scale);
 const width=nameCol+timeW+48;
@@ -1015,10 +1077,8 @@ return d>=60&&d%60===0?`${d / 60} h`:`${d} min`;
 };
 const statusOf=(t)=>(t.tags.includes('milestone')?'milestone':t.tags.includes('crit')?'crit'
 :t.tags.includes('active')?'active':t.tags.includes('done')?'done':'planned');
-const used=[...new Set(tasks.map(statusOf))];
-const order=['done','active','planned','crit','milestone'];
 const marked=tasks.find((t)=>t.accent);
-const key=order.filter((s)=>used.includes(s)).map((kind)=>({kind})).concat(marked?[{kind:'focus',like:statusOf(marked)}]:[]);
+const key=[...new Set(tasks.map(statusOf))].map((kind)=>({kind})).concat(marked?[{kind:'focus',like:statusOf(marked)}]:[]);
 return{
 width,height,key,
 draw(board,ox,oy){
@@ -1028,7 +1088,7 @@ const rule=(parent,x,top,hh,name)=>{
 const r=figma.createRectangle();
 parent.appendChild(r);
 r.name=name;
-r.fills=solid(FAINT);
+r.fills=solid('#D9D9D9');
 r.resize(1,Math.max(1,hh));
 r.x=x;
 r.y=top;
@@ -1042,7 +1102,7 @@ rule(board,x,oy+AXIS-8,height-AXIS+8,`grid:${t}`);
 });
 M.sections.forEach((s,i)=>{
 const band=bands[i];
-const sec=zoneSection(board,s.label,TINT_CYCLE[i%TINT_CYCLE.length],ox,oy+band.y,width,band.h);
+const sec=zoneSection(board,s.label,tintFor(i,s.tasks.map(statusOf),s.label,ox,oy+band.y,width,band.h),ox,oy+band.y,width,band.h);
 ticks.forEach((t)=>rule(sec,nameCol+t*scale,0,band.h,`grid:${t}`));
 s.tasks.forEach((t,k)=>{
 const ry=HEAD+k*ROW;
@@ -1055,8 +1115,8 @@ bar=shape(sec,'milestone','',bx-16,ry+(ROW-32)/2-4,32,32,`node:${t.id || t.name}
 }else{
 const w=Math.max(16,(t.end-t.start)*scale);
 const words=status==='crit'?`${length(t)}, critical`:length(t);
-const fits=natural(words,MEDIUM,14).w+24<=w;
-bar=shape(sec,status,fits?words:'',bx,ry+(ROW-BAR)/2-4,w,BAR,`node:${t.id || t.name}`,14,t.accent);
+const fits=natural(words,MEDIUM,TYPE.small).w+24<=w;
+bar=shape(sec,status,fits?words:'',bx,ry+(ROW-BAR)/2-4,w,BAR,`node:${t.id || t.name}`,TYPE.small,t.accent);
 }
 elements.push({id:bar.id,model:t.id||t.name,kind:status,text:t.name});
 });
@@ -1076,7 +1136,7 @@ const page=figma.currentPage;
 const others=page.children.filter((n)=>n.id!==measurer.id);
 const board=figma.createSection();
 board.name=MODEL.title;
-board.fills=solid(WHITE);
+board.fills=solid('#FFFFFF');
 board.x=others.length?snap(Math.max(...others.map((n)=>n.x+n.width))+400):0;
 board.y=others.length?snap(Math.min(...others.map((n)=>n.y))):0;
 created.push(board.id);
@@ -1085,6 +1145,12 @@ const title=text(board,MODEL.title,BOLD,TYPE.title,BOARD_PAD,BOARD_PAD);
 let cursor=title.y+title.height+16;
 if(MODEL.subtitle){
 const sub=text(board,MODEL.subtitle,REGULAR,TYPE.subtitle,BOARD_PAD,cursor,wrap);
+const lines=sub.height;
+if(lines>TYPE.subtitle*1.6){
+let lo=wrap/2,hi=wrap;
+while(hi-lo>8){const w=(lo+hi)/2;sub.resize(w,sub.height);if(sub.height>lines)lo=w;else hi=w;}
+sub.resize(hi,sub.height);
+}
 cursor=sub.y+sub.height;
 }
 const ox=BOARD_PAD;
@@ -1093,53 +1159,60 @@ body.draw(board,ox,oy);
 const key=figma.createSection();
 board.appendChild(key);
 key.name='Key';
-key.fills=solid(TINT.gray);
+key.fills=solid(TINT[T.key.tint]||TINT.gray);
 key.x=BOARD_PAD;
 key.y=oy+body.height+64;
 created.push(key.id);
-text(key,'Key',SEMI,TYPE.zone,32,32);
+text(key,T.key.title,SEMI,TYPE.zone,32,32);
 const LINES={
-dashedOptional:{dashed:true,label:'Optional or proposed'},
-dashedAsync:{dashed:true,label:'Async or outside call'},
-identifying:{dashed:false,label:'Identifying',cap:'NONE'},
-nonIdentifying:{dashed:true,label:'Non-identifying',cap:'NONE'},
-twoWay:{dashed:false,label:'Both ways',start:'ARROW_LINES'},
+dashedOptional:{dashed:true},dashedAsync:{dashed:true},identifying:{cap:'NONE'},
+nonIdentifying:{dashed:true,cap:'NONE'},twoWay:{start:'ARROW_LINES'},
 };
-let kx=32;
-const rowY=88;
-for(const item of body.key){
+const KINDS=Object.keys(T.kind),LINE_ORDER=Object.keys(LINES),ARROW_ORDER=Object.keys(ARROWS);
+const placeOf=(it)=>(it.kind==='focus'||it.arrow==='focus'?999:it.kind?KINDS.indexOf(it.kind)
+:it.line?100+LINE_ORDER.indexOf(it.line):it.arrow?200+ARROW_ORDER.indexOf(it.arrow):300);
+const keyWidth=Math.max(body.width,480);
+let kx=32,ky=88,kr=0;
+for(const item of body.key.sort((a,b)=>placeOf(a)-placeOf(b))){
+const x0=kx,made=[];
 let label;
 if(item.kind){
-const as=item.like||item.kind,k=KINDS[as];
-const tall=k.shape==='ENG_DATABASE'||k.shape==='ENG_QUEUE';
-const sw=k.fixed?Math.min(k.fixed[0],56):(ROUND.has(k.shape)?72:(tall?48:88));
-const sh=k.fixed?Math.min(k.fixed[1],56):(ROUND.has(k.shape)||tall?56:48);
-const sample=shape(key,as,'',kx,rowY,sw,sh,`key:${item.kind}`,0,!!item.like);
-sample.y=rowY+(56-sample.height)/2;
+const as=item.like||item.kind,f=FIXED[as],sh=shapeOf(as);
+const tall=sh==='ENG_DATABASE'||sh==='ENG_QUEUE';
+const sw=f?Math.min(f[0],56):(ROUND.has(sh)?72:(tall?48:88));
+const sht=f?Math.min(f[1],56):(ROUND.has(sh)||tall?56:48);
+const sample=shape(key,as,'',kx,ky,sw,sht,`key:${item.kind}`,0,!!item.like);
+sample.y=ky+(56-sample.height)/2;
+made.push(sample);
 kx+=sample.width+16;
-label=KINDS[item.kind].key;
+label=T.kind[item.kind].key;
 }else if(item.pin){
-const pin=shape(key,'initial','1',kx,rowY+12,32,32,'key:pin',14);
-pin.fills=solid(SHAPE.violet.fill);
-pin.strokes=solid(SHAPE.violet.stroke);
-pin.text.fills=solid(WHITE);
+made.push(marker(key,'1',kx,ky+12,'key:pin'));
 kx+=48;
-label='Step number';
+label=T.key.pin;
 }else{
-const spec=item.arrow?{...ARROWS[item.arrow],label:ARROWS[item.arrow].key}:LINES[item.line];
+const spec=item.arrow?ARROWS[item.arrow]:LINES[item.line];
 if(!spec)continue;
-const a=anchor(key,kx+8,rowY+28,`key:${item.arrow || item.line}:a`);
-const b=anchor(key,kx+88,rowY+28,`key:${item.arrow || item.line}:b`);
-connect(key,a,b,{name:`key:${item.arrow || item.line}`,line:'STRAIGHT',m0:'POINT',m1:'POINT',
+const name=item.arrow||item.line;
+const a=anchor(key,kx+8,ky+28,`key:${name}:a`);
+const b=anchor(key,kx+88,ky+28,`key:${name}:b`);
+connect(key,a,b,{name:`key:${name}`,line:'STRAIGHT',m0:'POINT',m1:'POINT',
 dashed:spec.dashed,endCap:spec.cap===undefined?'ARROW_LINES':spec.cap,startCap:spec.start||'NONE',
-color:spec.color||LINE,weight:spec.weight});
+color:spec.color,weight:spec.weight});
+made.push(a,b);
 kx+=112;
-label=spec.label;
+label=name==='focus'?T.kind.focus.key:T.key[name];
 }
-const t=text(key,label,REGULAR,TYPE.label,kx,rowY+18);
+const t=text(key,label,REGULAR,TYPE.label,kx,ky+18);
+made.push(t);
+if(t.x+t.width>keyWidth-32&&x0>32){
+made.forEach((n)=>{n.x+=32-x0;n.y+=72;});
+ky+=72;
+}
+kr=Math.max(kr,t.x+t.width);
 kx=up8(t.x+t.width+48);
 }
-key.resize(Math.max(kx-16,240),rowY+56+32);
+key.resize(Math.max(keyWidth,up8(kr+32)),ky+88);
 let bottom=key.y+key.height;
 if(MODEL.source){
 const src=text(board,MODEL.source,REGULAR,TYPE.label,BOARD_PAD,bottom+32,wrap);
@@ -1156,7 +1229,7 @@ if(counts[k]!==undefined&&counts[k]!==v)warnings.push(`${k}: drew ${counts[k]}, 
 const TAG='productowner';
 let tagged=true;
 try{
-board.setSharedPluginData(TAG,MODEL.title,JSON.stringify({written:new Date().toISOString(),counts}));
+board.setSharedPluginData(TAG,MODEL.title,JSON.stringify({written:new Date().toISOString(),counts,design:THEME.id||'built-in'}));
 }catch(err){
 tagged=false;
 warnings.push(`the board was not tagged: ${err.message}`);

@@ -8,7 +8,7 @@ trigger_phrases:
   - "user flow rules"
   - "screen flow figjam"
   - "merge dot"
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # FigJam Type - User Flow
@@ -46,7 +46,7 @@ Use another type when several people or teams hand work to each other (a process
 
 Every connector is a solid one-way arrow, `-->`, with an optional label: `a -->|Yes| b`.
 
-On the board the first screen is light blue, every other screen white, a decision a light yellow diamond, the goal light green and every other end light orange, beside the main line rather than on it. The main route from the first screen to the goal runs on one straight line, and `%% zone:` lines group the screens into named stages, as `assets/flow-templates.md` Section 1 sets out.
+On the board the first screen takes the `entry` role, every other screen the `neutral` role, a decision a diamond in the `decision` role, the goal the `goal` role and every other end the `exit` role, beside the main line rather than on it, and `assets/figjam-design.md` names the swatch each role draws. The main route from the first screen to the goal runs on one straight line, and `%% zone:` lines group the screens into named stages, as `assets/flow-templates.md` Section 1 sets out.
 
 Every move carries an actor in the model, one of a person, a system or a timer. A system step is marked automatic and a timer step is fired by time, so neither is ever counted as a missing user action.
 
@@ -85,7 +85,7 @@ Nine nodes is sk-design-diagram's general budget and matches what a hand-drawn u
 
 ## 5. COLOUR, ZONES AND NOTES
 
-The composer colours every screen by its kind. A user flow and a process each carry exactly one `style` line, which marks the first glance. A styled goal, failing end or decision keeps its kind and takes a pink outline. A styled step is drawn light pink. The line marks meaning: on an end it makes that end the goal, or with the light red pair a failure, and on a screen it puts that screen in focus, as `references/style-guide.md` Section 3 sets out. Zones are `%% zone:` lines in flow order, and once a flow has zones every screen sits in one. A note on a screen, such as a drop-off rate, goes on through the pins and legend recipe in `references/hybrid-workflow.md`.
+The composer colours every screen by its kind. A user flow and a process each carry exactly one `style` line, which marks the first glance. A styled goal, failing end or decision keeps its kind and takes the accent's outline. A styled step is drawn in the accent's pair. The line marks meaning: on an end it makes that end the goal, or with the light red pair a failure, and on a screen it puts that screen in focus, as `references/style-guide.md` Section 3 sets out. Zones are `%% zone:` lines in flow order, and once a flow has zones every screen sits in one. A note on a screen, such as a drop-off rate, goes on through the pins and legend recipe in `references/hybrid-workflow.md`.
 
 ---
 

@@ -30,20 +30,30 @@ stays plain Mermaid:
   It is optional, and a user flow or a process marks its first glance with a
   `style` line instead
 
+The board's style comes from `assets/figjam-design.md`, read over the composer's
+built-in design by `figjam_checks/design.py`. Only the tokens it changes are
+sent, in the code's THEME. A token that cannot stand falls back to its built-in
+value and a design file that cannot be read falls back whole, each named on a
+`DESIGN` line on stderr, so a bad edit never stops a board.
+
 Usage:
   compose_board.py <model.md> [--diagram N] [--out path]  -> 0 the filled code is written, 1 the model fails
                                                              the check, 2 unreadable or no such diagram
   compose_board.py <model.md> --model                      -> print the MODEL as JSON instead of the code
-  compose_board.py --template                              -> print the compact code with its MODEL placeholder, the
-                                                             text the Project's composer Knowledge file carries
+  compose_board.py --template                              -> print the compact code with its MODEL and THEME
+                                                             placeholders, the text the Project's composer
+                                                             Knowledge file carries
+  compose_board.py --design-check                          -> print the design a board is drawn in, what it
+                                                             changes, its measures and the THEME it sends: 0 the
+                                                             design reads with no warning, 1 one or more warnings
   compose_board.py --self-test                             -> prove every shipped model composes, its counts
                                                              match the check, the code fits one use_figma call and
-                                                             the board it draws keeps its geometry
+                                                             the board it draws keeps its geometry and its design
 """
 from __future__ import annotations
 
-import colorsys
 import contextlib
+import copy
 import io
 import itertools
 import json
@@ -61,9 +71,10 @@ sys.path.insert(0, str(HERE))
 import flow_check  # noqa: E402
 import mermaid_extract  # noqa: E402
 from figjam_checks import board_geometry as geometry  # noqa: E402
+from figjam_checks import design as board_design  # noqa: E402
 from figjam_checks import er, flowchart, gantt, sequence, state  # noqa: E402
 from figjam_checks.board_fixtures import MODELS as DEFECT_MODELS, NEEDS_STACKING  # noqa: E402
-from figjam_checks.common import CANVAS, content_lines, contrast, statements  # noqa: E402
+from figjam_checks.common import ACCENT_PAIRS, CANVAS, content_lines, contrast, statements  # noqa: E402
 from figjam_checks.layout import closing_edges  # noqa: E402
 
 PACKET = HERE.parent
@@ -71,9 +82,15 @@ TEMPLATE = PACKET / "assets" / "compose-board.js"
 # The claude.ai Project has no Python, so its agent fills MODEL by hand from a copy of the compact code.
 PROJECT_COPY = PACKET.parent / "claude project" / "knowledge" / "Product Owner - Assets - Flow Board Composer.md"
 PROJECT_FENCE = re.compile(r"```javascript\n(.*?)\n```", re.S)
+PROJECT_DESIGN = PROJECT_COPY.with_name("Product Owner - Assets - Flow Board Design.md")
+PROJECT_THEME = re.compile(r"## 1\. THE THEME.*?```text\n(.*?)\n```", re.S)
 PLACEHOLDER = "__MODEL__"
+THEME_PLACEHOLDER = "__THEME__"
+FILLED = re.compile(f"{PLACEHOLDER}|{THEME_PLACEHOLDER}")
 # use_figma takes at most 50,000 characters of code, and the model rides inside it.
 MAX_CODE_CHARS = 50_000
+# The composer's gap between two zones. A zone within two of them on any side sits beside it and takes another tint.
+ZONE_GAP = 48
 DIRECTIVE = re.compile(r"^\s*%%\s*(title|subtitle|source|zone|focus)\s*:\s*(.+?)\s*$", re.I)
 ARCHITECTURE_KINDS = {"client": "client", "gateway": "gateway", "service": "service", "datastore": "datastore",
                       "external": "external", "async": "queue"}
@@ -542,10 +559,11 @@ def squeeze(line: str) -> str:
 
 
 def compact_template() -> str:
-    """The composer code with its comments, indentation and idle spaces dropped and MODEL left a placeholder."""
+    """The composer code with its comments, indentation and idle spaces dropped and MODEL and THEME left placeholders."""
     template = TEMPLATE.read_text(encoding="utf-8")
-    if template.count(PLACEHOLDER) != 1:
-        raise SystemExit(f"{TEMPLATE} must hold {PLACEHOLDER} exactly once")
+    for placeholder in (PLACEHOLDER, THEME_PLACEHOLDER):
+        if template.count(placeholder) != 1:
+            raise SystemExit(f"{TEMPLATE} must hold {placeholder} exactly once")
     # The code is pasted into every call, so full-line comments, indentation and the spaces around operators
     # are dropped. None carries meaning in JavaScript, and no string in the composer spans a line.
     lines = [squeeze(line.strip()) for line in template.splitlines()]
@@ -566,14 +584,23 @@ def lean(value: object) -> object:
     return value
 
 
-def fill_template(model: dict) -> str:
-    """The compact composer code with this model in place of its placeholder."""
-    return compact_template().replace(PLACEHOLDER, json.dumps(lean(model), ensure_ascii=False, separators=(",", ":")))
+def fill_template(model: dict, theme: dict | None = None) -> str:
+    """The compact composer code with this model and this theme in place of their placeholders.
+
+    Both are filled in one pass, so a label that happens to read like a placeholder is never filled itself.
+    """
+    filled = {PLACEHOLDER: board_design.compact(lean(model)), THEME_PLACEHOLDER: board_design.compact(theme or {})}
+    return FILLED.sub(lambda match: filled[match.group(0)], compact_template())
 
 
 # ───────────────────────────────────────────────────────────────
 # 4. COMPOSE
 # ───────────────────────────────────────────────────────────────
+
+def design_warnings(notes: list[str]) -> str:
+    """The count of DESIGN lines, as the COMPOSED line and the design check print it."""
+    return f"{len(notes)} design warning{'' if len(notes) == 1 else 's'}"
+
 
 def compose(path: Path, number: int, out: Path | None, model_only: bool) -> int:
     """Compose one diagram of a model file, write its code or its MODEL and return the exit code."""
@@ -591,19 +618,71 @@ def compose(path: Path, number: int, out: Path | None, model_only: bool) -> int:
             print(f"  diagram {number}: {problem}", file=sys.stderr)
         print(f"FAILED diagram {number} in {path.name}: fix the model and run flow_check.py again", file=sys.stderr)
         return 1
-    payload = json.dumps(model, ensure_ascii=False, indent=1) if model_only else fill_template(model)
+    design, notes = board_design.resolve()
+    sent = board_design.theme(design)
+    payload = json.dumps(model, ensure_ascii=False, indent=1) if model_only else fill_template(model, sent)
     if not model_only and len(payload) > MAX_CODE_CHARS:
-        print(f"FAILED the code runs to {len(payload)} characters, over the {MAX_CODE_CHARS} one use_figma call takes",
+        cost = f", and the design's THEME takes {len(board_design.compact(sent))} of them" if sent else ""
+        print(f"FAILED the code runs to {len(payload)} characters, over the {MAX_CODE_CHARS} one use_figma call takes{cost}",
               file=sys.stderr)
         return 1
     if out:
         out.write_text(payload, encoding="utf-8")
     else:
         print(payload)
+    # A design warning is the reply's to report, so each one gets its own line before the summary.
+    for note in notes:
+        print(f"DESIGN {note}", file=sys.stderr)
     where = f" in {out}" if out else ""
+    fell = f", {design_warnings(notes)}" if notes else ""
     print(f"COMPOSED diagram {number}, {size}: {model['expect']['nodes']} nodes and "
-          f"{model['expect']['connectors']} connectors to read back, {len(payload)} characters{where}", file=sys.stderr)
+          f"{model['expect']['connectors']} connectors to read back, {len(payload)} characters{where}, "
+          f"drawn in the design {design['meta']['name']}{fell}", file=sys.stderr)
     return 0
+
+
+def design_check() -> int:
+    """Print the design a board is drawn in, what it changes and what it costs. Exit 1 on any design warning."""
+    base = board_design.built_in()
+    design, notes = board_design.resolve(base=base)
+    sent = board_design.theme(design, base)
+    swatch, accent = design["swatch"], design["accent"]
+    stroke = swatch[accent["pair"]][1]
+    room = MAX_CODE_CHARS - len(fill_template({}, sent)) + len(board_design.compact({}))
+    changed = board_design.difference({g: design[g] for g in board_design.EDITABLE},
+                                      {g: base[g] for g in board_design.EDITABLE}) or {}
+    flat = []
+
+    def walk(value: object, path: tuple) -> None:
+        if isinstance(value, dict):
+            for key, inner in value.items():
+                walk(inner, path + (key,))
+        else:
+            flat.append(f"{board_design.dotted(path)} {json.dumps(value)} (built in {json.dumps(board_design.get(base, path))})")
+
+    walk(changed, ())
+    print(f"DESIGN {board_design.DESIGN_FILE.name}: {design['meta']['name']}")
+    print(f"  changes from the built-in design: {'; '.join(flat) if flat else 'none'}")
+    for role, kinds in board_design.used_roles(design).items():
+        fill, _, text = swatch[design["role"][role]]
+        print(f"  {role}: {design['role'][role]}, text {contrast(text, fill):.2f}:1 on its fill, drawn by {', '.join(kinds)}")
+    hues = {role: board_design.apart(stroke, swatch[design["role"][role]][1]) for role in board_design.used_roles(design)
+            if board_design.hue(swatch[design["role"][role]][1])[1] > board_design.SATURATED}
+    nearest = min(hues, key=hues.get)
+    print(f"  accent: {accent['pair']}, stroke {contrast(stroke, CANVAS):.2f}:1 on white, {accent['node']} px on a node and "
+          f"{accent['message']} px on a message, nearest hue {nearest} at {hues[nearest]:.0f} degrees")
+    tints = {t: board_design.apart(stroke, design["tint"][t]) for t in design["zone"]["cycle"]}
+    print(f"  zone tints: {', '.join(design['zone']['cycle'])}, nearest the accent {min(tints, key=tints.get)} at "
+          f"{min(tints.values()):.0f} degrees")
+    size = design["type"]
+    print(f"  type: {size['family']}, " + ", ".join(f"{step} {size[step]}" for step in
+                                                     ("title", "subtitle", "zone", "node", "label", "field", "small")))
+    print(f"THEME {board_design.compact(sent)}")
+    print(f"  the theme costs {len(board_design.compact(sent))} characters and leaves {room:,} for the model in one use_figma call")
+    for note in notes:
+        print(f"DESIGN {note}")
+    print(design_warnings(notes))
+    return 1 if notes else 0
 
 
 # ───────────────────────────────────────────────────────────────
@@ -617,27 +696,140 @@ def accent_ids(model: dict) -> set[str]:
     return {node["id"] for node in model["nodes"] if node.get("accent") or node["kind"] == "focus"}
 
 
-def drawn_checks(name: str, model: dict, drawn: dict) -> list[tuple[str, bool, str]]:
-    """What a run of the composer drew, held to the board's geometry rules."""
+LINE_ORDER = ("dashedOptional", "dashedAsync", "identifying", "nonIdentifying", "twoWay")
+ARROW_ORDER = ("request", "reply", "async", "asyncReply")
+
+
+def zone_tint_problems(drawn: dict, model: dict, design: dict) -> list[str]:
+    """Zones and gantt bands whose tint repeats the hue of a node inside them or the tint of a zone beside them."""
+    fills, tints = board_design.colour_names(design)
+    labels = [z["label"] for z in model.get("zones", [])] or [s["label"] for s in model.get("sections", [])]
+    problems, placed = [], []
+    reach = 2 * ZONE_GAP
+    for label in labels:
+        section = next((n for n in drawn["nodes"] if n["type"] == "SECTION" and n["name"] == label), None)
+        if section is None:
+            continue
+        tint = tints.get(geometry.hex_of(section["fill"]), "")
+        hues = {board_design.family(fills.get(geometry.hex_of(n["fill"]), "")) for n in drawn["nodes"]
+                if n["parent"] == label and n["name"].startswith("node:")}
+        beside = [z for z in placed if z["x"] < section["x"] + section["w"] + reach and section["x"] < z["x"] + z["w"] + reach
+                  and z["y"] < section["y"] + section["h"] + reach and section["y"] < z["y"] + z["h"] + reach]
+        if not tint:
+            problems.append(f"zone {label} is drawn in {geometry.hex_of(section['fill'])}, which is no FigJam tint")
+        elif board_design.family(tint) in hues:
+            problems.append(f"zone {label} takes the {tint} tint, the hue of a node inside it")
+        else:
+            problems += [f"zone {label} takes the {tint} tint of {z['name']} beside it" for z in beside if z["tint"] == tint]
+        placed.append({**section, "tint": tint})
+    return problems
+
+
+def key_entries(drawn: dict) -> list[str]:
+    """The key's entries in reading order, row by row: a sample's kind, a line's or an arrow's name, or the pin."""
+    shapes = {n["id"]: n for n in drawn["nodes"]}
+    key = next(n for n in drawn["nodes"] if n["type"] == "SECTION" and n["name"] == "Key")
+    found = [(n["y"], n["x"], n["name"][4:]) for n in drawn["nodes"]
+             if n["parent"] == "Key" and n["name"].startswith("key:") and n["name"].count(":") == 1]
+    for c in drawn["connectors"]:
+        if c["name"].startswith("key:"):
+            start = shapes[c["start"]["endpointNodeId"]]
+            found.append((start["y"], start["x"], c["name"][4:]))
+    # A row starts 88 px down the key and the next 72 px below it, and every sample sits within 28 px of its row's top.
+    row = lambda y: round((y - key["y"] - 102) / 72)  # noqa: E731
+    return [name for _, _, name in sorted(found, key=lambda entry: (row(entry[0]), entry[1]))]
+
+
+def key_problems(drawn: dict, design: dict) -> list[str]:
+    """A key out of the order a reader meets the board in, or narrower than the diagram above it."""
+    kinds = board_design.key_order(design)
+
+    def place(name: str) -> int:
+        if name == "focus":
+            return 999
+        if name in kinds:
+            return kinds.index(name)
+        if name in LINE_ORDER:
+            return 100 + LINE_ORDER.index(name)
+        return 200 + ARROW_ORDER.index(name) if name in ARROW_ORDER else 300
+
+    entries = key_entries(drawn)
+    problems = []
+    if [place(e) for e in entries] != sorted(place(e) for e in entries):
+        problems.append(f"the key reads {', '.join(entries)}, out of the design's order")
+    key = next(n for n in drawn["nodes"] if n["type"] == "SECTION" and n["name"] == "Key")
+    right = max(n["x"] + n["w"] for n in drawn["nodes"] if n["name"].startswith(("node:", "foot:")))
+    if key["x"] + key["w"] < right - 1:
+        problems.append(f"the key ends at {key['x'] + key['w']:.0f} and the diagram runs on to {right:.0f}")
+    return problems
+
+
+def title_gap_problems(drawn: dict) -> list[str]:
+    """Routes that come within 48 px of the title block or within 40 px of the board's left edge."""
+    board = next(n for n in drawn["nodes"] if n["type"] == "SECTION" and n["parent"] == "")
+    top = min(n["y"] for n in drawn["nodes"] if n["name"].startswith(("node:", "via:")))
+    head = max((n["y"] + n["h"] for n in drawn["nodes"] if n["type"] == "TEXT" and n["parent"] == board["name"]
+                and n["y"] < top), default=board["y"])
+    points = [point for e in geometry.drawn_edges(drawn) for path in e["paths"] for point in path]
+    problems = []
+    if points and min(p[1] for p in points) < head + 48:
+        problems.append(f"a route climbs to {head + 48 - min(p[1] for p in points):.0f} px inside the gap under the title block")
+    if points and min(p[0] for p in points) < board["x"] + 40:
+        problems.append(f"a route runs {board['x'] + 40 - min(p[0] for p in points):.0f} px into the board's left margin")
+    return problems
+
+
+def pin_problems(drawn: dict, model: dict) -> list[str]:
+    """Step pins that stand away from the lifeline their message leaves."""
+    heads = {n["name"][5:]: n for n in drawn["nodes"] if n["name"].startswith("node:")}
+    problems = []
+    for k, m in enumerate(model["messages"], 1):
+        pin = next((n for n in drawn["nodes"] if n["name"] == f"step:{k}"), None)
+        head = heads[m["from"]]
+        if pin is None or abs(pin["x"] + pin["w"] / 2 - head["x"] - head["w"] / 2) > 40:
+            problems.append(f"step {k} stands away from the lifeline of {m['from']}")
+    return problems
+
+
+def drawn_checks(name: str, model: dict, drawn: dict, design: dict) -> list[tuple[str, bool, str]]:
+    """What a run of the composer drew, held to the board's geometry rules and to the design it was drawn in."""
     results = []
     warnings = (drawn["result"] or {}).get("warnings", [])
     results.append((f"{name} draws with no error and no warning", drawn["error"] is None and not warnings,
                     drawn["error"] or "; ".join(warnings)))
     if drawn["error"]:
         return results
+    keyed = key_problems(drawn, design)
+    results.append((f"{name} keys every mark in the design's order, as wide as the diagram", not keyed, "; ".join(keyed)))
     if model["type"] == "sequence":
         wrong = geometry.arrow_heads(drawn, model["messages"])
         results.append((f"{name} ends each message in the arrow its Mermaid form names", not wrong, "; ".join(wrong)))
         marked = geometry.message_accent_problems(drawn, model["messages"])
         results.append((f"{name} draws the accent on the message the model plans and on no other", not marked, "; ".join(marked)))
+        pins = pin_problems(drawn, model)
+        results.append((f"{name} sets each step number beside the lifeline its message leaves", not pins, "; ".join(pins)))
     else:
         planned = accent_ids(model)
         marked = geometry.accent_problems(drawn, planned)
-        what = f"draws the accent on {', '.join(sorted(planned))}, in pink, outweighing every other mark" if planned \
+        what = f"draws the accent on {', '.join(sorted(planned))}, in its own pair, outweighing every other mark" if planned \
             else "draws no accent the model does not plan"
         results.append((f"{name} {what}", not marked, "; ".join(marked)))
+        tinted = zone_tint_problems(drawn, model, design)
+        results.append((f"{name} tints every zone apart from its members and its neighbour", not tinted, "; ".join(tinted)))
     if model["type"] != "graph":
         return results
+    clear = title_gap_problems(drawn)
+    results.append((f"{name} keeps every route clear of the title block and the board's margin", not clear, "; ".join(clear)))
+    # Stage zones line up unless an edge skips a zone, which then keeps the way over or under it open.
+    order = {z["id"]: i for i, z in enumerate(model["zones"])}
+    zone_of = {n["id"]: n.get("zone") for n in model["nodes"]}
+    skips = any(abs(order[zone_of[e["from"]]] - order[zone_of[e["to"]]]) > 1 for e in model["edges"]
+                if zone_of.get(e["from"]) in order and zone_of.get(e["to"]) in order)
+    if model["zoneMode"] == "stage" and len(model["zones"]) > 1 and not skips:
+        edge = "y" if model["direction"] == "LR" else "x"
+        lines = sorted({round(z[edge]) for z in geometry.zone_sections(drawn, [z["label"] for z in model["zones"]])})
+        results.append((f"{name} lines its zones up along one {'top' if edge == 'y' else 'left'} edge", len(lines) == 1,
+                        f"{len(lines)} edges at {lines}"))
     through = geometry.lines_through_boxes(drawn)
     results.append((f"{name} draws no edge through a box that is not its own", not through, "; ".join(through)))
     shared = geometry.shared_ports(drawn)
@@ -671,14 +863,14 @@ def drawn_checks(name: str, model: dict, drawn: dict) -> list[tuple[str, bool, s
     return results
 
 
-def defect_checks(work: Path) -> list[tuple[str, bool, str]]:
-    """Each model that once drew a defect is composed again and measured."""
+def defect_checks(work: Path, sent: dict, design: dict) -> list[tuple[str, bool, str]]:
+    """Each model that once drew a defect is composed again in the active design and measured."""
     results = []
     for name, model in DEFECT_MODELS.items():
-        code = fill_template(model)
+        code = fill_template(model, sent)
         results.append((f"{name} fits one use_figma call", len(code) <= MAX_CODE_CHARS, f"{len(code)} characters"))
         drawn = geometry.run_trace(code, work)
-        results += drawn_checks(name, model, drawn)
+        results += drawn_checks(name, model, drawn, design)
         if model["type"] == "gantt":
             critical = [n for n in drawn["nodes"] if n["name"].startswith("node:") and "critical" in n["text"]]
             heavy = [n for n in drawn["nodes"] if n["name"] == "key:crit" and (n.get("weight") or 0) > 2]
@@ -688,7 +880,7 @@ def defect_checks(work: Path) -> list[tuple[str, bool, str]]:
                             f"{len(critical)} bars, {len(heavy)} key samples, {len(named)} key labels"))
         if name in NEEDS_STACKING:
             # Stacking is the one recovery for zones that clash, so with it removed the clash must stop the draw.
-            code = fill_template(model)
+            code = fill_template(model, sent)
             refused = code.replace("zoneMode:M.zoneMode,stack:true", "zoneMode:M.zoneMode")
             stopped = geometry.run_trace(refused, work) if refused != code else {"error": None, "nodes": [{}]}
             results.append((f"{name} is refused before anything is drawn when its zones clash",
@@ -697,37 +889,184 @@ def defect_checks(work: Path) -> list[tuple[str, bool, str]]:
     return results
 
 
-SHAPE_PAIR = re.compile(r"^\s+(\w+): \{ fill: h\(0x(\w\w), 0x(\w\w), 0x(\w\w)\), stroke: h\(0x(\w\w), 0x(\w\w), 0x(\w\w)\)", re.M)
-KIND_PAIR = re.compile(r"^\s+(\w+): \{ shape: '\w+', color: '(\w+)'", re.M)
-MIN_HUE_APART = 45
+def design_text(tokens: dict, version: int = board_design.SCHEMA_VERSION, name: str = "Planted") -> str:
+    """A design file holding one json block with these tokens, the shape a team writes."""
+    data = {"meta": {"name": name, "schemaVersion": version}, **tokens}
+    return f"# A planted design\n\n```json\n{json.dumps(data, indent=1)}\n```\n"
 
 
-def hue_of(hex_colour: str) -> tuple[float, float]:
-    """A colour's hue in degrees and its saturation."""
-    red, green, blue = (int(hex_colour[i:i + 2], 16) / 255 for i in (1, 3, 5))
-    hue, _, saturation = colorsys.rgb_to_hls(red, green, blue)
-    return hue * 360, saturation
+def leaf_paths(value: object, path: tuple = ()) -> set[tuple]:
+    """Every token path a nested design holds."""
+    if isinstance(value, dict):
+        return set().union(*(leaf_paths(inner, path + (key,)) for key, inner in value.items())) if value else set()
+    return {path}
 
 
-def accent_palette_checks(template: str) -> list[tuple[str, bool, str]]:
-    """The accent's pink belongs to the accent alone, sits well away from every kind's hue and passes the mark gate."""
-    strokes = {name: "#" + "".join(parts[3:]) for name, *parts in SHAPE_PAIR.findall(template)}
-    users = [kind for kind, pair in KIND_PAIR.findall(template) if pair == "lightPink"]
-    others = {kind: strokes[pair] for kind, pair in KIND_PAIR.findall(template) if pair in strokes and pair != "lightPink"}
-    pink = strokes.get("lightPink", "#000000")
-    apart = {kind: min(abs(hue_of(pink)[0] - hue_of(stroke)[0]) % 360, 360 - abs(hue_of(pink)[0] - hue_of(stroke)[0]) % 360)
-             for kind, stroke in others.items() if hue_of(stroke)[1] > 0.2}
-    closest = min(apart, key=apart.get) if apart else ""
-    return [
-        ("the accent pink is drawn by the focus kind and by no other kind", users == ["focus"], f"drawn by {users}"),
-        (f"the accent pink sits {MIN_HUE_APART} degrees or more from the hue of every kind",
-         bool(apart) and apart[closest] >= MIN_HUE_APART, f"{closest} is {apart.get(closest, 0):.0f} degrees away"),
-        ("the accent pink passes the 3:1 mark gate on a white canvas", contrast(pink, CANVAS) >= 3.0,
-         f"{contrast(pink, CANVAS):.2f}:1"),
+def design_checks(base: dict, design: dict, notes: list[str], sent: dict) -> list[tuple[str, bool, str]]:
+    """The built-in design keeps every floor, the design file reads clean and a bad edit falls back by name."""
+    results = []
+    missed = board_design.floors(base)
+    results.append(("the composer's built-in design keeps every floor: text, accent hue, contrast and weight, kinds apart "
+                    "and type bounds", not missed, "; ".join(problem for problem, _ in missed)))
+    results.append((f"{board_design.DESIGN_FILE.name} reads as one json block with no token falling back", not notes,
+                    "; ".join(notes)))
+    data, reason = board_design.read_block(board_design.DESIGN_FILE.read_text(encoding="utf-8")) \
+        if board_design.DESIGN_FILE.is_file() else (None, "is missing")
+    data = data or {}
+    results.append((f"{board_design.DESIGN_FILE.name} lists FigJam's swatches and tints exactly as the composer draws them",
+                    all(data.get(group) == base[group] for group in board_design.READ_ONLY), reason))
+    shipped = leaf_paths({g: base[g] for g in board_design.EDITABLE})
+    named = leaf_paths({g: data.get(g, {}) for g in board_design.EDITABLE})
+    results.append((f"{board_design.DESIGN_FILE.name} names every token the composer reads", shipped <= named,
+                    ", ".join(sorted(board_design.dotted(p) for p in shipped - named))))
+    light = {pair[0].lower(): pair[1].lower() for name, pair in base["swatch"].items() if name.startswith("light")}
+    results.append(("the check accepts exactly the composer's light pairs in a style line", light == ACCENT_PAIRS,
+                    f"composer {sorted(light)}, check {sorted(ACCENT_PAIRS)}"))
+    largest = max(DEFECT_MODELS.values(), key=lambda m: len(board_design.compact(lean(m))))
+    code = fill_template(largest, sent)
+    results.append(("the active design's theme leaves room for the largest planted model in one use_figma call",
+                    len(code) <= MAX_CODE_CHARS, f"{len(code)} characters"))
+    broken = [
+        ("a design file with no json block", "# A design\n", "holds 0 json blocks", None),
+        ("a design file with two json blocks", design_text({}) + design_text({}), "holds 2 json blocks", None),
+        ("a json block that does not parse", "```json\n{\"meta\": \n```\n", "does not parse", None),
+        ("a design for another schema version", design_text({}, 2), "schemaVersion 2", None),
+        ("a group the composer does not read", design_text({"colours": {}}), "colours is no group", None),
+        ("a token the composer does not read", design_text({"role": {"hero": "lightBlue"}}), "role.hero is no token", None),
+        ("a role that names no swatch", design_text({"role": {"goal": "neonGreen"}}), "names 'neonGreen'", ("role", "goal")),
+        ("a size written as text", design_text({"type": {"node": "20"}}), "type.node should be int", ("type", "node")),
+        ("pink back in the tint cycle", design_text({"zone": {"cycle": ["blue", "orange", "pink"]}}), "pink zone tint sits",
+         ("zone", "cycle")),
+        ("a goal drawn in the exit's pair", design_text({"role": {"goal": "lightOrange"}}), "success and exit draw one shape",
+         ("role", "goal")),
+        ("a role drawn in the accent's pair", design_text({"role": {"goal": "lightPink"}}), "the accent's own pair",
+         ("role", "goal")),
+        ("an accent outline no heavier than an end state's ring", design_text({"accent": {"node": 6}}), "outweigh the 6 px ring",
+         ("accent", "node")),
+        ("small type under 14 px", design_text({"type": {"small": 10}}), "small type is under 14 px", ("type", "small")),
+        ("an edited FigJam swatch", design_text({"swatch": {**base["swatch"], "white": ["#FFFFFF", "#000000", "#1E1E1E"]}}),
+         "never changes", None),
+        ("a tint cycle holding a list", design_text({"zone": {"cycle": [["blue"], "orange"]}}), "no FigJam section tints",
+         ("zone", "cycle")),
+        ("async messages drawn white", design_text({"line": {"async": "#FFFFFF"}}), "line.async measures 1.00:1",
+         ("line", "async")),
+        ("a key on the accent's hue", design_text({"key": {"tint": "pink"}}), "key's pink tint sits", ("key", "tint")),
+        ("edge labels larger than node type", design_text({"type": {"label": 40}}), "larger than node type",
+         ("type", "label")),
+        ("a start dot drawn white", design_text({"role": {"pseudo": "white"}}), "initial dot draws", ("role", "pseudo")),
+        ("a design name past 40 characters", design_text({}, name="x" * 41), "named unnamed", None),
+        ("zone names over 24 px", design_text({"type": {"zone": 28}}), "over 24 px", ("type", "zone")),
+        ("the key's tint in the zone cycle", design_text({"zone": {"cycle": ["blue", "gray"]}}), "the key's own tint",
+         ("zone", "cycle")),
+        ("a key title holding a lone surrogate", design_text({"key": {"title": "Key \ud800"}}), "not text", ("key", "title")),
     ]
+    for name, text, message, path in broken:
+        drawn_in, warned = board_design.resolve(text, base)
+        kept = path is None or board_design.get(drawn_in, path) == board_design.get(base, path)
+        results.append((f"{name} falls back with a warning that says '{message}'",
+                        any(message in w for w in warned) and kept and not board_design.floors(drawn_in), "; ".join(warned)))
+    every = board_design.resolve(design_text({"role": {role: "lightPink" for role in base["role"]}}), base)
+    results.append(("every role on the accent's pair falls back, one warning each, until every floor holds",
+                    not board_design.floors(every[0]) and not board_design.theme(every[0], base)
+                    and len(every[1]) == len(base["role"]), f"{len(every[1])} warnings, theme {board_design.theme(every[0], base)}"))
+    pair = board_design.resolve(design_text({"accent": {"message": 3}, "line": {"weight": 3}}), base)[0]
+    results.append(("two edits that miss one floor together keep the one that can stand",
+                    pair["accent"]["message"] == base["accent"]["message"] and pair["line"]["weight"] == 3,
+                    f"accent.message {pair['accent']['message']}, line.weight {pair['line']['weight']}"))
+    later = board_design.resolve(design_text({"accent": {"message": 3}, "line": {"weight": 4}}), base)
+    results.append(("a token reverted before another can stand once that one is back",
+                    later[0]["accent"]["message"] == 3 and later[0]["line"]["weight"] == base["line"]["weight"]
+                    and len(later[1]) == 1, f"accent.message {later[0]['accent']['message']}, line.weight "
+                    f"{later[0]['line']['weight']}, {'; '.join(later[1])}"))
+    shipped_text = board_design.DESIGN_FILE.read_text(encoding="utf-8") if board_design.DESIGN_FILE.is_file() else ""
+    windows = board_design.resolve(shipped_text.replace("\n", "\r\n"), base)[1]
+    results.append((f"{board_design.DESIGN_FILE.name} saved with Windows line endings reads clean", not windows, "; ".join(windows)))
+    unread = board_design.resolve(b"not text", base)
+    results.append(("a design the reader cannot handle still draws the built-in design, with a warning",
+                    not board_design.theme(unread[0], base) and any("could not be read" in w for w in unread[1]),
+                    "; ".join(unread[1])))
+    if PROJECT_DESIGN.is_file():
+        mirror = PROJECT_DESIGN.read_text(encoding="utf-8")
+        line = PROJECT_THEME.search(mirror)
+        results.append((f"{PROJECT_DESIGN.name} gives the THEME line the design check prints",
+                        bool(line) and line.group(1) == board_design.compact(sent),
+                        f"carries {line.group(1) if line else 'no THEME line'}, the check prints {board_design.compact(sent)}"))
+        results.append((f"{PROJECT_DESIGN.name} carries the json block of {board_design.DESIGN_FILE.name}",
+                        board_design.FENCE.findall(mirror) == board_design.FENCE.findall(shipped_text),
+                        "copy the skill's json block into it"))
+    return results
 
 
-def focus_checks(work: Path) -> list[tuple[str, bool, str]]:
+def restyle_checks(work: Path, base: dict) -> list[tuple[str, bool, str]]:
+    """A design that changes a role, the key's title, the tint cycle and the label size draws every change it makes."""
+    tokens = {"role": {"goal": "lightTeal"}, "key": {"title": "Legend"}, "zone": {"cycle": ["green", "yellow", "teal"]},
+              "type": {"label": 16}}
+    design, warned = board_design.resolve(design_text(tokens), base)
+    sent = board_design.theme(design, base)
+    results = [("a restyle reads with no token falling back and sends only its own tokens and its id",
+                not warned and set(sent) == {*tokens, "id"}, f"{'; '.join(warned)} sent {sorted(sent)}")]
+    model = next(m for m in DEFECT_MODELS.values() if m["type"] == "graph" and any(n["kind"] == "success" for n in m["nodes"])
+                 and m.get("zones"))
+    drawn = geometry.run_trace(fill_template(model, sent), work)
+    goal = [n for n in drawn["nodes"] if n["name"].startswith("node:") and n["fill"]
+            and geometry.hex_of(n["fill"]) == base["swatch"]["lightTeal"][0].lower()]
+    titled = any(n["type"] == "TEXT" and n["parent"] == "Key" and n["text"] == "Legend" for n in drawn["nodes"])
+    _, tints = board_design.colour_names(design)
+    zoned = {tints.get(geometry.hex_of(n["fill"])) for n in geometry.zone_sections(drawn, [z["label"] for z in model["zones"]])}
+    results.append(("a restyled board draws its goal in the new role's pair, titles its key Legend and tints from the new cycle",
+                    drawn["error"] is None and bool(goal) and titled and zoned <= {"green", "yellow", "teal"},
+                    f"{drawn['error'] or ''} {len(goal)} goal shapes, key title {titled}, tints {sorted(map(str, zoned))}"))
+    return results
+
+
+def extreme_checks(work: Path, base: dict, design: dict) -> list[tuple[str, bool, str]]:
+    """The planted models draw clean at the largest and the smallest sizes the floors allow, and a zone the tint
+    cycle cannot fit repeats a cycle tint with a warning, never the key's gray."""
+    results = []
+    for name, sizes in (("largest", {"node": 24, "zone": 24, "label": 24, "field": 24, "small": 24, "subtitle": 128, "title": 128}),
+                        ("smallest", {"node": 16, "zone": 16, "label": 14, "field": 14, "small": 14, "subtitle": 16, "title": 32})):
+        tried, warned = board_design.resolve(design_text({"type": sizes}), base)
+        geometry.use_design(tried)
+        failed = []
+        for label, model in DEFECT_MODELS.items():
+            drawn = geometry.run_trace(fill_template(model, board_design.theme(tried, base)), work)
+            failed += [check for check, ok, _ in drawn_checks(label, model, drawn, tried) if not ok]
+        results.append((f"the planted models draw clean at the {name} type sizes the floors allow", not warned and not failed,
+                        "; ".join(warned + failed[:3])))
+    geometry.use_design(design)
+    model = copy.deepcopy(next(m for m in DEFECT_MODELS.values() if m["type"] == "graph" and m.get("zones")))
+    zone = model["zones"][0]
+    members = [n for n in model["nodes"] if n.get("zone") == zone["id"]]
+    for node, kind in zip(members, ("start", "exit")):
+        node["kind"] = kind
+    drawn = geometry.run_trace(fill_template(model, {"zone": {"cycle": ["blue", "orange"]}, "id": "Planted 0"}), work)
+    section = next((n for n in drawn["nodes"] if n["type"] == "SECTION" and n["name"] == zone["label"]), None)
+    fill = geometry.hex_of(section["fill"]) if section else ""
+    said = any(w.startswith(f"zone {zone['label']} repeats") for w in (drawn["result"] or {}).get("warnings", []))
+    results.append(("a zone the tint cycle cannot fit repeats a cycle tint with a warning, never the key's gray",
+                    fill in {base["tint"]["blue"].lower(), base["tint"]["orange"].lower()} and said,
+                    f"{drawn['error'] or ''} drawn in {fill}, warned {said}"))
+    return results
+
+
+def font_checks(work: Path) -> list[tuple[str, bool, str]]:
+    """A family that will not load sets the board in Inter with a warning, and one that names its third weight SemiBold
+    keeps its own face."""
+    model = next(m for m in DEFECT_MODELS.values() if m["type"] == "graph")
+    results = []
+    for family, face, warns in (("Missing", "Inter", True), ("Semi", "Semi", False)):
+        drawn = geometry.run_trace(fill_template(model, {"type": {"family": family}, "id": "Planted 0"}), work)
+        fonts = {(n["font"]["family"], n["font"]["style"]) for n in drawn["nodes"] if n.get("font")}
+        said = any(f"the font {family} did not load" in w for w in (drawn["result"] or {}).get("warnings", []))
+        styles = {style for _, style in fonts}
+        kept = {f for f, _ in fonts} == {face} and ("SemiBold" in styles if face == "Semi" else "Semi Bold" in styles)
+        results.append((f"a board in the {family} family is set in {face}" + (" and says why" if warns else " with no warning"),
+                        drawn["error"] is None and kept and said == warns,
+                        f"{drawn['error'] or ''} fonts {sorted(fonts)}, warned {said}"))
+    return results
+
+
+def focus_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
     """A `%% focus:` line marks one thing on each diagram that takes no style line, and is refused where it names nothing."""
     from figjam_checks.fixtures import GOOD
 
@@ -740,7 +1079,7 @@ def focus_checks(work: Path) -> list[tuple[str, bool, str]]:
     results = []
     for kind, target in marked.items():
         model, problems, _ = build_model(mermaid_extract.SourceBlock(1, f"{GOOD[kind]}\n%% focus: {target}\n", 1), 1)
-        drawn = geometry.run_trace(fill_template(model), work) if model else None
+        drawn = geometry.run_trace(fill_template(model, sent), work) if model else None
         found = [] if not drawn else (geometry.message_accent_problems(drawn, model["messages"]) if model["type"] == "sequence"
                                       else geometry.accent_problems(drawn, {target}))
         results.append((f"%% focus: {target} marks the first glance of {kind}", model is not None and not problems and not found,
@@ -818,10 +1157,10 @@ def planted_board(zone: tuple[float, float, float, float] | None, edges: list[di
     return {"result": {}, "error": None, "nodes": nodes, "connectors": connectors}
 
 
-def fan_in_checks(work: Path) -> list[tuple[str, bool, str]]:
+def fan_in_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
     """Four sockets on a gateway of four magnets: the last one merges into an arrival instead of looping to a free magnet."""
     name = "an architecture with four clients on one gateway"
-    drawn = geometry.run_trace(fill_template(DEFECT_MODELS[name]), work)
+    drawn = geometry.run_trace(fill_template(DEFECT_MODELS[name], sent), work)
     into = [e for e in geometry.drawn_edges(drawn) if e["name"].endswith("->api")]
     long = [p for p in geometry.long_detours(drawn) if "->api" in p]
     merged = any({x for x in e["ports"] if x[2] == "in"} & {x for x in o["ports"] if x[2] == "in"}
@@ -873,7 +1212,13 @@ def self_test() -> int:
     """Prove every shipped model composes and draws true, and print one line per check."""
     results = []
     template = TEMPLATE.read_text(encoding="utf-8") if TEMPLATE.is_file() else ""
-    results.append((f"{TEMPLATE.name} holds {PLACEHOLDER} once", template.count(PLACEHOLDER) == 1, ""))
+    for placeholder in (PLACEHOLDER, THEME_PLACEHOLDER):
+        results.append((f"{TEMPLATE.name} holds {placeholder} once", template.count(placeholder) == 1, ""))
+    # Every board below is drawn in the active design, so a restyle is proved on the same boards as the default.
+    base = board_design.built_in()
+    design, notes = board_design.resolve(base=base)
+    sent = board_design.theme(design, base)
+    geometry.use_design(design)
     models = [m for m in sorted((PACKET / "assets").rglob("*.md")) if "```mermaid" in m.read_text(encoding="utf-8")]
     node = shutil.which("node")
     for path in models:
@@ -892,7 +1237,7 @@ def self_test() -> int:
                 # The check counts a composite as a state, and the board draws it as the zone around its states.
                 drawn = sum(1 for n in model["nodes"] if n["kind"] not in ("initial", "final")) + len(model["zones"])
             results.append((f"{name} draws the {wanted} the check counted", wanted == drawn, f"draws {drawn}"))
-            code = fill_template(model)
+            code = fill_template(model, sent)
             results.append((f"{name} fits one use_figma call", len(code) <= MAX_CODE_CHARS, f"{len(code)} characters"))
             if node:
                 with tempfile.NamedTemporaryFile("w", suffix=".mjs", delete=False, encoding="utf-8") as handle:
@@ -901,7 +1246,7 @@ def self_test() -> int:
                 Path(handle.name).unlink()
                 results.append((f"{name} is valid JavaScript", checked.returncode == 0, checked.stderr.strip()))
                 with tempfile.TemporaryDirectory() as work:
-                    results += drawn_checks(name, model, geometry.run_trace(code, Path(work)))
+                    results += drawn_checks(name, model, geometry.run_trace(code, Path(work)), design)
     planted = {
         "a zone naming a missing node": ("flowchart LR\n    %% zone: One: a, ghost\n    a([Start]) --> b([End])\n    style b fill:#CDF4D3\n",
                                          "ghost, which is no node"),
@@ -916,12 +1261,15 @@ def self_test() -> int:
         results.append((f"{name} is refused with '{message}'", any(message in p for p in problems), "; ".join(problems)))
     results += checker_checks()
     results += sequence_order_checks()
-    results += accent_palette_checks(template)
+    results += design_checks(base, design, notes, sent)
     if node:
         with tempfile.TemporaryDirectory() as work:
-            results += defect_checks(Path(work))
-            results += focus_checks(Path(work))
-            results += fan_in_checks(Path(work))
+            results += defect_checks(Path(work), sent, design)
+            results += focus_checks(Path(work), sent)
+            results += fan_in_checks(Path(work), sent)
+            results += restyle_checks(Path(work), base)
+            results += font_checks(Path(work))
+            results += extreme_checks(Path(work), base, design)
     if PROJECT_COPY.is_file():
         block = PROJECT_FENCE.search(PROJECT_COPY.read_text(encoding="utf-8"))
         results.append((f"{PROJECT_COPY.name} carries the current compact code",
@@ -950,6 +1298,8 @@ def main() -> int:
     if args == ["--template"]:
         print(compact_template())
         return 0
+    if args == ["--design-check"]:
+        return design_check()
     if not args or args[0].startswith("--"):
         print(__doc__.strip().split("Usage:")[1], file=sys.stderr)
         return 2

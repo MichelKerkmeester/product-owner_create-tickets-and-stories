@@ -1,0 +1,26 @@
+{
+  "specFolder": "017-figjam-flow-generation/037-figjam-design-spec",
+  "description": "A composed board's style lives in literals across the composer, the style guide, the type references and the check",
+  "keywords": [
+    "composed",
+    "board",
+    "style",
+    "lives",
+    "literals",
+    "across",
+    "composer",
+    "guide",
+    "type",
+    "references",
+    "check"
+  ],
+  "lastUpdated": "2026-10-25T20:08:50.105Z",
+  "specId": "037",
+  "folderSlug": "figjam-design-spec",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

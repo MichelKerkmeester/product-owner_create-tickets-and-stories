@@ -124,7 +124,7 @@ Every board comes out finished, on an 8 pixel grid, with nothing to tidy by hand
 
 - **A framed board.** One white section holds everything, named after the board's title
 - **A title and subtitle.** The title in 64 pixel type, with a one-sentence subtitle under it
-- **Zones.** Tinted sections group related steps, and the tints cycle so two neighbouring zones never read as one
+- **Zones.** Tinted sections group related steps. A zone never takes the colour of a step inside it, and two neighbouring zones never read as one
 - **Colour by kind.** The same colour means the same thing on every board: a light blue start, light yellow decision diamonds, a light green goal, a light orange exit and a light red error. Colour never stands alone, because shapes and labels carry the meaning too
 - **A key.** Under the diagram, with one sample of every colour, line and arrow the board uses and nothing else
 - **One pink outline.** A heavy pink outline marks the one thing to see first, such as the failed payment on a checkout flow. It is the only heavy line on the board, and the key names it `In focus`
@@ -140,6 +140,7 @@ Send the board's link with what should change. A board written in another sessio
 - **Change what the board says.** The change goes into the model and the board is composed again after a playback of the rows it touches and a fresh yes. The new board lands beside the old one first and is read back
 - **Remove the old board.** It asks once the new one checks out, and deletes the old board only on that second yes. With no second yes, both stay
 - **Restyle by hand.** It never moves, resizes or recolours a composed shape. A custom colour or a nudge to one node is a quick edit in FigJam, and it names the node so you can find it
+- **Change the look of every board.** Which colour means what, the first-glance accent, the type sizes and the words on the key live in one design file, `sk-create-figjam/assets/figjam-design.md`. Edit it once and every board composed after it follows. An edit that would weaken contrast or compete with the pink outline falls back to the shipped value, and the reply names it on a `Finding:` line. In a claude.ai Project the design arrives as the Knowledge file Assets - Flow Board Design
 
 After two attempts at the same board it stops and asks what is wrong rather than composing a third.
 

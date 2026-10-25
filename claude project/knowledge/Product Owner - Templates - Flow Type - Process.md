@@ -41,7 +41,7 @@ A lane is a subgraph with a readable label, `subgraph agent ["CS agent"]`, holdi
 
 Connectors are `-->` for the flow and `-.->` for an optional, asynchronous or later step, such as a log write.
 
-On the board each lane is a band in a light tint, named after its label and stacked in the order the model declares them. Every step sits inside its lane's band. The kinds take their colours from Rules - Flow Style Guide Section 2: a store is a violet cylinder, data entering or leaving a teal parallelogram and a sub-process a white predefined-process shape. A process without lanes may group its steps into stages with `%% zone:` lines.
+On the board each lane is a band in a light tint, named after its label and stacked in the order the model declares them. Every step sits inside its lane's band. The kinds take their shapes from Rules - Flow Style Guide Section 2 and their colour roles from Assets - Flow Board Design: a store is a cylinder in the `store` role, data entering or leaving a parallelogram in the `io` role and a sub-process a predefined-process shape in the `neutral` role. A process without lanes may group its steps into stages with `%% zone:` lines.
 
 ---
 
@@ -76,7 +76,7 @@ Over budget, cut in the house diagram guide's degrade order and stop as soon as 
 
 ## 5. COLOUR, ZONES AND NOTES
 
-The composer colours every step by its kind. A user flow and a process each carry exactly one `style` line, which marks the first glance. A styled goal, failing end or decision keeps its kind and takes a pink outline. A styled step is drawn light pink. The line marks meaning: on an end it names the goal or, in light red, a failure, and on a step it puts that step in focus. Figma's guidance gives every subgraph a different tint, and the house diagram guide keeps containers neutral so the marked step stays the strongest signal. The composer takes both: each lane gets its own tint, pale enough that a lane reads as a container and never as a mark. Notes on a step, such as a service level or a failure rate, go on through Templates - Flow Hybrid Workflow.
+The composer colours every step by its kind. A user flow and a process each carry exactly one `style` line, which marks the first glance. A styled goal, failing end or decision keeps its kind and takes the accent's outline. A styled step is drawn in the accent's pair. The line marks meaning: on an end it names the goal or, in light red, a failure, and on a step it puts that step in focus. Figma's guidance gives every subgraph a different tint, and the house diagram guide keeps containers neutral so the marked step stays the strongest signal. The composer takes both: each lane gets its own tint by the zone rule in Rules - Flow Style Guide Section 2, pale enough that a lane reads as a container and never as a mark. Notes on a step, such as a service level or a failure rate, go on through Templates - Flow Hybrid Workflow.
 
 ---
 
