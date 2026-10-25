@@ -135,6 +135,7 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 33 | 033-composed-boards/ | Boards composed with use_figma for design quality, then a SWE 2 MAX rerun | Complete |
 | 34 | 034-stop-and-label-fixes/ | Playback and gate kept apart, composed labels kept clear, notes contract reconciled, failed scenarios rerun | Complete |
 | 35 | 035-first-glance-and-routing/ | Accent tied to the first glance, routing clear of zone borders and shared stubs, HVR line last, failed scenarios rerun | Complete |
+| 36 | 036-figjam-design-system/ | Three-lineage research on board design quality and consistency and a user-editable design spec file | Complete |
 
 ### Phase Transition Rules
 
