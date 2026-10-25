@@ -66,7 +66,7 @@ The check enforces:
 - **A choice has 2 or 3 exits,** each with a guard label
 - **Composites one level deep.** A composite inside a composite is its own diagram
 - **Transitions stay within their level.** Mermaid forbids a move into another composite's substate, so the move goes to or from the composite itself
-- **Every state has a transition,** and state ids are camelCase or PascalCase
+- **Every state has a transition,** and state ids are camelCase or PascalCase. A state whose name is more than one word, or carries a hyphen, takes its readable name as a description, such as `state "In stay" as InStay` or `state "No-show" as NoShow`, because the composer draws the id itself when a state has none
 - **At most 9 states and 12 transitions,** and never more than twice as many moves between states as states, the `[*]` entry and exit arrows aside, which sk-design-diagram reads as two machines drawn as one
 - The shared rules: labels of at most 40 characters, no emoji, markup or literal `\n`
 

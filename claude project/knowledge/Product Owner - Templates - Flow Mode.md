@@ -367,7 +367,7 @@ On the composed route the read is `get_figjam` on the board id the write returne
 
 On the generated route the read is `get_figjam`, node by node, matching shapes by their label because the generator writes no layer names. When only a screenshot could be read, the read was visual, because a picture cannot prove which nodes a connector joins.
 
-A board that already holds content can be slower to read than a fresh one. A read that times out is retried on fewer nodes at a time, halving the count until the read returns. A timeout is never proof that a node or a connector is missing.
+A board that already holds content can be slower to read than a fresh one. A read that times out is retried on fewer nodes at a time, halving the count until the read returns. A timeout is never proof that a node or a connector is missing. When the file held content before the write, the read-back reads those nodes again and compares their count, position and size with the read taken before the write, so the reply can say the content already there was left as it was.
 
 ---
 
@@ -404,7 +404,7 @@ The playback is not one of the five reply lines. It runs before the write, and t
 
 The playback and the gate are two replies, never one. The playback comes before the model, so its reply carries no Mermaid, no check result and no composed code. It ends on its one question about the reading, names no plan, lists no calls and never asks whether to write. The gate reply follows the playback's answer, and its one question asks about the write alone. No question is ever worded so that one yes covers both, such as a yes that confirms the reading and the write together.
 
-Only a yes to the gate's own question writes. A yes to the playback, an answer to an intake round, a request to use the recommended answers or a yes to a question no reply asked never writes. Before the playback has had its answer, the reply to any of those is the playback. Once it has, and the gate has not been shown yet, the reply is the gate, and the write waits for the yes that answers it.
+Only a yes to the gate's own question writes. A yes to the playback, an answer to an intake round, a request to use the recommended answers or a yes to a question no reply asked never writes. Before the playback has had its answer, the reply to any of those is the playback. Once it has, and the gate has not been shown yet, the reply is the gate, and the write waits for the yes that answers it. A request to use the recommended answers sent after the playback counts as the playback's answer.
 
 ---
 
