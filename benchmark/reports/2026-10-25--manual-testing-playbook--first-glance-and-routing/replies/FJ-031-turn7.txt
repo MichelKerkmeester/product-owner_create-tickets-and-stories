@@ -1,0 +1,4 @@
+<figma-url>
+Read-back: board `96:3371` is deleted and `98:3478` is intact. I looked up both ids after the delete and did not re-read the board with `get_figjam`, since nothing on it changed. Before deleting, I checked that `96:3371` was a section named "Start a return" carrying this work's tag.
+Finding: the page now holds seven sections named "Start a return". The current one is `98:3478`, with Request an exception. The other six are the older boards, ids `68:306`, `78:1384`, `80:1439`, `85:1883`, `88:2284` and `95:3142`, and I left them untouched. If you want them cleared, say which ones, since I can't tell from here which of them are still in use.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

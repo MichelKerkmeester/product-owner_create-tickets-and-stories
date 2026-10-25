@@ -1,0 +1,5 @@
+== stage 1 board scenarios, until-write 2
+rate limited on turn 1, waiting 7 minutes
+{"id": "FJ-027", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 2, "turns_declared": 2}
+{"id": "FJ-028", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 2, "turns_declared": 2}
+{"id": "FJ-023", "side": "skill", "status": "failed", "attempts": 3, "turns_run": 1, "turns_declared": 2}

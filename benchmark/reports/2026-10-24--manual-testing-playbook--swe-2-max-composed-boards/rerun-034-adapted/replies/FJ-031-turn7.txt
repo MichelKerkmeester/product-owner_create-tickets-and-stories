@@ -1,0 +1,3 @@
+<figma-url>
+Deleted: the first section (node 84:1828, the one that said Contact support). Before deleting, I checked that it was a section named Start a return carrying the layer tag. The page went from 41 to 40 top-level items, and that node no longer exists.
+Kept: the new section (85:1883) is still there with its 10 top-level children, the same as in the read-back. The board now shows Request an exception after 30 days.

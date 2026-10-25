@@ -1,0 +1,1 @@
+Already done — the old board `28:1608` was removed as part of the approved revision, and the read just now confirms it's gone. The revised `Start a return` board at `29:1663` (with `Request an exception`) is the only one in the file. Nothing left to delete.

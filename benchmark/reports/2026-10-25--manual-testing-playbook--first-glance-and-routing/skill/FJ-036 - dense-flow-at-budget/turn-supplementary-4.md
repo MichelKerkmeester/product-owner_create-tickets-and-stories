@@ -1,0 +1,7 @@
+<figma-url>
+Read-back: 9 of 9 nodes, 11 of 11 connectors, 5 of 5 decision exits labelled, first glance: New price?
+Left out: failed payment, cancellation, platform split and payment option, none of them in your request
+Finding: the five exit labels (`Yes`, `No`, `Higher`, `Lower`, `Same`) were confirmed on the composing screenshot only, because the `get_figjam` outline lists connectors without their label text
+Finding: the `Yes` exit from `Room free?` leaves the top of the diamond and runs above `See other rooms` before dropping into `New price?`, so the main route bends instead of running on one line. The `Pick a room` label also straddles the right border of the `Find a room` zone. The composer routes both arrivals this way across the zone gap, and a fix is a model change such as moving `New price?` into `Find a room`, composed again after your yes. The old section would be deleted only on a second yes, so the board stands as written
+Finding: the Figma `figma-use` and `figma-use-figjam` skills could not be loaded, because this session has no tool that reads skill resources. The write ran from the composer's code unchanged and returned no warnings
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

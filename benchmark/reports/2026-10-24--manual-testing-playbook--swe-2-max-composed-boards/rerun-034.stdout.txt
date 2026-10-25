@@ -1,0 +1,5 @@
+{"id": "FJ-017", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 3, "turns_declared": 3}
+{"id": "FJ-019", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 4, "turns_declared": 4}
+{"id": "FJ-022", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 3, "turns_declared": 3}
+{"id": "FJ-023", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 3, "turns_declared": 3}
+{"id": "FJ-024", "side": "skill", "status": "failed", "attempts": 3, "turns_run": 1, "turns_declared": 3}
