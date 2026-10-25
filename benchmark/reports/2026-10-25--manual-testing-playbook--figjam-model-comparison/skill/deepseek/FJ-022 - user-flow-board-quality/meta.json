@@ -1,0 +1,168 @@
+{
+ "id": "FJ-022",
+ "label": "deepseek",
+ "model": "deepseek-v4-1-flash-1017-max",
+ "permission": "dangerous",
+ "runtime": "devin-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/user-flow-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "cerulean-hedge",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "108:4364"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 112.86,
+   "tool_calls": 34,
+   "tools_used": [
+    "read",
+    "exec",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "exec",
+    "read",
+    "read",
+    "grep",
+    "read",
+    "read",
+    "grep",
+    "mcp_list_tools",
+    "read",
+    "exec",
+    "read",
+    "exec",
+    "read",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec",
+    "exec",
+    "exec",
+    "read",
+    "read",
+    "grep",
+    "exec",
+    "exec"
+   ],
+   "input_tokens": 1763431,
+   "output_tokens": 24259,
+   "cached_tokens": 1643008,
+   "response_models": [
+    "deepseek-v4-1-flash-1017-max"
+   ],
+   "session_id": "cerulean-hedge",
+   "inner_calls": [
+    "create_session",
+    "whoami",
+    "get_figjam"
+   ],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 20.63,
+   "tool_calls": 1,
+   "tools_used": [
+    "exec"
+   ],
+   "input_tokens": 249114,
+   "output_tokens": 4940,
+   "cached_tokens": 242688,
+   "response_models": [
+    "deepseek-v4-1-flash-1017-max"
+   ],
+   "session_id": "cerulean-hedge",
+   "inner_calls": [],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 109.0,
+   "tool_calls": 10,
+   "tools_used": [
+    "mcp_read_resource",
+    "exec",
+    "mcp_read_resource",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec"
+   ],
+   "input_tokens": 1538667,
+   "output_tokens": 32847,
+   "cached_tokens": 1474688,
+   "response_models": [
+    "deepseek-v4-1-flash-1017-max"
+   ],
+   "session_id": "cerulean-hedge",
+   "inner_calls": [
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "boards": [
+    "108:4364"
+   ],
+   "kind": "DELIVERY"
+  }
+ ]
+}
