@@ -1,0 +1,189 @@
+{
+ "id": "FJ-039",
+ "model": "claude-sonnet-5-5",
+ "thinking": "high",
+ "runtime": "claude-code-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/thin-brief-asks-with-a-recommendation.md",
+ "scripted_turns": [
+  "$flow the Fernhouse return flow on a new board in our Fernhouse Product plan",
+  "go with your recommendations",
+  "Yes, that reading is right."
+ ],
+ "intake_answers_sent": 2,
+ "session_id": "eca1e621-c941-4a45-8874-7be43fe5d5d3",
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 44.77,
+   "tool_calls": 13,
+   "tools_used": [
+    "Glob",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Grep",
+    "Read",
+    "Grep"
+   ],
+   "input_tokens": 322251,
+   "output_tokens": 4775,
+   "reasoning_tokens": 2236,
+   "cost_usd": 0.39180679999999996,
+   "model_s": 43.3,
+   "startup_s": 1.22,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "eca1e621-c941-4a45-8874-7be43fe5d5d3",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 1,
+   "input": "$flow the Fernhouse return flow on a new board in our Fernhouse Product plan\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "adaptive": false,
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 15.11,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 87022,
+   "output_tokens": 1785,
+   "reasoning_tokens": 1035,
+   "cost_usd": 0.4239552999999999,
+   "model_s": 13.67,
+   "startup_s": 0.94,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "eca1e621-c941-4a45-8874-7be43fe5d5d3",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "adaptive": true,
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 20.96,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 88820,
+   "output_tokens": 2316,
+   "reasoning_tokens": 1647,
+   "cost_usd": 0.4630170999999999,
+   "model_s": 19.45,
+   "startup_s": 1.23,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "eca1e621-c941-4a45-8874-7be43fe5d5d3",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 3,
+   "input": "Use your recommended answers.",
+   "adaptive": true,
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 22.0,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 91147,
+   "output_tokens": 2697,
+   "reasoning_tokens": 1722,
+   "cost_usd": 0.5081846999999999,
+   "model_s": 20.51,
+   "startup_s": 1.19,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "eca1e621-c941-4a45-8874-7be43fe5d5d3",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 4,
+   "input": "go with your recommendations",
+   "adaptive": false,
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 41.43,
+   "tool_calls": 8,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 664675,
+   "output_tokens": 3992,
+   "reasoning_tokens": 1699,
+   "cost_usd": 0.7130348,
+   "model_s": 39.9,
+   "startup_s": 1.24,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "eca1e621-c941-4a45-8874-7be43fe5d5d3",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 5,
+   "input": "Yes, that reading is right.",
+   "adaptive": false,
+   "kind": "GATE"
+  }
+ ]
+}

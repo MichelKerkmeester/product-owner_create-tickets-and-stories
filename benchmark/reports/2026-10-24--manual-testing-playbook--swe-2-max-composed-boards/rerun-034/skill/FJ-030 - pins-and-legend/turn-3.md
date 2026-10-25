@@ -1,0 +1,6 @@
+<figma-url>
+Read-back: 7 of 7 nodes, 7 of 7 connectors, 4 of 4 decision exits labelled (exit labels read from the screenshot, because `get_figjam` returns no connector text), first glance: the confirmation with the QR code
+Extensions: 3 of 3 pins, 3 of 3 legend stickies, 0 overlaps
+Left out: free pickup for orders over €100, a proposal under review in the returns doc. The Fernhouse company context (2026-09-18) says there is no self-serve return today. It is not drawn, because you confirmed your account of the app and the returns doc governs.
+Finding: "Drop-off point" and "Courier pickup" leave the same side of "Drop-off or pickup?" and share a short stretch before splitting. The fix is a model change composed again, which needs your yes. The 30-day check sits right after "Order detail" as I assumed. I couldn't load Figma's `figma-use` skills in this runtime, so both writes ran on the packet's composer and pin recipe unchanged.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

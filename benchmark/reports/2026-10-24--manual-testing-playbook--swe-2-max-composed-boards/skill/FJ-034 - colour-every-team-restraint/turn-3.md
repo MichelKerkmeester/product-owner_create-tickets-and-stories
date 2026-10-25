@@ -1,0 +1,1 @@
+Nothing left to go ahead on — the board is already written and verified at <figma-url> If you want a change (a label, the second-photo loop, an added note), say what and I'll rework the model and recompose.

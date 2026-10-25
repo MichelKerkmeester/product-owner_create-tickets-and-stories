@@ -1,0 +1,5 @@
+<figma-url>
+Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled, first glance: the end states. The connector labels come from the write's return and its screenshot, because `get_figjam` shows no connector text.
+Left out: Pending expiry after 30 minutes, not in the supplied lifecycle
+Findings: the Upcoming and InStay states are named "InStay" on the board, not your "In stay", because I gave `NoShow` a description and missed `InStay`. A second finding is that "check out" and "missed check-in" leave the Confirmed section from the same point and split a short way below it. The composer controls that routing, so the fix for the label is a recompose with a description, after your yes, with the old section deleted only on a second yes.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

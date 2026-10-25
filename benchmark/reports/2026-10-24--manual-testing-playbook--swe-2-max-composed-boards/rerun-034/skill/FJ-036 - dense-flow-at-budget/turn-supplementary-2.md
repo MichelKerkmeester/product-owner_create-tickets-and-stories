@@ -1,0 +1,9 @@
+<figma-url>
+Read-back: 9 of 9 nodes, 11 of 11 connectors, 5 of 5 decision exits labelled, first glance: the New price? decision and its three outcomes. Nodes and connectors were matched by `get_figjam` on board `82:1574`. The labels on the 5 exits and on the other 2 connectors were read from the composing screenshot, because `get_figjam` does not return connector text, so that part was read visually.
+Left out: failed payments, cancellation, stay limits, Guest Support and leaving without a change. All five were out of scope in your answers to rounds one and two.
+Overview findings, both from the composing screenshot:
+* At the right of the New price? diamond, mid-frame, the Higher, Lower and Same connectors leave from one point and share a short stretch before splitting. The key and connectors are otherwise clear, and I saw no crossings. A fix would be a model change composed again after your yes, and I can't promise it moves the split
+* At the bottom right, the No charge connector loops around the outside to enter Updated booking from its right side, while the other two enter from the left. A fix would be a different node declaration order in the model, composed again after your yes
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
+
+The board section "Change booking dates" sits 400 pixels right of the existing content. The write spent 3 tool calls, `create_session`, `use_figma` and `get_figjam`, with no warnings and no extensions. The `figma-use` and `figma-use-figjam` skills the write path asks for were not loadable in this session, so I called `use_figma` without `skillNames`. Nothing in the file outside the new section was touched, and the temporary model files are deleted. To remove the board, I'd delete section `82:1574` only after your separate yes.

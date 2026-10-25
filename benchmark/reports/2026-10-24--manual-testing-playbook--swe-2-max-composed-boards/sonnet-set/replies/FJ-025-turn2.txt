@@ -1,0 +1,4 @@
+<figma-url> (board 1, start here) and <figma-url> (board 2)
+Read-back: board 1 has 4 of 4 participants and 7 of 7 messages, board 2 has 3 of 3 participants and 6 of 6 messages, with no composer warnings. Message directions and arrow styles match the model, and the labels match the model in the write's returned list and the overview screenshots. First glance: the hold is placed before the card is authorised and only confirmed after it, start here: 1. Checkout payment, card authorised
+Left out: the partner hub on a decline, because the brief does not say it is told. Finding: on board 1, message 6 "Booking confirmed" runs across the PaymentProvider lifeline to reach PartnerHub. That comes from the layout and a model change would not fix it. Board 2's subtitle wraps to two lines.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

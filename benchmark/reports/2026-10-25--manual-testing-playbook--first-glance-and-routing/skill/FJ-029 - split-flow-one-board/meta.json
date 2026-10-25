@@ -1,0 +1,174 @@
+{
+ "id": "FJ-029",
+ "model": "claude-sonnet-5-5",
+ "thinking": "high",
+ "runtime": "claude-code-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/split-flow-one-board.md",
+ "scripted_turns": [
+  "$flow the Loomlist signup and first workspace setup on a new board in our Loomlist Product plan. From the onboarding doc: the landing page, sign up with email or Google, verify the email code, where a wrong code shows an error with a resend, pick a free or team plan, where a team plan asks for teammates' emails and lets you skip, name the workspace, pick a template or start blank, and the editor opens with a welcome tip.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 1,
+ "session_id": "43034bdd-3273-474d-bb6a-13f306d3231a",
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 88.73,
+   "tool_calls": 13,
+   "tools_used": [
+    "Glob",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Grep",
+    "Read"
+   ],
+   "input_tokens": 250483,
+   "output_tokens": 10496,
+   "reasoning_tokens": 8129,
+   "cost_usd": 0.44309200000000004,
+   "model_s": 87.19,
+   "startup_s": 0.99,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "43034bdd-3273-474d-bb6a-13f306d3231a",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 1,
+   "input": "$flow the Loomlist signup and first workspace setup on a new board in our Loomlist Product plan. From the onboarding doc: the landing page, sign up with email or Google, verify the email code, where a wrong code shows an error with a resend, pick a free or team plan, where a team plan asks for teammates' emails and lets you skip, name the workspace, pick a template or start blank, and the editor opens with a welcome tip.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "adaptive": false,
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 30.87,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 93898,
+   "output_tokens": 3767,
+   "reasoning_tokens": 2784,
+   "cost_usd": 0.5213087000000001,
+   "model_s": 29.44,
+   "startup_s": 1.14,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "43034bdd-3273-474d-bb6a-13f306d3231a",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "adaptive": true,
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 73.07,
+   "tool_calls": 7,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Bash",
+    "Bash",
+    "ToolSearch"
+   ],
+   "input_tokens": 569130,
+   "output_tokens": 8983,
+   "reasoning_tokens": 5676,
+   "cost_usd": 0.7839941,
+   "model_s": 71.65,
+   "startup_s": 1.17,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "43034bdd-3273-474d-bb6a-13f306d3231a",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 3,
+   "input": "Yes, that reading is right.",
+   "adaptive": false,
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 302.99,
+   "tool_calls": 9,
+   "tools_used": [
+    "Glob",
+    "mcp__figma-remote__create_session",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "Bash",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 1429864,
+   "output_tokens": 60086,
+   "reasoning_tokens": 6048,
+   "cost_usd": 1.9195283,
+   "model_s": 301.79,
+   "startup_s": 0.89,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "43034bdd-3273-474d-bb6a-13f306d3231a",
+   "inner_calls": [
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "mcp__figma-remote__get_figjam"
+   ],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "adaptive": false,
+   "kind": "DELIVERY"
+  }
+ ]
+}

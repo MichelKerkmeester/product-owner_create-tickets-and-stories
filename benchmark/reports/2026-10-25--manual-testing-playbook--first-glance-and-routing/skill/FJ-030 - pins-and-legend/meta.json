@@ -1,0 +1,142 @@
+{
+ "id": "FJ-030",
+ "model": "claude-sonnet-5-5",
+ "thinking": "high",
+ "runtime": "claude-code-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/pins-and-legend.md",
+ "scripted_turns": [
+  "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review. Pin the three places support says customers give up, with a note on each: the reason list, where there are too many reasons, the drop-off or pickup choice, where the pickup fee is unclear, and the 30-day cut-off, where there is no warning before day 30.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "session_id": "e10eabc9-0982-4b15-8a49-8c4e92fc8204",
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 83.7,
+   "tool_calls": 15,
+   "tools_used": [
+    "Glob",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Grep",
+    "Read"
+   ],
+   "input_tokens": 441798,
+   "output_tokens": 8571,
+   "reasoning_tokens": 5790,
+   "cost_usd": 0.4654997,
+   "model_s": 82.47,
+   "startup_s": 0.89,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "e10eabc9-0982-4b15-8a49-8c4e92fc8204",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 1,
+   "input": "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review. Pin the three places support says customers give up, with a note on each: the reason list, where there are too many reasons, the drop-off or pickup choice, where the pickup fee is unclear, and the 30-day cut-off, where there is no warning before day 30.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "adaptive": false,
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 44.24,
+   "tool_calls": 5,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 432796,
+   "output_tokens": 4706,
+   "reasoning_tokens": 2740,
+   "cost_usd": 0.6389478000000001,
+   "model_s": 42.79,
+   "startup_s": 1.12,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "e10eabc9-0982-4b15-8a49-8c4e92fc8204",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "adaptive": false,
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 204.71,
+   "tool_calls": 8,
+   "tools_used": [
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Read",
+    "Bash"
+   ],
+   "input_tokens": 1412664,
+   "output_tokens": 35539,
+   "reasoning_tokens": 6757,
+   "cost_usd": 1.4367495000000001,
+   "model_s": 203.15,
+   "startup_s": 1.26,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "e10eabc9-0982-4b15-8a49-8c4e92fc8204",
+   "inner_calls": [
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam"
+   ],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "adaptive": false,
+   "kind": "DELIVERY"
+  }
+ ]
+}

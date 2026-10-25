@@ -1,0 +1,196 @@
+{
+ "id": "FJ-034",
+ "model": "claude-sonnet-5-5",
+ "thinking": "high",
+ "runtime": "claude-code-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/colour-every-team-restraint.md",
+ "scripted_turns": [
+  "$flow the Fernhouse damaged-item refund as a FigJam flow on a new board in our Fernhouse Product plan, and colour each step by the team that does it: customer reports damage with a photo, CS checks it and approves or asks for a second photo, the warehouse books a pickup, inspects the item and releases the refund",
+  "Yes, use lanes.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 1,
+ "session_id": "cbec6b50-7455-42e6-b527-419691a175b6",
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 54.43,
+   "tool_calls": 10,
+   "tools_used": [
+    "Glob",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 179330,
+   "output_tokens": 5714,
+   "reasoning_tokens": 3713,
+   "cost_usd": 0.35493660000000005,
+   "model_s": 53.02,
+   "startup_s": 1.11,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "cbec6b50-7455-42e6-b527-419691a175b6",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 1,
+   "input": "$flow the Fernhouse damaged-item refund as a FigJam flow on a new board in our Fernhouse Product plan, and colour each step by the team that does it: customer reports damage with a photo, CS checks it and approves or asks for a second photo, the warehouse books a pickup, inspects the item and releases the refund\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "adaptive": false,
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 31.76,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 81226,
+   "output_tokens": 3592,
+   "reasoning_tokens": 2696,
+   "cost_usd": 0.41393160000000007,
+   "model_s": 30.5,
+   "startup_s": 0.99,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "cbec6b50-7455-42e6-b527-419691a175b6",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "adaptive": true,
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 40.4,
+   "tool_calls": 6,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Bash",
+    "ToolSearch"
+   ],
+   "input_tokens": 489660,
+   "output_tokens": 4274,
+   "reasoning_tokens": 1995,
+   "cost_usd": 0.5964718,
+   "model_s": 39.11,
+   "startup_s": 0.93,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "cbec6b50-7455-42e6-b527-419691a175b6",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 3,
+   "input": "Yes, use lanes.",
+   "adaptive": false,
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 9.16,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 106263,
+   "output_tokens": 579,
+   "reasoning_tokens": 318,
+   "cost_usd": 0.6197364,
+   "model_s": 7.47,
+   "startup_s": 0.96,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "cbec6b50-7455-42e6-b527-419691a175b6",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 4,
+   "input": "Yes, that reading is right.",
+   "adaptive": false,
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 174.57,
+   "tool_calls": 6,
+   "tools_used": [
+    "mcp__figma-remote__create_session",
+    "Bash",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 855119,
+   "output_tokens": 30725,
+   "reasoning_tokens": 3038,
+   "cost_usd": 1.2652838999999998,
+   "model_s": 173.08,
+   "startup_s": 1.22,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "cbec6b50-7455-42e6-b527-419691a175b6",
+   "inner_calls": [
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam"
+   ],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 5,
+   "input": "Yes, go ahead.",
+   "adaptive": false,
+   "kind": "PLAYBACK"
+  }
+ ]
+}

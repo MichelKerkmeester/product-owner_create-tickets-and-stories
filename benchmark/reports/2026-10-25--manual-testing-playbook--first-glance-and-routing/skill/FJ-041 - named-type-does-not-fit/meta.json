@@ -1,0 +1,157 @@
+{
+ "id": "FJ-041",
+ "model": "claude-sonnet-5-5",
+ "thinking": "high",
+ "runtime": "claude-code-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/named-type-does-not-fit.md",
+ "scripted_turns": [
+  "$figjam a state diagram of the Fernhouse return flow on a new board in our Fernhouse Product plan: a customer opens an order, taps Return an item, picks a reason, chooses a refund or store credit and sees a confirmation",
+  "use your recommendation",
+  "Yes, that reading is right."
+ ],
+ "intake_answers_sent": 1,
+ "session_id": "b90a9dad-bb2d-4a8d-a6f1-d5ccec895f47",
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 47.81,
+   "tool_calls": 12,
+   "tools_used": [
+    "Bash",
+    "ToolSearch",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Grep",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 258419,
+   "output_tokens": 4960,
+   "reasoning_tokens": 2371,
+   "cost_usd": 0.3577272,
+   "model_s": 46.75,
+   "startup_s": 0.81,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "b90a9dad-bb2d-4a8d-a6f1-d5ccec895f47",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 1,
+   "input": "$figjam a state diagram of the Fernhouse return flow on a new board in our Fernhouse Product plan: a customer opens an order, taps Return an item, picks a reason, chooses a refund or store credit and sees a confirmation\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "adaptive": false,
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 37.03,
+   "tool_calls": 1,
+   "tools_used": [
+    "Read"
+   ],
+   "input_tokens": 163420,
+   "output_tokens": 3980,
+   "reasoning_tokens": 3192,
+   "cost_usd": 0.4346637,
+   "model_s": 35.14,
+   "startup_s": 1.64,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "b90a9dad-bb2d-4a8d-a6f1-d5ccec895f47",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "adaptive": true,
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 36.75,
+   "tool_calls": 5,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Bash"
+   ],
+   "input_tokens": 394328,
+   "output_tokens": 3404,
+   "reasoning_tokens": 1679,
+   "cost_usd": 0.589919,
+   "model_s": 35.22,
+   "startup_s": 1.1,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "b90a9dad-bb2d-4a8d-a6f1-d5ccec895f47",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 3,
+   "input": "use your recommendation",
+   "adaptive": false,
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 8.71,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 105249,
+   "output_tokens": 472,
+   "reasoning_tokens": 307,
+   "cost_usd": 0.6088452999999999,
+   "model_s": 7.05,
+   "startup_s": 1.19,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "b90a9dad-bb2d-4a8d-a6f1-d5ccec895f47",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 4,
+   "input": "Yes, that reading is right.",
+   "adaptive": false,
+   "kind": "GATE"
+  }
+ ]
+}

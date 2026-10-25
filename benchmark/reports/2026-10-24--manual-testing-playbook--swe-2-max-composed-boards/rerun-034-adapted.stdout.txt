@@ -1,0 +1,7 @@
+{"id": "FJ-031", "turn": 1, "input": "$flow how a Fernhouse customer starts a return in the app, o", "kind": "PLAYBACK", "figma": []}
+{"id": "FJ-031", "turn": 2, "input": "Yes, that reading is right.", "kind": "GATE", "figma": []}
+{"id": "FJ-031", "turn": 3, "input": "Yes, go ahead.", "kind": "DELIVERY", "figma": ["mcp__figma-remote__create_session", "mcp__figma-remote__use_figma", "mcp__figma-remote__get_figjam"]}
+{"id": "FJ-031", "turn": 4, "input": "change the Fernhouse return flow on that board: after 30 day", "kind": "GATE", "figma": []}
+{"id": "FJ-031", "turn": 5, "input": "Yes, that reading is right.", "kind": "GATE", "figma": []}
+{"id": "FJ-031", "turn": 6, "input": "Yes, go ahead.", "kind": "DELIVERY", "figma": ["mcp__figma-remote__use_figma", "mcp__figma-remote__get_figjam"]}
+{"id": "FJ-031", "turn": 7, "input": "Yes, delete the old board.", "kind": "DELIVERY", "figma": ["mcp__figma-remote__use_figma"]}

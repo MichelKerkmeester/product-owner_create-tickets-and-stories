@@ -1,0 +1,7 @@
+<figma-url>
+Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled, first glance: the end states
+Finding: Completed, Cancelled and No-show all draw in the same light gray, the composer's "Final state" colour, and the key names it. A different colour for each end state is a hand edit in FigJam.
+Finding: Check-out, No-show and one of the two cancel moves leave from Confirmed as a whole, as agreed. The board therefore reads as if check-out and No-show could also happen from Upcoming and In stay, and a guest can cancel during In stay.
+Finding: Two spots are crowded in the screenshot. The "check out" label sits on the right edge of the Confirmed section. The "missed check-in" line runs down past the Completed end dot and the Completed arrow to its end dot, which makes it look as if they join. A model change and a recompose would fix either, and the old board would go only on your second yes.
+Finding: I did not run `whoami`, so the board's membership in the Roamstay Product plan rests on your word. It landed in the file you named, 400 pixels right of the existing content, and I changed nothing already there.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

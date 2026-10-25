@@ -1,0 +1,10 @@
+<figma-url> (1. Sign up)
+<figma-url> (2. Workspace setup)
+Read-back: 11 of 11 nodes, 11 of 11 connectors, 4 of 4 decision exits labelled, exit labels read visually, first glance: the code check on board 1 and the editor opening on board 2, start here: 1. Sign up
+Left out: the error screen as its own node (carried on the "No" exit), the skip as its own branch (carried in the invite label), plan prices, screen copy and Google consent screens (excluded as agreed)
+Finding: on board 1 the label "No, error and resend" sits in the short gap between "Enter the email code" and "Code correct?" and touches the diamond's left tip. The forward connector into the diamond runs over the top of the board, so a reader can take the top line for the "No" path. The connector ids confirm the directions are right. A fix is a model change, such as shortening the label to "No, resend", composed again after your yes, with the old section deleted only on a second yes. Otherwise it is a hand edit in FigJam.
+Finding: on board 2 the "Free" connector runs just under the "Set up the workspace" zone title before it drops onto "Name the workspace". It is legible and the write returned no warning, so I'm leaving it unless you want it reshaped.
+Finding: the doc lists the Google path and the email code in one sequence, so both methods go into the code step as an assumed row. If Google skips the code, board 1 needs a decision and a node.
+Finding: I did not verify that file <test-file-key> sits in the Loomlist Product plan. The plan comes from your request, and an existing file needs no `whoami`.
+Finding: Figma's `figma-use` and `figma-use-figjam` skills were not available in this session, so I did not load them. The composer code ran unchanged and returned no warnings.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

@@ -1,0 +1,177 @@
+{
+ "id": "FJ-025",
+ "model": "claude-sonnet-5-5",
+ "thinking": "high",
+ "runtime": "claude-code-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/sequence-board-quality.md",
+ "scripted_turns": [
+  "$figjam draw the Roamstay checkout payment as a sequence diagram on a new board in our Roamstay Product plan. From the payments brief: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold, tells the partner hub and answers the app with 201. A declined card releases the hold and returns 402.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 1,
+ "session_id": "28c2cdd4-5c64-46cd-b801-a5ac6f169b5d",
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 78.23,
+   "tool_calls": 16,
+   "tools_used": [
+    "Glob",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Grep",
+    "Read",
+    "Read",
+    "Read",
+    "Bash"
+   ],
+   "input_tokens": 320448,
+   "output_tokens": 8980,
+   "reasoning_tokens": 6022,
+   "cost_usd": 0.4384852,
+   "model_s": 76.59,
+   "startup_s": 1.37,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "28c2cdd4-5c64-46cd-b801-a5ac6f169b5d",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 1,
+   "input": "$figjam draw the Roamstay checkout payment as a sequence diagram on a new board in our Roamstay Product plan. From the payments brief: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold, tells the partner hub and answers the app with 201. A declined card releases the hold and returns 402.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "adaptive": false,
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 33.08,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 92599,
+   "output_tokens": 4097,
+   "reasoning_tokens": 3147,
+   "cost_usd": 0.5112530000000001,
+   "model_s": 31.59,
+   "startup_s": 1.23,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "28c2cdd4-5c64-46cd-b801-a5ac6f169b5d",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "adaptive": true,
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 42.13,
+   "tool_calls": 6,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Grep",
+    "Bash",
+    "Write",
+    "Bash"
+   ],
+   "input_tokens": 544235,
+   "output_tokens": 5175,
+   "reasoning_tokens": 2471,
+   "cost_usd": 0.698893,
+   "model_s": 40.84,
+   "startup_s": 0.93,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "28c2cdd4-5c64-46cd-b801-a5ac6f169b5d",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 3,
+   "input": "Yes, that reading is right.",
+   "adaptive": false,
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 296.17,
+   "tool_calls": 10,
+   "tools_used": [
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "Glob",
+    "ToolSearch",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "Bash",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "mcp__figma-remote__get_figjam"
+   ],
+   "input_tokens": 1432904,
+   "output_tokens": 57687,
+   "reasoning_tokens": 3962,
+   "cost_usd": 1.8449088999999999,
+   "model_s": 294.91,
+   "startup_s": 0.94,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "28c2cdd4-5c64-46cd-b801-a5ac6f169b5d",
+   "inner_calls": [
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "mcp__figma-remote__get_figjam"
+   ],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "adaptive": false,
+   "kind": "DELIVERY"
+  }
+ ]
+}

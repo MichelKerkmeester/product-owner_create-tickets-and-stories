@@ -1,0 +1,10 @@
+{"id": "FJ-034", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 3, "turns_declared": 3}
+{"id": "FJ-036", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 2, "turns_declared": 2}
+{"id": "FJ-032", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 2, "turns_declared": 2}
+{"id": "FJ-033", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 2, "turns_declared": 2}
+{"id": "FJ-030", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 2, "turns_declared": 2}
+{"id": "FJ-031", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 5, "turns_declared": 5}
+{"id": "FJ-029", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 2, "turns_declared": 2}
+{"id": "FJ-024", "side": "skill", "status": "ok", "attempts": 1, "turns_run": 2, "turns_declared": 2}
+{"id": "FJ-027", "side": "skill", "status": "failed", "attempts": 3, "turns_run": 1, "turns_declared": 2}
+batch rc=137

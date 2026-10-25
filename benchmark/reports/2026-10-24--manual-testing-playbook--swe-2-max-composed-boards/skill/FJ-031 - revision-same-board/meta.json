@@ -1,0 +1,201 @@
+{
+ "id": "FJ-031",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/revision-same-board.md",
+ "twin": "SJ-031",
+ "model": "swe-2-max",
+ "permission": "dangerous",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "accessible-dibble",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 5,
+ "turns_run": 5,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 1380.29,
+   "tool_calls": 23,
+   "tools_used": [
+    "exec",
+    "exec",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "grep",
+    "read",
+    "read",
+    "read",
+    "mcp_list_tools",
+    "exec",
+    "exec",
+    "exec",
+    "exec"
+   ],
+   "input_tokens": 722335,
+   "output_tokens": 14595,
+   "cached_tokens": 350208,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "accessible-dibble",
+   "inner_calls": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 173.09,
+   "tool_calls": 12,
+   "tools_used": [
+    "mcp_call_tool",
+    "mcp_read_resource",
+    "mcp_read_resource",
+    "exec",
+    "mcp_call_tool",
+    "exec",
+    "read",
+    "read",
+    "mcp_call_tool",
+    "exec",
+    "mcp_call_tool",
+    "exec"
+   ],
+   "input_tokens": 1329279,
+   "output_tokens": 18829,
+   "cached_tokens": 1164288,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "accessible-dibble",
+   "inner_calls": [
+    "create_session",
+    "create_session",
+    "use_figma",
+    "get_figjam"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, go ahead."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 43.47,
+   "tool_calls": 1,
+   "tools_used": [
+    "exec"
+   ],
+   "input_tokens": 294555,
+   "output_tokens": 3823,
+   "cached_tokens": 150080,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "accessible-dibble",
+   "inner_calls": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "change the Fernhouse return flow on that board: after 30 days the app now shows Request an exception instead of Contact support"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 202.43,
+   "tool_calls": 6,
+   "tools_used": [
+    "exec",
+    "exec",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec"
+   ],
+   "input_tokens": 1142196,
+   "output_tokens": 18561,
+   "cached_tokens": 974528,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "accessible-dibble",
+   "inner_calls": [
+    "use_figma",
+    "get_figjam",
+    "use_figma"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 16.36,
+   "tool_calls": 1,
+   "tools_used": [
+    "mcp_call_tool"
+   ],
+   "input_tokens": 349927,
+   "output_tokens": 543,
+   "cached_tokens": 305856,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "accessible-dibble",
+   "inner_calls": [
+    "get_figjam"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 5,
+   "input": "Yes, delete the old board."
+  }
+ ]
+}

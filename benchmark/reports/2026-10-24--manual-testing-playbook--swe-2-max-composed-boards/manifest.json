@@ -1,0 +1,2642 @@
+{
+ "model": "swe-2-max",
+ "permission": "dangerous",
+ "runtime": "devin",
+ "runtime_version": "devin 3000.11.205 (6dea39440ae3)",
+ "scenarios": [
+  {
+   "id": "PTK-007",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "clickup-push-targets",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/clickup-push-targets.md",
+   "turns": [
+    "$quick $task Change the free-shipping banner to \"Free shipping over €50\" and \"Free shipping over £45\", the current copy in context/fernhouse-context.md wraps to two lines on small phones."
+   ],
+   "twin": "STK-007",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "PTK-006",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "data-tracking-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/data-tracking-task.md",
+   "turns": [
+    "Can you write a task for the booking funnel events in Nadia's tracking plan, context/roamstay-booking-funnel-tracking-plan.md? Our conventions are in context/roamstay-context.md.",
+    "It is the Data team's own task under TRK. Nadia checks every event in events-collector as the squads ship them, moves the funnel dashboard over to booking_confirmed and has the collector drop checkout_complete on its removal date. The client events and booking_confirmed itself get separate FE and BE tasks later. Refinement closed yesterday with no change to the event table."
+   ],
+   "twin": "STK-006",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "PTK-002",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "design-notes-fe-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/design-notes-fe-task.md",
+   "turns": [
+    "$task FE task for the stay limits in the Guest app date picker. Ines's handover notes are in context/roamstay-date-picker-design-notes.md and our ticket conventions in context/roamstay-context.md.",
+    "One FE task for iOS, Android and web together, no parent, and the Search squad takes it into the 8.13.0 train. Leave search-service as it is, its own 30-night check stays as the backstop. QA signs it off on all three platforms in en-GB and en-US."
+   ],
+   "twin": "STK-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "PTK-003",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "long-be-integration-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/long-be-integration-task.md",
+   "turns": [
+    "$t BE task for the label webhook fix, Joris is taking it. The carrier API facts are in context/fernhouse-carrier-label-api-notes.md, the fix Noor summarised is at the end of context/fernhouse-carrier-label-thread.md and our ticket conventions are in context/fernhouse-context.md. Scope is the five points from the thread: answer inside the carrier's timeout and work from a queue, dedupe on event_id, guard against a second open shipment for a parcel, the 10-minute GET for stragglers and the alerting. Polling only stays out, the thread rejected it.",
+    "No parent, it goes on the Fulfilment board and has to be live before the November peak. Done means replaying a slow afternoon in staging gives one shipment and one label per parcel, and a label.created that lands after the 10-minute GET already took the label changes nothing. Keep our 8-second timeout on the warehouse system, only move that call out of the request."
+   ],
+   "twin": "STK-003",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "PTK-004",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "parent-task-with-subtasks",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/parent-task-with-subtasks.md",
+   "turns": [
+    "$task Parent task for recurring to-dos from Ines's brief in context/loomlist-recurring-todos-pm-brief.md, with subtasks for iOS, Android, web and BE. Board conventions are in context/loomlist-context.md.",
+    "Only the parent for now, the platform leads write their own subtasks from it, so list the four by title the way our board names them. State the shared rules once in the parent so the subtasks can point at it. iOS and Android aim for the 5.4.0 release, and web and BE ship dark before that."
+   ],
+   "twin": "STK-004",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "PBG-001",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "quick-bug",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/quick-bug.md",
+   "turns": [
+    "$quick $bug iOS 4.8.0, the cart badge keeps the old count after an item is removed. Put 2 of one product and 1 of another in the cart so the tab bar badge reads \"3\", open the cart and tap \"Remove\" on the single item. The cart then holds 2 units but the badge stays on \"3\" until the app is restarted. Happens every time on both our iOS test phones, while Android 4.8.2 and web update the badge straight away. Severity Medium, product context is in context/fernhouse-context.md"
+   ],
+   "twin": "SBG-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "PTK-001",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "quick-copy-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/quick-copy-task.md",
+   "turns": [
+    "$quick $task Change the free-shipping banner to \"Free shipping over €50\" and \"Free shipping over £45\", the current copy in context/fernhouse-context.md wraps to two lines on small phones."
+   ],
+   "twin": "STK-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "PTK-005",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "supplied-parent-subtask",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/supplied-parent-subtask.md",
+   "turns": [
+    "$task --subtask Android subtask of the recurring to-dos parent in context/loomlist-recurring-todos-parent-task.md. Board conventions are in context/loomlist-context.md.",
+    "It is the Android one from that list, phones and tablets, and Oskar's team takes it into the 5.4.0 release. BE builds the engine in parallel, so the app shows the next due date BE returns and never works it out on the device."
+   ],
+   "twin": "STK-005",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "PBG-002",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "support-ticket-bug",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/support-ticket-bug.md",
+   "turns": [
+    "$bug Guest Support escalated ticket 58213 to Booking. On Android the confirmation screen leaves city tax out of the total on stays of 2 nights or more, so the guest saw \"Total €387.00\" and was charged €405.00. The ticket with Maren's tests is in context/roamstay-support-ticket-58213.md and our product context is in context/roamstay-context.md",
+    "Severity High. We do not know the guest's phone model, and Maren's test phone runs Android 14. No screen recording, and the guest's screenshot stays in the support desk tool. I checked web this morning with a 3-night Pay now booking and its confirmation total was right. No related bug is open, and nobody on Booking has looked at the code yet."
+   ],
+   "twin": "SBG-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "PBG-003",
+   "side": "project",
+   "group": "project-backlog-modes",
+   "slug": "two-platform-log-bug",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-backlog-modes/two-platform-log-bug.md",
+   "turns": [
+    "$b Reminders arrived an hour late after the March clock change, one-off reminders on Android and daily ones on iOS. Please write it up as one bug for the To-dos and Reminders team from Ruben's log lines in context/loomlist-reminders-dst-log-excerpt.md and Marta's support reports in context/loomlist-reminders-dst-user-reports.md, with our product context in context/loomlist-context.md",
+    "Severity High for both. Support never collected device models or OS versions, so we have none. QA has not reproduced either one yet, and nobody has checked the current 5.3 apps because the clocks have not changed since March. No screenshots or recordings, and no other bug is open for it. Keep it as one report."
+   ],
+   "twin": "SBG-003",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "PDK-001",
+   "side": "project",
+   "group": "project-document-modes",
+   "slug": "behavior-reference",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-document-modes/behavior-reference.md",
+   "turns": [
+    "Can you document how discount codes and automatic promotions stack? Start with context/fernhouse-promotions-rules.md, and context/fernhouse-context.md has the company background.",
+    "Thanks. A few changes: it's for CS agents and the Checkout engineers, so they can predict the discount on any cart, and it stays a behavior reference. Those two files are all there is, the rules note governs and the context doc is background only. Make sure the old two-codes rule is in there with its retired label, because CS still refunds those orders, and leave out how merchandisers set promotions up in Admin."
+   ],
+   "twin": "SDK-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "PDK-004",
+   "side": "project",
+   "group": "project-document-modes",
+   "slug": "catalog-conflict-gate",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-document-modes/catalog-conflict-gate.md",
+   "turns": [
+    "$doc Can you pull the six activity emails into one reference page? So far I have context/loomlist-notification-spec.md and context/loomlist-email-template-inventory.md, plus context/loomlist-context.md for background.",
+    "A catalog for Support agents and the Notifications engineers. On the send time the spec is right, the digest goes at 08:00 in the recipient's local time and the 07:00 UTC in the inventory is stale. Take the template names from the inventory, use only these three files, describe current behavior and leave push notifications out."
+   ],
+   "twin": "SDK-004",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "PDK-002",
+   "side": "project",
+   "group": "project-document-modes",
+   "slug": "incident-runbook",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-document-modes/incident-runbook.md",
+   "turns": [
+    "$doc We need a doc on handling payment webhook failures, like the INC-0412 outage. Start with context/roamstay-payment-webhook-incident-notes.md, and context/roamstay-context.md has the company background.",
+    "A runbook for whoever is on call in #payments-oncall, from the alert firing to the cleanup. Those two files are all there is, the incident notes govern and the context doc is background only. Write it as what we do today, list the review follow-ups at the end with where each one stands, and leave out the guest apology emails."
+   ],
+   "twin": "SDK-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "PDK-005",
+   "side": "project",
+   "group": "project-document-modes",
+   "slug": "narrative-status-overview",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-document-modes/narrative-status-overview.md",
+   "turns": [
+    "Can you document where things stand on the lost edits between devices, as a status overview Priya can read on her first day on the Sync team? Start with context/loomlist-sync-conflict-thread.md, and context/loomlist-context.md has the company background.",
+    "Thanks. Can you update the document so it answers why we don't just go with B when most of the thread backs it, since Priya will ask? Also say what Support tells members until the decision, and keep it to what the thread says."
+   ],
+   "twin": "SDK-005",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "PDK-003",
+   "side": "project",
+   "group": "project-document-modes",
+   "slug": "proposal-decision-owner",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-document-modes/proposal-decision-owner.md",
+   "turns": [
+    "$d Can you write up where we are on sync conflicts and the lost edits? Start with context/loomlist-sync-conflict-thread.md, and context/loomlist-context.md has the company background.",
+    "A proposal for the Sync and Mobile engineers and the Support lead to read before the call is made. Those two files are all there is, the thread governs and the context doc is background on how v3 works today. Nothing is settled, so cover all three options with their cost and trade-offs and say where people in the thread landed. Keep the offline mode plans out of it."
+   ],
+   "twin": "SDK-003",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "PFL-001",
+   "side": "project",
+   "group": "project-flow-modes",
+   "slug": "flow-gate-no-route",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-flow-modes/flow-gate-no-route.md",
+   "turns": [
+    "$flow Make a FigJam flow of back-in-stock alerts from Lotte's spec below, as a new board in our Fernhouse Product plan. Company background is in context/fernhouse-context.md. Spec: a customer on the product page of a sold-out item taps \"Notify me\". A signed-in customer's alert is saved to their account straight away. A guest types an email address first, then the alert is saved. When the item is back in stock the customer gets one email. Push alerts in the app are a proposal only, nobody has agreed them yet.",
+    "Yes, go ahead."
+   ],
+   "twin": "SFL-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 7
+  },
+  {
+   "id": "PID-001",
+   "side": "project",
+   "group": "project-identity",
+   "slug": "identity-handover",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-identity/identity-handover.md",
+   "turns": [
+    "$task Small front end task for a \"Due today\" filter chip on the To-dos view, the chips we have today are described in context/loomlist-context.md",
+    "Front end, Web only for now, Desktop gets it through the web client and the apps follow later. The chip goes right after Overdue and shows to-dos not checked off that are due today in the owner's time zone, sorted by due date like the other chips, and only one chip is active at a time. Picking it sends filter_selected with filter set to due_today, which Yara has already added to the tracking plan. No Figma, reuse the existing chip, and nothing else depends on it."
+   ],
+   "twin": "SID-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 1
+  },
+  {
+   "id": "PIR-005",
+   "side": "project",
+   "group": "project-interactive-routing",
+   "slug": "bug-with-figjam-pair",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-interactive-routing/bug-with-figjam-pair.md",
+   "turns": [
+    "$quick $bug On the Fernhouse checkout, one tap on Pay charges twice in 2 of 5 tries. Expected one charge, actual two. Add a FigJam sequence diagram of the attempt."
+   ],
+   "twin": "SIR-005",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PIR-010",
+   "side": "project",
+   "group": "project-interactive-routing",
+   "slug": "clickup-handoff-owner",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-interactive-routing/clickup-handoff-owner.md",
+   "turns": [
+    "$quick $task Disable Confirm after its first tap until the checkout response returns. Re-enable it after an error so the shopper can retry.",
+    "Do not push this yet."
+   ],
+   "twin": "SIR-010",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PIR-002",
+   "side": "project",
+   "group": "project-interactive-routing",
+   "slug": "conflicting-commands",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-interactive-routing/conflicting-commands.md",
+   "turns": [
+    "$bug $story Not sure if this is a bug or a story, customers lose their app wishlist when they change phones and cannot see it on web, CS has 412 contacts on it, see context/fernhouse-context.md and context/fernhouse-wishlist-feedback.md",
+    "Write it as a story, not a bug. The apps have always saved the wishlist on the device, so this is a change. Quick is fine. Signed-in customers on iOS and Android get their wishlist saved to the account, the same list web shows, and the first time they sign in on a device, the items saved on it move into the account list. Keep the limit of 50 items, and when the two lists together pass 50, keep the 50 most recently added. Customers without an account keep the device wishlist as it works today. Lotte signed this off yesterday."
+   ],
+   "twin": "SIR-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PIR-003",
+   "side": "project",
+   "group": "project-interactive-routing",
+   "slug": "flow-first-story-pair",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-interactive-routing/flow-first-story-pair.md",
+   "turns": [
+    "figjam the checkout flow, then write a story",
+    "Quick is fine. A shopper needs to see payment processing, payment confirmed or payment declined. The Story goal is to reduce checkout support contacts. Draw one user flow from Pay through those three outcomes."
+   ],
+   "twin": "SIR-003",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PIR-006",
+   "side": "project",
+   "group": "project-interactive-routing",
+   "slug": "grouped-bugs-to-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-interactive-routing/grouped-bugs-to-task.md",
+   "turns": [
+    "$quick Make one bug-fix task for these three Fernhouse checkout defects: payment double-submits, the address clears after a decline, and retry is disabled after a timeout. Keep all three in one checkout reliability task for the Storefront team. Success means none can recur in the checkout suite."
+   ],
+   "twin": "SIR-006",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PIR-008",
+   "side": "project",
+   "group": "project-interactive-routing",
+   "slug": "quick-task-fallback",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-interactive-routing/quick-task-fallback.md",
+   "turns": [
+    "$q",
+    "Create a saved-search empty state with the copy \"No saved searches yet\" and a button that starts a search."
+   ],
+   "twin": "SIR-008",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PIR-009",
+   "side": "project",
+   "group": "project-interactive-routing",
+   "slug": "raw-and-deep-energy",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-interactive-routing/raw-and-deep-energy.md",
+   "turns": [
+    "skip depth and write a task to add a clear error state when checkout fails",
+    "deep write a task for the checkout retry",
+    "think longer and write a story for saved searches",
+    "full depth on the api runbook",
+    "complex multi-source work for the billing migration",
+    "$quick skip depth, write a task for checkout spacing",
+    "just do it skip depth and write a task for checkout spacing"
+   ],
+   "twin": "SIR-009",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PIR-004",
+   "side": "project",
+   "group": "project-interactive-routing",
+   "slug": "story-bundle-command-conflict",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-interactive-routing/story-bundle-command-conflict.md",
+   "turns": [
+    "$story $task Write a Story for Fernhouse order tracking, with one frontend task and one carrier-webhook task.",
+    "Choose the Story as one bundle with the frontend and carrier-webhook tasks.",
+    "The goal is to let Fernhouse guests see carrier progress after checkout. The frontend task shows the carrier status timeline. The webhook task accepts tracking.updated and ignores duplicate event_id values. Keep the Story and both tasks in that order."
+   ],
+   "twin": "SIR-004",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PIR-007",
+   "side": "project",
+   "group": "project-interactive-routing",
+   "slug": "task-clarification-lane",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-interactive-routing/task-clarification-lane.md",
+   "turns": [
+    "$task Improve checkout reliability for Fernhouse.",
+    "Add an inline retry message after payment declines on iOS and Android. Keep the entered address. Success means the shopper can retry without entering the address again."
+   ],
+   "twin": "SIR-007",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PIR-001",
+   "side": "project",
+   "group": "project-interactive-routing",
+   "slug": "vague-intake-kind-and-energy",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-interactive-routing/vague-intake-kind-and-energy.md",
+   "turns": [
+    "Leadership keeps asking whether guests could earn loyalty points on their stays and I am not sure what we should put in the backlog for it, background is in context/roamstay-context.md",
+    "Deeper, and write an epic for it. It covers guests on the Guest app, iOS, Android and web. The goal is repeat bookings: 19% of guests book a second stay within 12 months today and we want 25% by the end of 2027. The child stories are joining from Account, earning points on completed stays, a points balance and history under Account, and spending points at checkout on Pay now bookings only, since Pay at property guests pay the property directly. The point value and who pays for points are not decided yet, so do not put a number on either."
+   ],
+   "twin": "SIR-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "PEP-001",
+   "side": "project",
+   "group": "project-story-modes",
+   "slug": "epic-from-strategy-brief",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/epic-from-strategy-brief.md",
+   "turns": [
+    "$epic Partner Hub self-onboarding from Freya's strategy brief in context/roamstay-partner-self-onboarding-brief.md, company context is in context/roamstay-context.md. We haven't agreed the first release cut yet.",
+    "One child story per stage in Freya's brief, all six in the first release. Connecting a channel manager goes under Added Later. The goal and target are Freya's, use them as she wrote them."
+   ],
+   "twin": "SEP-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "PEP-002",
+   "side": "project",
+   "group": "project-story-modes",
+   "slug": "epic-natural-wording",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/epic-natural-wording.md",
+   "turns": [
+    "Can you write an epic for offline mode from Oskar's brief in context/loomlist-offline-mode-brief.md? Our product context is in context/loomlist-context.md. I'm not sure yet whether the child stories should follow his four areas or be split per platform.",
+    "Follow his four areas, one child story each, and each story covers iOS, Android and Desktop together. Offline mode is for every plan, Free included."
+   ],
+   "twin": "SEP-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "PEP-003",
+   "side": "project",
+   "group": "project-story-modes",
+   "slug": "epic-quick-energy",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/epic-quick-energy.md",
+   "turns": [
+    "$quick $e self-serve returns, company context in context/fernhouse-context.md. Goal: signed-in customers on web, iOS and Android start a return themselves inside the 30-day window, so CS stops creating returns by hand in Admin, and by the end of Q1 2027 at least 60% of returns start without a CS contact. Child stories: start a return from order history with the items and a reason, return label by email, return status on the order page, refund after the warehouse check. Guest returns go under Added Later, and pallet items stay with CS."
+   ],
+   "twin": "SEP-003",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "PST-002",
+   "side": "project",
+   "group": "project-story-modes",
+   "slug": "story-forced-delivery",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/story-forced-delivery.md",
+   "turns": [
+    "$story View-only share links for the Sharing team, from Kofi's design notes in context/loomlist-view-only-links-design-notes.md. Workspace background is in context/loomlist-context.md.",
+    "Agencies on Plus asked for this most, they invite clients as guests today just so they can read one page. Lena still hasn't settled the sub-page question with the security reviewer and it won't be settled before the build starts, so keep it open in the story."
+   ],
+   "twin": "SST-002",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "PST-001",
+   "side": "project",
+   "group": "project-story-modes",
+   "slug": "story-hard-values",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/story-hard-values.md",
+   "turns": [
+    "Can you write up the free cancellation filter as a story for the Search squad? Tomas's notes are in context/roamstay-free-cancellation-pm-notes.md and our company background is in context/roamstay-context.md. Guest Support sent me two asks for it as well, I'll pass them on.",
+    "Guest Support's two asks: show the deadline in the badge as the property's local date, because guests abroad check it against their confirmation email, and keep the filter on when a guest opens a property and goes back to the results. Everything else is as Tomas wrote it and nothing in his notes is still open."
+   ],
+   "twin": "SST-001",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "PST-003",
+   "side": "project",
+   "group": "project-story-modes",
+   "slug": "story-refinement",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/story-refinement.md",
+   "turns": [
+    "$s Priya's rough save card draft is in context/fernhouse-save-card-draft.md, can you bring it into our house Story format before the Checkout team picks it up? Restructure whatever it needs. Company background is in context/fernhouse-context.md.",
+    "The declined card copy is agreed now: \"This card was declined. Choose another card or enter a new one.\" The €150 and £130 CVC limits apply to the order total including shipping, and the Data team hasn't named the three events yet, so leave the names out."
+   ],
+   "twin": "SST-003",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "PST-004",
+   "side": "project",
+   "group": "project-story-modes",
+   "slug": "story-with-nested-tasks",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/project-story-modes/story-with-nested-tasks.md",
+   "turns": [
+    "$story Order tracking on the order page, from Hamid's brief in context/fernhouse-order-tracking-pm-brief.md and Yusuf's carrier notes in context/fernhouse-carrier-tracking-api-facts.md. Please break it into tasks. Company background is in context/fernhouse-context.md.",
+    "Four tasks, in this order: FE iOS, FE Android, FE web and the BE tracking webhook. orders-service already gets \"Packed\" from the warehouse system, so no task for that, and the DATA events wait for a later story. \"Delivery failed\" shows no reason in this story, and the web layout is now done in the same \"Order page / Tracking timeline\" frame."
+   ],
+   "twin": "SST-004",
+   "tools": [
+    "read",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "STK-007",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "clickup-push-targets",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/clickup-push-targets.md",
+   "turns": [
+    "$quick $task Change the free-shipping banner to \"Free shipping over €50\" and \"Free shipping over £45\", the current copy in context/fernhouse-context.md wraps to two lines on small phones."
+   ],
+   "twin": "PTK-007",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "STK-006",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "data-tracking-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/data-tracking-task.md",
+   "turns": [
+    "Can you write a task for the booking funnel events in Nadia's tracking plan, context/roamstay-booking-funnel-tracking-plan.md? Our conventions are in context/roamstay-context.md.",
+    "It is the Data team's own task under TRK. Nadia checks every event in events-collector as the squads ship them, moves the funnel dashboard over to booking_confirmed and has the collector drop checkout_complete on its removal date. The client events and booking_confirmed itself get separate FE and BE tasks later. Refinement closed yesterday with no change to the event table."
+   ],
+   "twin": "PTK-006",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "STK-002",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "design-notes-fe-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/design-notes-fe-task.md",
+   "turns": [
+    "$task FE task for the stay limits in the Guest app date picker. Ines's handover notes are in context/roamstay-date-picker-design-notes.md and our ticket conventions in context/roamstay-context.md.",
+    "One FE task for iOS, Android and web together, no parent, and the Search squad takes it into the 8.13.0 train. Leave search-service as it is, its own 30-night check stays as the backstop. QA signs it off on all three platforms in en-GB and en-US."
+   ],
+   "twin": "PTK-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "STK-003",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "long-be-integration-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/long-be-integration-task.md",
+   "turns": [
+    "$t BE task for the label webhook fix, Joris is taking it. The carrier API facts are in context/fernhouse-carrier-label-api-notes.md, the fix Noor summarised is at the end of context/fernhouse-carrier-label-thread.md and our ticket conventions are in context/fernhouse-context.md. Scope is the five points from the thread: answer inside the carrier's timeout and work from a queue, dedupe on event_id, guard against a second open shipment for a parcel, the 10-minute GET for stragglers and the alerting. Polling only stays out, the thread rejected it.",
+    "No parent, it goes on the Fulfilment board and has to be live before the November peak. Done means replaying a slow afternoon in staging gives one shipment and one label per parcel, and a label.created that lands after the 10-minute GET already took the label changes nothing. Keep our 8-second timeout on the warehouse system, only move that call out of the request."
+   ],
+   "twin": "PTK-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "STK-004",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "parent-task-with-subtasks",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/parent-task-with-subtasks.md",
+   "turns": [
+    "$task Parent task for recurring to-dos from Ines's brief in context/loomlist-recurring-todos-pm-brief.md, with subtasks for iOS, Android, web and BE. Board conventions are in context/loomlist-context.md.",
+    "Only the parent for now, the platform leads write their own subtasks from it, so list the four by title the way our board names them. State the shared rules once in the parent so the subtasks can point at it. iOS and Android aim for the 5.4.0 release, and web and BE ship dark before that."
+   ],
+   "twin": "PTK-004",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "SBG-001",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "quick-bug",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/quick-bug.md",
+   "turns": [
+    "$quick $bug iOS 4.8.0, the cart badge keeps the old count after an item is removed. Put 2 of one product and 1 of another in the cart so the tab bar badge reads \"3\", open the cart and tap \"Remove\" on the single item. The cart then holds 2 units but the badge stays on \"3\" until the app is restarted. Happens every time on both our iOS test phones, while Android 4.8.2 and web update the badge straight away. Severity Medium, product context is in context/fernhouse-context.md"
+   ],
+   "twin": "PBG-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "STK-001",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "quick-copy-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/quick-copy-task.md",
+   "turns": [
+    "$quick $task Change the free-shipping banner to \"Free shipping over €50\" and \"Free shipping over £45\", the current copy in context/fernhouse-context.md wraps to two lines on small phones."
+   ],
+   "twin": "PTK-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "STK-005",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "supplied-parent-subtask",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/supplied-parent-subtask.md",
+   "turns": [
+    "$task --subtask Android subtask of the recurring to-dos parent in context/loomlist-recurring-todos-parent-task.md. Board conventions are in context/loomlist-context.md.",
+    "It is the Android one from that list, phones and tablets, and Oskar's team takes it into the 5.4.0 release. BE builds the engine in parallel, so the app shows the next due date BE returns and never works it out on the device."
+   ],
+   "twin": "PTK-005",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 2
+  },
+  {
+   "id": "SBG-002",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "support-ticket-bug",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/support-ticket-bug.md",
+   "turns": [
+    "$bug Guest Support escalated ticket 58213 to Booking. On Android the confirmation screen leaves city tax out of the total on stays of 2 nights or more, so the guest saw \"Total €387.00\" and was charged €405.00. The ticket with Maren's tests is in context/roamstay-support-ticket-58213.md and our product context is in context/roamstay-context.md",
+    "Severity High. We do not know the guest's phone model, and Maren's test phone runs Android 14. No screen recording, and the guest's screenshot stays in the support desk tool. I checked web this morning with a 3-night Pay now booking and its confirmation total was right. No related bug is open, and nobody on Booking has looked at the code yet."
+   ],
+   "twin": "PBG-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "SBG-003",
+   "side": "skill",
+   "group": "skill-backlog-modes",
+   "slug": "two-platform-log-bug",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-backlog-modes/two-platform-log-bug.md",
+   "turns": [
+    "$b Reminders arrived an hour late after the March clock change, one-off reminders on Android and daily ones on iOS. Please write it up as one bug for the To-dos and Reminders team from Ruben's log lines in context/loomlist-reminders-dst-log-excerpt.md and Marta's support reports in context/loomlist-reminders-dst-user-reports.md, with our product context in context/loomlist-context.md",
+    "Severity High for both. Support never collected device models or OS versions, so we have none. QA has not reproduced either one yet, and nobody has checked the current 5.3 apps because the clocks have not changed since March. No screenshots or recordings, and no other bug is open for it. Keep it as one report."
+   ],
+   "twin": "PBG-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 3
+  },
+  {
+   "id": "SDK-001",
+   "side": "skill",
+   "group": "skill-document-modes",
+   "slug": "behavior-reference",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-document-modes/behavior-reference.md",
+   "turns": [
+    "Can you document how discount codes and automatic promotions stack? Start with context/fernhouse-promotions-rules.md, and context/fernhouse-context.md has the company background.",
+    "Thanks. A few changes: it's for CS agents and the Checkout engineers, so they can predict the discount on any cart, and it stays a behavior reference. Those two files are all there is, the rules note governs and the context doc is background only. Make sure the old two-codes rule is in there with its retired label, because CS still refunds those orders, and leave out how merchandisers set promotions up in Admin."
+   ],
+   "twin": "PDK-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "SDK-004",
+   "side": "skill",
+   "group": "skill-document-modes",
+   "slug": "catalog-conflict-gate",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-document-modes/catalog-conflict-gate.md",
+   "turns": [
+    "$doc Can you pull the six activity emails into one reference page? So far I have context/loomlist-notification-spec.md and context/loomlist-email-template-inventory.md, plus context/loomlist-context.md for background.",
+    "A catalog for Support agents and the Notifications engineers. On the send time the spec is right, the digest goes at 08:00 in the recipient's local time and the 07:00 UTC in the inventory is stale. Take the template names from the inventory, use only these three files, describe current behavior and leave push notifications out."
+   ],
+   "twin": "PDK-004",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "SDK-002",
+   "side": "skill",
+   "group": "skill-document-modes",
+   "slug": "incident-runbook",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-document-modes/incident-runbook.md",
+   "turns": [
+    "$doc We need a doc on handling payment webhook failures, like the INC-0412 outage. Start with context/roamstay-payment-webhook-incident-notes.md, and context/roamstay-context.md has the company background.",
+    "A runbook for whoever is on call in #payments-oncall, from the alert firing to the cleanup. Those two files are all there is, the incident notes govern and the context doc is background only. Write it as what we do today, list the review follow-ups at the end with where each one stands, and leave out the guest apology emails."
+   ],
+   "twin": "PDK-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "SDK-005",
+   "side": "skill",
+   "group": "skill-document-modes",
+   "slug": "narrative-status-overview",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-document-modes/narrative-status-overview.md",
+   "turns": [
+    "Can you document where things stand on the lost edits between devices, as a status overview Priya can read on her first day on the Sync team? Start with context/loomlist-sync-conflict-thread.md, and context/loomlist-context.md has the company background.",
+    "Thanks. Can you update the document so it answers why we don't just go with B when most of the thread backs it, since Priya will ask? Also say what Support tells members until the decision, and keep it to what the thread says."
+   ],
+   "twin": "PDK-005",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "SDK-003",
+   "side": "skill",
+   "group": "skill-document-modes",
+   "slug": "proposal-decision-owner",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-document-modes/proposal-decision-owner.md",
+   "turns": [
+    "$d Can you write up where we are on sync conflicts and the lost edits? Start with context/loomlist-sync-conflict-thread.md, and context/loomlist-context.md has the company background.",
+    "A proposal for the Sync and Mobile engineers and the Support lead to read before the call is made. Those two files are all there is, the thread governs and the context doc is background on how v3 works today. Nothing is settled, so cover all three options with their cost and trade-offs and say where people in the thread landed. Keep the offline mode plans out of it."
+   ],
+   "twin": "PDK-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 4
+  },
+  {
+   "id": "SFL-001",
+   "side": "skill",
+   "group": "skill-flow-modes",
+   "slug": "flow-gate-no-route",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-flow-modes/flow-gate-no-route.md",
+   "turns": [
+    "$flow Make a FigJam flow of back-in-stock alerts from Lotte's spec below, as a new board in our Fernhouse Product plan. Company background is in context/fernhouse-context.md. Spec: a customer on the product page of a sold-out item taps \"Notify me\". A signed-in customer's alert is saved to their account straight away. A guest types an email address first, then the alert is saved. When the item is back in stock the customer gets one email. Push alerts in the app are a proposal only, nobody has agreed them yet.",
+    "Yes, go ahead."
+   ],
+   "twin": "PFL-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 7
+  },
+  {
+   "id": "SID-001",
+   "side": "skill",
+   "group": "skill-identity",
+   "slug": "identity-handover",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-identity/identity-handover.md",
+   "turns": [
+    "$task Small front end task for a \"Due today\" filter chip on the To-dos view, the chips we have today are described in context/loomlist-context.md",
+    "Front end, Web only for now, Desktop gets it through the web client and the apps follow later. The chip goes right after Overdue and shows to-dos not checked off that are due today in the owner's time zone, sorted by due date like the other chips, and only one chip is active at a time. Picking it sends filter_selected with filter set to due_today, which Yara has already added to the tracking plan. No Figma, reuse the existing chip, and nothing else depends on it."
+   ],
+   "twin": "PID-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 1
+  },
+  {
+   "id": "SIR-005",
+   "side": "skill",
+   "group": "skill-interactive-routing",
+   "slug": "bug-with-figjam-pair",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-interactive-routing/bug-with-figjam-pair.md",
+   "turns": [
+    "$quick $bug On the Fernhouse checkout, one tap on Pay charges twice in 2 of 5 tries. Expected one charge, actual two. Add a FigJam sequence diagram of the attempt."
+   ],
+   "twin": "PIR-005",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SIR-010",
+   "side": "skill",
+   "group": "skill-interactive-routing",
+   "slug": "clickup-handoff-owner",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-interactive-routing/clickup-handoff-owner.md",
+   "turns": [
+    "$quick $task Disable Confirm after its first tap until the checkout response returns. Re-enable it after an error so the shopper can retry.",
+    "Do not push this yet."
+   ],
+   "twin": "PIR-010",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SIR-002",
+   "side": "skill",
+   "group": "skill-interactive-routing",
+   "slug": "conflicting-commands",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-interactive-routing/conflicting-commands.md",
+   "turns": [
+    "$bug $story Not sure if this is a bug or a story, customers lose their app wishlist when they change phones and cannot see it on web, CS has 412 contacts on it, see context/fernhouse-context.md and context/fernhouse-wishlist-feedback.md",
+    "Write it as a story, not a bug. The apps have always saved the wishlist on the device, so this is a change. Quick is fine. Signed-in customers on iOS and Android get their wishlist saved to the account, the same list web shows, and the first time they sign in on a device, the items saved on it move into the account list. Keep the limit of 50 items, and when the two lists together pass 50, keep the 50 most recently added. Customers without an account keep the device wishlist as it works today. Lotte signed this off yesterday."
+   ],
+   "twin": "PIR-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SIR-003",
+   "side": "skill",
+   "group": "skill-interactive-routing",
+   "slug": "flow-first-story-pair",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-interactive-routing/flow-first-story-pair.md",
+   "turns": [
+    "figjam the checkout flow, then write a story",
+    "Quick is fine. A shopper needs to see payment processing, payment confirmed or payment declined. The Story goal is to reduce checkout support contacts. Draw one user flow from Pay through those three outcomes."
+   ],
+   "twin": "PIR-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SIR-006",
+   "side": "skill",
+   "group": "skill-interactive-routing",
+   "slug": "grouped-bugs-to-task",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-interactive-routing/grouped-bugs-to-task.md",
+   "turns": [
+    "$quick Make one bug-fix task for these three Fernhouse checkout defects: payment double-submits, the address clears after a decline, and retry is disabled after a timeout. Keep all three in one checkout reliability task for the Storefront team. Success means none can recur in the checkout suite."
+   ],
+   "twin": "PIR-006",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SIR-008",
+   "side": "skill",
+   "group": "skill-interactive-routing",
+   "slug": "quick-task-fallback",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-interactive-routing/quick-task-fallback.md",
+   "turns": [
+    "$q",
+    "Create a saved-search empty state with the copy \"No saved searches yet\" and a button that starts a search."
+   ],
+   "twin": "PIR-008",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SIR-009",
+   "side": "skill",
+   "group": "skill-interactive-routing",
+   "slug": "raw-and-deep-energy",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-interactive-routing/raw-and-deep-energy.md",
+   "turns": [
+    "skip depth and write a task to add a clear error state when checkout fails",
+    "deep write a task for the checkout retry",
+    "think longer and write a story for saved searches",
+    "full depth on the api runbook",
+    "complex multi-source work for the billing migration",
+    "$quick skip depth, write a task for checkout spacing",
+    "just do it skip depth and write a task for checkout spacing"
+   ],
+   "twin": "PIR-009",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SIR-004",
+   "side": "skill",
+   "group": "skill-interactive-routing",
+   "slug": "story-bundle-command-conflict",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-interactive-routing/story-bundle-command-conflict.md",
+   "turns": [
+    "$story $task Write a Story for Fernhouse order tracking, with one frontend task and one carrier-webhook task.",
+    "Choose the Story as one bundle with the frontend and carrier-webhook tasks.",
+    "The goal is to let Fernhouse guests see carrier progress after checkout. The frontend task shows the carrier status timeline. The webhook task accepts tracking.updated and ignores duplicate event_id values. Keep the Story and both tasks in that order."
+   ],
+   "twin": "PIR-004",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SIR-007",
+   "side": "skill",
+   "group": "skill-interactive-routing",
+   "slug": "task-clarification-lane",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-interactive-routing/task-clarification-lane.md",
+   "turns": [
+    "$task Improve checkout reliability for Fernhouse.",
+    "Add an inline retry message after payment declines on iOS and Android. Keep the entered address. Success means the shopper can retry without entering the address again."
+   ],
+   "twin": "PIR-007",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SIR-001",
+   "side": "skill",
+   "group": "skill-interactive-routing",
+   "slug": "vague-intake-kind-and-energy",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-interactive-routing/vague-intake-kind-and-energy.md",
+   "turns": [
+    "Leadership keeps asking whether guests could earn loyalty points on their stays and I am not sure what we should put in the backlog for it, background is in context/roamstay-context.md",
+    "Deeper, and write an epic for it. It covers guests on the Guest app, iOS, Android and web. The goal is repeat bookings: 19% of guests book a second stay within 12 months today and we want 25% by the end of 2027. The child stories are joining from Account, earning points on completed stays, a points balance and history under Account, and spending points at checkout on Pay now bookings only, since Pay at property guests pay the property directly. The point value and who pays for points are not decided yet, so do not put a number on either."
+   ],
+   "twin": "PIR-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 6
+  },
+  {
+   "id": "SEP-001",
+   "side": "skill",
+   "group": "skill-story-modes",
+   "slug": "epic-from-strategy-brief",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/epic-from-strategy-brief.md",
+   "turns": [
+    "$epic Partner Hub self-onboarding from Freya's strategy brief in context/roamstay-partner-self-onboarding-brief.md, company context is in context/roamstay-context.md. We haven't agreed the first release cut yet.",
+    "One child story per stage in Freya's brief, all six in the first release. Connecting a channel manager goes under Added Later. The goal and target are Freya's, use them as she wrote them."
+   ],
+   "twin": "PEP-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "SEP-002",
+   "side": "skill",
+   "group": "skill-story-modes",
+   "slug": "epic-natural-wording",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/epic-natural-wording.md",
+   "turns": [
+    "Can you write an epic for offline mode from Oskar's brief in context/loomlist-offline-mode-brief.md? Our product context is in context/loomlist-context.md. I'm not sure yet whether the child stories should follow his four areas or be split per platform.",
+    "Follow his four areas, one child story each, and each story covers iOS, Android and Desktop together. Offline mode is for every plan, Free included."
+   ],
+   "twin": "PEP-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "SEP-003",
+   "side": "skill",
+   "group": "skill-story-modes",
+   "slug": "epic-quick-energy",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/epic-quick-energy.md",
+   "turns": [
+    "$quick $e self-serve returns, company context in context/fernhouse-context.md. Goal: signed-in customers on web, iOS and Android start a return themselves inside the 30-day window, so CS stops creating returns by hand in Admin, and by the end of Q1 2027 at least 60% of returns start without a CS contact. Child stories: start a return from order history with the items and a reason, return label by email, return status on the order page, refund after the warehouse check. Guest returns go under Added Later, and pallet items stay with CS."
+   ],
+   "twin": "PEP-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "SST-002",
+   "side": "skill",
+   "group": "skill-story-modes",
+   "slug": "story-forced-delivery",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/story-forced-delivery.md",
+   "turns": [
+    "$story View-only share links for the Sharing team, from Kofi's design notes in context/loomlist-view-only-links-design-notes.md. Workspace background is in context/loomlist-context.md.",
+    "Agencies on Plus asked for this most, they invite clients as guests today just so they can read one page. Lena still hasn't settled the sub-page question with the security reviewer and it won't be settled before the build starts, so keep it open in the story."
+   ],
+   "twin": "PST-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "SST-001",
+   "side": "skill",
+   "group": "skill-story-modes",
+   "slug": "story-hard-values",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/story-hard-values.md",
+   "turns": [
+    "Can you write up the free cancellation filter as a story for the Search squad? Tomas's notes are in context/roamstay-free-cancellation-pm-notes.md and our company background is in context/roamstay-context.md. Guest Support sent me two asks for it as well, I'll pass them on.",
+    "Guest Support's two asks: show the deadline in the badge as the property's local date, because guests abroad check it against their confirmation email, and keep the filter on when a guest opens a property and goes back to the results. Everything else is as Tomas wrote it and nothing in his notes is still open."
+   ],
+   "twin": "PST-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "SST-003",
+   "side": "skill",
+   "group": "skill-story-modes",
+   "slug": "story-refinement",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/story-refinement.md",
+   "turns": [
+    "$s Priya's rough save card draft is in context/fernhouse-save-card-draft.md, can you bring it into our house Story format before the Checkout team picks it up? Restructure whatever it needs. Company background is in context/fernhouse-context.md.",
+    "The declined card copy is agreed now: \"This card was declined. Choose another card or enter a new one.\" The €150 and £130 CVC limits apply to the order total including shipping, and the Data team hasn't named the three events yet, so leave the names out."
+   ],
+   "twin": "PST-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "SST-004",
+   "side": "skill",
+   "group": "skill-story-modes",
+   "slug": "story-with-nested-tasks",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/skill-story-modes/story-with-nested-tasks.md",
+   "turns": [
+    "$story Order tracking on the order page, from Hamid's brief in context/fernhouse-order-tracking-pm-brief.md and Yusuf's carrier notes in context/fernhouse-carrier-tracking-api-facts.md. Please break it into tasks. Company background is in context/fernhouse-context.md.",
+    "Four tasks, in this order: FE iOS, FE Android, FE web and the BE tracking webhook. orders-service already gets \"Packed\" from the warehouse system, so no task for that, and the DATA events wait for a later story. \"Delivery failed\" shows no reason in this story, and the web layout is now done in the same \"Order page / Tracking timeline\" frame."
+   ],
+   "twin": "PST-004",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 5
+  },
+  {
+   "id": "FJ-034",
+   "side": "skill",
+   "group": "board-creation",
+   "slug": "colour-every-team-restraint",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/colour-every-team-restraint.md",
+   "turns": [
+    "$flow the Fernhouse damaged-item refund as a FigJam flow on a new board in our Fernhouse Product plan, and colour each step by the team that does it: customer reports damage with a photo, CS checks it and approves or asks for a second photo, the warehouse books a pickup, inspects the item and releases the refund",
+    "Yes, use lanes.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-034",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-036",
+   "side": "skill",
+   "group": "board-creation",
+   "slug": "dense-flow-at-budget",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/dense-flow-at-budget.md",
+   "turns": [
+    "$flow how a Roamstay guest changes their booking dates in the app, on a new board in our Roamstay Product plan. From the booking page they tap Change dates and pick new dates. If the room is not free on those dates they see other rooms. If the new price is higher they pay the difference, if it is lower they get the difference back as credit, and if it is the same nothing is charged. Then they see the updated booking.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-036",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-032",
+   "side": "skill",
+   "group": "board-creation",
+   "slug": "existing-board-with-content",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/existing-board-with-content.md",
+   "turns": [
+    "$figjam add the Roamstay booking status lifecycle to our existing retro board <fileKey of the prepared board>. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-032",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-035",
+   "side": "skill",
+   "group": "board-creation",
+   "slug": "fj-route-layout-quality",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/fj-route-layout-quality.md",
+   "turns": [
+    "$flow make a FigJam flow of Fernhouse returns in the board I have open in Figma Desktop. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-035",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-033",
+   "side": "skill",
+   "group": "board-creation",
+   "slug": "leadership-architecture",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/leadership-architecture.md",
+   "turns": [
+    "draw how Loomlist block sync works as a FigJam architecture diagram for the leadership update, on a new board in our Loomlist Product plan: desktop, web and iOS apps talk to our sync platform, which stores every change and wakes sleeping iPhones through Apple's push service.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-033",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-030",
+   "side": "skill",
+   "group": "board-creation",
+   "slug": "pins-and-legend",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/pins-and-legend.md",
+   "turns": [
+    "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review. Pin the three places support says customers give up, with a note on each: the reason list, where there are too many reasons, the drop-off or pickup choice, where the pickup fee is unclear, and the 30-day cut-off, where there is no warning before day 30.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-030",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-031",
+   "side": "skill",
+   "group": "board-creation",
+   "slug": "revision-same-board",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/revision-same-board.md",
+   "turns": [
+    "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review.",
+    "Yes, go ahead.",
+    "change the Fernhouse return flow on that board: after 30 days the app now shows Request an exception instead of Contact support",
+    "Yes, go ahead.",
+    "Yes, delete the old board."
+   ],
+   "twin": "SJ-031",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "setup_turns": 2,
+   "wave": 99
+  },
+  {
+   "id": "FJ-029",
+   "side": "skill",
+   "group": "board-creation",
+   "slug": "split-flow-one-board",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/split-flow-one-board.md",
+   "turns": [
+    "$flow the Loomlist signup and first workspace setup on a new board in our Loomlist Product plan. From the onboarding doc: the landing page, sign up with email or Google, verify the email code, where a wrong code shows an error with a resend, pick a free or team plan, where a team plan asks for teammates' emails and lets you skip, name the workspace, pick a template or start blank, and the editor opens with a welcome tip.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-029",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-024",
+   "side": "skill",
+   "group": "board-quality",
+   "slug": "architecture-board-quality",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/architecture-board-quality.md",
+   "turns": [
+    "draw the services behind Loomlist block sync as a FigJam architecture diagram on a new board in our Loomlist Engineering plan: desktop, web and iOS clients, an API gateway, sync-service, a push worker, the blocks database, file storage, a change stream and Apple's push service. Clients hold a live socket to the gateway, sync-service writes every block change and publishes it to the change stream, and the push worker reads the stream and wakes sleeping iOS devices.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-024",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-027",
+   "side": "skill",
+   "group": "board-quality",
+   "slug": "er-board-quality",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/er-board-quality.md",
+   "turns": [
+    "make a FigJam ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan, and group the partner tables apart from the guest tables. From the schema note: guests, bookings, payments, properties, rooms and rate plans. A guest makes bookings, a booking reserves one room under one rate plan and holds its payments, and a property offers rooms and publishes rate plans. Keep the keys and the few columns support asks about.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-027",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-028",
+   "side": "skill",
+   "group": "board-quality",
+   "slug": "gantt-board-quality",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/gantt-board-quality.md",
+   "turns": [
+    "put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November 2026 with two weeks of conflict-screen design, the sync engine takes three weeks from the same day, the conflict screen build follows its design for two weeks, and desktop and iOS integration starts when both builds are done, one week, and is the critical path. Then a two-week beta for 5 percent of workspaces and the release. Android follows in the next quarter, not yet approved.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-028",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-023",
+   "side": "skill",
+   "group": "board-quality",
+   "slug": "process-board-quality",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/process-board-quality.md",
+   "turns": [
+    "make a FigJam process of how a Fernhouse damaged-item refund moves between the customer, CS and the warehouse, on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse. From the support runbook: the customer reports damage with a photo through the help form. A CS agent checks the photo, approves clear damage on the spot and asks for a second photo when it is unclear. An approved claim goes to the warehouse queue, where an operator books a courier pickup, inspects the item on arrival and releases the refund. Every decision is logged in the claims table. Refunds under 20 euros skip the pickup, a pilot that is not yet live.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-023",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-025",
+   "side": "skill",
+   "group": "board-quality",
+   "slug": "sequence-board-quality",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/sequence-board-quality.md",
+   "turns": [
+    "$figjam draw the Roamstay checkout payment as a sequence diagram on a new board in our Roamstay Product plan. From the payments brief: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold, tells the partner hub and answers the app with 201. A declined card releases the hold and returns 402.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-025",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-026",
+   "side": "skill",
+   "group": "board-quality",
+   "slug": "state-board-quality",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/state-board-quality.md",
+   "turns": [
+    "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-in moves Upcoming to In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-026",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-022",
+   "side": "skill",
+   "group": "board-quality",
+   "slug": "user-flow-board-quality",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/user-flow-board-quality.md",
+   "turns": [
+    "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-022",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-019",
+   "side": "skill",
+   "group": "board-write",
+   "slug": "architecture-write-lanes",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-write/architecture-write-lanes.md",
+   "turns": [
+    "draw the services behind Loomlist block sync as a FigJam architecture diagram on a new board in our Loomlist Engineering plan: desktop, web and iOS clients, an API gateway, sync-service, a push worker, the blocks database, file storage, a change stream and Apple's push service",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-019",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-018",
+   "side": "skill",
+   "group": "board-write",
+   "slug": "fj-route-user-flow",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-write/fj-route-user-flow.md",
+   "turns": [
+    "$flow make a FigJam flow of Fernhouse returns in the board I have open in Figma Desktop. From the returns doc: the customer opens an order, taps Return an item, picks the item and a reason, and if the order is older than 30 days they see a not-eligible screen. Otherwise they choose a refund or store credit, print the label and see a confirmation.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-018",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-009",
+   "side": "skill",
+   "group": "board-write",
+   "slug": "gantt-with-no-route",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-write/gantt-with-no-route.md",
+   "turns": [
+    "put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November for two weeks, the sync engine takes three weeks from the same day, the conflict screen build follows design for two weeks, integration starts when both are done for one week, then a two-week beta and the release.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-009",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-007",
+   "side": "skill",
+   "group": "board-write",
+   "slug": "gate-names-extension",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-write/gate-names-extension.md",
+   "turns": [
+    "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in."
+   ],
+   "twin": "SJ-007",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-017",
+   "side": "skill",
+   "group": "board-write",
+   "slug": "hybrid-extension-written",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-write/hybrid-extension-written.md",
+   "turns": [
+    "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-017",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-008",
+   "side": "skill",
+   "group": "board-write",
+   "slug": "write-and-read-back",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-write/write-and-read-back.md",
+   "turns": [
+    "$figjam an ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan: a guest makes bookings, a booking holds payments, a room is reserved by bookings, a rate plan prices bookings, and a property offers rooms and publishes rate plans. Keep the keys only.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-008",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-037",
+   "side": "skill",
+   "group": "boundaries",
+   "slug": "artifact-plus-board-pair",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/artifact-plus-board-pair.md",
+   "turns": [
+    "write a story for the Fernhouse return flow and make a FigJam flow of its screens"
+   ],
+   "twin": "SJ-037",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-020",
+   "side": "skill",
+   "group": "boundaries",
+   "slug": "command-conflict-asks",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md",
+   "turns": [
+    "$task $flow the Fernhouse onboarding checklist"
+   ],
+   "twin": "SJ-020",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-021",
+   "side": "skill",
+   "group": "boundaries",
+   "slug": "figjam-as-task-subject",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/figjam-as-task-subject.md",
+   "turns": [
+    "write a task to tidy the figjam board labels"
+   ],
+   "twin": "SJ-021",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-041",
+   "side": "skill",
+   "group": "boundaries",
+   "slug": "named-type-does-not-fit",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/named-type-does-not-fit.md",
+   "turns": [
+    "$figjam a state diagram of the Fernhouse return flow on a new board in our Fernhouse Product plan: a customer opens an order, taps Return an item, picks a reason, chooses a refund or store credit and sees a confirmation",
+    "use your recommendation"
+   ],
+   "twin": "SJ-041",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-040",
+   "side": "skill",
+   "group": "boundaries",
+   "slug": "over-broad-brief-narrowed",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/over-broad-brief-narrowed.md",
+   "turns": [
+    "$figjam the whole Fernhouse product on a new board in our Fernhouse Product plan: signup, returns, refunds, the warehouse and billing",
+    "go ahead with that scope"
+   ],
+   "twin": "SJ-040",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-042",
+   "side": "skill",
+   "group": "boundaries",
+   "slug": "quick-energy-no-questions",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/quick-energy-no-questions.md",
+   "turns": [
+    "$flow $quick the Fernhouse damaged-item flow on a new board in our Fernhouse Product plan. Just do it, no questions."
+   ],
+   "twin": "SJ-042",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-038",
+   "side": "skill",
+   "group": "boundaries",
+   "slug": "restyle-is-a-hand-edit",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/restyle-is-a-hand-edit.md",
+   "turns": [
+    "$flow on the Fernhouse return board you drew, move the Approve return node further right and make its text bigger"
+   ],
+   "twin": "SJ-038",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-039",
+   "side": "skill",
+   "group": "boundaries",
+   "slug": "thin-brief-asks-with-a-recommendation",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/thin-brief-asks-with-a-recommendation.md",
+   "turns": [
+    "$flow the Fernhouse return flow on a new board in our Fernhouse Product plan",
+    "go with your recommendations"
+   ],
+   "twin": "SJ-039",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJH-001",
+   "side": "skill",
+   "group": "intra-routing-recall",
+   "slug": "holdout-state-plain-words",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/intra-routing-recall/holdout-state-plain-words.md",
+   "turns": [
+    "in FigJam, show which statuses an order can be in and what moves it between them"
+   ],
+   "twin": "SJH-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJN-001",
+   "side": "skill",
+   "group": "intra-routing-recall",
+   "slug": "negative-task-about-figjam",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/intra-routing-recall/negative-task-about-figjam.md",
+   "turns": [
+    "write a task to tidy the figjam board labels"
+   ],
+   "twin": "SJN-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJR-003",
+   "side": "skill",
+   "group": "intra-routing-recall",
+   "slug": "route-architecture",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/intra-routing-recall/route-architecture.md",
+   "turns": [
+    "draw the services behind block sync as a FigJam architecture diagram"
+   ],
+   "twin": "SJR-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJR-006",
+   "side": "skill",
+   "group": "intra-routing-recall",
+   "slug": "route-er",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/intra-routing-recall/route-er.md",
+   "turns": [
+    "make a FigJam ER diagram of the stays model from the schema note"
+   ],
+   "twin": "SJR-006",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJR-007",
+   "side": "skill",
+   "group": "intra-routing-recall",
+   "slug": "route-gantt",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/intra-routing-recall/route-gantt.md",
+   "turns": [
+    "put the launch plan on a FigJam gantt chart"
+   ],
+   "twin": "SJR-007",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJR-002",
+   "side": "skill",
+   "group": "intra-routing-recall",
+   "slug": "route-process",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/intra-routing-recall/route-process.md",
+   "turns": [
+    "draw how a refund moves between support, the warehouse and finance as a FigJam process with a lane per team"
+   ],
+   "twin": "SJR-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJR-004",
+   "side": "skill",
+   "group": "intra-routing-recall",
+   "slug": "route-sequence",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/intra-routing-recall/route-sequence.md",
+   "turns": [
+    "draw the checkout payment as a sequence diagram in FigJam"
+   ],
+   "twin": "SJR-004",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJR-005",
+   "side": "skill",
+   "group": "intra-routing-recall",
+   "slug": "route-state",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/intra-routing-recall/route-state.md",
+   "turns": [
+    "put the booking status lifecycle on a FigJam state diagram"
+   ],
+   "twin": "SJR-005",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJR-001",
+   "side": "skill",
+   "group": "intra-routing-recall",
+   "slug": "route-user-flow",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/intra-routing-recall/route-user-flow.md",
+   "turns": [
+    "make a FigJam flow of the signup screens from these screenshots"
+   ],
+   "twin": "SJR-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-016",
+   "side": "skill",
+   "group": "pre-write-check",
+   "slug": "architecture-styling-refused",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/pre-write-check/architecture-styling-refused.md",
+   "turns": [
+    "As the operator, run the sk-create-figjam check on the Loomlist architecture example with one style line added. Verify it fails on styling alone. Return the output and exit status."
+   ],
+   "twin": "SJ-016",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-043",
+   "side": "skill",
+   "group": "pre-write-check",
+   "slug": "layout-measures-refuse-a-wide-rank",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/pre-write-check/layout-measures-refuse-a-wide-rank.md",
+   "turns": [
+    "As the operator, run the sk-create-figjam check on a user flow whose start branches into five parallel steps. Verify it fails on the layout measures. Return the output and exit status."
+   ],
+   "twin": "SJ-043",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-015",
+   "side": "skill",
+   "group": "pre-write-check",
+   "slug": "off-palette-colour-refused",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/pre-write-check/off-palette-colour-refused.md",
+   "turns": [
+    "As the operator, run the sk-create-figjam check on a user flow whose end node is filled #00FF00. Verify it fails on the palette. Return the output and exit status."
+   ],
+   "twin": "SJ-015",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-005",
+   "side": "skill",
+   "group": "pre-write-check",
+   "slug": "planted-defect-refused",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/pre-write-check/planted-defect-refused.md",
+   "turns": [
+    "As the operator, run the sk-create-figjam check on a sequence model with an aliased participant and a note. Verify it fails and names both rules. Return the output and exit status."
+   ],
+   "twin": "SJ-005",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-004",
+   "side": "skill",
+   "group": "pre-write-check",
+   "slug": "self-test-every-type",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/pre-write-check/self-test-every-type.md",
+   "turns": [
+    "As the operator, run the sk-create-figjam self-test against the packet. Verify every check passes and every template and example is read. Return the summary line and exit status."
+   ],
+   "twin": "SJ-004",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-006",
+   "side": "skill",
+   "group": "pre-write-check",
+   "slug": "unsupported-header-refused",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/pre-write-check/unsupported-header-refused.md",
+   "turns": [
+    "As the operator, run the sk-create-figjam check on a pie chart model. Verify it fails and points at the type table. Return the output and exit status."
+   ],
+   "twin": "SJ-006",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-014",
+   "side": "skill",
+   "group": "pre-write-check",
+   "slug": "user-flow-over-budget",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/pre-write-check/user-flow-over-budget.md",
+   "turns": [
+    "As the operator, run the sk-create-figjam check on a straight user flow of 10 nodes. Verify it fails on the node budget. Return the output and exit status."
+   ],
+   "twin": "SJ-014",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-012",
+   "side": "skill",
+   "group": "type-choice",
+   "slug": "architecture-with-layout-code",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/type-choice/architecture-with-layout-code.md",
+   "turns": [
+    "draw the services behind Loomlist block sync as a FigJam architecture diagram on a new board in our Loomlist Engineering plan: desktop, web and iOS clients, an API gateway, sync-service, a push worker, the blocks database, file storage, a change stream and Apple's push service"
+   ],
+   "twin": "SJ-012",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-011",
+   "side": "skill",
+   "group": "type-choice",
+   "slug": "laned-process-from-handoffs",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/type-choice/laned-process-from-handoffs.md",
+   "turns": [
+    "draw how a Fernhouse damaged-item refund moves between the customer, a CS agent and the warehouse as a FigJam process on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse"
+   ],
+   "twin": "SJ-011",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-001",
+   "side": "skill",
+   "group": "type-choice",
+   "slug": "sequence-from-api-brief",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/type-choice/sequence-from-api-brief.md",
+   "turns": [
+    "$figjam draw the Roamstay checkout payment as a sequence diagram on a new board in our Roamstay Product plan. From the payments brief: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold, tells the partner hub and answers the app with 201."
+   ],
+   "twin": "SJ-001",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-013",
+   "side": "skill",
+   "group": "type-choice",
+   "slug": "timeline-offers-gantt",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/type-choice/timeline-offers-gantt.md",
+   "turns": [
+    "$figjam a timeline of the Loomlist offline mode milestones: design done 16 November, beta on 7 December, release on 21 December"
+   ],
+   "twin": "SJ-013",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-002",
+   "side": "skill",
+   "group": "type-choice",
+   "slug": "two-types-fit-asks",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/type-choice/two-types-fit-asks.md",
+   "turns": [
+    "make a FigJam diagram of how Loomlist block sync works"
+   ],
+   "twin": "SJ-002",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-003",
+   "side": "skill",
+   "group": "type-choice",
+   "slug": "unsupported-kind-offers-nearest",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/type-choice/unsupported-kind-offers-nearest.md",
+   "turns": [
+    "$figjam a mindmap of the Roamstay launch themes: guest trust, partner onboarding, pricing and reviews"
+   ],
+   "twin": "SJ-003",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  },
+  {
+   "id": "FJ-010",
+   "side": "skill",
+   "group": "type-choice",
+   "slug": "user-flow-from-product-doc",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/type-choice/user-flow-from-product-doc.md",
+   "turns": [
+    "$flow make a FigJam flow of Fernhouse returns on a new board in our Fernhouse Product plan. From the returns doc: the customer opens an order, taps Return an item, picks the item and a reason, and if the order is older than 30 days they see a not-eligible screen. Otherwise they choose a refund or store credit, print the label and see a confirmation."
+   ],
+   "twin": "SJ-010",
+   "tools": [
+    "read",
+    "bash",
+    "edit",
+    "write",
+    "ls",
+    "grep",
+    "find"
+   ],
+   "seed_export": [],
+   "wave": 99
+  }
+ ]
+}

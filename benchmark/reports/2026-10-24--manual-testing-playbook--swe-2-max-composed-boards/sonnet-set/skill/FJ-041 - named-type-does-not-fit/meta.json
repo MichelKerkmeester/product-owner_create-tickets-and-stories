@@ -1,0 +1,155 @@
+{
+ "id": "FJ-041",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/named-type-does-not-fit.md",
+ "twin": "SJ-041",
+ "model": "llmgateway/claude-sonnet-5-5#high",
+ "thinking": "high",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "ses_e917e4919ffe4MtGuILv5PdGNA",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 3,
+ "turns_run": 3,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 103.62,
+   "tool_calls": 19,
+   "tools_used": [
+    "glob",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "glob",
+    "grep",
+    "shell",
+    "shell"
+   ],
+   "input_tokens": 215,
+   "output_tokens": 7342,
+   "reasoning_tokens": 1697,
+   "cost_usd": 0.4574945999999999,
+   "model_s": 95.32,
+   "startup_s": 6.38,
+   "stop_reason": "stop",
+   "response_models": [
+    "llmgateway/claude-sonnet-5-5#high"
+   ],
+   "session_id": "ses_e917e4919ffe4MtGuILv5PdGNA",
+   "inner_calls": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam a state diagram of the Fernhouse return flow on a new board in our Fernhouse Product plan: a customer opens an order, taps Return an item, picks a reason, chooses a refund or store credit and sees a confirmation\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 89.62,
+   "tool_calls": 11,
+   "tools_used": [
+    "execute",
+    "execute",
+    "execute",
+    "execute",
+    "shell",
+    "execute",
+    "shell",
+    "execute",
+    "execute",
+    "execute",
+    "shell"
+   ],
+   "input_tokens": 26,
+   "output_tokens": 3835,
+   "reasoning_tokens": 1035,
+   "cost_usd": 0.28718140000000003,
+   "model_s": 81.32,
+   "startup_s": 5.28,
+   "stop_reason": "tool-calls",
+   "response_models": [
+    "llmgateway/claude-sonnet-5-5#high"
+   ],
+   "session_id": "ses_e917e4919ffe4MtGuILv5PdGNA",
+   "inner_calls": [
+    "search",
+    "search",
+    "search",
+    "search",
+    "search",
+    "opencode.read_mcp_resource",
+    "opencode.read_mcp_resource",
+    "figma.create_session",
+    "fetch",
+    "fetch",
+    "figma.use_figma",
+    "figma.get_figjam"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "use your recommendation"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 14.54,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 0,
+   "output_tokens": 0,
+   "reasoning_tokens": 0,
+   "cost_usd": 0.0,
+   "model_s": 2.27,
+   "startup_s": 9.25,
+   "stop_reason": null,
+   "response_models": [
+    "llmgateway/claude-sonnet-5-5#high"
+   ],
+   "session_id": "ses_e917e4919ffe4MtGuILv5PdGNA",
+   "inner_calls": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, that reading is right."
+  }
+ ]
+}

@@ -1,0 +1,12 @@
+# Raw run evidence stays local: event streams, stderr, full tool transcripts, ATIF
+# exports, failed attempts and first passes. The plan, results, grading, replies,
+# per-scenario meta and the harness are tracked.
+*.jsonl
+!results.jsonl
+*.stderr.txt
+transcript-turn-*.md
+export-turn-*.json
+failed-attempts/
+first-pass/
+*.stdout.txt
+!run/

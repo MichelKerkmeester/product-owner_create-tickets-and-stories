@@ -1,0 +1,278 @@
+{
+ "id": "FJ-031",
+ "model": "claude-sonnet-5-5",
+ "thinking": "high",
+ "runtime": "claude-code-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/revision-same-board.md",
+ "scripted_turns": [
+  "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review.",
+  "Yes, that reading is right.",
+  "Yes, go ahead.",
+  "change the Fernhouse return flow on that board: after 30 days the app now shows Request an exception instead of Contact support",
+  "Yes, that reading is right.",
+  "Yes, go ahead.",
+  "Yes, delete the old board."
+ ],
+ "intake_answers_sent": 0,
+ "session_id": "6e07194f-96c0-4e50-b685-301a76666cc0",
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 92.21,
+   "tool_calls": 18,
+   "tools_used": [
+    "Glob",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Grep",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 353601,
+   "output_tokens": 10798,
+   "reasoning_tokens": 7719,
+   "cost_usd": 0.5074279,
+   "model_s": 90.81,
+   "startup_s": 1.1,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "6e07194f-96c0-4e50-b685-301a76666cc0",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 1,
+   "input": "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "adaptive": false,
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 26.5,
+   "tool_calls": 2,
+   "tools_used": [
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 321607,
+   "output_tokens": 3081,
+   "reasoning_tokens": 1558,
+   "cost_usd": 0.6075691000000001,
+   "model_s": 24.92,
+   "startup_s": 1.26,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "6e07194f-96c0-4e50-b685-301a76666cc0",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "adaptive": false,
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 147.33,
+   "tool_calls": 7,
+   "tools_used": [
+    "ToolSearch",
+    "Read",
+    "mcp__figma-remote__create_session",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 886957,
+   "output_tokens": 28592,
+   "reasoning_tokens": 2352,
+   "cost_usd": 1.2418928,
+   "model_s": 145.96,
+   "startup_s": 0.94,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "6e07194f-96c0-4e50-b685-301a76666cc0",
+   "inner_calls": [
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam"
+   ],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "adaptive": false,
+   "kind": "DELIVERY"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 17.23,
+   "tool_calls": 1,
+   "tools_used": [
+    "Bash"
+   ],
+   "input_tokens": 353192,
+   "output_tokens": 2015,
+   "reasoning_tokens": 770,
+   "cost_usd": 1.3065501,
+   "model_s": 15.59,
+   "startup_s": 1.13,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "6e07194f-96c0-4e50-b685-301a76666cc0",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 4,
+   "input": "change the Fernhouse return flow on that board: after 30 days the app now shows Request an exception instead of Contact support",
+   "adaptive": false,
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 9.66,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 177986,
+   "output_tokens": 772,
+   "reasoning_tokens": 675,
+   "cost_usd": 1.3341589,
+   "model_s": 7.17,
+   "startup_s": 0.91,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "6e07194f-96c0-4e50-b685-301a76666cc0",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 5,
+   "input": "Yes, that reading is right.",
+   "adaptive": false,
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 129.09,
+   "tool_calls": 4,
+   "tools_used": [
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 775939,
+   "output_tokens": 26458,
+   "reasoning_tokens": 517,
+   "cost_usd": 1.8019006000000002,
+   "model_s": 127.93,
+   "startup_s": 0.82,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "6e07194f-96c0-4e50-b685-301a76666cc0",
+   "inner_calls": [
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam"
+   ],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 6,
+   "input": "Yes, go ahead.",
+   "adaptive": false,
+   "kind": "DELIVERY"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 13.86,
+   "tool_calls": 1,
+   "tools_used": [
+    "mcp__figma-remote__use_figma"
+   ],
+   "input_tokens": 422728,
+   "output_tokens": 1260,
+   "reasoning_tokens": 418,
+   "cost_usd": 1.8633056000000003,
+   "model_s": 12.11,
+   "startup_s": 1.23,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "6e07194f-96c0-4e50-b685-301a76666cc0",
+   "inner_calls": [
+    "mcp__figma-remote__use_figma"
+   ],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 7,
+   "input": "Yes, delete the old board.",
+   "adaptive": false,
+   "kind": "DELIVERY"
+  }
+ ]
+}

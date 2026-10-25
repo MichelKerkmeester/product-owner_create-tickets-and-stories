@@ -1,0 +1,114 @@
+{
+ "id": "FJ-036",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/dense-flow-at-budget.md",
+ "twin": "SJ-036",
+ "model": "swe-2-max",
+ "permission": "dangerous",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "plastic-restaurant",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 139.79,
+   "tool_calls": 24,
+   "tools_used": [
+    "exec",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "mcp_list_tools",
+    "exec",
+    "exec",
+    "exec",
+    "skill",
+    "exec",
+    "exec",
+    "exec",
+    "exec"
+   ],
+   "input_tokens": 866357,
+   "output_tokens": 13550,
+   "cached_tokens": 798400,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "plastic-restaurant",
+   "inner_calls": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$flow how a Roamstay guest changes their booking dates in the app, on a new board in our Roamstay Product plan. From the booking page they tap Change dates and pick new dates. If the room is not free on those dates they see other rooms. If the new price is higher they pay the difference, if it is lower they get the difference back as credit, and if it is the same nothing is charged. Then they see the updated booking.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 401.78,
+   "tool_calls": 8,
+   "tools_used": [
+    "mcp_read_resource",
+    "mcp_read_resource",
+    "mcp_call_tool",
+    "read",
+    "read",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec"
+   ],
+   "input_tokens": 781433,
+   "output_tokens": 18820,
+   "cached_tokens": 299520,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "plastic-restaurant",
+   "inner_calls": [
+    "create_session",
+    "use_figma",
+    "get_figjam"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, go ahead."
+  }
+ ]
+}

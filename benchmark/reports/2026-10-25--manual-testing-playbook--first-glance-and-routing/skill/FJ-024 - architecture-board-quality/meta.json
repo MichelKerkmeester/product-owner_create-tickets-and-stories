@@ -1,0 +1,136 @@
+{
+ "id": "FJ-024",
+ "model": "claude-sonnet-5-5",
+ "thinking": "high",
+ "runtime": "claude-code-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/architecture-board-quality.md",
+ "scripted_turns": [
+  "draw the services behind Loomlist block sync as a FigJam architecture diagram on a new board in our Loomlist Engineering plan: desktop, web and iOS clients, an API gateway, sync-service, a push worker, the blocks database, file storage, a change stream and Apple's push service. Clients hold a live socket to the gateway, sync-service writes every block change and publishes it to the change stream, and the push worker reads the stream and wakes sleeping iOS devices.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "session_id": "d80ece5b-321c-4c0c-8a52-d392e47802b5",
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 71.83,
+   "tool_calls": 13,
+   "tools_used": [
+    "Glob",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 265106,
+   "output_tokens": 7803,
+   "reasoning_tokens": 5348,
+   "cost_usd": 0.4170627,
+   "model_s": 70.66,
+   "startup_s": 0.85,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "d80ece5b-321c-4c0c-8a52-d392e47802b5",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 1,
+   "input": "draw the services behind Loomlist block sync as a FigJam architecture diagram on a new board in our Loomlist Engineering plan: desktop, web and iOS clients, an API gateway, sync-service, a push worker, the blocks database, file storage, a change stream and Apple's push service. Clients hold a live socket to the gateway, sync-service writes every block change and publishes it to the change stream, and the push worker reads the stream and wakes sleeping iOS devices.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "adaptive": false,
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 25.75,
+   "tool_calls": 3,
+   "tools_used": [
+    "Read",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 292763,
+   "output_tokens": 3010,
+   "reasoning_tokens": 1169,
+   "cost_usd": 0.5357615,
+   "model_s": 24.4,
+   "startup_s": 1.01,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "d80ece5b-321c-4c0c-8a52-d392e47802b5",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "adaptive": false,
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 178.13,
+   "tool_calls": 7,
+   "tools_used": [
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "ToolSearch",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 979759,
+   "output_tokens": 32216,
+   "reasoning_tokens": 4539,
+   "cost_usd": 1.2552683,
+   "model_s": 176.96,
+   "startup_s": 0.82,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "d80ece5b-321c-4c0c-8a52-d392e47802b5",
+   "inner_calls": [
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam"
+   ],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "adaptive": false,
+   "kind": "DELIVERY"
+  }
+ ]
+}

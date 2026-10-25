@@ -1,0 +1,5 @@
+<figma-url>
+Read-back: 8 of 8 nodes, 8 of 8 connectors, 2 of 2 decision exits labelled, 3 of 3 lanes in order Customer, CS agent, Warehouse operator, first glance: Approve the claim. The labels were read visually from the composing screenshot, because `get_figjam` returns connector names but not their label text.
+Left out: pickup skipped under €20, a pilot that is not live. Failed-inspection path, the runbook gives none.
+Finding: "Clear" and "Unclear" leave "Damage clear?" from the same point and share a short stub before they split. Fixing it would mean reshaping the model and composing again, which I haven't done. One earlier `use_figma` call failed on a parse error and wrote nothing, so the board is the only addition to the file.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

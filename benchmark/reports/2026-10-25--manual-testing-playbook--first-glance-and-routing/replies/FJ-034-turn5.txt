@@ -1,0 +1,9 @@
+<figma-url>
+Read-back: 8 of 8 nodes, 8 of 8 connectors, 2 of 2 decision exits labelled, 3 of 3 lanes, first glance: the released refund
+Left out: the outcome after a second photo, a failed inspection, refund policy and the pickup carrier. I held these back in the playback because your request doesn't state them.
+Finding: the lanes (Customer, CS, Warehouse) separate the teams, but no step is coloured by team, as agreed. A fill per team is a hand edit in FigJam. The nodes to recolour are Reports damage with a photo, Sends a second photo, Check the photo, Approve the claim?, Ask for a second photo, Book a pickup, Inspect the item and Refund released.
+Finding: the last Key entry, "In focus", shows a light pink fill with a heavy pink outline. The one accent on the board is the green "Refund released" node with that outline, so a reader looking for a pink node will find none. This comes from how the composer draws its key, so the model has no fix for it. If it bothers you, delete or edit that key entry by hand.
+Finding: `get_figjam` lists connector text nowhere, and it names the nodes by shape type, not by `node:<id>`. I matched the 8 nodes by id and label, and the 8 connectors by their `edge:` names and endpoint ids. The two exit labels, "Approved" and "Second photo needed", are confirmed only from the write's own return and its screenshot. I did not read them back from the board.
+Finding: Figma's `figma-use` and `figma-use-figjam` skills could not be loaded in this session, so the `use_figma` call ran without them. It returned no warnings and the counts matched. Say so if you want that checked against the skills.
+Finding: the plan is unconfirmed. I wrote into `<test-file-key>` as you asked, but the tools can't show which plan owns that file, so I couldn't confirm it is in Fernhouse Product.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

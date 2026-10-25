@@ -1,0 +1,128 @@
+{
+ "id": "FJ-030",
+ "side": "skill",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/pins-and-legend.md",
+ "twin": "SJ-030",
+ "model": "swe-2-max",
+ "permission": "dangerous",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "tools": [
+  "read",
+  "bash",
+  "edit",
+  "write",
+  "ls",
+  "grep",
+  "find"
+ ],
+ "seed_export": [],
+ "session_id": "magenta-fuchsia",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "turns_declared": 2,
+ "turns_run": 2,
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 249.38,
+   "tool_calls": 33,
+   "tools_used": [
+    "exec",
+    "read",
+    "read",
+    "exec",
+    "read",
+    "read",
+    "exec",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "mcp_list_tools",
+    "exec",
+    "read",
+    "read",
+    "read",
+    "exec",
+    "exec",
+    "exec",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec",
+    "exec",
+    "mcp_read_resource",
+    "mcp_read_resource",
+    "mcp_call_tool"
+   ],
+   "input_tokens": 1661272,
+   "output_tokens": 28027,
+   "cached_tokens": 1503744,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "magenta-fuchsia",
+   "inner_calls": [
+    "create_session",
+    "get_figjam",
+    "use_figma"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review. Pin the three places support says customers give up, with a note on each: the reason list, where there are too many reasons, the drop-off or pickup choice, where the pickup fee is unclear, and the 30-day cut-off, where there is no warning before day 30.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file."
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 256.35,
+   "tool_calls": 8,
+   "tools_used": [
+    "read",
+    "read",
+    "exec",
+    "read",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_call_tool"
+   ],
+   "input_tokens": 1374653,
+   "output_tokens": 25629,
+   "cached_tokens": 1183744,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "magenta-fuchsia",
+   "inner_calls": [
+    "use_figma",
+    "use_figma",
+    "get_figjam",
+    "use_figma"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, go ahead."
+  }
+ ]
+}

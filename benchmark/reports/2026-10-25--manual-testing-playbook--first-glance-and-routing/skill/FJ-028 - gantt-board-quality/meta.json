@@ -1,0 +1,137 @@
+{
+ "id": "FJ-028",
+ "model": "claude-sonnet-5-5",
+ "thinking": "high",
+ "runtime": "claude-code-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/gantt-board-quality.md",
+ "scripted_turns": [
+  "put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November 2026 with two weeks of conflict-screen design, the sync engine takes three weeks from the same day, the conflict screen build follows its design for two weeks, and desktop and iOS integration starts when both builds are done, one week, and is the critical path. Then a two-week beta for 5 percent of workspaces and the release. Android follows in the next quarter, not yet approved.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "session_id": "d142c3ae-1aae-4848-81d3-c3af10f6804d",
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 72.05,
+   "tool_calls": 14,
+   "tools_used": [
+    "Glob",
+    "ToolSearch",
+    "Glob",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 317122,
+   "output_tokens": 7252,
+   "reasoning_tokens": 4833,
+   "cost_usd": 0.4360045000000001,
+   "model_s": 70.13,
+   "startup_s": 1.39,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "d142c3ae-1aae-4848-81d3-c3af10f6804d",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 1,
+   "input": "put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November 2026 with two weeks of conflict-screen design, the sync engine takes three weeks from the same day, the conflict screen build follows its design for two weeks, and desktop and iOS integration starts when both builds are done, one week, and is the critical path. Then a two-week beta for 5 percent of workspaces and the release. Android follows in the next quarter, not yet approved.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "adaptive": false,
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 15.44,
+   "tool_calls": 3,
+   "tools_used": [
+    "Read",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 293112,
+   "output_tokens": 1584,
+   "reasoning_tokens": 235,
+   "cost_usd": 0.516579,
+   "model_s": 13.56,
+   "startup_s": 1.27,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "d142c3ae-1aae-4848-81d3-c3af10f6804d",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "adaptive": false,
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 149.7,
+   "tool_calls": 7,
+   "tools_used": [
+    "mcp__figma-remote__create_session",
+    "ToolSearch",
+    "Bash",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 945645,
+   "output_tokens": 28835,
+   "reasoning_tokens": 1810,
+   "cost_usd": 1.1661786,
+   "model_s": 147.8,
+   "startup_s": 1.41,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "d142c3ae-1aae-4848-81d3-c3af10f6804d",
+   "inner_calls": [
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam"
+   ],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "adaptive": false,
+   "kind": "DELIVERY"
+  }
+ ]
+}

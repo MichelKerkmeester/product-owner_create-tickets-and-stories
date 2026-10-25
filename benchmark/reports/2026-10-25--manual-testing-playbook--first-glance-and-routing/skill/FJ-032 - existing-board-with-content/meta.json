@@ -1,0 +1,141 @@
+{
+ "id": "FJ-032",
+ "model": "claude-sonnet-5-5",
+ "thinking": "high",
+ "runtime": "claude-code-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/existing-board-with-content.md",
+ "scripted_turns": [
+  "$figjam add the Roamstay booking status lifecycle to our existing retro board <test-file-key>. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "session_id": "a1a179f9-384a-400c-8255-3ad7364223ac",
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 67.17,
+   "tool_calls": 17,
+   "tools_used": [
+    "Glob",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "Read",
+    "mcp__figma-remote__get_figjam",
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 613938,
+   "output_tokens": 6316,
+   "reasoning_tokens": 2091,
+   "cost_usd": 0.4710834000000001,
+   "model_s": 65.41,
+   "startup_s": 1.51,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "a1a179f9-384a-400c-8255-3ad7364223ac",
+   "inner_calls": [
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__get_figjam"
+   ],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 1,
+   "input": "$figjam add the Roamstay booking status lifecycle to our existing retro board <test-file-key>. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+   "adaptive": false,
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 31.13,
+   "tool_calls": 4,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 303980,
+   "output_tokens": 3168,
+   "reasoning_tokens": 1544,
+   "cost_usd": 0.5719582000000002,
+   "model_s": 28.67,
+   "startup_s": 2.19,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "a1a179f9-384a-400c-8255-3ad7364223ac",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "adaptive": false,
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 168.18,
+   "tool_calls": 5,
+   "tools_used": [
+    "ToolSearch",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 866894,
+   "output_tokens": 29565,
+   "reasoning_tokens": 2333,
+   "cost_usd": 1.2266495000000004,
+   "model_s": 166.88,
+   "startup_s": 1.03,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "a1a179f9-384a-400c-8255-3ad7364223ac",
+   "inner_calls": [
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam"
+   ],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "adaptive": false,
+   "kind": "DELIVERY"
+  }
+ ]
+}

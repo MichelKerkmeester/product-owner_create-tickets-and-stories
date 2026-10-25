@@ -1,0 +1,336 @@
+{
+ "model": "claude-sonnet-5-5",
+ "thinking": "high",
+ "runtime": "claude-code",
+ "runtime_version": "2.1.310 (Claude Code)",
+ "scenarios": [
+  {
+   "id": "FJ-034",
+   "side": "skill",
+   "group": "board-creation",
+   "slug": "colour-every-team-restraint",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/colour-every-team-restraint.md",
+   "turns": [
+    "$flow the Fernhouse damaged-item refund as a FigJam flow on a new board in our Fernhouse Product plan, and colour each step by the team that does it: customer reports damage with a photo, CS checks it and approves or asks for a second photo, the warehouse books a pickup, inspects the item and releases the refund",
+    "Yes, use lanes.",
+    "Yes, that reading is right.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-034",
+   "tools": [
+    "Read",
+    "Bash",
+    "Edit",
+    "Write",
+    "Glob",
+    "Grep",
+    "ToolSearch"
+   ],
+   "seed_export": []
+  },
+  {
+   "id": "FJ-036",
+   "side": "skill",
+   "group": "board-creation",
+   "slug": "dense-flow-at-budget",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/dense-flow-at-budget.md",
+   "turns": [
+    "$flow how a Roamstay guest changes their booking dates in the app, on a new board in our Roamstay Product plan. From the booking page they tap Change dates and pick new dates. If the room is not free on those dates they see other rooms. If the new price is higher they pay the difference, if it is lower they get the difference back as credit, and if it is the same nothing is charged. Then they see the updated booking.",
+    "Yes, that reading is right.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-036",
+   "tools": [
+    "Read",
+    "Bash",
+    "Edit",
+    "Write",
+    "Glob",
+    "Grep",
+    "ToolSearch"
+   ],
+   "seed_export": []
+  },
+  {
+   "id": "FJ-032",
+   "side": "skill",
+   "group": "board-creation",
+   "slug": "existing-board-with-content",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/existing-board-with-content.md",
+   "turns": [
+    "$figjam add the Roamstay booking status lifecycle to our existing retro board <fileKey of the prepared board>. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+    "Yes, that reading is right.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-032",
+   "tools": [
+    "Read",
+    "Bash",
+    "Edit",
+    "Write",
+    "Glob",
+    "Grep",
+    "ToolSearch"
+   ],
+   "seed_export": []
+  },
+  {
+   "id": "FJ-033",
+   "side": "skill",
+   "group": "board-creation",
+   "slug": "leadership-architecture",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/leadership-architecture.md",
+   "turns": [
+    "draw how Loomlist block sync works as a FigJam architecture diagram for the leadership update, on a new board in our Loomlist Product plan: desktop, web and iOS apps talk to our sync platform, which stores every change and wakes sleeping iPhones through Apple's push service.",
+    "Yes, that reading is right.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-033",
+   "tools": [
+    "Read",
+    "Bash",
+    "Edit",
+    "Write",
+    "Glob",
+    "Grep",
+    "ToolSearch"
+   ],
+   "seed_export": []
+  },
+  {
+   "id": "FJ-030",
+   "side": "skill",
+   "group": "board-creation",
+   "slug": "pins-and-legend",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/pins-and-legend.md",
+   "turns": [
+    "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review. Pin the three places support says customers give up, with a note on each: the reason list, where there are too many reasons, the drop-off or pickup choice, where the pickup fee is unclear, and the 30-day cut-off, where there is no warning before day 30.",
+    "Yes, that reading is right.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-030",
+   "tools": [
+    "Read",
+    "Bash",
+    "Edit",
+    "Write",
+    "Glob",
+    "Grep",
+    "ToolSearch"
+   ],
+   "seed_export": []
+  },
+  {
+   "id": "FJ-031",
+   "side": "skill",
+   "group": "board-creation",
+   "slug": "revision-same-board",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/revision-same-board.md",
+   "turns": [
+    "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review.",
+    "Yes, that reading is right.",
+    "Yes, go ahead.",
+    "change the Fernhouse return flow on that board: after 30 days the app now shows Request an exception instead of Contact support",
+    "Yes, that reading is right.",
+    "Yes, go ahead.",
+    "Yes, delete the old board."
+   ],
+   "twin": "SJ-031",
+   "tools": [
+    "Read",
+    "Bash",
+    "Edit",
+    "Write",
+    "Glob",
+    "Grep",
+    "ToolSearch"
+   ],
+   "seed_export": [],
+   "setup_turns": 3
+  },
+  {
+   "id": "FJ-029",
+   "side": "skill",
+   "group": "board-creation",
+   "slug": "split-flow-one-board",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/split-flow-one-board.md",
+   "turns": [
+    "$flow the Loomlist signup and first workspace setup on a new board in our Loomlist Product plan. From the onboarding doc: the landing page, sign up with email or Google, verify the email code, where a wrong code shows an error with a resend, pick a free or team plan, where a team plan asks for teammates' emails and lets you skip, name the workspace, pick a template or start blank, and the editor opens with a welcome tip.",
+    "Yes, that reading is right.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-029",
+   "tools": [
+    "Read",
+    "Bash",
+    "Edit",
+    "Write",
+    "Glob",
+    "Grep",
+    "ToolSearch"
+   ],
+   "seed_export": []
+  },
+  {
+   "id": "FJ-024",
+   "side": "skill",
+   "group": "board-quality",
+   "slug": "architecture-board-quality",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/architecture-board-quality.md",
+   "turns": [
+    "draw the services behind Loomlist block sync as a FigJam architecture diagram on a new board in our Loomlist Engineering plan: desktop, web and iOS clients, an API gateway, sync-service, a push worker, the blocks database, file storage, a change stream and Apple's push service. Clients hold a live socket to the gateway, sync-service writes every block change and publishes it to the change stream, and the push worker reads the stream and wakes sleeping iOS devices.",
+    "Yes, that reading is right.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-024",
+   "tools": [
+    "Read",
+    "Bash",
+    "Edit",
+    "Write",
+    "Glob",
+    "Grep",
+    "ToolSearch"
+   ],
+   "seed_export": []
+  },
+  {
+   "id": "FJ-027",
+   "side": "skill",
+   "group": "board-quality",
+   "slug": "er-board-quality",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/er-board-quality.md",
+   "turns": [
+    "make a FigJam ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan, and group the partner tables apart from the guest tables. From the schema note: guests, bookings, payments, properties, rooms and rate plans. A guest makes bookings, a booking reserves one room under one rate plan and holds its payments, and a property offers rooms and publishes rate plans. Keep the keys and the few columns support asks about.",
+    "Yes, that reading is right.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-027",
+   "tools": [
+    "Read",
+    "Bash",
+    "Edit",
+    "Write",
+    "Glob",
+    "Grep",
+    "ToolSearch"
+   ],
+   "seed_export": []
+  },
+  {
+   "id": "FJ-028",
+   "side": "skill",
+   "group": "board-quality",
+   "slug": "gantt-board-quality",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/gantt-board-quality.md",
+   "turns": [
+    "put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November 2026 with two weeks of conflict-screen design, the sync engine takes three weeks from the same day, the conflict screen build follows its design for two weeks, and desktop and iOS integration starts when both builds are done, one week, and is the critical path. Then a two-week beta for 5 percent of workspaces and the release. Android follows in the next quarter, not yet approved.",
+    "Yes, that reading is right.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-028",
+   "tools": [
+    "Read",
+    "Bash",
+    "Edit",
+    "Write",
+    "Glob",
+    "Grep",
+    "ToolSearch"
+   ],
+   "seed_export": []
+  },
+  {
+   "id": "FJ-025",
+   "side": "skill",
+   "group": "board-quality",
+   "slug": "sequence-board-quality",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/sequence-board-quality.md",
+   "turns": [
+    "$figjam draw the Roamstay checkout payment as a sequence diagram on a new board in our Roamstay Product plan. From the payments brief: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold, tells the partner hub and answers the app with 201. A declined card releases the hold and returns 402.",
+    "Yes, that reading is right.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-025",
+   "tools": [
+    "Read",
+    "Bash",
+    "Edit",
+    "Write",
+    "Glob",
+    "Grep",
+    "ToolSearch"
+   ],
+   "seed_export": []
+  },
+  {
+   "id": "FJ-026",
+   "side": "skill",
+   "group": "board-quality",
+   "slug": "state-board-quality",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/state-board-quality.md",
+   "turns": [
+    "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-in moves Upcoming to In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+    "Yes, that reading is right.",
+    "Yes, go ahead."
+   ],
+   "twin": "SJ-026",
+   "tools": [
+    "Read",
+    "Bash",
+    "Edit",
+    "Write",
+    "Glob",
+    "Grep",
+    "ToolSearch"
+   ],
+   "seed_export": []
+  },
+  {
+   "id": "FJ-041",
+   "side": "skill",
+   "group": "boundaries",
+   "slug": "named-type-does-not-fit",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/named-type-does-not-fit.md",
+   "turns": [
+    "$figjam a state diagram of the Fernhouse return flow on a new board in our Fernhouse Product plan: a customer opens an order, taps Return an item, picks a reason, chooses a refund or store credit and sees a confirmation",
+    "use your recommendation",
+    "Yes, that reading is right."
+   ],
+   "twin": "SJ-041",
+   "tools": [
+    "Read",
+    "Bash",
+    "Edit",
+    "Write",
+    "Glob",
+    "Grep",
+    "ToolSearch"
+   ],
+   "seed_export": []
+  },
+  {
+   "id": "FJ-039",
+   "side": "skill",
+   "group": "boundaries",
+   "slug": "thin-brief-asks-with-a-recommendation",
+   "file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/thin-brief-asks-with-a-recommendation.md",
+   "turns": [
+    "$flow the Fernhouse return flow on a new board in our Fernhouse Product plan",
+    "go with your recommendations",
+    "Yes, that reading is right."
+   ],
+   "twin": "SJ-039",
+   "tools": [
+    "Read",
+    "Bash",
+    "Edit",
+    "Write",
+    "Glob",
+    "Grep",
+    "ToolSearch"
+   ],
+   "seed_export": []
+  }
+ ]
+}
