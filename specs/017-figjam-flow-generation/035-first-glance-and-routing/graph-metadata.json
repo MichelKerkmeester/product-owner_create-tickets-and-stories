@@ -192,8 +192,8 @@
     ],
     "causal_summary": "The 2026-10-25 rerun held stop discipline in all 18 scenarios but passed only 2: on most boards the planned first glance does not read first because the accent is optional, shares a hue with a kind fill and loses to the start pill, architecture and ER edges run along zone borders and share stubs and corridors, replies carry text after the HVR line, and four model misses trace to skill wording",
     "created_at": "2026-10-25T11:27:55.414Z",
-    "last_save_at": "2026-10-25T14:47:39.805Z",
-    "save_lineage": "graph_only",
+    "last_save_at": "2026-10-25T15:35:12.921Z",
+    "save_lineage": "same_pass",
     "last_accessed_at": null,
     "source_docs": [
       "spec.md",
@@ -204,14 +204,14 @@
       "decision-record.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:cc67dcd215d5712130c7cf2bfd7a7ea805fe19823c9d0401b4aa38f9a29a458b",
+    "source_fingerprint": "sha256:29dbfe23370d6450d212970de581195a6d192f071e81a1e3a3dde2447aaef438",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
       "spec.md": "f6313f75c5ec90638d89e252991fca84bf27d4c4f9c187a35d15b6ad1e71b4d7",
       "plan.md": "bb0834d6b01cb7677247b2347eca25f45b3f8716d30edacbab51ea06eca46ef6",
       "tasks.md": "f944d46d8413cfa5a152659179259f7b6f544cb59f9ee5dfc753a29d6a7bc183",
       "decision-record.md": "9f6469b98ac809dcf7104b9bfcff2f8c9b8ff945b0b2f41960d4cc8be6af2bd5",
-      "implementation-summary.md": "939cfb594ec770ea9eed42892c520ab4f517f8d95ca1199c78021b2007c29cc2"
+      "implementation-summary.md": "a111d6f9c922c8f09d34834d9fd929a24f80e27706b314a6daf8be2ef6dfa8cf"
     },
     "last_active_child_id": null,
     "last_active_at": null
