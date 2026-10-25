@@ -53,6 +53,7 @@ Environment:
 """
 import os
 import sys
+from typing import Optional, Tuple
 
 # ───────────────────────────────────────────────────────────────
 # 1. CONFIGURATION
@@ -140,22 +141,21 @@ RULES = {
     # only proves the rule is named on both sides, not that it says the same
     # thing, so where the statement is the contract the phrase is the whole
     # sentence: the shape and direction limits, the label cap with its number,
-    # the accent pairing, the retry rule, the rollback stop and the two-attempt
-    # stop. A mirror that appends a qualifier to one of those keeps its bold
-    # lead but loses the sentence.
+    # the accent pairing, the retry rule and the rollback. A mirror that
+    # appends a qualifier to one of those keeps its bold lead but loses the
+    # sentence.
     "flow models keep connected nodes, solid arrows, one direction, short labels and camelCase ids": {
         "phrases": (
             "**Four shapes only.**",
             "**Every node connected, every step with a way in and a way out.**",
             "**Solid one-way arrows only.**",
-            "**Top to bottom or left to right,**",
+            "**Left to right or top to bottom,**",
             "**camelCase ids,**",
             "No other shape, no subgraph and never a colour per type",
             "at most 40 characters",
             "Each fill takes only the stroke FigJam pairs it with, and a connector takes either the stroke or nothing.",
-            "Read the target file before a retry, and retry only when the diagram is absent.",
-            "Stop if a node to delete was not created by this write.",
-            "After two attempts at the same diagram, stop and ask what is wrong rather than regenerating again.",
+            "When `use_figma` reports `safeToRetryWithoutCanvasRead: true`, fix the error and retry once.",
+            "The rollback for a new file is that file.",
         ),
         "min_pairs": 7,
     },
@@ -166,7 +166,7 @@ RULES = {
 # ───────────────────────────────────────────────────────────────
 
 
-def load_systems():
+def load_systems() -> Tuple[Optional[dict], Optional[str]]:
     """The shared SYSTEMS declaration, read as source text, never imported.
 
     `z — Claude Project Sync Loop/systems.py` is large and owned by a different,
@@ -193,7 +193,7 @@ def load_systems():
     return systems, None
 
 
-def body(path, drop_frontmatter=True):
+def body(path: str, drop_frontmatter: bool = True) -> Optional[str]:
     """The document's text, or None when it cannot be read.
 
     Frontmatter is stripped on both sides here. Most Product Owner mirrors
@@ -215,7 +215,7 @@ def body(path, drop_frontmatter=True):
     return text
 
 
-def inside(root, path):
+def inside(root: str, path: str) -> bool:
     """Whether a resolved path stays under root, checked lexically.
 
     Sources are fenced at the system root rather than the skill folder,

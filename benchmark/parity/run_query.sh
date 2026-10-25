@@ -12,7 +12,6 @@
 #   0 - The shared carrier query walk found nothing blocked
 #   1 - The shared carrier query walk reported a block
 #   2 - The run was refused before anything was checked
-# This wrapper uses exec to preserve the shared query's exact status, so -e adds no reporting value.
 set -uo pipefail
 cd "$(dirname "$0")" || exit 2
 

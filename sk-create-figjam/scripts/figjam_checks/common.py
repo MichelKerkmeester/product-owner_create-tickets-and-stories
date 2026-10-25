@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # ───────────────────────────────────────────────────────────────
 # COMPONENT: RULES EVERY FIGJAM DIAGRAM SHARES
 # ───────────────────────────────────────────────────────────────
@@ -92,6 +93,7 @@ def content_lines(block_text: str) -> list[tuple[int, str]]:
 
 
 def type_directive(block_text: str) -> str:
+    """The kind a `%% type:` comment line names, lowercased, or an empty string when none does."""
     match = TYPE_DIRECTIVE.search(block_text)
     return match.group(1).lower() if match else ""
 
@@ -112,6 +114,7 @@ def raw_problems(block_text: str) -> list[str]:
 
 
 def id_problems(node_id: str, what: str = "node id") -> list[str]:
+    """Why an id cannot stand on the board: reserved, a Mermaid keyword, an underscore or not camelCase."""
     if node_id.lower() in RESERVED_IDS:
         return [f"{what} {node_id} is reserved by the board generator"]
     if node_id.lower() in MERMAID_KEYWORDS:
@@ -124,6 +127,7 @@ def id_problems(node_id: str, what: str = "node id") -> list[str]:
 
 
 def length_problems(owner: str, label: str) -> list[str]:
+    """A label that breaks its line or runs past MAX_LABEL_CHARS."""
     problems = []
     if "\n" in label:
         problems.append(f"{owner} label carries a line break")
@@ -133,6 +137,7 @@ def length_problems(owner: str, label: str) -> list[str]:
 
 
 def hex_colour(value: str) -> str:
+    """A hex colour in lower case, with a three-digit shorthand spelled out to six digits."""
     value = value.lower()
     if re.fullmatch(r"#[0-9a-f]{3}", value):
         return "#" + "".join(digit * 2 for digit in value[1:])
@@ -140,6 +145,7 @@ def hex_colour(value: str) -> str:
 
 
 def relative_luminance(value: str) -> float:
+    """The WCAG relative luminance of a six-digit hex colour."""
     channels = []
     for i in (1, 3, 5):
         channel = int(value[i:i + 2], 16) / 255

@@ -42,6 +42,10 @@ import sys
 import tempfile
 from pathlib import Path
 
+# ───────────────────────────────────────────────────────────────
+# 1. CONFIGURATION
+# ───────────────────────────────────────────────────────────────
+
 HERE = Path(__file__).resolve().parent
 ROOT = Path(os.environ.get("PO_ROOT") or HERE.parent.parent)
 
@@ -79,6 +83,10 @@ CLOSING_LINES = (
 FINDING_LINE = re.compile(r"^(?P<path>.+?):(?P<line>\d+): (?P<message>.+)$")
 
 
+# ───────────────────────────────────────────────────────────────
+# 2. HELPERS
+# ───────────────────────────────────────────────────────────────
+
 def validate(path: Path) -> tuple[int, list[str]]:
     """Run the system validator on one file in artifact mode, return exit status and blocking lines."""
     result = subprocess.run(
@@ -100,6 +108,10 @@ def strip_mirror_preamble(text: str) -> tuple[str, int]:
             return "\n".join(lines[index + 1:]), index + 1
     return text, 0
 
+
+# ───────────────────────────────────────────────────────────────
+# 3. CORE LOGIC
+# ───────────────────────────────────────────────────────────────
 
 def example_findings() -> tuple[list[str], int]:
     """Lint every source example and every mirrored example, return findings and the file count."""
@@ -166,6 +178,7 @@ def reply_findings(label: Path, first: int, reply: list[str], project_only: bool
     found: list[str] = []
 
     def fail(offset: int, message: str) -> None:
+        """Record one finding at a line offset inside the reply."""
         found.append(f"{label}:{first + offset}: {message}")
 
     if not reply:
@@ -267,6 +280,10 @@ def lint() -> int:
     return 0
 
 
+# ───────────────────────────────────────────────────────────────
+# 4. SELF-TEST
+# ───────────────────────────────────────────────────────────────
+
 def self_test() -> int:
     """Copy the checked files to a scratch tree, break one example and one reply, require two failures."""
     global ROOT
@@ -311,7 +328,12 @@ def self_test() -> int:
     return 0 if all(ok for _, ok in results) else 1
 
 
+# ───────────────────────────────────────────────────────────────
+# 5. ENTRY POINT
+# ───────────────────────────────────────────────────────────────
+
 def main() -> int:
+    """Run the self-test when asked, the lint otherwise."""
     if "--self-test" in sys.argv[1:]:
         return self_test()
     return lint()

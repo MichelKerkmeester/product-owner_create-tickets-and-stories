@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # ───────────────────────────────────────────────────────────────
 # COMPONENT: LAYOUT MEASURES
 # ───────────────────────────────────────────────────────────────
@@ -17,7 +18,12 @@ by its neighbours, and the order the writer declared the steps stands in for it.
 
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
 from .common import MAX_LABEL_CHARS
+
+if TYPE_CHECKING:
+    from mermaid_extract import Diagram, Edge
 
 # A reader holds one rank at a time, so a rank wider than this cannot be read in
 # one pass down the page.
@@ -35,12 +41,12 @@ MAX_LABEL_AVERAGE = MAX_LABEL_CHARS * 7 // 10
 MAX_CONNECTORS_PER_STEP = 2.0
 
 
-def steps_of(diagram) -> list[str]:
+def steps_of(diagram: Diagram) -> list[str]:
     """The drawable step ids, in the order the writer declared them."""
     return [node.id for node in diagram.nodes if not node.container]
 
 
-def following_of(diagram, steps: list[str]) -> dict[str, list[str]]:
+def following_of(diagram: Diagram, steps: list[str]) -> dict[str, list[str]]:
     """The steps each step reaches, leaving out the connectors that touch a lane."""
     kept = set(steps)
     following = {step: [] for step in steps}
@@ -91,7 +97,7 @@ def ranks_of(steps: list[str], following: dict[str, list[str]],
     return ranks
 
 
-def crossing_count(edges, ranks: dict[str, int], position: dict[str, int]) -> int:
+def crossing_count(edges: list[Edge], ranks: dict[str, int], position: dict[str, int]) -> int:
     """Connector pairs from one rank to the next whose ends were declared in opposite order."""
     groups: dict[tuple[int, int], list] = {}
     for edge in edges:
@@ -111,7 +117,7 @@ def crossing_count(edges, ranks: dict[str, int], position: dict[str, int]) -> in
     return total
 
 
-def measure(diagram) -> tuple[list[str], str]:
+def measure(diagram: Diagram) -> tuple[list[str], str]:
     """The shape problems to fix, and one line naming every measure."""
     steps = steps_of(diagram)
     if not steps:

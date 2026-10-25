@@ -1,5 +1,13 @@
 #!/usr/bin/env python3
-"""Check source Markdown links whose destinations stay inside this repository."""
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: MARKDOWN LINK INTEGRITY GATE
+# ───────────────────────────────────────────────────────────────
+
+"""Check source Markdown links whose destinations stay inside this repository.
+
+Usage:
+  check_markdown_links.py -> exit 0 when every relative link resolves, exit 1 otherwise
+"""
 
 from __future__ import annotations
 
@@ -10,6 +18,10 @@ import sys
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
+# ───────────────────────────────────────────────────────────────
+# 1. CONFIGURATION
+# ───────────────────────────────────────────────────────────────
+
 ROOT = Path(__file__).resolve().parents[2]
 EXCLUDED_DIRS = {".git", "node_modules", "specs", "export", "mcp-click-up", "mcp-figma", "mcp-code-mode"}
 REFERENCE_LINK = re.compile(r"(?m)^\s{0,3}\[[^\]]+\]:\s*(?:<([^>]+)>|(\S+))")
@@ -18,6 +30,10 @@ INLINE_CODE = re.compile(r"(`+)[^`\n]*?\1")
 # replaces with a real address, so they are not repository paths.
 PLACEHOLDER = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*-url")
 
+
+# ───────────────────────────────────────────────────────────────
+# 2. HELPERS
+# ───────────────────────────────────────────────────────────────
 
 def markdown_files(root: Path) -> list[Path]:
     """Return Markdown files outside the excluded source trees."""
@@ -127,7 +143,12 @@ def repository_target(destination: str, source: Path, root: Path) -> Path | None
     return target
 
 
+# ───────────────────────────────────────────────────────────────
+# 3. CORE LOGIC
+# ───────────────────────────────────────────────────────────────
+
 def check_links(root: Path) -> int:
+    """Resolve every in-repository link under root, print the findings and return the exit code."""
     files = markdown_files(root)
     failures = []
     checked = 0
@@ -150,7 +171,12 @@ def check_links(root: Path) -> int:
     return 0
 
 
+# ───────────────────────────────────────────────────────────────
+# 4. ENTRY POINT
+# ───────────────────────────────────────────────────────────────
+
 def main() -> int:
+    """Check the links of this repository."""
     return check_links(ROOT)
 
 

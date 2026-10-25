@@ -628,6 +628,7 @@ DISAMBIGUATION_CHECKLIST = [
 
 
 def _guard_in_skill(relative_path: str) -> str:
+    """Return a routable Markdown path relative to the skill root, or raise when it escapes."""
     # .absolute() (not .resolve()) so this stays lexical and never dereferences
     # a shared rule file carried as a symlink into the shared knowledge folder
     # rather than as a copy. Resolving such a link would land outside
@@ -828,6 +829,7 @@ def score_semantic_topics(text: str) -> Tuple[str, float, str]:
 
 def _route(intent: str, energy: str, source: str, confidence: Optional[float],
            needs_disambiguation: bool, text: str = "") -> Dict[str, Any]:
+    """Build one route object with its shape and any paired FigJam output."""
     shape = resolve_shape(intent, text)
     # The paired output rides on the route instead of the intent, so the
     # artifact keeps its lane and gains one named follow-up.
@@ -868,7 +870,7 @@ def route_request(text: str) -> Dict[str, Any]:
     # question below it. Quick energy trusts the same score down to LOW
     # (0.40), and only below that falls back to Task, its narrow safe default:
     # "`$quick`/`$q` without another detectable artifact retains the narrow
-    # Task fallback", as SKILL.md states.
+    # Task fallback", as AGENTS.md states.
     if energy == "QUICK":
         if score >= CONFIDENCE_THRESHOLDS["LOW"]:
             return _route(intent, energy, "semantic", score, False, normalized)
@@ -941,7 +943,8 @@ def _check_duplicate_json_keys(path: str) -> List[str]:
     json.load silently keeps the last duplicate, which would let a typo'd
     override pass; scan per object so the manifest cannot drift silently.
     """
-    def _pairs(pairs):
+    def _pairs(pairs: List[Tuple[str, Any]]) -> Dict[str, Any]:
+        """Build one JSON object, raising on a repeated key."""
         seen = {}
         for k, v in pairs:
             if k in seen:

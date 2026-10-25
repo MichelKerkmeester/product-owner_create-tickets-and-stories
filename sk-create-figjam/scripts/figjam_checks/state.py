@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # ───────────────────────────────────────────────────────────────
 # COMPONENT: STATE PROFILE
 # ───────────────────────────────────────────────────────────────
@@ -12,8 +13,12 @@ added afterwards through the hybrid workflow.
 from __future__ import annotations
 
 import re
+from typing import TYPE_CHECKING
 
 from .common import content_lines, id_problems, length_problems, raw_problems
+
+if TYPE_CHECKING:
+    from mermaid_extract import Diagram, Node
 
 MAX_STATES = 9
 MAX_TRANSITIONS = 12
@@ -27,7 +32,8 @@ REFUSED = (
 PSEUDO = {"start", "end", "fork", "join", "choice"}
 
 
-def check_state(diagram, block_text: str) -> list[str]:
+def check_state(diagram: Diagram, block_text: str) -> list[str]:
+    """The problems with a state diagram, read from its parse and from the raw lines the parse cleans up."""
     problems = raw_problems(block_text)
     lines = content_lines(block_text)
     stereotypes = {}
@@ -44,7 +50,7 @@ def check_state(diagram, block_text: str) -> list[str]:
             stereotypes[stereotype.group(1)] = stereotype.group(2).lower()
     if diagram.direction not in DIRECTIONS:
         problems.append(f"direction {diagram.direction}: a state machine runs LR or TB, and TD is another name for TB")
-    def kind(node) -> str:
+    def kind(node: Node) -> str:
         return stereotypes.get(node.id, node.shape)
     named = [node for node in diagram.nodes if kind(node) not in PSEUDO]
     by_id = {node.id: node for node in diagram.nodes}
@@ -91,11 +97,13 @@ def check_state(diagram, block_text: str) -> list[str]:
     return problems
 
 
-def display(node) -> str:
+def display(node: Node) -> str:
+    """How a state reads in a message: its id, or [*] for the start or end marker."""
     return "[*]" if node.shape in ("start", "end") else node.id
 
 
 def check_state_header(block_text: str) -> list[str]:
+    """The legacy `stateDiagram` header, refused in favour of `stateDiagram-v2`."""
     lines = content_lines(block_text)
     if lines and lines[0][1] == "stateDiagram":
         return ["the legacy stateDiagram header: write stateDiagram-v2"]

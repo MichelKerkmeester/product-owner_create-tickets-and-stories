@@ -8,6 +8,8 @@
 // stroke, weight and fill, so the accent can be measured against every other mark. Text is measured with fixed
 // Inter proportions, so the geometry is a model of the board and never a screenshot of it.
 // Usage: node compose-trace.mjs <filled-code.js>
+// Exit: 0 the trace was printed, including when the script under test threw, since that error rides in the
+// JSON. 1 the file could not be read, with Node's error on stderr.
 import { readFileSync } from 'node:fs';
 
 const CHAR = 0.56;

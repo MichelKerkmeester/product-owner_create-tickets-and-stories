@@ -47,6 +47,7 @@ Exit codes:
   0  every paired twin agreed
   1  at least one pair disagreed
   2  no results file, or nothing in it that could be paired
+  64 no run report directory or results file was given
 
 Usage:
   twin_divergence.py <run report dir, or a results.csv>
@@ -62,13 +63,13 @@ from pathlib import Path
 ID = re.compile(r"^([SP])([A-Z]{2})-(\d+)$")
 
 
-def rows(path: Path):
+def rows(path: Path) -> list[dict[str, str]]:
     """Every row a results.csv holds, as the csv reader returns them."""
     with path.open(encoding="utf-8", newline="") as handle:
         return list(csv.DictReader(handle))
 
 
-def main(argv) -> int:
+def main(argv: list[str]) -> int:
     """Pair each twin in a run's results, then report and return the exit code."""
     if len(argv) < 2:
         print("usage: twin_divergence.py <run report dir, or a results.csv>", file=sys.stderr)

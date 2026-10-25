@@ -7,6 +7,11 @@
 // a model that passed flow_check.py, so the board holds exactly what was checked.
 // Paste the whole file as the use_figma code. Nothing persists between calls, so
 // the return value carries every id the read-back needs.
+
+// ───────────────────────────────────────────────────────────────
+// 1. MODEL AND CONSTANTS
+// ───────────────────────────────────────────────────────────────
+
 const MODEL = __MODEL__;
 
 const h = (r, g, b) => ({ r: r / 255, g: g / 255, b: b / 255 });
@@ -102,7 +107,10 @@ const created = [];
 const elements = [];
 const links = [];
 
-// ── Measuring ──
+// ───────────────────────────────────────────────────────────────
+// 2. MEASURING
+// ───────────────────────────────────────────────────────────────
+
 const measurer = figma.createText();
 measurer.fontName = MEDIUM;
 function natural(chars, font, size) {
@@ -133,7 +141,10 @@ function fit(label, type) {
   return { w: up8(w), h: up8(hh) };
 }
 
-// ── Drawing primitives ──
+// ───────────────────────────────────────────────────────────────
+// 3. DRAWING PRIMITIVES
+// ───────────────────────────────────────────────────────────────
+
 function text(parent, chars, font, size, x, y, width) {
   const t = figma.createText();
   t.fontName = font;
@@ -229,7 +240,10 @@ function zoneSection(parent, label, tint, x, y, w, hh) {
   return sec;
 }
 
-// ── Layered layout ──
+// ───────────────────────────────────────────────────────────────
+// 4. LAYERED LAYOUT
+// ───────────────────────────────────────────────────────────────
+
 // Cut cycles, rank by longest path (or by zone order in stage mode), add a dummy
 // in each rank a long edge crosses so no box sits on its line, order ranks by
 // barycenter, then place each rank exactly by weighted isotonic regression. The
@@ -525,7 +539,11 @@ function layered(items, edges, opt) {
   };
 }
 
-// ── Graph: user flow, process, architecture, state and ER ──
+// ───────────────────────────────────────────────────────────────
+// 5. GRAPH BOARDS
+// ───────────────────────────────────────────────────────────────
+
+// A user flow, a process, an architecture, a state machine or an ER model.
 function entityCard(n) {
   const lines = (n.fields || []).map((f) => [f.keys, f.name, f.type].filter(Boolean).join('  '));
   const titleSize = natural(n.label, SEMI, TYPE.node);
@@ -894,7 +912,10 @@ function buildGraph(M) {
   };
 }
 
-// ── Sequence ──
+// ───────────────────────────────────────────────────────────────
+// 6. SEQUENCE BOARDS
+// ───────────────────────────────────────────────────────────────
+
 // A request and a reply end in a closed head and an async message in an open one, so the two read apart
 // by their head as well as their colour.
 const ARROWS = {
@@ -994,7 +1015,10 @@ function buildSequence(M) {
   };
 }
 
-// ── Gantt ──
+// ───────────────────────────────────────────────────────────────
+// 7. GANTT BOARDS
+// ───────────────────────────────────────────────────────────────
+
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 function buildGantt(M) {
   const day = M.unit === 'day';
@@ -1084,7 +1108,10 @@ function buildGantt(M) {
   };
 }
 
-// ── The board ──
+// ───────────────────────────────────────────────────────────────
+// 8. THE BOARD
+// ───────────────────────────────────────────────────────────────
+
 const builders = { graph: buildGraph, sequence: buildSequence, gantt: buildGantt };
 let body;
 try {

@@ -82,6 +82,8 @@ FLOW_SHAPES = {"rhombus": "decision", "circle": "merge", "cylinder": "datastore"
 # A styled end names its own outcome: red marks a failure, any other accent the goal.
 ERROR_FILLS = {"#ffcdc2"}
 ARROWS = {"->>": "request", "-->>": "reply", "-)": "async", "--)": "asyncReply"}
+# A gantt bar is placed in whole days on a date chart and in minutes on a one-day chart.
+SECONDS_PER_DAY, SECONDS_PER_MINUTE = 86400, 60
 CARDINALITY_WORDS = {"||": "1", "|o": "0..1", "o|": "0..1", "}o": "0..n", "o{": "0..n", "}|": "1..n", "|{": "1..n"}
 
 
@@ -155,6 +157,7 @@ def focus_problems(model: dict, profile: str, target: str, lines: int) -> list[s
 
 
 def board_title(block_text: str, text: dict[str, str], number: int) -> str:
+    """The board's title: a `%% title:` line, a frontmatter title, a `title` line, then the diagram's place."""
     if text.get("title"):
         return text["title"]
     lines = content_lines(block_text)
@@ -186,7 +189,7 @@ def accent_fills(block_text: str) -> dict[str, str]:
     return found
 
 
-def longest_reach(steps: list[str], edges) -> dict[str, int]:
+def longest_reach(steps: list[str], edges: list[mermaid_extract.Edge]) -> dict[str, int]:
     """How many steps the longest loop-free path from a start takes to reach each step."""
     following = {step: [] for step in steps}
     for edge in edges:
@@ -202,7 +205,9 @@ def longest_reach(steps: list[str], edges) -> dict[str, int]:
     return reach
 
 
-def flow_kinds(diagram, block_text: str, profile: str, lanes: dict[str, str]) -> dict[str, str]:
+def flow_kinds(diagram: mermaid_extract.Diagram, block_text: str, profile: str,
+               lanes: dict[str, str]) -> dict[str, str]:
+    """The composer kind each step of a flowchart is drawn as, read from its shape, its lane and its style."""
     steps = [node for node in diagram.nodes if not node.container]
     fills = accent_fills(block_text)
     exits = {node.id: [e for e in diagram.edges if e.source == node.id] for node in steps}
@@ -235,7 +240,9 @@ def flow_kinds(diagram, block_text: str, profile: str, lanes: dict[str, str]) ->
     return kinds
 
 
-def flowchart_model(diagram, block_text: str, profile: str, zones: list[dict]) -> tuple[dict, list[str]]:
+def flowchart_model(diagram: mermaid_extract.Diagram, block_text: str, profile: str,
+                    zones: list[dict]) -> tuple[dict, list[str]]:
+    """The MODEL for a user flow, a process or an architecture, with any problem its zones raise."""
     containers = [node for node in diagram.nodes if node.container]
     steps = [node for node in diagram.nodes if not node.container]
     lanes = {node.id: node.parent for node in steps if node.parent}
@@ -273,7 +280,8 @@ def flowchart_model(diagram, block_text: str, profile: str, zones: list[dict]) -
     return model, problems
 
 
-def state_model(diagram, block_text: str) -> tuple[dict, list[str]]:
+def state_model(diagram: mermaid_extract.Diagram, block_text: str) -> tuple[dict, list[str]]:
+    """The MODEL for a state diagram, with each composite drawn as the zone around its states."""
     stereotypes = {}
     for _, text in content_lines(block_text):
         match = state.STEREOTYPE.match(text)
@@ -313,6 +321,7 @@ def state_model(diagram, block_text: str) -> tuple[dict, list[str]]:
 
 
 def er_model(block_text: str, zones: list[dict]) -> tuple[dict, list[str]]:
+    """The MODEL for an ER diagram, with each entity's fields and each relationship's cardinality in words."""
     entities, fields, relationships, current, direction = {}, {}, [], None, "LR"
     for _, text in content_lines(block_text)[1:]:
         if current is not None:
@@ -364,6 +373,7 @@ def er_model(block_text: str, zones: list[dict]) -> tuple[dict, list[str]]:
 
 
 def sequence_model(block_text: str) -> tuple[dict, list[str]]:
+    """The MODEL for a sequence diagram, with the declared participants first and the rest as they are used."""
     declared, used, messages = [], [], []
     for _, text in content_lines(block_text)[1:]:
         participant = sequence.PARTICIPANT.match(text)
@@ -386,6 +396,7 @@ def sequence_model(block_text: str) -> tuple[dict, list[str]]:
 
 
 def gantt_model(block_text: str) -> tuple[dict, list[str]]:
+    """The MODEL for a gantt chart, with each bar placed in days or minutes from the earliest start."""
     date_format, section, tasks, ids = "", None, [], {}
     for number, text in content_lines(block_text)[1:]:
         first = text.split()[0]
@@ -422,7 +433,7 @@ def gantt_model(block_text: str) -> tuple[dict, list[str]]:
             spans[task["id"]] = task["span"]
         previous_end = finish
     origin = min(task["span"][0] for task in tasks)
-    unit = 86400 if date_format == "YYYY-MM-DD" else 60
+    unit = SECONDS_PER_DAY if date_format == "YYYY-MM-DD" else SECONDS_PER_MINUTE
 
     def offset(moment: datetime) -> float:
         return round((moment - origin).total_seconds() / unit, 2)
@@ -434,14 +445,14 @@ def gantt_model(block_text: str) -> tuple[dict, list[str]]:
             sections.append({"label": label, "tasks": []})
         sections[-1]["tasks"].append({"id": task["id"], "name": task["name"], "tags": task["tags"],
                                       "start": offset(task["span"][0]), "end": offset(task["span"][1])})
-    model = {"type": "gantt", "unit": "day" if unit == 86400 else "minute",
-             "origin": origin.strftime("%Y-%m-%d" if unit == 86400 else "%H:%M"),
+    model = {"type": "gantt", "unit": "day" if unit == SECONDS_PER_DAY else "minute",
+             "origin": origin.strftime("%Y-%m-%d" if unit == SECONDS_PER_DAY else "%H:%M"),
              "span": max(offset(task["span"][1]) for task in tasks), "sections": sections,
              "expect": {"nodes": len(tasks), "connectors": 0}}
     return model, []
 
 
-def build_model(block, number: int) -> tuple[dict | None, list[str], str]:
+def build_model(block: mermaid_extract.SourceBlock, number: int) -> tuple[dict | None, list[str], str]:
     """Check one block, then build its MODEL. Returns the model, its problems and the check's summary."""
     profile, problems, size, _ = flow_check.check_block(block, block.text)
     if problems:
@@ -469,6 +480,10 @@ def build_model(block, number: int) -> tuple[dict | None, list[str], str]:
                   "source": text.get("source", "")})
     return model, found, size
 
+
+# ───────────────────────────────────────────────────────────────
+# 3. COMPACT CODE
+# ───────────────────────────────────────────────────────────────
 
 # A space between two of these and anything else changes nothing in JavaScript, except where two signs
 # would fuse into one token, which `squeeze` keeps apart.
@@ -527,6 +542,7 @@ def squeeze(line: str) -> str:
 
 
 def compact_template() -> str:
+    """The composer code with its comments, indentation and idle spaces dropped and MODEL left a placeholder."""
     template = TEMPLATE.read_text(encoding="utf-8")
     if template.count(PLACEHOLDER) != 1:
         raise SystemExit(f"{TEMPLATE} must hold {PLACEHOLDER} exactly once")
@@ -536,7 +552,7 @@ def compact_template() -> str:
     return "\n".join(line for line in lines if line and not line.startswith("//"))
 
 
-def lean(value):
+def lean(value: object) -> object:
     """The model without the empty values the composer reads the same as an absent one.
 
     A blank label, a node in no zone, a field with no key and the default edge style are each a falsy or
@@ -551,14 +567,16 @@ def lean(value):
 
 
 def fill_template(model: dict) -> str:
+    """The compact composer code with this model in place of its placeholder."""
     return compact_template().replace(PLACEHOLDER, json.dumps(lean(model), ensure_ascii=False, separators=(",", ":")))
 
 
 # ───────────────────────────────────────────────────────────────
-# 3. COMMAND LINE
+# 4. COMPOSE
 # ───────────────────────────────────────────────────────────────
 
 def compose(path: Path, number: int, out: Path | None, model_only: bool) -> int:
+    """Compose one diagram of a model file, write its code or its MODEL and return the exit code."""
     try:
         blocks = mermaid_extract.load_blocks(path)
     except SystemExit:
@@ -587,6 +605,10 @@ def compose(path: Path, number: int, out: Path | None, model_only: bool) -> int:
           f"{model['expect']['connectors']} connectors to read back, {len(payload)} characters{where}", file=sys.stderr)
     return 0
 
+
+# ───────────────────────────────────────────────────────────────
+# 5. SELF-TEST
+# ───────────────────────────────────────────────────────────────
 
 def accent_ids(model: dict) -> set[str]:
     """The node or task ids a model plans the accent on: a focus node, a flagged node or a flagged task."""
@@ -848,6 +870,7 @@ def checker_checks() -> list[tuple[str, bool, str]]:
 
 
 def self_test() -> int:
+    """Prove every shipped model composes and draws true, and print one line per check."""
     results = []
     template = TEMPLATE.read_text(encoding="utf-8") if TEMPLATE.is_file() else ""
     results.append((f"{TEMPLATE.name} holds {PLACEHOLDER} once", template.count(PLACEHOLDER) == 1, ""))
@@ -915,7 +938,12 @@ def self_test() -> int:
     return 0 if passed == len(results) else 1
 
 
+# ───────────────────────────────────────────────────────────────
+# 6. COMMAND LINE
+# ───────────────────────────────────────────────────────────────
+
 def main() -> int:
+    """Dispatch the command line and return the exit code the usage lines document."""
     args = sys.argv[1:]
     if args == ["--self-test"]:
         return self_test()
@@ -923,7 +951,7 @@ def main() -> int:
         print(compact_template())
         return 0
     if not args or args[0].startswith("--"):
-        print(__doc__.strip().split("Usage:")[1])
+        print(__doc__.strip().split("Usage:")[1], file=sys.stderr)
         return 2
     path, number, out, model_only = Path(args[0]), 1, None, False
     rest = args[1:]
@@ -936,7 +964,7 @@ def main() -> int:
         elif flag == "--model":
             model_only = True
         else:
-            print(__doc__.strip().split("Usage:")[1])
+            print(__doc__.strip().split("Usage:")[1], file=sys.stderr)
             return 2
     return compose(path, number, out, model_only)
 

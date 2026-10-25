@@ -11,7 +11,6 @@
 #   0 - The shared receipt writer passed the gate's own checks
 #   1 - The shared receipt writer rejected the line or refused SYNC.md
 #   2 - The run was refused before anything was checked
-# This wrapper uses exec to preserve the shared writer's exact status, so -e adds no reporting value.
 set -uo pipefail
 cd "$(dirname "$0")" || exit 2
 

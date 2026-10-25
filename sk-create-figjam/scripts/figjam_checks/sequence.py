@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # ───────────────────────────────────────────────────────────────
 # COMPONENT: SEQUENCE PROFILE
 # ───────────────────────────────────────────────────────────────
@@ -45,6 +46,7 @@ DROPPED = {
 
 
 def check_sequence(block_text: str) -> tuple[list[str], int, int]:
+    """The problems with a sequence block, and how many participants and messages it holds."""
     problems = raw_problems(block_text)
     lines = content_lines(block_text)
     if not lines or lines[0][1] != "sequenceDiagram":
@@ -119,6 +121,7 @@ def check_sequence(block_text: str) -> tuple[list[str], int, int]:
 
 
 def participant_problems(name: str) -> list[str]:
+    """A participant id that is reserved, malformed or too terse to read on the board."""
     problems = id_problems(name, "participant id")
     if problems:
         return problems

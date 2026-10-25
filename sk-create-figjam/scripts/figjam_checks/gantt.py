@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # ───────────────────────────────────────────────────────────────
 # COMPONENT: GANTT PROFILE
 # ───────────────────────────────────────────────────────────────
@@ -33,6 +34,7 @@ DATE_UNITS, TIME_UNITS = {"y", "M", "w", "d"}, {"h", "m", "s", "ms"}
 
 
 def check_gantt(block_text: str) -> tuple[list[str], int, int]:
+    """The problems with a gantt block, and how many tasks and sections it holds."""
     problems = raw_problems(block_text)
     lines = content_lines(block_text)
     if not lines or lines[0][1] != "gantt":
@@ -88,6 +90,7 @@ def check_gantt(block_text: str) -> tuple[list[str], int, int]:
 
 
 def parse_task(number: int, name: str, meta: str, date_format: str, ids: dict) -> tuple[dict, list[str]]:
+    """One task line read into its name, id, tags, start and length, with the problems found on it."""
     problems = length_problems(f"line {number}: the task", name)
     parts = [part.strip() for part in meta.split(",") if part.strip()]
     tags = []
@@ -136,6 +139,7 @@ def parse_task(number: int, name: str, meta: str, date_format: str, ids: dict) -
 
 
 def parses(value: str, date_format: str) -> datetime | None:
+    """The moment a value stands for under the chart's dateFormat, or None when it does not parse."""
     try:
         return datetime.strptime(value, FORMATS[date_format])
     except (KeyError, ValueError):

@@ -83,7 +83,12 @@ NAMES = {"user-flow": "user flow", "process": "process", "architecture": "archit
          "state": "state", "er": "ER", "gantt": "gantt"}
 
 
+# ───────────────────────────────────────────────────────────────
+# 1. PROFILES AND CHECKS
+# ───────────────────────────────────────────────────────────────
+
 def header_word(block_text: str) -> str:
+    """The first word of a block after any frontmatter, lowercased, which names its kind."""
     lines = content_lines(block_text)
     in_frontmatter = bool(lines) and lines[0][1] == "---"
     for _, text in lines[1:] if in_frontmatter else lines:
@@ -95,6 +100,7 @@ def header_word(block_text: str) -> str:
 
 
 def profile_of(block_text: str) -> tuple[str, list[str]]:
+    """The profile a block is checked as, or an empty profile with the reason it has none."""
     word = header_word(block_text)
     directive = type_directive(block_text)
     if word in UNSUPPORTED:
@@ -112,7 +118,7 @@ def profile_of(block_text: str) -> tuple[str, list[str]]:
     return kind, []
 
 
-def check_block(block, block_text: str) -> tuple[str, list[str], str, str]:
+def check_block(block: mermaid_extract.SourceBlock, block_text: str) -> tuple[str, list[str], str, str]:
     """Return the profile, its problems, the size and shape summary and the flowchart direction."""
     profile, problems = profile_of(block_text)
     if problems:
@@ -146,6 +152,7 @@ def check_block(block, block_text: str) -> tuple[str, list[str], str, str]:
 
 
 def check(path: Path) -> int:
+    """Check every diagram in a model file, print the report and return the exit code."""
     try:
         blocks = mermaid_extract.load_blocks(path)
         results = [(block, check_block(block, block.text)) for block in blocks]
@@ -177,6 +184,10 @@ def check(path: Path) -> int:
     print(f"PASSED {len(results)} diagram(s) in {path.name}")
     return 0
 
+
+# ───────────────────────────────────────────────────────────────
+# 2. SELF-TEST
+# ───────────────────────────────────────────────────────────────
 
 # The shipped templates, the worked examples and their Project mirrors must
 # keep passing the rules they teach. The mirrors are absent from a copy of the
@@ -217,6 +228,7 @@ def palette_results() -> list[tuple[str, bool, str]]:
 
 
 def run_quietly(path: Path) -> tuple[int, str]:
+    """Run the check on one file and return its exit code with the report it printed."""
     out = io.StringIO()
     with contextlib.redirect_stdout(out):
         code = check(path)
@@ -224,6 +236,7 @@ def run_quietly(path: Path) -> tuple[int, str]:
 
 
 def self_test() -> int:
+    """Prove each rule fires on its planted model and every good and shipped model passes."""
     from figjam_checks.fixtures import GOOD, PLANTED
 
     results = []
@@ -263,12 +276,17 @@ def self_test() -> int:
     return 0 if passed == len(results) else 1
 
 
+# ───────────────────────────────────────────────────────────────
+# 3. COMMAND LINE
+# ───────────────────────────────────────────────────────────────
+
 def main() -> int:
+    """Dispatch the command line and return the exit code the usage lines document."""
     args = sys.argv[1:]
     if args == ["--self-test"]:
         return self_test()
     if len(args) != 1:
-        print(__doc__.strip().split("Usage:")[1])
+        print(__doc__.strip().split("Usage:")[1], file=sys.stderr)
         return 2
     return check(Path(args[0]))
 

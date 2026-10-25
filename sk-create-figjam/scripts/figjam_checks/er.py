@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # ───────────────────────────────────────────────────────────────
 # COMPONENT: ER PROFILE
 # ───────────────────────────────────────────────────────────────
@@ -32,6 +33,7 @@ STYLING = re.compile(r"^(classDef|class|style)\s", re.I)
 
 
 def check_er(block_text: str) -> tuple[list[str], int, int]:
+    """The problems with an ER block, and how many entities and relationships it holds."""
     problems = raw_problems(block_text)
     lines = content_lines(block_text)
     if not lines or lines[0][1] != "erDiagram":
