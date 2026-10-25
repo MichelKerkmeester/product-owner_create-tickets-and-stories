@@ -6,7 +6,7 @@ importance_tier: important
 trigger_phrases:
   - "architecture templates"
   - "figjam architecture pattern"
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # FigJam Architecture Templates
@@ -21,7 +21,7 @@ Copy/apply patterns for an architecture model. Each pattern passes `scripts/flow
 
 ## 1. USAGE
 
-- Keep the `%% type: architecture` line first, and pass `useArchitectureLayoutCode` as `"FIGMA_DIAGRAM_2026"` on the call
+- Keep the `%% type: architecture` line first, before any `%% title:` or other board line. On the generated fallback, pass `useArchitectureLayoutCode` as `"FIGMA_DIAGRAM_2026"` on the call
 - Keep the six lane ids exactly and rename only the labels
 - Drop a lane the system does not have. An empty lane is never filled with an invented part
 - Label every edge from its source's side, and an external edge as `"Service: Purpose"`

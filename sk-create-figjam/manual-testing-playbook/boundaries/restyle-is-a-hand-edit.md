@@ -1,7 +1,7 @@
 ---
 title: "FJ-038 -- A restyle request becomes a hand edit"
-description: "This scenario validates a restyle request becomes a hand edit for `FJ-038`. It checks that a request to move, resize or restyle a generated node gets a plain answer naming the edit in FigJam, and no tool is called."
-version: 1.0.0.0
+description: "This scenario validates a restyle request becomes a hand edit for `FJ-038`. It checks that a request to move or restyle a composed node in a way the model cannot carry gets a plain answer naming the edit in FigJam, and no tool is called."
+version: 1.0.1.0
 ---
 
 # FJ-038 -- A restyle request becomes a hand edit
@@ -12,11 +12,11 @@ This document captures the user-testing contract, execution flow, source anchors
 
 ## 1. OVERVIEW
 
-This scenario validates a restyle request becomes a hand edit for `FJ-038`. It checks that a request to move, resize or restyle a generated node gets a plain answer naming the edit in FigJam, and no tool is called.
+This scenario validates a restyle request becomes a hand edit for `FJ-038`. It checks that a request to move or restyle a composed node in a way the model cannot carry gets a plain answer naming the edit in FigJam, and no tool is called.
 
 ### Why This Matters
 
-The generator owns the layout, so dragging a node through `use_figma` breaks the routing it drew. A user who hears what to change by hand gets the board they want without a broken one.
+The composer owns the layout, so dragging a node through `use_figma` breaks the routing it drew. A custom font or colour is something the model cannot carry. A user who hears what to change by hand gets the board they want without a broken one.
 
 ---
 
@@ -24,13 +24,13 @@ The generator owns the layout, so dragging a node through `use_figma` breaks the
 
 Operators run the exact prompt and command sequence for `FJ-038` and confirm the expected signals without contradictory evidence.
 
-- Objective: Verify that a request to move, resize or restyle a generated node gets a plain answer naming the edit in FigJam, and no tool is called
+- Objective: Verify that a request to move or restyle a composed node in a way the model cannot carry gets a plain answer naming the edit in FigJam, and no tool is called
 - Real user request: `$flow on the Fernhouse return board you drew, move the Approve return node further right and make its text bigger`
 - Prompt: `$flow on the Fernhouse return board you drew, move the Approve return node further right and make its text bigger`
-- Expected execution process: Route to Flow Mode on `$flow`, recognise a move and a restyle of a generated node and answer as `references/flow-mode.md` Section 9 sets out, naming the node by its label
-- Expected signals: The reply says Flow Mode does not move or restyle a generated node, names the drag and the font change in FigJam and names the `Approve return` node by its label. No Figma tool is called
+- Expected execution process: Route to Flow Mode on `$flow`, recognise a nudge and a font change that the model cannot carry and answer as `references/flow-mode.md` Section 9 sets out, naming the node by its label and saying a change the model can carry is made in the model and composed again after a yes, with the old board section deleted only on a second yes asked after the new board is read back
+- Expected signals: The reply says Flow Mode does not move or restyle a composed node, because a nudge and a font size are changes the model cannot carry, names the drag and the font change as hand edits in FigJam, names the `Approve return` node by its label and says a change the model can carry, such as the direction, a zone or a `style` line, is made in the model and composed again after a yes, with the old board section deleted only on a second yes asked after the new board is read back. No Figma tool is called
 - Desired user-visible outcome: A plain answer that names the two hand edits in FigJam
-- Pass/fail: PASS if the reply names both edits as hand edits in FigJam, names the node and calls no tool. FAIL if a Figma tool is called, the node is moved or restyled, or the board is regenerated for a style change
+- Pass/fail: PASS if the reply names both edits as hand edits in FigJam, names the node and calls no tool. FAIL if a Figma tool is called, the node is moved or restyled, or the board is composed again for a change the model cannot carry
 
 ---
 
@@ -50,7 +50,7 @@ Operators run the exact prompt and command sequence for `FJ-038` and confirm the
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| FJ-038 | A restyle request becomes a hand edit | Verify that a request to move, resize or restyle a generated node gets a plain answer naming the edit in FigJam, and no tool is called | `$flow on the Fernhouse return board you drew, move the Approve return node further right and make its text bigger` | 1. `session: start fresh -> user: submit the prompt exactly` -> 2. `operator: read the reply and the tool calls` | Step 1 returns the answer with no gate. Step 2 finds no Figma read or write tool call | The reply and the tool calls | PASS if the reply names both edits as hand edits in FigJam, names the node and calls no tool. FAIL if a Figma tool is called, the node is moved or restyled, or the board is regenerated for a style change | 1. Check `references/flow-mode.md` Section 9, the subsection on moving, resizing or restyling a node 2. Check the layout rule in `references/flow-mode.md` Section 5 |
+| FJ-038 | A restyle request becomes a hand edit | Verify that a request to move or restyle a composed node in a way the model cannot carry gets a plain answer naming the edit in FigJam, and no tool is called | `$flow on the Fernhouse return board you drew, move the Approve return node further right and make its text bigger` | 1. `session: start fresh -> user: submit the prompt exactly` -> 2. `operator: read the reply and the tool calls` | Step 1 returns the answer with no gate. Step 2 finds no Figma read or write tool call | The reply and the tool calls | PASS if the reply names both edits as hand edits in FigJam, names the node and calls no tool. FAIL if a Figma tool is called, the node is moved or restyled, or the board is composed again for a change the model cannot carry | 1. Check `references/flow-mode.md` Section 9, the subsection A node needs moving, resizing or restyling 2. Check the layout rule and the redraw levers in `references/flow-mode.md` Section 5 |
 
 ### Commands
 
@@ -68,12 +68,12 @@ The reply and the tool calls
 ### Pass / Fail
 
 - **Pass**: the reply names both edits as hand edits in FigJam, names the node and calls no tool
-- **Fail**: a Figma tool is called, the node is moved or restyled, or the board is regenerated for a style change
+- **Fail**: a Figma tool is called, the node is moved or restyled, or the board is composed again for a change the model cannot carry
 
 ### Failure Triage
 
-1. Check `references/flow-mode.md` Section 9, the subsection on moving, resizing or restyling a node
-2. Check the layout rule in `references/flow-mode.md` Section 5
+1. Check `references/flow-mode.md` Section 9, the subsection A node needs moving, resizing or restyling
+2. Check the layout rule and the redraw levers in `references/flow-mode.md` Section 5
 
 ---
 
@@ -91,7 +91,7 @@ The reply and the tool calls
 | File | Role |
 |---|---|
 | [`references/flow-mode.md`](../../references/flow-mode.md) | Recovery for a move or a restyle |
-| [`references/hybrid-workflow.md`](../../references/hybrid-workflow.md) | Additions never move a generated node |
+| [`references/hybrid-workflow.md`](../../references/hybrid-workflow.md) | Additions never move a composed node |
 
 ---
 

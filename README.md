@@ -204,7 +204,7 @@ A feature name is not a scope, so the reply saves one question as `export/001 - 
 ### Use It in a claude.ai Project
 
 1. Paste `claude project/Custom Instructions.md` into the custom instructions of a Project named **Product Owner**
-2. Remove superseded knowledge uploads, then upload all 63 files in `claude project/knowledge/` with their filenames unchanged
+2. Remove superseded knowledge uploads, then upload all 64 files in `claude project/knowledge/` with their filenames unchanged
 3. Run the smoke matrix in [the Project README](claude%20project/README.md) and confirm a Deliverable Block appears first, since a Project cannot write files
 4. Optionally fill `claude project/templates/Product Owner - Local - Push Targets.md` with your ClickUp lists and docs by team, keep the copy in the gitignored `claude project/local/` and upload it to your own Project, so the ClickUp offer names the one that fits. [USER-GUIDE.md](./USER-GUIDE.md) Section 4 walks through it
 
@@ -673,7 +673,7 @@ A route loads its template together with its mode reference. A worked example lo
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem and never loads `SKILL.md`.
 
 - `Custom Instructions.md` is the kernel, v1.2.2, aligned to skill v1.2.1.0. It carries the full router and rules and is the routing authority inside the Project
-- `knowledge/` holds 63 files: 35 core documents (six mode references, seven templates, four shared rule files, quality scoring, the connector setup reference and the 16 FigJam type, type template, style, quality and hybrid documents) and the 28 worked examples
+- `knowledge/` holds 64 files: 36 core documents (six mode references, seven templates, four shared rule files, quality scoring, the connector setup reference and the 17 FigJam type, type template, style, quality, hybrid and board composer documents) and the 28 worked examples
 - `README.md` holds the upload steps, the source-to-mirror map and the smoke matrix
 - `kernel-review.json` is a dated record of one kernel review, read by no tool
 
@@ -706,7 +706,7 @@ The live Project is a separate manual upload, so a matching local package proves
 | `bash benchmark/format/run_fixtures.sh` | 59 cases over 19 fixture files through the output validator | One `PASS` line per case, then `PASSED all format-validator fixtures` |
 | `python3 benchmark/gates/example_lint.py` | Every worked example and Project example mirror through the output validator, and every worked reply against the Delivery Reply Shape | `PASSED 56 example files and the worked replies on both packagings` |
 | `python3 benchmark/gates/check_hub.py` | The hub files at the root, the registry packets, their routing sections and the stage one gold rows | `PASSED the hub, 4 registry packets and 41 gold rows` |
-| `bash benchmark/gates/run_gates.sh` | Router fixtures, format fixtures, rule parity, example lint, vendor sync, plugin freshness, Markdown links, hub and Flow checks, leaf-map parity, their self-tests and the two sk-create-skill contracts | `all 15 gates pass`, or `10 of 15 gates pass, 5 skipped` from a clone with no generated plugin copy or shared skill folder |
+| `bash benchmark/gates/run_gates.sh` | Router fixtures, format fixtures, rule parity, example lint, vendor sync, Markdown links, hub and Flow checks, the board composer, leaf-map parity, their self-tests and the two sk-create-skill contracts | `all 15 gates pass`, or `11 of 15 gates pass, 4 skipped` from a clone with no shared skill folder |
 | `python3 benchmark/router/route_contract.py --self-check` | One sample per detection layer | `self-check passed 5 routing expectations` |
 | `node benchmark/format/validate-output-format.cjs "<file>"` | One saved artifact against the output rules | `Product Owner output format validation passed across 1 artifact file(s)` |
 | `bash benchmark/grader/check_report.sh <report-folder>` | The voice lint of every captured reply, then twin agreement | Writes `hvr-lint.csv` into the folder it reads |
@@ -813,12 +813,11 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
 │   ├── Custom Instructions.md       claude.ai kernel v1.2.2
 │   ├── README.md                    upload steps, mirror map and smoke matrix
 │   ├── kernel-review.json           dated record of one kernel review
-│   └── knowledge/                   63 knowledge files
-├── claude-plugin/                   Claude Code plugin manifests, skills/ rebuilt by scripts/build-plugin.py
+│   └── knowledge/                   64 knowledge files
 ├── export/                          generated artifacts, ignored by git
 │   └── benchmark/                   empty until the next playbook run is collected
 ├── opencode.json                    starts Code Mode for OpenCode through scripts/code-mode.cjs
-├── scripts/                         vendor-sync.py, build-plugin.py, code-mode.cjs, the vendor sync tests and vendored/code-mode, the Code Mode launcher
+├── scripts/                         vendor-sync.py, code-mode.cjs, the vendor sync tests and vendored/code-mode, the Code Mode launcher
 ├── specs/                           spec packets for changes to this system
 └── vendor.json                      upstream record of the vendored packets
 ```
@@ -934,7 +933,7 @@ It writes `hvr-lint.csv` beside the replies it lints. Run it on a copy of the fo
 - **[→ Router Contract](sk-product-owner/references/router-contract.md)** - the router as running Python
 - **[→ Worked Examples](sk-product-owner/assets/examples/)** - 21 filled artifacts by mode
 - **[→ Manual Testing Playbook](sk-product-owner/manual-testing-playbook/manual-testing-playbook.md)** - the 68 scenarios and their pass criteria
-- **[→ Latest Release Notes](sk-product-owner/changelog/v1.2.1.0.md)** - v1.2.1.0, one reply shape and one question round. The [hub release note](changelog/v1.0.0.0.md) records the parent-hub packaging
+- **[→ Latest Release Notes](sk-product-owner/changelog/v1.2.1.0.md)** - v1.2.1.0, one reply shape and one question round. The [hub release notes](changelog/v1.0.1.0.md) record the plugin removal, and [v1.0.0.0](changelog/v1.0.0.0.md) the parent-hub packaging
 
 **Claude Project package**
 

@@ -1,6 +1,6 @@
 # Product Owner - Examples - Doc - How It Works
 
-Instantiates Doc Templates section 5, Behavior Reference, at system scale with a prose-first register. A subscription billing lifecycle: states, renewal and proration, dunning retries, cancellation and pause, precedence and one unresolved edge.
+Instantiates Doc Templates section 5, Behavior Reference, at system scale with a prose-first register. A subscription billing lifecycle: states, renewal and proration, dunning retries, cancellation and pause, precedence and one unresolved edge. This example runs past the 1,400 word budget because it shows a system-scale source. Copy its structure, never its length.
 
 ---
 

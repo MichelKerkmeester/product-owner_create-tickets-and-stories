@@ -1,6 +1,6 @@
 # Product Owner - Templates - Flow Type - ER
 
-An ER diagram shows which entities exist, the fields that matter on each and how they relate. The generator draws an entity with fields as a table with key badges and one without as a plain box.
+An ER diagram shows which entities exist, the fields that matter on each and how they relate. The composer draws each entity as a white card, its name in bold above one line per field with its keys first, and each relationship as a line with no arrow and its cardinality in the label.
 
 ---
 
@@ -43,6 +43,8 @@ erDiagram
 
 The same ends work with `..` in place of `--`.
 
+On the board the label reads the verb and then the two ends in words, such as `makes (1 to 0..n)`. An identifying relationship is a solid line and a non-identifying one dashed, and the key names both. A `%% zone: <label>: <entity>, <entity>` line draws a tinted section around the entities of one domain.
+
 ---
 
 ## 3. RULES
@@ -54,7 +56,7 @@ Check these rule by rule before the gate:
 - **Every relationship labelled,** a label of two or more words in double quotes, at most 40 characters
 - **Attributes in the documented form,** at most 10 per entity, and an entity with attributes marks its `PK`
 - **One spelling per type,** never `string` beside `String`
-- **No styling,** which the generator drops. Colour domains through the hybrid pass
+- **No styling,** which neither route draws. Group a domain with a `%% zone:` line instead
 - **Every entity in a relationship** once there is more than one, and entity ids camelCase or PascalCase. Figma's own examples write `LINE_ITEM`, but its universal rules say an underscore can break routing, so write `LineItem` with an alias when the board should read `Line Item`
 - **At most 9 entities and 12 relationships,** the house diagram guide's general budget
 - The shared rules: no emoji, markup or literal `\n`
@@ -75,15 +77,15 @@ Split by bounded context, such as guests and bookings in one diagram and propert
 
 ---
 
-## 5. COLOUR AND THE HYBRID PASS
+## 5. COLOUR, ZONES AND NOTES
 
-Colour by domain is the extension Figma ranks highest for ER, because Mermaid cannot do it: the status tint recipe in Templates - Flow Hybrid Workflow tints each entity's table. Annotations on a column, such as a soft-delete field, go on through the label and legend recipe.
+Colour by domain is what Figma ranks highest for ER, and the model carries it: a `%% zone:` line names a domain and lists its entities, and the composer tints a section around them. An entity sits in one zone at most, and an entity in no zone sits outside every section. Sections never overlap: when the entities of two zones would interleave, the composer stacks the sections one above the other, and a board that still has zones on top of each other is refused before anything is drawn. Annotations on a column, such as a soft-delete field, go on through the pins and legend recipe in Templates - Flow Hybrid Workflow. A `%% focus: <id>` line may name the one node the first glance lands on. It is a comment, so the model stays styleless.
 
 ---
 
-## 6. CALLING THE TOOL
+## 6. WRITING THE BOARD
 
-`generate_diagram` with `name`, `mermaidSyntax` and `userIntent`. No `useArchitectureLayoutCode`.
+The model is placed into Assets - Flow Board Composer and one `use_figma` call draws the board, as Templates - Flow Mode Section 6 sets out. On the generated fallback, `generate_diagram` takes `name`, `mermaidSyntax` and `userIntent` with no `useArchitectureLayoutCode`. The generator strips the zone lines.
 
 ---
 
@@ -91,9 +93,9 @@ Colour by domain is the extension Figma ranks highest for ER, because Mermaid ca
 
 Count entities, relationships and attributes, and check each relationship's two ends, the cardinality on each end and its label.
 
-Read the cardinality from the end caps. Figma's connector cap carries a marker for each of the four cardinalities, named `ERD_EXACTLY_ONE`, `ERD_ZERO_OR_ONE`, `ERD_ZERO_OR_MORE` and `ERD_ONE_OR_MORE`, and the read compares each end's marker with the end the model drew. The right cardinality matters more than a full column list, because it is the part a reader decides on.
+On a composed board read the cardinality from the label, which carries both ends in words, and check the line is solid or dashed as the model draws it. The attributes are the lines of each entity card. The right cardinality matters more than a full column list, because it is the part a reader decides on.
 
-A connector with one marker and one plain end is never called reversed, and one with a marker at both ends is never called two-way, so the arrow rule in Templates - Flow Mode Section 7 does not apply here. This check rests on the generator drawing ERD caps, which no live read has shown yet. Where the caps read plain, the read counts the two ends and the label and says the cardinality went unread.
+A relationship has no arrow, so the arrow rule in Templates - Flow Mode Section 7 does not apply here. On the generated route Figma's connector cap carries a marker for each of the four cardinalities, named `ERD_EXACTLY_ONE`, `ERD_ZERO_OR_ONE`, `ERD_ZERO_OR_MORE` and `ERD_ONE_OR_MORE`, but no live read has shown the generator drawing them yet. Where those caps read plain, the read counts the two ends and the label and says the cardinality went unread.
 
 ```text
 Read-back: 4 of 4 entities, 3 of 3 relationships, 11 of 11 attributes

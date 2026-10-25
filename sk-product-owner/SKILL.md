@@ -58,6 +58,9 @@ $flow | $figjam               -> Flow Mode -> see the single-route handoff rule 
 $quick | $q                   -> energy override only, never an intent
 2+ artifact commands          -> Interactive Mode (one consolidated question)
 no command, framing hit       -> route by artifact framing ("write a task/bug/prd/story/doc ...", "make a FigJam flow ...")
+artifact + FigJam output verb -> the artifact first, then Flow Mode (route.then = FLOW, flow-mode.md Section 8)
+artifact framing about FigJam -> that artifact, FigJam is its subject ("add a task to update the figjam board")
+board notes or edit request   -> Flow Mode ("add notes to the figjam board", a figma.com/board link)
 no command, no framing        -> score semantic topics, route by confidence threshold
 confidence < LOW (0.40)       -> follow the Quick fallback in `references/routing.md` Section 2
 ```
@@ -71,7 +74,7 @@ Resources are discovered recursively by `discover_markdown_resources` from `refe
 | Level | Resources |
 | --- | --- |
 | ALWAYS | The router's ALWAYS lane loads `references/hvr-core.md` and `references/conciseness.md`. The hub `../SKILL.md` and `../ROUTER.md` and this file are already in context when this packet is chosen, and Section 3 of `assets/interactive-response-templates.md` is read before the first reply |
-| CONDITIONAL | One routed pair, never more. Task loads `references/task-mode.md` with `assets/task-templates.md`. Bug loads `references/bug-mode.md` with `assets/bug-report-template.md`. Doc loads `references/doc-mode.md` with `assets/doc-templates.md`. Story loads `references/story-mode.md` with the one scaffold its shape resolved: `assets/story-template.md` or `assets/epic-template.md`, never both. A single Flow route follows the Section 2 handoff to [`../sk-create-figjam/SKILL.md`](../sk-create-figjam/SKILL.md), which loads its own pair beside the two ALWAYS cards. Interactive loads `references/interactive-mode.md` with `assets/interactive-response-templates.md` |
+| CONDITIONAL | One routed pair, never more, then the Flow lane when the route carries `then: "FLOW"`. Task loads `references/task-mode.md` with `assets/task-templates.md`. Bug loads `references/bug-mode.md` with `assets/bug-report-template.md`. Doc loads `references/doc-mode.md` with `assets/doc-templates.md`. Story loads `references/story-mode.md` with the one scaffold its shape resolved: `assets/story-template.md` or `assets/epic-template.md`, never both. A single Flow route follows the Section 2 handoff to [`../sk-create-figjam/SKILL.md`](../sk-create-figjam/SKILL.md), which loads its own pair beside the two ALWAYS cards. Interactive loads `references/interactive-mode.md` with `assets/interactive-response-templates.md` |
 | ON_DEMAND | `references/human-voice-rules.md` for a borderline voice call or a scored pass. `references/quality-scoring.md` for a borderline quality dimension. One reference or asset for a missing fact or template detail. At most one worked example from `assets/examples/<mode>/`, never a bulk folder read |
 
 ### Router Mechanics

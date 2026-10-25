@@ -1,12 +1,12 @@
 ---
 title: "Example - State - Roamstay Booking"
-description: "A worked state diagram on the fictional Roamstay booking marketplace: a booking's status field drawn from a product doc, with a status tint added through the hybrid workflow, a gate message and the reply."
+description: "A worked state diagram on the fictional Roamstay booking marketplace: a booking's status field drawn from a product doc, its end states coloured by the composer, a playback, a gate message and the reply."
 contextType: general
 importance_tier: normal
 trigger_phrases:
   - "state example"
   - "roamstay booking states"
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # Example - State - Roamstay Booking
@@ -35,14 +35,34 @@ $figjam the booking status lifecycle from the bookings doc, and colour the end s
 
 - **Reader question:** which statuses exist and what moves a booking between them? A state diagram
 - **Detail:** balanced. **Audience:** mixed
-- **Extension:** the request asks for colour on the end states, which Mermaid cannot set on a state diagram, so a status tint goes behind them through `references/hybrid-workflow.md`
+- **Colour:** the request asks for colour on the end states, which Mermaid cannot set on a state diagram. The composer already draws every state the machine ends from in light gray and names it `Final state` in the key, so the request needs no extension. States inside Confirmed stay white, because leaving the composite does not end the booking
 
 ---
 
-## 3. MODEL
+## 3. PLAYBACK
+
+The playback is its own reply, sent before the model. It waits for its own answer, and a yes to it moves the work on to the model and writes nothing.
+
+```text
+Before I draw anything, this is how I read the request.
+Question: which statuses exist and what moves a booking between them?
+Outcome: support can read every booking status and spot the statuses a booking ends in.
+Settled by the sources: lines 2.1 to 2.5 of the bookings doc give the statuses and what moves a booking between them, and the composer already draws the end states in light gray.
+Left out: nothing.
+Assumed: balanced detail and a mixed audience.
+Still open: none.
+Is this the right reading of the board?
+```
+
+---
+
+## 4. MODEL
 
 ```mermaid
 stateDiagram-v2
+    %% title: Booking status
+    %% subtitle: Every status a Roamstay booking passes through, and what moves it on
+    %% source: Source: the bookings doc, Section 2.
     direction LR
     [*] --> Pending
     Pending --> Confirmed: card authorised
@@ -79,29 +99,32 @@ stateDiagram-v2
 PASSED 1 diagram(s) in model.md
 ```
 
-### Planned extension
-
-One status tint behind the three end states, light gray `#D9D9D9` with `#B3B3B3`, named `Ended`, as the status tint recipe draws it.
-
 ---
 
-## 4. GATE
+## 5. GATE
+
+The gate is its own reply, sent after the playback's answer. Its one question asks about the write alone.
 
 ```text
-Plan: Roamstay Product. File: a new FigJam file, which this call creates.
-Writes: one state diagram, 7 states and 12 transitions, named "Booking status".
-Then: one gray tint behind Completed, Cancelled and NoShow.
+Question: which statuses exist and what moves a booking between them?
+Outcome: support can read every booking status and spot the statuses a booking ends in.
+First glance: the end states, Completed, Cancelled and NoShow, drawn in light gray.
+Second glance: the events that lead into them, check out, guest cancels and missed check-in.
+Last glance: Pending, where every booking starts.
+Plan: Roamstay Product. File: a new FigJam file named "Booking status", created in that plan.
+Writes: one composed board, 7 states and 12 transitions, the end states in light gray, with a title, a key and a source line, at the Laptop reading distance.
+Extensions: none.
+Calls: whoami, create_new_file, one use_figma and one get_figjam read-back.
 Rollback: delete the new file.
 Write it?
 ```
 
 ---
 
-## 5. REPLY
+## 6. REPLY
 
 ```text
-<board URL from generate_diagram>
-Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled
-Extensions: 1 of 1 status tint, 0 overlaps
+<board URL>
+Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled, first glance: the end states
 HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
 ```

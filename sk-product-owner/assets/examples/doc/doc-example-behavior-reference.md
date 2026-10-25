@@ -1,6 +1,6 @@
 ---
 title: "Product Owner - Examples - Doc - Behavior Reference"
-description: "Instantiates Doc Templates section 5, Behavior Reference. Shows state precedence across timing, offline and conflict rules while one edge remains unresolved."
+description: "Instantiates Doc Templates section 5, Behavior Reference. Shows state precedence across timing, offline and conflict rules while one edge remains unresolved. This example runs past the 1,400 word budget because it shows a system-scale source. Copy its structure, never its length."
 contextType: general
 importance_tier: normal
 trigger_phrases: ["behavior reference doc example", "worked doc example"]

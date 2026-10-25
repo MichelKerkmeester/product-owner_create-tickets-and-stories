@@ -1,6 +1,6 @@
 # Product Owner - Reference - Connector Setup
 
-Guided setup for the two optional connectors this Project delivers through: ClickUp for tasks and private docs, Figma for FigJam boards. Walk the user through it one step at a time, and call it done only when the check in section 4 gives the expected reply in a new chat.
+Guided setup for the two optional connectors this Project delivers through: ClickUp for tasks and private docs, Figma for FigJam boards. Walk the user through it one step at a time, and call it done only when the check in section 5 gives the expected reply in a new chat.
 
 ---
 
@@ -40,7 +40,7 @@ Optional. The user copies the template `Product Owner - Local - Push Targets.md`
 ## 5. CHECK THAT IT WORKS
 
 - **ClickUp:** in a new chat, `$quick $task Add a "Copy link" button to the share sheet` ends on `Where in ClickUp should this go? Send a list link, or I'll upload it as a private doc, which I recommend for now.` After the user names a target and approves, the reply names what it created and confirms the read-back body matches
-- **Figma:** `$flow` with a short password-reset flow shows the checked model and a write gate. After `Yes`, the reply gives the board URL and a `Read-back:` line counting what landed
+- **Figma:** `$quick $flow` with a short password-reset flow gets one proposed Brief, then a playback of the reading, and a `Yes` to either writes nothing. The gate is a separate reply that names the Figma plan, the new file, the calls and the rollback. After `Yes` to the gate, the reply gives the board URL and a `Read-back:` line counting what landed
 
 ---
 
@@ -49,7 +49,8 @@ Optional. The user copies the template `Product Owner - Local - Push Targets.md`
 - **No ClickUp offer, or a Mermaid block with no board:** the connector is off in this chat or not added. Check **+ > Connectors**, then **Settings > Connectors**
 - **The Project asks where in ClickUp every time:** no push targets file is uploaded, or no list or doc in it fits the artifact. Add one under a name that says what goes there, upload the file again, or send a list link
 - **Asked about Figma Desktop or `figma-ds-cli`:** that route is for terminal agents, and a Project cannot run it. A Project draws through the Figma connector, so add that instead. The repository README sets up the desktop route for a terminal
-- **`##` or `**` shows as text in ClickUp:** the push used the plain description field. Update the task through `markdown_description`
+- **`##`, `**` or `- []` shows as text in ClickUp:** the push used the plain description field. Update the task through `markdown_description`
 - **`Read-back: not possible` with a limit named:** the Figma plan or seat used its monthly tool calls. The board may still exist in the FigJam drafts
+- **`Read-back: not possible, the connector has no read tool`:** the Figma connector exposes no read tool in this chat. The board is not checked, so look at it yourself before relying on it
 - **A sign-in loop or an access error:** remove and add the connector again under **Settings > Connectors**
 - **A ClickUp tool error that names a parameter:** ClickUp changed its tool fields. The Project reads tool names from the connector at run time, so report the error with the tool name

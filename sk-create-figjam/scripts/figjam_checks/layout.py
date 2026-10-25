@@ -6,13 +6,13 @@
 
 A count says how much a diagram holds and nothing about how hard it reads: a rank
 of six steps, a chain of nine and two connectors that swap sides all pass one
-count. The generator owns the layout, so a shape that reads badly cannot be
+count. The composer owns the layout, so a shape that reads badly is never
 rearranged once the board exists. These measures run before the write, and one
 out of band is fixed in the model before a write is spent.
 
 A flow may loop back, so the connectors that close a loop are dropped before the
-ranks are read. The crossing count is an estimate: the generator chooses where a
-rank sits, and the order the writer declared the steps stands in for it.
+ranks are read. The crossing count is an estimate: the layout reorders each rank
+by its neighbours, and the order the writer declared the steps stands in for it.
 """
 
 from __future__ import annotations

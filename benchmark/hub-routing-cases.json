@@ -206,6 +206,56 @@
       "label": "a cupt command line asking for a new task",
       "request": "cupt add a task for the login bug",
       "expect": "sk-product-owner"
+    },
+    {
+      "label": "a note request on a board link",
+      "request": "add notes to https://www.figma.com/board/abc123/Returns",
+      "expect": "sk-create-figjam"
+    },
+    {
+      "label": "an update request on a board link",
+      "request": "update https://www.figma.com/board/abc123/Checkout-flow with the new payment step",
+      "expect": "sk-create-figjam"
+    },
+    {
+      "label": "a board link beside a legend request",
+      "request": "here is the board https://www.figma.com/board/abc123/Foo, add a legend",
+      "expect": "sk-create-figjam"
+    },
+    {
+      "label": "a design link beside Figma feedback",
+      "request": "the spacing in figma is off on the returns page https://www.figma.com/design/abc123/Returns?node-id=1-2",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a task about a board link",
+      "request": "write a task to fix https://www.figma.com/board/abc123/Returns",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a note request naming FigJam",
+      "request": "add notes to the figjam board",
+      "expect": "sk-create-figjam"
+    },
+    {
+      "label": "a board update naming FigJam",
+      "request": "update the figjam board",
+      "expect": "sk-create-figjam"
+    },
+    {
+      "label": "a new task about a FigJam board",
+      "request": "add a task to update the figjam board",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a ticket about a FigJam board export",
+      "request": "create a ticket for the figjam board export",
+      "expect": "sk-product-owner"
+    },
+    {
+      "label": "a bug logged against a FigJam board",
+      "request": "log a bug in the figjam board",
+      "expect": "sk-product-owner"
     }
   ]
 }

@@ -1,6 +1,6 @@
 ---
 title: "FigJam Diagram Quality Rubric"
-description: "The taste gate a FigJam model passes before the write gate, translated from sk-design-diagram's success criteria: type fit, the remove test, signal, the check, the board and the reply."
+description: "The taste gate a FigJam model passes before the write gate, translated from sk-design-diagram's success criteria: type fit, the remove test, signal, the check, the board, the design rubric that scores a composed board and the reply."
 contextType: implementation
 importance_tier: important
 trigger_phrases:
@@ -8,7 +8,8 @@ trigger_phrases:
   - "diagram taste gate"
   - "remove test"
   - "figjam review checklist"
-version: 1.0.0.0
+  - "figjam design rubric"
+version: 1.0.1.0
 ---
 
 # FigJam Diagram Quality Rubric
@@ -26,7 +27,7 @@ The script checks what a script can see. This rubric is the rest: whether the di
 - [ ] The type answers the reader's question, as `references/flow-mode.md` Section 3 maps it
 - [ ] A table, a list or a paragraph would not do the same job. If it would, say so and offer that instead
 - [ ] The type's reference in `references/types/` was loaded and its judged-by-hand rules were applied
-- [ ] A request for a kind the generator does not draw was answered with the nearest kind it does draw, or a plain no
+- [ ] A request for a kind Flow Mode does not draw was answered with the nearest type it does draw, or a plain no
 
 ---
 
@@ -52,21 +53,22 @@ The remove test runs on the outline before the first Mermaid block, because a st
 
 ## 3. SIGNAL
 
-The accent is chosen against a target written down first. A board judged only against itself cannot catch a second focal object, such as a title that repeats the claim the accent was meant to carry. Three lines are written before the first Mermaid block:
+The marked node is chosen against a target written down first. A board judged only against itself cannot catch a second focal object, such as a title that repeats the claim the marked node was meant to carry. Three lines are written before the first Mermaid block:
 
 1. **First glance.** The one claim, decision or object that should win within two seconds
 2. **Second glance.** The evidence or relationship that advances it
 3. **Last glance.** The risk, the metadata or the appendix that stays available without competing
 
-Those three lines travel into the gate, so the accent has a node to land on and the reply can say what should win.
+Those three lines travel into the gate, so the marked node is chosen from them and the reply can say what should win.
 
-- [ ] At most one accent, on the node a reader would keep if they could keep only one, never the node that comes first. The happy path, the riskiest decision, the costliest handoff and the error state are the candidates. Two that tie mean the diagram splits
+- [ ] One accent on a user flow or a process, on the node a reader would keep if they could keep only one, never the node that comes first. The goal, a failure end, a decision and the one step in focus are the candidates, as `references/style-guide.md` Section 3 sets out. Two that tie mean the diagram splits
 - [ ] The three glance lines were written before the model and named in the gate
-- [ ] The accent sits on the node the first glance names, which is the claim the reader came for rather than the node the flow reaches first, and nothing the second or last glance owns competes with it
-- [ ] No title repeats the focal claim, so one idea carries one focal object. Where the title already states the claim, the accent carries the evidence, the consequence or the next move
+- [ ] On a user flow or a process the first glance is the accented node, marked by the one `style` line the check requires, and the gate names it. On any other type it is the node, message or task a `%% focus:` line names, or, when the model has none, whatever the layout shows first, and the gate says which. The first glance is one node, message or task, never a group such as the end states, and when the layout would show another first, a `%% focus:` line marks it, so the gate never promises a first glance the board does not show. It is the claim the reader came for rather than the node the flow reaches first, and nothing the second or last glance owns competes with it
+- [ ] No title repeats the focal claim, so one idea carries one focal object. Where the title already states the claim, the marked node carries the evidence, the consequence or the next move
+- [ ] The title names what the reader is looking at, the subtitle says in one sentence who reads it and why, and the source line names the sources and what was left out
 - [ ] Shape and label carry the meaning on their own, so the diagram reads in greyscale
-- [ ] A board carrying three or more kinds of mark carries a key, and the key names every shape, tint and dash the board uses and nothing else
-- [ ] Each tint in the key shows both of its channels, the light fill and the dash, so a reader in greyscale still reads which nodes belong together
+- [ ] The key the composer draws names every kind, line and arrow the board shows and nothing else, and no note adds a second key beside it
+- [ ] Every zone carries a name a reader can see, and zones group what belongs together rather than marking a position
 - [ ] Every label uses the product's or the source's own words. Proper nouns are never renamed
 - [ ] The naming fits the audience: exact component names for engineers, plain verbs for a mixed team, capabilities and outcomes for leadership
 - [ ] Nothing was invented to fill a lane, a slot or a gap. A missing step is asked about or named, never guessed
@@ -86,9 +88,10 @@ Those three lines travel into the gate, so the accent has a node to land on and 
 
 - [ ] `scripts/flow_check.py` printed `PASSED` for the model file, with the type each diagram was read as
 - [ ] The measures printed beside the counts were read: the widest rank, the longest path, the connectors per step, the average label length and the crossing pairs, against the budgets `scripts/figjam_checks/layout.py` sets
-- [ ] A measure out of band was fixed in the model rather than on the board and the check rerun after the change, because the generator owns the layout and a tangled shape cannot be rearranged after the write
-- [ ] The gate message names the plan, the file, what will be written, any planned extensions and the rollback
-- [ ] An architecture call carries `useArchitectureLayoutCode`, and no other type carries it
+- [ ] A measure out of band was fixed in the model rather than on the board and the check rerun after the change, because the composer owns the layout and a tangled shape is never rearranged after the write
+- [ ] `scripts/compose_board.py` printed `COMPOSED` for every diagram, with the counts the read-back will look for
+- [ ] The gate message names the plan, the file, what will be written, any planned extensions, the calls the write will spend and the rollback
+- [ ] On the generated fallback, an architecture call carries `useArchitectureLayoutCode`, and no other type carries it
 
 ---
 
@@ -98,27 +101,48 @@ After the write, before the reply:
 
 - [ ] The read-back counts match the model, as the type's reference sets them out
 - [ ] Each provenance row whose class is not current behavior or whose edge is inferred was re-read against its source before the gate, and the row records the reason. A row that quotes a source line was not re-read
-- [ ] The screenshot comes from `get_figjam`, which returns the outline with a screenshot of each node
+- [ ] The write returned no warning, and its counts match the counts the model expects
+- [ ] The overview is the screenshot the composing call returned, and `get_figjam` supplies the outline with a screenshot of each node
 - [ ] A node that needs its own view is read with `get_screenshot` and a node id from that read, because the tool fails without one
 - [ ] Two screenshots of the board were taken for this pass: one of the whole board in a single frame and one at 100% zoom. Composition is judged on the overview, because a crossing and a crowded label are invisible at reading size
 - [ ] The overview reads in the order the model plans, and that order was written down before the first screenshot
-- [ ] The overview shows no connector crossing another, no two edges sharing a trunk the model draws apart and no two labels touching
+- [ ] The overview shows no connector crossing another, no connector or label on a zone title, no two edges sharing a trunk the model draws apart and no two labels touching
+- [ ] No edge runs through a zone it neither starts nor ends in. Edges that only arrive may share one magnet and then lie together for no more than 200 pixels
 - [ ] One screenshot of the diagram shows no stretched shape, no label cut off and no overlap with existing board content
-- [ ] Every gap falls in one of the three bands `references/style-guide.md` Section 7 states, and two unrelated groups sit no closer than the text blocks inside a card
-- [ ] Each tint leaves a margin wider than the gap inside its group and narrower than the gap to the next group, and none spans two groups
+- [ ] Every gap a note or a person placed falls in one of the three bands `references/style-guide.md` Section 7 states, and two unrelated groups sit no closer than the text blocks inside a card
+- [ ] Each zone holds its own nodes and no other, and no zone overlaps another
 - [ ] The same screenshot shows no connector crossing and no edge that reads as joining the wrong node. Each edge is followed by eye from end to end, because a connector count does not prove that a route is clear
-- [ ] The screenshot shows the one accent where Section 3 places it, and the board answers the `userIntent` sentence without the model beside it
-- [ ] The accent node reads first, and no other node competes with it
-- [ ] A screenshot finding is reported, and it is fixed only by reshaping the model and regenerating after a yes, inside the two-attempt bound `references/flow-mode.md` Section 9 sets
-- [ ] Each extension landed where planned and covers no generated node's label
-- [ ] The key that landed names every mark the board shows, and each tint swatch there carries its dash
-- [ ] Nothing was moved, resized or restyled after generation
-- [ ] Every finding below full marks names the label it sits on, where it sits in the frame, and one fix, which is a model change regenerated after a yes or a named generator limit the writer cannot move
+- [ ] Every colour on the board matches its entry in the key, the marked node sits where Section 3 places it, and the board answers the `userIntent` sentence without the model beside it
+- [ ] The marked node reads first, and no other node competes with it
+- [ ] A screenshot finding is reported, and it is fixed only by reshaping the model and composing again after a yes, inside the two-attempt bound `references/flow-mode.md` Section 9 sets
+- [ ] Each extension landed where planned and covers no composed node's label
+- [ ] Nothing was moved, resized or restyled after the write
+- [ ] Every finding below full marks names the label it sits on, where it sits in the frame, and one fix, which is a model change composed again after a yes or a named composer limit the writer cannot move
 
 ---
 
-## 7. THE REPLY
+## 7. THE DESIGN RUBRIC
 
-- [ ] The board URL first, then the `Read-back:` line, then any `Extensions:` and `Left out:` lines, then the `HVR self-scan:` line
+The checklists above decide whether a board may ship. The design rubric scores how well it reads, so two boards of the same model, or a board before and after a change, can be compared on something firmer than a glance. Score the overview screenshot on eight criteria, each 0, 1 or 2, for a total out of 16. A criterion scores 2 when it holds everywhere on the board, 1 when it holds with one named exception and 0 when it fails in two places or more.
+
+| Criterion | Scores 2 when |
+|---|---|
+| Frame and entry | The board is one framed area with a title, a one-sentence subtitle and one obvious place to start reading |
+| Reading order | The flow runs in one direction, the main route sits on one straight line and every branch sits beside it rather than across it |
+| Colour by meaning | Every colour names a kind the key explains, and nothing is coloured for looks or by position |
+| Grouping | Zones, lanes or composite states group what belongs together, each carries a visible name and neighbouring tints differ |
+| Legibility | At overview zoom every label reads, no text is cut off or crowded and shapes of one kind share one size |
+| Connector clarity | No connector crosses another or runs through a node or a zone title, two edges never lie on one stretch long enough to carry a label, every label sits on its own edge and clear of every other line and every end joins its node cleanly |
+| Key and source | The key names every mark and nothing else, and the source line names the sources and what was left out |
+| Proportion | The board reads wider than tall or close to square, with no tall strip, no large empty region and margins on the grid |
+
+Every score below 2 names the label or the zone it sits on and one fix, in the same shape Section 6 asks of a finding. A comparison between two boards scores both on the same eight criteria and reports both totals, criterion by criterion, so a gain on one criterion never hides a loss on another.
+
+---
+
+## 8. THE REPLY
+
+- [ ] The board URL first, then the `Read-back:` line, then any `Extensions:` and `Left out:` lines, then any `Finding:` lines, then the `HVR self-scan:` line, with no text after it
+- [ ] No sentence or key entry ties a colour or a zone tint to a team
 - [ ] A mismatch is reported as measured, and the board is never called done on one
 - [ ] No file was written to `export/`, and no Mermaid, HTML, SVG or PNG file was left behind

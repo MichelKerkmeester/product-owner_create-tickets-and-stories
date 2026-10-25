@@ -2665,5 +2665,522 @@
       "confidence": null,
       "then": null
     }
+  },
+  {
+    "input": "add notes to https://www.figma.com/board/abc123/Returns",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "update https://www.figma.com/board/abc123/Checkout-flow with the new payment step",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "here is the board https://www.figma.com/board/abc123/Foo, add a legend",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "add numbered pins to https://www.figma.com/board/abc123/Returns",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "add notes to the figjam board",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "add a FigJam sticky to the board",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "add a legend to figjam",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "update the figjam board",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "redraw the figjam board with the new state",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "revise the figjam diagram with the new step",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "annotate the figjam flow with the drop-off rates",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "add a task to update the figjam board",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "add a task to fix the figjam board export",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "add a task to annotate https://www.figma.com/board/abc123/Returns",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "create a ticket for the figjam board export",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "make a task for the figjam board export",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "draft a task for the figjam board export",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "write a task to fix https://www.figma.com/board/abc123/Returns",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "log a bug in the figjam board",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "log a bug in https://www.figma.com/board/abc123/Returns",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "create a bug for the figjam board export",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "file a bug on the figjam board export",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "add a task to fix the login export",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "make a task for the login export",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "draft a task for the login export",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "write a ticket for the login export",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "create a ticket for the login export",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "make a bug for the login export",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "create a task to log a bug about the login export",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "the spacing in figma is off on the returns page https://www.figma.com/design/abc123/Returns?node-id=1-2",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "semantic",
+      "shape": null,
+      "confidence": 0.8,
+      "then": null
+    }
+  },
+  {
+    "input": "draw the signup flow as a FigJam user flow",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "map the returns screens on a FigJam board",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "draw how a refund moves between support, the warehouse and finance as a FigJam process with a lane per team",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "map the handoffs between sales and support as a FigJam process",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "draw the services behind block sync as a FigJam architecture diagram",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "put the stack on a FigJam architecture",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "draw the checkout payment as a sequence diagram in FigJam",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "show the login calls as a FigJam sequence",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "put the booking status lifecycle on a FigJam state diagram",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "in FigJam, show which statuses an order can be in and what moves it between them",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "make a FigJam ER diagram of the stays model from the schema note",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "sketch the stays tables as a FigJam er",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "lay out the launch phases on figjam as a gantt",
+    "expect": {
+      "intent": "FLOW",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "turn this into a ticket for the login export",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "turn that into a bug report for the login export",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "make a prd for the pricing change",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "then": null
+    }
+  },
+  {
+    "input": "make an epic for creator onboarding",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "EPIC",
+      "confidence": null,
+      "then": null
+    }
   }
 ]

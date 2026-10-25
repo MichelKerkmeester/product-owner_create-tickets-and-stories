@@ -1,0 +1,101 @@
+{
+  "version": "1.0.0.0",
+  "description": "Type detection rows for the sk-create-figjam packet. differential.py lifts the Section 2 block of sk-create-figjam/SKILL.md and requires detect_diagram_types to return exactly these types for each request, in table order. Two phrasings per type, one row where two types fit and one where none does.",
+  "cases": [
+    {
+      "request": "map the signup screens as a FigJam user flow",
+      "types": [
+        "user-flow"
+      ]
+    },
+    {
+      "request": "draw the onboarding path from these screenshots",
+      "types": [
+        "user-flow"
+      ]
+    },
+    {
+      "request": "draw how a refund moves between support, the warehouse and finance as a FigJam process with a lane per team",
+      "types": [
+        "process"
+      ]
+    },
+    {
+      "request": "draw who does what when a customer escalates a handoff",
+      "types": [
+        "process"
+      ]
+    },
+    {
+      "request": "draw the services behind block sync as a FigJam architecture diagram",
+      "types": [
+        "architecture"
+      ]
+    },
+    {
+      "request": "put the infrastructure components on a FigJam board",
+      "types": [
+        "architecture"
+      ]
+    },
+    {
+      "request": "draw the checkout payment as a sequence diagram in FigJam",
+      "types": [
+        "sequence"
+      ]
+    },
+    {
+      "request": "show the request and response between the app and the payments API",
+      "types": [
+        "sequence"
+      ]
+    },
+    {
+      "request": "put the booking status lifecycle on a FigJam state diagram",
+      "types": [
+        "state"
+      ]
+    },
+    {
+      "request": "in FigJam, show which statuses an order can be in and what moves it between them",
+      "types": [
+        "state"
+      ]
+    },
+    {
+      "request": "make a FigJam ER diagram of the stays model from the schema note",
+      "types": [
+        "er"
+      ]
+    },
+    {
+      "request": "draw the tables and fields behind bookings",
+      "types": [
+        "er"
+      ]
+    },
+    {
+      "request": "put the launch plan on a FigJam gantt chart",
+      "types": [
+        "gantt"
+      ]
+    },
+    {
+      "request": "lay out the launch phases and schedule as a roadmap on figjam",
+      "types": [
+        "gantt"
+      ]
+    },
+    {
+      "request": "draw the checkout calls and the order statuses in FigJam",
+      "types": [
+        "sequence",
+        "state"
+      ]
+    },
+    {
+      "request": "draw a pie chart of revenue in FigJam",
+      "types": []
+    }
+  ]
+}

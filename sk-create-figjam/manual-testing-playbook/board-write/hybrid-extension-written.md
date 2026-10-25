@@ -1,10 +1,10 @@
 ---
-title: "FJ-017 -- A status tint lands after the write"
-description: "This scenario validates a status tint lands after the write for `FJ-017`. It checks that after a yes that named a tint, the state diagram is written, the tint is added through `use_figma` behind the end states, and the reply carries an `Extensions:` line."
-version: 1.0.0.0
+title: "FJ-017 -- Notes land after the write"
+description: "This scenario validates notes land after the write for `FJ-017`. It checks that after a yes that named notes, the state diagram is composed with one `use_figma` call and the notes are added with a second `use_figma` call inside the board as single stickies, no composed node moves and the reply carries an `Extensions:` line."
+version: 1.0.1.0
 ---
 
-# FJ-017 -- A status tint lands after the write
+# FJ-017 -- Notes land after the write
 
 This document captures the user-testing contract, execution flow, source anchors and metadata for `FJ-017`.
 
@@ -12,11 +12,11 @@ This document captures the user-testing contract, execution flow, source anchors
 
 ## 1. OVERVIEW
 
-This scenario validates a status tint lands after the write for `FJ-017`. It checks that after a yes that named a tint, the state diagram is written, the tint is added through `use_figma` behind the end states, and the reply carries an `Extensions:` line.
+This scenario validates notes land after the write for `FJ-017`. It checks that after a yes that named notes, the state diagram is composed with one `use_figma` call and the notes are added with a second `use_figma` call inside the board as single stickies, no composed node moves and the reply carries an `Extensions:` line.
 
 ### Why This Matters
 
-An extension is a second write onto a shared board. It must add beside the generated nodes, never move or restyle them, and the reply must prove what it added.
+An extension is a second write onto a shared board. It must add beside the composed nodes, never move or restyle them, and the reply must prove what it added.
 
 ---
 
@@ -24,13 +24,13 @@ An extension is a second write onto a shared board. It must add beside the gener
 
 Operators run the exact prompt and command sequence for `FJ-017` and confirm the expected signals without contradictory evidence.
 
-- Objective: Verify that after a yes that named a tint, the state diagram is written, the tint is added through `use_figma` behind the end states, and the reply carries an `Extensions:` line
-- Real user request: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
-- Prompt: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
-- Expected execution process: Run Turn 1 as `FJ-007`, then on the yes call `generate_diagram`, add one tint rectangle behind Completed, Cancelled and NoShow through `use_figma` with `insertChild(0)`, read the board back and reply
-- Expected signals: Turn 2 calls `generate_diagram` once and `use_figma` once, moves no generated node, and replies with the board URL, a `Read-back:` line, `Extensions: 1 of 1 status tint, 0 overlaps` and the `HVR self-scan:` line
-- Desired user-visible outcome: A board with the end states tinted and both writes counted
-- Pass/fail: PASS if the tint lands behind the three end states, no generated node moved, and the reply counts the extension. FAIL if a generated node is moved or restyled, the tint covers a node, or the reply has no `Extensions:` line. Record SKIP only when the hosted Figma MCP is unavailable in this environment, naming that blocker
+- Objective: Verify that after a yes that named notes, the state diagram is composed with one `use_figma` call and the notes are added with a second `use_figma` call inside the board as single stickies, no composed node moves and the reply carries an `Extensions:` line
+- Real user request: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
+- Prompt: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
+- Expected execution process: Run Turns 1 and 2 as `FJ-007` to reach the gate, then on the gate's yes call `whoami` and `create_new_file`, compose the board with one `use_figma` call, add one sticky beside Cancelled and one beside NoShow with a second `use_figma` call inside the board, read the board back and reply
+- Expected signals: Turn 1 ends on the playback and Turn 2 ends on the gate, and both write nothing. Turn 3 calls `use_figma` twice, once to compose the board and once to add the two notes as single stickies, with no pin and no legend column. It moves no composed node, draws no colour and replies with the board URL, a `Read-back:` line, `Extensions: 2 of 2 notes, 0 overlaps` and the `HVR self-scan:` line
+- Desired user-visible outcome: A board with a note beside Cancelled and beside NoShow and both writes counted
+- Pass/fail: PASS if each sticky lands inside the board beside its node, no composed node moved and the reply counts the extension. FAIL if a write precedes the gate's yes, a composed node is moved or restyled, a sticky covers a node or lands outside the board, the notes land as pins with a legend column or the reply has no `Extensions:` line. Record SKIP only when the hosted Figma MCP is unavailable in this environment, naming that blocker
 
 ---
 
@@ -38,7 +38,7 @@ Operators run the exact prompt and command sequence for `FJ-017` and confirm the
 
 ### Prompt
 
-- Prompt: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
+- Prompt: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
 
 ### Recommended Orchestration Process
 
@@ -50,30 +50,31 @@ Operators run the exact prompt and command sequence for `FJ-017` and confirm the
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| FJ-017 | A status tint lands after the write | Verify that after a yes that named a tint, the state diagram is written, the tint is added through `use_figma` behind the end states, and the reply carries an `Extensions:` line | `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.` | 1. `sandbox: confirm the hosted Figma MCP is connected -> session: start fresh` -> 2. `user: submit the prompt exactly -> operator: confirm the gate names the tint` -> 3. `user: Yes, go ahead. -> operator: read the reply and tool calls, open the board and confirm the tint sits behind the three end states` | Step 2 finds the gate naming the tint. Step 3 finds the two writes, an `Extensions:` line and a tint behind the three end states with no generated node moved | Both replies, the `use_figma` code, the board URL and a screenshot of the tinted states | PASS if the tint lands behind the three end states, no generated node moved, and the reply counts the extension. FAIL if a generated node is moved or restyled, the tint covers a node, or the reply has no `Extensions:` line. Record SKIP only when the hosted Figma MCP is unavailable in this environment, naming that blocker | 1. Check the status tint recipe in `references/hybrid-workflow.md` Section 3 2. Check the read-back line in `references/hybrid-workflow.md` Section 6 |
+| FJ-017 | Notes land after the write | Verify that after a yes that named notes, the state diagram is composed with one `use_figma` call and the notes are added with a second `use_figma` call inside the board as single stickies, no composed node moves and the reply carries an `Extensions:` line | `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.` | 1. `sandbox: confirm the hosted Figma MCP is connected -> session: start fresh` -> 2. `user: submit the prompt exactly -> operator: confirm the reply is the playback with the question, the outcome, what each source settled and every assumed row. Confirm nothing is written. If the run opens an intake round first, answer it with the recommended answers and confirm the playback follows` -> 3. `user: Yes, that reading is right. -> operator: confirm the gate names the notes and that nothing is written yet` -> 4. `user: Yes, go ahead. -> operator: read the reply and tool calls, open the board and confirm each sticky stands inside the board beside Cancelled and NoShow` | Step 2 finds the playback and no write. Step 3 finds the gate naming the notes and no write. Step 4 finds the two `use_figma` writes, an `Extensions: 2 of 2 notes, 0 overlaps` line and a single sticky beside each of the two end states, with no pin, no legend column and no composed node moved | All three replies, the code of both `use_figma` calls, the board URL and a screenshot of the notes | PASS if each sticky lands inside the board beside its node, no composed node moved and the reply counts the extension. FAIL if a write precedes the gate's yes, a composed node is moved or restyled, a sticky covers a node or lands outside the board, the notes land as pins with a legend column or the reply has no `Extensions:` line. Record SKIP only when the hosted Figma MCP is unavailable in this environment, naming that blocker | 1. Check the single sticky recipe in `references/hybrid-workflow.md` Section 3 2. Check the read-back line in `references/hybrid-workflow.md` Section 6 |
 
 ### Commands
 
 1. `sandbox: confirm the hosted Figma MCP is connected -> session: start fresh`
-2. `user: submit the prompt exactly -> operator: confirm the gate names the tint`
-3. `user: Yes, go ahead. -> operator: read the reply and tool calls, open the board and confirm the tint sits behind the three end states`
+2. `user: submit the prompt exactly -> operator: confirm the reply is the playback with the question, the outcome, what each source settled and every assumed row. Confirm nothing is written. If the run opens an intake round first, answer it with the recommended answers and confirm the playback follows`
+3. `user: Yes, that reading is right. -> operator: confirm the gate names the notes and that nothing is written yet`
+4. `user: Yes, go ahead. -> operator: read the reply and tool calls, open the board and confirm each sticky stands inside the board beside Cancelled and NoShow`
 
 ### Expected
 
-Step 2 finds the gate naming the tint. Step 3 finds the two writes, an `Extensions:` line and a tint behind the three end states with no generated node moved
+Step 2 finds the playback and no write. Step 3 finds the gate naming the notes and no write. Step 4 finds the two `use_figma` writes, an `Extensions: 2 of 2 notes, 0 overlaps` line and a single sticky beside each of the two end states, with no pin, no legend column and no composed node moved
 
 ### Evidence
 
-Both replies, the `use_figma` code, the board URL and a screenshot of the tinted states
+All three replies, the code of both `use_figma` calls, the board URL and a screenshot of the notes
 
 ### Pass / Fail
 
-- **Pass**: the tint lands behind the three end states, no generated node moved, and the reply counts the extension
-- **Fail**: a generated node is moved or restyled, the tint covers a node, or the reply has no `Extensions:` line. Record SKIP only when the hosted Figma MCP is unavailable in this environment, naming that blocker
+- **Pass**: each sticky lands inside the board beside its node, no composed node moved and the reply counts the extension
+- **Fail**: a write precedes the gate's yes, a composed node is moved or restyled, a sticky covers a node or lands outside the board, the notes land as pins with a legend column or the reply has no `Extensions:` line. Record SKIP only when the hosted Figma MCP is unavailable in this environment, naming that blocker
 
 ### Failure Triage
 
-1. Check the status tint recipe in `references/hybrid-workflow.md` Section 3
+1. Check the single sticky recipe in `references/hybrid-workflow.md` Section 3
 2. Check the read-back line in `references/hybrid-workflow.md` Section 6
 
 ---

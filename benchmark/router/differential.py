@@ -15,7 +15,7 @@ because nothing executes the prose, so this gate executes it: the pseudocode
 block is lifted out of the markdown, run as a real module, and compared
 against the route contract on every input in the corpus.
 
-Five guards fire, each on its own:
+Eight guards fire, each on its own:
 
 0. Prose parity. `references/routing.md` is what a model actually reads, and it carries a
    compact semantic topic table so a request reaching the scoring step can be
@@ -41,6 +41,19 @@ Five guards fire, each on its own:
 4. Corpus coverage. Every artifact command and alias, every documented
    false-prefix case and every semantic topic must be exercised by the corpus,
    so behavior parity cannot pass by leaving a table untested.
+5. Hub vocabulary reach. The hub calls a verb and an artifact noun an artifact
+   request, so a request built from them has to reach an artifact in this
+   router and not the backlog question. The matrix is read from
+   `hub-router.json`, so a word added there fails here until the router knows it.
+6. Stage agreement. Stage one picks a packet and this router picks an intent,
+   and nothing else compares the two. A request the hub sends to the FigJam
+   packet has to be a Flow route here, and a Flow route behind the default mode
+   is allowed only as the hand-off a Product Owner artifact word starts.
+7. Flow type detection. The FigJam packet picks one of seven diagram types from
+   the words of a request, and that table is code in its `SKILL.md`. The block
+   is lifted out and run against `flow_types.json`, which pins two phrasings per
+   type, a request where two types fit and one where none does. The table's types
+   must also be the packet's drawable types, each with its reference file.
 
 The two implementations report a route differently, and the adapter below
 reconciles the shapes without hiding a disagreement. The pseudocode names its
@@ -55,6 +68,7 @@ Python 3.9 compatible.
 from __future__ import annotations
 
 import ast
+import importlib.util
 import io
 import json
 import re
@@ -686,6 +700,145 @@ def check_coverage(skill: types.ModuleType, corpus: List[str]) -> List[str]:
 
 
 # ───────────────────────────────────────────────────────────────
+# 6B. GUARDS 5 TO 7: THE HUB'S VOCABULARY, ITS STAGE ONE AND FLOW TYPES
+# ───────────────────────────────────────────────────────────────
+
+HUB_ROUTER_PATH = REPO_ROOT / "hub-router.json"
+HUB_CASES_PATH = REPO_ROOT / "benchmark" / "hub-routing-cases.json"
+HUB_GATE_PATH = REPO_ROOT / "benchmark" / "gates" / "check_hub.py"
+FIGJAM_SKILL_MD = REPO_ROOT / "sk-create-figjam" / "SKILL.md"
+FLOW_TYPES_PATH = HERE / "flow_types.json"
+
+# The intent each singular noun in the hub's artifact-request vocabulary has to
+# reach. A plural reads as the singular's request, so only the singular is built
+# into a sentence. A noun the hub gains that is missing here fails the guard
+# rather than going untested.
+NOUN_INTENT = {
+    "task": "TASK", "subtask": "TASK", "ticket": "TASK", "bug": "BUG",
+    "story": "STORY", "prd": "STORY", "epic": "STORY",
+    "doc": "DOC", "document": "DOC", "guide": "DOC", "runbook": "DOC",
+}
+
+# Pairs the router leaves to its one question on purpose, each for a reason
+# that holds in real prose. "make" is too common to frame a document request
+# ("make sure the guide is linked"), and "add" followed by anything but a task
+# or ticket mostly points at something that exists ("add a bug report button",
+# "add a story to the epic", "add a guide link").
+LEFT_TO_A_QUESTION = {
+    "make": {"doc", "document", "guide", "runbook"},
+    "add": {"bug", "story", "prd", "epic", "doc", "document", "guide", "runbook"},
+}
+
+# The bare "turn into" names no source, so the pronoun forms carry the matrix.
+BARE_VERBS = {"turn into"}
+
+# A request the hub sends to the FigJam packet and this router does not route to
+# Flow. The packet's own fallback hands a non-diagram request back to the
+# Product Owner packet, which is where this one belongs.
+STAGE_HANDBACK = {
+    "the figjam file is slow to open":
+        "a complaint about FigJam the product, not a diagram to draw",
+}
+
+
+def _load_hub_gate() -> types.ModuleType:
+    """Import the hub gate, which owns the executable stage one rules."""
+    spec = importlib.util.spec_from_file_location("check_hub_for_differential", HUB_GATE_PATH)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+def check_hub_vocabulary_reach() -> List[str]:
+    """Route every verb and singular noun the hub calls an artifact request."""
+    failures: List[str] = []
+    classes = read_json(HUB_ROUTER_PATH)["vocabularyClasses"]
+    verbs = [verb for verb in classes["artifact-request-verbs"]["keywords"] if verb not in BARE_VERBS]
+    verbs += classes["artifact-request-indefinite-verbs"]["keywords"]
+    nouns = classes["artifact-request-nouns"]["keywords"]
+    for noun in nouns:
+        singular = noun[:-1] if noun.endswith("s") else noun
+        if noun not in NOUN_INTENT and singular not in NOUN_INTENT and noun != "stories":
+            failures.append(
+                f"vocabulary reach: the hub noun {noun!r} has no intent in NOUN_INTENT, so no sentence tests it"
+            )
+    for verb in verbs:
+        for noun, intent in NOUN_INTENT.items():
+            if noun not in nouns or noun in LEFT_TO_A_QUESTION.get(verb, set()):
+                continue
+            article = "an" if noun[0] in "aeiou" else "a"
+            request = f"{verb} {article} {noun} for the login export"
+            routed = rc.route_request(request)["intent"]
+            if routed != intent:
+                failures.append(
+                    f"vocabulary reach: the hub treats {request!r} as an artifact request, "
+                    f"the router sent it to {routed}, expected {intent}"
+                )
+    return failures
+
+
+def check_stage_agreement(corpus: List[str]) -> List[str]:
+    """Compare the hub's stage one packet with this router's intent on every input."""
+    failures: List[str] = []
+    hub = _load_hub_gate()
+    router = read_json(HUB_ROUTER_PATH)
+    default_words = hub.class_keywords(router, router["routerPolicy"]["defaultMode"])
+    requests = list(dict.fromkeys(corpus + [case["request"] for case in read_json(HUB_CASES_PATH)["cases"]]))
+    for request in requests:
+        packet = hub.route_stage_one(request, router)
+        intent = rc.route_request(request)["intent"]
+        if packet == "sk-create-figjam" and intent != "FLOW" and request not in STAGE_HANDBACK:
+            failures.append(
+                f"stage agreement: stage one sends {request!r} to the FigJam packet, the router says {intent}"
+            )
+        if packet == router["routerPolicy"]["defaultMode"] and intent == "FLOW":
+            lowered = request.lower()
+            if not any(hub._word(word).search(lowered) for word in default_words):
+                failures.append(
+                    f"stage agreement: stage one keeps {request!r} in the default mode and the router says FLOW, "
+                    "but no Product Owner artifact word starts a hand-off"
+                )
+    return failures
+
+
+def check_flow_type_detection() -> List[str]:
+    """Run the FigJam packet's type detector against the pinned phrasings."""
+    failures: List[str] = []
+    source = FIGJAM_SKILL_MD.read_text(encoding="utf-8")
+    block = re.search(r"```python\n(.*?)\n```", source, re.S)
+    if not block:
+        return ["flow types: sk-create-figjam/SKILL.md has no python block to lift"]
+    module = types.ModuleType("figjam_skill_router")
+    module.__dict__.update({"__file__": str(FIGJAM_SKILL_MD), "load": lambda relative_path: None})
+    exec(compile(block.group(1), "sk-create-figjam/SKILL.md::router", "exec"), module.__dict__)
+
+    drawable = list(module.DIAGRAM_TYPES)
+    if list(module.TYPE_SIGNALS) != drawable:
+        failures.append(
+            f"flow types: TYPE_SIGNALS holds {list(module.TYPE_SIGNALS)} where the packet draws {drawable}"
+        )
+    for diagram_type in drawable:
+        for relative in module.type_resources(diagram_type):
+            if not (FIGJAM_SKILL_MD.parent / relative).is_file():
+                failures.append(f"flow types: {diagram_type} names {relative}, which is not in the packet")
+
+    cases = read_json(FLOW_TYPES_PATH)["cases"]
+    pinned = {name: 0 for name in drawable}
+    for case in cases:
+        got = module.detect_diagram_types(case["request"])
+        if got != case["types"]:
+            failures.append(f"flow types: {case['request']!r} detects {got}, expected {case['types']}")
+        if len(case["types"]) == 1:
+            pinned[case["types"][0]] = pinned.get(case["types"][0], 0) + 1
+    for diagram_type, count in pinned.items():
+        if count < 2:
+            failures.append(f"flow types: {diagram_type} is pinned by {count} phrasing(s), two are needed")
+    if not any(len(case["types"]) > 1 for case in cases) or not any(case["types"] == [] for case in cases):
+        failures.append("flow types: flow_types.json needs a request where two types fit and one where none does")
+    return failures
+
+
+# ───────────────────────────────────────────────────────────────
 # 7. RUNNER
 # ───────────────────────────────────────────────────────────────
 
@@ -745,6 +898,9 @@ def main() -> int:
 
     corpus = load_corpus()
     failures.extend(check_coverage(skill, corpus))
+    failures.extend(check_hub_vocabulary_reach())
+    failures.extend(check_stage_agreement(corpus))
+    failures.extend(check_flow_type_detection())
 
     divergent = 0
     for text in corpus:

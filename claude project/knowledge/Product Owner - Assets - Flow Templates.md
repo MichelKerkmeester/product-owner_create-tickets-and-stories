@@ -8,16 +8,34 @@ Copy/apply patterns for Product Owner Flow Mode models.
 
 ### Purpose
 
-Every pattern below passes the user flow rules in Templates - Flow Type - User Flow. Start from the pattern closest to the flow, rename the nodes after the real screens and triggers and check the rules before the write gate. A process, an architecture, a sequence, a state diagram, an ER diagram or a gantt chart starts from its own Assets - Flow Templates document for that type, and keeps the provenance table and the reply shape below.
+Every pattern below passes the user flow rules in Templates - Flow Type - User Flow, and Assets - Flow Board Composer draws it as a board. Start from the pattern closest to the flow, rename the nodes after the real screens and triggers, add the board lines below and check the rules before the write gate. A process, an architecture, a sequence, a state diagram, an ER diagram or a gantt chart starts from its own Assets - Flow Templates document for that type, and keeps the provenance table and the reply shape below.
 
 ### Usage
 
-- Node ids are short, stable and camelCase, because the provenance table names them and the board generator mis-routes an underscore
+- Node ids are short, stable and camelCase, because the provenance table names them, the composer names every layer after them and the generated fallback mis-routes an underscore
 - A label names the screen or the action a person takes, in the words the product uses, in one to four words where those words allow
 - A label with a parenthesis, a colon or a slash goes in double quotes, such as `pick["Pick a plan (monthly)"]`
 - A decision label is a question, and each exit label is one of its answers
 - Every connector is a solid arrow `-->`
-- An accent is one fill with the darker stroke FigJam pairs it with, as in `style done fill:#CDF4D3,stroke:#66D575`. A connector on the happy path takes the same stroke, `linkStyle 2 stroke:#66D575`. Every pair comes from Rules - Flow Style Guide, and any other colour is refused or counts as a second accent
+- A user flow and a process each carry exactly one `style` line, which marks the first glance. A styled goal, failing end or decision keeps its kind and takes a pink outline, and a styled step is drawn light pink. `style done fill:#CDF4D3,stroke:#66D575` makes that end the goal and the light red pair makes an end a failure. Every pair comes from `references/style-guide.md`, and any other colour is refused or counts as a second accent
+- Write `flowchart LR` unless the chain is short, because a board reads wider than it reads tall
+
+### Board lines
+
+The board's own text rides on `%%` comment lines, which the check ignores and the composer reads. Each one is optional, and the generated fallback strips them all:
+
+```text
+%% title: Start a return
+%% subtitle: How a customer starts a return in the app, from the order list to a confirmed return
+%% source: Sources: five app screenshots and the returns doc. Left out: free pickup over 100 euros, a proposal.
+%% zone: Find the order: orders, detail
+%% zone: Request the return: window, reason, method
+```
+
+- `%% title:` names the board. With none, the composer takes a Mermaid frontmatter title, a sequence or gantt `title` line, then `Diagram <n>`
+- `%% subtitle:` is one sentence under the title on who reads the board and why
+- `%% source:` is the line under the key naming the sources and what was left out
+- `%% zone: <label>: <id>, <id>` groups nodes in a tinted section. A user flow or a process without lanes reads its zones in flow order, and once a flow has zones every node sits in exactly one. An ER diagram draws each zone around its entities. Lanes and composite states are zones already, so a laned process, an architecture or a state diagram takes no zone line
 
 ---
 
@@ -30,6 +48,7 @@ flowchart TD
     start([Open the page]) --> step1[Fill in the form]
     step1 --> step2[Submit]
     step2 --> done([Confirmation shown])
+    style done fill:#CDF4D3,stroke:#66D575
 ```
 
 ### One decision
@@ -41,6 +60,7 @@ flowchart TD
     valid -->|Yes| done([Confirmation shown])
     valid -->|No| fix[Show the field errors]
     fix --> step1
+    style done fill:#CDF4D3,stroke:#66D575
 ```
 
 ### Platform split with a merge dot
@@ -55,6 +75,7 @@ flowchart TD
     sheet --> merge
     merge --> pick[Pick an item]
     pick --> done([Item shown])
+    style done fill:#CDF4D3,stroke:#66D575
 ```
 
 ### Three outcomes
@@ -66,23 +87,26 @@ flowchart TD
     result -->|Rejected| reject([Reason shown])
     result -->|Needs info| ask[Ask for missing info]
     ask --> start
+    style done fill:#CDF4D3,stroke:#66D575
 ```
 
 ### A flow split across two diagrams
 
-Divide the ordered source list into groups of at most 9 nodes before the first Mermaid block, each group ending on a hand-off node that names it, so the split is read off the sources rather than a model that already overran. A flow over 9 nodes ends the first diagram on a named hand-off and starts the second diagram from the same name. Both diagrams go into the same file: the second call passes the `fileKey` the first one returned, and each diagram is named after its hand-off. Every source step lands in one of the diagrams or is listed as left out under the provenance table.
+Divide the ordered source list into groups of at most 9 nodes before the first Mermaid block, each group ending on a hand-off node that names it, so the split is read off the sources rather than a model that already overran. A flow over 9 nodes ends the first diagram on a named hand-off and starts the second diagram from the same name. Both diagrams go into the same file as two boards, read left to right: the second write passes the `fileKey` the first one used, and each board's `%% title:` carries its ordinal and its hand-off, such as `1. Sign up` and `2. Setup`. Every source step lands in one of the diagrams or is listed as left out under the provenance table.
 
 ```mermaid
 flowchart TD
     start([Sign up]) --> verify[Verify the email]
     verify --> profile[Fill in the profile]
     profile --> handoff([Continue to setup])
+    style handoff fill:#CDF4D3,stroke:#66D575
 ```
 
 ```mermaid
 flowchart TD
     handoff([Continue to setup]) --> connect[Connect an account]
     connect --> done([Dashboard shown])
+    style done fill:#CDF4D3,stroke:#66D575
 ```
 
 ---
@@ -120,12 +144,13 @@ Left out: <source item>, <reason, such as retired material, a split that ends be
 Read-back: <counts the type's reference names, each as n of n>
 Extensions: <n> of <n> pins, <n> of <n> legend stickies, <n> overlaps
 Left out: <source item>, <reason>
+Finding: <a read-back finding, a write warning, an open item or a question>
 HVR self-scan: <n> hard blockers. Fixed: <terms>. Kept with reason: <terms>.
 ```
 
 The `Read-back:` counts follow the type: nodes, connectors and labelled decision exits for a user flow, lanes as well for a process, participants and messages for a sequence, states and transitions for a state diagram, entities, relationships and attributes for an ER diagram, and sections, tasks and milestones for a gantt chart. The `Extensions:` line appears only when the write added any, and the `Left out:` line only when the provenance table lists items left out, so the user sees what the board does not hold. When only a screenshot could be read, the read-back line ends with `, read visually`, because a picture cannot prove which nodes a connector joins. When the connector has no read tool, the line is `Read-back: not possible, the connector has no read tool`, and the board is never called done.
 
-The five lines are the whole reply. The playback of the settled rows runs before the model and the gate, as Templates - Flow Mode Section 8 sets out, and it never becomes a line here.
+These lines are the whole reply, and the self-scan is always the last. Each finding, warning, open item or question is one `Finding:` line, and nothing follows the self-scan. The playback of the settled rows runs before the model and the gate, as Templates - Flow Mode Section 8 sets out, and it never becomes a line here.
 
 ---
 

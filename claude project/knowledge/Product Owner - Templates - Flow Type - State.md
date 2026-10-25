@@ -34,6 +34,8 @@ stateDiagram-v2
 - `state Gate <<choice>>` branches on a condition, and `<<fork>>` and `<<join>>` split and rejoin parallel paths
 - `--` inside a composite splits it into regions that run at the same time
 
+On the board the first state is light blue, a state the machine ends from light gray and every other state white. The start and end are charcoal dots, a choice is a small light yellow diamond and a fork or join a charcoal bar. Each composite is a tinted section named after it, around its substates.
+
 ---
 
 ## 3. RULES
@@ -41,7 +43,7 @@ stateDiagram-v2
 Check these rule by rule before the gate:
 
 - **`stateDiagram-v2`,** never the legacy `stateDiagram`, running `LR` or `TB`, where `TD` is another name for `TB`
-- **No note and no styling.** The generator reads the text inside a note and the names inside a style line as new states, so the board grows phantom boxes. Colour and notes are hybrid extensions
+- **No note and no styling.** The generated fallback reads the text inside a note and the names inside a style line as new states, so its board grows phantom boxes. The composer colours states by role itself, and notes are hybrid extensions
 - **Transitions written `-->`,** and the machine entered from `[*]`
 - **Every transition between two states carries a label,** the event that triggers it. A move into or out of `[*]`, a fork or a join may go without
 - **A choice has 2 or 3 exits,** each with a guard label
@@ -66,21 +68,21 @@ Over budget, split by phase, such as booking and stay, or by entity. A coarse ma
 
 ---
 
-## 5. COLOUR AND THE HYBRID PASS
+## 5. COLOUR, ZONES AND NOTES
 
-Colour-coding states by role, such as terminal, active and error, is the common extension here, and the status tint recipe in Templates - Flow Hybrid Workflow does it. A self-transition renders tight against its state, so tell the user they can drag its loop in FigJam if it crowds.
+None in the model. The composer colours the first and final states and the pseudo-states by role, and composites are the zones. A grouping the model does not hold, such as every error state, is a composite when the states share a way out, and otherwise a note. A self-transition can render tight against its state, so tell the user they can drag its loop in FigJam if it crowds. A `%% focus: <id>` line may name the one node the first glance lands on. It is a comment, so the model stays styleless.
 
 ---
 
-## 6. CALLING THE TOOL
+## 6. WRITING THE BOARD
 
-`generate_diagram` with `name`, `mermaidSyntax` and `userIntent`. No `useArchitectureLayoutCode`.
+The model is placed into Assets - Flow Board Composer and one `use_figma` call draws the board, as Templates - Flow Mode Section 6 sets out. On the generated fallback, `generate_diagram` takes `name`, `mermaidSyntax` and `userIntent` with no `useArchitectureLayoutCode`.
 
 ---
 
 ## 7. READ-BACK
 
-Count states, transitions and labelled transitions, and check every guard on a choice.
+Count states, transitions and labelled transitions, and check every guard on a choice. A composite draws as the section around its substates, so it counts as a state by its section name.
 
 ```text
 Read-back: 6 of 6 states, 8 of 8 transitions, 6 of 6 transitions labelled

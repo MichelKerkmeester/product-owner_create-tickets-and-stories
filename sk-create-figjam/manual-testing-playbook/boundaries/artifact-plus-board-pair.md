@@ -28,9 +28,9 @@ Operators run the exact prompt and command sequence for `FJ-037` and confirm the
 - Real user request: `write a story for the Fernhouse return flow and make a FigJam flow of its screens`
 - Prompt: `write a story for the Fernhouse return flow and make a FigJam flow of its screens`
 - Expected execution process: Hub stage one keeps the request in the Product Owner packet, whose router returns `STORY` with `then: "FLOW"`. The Story is written, exported and read back first, then the request hands off to this packet with the Story as its product-doc source
-- Expected signals: The first reply delivers a Story with its export and read-back line, then starts Flow Mode from that Story and ends on Flow Mode's own gate with no ClickUp offer. No Figma write tool is called before that yes. After the yes and a matched read-back, the board URL sits in the Story's `Flows` group, the Story is saved again at its export path and the read-back line ends with its file name
+- Expected signals: The first reply delivers a Story with its export and read-back line, then starts Flow Mode from that Story and ends on Flow Mode's playback with no ClickUp offer. After the playback's yes it ends on Flow Mode's own gate with no ClickUp offer. No Figma write tool is called before the gate's yes. After the gate's yes and a matched read-back, the board URL sits in the Story's `Flows` group, the Story is saved again at its export path and the read-back line ends with its file name
 - Desired user-visible outcome: A Story, a gate for a FigJam board drawn from its screens, then the Story re-saved with the board link
-- Pass/fail: PASS if the Story is exported and read back first, Flow Mode starts from it, its gate waits for a yes with no ClickUp offer before it, and a matched board link lands in the re-saved Story. FAIL if a board is written before the Story is read back, the board is dropped, the Story is replaced by a board, ClickUp is offered before the link is in, or the saved Story lacks the matched link
+- Pass/fail: PASS if the Story is exported and read back first, Flow Mode starts from it, its playback and its gate each wait for their own yes with no ClickUp offer before the gate, and a matched board link lands in the re-saved Story. FAIL if a board is written before the Story is read back, the board is dropped, the Story is replaced by a board, ClickUp is offered before the link is in, or the saved Story lacks the matched link
 
 ---
 
@@ -50,18 +50,19 @@ Operators run the exact prompt and command sequence for `FJ-037` and confirm the
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| FJ-037 | An artifact and its board as an ordered pair | Verify that a Story asked for beside a FigJam flow is written and exported first, then Flow Mode runs from it with its own gate, and after a matched read-back the board link lands in the re-saved Story before ClickUp is offered | `write a story for the Fernhouse return flow and make a FigJam flow of its screens` | 1. `session: start fresh -> user: submit the prompt exactly` -> 2. `operator: read the reply, export/ and the tool calls` -> 3. `user: reply yes at the gate, with a Figma connection that writes diagrams` -> 4. `operator: read the reply and the Story in export/` | Step 1 returns the Story's delivery and then a Flow Mode gate with no ClickUp offer. Step 2 finds the Story in `export/` and no Figma write before a yes. Step 3 returns the board URL and a read-back line ending with the Story's file name. Step 4 finds the board URL in the Story's `Flows` group. Without a Figma connection steps 3 and 4 are skipped and recorded as such | The reply, the `export/` listing and the tool calls | PASS if the Story is exported and read back first, Flow Mode starts from it, its gate waits for a yes with no ClickUp offer before it, and a matched board link lands in the re-saved Story. FAIL if a board is written before the Story is read back, the board is dropped, the Story is replaced by a board, ClickUp is offered before the link is in, or the saved Story lacks the matched link | 1. Check the gold row `a story with a FigJam flow beside it` with `python3 benchmark/gates/check_hub.py` 2. Check `python3 benchmark/router/route_contract.py` for the `then` field and the ordered pair rule in `../sk-product-owner/references/routing.md` step 5 |
+| FJ-037 | An artifact and its board as an ordered pair | Verify that a Story asked for beside a FigJam flow is written and exported first, then Flow Mode runs from it with its own gate, and after a matched read-back the board link lands in the re-saved Story before ClickUp is offered | `write a story for the Fernhouse return flow and make a FigJam flow of its screens` | 1. `session: start fresh -> user: submit the prompt exactly` -> 2. `operator: read the reply, export/ and the tool calls` -> 3. `user: Yes, that reading is right. -> operator: confirm the reply is Flow Mode's gate with no ClickUp offer and no Figma write` -> 4. `user: reply yes at the gate, with a Figma connection that writes diagrams` -> 5. `operator: read the reply and the Story in export/` | Step 1 returns the Story's delivery and then Flow Mode's playback with no ClickUp offer. Step 2 finds the Story in `export/` and no Figma write. Step 3 returns Flow Mode's gate with no ClickUp offer and no Figma write. Step 4 returns the board URL and a read-back line ending with the Story's file name. Step 5 finds the board URL in the Story's `Flows` group. Without a Figma connection steps 4 and 5 are skipped and recorded as such | The reply, the `export/` listing and the tool calls | PASS if the Story is exported and read back first, Flow Mode starts from it, its playback and its gate each wait for their own yes with no ClickUp offer before the gate, and a matched board link lands in the re-saved Story. FAIL if a board is written before the Story is read back, the board is dropped, the Story is replaced by a board, ClickUp is offered before the link is in, or the saved Story lacks the matched link | 1. Check the gold row `a story with a FigJam flow beside it` with `python3 benchmark/gates/check_hub.py` 2. Check `python3 benchmark/router/route_contract.py` for the `then` field and the ordered pair rule in `../sk-product-owner/references/routing.md` step 5 |
 
 ### Commands
 
 1. `session: start fresh -> user: submit the prompt exactly`
 2. `operator: read the reply, export/ and the tool calls`
-3. `user: reply yes at the gate, with a Figma connection that writes diagrams`
-4. `operator: read the reply and the Story in export/`
+3. `user: Yes, that reading is right. -> operator: confirm the reply is Flow Mode's gate with no ClickUp offer and no Figma write`
+4. `user: reply yes at the gate, with a Figma connection that writes diagrams`
+5. `operator: read the reply and the Story in export/`
 
 ### Expected
 
-Step 1 returns the Story's delivery and then a Flow Mode gate with no ClickUp offer. Step 2 finds the Story in `export/` and no Figma write before a yes. Step 3 returns the board URL and a read-back line ending with the Story's file name. Step 4 finds the board URL in the Story's `Flows` group. Without a Figma connection steps 3 and 4 are skipped and recorded as such
+Step 1 returns the Story's delivery and then Flow Mode's playback with no ClickUp offer. Step 2 finds the Story in `export/` and no Figma write. Step 3 returns Flow Mode's gate with no ClickUp offer and no Figma write. Step 4 returns the board URL and a read-back line ending with the Story's file name. Step 5 finds the board URL in the Story's `Flows` group. Without a Figma connection steps 4 and 5 are skipped and recorded as such
 
 ### Evidence
 
@@ -69,7 +70,7 @@ The reply, the `export/` listing and the tool calls
 
 ### Pass / Fail
 
-- **Pass**: the Story is exported and read back first, Flow Mode starts from it, its gate waits for a yes with no ClickUp offer before it, and a matched board link lands in the re-saved Story
+- **Pass**: the Story is exported and read back first, Flow Mode starts from it, its playback and its gate each wait for their own yes with no ClickUp offer before the gate, and a matched board link lands in the re-saved Story
 - **Fail**: a board is written before the Story is read back, the board is dropped, the Story is replaced by a board, ClickUp is offered before the link is in, or the saved Story lacks the matched link
 
 ### Failure Triage

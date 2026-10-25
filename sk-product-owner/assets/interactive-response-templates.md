@@ -189,7 +189,7 @@ No blank line sits inside an item or between items, because claude.ai joins a la
 
 ### The Closing Line
 
-- After a delivered artifact on a `then: "FLOW"` route: the Flow Mode gate, with no ClickUp offer
+- After a delivered artifact on a `then: "FLOW"` route: the Flow Mode playback, with no ClickUp offer
 - After a delivered artifact, when ClickUp tooling is available and one list or doc in the push targets file fits: `Want me to push this to {name}, or upload it as a private ClickUp doc instead?`
 - After a delivered artifact, when ClickUp tooling is available and more than one could fit: `Should this go to {name} or {name}, or should I upload it as a private ClickUp doc instead?`
 - After a delivered artifact, when ClickUp tooling is available and none fits or the push targets file is absent: `Where in ClickUp should this go? Send a list link, or I'll upload it as a private doc, which I recommend for now.`

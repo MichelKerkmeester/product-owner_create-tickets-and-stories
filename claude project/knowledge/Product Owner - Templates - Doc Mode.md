@@ -454,33 +454,33 @@ ClickUp delivery offers and approval follow Custom Instructions Section 9, Deliv
 
 ---
 
-## 11. CORPUS-GROUNDED EXAMPLES
+## 11. SOURCE SHAPE EXAMPLES
 
-These examples are shape-selection and safety references. Their presence in the supplied material does not establish production truth.
+These examples are shape-selection and safety references. They describe the signals to look for when the user supplies such material, and Knowledge holds none of it. Supplied material alone does not establish production truth.
 
-### Barter Creation Material as a Guide Shape
+### Component Rule Material as a Guide Shape
 
-The Barter creation, copywriting, image, and tone-of-voice documents exhibit a Guide shape: ordered anatomy, per-component rules, examples, and related guidance. Treat their behavior authority as unknown until the user or an explicit source declaration establishes it. If a source references a missing image, preserve the reference and flag the dependency rather than inventing or deleting it.
+Supplied creation, copywriting, image and tone-of-voice documents exhibit a Guide shape: ordered anatomy, per-component rules, examples, and related guidance. Treat their behavior authority as unknown until the user or an explicit source declaration establishes it. If a source references a missing image, preserve the reference and flag the dependency rather than inventing or deleting it.
 
-### Notifications as a Catalog Shape
+### Message Catalogs as a Catalog Shape
 
-The Notification material exhibits a Catalog shape through indexes, stable message IDs, shared vocabulary, template variables, repeated fields, and cross-links. Status can differ by field: markers such as existing, verify, new, draft, and not ready must remain local. If an index and an account file assign different IDs, or duplicate reminder files have no declared winner, apply the conflict gate.
+Supplied message catalogs, such as notification copy, exhibit a Catalog shape through indexes, stable message IDs, shared vocabulary, template variables, repeated fields, and cross-links. Status can differ by field: markers such as existing, verify, new, draft, and not ready must remain local. If an index and an account file assign different IDs, or duplicate reminder files have no declared winner, apply the conflict gate.
 
-### Feed and Geo Material as Behavior Shapes
+### Targeting and Visibility Material as Behavior Shapes
 
-Feed, geo-targeting, and dead-deal material exhibit a Behavior reference shape through product and technical states, architecture, rules, fallbacks, boundaries, and outcomes. Present-tense wording alone does not make these sources current. Contradictory visibility or targeting rules require a scoped authority decision before they can be documented as settled behavior.
+Supplied material on a feed, geo-targeting or deal expiry exhibits a Behavior reference shape through product and technical states, architecture, rules, fallbacks, boundaries, and outcomes. Present-tense wording alone does not make these sources current. Contradictory visibility or targeting rules require a scoped authority decision before they can be documented as settled behavior.
 
-### Feed Future Material as Proposal Shapes
+### Future Material as Proposal Shapes
 
-Feed Functions and Weighted Ranking material exhibit a Proposal shape because they describe candidate or future behavior and state that implementation may differ. Keep a prominent proposal notice, separate current context from candidate rules, and preserve open decisions. Their technical ideas may support an engineering proposal or recommendation, but not an approved or shipped architecture without authority.
+Supplied material on candidate ranking rules or other future behavior exhibits a Proposal shape because it describes behavior that is not built and states that implementation may differ. Keep a prominent proposal notice, separate current context from candidate rules, and preserve open decisions. Their technical ideas may support an engineering proposal or recommendation, but not an approved or shipped architecture without authority.
 
-### Feed ClickUp Layout Examples
+### ClickUp Layout Examples
 
-Dead Deals, Feed Functions, How it Works, and Patterns establish the default new-document layout: exact `* * *` dividers, `*   ` unordered bullets, a blank line between the document title and opening divider, dividers immediately after non-title content headings, same-level empty spacer headings between substantial siblings (a ClickUp-paste affordance that file exports drop), divided status blockquotes, definition bullets with bold terms and em dashes, tables for real matrices, and language-tagged technical fences. Treat those documents as read-only formatting examples, not as proof that every behavior claim is current.
+The Doc examples in Knowledge, such as Examples - Doc - Guide and Examples - Doc - Catalog, establish the default new-document layout: exact `* * *` dividers, `*   ` unordered bullets, a blank line between the document title and opening divider, dividers immediately after non-title content headings, same-level empty spacer headings between substantial siblings (a ClickUp-paste affordance that file exports drop), divided status blockquotes, definition bullets with bold terms and em dashes, tables for real matrices, and language-tagged technical fences. Treat those examples as read-only formatting examples, not as proof that every behavior claim is current.
 
-### Retired Notification Material
+### Retired Material
 
-Conceptual or legacy Notification material can provide historical context when relevant, but its retired status must remain visible. It cannot override a more authoritative active policy or become production fact because its wording is detailed.
+Conceptual or legacy material, such as a retired notification, can provide historical context when relevant, but its retired status must remain visible. It cannot override a more authoritative active policy or become production fact because its wording is detailed.
 
 ### Literal Preservation Example
 

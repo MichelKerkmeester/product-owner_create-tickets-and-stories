@@ -367,7 +367,9 @@ def route_stage_one(request: str, router: dict) -> str:
                 return default
         elif kind == "single-signal":
             hits = set()
-            for clause in re.split(r"[,.;:!?]", text):
+            # A full stop ends a clause only before a space or the end, so the dots in a
+            # figma.com/board link stay inside the clause that carries the signal.
+            for clause in re.split(r"[,;:!?]|\.(?=\s|$)", text):
                 for mode, phrases in signals.items():
                     for phrase in phrases:
                         for match in _word(phrase).finditer(clause):

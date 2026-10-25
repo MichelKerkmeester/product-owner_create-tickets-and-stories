@@ -1,13 +1,13 @@
 ---
 title: "FigJam Process Templates"
-description: "Process patterns that pass the pre-write check: a decision tree, a laned process with a handoff accent and a pipeline with a store and data in and out."
+description: "Process patterns that pass the pre-write check: a decision tree, a laned process with its handoff step in focus and a pipeline with a store and data in and out."
 contextType: general
 importance_tier: important
 trigger_phrases:
   - "process templates"
   - "laned process pattern"
   - "decision tree pattern"
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # FigJam Process Templates
@@ -24,7 +24,7 @@ Copy/apply patterns for a process model. Each pattern passes `scripts/flow_check
 
 - Keep the `%% type: process` line first, or the check reads the block as a user flow
 - Name a lane after the actor, `subgraph agent ["CS agent"]`, and keep its id short and camelCase
-- A lane takes the neutral pair or no style, and the one accent goes on the focal step or handoff
+- A lane takes the neutral pair or no style, and the one accent goes on the focal step, such as the step that hands work to the next lane. The composer draws that step in focus. A `linkStyle` passes the check and changes nothing on a composed board
 - `-.->` marks a step that is optional or happens later, such as a log write
 - The patterns all run left to right, because the check reads every process in one file as one flow that runs one way
 
@@ -44,11 +44,12 @@ flowchart LR
     risk -->|No| reject([Declined])
     auto --> done([Approved])
     review --> done
+    style done fill:#CDF4D3,stroke:#66D575
 ```
 
-### Laned process with a handoff accent
+### Laned process with a handoff in focus
 
-The accent sits on the connector where work crosses into the warehouse, the handoff that adds the most delay.
+The step that hands work to operations is in focus, because that handoff adds the most delay.
 
 ```mermaid
 %% type: process
@@ -74,7 +75,7 @@ flowchart LR
     style requester fill:#F5F5F5,stroke:#B3B3B3
     style team fill:#F5F5F5,stroke:#B3B3B3
     style ops fill:#F5F5F5,stroke:#B3B3B3
-    linkStyle 4 stroke:#3DADFF
+    style approve fill:#C2E5FF,stroke:#3DADFF
 ```
 
 ### Pipeline with a store and data in and out
@@ -89,4 +90,5 @@ flowchart LR
     save --> store[(Imports)]
     save -.->|"Later"| notify[[Notify the owner]]
     notify --> done([Import finished])
+    style done fill:#CDF4D3,stroke:#66D575
 ```

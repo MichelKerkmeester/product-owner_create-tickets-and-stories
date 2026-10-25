@@ -252,7 +252,7 @@ Acceptance criteria stay few, one per outcome the story exists to guarantee plus
 
 ### Flow Mode (`$flow`, `$figjam`)
 
-Flow Mode draws a user flow on a FigJam board and is its own packet, [`../sk-create-figjam/`](../sk-create-figjam/SKILL.md). The hub sends a Flow request there first. The router here keeps both commands, so a conflict such as `$task $flow` still asks one question, and a Flow route that reaches this packet hands off to that one.
+Flow Mode draws a diagram of one of seven types on a FigJam board and is its own packet, [`../sk-create-figjam/`](../sk-create-figjam/SKILL.md). The hub sends a Flow request there first. The router here keeps both commands, so a conflict such as `$task $flow` still asks one question, and a Flow route that reaches this packet hands off to that one.
 
 ### Interactive Mode (fallback, no command)
 

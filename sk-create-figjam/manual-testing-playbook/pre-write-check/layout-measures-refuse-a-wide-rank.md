@@ -1,7 +1,7 @@
 ---
 title: "FJ-043 -- A rank of five steps is refused"
 description: "This scenario validates a rank of five steps is refused for `FJ-043`. It checks that the check measures the layout of a legal user flow and refuses one whose widest rank holds five steps."
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # FJ-043 -- A rank of five steps is refused
@@ -16,7 +16,7 @@ This scenario validates a rank of five steps is refused for `FJ-043`. It checks 
 
 ### Why This Matters
 
-A model can pass every count and still read badly. The generator owns the layout once the board exists, so a rank too wide to read at a glance is caught on the model, where a split costs nothing.
+A model can pass every count and still read badly. The composer owns the layout once the board exists, so a rank too wide to read at a glance is caught on the model, where a split costs nothing.
 
 ---
 

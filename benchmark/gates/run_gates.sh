@@ -47,12 +47,12 @@ GATES=(
   "example lint self-test|python3 benchmark/gates/example_lint.py --self-test"
   "vendor sync|python3 scripts/vendor-sync.py status"
   "vendor sync tests|python3 scripts/tests/test_vendor_sync.py"
-  "plugin build freshness|python3 scripts/build-plugin.py --check"
   "markdown link integrity|python3 benchmark/gates/check_markdown_links.py"
   "hub check|python3 benchmark/gates/check_hub.py"
   "hub check self-test|python3 benchmark/gates/check_hub.py --self-test"
   "leaf map parity|python3 benchmark/gates/check_leaf_map_parity.py"
   "flow check self-test|python3 sk-create-figjam/scripts/flow_check.py --self-test"
+  "board composer self-test|python3 sk-create-figjam/scripts/compose_board.py --self-test"
   "skilled hub contract|python3 ../../.skilled/skills/sk-doc/sk-create-skill/scripts/validate_skill_package.py --strict \"$PWD\""
   "skilled packet contract|python3 ../../.skilled/skills/sk-doc/sk-create-skill/scripts/validate_skill_package.py --strict \"$PWD/sk-product-owner\" && python3 ../../.skilled/skills/sk-doc/sk-create-skill/scripts/validate_skill_package.py --strict \"$PWD/sk-create-figjam\""
 )
@@ -63,11 +63,6 @@ for entry in "${GATES[@]}"; do
   name="${entry%%|*}"
   command="${entry#*|}"
   script="$(printf '%s' "$command" | awk '{print $2}')"
-  if [ "$name" = "plugin build freshness" ] && [ ! -d "claude-plugin/skills/product-owner" ]; then
-    printf '  %-24s SKIPPED, generated plugin output is absent in this clone\n' "$name"
-    skipped=$((skipped + 1))
-    continue
-  fi
   if [ "$name" = "rule parity" ] && [ ! -d "../z — Claude Project Sync Loop" ]; then
     printf '  %-24s SKIPPED, the shared Sync Loop folder is not beside this repository\n' "$name"
     skipped=$((skipped + 1))

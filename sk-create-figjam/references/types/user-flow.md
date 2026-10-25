@@ -1,6 +1,6 @@
 ---
 title: "FigJam Type - User Flow"
-description: "A person's path through a product drawn as a FigJam flowchart: four shapes, labelled exits, one accent and a nine-node budget."
+description: "A person's path through a product composed as a FigJam board: four shapes, labelled exits, colour by kind, optional zones and a nine-node budget."
 contextType: implementation
 importance_tier: important
 trigger_phrases:
@@ -8,7 +8,7 @@ trigger_phrases:
   - "user flow rules"
   - "screen flow figjam"
   - "merge dot"
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # FigJam Type - User Flow
@@ -27,7 +27,7 @@ A user flow is the screens and choices one person passes through to reach a goal
 
 - A flow drawn from screenshots, from Figma frames or from a product doc that walks one person through the product
 - A platform split, such as desktop and mobile, that rejoins on a later screen
-- A journey Figma's generator cannot draw as a journey, redrawn as the screens it visits
+- A journey, which Flow Mode does not draw as such, redrawn as the screens it visits
 
 Use another type when several people or teams hand work to each other (a process), when the subject is services and stores (an architecture) or when time order between systems is the point (a sequence).
 
@@ -35,7 +35,7 @@ Use another type when several people or teams hand work to each other (a process
 
 ## 2. WHAT THE BOARD DRAWS
 
-`flowchart TD` or `flowchart LR`, laid out by the generator's ELK engine. No `%% type:` line is needed, because a flowchart with none is a user flow.
+`flowchart LR` or `flowchart TD`, composed into a board as Section 6 sets out. No `%% type:` line is needed, because a flowchart with none is a user flow.
 
 | Shape | Mermaid | Means |
 |---|---|---|
@@ -46,6 +46,8 @@ Use another type when several people or teams hand work to each other (a process
 
 Every connector is a solid one-way arrow, `-->`, with an optional label: `a -->|Yes| b`.
 
+On the board the first screen is light blue, every other screen white, a decision a light yellow diamond, the goal light green and every other end light orange, beside the main line rather than on it. The main route from the first screen to the goal runs on one straight line, and `%% zone:` lines group the screens into named stages, as `assets/flow-templates.md` Section 1 sets out.
+
 Every move carries an actor in the model, one of a person, a system or a timer. A system step is marked automatic and a timer step is fired by time, so neither is ever counted as a missing user action.
 
 ---
@@ -54,16 +56,16 @@ Every move carries an actor in the model, one of a person, a system or a timer. 
 
 The check enforces:
 
-- **Four shapes only.** No other shape, no subgraph and never a colour per type
+- **Four shapes only.** No other shape, no subgraph and never a colour per type. A `%% zone:` line does the grouping instead
 - **A decision has 1 to 3 exits, each labelled.** A fourth outcome means the decision is two decisions
 - **Every node connected, every step with a way in and a way out.** Only a stadium starts or ends the flow, and a stadium never sits mid-flow. The first node may take a loop back to it
 - **A merge dot carries no words**
-- **Solid one-way arrows only.** A dotted, thick, headless or two-way connector would carry a second meaning. A proposal's status goes in its label, and the accent marks the happy path
-- **Top to bottom or left to right,** the same way for every diagram of one flow. Top to bottom is the default, because a user flow fans out at its decisions and platform splits. Left to right suits a short sequential flow
+- **Solid one-way arrows only.** A dotted, thick, headless or two-way connector would carry a second meaning. A proposal's status goes in its label, and a `style` line marks the goal
+- **Left to right or top to bottom,** the same way for every diagram of one flow. Left to right is the default, because the composer keeps the main route on one straight line across a board that reads wider than tall and sets each branch beside it. Top to bottom suits a short flow
 - **Labels of at most 40 characters on one line,** in double quotes when they hold a parenthesis, a colon or a slash
 - **camelCase ids,** never an underscore or a reserved word such as `end`
 - **No emoji, markup or literal `\n`** anywhere in the block but a `%%` comment
-- **At most 9 nodes,** and at most one accent from `references/style-guide.md`
+- **At most 9 nodes,** and exactly one `style` line from `references/style-guide.md`
 
 Judged by hand:
 
@@ -81,21 +83,21 @@ Nine nodes is sk-design-diagram's general budget and matches what a hand-drawn u
 
 ---
 
-## 5. COLOUR AND THE HYBRID PASS
+## 5. COLOUR, ZONES AND NOTES
 
-One accent at most, set in the model: a fill with its paired stroke on the focal node, or the paired stroke on the happy-path connectors. A note on a screen, such as a drop-off rate, goes on through the label and legend recipe in `references/hybrid-workflow.md`.
+The composer colours every screen by its kind. A user flow and a process each carry exactly one `style` line, which marks the first glance. A styled goal, failing end or decision keeps its kind and takes a pink outline. A styled step is drawn light pink. The line marks meaning: on an end it makes that end the goal, or with the light red pair a failure, and on a screen it puts that screen in focus, as `references/style-guide.md` Section 3 sets out. Zones are `%% zone:` lines in flow order, and once a flow has zones every screen sits in one. A note on a screen, such as a drop-off rate, goes on through the pins and legend recipe in `references/hybrid-workflow.md`.
 
 ---
 
-## 6. CALLING THE TOOL
+## 6. WRITING THE BOARD
 
-`generate_diagram` with `name` set to the flow and its hand-off, `mermaidSyntax` set to the block and `userIntent` set to one sentence on the reader's question. No `useArchitectureLayoutCode`. The `fj` route can also draw a user flow when the hosted route is not connected, as `references/flow-mode.md` Section 6 sets out.
+`scripts/compose_board.py` composes the model and one `use_figma` call draws the board, as `references/flow-mode.md` Section 6 sets out. On the generated fallback, `generate_diagram` takes `name`, `mermaidSyntax` and `userIntent`, with `name` set to the flow and its hand-off and no `useArchitectureLayoutCode`. The `fj` route can also draw a user flow when neither hosted tool is connected.
 
 ---
 
 ## 7. READ-BACK
 
-Count on the board, against the model: nodes, connectors, decision exits labelled, every node label, and for each model connector a board connector joining the same two nodes in the same direction with the same label.
+Count on the board, against the model: nodes, connectors, decision exits labelled, every node label, and for each model connector a board connector joining the same two nodes in the same direction with the same label, following a routed edge through its legs as `references/flow-mode.md` Section 7 sets out. When the flow has zones, each screen sits in its zone.
 
 ```text
 Read-back: 8 of 8 nodes, 8 of 8 connectors, 2 of 2 decision exits labelled

@@ -27,10 +27,10 @@ Operators run the exact prompt and command sequence for `FJ-042` and confirm the
 - Objective: Verify that a thin brief sent at Quick energy with a plain no-questions request asks nothing, models the best reading of the brief, marks each inferred fact assumed and names the assumptions in the playback before the gate
 - Real user request: `$flow $quick the Fernhouse damaged-item flow on a new board in our Fernhouse Product plan. Just do it, no questions.`
 - Prompt: `$flow $quick the Fernhouse damaged-item flow on a new board in our Fernhouse Product plan. Just do it, no questions.`
-- Expected execution process: Route to Flow Mode at Quick energy, ask nothing, take the damage and refund flow from the brief as the best reading, run the check and end on a gate whose playback names each assumed fact
-- Expected signals: The reply asks no question, carries a checked model, marks every step and actor it inferred as assumed, names each one in the playback before the gate and waits for the yes. No write tool is called
+- Expected execution process: Route to Flow Mode at Quick energy, ask nothing, take the damage and refund flow from the brief as the best reading, stop at a playback that names each assumed fact, then run the check and end on the gate
+- Expected signals: Turn 1 asks no intake question, names each inferred fact as assumed in the playback and waits for the yes, with no model yet. Turn 2 carries a checked model, marks every step and actor it inferred as assumed and ends on a gate that waits. No write tool is called
 - Desired user-visible outcome: A checked flow, a named record of what was assumed and a gate that waits
-- Pass/fail: PASS if no question is asked, every inferred fact is marked assumed and named in the playback, and the gate waits with nothing written. FAIL if a question is asked, an inferred fact reaches the model unmarked, an assumption is missing from the playback, or a write tool is called before the yes
+- Pass/fail: PASS if no intake question is asked, the playback is the only stop before the gate, every inferred fact is marked assumed and named in the playback, and the gate waits with nothing written. FAIL if an intake question is asked, an inferred fact reaches the model unmarked, an assumption is missing from the playback, or a write tool is called before the gate's yes
 
 ---
 
@@ -50,16 +50,17 @@ Operators run the exact prompt and command sequence for `FJ-042` and confirm the
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| FJ-042 | A thin brief at Quick energy with no questions | Verify that a thin brief sent at Quick energy with a plain no-questions request asks nothing, models the best reading of the brief, marks each inferred fact assumed and names the assumptions in the playback before the gate | `$flow $quick the Fernhouse damaged-item flow on a new board in our Fernhouse Product plan. Just do it, no questions.` | 1. `session: start fresh -> user: submit the prompt exactly -> operator: read the reply, the model and the tool calls` -> 2. `operator: list every fact the brief does not state and compare it with the playback` | Step 1 returns the model, the playback and the gate with no question. Step 2 finds each fact the brief does not state named as assumed | The reply, the model with its provenance table and the tool calls with the check output | PASS if no question is asked, every inferred fact is marked assumed and named in the playback, and the gate waits with nothing written. FAIL if a question is asked, an inferred fact reaches the model unmarked, an assumption is missing from the playback, or a write tool is called before the yes | 1. Check the `$flow` energy line in `references/flow-mode.md` Section 1 and the intake in Section 4 2. Check the gate in `references/flow-mode.md` Section 2 step 7 and the playback in Section 8 |
+| FJ-042 | A thin brief at Quick energy with no questions | Verify that a thin brief sent at Quick energy with a plain no-questions request asks nothing, models the best reading of the brief, marks each inferred fact assumed and names the assumptions in the playback before the gate | `$flow $quick the Fernhouse damaged-item flow on a new board in our Fernhouse Product plan. Just do it, no questions.` | 1. `session: start fresh -> user: submit the prompt exactly -> operator: read the reply and the tool calls` -> 2. `user: Yes, that reading is right. -> operator: read the model and the gate, and confirm no intake question was asked and the gate's one question asks about the write alone` -> 3. `operator: list every fact the brief does not state and compare it with the playback` | Step 1 returns the playback naming each inferred fact as assumed, with no intake question and no model. Step 2 returns the model, a passing check and the gate. Step 3 finds each fact the brief does not state named as assumed | The reply, the model with its provenance table and the tool calls with the check output | PASS if no intake question is asked, the playback is the only stop before the gate, every inferred fact is marked assumed and named in the playback, and the gate waits with nothing written. FAIL if an intake question is asked, an inferred fact reaches the model unmarked, an assumption is missing from the playback, or a write tool is called before the gate's yes | 1. Check the `$flow` energy line in `references/flow-mode.md` Section 1 and the intake in Section 4 2. Check the gate in `references/flow-mode.md` Section 2 step 7 and the playback in Section 8 |
 
 ### Commands
 
-1. `session: start fresh -> user: submit the prompt exactly -> operator: read the reply, the model and the tool calls`
-2. `operator: list every fact the brief does not state and compare it with the playback`
+1. `session: start fresh -> user: submit the prompt exactly -> operator: read the reply and the tool calls`
+2. `user: Yes, that reading is right. -> operator: read the model and the gate, and confirm no intake question was asked and the gate's one question asks about the write alone`
+3. `operator: list every fact the brief does not state and compare it with the playback`
 
 ### Expected
 
-Step 1 returns the model, the playback and the gate with no question. Step 2 finds each fact the brief does not state named as assumed
+Step 1 returns the playback naming each inferred fact as assumed, with no intake question and no model. Step 2 returns the model, a passing check and the gate. Step 3 finds each fact the brief does not state named as assumed
 
 ### Evidence
 
@@ -67,8 +68,8 @@ The reply, the model with its provenance table and the tool calls with the check
 
 ### Pass / Fail
 
-- **Pass**: no question is asked, every inferred fact is marked assumed and named in the playback, and the gate waits with nothing written
-- **Fail**: a question is asked, an inferred fact reaches the model unmarked, an assumption is missing from the playback, or a write tool is called before the yes
+- **Pass**: no intake question is asked, the playback is the only stop before the gate, every inferred fact is marked assumed and named in the playback, and the gate waits with nothing written
+- **Fail**: an intake question is asked, an inferred fact reaches the model unmarked, an assumption is missing from the playback, or a write tool is called before the gate's yes
 
 ### Failure Triage
 

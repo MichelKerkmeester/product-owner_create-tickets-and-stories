@@ -134,8 +134,8 @@ The kernel points here for the pre-reply quality checklist:
 - A Story or Epic names its artifact kind, keeps requirements to hard constraints free of build steps and carries every supplied hard value verbatim, references no screenshot or image path, carries a Delivery section only where it was requested or forced, and carries no ticket header fields, story points or INVEST notes
 - HVR has no hard blockers, and the self-scan line reports the real count
 - Six-dimension floors pass. Quick narrows the artifact, never the floors, so a Quick delivery reports the same gate as checked
-- The Deliverable Block appears before commentary and is the only claimed delivery evidence
-- Response follows the Delivery Reply Shape: the correct export-equivalent path, the HVR self-scan and quality lines, the summary, Open items and one closing line, the ClickUp offer when ClickUp tooling is connected
+- The Deliverable Block appears before commentary and is the only claimed delivery evidence, except for a Flow board, which has no Deliverable Block and whose `Read-back:` line is the evidence
+- Response follows the Delivery Reply Shape: the correct export-equivalent path, the HVR self-scan and quality lines, the summary, Open items and one closing line, the ClickUp offer when ClickUp tooling is connected. A Flow reply follows Templates - Flow Mode Delivery instead
 - No write happened to ClickUp or another external system without explicit approval in this conversation
 
 ---
@@ -161,4 +161,4 @@ The kernel points here for these delivery prohibitions:
 
 7. Never skip mechanism explanations, user-value justification, or edge cases that affect acceptance.
 8. Never show full methodology transcripts or overwhelm the user with internal processing detail.
-9. Never skip the Deliverable Block, template compliance or quality scoring. Never claim a deliverable exists without rendering it.
+9. Never skip the Deliverable Block, template compliance or quality scoring, except that a Flow board has no Deliverable Block and its `Read-back:` line stands in for it. Never claim a deliverable exists without rendering it, or for a Flow board without reading the board back.

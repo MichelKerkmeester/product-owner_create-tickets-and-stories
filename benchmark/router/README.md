@@ -17,6 +17,7 @@ testing remains mandatory.
   out of `sk-product-owner/references/router-contract.md`, executes it, and
   proves the contract agrees with it on tables, on each detection layer and on
   the whole route object
+- `flow_types.json`, the phrasings the FigJam packet's type detector is held to
 - `differential_corpus.json`, the differential inputs grouped by what each
   group exists to exercise. Fixture inputs are added automatically
 - `run_fixtures.sh`, the gate runner. It runs both checks and exits 0 only
@@ -98,6 +99,13 @@ that appears in both.
 - **Framing beats topic scoring**: explicit artifact framing ("write a bug
   report about...", "turn this into a PRD") outranks plain keyword
   scoring, matching the skill's own tie-break order.
+- **FigJam is a subject or an output, and the verb decides**: a request that
+  asks for an artifact ("add a task", "create a ticket", "log a bug") keeps
+  that artifact even when a FigJam board is what it is about. FigJam output
+  wording ("draw this on a FigJam board") and a request to add notes to or
+  update a board, including one named by a `figma.com/board` link, route to
+  Flow. The bare word `figma` and a `figma.com/design` link stay Task, because
+  they carry UI feedback and no board
 - **Word-boundary keywords**: `bug` matches "file a bug" but never
   "debugging". `issue` and `broken` score BUG, but a synonym embedded inside
   a longer word never contributes a hit. Nine topics carry the 114 synonyms,
@@ -148,7 +156,7 @@ drift. Nothing executes prose, so `differential.py` executes it: the fenced
 block is lifted out of the markdown, run as a real module with no-op stubs for
 its two side effects, and compared against this contract.
 
-Five guards fire independently: prose-table parity, copy parity, table parity, corpus coverage and per-input behavior parity.
+Eight guards fire independently: prose-table parity, copy parity, table parity, corpus coverage, per-input behavior parity, hub vocabulary reach, stage agreement and Flow type detection.
 
 - **Copy parity**: the kernel ends with the same block minus its comments
   under its own Router Code section, held equal to the stripped reference
@@ -164,6 +172,18 @@ Five guards fire independently: prose-table parity, copy parity, table parity, c
 - **Corpus coverage**: every command and alias, every documented false-prefix
   case and every semantic topic must be exercised, so behavior parity cannot
   pass by leaving a table untested
+- **Hub vocabulary reach**: every verb and singular noun `hub-router.json`
+  calls an artifact request is built into a sentence, and the router has to
+  send it to that noun's artifact. A word the hub gains fails the guard until
+  the router knows it, and the few pairs left to the backlog question are
+  named in the gate with their reason
+- **Stage agreement**: a request stage one sends to the FigJam packet has to
+  route to Flow here, and a Flow route behind the default mode is allowed only
+  when a Product Owner artifact word starts the hand-off
+- **Flow type detection**: the FigJam packet picks one of seven diagram types
+  from a request's words, and that table is code in its `SKILL.md`. The block is
+  lifted out and run against `flow_types.json`, which pins two phrasings per
+  type, a request where two types fit and one where none does
 
 The two implementations report a route differently and the harness reconciles
 the shapes without hiding a disagreement. The pseudocode names its sources in

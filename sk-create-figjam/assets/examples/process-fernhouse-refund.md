@@ -1,12 +1,12 @@
 ---
 title: "Example - Process - Fernhouse Refund"
-description: "A worked laned process on the fictional Fernhouse store: a support runbook turned into a three-lane refund process with a handoff accent, a gate message and the reply."
+description: "A worked laned process on the fictional Fernhouse store: a support runbook turned into a three-lane refund process with its handoff step in focus, a playback, a gate message and the reply."
 contextType: general
 importance_tier: normal
 trigger_phrases:
   - "process example"
   - "fernhouse refund process"
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # Example - Process - Fernhouse Refund
@@ -36,15 +36,35 @@ make a FigJam process of how a damaged-item refund moves between the customer, C
 
 - **Reader question:** who does what, and where does the claim change hands? A process with three lanes
 - **Detail:** balanced. **Audience:** mixed
-- **Accent:** the handoff from CS to the warehouse, which the runbook names as the slowest step
+- **Focus:** Approve the claim, the step that hands the claim from CS to the warehouse, which the runbook names as the slowest handoff
 
 ---
 
-## 3. MODEL
+## 3. PLAYBACK
+
+The playback is its own reply, sent before the model. It waits for its own answer, and a yes to it moves the work on to the model and writes nothing.
+
+```text
+Before I draw anything, this is how I read the request.
+Question: who does what, and where does the claim change hands?
+Outcome: a reader can see which team owns each step of a damaged-item refund and where the claim moves from CS to the warehouse.
+Settled by the sources: runbook lines 3.1 to 3.5 give the steps, the three lanes and the one decision, and the runbook names the handoff from CS to the warehouse as the slowest.
+Left out: the pickup skipped under €20 in line 3.6, a pilot that is not live.
+Assumed: balanced detail and a mixed audience.
+Still open: none.
+Is this the right reading of the board?
+```
+
+---
+
+## 4. MODEL
 
 ```mermaid
 %% type: process
 flowchart LR
+    %% title: Damaged-item refund
+    %% subtitle: Who handles a damaged-item claim, from the customer's report to the released refund
+    %% source: Source: the support runbook, Section 3. Left out: pickup skipped under €20, a pilot that is not live.
     subgraph customer ["Customer"]
         report([Damage reported])
         photo[/Send a second photo/]
@@ -70,7 +90,7 @@ flowchart LR
     style customer fill:#F5F5F5,stroke:#B3B3B3
     style cs fill:#F5F5F5,stroke:#B3B3B3
     style warehouse fill:#F5F5F5,stroke:#B3B3B3
-    linkStyle 4 stroke:#FF9E42
+    style approve fill:#FFE0C2,stroke:#FF9E42
 ```
 
 ### Provenance
@@ -96,22 +116,31 @@ PASSED 1 diagram(s) in model.md
 
 ---
 
-## 4. GATE
+## 5. GATE
+
+The gate is its own reply, sent after the playback's answer. Its one question asks about the write alone.
 
 ```text
-Plan: Fernhouse Product. File: a new FigJam file, which this call creates.
-Writes: one process, 3 lanes, 8 nodes and 8 connectors, named "Damaged-item refund".
+Question: who does what, and where does the claim change hands?
+Outcome: a reader can see which team owns each step of a damaged-item refund and where the claim moves from CS to the warehouse.
+First glance: Approve the claim, the handoff from CS to the warehouse that the runbook names as the slowest.
+Second glance: Damage clear?, the check that decides whether the claim moves on.
+Last glance: the claims table, where every decision is logged.
+Plan: Fernhouse Product. File: a new FigJam file named "Damaged-item refund", created in that plan.
+Writes: one composed board, 3 lanes, 8 nodes and 8 connectors, with a title, a key and a source line, at the Laptop reading distance.
+Extensions: none.
+Calls: whoami, create_new_file, one use_figma and one get_figjam read-back.
 Rollback: delete the new file.
 Write it?
 ```
 
 ---
 
-## 5. REPLY
+## 6. REPLY
 
 ```text
-<board URL from generate_diagram>
-Read-back: 8 of 8 nodes, 8 of 8 connectors, 2 of 2 decision exits labelled, 3 of 3 lanes
+<board URL>
+Read-back: 8 of 8 nodes, 8 of 8 connectors, 2 of 2 decision exits labelled, 3 of 3 lanes, first glance: Approve the claim
 Left out: pickup skipped under €20, a pilot that is not live
 HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
 ```

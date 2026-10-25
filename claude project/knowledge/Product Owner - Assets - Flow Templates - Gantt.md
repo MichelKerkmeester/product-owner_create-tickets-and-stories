@@ -9,7 +9,7 @@ Copy/apply patterns for a gantt model. Each pattern passes the rules, and Templa
 - Anchor the first task on a date and chain the rest with `after`
 - Months are `M`. A lowercase `m` is minutes
 - `crit` only on the real critical path and `active` only on what runs now
-- No colour and no axis settings, which the generator strips
+- No colour and no axis settings, which neither route draws. The tags colour the bars
 
 ---
 

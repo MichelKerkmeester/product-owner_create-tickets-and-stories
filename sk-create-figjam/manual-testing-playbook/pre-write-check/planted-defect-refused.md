@@ -1,7 +1,7 @@
 ---
 title: "FJ-005 -- A sequence with an alias and a note is refused"
 description: "This scenario validates a sequence with an alias and a note is refused for `FJ-005`. It checks that the check refuses a sequence model that uses an alias and a note, naming each rule."
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # FJ-005 -- A sequence with an alias and a note is refused
@@ -16,7 +16,7 @@ This scenario validates a sequence with an alias and a note is refused for `FJ-0
 
 ### Why This Matters
 
-The generator drops aliases and notes without an error, so a board drawn from this model would show a bare id and lose the note.
+Neither the composer nor Figma's generated fallback draws aliases and notes, and the fallback drops them without an error, so a board drawn from this model would show a bare id and lose the note.
 
 ---
 
@@ -91,7 +91,7 @@ The scratch model and the command output with its exit status
 | File | Role |
 |---|---|
 | [`scripts/figjam_checks/sequence.py`](../../scripts/figjam_checks/sequence.py) | Sequence rules |
-| [`references/types/sequence.md`](../../references/types/sequence.md) | What the generator drops |
+| [`references/types/sequence.md`](../../references/types/sequence.md) | What a sequence model cannot carry |
 
 ---
 

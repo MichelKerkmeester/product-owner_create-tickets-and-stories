@@ -9,7 +9,7 @@ trigger_phrases:
   - "figjam swimlane"
   - "process lanes"
   - "approval flow figjam"
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # FigJam Type - Process
@@ -41,7 +41,7 @@ Use a user flow when the subject is one person's screens, a state diagram when o
 flowchart LR
 ```
 
-The first line of the block names the type. The generator strips `%%` comments, so the line reaches only the check. A process runs `TD` or `LR`.
+The first line of the block names the type for the check, and the composer reads it too. A process runs `LR` or `TD`.
 
 | Shape | Mermaid | Means |
 |---|---|---|
@@ -59,6 +59,8 @@ A lane is a subgraph with a readable label, `subgraph agent ["CS agent"]`, holdi
 
 Connectors are `-->` for the flow and `-.->` for an optional, asynchronous or later step, such as a log write.
 
+On the board each lane is a band in a light tint, named after its label, stacked in the order the model declares them, and every step sits inside its lane's band. The kinds take their colours from `references/style-guide.md` Section 2: a store is a violet cylinder, data entering or leaving a teal parallelogram and a sub-process a white predefined-process shape. A process without lanes may group its steps into stages with `%% zone:` lines.
+
 ---
 
 ## 3. RULES
@@ -68,15 +70,15 @@ The check enforces:
 - **The seven shapes above only**
 - **Decisions have 1 to 3 labelled exits,** and a merge dot carries no words
 - **Every step has a way in and a way out,** a stadium only starts or ends, and a store or a data shape needs one connector
-- **`-->` or `-.->` only.** A thick connector competes with the accent, and a headless or two-way one hides the direction work moves in
+- **`-->` or `-.->` only.** A thick connector competes with the marked step, and a headless or two-way one hides the direction work moves in
 - **Lanes, when used, number 2 to 6,** never nest, each hold a step, and every step sits in one. A connector joins steps, never a lane
-- **A lane takes the neutral pair** `fill:#F5F5F5,stroke:#B3B3B3` or no style at all, and never counts as the accent
+- **A lane takes the neutral pair** `fill:#F5F5F5,stroke:#B3B3B3` or no style at all, and never counts as the accent. The composer tints lanes itself, so a lane style changes nothing on the board
 - **Without lanes, at most 9 nodes and 12 connectors. With lanes, at most 12 and 16,** sk-design-diagram's process budget and its balanced detail level
-- The shared rules: labels, quoting, ids, no emoji or markup, one accent from `references/style-guide.md`, one direction for every process diagram in the file
+- The shared rules: labels, quoting, ids, no emoji or markup, exactly one `style` line from `references/style-guide.md`, one direction for every process diagram in the file
 
 Judged by hand:
 
-- **A handoff is the edge that matters most.** When the process has lanes, a connector that crosses lanes is a handoff, and the accent goes on the one that adds the most delay or risk
+- **A handoff is the edge that matters most.** When the process has lanes, a connector that crosses lanes is a handoff, and the step in focus is the one on the handoff that adds the most delay or risk
 - **One owner per step.** A step two teams share is two steps or a handoff
 - **Every non-rectangle shape earns its place.** A store that only one step touches may be a label on that step instead
 - **Lanes follow the order work first reaches them,** top to bottom or left to right
@@ -90,21 +92,21 @@ Over budget, cut in sk-design-diagram's degrade order and stop as soon as the di
 
 ---
 
-## 5. COLOUR AND THE HYBRID PASS
+## 5. COLOUR, ZONES AND NOTES
 
-One accent in the model, on the focal step or handoff. Figma's guidance gives every subgraph a different tint. sk-design-diagram keeps containers neutral so the accent stays the only signal, and this packet follows sk-design-diagram. Notes on a step, such as a service level or a failure rate, go on through `references/hybrid-workflow.md`.
+The composer colours every step by its kind. A user flow and a process each carry exactly one `style` line, which marks the first glance. A styled goal, failing end or decision keeps its kind and takes a pink outline. A styled step is drawn light pink. The line marks meaning: on an end it names the goal or, in light red, a failure, and on a step it puts that step in focus. Figma's guidance gives every subgraph a different tint, and sk-design-diagram keeps containers neutral so the marked step stays the strongest signal. The composer takes both: each lane gets its own tint, pale enough that a lane reads as a container and never as a mark. Notes on a step, such as a service level or a failure rate, go on through `references/hybrid-workflow.md`.
 
 ---
 
-## 6. CALLING THE TOOL
+## 6. WRITING THE BOARD
 
-`generate_diagram` with `name`, `mermaidSyntax` and `userIntent`. No `useArchitectureLayoutCode`. The `fj` route draws a process only when it has no lanes and uses only the four user-flow shapes, because `fj` has no container verb and its shape types for a store, a sub-process or data were never confirmed. Any other process needs the hosted route.
+`scripts/compose_board.py` composes the model and one `use_figma` call draws the board, as `references/flow-mode.md` Section 6 sets out. On the generated fallback, `generate_diagram` takes `name`, `mermaidSyntax` and `userIntent`, and no `useArchitectureLayoutCode`. The `fj` route draws a process only when it has no lanes and uses only the four user-flow shapes, because `fj` has no container verb and its shape types for a store, a sub-process or data were never confirmed. Any other process needs a hosted route.
 
 ---
 
 ## 7. READ-BACK
 
-Count nodes, connectors, labelled decision exits and lanes, and check that each step sits in its lane on the board.
+Count nodes, connectors, labelled decision exits and lanes, and check that each step sits inside its lane's section on the board.
 
 The lane order is compared as well, because the check counts the lanes and never reads their order. Walk the lanes in the order work first reaches them, top to bottom on `TD` and left to right on `LR`, and compare that walk with the order the model declares. A lane out of order is a mismatch, reported as measured like any other, and the order the lanes are declared in the model is what fixes it.
 

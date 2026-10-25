@@ -2,7 +2,7 @@
 name: product-owner
 description: "Product Owner hub: routes backlog, doc and FigJam diagram requests and two vendored tool packets via mode-registry.json."
 allowed-tools: [Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, mcp__code_mode__call_tool_chain]
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 <!-- Keywords: product-owner, mode-registry, hub-router, workflowMode, packetKind, sk-product-owner, sk-create-figjam, mcp-click-up, mcp-figma, backlog, figjam, clickup -->
@@ -49,7 +49,7 @@ Routing is registry-driven in two stages. Stage one picks the mode here, from `m
 
 Stage one follows the ordered rules in [`hub-router.json`](hub-router.json) `routerPolicy.stageOneOrder`. The first matching rule wins. Packet commands run first, then an artifact request, then an opening packet signal, a default artifact word, one non-negated packet signal, and the default mode.
 
-Examples: `cupt list my open tasks` stays in `mcp-click-up` because `tasks` is data, while `figma-ds-cli fj nodes` opens in `mcp-figma`. `figma-ds-cli fj nodes and write a task for the spacing` and `figjam the checkout flow, then write a story` start in `sk-product-owner` because each asks for an artifact. The bare words "figma" and "clickup" remain subjects, and a negated signal such as "do not use figma-ds-cli" starts no packet.
+Examples: `cupt list my open tasks` stays in `mcp-click-up` because `tasks` is data, while `figma-ds-cli fj nodes` opens in `mcp-figma`. `figma-ds-cli fj nodes and write a task for the spacing` and `figjam the checkout flow, then write a story` start in `sk-product-owner` because each asks for an artifact. The bare words "figma" and "clickup" remain subjects, and a negated signal such as "do not use figma-ds-cli" starts no packet. A `figma.com/board` link is a FigJam signal, because that address is a FigJam file, while a `figma.com/design` link is not. A full stop ends a clause only before a space, so the dots inside a link stay in the clause that carries it.
 
 A Flow request that stage one keeps in the Product Owner packet follows the single-route handoff contract in [`sk-product-owner/SKILL.md`](sk-product-owner/SKILL.md) Section 2. A command conflict such as `$task $flow` follows that packet's Interactive route.
 
@@ -82,11 +82,13 @@ Product Owner/            the repository root is the hub
   sk-create-figjam/        workflow: FigJam diagrams
   mcp-click-up/            workflow: vendored ClickUp transport
   mcp-figma/               transport: vendored Figma Desktop bridge
-  AGENTS.md  SYNC.md  vendor.json  specs/  export/  claude project/  claude-plugin/  scripts/
+  mcp-code-mode/           the vendored Code Mode server, a repository file and no packet
+  AGENTS.md  SYNC.md  vendor.json  opencode.json  LICENSE  Favicon.jpg
+  specs/  export/  claude project/  scripts/
                            repository files, declared in the repo-root-hub extension
 ```
 
-The hub shares the repository root with the bootstrap `AGENTS.md`, the Claude Project package, the spec packets, the exports, the system gates in `benchmark/` and the tooling in `scripts/`. `mode-registry.json` lists those repository entries in its `repo-root-hub` extension, so the skilled checkers skip them and read the hub id from the folder name in kebab case. Each vendored packet is a byte-identical copy of a shared skill: `vendor.json` records its upstream and `scripts/vendor-sync.py` keeps it in step, so its routing stays in its own `SKILL.md`. Only this hub carries a `graph-metadata.json`, so the advisor discovers one `product-owner` identity.
+`mcp-code-mode/` carries its own `leaf-manifest.json` because it is the Code Mode server this repository ships beside the packets, not a workflow packet, so the rule against a leaf manifest inside a packet does not reach it. The hub shares the repository root with the bootstrap `AGENTS.md`, the Claude Project package, the spec packets, the exports, the system gates in `benchmark/` and the tooling in `scripts/`. `mode-registry.json` lists those repository entries in its `repo-root-hub` extension, so the skilled checkers skip them and read the hub id from the folder name in kebab case. Each vendored packet is a byte-identical copy of a shared skill: `vendor.json` records its upstream and `scripts/vendor-sync.py` keeps it in step, so its routing stays in its own `SKILL.md`. Only this hub carries a `graph-metadata.json`, so the advisor discovers one `product-owner` identity.
 
 ---
 
@@ -94,7 +96,7 @@ The hub shares the repository root with the bootstrap `AGENTS.md`, the Claude Pr
 
 ### ALWAYS
 
-- **ALWAYS** read `AGENTS.md` first when it is not already loaded, as in a Claude Code plugin session, because it holds the export protocol and the identity handoff
+- **ALWAYS** read `AGENTS.md` first when it is not already loaded, as when a runtime opens this skill directly, because it holds the export protocol and the identity handoff
 - **ALWAYS** resolve a packet through `mode-registry.json`, then read `ROUTER.md` and the packet's `SKILL.md`
 - **ALWAYS** keep each workflow packet's routing in its `SKILL.md` Section 2 and its leaf map in the root `ROUTER.md`
 - **ALWAYS** regenerate `leaf-manifest.json` with the sk-create-skill generator after a packet gains or loses a reference or asset

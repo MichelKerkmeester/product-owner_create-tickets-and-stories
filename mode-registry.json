@@ -1,6 +1,6 @@
 {
   "skill": "product-owner",
-  "version": "1.0.0.0",
+  "version": "1.0.1.0",
   "resourceContractVersion": 1,
   "description": "Declarative mode registry: the single source of truth for the discriminator (workflowMode/packetKind/backendKind) plus the advisorRouting projection for product-owner. The hub reads this file to resolve a mode. Every mode routes by hub membership (routingClass 'metadata'), so the advisor routes the single identity product-owner and the hub picks the mode. The shared parent-hub contract requires an empty toolSurface.bashAllowlist array where no shell command is approved.",
   "discriminator": {
@@ -31,12 +31,11 @@
       ]
     },
     "repo-root-hub": {
-      "description": "The hub is the Product Owner repository root. repoPaths lists the top-level entries that belong to the repository rather than the skill: the spec packets, the exports, the Claude Project package, the built plugin, the system gates and the repository files beside them. The skilled checkers skip them, and the hub id is the folder name Product Owner in kebab case.",
+      "description": "The hub is the Product Owner repository root. repoPaths lists the top-level entries that belong to the repository rather than the skill: the spec packets, the exports, the Claude Project package, the system gates and the repository files beside them. The skilled checkers skip them, and the hub id is the folder name Product Owner in kebab case.",
       "repoPaths": [
         "specs",
         "export",
         "claude project",
-        "claude-plugin",
         "benchmark",
         "AGENTS.md",
         "SYNC.md",

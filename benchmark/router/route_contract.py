@@ -142,9 +142,9 @@ NEGATED_QUICK_RE = re.compile(
 # pattern can never say one thing to the intent and another to the shape.
 SHAPE_FRAMES: Dict[str, List[str]] = {
     "EPIC": [
-        rf"\b(write|create|draft) (an? )?{FRAME_MODIFIER}epic\b",
+        rf"\b(write|create|draft|make) (an? )?{FRAME_MODIFIER}epic\b",
         r"\bepic (for|about|covering)\b",
-        rf"\bturn (this|these|it) into (an? )?{FRAME_MODIFIER}epic\b",
+        rf"\bturn (this|these|it|that) into (an? )?{FRAME_MODIFIER}epic\b",
         r"\b(refine|update|edit) (this |the |an? )?epic\b",
         # An initiative can be named by its scale instead of the word "epic":
         # "whole dashboard thing", "the whole creator verification programme"
@@ -163,11 +163,11 @@ SHAPE_FRAMES: Dict[str, List[str]] = {
         r"|workstream|project|effort|launch)\b",
     ],
     "STORY": [
-        rf"\b(write|create|draft) (a |an )?{FRAME_MODIFIER}(prd|product requirements? doc(?:ument)?)\b",
-        rf"\b(write|create|draft) (a |an )?{FRAME_MODIFIER}(user )?stor(y|ies)\b",
+        rf"\b(write|create|draft|make) (a |an )?{FRAME_MODIFIER}(prd|product requirements? doc(?:ument)?)\b",
+        rf"\b(write|create|draft|make) (a |an )?{FRAME_MODIFIER}(user )?stor(y|ies)\b",
         r"\buser story\b",
         r"\bstory (for|about|covering)\b",
-        rf"\bturn (this|these|it) into (a |an )?{FRAME_MODIFIER}(prd|stor(y|ies))\b",
+        rf"\bturn (this|these|it|that) into (a |an )?{FRAME_MODIFIER}(prd|stor(y|ies))\b",
         r"\b(refine|update|edit) (this |the |an? )?(prd|(user )?story)\b",
         # "Creators cannot X, we should let them" is a capability request with
         # no PRD noun anywhere in it: the denial names the gap and "let them"
@@ -241,11 +241,28 @@ _STORY_FRAMES = [pattern for shape in SHAPE_PRECEDENCE for pattern in SHAPE_FRAM
 # the three verbs the earlier probe set happened to use.
 DOC_AUTHOR_VERBS = r"(write|create|draft|put together|pull together|prepare|assemble)"
 
+# Converting something already in hand into an artifact is the same request as
+# writing one, with the pronoun standing for the source.
+TURN_INTO = r"\bturn (?:(?:this|these|it|that) )?into (?:a |an )?"
+
 # Artifact framing (word/phrase patterns, not exact tokens). Framing beats
 # subject nouns and semantic scoring but loses to an explicit command.
 FRAME_PATTERNS: Dict[str, List[str]] = {
     "TASK": [
-        r"\b(create|write|open|refine) (a )?(dev |development )?(task|subtask|parent task)\b",
+        # The hub treats these verbs and nouns as an artifact request, so the
+        # packet frames them too. A request that stage one sends here as a
+        # ticket would otherwise fall to the backlog question, or to Flow when
+        # the ticket's subject is a FigJam board.
+        r"\b(?:create|write|draft|make|file|log|raise|refine) (?:a |an |another )?(?:dev |development )?"
+        r"(?:task|subtask|parent task|ticket)s?\b",
+        # "open" is an adjective in "list my open tasks", so it counts as a verb
+        # only with an indefinite article.
+        r"\bopen (?:a |an )(?:dev |development )?(?:task|subtask|parent task|ticket)\b",
+        # "add" asks for a new artifact only with an indefinite opener: "add a
+        # task to fix the export" files one, while "add the task to the
+        # sprint" acts on one that exists.
+        r"\badd (?:a |an |another )(?:dev |development )?(?:task|subtask|parent task|ticket)s?\b",
+        rf"{TURN_INTO}(?:dev |development )?(?:task|subtask|parent task|ticket)s?\b",
         r"\btask to document\b",
         r"\bacceptance criteria\b",
         # Backlog intake for a concrete addition rarely says "task": "add a
@@ -255,8 +272,14 @@ FRAME_PATTERNS: Dict[str, List[str]] = {
         # the preposition, or the literal word "component") so a bare "add
         # this capability" or "add better logging around the retry loop"
         # still falls through to the weaker unweighted feature score instead
-        # of a guaranteed direct route.
-        r"\badd (?:a |an |another )?[\w'-]+(?:\s+[\w'-]+){0,3} (?:to|on|for|in) the\b",
+        # of a guaranteed direct route. The addition frame stays out of a
+        # request that names a FigJam object or target or carries a board
+        # link, because "add notes to the figjam board" edits a board and is
+        # no backlog intake. The two local lookaheads cover the object and the
+        # target, and the whole-line one covers a link sitting anywhere.
+        r"^(?!.*\bfigma\.com/board/).*\badd (?!(?:[\w'-]+\s+){0,4}figjam\b)"
+        r"(?:a |an |another )?[\w'-]+(?:\s+[\w'-]+){0,3} (?:to|on|for|in) the\b"
+        r"(?!(?:\s+[\w'-]+){0,3}\s+figjam\b)",
         r"\bbuild (?:a |an )?[\w'-]+(?:\s+[\w'-]+){0,4} component\b",
         # Its own narrow entry because the surrounding sentence can carry a
         # competing bug word ("search results are slow, need pagination"),
@@ -272,6 +295,12 @@ FRAME_PATTERNS: Dict[str, List[str]] = {
         # the export" names no report at all, while "write a bug about the
         # export" does.
         r"\b(?:write|file|log) (?:a |an )?bug (?:about|for)\b",
+        # The same ask with the subject introduced by any other preposition, as
+        # in "log a bug in the figjam board". Only an indefinite article counts,
+        # so "fix a bug" stays out of the frame. "add" stays out too, because
+        # "add a bug report button to the screen" asks for a feature.
+        r"\b(?:create|write|draft|make|file|log|raise) (?:a |an )(?:bug|defect)(?![\w-])",
+        rf"{TURN_INTO}(?:bug|defect)(?![\w-])",
         # A symptom report often carries no defect noun at all: "the app
         # crashes on rotate during upload", "the checkout screen freezes when
         # you tap pay twice" and "notifications stop arriving after you
@@ -316,6 +345,7 @@ FRAME_PATTERNS: Dict[str, List[str]] = {
         r"\bdocument how\b",
         r"^(please )?document\b",
         r"\b(can you|could you|please) document\b",
+        rf"{TURN_INTO}(?:(?:product|engineering|technical|system) )?(?:documentation|docs?|documents?|guides?|runbooks?)\b",
         # The short form is how the request is usually typed. "write a doc
         # about the rollout" asks for the same document as the long form.
         rf"\b{DOC_AUTHOR_VERBS} (an? )?(product |engineering |technical |system )?"
@@ -349,12 +379,22 @@ FRAME_PATTERNS: Dict[str, List[str]] = {
         r".*\b(?:written|writing) (?:up|down)\b",
     ],
     # A FigJam board is asked for by naming the output, never by the word
-    # "figma" alone, which stays UI refinement feedback for Task Mode.
+    # "figma" alone, which stays UI refinement feedback for Task Mode. A
+    # board link names it too, because a figma.com/board address is a FigJam
+    # file by construction, while a figma.com/design address is Figma
+    # feedback and stays Task. The verb family covers drawing a new board and
+    # changing one that exists, since Flow Mode composes a revision and adds
+    # notes to a board it did not write.
     "FLOW": [
         r"\bfigjam (?:(?:user|process|architecture|sequence|state|er|gantt|data) )?"
         r"(?:flow|flowchart|board|diagram|chart|map)s?\b",
         r"\b(?:flow|flowchart|diagram|chart|board|map)s? (?:in|on|into) (?:a |the )?figjam\b",
-        r"\b(?:make|create|build|draw|generate|turn)\b[^.!?]{0,60}\bfigjam\b",
+        r"\b(?:make|create|build|draw|generate|turn|map|sketch|put|lay out)\b[^.!?]{0,60}\bfigjam\b",
+        r"\b(?:add|update|redraw|revise|annotate|edit|extend|change|show)\b[^.!?]{0,60}"
+        r"\b(?:(?:in|on|into|to) (?:a |the )?figjam\b|figjam (?:file|sticky|stickies|notes?)\b)",
+        r"^(?:in|on|into) (?:a |the )?figjam\b",
+        r"\bfigjam (?:user flow|process|architecture|sequence|state|er|gantt)\b",
+        r"\bfigma\.com/board/",
     ],
 }
 
@@ -382,7 +422,8 @@ NEGATED_STORY_RE = re.compile(
 # the task's subject, not a second artifact to produce, so the task keeps the
 # route. "task and ... guide" stays a genuine multi-artifact conflict.
 TASK_OVER_OTHER_RE = re.compile(
-    r"\b(task|subtask|parent task)\s+(?:to\s+(?:document|write|create|draft|refine)|(?:for|about|covering|on))\b"
+    r"\b(task|subtask|parent task|ticket)\s+"
+    r"(?:to\s+(?:document|write|create|draft|refine|file|log|raise|make)|(?:for|about|covering|on))\b"
 )
 BUG_GROUP_TASK_RE = re.compile(
     r"\b(?:group(?:ed|ing)?|consolidat(?:e|es|ed|ing|ion)|combine|bundle)\b[^.!?]{0,70}"
@@ -577,8 +618,8 @@ SHAPE_TEMPLATES: Dict[str, str] = {
 # One consolidated intake question governs every ambiguous or conflicting
 # turn: the router asks once, then waits, and never guesses the artifact.
 DISAMBIGUATION_CHECKLIST = [
-    "Confirm whether the user needs a task, subtask, parent task, bug report, user story "
-    "or product/engineering document",
+    "Confirm whether the user needs a task, subtask, parent task, bug report, user story, "
+    "product/engineering document or a diagram on a FigJam board",
     "Confirm scope, platform, user value and desired outcome",
     "Ask for evidence or reproduction steps when bug indicators appear",
     "For documentation, confirm purpose, audience, source authority and source classification",
@@ -962,12 +1003,23 @@ SELF_CHECK_SAMPLES = [
     ("$quick $bug the login screen hangs", {"intent": "BUG", "energy": "QUICK"}),
     # An unroutable request asks rather than guessing.
     ("thoughts?", {"intent": "INTERACTIVE", "needs_disambiguation": True}),
+    # A FigJam board is the subject of a ticket when the request asks for the
+    # ticket, and the object of the work when it asks for a change to the board.
+    ("log a bug in the figjam board", {"intent": "BUG", "source": "framing", "then": None}),
+    ("add notes to the figjam board", {"intent": "FLOW", "source": "framing", "then": None}),
+    # A board link is a FigJam file by construction, where a design link is not.
+    ("add notes to https://www.figma.com/board/abc123/Returns", {"intent": "FLOW", "source": "framing"}),
+    ("figma says the padding is off https://www.figma.com/design/abc123/Returns", {"intent": "TASK", "source": "semantic"}),
 ]
 
 
 def run_self_check() -> Tuple[int, List[str]]:
     """Route each sample and compare it with the outcome the contract owes."""
     failures: List[str] = []
+    # The backlog question has to offer the board, or a diagram request that
+    # names no tool is asked which backlog artifact it is.
+    if "FigJam" not in DISAMBIGUATION_CHECKLIST[0]:
+        failures.append("self-check checklist: the first line never offers a FigJam diagram")
     for text, expect in SELF_CHECK_SAMPLES:
         actual = route_request(text)
         errs = validate_route_object(actual)
