@@ -1,4 +1,5 @@
 {
+  "level": "2",
   "specFolder": "017-figjam-flow-generation/035-first-glance-and-routing",
   "description": "Phase 35: First glance, routing and reply fixes",
   "keywords": [
@@ -7,13 +8,14 @@
     "and",
     "routing"
   ],
-  "lastUpdated": "2026-10-21T18:00:00.000Z",
+  "lastUpdated": "2026-10-25T15:33:27.811Z",
   "specId": "035",
   "folderSlug": "first-glance-and-routing",
   "parentChain": [
     "017-figjam-flow-generation"
   ],
-  "memorySequence": 0,
-  "memoryNameHistory": [],
-  "level": "2"
+  "memorySequence": 1,
+  "memoryNameHistory": [
+    "25-10-26_16-33__closed-the-first-glance-and-routing-phase-035-the.md"
+  ]
 }
