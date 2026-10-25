@@ -23,9 +23,9 @@ contextType: "implementation"
 | **Created** | 2026-10-25 |
 | **Branch** | `main` |
 | **Parent Spec** | ../spec.md |
-| **Phase** | 37 of 37 |
+| **Phase** | 37 of 38 |
 | **Predecessor** | 036-figjam-design-system |
-| **Successor** | None |
+| **Successor** | 038-figjam-model-comparison |
 | **Handoff Criteria** | Every row in acceptance-criteria.md is Met and a fresh Opus high review of the finished work has no open finding |
 <!-- /ANCHOR:metadata -->
 

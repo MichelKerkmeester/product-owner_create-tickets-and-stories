@@ -194,7 +194,7 @@
     ],
     "causal_summary": "A composed board's style lives in literals across the composer, the style guide, the type references and the check",
     "created_at": "2026-10-25T20:09:41.642Z",
-    "last_save_at": "2026-10-25T21:48:34.058Z",
+    "last_save_at": "2026-10-25T22:00:15.616Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -206,10 +206,10 @@
       "decision-record.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:55e1986e85bab0a6d43c207c4db7e0bcac6fbbd1d53a7b2223ecc48ccd3b4373",
+    "source_fingerprint": "sha256:5b8ff25ba144feaee0437c87541fb9f3074fbd3382570b06c2c6d3bfff9f6e67",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "dab2a2eca0cd7608737bb23a31d427fc4a1dd35d4b894fb13828a45f703ea5e4",
+      "spec.md": "73196834ac7b9d47e1c5e0de990e7fda2756f72700b29a00ac6f344f6713af85",
       "plan.md": "c70e94ed38b7a7b5a6fb368c6434cd4702da7058130b5f3c6c73744c12f8303a",
       "tasks.md": "839424993469e08eccc97caab4ac53e0212dbd5e32ff4c9dcf5eba23acf50cae",
       "decision-record.md": "2e640ce1890cdf372b2442950bd330ac640843eaab541955bd2f2a0df5648ae2",
