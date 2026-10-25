@@ -1,0 +1,17 @@
+{
+  "specFolder": "019-runtime-and-project-optimization/018-project-parity",
+  "description": "Phase 18: Claude Project parity",
+  "keywords": [
+    "project",
+    "parity"
+  ],
+  "lastUpdated": "2026-10-21T18:00:00.000Z",
+  "specId": "018",
+  "folderSlug": "project-parity",
+  "parentChain": [
+    "019-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

@@ -16,7 +16,13 @@
     "019-runtime-and-project-optimization/010-routing-p0-fixes",
     "019-runtime-and-project-optimization/011-project-push-targets",
     "019-runtime-and-project-optimization/015-live-figma-test",
-    "019-runtime-and-project-optimization/016-figma-desktop-setup"
+    "019-runtime-and-project-optimization/016-figma-desktop-setup",
+    "019-runtime-and-project-optimization/017-remove-claude-plugin",
+    "019-runtime-and-project-optimization/012-scripts-alignment",
+    "019-runtime-and-project-optimization/013-push-target-catalog",
+    "019-runtime-and-project-optimization/014-user-guide-rewrite",
+    "019-runtime-and-project-optimization/018-project-parity",
+    "019-runtime-and-project-optimization/019-routing-audit"
   ],
   "manual": {
     "depends_on": [],
@@ -43,7 +49,7 @@
       "vendors"
     ],
     "importance_tier": "important",
-    "status": "complete",
+    "status": "in_progress",
     "key_files": [
       "spec.md",
       "goal.md",
@@ -57,7 +63,13 @@
       "008-routing-research/goal.md",
       "009-routing-research-fixes/goal.md",
       "010-routing-p0-fixes/goal.md",
-      "011-project-push-targets/goal.md"
+      "011-project-push-targets/goal.md",
+      "012-scripts-alignment/goal.md",
+      "013-push-target-catalog/goal.md",
+      "014-user-guide-rewrite/goal.md",
+      "015-live-figma-test/goal.md",
+      "016-figma-desktop-setup/goal.md",
+      "017-remove-claude-plugin/goal.md"
     ],
     "entities": [
       {
@@ -135,17 +147,17 @@
     ],
     "causal_summary": "The public Product Owner repository vendors mcp-click-up and mcp-figma but carries no runtime config for them, and its Code Mode launcher exists only in the private .skilled tree, so a clone cannot reach ClickUp or Figma",
     "created_at": "2026-10-21T13:45:25.618Z",
-    "last_save_at": "2026-10-22T07:45:45.237Z",
+    "last_save_at": "2026-10-25T13:37:04.575Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
       "spec.md",
       "goal.md"
     ],
-    "source_fingerprint": "sha256:17c843c92517c4f478092b77c7b41ce15f987adf0a7b9203e0ce7387a8db8739",
+    "source_fingerprint": "sha256:6fd0b84d7c00e3c5e4d532bf491ffd7aa1fd5bf9154c9cc2876e3ad6cb38f4a7",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "03918472715082d92ecae5ccd790c9b31468fbc808a5fd18d52526f4b0b9e376"
+      "spec.md": "1a0bb8fe0671b858281313573b8370a3cd4b2e88c710e697148b12c58269e2ce"
     },
     "last_active_child_id": null,
     "last_active_at": null

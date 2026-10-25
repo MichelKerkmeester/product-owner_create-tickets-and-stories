@@ -108,6 +108,9 @@ Make the public repo self-sufficient for its MCP tooling, then shrink the Projec
 | 14 | 014-user-guide-rewrite/ | USER-GUIDE rewritten to the sk-doc install guide contract | Complete |
 | 15 | 015-live-figma-test/ | Live Figma playbook run on DeepSeek V4.1 Flash max | In Progress |
 | 16 | 016-figma-desktop-setup/ | Figma Desktop route setup help | Complete |
+| 17 | 017-remove-claude-plugin/ | Remove the Claude Code plugin | Complete |
+| 18 | 018-project-parity/ | Audit the Claude Project package against the skill and fix every finding | Complete |
+| 19 | 019-routing-audit/ | Audit every routing surface and fix every finding | Complete |
 
 ### Phase Transition Rules
 

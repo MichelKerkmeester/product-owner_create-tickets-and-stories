@@ -41,7 +41,6 @@
       "acceptance-criteria.md",
       "goal.md",
       "implementation-summary.md",
-      "scripts/build-plugin.py",
       "scripts/vendor-sync.py",
       "scripts/tests/test_vendor_sync.py",
       "scripts/code-mode.cjs",
@@ -84,12 +83,6 @@
         "name": "implementation-summary.md",
         "kind": "doc",
         "path": "implementation-summary.md",
-        "source": "derived"
-      },
-      {
-        "name": "build-plugin.py",
-        "kind": "file",
-        "path": "scripts/build-plugin.py",
         "source": "derived"
       },
       {
@@ -193,11 +186,17 @@
         "kind": "proper_noun",
         "path": "tasks.md",
         "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
       }
     ],
     "causal_summary": "The scripts folder fails the sk-code-skilled alignment verifier with missing code READMEs, and its owned scripts were never checked against the Python and JavaScript checklists",
     "created_at": "2026-10-22T10:12:32.939Z",
-    "last_save_at": "2026-10-22T10:12:32.939Z",
+    "last_save_at": "2026-10-24T07:32:38.366Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -208,10 +207,10 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:53a3f4361e77856f1109499acf082e27f4ea9dae6237f8444f1360adf55e3232",
+    "source_fingerprint": "sha256:eeaad437dbe0741c94fef36056a9d2e0afe3bf2ba520b6bb89ebe1d0cf7384e7",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "0172b9f5807f8af9d188f7b0200c344c3bad3f14a036d119f9b56c659f58c2eb",
+      "spec.md": "31ef8531556665c4a9e8c3f3a7a08f25294cdeb8e6d738a455d40be2f7df4909",
       "plan.md": "32ce2a31143b2e2f21289d74d028756ad07252e26f6d333c53202c0cc3e08d8a",
       "tasks.md": "698449cf5602191d91a354f8012ad9634f840e9a01318b172b674f9221f10e99",
       "implementation-summary.md": "fe286654cfb08c05d100f55d3088e0579fae1d915e21fb78642b8b5d95fe8e9a"

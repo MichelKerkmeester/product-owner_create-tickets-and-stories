@@ -197,7 +197,7 @@
     ],
     "causal_summary": "The 005 review found that a Claude Desktop user is never told how to connect ClickUp and Figma to this Project, that the private ClickUp doc recipe is one call where two are needed, that just do it misses the Quick route, and seven smaller defects",
     "created_at": "2026-10-21T16:36:41.820Z",
-    "last_save_at": "2026-10-21T20:25:36.945Z",
+    "last_save_at": "2026-10-24T07:32:29.504Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -208,10 +208,10 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:3aeb6398adc6c350854d0094345d433687b1753cceb477c3b3e449d9b9a9765b",
+    "source_fingerprint": "sha256:b2dc282faf3f06ba873cb07b866471c46f0dc20cb07d0a85a7262525d8ff685f",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "b7297a8c807dddb5603a48cc025250b20eda4b62b5f4b7dc15b941856e47a163",
+      "spec.md": "cd37fe0b75e43faf8ee0d7e7aa36dfdde1b8a527b708732aaaa4bd109f30ddd9",
       "plan.md": "88bd8d6855c19f5fc4c8d7f234cde385cfad4d2e34f7317ec2498a48618a5585",
       "tasks.md": "7f6f09cecff344da5eacb2aeeb0f4b442d1c8d0ae12f640f0efa85e92854e814",
       "implementation-summary.md": "da3eb717c470caa8355f1138251c9cb214a8b5bb6d44a80ba348e27ed92e84fa"

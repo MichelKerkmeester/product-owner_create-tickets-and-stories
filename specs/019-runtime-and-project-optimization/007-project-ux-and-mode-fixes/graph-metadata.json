@@ -194,7 +194,7 @@
     ],
     "causal_summary": "A review against Media Editor found that the kernel never defines when a connector is present, never offers setup when none is, keeps raw energy and undrawable diagram kinds only in retrieved Knowledge and states the ClickUp offer four times",
     "created_at": "2026-10-21T17:40:12.837Z",
-    "last_save_at": "2026-10-21T20:25:38.614Z",
+    "last_save_at": "2026-10-24T07:32:31.003Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -205,10 +205,10 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:19731cd16d80e4642c5036450f984ddf032043160893dcd766bb9fdb969b7c1d",
+    "source_fingerprint": "sha256:b451a355f81c99ad43e179e4cbc8568b9f7857408259cf6032f87816cfa7c105",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "f54c87a000a5525262c9f1bf03c1dcfd5121da73aef6bb96de5ef058780fc6f9",
+      "spec.md": "9333e76d2b64077065490a29305dbb4bba33a5b0ab6fb93a379752669f522d86",
       "plan.md": "5b5e99d3e781c04e4c979bc26eebfdc81cde4ca33e01106863719f2946c9b202",
       "tasks.md": "cbe225826ed8bd156c9a1d66804d4b19192c8c6140e89126008d65b35afb32ce",
       "implementation-summary.md": "5b05abdceb97e4ad4941ad78e94038999e453bf0fcb9fb201f35fafc5460830d"

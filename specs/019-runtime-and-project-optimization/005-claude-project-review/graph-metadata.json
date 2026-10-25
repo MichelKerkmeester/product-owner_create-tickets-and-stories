@@ -191,7 +191,7 @@
     ],
     "causal_summary": "Nothing has reviewed the Claude Project packaging since the 019 kernel cuts, and no document tells a Claude Desktop user how to connect the ClickUp and Figma connectors to this Project, as Media Editor's user guide does for its extension",
     "created_at": "2026-10-21T16:16:07.728Z",
-    "last_save_at": "2026-10-21T20:25:35.295Z",
+    "last_save_at": "2026-10-24T07:32:28.012Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -202,10 +202,10 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:d9b5fb755c388005f216160823dc7c80f928a5e56f1703e55d4335cfbfb57c32",
+    "source_fingerprint": "sha256:95a38cd12e8ca44520e697652a9ee45be1207f624492a94f26352f8ccbf29c8a",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "3a35d15b6d7202ce91f9d3c9e80da985aa6949aa85a92c6f273067bc26c7907d",
+      "spec.md": "c3a036c0ee96d7bbbf59ef9306fbe48f5ffb03b010ef3f0aea988707375ba51a",
       "plan.md": "16ec4a4d618e3f6705a3d098c133e904f2b40a355d05839e5f1abafa139817b5",
       "tasks.md": "298ec022aed0fa9c5e9578a24640d1eac7e01aab0ddec9e6b967f036dc813163",
       "implementation-summary.md": "ae88b929690b534cb4b9796c8f70746e9d74ae2cb0075f23663cceffcf63fab0"

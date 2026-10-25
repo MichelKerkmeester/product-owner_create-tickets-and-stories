@@ -39,7 +39,7 @@ _memory:
 | **Created** | 2026-10-21 |
 | **Branch** | `main` |
 | **Parent Spec** | ../spec.md |
-| **Phase** | 8 of 16 |
+| **Phase** | 8 of 17 |
 <!-- /ANCHOR:metadata -->
 
 ---

@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/033-composed-boards",
+  "description": "Phase 33: Composed FigJam boards",
+  "keywords": [
+    "composed",
+    "boards"
+  ],
+  "lastUpdated": "2026-10-21T18:00:00.000Z",
+  "specId": "033",
+  "folderSlug": "composed-boards",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}
