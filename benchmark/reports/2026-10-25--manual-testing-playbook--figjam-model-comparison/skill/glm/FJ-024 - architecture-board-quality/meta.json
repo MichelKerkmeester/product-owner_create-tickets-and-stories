@@ -1,0 +1,175 @@
+{
+ "id": "FJ-024",
+ "label": "glm",
+ "model": "glm-5-3-flash-max",
+ "permission": "dangerous",
+ "runtime": "devin-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/architecture-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "draw the services behind Loomlist block sync as a FigJam architecture diagram on a new board in our Loomlist Engineering plan: desktop, web and iOS clients, an API gateway, sync-service, a push worker, the blocks database, file storage, a change stream and Apple's push service. Clients hold a live socket to the gateway, sync-service writes every block change and publishes it to the change stream, and the push worker reads the stream and wakes sleeping iOS devices.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "spangled-answer",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "119:5058"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 465.53,
+   "tool_calls": 48,
+   "tools_used": [
+    "read",
+    "find_file_by_name",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "mcp_list_tools",
+    "exec",
+    "exec",
+    "read",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "ask_user_question",
+    "exec",
+    "exec",
+    "exec",
+    "ask_user_question",
+    "mcp_read_resource",
+    "mcp_read_resource",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "read",
+    "read",
+    "read",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec",
+    "exec",
+    "exec"
+   ],
+   "input_tokens": 4704287,
+   "output_tokens": 87530,
+   "cached_tokens": 4349952,
+   "response_models": [
+    "glm-5-3-flash-max"
+   ],
+   "session_id": "spangled-answer",
+   "inner_calls": [
+    "create_session",
+    "get_figjam",
+    "use_figma",
+    "use_figma",
+    "get_figjam",
+    "get_figjam"
+   ],
+   "composed": true,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "draw the services behind Loomlist block sync as a FigJam architecture diagram on a new board in our Loomlist Engineering plan: desktop, web and iOS clients, an API gateway, sync-service, a push worker, the blocks database, file storage, a change stream and Apple's push service. Clients hold a live socket to the gateway, sync-service writes every block change and publishes it to the change stream, and the push worker reads the stream and wakes sleeping iOS devices.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "boards": [
+    "119:5058"
+   ],
+   "kind": "DELIVERY"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 18.83,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 216561,
+   "output_tokens": 2209,
+   "cached_tokens": 215936,
+   "response_models": [
+    "glm-5-3-flash-max"
+   ],
+   "session_id": "spangled-answer",
+   "inner_calls": [],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "DELIVERY"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 64.44,
+   "tool_calls": 2,
+   "tools_used": [
+    "mcp_call_tool",
+    "mcp_call_tool"
+   ],
+   "input_tokens": 677412,
+   "output_tokens": 9421,
+   "cached_tokens": 661632,
+   "response_models": [
+    "glm-5-3-flash-max"
+   ],
+   "session_id": "spangled-answer",
+   "inner_calls": [
+    "use_figma",
+    "use_figma"
+   ],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "DELIVERY"
+  }
+ ]
+}
