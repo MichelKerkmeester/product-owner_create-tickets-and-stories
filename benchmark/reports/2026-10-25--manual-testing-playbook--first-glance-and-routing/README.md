@@ -70,5 +70,5 @@ Model misses, with no contract change: FJ-023's opening sentence, FJ-025's lefto
 ## 4. Open
 
 - **The ER detour on FJ-027.** "is booked under" leaves the top of Booking and runs about 1,600 pixels round both zones, because Booking's four magnets are each taken and a departing edge may not share one. It costs no scorecard point, so it is recorded as a composer limit rather than changed on inference
-- **A rerun of the seven failing scenarios** on the changed skill has not been run
+- **The recheck on the changed skill** (`recheck/`, graded in `grades/g9-035-recheck.md`) reran the six scenarios the changes touched: FJ-019, FJ-024, FJ-026, FJ-027 and FJ-036 pass, each scored board at Composition 2, and FJ-036 reached its write with no supplementary turn. FJ-032 still fails at 20 with Composition 1, because the gray end states read before the event labels the gate planned second. Clarity in the recheck was read by its grader from the screenshots, not by a fresh reader. FJ-023, FJ-025, FJ-030, FJ-033 and FJ-041 were not rerun
 - **Redaction:** board URLs, the file key, plan names and emails in this folder are redacted with `run/redact_run.py` before any commit

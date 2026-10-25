@@ -1,0 +1,198 @@
+{
+ "id": "FJ-036",
+ "model": "claude-sonnet-5-5",
+ "thinking": "high",
+ "runtime": "claude-code-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/dense-flow-at-budget.md",
+ "scripted_turns": [
+  "$flow how a Roamstay guest changes their booking dates in the app, on a new board in our Roamstay Product plan. From the booking page they tap Change dates and pick new dates. If the room is not free on those dates they see other rooms. If the new price is higher they pay the difference, if it is lower they get the difference back as credit, and if it is the same nothing is charged. Then they see the updated booking.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 2,
+ "session_id": "bb2e2429-00cd-4215-bac1-229a98fe3717",
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 51.69,
+   "tool_calls": 10,
+   "tools_used": [
+    "Glob",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 179223,
+   "output_tokens": 5724,
+   "reasoning_tokens": 3803,
+   "cost_usd": 0.2955275,
+   "model_s": 50.24,
+   "startup_s": 0.85,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "bb2e2429-00cd-4215-bac1-229a98fe3717",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 1,
+   "input": "$flow how a Roamstay guest changes their booking dates in the app, on a new board in our Roamstay Product plan. From the booking page they tap Change dates and pick new dates. If the room is not free on those dates they see other rooms. If the new price is higher they pay the difference, if it is lower they get the difference back as credit, and if it is the same nothing is charged. Then they see the updated booking.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "adaptive": false,
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 14.1,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 81091,
+   "output_tokens": 1341,
+   "reasoning_tokens": 722,
+   "cost_usd": 0.3329467,
+   "model_s": 12.25,
+   "startup_s": 1.21,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "bb2e2429-00cd-4215-bac1-229a98fe3717",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "adaptive": true,
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 51.12,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 82445,
+   "output_tokens": 6229,
+   "reasoning_tokens": 4999,
+   "cost_usd": 0.4087694,
+   "model_s": 49.57,
+   "startup_s": 1.21,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "bb2e2429-00cd-4215-bac1-229a98fe3717",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 3,
+   "input": "Use your recommended answers.",
+   "adaptive": true,
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 53.24,
+   "tool_calls": 8,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Grep",
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 622659,
+   "output_tokens": 5877,
+   "reasoning_tokens": 2607,
+   "cost_usd": 0.6370702,
+   "model_s": 51.38,
+   "startup_s": 1.14,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "bb2e2429-00cd-4215-bac1-229a98fe3717",
+   "inner_calls": [],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 4,
+   "input": "Yes, that reading is right.",
+   "adaptive": false,
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 183.17,
+   "tool_calls": 7,
+   "tools_used": [
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "Bash",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 1027349,
+   "output_tokens": 31807,
+   "reasoning_tokens": 3744,
+   "cost_usd": 1.3393217,
+   "model_s": 179.24,
+   "startup_s": 1.09,
+   "stop_reason": "end_turn",
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "bb2e2429-00cd-4215-bac1-229a98fe3717",
+   "inner_calls": [
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam"
+   ],
+   "mcp_servers": [
+    {
+     "name": "figma-remote",
+     "status": "connected",
+     "source": "dynamic"
+    }
+   ],
+   "turn": 5,
+   "input": "Yes, go ahead.",
+   "adaptive": false,
+   "kind": "PLAYBACK"
+  }
+ ]
+}
