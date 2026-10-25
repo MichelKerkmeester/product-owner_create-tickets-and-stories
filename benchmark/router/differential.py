@@ -15,7 +15,7 @@ because nothing executes the prose, so this gate executes it: the pseudocode
 block is lifted out of the markdown, run as a real module, and compared
 against the route contract on every input in the corpus.
 
-Eight guards fire, each on its own:
+Nine guards fire, each on its own:
 
 0. Prose parity. `references/routing.md` is what a model actually reads, and it carries a
    compact semantic topic table so a request reaching the scoring step can be
@@ -54,6 +54,9 @@ Eight guards fire, each on its own:
    is lifted out and run against `flow_types.json`, which pins two phrasings per
    type, a request where two types fit and one where none does. The table's types
    must also be the packet's drawable types, each with its reference file.
+8. Kernel surface parity. The kernel's Section 4 command and energy table is
+   what a Claude Project reads, so its commands and energies are held to the
+   resolver's, and a command the resolver knows but the kernel never lists fails.
 
 The two implementations report a route differently, and the adapter below
 reconciles the shapes without hiding a disagreement. The pseudocode names its
@@ -461,6 +464,7 @@ def build_skill_router() -> types.ModuleType:
 # ───────────────────────────────────────────────────────────────
 
 def _skill_topics(skill: types.ModuleType) -> List[Tuple[str, Tuple[str, ...], Optional[float], str]]:
+    """The skill's semantic topics as comparable rows, with each template mapped to its intent."""
     return [
         (
             topic,
@@ -473,6 +477,7 @@ def _skill_topics(skill: types.ModuleType) -> List[Tuple[str, Tuple[str, ...], O
 
 
 def _contract_topics() -> List[Tuple[str, Tuple[str, ...], Optional[float], str]]:
+    """The contract's semantic topics in the same row shape as the skill's."""
     return [
         (topic, tuple(config["synonyms"]), config.get("confidence"), config["intent"])
         for topic, config in rc.SEMANTIC_TOPICS.items()
@@ -484,6 +489,7 @@ def check_table_parity(skill: types.ModuleType) -> List[str]:
     failures: List[str] = []
 
     def compare(label: str, expected: Any, actual: Any) -> None:
+        """Record a finding when the two values differ."""
         if expected != actual:
             failures.append(f"table parity {label}: skill {expected!r}, contract {actual!r}")
 

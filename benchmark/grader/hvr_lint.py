@@ -7,6 +7,11 @@
 
 Usage: hvr_lint.py <file>   ->  prints JSON {file, clean, violations:[{type,count,samples}]}
 
+Exit codes:
+  0   the report was printed, whether or not the reply is clean
+  1   the reply file could not be read, reported by Python's own traceback
+  64  no reply file was given
+
 This is a code gate, never a model judging its own prose: every check below is
 a fixed string or a narrow regex, so the result cannot be talked past. The
 word list, the phrase list, the metaphor list and the punctuation bans are
@@ -56,7 +61,10 @@ Product Owner artifact would actually ship. Punctuation and the fixed word
 list stay `hard` at any confidence, because an em dash or a semicolon is not
 a matter of narration versus deliverable.
 """
-import sys, json, re
+import json
+import re
+import sys
+from typing import Optional
 
 # ───────────────────────────────────────────────────────────────
 # 1. CONFIGURATION
@@ -165,7 +173,7 @@ def extract_deliverable(raw: str) -> tuple[str, str]:
     return text, ("high" if found_scan else "low")
 
 
-def samples(pattern, text, n=2) -> list[str]:
+def samples(pattern: re.Pattern, text: str, n: int = 2) -> list[str]:
     """Up to `n` context windows around each match, for the samples list."""
     out = []
     for m in pattern.finditer(text):
@@ -200,7 +208,8 @@ def lint(text: str, confidence: str = "high") -> list[dict[str, object]]:
     """Every hard-blocker finding in `text`, each typed, counted and sampled."""
     v = []
 
-    def add(kind, pat, severity="hard", count=None, sample_list=None) -> None:
+    def add(kind: str, pat: Optional[re.Pattern], severity: str = "hard",
+            count: Optional[int] = None, sample_list: Optional[list[str]] = None) -> None:
         """Record a finding, either from a pattern scanned fresh over `text`
         or from a pre-filtered hit list the caller already built (`count`
         and `sample_list` both given, `pat` used only to type the entry)."""
@@ -273,7 +282,8 @@ def main() -> None:
         print("usage: hvr_lint.py <reply file>", file=sys.stderr)
         sys.exit(64)
     path = sys.argv[1]
-    raw = open(path, encoding="utf-8", errors="replace").read()
+    with open(path, encoding="utf-8", errors="replace") as handle:
+        raw = handle.read()
     text, confidence = extract_deliverable(raw)
     viols = lint(text, confidence)
     hard = [x for x in viols if x["severity"] == "hard"]

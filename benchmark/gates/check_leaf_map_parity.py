@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# ───────────────────────────────────────────────────────────────
+# COMPONENT: LEAF MAP PARITY GATE
+# ───────────────────────────────────────────────────────────────
+
 """Check that every router lane maps to a packet manifest and registered leaf.
 
 Each vendored packet's lane has to equal the leaf set of the intent its own
@@ -10,6 +14,9 @@ weight per keyword found in the lowercased request, and every intent within one
 point of the top score kept. No other gate reads that block, so a FigJam
 request it cannot see would pass every check while the leaf router found no
 intent for it.
+
+Usage:
+  check_leaf_map_parity.py -> exit 0 when every lane, packet and gold row agree, exit 1 otherwise
 """
 
 from __future__ import annotations
@@ -19,6 +26,10 @@ import json
 import re
 import sys
 from pathlib import Path
+
+# ───────────────────────────────────────────────────────────────
+# 1. CONFIGURATION
+# ───────────────────────────────────────────────────────────────
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -47,11 +58,17 @@ AMBIGUITY_DELTA = 1
 CASES = Path("benchmark/hub-routing-cases.json")
 
 
+# ───────────────────────────────────────────────────────────────
+# 2. HELPERS
+# ───────────────────────────────────────────────────────────────
+
 def fail(message: str, errors: list[str]) -> None:
+    """Record one finding on the shared error list."""
     errors.append(message)
 
 
 def parse_router() -> tuple[list[str], dict[str, list[str]], dict[str, dict]]:
+    """Read DEFAULT_RESOURCE, RESOURCE_MAP and INTENT_SIGNALS from the ROUTER.md Python block."""
     source = (ROOT / "ROUTER.md").read_text(encoding="utf-8")
     match = re.search(r"```python\s*(.*?)\s*```", source, re.S)
     if not match:
@@ -114,7 +131,12 @@ def replay_problems(signals: dict[str, dict]) -> list[str]:
     return problems
 
 
+# ───────────────────────────────────────────────────────────────
+# 3. ENTRY POINT
+# ───────────────────────────────────────────────────────────────
+
 def main() -> int:
+    """Run every lane, packet and replay check and print one verdict."""
     errors: list[str] = []
     try:
         default_resources, resource_map, intent_signals = parse_router()
@@ -134,6 +156,7 @@ def main() -> int:
         fail(f"leaf-manifest workflow modes {sorted(modes)} differ from mapped packets {sorted(packets)}", errors)
 
     def check_resources(label: str, packet: str, resources: list[str]) -> None:
+        """Require each resource to be packet-qualified, registered and on disk."""
         entry = modes.get(packet)
         if entry is None:
             fail(f"{label} maps to missing manifest packet {packet}", errors)

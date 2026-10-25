@@ -33,6 +33,12 @@ embedding a JSON reader in shell.
 Usage:
   lint_replies.py <run report dir or replies dir>
   lint_replies.py <file> --brief
+
+Exit codes:
+  0   every reply read is clean
+  1   at least one reply carries a hard blocker
+  2   the target is not a directory or holds no reply file
+  64  no target was given
 """
 import csv
 import sys
@@ -66,7 +72,7 @@ def lint_file(path: Path) -> dict:
     }
 
 
-def main(argv) -> int:
+def main(argv: list[str]) -> int:
     """Lint one reply or a whole run's replies, report, and return the exit code."""
     if len(argv) < 2:
         print("usage: lint_replies.py <run report dir or replies dir>", file=sys.stderr)

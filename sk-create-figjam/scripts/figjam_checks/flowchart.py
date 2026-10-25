@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # ───────────────────────────────────────────────────────────────
 # COMPONENT: FLOWCHART PROFILES
 # ───────────────────────────────────────────────────────────────
@@ -14,6 +15,7 @@ mis-draws without.
 from __future__ import annotations
 
 import re
+from typing import TYPE_CHECKING
 
 from .common import (
     ACCENT_PAIRS,
@@ -26,6 +28,9 @@ from .common import (
     raw_problems,
     statements,
 )
+
+if TYPE_CHECKING:
+    from mermaid_extract import Diagram, Edge, Node
 
 USER_FLOW, PROCESS, ARCHITECTURE = "user-flow", "process", "architecture"
 DIRECTIONS = {"TD", "TB", "LR"}
@@ -72,6 +77,7 @@ BACKWARD_EDGE = re.compile(r"^(\s*)([\w.:-]+)\s*<---\s*(\|[^|]*\|)?\s*([\w.:-]+)
 
 
 def rewrite_backward_edges(block_text: str) -> tuple[str, set[tuple[str, str]]]:
+    """Turn each `a <--- b` line into the forward edge the extractor reads, and name the pairs turned."""
     lines, backward = [], set()
     for line in block_text.splitlines():
         match = BACKWARD_EDGE.match(line)
@@ -84,6 +90,7 @@ def rewrite_backward_edges(block_text: str) -> tuple[str, set[tuple[str, str]]]:
 
 
 def colour(statement: str, key: str) -> str:
+    """The fill or stroke a style statement sets, as six-digit lower-case hex, or an empty string."""
     match = COLOUR[key].search(statement)
     return hex_colour(match.group(1)) if match else ""
 
@@ -132,22 +139,26 @@ def colour_problems(block_text: str, lanes: set[str], need_accent: bool = False)
 
 
 def quote_problems(owner: str, label: str, block_text: str) -> list[str]:
+    """A label holding a parenthesis, a colon or a slash that the block leaves unquoted."""
     if NEEDS_QUOTES.search(label) and f'"{label}"' not in block_text:
         return [f"{owner} label holds a parenthesis, a colon or a slash: put it in double quotes"]
     return []
 
 
 def label_problems(owner: str, label: str, block_text: str) -> list[str]:
+    """Every length and quoting problem of one label."""
     return length_problems(owner, label) + quote_problems(owner, label, block_text)
 
 
-def edges_of(diagram, node_id: str) -> tuple[list, list]:
+def edges_of(diagram: Diagram, node_id: str) -> tuple[list[Edge], list[Edge]]:
+    """The edges that leave a node and the edges that reach it."""
     exits = [edge for edge in diagram.edges if edge.source == node_id]
     entries = [edge for edge in diagram.edges if edge.target == node_id]
     return exits, entries
 
 
-def node_problems(diagram, node, block_text: str, first_id: str, shapes: dict) -> list[str]:
+def node_problems(diagram: Diagram, node: Node, block_text: str, first_id: str, shapes: dict) -> list[str]:
+    """What breaks one step of a user flow or a process: its id, its label, its shape or its ways in and out."""
     problems = id_problems(node.id) + label_problems(f"node {node.id}", node.label, block_text)
     if node.shape not in shapes:
         problems.append(f"node {node.id} has the shape {node.shape}, which this diagram does not use: "
@@ -174,7 +185,8 @@ def node_problems(diagram, node, block_text: str, first_id: str, shapes: dict) -
     return problems
 
 
-def lane_problems(diagram) -> tuple[list[str], set[str]]:
+def lane_problems(diagram: Diagram) -> tuple[list[str], set[str]]:
+    """The problems with a process's lanes, and the lane ids the colour check exempts."""
     lanes = [node for node in diagram.nodes if node.container]
     lane_ids = {lane.id for lane in lanes}
     if not lanes:
@@ -207,7 +219,8 @@ def lane_problems(diagram) -> tuple[list[str], set[str]]:
     return problems, lane_ids
 
 
-def edge_problems(diagram, block_text: str, allow_dotted: bool) -> list[str]:
+def edge_problems(diagram: Diagram, block_text: str, allow_dotted: bool) -> list[str]:
+    """Each edge that is not a one-way arrow this diagram draws, and each problem with an edge label."""
     problems = []
     for edge in diagram.edges:
         one_way = edge.arrowhead == "arrow" and not edge.bidirectional and not edge.undirected
@@ -220,7 +233,7 @@ def edge_problems(diagram, block_text: str, allow_dotted: bool) -> list[str]:
     return problems
 
 
-def repeated_label_problems(diagram) -> list[str]:
+def repeated_label_problems(diagram: Diagram) -> list[str]:
     """One label on four or more connectors says nothing: the shape already carries the step."""
     decisions = {node.id for node in diagram.nodes if node.shape == "rhombus"}
     counted, written = {}, {}
@@ -236,7 +249,7 @@ def repeated_label_problems(diagram) -> list[str]:
             for key, count in sorted(counted.items()) if count > MAX_LABEL_REPEATS]
 
 
-def check_flow(diagram, block_text: str, profile: str) -> list[str]:
+def check_flow(diagram: Diagram, block_text: str, profile: str) -> list[str]:
     """A user flow or a process, both laid out in ranks."""
     problems = raw_problems(block_text)
     if ODD_CONNECTOR.search("\n".join(statements(block_text))):
@@ -267,7 +280,8 @@ def check_flow(diagram, block_text: str, profile: str) -> list[str]:
     return problems
 
 
-def edge_kind(edge, backward: set[tuple[str, str]]) -> str:
+def edge_kind(edge: Edge, backward: set[tuple[str, str]]) -> str:
+    """The kind of an architecture edge, named the way the allowed-edge table names kinds."""
     if (edge.source, edge.target) in backward:
         return "backward"
     if edge.bidirectional:
@@ -278,6 +292,7 @@ def edge_kind(edge, backward: set[tuple[str, str]]) -> str:
 
 
 def has_cycle(nodes: list[str], edges: list[tuple[str, str]]) -> bool:
+    """Whether the directed edges between these nodes close a loop."""
     following = {node: [] for node in nodes}
     for source, target in edges:
         following.setdefault(source, []).append(target)
@@ -294,7 +309,7 @@ def has_cycle(nodes: list[str], edges: list[tuple[str, str]]) -> bool:
     return any(node not in state and visit(node) for node in list(following))
 
 
-def check_architecture(diagram, block_text: str, backward: set[tuple[str, str]]) -> list[str]:
+def check_architecture(diagram: Diagram, block_text: str, backward: set[tuple[str, str]]) -> list[str]:
     """Figma's architecture layout: fixed lanes, a table of allowed edges and a forward flow with no cycle."""
     problems = raw_problems(block_text)
     if ODD_CONNECTOR.search("\n".join(statements(block_text))):
@@ -380,4 +395,5 @@ def check_architecture(diagram, block_text: str, backward: set[tuple[str, str]])
 
 
 def direction_family(direction: str) -> str:
+    """A direction under its one canonical name, so TB and TD compare equal."""
     return SAME_WAY.get(direction, direction)

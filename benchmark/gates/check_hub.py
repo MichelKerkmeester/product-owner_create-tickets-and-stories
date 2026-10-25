@@ -37,6 +37,11 @@ import shutil
 import sys
 import tempfile
 from pathlib import Path
+from typing import Any, Callable
+
+# ───────────────────────────────────────────────────────────────
+# 1. CONFIGURATION
+# ───────────────────────────────────────────────────────────────
 
 HERE = Path(__file__).resolve().parent
 ROOT = Path(os.environ.get("PO_ROOT") or HERE.parent.parent)
@@ -95,11 +100,17 @@ STAGE_ONE_POINTER = "routerPolicy.stageOneOrder"
 STAGE_ONE_FIRST_MATCH = "first matching rule wins"
 
 
+# ───────────────────────────────────────────────────────────────
+# 2. HELPERS
+# ───────────────────────────────────────────────────────────────
+
 def hub() -> Path:
+    """The hub root, read at call time so the self-test can point it at a scratch tree."""
     return ROOT
 
 
-def read_json(path: Path):
+def read_json(path: Path) -> Any:
+    """The parsed JSON at path, or None when it is missing or malformed."""
     try:
         return json.loads(path.read_text(encoding="utf-8"))
     except (OSError, ValueError):
@@ -107,6 +118,7 @@ def read_json(path: Path):
 
 
 def read_text(path: Path) -> str:
+    """The text at path, or an empty string when it cannot be read."""
     try:
         return path.read_text(encoding="utf-8")
     except OSError:
@@ -114,6 +126,7 @@ def read_text(path: Path) -> str:
 
 
 def frontmatter(text: str) -> list[str]:
+    """The lines between the opening and closing `---`, or nothing when there is no frontmatter."""
     lines = text.split("\n")
     if not lines or lines[0] != "---" or "---" not in lines[1:]:
         return []
@@ -121,12 +134,14 @@ def frontmatter(text: str) -> list[str]:
 
 
 def vendored_folders() -> set[str]:
+    """Every local path vendor.json lists as a vendored package."""
     data = read_json(ROOT / VENDOR_FILE)
     packages = data.get("packages") if isinstance(data, dict) else None
     return {str(item.get("local_path")) for item in packages or [] if isinstance(item, dict)}
 
 
 def vendored_packets(registry: dict) -> set[str]:
+    """Every packet the registry's vendored-packets extension marks."""
     extension = (registry.get("extensions") or {}).get(VENDOR_EXTENSION)
     packets = extension.get("packets") if isinstance(extension, dict) else None
     return {str(packet) for packet in packets or []}
@@ -139,7 +154,12 @@ def class_keywords(router: dict, mode: str) -> list[str]:
     return [word for name in signal["classes"] for word in classes[name]["keywords"]]
 
 
+# ───────────────────────────────────────────────────────────────
+# 3. HUB CHECKS
+# ───────────────────────────────────────────────────────────────
+
 def check_packet(mode: dict, hub_text: str, vendored: set[str], listed: set[str], problems: list[str]) -> None:
+    """Hold one registry packet to its SKILL.md, the hub link and the vendored or workflow rules."""
     packet = str(mode.get("packet"))
     skill = hub() / packet / "SKILL.md"
     if not skill.is_file():
@@ -172,6 +192,7 @@ def check_packet(mode: dict, hub_text: str, vendored: set[str], listed: set[str]
 
 
 def check_router(problems: list[str]) -> None:
+    """Require the hub ROUTER.md frontmatter to mark the router active and point at SKILL.md."""
     header = frontmatter(read_text(hub() / "ROUTER.md"))
     for line in (ROUTER_STATE_LINE, SKILL_POINTER_LINE):
         if line not in header:
@@ -179,6 +200,7 @@ def check_router(problems: list[str]) -> None:
 
 
 def check_hub() -> list[str]:
+    """Every structural problem in the hub files, the registry and hub-router.json."""
     problems = [f"missing hub file: {name}" for name in HUB_FILES if not (hub() / name).is_file()]
     registry = read_json(hub() / "mode-registry.json")
     modes = registry.get("modes") if isinstance(registry, dict) else None
@@ -248,8 +270,6 @@ def check_hub() -> list[str]:
                 isinstance(value, str) and value.startswith("$") for value in values
             ):
                 problems.append(f"hub-router.json packetCommands for {name} are not a list of $ commands")
-    if problems:
-        return problems
     return problems
 
 
@@ -283,8 +303,15 @@ def stage_one_order_problems(router: dict) -> list[str]:
     return problems
 
 
+# ───────────────────────────────────────────────────────────────
+# 4. STAGE ONE REPLAY
+# ───────────────────────────────────────────────────────────────
+
 def _word(phrase: str) -> re.Pattern:
-    # Whole words only, and a hyphen counts as part of a word, so figma never matches inside figma-ds-cli.
+    """A whole-word pattern for one phrase.
+
+    A hyphen counts as part of a word, so figma never matches inside figma-ds-cli.
+    """
     return re.compile(r"(?<![\w-])" + re.escape(phrase.lower()) + r"(?![\w-])")
 
 
@@ -385,12 +412,14 @@ def route_stage_one(request: str, router: dict) -> str:
 
 
 def gold_rows() -> list[dict]:
+    """Every case object the hub gold rows file holds."""
     data = read_json(ROOT / CASES)
     cases = data.get("cases") if isinstance(data, dict) else None
     return [case for case in cases or [] if isinstance(case, dict)]
 
 
 def gold_problems() -> list[str]:
+    """Replay each gold row through stage one and confirm the figma row's fixture still exists."""
     router = read_json(hub() / "hub-router.json")
     rows = gold_rows()
     if not rows:
@@ -414,7 +443,12 @@ def gold_problems() -> list[str]:
     return problems
 
 
+# ───────────────────────────────────────────────────────────────
+# 5. CORE LOGIC
+# ───────────────────────────────────────────────────────────────
+
 def check() -> int:
+    """Run the hub checks, then the gold rows once the hub is sound, and print one verdict."""
     problems = check_hub()
     if not problems:
         problems = gold_problems()
@@ -430,7 +464,12 @@ def check() -> int:
     return 0
 
 
-def _edit_json(path: Path, change) -> str:
+# ───────────────────────────────────────────────────────────────
+# 6. SELF-TEST
+# ───────────────────────────────────────────────────────────────
+
+def _edit_json(path: Path, change: Callable[[Any], Any]) -> str:
+    """Apply one change to a JSON file and return its clean text for the restore."""
     clean = path.read_text(encoding="utf-8")
     data = json.loads(clean)
     change(data)
@@ -479,7 +518,8 @@ def self_test() -> int:
             results.append(("a vendored defaultMode fails", check() == 1))
             hub_router.write_text(clean, encoding="utf-8")
 
-            def reorder_artifact_request(data):
+            def reorder_artifact_request(data: dict) -> None:
+                """Swap the artifact-request rule with the opening-signal rule."""
                 rules = data["routerPolicy"]["stageOneOrder"]
                 request_index = next(i for i, rule in enumerate(rules)
                                      if rule["id"] == "artifact-request-before-opening-signal")
@@ -539,7 +579,8 @@ def self_test() -> int:
             })
             cases_path.write_text(json.dumps(cases, indent=2) + "\n", encoding="utf-8")
 
-            def drop_task(data):
+            def drop_task(data: dict) -> None:
+                """Remove the word task from the default packet's artifact vocabulary."""
                 words = data["vocabularyClasses"]["product-owner-artifacts"]["keywords"]
                 data["vocabularyClasses"]["product-owner-artifacts"]["keywords"] = [
                     word for word in words if word != "task"
@@ -577,7 +618,12 @@ def self_test() -> int:
     return 0 if all(ok for _, ok in results) else 1
 
 
+# ───────────────────────────────────────────────────────────────
+# 7. ENTRY POINT
+# ───────────────────────────────────────────────────────────────
+
 def main() -> int:
+    """Run the self-test when asked, the gate otherwise."""
     if "--self-test" in sys.argv[1:]:
         return self_test()
     return check()

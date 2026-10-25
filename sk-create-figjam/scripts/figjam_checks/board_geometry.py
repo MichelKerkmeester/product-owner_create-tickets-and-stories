@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # ───────────────────────────────────────────────────────────────
 # COMPONENT: BOARD GEOMETRY CHECKS
 # ───────────────────────────────────────────────────────────────
@@ -85,11 +86,13 @@ def tidy(path: list[tuple[float, float]]) -> list[tuple[float, float]]:
     return kept
 
 
-def path_length(path) -> float:
+def path_length(path: list[tuple[float, float]]) -> float:
+    """The length of a right-angle path, summed leg by leg."""
     return sum(abs(b[0] - a[0]) + abs(b[1] - a[1]) for a, b in zip(path, path[1:]))
 
 
-def candidate_paths(p, v, q, w) -> list[list[tuple[float, float]]]:
+def candidate_paths(p: tuple[float, float], v: tuple[int, int] | None, q: tuple[float, float],
+                    w: tuple[int, int] | None) -> list[list[tuple[float, float]]]:
     """The cheapest right-angle paths from p, leaving along v, to q, arriving against w."""
     # Two ports closer than a stub cannot both leave and arrive straight, so the stub is dropped then.
     for step in (STEP, 0):
@@ -111,7 +114,7 @@ def candidate_paths(p, v, q, w) -> list[list[tuple[float, float]]]:
     return []
 
 
-def _cuts(path, box) -> bool:
+def _cuts(path: list[tuple[float, float]], box: dict) -> bool:
     return any(min(a[0], b[0]) < box["x"] + box["w"] - 1 and max(a[0], b[0]) > box["x"] + 1
                and min(a[1], b[1]) < box["y"] + box["h"] - 1 and max(a[1], b[1]) > box["y"] + 1
                for a, b in zip(path, path[1:]))
@@ -258,7 +261,7 @@ def long_detours(drawn: dict, limit: float = DETOUR_LIMIT) -> list[str]:
     return problems
 
 
-def _label_box(label: str, path) -> dict:
+def _label_box(label: str, path: list[tuple[float, float]]) -> dict:
     """The box a label takes: its text and a pad, centred on the middle of the path it rides."""
     half, centre = path_length(path) / 2, path[-1]
     for a, b in zip(path, path[1:]):
@@ -322,7 +325,7 @@ def labels_clear(drawn: dict) -> list[str]:
     return problems
 
 
-def _runs(path) -> list[tuple[bool, float, float, float]]:
+def _runs(path: list[tuple[float, float]]) -> list[tuple[bool, float, float, float]]:
     """Each straight run of a path as (horizontal, fixed coordinate, low end, high end)."""
     runs = []
     for a, b in zip(path, path[1:]):
@@ -333,14 +336,14 @@ def _runs(path) -> list[tuple[bool, float, float, float]]:
     return runs
 
 
-def _meets(p, q) -> bool:
+def _meets(p: list[tuple[float, float]], q: list[tuple[float, float]]) -> bool:
     """Whether two paths cross or touch at a right angle anywhere but a point where both end.
 
     A bend that lands on another line reads as a crossing, however short the jog that follows it,
     while two edges arriving at one magnet share their end point and may join on the last stretch
     they merge along.
     """
-    def on(run, point):
+    def on(run: tuple[bool, float, float, float], point: tuple[float, float]) -> bool:
         x, y = point
         return y == run[1] and run[2] <= x <= run[3] if run[0] else x == run[1] and run[2] <= y <= run[3]
 
@@ -427,10 +430,12 @@ def arrow_heads(drawn: dict, messages: list[dict]) -> list[str]:
 
 
 def zone_sections(drawn: dict, labels: list[str]) -> list[dict]:
+    """The sections drawn for the model's zones, found by their labels."""
     return [n for n in drawn["nodes"] if n["type"] == "SECTION" and n["name"] in labels]
 
 
 def overlapping_zones(drawn: dict, labels: list[str]) -> list[str]:
+    """Zones drawn on one another, and nodes drawn inside a zone they do not belong to."""
     zones = zone_sections(drawn, labels)
     clash = [f"{a['name']} and {b['name']}" for i, a in enumerate(zones) for b in zones[i + 1:]
              if a["x"] < b["x"] + b["w"] and b["x"] < a["x"] + a["w"] and a["y"] < b["y"] + b["h"] and b["y"] < a["y"] + a["h"]]

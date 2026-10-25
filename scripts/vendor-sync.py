@@ -565,6 +565,7 @@ def _manifest_with(
     repo_root: Path,
     package: Dict[str, Any],
 ) -> Dict[str, Any]:
+    """Return the manifest with one package entry replaced by its updated record."""
     manifest = load_manifest(repo_root)
     manifest["packages"] = [package if p.get("name") == package["name"] else p for p in manifest["packages"]]
     return manifest
