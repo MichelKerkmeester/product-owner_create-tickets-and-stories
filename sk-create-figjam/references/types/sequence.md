@@ -8,7 +8,7 @@ trigger_phrases:
   - "api call flow figjam"
   - "auth handshake diagram"
   - "sequence message order"
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # FigJam Type - Sequence
@@ -51,7 +51,7 @@ sequenceDiagram
 | `-)` | Solid with an open head | A fire-and-forget message |
 | `--)` | Dotted with an open head | An asynchronous return or callback |
 
-Every participant draws as the same light blue rectangle, at the top of its lifeline and again at the foot, and the participant id is the text the board shows. Each message is a straight line in its own row with its label beside the sender and a violet pin at the left edge carrying its number. A request is charcoal with a closed head, a reply gray and dashed with a closed head, and an async message or reply blue with an open head, so an async message reads apart from a reply by its head as well as its colour. A message to itself loops out and back, and a message that skips a participant runs across the lifeline between.
+Every participant draws as the same rectangle in the `neutral` role, at the top of its lifeline and again, smaller, at the foot, and the participant id is the text the board shows. Each message is a straight line in its own row with its label beside the sender and a pin in the `marker` role beside the sender's lifeline carrying its number. A request is a solid line and a reply a dashed one, both in the connector colour with a closed head, and an async message or reply takes the async colour with an open head, so an async message reads apart from a reply by its head as well as its colour. `assets/figjam-design.md` names the swatch each role draws and the colour of each line. A message to itself loops out and back, and a message that skips a participant runs across the lifeline between.
 
 ### What the board does not draw
 

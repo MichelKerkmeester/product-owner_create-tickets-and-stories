@@ -93,7 +93,7 @@ return { createdNodeIds: created, boardBefore: before }
 ```
 
 - A pin holds one or two characters at a fixed 48 by 48, or 64 by 64 for two
-- The violet pin is the one preset whose white digit clears the text gate, as Rules - Flow Style Guide records. A sequence already numbers its messages with smaller violet pins, so a note on a sequence names its message number in the sticky rather than adding a second pin beside it
+- The violet pin is the one preset whose white digit clears the text gate, as Rules - Flow Style Guide records. A sequence already numbers its messages with smaller pins in the `marker` role, so a note on a sequence names its message number in the sticky rather than adding a second pin beside it
 - The pins and stickies are named `pin:<n>` and `note:<n>`, so the read-back counts them by name
 - Never annotate every node, never repeat a node's label in its note, and never glue a sticky to its own pin
 

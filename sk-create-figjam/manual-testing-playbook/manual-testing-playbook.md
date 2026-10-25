@@ -1,7 +1,7 @@
 ---
 title: "sk-create-figjam: Manual Testing Playbook"
-description: "Operator-facing directory for the FigJam diagram packet: type choice for all seven types, the pre-write check, the board write with its gate, extension and read-back, scored board quality for every type and creation variant, the boundaries with the Product Owner packet and routing recall for type detection."
-version: 1.0.1.0
+description: "Operator-facing directory for the FigJam diagram packet: type choice for all seven types, the pre-write check, the board write with its gate, extension and read-back, scored board quality for every type, creation variant and the board design, the boundaries with the Product Owner packet and routing recall for type detection."
+version: 1.0.2.0
 ---
 
 # sk-create-figjam: Manual Testing Playbook
@@ -89,12 +89,12 @@ The operator writes down the glance order the model plans before the first scree
 
 - **Fidelity.** 2: every read-back count matches the model and every label matches it word for word. 1: the counts match and one label differs. 0: a count differs
 - **Legibility.** 2: no label is cut off, wrapped mid-word or smaller than its neighbours. 1: one label wraps awkwardly. 0: a label is cut off or unreadable
-- **Signal.** 2: every colour the key lists matches its entry, every mark it leaves out passes the rule below, the accent the model sets, a `style` line on a user flow or a process or an optional `%% focus:` line on another type, sits on the element the request names and the greyscale copy answers the reader questions as the colour one does. 1: the accent sits on a different element. 0: a colour the key does not explain and the rule below does not cover, more than one accent in the model or meaning lost in greyscale
+- **Signal.** 2: every colour the key lists matches its entry and the role `sk-create-figjam/assets/figjam-design.md` gives it, every mark it leaves out passes the rule below, the accent the model sets, a `style` line on a user flow or a process or an optional `%% focus:` line on another type, sits on the element the request names and the greyscale copy answers the reader questions as the colour one does. 1: the accent sits on a different element. 0: a colour the key does not explain and the rule below does not cover, more than one accent in the model or meaning lost in greyscale
 - **Clarity.** A fresh reader, a person or a new model session given only the two colour screenshots, answers the scenario's three questions. 2: three correct. 1: two correct. 0: one or none
 
-**Marks the key does not list.** The key holds one sample per kind, line and arrow the board uses and nothing else, so three marks are absent from it by design: a zone or lane tint, a note pin and a legend sticky. A grader scores them against `sk-create-figjam/references/style-guide.md` and never counts their absence from the key as a Signal fault.
+**Marks the key does not list.** The key holds one sample per kind, line and arrow the board uses and nothing else, so three marks are absent from it by design: a zone or lane tint, a note pin and a legend sticky. A grader scores them against `sk-create-figjam/references/style-guide.md` and the active design in `sk-create-figjam/assets/figjam-design.md`, and never counts their absence from the key as a Signal fault.
 
-- **A zone or lane tint** is a light section tint drawn from the cycle blue, orange, teal, yellow, violet and pink, so neighbouring zones read apart. It means nothing, so two zones in different tints are not two meanings
+- **A zone or lane tint** is a light section tint drawn from the active design's zone cycle, blue, orange, teal, yellow and violet as shipped. A zone skips a tint any kind inside it draws and the tint of the zone before it, so it never hides its members and neighbouring zones read apart. It means nothing, so two zones in different tints are not two meanings
 - **A note pin** is the violet preset with a white digit, and a sequence's step pins are the exception because the key names them `Step number`
 - **A legend sticky** takes one colour from the sticky palette, one colour per legend by default
 
@@ -194,7 +194,7 @@ This section plans the order of a full run. It is not a runtime support matrix.
 1. Wave 1 runs the shell scenarios with no model runtime: FJ-004, FJ-005, FJ-006, FJ-014, FJ-015, FJ-016, FJ-043 and the routing scenarios
 2. Wave 2 runs the conversational type-choice and boundary scenarios, each in a fresh session
 3. Wave 3 runs the board writes one at a time, because they share one Figma account: FJ-007, FJ-008, FJ-009, FJ-017, FJ-018, FJ-019
-4. Wave 4 runs the scored boards one at a time, and each Clarity read uses a reader who has not seen an earlier board of the same request: FJ-022, FJ-023, FJ-024, FJ-025, FJ-026, FJ-027, FJ-028, FJ-029, FJ-030, FJ-031, FJ-032, FJ-033, FJ-034, FJ-035, FJ-036
+4. Wave 4 runs the scored boards one at a time, and each Clarity read uses a reader who has not seen an earlier board of the same request: FJ-022, FJ-023, FJ-024, FJ-025, FJ-026, FJ-027, FJ-028, FJ-029, FJ-030, FJ-031, FJ-032, FJ-033, FJ-034, FJ-035, FJ-036, FJ-044, FJ-045. FJ-045 edits the shipped design file, so no other scenario runs until its restore step passes
 5. After each wave, record the evidence and the verdicts before the next wave starts
 6. Record the evidence paths for every scenario in the final report
 
@@ -605,9 +605,9 @@ Desired user-visible outcome: An architecture board in lanes with counts measure
 
 ---
 
-## 10. BOARD QUALITY (`FJ-022`, `FJ-023`, `FJ-024`, `FJ-025`, `FJ-026`, `FJ-027`, `FJ-028`)
+## 10. BOARD QUALITY (`FJ-022`, `FJ-023`, `FJ-024`, `FJ-025`, `FJ-026`, `FJ-027`, `FJ-028`, `FJ-044`, `FJ-045`)
 
-One written board per diagram type, scored on the board quality scorecard in Section 3 at two zooms. The overview screenshot scores composition, crossings, shared trunks and label collisions. The 100% screenshot scores fidelity, legibility and signal. The four hygiene checks and the reply close the run. Each scenario names three reader questions with its answers, so clarity is measured, not judged.
+One written board per diagram type, scored on the board quality scorecard in Section 3 at two zooms. The overview screenshot scores composition, crossings, shared trunks and label collisions. The 100% screenshot scores fidelity, legibility and signal. The four hygiene checks and the reply close the run. Each scenario names three reader questions with its answers, so clarity is measured, not judged. Two more check the design every type is drawn in: the seven types side by side under the shipped design, and a broken design that falls back token by token.
 
 ### FJ-022 | User flow board quality
 
@@ -740,6 +740,44 @@ Desired user-visible outcome: A board that reads in its planned order at both zo
 #### Test Execution
 
 > **Feature File:** [FJ-028](board-quality/gantt-board-quality.md)
+> **Catalog:** none, the packet has no feature catalog
+
+### FJ-044 | Seven boards read as one family
+
+#### Description
+
+Verify that the seven shipped examples composed under the shipped design share one title block, one type scale, one key layout and order, one set of line looks and one zone tint rule.
+
+#### Scenario Contract
+
+Prompt: `As the operator, compose the seven sk-create-figjam examples onto one new FigJam file in a plan you own and compare their furniture: the title block, the type sizes, the key, the line looks and the zone tints. Return the seven overview screenshots and the comparison.`
+
+Expected signals: The design check exits 0 with `THEME {}`. Each example prints a `COMPOSED` line drawn in the design `FigJam default` with no `DESIGN` line. Every board opens on the same title block, every key is a light gray section titled `Key` with its entries in the design file's kind order and `In focus` last, every connector is gray except an async message and the accent, participants are white and no zone shares a hue with a node inside it. Every board scores 2 on the rubric's `Matches the active design` criterion
+
+Desired user-visible outcome: Seven boards that a reader who has learned one can read without learning the others
+
+#### Test Execution
+
+> **Feature File:** [FJ-044](board-quality/design-family-across-types.md)
+> **Catalog:** none, the packet has no feature catalog
+
+### FJ-045 | A broken design falls back with named findings
+
+#### Description
+
+Verify that a design file with a pink zone tint, the accent's pair on a role and an unknown group still draws the board in the shipped value for each bad token, and that the reply names each fallback on its own `Finding:` line.
+
+#### Scenario Contract
+
+Prompt: `$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support.`
+
+Expected signals: The design check prints three `DESIGN` lines naming `shadow`, `role.goal` and `zone.cycle` and exits 1. The compose prints the same three lines and a `COMPOSED` line ending `3 design warnings`. The board is written after the gate's yes with a light green goal under the pink outline and no pink zone, the reply carries three `Finding:` lines above the `HVR self-scan:` line and the restored design file shows no change
+
+Desired user-visible outcome: A board drawn in the shipped look for the three bad tokens, and a reply that says which tokens fell back and why
+
+#### Test Execution
+
+> **Feature File:** [FJ-045](board-quality/broken-design-falls-back.md)
 > **Catalog:** none, the packet has no feature catalog
 
 ---
@@ -1242,6 +1280,7 @@ Desired user-visible outcome: No FigJam leaf loads for a ticket about a board
 | Test Module | Coverage | Playbook Overlap |
 |---|---|---|
 | `sk-create-figjam/scripts/flow_check.py --self-test` | One planted defect per rule, every template, example, Project mirror and palette row | FJ-004, FJ-005, FJ-006, FJ-014, FJ-015, FJ-016 |
+| `sk-create-figjam/scripts/compose_board.py --self-test` | Every shipped model composes under the design, the design file names every token and keeps every floor, a restyle reaches the board and fourteen broken designs fall back with named warnings | FJ-044, FJ-045 |
 | `benchmark/gates/check_hub.py` | Hub stage one on every gold row, including each routing prompt here | FJR-001 to FJR-007, FJH-001, FJN-001, FJ-020, FJ-021, FJ-037 |
 | `validate-playbook-topology.cjs` | Every routing scenario's leaves against `leaf-manifest.json` | FJR-001 to FJR-007, FJH-001, FJN-001 |
 
@@ -1279,6 +1318,8 @@ The packet has no feature catalog, so every scenario names `SKILL.md` and the re
 | FJ-026 | State board quality | Board quality | [`board-quality/state-board-quality.md`](board-quality/state-board-quality.md) |
 | FJ-027 | ER board with domain zones quality | Board quality | [`board-quality/er-board-quality.md`](board-quality/er-board-quality.md) |
 | FJ-028 | Gantt board quality | Board quality | [`board-quality/gantt-board-quality.md`](board-quality/gantt-board-quality.md) |
+| FJ-044 | Seven boards read as one family | Board quality | [`board-quality/design-family-across-types.md`](board-quality/design-family-across-types.md) |
+| FJ-045 | A broken design falls back with named findings | Board quality | [`board-quality/broken-design-falls-back.md`](board-quality/broken-design-falls-back.md) |
 | FJ-029 | A flow over budget split into two boards in one file | Board creation | [`board-creation/split-flow-one-board.md`](board-creation/split-flow-one-board.md) |
 | FJ-030 | Numbered pins with a sticky legend | Board creation | [`board-creation/pins-and-legend.md`](board-creation/pins-and-legend.md) |
 | FJ-031 | A revision replaces the diagram on its own board | Board creation | [`board-creation/revision-same-board.md`](board-creation/revision-same-board.md) |

@@ -8,7 +8,7 @@ trigger_phrases:
   - "state machine figjam"
   - "lifecycle diagram"
   - "order status flow"
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # FigJam Type - State
@@ -51,7 +51,7 @@ stateDiagram-v2
 - `state Gate <<choice>>` branches on a condition, and `<<fork>>` and `<<join>>` split and rejoin parallel paths
 - `--` inside a composite splits it into regions that run at the same time
 
-On the board the first state is light blue, a state the machine ends from light gray and every other state white. The start and end are charcoal dots, a choice is a small light yellow diamond and a fork or join a charcoal bar. Each composite is a tinted section named after it, around its substates.
+On the board the first state takes the `entry` role, a state the machine ends from the `done` role and every other state the `neutral` role. The start and end are dots and a fork or join a bar, all in the `pseudo` role, and a choice is a small diamond in the `decision` role. `assets/figjam-design.md` names the swatch each role draws. Each composite is a tinted section named after it, around its substates.
 
 ---
 

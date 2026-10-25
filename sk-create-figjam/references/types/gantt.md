@@ -8,7 +8,7 @@ trigger_phrases:
   - "roadmap timeline figjam"
   - "launch plan figjam"
   - "milestones on figjam"
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # FigJam Type - Gantt
@@ -50,7 +50,7 @@ gantt
 - A task is `Name :tags, id, start, duration or end`. The tags and the id are optional, the start and the end are not
 - A start is a date or time in the declared format, or `after` one or more task ids
 - A duration is a number and a unit: `d` days, `w` weeks, `M` months, `y` years, or `h` and `m` for hours and minutes on a one-day chart
-- Tags are `done`, `active`, `crit` and `milestone`, and the tag sets the bar's colour: done light gray, active light blue, critical light red and an untagged task white, with the bar's length written inside it when it fits. A critical bar also ends that label with `, critical` and takes a heavier outline, so it still stands out in greyscale
+- Tags are `done`, `active`, `crit` and `milestone`, and the tag sets the bar's colour role: `done` for done, `inProgress` for active, `error` for critical and `neutral` for an untagged task, with the bar's length written inside it when it fits. `assets/figjam-design.md` names the swatch each role draws. A critical bar also ends that label with `, critical` and takes a heavier outline, so it still stands out in greyscale
 
 ---
 

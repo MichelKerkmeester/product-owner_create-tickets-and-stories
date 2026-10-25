@@ -42,6 +42,7 @@
       "goal.md",
       "implementation-summary.md",
       "research/research.md",
+      "sk-create-figjam/assets/figjam-design.md",
       "research/findings-registry.json",
       "research/fanout-attribution.md",
       "sk-create-figjam/assets/compose-board.js",
@@ -89,6 +90,12 @@
         "name": "research.md",
         "kind": "doc",
         "path": "research/research.md",
+        "source": "derived"
+      },
+      {
+        "name": "figjam-design.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/assets/figjam-design.md",
         "source": "derived"
       },
       {
@@ -186,17 +193,11 @@
         "kind": "proper_noun",
         "path": "plan.md",
         "source": "derived"
-      },
-      {
-        "name": "Data Flow The",
-        "kind": "proper_noun",
-        "path": "plan.md",
-        "source": "derived"
       }
     ],
     "causal_summary": "Boards composed by sk-create-figjam follow a style guide and a rubric, yet their visual quality and consistency still vary from one diagram type to the next",
     "created_at": "2026-10-25T16:00:00.000Z",
-    "last_save_at": "2026-10-25T19:45:28.839Z",
+    "last_save_at": "2026-10-25T20:31:12.317Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -208,10 +209,10 @@
       "implementation-summary.md",
       "research/research.md"
     ],
-    "source_fingerprint": "sha256:c3a9abf9f9e0d6876229dd4e78ca446a5c96dbc876630facbcc5809663c82293",
+    "source_fingerprint": "sha256:4da7484086a37786098b3acc1a5fcaa139360fd84a0b7390cdb9b73acb9cc24d",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "197b787fb9cf10cdf26e47a020a6991a83def4bb22058f3386fb54c51c7d37b5",
+      "spec.md": "ea561d7f1b991e90eef3dc13f0b88612fd4459cc0d3e1b7b404ee9ea16329546",
       "plan.md": "0039484d0a864784fb91873884288c4c39f4395df94b85b5ec68766e8396f908",
       "tasks.md": "32dd016cacff0254b67d74467cd269d4560d84548dcc346128bc6386391ea394",
       "implementation-summary.md": "1780f41cb44a42a4bd75c75de955cb1f2af1878128a64418377905b3741da4a3",

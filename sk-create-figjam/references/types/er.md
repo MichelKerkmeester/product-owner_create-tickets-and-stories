@@ -8,12 +8,12 @@ trigger_phrases:
   - "entity relationship figjam"
   - "data model figjam"
   - "schema diagram"
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # FigJam Type - ER
 
-An ER diagram shows which entities exist, the fields that matter on each and how they relate. The composer draws each entity as a white card, its name in bold above one line per field with its keys first, and each relationship as a line with no arrow and its cardinality in the label.
+An ER diagram shows which entities exist, the fields that matter on each and how they relate. The composer draws each entity as a card in the `neutral` role, its name in bold above one line per field with its keys first, and each relationship as a line with no arrow and its cardinality in the label.
 
 **Loading Condition:** CONDITIONAL, when the Flow route draws an ER diagram
 **Purpose:** The grammar, rules, budget and read-back for an ER diagram

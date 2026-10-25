@@ -136,6 +136,7 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 34 | 034-stop-and-label-fixes/ | Playback and gate kept apart, composed labels kept clear, notes contract reconciled, failed scenarios rerun | Complete |
 | 35 | 035-first-glance-and-routing/ | Accent tied to the first glance, routing clear of zone borders and shared stubs, HVR line last, failed scenarios rerun | Complete |
 | 36 | 036-figjam-design-system/ | Three-lineage research on board design quality and consistency and a user-editable design spec file | Complete |
+| 37 | 037-figjam-design-spec/ | A user-editable design file inside sk-create-figjam, theme plumbing that falls back with a warning, the ranked fixes from 036 and the Project mirror | Complete |
 
 ### Phase Transition Rules
 

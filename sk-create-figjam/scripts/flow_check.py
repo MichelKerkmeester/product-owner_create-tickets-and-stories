@@ -192,10 +192,12 @@ def check(path: Path) -> int:
 # The shipped templates, the worked examples and their Project mirrors must
 # keep passing the rules they teach. The mirrors are absent from a copy of the
 # skill without the Project package, so a missing file is reported and not
-# counted. A folder README under assets/ describes its files and is no model.
+# counted. A folder README under assets/ describes its files and the design
+# file holds the board's style, so neither is a model.
 KNOWLEDGE = PACKET.parent / "claude project" / "knowledge"
+NOT_MODELS = {"README.md", "figjam-design.md"}
 SHIPPED_MODELS = (
-    sorted(p for p in (PACKET / "assets").rglob("*.md") if p.name != "README.md")
+    sorted(p for p in (PACKET / "assets").rglob("*.md") if p.name not in NOT_MODELS)
     + [KNOWLEDGE / "Product Owner - Assets - Flow Templates.md"]
     + sorted(KNOWLEDGE.glob("Product Owner - Assets - Flow Templates - *.md"))
     + sorted(KNOWLEDGE.glob("Product Owner - Examples - Flow - *.md"))

@@ -34,9 +34,13 @@ STEP = 48
 DIRECTIONS = {"LEFT": (-1, 0), "RIGHT": (1, 0), "TOP": (0, -1), "BOTTOM": (0, 1)}
 # The composer's spacing constants, which the checks measure the board against.
 ZONE_HEAD, ZONE_PAD, CROSS_GAP, CARD_PAD, PARAGRAPH, FIELD_LINE = 96, 48, 80, 48, 4, 24
+# The composer snaps every box to an 8 px grid, so an edge it places sits within one step of where it is meant to.
+GRID_STEP = 8
 # A zone's title sits 32 px in from its corner. A label is its text plus a pad, 24 px tall, and sits on
 # the middle of the line it names. Two edges may share their first stub, and nothing longer.
-TITLE_INSET, TITLE_GAP, LABEL_HEIGHT, LABEL_PAD, LABEL_CHAR, SHARE_MAX = 32, 8, 24, 16, 8.96, 56
+# A label's width is its characters at the trace's Inter proportion of the label size, which `use_design` sets.
+CHAR_WIDTH = 0.56
+TITLE_INSET, TITLE_GAP, LABEL_HEIGHT, LABEL_PAD, LABEL_CHAR, SHARE_MAX = 32, 8, 24, 16, 18 * CHAR_WIDTH, 56
 # A run along a zone's edge reads as part of the border when it is closer than ZONE_OUT outside it or ZONE_IN
 # inside it. The gap between two zones is 48 wide, so its middle clears both borders by 24, and the zone's
 # own padding is 48, so a run inside it clears the border by that much. Two runs closer than CORRIDOR on
@@ -44,6 +48,14 @@ TITLE_INSET, TITLE_GAP, LABEL_HEIGHT, LABEL_PAD, LABEL_CHAR, SHARE_MAX = 32, 8, 
 # LABEL_CLEAR of air from every other line.
 ZONE_OUT, ZONE_IN, CORRIDOR, SIDE_BY_SIDE, LABEL_CLEAR, MERGE_MAX = 16, 40, 16, 56, 8, 200
 DETOUR_LIMIT = 2.0
+
+
+def use_design(design: dict) -> None:
+    """Measure boards against the design they are drawn in: its label size and its accent's pair and weights."""
+    global LABEL_CHAR, ACCENT_STROKE, ACCENT_WEIGHT, ACCENT_LINE
+    LABEL_CHAR = design["type"]["label"] * CHAR_WIDTH
+    ACCENT_STROKE = design["swatch"][design["accent"]["pair"]][1].lower()
+    ACCENT_WEIGHT, ACCENT_LINE = design["accent"]["node"], design["accent"]["message"]
 
 
 def run_trace(code: str, workdir: Path) -> dict:
@@ -460,22 +472,31 @@ def short_cards(drawn: dict) -> list[str]:
 def tall_zones(drawn: dict, labels: list[str], mode: str, slack: int = ZONE_PAD) -> list[str]:
     """Zones that hold more cross-axis space than their members ask for, on a left to right board.
 
-    A stage zone is its members' span plus the head and the pad, whatever sits in the other zones. A lane is
-    never taller than its members stacked one above another with the standard gap, plus the head and the
-    pad, because no packing of them is taller. The slack is the second pad a zone takes when an edge loops
-    back inside it.
+    A stage zone's top is the row's shared top edge or, where its row keeps its own fit, its own members' head, within
+    one grid step. Its bottom is one pad below its lowest member, so it is measured from its own top
+    whichever of the two it took. A lane is never taller than its members stacked one above another with the
+    standard gap, plus the head and the pad, because no packing of them is taller. The slack is the second pad a zone
+    takes when an edge loops back inside it.
     """
     boxes = boxes_of(drawn)
+    zones = zone_sections(drawn, labels)
+    top = min((b["y"] for z in zones for b in boxes.values() if b["parent"] == z["name"]), default=0)
     tall = []
-    for z in zone_sections(drawn, labels):
+    for z in zones:
         inside = [b for b in boxes.values() if b["parent"] == z["name"]]
         if not inside:
             continue
-        span = max(b["y"] + b["h"] for b in inside) - min(b["y"] for b in inside)
+        lowest = max(b["y"] + b["h"] for b in inside)
+        if mode == "stage":
+            own, shared = min(b["y"] for b in inside) - ZONE_HEAD, top - ZONE_HEAD
+            if min(abs(z["y"] - own), abs(z["y"] - shared)) > GRID_STEP or z["y"] + z["h"] > lowest + ZONE_PAD + slack:
+                tall.append(f"{z['name']} runs from {z['y']} to {z['y'] + z['h']} around members reaching {lowest}, where its "
+                            f"top is {shared} or {own} and its bottom at most {lowest + ZONE_PAD + slack}")
+            continue
         stacked = sum(b["h"] for b in inside) + CROSS_GAP * (len(inside) - 1)
-        allowed = (span if mode == "stage" else stacked) + ZONE_HEAD + ZONE_PAD + slack
+        allowed = stacked + ZONE_HEAD + ZONE_PAD + slack
         if z["h"] > allowed:
-            tall.append(f"{z['name']} is {z['h']} high around {span if mode == 'stage' else stacked} of members, at most {allowed}")
+            tall.append(f"{z['name']} is {z['h']} high around {stacked} of members, at most {allowed}")
     return tall
 
 
@@ -486,6 +507,11 @@ ACCENT_WEIGHT, ACCENT_LINE, ACCENT_STROKE, OUTWEIGH = 8, 4, "#f849c1", 1.5
 def _hex(paint: list | None) -> str:
     colour = (paint or [{"color": {"r": 0, "g": 0, "b": 0}}])[0]["color"]
     return "#" + "".join(f"{round(colour[c] * 255):02x}" for c in "rgb")
+
+
+def hex_of(paint: list | None) -> str:
+    """The six-digit hex of a drawn fill or stroke, black when it has none."""
+    return _hex(paint)
 
 
 def ink(mark: dict) -> float:

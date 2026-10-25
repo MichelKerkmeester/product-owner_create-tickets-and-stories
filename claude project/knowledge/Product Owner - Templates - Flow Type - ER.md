@@ -1,6 +1,6 @@
 # Product Owner - Templates - Flow Type - ER
 
-An ER diagram shows which entities exist, the fields that matter on each and how they relate. The composer draws each entity as a white card, its name in bold above one line per field with its keys first, and each relationship as a line with no arrow and its cardinality in the label.
+An ER diagram shows which entities exist, the fields that matter on each and how they relate. The composer draws each entity as a card in the `neutral` role, its name in bold above one line per field with its keys first, and each relationship as a line with no arrow and its cardinality in the label.
 
 ---
 
