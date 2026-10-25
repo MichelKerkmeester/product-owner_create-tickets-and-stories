@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/036-figjam-design-system",
+  "description": "Phase 36: figjam-design-system",
+  "keywords": [
+    "phase",
+    "figjam-design-system"
+  ],
+  "lastUpdated": "2026-10-25T16:00:00.000Z",
+  "specId": "036",
+  "folderSlug": "figjam-design-system",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

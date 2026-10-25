@@ -1,0 +1,68 @@
+{
+  "run_id": "1792955293904-icey00",
+  "loop_type": "research",
+  "spec_folder": "specs/z-staging-po-036-research",
+  "base_artifact_dir": "/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/z-staging-po-036-research/research",
+  "total_cli_lineages": 3,
+  "stopped": true,
+  "stopped_signal": "SIGTERM",
+  "stopped_at_iso": "2026-10-25T19:32:37.193Z",
+  "status": "partial",
+  "total": 3,
+  "succeeded": 0,
+  "failed": 1,
+  "all_failed": false,
+  "gauges": {
+    "lag": 2,
+    "pending": 0,
+    "failed": 1
+  },
+  "results": [
+    {
+      "label": "opus",
+      "status": "rejected",
+      "started_at_iso": "2026-10-25T19:08:13.907Z",
+      "completed_at_iso": "2026-10-25T19:15:32.514Z",
+      "duration_ms": 438607,
+      "error": {
+        "name": "Error",
+        "message": "lineage opus violated max-iterations stop policy: missing deep-research-state.jsonl for max-iterations stop-policy validation",
+        "failure_class": "exit",
+        "retry_verdict": "fatal",
+        "retryable": false,
+        "exit_code": 0,
+        "timed_out": false,
+        "salvage": {
+          "salvaged": 0,
+          "failed": 0
+        }
+      }
+    },
+    {
+      "label": "swe",
+      "status": "running",
+      "started_at_iso": "2026-10-25T19:08:14.036Z"
+    },
+    {
+      "label": "luna",
+      "status": "running",
+      "started_at_iso": "2026-10-25T19:30:02.207Z",
+      "completed_at_iso": "2026-10-25T19:30:02.206Z",
+      "duration_ms": 221130,
+      "error": {
+        "name": "Error",
+        "message": "lineage luna exited 0 but did not produce expected artifact: /Users/michelkerkmeester/MEGA/Development/AI Systems/specs/z-staging-po-036-research/research/lineages/luna/research.md",
+        "failure_class": "salvage_miss",
+        "retry_verdict": "transient",
+        "retryable": true,
+        "exit_code": 0,
+        "timed_out": false,
+        "salvage": {
+          "salvaged": 0,
+          "failed": 1
+        }
+      },
+      "updated_at_iso": "2026-10-25T19:30:02.207Z"
+    }
+  ]
+}

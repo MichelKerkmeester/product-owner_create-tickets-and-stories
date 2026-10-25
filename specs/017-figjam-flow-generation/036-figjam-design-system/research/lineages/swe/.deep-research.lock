@@ -1,0 +1,12 @@
+{
+  "owner_pid": 57610,
+  "started_at_iso": "2026-10-25T19:14:37.221Z",
+  "ttl_ms": 1800000,
+  "last_heartbeat_iso": "2026-10-25T19:14:37.221Z",
+  "packet_id": "specs/z-staging-po-036-research",
+  "runtime_kind": "main",
+  "phase": "running",
+  "last_activity_iso": "2026-10-25T19:14:37.221Z",
+  "acquire_nonce": "57610-1792955677222-a10f4afa-10db-468f-ab57-bbcd15ba1916",
+  "owner_kind": "transient"
+}

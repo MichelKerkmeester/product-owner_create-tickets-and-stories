@@ -1,0 +1,391 @@
+{
+  "sessionId": "fanout-swe-1792955293904-icey00",
+  "parentSessionId": null,
+  "lineageMode": "new",
+  "generation": 1,
+  "continuedFromRun": null,
+  "terminalStop": null,
+  "keyQuestions": [
+    {
+      "id": "question-1-what-does-the-sk-create-figjam-composer-s-design-surface-control-today-palette-t",
+      "inboxId": null,
+      "text": "What does the sk-create-figjam composer's design surface control today — palette, type scale, grid, zones, shapes, connectors, key, title block and source line — and where is each value set in compose-board.js and the packet references?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 1,
+      "resolved": true
+    },
+    {
+      "id": "question-2-how-well-do-the-nine-rendered-boards-in-assets-screenshots-hold-up-as-visual-des",
+      "inboxId": null,
+      "text": "How well do the nine rendered boards in assets/screenshots hold up as visual design — first-glance hierarchy, alignment and spacing rhythm, type scale and weight, colour harmony and contrast, connector routing and label legibility, zone tints, the key, and density?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 1,
+      "resolved": true
+    },
+    {
+      "id": "question-3-where-do-the-seven-diagram-types-diverge-in-colour-zones-and-layout-which-diverg",
+      "inboxId": null,
+      "text": "Where do the seven diagram types diverge in colour, zones and layout, which divergences are deliberate per-type identity and which are inconsistencies to unify?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 2,
+      "resolved": true
+    },
+    {
+      "id": "question-4-should-the-packet-read-a-user-editable-design-spec-file-in-the-spirit-of-a-desig",
+      "inboxId": null,
+      "text": "Should the packet read a user-editable design spec file in the spirit of a DESIGN.md Style Reference, and if so where would it live, what schema would it carry, how would compose_board.py, the composer and the claude.ai Project mirror read it, and how would validation keep bad edits safe?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 2,
+      "resolved": true
+    },
+    {
+      "id": "question-5-what-do-the-current-boards-already-do-well-that-must-be-preserved-and-how-should",
+      "inboxId": null,
+      "text": "What do the current boards already do well that must be preserved, and how should the quality rubric and board scorecard check a board against a design spec?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 2,
+      "resolved": true
+    }
+  ],
+  "openQuestions": [],
+  "resolvedQuestions": [
+    {
+      "id": "question-1-what-does-the-sk-create-figjam-composer-s-design-surface-control-today-palette-t",
+      "inboxId": null,
+      "text": "What does the sk-create-figjam composer's design surface control today — palette, type scale, grid, zones, shapes, connectors, key, title block and source line — and where is each value set in compose-board.js and the packet references?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 1
+    },
+    {
+      "id": "question-2-how-well-do-the-nine-rendered-boards-in-assets-screenshots-hold-up-as-visual-des",
+      "inboxId": null,
+      "text": "How well do the nine rendered boards in assets/screenshots hold up as visual design — first-glance hierarchy, alignment and spacing rhythm, type scale and weight, colour harmony and contrast, connector routing and label legibility, zone tints, the key, and density?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 1
+    },
+    {
+      "id": "question-3-where-do-the-seven-diagram-types-diverge-in-colour-zones-and-layout-which-diverg",
+      "inboxId": null,
+      "text": "Where do the seven diagram types diverge in colour, zones and layout, which divergences are deliberate per-type identity and which are inconsistencies to unify?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 2
+    },
+    {
+      "id": "question-4-should-the-packet-read-a-user-editable-design-spec-file-in-the-spirit-of-a-desig",
+      "inboxId": null,
+      "text": "Should the packet read a user-editable design spec file in the spirit of a DESIGN.md Style Reference, and if so where would it live, what schema would it carry, how would compose_board.py, the composer and the claude.ai Project mirror read it, and how would validation keep bad edits safe?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 2
+    },
+    {
+      "id": "question-5-what-do-the-current-boards-already-do-well-that-must-be-preserved-and-how-should",
+      "inboxId": null,
+      "text": "What do the current boards already do well that must be preserved, and how should the quality rubric and board scorecard check a board against a design spec?",
+      "origin": "legacy-import",
+      "source": "key-questions",
+      "injectedAtIteration": 0,
+      "promotedQuestionId": null,
+      "addedAtIteration": 0,
+      "resolvedAtIteration": 2
+    }
+  ],
+  "carriedForwardOpenQuestions": [
+    {
+      "text": "Should the packet read a user-editable design spec file in the spirit of a DESIGN.md Style Reference, and if so where would it live, what schema would it carry, how would compose_board.py, the composer and the claude.ai Project mirror read it, and how would validation keep bad edits safe?",
+      "addedAtIteration": 1,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "Where do the seven diagram types diverge in colour, zones and layout, which divergences are deliberate per-type identity and which are inconsistencies to unify? — partially answered by findings 2, 5-7, 13, 15; iteration 2 consolidates per-type divergence against `references/types/*.md` and names which deltas to unify.",
+      "addedAtIteration": 1,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "What do the current boards already do well that must be preserved, and how should the quality rubric and board scorecard check a board against a design spec? — strengths are enumerated in findings 2-4, 8-11; the rubric-integration half remains for iteration 2.",
+      "addedAtIteration": 1,
+      "source": "iteration-markdown"
+    },
+    {
+      "text": "None blocking — all five key questions are answered; synthesis ranks the changes.",
+      "addedAtIteration": 2,
+      "source": "iteration-markdown"
+    }
+  ],
+  "uncoveredQuestions": [],
+  "keyFindings": [
+    {
+      "id": "finding-1-10-board-furniture-is-identical-across-all-seven-types-title-64-bold-top-left-subti",
+      "text": "Board furniture is identical across all seven types — title 64 Bold top-left, subtitle 28 Regular wrapped to the board's width band, gray `Key` section beneath the diagram, 16 px source line, white board section — which is why the family resemblance holds even where kind vocabularies diverge. [SOURCE: AI Systems/Product Owner/sk-create-figjam/assets/compose-board.js:1123-1202; AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:193-200]",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-2-colour-by-kind-is-already-enforced-semantically-which-is-the-packet-s-biggest-co",
+      "text": "Colour-by-kind is already enforced semantically, which is the packet's biggest consistency strength: each of ~30 kinds fixes shape and colour together, so a colour means the same thing on every board, and the observed boards confirm it — start/start-ish nodes are light blue, decisions light yellow, goals light green, exits light orange, data stores light violet across all seven types. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:32; AI Systems/Product Owner/sk-create-figjam/assets/compose-board.js:51-83]",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-15-deliberate-divergences-are-per-type-identity-not-inconsistency-violet-step-pins-",
+      "text": "Deliberate divergences are per-type identity, not inconsistency: violet step pins and head/foot participants on sequence, 1 px grid rules and section bands on gantt, ringed final dots and composite-state zones on state, lane-ordering on architecture — what makes the types differ is kind vocabulary and layout mode, not furniture, palette grammar or type scale. [SOURCE: AI Systems/Product Owner/sk-create-figjam/assets/compose-board.js:921-927,1008-1013,1065-1084; AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:68-81]",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-13-er-is-the-chromatically-flattest-type-by-design-entity-cards-are-all-white-with-",
+      "text": "ER is the chromatically flattest type by design: entity cards are all white with gray strokes and hierarchy rests on the semi-bold card title, the PK/FK field list and the accent alone — \"colour never carries meaning alone\" is satisfied, but the type contributes the least colour information of the seven. [SOURCE: AI Systems/Product Owner/sk-create-figjam/assets/screenshots/er-board.png; AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:76]",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-1-every-visual-value-on-every-board-is-set-in-one-file-s-constants-block-the-shape",
+      "text": "Every visual value on every board is set in one file's constants block: the `SHAPE` fill/stroke/text pairs, `TINT` zone palette plus `TINT_CYCLE`, the `KINDS` records, the `TYPE` scale, and the gap constants `GRID/CROSS_GAP/RANK_GAP/ZONE_GAP/ZONE_HEAD/ZONE_PAD/BOARD_PAD` — `compose-board.js` is the entire theme surface and therefore the natural extraction target for any design spec file. [SOURCE: AI Systems/Product Owner/sk-create-figjam/assets/compose-board.js:27-97]",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-6-gantt-planned-bars-are-white-fill-with-a-thin-gray-stroke-so-at-overview-they-re",
+      "text": "Gantt `planned` bars are white fill with a thin gray stroke, so at overview they read as unfilled outlines rather than scheduled work; on `gantt-board.png` only planned/critical/milestone appear, leaving the chart visually hollow except for the one accent bar — bar fill is the weakest hierarchy channel on this type. [SOURCE: AI Systems/Product Owner/sk-create-figjam/assets/screenshots/gantt-board.png; AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:78]",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-5-sequence-is-the-weakest-rendered-board-at-19-22-and-the-image-shows-why-row-is-a",
+      "text": "Sequence is the weakest rendered board at 19/22, and the image shows why: `ROW` is a fixed 72 px so seven messages stretch a tall, airy column whose right side (PartnerHub) is nearly empty, participant heads and feet duplicate every label's visual weight, and the self-message loops are cramped at `SELF_DROP` 40 px with labels tight to the lifeline. [SOURCE: AI Systems/Product Owner/sk-create-figjam/assets/screenshots/sequence-board.png; AI Systems/Product Owner/sk-create-figjam/assets/compose-board.js:933-961]",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-12-spacing-has-two-layers-that-a-spec-file-must-not-conflate-the-documented-judgmen",
+      "text": "Spacing has two layers that a spec file must not conflate: the documented judgment bands (60-92 px one-thought / 200-400 px same-topic / 1000+ px separate-content) govern what humans and notes place, while the composer enforces its own fixed steps (80 cross, 136 rank, 48/96 zone pad/head, 80 board pad, 64 above key) — only the second layer is tokenisable. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:221-234; AI Systems/Product Owner/sk-create-figjam/assets/compose-board.js:91-97]",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-3-the-accent-system-lands-the-first-glance-on-every-board-viewed-the-pink-f849c1-8",
+      "text": "The accent system lands the first glance on every board viewed: the pink `#F849C1` 8px outline (4px on a sequence message) is a hue no kind uses, measures 3.13:1 on white, and outweighs every other mark (25.0 vs 12.6 weight×contrast) — confirmed visually on `user-flow-board.png` (Return confirmed), `sequence-board.png` (Authorise the card), `gantt-board.png` (critical bar), `er-board.png` (Booking), `architecture-board.png` (sync-service) and `process-board.png` (Approve the claim). [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:135-152]",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-8-the-connector-solver-not-the-colour-constants-owns-label-legibility-a-port-prici",
+      "text": "The connector solver, not the colour constants, owns label legibility: a port-pricing search (STUB/CLEAR/BLOCKED/SHARED/CLASH/LAP…, 6 seeded restarts, pair-wise sweeps) picks routes and magnets, and every viewed board shows mid-connector labels clear of lines and nodes — this layer must stay algorithmic and outside any spec file's parametrisation. [SOURCE: AI Systems/Product Owner/sk-create-figjam/assets/compose-board.js:600-840; AI Systems/Product Owner/sk-create-figjam/assets/screenshots/user-flow-board.png]",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-9-the-key-is-generated-from-the-kinds-lines-and-arrows-the-board-actually-uses-one",
+      "text": "The key is generated from the kinds, lines and arrows the board actually uses (\"one sample per kind and line the board uses\"), so it names every mark and nothing else by construction — the strongest piece of self-consistent furniture; a spec may restyle samples but should never parametrise membership. [SOURCE: AI Systems/Product Owner/sk-create-figjam/assets/compose-board.js:1142-1194; AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:136]",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-14-the-packet-s-current-stance-is-explicit-refusal-of-skinning-skins-and-brand-onbo",
+      "text": "The packet's current stance is explicit refusal of skinning: \"Skins and brand onboarding still stay behind… a brand palette would turn every swatch into a custom colour\", so adopting a DESIGN.md-style spec means reversing a recorded decision — the spec must therefore keep every value a FigJam-native pair or accept losing picker-recolourability. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:206]",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-4-the-palette-is-deliberately-figjam-native-each-kind-uses-a-swatch-pair-the-check",
+      "text": "The palette is deliberately FigJam-native: each kind uses a swatch pair the check accepts and the self-test re-measures, because a colour FigJam recognises as a palette swatch stays recolourable from the picker; a design spec that introduces custom hexes would silently break that property unless it keeps to pair-shaped tokens. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:103-120; AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:156]",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-11-the-type-scale-is-one-family-at-one-ramp-everywhere-inter-at-64-28-24-20-16-and-",
+      "text": "The type scale is one family at one ramp everywhere: Inter at 64/28/24/20/16 and 14-16 for fields, pins and bar lengths, with weight (Bold/Semi Bold/Medium/Regular) doing the hierarchy work — confirmed constant across all seven screenshots. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:191-200]",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-1-7-zone-tints-are-near-white-f5fbff-fff7f0-etc-and-barely-separate-at-overview-zoom",
+      "text": "Zone tints are near-white (`#F5FBFF`, `#FFF7F0` etc.) and barely separate at overview zoom; grouping is actually carried by the 48 px zone gap, the border and the 24 px semi-bold zone label — on `architecture-board.png` all six cycle tints are present and only just distinguishable, and on `state-board.png` the composite \"Confirmed\" zone reads mostly through its label, not its tint. [SOURCE: AI Systems/Product Owner/sk-create-figjam/assets/compose-board.js:42-48; AI Systems/Product Owner/sk-create-figjam/assets/screenshots/architecture-board.png; AI Systems/Product Owner/sk-create-figjam/assets/screenshots/state-board.png]",
+      "addedAtIteration": 1,
+      "sources": []
+    },
+    {
+      "id": "finding-2-5-consumption-is-mechanically-trivial-compose-board-py-already-builds-the-use-figm",
+      "text": "Consumption is mechanically trivial: `compose_board.py` already builds the use_figma payload by substituting `__MODEL__` into the template under a 50,000-character ceiling — a spec rides the same path as a second injected block (e.g. `__STYLE__` resolved to a frozen constants object), adding zero runtime calls and keeping \"one use_figma call per board\" intact. [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/compose_board.py:70-76; AI Systems/Product Owner/sk-create-figjam/scripts/compose_board.py:595-596]",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-9-deepens-iteration-1-finding-15-the-type-references-confirm-divergence-is-kind-vo",
+      "text": "Deepens iteration 1 finding 15: the type references confirm divergence is kind vocabulary, not style — sequence colours messages by arrow kind and adds numbered pins (a sequence takes no zone line), state colours first/final states and pseudo-states by role with composites as zones, so the shared invariant is the furniture+palette-grammar layer and the right spec surface is *per-kind tokens shared across types*, not per-type themes. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/types/sequence.md:54-90; AI Systems/Product Owner/sk-create-figjam/references/types/state.md:54-90]",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-11-location-packet-level-not-repository-level-the-spec-describes-one-packet-s-drawi",
+      "text": "Location: packet level, not repository level — the spec describes one packet's drawing surface, a repo-root `DESIGN.md` would collide with `sk-design`'s artifact name and overreach; the natural home is a new file under `AI Systems/Product Owner/sk-create-figjam/` (e.g. `references/board-style.md` or packet-root `DESIGN.md`), with an optional user override file found by walking up from the model file, and the mirror keeps its own knowledge copy via the SYNC.md mirroring contract. [SOURCE: AI Systems/Product Owner/sk-create-figjam/SKILL.md:240-242; .skilled/skills/sk-design/sk-design-md-generator/references/design-md-format.md:49-64]",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-12-rubric-integration-is-a-wording-change-not-a-rewrite-section-7-s-colour-by-meani",
+      "text": "Rubric integration is a wording change, not a rewrite: Section 7's \"Colour by meaning\" and \"Key and source\" criteria already say \"every colour names a kind the key explains\" — under a spec, both score against the loaded spec's kind table instead of the hardcoded one, so the scorecard semantics survive and a spec conformance line joins the finding format. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/quality-rubric.md:132-137]",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-10-safe-defaults-follow-the-packet-s-own-philosophy-model-errors-refuse-style-degra",
+      "text": "Safe defaults follow the packet's own philosophy: model errors refuse, style degrades gracefully — every spec key optional with the current constant as its default, an unparseable file warns and falls back wholesale, a token failing a floor (text < 4.5:1, mark < 3.0:1, accent < 45° apart, a non-pair colour) is rejected to its default rather than failing the board, matching how recorded departures are handled today. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:176-185; AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/common.py:13-16]",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-15-schema-shape-what-the-spec-carries-each-section-defaulting-to-today-s-constants-",
+      "text": "Schema shape (what the spec carries, each section defaulting to today's constants): `colors.pairs` name→{fill,stroke,text} and `colors.kinds` kind→pair; `accent` {pair, nodeWeight 8, messageWeight 4}; `zones` {tints, cycle order, label type}; `type` {family Inter, role→size/weight ramp}; `spacing` {grid 8, cross 80, rank 136, zone pad/head/gap, board pad, key offset}; `shapes` kind→FigJam shape + corner radius; `connectors` {color, weight 2, dash, caps, label type}; `key`/`title`/`subtitle`/`source` {fill, type roles, margins} — every section optional, whole-file fallback on parse failure. [SOURCE: AI Systems/Product Owner/sk-create-figjam/assets/compose-board.js:27-97; AI Systems/Product Owner/sk-create-figjam/assets/compose-board.js:210-240; AI Systems/Product Owner/sk-create-figjam/assets/compose-board.js:1123-1202]",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-14-the-deciding-trade-off-is-figjam-recolourability-any-spec-colour-outside-the-nat",
+      "text": "The deciding trade-off is FigJam recolourability: any spec colour outside the native swatch pairs silently breaks picker-recolouring on the board, so the spec should key colours by semantic pair (fill+stroke+text) and warn when a user value isn't a FigJam-native pair — preserving the property that made the packet refuse brand palettes is the cost a spec pays for user theming. [SOURCE: AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:28; AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:156; AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/common.py:43-46]",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-2-the-mature-interchange-model-underneath-is-the-w3c-design-tokens-community-group",
+      "text": "The mature interchange model underneath is the W3C Design Tokens Community Group Format Module, which reached its first stable version (2025.10, 28 Oct 2025): typed tokens via `$type`, named groups, `{path.to.token}` aliases, and theming — a board spec should borrow its typed groups and alias syntax inside a markdown/YAML envelope rather than adopt raw DTCG JSON, which is built for tool interchange, not hand-editing. [SOURCE: https://www.w3.org/community/design-tokens/ ; https://www.designtokens.org/tr/third-editors-draft/format/]",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-4-the-md-generator-s-authoring-boundary-clarifies-scope-it-captures-measured-reali",
+      "text": "The md-generator's authoring boundary clarifies scope: it captures measured reality and refuses forward-authoring — a FigJam board spec is *authored defaults*, which is exactly the gap the boundary leaves open, so the packet would own a hand-authored spec (with the current constants as its verbatim baseline), not an extraction. [SOURCE: .skilled/skills/sk-design/sk-design-md-generator/SKILL.md:14; .skilled/skills/sk-design/sk-design-md-generator/SKILL.md:44-48]",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-7-the-packet-already-treats-the-composer-source-as-a-de-facto-spec-compose-board-p",
+      "text": "The packet already treats the composer source as a de facto spec: `compose_board.py`'s self-test regex-parses `SHAPE_PAIR`/`KIND_PAIR` out of `compose-board.js` to re-derive every pair and assert the accent's hue separation (≥45°) and mark gate (≥3:1) — a declared spec file replaces fragile source-parsing with a normative token surface, and the existing checks become its validator. [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/compose_board.py:700-727]",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-1-the-public-convention-this-question-borrows-already-exists-and-is-stable-google-",
+      "text": "The public convention this question borrows already exists and is stable: Google Labs' `DESIGN.md` format pairs a machine-readable YAML token layer (front matter or interleaved fenced blocks, normative values) with human-readable markdown rationale, is positioned as \"the design counterpart to `AGENTS.md`\", accepts unknown sections and custom tokens, and is published as `@google/design.md` (~208k weekly npm downloads) — a repository user can edit it, and an agent or a script can parse it. [SOURCE: https://github.com/google-labs-code/design.md/ ; https://cdn.jsdelivr.net/gh/google-labs-code/design.md@main/docs/spec.md ; https://www.npmjs.com/package/@google/design.md]",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-3-the-repository-s-own-precedent-sk-design-md-generator-produces-a-v3-style-refere",
+      "text": "The repository's own precedent, `sk-design-md-generator`, produces a v3 Style Reference whose cardinal rules translate directly: every value verbatim from a single token source, named semantic roles over raw values, no false systems, and a validator that checks hex accuracy and section completeness — for this packet the \"measured source\" already exists (the composer constants), so the spec file records them verbatim with rationale rather than extracting anything. [SOURCE: .skilled/skills/sk-design/sk-design-md-generator/references/design-md-format.md:28-46; .skilled/skills/sk-design/sk-design-md-generator/references/design-md-format.md:311-356]",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-13-the-spec-must-draw-a-hard-boundary-around-non-token-concerns-the-routing-solver-",
+      "text": "The spec must draw a hard boundary around non-token concerns — the routing solver's cost constants, layout algorithm, key membership generation and the judgment bands stay out of the file, because exposing them invites boards that violate the solver's invariants and the spacing doctrine a user cannot see. [SOURCE: AI Systems/Product Owner/sk-create-figjam/assets/compose-board.js:600-840; AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:221-234]",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-6-the-spec-s-real-job-is-ending-a-three-way-split-of-the-same-palette-truth-compos",
+      "text": "The spec's real job is ending a three-way split of the same palette truth: `compose-board.js` draws it, `figjam_checks/common.py`'s `ACCENT_PAIRS`/`PAIRED_FILL`/`LANE_PAIR` accepts it, and the claude.ai Project knowledge file copies the composer — today three artifacts must agree by convention; a spec file becomes the single source the first two are validated against, while the mirror (which has no Python and fills MODEL by hand) ships the resolved constants inside its copied code rather than reading the file at runtime. [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/common.py:47-63; AI Systems/Product Owner/sk-create-figjam/scripts/compose_board.py:71-73]",
+      "addedAtIteration": 2,
+      "sources": []
+    },
+    {
+      "id": "finding-2-8-the-validation-machinery-a-spec-needs-is-already-owned-not-borrowed-contrast-com",
+      "text": "The validation machinery a spec needs is already owned, not borrowed: `contrast()` computes WCAG ratios, `hue_of()` measures hue separation, `MIN_HUE_APART = 45` and the 4.5:1 text / 3.0:1 mark gates are constants — spec validation is a thin layer that re-runs these against user-edited tokens. [SOURCE: AI Systems/Product Owner/sk-create-figjam/scripts/figjam_checks/common.py:157-158; AI Systems/Product Owner/sk-create-figjam/scripts/compose_board.py:702-726; AI Systems/Product Owner/sk-create-figjam/references/style-guide.md:170-174]",
+      "addedAtIteration": 2,
+      "sources": []
+    }
+  ],
+  "ruledOutDirections": [],
+  "rejectedPatterns": [],
+  "rejectedPatternIndex": {
+    "maxEntries": 100,
+    "fuzzyThreshold": 0.85,
+    "entries": []
+  },
+  "rejectedPatternWarnings": [],
+  "suppressedCandidates": [],
+  "minIdeaObservations": 2,
+  "observedIdeas": [],
+  "promotedIdeas": [],
+  "suppressedIdeas": [],
+  "blockedStopHistory": [],
+  "graphConvergenceScore": 0,
+  "graphDecision": null,
+  "graphBlockers": [],
+  "divergence": {
+    "started": [],
+    "completed": [],
+    "failed": [],
+    "overrides": [],
+    "saturatedDirections": [],
+    "remainingFrontier": [],
+    "currentFocus": "",
+    "activePivotId": null,
+    "activeSourceIteration": null
+  },
+  "metrics": {
+    "iterationsCompleted": 2,
+    "openQuestions": 0,
+    "resolvedQuestions": 5,
+    "carriedForwardOpenQuestions": 4,
+    "keyFindings": 30,
+    "rejectedPatterns": 0,
+    "suppressedCandidates": 0,
+    "observedIdeas": 0,
+    "promotedIdeas": 0,
+    "suppressedIdeas": 0,
+    "convergenceScore": 0.85,
+    "coverageBySources": {
+      "cdn.jsdelivr.net": 1,
+      "github.com": 2,
+      "other": 19,
+      "www.designtokens.org": 1,
+      "www.npmjs.com": 1,
+      "www.w3.org": 1
+    },
+    "completedPivots": 0,
+    "failedPivots": 0,
+    "pivotOverrides": 0
+  },
+  "corruptionWarnings": [],
+  "inboxPath": "/Users/michelkerkmeester/MEGA/Development/AI Systems/specs/z-staging-po-036-research/research/lineages/swe/inbox.jsonl",
+  "inboxWarnings": [],
+  "status": "INITIALIZED",
+  "advisoryEvents": [],
+  "strategyWarnings": []
+}

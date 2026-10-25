@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/036-figjam-design-system",
+  "spec_folder": "017-figjam-flow-generation/036-figjam-design-system",
+  "parent_id": "017-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "figjam design system research",
+      "figjam design system plan",
+      "figjam design system tasks",
+      "figjam design system acceptance criteria",
+      "figjam design system goal",
+      "figjam design system implementation summary"
+    ],
+    "key_topics": [
+      "figjam",
+      "design",
+      "system",
+      "research",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "boards"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "research/research.md",
+      "research/findings-registry.json",
+      "research/fanout-attribution.md",
+      "sk-create-figjam/assets/compose-board.js",
+      "manual-testing-playbook/manual-testing-playbook.md",
+      ".skilled/skills/sk-design/sk-design-md-generator/SKILL.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "research.md",
+        "kind": "doc",
+        "path": "research/research.md",
+        "source": "derived"
+      },
+      {
+        "name": "findings-registry.json",
+        "kind": "config",
+        "path": "research/findings-registry.json",
+        "source": "derived"
+      },
+      {
+        "name": "fanout-attribution.md",
+        "kind": "doc",
+        "path": "research/fanout-attribution.md",
+        "source": "derived"
+      },
+      {
+        "name": "compose-board.js",
+        "kind": "code",
+        "path": "sk-create-figjam/assets/compose-board.js",
+        "source": "derived"
+      },
+      {
+        "name": "manual-testing-playbook.md",
+        "kind": "doc",
+        "path": "manual-testing-playbook/manual-testing-playbook.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": ".skilled/skills/sk-design/sk-design-md-generator/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "research/research.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Three",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Boards composed by sk-create-figjam follow a style guide and a rubric, yet their visual quality and consistency still vary from one diagram type to the next",
+    "created_at": "2026-10-25T16:00:00.000Z",
+    "last_save_at": "2026-10-25T19:45:28.839Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "research/research.md"
+    ],
+    "source_fingerprint": "sha256:c3a9abf9f9e0d6876229dd4e78ca446a5c96dbc876630facbcc5809663c82293",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "197b787fb9cf10cdf26e47a020a6991a83def4bb22058f3386fb54c51c7d37b5",
+      "plan.md": "0039484d0a864784fb91873884288c4c39f4395df94b85b5ec68766e8396f908",
+      "tasks.md": "32dd016cacff0254b67d74467cd269d4560d84548dcc346128bc6386391ea394",
+      "implementation-summary.md": "1780f41cb44a42a4bd75c75de955cb1f2af1878128a64418377905b3741da4a3",
+      "research/research.md": "609a2bb72c9f99e8849c15eed774e84b968f99ef0c0f257817f291a88d431579"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}
