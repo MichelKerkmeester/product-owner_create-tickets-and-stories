@@ -5,7 +5,7 @@ allowed-tools: [Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, mcp__c
 version: 1.0.1.0
 ---
 
-<!-- Keywords: product-owner, mode-registry, hub-router, workflowMode, packetKind, sk-product-owner, sk-create-figjam, mcp-click-up, mcp-figma, backlog, figjam, clickup -->
+<!-- Keywords: product-owner, sk-product-owner, sk-create-figjam, mcp-click-up, mcp-figma, backlog, task, bug report, user story, epic, prd, product documentation, figjam, user flow, clickup -->
 
 # Product Owner Hub
 
