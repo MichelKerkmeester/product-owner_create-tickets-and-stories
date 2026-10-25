@@ -190,7 +190,7 @@
     ],
     "causal_summary": "The 2026-10-24 Sonnet run merged the playback and the gate into one stop and wrote on the reading yes in several scenarios, wrote on an answer to a question it never asked, and the composer let a second edge into one target and connectors cross zone titles",
     "created_at": "2026-10-25T11:02:37.757Z",
-    "last_save_at": "2026-10-25T11:14:32.626Z",
+    "last_save_at": "2026-10-25T14:47:37.657Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -201,12 +201,12 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:6ca1c26b97c8e70e56958ec62ebe8c4a968a06230e2bb38fbf618ac4da054c11",
+    "source_fingerprint": "sha256:139873b12a5eaa6b942ffc83c6fe291360859f5c916cb15c19c28cba3df6efe5",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
       "spec.md": "f9a7a311a348800539ef6e21e25bc8e5b9985dba641e199f9c15d609db3ebe16",
       "plan.md": "9dcaff0fe19a9702945544e3f1d45e116dac6a661e9417959194460b9d43394d",
-      "tasks.md": "da6be8540c02b849607c9dfe22729c694512c4fbcf9b26951dc51934be2e7563",
+      "tasks.md": "fb855b2cd8ffb2a0c2ff4a64c4d56ee6a659323eaab939575fc72d33b75c0bc1",
       "implementation-summary.md": "07dc8c90889be898673e6a5d4e92f22a3177c9011ebf2508839f15be7571efde"
     },
     "last_active_child_id": null,

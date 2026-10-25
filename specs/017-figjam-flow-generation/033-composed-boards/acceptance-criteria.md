@@ -78,7 +78,7 @@ waiver is treated as an unmet criterion rather than as a pass.
 <!-- ANCHOR:closure -->
 ## 3. CLOSURE STATEMENT
 
-**Closeable:** No
+**Closeable:** Yes
 
-The fixes have not landed.
+Every row is Met, or Superseded by ADR-001, with the evidence named in its Verification cell.
 <!-- /ANCHOR:closure -->

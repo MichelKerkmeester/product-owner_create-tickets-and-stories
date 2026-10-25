@@ -47,7 +47,7 @@ _memory:
 <!-- ANCHOR:phase-1 -->
 ## Phase 1: Setup
 
-- [ ] T001 Scaffold the phase
+- [x] T001 Scaffold the phase
 <!-- /ANCHOR:phase-1 -->
 
 ---
@@ -55,10 +55,10 @@ _memory:
 <!-- ANCHOR:phase-2 -->
 ## Phase 2: Implementation
 
-- [ ] T002 Tie the accent to the first glance
-- [ ] T003 Fix the routing
-- [ ] T004 Fix the reply tail and the skill wording
-- [ ] T005 Mirror to the Project
+- [x] T002 Tie the accent to the first glance
+- [x] T003 Fix the routing
+- [x] T004 Fix the reply tail and the skill wording
+- [x] T005 Mirror to the Project
 <!-- /ANCHOR:phase-2 -->
 
 ---
@@ -66,7 +66,7 @@ _memory:
 <!-- ANCHOR:phase-3 -->
 ## Phase 3: Verification
 
-- [ ] T006 Rerun the failed scenarios and grade
+- [x] T006 Rerun the failed scenarios and grade
 <!-- /ANCHOR:phase-3 -->
 
 ---
@@ -74,9 +74,9 @@ _memory:
 <!-- ANCHOR:completion -->
 ## Completion Criteria
 
-- [ ] All tasks marked `[x]`
-- [ ] No `[B]` blocked tasks remaining
-- [ ] Manual verification passed
+- [x] All tasks marked `[x]`
+- [x] No `[B]` blocked tasks remaining
+- [x] Manual verification passed
 <!-- /ANCHOR:completion -->
 
 ---
@@ -107,8 +107,8 @@ _memory:
 <!-- ANCHOR:pre-impl -->
 ## Pre-Implementation
 
-- [ ] CHK-001 [P0] Requirements documented in spec.md
-- [ ] CHK-002 [P0] Technical approach defined in plan.md
+- [x] CHK-001 [P0] Requirements documented in spec.md
+- [x] CHK-002 [P0] Technical approach defined in plan.md
 <!-- /ANCHOR:pre-impl -->
 
 ---
@@ -116,7 +116,7 @@ _memory:
 <!-- ANCHOR:code-quality -->
 ## Code Quality
 
-- [ ] CHK-010 [P0] Every changed script passes its own test or direct run
+- [x] CHK-010 [P0] Every changed script passes its own test or direct run
 <!-- /ANCHOR:code-quality -->
 
 ---
@@ -124,8 +124,8 @@ _memory:
 <!-- ANCHOR:testing -->
 ## Testing Checklist
 
-- [ ] CHK-020 [P0] All acceptance criteria met
-- [ ] CHK-021 [P1] Owning gates rerun from the final state
+- [x] CHK-020 [P0] All acceptance criteria met
+- [x] CHK-021 [P1] Owning gates rerun from the final state
 <!-- /ANCHOR:testing -->
 
 ---
@@ -133,7 +133,7 @@ _memory:
 <!-- ANCHOR:security -->
 ## Security
 
-- [ ] CHK-030 [P0] No secrets, board URLs or Barter flows in changed files
+- [x] CHK-030 [P0] No secrets, board URLs or Barter flows in changed files
 <!-- /ANCHOR:security -->
 
 ---
@@ -141,7 +141,7 @@ _memory:
 <!-- ANCHOR:docs -->
 ## Documentation
 
-- [ ] CHK-040 [P1] Spec, plan and tasks synchronized
+- [x] CHK-040 [P1] Spec, plan and tasks synchronized
 <!-- /ANCHOR:docs -->
 
 ---
@@ -149,7 +149,7 @@ _memory:
 <!-- ANCHOR:file-org -->
 ## File Organization
 
-- [ ] CHK-050 [P1] Only the files named in spec.md changed
+- [x] CHK-050 [P1] Only the files named in spec.md changed
 <!-- /ANCHOR:file-org -->
 
 ---
@@ -159,9 +159,9 @@ _memory:
 
 | Category | Total | Verified |
 |----------|-------|----------|
-| P0 Items | 5 | 0/5 |
-| P1 Items | 3 | 0/3 |
+| P0 Items | 5 | 5/5 |
+| P1 Items | 3 | 3/3 |
 | P2 Items | 0 | 0/0 |
 
-**Verification Date**: Pending
+**Verification Date**: 2026-10-25
 <!-- /ANCHOR:summary -->
