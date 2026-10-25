@@ -263,7 +263,7 @@
         "dist",
         "mcp-server/README.md"
       ],
-      "base_commit": "1f63e104c29baeff5f47aa098d874b70d7072ae8",
+      "base_commit": "4e55a8f107adaa3e3606804911a95c4e99f4a14b",
       "files": {
         "INSTALL-GUIDE.md": "87243cd776ee7ad1ace7db50671e71c72659b832f4f2c63f7bbcc469ae497c1d",
         "README.md": "f2bc61e60801382fd2f7b55a383ebfc473d59df085e626fe568f0f4aaff5b8e5",
@@ -322,7 +322,7 @@
         "manual-testing-playbook/third-party-via-cm/notion-search-workspace.md": "1ad55833a2e841ec35a6ed390943111bfaa128b3700465e534e0a8f7ccc44fd9",
         "mcp-server/.nvmrc": "082eb58209e903bc7cacc0f43e14cafa58f8bf41e7879b6683517a648ea64875",
         "mcp-server/index.ts": "62c24555a31e13f324d3305ee8105a7248cfa6c8875639c86e38d565e16c09a7",
-        "mcp-server/package-lock.json": "9dac2ad4e359bb7ecbffff008e3aec9f777aad740e3b73046c91ec577aa4e562",
+        "mcp-server/package-lock.json": "1e936c6edcb6f7d28fb5246797c530c182f63da56f78a367609f91060ebdbf2a",
         "mcp-server/package.json": "8a6ecd72e2c44003e844ba68cdb091f23d412cb8e42ea55d61ce80a9a228fe11",
         "mcp-server/tsconfig.json": "666988d440f15ed10f15a32c6ebe28a0a6ffbfe6d8328d67567e2d2365d24b05",
         "mcp-server/scripts/README.md": "946ccc5e07dd058e23da5d70cb6343680940e2932918423852937f58de3fda90",
