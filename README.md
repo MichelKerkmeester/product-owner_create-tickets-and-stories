@@ -672,7 +672,7 @@ A route loads its template together with its mode reference. A worked example lo
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem and never loads `SKILL.md`.
 
-- `Custom Instructions.md` is the kernel, v1.2.2, aligned to skill v1.2.1.0. It carries the full router and rules and is the routing authority inside the Project
+- `Custom Instructions.md` is the kernel, v1.2.3, aligned to skill v1.2.1.0. It carries the full router and rules and is the routing authority inside the Project
 - `knowledge/` holds 64 files: 36 core documents (six mode references, seven templates, four shared rule files, quality scoring, the connector setup reference and the 17 FigJam type, type template, style, quality, hybrid and board composer documents) and the 28 worked examples
 - `README.md` holds the upload steps, the source-to-mirror map and the smoke matrix
 - `kernel-review.json` is a dated record of one kernel review, read by no tool
@@ -810,7 +810,7 @@ Three re-measure rounds of the Doc guide pair, three runs per side each, sit in 
 │   ├── reports/                     dated playbook and benchmark runs
 │   └── router/                      route_contract.py, 141 fixtures and the differential
 ├── claude project/
-│   ├── Custom Instructions.md       claude.ai kernel v1.2.2
+│   ├── Custom Instructions.md       claude.ai kernel v1.2.3
 │   ├── README.md                    upload steps, mirror map and smoke matrix
 │   ├── kernel-review.json           dated record of one kernel review
 │   └── knowledge/                   64 knowledge files
