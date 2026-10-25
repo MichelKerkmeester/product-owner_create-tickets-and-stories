@@ -14,7 +14,7 @@ Both connectors are remote servers run by ClickUp and Figma. Nothing installs on
 
 1. A Claude plan that allows connectors. ClickUp documents adding its server under **Settings > Connectors** on Pro, Team and Enterprise plans.
 2. A ClickUp account with access to the workspace they push to. Sign-in is OAuth, and ClickUp's server takes no API key.
-3. A Figma account for diagrams. Figma limits tool calls on Starter plans and on View or Collab seats.
+3. A Figma account for diagrams. Figma limits a Starter plan and a View or Collab seat to six tool calls a month, which one or two boards can use up.
 
 ---
 
@@ -52,5 +52,6 @@ Optional. The user copies the template `Product Owner - Local - Push Targets.md`
 - **`##`, `**` or `- []` shows as text in ClickUp:** the push used the plain description field. Update the task through `markdown_description`
 - **`Read-back: not possible` with a limit named:** the Figma plan or seat used its monthly tool calls. The board may still exist in the FigJam drafts
 - **`Read-back: not possible, the connector has no read tool`:** the Figma connector exposes no read tool in this chat. The board is not checked, so look at it yourself before relying on it
+- **A plain board with no title, zones or key:** Figma's own generator drew it because the compose tool was not available, and the reply says the board was generated. The diagram follows the model. Reconnect the Figma connector and ask for the board to be composed again
 - **A sign-in loop or an access error:** remove and add the connector again under **Settings > Connectors**
 - **A ClickUp tool error that names a parameter:** ClickUp changed its tool fields. The Project reads tool names from the connector at run time, so report the error with the tool name
