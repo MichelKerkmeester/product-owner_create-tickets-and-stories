@@ -1,0 +1,8 @@
+{"id": "FJ-023", "label": "glm", "turn": 1, "role": "scripted", "kind": "PLAYBACK", "figma": ["create_session", "get_figjam"], "boards": []}
+{"id": "FJ-023", "label": "glm", "turn": 2, "role": "scripted", "kind": "GATE", "figma": [], "boards": []}
+{"id": "FJ-023", "label": "glm", "turn": 1, "role": "scripted", "kind": "PLAYBACK", "figma": ["create_session", "get_figjam"], "boards": []}
+{"id": "FJ-023", "label": "glm", "turn": 2, "role": "scripted", "kind": "GATE", "figma": [], "boards": []}
+{"id": "FJ-023", "label": "glm", "turn": 1, "role": "scripted", "kind": "PLAYBACK", "figma": ["create_session", "create_session", "get_figjam", "get_figjam", "use_figma", "use_figma", "use_figma", "use_figma", "use_figma", "get_figjam", "use_figma", "use_figma", "whoami", "whoami", "use_figma", "use_figma", "get_figjam"], "boards": []}
+{"id": "FJ-023", "label": "glm", "turn": 2, "role": "scripted", "kind": "GATE", "figma": ["use_figma"], "boards": []}
+{"id": "FJ-023", "label": "glm", "turn": 3, "role": "scripted", "kind": "DELIVERY", "figma": ["generate_diagram", "get_figjam", "get_screenshot", "get_screenshot", "get_screenshot"], "boards": []}
+{"id": "FJ-023", "label": "glm", "status": "ok", "attempts": 3, "turns": 3, "boards": []}
