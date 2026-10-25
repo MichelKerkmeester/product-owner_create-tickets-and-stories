@@ -192,10 +192,10 @@ def check(path: Path) -> int:
 # The shipped templates, the worked examples and their Project mirrors must
 # keep passing the rules they teach. The mirrors are absent from a copy of the
 # skill without the Project package, so a missing file is reported and not
-# counted.
+# counted. A folder README under assets/ describes its files and is no model.
 KNOWLEDGE = PACKET.parent / "claude project" / "knowledge"
 SHIPPED_MODELS = (
-    sorted((PACKET / "assets").rglob("*.md"))
+    sorted(p for p in (PACKET / "assets").rglob("*.md") if p.name != "README.md")
     + [KNOWLEDGE / "Product Owner - Assets - Flow Templates.md"]
     + sorted(KNOWLEDGE.glob("Product Owner - Assets - Flow Templates - *.md"))
     + sorted(KNOWLEDGE.glob("Product Owner - Examples - Flow - *.md"))
