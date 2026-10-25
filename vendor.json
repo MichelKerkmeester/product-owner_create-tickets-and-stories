@@ -261,14 +261,14 @@
       "exclude": [
         "node_modules",
         "dist",
-        "mcp-server/README.md"
+        "mcp-server/README.md",
+        "graph-metadata.json"
       ],
       "base_commit": "4e55a8f107adaa3e3606804911a95c4e99f4a14b",
       "files": {
         "INSTALL-GUIDE.md": "87243cd776ee7ad1ace7db50671e71c72659b832f4f2c63f7bbcc469ae497c1d",
         "README.md": "f2bc61e60801382fd2f7b55a383ebfc473d59df085e626fe568f0f4aaff5b8e5",
         "SKILL.md": "7d7cccfc867e12150c59a1c8e87e90a56fafeb59d3de08cabeffb1ae644b48e7",
-        "graph-metadata.json": "1ad1bfe745abe9e3c84a1237bff6ee057b963566647b5cb132321a7e7a7dd020",
         "leaf-aliases.json": "98e993b943156150431ee2ccdaf9b1892ca25626c6dc1d7dae85ffb65402e224",
         "leaf-manifest.config.json": "32cb41591a47bfec58e365aa99cfef4c9850a1697339a54e69434c2b5249d4f1",
         "leaf-manifest.json": "e8614e5a111ea5e51370589f56929693242c8a71496af4f9d6914526dfc79b11",
