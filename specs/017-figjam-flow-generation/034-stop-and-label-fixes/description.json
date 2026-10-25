@@ -1,0 +1,19 @@
+{
+  "specFolder": "017-figjam-flow-generation/034-stop-and-label-fixes",
+  "description": "Phase 34: Flow stop discipline and composer label fixes",
+  "keywords": [
+    "stop",
+    "and",
+    "label",
+    "fixes"
+  ],
+  "lastUpdated": "2026-10-21T18:00:00.000Z",
+  "specId": "034",
+  "folderSlug": "stop-and-label-fixes",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

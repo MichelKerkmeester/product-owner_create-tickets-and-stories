@@ -132,6 +132,9 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 30 | 030-figjam-research-three/ | Three DeepSeek research runs: design output, input-to-model logic and an interactive intake | Complete |
 | 31 | 031-round-three-apply/ | The 32 ranked changes of phase 030, as 32 nested child phases | Complete |
 | 32 | 032-clickup-push-targets/ | ClickUp push targets set locally per artifact kind, with a private doc option | Complete |
+| 33 | 033-composed-boards/ | Boards composed with use_figma for design quality, then a SWE 2 MAX rerun | Complete |
+| 34 | 034-stop-and-label-fixes/ | Playback and gate kept apart, composed labels kept clear, notes contract reconciled, failed scenarios rerun | Complete |
+| 35 | 035-first-glance-and-routing/ | Accent tied to the first glance, routing clear of zone borders and shared stubs, HVR line last, failed scenarios rerun | In Progress |
 
 ### Phase Transition Rules
 

@@ -23,9 +23,9 @@ contextType: "general"
 | **Created** | 2026-10-21 |
 | **Branch** | `main` |
 | **Parent Spec** | ../spec.md |
-| **Phase** | 32 of 32 |
+| **Phase** | 32 of 33 |
 | **Predecessor** | ../031-round-three-apply |
-| **Successor** | None |
+| **Successor** | ../033-composed-boards |
 | **Handoff Criteria** | The change is applied, mirrored and every gate passes |
 <!-- /ANCHOR:metadata -->
 

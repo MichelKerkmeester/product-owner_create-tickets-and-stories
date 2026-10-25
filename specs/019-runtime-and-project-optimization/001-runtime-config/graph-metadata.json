@@ -44,7 +44,6 @@
       "scripts/code-mode.cjs",
       "scripts/vendor-sync.py",
       "scripts/tests/test_vendor_sync.py",
-      "scripts/build-plugin.py",
       "benchmark/gates/check_hub.py"
     ],
     "entities": [
@@ -100,12 +99,6 @@
         "name": "test_vendor_sync.py",
         "kind": "file",
         "path": "scripts/tests/test_vendor_sync.py",
-        "source": "derived"
-      },
-      {
-        "name": "build-plugin.py",
-        "kind": "file",
-        "path": "scripts/build-plugin.py",
         "source": "derived"
       },
       {
@@ -191,11 +184,17 @@
         "kind": "proper_noun",
         "path": "tasks.md",
         "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
       }
     ],
     "causal_summary": "The Product Owner repository vendors mcp-click-up and mcp-figma, but it carries no .utcpconfig.json, no .mcp.json and no opencode.json, and its Code Mode launcher lives only in the private .skilled tree, so a clone of the public repo cannot reach ClickUp or Figma through Code Mode",
     "created_at": "2026-10-21T13:45:28.245Z",
-    "last_save_at": "2026-10-21T20:25:28.437Z",
+    "last_save_at": "2026-10-24T07:32:22.141Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -206,10 +205,10 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:43053773c868f5a6a8a80944546c80e51465e7d05529c7fb099db0c402ded961",
+    "source_fingerprint": "sha256:7d09def5c8fa36b66d94a8d1b611a3b17d06d3c7d16f24e4ff2d0283cd21d4ab",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "005cbe23b2a8f184e438100319d2b9765274368b41abe5bc417f9ed2ab569ff8",
+      "spec.md": "d55165071110451ff9761eb38ae049eef57b2c9b7fa162d43e3f4d52cbb7b380",
       "plan.md": "f1d5f58ecc6bc062c6cb245bb3827e6edffefec8a7ebc40520269bb22f967c6f",
       "tasks.md": "eca5abc0b08dfb55907012ba1de9e11659b64576c7869ca646e704ff893702a3",
       "implementation-summary.md": "32115bb7b368602f202101fd187fc8f5a609a47ff57563437c8a74579a8225ba"

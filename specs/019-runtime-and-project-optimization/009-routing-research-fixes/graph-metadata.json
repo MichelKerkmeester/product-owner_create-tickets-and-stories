@@ -191,7 +191,7 @@
     ],
     "causal_summary": "The 008 research found gates that miss what they describe, a stale plugin build, no link check, an oversized kernel, stale README counts, unread config entries and small deviations from sk-code-skilled",
     "created_at": "2026-10-21T18:52:37.666Z",
-    "last_save_at": "2026-10-21T20:25:42.076Z",
+    "last_save_at": "2026-10-24T07:32:34.048Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -202,10 +202,10 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:46703f1d1fd5b3d93f34d67cd14c3428971ba1cdd7033743841b4a221c75d70e",
+    "source_fingerprint": "sha256:9a99fb51de72f2be7762edae34f5b06b57d598395234d9daed747cb60ce0a5df",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "0c7582b72fa3a791e90da8b0a012575c63e9cbf410fb42b59db30c38afad84c4",
+      "spec.md": "bd1a50539317f682354aa077583013c89e8768459d355421435cc909dbbd2e3c",
       "plan.md": "d20cc375fadb8a91a280ced3eac3ed24ae04bc1649686d71f4ee5c5818031cf4",
       "tasks.md": "03926219140c6896fd89cefa5852fe9a3b943ba0cc241b60368b1f268cf2980a",
       "implementation-summary.md": "1a7e013a10f9745d9c8851fa0e7f90a27b26afd9278b8af27746052bbd4ff481"

@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/034-stop-and-label-fixes",
+  "spec_folder": "017-figjam-flow-generation/034-stop-and-label-fixes",
+  "parent_id": "017-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "stop and label fixes",
+      "stop and label fixes plan",
+      "stop and label fixes tasks",
+      "stop and label fixes acceptance criteria",
+      "stop and label fixes goal",
+      "stop and label fixes implementation summary"
+    ],
+    "key_topics": [
+      "stop",
+      "label",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "sonnet",
+      "run",
+      "merged"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement The",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Make",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Scope",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Each",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Fix",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Completion Criteria",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Verification Checklist",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Verification Protocol",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Completion Impact",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The 2026-10-24 Sonnet run merged the playback and the gate into one stop and wrote on the reading yes in several scenarios, wrote on an answer to a question it never asked, and the composer let a second edge into one target and connectors cross zone titles",
+    "created_at": "2026-10-25T11:02:37.757Z",
+    "last_save_at": "2026-10-25T11:14:32.626Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:6ca1c26b97c8e70e56958ec62ebe8c4a968a06230e2bb38fbf618ac4da054c11",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "f9a7a311a348800539ef6e21e25bc8e5b9985dba641e199f9c15d609db3ebe16",
+      "plan.md": "9dcaff0fe19a9702945544e3f1d45e116dac6a661e9417959194460b9d43394d",
+      "tasks.md": "da6be8540c02b849607c9dfe22729c694512c4fbcf9b26951dc51934be2e7563",
+      "implementation-summary.md": "07dc8c90889be898673e6a5d4e92f22a3177c9011ebf2508839f15be7571efde"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

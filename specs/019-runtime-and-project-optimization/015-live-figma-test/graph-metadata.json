@@ -188,7 +188,7 @@
     ],
     "causal_summary": "The FigJam Flow scenarios that need a live session or Figma Desktop were never run, so the fj write route and the conversational Flow behavior have no live evidence",
     "created_at": "2026-10-22T10:47:56.334Z",
-    "last_save_at": "2026-10-23T07:20:14.519Z",
+    "last_save_at": "2026-10-24T07:32:42.812Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -198,10 +198,10 @@
       "acceptance-criteria.md",
       "goal.md"
     ],
-    "source_fingerprint": "sha256:152f6bf273a471828e8d02984806142fb1699aaf8e8f029d9092de6887f18400",
+    "source_fingerprint": "sha256:f4dd22b32c4af1604213a92c22bc2f58de5e52084a461daea6ac35606131bcb7",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "9cd83dab466c0ff3656b2994fa5607d5309dad10172c88a5a6866f32649b131b",
+      "spec.md": "6074b3c9d909c0e02b532788abfe23d4cd04119efbf1a15109c003f2553643c4",
       "plan.md": "54694561d5ef6e497123148ac1506231928058947dc2981d1d00b5defaaa839c",
       "tasks.md": "0f6b83bef84671883e5fc173a968de3129e3e0fc7c4e2d90236f12ccdb2e95d6"
     },

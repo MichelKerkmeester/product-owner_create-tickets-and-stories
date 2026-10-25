@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "packet_id": "019-runtime-and-project-optimization/018-project-parity",
+  "spec_folder": "019-runtime-and-project-optimization/018-project-parity",
+  "parent_id": "019-runtime-and-project-optimization",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "project parity",
+      "project parity plan",
+      "project parity tasks",
+      "project parity acceptance criteria",
+      "project parity goal",
+      "project parity implementation summary"
+    ],
+    "key_topics": [
+      "project",
+      "parity",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "claude",
+      "package",
+      "mirrored"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement The Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Audit",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Each",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Fix",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Completion Criteria",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Verification Checklist",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Verification Protocol",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Acceptance Criteria",
+        "kind": "proper_noun",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Verification",
+        "kind": "proper_noun",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The Claude Project package was mirrored by hand across many phases, the parity gate still reports quality-scoring.md as changed after its mirror, and the composed-board route has not been checked end to end for a Project reader with no Python",
+    "created_at": "2026-10-24T17:19:01.374Z",
+    "last_save_at": "2026-10-24T17:19:01.374Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:699ac99fcb71c871c295fd9c68a6bffd02acd0d224db4b33374ee52c5c76368d",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "7e01be18297e01e92119b906277a432b1d120bb1d1545b9b9cb2cf15afb2db91",
+      "plan.md": "b9db2c54e5f98a6af1fd2e3d679891509ecb67923c391c844edf442730f04b8d",
+      "tasks.md": "2d5f9bdc0223e4072ec8e0a628c85f3e3baf2dc0a6e0be532039c536f257647f",
+      "implementation-summary.md": "ed7e635f03f6a0b76d2acbfc8ea882c9e5a4e6e23a0a9ddbbf3145b9ae07be91"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

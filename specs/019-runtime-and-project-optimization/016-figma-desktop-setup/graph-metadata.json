@@ -191,7 +191,7 @@
     ],
     "causal_summary": "Repo users meet the fj route only as a missing route: README, USER-GUIDE and the Project say nothing about figma-ds-cli, and Flow Mode's No route names no way to set it up",
     "created_at": "2026-10-22T10:47:56.334Z",
-    "last_save_at": "2026-10-23T07:20:16.057Z",
+    "last_save_at": "2026-10-24T07:32:45.394Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -202,10 +202,10 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:ff8d700a2b4cde6c21e989cfe5cde8cb6af5630a47d983e3708438ead94f346a",
+    "source_fingerprint": "sha256:fea7d38aa72e5abc98bcab86ceedc7ca80caf2841175b9c6221efd1031745175",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "13e897b88bd8a5daaaae4e740c95fd785e70122668f15b29546ad305ed94c176",
+      "spec.md": "b4495e6ed4d79e3defadd0d298f5e8570fde3038ab48c82dd483b5d75d52c4a5",
       "plan.md": "a36a9916cba379cefea37bb2cde362a109ad3166db17136c812ce5505d3f257b",
       "tasks.md": "d75c17da45e4b3fd6ec226bf32a00044bf52f52e124c9d93596c2ea52a8056c6",
       "implementation-summary.md": "defba8ab97ac78758b63974d6a9b825c760cbb27cce676a6a2d93939ff28711d"

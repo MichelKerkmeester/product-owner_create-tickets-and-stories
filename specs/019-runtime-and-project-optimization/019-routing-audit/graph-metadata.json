@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "packet_id": "019-runtime-and-project-optimization/019-routing-audit",
+  "spec_folder": "019-runtime-and-project-optimization/019-routing-audit",
+  "parent_id": "019-runtime-and-project-optimization",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "routing audit",
+      "routing audit plan",
+      "routing audit tasks",
+      "routing audit acceptance criteria",
+      "routing audit goal",
+      "routing audit implementation summary"
+    ],
+    "key_topics": [
+      "routing",
+      "audit",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "runs",
+      "agents",
+      "hub"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement Routing",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Audit",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Scope",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Each",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Fix",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Completion Criteria",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Verification Checklist",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Verification Protocol",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Completion Impact",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Routing runs through AGENTS.md, the hub SKILL.md, hub-router.json, the packet routers, the leaf manifest, the router fixtures, the shared agent-router command and the Project kernel, and the composed-board work changed what several of them point at",
+    "created_at": "2026-10-24T17:19:04.001Z",
+    "last_save_at": "2026-10-24T17:19:04.001Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:9ae21a6dca0f6c90f223df0abfbe30cb474569b3c217bd83c716e4712a3ebe33",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "433471da9f9dc9fb49eab6cb7aae87531ba8cba8c7a3accabcc20634573675b1",
+      "plan.md": "e36ea332ae947d1f65faaee9c384c25a789338f5405a8d5ea1a1b67422c2d3f9",
+      "tasks.md": "25e24fdfa05c31142d37ba166cb7335fb1ae4c28189a0000c4983ee7643bab64",
+      "implementation-summary.md": "06cbc6368cd69d0bec8cf8678d3a45c002256b0e1a5e4f2fbd4832bced945325"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

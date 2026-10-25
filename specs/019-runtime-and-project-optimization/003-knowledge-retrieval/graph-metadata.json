@@ -193,7 +193,7 @@
     ],
     "causal_summary": "The Project's 62 knowledge files total 700 KB, with 28 examples and four Templates files of 36 to 48 KB, so retrieval can pull overlapping text for one request",
     "created_at": "2026-10-21T13:45:33.826Z",
-    "last_save_at": "2026-10-21T20:25:31.853Z",
+    "last_save_at": "2026-10-24T07:32:24.928Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -205,10 +205,10 @@
       "decision-record.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:d8dc9dc25641ecd329e690a3b35603f30f12b72376c173f571032c451f2800fb",
+    "source_fingerprint": "sha256:bc19b1669237cb00c67bf20f7100be945d7dcf184805da0c4a2905b73d09c524",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "49384a4e51f5405e0544130dedfeef2df5c07c1d12355c640049696d46eeef1a",
+      "spec.md": "1d551a6b3d84468e4c7787c9f47459f2dc733f6fdf449fd956808c9187b2eabc",
       "plan.md": "a603ef389d34822c3a374e2096dd134f7e84b0b6d5c4e4115d2d47c59c0709ac",
       "tasks.md": "45605f00b5e51fe5183d46e836d58da85c3cd4d37f3bdfa8baaa8a8793d46999",
       "decision-record.md": "de39145c7344e9457e81c6f342300879de6b42d5783e861c26cd171d44cfbeea",

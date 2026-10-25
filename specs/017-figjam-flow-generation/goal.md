@@ -44,13 +44,13 @@ Frozen choices. Changing one is an amendment.
 
 | ID | Decision |
 |----|----------|
-| D1 | FigJam is the only output, and flow quality follows sk-design-diagram rules. |
-| D2 | The plugin follows Media Editor's, and the hub follows sk-create-skill's parent-hub contract at the repo root. |
-| D3 | Research comes first, and its synthesis names the later phases. |
-| D4 | Research runs on DeepSeek V4.1 Flash max via cli-pi, falling back to GLM 5.3 Flash max, Luna max fast, then SWE 2 max. DeepSeek writes the synthesis. |
-| D5 | Flow Mode writes through hosted generate_diagram, with fj as the Desktop fallback. |
-| D6 | Flow Mode replies with the board URL, the read-back line, the `Extensions:` and `Left out:` lines when they apply and the HVR self-scan, and saves no export file. |
-| D7 | The plugin ships skills only: no bin folder, no MCP server entry. |
+| D1 | FigJam is the only output and flows follow sk-design-diagram. |
+| D2 | The plugin follows Media Editor's and the hub sk-create-skill's parent-hub contract. |
+| D3 | Research comes first and names the later phases. |
+| D4 | Research runs on DeepSeek V4.1 Flash max via cli-pi with three fallbacks, and DeepSeek writes the synthesis. |
+| D5 | Flow Mode composes each board with use_figma from a checked model. |
+| D6 | Flow Mode replies with the board URL, read-back, `Extensions:` and `Left out:` lines when they apply and the HVR self-scan, and saves no export. |
+| D7 | The plugin ships skills only, no bin folder or MCP server. |
 
 <!-- /ANCHOR:directive -->
 
@@ -96,6 +96,9 @@ phase and binds as if written here.
 | 030 | `030-figjam-research-three/goal.md` |
 | 031 | `031-round-three-apply/goal.md` |
 | 032 | `032-clickup-push-targets/goal.md` |
+| 033 | `033-composed-boards/goal.md` |
+| 034 | `034-stop-and-label-fixes/goal.md` |
+| 035 | `035-first-glance-and-routing/goal.md` |
 
 **Precedence.** Decisions above outrank child detail. Child detail outranks any
 summary of it. Name a conflict rather than resolving it silently.
@@ -144,4 +147,5 @@ and findings belong here.
 | D4 amendment | On 2026-10-21 the operator asked for DeepSeek for all research, so D4 moved the synthesis from a fresh Opus 5.5 high agent to DeepSeek and was shortened to fit phase 030's binding row |
 | Budget cut 2 | On 2026-10-21 phase 031's binding row needed room, so the first criterion and D7 were reworded with no criterion removed |
 | Budget cut 3 | On 2026-10-21 the operator placed the ClickUp push targets under this packet as phase 032, so D1, D4, D6 and D7 were reworded to fit its binding row, each keeping its meaning |
+| Budget cut | On 2026-10-25 D5 was amended to the composed route phase 033 built, which replaced hosted generate_diagram, and D1, D3, D4 and D6 were shortened to fit rows 033 and 034, with no criterion removed. D4's fallbacks are GLM 5.3 Flash max, Luna max fast and SWE 2 max. D1, D2 and D7 lost a few words for row 035. The slice now sits just under 4,000, so a phase 036 means splitting 033 onward into a nested parent as 029 was |
 <!-- /ANCHOR:log -->

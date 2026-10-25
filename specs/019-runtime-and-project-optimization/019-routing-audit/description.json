@@ -1,0 +1,17 @@
+{
+  "specFolder": "019-runtime-and-project-optimization/019-routing-audit",
+  "description": "Phase 19: Routing audit",
+  "keywords": [
+    "routing",
+    "audit"
+  ],
+  "lastUpdated": "2026-10-21T18:00:00.000Z",
+  "specId": "019",
+  "folderSlug": "routing-audit",
+  "parentChain": [
+    "019-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

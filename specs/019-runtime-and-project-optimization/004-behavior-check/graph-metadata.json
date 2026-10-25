@@ -192,7 +192,7 @@
     ],
     "causal_summary": "Cuts to the kernel and the knowledge set can change what the Project writes even when every gate stays green",
     "created_at": "2026-10-21T13:45:36.127Z",
-    "last_save_at": "2026-10-21T20:25:33.499Z",
+    "last_save_at": "2026-10-24T07:32:26.325Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -203,10 +203,10 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:8878b08459c64453656ae9781e94c0e43bf76433d2f9c548f3268e8cc8e4f38c",
+    "source_fingerprint": "sha256:c84e8d89cce9dc2b247c1d691c0d4568bed75d6f83b6ff84e520029f96926bde",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "2e5c7bc4cba63677e4ea33c34e21729a033be31651f2226e09404642a33708bb",
+      "spec.md": "7fad5a6dcdbda7a9b262470fa4434c46a51eecd098b130d455e66638a2288e0c",
       "plan.md": "afe1db6043878405f1a3bb2a0735edfd68e473000e8c1a0ac6adb9f0a8b592fe",
       "tasks.md": "1d93689edbca92ad5876887daae1c4c9a1a153e12c2e89ec5b54d3358ccb7d35",
       "implementation-summary.md": "dfa15c39264ab068a2ffb6aa0ba388323e78db69aecb5dae7f3a63c89d8c8de9"

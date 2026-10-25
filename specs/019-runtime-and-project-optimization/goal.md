@@ -73,6 +73,7 @@ phase and binds as if written here.
 | 014 | `014-user-guide-rewrite/goal.md` |
 | 015 | `015-live-figma-test/goal.md` |
 | 016 | `016-figma-desktop-setup/goal.md` |
+| 017 | `017-remove-claude-plugin/goal.md` |
 
 **Precedence.** Decisions above outrank child detail. Child detail outranks any
 summary of it. Name a conflict rather than resolving it silently.

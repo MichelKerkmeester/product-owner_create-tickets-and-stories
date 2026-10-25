@@ -191,7 +191,7 @@
     ],
     "causal_summary": "Stage one is stated in prose, in hub-router.json sentences nothing reads and in a hand-coded Python copy, a request that opens with a tool drops the artifact it asks for, the router contract carries a dead DEFAULTRESOURCE and an unloadable entry, seven mode hand-offs are undefined or contradictory and the two leaf maps are never compared",
     "created_at": "2026-10-21T20:25:43.682Z",
-    "last_save_at": "2026-10-22T04:23:46.203Z",
+    "last_save_at": "2026-10-24T07:32:35.545Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -202,10 +202,10 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:9707f17fff0d1df229c3101c404dc7818b0a34af7157e81cddf680f1bd35bd9c",
+    "source_fingerprint": "sha256:48d325566dcffe3a9c9c953841d1442b1249fba95b3e66ebb47758b55c61e6a2",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "149989b7701b412edccfeef927af16f041abbc8b9c46d6ed62dce84a71c5f9a2",
+      "spec.md": "5f83e7a48fa07f64239595f482cf7ee2a10d07670197a0b876bb00bde6deda96",
       "plan.md": "e33809934964b3a2fc60e7d0dee1f027ec00deea29fac06794b5973ad1d9b31d",
       "tasks.md": "c788fcc4278dde54cd09874a1e1608e996d783a2101f3c288bb17890918bf9ca",
       "implementation-summary.md": "b694537f228d39f6c9048f9e6ae2cdeb5e21d23038d4e31390ce730a6792b8b6"
