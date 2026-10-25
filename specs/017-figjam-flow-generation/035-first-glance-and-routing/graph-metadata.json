@@ -15,7 +15,9 @@
       "first glance and routing plan",
       "first glance and routing tasks",
       "first glance and routing acceptance criteria",
-      "first glance and routing goal"
+      "first glance and routing goal",
+      "first glance and routing decision",
+      "first glance and routing implementation summary"
     ],
     "key_topics": [
       "first",
@@ -26,19 +28,21 @@
       "acceptance",
       "criteria",
       "goal",
-      "rerun",
-      "held",
-      "stop",
-      "discipline"
+      "decision",
+      "implementation",
+      "summary",
+      "rerun"
     ],
     "importance_tier": "normal",
-    "status": "in_progress",
+    "status": "complete",
     "key_files": [
       "spec.md",
       "plan.md",
       "tasks.md",
       "acceptance-criteria.md",
-      "goal.md"
+      "goal.md",
+      "decision-record.md",
+      "implementation-summary.md"
     ],
     "entities": [
       {
@@ -72,13 +76,19 @@
         "source": "derived"
       },
       {
-        "name": "Feature Specification",
-        "kind": "proper_noun",
-        "path": "spec.md",
+        "name": "decision-record.md",
+        "kind": "doc",
+        "path": "decision-record.md",
         "source": "derived"
       },
       {
-        "name": "In Progress",
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
         "kind": "proper_noun",
         "path": "spec.md",
         "source": "derived"
@@ -103,6 +113,12 @@
       },
       {
         "name": "In Scope",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Claude Project",
         "kind": "proper_noun",
         "path": "spec.md",
         "source": "derived"
@@ -172,23 +188,11 @@
         "kind": "proper_noun",
         "path": "tasks.md",
         "source": "derived"
-      },
-      {
-        "name": "Completion Impact",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
-      },
-      {
-        "name": "Acceptance Criteria",
-        "kind": "proper_noun",
-        "path": "acceptance-criteria.md",
-        "source": "derived"
       }
     ],
     "causal_summary": "The 2026-10-25 rerun held stop discipline in all 18 scenarios but passed only 2: on most boards the planned first glance does not read first because the accent is optional, shares a hue with a kind fill and loses to the start pill, architecture and ER edges run along zone borders and share stubs and corridors, replies carry text after the HVR line, and four model misses trace to skill wording",
     "created_at": "2026-10-25T11:27:55.414Z",
-    "last_save_at": "2026-10-25T11:27:55.414Z",
+    "last_save_at": "2026-10-25T14:47:39.805Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -196,14 +200,18 @@
       "plan.md",
       "tasks.md",
       "acceptance-criteria.md",
-      "goal.md"
+      "goal.md",
+      "decision-record.md",
+      "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:812838cabe50342e548d56c060df4972cd07360607a9e8ae42da99c6696c9884",
+    "source_fingerprint": "sha256:cc67dcd215d5712130c7cf2bfd7a7ea805fe19823c9d0401b4aa38f9a29a458b",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "01e051aa66d44fe03faf97d32721b33f711ceffcf914318586c2db7118f51d5a",
+      "spec.md": "f6313f75c5ec90638d89e252991fca84bf27d4c4f9c187a35d15b6ad1e71b4d7",
       "plan.md": "bb0834d6b01cb7677247b2347eca25f45b3f8716d30edacbab51ea06eca46ef6",
-      "tasks.md": "11c36757ecd58c2cc8fb55ef6af5108c77e57e41b9d3ba58f85bb9a267af538e"
+      "tasks.md": "f944d46d8413cfa5a152659179259f7b6f544cb59f9ee5dfc753a29d6a7bc183",
+      "decision-record.md": "9f6469b98ac809dcf7104b9bfcff2f8c9b8ff945b0b2f41960d4cc8be6af2bd5",
+      "implementation-summary.md": "939cfb594ec770ea9eed42892c520ab4f517f8d95ca1199c78021b2007c29cc2"
     },
     "last_active_child_id": null,
     "last_active_at": null

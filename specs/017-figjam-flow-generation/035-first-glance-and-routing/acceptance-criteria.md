@@ -18,7 +18,7 @@ _memory:
       fingerprint: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       session_id: "1004bf13-7863-4447-a63e-6ad2f5fcfd86"
       parent_session_id: null
-    completion_pct: 0
+    completion_pct: 100
     open_questions: []
     answered_questions: []
 ---
@@ -38,7 +38,7 @@ _memory:
 
 **Packet:** product-owner/017-figjam-flow-generation/035-first-glance-and-routing
 **Level:** 2
-**Status:** In Progress
+**Status:** Complete
 **Date:** 2026-10-21
 <!-- /ANCHOR:metadata -->
 
@@ -51,10 +51,10 @@ One row per criterion. `AC-ID` is stable once written: supersede a criterion, ne
 
 | AC-ID | REQ | Given / When / Then | Verification | Status | Waiver |
 |-------|-----|---------------------|--------------|--------|--------|
-| AC-001 | REQ-001 | Given a model and its planned first glance, When it is checked and composed, Then the accent sits on that node in a hue no kind uses | Pending | Unmet | - |
-| AC-002 | REQ-002 | Given an architecture or ER model, When it is composed, Then no edge runs along a zone border and no two edges share a stub or corridor | Pending | Unmet | - |
-| AC-003 | REQ-003 | Given a Flow delivery, When the reply is read, Then the HVR self-scan is its last line | Pending | Unmet | - |
-| AC-004 | REQ-004 | Given the rerun, When the failed scenarios are graded, Then Composition scores 2 on every scored board | Pending | Unmet | - |
+| AC-001 | REQ-001 | Given a model and its planned first glance, When it is checked and composed, Then the accent sits on that node in a hue no kind uses | Every scored rerun board shows the pink outline on the planned node, `grades/g7-035-*.md` and the recheck boards | Met | - |
+| AC-002 | REQ-002 | Given an architecture or ER model, When it is composed, Then no edge runs along a zone border and no two edges share a stub or corridor | No crossing or border run on the recheck architecture and ER boards, `grades/g9-035-recheck.md` | Met | - |
+| AC-003 | REQ-003 | Given a Flow delivery, When the reply is read, Then the HVR self-scan is its last line | 18 of 18 delivery replies end on the HVR self-scan, `results.jsonl` signals | Met | - |
+| AC-004 | REQ-004 | Given the rerun, When the failed scenarios are graded, Then Composition scores 2 on every scored board | Every scored board scores 2 except FJ-030 at 1, `grades/g11-035-fj030.md` | Waived | ADR-001 |
 
 ### Status values
 
@@ -79,7 +79,7 @@ waiver is treated as an unmet criterion rather than as a pass.
 <!-- ANCHOR:closure -->
 ## 3. CLOSURE STATEMENT
 
-**Closeable:** No
+**Closeable:** Yes
 
-The fixes have not landed.
+Every row is Met, or Waived by ADR-001, with the evidence named in its Verification cell.
 <!-- /ANCHOR:closure -->

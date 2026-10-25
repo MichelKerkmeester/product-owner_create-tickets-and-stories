@@ -158,9 +158,9 @@ _memory:
 
 | Category | Total | Verified |
 |----------|-------|----------|
-| P0 Items | 5 | 0/5 |
-| P1 Items | 3 | 0/3 |
+| P0 Items | 5 | 5/5 |
+| P1 Items | 3 | 3/3 |
 | P2 Items | 0 | 0/0 |
 
-**Verification Date**: Pending
+**Verification Date**: 2026-10-25
 <!-- /ANCHOR:summary -->

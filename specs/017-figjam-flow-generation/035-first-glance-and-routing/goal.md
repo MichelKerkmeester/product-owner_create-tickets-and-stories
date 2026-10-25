@@ -52,9 +52,9 @@ Frozen choices. Changing one is an amendment.
 <!-- ANCHOR:completion -->
 ## 3. COMPLETION CRITERIA
 
-- [ ] All gates pass
-- [ ] Composer and check self-tests pass
-- [ ] validate.sh --strict on 035-first-glance-and-routing prints RESULT: PASSED
+- [x] All gates pass
+- [x] Composer and check self-tests pass
+- [x] validate.sh --strict on 035-first-glance-and-routing prints RESULT: PASSED
 <!-- /ANCHOR:completion -->
 
 ---
@@ -71,4 +71,6 @@ and findings belong here.
 | Item | State | Evidence |
 |------|-------|----------|
 | Opened | Done | 2026-10-21 |
+| Fixes landed | Done | 2026-10-25: accent outline on the first glance, touch counted as a crossing, reply tail and stop order, composer self-test 815 of 815, check self-test 158 of 158 |
+| Rerun | Done | 2026-10-25: 18 scenarios and two rechecks, 13 pass, every scored board at Composition 2 except FJ-030, waived by ADR-001 |
 <!-- /ANCHOR:log -->
