@@ -1,0 +1,219 @@
+{
+ "id": "FJ-023",
+ "label": "glm",
+ "model": "glm-5-3-flash-max",
+ "permission": "dangerous",
+ "runtime": "devin-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/process-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "make a FigJam process of how a Fernhouse damaged-item refund moves between the customer, CS and the warehouse, on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse. From the support runbook: the customer reports damage with a photo through the help form. A CS agent checks the photo, approves clear damage on the spot and asks for a second photo when it is unclear. An approved claim goes to the warehouse queue, where an operator books a courier pickup, inspects the item on arrival and releases the refund. Every decision is logged in the claims table. Refunds under 20 euros skip the pickup, a pilot that is not yet live.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "rattle-vehicle",
+ "attempts": 3,
+ "failures": [
+  {
+   "attempt": 1,
+   "turn": 3,
+   "status": "error",
+   "rc": 1
+  },
+  {
+   "attempt": 2,
+   "turn": 3,
+   "status": "error",
+   "rc": 1
+  }
+ ],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 306.01,
+   "tool_calls": 52,
+   "tools_used": [
+    "exec",
+    "find_file_by_name",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "exec",
+    "mcp_list_tools",
+    "exec",
+    "mcp_call_tool",
+    "exec",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec",
+    "mcp_call_tool",
+    "exec",
+    "exec",
+    "mcp_read_resource",
+    "mcp_read_resource",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_list_tools",
+    "mcp_call_tool",
+    "exec",
+    "mcp_call_tool",
+    "exec",
+    "get_output",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec",
+    "get_output",
+    "mcp_call_tool",
+    "exec",
+    "exec",
+    "exec",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec",
+    "read",
+    "exec",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_call_tool"
+   ],
+   "input_tokens": 4121462,
+   "output_tokens": 43083,
+   "cached_tokens": 3807360,
+   "response_models": [
+    "glm-5-3-flash-max"
+   ],
+   "session_id": "rattle-vehicle",
+   "inner_calls": [
+    "create_session",
+    "create_session",
+    "get_figjam",
+    "get_figjam",
+    "use_figma",
+    "use_figma",
+    "use_figma",
+    "use_figma",
+    "use_figma",
+    "get_figjam",
+    "use_figma",
+    "use_figma",
+    "whoami",
+    "whoami",
+    "use_figma",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "make a FigJam process of how a Fernhouse damaged-item refund moves between the customer, CS and the warehouse, on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse. From the support runbook: the customer reports damage with a photo through the help form. A CS agent checks the photo, approves clear damage on the spot and asks for a second photo when it is unclear. An approved claim goes to the warehouse queue, where an operator books a courier pickup, inspects the item on arrival and releases the refund. Every decision is logged in the claims table. Refunds under 20 euros skip the pickup, a pilot that is not yet live.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 66.78,
+   "tool_calls": 4,
+   "tools_used": [
+    "exec",
+    "exec",
+    "exec",
+    "mcp_call_tool"
+   ],
+   "input_tokens": 775368,
+   "output_tokens": 10580,
+   "cached_tokens": 760320,
+   "response_models": [
+    "glm-5-3-flash-max"
+   ],
+   "session_id": "rattle-vehicle",
+   "inner_calls": [
+    "use_figma"
+   ],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 82.29,
+   "tool_calls": 12,
+   "tools_used": [
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec"
+   ],
+   "input_tokens": 2216883,
+   "output_tokens": 12119,
+   "cached_tokens": 2192256,
+   "response_models": [
+    "glm-5-3-flash-max"
+   ],
+   "session_id": "rattle-vehicle",
+   "inner_calls": [
+    "generate_diagram",
+    "get_figjam",
+    "get_screenshot",
+    "get_screenshot",
+    "get_screenshot"
+   ],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "DELIVERY"
+  }
+ ]
+}

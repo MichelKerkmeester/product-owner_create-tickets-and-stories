@@ -1,0 +1,168 @@
+{
+ "id": "FJ-023",
+ "label": "swe",
+ "model": "swe-2-max",
+ "permission": "dangerous",
+ "runtime": "devin-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/process-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "make a FigJam process of how a Fernhouse damaged-item refund moves between the customer, CS and the warehouse, on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse. From the support runbook: the customer reports damage with a photo through the help form. A CS agent checks the photo, approves clear damage on the spot and asks for a second photo when it is unclear. An approved claim goes to the warehouse queue, where an operator books a courier pickup, inspects the item on arrival and releases the refund. Every decision is logged in the claims table. Refunds under 20 euros skip the pickup, a pilot that is not yet live.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "fragrant-dollar",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "114:4602"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 184.15,
+   "tool_calls": 34,
+   "tools_used": [
+    "exec",
+    "read",
+    "read",
+    "exec",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "mcp_list_tools",
+    "grep",
+    "read",
+    "read",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "grep",
+    "read",
+    "grep",
+    "grep",
+    "read",
+    "grep",
+    "grep",
+    "read",
+    "mcp_read_resource",
+    "mcp_read_resource",
+    "mcp_call_tool"
+   ],
+   "input_tokens": 1714002,
+   "output_tokens": 19518,
+   "cached_tokens": 1593152,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "fragrant-dollar",
+   "inner_calls": [
+    "create_session",
+    "get_figjam",
+    "use_figma"
+   ],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "make a FigJam process of how a Fernhouse damaged-item refund moves between the customer, CS and the warehouse, on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse. From the support runbook: the customer reports damage with a photo through the help form. A CS agent checks the photo, approves clear damage on the spot and asks for a second photo when it is unclear. An approved claim goes to the warehouse queue, where an operator books a courier pickup, inspects the item on arrival and releases the refund. Every decision is logged in the claims table. Refunds under 20 euros skip the pickup, a pilot that is not yet live.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 29.85,
+   "tool_calls": 3,
+   "tools_used": [
+    "write",
+    "exec",
+    "exec"
+   ],
+   "input_tokens": 557027,
+   "output_tokens": 2829,
+   "cached_tokens": 556288,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "fragrant-dollar",
+   "inner_calls": [],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 246.4,
+   "tool_calls": 6,
+   "tools_used": [
+    "read",
+    "read",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_call_tool"
+   ],
+   "input_tokens": 920220,
+   "output_tokens": 24039,
+   "cached_tokens": 793664,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "fragrant-dollar",
+   "inner_calls": [
+    "use_figma",
+    "get_figjam",
+    "get_screenshot",
+    "use_figma"
+   ],
+   "composed": true,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "boards": [
+    "114:4602"
+   ],
+   "kind": "DELIVERY"
+  }
+ ]
+}
