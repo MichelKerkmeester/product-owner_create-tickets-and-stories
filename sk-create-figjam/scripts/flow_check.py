@@ -5,9 +5,9 @@
 
 """Check a FigJam diagram model before it is written to a board.
 
-A board is slow to fix once it exists: the generator owns its layout, and
-moving its nodes breaks the connectors. Worse, the generator silently drops
-much of what Mermaid can say, so a model can promise a reader something the
+A board is slow to fix once it exists: the composer owns its layout, so every
+fix is a new write. Worse, neither the composer nor the generated fallback
+draws all that Mermaid can say, so a model can promise a reader something the
 board never shows. The rules each diagram kind carries are checked on the
 Mermaid model first, and a model that breaks one is never written. The same
 parse is measured, so a shape that is legal and still hard to read, such as a
@@ -19,9 +19,9 @@ Each Mermaid block in the file is one diagram, read by its header:
 - `flowchart` is a user flow unless a `%% type: process` or
   `%% type: architecture` comment line says otherwise
 - `sequenceDiagram`, `stateDiagram-v2`, `erDiagram` and `gantt` are the other
-  four kinds the board generator draws
-- any other header, such as `pie`, `mindmap` or `journey`, is a kind the
-  generator does not draw and fails
+  four kinds Flow Mode draws
+- any other header, such as `pie`, `mindmap` or `journey`, is a kind Flow
+  Mode does not draw and fails
 
 The rules for each kind live in `figjam_checks/`, and `references/types/`
 explains each one. Flowcharts and state diagrams are parsed by
@@ -31,7 +31,11 @@ renders or runs anything in a label. Sequence, ER and gantt blocks are parsed
 by their own modules, because the extractor drops a sequence's dropped
 features, the fields of an aliased entity and every gantt chart. Every
 diagram of one flow runs the same direction, so two user flows or two
-processes in one file must agree on it.
+processes in one file must agree on it. A user flow and a process must also
+carry one `style` line, because the board marks the first glance with its one
+accent and has no other way to know where it falls.
+A model that passes is composed into a board by `compose_board.py`, which keeps
+its own self-test.
 
 Usage:
   flow_check.py <model.md|model.mmd>  -> 0 every diagram passes, 1 a rule fails, 2 unreadable
@@ -94,10 +98,10 @@ def profile_of(block_text: str) -> tuple[str, list[str]]:
     word = header_word(block_text)
     directive = type_directive(block_text)
     if word in UNSUPPORTED:
-        return "", [f"a {word} block: the board generator does not draw it, see references/flow-mode.md Section 3"]
+        return "", [f"a {word} block: Flow Mode does not draw it, see references/flow-mode.md Section 3"]
     kind = HEADER_KINDS.get(word)
     if not kind:
-        return "", [f"the block header {word or '(none)'} is no diagram kind the board generator draws"]
+        return "", [f"the block header {word or '(none)'} is no diagram kind Flow Mode draws"]
     if kind == "flowchart":
         directive = directive or flowchart.USER_FLOW
         if directive not in FLOWCHART_TYPES:
@@ -175,8 +179,8 @@ def check(path: Path) -> int:
 
 
 # The shipped templates, the worked examples and their Project mirrors must
-# keep passing the rules they teach. The mirrors are absent from a plugin
-# install, which ships the skill alone, so a missing file is reported and not
+# keep passing the rules they teach. The mirrors are absent from a copy of the
+# skill without the Project package, so a missing file is reported and not
 # counted.
 KNOWLEDGE = PACKET.parent / "claude project" / "knowledge"
 SHIPPED_MODELS = (

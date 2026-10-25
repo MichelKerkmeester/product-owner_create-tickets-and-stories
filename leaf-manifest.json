@@ -23,6 +23,7 @@
     },
     {
       "leaves": [
+        "assets/compose-board.js",
         "assets/examples/architecture-loomlist-sync.md",
         "assets/examples/er-roamstay-stays.md",
         "assets/examples/gantt-loomlist-offline.md",

@@ -175,9 +175,9 @@ ENERGY_SIGNAL_VOCABULARY = {
 # pattern can never say one thing to the intent and another to the shape.
 SHAPE_FRAMES = {
     "EPIC": [
-        rf"\b(write|create|draft) (an? )?{FRAME_MODIFIER}epic\b",
+        rf"\b(write|create|draft|make) (an? )?{FRAME_MODIFIER}epic\b",
         r"\bepic (for|about|covering)\b",
-        rf"\bturn (this|these|it) into (an? )?{FRAME_MODIFIER}epic\b",
+        rf"\bturn (this|these|it|that) into (an? )?{FRAME_MODIFIER}epic\b",
         r"\b(refine|update|edit) (this |the |an? )?epic\b",
         # An initiative can be named by its scale instead of the word "epic":
         # "whole dashboard thing", "the whole creator verification programme"
@@ -196,11 +196,11 @@ SHAPE_FRAMES = {
         r"|workstream|project|effort|launch)\b",
     ],
     "STORY": [
-        rf"\b(write|create|draft) (a |an )?{FRAME_MODIFIER}(prd|product requirements? doc(?:ument)?)\b",
-        rf"\b(write|create|draft) (a |an )?{FRAME_MODIFIER}(user )?stor(y|ies)\b",
+        rf"\b(write|create|draft|make) (a |an )?{FRAME_MODIFIER}(prd|product requirements? doc(?:ument)?)\b",
+        rf"\b(write|create|draft|make) (a |an )?{FRAME_MODIFIER}(user )?stor(y|ies)\b",
         r"\buser story\b",
         r"\bstory (for|about|covering)\b",
-        rf"\bturn (this|these|it) into (a |an )?{FRAME_MODIFIER}(prd|stor(y|ies))\b",
+        rf"\bturn (this|these|it|that) into (a |an )?{FRAME_MODIFIER}(prd|stor(y|ies))\b",
         r"\b(refine|update|edit) (this |the |an? )?(prd|(user )?story)\b",
         # "Creators cannot X, we should let them" is a capability request with
         # no PRD noun anywhere in it: the denial names the gap and "let them"
@@ -273,8 +273,12 @@ SHAPE_FRAMES = {
 # the three verbs the earlier probe set happened to use.
 DOC_AUTHOR_VERBS = r"(write|create|draft|put together|pull together|prepare|assemble)"
 
+# Converting something already in hand into an artifact is the same request as
+# writing one, with the pronoun standing for the source.
+TURN_INTO = r"\bturn (?:(?:this|these|it|that) )?into (?:a |an )?"
+
 UNKNOWN_FALLBACK_CHECKLIST = [
-    "Confirm whether the user needs a task, subtask, parent task, bug report, user story or product/engineering document",
+    "Confirm whether the user needs a task, subtask, parent task, bug report, user story, product/engineering document or a diagram on a FigJam board",
     "Confirm scope, platform, user value and desired outcome",
     "Ask for evidence or reproduction steps when bug indicators appear",
     "For documentation, confirm purpose, audience, source authority and source classification",
@@ -370,7 +374,19 @@ def detect_artifact_frame(text: str) -> Optional[str]:
     text_lower = " ".join(text.lower().split())
     frames = {
         "TASK": [
-            r"\b(create|write|open|refine) (a )?(dev |development )?(task|subtask|parent task)\b",
+            # The hub treats these verbs and nouns as an artifact request, so
+            # the packet frames them too. A request that stage one sends here
+            # as a ticket would otherwise fall to the backlog question, or to
+            # Flow when the ticket's subject is a FigJam board.
+            r"\b(?:create|write|draft|make|file|log|raise|refine) (?:a |an |another )?(?:dev |development )?(?:task|subtask|parent task|ticket)s?\b",
+            # "open" is an adjective in "list my open tasks", so it counts as
+            # a verb only with an indefinite article.
+            r"\bopen (?:a |an )(?:dev |development )?(?:task|subtask|parent task|ticket)\b",
+            # "add" asks for a new artifact only with an indefinite opener:
+            # "add a task to fix the export" files one, while "add the task to
+            # the sprint" acts on one that exists.
+            r"\badd (?:a |an |another )(?:dev |development )?(?:task|subtask|parent task|ticket)s?\b",
+            rf"{TURN_INTO}(?:dev |development )?(?:task|subtask|parent task|ticket)s?\b",
             r"\btask to document\b",
             r"\bacceptance criteria\b",
             # Backlog intake for a concrete addition rarely says "task": "add
@@ -380,8 +396,13 @@ def detect_artifact_frame(text: str) -> Optional[str]:
             # after the preposition, or the literal word "component") so a
             # bare "add this capability" or "add better logging around the
             # retry loop" still falls through to the weaker unweighted
-            # feature score instead of a guaranteed direct route.
-            r"\badd (?:a |an |another )?[\w'-]+(?:\s+[\w'-]+){0,3} (?:to|on|for|in) the\b",
+            # feature score instead of a guaranteed direct route. The addition
+            # frame stays out of a request that names a FigJam object or
+            # target or carries a board link, because "add notes to the figjam
+            # board" edits a board and is no backlog intake. The two local
+            # lookaheads cover the object and the target, and the whole-line
+            # one covers a link sitting anywhere.
+            r"^(?!.*\bfigma\.com/board/).*\badd (?!(?:[\w'-]+\s+){0,4}figjam\b)(?:a |an |another )?[\w'-]+(?:\s+[\w'-]+){0,3} (?:to|on|for|in) the\b(?!(?:\s+[\w'-]+){0,3}\s+figjam\b)",
             r"\bbuild (?:a |an )?[\w'-]+(?:\s+[\w'-]+){0,4} component\b",
             # Its own narrow entry because the surrounding sentence can carry
             # a competing bug word ("search results are slow, need
@@ -393,6 +414,13 @@ def detect_artifact_frame(text: str) -> Optional[str]:
             r"\b(create|write|file) (a )?(bug report|defect report)\b",
             r"\bbug report about\b",
             r"\b(?:write|file|log) (?:a |an )?bug (?:about|for)\b",
+            # The same ask with the subject introduced by any other
+            # preposition, as in "log a bug in the figjam board". Only an
+            # indefinite article counts, so "fix a bug" stays out of the
+            # frame. "add" stays out too, because "add a bug report button to
+            # the screen" asks for a feature.
+            r"\b(?:create|write|draft|make|file|log|raise) (?:a |an )(?:bug|defect)(?![\w-])",
+            rf"{TURN_INTO}(?:bug|defect)(?![\w-])",
             # A symptom report often carries no defect noun at all: "the app
             # crashes on rotate during upload", "the checkout screen freezes
             # when you tap pay twice" and "notifications stop arriving after
@@ -438,6 +466,7 @@ def detect_artifact_frame(text: str) -> Optional[str]:
             r"\bdocument how\b",
             r"^(please )?document\b",
             r"\b(can you|could you|please) document\b",
+            rf"{TURN_INTO}(?:(?:product|engineering|technical|system) )?(?:documentation|docs?|documents?|guides?|runbooks?)\b",
             rf"\b{DOC_AUTHOR_VERBS} (an? )?(product |engineering |technical |system )?(documentation|docs|document|doc|guide|catalog|behavior reference|runbook|troubleshooting guide|implementation guide|future-state proposal|technical proposal|decision record)\b",
             rf"\b{DOC_AUTHOR_VERBS} (an? )?(api|schema|architecture|system|implementation|configuration|technical|engineering|operational|security|compliance) (documentation|docs|document|guide|reference|catalog|runbook|proposal|recommendation|analysis|decision record|plan)\b",
             rf"\b{DOC_AUTHOR_VERBS} (an? )?(rfc|adr)\b",
@@ -462,11 +491,20 @@ def detect_artifact_frame(text: str) -> Optional[str]:
             r".*\b(?:written|writing) (?:up|down)\b",
         ],
         # A FigJam board is asked for by naming the output, never by the word
-        # "figma" alone, which stays UI refinement feedback for Task Mode.
+        # "figma" alone, which stays UI refinement feedback for Task Mode. A
+        # board link names it too, because a figma.com/board address is a
+        # FigJam file by construction, while a figma.com/design address is
+        # Figma feedback and stays Task. The verb family covers drawing a new
+        # board and changing one that exists, since Flow Mode composes a
+        # revision and adds notes to a board it did not write.
         "FLOW": [
             r"\bfigjam (?:(?:user|process|architecture|sequence|state|er|gantt|data) )?(?:flow|flowchart|board|diagram|chart|map)s?\b",
             r"\b(?:flow|flowchart|diagram|chart|board|map)s? (?:in|on|into) (?:a |the )?figjam\b",
-            r"\b(?:make|create|build|draw|generate|turn)\b[^.!?]{0,60}\bfigjam\b",
+            r"\b(?:make|create|build|draw|generate|turn|map|sketch|put|lay out)\b[^.!?]{0,60}\bfigjam\b",
+            r"\b(?:add|update|redraw|revise|annotate|edit|extend|change|show)\b[^.!?]{0,60}\b(?:(?:in|on|into|to) (?:a |the )?figjam\b|figjam (?:file|sticky|stickies|notes?)\b)",
+            r"^(?:in|on|into) (?:a |the )?figjam\b",
+            r"\bfigjam (?:user flow|process|architecture|sequence|state|er|gantt)\b",
+            r"\bfigma\.com/board/",
         ],
     }
     matches = {intent for intent, patterns in frames.items() if any(re.search(pattern, text_lower) for pattern in patterns)}
@@ -497,7 +535,7 @@ def detect_artifact_frame(text: str) -> Optional[str]:
     # task keeps the route. "task and ... guide" stays a genuine multi-artifact
     # conflict.
     task_over_other = bool(re.search(
-        r"\b(task|subtask|parent task)\s+(?:to\s+(?:document|write|create|draft|refine)|(?:for|about|covering|on))\b",
+        r"\b(task|subtask|parent task|ticket)\s+(?:to\s+(?:document|write|create|draft|refine|file|log|raise|make)|(?:for|about|covering|on))\b",
         text_lower,
     ))
     bug_group_task = bool(re.search(
@@ -879,7 +917,7 @@ Phase detection order:
 2. Detect `$task --subtask` before the bare `$task` command. Both dedupe to Task intent with child-task scope.
 3. Collect every exact artifact command (`$task`/`$t`, `$bug`/`$b`, `$doc`/`$d`, `$story`/`$s`/`$prd`/`$p`, `$epic`/`$e`) instead of stopping at the first match. More than one collected command is a conflict routed to one consolidated question. `$epic`/`$e` select the Epic shape and never conflict with the `$story`/`$s`/`$prd`/`$p` Story commands, since both select Story Mode and differ only in the one scaffold they consult. `$document`, `$docs`, `$debug`, `$prds`, `$stories`, `$epics`, embedded aliases and filename-like tokens such as `$d.md` are ordinary text, never commands. Punctuation-delimited commands such as `$d,` remain valid.
 4. With exactly one command, it wins over any natural-language wording. `$quick $doc` and `$doc $quick` both mean Doc intent with Quick energy. The same order rule applies to `$quick $prd`, `$quick $story` and `$quick $epic`.
-5. With no command, detect artifact framing ("write a task/bug/PRD/doc ..."). Framing beats subject nouns and semantic scores, and more than one framing match is also a conflict. "Create a task to document X" is Task, "bug report about documentation" is Bug, and "document bug behavior" is Doc. A clear write/create/draft request whose object is documentation, docs, a document, guide, reference, catalog, runbook, proposal, recommendation or decision record routes to Doc regardless of subject modifiers (developer, API, endpoint, deployment, debugging, SDK, CLI, integration, infrastructure or service). Explicit Task or Bug framing still wins. "Recommend/select/choose/compare/analyze ... and document it" is a Doc proposal or recommendation. The "refine/update/edit" form plus a typed or titled document is a Doc refinement.
+5. With no command, detect artifact framing ("write a task/bug/PRD/doc ..."). Framing beats subject nouns and semantic scores, and more than one framing match is also a conflict. "Create a task to document X" is Task, "bug report about documentation" is Bug, and "document bug behavior" is Doc. A clear write/create/draft request whose object is documentation, docs, a document, guide, reference, catalog, runbook, proposal, recommendation or decision record routes to Doc regardless of subject modifiers (developer, API, endpoint, deployment, debugging, SDK, CLI, integration, infrastructure or service). Explicit Task or Bug framing still wins. "Recommend/select/choose/compare/analyze ... and document it" is a Doc proposal or recommendation. The "refine/update/edit" form plus a typed or titled document is a Doc refinement. A FigJam board named beside another artifact's framing is that artifact's subject, so "add a task to update the figjam board" is Task and "log a bug in the figjam board" is Bug. A FigJam output verb, a request to add notes to or update a FigJam board and a figma.com/board link are Flow framing, which any other artifact framing outranks.
 6. Apply the UI-refinement Task override only after commands and framing are checked: UI feedback and polish route to Task Mode even when "fix" or "broken" co-occurs with feedback language, because Bug Mode is reserved for unexpected system behavior.
 7. With no command or framing, score semantic topics and route by confidence threshold.
 8. Route every Doc selection through the source-authority and conflict gate before drafting, including under Quick energy. Quick may skip routine intake and use safe defaults. It never bypasses artifact-command conflicts or a Doc's source-authority, contradiction and lifecycle gates.

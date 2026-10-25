@@ -8,12 +8,12 @@ trigger_phrases:
   - "system architecture figjam"
   - "services and datastores"
   - "allowed edge table"
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # FigJam Type - Architecture
 
-An architecture shows which deployable parts make up a system and how they connect. Figma renders it with a separate grid layout, not ELK, which places every node by the lane it sits in. The layout errors or silently mis-draws when its rules are broken, so the check holds every one of them.
+An architecture shows which deployable parts make up a system and how they connect. The composer places every part by the lane it sits in, one column per lane, and colours it by that lane. Figma's generated fallback uses its own lane layout, which errors or silently mis-draws when its rules are broken, so the check holds every one of them on both routes.
 
 **Loading Condition:** CONDITIONAL, when the Flow route draws an architecture
 **Purpose:** The lanes, the allowed edges, the budget and the read-back for an architecture
@@ -50,7 +50,7 @@ Every node sits in one of six lanes. The lane id is fixed and the label is free:
 | `external` | Payment, identity, monitoring and other outside services |
 | `async` | Message infrastructure such as a queue or an event stream |
 
-The layout runs `client` to `gateway` to `service` to `datastore`, with `external` beside the stores and `async` above or below. It assigns shapes and colours by lane, so every node is written `id[Label]` with no style.
+The composer runs the lanes as columns, each a tinted section named after its label. The board stands the lanes in the order client, gateway, service, async, datastore, external, so a queue sits beside the service that writes to it. The accepted lane vocabulary and its check order are unchanged. It assigns shapes and colours by lane: a client is light teal, a gateway light blue, a service white, a store a violet cylinder, an outside system light gray and a queue an orange queue shape. So every node is written `id[Label]` with no style.
 
 ### Allowed edges
 
@@ -67,7 +67,7 @@ The layout runs `client` to `gateway` to `service` to `datastore`, with `externa
 | async | service | `-.->` | Consuming events |
 | service | external | `-.->` | A call out, labelled `"Service: Purpose"` |
 
-Anything not in the table is wrong by construction, and the fix is a service in between.
+Anything not in the table is wrong by construction, and the fix is the missing lane in between: a gateway between a client and a service, a service between a gateway and a store. So even a simplified board keeps one gateway node. A gateway node named in capability words, such as Entry point, is the lane the check requires and is marked assumed on the source line, not an invented component.
 
 ---
 
@@ -76,7 +76,7 @@ Anything not in the table is wrong by construction, and the fix is a service in 
 The check enforces:
 
 - **`flowchart LR` only,** every node in one of the six lanes, each lane declared once and never nested, and no edge joining a lane
-- **Plain `[Label]` nodes and no styling,** since the layout assigns both
+- **Plain `[Label]` nodes and no styling,** since the lane assigns both
 - **Only the edges in the table,** and every edge touching `async` or `external` dotted
 - **No two edges between the same pair.** Merge them into one edge with one label. Figma's own complete example draws two between a web app and its load balancer, which breaks its own rule, so the stricter rule wins here
 - **No cycle among the forward and two-way edges.** A returning flow is a backward edge
@@ -92,7 +92,7 @@ Judged by hand:
 - **A read replica, a shard or change data capture is not its own node** unless the flow addresses it on its own
 - **Edge labels are verbs from the source's side,** such as `Reads Users` or `Produces`
 - **No diagram carries the same label on four or more edges.** Every edge keeps its label, and each names what its own call does rather than restating the layout
-- **Never invent a service, a store or a call to fill a lane.** An empty lane is honest. Ask one focused question when the system is described only vaguely
+- **Never invent a service, a store or a call to fill a lane, except the gateway the allowed-edge table requires.** An empty lane is honest. Ask one focused question when the system is described only vaguely
 
 ---
 
@@ -102,21 +102,21 @@ Draw one flow per diagram. A system with more parts than the budget splits by re
 
 ---
 
-## 5. COLOUR AND THE HYBRID PASS
+## 5. COLOUR, ZONES AND NOTES
 
-None in the model. A note on a service, such as its owner or its latency, goes on through the label and legend recipe in `references/hybrid-workflow.md`, which suits a dense architecture best.
+None in the model. The lanes are the zones, and the lane fixes each part's colour. A note on a service, such as its owner or its latency, goes on through the pins and legend recipe in `references/hybrid-workflow.md`, which suits a dense architecture best. A `%% focus: <id>` line may name the one node the first glance lands on. It is a comment, so the model stays styleless. Architecture and sequence take no style line. A `%% focus:` line marks their first glance, and it is refused where it names nothing.
 
 ---
 
-## 6. CALLING THE TOOL
+## 6. WRITING THE BOARD
 
-`generate_diagram` with `name`, `mermaidSyntax`, `userIntent` and `useArchitectureLayoutCode` set to `"FIGMA_DIAGRAM_2026"`. Without that value the generator lays the diagram out as an ordinary flowchart. The `fj` route cannot draw an architecture.
+`scripts/compose_board.py` composes the model and one `use_figma` call draws the board, as `references/flow-mode.md` Section 6 sets out. On the generated fallback, `generate_diagram` takes `name`, `mermaidSyntax` and `userIntent`, and `useArchitectureLayoutCode` set to `"FIGMA_DIAGRAM_2026"`. Without that value the generator lays the diagram out as an ordinary flowchart. The `fj` route cannot draw an architecture.
 
 ---
 
 ## 7. READ-BACK
 
-Count nodes, connectors and lanes, and check that each node sits in its lane and each external edge is dotted.
+Count nodes, connectors and lanes, and check that each node sits inside its lane's section and each edge touching `async` or `external` is dashed.
 
 ```text
 Read-back: 8 of 8 nodes, 9 of 9 connectors, 6 of 6 lanes

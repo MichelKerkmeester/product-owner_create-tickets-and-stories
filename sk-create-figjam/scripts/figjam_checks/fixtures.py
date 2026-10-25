@@ -143,6 +143,7 @@ flowchart LR
     "a sequence beside a user flow": """```mermaid
 flowchart TD
     a([Open]) --> b([Done])
+    style b fill:#CDF4D3,stroke:#66D575
 ```
 
 ```mermaid
@@ -159,7 +160,7 @@ PLANTED = {
     # Every kind
     "an unsupported kind": ("""pie
     "Yes" : 10
-""", "a pie block: the board generator does not draw it"),
+""", "a pie block: Flow Mode does not draw it"),
     "an unknown flowchart type": ("""%% type: swimlane
 flowchart TD
     a([Start]) --> b([Done])
@@ -280,6 +281,20 @@ flowchart LR
     style b fill:#CDF4D3,stroke:#66D575
     linkStyle 0 stroke:#FF7556
 """, "2 accent colours"),
+    "a user flow with no accent": ("""flowchart TD
+    a([Start]) --> b([Done])
+""", "the model has no accent"),
+    "a process whose only colour is a connector": ("""%% type: process
+flowchart LR
+    subgraph one ["Customer"]
+        a([Ask])
+    end
+    subgraph two ["Agent"]
+        b([Answer])
+    end
+    a --> b
+    linkStyle 0 stroke:#66d575
+""", "the model has no accent"),
     "a second fill after a semicolon": ("""flowchart TD
     a([Start]) --> b([Done]); style a fill:#CDF4D3; style b fill:#FFCDC2
 """, "2 accent colours"),
@@ -444,7 +459,7 @@ flowchart LR
     end
     web -->|"Calls"| api
     api -->|"Reads"| db
-""", "not in the allowed-edge table"),
+""", "the missing lane goes in between: a gateway between a client and a service"),
     "a solid edge to an external system": ("""%% type: architecture
 flowchart LR
     subgraph service ["Services"]

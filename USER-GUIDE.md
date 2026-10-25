@@ -80,10 +80,12 @@ The Project matches each artifact against the names and teams. When one fits it 
 
 ### Figma
 
-1. Ask `$flow Draw a user flow for resetting a password: the sign-in page, a forgot-password link, an email with a reset link and a new-password page.`
-2. The reply shows the checked model and a write gate. The gate names your Figma plan, a new FigJam file, what the write adds and how to undo it, then waits.
-3. Answer `Yes`. Allow the Figma tools if Claude asks.
-4. The reply gives the board URL and a `Read-back:` line that counts what landed, such as `Read-back: 6 of 6 nodes, 6 of 6 connectors`. Open the URL to see the board.
+1. Ask `$quick $flow Draw a user flow for resetting a password: the sign-in page, a forgot-password link, an email with a reset link and a new-password page.`
+2. The first reply is one proposed Brief with the rows it assumed. Answer `Yes`. Nothing is written yet.
+3. The next reply plays the reading back: the question the board answers, the outcome it must deliver and every assumed fact. Answer `Yes`. Nothing is written yet either.
+4. The gate is its own reply, and it names your Figma plan. It also states the question and the outcome, three glance lines, a new FigJam file, what the write adds, the calls it spends and how to undo it, then waits for one yes. A yes to the Brief or the playback never writes.
+5. Answer `Yes` to the gate. Allow the Figma tools if Claude asks.
+6. The reply gives the board URL and a `Read-back:` line that counts what landed, such as `Read-back: 6 of 6 nodes, 6 of 6 connectors`. Open the URL to see the board.
 
 A Mermaid block with a note that there is no Figma connector means the connector is off in this chat, see section 6.
 

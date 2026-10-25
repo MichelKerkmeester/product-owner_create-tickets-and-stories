@@ -1,6 +1,6 @@
 # Product Owner - Examples - Flow - Architecture
 
-A worked architecture on the fictional Loomlist workspace app: an engineering doc turned into the sync path through Figma's six lanes, cut to budget with the cut named, a gate message and the reply.
+A worked architecture on the fictional Loomlist workspace app: an engineering doc turned into the sync path through Figma's six lanes, cut to budget with the cut named, a playback, a gate message and the reply.
 
 ---
 
@@ -28,11 +28,31 @@ The doc names these deployable parts: the desktop, web and iOS clients, an API g
 
 ---
 
-## 3. MODEL
+## 3. PLAYBACK
+
+The playback is its own reply, sent before the model. It waits for its own answer, and a yes to it moves the work on to the model and writes nothing.
+
+```text
+Before I draw anything, this is how I read the request.
+Question: which parts take part in sync and how do they connect?
+Outcome: the offline mode kickoff group can see which parts carry a block change from one client to the others.
+Settled by the sources: the sync-service doc gives ten deployable parts and the calls between them.
+Left out: file storage, because sync never touches it and ten parts is one over the budget.
+Assumed: balanced detail and a mixed audience, so `sync-service` reads `Sync Service`.
+Still open: none.
+Is this the right reading of the board?
+```
+
+---
+
+## 4. MODEL
 
 ```mermaid
 %% type: architecture
 flowchart LR
+    %% title: Block sync
+    %% subtitle: The parts that carry a block change from one Loomlist client to the others, for the offline mode kickoff
+    %% source: Source: the sync-service doc. Left out: file storage, off the sync path.
     subgraph client ["Clients"]
         desktop[Desktop App]
         webClient[Web Client]
@@ -82,22 +102,31 @@ Every rule in Templates - Flow Type - Architecture holds, checked one by one: 9 
 
 ---
 
-## 4. GATE
+## 5. GATE
+
+The gate is its own reply, sent after the playback's answer. Its one question asks about the write alone.
 
 ```text
-Plan: Loomlist Engineering. File: a new FigJam file, which this call creates.
-Writes: one architecture, 9 nodes and 8 connectors, named "Block sync", with useArchitectureLayoutCode.
+Question: which parts take part in sync and how do they connect?
+Outcome: the offline mode kickoff group can see which parts carry a block change from one client to the others.
+First glance: Sync Service, where every block change is written and published.
+Second glance: the Change Stream that carries each change on to the Push Worker.
+Last glance: Apple Push, the external hop that wakes sleeping iOS devices.
+Plan: Loomlist Engineering. File: a new FigJam file named "Block sync", created in that plan.
+Writes: one composed board, 9 nodes and 8 connectors in 6 lanes, with a title, a key and a source line, at the Laptop reading distance.
+Extensions: none.
+Calls: whoami, create_new_file, one use_figma and one get_figjam read-back.
 Rollback: delete the new file.
 Write it?
 ```
 
 ---
 
-## 5. REPLY
+## 6. REPLY
 
 ```text
-<board URL from generate_diagram>
-Read-back: 9 of 9 nodes, 8 of 8 connectors, 6 of 6 lanes
+<board URL>
+Read-back: 9 of 9 nodes, 8 of 8 connectors, 6 of 6 lanes, first glance: Sync Service
 Left out: file storage, off the sync path, cut at the balanced detail level
 HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
 ```

@@ -1,7 +1,7 @@
 ---
 title: "FJ-004 -- The self-test covers every type"
 description: "This scenario validates the self-test covers every type for `FJ-004`. It checks that the check's self-test passes every planted defect and every template, example and Project mirror of all seven types."
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # FJ-004 -- The self-test covers every type
@@ -16,7 +16,7 @@ This scenario validates the self-test covers every type for `FJ-004`. It checks 
 
 ### Why This Matters
 
-The check is the only thing standing between a model and a board the generator would mangle. A rule whose planted defect passes is a rule that does nothing.
+The check is the only thing standing between a model and a board the composer or the generated fallback would mangle. A rule whose planted defect passes is a rule that does nothing.
 
 ---
 

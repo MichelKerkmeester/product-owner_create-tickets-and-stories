@@ -29,7 +29,6 @@ def markdown_files(root: Path) -> list[Path]:
             name for name in directories
             if name not in EXCLUDED_DIRS and not (folder / name).is_symlink()
             and not (relative == Path("benchmark") and name == "reports")
-            and not (relative == Path("claude-plugin") and name == "skills")
         ]
         files.extend(
             folder / name for name in names

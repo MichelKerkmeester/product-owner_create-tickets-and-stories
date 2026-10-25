@@ -1,6 +1,6 @@
 # Product Owner - Examples - Flow - User Flow
 
-A worked user flow on the fictional Fernhouse store: app screenshots and a returns doc turned into a checked model, a gate message and the reply.
+A worked user flow on the fictional Fernhouse store: app screenshots and a returns doc turned into a checked model with its board lines and zones, a playback, a gate message and the reply.
 
 ---
 
@@ -34,15 +34,33 @@ Sources: five app screenshots and a returns doc.
 
 - **Reader question:** which screens does a customer pass through to start a return, and where do they choose? A user flow
 - **Detail:** balanced. **Audience:** mixed, so the labels use the app's own words
+- **Look:** left to right in three zones, finding the order, requesting the return and done. The confirmation is styled as the goal, so the main line runs from the order list to it and Contact support sits below as an exit
 
 ---
 
-## 3. MODEL
+## 3. PLAYBACK
+
+The playback is its own reply, sent before the model. It waits for its own answer, and a yes to it moves the work on to the model and writes nothing.
+
+```text
+Before I draw anything, this is how I read the request.
+Question: which screens does a customer pass through to start a return, and where do they choose?
+Outcome: a reader can follow a return from the order list to a confirmed return and see where the 30 day window ends it.
+Settled by the sources: the five screenshots give the screens and the returns doc, Section 2, gives the 30 day window and its Contact support exit.
+Left out: the free pickup over €100, a proposal under review in Section 4 of the returns doc.
+Assumed: balanced detail and a mixed audience, so the labels use the app's own words.
+Still open: none.
+Is this the right reading of the board?
+```
+
+---
+
+## 4. MODEL
 
 The first draft, kept as text because it breaks a rule:
 
 ```text
-flowchart TD
+flowchart LR
     orders([Order list]) --> detail[Order detail]
     detail --> window{Within 30 days?}
     window -->|No| support([Contact support])
@@ -62,10 +80,16 @@ That is ten nodes, one over the budget:
   diagram 1, user flow: 10 nodes, at most 9: split the flow
 ```
 
-The merge dot goes: both methods lead straight to the confirmation, which says the same thing with one node less. The model that goes forward:
+The merge dot goes: both methods lead straight to the confirmation, which says the same thing with one node less. The model that goes forward carries the board lines the composer reads:
 
 ```mermaid
-flowchart TD
+flowchart LR
+    %% title: Start a return
+    %% subtitle: How a Fernhouse customer starts a return in the app, from the order list to a confirmed return
+    %% source: Sources: five app screenshots and the returns doc. Left out: a free pickup over €100, a proposal under review.
+    %% zone: Find the order: orders, detail
+    %% zone: Request the return: window, support, reason, method, dropoff, pickup
+    %% zone: Done: confirmed
     orders([Order list]) --> detail[Order detail]
     detail --> window{Within 30 days?}
     window -->|No| support([Contact support])
@@ -100,22 +124,31 @@ Every rule in Templates - Flow Type - User Flow holds, checked one by one: 9 nod
 
 ---
 
-## 4. GATE
+## 5. GATE
+
+The gate is its own reply, sent after the playback's answer. Its one question asks about the write alone.
 
 ```text
-Plan: Fernhouse Product. File: a new FigJam file, which this call creates.
-Writes: one user flow, 9 nodes and 9 connectors, named "Start a return".
+Question: which screens does a customer pass through to start a return, and where do they choose?
+Outcome: a reader can follow a return from the order list to a confirmed return and see where the 30 day window ends it.
+First glance: the confirmed return, the goal the flow reaches.
+Second glance: the drop-off or pickup choice that leads to it.
+Last glance: Contact support, the exit after 30 days.
+Plan: Fernhouse Product. File: a new FigJam file named "Start a return", created in that plan.
+Writes: one composed board, 9 nodes and 9 connectors in three zones, with a title, a key and a source line, at the Laptop reading distance.
+Extensions: none.
+Calls: whoami, create_new_file, one use_figma and one get_figjam read-back.
 Rollback: delete the new file.
 Write it?
 ```
 
 ---
 
-## 5. REPLY
+## 6. REPLY
 
 ```text
-<board URL from generate_diagram>
-Read-back: 9 of 9 nodes, 9 of 9 connectors, 4 of 4 decision exits labelled
+<board URL>
+Read-back: 9 of 9 nodes, 9 of 9 connectors, 4 of 4 decision exits labelled, first glance: the confirmed return
 Left out: free pickup over €100, a proposal under review
 HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
 ```

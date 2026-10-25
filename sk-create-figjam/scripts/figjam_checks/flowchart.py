@@ -4,11 +4,12 @@
 
 """The three diagrams written as a Mermaid flowchart: a user flow, a process and an architecture.
 
-They share one grammar and differ in what the board generator does with it.
-A user flow and a process are laid out by ELK, so the rules guard shape,
-exits, connectors and colour. An architecture goes to a separate grid layout
-that places nodes by the lane they sit in, so its rules are Figma's lane and
-edge table, which the generator errors on or silently mis-draws without.
+They share one grammar and differ in how the board lays them out. A user flow
+and a process are laid out in ranks, so the rules guard shape, exits,
+connectors and colour. An architecture is placed by the lane each part sits in,
+on the composed board and on Figma's generated fallback, so its rules are
+Figma's lane and edge table, which the generator errors on or silently
+mis-draws without.
 """
 from __future__ import annotations
 
@@ -48,6 +49,9 @@ BUDGET = {USER_FLOW: (9, 12), PROCESS: (9, 12), ARCHITECTURE: (9, 12)}
 LANED_PROCESS_BUDGET = (12, 16)
 MIN_LANES, MAX_LANES = 2, 6
 ARCHITECTURE_LANES = ("client", "gateway", "service", "datastore", "external", "async")
+# The composed board stands the queue lane next to the service lane that writes to it and reads from it, so
+# the two edges that join them stay short and the other lanes' edges no longer cross it.
+ARCHITECTURE_COLUMNS = ("client", "gateway", "service", "async", "datastore", "external")
 # Figma's allowed-edge table, as (from lane, to lane, kind).
 ALLOWED_ARCHITECTURE_EDGES = {
     ("client", "gateway", "forward"), ("gateway", "service", "forward"),
@@ -84,9 +88,13 @@ def colour(statement: str, key: str) -> str:
     return hex_colour(match.group(1)) if match else ""
 
 
-def colour_problems(block_text: str, lanes: set[str]) -> list[str]:
-    """Every colour is a FigJam palette swatch, a lane takes the neutral pair, and one accent at most."""
-    accents, problems = set(), []
+def colour_problems(block_text: str, lanes: set[str], need_accent: bool = False) -> list[str]:
+    """Every colour is a FigJam palette swatch, a lane takes the neutral pair, and one accent at most.
+
+    A flow whose board is read for one thing needs that thing marked, so `need_accent` also asks for a
+    `style` line on a node: the composer turns it into the one heavy outline the first glance lands on.
+    """
+    accents, problems, marked = set(), [], 0
     for statement in statements(block_text):
         if not STYLE_STATEMENT.match(statement):
             continue
@@ -98,6 +106,7 @@ def colour_problems(block_text: str, lanes: set[str]) -> list[str]:
                 problems.append(f"lane {target} takes fill {fill or 'none'} and stroke {stroke or 'none'}: "
                                 "a lane takes the neutral pair fill:#F5F5F5,stroke:#B3B3B3")
             continue
+        marked += keyword == "style" and bool(fill or stroke)
         if fill:
             if fill not in ACCENT_PAIRS:
                 problems.append(f"fill {fill} is not a FigJam light fill: pick a pair from references/style-guide.md")
@@ -113,6 +122,9 @@ def colour_problems(block_text: str, lanes: set[str]) -> list[str]:
                 )
                 continue
             accents.add(PAIRED_FILL[stroke])
+    if need_accent and not marked:
+        problems.append("the model has no accent: the first glance needs one style line on the node it names, "
+                        "the goal, a failing end or the one step in focus, such as style done fill:#CDF4D3,stroke:#66D575")
     if len(accents) > 1:
         problems.append(f"{len(accents)} accent colours ({', '.join(sorted(accents))}), at most 1: "
                         "colour marks the happy path, one decision or one handoff")
@@ -225,7 +237,7 @@ def repeated_label_problems(diagram) -> list[str]:
 
 
 def check_flow(diagram, block_text: str, profile: str) -> list[str]:
-    """A user flow or a process, both laid out by ELK."""
+    """A user flow or a process, both laid out in ranks."""
     problems = raw_problems(block_text)
     if ODD_CONNECTOR.search("\n".join(statements(block_text))):
         problems.append("the block carries a long or invisible connector: every connector is written -->")
@@ -240,7 +252,7 @@ def check_flow(diagram, block_text: str, profile: str) -> list[str]:
         shapes = PROCESS_SHAPES
         found, lane_ids = lane_problems(diagram)
         problems += found
-    problems += colour_problems(block_text, lane_ids)
+    problems += colour_problems(block_text, lane_ids, need_accent=True)
     steps = [node for node in diagram.nodes if not node.container]
     first_id = steps[0].id if steps else ""
     for node in steps:
@@ -337,8 +349,10 @@ def check_architecture(diagram, block_text: str, backward: set[tuple[str, str]])
             lane = source_lane if source_lane in DOTTED_LANES else target_lane
             problems.append(f"{name} touches the {lane} lane: write it dotted, -.->")
         elif (source_lane, target_lane, kind) not in ALLOWED_ARCHITECTURE_EDGES:
+            fix = ("the missing lane goes in between: a gateway between a client and a service"
+                   if (source_lane, target_lane) == ("client", "service") else "a service mediates")
             problems.append(f"{name} runs {source_lane} to {target_lane} as a {kind} edge, which is not in the "
-                            "allowed-edge table: a service mediates")
+                            f"allowed-edge table: {fix}")
         if source_lane != target_lane and not edge.label.strip():
             problems.append(f"{name} crosses from {source_lane} to {target_lane} with no label")
         if target_lane == "external" and ": " not in edge.label:

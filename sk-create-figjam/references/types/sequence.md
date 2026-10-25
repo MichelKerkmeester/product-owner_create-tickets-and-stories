@@ -1,6 +1,6 @@
 ---
 title: "FigJam Type - Sequence"
-description: "Messages between parties in time order, held to the narrow subset Figma's generator draws: four arrows, labelled messages, no notes or fragments, five participants and twelve messages."
+description: "Messages between parties in time order, held to the subset a FigJam board shows: four arrows, labelled and numbered messages, no notes or fragments, five participants and twelve messages."
 contextType: implementation
 importance_tier: important
 trigger_phrases:
@@ -8,12 +8,12 @@ trigger_phrases:
   - "api call flow figjam"
   - "auth handshake diagram"
   - "sequence message order"
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # FigJam Type - Sequence
 
-A sequence shows who sends what to whom, in order. The generator parses most of Mermaid's sequence grammar and then silently drops much of it, so a sequence model here is written in the subset the board actually shows.
+A sequence shows who sends what to whom, in order. Neither the composer nor Figma's generated fallback draws much of Mermaid's sequence grammar, and the generator drops what it cannot draw in silence, so a sequence model here is written in the subset the board actually shows.
 
 **Loading Condition:** CONDITIONAL, when the Flow route draws a sequence
 **Purpose:** The subset, the rules, the budget and the read-back for a sequence
@@ -46,16 +46,16 @@ sequenceDiagram
 
 | Arrow | Draws | Use for |
 |---|---|---|
-| `->>` | Solid with a head | A request or a call |
-| `-->>` | Dotted with a head | A return or a reply |
+| `->>` | Solid with a closed head | A request or a call |
+| `-->>` | Dotted with a closed head | A return or a reply |
 | `-)` | Solid with an open head | A fire-and-forget message |
 | `--)` | Dotted with an open head | An asynchronous return or callback |
 
-Every participant draws as the same rectangle, and the participant id is the text the board shows.
+Every participant draws as the same light blue rectangle, at the top of its lifeline and again at the foot, and the participant id is the text the board shows. Each message is a straight line in its own row with its label beside the sender and a violet pin at the left edge carrying its number. A request is charcoal with a closed head, a reply gray and dashed with a closed head, and an async message or reply blue with an open head, so an async message reads apart from a reply by its head as well as its colour. A message to itself loops out and back, and a message that skips a participant runs across the lifeline between.
 
-### What the generator drops
+### What the board does not draw
 
-Notes, activations and the `+` and `-` shorthand, every fragment (`loop`, `alt`, `opt`, `par`, `critical`, `break`), coloured `rect` regions, `box` groups, `autonumber`, links, aliases written `as "Name"` and type annotations such as `@{"type": "database"}`. Each is refused, because the board would show the messages without the thing that gave them meaning. When it matters, generate the plain sequence and add it through `references/hybrid-workflow.md`: a labelled rectangle behind a group of messages stands in for a loop or a branch, and a numbered pin stands in for `autonumber`.
+Notes, activations and the `+` and `-` shorthand, every fragment (`loop`, `alt`, `opt`, `par`, `critical`, `break`), coloured `rect` regions, `box` groups, `autonumber`, links, aliases written `as "Name"` and type annotations such as `@{"type": "database"}`. Each is refused, because the board would show the messages without the thing that gave them meaning. The composer numbers every message already, so `autonumber` is never needed. When a loop or a branch matters, compose the plain sequence and add a note through `references/hybrid-workflow.md` naming the message numbers it covers.
 
 ---
 
@@ -63,8 +63,8 @@ Notes, activations and the `+` and `-` shorthand, every fragment (`loop`, `alt`,
 
 The check enforces:
 
-- **The four arrows only.** `-x` and `--x` draw the same as `->>` and `-->>` without the cross, `->` and `-->` draw no head, and a two-way arrow hides which side starts
-- **Every message labelled,** at most 40 characters, with no semicolon, which the generator turns into a full stop
+- **The four arrows only.** `-x` and `--x` lose their cross, `->` and `-->` draw no head, and a two-way arrow hides which side starts
+- **Every message labelled,** at most 40 characters, with no semicolon, which the generated fallback turns into a full stop
 - **Readable participant ids** of 3 to 20 letters and digits, camelCase or PascalCase, such as `AuthServer`, never a cryptic `a` or `p1`
 - **Every participant declared** once there are three or more, so the board keeps their order, and every declared participant sends or receives something
 - **No dropped feature,** as listed above, and `participant` rather than `actor`
@@ -85,21 +85,21 @@ Over 5 participants or 12 messages, split into the happy path and a detail, such
 
 ---
 
-## 5. COLOUR AND THE HYBRID PASS
+## 5. COLOUR, ZONES AND NOTES
 
-Mermaid cannot colour a sequence. Annotations, phase regions, step numbers and distinct participant shapes are hybrid extensions. Figma ranks sequence low for extensions, so add them only when the request asks for them.
+None in the model. The arrow sets each message's colour and line, and the composer numbers the messages. A sequence takes no zone line. A `%% focus: <number>` line may name the one message the first glance lands on. It is a comment, so the model stays styleless. Architecture and sequence take no style line. A `%% focus:` line marks their first glance, and it is refused where it names nothing. Notes are the one extension left, and Figma ranks sequence low for extensions, so add them only when the request asks for them.
 
 ---
 
-## 6. CALLING THE TOOL
+## 6. WRITING THE BOARD
 
-`generate_diagram` with `name`, `mermaidSyntax` and `userIntent`. No `useArchitectureLayoutCode`. The `fj` route cannot draw a sequence.
+`scripts/compose_board.py` composes the model and one `use_figma` call draws the board, as `references/flow-mode.md` Section 6 sets out. On the generated fallback, `generate_diagram` takes `name`, `mermaidSyntax` and `userIntent`, and no `useArchitectureLayoutCode`. The `fj` route cannot draw a sequence.
 
 ---
 
 ## 7. READ-BACK
 
-Count participants and messages, and check each message's label, direction and arrow style against the model.
+Count participants and messages, and check each message's label, direction and arrow style against the model. On a composed board each message is the connector named `edge:<from>-><to>:<n>`, so its name gives both parties and its order, and the participant drawn again at the foot of a lifeline is not counted twice.
 
 ```text
 Read-back: 4 of 4 participants, 9 of 9 messages

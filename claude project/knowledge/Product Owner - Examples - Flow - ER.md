@@ -1,6 +1,6 @@
 # Product Owner - Examples - Flow - ER
 
-A worked ER diagram on the fictional Roamstay booking marketplace: a schema note turned into the stay model with keys and cardinalities, two domain tints planned, a gate message and the reply.
+A worked ER diagram on the fictional Roamstay booking marketplace: a schema note turned into the stay model with keys and cardinalities, two domain zones, a playback, a gate message and the reply.
 
 ---
 
@@ -24,14 +24,36 @@ The schema note lists six tables: guests, bookings, payments, properties, rooms 
 
 - **Reader question:** which entities exist, which fields join them and how many of each? An ER diagram
 - **Detail:** balanced, so each table keeps its keys and the columns a story about stays would cite
-- **Extension:** colour by domain, which ER styling cannot do, so two status tints go behind the guest side and the partner side
+- **Grouping:** colour by domain, which ER styling cannot do, so two `%% zone:` lines put the guest side and the partner side in their own tinted sections
 
 ---
 
-## 3. MODEL
+## 3. PLAYBACK
+
+The playback is its own reply, sent before the model. It waits for its own answer, and a yes to it moves the work on to the model and writes nothing.
+
+```text
+Before I draw anything, this is how I read the request.
+Question: which entities exist, which fields join them and how many of each?
+Outcome: a reader can see the six stay tables, how they join and which tables sit on the guest side and which on the partner side.
+Settled by the sources: the schema note gives six tables, their keys and how they join, and the request asks for the partner tables apart from the guest tables.
+Left out: 20 columns no stay story cites.
+Assumed: balanced detail, so each table keeps its keys and the columns a story about stays would cite.
+Still open: none.
+Is this the right reading of the board?
+```
+
+---
+
+## 4. MODEL
 
 ```mermaid
 erDiagram
+    %% title: Stays model
+    %% subtitle: The tables behind a stay, split into the guest side and the partner side
+    %% source: Source: the stays schema note. Left out: 20 columns no stay story cites.
+    %% zone: Guest side: Guest, Booking, Payment
+    %% zone: Partner side: Property, Room, RatePlan
     Guest ||--o{ Booking : makes
     Booking ||--|{ Payment : holds
     Room ||--o{ Booking : "is reserved by"
@@ -87,30 +109,33 @@ Left out: 20 columns no stay story cites, cut at the balanced detail level
 
 Every rule in Templates - Flow Type - ER holds, checked one by one: 6 entities and 6 relationships.
 
-### Planned extension
-
-Two status tints: light blue `#C2E5FF` with `#3DADFF` named `Guest side` behind Guest, Booking and Payment, and light violet `#DCCCFF` with `#874FFF` named `Partner side` behind Property, Room and RatePlan.
-
 ---
 
-## 4. GATE
+## 5. GATE
+
+The gate is its own reply, sent after the playback's answer. Its one question asks about the write alone.
 
 ```text
-Plan: Roamstay Product. File: a new FigJam file, which this call creates.
-Writes: one ER diagram, 6 entities and 6 relationships, named "Stays model".
-Then: two domain tints, guest side and partner side.
+Question: which entities exist, which fields join them and how many of each?
+Outcome: a reader can see the six stay tables, how they join and which tables sit on the guest side and which on the partner side.
+First glance: Booking, the table every other stay table joins.
+Second glance: the keys on Booking that tie it to the guest, the room and the rate plan.
+Last glance: Property, the partner table that offers rooms and rate plans.
+Plan: Roamstay Product. File: a new FigJam file named "Stays model", created in that plan.
+Writes: one composed board, 6 entities and 6 relationships in two zones, guest side and partner side, with a title, a key and a source line, at the Laptop reading distance.
+Extensions: none.
+Calls: whoami, create_new_file, one use_figma and one get_figjam read-back.
 Rollback: delete the new file.
 Write it?
 ```
 
 ---
 
-## 5. REPLY
+## 6. REPLY
 
 ```text
-<board URL from generate_diagram>
-Read-back: 6 of 6 entities, 6 of 6 relationships, 21 of 21 attributes
-Extensions: 2 of 2 status tints, 0 overlaps
+<board URL>
+Read-back: 6 of 6 entities, 6 of 6 relationships, 21 of 21 attributes, first glance: Booking
 Left out: 20 columns no stay story cites, cut at the balanced detail level
 HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
 ```

@@ -12,7 +12,7 @@ claude project/
 |-- README.md                     <- upload manifest and hand-authored parity note
 |-- templates/                    <- Product Owner - Local - Push Targets.md, filled and uploaded per user, never shared
 |-- local/                        <- gitignored home for a filled push targets copy
-`-- knowledge/                    <- upload all 63 files as Project Knowledge
+`-- knowledge/                    <- upload all 64 files as Project Knowledge
     |-- Product Owner - System - Interactive Mode.md
     |-- Product Owner - Templates - Task Mode.md
     |-- Product Owner - Templates - Bug Mode.md
@@ -33,6 +33,7 @@ claude project/
     |-- Product Owner - Assets - Doc Templates.md
     |-- Product Owner - Assets - Story Template.md
     |-- Product Owner - Assets - Epic Template.md
+    |-- Product Owner - Assets - Flow Board Composer.md
     |-- Product Owner - Assets - Flow Templates.md
     |-- Product Owner - Assets - Flow Templates - Process.md
     |-- Product Owner - Assets - Flow Templates - Architecture.md
@@ -78,6 +79,7 @@ CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Bloc
 | `sk-product-owner/assets/epic-template.md` | `Product Owner - Assets - Epic Template.md` |
 | `sk-create-figjam/references/flow-mode.md` | `Product Owner - Templates - Flow Mode.md` |
 | `sk-create-figjam/assets/flow-templates.md` | `Product Owner - Assets - Flow Templates.md` |
+| `sk-create-figjam/assets/compose-board.js` | `Product Owner - Assets - Flow Board Composer.md` |
 | `sk-create-figjam/references/types/user-flow.md` | `Product Owner - Templates - Flow Type - User Flow.md` |
 | `sk-create-figjam/references/types/process.md` | `Product Owner - Templates - Flow Type - Process.md` |
 | `sk-create-figjam/references/types/architecture.md` | `Product Owner - Templates - Flow Type - Architecture.md` |
@@ -102,6 +104,10 @@ CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Bloc
 | `sk-create-figjam/assets/examples/state-roamstay-booking.md` | `Product Owner - Examples - Flow - State.md` |
 | `sk-create-figjam/assets/examples/er-roamstay-stays.md` | `Product Owner - Examples - Flow - ER.md` |
 | `sk-create-figjam/assets/examples/gantt-loomlist-offline.md` | `Product Owner - Examples - Flow - Gantt.md` |
+| `sk-product-owner/assets/examples/task/` (5 files) | `Product Owner - Examples - Task - ...`, one mirror per example |
+| `sk-product-owner/assets/examples/bug/` (4 files) | `Product Owner - Examples - Bug - ...`, one mirror per example |
+| `sk-product-owner/assets/examples/doc/` (7 files) | `Product Owner - Examples - Doc - ...`, one mirror per example |
+| `sk-product-owner/assets/examples/story/` (5 files) | `Product Owner - Examples - Story - ...`, one mirror per example |
 | `sk-product-owner/references/hvr-core.md` | `Product Owner - Rules - Human Voice Core.md` |
 | `sk-product-owner/references/conciseness.md` | `Product Owner - Rules - Conciseness.md` |
 | `sk-product-owner/references/human-voice-rules.md` | `Product Owner - Rules - Human Voice - EN.md` |
@@ -133,7 +139,7 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 1. Create or open a claude.ai Project named **Product Owner**.
 2. Paste `Custom Instructions.md` into the Project custom instructions field.
 3. Remove superseded Project Knowledge uploads.
-4. Upload all 63 files in `knowledge/` with filenames unchanged (35 core files plus the 28 Examples mirrors).
+4. Upload all 64 files in `knowledge/` with filenames unchanged (36 core files plus the 28 Examples mirrors).
 5. Run the smoke matrix below.
 6. Confirm the Deliverable Block appears first and the reported path follows the create or refinement contract.
 7. To deliver to ClickUp or draw on FigJam, add the two connectors and run their checks as `../USER-GUIDE.md` sets out.
@@ -167,6 +173,10 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 - `$story`, `$s`, `$prd` and `$p` select Story; `$stories`, `$prds`, `$sort` and embedded `$s` do not; `create a task to write a PRD` stays Task.
 - `$flow`, `$figjam` and `put the launch plan on a FigJam gantt chart` select Flow Mode, which picks the diagram type from the reader's question, checks the model rule by rule and waits for a yes before any write. `write a task to tidy the figjam board labels` stays Task.
 - `$figjam a mindmap of the launch themes` names the mindmap as a kind the Figma connector cannot draw and offers a table or a list, with no connector call.
+- A `$flow` request replies in order: the intake or one proposed Brief, then a playback of the reading, then a gate as its own reply. A `Yes` to the Brief or the playback writes nothing, and only a `Yes` to the gate writes
+- With a Figma connector that lists `use_figma`, the board is composed in one `use_figma` call. Before it fills the model, the Project shows the composer code came back whole: 1,088 lines and 43,623 characters, a first line `const MODEL=__MODEL__;` and a last line `};` after `createdCount:created.length,`. When it cannot show all three it writes through `generate_diagram` and says the board was generated rather than composed
+- A thrown error that starts `nothing was drawn` is not retried with the same model and the board is not read. The Project regroups the zones, checks the model again and says the first compose drew nothing
+- A revision of a written board composes the new board first, reads it back and asks for a second `Yes` before it deletes the old board section
 - A generated Story-Mode artifact names its artifact kind (Story or Epic), keeps the narrative first, uses Given/When/Then scenario bullets, closes with a Delivery section only when the requester asked for one or the artifact forces it, and carries no ticket header fields, story points or INVEST notes.
 - With the ClickUp connector present, every export response offers ClickUp delivery and nothing is written to ClickUp without explicit approval in that conversation.
 - With no connector switched on in the chat, an export reply closes on `Want me to change anything?` with no push offer, and the first such reply of the conversation offers once, in its last sentence before Open items, to walk the user through adding the connectors.
@@ -199,4 +209,5 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 
 - Backlog artifacts remain WHAT/WHY focused. Docs may cover source-backed technical HOW, supplied implementation facts, architecture, APIs, schemas, debugging or operational procedures and clearly labelled technical proposals or recommendations. Never fabricate current facts, evidence, approval, authority or professional sign-off.
 - Project Knowledge may be retrieved as chunks, so the kernel repeats the routing, source-safety and delivery gates.
+- The Flow Board Composer file is 53,764 bytes and its code block is 43,623 characters on 1,088 lines, so retrieval may return it in chunks. The call takes at most 50,000 characters, which leaves under 6,400 for the model JSON written compact, and the largest shipped example model runs about 2,400. Whether claude.ai retrieval returns the code block whole is UNKNOWN until the live Project test runs, and the guide's whole-file test and the `generate_diagram` fallback cover a miss
 - The local package is hand-maintained and the live claude.ai Project is manually uploaded, so local parity does not prove live deployment currency.

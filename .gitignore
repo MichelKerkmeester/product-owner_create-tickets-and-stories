@@ -23,9 +23,6 @@ click-up-links.md
 !/.utcp_config.json
 !/opencode.json
 
-# claude-plugin/skills/: built by scripts/build-plugin.py from the tracked sources, never edited by hand
-claude-plugin/skills/
-
 # Deep-loop write-containment snapshots copy files from the whole working tree,
 # private Barter screenshots and documents included, so they never enter this public repo
 specs/**/containment/

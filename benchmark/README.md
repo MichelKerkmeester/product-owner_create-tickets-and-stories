@@ -12,9 +12,9 @@ version: 1.0.0.0
 
 ## 1. OVERVIEW
 
-This folder is the hub's routing baseline. [`hub-routing-cases.json`](hub-routing-cases.json) holds 41 gold rows, the requests most likely to be misrouted when packets sit beside the default one: a bare request, the existing figma Task fixture, requests that name only one tool or the Flow commands, FigJam requests for every diagram type with one in plain words, negated mentions, a command conflict, and tool mentions inside an artifact request or beside another `$` command. Each row names the `workflowMode` stage one must pick.
+This folder is the hub's routing baseline. [`hub-routing-cases.json`](hub-routing-cases.json) holds 51 gold rows, the requests most likely to be misrouted when packets sit beside the default one: a bare request, the existing figma Task fixture, requests that name only one tool or the Flow commands, FigJam requests for every diagram type with one in plain words, board links and notes on a board, tickets and bugs about a FigJam board, negated mentions, a command conflict, and tool mentions inside an artifact request or beside another `$` command. Each row names the `workflowMode` stage one must pick.
 
-The system gates beside this file own the packet's own routing. `router/` replays the Product Owner router against its fixtures and the kernel copy, so stage two inside a packet is never scored here.
+The system gates beside this file own the packet's own routing. `router/` replays the Product Owner router against its fixtures and the kernel copy, so stage two inside a packet is never scored here. The two vendored packets' own intents are left to their upstream tests, and this folder only proves which packet each request reaches and which leaves the hub lane loads.
 
 ---
 

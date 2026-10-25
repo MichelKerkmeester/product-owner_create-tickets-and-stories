@@ -1,18 +1,18 @@
 ---
 title: "sk-create-figjam"
-description: "FigJam diagram packet of the Product Owner hub: picks the diagram type, checks a Mermaid model of it and writes it to a FigJam board."
+description: "FigJam diagram packet of the Product Owner hub: picks the diagram type, checks a Mermaid model of it and composes it into a framed FigJam board."
 trigger_phrases:
   - "sk-create-figjam"
   - "$flow"
   - "$figjam"
   - "figjam flow"
   - "figjam diagram"
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # sk-create-figjam
 
-> Draws a FigJam diagram of the type the reader's question needs, from screenshots, a Figma flow, a product doc, a schema or a plan, and refuses any model the board generator would mangle.
+> Draws a FigJam diagram of the type the reader's question needs, from screenshots, a Figma flow, a product doc, a schema or a plan, and composes the checked model into a framed board with a title, zones, colour by kind and a key.
 
 ---
 
@@ -20,7 +20,7 @@ version: 1.0.0.0
 
 This packet is Flow Mode, the one Product Owner mode whose deliverable is a board rather than a file. The hub `../SKILL.md` picks it for `$flow`, `$figjam` and FigJam output wording. The hub `../ROUTER.md` maps a Flow request to this packet's pair, and `SKILL.md` adds the files for the chosen type.
 
-It draws seven types, each answering one reader question: a user flow, a laned process, an architecture, a sequence, a state diagram, an ER diagram and a gantt chart. Before any model it interviews the user in rounds until a nine-row Brief is ready to draw: every question carries the AI's reading of the input and a recommended answer, and an unanswered one proceeds on that recommendation, marked assumed and named in the playback before the gate. A diagram is written as a Mermaid model with a provenance table that ties every item to its source. `scripts/flow_check.py` holds the model to its type's rules before anything is written, `references/quality-rubric.md` asks what a script cannot, and the write waits for a yes naming the plan, the file, any extension and the rollback. Pins, stickies, tints and legends the generator cannot draw are added after the write through `references/hybrid-workflow.md`. The reply is the board URL, a read-back line measured on the board, an `Extensions:` line when there are any, a `Left out:` line when items were left out and the HVR self-scan line. Nothing is saved to `../export/`.
+It draws seven types, each answering one reader question: a user flow, a laned process, an architecture, a sequence, a state diagram, an ER diagram and a gantt chart. Before any model it interviews the user in rounds until a nine-row Brief is ready to draw: every question carries the AI's reading of the input and a recommended answer, and an unanswered one proceeds on that recommendation, marked assumed and named in the playback before the gate. A diagram is written as a Mermaid model with a provenance table that ties every item to its source. `scripts/flow_check.py` holds the model to its type's rules before anything is written, `references/quality-rubric.md` asks what a script cannot, and the write waits for a yes naming the plan, the file, any extension and the rollback. `scripts/compose_board.py` then fills `assets/compose-board.js` from the checked model, and one `use_figma` call draws the board: a title and subtitle, the diagram on an 8 pixel grid with every node coloured by its kind, tinted zones, routed connectors, a key and a source line. Notes the model cannot carry go on afterwards as numbered pins or stickies through `references/hybrid-workflow.md`. The reply is the board URL, a read-back line measured on the board, an `Extensions:` line when there are any, a `Left out:` line when items were left out and the HVR self-scan line. Nothing is saved to `../export/`.
 
 ---
 
@@ -38,9 +38,11 @@ Check a model by hand:
 ```bash
 python3 sk-create-figjam/scripts/flow_check.py model.md
 python3 sk-create-figjam/scripts/flow_check.py --self-test
+python3 sk-create-figjam/scripts/compose_board.py model.md --diagram 1 --out board.js
+python3 sk-create-figjam/scripts/compose_board.py --self-test
 ```
 
-A flowchart that is not a user flow starts with `%% type: process` or `%% type: architecture`. The check exits 0 when every diagram passes, 1 when a rule fails and 2 when the file cannot be read. For a user flow, a process or an architecture it also prints five layout measures, the widest rank, the longest path, connectors per step, the average label length and the crossing pairs, and fails a model outside their budgets.
+A flowchart that is not a user flow starts with `%% type: process` or `%% type: architecture`. The check exits 0 when every diagram passes, 1 when a rule fails and 2 when the file cannot be read. For a user flow, a process or an architecture it also prints five layout measures, the widest rank, the longest path, connectors per step, the average label length and the crossing pairs, and fails a model outside their budgets. The composer exits 0 with the code written and a `COMPOSED` line naming the counts the read-back will look for, 1 when the model fails the check or the code would not fit one `use_figma` call, and 2 when the file or the diagram cannot be read. Its self-test needs `node` on the path to syntax-check the code it fills.
 
 ---
 

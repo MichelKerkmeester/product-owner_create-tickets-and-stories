@@ -225,7 +225,7 @@ Worked example: **Examples - Doc - Guide** shows one writing standard adapted ac
 
 ### Source Material Fit
 
-Barter creation, copywriting, image, and tone-of-voice material demonstrates this shape through ordered anatomy, component rules, examples, and related links. Its presence in the supplied material alone does not verify those rules as current product behavior.
+Creation, copywriting, image and tone-of-voice material the user supplies demonstrates this shape through ordered anatomy, component rules, examples, and related links. Its presence in the conversation alone does not verify those rules as current product behavior.
 
 ---
 
@@ -321,7 +321,7 @@ Worked example: **Examples - Doc - Catalog** shows local status labels preserved
 
 ### Source Material Fit
 
-The Notification corpus demonstrates this shape through indexes, message IDs, vocabulary, repeated fields, variables, and cross-links. It also demonstrates why local status and the conflict gate matter: active-path material may mix existing, verify, new, draft, and not-ready markers, while duplicate or incompatible IDs do not establish a safe winner.
+A message catalog the user supplies, such as notification copy, demonstrates this shape through indexes, message IDs, vocabulary, repeated fields, variables, and cross-links. It also demonstrates why local status and the conflict gate matter: active-path material may mix existing, verify, new, draft, and not-ready markers, while duplicate or incompatible IDs do not establish a safe winner.
 
 ---
 
@@ -449,7 +449,7 @@ Worked example: **Examples - Doc - Behavior Reference** shows a state machine wi
 
 ### Source Material Fit
 
-Feed behavior, geo-targeting, and dead-deal material demonstrates this shape through states, filtering or targeting rules, fallbacks, and outcomes. Treat present-tense wording as unverified unless authority is established. Incompatible country precedence or state visibility cannot be represented as one settled rule without a source decision.
+Feed, geo-targeting or deal-expiry material the user supplies demonstrates this shape through states, filtering or targeting rules, fallbacks, and outcomes. Treat present-tense wording as unverified unless authority is established. Incompatible country precedence or state visibility cannot be represented as one settled rule without a source decision.
 
 ---
 
@@ -573,7 +573,7 @@ Worked example: **Examples - Doc - Proposal** shows verified current context sep
 
 ### Source Material Fit
 
-Feed Functions, Weighted Ranking, and proposed Notification additions demonstrate this shape through candidate rules, future-state language, trade-offs, and open decisions. They remain proposal material unless a user or authoritative source establishes a different status. Technical content may support an engineering proposal, but it does not establish that the proposed architecture is approved or shipped.
+Material the user supplies on candidate ranking rules or proposed additions to a catalog demonstrates this shape through candidate rules, future-state language, trade-offs, and open decisions. It remains proposal material unless a user or authoritative source establishes a different status. Technical content may support an engineering proposal, but it does not establish that the proposed architecture is approved or shipped.
 
 ---
 

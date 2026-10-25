@@ -1,6 +1,6 @@
 # Product Owner - Templates - Flow Type - Gantt
 
-A gantt chart puts tasks and phases on a time axis, with milestones as points. The generator draws sections as lanes and picks the axis unit from the chart's length. It strips every colour and ignores the axis, weekend and marker settings.
+A gantt chart puts tasks and phases on a time axis, with milestones as points. The composer draws each section as a tinted band, each task as a named row with its bar on a shared axis and each milestone as a diamond, and picks the tick spacing from the chart's length. Neither it nor the generated fallback honours colour, axis, weekend or marker settings, so a model never sets them.
 
 ---
 
@@ -33,7 +33,7 @@ gantt
 - A task is `Name :tags, id, start, duration or end`. The tags and the id are optional, the start and the end are not
 - A start is a date or time in the declared format, or `after` one or more task ids
 - A duration is a number and a unit: `d` days, `w` weeks, `M` months, `y` years, or `h` and `m` for hours and minutes on a one-day chart
-- Tags are `done`, `active`, `crit` and `milestone`
+- Tags are `done`, `active`, `crit` and `milestone`, and the tag sets the bar's colour: done light gray, active light blue, critical light red and an untagged task white, with the bar's length written inside it when it fits. A critical bar also ends that label with `, critical` and takes a heavier outline, so it still stands out in greyscale
 
 ---
 
@@ -44,7 +44,7 @@ Check these rule by rule before the gate:
 - **A `dateFormat` of `YYYY-MM-DD` or `HH:mm`,** before the first task, with every start in that format
 - **The first task starts on a date,** which anchors the chart, and every `after` names a task above it
 - **The right unit for the chart.** A lowercase `m` on a date chart means minutes, so months are `M`, and a one-day chart uses `h` and `m`
-- **A milestone has a zero duration,** and the `vert` tag is refused, because the generator skips that task
+- **A milestone has a zero duration,** and the `vert` tag is refused, because the generated fallback skips that task
 - **No styling and no ignored setting:** `classDef`, `class`, `style`, `click`, `tickInterval`, `axisFormat`, `excludes`, `includes`, `weekend`, `todayMarker` and their kin
 - **camelCase task ids,** each used once, and task names of at most 40 characters with no colon
 - **At most 12 tasks,** sections once there are more than 8, and at most 5 bars running at once in one section, the house diagram guide's gantt budget
@@ -65,21 +65,21 @@ Over budget, collapse each phase to one bar in an overview chart and draw one ch
 
 ---
 
-## 5. COLOUR AND THE HYBRID PASS
+## 5. COLOUR, ZONES AND NOTES
 
-None in the model. Colour-coded phases, notes on a date or a dependency arrow between lanes are hybrid extensions. When the request is mostly those, Figma's advice is to build the timeline directly with `use_figma` instead, and the reply says the board was drawn by hand and has no generated layout.
+None in the model. The tags colour the bars and the sections are the zones. The composer draws no dependency arrow, because an `after` already sets where a bar starts. A note on a date goes on through Templates - Flow Hybrid Workflow. A `%% focus: <id or name>` line may name the one task or milestone the first glance lands on. It is a comment, so the model stays styleless.
 
 ---
 
-## 6. CALLING THE TOOL
+## 6. WRITING THE BOARD
 
-`generate_diagram` with `name`, `mermaidSyntax` and `userIntent`. No `useArchitectureLayoutCode`.
+The model is placed into Assets - Flow Board Composer and one `use_figma` call draws the board, as Templates - Flow Mode Section 6 sets out. On the generated fallback, `generate_diagram` takes `name`, `mermaidSyntax` and `userIntent` with no `useArchitectureLayoutCode`.
 
 ---
 
 ## 7. READ-BACK
 
-Count sections, tasks and milestones, and check each task's section and its start or dependency. The generator widens very short bars, so compare order and dependencies, not bar lengths.
+Count sections, tasks and milestones, and check each task's section and its start or dependency. A milestone is counted once, as a milestone and not again as a task, so counting every task line in the model gives the board's tasks plus its milestones. Both routes widen very short bars to stay visible, the composer to 16 pixels, so compare order and dependencies, not bar lengths.
 
 ```text
 Read-back: 3 of 3 sections, 7 of 7 tasks, 2 of 2 milestones

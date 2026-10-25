@@ -1,7 +1,7 @@
 ---
 title: "FJ-007 -- The gate names a planned extension"
-description: "This scenario validates the gate names a planned extension for `FJ-007`. It checks that a state diagram request that asks for colour on its end states ends on a gate that names the status tint as an extension, before any write."
-version: 1.0.0.0
+description: "This scenario validates the gate names a planned extension for `FJ-007`. It checks that a state diagram request that asks for notes the model cannot carry ends on a gate that names the notes as an extension, before any write."
+version: 1.0.1.0
 ---
 
 # FJ-007 -- The gate names a planned extension
@@ -12,11 +12,11 @@ This document captures the user-testing contract, execution flow, source anchors
 
 ## 1. OVERVIEW
 
-This scenario validates the gate names a planned extension for `FJ-007`. It checks that a state diagram request that asks for colour on its end states ends on a gate that names the status tint as an extension, before any write.
+This scenario validates the gate names a planned extension for `FJ-007`. It checks that a state diagram request that asks for notes the model cannot carry ends on a gate that names the notes as an extension, before any write.
 
 ### Why This Matters
 
-Mermaid sets no colour on a state diagram, so the tint is a second write through `use_figma`. A yes that did not cover it does not cover that write.
+A state model cannot put a note on a state, so the notes are a second write through `use_figma`. A yes that did not cover them does not cover that write. The end states need no write at all, because the composer already draws them light gray and names them Final state in the key.
 
 ---
 
@@ -24,13 +24,13 @@ Mermaid sets no colour on a state diagram, so the tint is a second write through
 
 Operators run the exact prompt and command sequence for `FJ-007` and confirm the expected signals without contradictory evidence.
 
-- Objective: Verify that a state diagram request that asks for colour on its end states ends on a gate that names the status tint as an extension, before any write
-- Real user request: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
-- Prompt: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
-- Expected execution process: Pick the state type, load its reference, template and the style guide, write the model, pass the check, plan one status tint through the hybrid workflow and end on a gate that names the diagram and the tint
-- Expected signals: The model's header is `stateDiagram-v2` with no styling, the check passes, and the gate names the plan, a new file, the state diagram, one tint behind the end states and the rollback, and waits. No write tool is called
+- Objective: Verify that a state diagram request that asks for notes the model cannot carry ends on a gate that names the notes as an extension, before any write
+- Real user request: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
+- Prompt: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
+- Expected execution process: Open with the playback, which waits for its own yes and comes after an intake round only when the run opens one. Then pick the state type, load its reference, template and the style guide, write the model, pass the check, plan two single stickies through the hybrid workflow and end on a gate that names the diagram and the notes
+- Expected signals: Turn 1 ends on the playback and writes nothing. After the playback's yes, the model's header is `stateDiagram-v2` with no styling and the check passes. Turn 2 ends on the gate, which names the plan, a new file, the composed state diagram, two single-sticky notes on Cancelled and NoShow, the calls the write will spend and the rollback, then waits. The gate plans no colour step, because the composer already draws the end states light gray and names them Final state in the key. No write tool is called
 - Desired user-visible outcome: A checked state model and a gate that names both writes
-- Pass/fail: PASS if the gate names the state diagram and the tint and waits, the model passes and has no styling, and nothing is written. FAIL if the model sets colour with `classDef` or `style`, the gate leaves the tint out, or a write tool is called
+- Pass/fail: PASS if the run stops at the playback first and the gate that follows the playback's yes names the state diagram and the notes and waits, the model passes and has no styling, and nothing is written. FAIL if the model sets colour with `classDef` or `style`, the gate leaves the notes out, the gate plans a colour step for the end states or a write tool is called
 
 ---
 
@@ -38,7 +38,7 @@ Operators run the exact prompt and command sequence for `FJ-007` and confirm the
 
 ### Prompt
 
-- Prompt: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
+- Prompt: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
 
 ### Recommended Orchestration Process
 
@@ -50,25 +50,26 @@ Operators run the exact prompt and command sequence for `FJ-007` and confirm the
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| FJ-007 | The gate names a planned extension | Verify that a state diagram request that asks for colour on its end states ends on a gate that names the status tint as an extension, before any write | `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.` | 1. `session: start fresh -> user: submit the prompt exactly` -> 2. `operator: copy the model into <scratch>/model.md and run python3 sk-create-figjam/scripts/flow_check.py <scratch>/model.md` | Step 1 returns the gate naming the extension. Step 2 prints `diagram 1, state: ok` with exit 0 | The reply, the tool calls with every check run and the operator's own check run | PASS if the gate names the state diagram and the tint and waits, the model passes and has no styling, and nothing is written. FAIL if the model sets colour with `classDef` or `style`, the gate leaves the tint out, or a write tool is called | 1. Check `references/types/state.md` Section 5 and `references/hybrid-workflow.md` Section 1 2. Check the gate against `references/flow-mode.md` Section 2 step 7 |
+| FJ-007 | The gate names a planned extension | Verify that a state diagram request that asks for notes the model cannot carry ends on a gate that names the notes as an extension, before any write | `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.` | 1. `session: start fresh -> user: submit the prompt exactly -> operator: confirm the reply is the playback with the question, the outcome, what each source settled and every assumed row. Confirm nothing is written. If the run opens an intake round first, answer it with the recommended answers and confirm the playback follows` -> 2. `user: Yes, that reading is right. -> operator: confirm the reply is the gate naming the notes and that nothing is written` -> 3. `operator: copy the model into <scratch>/model.md and run python3 sk-create-figjam/scripts/flow_check.py <scratch>/model.md` | Step 1 returns the playback and writes nothing. Step 2 returns the gate naming the extension. Step 3 prints `diagram 1, state: ok` with exit 0 | Both replies, the tool calls with every check run and the operator's own check run | PASS if the run stops at the playback first and the gate that follows the playback's yes names the state diagram and the notes and waits, the model passes and has no styling, and nothing is written. FAIL if the model sets colour with `classDef` or `style`, the gate leaves the notes out, the gate plans a colour step for the end states or a write tool is called | 1. Check `references/types/state.md` Section 5 and `references/hybrid-workflow.md` Section 1 2. Check the gate against `references/flow-mode.md` Section 2 step 7 |
 
 ### Commands
 
-1. `session: start fresh -> user: submit the prompt exactly`
-2. `operator: copy the model into <scratch>/model.md and run python3 sk-create-figjam/scripts/flow_check.py <scratch>/model.md`
+1. `session: start fresh -> user: submit the prompt exactly -> operator: confirm the reply is the playback with the question, the outcome, what each source settled and every assumed row. Confirm nothing is written. If the run opens an intake round first, answer it with the recommended answers and confirm the playback follows`
+2. `user: Yes, that reading is right. -> operator: confirm the reply is the gate naming the notes and that nothing is written`
+3. `operator: copy the model into <scratch>/model.md and run python3 sk-create-figjam/scripts/flow_check.py <scratch>/model.md`
 
 ### Expected
 
-Step 1 returns the gate naming the extension. Step 2 prints `diagram 1, state: ok` with exit 0
+Step 1 returns the playback and writes nothing. Step 2 returns the gate naming the extension. Step 3 prints `diagram 1, state: ok` with exit 0
 
 ### Evidence
 
-The reply, the tool calls with every check run and the operator's own check run
+Both replies, the tool calls with every check run and the operator's own check run
 
 ### Pass / Fail
 
-- **Pass**: the gate names the state diagram and the tint and waits, the model passes and has no styling, and nothing is written
-- **Fail**: the model sets colour with `classDef` or `style`, the gate leaves the tint out, or a write tool is called
+- **Pass**: the run stops at the playback first and the gate that follows the playback's yes names the state diagram and the notes and waits, the model passes and has no styling, and nothing is written
+- **Fail**: the model sets colour with `classDef` or `style`, the gate leaves the notes out, the gate plans a colour step for the end states or a write tool is called
 
 ### Failure Triage
 
@@ -90,9 +91,9 @@ The reply, the tool calls with every check run and the operator's own check run
 
 | File | Role |
 |---|---|
-| [`references/types/state.md`](../../references/types/state.md) | State rules and colour |
-| [`references/hybrid-workflow.md`](../../references/hybrid-workflow.md) | The status tint recipe |
-| [`references/style-guide.md`](../../references/style-guide.md) | Tint pairs |
+| [`references/types/state.md`](../../references/types/state.md) | State rules, colour and notes |
+| [`references/hybrid-workflow.md`](../../references/hybrid-workflow.md) | When to extend and the single sticky recipe, Sections 1 and 3 |
+| [`references/style-guide.md`](../../references/style-guide.md) | The kinds the composer colours, including the Final state, Section 2 |
 
 ---
 

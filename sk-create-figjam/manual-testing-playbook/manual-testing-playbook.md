@@ -1,12 +1,12 @@
 ---
 title: "sk-create-figjam: Manual Testing Playbook"
 description: "Operator-facing directory for the FigJam diagram packet: type choice for all seven types, the pre-write check, the board write with its gate, extension and read-back, scored board quality for every type and creation variant, the boundaries with the Product Owner packet and routing recall for type detection."
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # sk-create-figjam: Manual Testing Playbook
 
-> **EXECUTION POLICY**: Every scenario runs for real against the live packet, with no mocks or stubs. Acceptable verdicts are `PASS`, `FAIL` or `SKIP`, and every `SKIP` names the specific runtime blocker, such as the hosted Figma MCP being unavailable.
+> **EXECUTION POLICY**: Every scenario runs for real against the live packet, with no mocks or stubs. Acceptable verdicts are `PASS`, `FAIL` or `SKIP`, and every `SKIP` names the specific runtime blocker, such as the hosted Figma MCP being unavailable. A run that died before it finished is none of the three, as the run integrity rule in Section 5 sets out.
 
 This playbook tests the `sk-create-figjam` packet of the Product Owner hub. The root is the directory, the review protocol and the orchestration guide, and each scenario file holds its own execution truth. Hub routing scenarios live in `../../manual-testing-playbook/`. The Product Owner Flow scenarios `SFL-001` and `PFL-001`, which cover the skill and the claude.ai Project runtimes, live in `../../sk-product-owner/manual-testing-playbook/`.
 
@@ -25,20 +25,20 @@ Canonical package artifacts:
 ### Result persistence
 
 <!-- MANUAL_PLAYBOOK_RESULT_PERSISTENCE_CONTRACT -->
-A scenario run is complete only after its `PASS`, `FAIL` or `SKIP` outcome, its reason and its evidence paths are recorded by hand in `../../benchmark/reports/<dated-run-label>/`. Generated report Markdown is renderer-owned and never hand-authored.
+A scenario run is complete only after its `PASS`, `FAIL` or `SKIP` outcome, its reason and its evidence paths are recorded by hand in `../../benchmark/reports/<dated-run-label>/`. An incomplete run is recorded in the same place under its own name, with its cause. Generated report Markdown is renderer-owned and never hand-authored.
 
 ---
 
 ## 1. OVERVIEW
 
-The packet picks a diagram type from the reader's question, checks a Mermaid model of it, gates the write and reads the board back. The scenarios cover each step for the seven types Figma's `generate_diagram` draws: user flow, process, architecture, sequence, state, ER and gantt. The validator derives the census from the tree, so no count is kept here. Every request uses the fictional Fernhouse, Loomlist and Roamstay companies.
+The packet picks a diagram type from the reader's question, checks a Mermaid model of it, gates the write and reads the board back. The scenarios cover each step for the seven types Flow Mode draws: user flow, process, architecture, sequence, state, ER and gantt. The validator derives the census from the tree, so no count is kept here. Every request uses the fictional Fernhouse, Loomlist and Roamstay companies.
 
 Coverage note (2026-10-20): every type has a type-choice or board-write scenario, a scored board and a routing scenario. The board writes and scored boards need the hosted Figma MCP or Figma Desktop with `figma-ds-cli`, and record SKIP without them.
 
 ### Realistic Test Model
 
 1. A realistic request is given to the Product Owner runtime with this packet loaded
-2. The runtime picks the type, models, checks and gates, and writes only after a yes
+2. The runtime picks the type, models, checks and gates, stops at each stop Flow Mode requires before a write and writes only after the gate's yes
 3. The operator captures the replies, the tool calls and any check runs
 4. A scenario passes only when the process and the visible outcome both hold
 
@@ -57,7 +57,7 @@ Coverage note (2026-10-20): every type has a type-choice or board-write scenario
 2. Python 3.9 or later is on the path, and `PYTHONPYCACHEPREFIX` points at a scratch folder outside the repository
 3. `SKILLED` points at the shared `.skilled` folder for the routing scenarios' topology gate
 4. Scratch models live outside the repository and are deleted after the run
-5. Record which Figma routes are reachable before any board-write scenario: the hosted Figma MCP, and Figma Desktop with the figma-ds-cli daemon
+5. Record which Figma routes are reachable before any board-write scenario: the hosted Figma MCP with `use_figma` for the composed route and `generate_diagram` for the fallback, and Figma Desktop with the figma-ds-cli daemon
 6. Board-write scenarios write to a new FigJam file in a plan the operator owns. The rollback is deleting that file, and no existing board is a target
 
 ---
@@ -89,25 +89,33 @@ The operator writes down the glance order the model plans before the first scree
 
 - **Fidelity.** 2: every read-back count matches the model and every label matches it word for word. 1: the counts match and one label differs. 0: a count differs
 - **Legibility.** 2: no label is cut off, wrapped mid-word or smaller than its neighbours. 1: one label wraps awkwardly. 0: a label is cut off or unreadable
-- **Signal.** 2: at most one accent, on the element the request names, and the greyscale copy answers the reader questions as the colour one does. 1: one accent on a different element. 0: more than one accent, or meaning lost in greyscale
+- **Signal.** 2: every colour the key lists matches its entry, every mark it leaves out passes the rule below, the accent the model sets, a `style` line on a user flow or a process or an optional `%% focus:` line on another type, sits on the element the request names and the greyscale copy answers the reader questions as the colour one does. 1: the accent sits on a different element. 0: a colour the key does not explain and the rule below does not cover, more than one accent in the model or meaning lost in greyscale
 - **Clarity.** A fresh reader, a person or a new model session given only the two colour screenshots, answers the scenario's three questions. 2: three correct. 1: two correct. 0: one or none
+
+**Marks the key does not list.** The key holds one sample per kind, line and arrow the board uses and nothing else, so three marks are absent from it by design: a zone or lane tint, a note pin and a legend sticky. A grader scores them against `sk-create-figjam/references/style-guide.md` and never counts their absence from the key as a Signal fault.
+
+- **A zone or lane tint** is a light section tint drawn from the cycle blue, orange, teal, yellow, violet and pink, so neighbouring zones read apart. It means nothing, so two zones in different tints are not two meanings
+- **A note pin** is the violet preset with a white digit, and a sequence's step pins are the exception because the key names them `Step number`
+- **A legend sticky** takes one colour from the sticky palette, one colour per legend by default
+
+Each counts against Signal only when its colour is outside its palette in the style guide, or when it carries meaning by colour alone with no label to say so. A colour on a drawn node that the key does not list is still a Signal fault.
 
 **The invariants.** Four checks, one point each, scored between the first and the last read.
 
-- **Hygiene, no node touched.** Passes when every generated node keeps the position, size and style it was written with
-- **Hygiene, no label covered.** Passes when no extension, pin or sticky covers a generated label
+- **Hygiene, no node touched.** Passes when every node the write drew keeps the position, size and style it was written with
+- **Hygiene, no label covered.** Passes when no extension, pin or sticky covers a drawn label
 - **Hygiene, nothing else changed.** Passes when no node, section or sticky the run did not create changed
 - **Hygiene, nothing exported.** Passes when no file was written to `export/` and no Mermaid, HTML, SVG or PNG file was left behind
 
 **The reply.** Two points, scored on the reply text.
 
-- **Reply.** 2: the board URL first, then `Read-back:`, any `Extensions:` and `Left out:` lines and the `HVR self-scan:` line, every count true. 1: every line present and true, out of order. 0: a line missing or a count false
+- **Reply.** 2: the board URL first, then `Read-back:`, any `Extensions:`, `Left out:` and `Finding:` lines and the `HVR self-scan:` line last, every count true. 1: every line present and true, out of order, or with any text after the `HVR self-scan:` line, even one sentence. 0: a line missing or a count false
 
 A scored board totals 22 points: 8 from the overview zoom, 8 from the reading zoom, 4 from the invariants and 2 from the reply. It passes at 18 or more, with Composition, Fidelity, Reply and all four invariant checks at full marks and no scored dimension at 0.
 
-Every point lost carries a location and a fix. The location names the shape or the connector by its label and says where it sits in the frame. The fix is a change to the model that is regenerated after a yes, or a generator limit the writer cannot move. A point lost with no location or no fix is unmeasured, and an unmeasured point cannot count as a pass.
+Every point lost carries a location and a fix. The location names the shape or the connector by its label and says where it sits in the frame. The fix is a change to the model that is composed again after a yes, or a composer limit the writer cannot move. A point lost with no location or no fix is unmeasured, and an unmeasured point cannot count as a pass.
 
-When Crossings, Shared trunks, Label collisions or Legibility loses a point, the triage records whether the model caused it or the generator did, because the generator owns the geometry and generated nodes are never moved.
+When Crossings, Shared trunks, Label collisions or Legibility loses a point, the triage records whether the model caused it or the composer did, because the composer owns the geometry and composed nodes are never moved.
 
 ---
 
@@ -118,6 +126,7 @@ When Crossings, Shared trunks, Label collisions or Legibility loses a point, the
 - Environment setup is written `sandbox:`
 - `<scratch>` is a folder outside the repository
 - `->` separates sequential steps
+- Every stop Flow Mode makes before a write gets its own `user:` turn with its own wording, because the runner drops a repeated turn. The intake round answers `Use your recommended answers.`, the playback answers `Yes, that reading is right.` and the write gate answers `Yes, go ahead.` A scenario with no intake turn is one whose prompt settles every Brief row. When its run asks an intake round anyway, the operator answers it with the recommended answers before sending the next turn
 
 ---
 
@@ -143,18 +152,30 @@ Scenario verdict:
 - `PASS`: every acceptance check is true
 - `FAIL`: an expected signal is missing, the output contradicts the contract or a critical check failed
 - `SKIP`: a named sandbox or runtime blocker prevents execution
+- Incomplete run: the run began and died before it finished, as the run integrity rule below sets out. It is not a verdict
+
+### Run Integrity
+
+A run is complete only when every turn of the scenario's command sequence was answered and the evidence the scenario names exists. A run that ends earlier has measured nothing past its last answered turn. The usual causes are the runner's timeout, a provider rate limit, a dropped session and a reply cut at the output cap.
+
+- Rerun it in a fresh session once the cause clears, and score the rerun alone. Before a board-write rerun, delete the file the dead run created, because no existing board is a target
+- Keep the dead run's evidence and name its cause in the record
+- When the run cannot be rerun, record it as an incomplete run with the cause, the last turn answered and the evidence kept. It is not a `SKIP`, because a `SKIP` names a blocker that stopped the scenario before it began, and it is not a `FAIL`, because the packet was never shown to break
+- Evidence from before the run died still counts. A breach it already shows, such as a write before the gate's yes, is a `FAIL`
+- A rerun follows an incomplete run only. A run that finished and failed stays a `FAIL`, and its rerun never replaces it
 
 ### Feature Verdict Rules
 
 - `PASS`: every mapped scenario is `PASS`
 - `FAIL`: any mapped scenario is `FAIL`
 - `SKIP`: every mapped scenario is blocked by a named sandbox or runtime blocker
+- Unrated: a mapped scenario stands as an incomplete run and no other mapped scenario is `FAIL`
 
 Hard rule: a `FAIL` on any scenario that writes to a board, or on the check self-test `FJ-004`, fails the release.
 
 ### Release Readiness Rule
 
-The packet is releasable only when no scenario is `FAIL`, `FJ-004` and every routing scenario are `PASS`, every scenario in the root index has a file, and no blocking triage item stays open.
+The packet is releasable only when no scenario is `FAIL` or an incomplete run, `FJ-004` and every routing scenario are `PASS`, every scenario in the root index has a file, and no blocking triage item stays open.
 
 ### Root-vs-Feature Rule
 
@@ -200,7 +221,7 @@ Verify that a request for the order of calls between services becomes a checked 
 
 Prompt: `$figjam draw the Roamstay checkout payment as a sequence diagram on a new board in our Roamstay Product plan. From the payments brief: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold, tells the partner hub and answers the app with 201.`
 
-Expected signals: The reply names the sequence type, carries a `sequenceDiagram` model with four declared participants and no aliases, notes or fragments, shows a check run whose last result is `PASSED` with exit 0 and ends on a gate that waits. No write tool is called
+Expected signals: Turn 1 ends on the playback, which names the sequence type, and shows no model and no write. Turn 2 carries a `sequenceDiagram` model with four declared participants and no aliases, notes or fragments, shows a check run whose last result is `PASSED` with exit 0 and ends on a gate that waits. No write tool is called
 
 Desired user-visible outcome: A checked sequence model of the payment and a gate that waits
 
@@ -228,7 +249,7 @@ Desired user-visible outcome: One plain question that lets the user pick the boa
 > **Feature File:** [FJ-002](type-choice/two-types-fit-asks.md)
 > **Catalog:** none, the packet has no feature catalog
 
-### FJ-003 | A kind the generator cannot draw
+### FJ-003 | A kind Flow Mode does not draw
 
 #### Description
 
@@ -238,7 +259,7 @@ Verify that a request for a mindmap is refused plainly with the nearest useful f
 
 Prompt: `$figjam a mindmap of the Roamstay launch themes: guest trust, partner onboarding, pricing and reviews`
 
-Expected signals: The reply says the board generator does not draw a mindmap, offers a table or a list in a Doc and calls no Figma tool
+Expected signals: The reply says Flow Mode does not draw a mindmap, offers a table or a list in a Doc and calls no Figma tool
 
 Desired user-visible outcome: A plain refusal with a useful alternative
 
@@ -257,7 +278,7 @@ Verify that a screen-by-screen request becomes a user flow of at most 9 nodes wi
 
 Prompt: `$flow make a FigJam flow of Fernhouse returns on a new board in our Fernhouse Product plan. From the returns doc: the customer opens an order, taps Return an item, picks the item and a reason, and if the order is older than 30 days they see a not-eligible screen. Otherwise they choose a refund or store credit, print the label and see a confirmation.`
 
-Expected signals: The model has at most 9 nodes, every decision exit labelled, camelCase ids and no `%% type:` line, the check prints `user flow: ok` with exit 0, and the gate waits. No write tool is called
+Expected signals: Turn 1 ends on the playback and shows no model. Turn 2 carries a model with at most 9 nodes, every decision exit labelled, camelCase ids and no `%% type:` line, the check prints `user flow: ok` with exit 0, and the gate waits. No write tool is called
 
 Desired user-visible outcome: A checked returns flow and a gate that waits
 
@@ -266,17 +287,17 @@ Desired user-visible outcome: A checked returns flow and a gate that waits
 > **Feature File:** [FJ-010](type-choice/user-flow-from-product-doc.md)
 > **Catalog:** none, the packet has no feature catalog
 
-### FJ-011 | A laned process with a handoff accent
+### FJ-011 | A laned process with the handoff in focus
 
 #### Description
 
-Verify that work that changes hands between teams becomes a process with one lane per actor, the neutral lane pair and one accent on the handoff.
+Verify that work that changes hands between teams becomes a process with one lane per actor, the neutral lane pair and one `style` line that puts the handoff step in focus.
 
 #### Scenario Contract
 
 Prompt: `draw how a Fernhouse damaged-item refund moves between the customer, a CS agent and the warehouse as a FigJam process on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse`
 
-Expected signals: The model opens with `%% type: process`, holds 2 to 6 lanes with `#F5F5F5` and `#B3B3B3`, one accent from the style guide, and the check prints `process: ok` with exit 0. The gate waits
+Expected signals: Turn 1 ends on the playback and shows no model. Turn 2 carries a model that opens with `%% type: process`, holds 2 to 6 lanes with `#F5F5F5` and `#B3B3B3` and carries one `style` line from the style guide on the step that hands the work to the warehouse and no `linkStyle`. The check prints `process: ok` with exit 0. The gate waits
 
 Desired user-visible outcome: A checked laned process and a gate that waits
 
@@ -289,13 +310,13 @@ Desired user-visible outcome: A checked laned process and a gate that waits
 
 #### Description
 
-Verify that a system request becomes an architecture in Figma's six lanes with no styling, cut to budget with the cut named, and a gate that names the layout code.
+Verify that a system request becomes an architecture in Figma's six lanes with no styling, cut to budget with the cut named and a gate that names the composed board in its lanes.
 
 #### Scenario Contract
 
 Prompt: `draw the services behind Loomlist block sync as a FigJam architecture diagram on a new board in our Loomlist Engineering plan: desktop, web and iOS clients, an API gateway, sync-service, a push worker, the blocks database, file storage, a change stream and Apple's push service`
 
-Expected signals: The model has at most 9 nodes, no `style` or `classDef`, dotted edges for async and external calls, a `Left out:` line naming file storage, the check prints `architecture: ok`, and the gate names the layout code and waits
+Expected signals: Turn 1 ends on an intake round that asks for the calls between the parts with a recommended answer for each, and shows no model. Turn 2 ends on the playback and shows no model. Turn 3 carries a model with at most 9 nodes, no `style` or `classDef`, dotted edges for async and external calls, a `Left out:` line naming file storage, the check prints `architecture: ok`, and the gate names the composed board in its six lanes and waits
 
 Desired user-visible outcome: A checked architecture with the cut named and a gate that waits
 
@@ -308,13 +329,13 @@ Desired user-visible outcome: A checked architecture with the cut named and a ga
 
 #### Description
 
-Verify that a request for a timeline, which the generator cannot draw, is named as such and offered as a gantt chart with each event as a milestone.
+Verify that a request for a timeline, which Flow Mode does not draw, is named as such and offered as a gantt chart with each event as a milestone.
 
 #### Scenario Contract
 
 Prompt: `$figjam a timeline of the Loomlist offline mode milestones: design done 16 November, beta on 7 December, release on 21 December`
 
-Expected signals: The reply names the timeline as a kind the generator cannot draw, offers a gantt chart with milestones and calls no Figma tool
+Expected signals: The reply names the timeline as a kind Flow Mode does not draw, offers a gantt chart with milestones and calls no Figma tool
 
 Desired user-visible outcome: A clear offer of the nearest drawable type
 
@@ -327,7 +348,7 @@ Desired user-visible outcome: A clear offer of the nearest drawable type
 
 ## 8. PRE-WRITE CHECK (`FJ-004`, `FJ-005`, `FJ-006`, `FJ-014`, `FJ-015`, `FJ-016`, `FJ-043`)
 
-The check refuses what the generator would drop or mangle, and its self-test proves every rule fires. These run from a shell with no model runtime.
+The check refuses what the composer or the generated fallback would drop or mangle, and its self-test proves every rule fires. These run from a shell with no model runtime.
 
 ### FJ-004 | The self-test covers every type
 
@@ -371,7 +392,7 @@ Desired user-visible outcome: A refusal that says what to change
 
 #### Description
 
-Verify that the check refuses a Mermaid block whose kind the generator does not draw.
+Verify that the check refuses a Mermaid block whose kind Flow Mode does not draw.
 
 #### Scenario Contract
 
@@ -472,13 +493,13 @@ The gate, the write, the extension and the read-back. Scenarios that need a Figm
 
 #### Description
 
-Verify that a state diagram request that asks for colour on its end states ends on a gate that names the status tint as an extension, before any write.
+Verify that a state diagram request that asks for notes the model cannot carry ends on a gate that names the notes as an extension, before any write.
 
 #### Scenario Contract
 
-Prompt: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
+Prompt: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
 
-Expected signals: The model's header is `stateDiagram-v2` with no styling, the check passes, and the gate names the plan, a new file, the state diagram, one tint behind the end states and the rollback, and waits. No write tool is called
+Expected signals: Turn 1 ends on the playback and writes nothing. After the playback's yes, the model's header is `stateDiagram-v2` with no styling and the check passes. Turn 2 ends on the gate, which names the plan, a new file, the composed state diagram, two single-sticky notes on Cancelled and NoShow, the calls the write will spend and the rollback, then waits. The gate plans no colour step, because the composer already draws the end states light gray and names them Final state in the key. No write tool is called
 
 Desired user-visible outcome: A checked state model and a gate that names both writes
 
@@ -497,7 +518,7 @@ Verify that with the hosted Figma MCP connected, a yes writes an ER diagram, the
 
 Prompt: `$figjam an ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan: a guest makes bookings, a booking holds payments, a room is reserved by bookings, a rate plan prices bookings, and a property offers rooms and publishes rate plans. Keep the keys only.`
 
-Expected signals: Turn 1 ends on the gate. Turn 2 calls `generate_diagram` once, reads the board back, and replies with the board URL first, a `Read-back:` line counting entities, relationships and attributes, and the `HVR self-scan:` line
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 calls `whoami`, `create_new_file`, one `use_figma` and one `get_figjam`, and replies with the board URL first, a `Read-back:` line counting entities, relationships and attributes, and the `HVR self-scan:` line
 
 Desired user-visible outcome: A board link with counts measured on the board
 
@@ -516,7 +537,7 @@ Verify that a yes on a gantt chart with no hosted Figma MCP names the missing ro
 
 Prompt: `put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November for two weeks, the sync engine takes three weeks from the same day, the conflict screen build follows design for two weeks, integration starts when both are done for one week, then a two-week beta and the release.`
 
-Expected signals: Turn 1 ends on the gate or the missing-route reply. Turn 2 names the hosted Figma MCP as not connected and what it needs, says the `fj` route cannot draw a gantt chart, offers the checked model and prints no board URL or `Read-back:` line
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate or the missing-route reply and writes nothing. Turn 3 names the hosted Figma MCP as not connected and what it needs, says the `fj` route cannot draw a gantt chart, offers the checked model and prints no board URL or `Read-back:` line
 
 Desired user-visible outcome: A plain account of the missing route with the checked model to keep
 
@@ -525,19 +546,19 @@ Desired user-visible outcome: A plain account of the missing route with the chec
 > **Feature File:** [FJ-009](board-write/gantt-with-no-route.md)
 > **Catalog:** none, the packet has no feature catalog
 
-### FJ-017 | A status tint lands after the write
+### FJ-017 | Notes land after the write
 
 #### Description
 
-Verify that after a yes that named a tint, the state diagram is written, the tint is added through `use_figma` behind the end states, and the reply carries an `Extensions:` line.
+Verify that after a yes that named notes, the state diagram is composed with one `use_figma` call and the notes are added with a second `use_figma` call inside the board as single stickies, no composed node moves and the reply carries an `Extensions:` line.
 
 #### Scenario Contract
 
-Prompt: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
+Prompt: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
 
-Expected signals: Turn 2 calls `generate_diagram` once and `use_figma` once, moves no generated node, and replies with the board URL, a `Read-back:` line, `Extensions: 1 of 1 status tint, 0 overlaps` and the `HVR self-scan:` line
+Expected signals: Turn 1 ends on the playback and Turn 2 ends on the gate, and both write nothing. Turn 3 calls `use_figma` twice, once to compose the board and once to add the two notes as single stickies, with no pin and no legend column. It moves no composed node, draws no colour and replies with the board URL, a `Read-back:` line, `Extensions: 2 of 2 notes, 0 overlaps` and the `HVR self-scan:` line
 
-Desired user-visible outcome: A board with the end states tinted and both writes counted
+Desired user-visible outcome: A board with a note beside Cancelled and beside NoShow and both writes counted
 
 #### Test Execution
 
@@ -554,7 +575,7 @@ Verify that with no hosted route but `figma-ds-cli` reachable, a user flow is wr
 
 Prompt: `$flow make a FigJam flow of Fernhouse returns in the board I have open in Figma Desktop. From the returns doc: the customer opens an order, taps Return an item, picks the item and a reason, and if the order is older than 30 days they see a not-eligible screen. Otherwise they choose a refund or store credit, print the label and see a confirmation.`
 
-Expected signals: The gate names the open FigJam file from `fj info`. Turn 2 uses only create verbs, never `fj delete` or `fj eval`, and replies with a `Read-back:` line counting nodes, connectors and labelled exits
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 writes nothing and ends on the gate, which names the open FigJam file from `fj info`. Turn 3 uses only create verbs, never `fj delete` or `fj eval`, and replies with a `Read-back:` line counting nodes, connectors and labelled exits
 
 Desired user-visible outcome: The flow on the open board with counts measured by `fj nodes -l`
 
@@ -563,17 +584,17 @@ Desired user-visible outcome: The flow on the open board with counts measured by
 > **Feature File:** [FJ-018](board-write/fj-route-user-flow.md)
 > **Catalog:** none, the packet has no feature catalog
 
-### FJ-019 | An architecture written with its layout code
+### FJ-019 | An architecture composed in its six lanes
 
 #### Description
 
-Verify that with the hosted Figma MCP connected, the architecture call passes `useArchitectureLayoutCode` and the read-back counts its lanes.
+Verify that with the hosted Figma MCP connected, one `use_figma` call composes the architecture with its lanes as columns and the read-back counts its lanes.
 
 #### Scenario Contract
 
 Prompt: `draw the services behind Loomlist block sync as a FigJam architecture diagram on a new board in our Loomlist Engineering plan: desktop, web and iOS clients, an API gateway, sync-service, a push worker, the blocks database, file storage, a change stream and Apple's push service`
 
-Expected signals: The one `generate_diagram` call carries `useArchitectureLayoutCode: "FIGMA_DIAGRAM_2026"`, and the reply's `Read-back:` line counts nodes, connectors and lanes
+Expected signals: Turn 1 writes nothing and ends on an intake round that asks for the calls between the parts with a recommended answer for each. Turn 2 ends on the playback and writes nothing. Turn 3 ends on the gate and writes nothing. Turn 4 writes after the gate's yes. The one `use_figma` call carries the code `compose_board.py` printed. The board holds six lane sections as columns, left to right as client, gateway, service, async, datastore and external, with each part inside its lane. The reply's `Read-back:` line counts nodes, connectors and lanes. When `use_figma` is not connected and the generated fallback runs, its one `generate_diagram` call also carries `useArchitectureLayoutCode: "FIGMA_DIAGRAM_2026"`, which is recorded as a secondary signal
 
 Desired user-visible outcome: An architecture board in lanes with counts measured on it
 
@@ -592,13 +613,13 @@ One written board per diagram type, scored on the board quality scorecard in Sec
 
 #### Description
 
-Verify that a written user flow is legible, laid out in one direction, carries one accent and answers a fresh reader's questions from the screenshot alone.
+Verify that a written user flow is legible, laid out left to right in three zones, draws its goal and its exit by kind and answers a fresh reader's questions from the screenshot alone.
 
 #### Scenario Contract
 
 Prompt: `$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review.`
 
-Expected signals: The board holds 9 of 9 nodes, 9 of 9 connectors and 2 of 2 decisions with every exit labelled, top to bottom. The one accent sits on Return confirmed, and the reply carries `Left out:` naming the proposal. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds every node of the model within 9, every connector and 2 of 2 decisions with every exit labelled, left to right in three zones. The goal Return confirmed is light green and Contact support is a light orange exit. The reply carries `Left out:` naming the proposal. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -611,13 +632,13 @@ Desired user-visible outcome: A board that reads in its planned order at both zo
 
 #### Description
 
-Verify that a written process keeps each step in its lane, accents the one handoff the request names and reads in greyscale.
+Verify that a written process keeps each step in its lane, puts the one handoff step the request names in focus and reads in greyscale.
 
 #### Scenario Contract
 
 Prompt: `make a FigJam process of how a Fernhouse damaged-item refund moves between the customer, CS and the warehouse, on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse. From the support runbook: the customer reports damage with a photo through the help form. A CS agent checks the photo, approves clear damage on the spot and asks for a second photo when it is unclear. An approved claim goes to the warehouse queue, where an operator books a courier pickup, inspects the item on arrival and releases the refund. Every decision is logged in the claims table. Refunds under 20 euros skip the pickup, a pilot that is not yet live.`
 
-Expected signals: The board holds 8 of 8 nodes, 8 of 8 connectors, 1 of 1 decision with both exits labelled and 3 of 3 lanes, each step in its lane. The only accent is the orange `#FF9E42` stroke on the approve-to-pickup connector, and the greyscale copy still answers Q3 from the lane labels. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds 8 of 8 nodes, 8 of 8 connectors, 1 of 1 decision with both exits labelled and 3 of 3 lanes, each step in its lane. The only mark is Approve the claim drawn in focus in light pink with the pink outline and named In focus in the key. Every other step keeps the colour of its kind. The greyscale copy still answers Q3 from the lane labels. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -636,7 +657,7 @@ Verify that a written architecture places every part in its layout lane, draws a
 
 Prompt: `draw the services behind Loomlist block sync as a FigJam architecture diagram on a new board in our Loomlist Engineering plan: desktop, web and iOS clients, an API gateway, sync-service, a push worker, the blocks database, file storage, a change stream and Apple's push service. Clients hold a live socket to the gateway, sync-service writes every block change and publishes it to the change stream, and the push worker reads the stream and wakes sleeping iOS devices.`
 
-Expected signals: The board holds 9 of 9 nodes, 8 of 8 connectors and 6 of 6 lanes, with the three event edges dotted. No node carries a fill the model set, the dotted edges stay distinct in the greyscale copy, and the reply names file storage under `Left out:`. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds 9 of 9 nodes, 8 of 8 connectors and 6 of 6 lanes, with the three event edges dotted. No node carries a fill the model set, the dotted edges stay distinct in the greyscale copy, and the reply names file storage under `Left out:`. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -655,7 +676,7 @@ Verify that a written sequence keeps participants in call order left to right, k
 
 Prompt: `$figjam draw the Roamstay checkout payment as a sequence diagram on a new board in our Roamstay Product plan. From the payments brief: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold, tells the partner hub and answers the app with 201. A declined card releases the hold and returns 402.`
 
-Expected signals: The board holds 4 of 4 participants and 7 of 7 messages, participants left to right as GuestApp, BookingApi, PaymentProvider and PartnerHub. Replies are dashed and the async message has an open arrow, both still distinct in greyscale, and the reply names the declined path under `Left out:`. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds 4 of 4 participants and 7 of 7 messages, participants left to right as GuestApp, BookingApi, PaymentProvider and PartnerHub. Replies are dashed and the async message has an open arrow, both still distinct in greyscale, and the reply names the declined path under `Left out:`. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -664,17 +685,17 @@ Desired user-visible outcome: A board that reads in its planned order at both zo
 > **Feature File:** [FJ-025](board-quality/sequence-board-quality.md)
 > **Catalog:** none, the packet has no feature catalog
 
-### FJ-026 | State board with status tint quality
+### FJ-026 | State board quality
 
 #### Description
 
-Verify that a written state diagram with its end states tinted keeps every transition labelled, places the tint behind the three end states and covers no label.
+Verify that a written state diagram has its end states drawn light gray by the composer, the Confirmed composite drawn as a named zone around its substates and every transition labelled, with no tint.
 
 #### Scenario Contract
 
 Prompt: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-in moves Upcoming to In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
 
-Expected signals: The board holds every state of the model, every transition with its label and 1 of 1 status tint behind Completed, Cancelled and NoShow. The tint extends 24 pixels past the end states on every side, sits behind them and covers no label, and the reply carries `Extensions: 1 of 1 status tint, 0 overlaps`. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds every state of the model, every transition with its label and the Confirmed composite as a named zone around Upcoming and InStay. Completed, Cancelled and NoShow are light gray, as the key's Final state entry says. No tint sits behind them. No extension call is made and the reply carries no `Extensions:` line. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -683,17 +704,17 @@ Desired user-visible outcome: A board that reads in its planned order at both zo
 > **Feature File:** [FJ-026](board-quality/state-board-quality.md)
 > **Catalog:** none, the packet has no feature catalog
 
-### FJ-027 | ER board with domain tints quality
+### FJ-027 | ER board with domain zones quality
 
 #### Description
 
-Verify that a written ER diagram keeps every relationship's two ends and cardinality readable and separates the guest and partner tables with two domain tints.
+Verify that a written ER diagram keeps every relationship's two ends and cardinality readable and separates the guest and partner tables with two `%% zone:` sections.
 
 #### Scenario Contract
 
 Prompt: `make a FigJam ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan, and group the partner tables apart from the guest tables. From the schema note: guests, bookings, payments, properties, rooms and rate plans. A guest makes bookings, a booking reserves one room under one rate plan and holds its payments, and a property offers rooms and publishes rate plans. Keep the keys and the few columns support asks about.`
 
-Expected signals: The board holds 6 of 6 entities, 6 of 6 relationships with their labels and every attribute of the model, plus 2 of 2 domain tints. The guest tint holds Guest, Booking and Payment and the partner tint holds Property, Room and Rate Plan, neither covers a label, and the crow's-foot marks read at 100% zoom. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds 6 of 6 entities, 6 of 6 relationships with their labels and every attribute of the model, in 2 of 2 zones. The Guest side zone holds Guest, Booking and Payment and the Partner side zone holds Property, Room and Rate Plan. Neither zone covers a label. Each relationship's cardinality reads from its label, such as `makes (1 to 0..n)`, at 100% zoom. No extension call is made and the reply carries no `Extensions:` line. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -712,7 +733,7 @@ Verify that a written gantt chart keeps task order, dependencies and the milesto
 
 Prompt: `put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November 2026 with two weeks of conflict-screen design, the sync engine takes three weeks from the same day, the conflict screen build follows its design for two weeks, and desktop and iOS integration starts when both builds are done, one week, and is the critical path. Then a two-week beta for 5 percent of workspaces and the release. Android follows in the next quarter, not yet approved.`
 
-Expected signals: The board holds 3 of 3 sections, 5 of 5 tasks and 1 of 1 milestone in the model's order. Integration carries the critical marking, the reply names Android under `Left out:`, and the reader reads order from the bars, not their lengths. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds 3 of 3 sections, 5 of 5 tasks and 1 of 1 milestone in the model's order. Integration carries the critical marking, the reply names Android under `Left out:`, and the reader reads order from the bars, not their lengths. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -725,19 +746,19 @@ Desired user-visible outcome: A board that reads in its planned order at both zo
 
 ## 11. BOARD CREATION (`FJ-029`, `FJ-030`, `FJ-031`, `FJ-032`, `FJ-033`, `FJ-034`, `FJ-035`, `FJ-036`)
 
-The ways a board gets made beyond one fresh write: a split across two diagrams, pins and a legend, a revision, a board that already holds content, a leadership audience, a colour request the rules refuse, the fj route and a flow at the budget. Each is scored on the same scorecard.
+The ways a board gets made beyond one fresh write: a split across two diagrams, pins and a legend, a revision, a board that already holds content, a leadership audience, a colour request answered with lanes, the fj route and a flow at the budget. Each is scored on the same scorecard.
 
-### FJ-029 | A flow over budget split on one board
+### FJ-029 | A flow over budget split into two boards in one file
 
 #### Description
 
-Verify that a request too long for one user flow becomes two diagrams on one board, the second written into the first one's file, each in its own zone under a heading that carries its ordinal, 92 pixels apart in one row, with no overlap and the reply naming the zone to open first.
+Verify that a request too long for one user flow becomes two composed boards in one file, the second composed into the first one's file, titled `1. Signup` and `2. Workspace setup`, placed left to right 400 pixels apart with no overlap and the reply naming the board to open first.
 
 #### Scenario Contract
 
 Prompt: `$flow the Loomlist signup and first workspace setup on a new board in our Loomlist Product plan. From the onboarding doc: the landing page, sign up with email or Google, verify the email code, where a wrong code shows an error with a resend, pick a free or team plan, where a team plan asks for teammates' emails and lets you skip, name the workspace, pick a template or start blank, and the editor opens with a welcome tip.`
 
-Expected signals: The board holds two diagrams, Signup and Workspace setup, each within 9 nodes and each in its own zone under a heading that reads `1. Signup` and `2. Workspace setup`, the zones 92 pixels apart in one row, with one shared hand-off label where the first ends and the second starts. The second generate_diagram call carries the first call's fileKey and the two zones stand 92 pixels apart in one row. Each heading reads as its ordinal and the diagram's name and neither diagram sits inside a section. The read-back line names `start here: 1. Signup`, the reply reads back each diagram on its own line and names the split under `Left out:`. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The file holds two composed boards, Signup and Workspace setup, each within 9 nodes and titled `1. Signup` and `2. Workspace setup`, the second 400 pixels to the right of the first with its top level, with one shared hand-off label where the first ends and the second starts. The second `use_figma` call carries the first call's fileKey, the boards do not overlap and neither sits inside the other. Each title reads as its ordinal and the diagram's name. The read-back line names `start here: 1. Signup`, that one line counts both diagrams and `Left out:` names the split. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -750,13 +771,13 @@ Desired user-visible outcome: A board that reads in its planned order at both zo
 
 #### Description
 
-Verify that three notes the request asks for land as violet numbered pins on the named nodes with a matching sticky column to the right, covering no label.
+Verify that three notes the request asks for land as violet numbered pins on the named nodes with a matching sticky column inside the board to the right, covering no label.
 
 #### Scenario Contract
 
 Prompt: `$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review. Pin the three places support says customers give up, with a note on each: the reason list, where there are too many reasons, the drop-off or pickup choice, where the pickup fee is unclear, and the 30-day cut-off, where there is no warning before day 30.`
 
-Expected signals: The board holds the 9-node flow of FJ-022, 3 of 3 pins and 3 of 3 legend stickies. Each pin is 48 by 48 in violet `#874FFF` with a white digit on its node's top-left corner, the stickies stand in one column to the right each starting with its number, no pin or sticky covers a label, the sticky colour shows as a palette swatch in FigJam's picker, and the reply carries `Extensions: 3 of 3 pins, 3 of 3 legend stickies, 0 overlaps`. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds the flow of FJ-022, 3 of 3 pins and 3 of 3 legend stickies. Each pin is 48 by 48 in violet `#874FFF` with a white digit on its node's top-left corner and is named `pin:1` to `pin:3`. The stickies are named `note:1` to `note:3` and stand in one column inside the board, 200 pixels to the right of the diagram, each starting with its number. The board is widened to hold the column and no composed node moves. No pin or sticky covers a label and the sticky colour shows as a palette swatch in FigJam's picker. The reply carries `Extensions: 3 of 3 pins, 3 of 3 legend stickies, 0 overlaps`. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -769,13 +790,13 @@ Desired user-visible outcome: A board that reads in its planned order at both zo
 
 #### Description
 
-Verify that a change to a written flow deletes only the nodes the first write created after a yes, regenerates into the same file and leaves one diagram on the board.
+Verify that a change to a written flow composes the new board first, reads it back, then after its own yes deletes the old board section found by its tag and leaves one board in the file.
 
 #### Scenario Contract
 
 Prompt: `change the Fernhouse return flow on that board: after 30 days the app now shows Request an exception instead of Contact support`
 
-Expected signals: The board holds one diagram, 9 of 9 nodes and 9 of 9 connectors, with Request an exception in place of Contact support. The delete waits for the yes, removes only the first write's nodes and connectors, the operator's sticky is untouched, and the regenerate call carries the same fileKey. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate for the compose and writes nothing. Turn 3 composes the new board, reads it back, asks before deleting and deletes nothing. Turn 4 deletes the old board section. The file ends with one board, every node of the model within 9 and every connector, with Request an exception in place of Contact support. The new board is composed and read back before anything is deleted. The gate's yes covers the compose and never the delete. The delete waits for its own yes, asked after the read-back. It removes only the old board section found by its tag. The operator's sticky is untouched and the compose call carries the same fileKey. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -788,13 +809,13 @@ Desired user-visible outcome: A board that reads in its planned order at both zo
 
 #### Description
 
-Verify that a diagram written into an existing board lands clear of the content already there and changes none of it.
+Verify that a diagram composed into an existing board lands clear of the content already there and changes none of it.
 
 #### Scenario Contract
 
 Prompt: `$figjam add the Roamstay booking status lifecycle to our existing retro board <fileKey of the prepared board>. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
 
-Expected signals: The board holds every state and labelled transition of the model, and every node that was on the board before, at its old position. The prepared stickies and section keep their count, positions and sizes between the two reads, and the new diagram's bounds overlap none of them. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds every state and labelled transition of the model, and every node that was on the board before, at its old position. The prepared stickies and section keep their count, positions and sizes between the two reads. The new board lands 400 pixels to the right of the rightmost existing content with its top level with the highest node there, and its bounds overlap none of them. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -813,7 +834,7 @@ Verify that the same system asked for a leadership audience lands with capabilit
 
 Prompt: `draw how Loomlist block sync works as a FigJam architecture diagram for the leadership update, on a new board in our Loomlist Product plan: desktop, web and iOS apps talk to our sync platform, which stores every change and wakes sleeping iPhones through Apple's push service.`
 
-Expected signals: The board holds at most 6 nodes in capability words, such as Apps, Sync platform and Apple Push, every connector of the model and its lanes. The reply or the gate names the Executive audience and the Simplified level, no label uses an internal service name such as sync-service or Push Worker, and the reader is told only that they are a non-engineer. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds at most 6 nodes in capability words, such as Apps, Entry point, Sync platform and Apple Push, with the gateway-lane node counted among them because the architecture check lets a client edge enter only a gateway, every connector of the model and its lanes. The type stays an architecture, and the gateway node is marked assumed on the source line instead of being swapped for a sequence. The reply or the gate names the Executive audience and the Simplified level, no label uses an internal service name such as sync-service or Push Worker, and the reader is told only that they are a non-engineer. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -826,13 +847,13 @@ Desired user-visible outcome: A board that reads in its planned order at both zo
 
 #### Description
 
-Verify that a request to colour each step by team keeps one accent on the board, explains why and offers a laned process instead.
+Verify that a request to colour each step by team is answered by explaining that colour marks a kind and never a team, offering a laned process instead and keeping exactly one accent in the model.
 
 #### Scenario Contract
 
 Prompt: `$flow the Fernhouse damaged-item refund as a FigJam flow on a new board in our Fernhouse Product plan, and colour each step by the team that does it: customer reports damage with a photo, CS checks it and approves or asks for a second photo, the warehouse books a pickup, inspects the item and releases the refund`
 
-Expected signals: The board holds 3 of 3 lanes with the lane pair and at most one accent. Turn 1 writes nothing, the board shows no colour per team, and the greyscale copy answers all three questions. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 explains the colour rule, offers lanes and writes nothing. Turn 2 ends on the playback and writes nothing. Turn 3 ends on the gate and writes nothing. Turn 4 writes after the gate's yes. The board holds 3 of 3 lanes, each in the composer's zone tint, which cycles from lane to lane so neighbouring lanes read apart and stands for no team. Every step is coloured by its kind and the model holds exactly one accent. No colour stands for a team, so no step fill, key entry or line of the reply ties a colour to a team, and the greyscale copy answers all three questions. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -851,7 +872,7 @@ Verify that a user flow written node by node through fj has no overlap, even spa
 
 Prompt: `$flow make a FigJam flow of Fernhouse returns in the board I have open in Figma Desktop. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support.`
 
-Expected signals: The board holds 9 of 9 nodes, 9 of 9 connectors and 4 of 4 edge labels as text nodes. No two nodes overlap, the gaps between rows differ by at most a quarter of the largest gap, each edge label sits closer to its own connector than to any other, and no fj delete or fj eval is called. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds 9 of 9 nodes, 9 of 9 connectors and 4 of 4 edge labels as text nodes. No two nodes overlap, the gaps between rows differ by at most a quarter of the largest gap, each edge label sits closer to its own connector than to any other, and no fj delete or fj eval is called. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -870,7 +891,7 @@ Verify that a user flow at the node budget with a three-way decision keeps every
 
 Prompt: `$flow how a Roamstay guest changes their booking dates in the app, on a new board in our Roamstay Product plan. From the booking page they tap Change dates and pick new dates. If the room is not free on those dates they see other rooms. If the new price is higher they pay the difference, if it is lower they get the difference back as credit, and if it is the same nothing is charged. Then they see the updated booking.`
 
-Expected signals: The board holds every node of the model within 9, every connector and 2 of 2 decisions with all 5 exits labelled. No connector crosses another, and every exit label reads at 100% zoom without touching another label. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds every node of the model within 9, every connector and 2 of 2 decisions with all 5 exits labelled. No connector crosses another, and every exit label reads at 100% zoom without touching another label. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -933,7 +954,7 @@ Verify that a Story asked for beside a FigJam flow is written and exported first
 
 Prompt: `write a story for the Fernhouse return flow and make a FigJam flow of its screens`
 
-Expected signals: The first reply delivers a Story with its export and read-back line, then starts Flow Mode from that Story and ends on Flow Mode's own gate with no ClickUp offer. No Figma write tool is called before that yes. After the yes and a matched read-back, the board URL sits in the Story's `Flows` group, the Story is saved again at its export path and the read-back line ends with its file name
+Expected signals: The first reply delivers a Story with its export and read-back line, then starts Flow Mode from that Story and ends on Flow Mode's playback with no ClickUp offer. After the playback's yes it ends on Flow Mode's own gate with no ClickUp offer. No Figma write tool is called before the gate's yes. After the gate's yes and a matched read-back, the board URL sits in the Story's `Flows` group, the Story is saved again at its export path and the read-back line ends with its file name
 
 Desired user-visible outcome: A Story, a gate for a FigJam board drawn from its screens, then the Story re-saved with the board link
 
@@ -946,13 +967,13 @@ Desired user-visible outcome: A Story, a gate for a FigJam board drawn from its 
 
 #### Description
 
-Verify that a request to move, resize or restyle a generated node gets a plain answer naming the edit in FigJam, and no tool is called.
+Verify that a request to move or restyle a composed node in a way the model cannot carry gets a plain answer naming the edit in FigJam, and no tool is called.
 
 #### Scenario Contract
 
 Prompt: `$flow on the Fernhouse return board you drew, move the Approve return node further right and make its text bigger`
 
-Expected signals: The reply says Flow Mode does not move or restyle a generated node, names the drag and the font change in FigJam and names the `Approve return` node by its label. No Figma tool is called
+Expected signals: The reply says Flow Mode does not move or restyle a composed node, because a nudge and a font size are changes the model cannot carry, names the drag and the font change as hand edits in FigJam, names the `Approve return` node by its label and says a change the model can carry, such as the direction, a zone or a `style` line, is made in the model and composed again after a yes, with the old board section deleted only on a second yes asked after the new board is read back. No Figma tool is called
 
 Desired user-visible outcome: A plain answer that names the two hand edits in FigJam
 
@@ -971,7 +992,7 @@ Verify that a brief that names a flow and no steps gets one round of questions, 
 
 Prompt: `$flow the Fernhouse return flow on a new board in our Fernhouse Product plan`
 
-Expected signals: The first reply asks one round of questions, each naming what the brief shows, a recommended answer and a one-line reason, and writes no model. The second reply carries a checked model, marks each fact it read rather than found as assumed, names the assumptions in the playback and ends on a gate that waits
+Expected signals: The first reply asks one round of questions, each naming what the brief shows, a recommended answer and a one-line reason, and writes no model. A later round follows only when the answers open a gap in a Brief row still unasked, within the Standard cap of three rounds, and it repeats no question. The reply after the last round is the playback, which names each assumption and shows no model. The next reply carries a checked model, marks each fact it read rather than found as assumed and ends on a gate that waits
 
 Desired user-visible outcome: A checked flow built on readings the user could see and correct
 
@@ -990,7 +1011,7 @@ Verify that a brief that spans several flows is read back as one recommended sco
 
 Prompt: `$figjam the whole Fernhouse product on a new board in our Fernhouse Product plan: signup, returns, refunds, the warehouse and billing`
 
-Expected signals: The first reply reads the brief back as one recommended scope and names the flows left for a later board, with no model. The second reply models that scope only, carries a `Left out:` line naming the rest and ends on a gate that waits
+Expected signals: The first reply reads the brief back as one recommended scope and names the flows left for a later board, with no model. The second reply is the playback over that scope and shows no model. The third reply models that scope only, carries a `Left out:` line naming the rest and ends on a gate that waits
 
 Desired user-visible outcome: One board of the scope that was read back, with the rest named as later work
 
@@ -1009,7 +1030,7 @@ Verify that a request that names a state diagram over a brief that describes a p
 
 Prompt: `$figjam a state diagram of the Fernhouse return flow on a new board in our Fernhouse Product plan: a customer opens an order, taps Return an item, picks a reason, chooses a refund or store credit and sees a confirmation`
 
-Expected signals: The first reply asks one question that names the state diagram, the screen path the brief describes and the type it recommends, and writes no model. The second reply models the confirmed type, checks it and ends on a gate that waits
+Expected signals: The first reply asks one question that names the state diagram, the screen path the brief describes and the type it recommends, and writes no model. The second reply is the playback over the confirmed type and shows no model. The third reply models the confirmed type, checks it and ends on a gate that waits
 
 Desired user-visible outcome: A checked flow of the screens, chosen with one word from the user
 
@@ -1028,7 +1049,7 @@ Verify that a thin brief sent at Quick energy with a plain no-questions request 
 
 Prompt: `$flow $quick the Fernhouse damaged-item flow on a new board in our Fernhouse Product plan. Just do it, no questions.`
 
-Expected signals: The reply asks no question, carries a checked model, marks every step and actor it inferred as assumed, names each one in the playback before the gate and waits for the yes. No write tool is called
+Expected signals: Turn 1 asks no intake question, names each inferred fact as assumed in the playback and waits for the yes, with no model yet. Turn 2 carries a checked model, marks every step and actor it inferred as assumed and ends on a gate that waits. No write tool is called
 
 Desired user-visible outcome: A checked flow, a named record of what was assumed and a gate that waits
 
@@ -1234,9 +1255,9 @@ The packet has no feature catalog, so every scenario names `SKILL.md` and the re
 |---|---|---|---|
 | FJ-001 | A sequence picked from an API brief | Type choice | [`type-choice/sequence-from-api-brief.md`](type-choice/sequence-from-api-brief.md) |
 | FJ-002 | Two types fit, so one question | Type choice | [`type-choice/two-types-fit-asks.md`](type-choice/two-types-fit-asks.md) |
-| FJ-003 | A kind the generator cannot draw | Type choice | [`type-choice/unsupported-kind-offers-nearest.md`](type-choice/unsupported-kind-offers-nearest.md) |
+| FJ-003 | A kind Flow Mode does not draw | Type choice | [`type-choice/unsupported-kind-offers-nearest.md`](type-choice/unsupported-kind-offers-nearest.md) |
 | FJ-010 | A user flow from a product doc | Type choice | [`type-choice/user-flow-from-product-doc.md`](type-choice/user-flow-from-product-doc.md) |
-| FJ-011 | A laned process with a handoff accent | Type choice | [`type-choice/laned-process-from-handoffs.md`](type-choice/laned-process-from-handoffs.md) |
+| FJ-011 | A laned process with the handoff in focus | Type choice | [`type-choice/laned-process-from-handoffs.md`](type-choice/laned-process-from-handoffs.md) |
 | FJ-012 | An architecture through the six lanes | Type choice | [`type-choice/architecture-with-layout-code.md`](type-choice/architecture-with-layout-code.md) |
 | FJ-013 | A timeline offered as a gantt chart | Type choice | [`type-choice/timeline-offers-gantt.md`](type-choice/timeline-offers-gantt.md) |
 | FJ-004 | The self-test covers every type | Pre-write check | [`pre-write-check/self-test-every-type.md`](pre-write-check/self-test-every-type.md) |
@@ -1248,17 +1269,17 @@ The packet has no feature catalog, so every scenario names `SKILL.md` and the re
 | FJ-007 | The gate names a planned extension | Board write | [`board-write/gate-names-extension.md`](board-write/gate-names-extension.md) |
 | FJ-008 | A written ER diagram is read back | Board write | [`board-write/write-and-read-back.md`](board-write/write-and-read-back.md) |
 | FJ-009 | A gantt chart with no route | Board write | [`board-write/gantt-with-no-route.md`](board-write/gantt-with-no-route.md) |
-| FJ-017 | A status tint lands after the write | Board write | [`board-write/hybrid-extension-written.md`](board-write/hybrid-extension-written.md) |
+| FJ-017 | Notes land after the write | Board write | [`board-write/hybrid-extension-written.md`](board-write/hybrid-extension-written.md) |
 | FJ-018 | A user flow through the fj fallback | Board write | [`board-write/fj-route-user-flow.md`](board-write/fj-route-user-flow.md) |
-| FJ-019 | An architecture written with its layout code | Board write | [`board-write/architecture-write-lanes.md`](board-write/architecture-write-lanes.md) |
+| FJ-019 | An architecture composed in its six lanes | Board write | [`board-write/architecture-write-lanes.md`](board-write/architecture-write-lanes.md) |
 | FJ-022 | User flow board quality | Board quality | [`board-quality/user-flow-board-quality.md`](board-quality/user-flow-board-quality.md) |
 | FJ-023 | Process board quality | Board quality | [`board-quality/process-board-quality.md`](board-quality/process-board-quality.md) |
 | FJ-024 | Architecture board quality | Board quality | [`board-quality/architecture-board-quality.md`](board-quality/architecture-board-quality.md) |
 | FJ-025 | Sequence board quality | Board quality | [`board-quality/sequence-board-quality.md`](board-quality/sequence-board-quality.md) |
-| FJ-026 | State board with status tint quality | Board quality | [`board-quality/state-board-quality.md`](board-quality/state-board-quality.md) |
-| FJ-027 | ER board with domain tints quality | Board quality | [`board-quality/er-board-quality.md`](board-quality/er-board-quality.md) |
+| FJ-026 | State board quality | Board quality | [`board-quality/state-board-quality.md`](board-quality/state-board-quality.md) |
+| FJ-027 | ER board with domain zones quality | Board quality | [`board-quality/er-board-quality.md`](board-quality/er-board-quality.md) |
 | FJ-028 | Gantt board quality | Board quality | [`board-quality/gantt-board-quality.md`](board-quality/gantt-board-quality.md) |
-| FJ-029 | A flow over budget split on one board | Board creation | [`board-creation/split-flow-one-board.md`](board-creation/split-flow-one-board.md) |
+| FJ-029 | A flow over budget split into two boards in one file | Board creation | [`board-creation/split-flow-one-board.md`](board-creation/split-flow-one-board.md) |
 | FJ-030 | Numbered pins with a sticky legend | Board creation | [`board-creation/pins-and-legend.md`](board-creation/pins-and-legend.md) |
 | FJ-031 | A revision replaces the diagram on its own board | Board creation | [`board-creation/revision-same-board.md`](board-creation/revision-same-board.md) |
 | FJ-032 | A write onto a board with content | Board creation | [`board-creation/existing-board-with-content.md`](board-creation/existing-board-with-content.md) |

@@ -6,7 +6,7 @@ Copy/apply patterns for an architecture model. Each pattern passes the rules, an
 
 ## 1. USAGE
 
-- Keep the `%% type: architecture` line first, and pass `useArchitectureLayoutCode` as `"FIGMA_DIAGRAM_2026"` on the call
+- Keep the `%% type: architecture` line first, before any `%% title:` or other board line. On the generated fallback, pass `useArchitectureLayoutCode` as `"FIGMA_DIAGRAM_2026"` on the call
 - Keep the six lane ids exactly and rename only the labels
 - Drop a lane the system does not have. An empty lane is never filled with an invented part
 - Label every edge from its source's side, and an external edge as `"Service: Purpose"`

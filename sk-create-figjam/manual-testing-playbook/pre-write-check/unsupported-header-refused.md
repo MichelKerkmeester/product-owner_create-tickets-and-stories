@@ -1,7 +1,7 @@
 ---
 title: "FJ-006 -- A pie block is refused by the check"
-description: "This scenario validates a pie block is refused by the check for `FJ-006`. It checks that the check refuses a Mermaid block whose kind the generator does not draw."
-version: 1.0.0.0
+description: "This scenario validates a pie block is refused by the check for `FJ-006`. It checks that the check refuses a Mermaid block whose kind Flow Mode does not draw."
+version: 1.0.1.0
 ---
 
 # FJ-006 -- A pie block is refused by the check
@@ -12,7 +12,7 @@ This document captures the user-testing contract, execution flow, source anchors
 
 ## 1. OVERVIEW
 
-This scenario validates a pie block is refused by the check for `FJ-006`. It checks that the check refuses a Mermaid block whose kind the generator does not draw.
+This scenario validates a pie block is refused by the check for `FJ-006`. It checks that the check refuses a Mermaid block whose kind Flow Mode does not draw.
 
 ### Why This Matters
 
@@ -24,7 +24,7 @@ A model that slips past the type choice must still be stopped before a board cal
 
 Operators run the exact prompt and command sequence for `FJ-006` and confirm the expected signals without contradictory evidence.
 
-- Objective: Verify that the check refuses a Mermaid block whose kind the generator does not draw
+- Objective: Verify that the check refuses a Mermaid block whose kind Flow Mode does not draw
 - Real user request: `As the operator, run the sk-create-figjam check on a pie chart model. Verify it fails and points at the type table. Return the output and exit status.`
 - Prompt: `As the operator, run the sk-create-figjam check on a pie chart model. Verify it fails and points at the type table. Return the output and exit status.`
 - Expected execution process: Write a pie block to a scratch file outside the repository and run the check on it
@@ -50,7 +50,7 @@ Operators run the exact prompt and command sequence for `FJ-006` and confirm the
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| FJ-006 | A pie block is refused by the check | Verify that the check refuses a Mermaid block whose kind the generator does not draw | `As the operator, run the sk-create-figjam check on a pie chart model. Verify it fails and points at the type table. Return the output and exit status.` | 1. `bash: write a mermaid pie title Bookings block with two slices to <scratch>/pie.md` -> 2. `bash: python3 sk-create-figjam/scripts/flow_check.py <scratch>/pie.md; echo exit $?` | Step 2 prints the undrawable-kind failure and `exit 1` | The scratch model and the command output with its exit status | PASS if the pie block is refused with a pointer to Section 3 and exit 1. FAIL if the block passes or the exit status is not 1 | 1. Check the header dispatch in `scripts/flow_check.py` 2. Check the undrawable list in `references/flow-mode.md` Section 3 |
+| FJ-006 | A pie block is refused by the check | Verify that the check refuses a Mermaid block whose kind Flow Mode does not draw | `As the operator, run the sk-create-figjam check on a pie chart model. Verify it fails and points at the type table. Return the output and exit status.` | 1. `bash: write a mermaid pie title Bookings block with two slices to <scratch>/pie.md` -> 2. `bash: python3 sk-create-figjam/scripts/flow_check.py <scratch>/pie.md; echo exit $?` | Step 2 prints the undrawable-kind failure and `exit 1` | The scratch model and the command output with its exit status | PASS if the pie block is refused with a pointer to Section 3 and exit 1. FAIL if the block passes or the exit status is not 1 | 1. Check the header dispatch in `scripts/flow_check.py` 2. Check the undrawable list in `references/flow-mode.md` Section 3 |
 
 ### Commands
 
