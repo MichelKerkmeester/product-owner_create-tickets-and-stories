@@ -39,7 +39,7 @@ _memory:
 | Field | Value |
 |-------|-------|
 | **Spec Folder** | 038-figjam-model-comparison |
-| **Status** | In Progress |
+| **Status** | Complete |
 | **Completed** | 2026-10-26 |
 | **Level** | 2 |
 <!-- /ANCHOR:metadata -->
@@ -53,7 +53,7 @@ The seven board-quality scenarios, FJ-022 to FJ-028, ran once on each of DeepSee
 
 The operator then reopened the phase to fix the six findings the run recorded. Flow Mode deletes a board only on a reply that names it and recovers from a `use_figma` call with no `fileKey`. Every board-quality and board-creation scenario now needs its expected signals as well as its scorecard. The gallery rule ranks the 16 board points first, which moved FJ-023's image to SWE's board. The driver reads a board id from any `use_figma` result. The composer draws gantt dependencies as arrows and marks both ends of an ER relationship with Figma's crow's-foot caps, and the state reference names the inner state a composite exit leaves from. Fixing the driver also showed that the runner's URL redaction had cut text from JSON exports, so the 21 exports whose raw copies survived were redacted again from raw. On the operator's request four gallery boards were then drawn again from their best run's model: gantt 149:5482, ER 150:5517, the existing-board state 151:5578 and the dense flow 152:5695, each with 0 warnings. The dense flow's model took the two changes today's check asks for, one accent and a shorter credit label.
 
-The operator then asked how GPT 6 Luna max and Claude Opus 5.5 low do on the same seven scenarios. `run/runtimes.py` adds a Codex and a Claude Code turn backend behind the same driver, and one fresh Opus 5.5 medium grader scored the 14 runs. Luna totals 142 with two passes and Opus 5.5 low 139 with one, so neither displaces GLM, SWE or DeepSeek. Luna draws clean boards but breaks the stops, and Opus 5.5 low holds every stop but leaves its temporary model behind. Opus 5.5 low drew nothing until the operator allowed a new file in drafts of the Barter team plan. The run README section 8 has the detail. The operator chose Claude Opus 5.5 medium for a full run of all 54 FigJam scenarios, which is in progress.
+The operator then asked how GPT 6 Luna max and Claude Opus 5.5 low do on the same seven scenarios. `run/runtimes.py` adds a Codex and a Claude Code turn backend behind the same driver, and one fresh Opus 5.5 medium grader scored the 14 runs. Luna totals 142 with two passes and Opus 5.5 low 139 with one, so neither displaces GLM, SWE or DeepSeek. Luna draws clean boards but breaks the stops, and Opus 5.5 low holds every stop but leaves its temporary model behind. Opus 5.5 low drew nothing until the operator allowed a new file in drafts of the Barter team plan. The run README section 8 has the detail. The operator chose Claude Opus 5.5 medium for a full run of all 54 FigJam scenarios and stopped it after 24. It drew 20 boards covering all seven types, and seven scenarios rightly drew nothing. The run README section 8.3 has the detail.
 
 ### Files Changed
 
@@ -137,4 +137,5 @@ The remaining calls were judgement, recorded here for the operator to check:
 5. **42 exports keep the redaction loss.** Their raw copies were gone, so text the runner's URL pattern cut after a URL is lost there. The replies, transcripts and grades were never affected.
 6. **A gantt arrow can cross a bar end.** Each arrow drops into the middle of the top of the bar that waits, so it crosses the end of any bar in between that ends on that date. The design-to-build arrow drops on 23 November, the middle of the build bar, and crosses the end of the Sync engine bar, which ends that day. `references/types/gantt.md` tells the reader to follow an arrow from the bar its tail leaves.
 7. **The Luna and Opus 5.5 low grades rest on one grader.** It also scored Clarity from the renders itself, where the first run had three fresh readers.
+8. **The full run stopped at 24 of 54 scenarios and was not graded.** FJ-016 to FJ-045 did not run. The driver's extra yes turns carried six check and offer scenarios past the stop they grade, and FJ-004 reported a Project template copy the check skipped, which is not yet looked into.
 <!-- /ANCHOR:limitations -->
