@@ -90,11 +90,13 @@ All three readers named the same three things that slowed them, each on a differ
 
 ## 5. The gallery
 
-The seven type images in `sk-create-figjam/assets/screenshots/` are the gallery boards above, picked by ADR-004 of phase 038 as amended on 2026-10-26: the most of the 16 points the overview and reading zooms score, then the highest total, then a pass under the current playbook, then fewer supplementary turns, then fewer adaptive turns. FJ-023 and FJ-026 were settled by the board points and FJ-025 by the pass. No run used an extra turn, so the rest fell to the grader's rank: FJ-022, FJ-024 and FJ-027 between two boards and FJ-028 between all three. GLM gives four images and SWE three.
+The seven type images in `sk-create-figjam/assets/screenshots/` were the gallery boards above until the v1.0.6.0 rerun replaced them, picked by ADR-004 of phase 038 as amended on 2026-10-26: the most of the 16 points the overview and reading zooms score, then the highest total, then a pass under the current playbook, then fewer supplementary turns, then fewer adaptive turns. FJ-023 and FJ-026 were settled by the board points and FJ-025 by the pass. No run used an extra turn, so the rest fell to the grader's rank: FJ-022, FJ-024 and FJ-027 between two boards and FJ-028 between all three. GLM gives four images and SWE three.
 
 The rule as first written ranked on the total first, so a reply point or a temporary file could decide an image. It gave FJ-023 to DeepSeek's board, which carries the accent on Book a courier pickup. The amendment moved that image to SWE's board, which takes all 16 board points with the accent on Approve the claim, and no other image changed.
 
 After the composer gained gantt arrows and ER end marks, the FJ-027 and FJ-028 images were drawn again from the model the winning run checked, so they are no longer the renders in `renders/`. Their scores are the original boards' scores, and the redraws were not graded.
+
+On 2026-10-26 the gallery moved to v1.0.6.0 boards. One judge picked the best board of each type from the Claude Sonnet 5.5 high rerun and from gallery runs of FJ-022, FJ-023 and FJ-028, on the type shown most fully and the faster read, then the total. Sonnet's boards replaced all seven type images and the dense flow. The process and state images come from failing runs, FJ-034 at 21 and FJ-026 at 20, because no board of either type passed. The existing-board image stays, because the rerun's FJ-032 board scored 20 and failed.
 
 ---
 
@@ -219,6 +221,17 @@ After `sk-create-figjam` v1.0.5.0 shipped, the operator ran all 54 FigJam scenar
   - **Playbook fixes**, such as the stale `-> <type>` grep, the FJ-005 defect count and the FJ-011 lane style
   - **Driver and records**, such as the duplicate intake answer, the operator setup steps the driver skips and the pinned file and `/tmp` the lanes share. This run record is part of the group too
 
+### 8.6 The rerun on v1.0.6.0
+
+After `sk-create-figjam` v1.0.6.0 shipped, Claude Sonnet 5.5 high ran again the 29 scenarios that failed and the 2 that were skipped, through the same Claude Code backend, plus FJ-022, FJ-023 and FJ-028 for the gallery.
+
+- **Lanes.** Eight lanes started at 22:00:39 UTC on 2026-10-26, after the hold the operator set, and the last finished at 22:30:38. The first turn's stream opens at 22:00:50 UTC. Each lane wrote into its own draft file in the operator's team plan, and FJ-017 and FJ-019 each created a new file. The 34 runs took 92 turns (80 scripted and 12 adaptive), 113.4 minutes of turn time summed over the lanes and 873,349 output tokens. Every turn exited 0 and none was retried
+- **Grading.** A checker read each run's signals. One Claude Opus grader then scored all 34 runs from `grades/grader-brief-040.md`, fresh readers answered from the colour and greyscale renders and a skeptic challenged every grade, with an adjudicator ruling on each dispute. The rulings are folded into `grades/sonnet-high-rerun.jsonl` (31 lines) and `grades/sonnet-high-gallery.jsonl` (3 lines), and `grades/sonnet-high-rerun.md` lists every verdict, ruling and remaining failure
+- **Result.** 14 PASS, 13 FAIL and 4 SKIP, where 29 had failed and 2 been skipped on v1.0.5.0. FJ-027 had since passed on its rescore, so 13 of the 14 passes are new. All three type-choice scenarios, both pre-write checks and both routing scenarios now pass. FJ-018, FJ-035, FJ-044 and FJ-045 are SKIP because the driver performs no operator step. The skeptics moved FJ-020 and FJ-034 from PASS to FAIL
+- **Boards.** 17 boards were written and 16 rendered, because FJ-031's own scripted turns deleted its first board. The 13 graded rerun boards score 274 of 286 points, from 20 to 22, and none lost a Signal point in greyscale. Six v1.0.5.0 boards scored Signal 0, and the three of them that ran again, FJ-026, FJ-032 and FJ-033, now score Signal 2. The other three belong to operator-only scenarios that did not run. Of the gallery runs FJ-022 passes at 21, FJ-028 passes at 20 and FJ-023 fails at 18 because the run left the claims log off
+- **What still fails.** Six failures are model slips alone, such as a reply that opens on a cleanup line (FJ-036) or an inferred step with no assumed mark (FJ-042). The rest trace at least in part to the skill or the playbook. The skill never defines when a user asked for one board, so FJ-029 kept one board where the scenario expects two. A state board's first glance cannot be the group of end states FJ-026 asked about, the heavier goal outline reads before FJ-034's planned second glance and the No route reply skips the playback on FJ-009
+- **Findings.** A findings pass over all 34 runs named 24 findings: 13 skill gaps, 4 playbook gaps, 4 harness gaps, 1 Project mirror note and 2 notes on model slips and the fixes that held. The checker and reader files it found missing are now in `grades/sonnet-high-rerun/`, with the greyscale renders the readers saw in its `grey/` folder. A critic then added 11 more, mostly on the records. FJ-029 and FJ-032 claim a visual label read and keep Reply 2 where FJ-026 lost a point for the same claim, eight board records lack the scorecard signal and the driver's file pin and drafts pin give a pinned run three destinations. Both sets wait for the operator's call on a next phase
+
 ---
 
 ## 9. Files
@@ -229,9 +242,10 @@ After `sk-create-figjam` v1.0.5.0 shipped, the operator ran all 54 FigJam scenar
 | `replies/<model>/` | The replies alone, one file per turn |
 | `stdout/` | The driver's per-turn lines for each run |
 | `failed-attempts/` | The attempts a retry replaced |
-| `renders/` | Every board at overview zoom, with the Sonnet 5.5 high boards at full size as `sonnet-high-<ID>-<node>.png` |
-| `grades/` | The grader briefs, the special cases, seven grader files, the reader tasks with their answers and key, `luna-opus-low.*` for section 8 and `sonnet-high.*` for section 8.5 |
+| `renders/` | Every board at overview zoom, with the Sonnet 5.5 high boards at full size as `sonnet-high-<ID>-<node>.png` and the rerun and gallery boards as `sonnet-high-rerun-<ID>-<node>.png` and `sonnet-high-gallery-<ID>-<node>.png` |
+| `grades/` | The grader briefs, the special cases, seven grader files, the reader tasks with their answers and key, `luna-opus-low.*` for section 8, `sonnet-high.*` for section 8.5 and `sonnet-high-rerun.*` and `sonnet-high-gallery.jsonl` for section 8.6 |
 | `grades/sonnet-high/` | The Sonnet 5.5 high checker files in `checks/` and the fresh readers' notes in `readers/` |
+| `grades/sonnet-high-rerun/` | The same checker files and reader notes for the section 8.6 rerun and gallery runs, and the greyscale renders the readers saw in `grey/` |
 | `results.jsonl` | One row per run of the first three models, rebuilt by `run/aggregate.py`, then one row per Sonnet 5.5 high run built from `grades/sonnet-high.jsonl`. A rerun of `run/aggregate.py` rewrites the file without the Sonnet rows |
 | `run/` | The Devin runner, the Codex and Claude Code backends, the adaptive driver, the batch scripts, the redaction script, the aggregator and `finals.json` |
 | `batch.log`, `batch-more.log`, `batch-full.log`, `run-log.jsonl` | Each batch's start and exit lines and every turn's log row |
