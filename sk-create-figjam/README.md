@@ -7,7 +7,7 @@ trigger_phrases:
   - "$figjam"
   - "figjam flow"
   - "figjam diagram"
-version: 1.0.3.0
+version: 1.0.4.0
 ---
 
 # sk-create-figjam
@@ -32,7 +32,7 @@ Real boards this packet composed on a fictional test file and rendered through t
 
 ![A user flow board for starting a return, with three zones and a highlighted goal](assets/screenshots/user-flow-board.png)
 
-**Process.** One lane per role, Customer, CS agent and Warehouse operator. The claims table is a violet cylinder and the dashed Decision logged edge matches the dashed entry in the key. The pink fill and outline sit on Book a courier pickup, where the request asked for Approve the claim, and the grader took a point for it.
+**Process.** One lane per role, Customer, CS agent and Warehouse operator. The claims table is a violet cylinder and the dashed Logs edge matches the dashed entry in the key. The pink fill and outline sit on Approve the claim, the handoff the request named, and the key names it In focus. The run that drew it fails its PASS line on its reply and its leftover temporary files, not on the board.
 
 ![A laned process board for a damaged-item refund across three roles](assets/screenshots/process-board.png)
 
