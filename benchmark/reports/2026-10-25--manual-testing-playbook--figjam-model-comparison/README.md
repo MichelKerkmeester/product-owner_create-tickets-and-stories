@@ -94,6 +94,8 @@ The seven type images in `sk-create-figjam/assets/screenshots/` are the gallery 
 
 The rule as first written ranked on the total first, so a reply point or a temporary file could decide an image. It gave FJ-023 to DeepSeek's board, which carries the accent on Book a courier pickup. The amendment moved that image to SWE's board, which takes all 16 board points with the accent on Approve the claim, and no other image changed.
 
+After the composer gained gantt arrows and ER end marks, the FJ-027 and FJ-028 images were drawn again from the model the winning run checked, so they are no longer the renders in `renders/`. Their scores are the original boards' scores, and the redraws were not graded.
+
 ---
 
 ## 6. Grading notes and deviations
