@@ -16,6 +16,10 @@
       "figjam run findings plan",
       "figjam run findings tasks",
       "figjam run findings acceptance criteria",
+      "packet goal",
+      "durable directive",
+      "completion criteria",
+      "goal binding",
       "figjam run findings implementation summary"
     ],
     "key_topics": [
@@ -27,10 +31,10 @@
       "tasks",
       "acceptance",
       "criteria",
-      "implementation",
-      "summary",
-      "claude",
-      "opus"
+      "packet",
+      "goal",
+      "durable",
+      "directive"
     ],
     "importance_tier": "normal",
     "status": "complete",
@@ -39,6 +43,7 @@
       "plan.md",
       "tasks.md",
       "acceptance-criteria.md",
+      "goal.md",
       "implementation-summary.md",
       "benchmark/gates/run_gates.sh",
       "sk-create-figjam/references/flow-mode.md",
@@ -70,6 +75,12 @@
         "name": "acceptance-criteria.md",
         "kind": "doc",
         "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
         "source": "derived"
       },
       {
@@ -185,17 +196,11 @@
         "kind": "proper_noun",
         "path": "plan.md",
         "source": "derived"
-      },
-      {
-        "name": "Task Format",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
       }
     ],
     "causal_summary": "Claude Opus 5.5 medium drew 20 sound boards in 24 scenarios, but the skill got in its way five times",
     "created_at": "2026-10-26T16:10:14Z",
-    "last_save_at": "2026-10-26T16:32:04.911Z",
+    "last_save_at": "2026-10-26T19:57:34.808Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -203,9 +208,10 @@
       "plan.md",
       "tasks.md",
       "acceptance-criteria.md",
+      "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:e3f62f89c64b9201800c9bb864b643c431702858c67abbfcc13164e8ea326333",
+    "source_fingerprint": "sha256:2242342aef12775144169c17817b72b86b8192a82765ce7d5e93cbc9d1ffa443",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
       "spec.md": "110a6764be409093c10ddaf4319bcb8de61f2f92c5d195eb41f02b2c45b989c9",

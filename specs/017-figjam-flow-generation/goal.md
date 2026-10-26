@@ -36,7 +36,7 @@ _memory:
 <!-- ANCHOR:directive -->
 ## 1. DURABLE DIRECTIVE
 
-**Objective:** Make Product Owner turn screenshots, Figma flows and product docs into FigJam flows, as a parent hub with an embedded copy of the figma skill and a Claude Code plugin, whose optimizations sync back to .skilled.
+**Objective:** Make Product Owner turn screenshots, Figma flows and product docs into FigJam flows, as a parent hub with an embedded figma skill and a Claude Code plugin that syncs back to .skilled.
 
 ### Decisions
 
@@ -45,11 +45,11 @@ Frozen choices. Changing one is an amendment.
 | ID | Decision |
 |----|----------|
 | D1 | FigJam is the only output and flows follow sk-design-diagram. |
-| D2 | The plugin follows Media Editor's and the hub sk-create-skill's parent-hub contract. |
+| D2 | The plugin follows the sk-create-skill parent-hub contract. |
 | D3 | Research comes first and names the later phases. |
-| D4 | Research runs on DeepSeek V4.1 Flash max via cli-pi with three fallbacks, and DeepSeek writes the synthesis. |
+| D4 | Research runs on DeepSeek V4.1 Flash max via cli-pi. |
 | D5 | Flow Mode composes each board with use_figma from a checked model. |
-| D6 | Flow Mode replies with the board URL, read-back, `Extensions:` and `Left out:` lines when they apply and the HVR self-scan, and saves no export. |
+| D6 | Flow Mode replies with the board URL, its read-back lines and the HVR self-scan, and saves no export. |
 | D7 | The plugin ships skills only, no bin folder or MCP server. |
 
 <!-- /ANCHOR:directive -->
@@ -99,6 +99,11 @@ phase and binds as if written here.
 | 033 | `033-composed-boards/goal.md` |
 | 034 | `034-stop-and-label-fixes/goal.md` |
 | 035 | `035-first-glance-and-routing/goal.md` |
+| 036 | `036-figjam-design-system/goal.md` |
+| 037 | `037-figjam-design-spec/goal.md` |
+| 038 | `038-figjam-model-comparison/goal.md` |
+| 039 | `039-figjam-run-findings/goal.md` |
+| 040 | `040-figjam-sonnet-run-findings/goal.md` |
 
 **Precedence.** Decisions above outrank child detail. Child detail outranks any
 summary of it. Name a conflict rather than resolving it silently.
@@ -112,11 +117,11 @@ string, not these files.
 <!-- ANCHOR:completion -->
 ## 3. COMPLETION CRITERIA
 
-- [ ] 001-research/research/research.md holds the 20-iteration synthesis the operator approved
-- [ ] Every phase folder on disk has a Phase Documentation Map row and a binding row above
-- [ ] One FigJam flow exists at a recorded URL per input type: a screenshot, a Figma flow and a product doc
-- [ ] Product Owner holds a copy of mcp-figma and a Claude Code plugin that loads with claude --plugin-dir
-- [ ] The sync command from Product Owner reports 0 files differing from .skilled
+- [ ] 001-research/research/research.md holds the approved 20-iteration synthesis
+- [ ] Every phase folder has a Phase Documentation Map row and a binding row above
+- [ ] A FigJam flow exists at a recorded URL for a screenshot, a Figma flow and a product doc
+- [ ] Product Owner holds mcp-figma and a plugin that loads with claude --plugin-dir
+- [ ] The sync command reports 0 files differing from .skilled
 - [ ] validate.sh --recursive --strict on the parent prints RESULT: PASSED
 <!-- /ANCHOR:completion -->
 

@@ -139,6 +139,7 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 37 | 037-figjam-design-spec/ | A user-editable design file inside sk-create-figjam, theme plumbing that falls back with a warning, the ranked fixes from 036 and the Project mirror | Complete |
 | 38 | 038-figjam-model-comparison/ | The seven board-quality scenarios on DeepSeek V4.1 Flash max, SWE 2 Max and GLM 5.3 Flash max, graded on the scorecard, with the best board per type as the gallery, then the fixes for its six findings | Complete |
 | 39 | 039-figjam-run-findings/ | The five skill findings and three driver findings of the stopped Opus 5.5 medium run, fixed in `sk-create-figjam` v1.0.5.0 and the run's driver | Complete |
+| 40 | 040-figjam-sonnet-run-findings/ | [Phase 40 scope] | Pending |
 
 ### Phase Transition Rules
 
@@ -183,6 +184,7 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 030-figjam-research-three | 031-round-three-apply | The operator adopted all 32 ranked changes | 030 syntheses |
 | 031-round-three-apply | 032-clickup-push-targets | The operator asked for local ClickUp push targets | 032 spec |
 | 038-figjam-model-comparison | 039-figjam-run-findings | The operator chose to fix the stopped run's findings | 038 run README section 8.3 |
+| 039-figjam-run-findings | 040-figjam-sonnet-run-findings | [Criteria TBD] | [Verification TBD] |
 <!-- /ANCHOR:phase-map -->
 
 ---
