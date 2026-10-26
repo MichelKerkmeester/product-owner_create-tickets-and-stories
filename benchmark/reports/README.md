@@ -24,6 +24,7 @@ The manual testing playbooks in `sk-product-owner/manual-testing-playbook/` and 
 
 | Executed | Folder | What it measured |
 |---|---|---|
+| 2026-10-25 | [`2026-10-25--manual-testing-playbook--figjam-model-comparison/`](./2026-10-25--manual-testing-playbook--figjam-model-comparison/) | The seven board-quality scenarios on DeepSeek V4.1 Flash Max, GLM 5.3 Flash Max and SWE 2 Max through Devin, with the gallery picked from the best board per type |
 | 2026-10-25 | [`2026-10-25--manual-testing-playbook--first-glance-and-routing/`](./2026-10-25--manual-testing-playbook--first-glance-and-routing/) | The 18 Flow scenarios after the first-glance and routing pass, on Claude Sonnet 5.5 high |
 | 2026-10-24 | [`2026-10-24--manual-testing-playbook--swe-2-max-composed-boards/`](./2026-10-24--manual-testing-playbook--swe-2-max-composed-boards/) | Composed FigJam boards on SWE 2 MAX and Claude Sonnet 5.5 high |
 | 2026-10-22 | [`2026-10-22--manual-testing-playbook--deepseek-v4-1-flash-max-live-figma/`](./2026-10-22--manual-testing-playbook--deepseek-v4-1-flash-max-live-figma/) | Playbook scenarios against live Figma on DeepSeek V4.1 Flash max through OpenCode 2 |
