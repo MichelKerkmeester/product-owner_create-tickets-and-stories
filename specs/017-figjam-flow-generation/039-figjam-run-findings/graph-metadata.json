@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/039-figjam-run-findings",
+  "spec_folder": "017-figjam-flow-generation/039-figjam-run-findings",
+  "parent_id": "017-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "figjam run findings",
+      "phase 39 figjam run findings",
+      "figjam run findings plan",
+      "figjam run findings tasks",
+      "figjam run findings acceptance criteria",
+      "figjam run findings implementation summary"
+    ],
+    "key_topics": [
+      "figjam",
+      "run",
+      "findings",
+      "phase",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "implementation",
+      "summary",
+      "claude",
+      "opus"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md",
+      "benchmark/gates/run_gates.sh",
+      "sk-create-figjam/references/flow-mode.md",
+      "claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+      "sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md",
+      "sk-create-figjam/assets/compose-board.js",
+      "sk-create-figjam/scripts/compose_board.py"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "flow-mode.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/references/flow-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner - Templates - Flow Mode.md",
+        "kind": "doc",
+        "path": "claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "manual-testing-playbook.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md",
+        "source": "derived"
+      },
+      {
+        "name": "compose-board.js",
+        "kind": "code",
+        "path": "sk-create-figjam/assets/compose-board.js",
+        "source": "derived"
+      },
+      {
+        "name": "compose_board.py",
+        "kind": "file",
+        "path": "sk-create-figjam/scripts/compose_board.py",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Opus",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Flow Mode",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Three Flow Mode",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern One",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Claude Opus 5.5 medium drew 20 sound boards in 24 scenarios, but the skill got in its way five times",
+    "created_at": "2026-10-26T16:10:14Z",
+    "last_save_at": "2026-10-26T16:32:04.911Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:e3f62f89c64b9201800c9bb864b643c431702858c67abbfcc13164e8ea326333",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "110a6764be409093c10ddaf4319bcb8de61f2f92c5d195eb41f02b2c45b989c9",
+      "plan.md": "1195c9fcf7e8285df1ba80a71ec1affa2fe6a01c0740deccf087ecf486cbb4c8",
+      "tasks.md": "4dba5e16ac63abb0e033196ff0df70eb2df289079a539a0bf08f3ecdefb81bed",
+      "implementation-summary.md": "85bd5d6e734fed218b2192fd3c93c6e0326ac36b261f786c32e01bf03a650918"
+    },
+    "last_active_at": null
+  }
+}
