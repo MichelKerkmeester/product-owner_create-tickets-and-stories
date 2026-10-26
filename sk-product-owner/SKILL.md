@@ -139,7 +139,7 @@ Every delivery response carries this line, in this exact shape, next to the expo
 
 `HVR self-scan: N hard blockers. Fixed: <terms>. Kept with reason: <terms>.`
 
-Count against `references/hvr-core.md`, which carries every hard blocker inline. The card's always-cut modifiers are structural removals, so they are fixed in place and never counted. Name the terms you changed and the terms you kept, each with the reason it was sanctioned, such as a ClickUp definition delimiter, preserved source punctuation in a refinement, or a literal identifier. A count of zero with no terms named is valid only when the artifact genuinely has none. Producing the count is the point: an unscanned line is a false report, not a formality.
+Count against `references/hvr-core.md`, which carries every hard blocker inline. The card's always-cut modifiers are edits, not penalties, so they are fixed in place and never counted. Name the terms you changed and the terms you kept, each with the reason it was sanctioned, such as a ClickUp definition delimiter, preserved source punctuation in a refinement, or a literal identifier. A count of zero with no terms named is valid only when the artifact genuinely has none. Producing the count is the point: an unscanned line is a false report, not a formality.
 
 The self-scan line is delivery metadata, so it belongs in the chat response and never inside a delivered artifact, where the Human Voice output warnings would read it as a rule reference.
 

@@ -26,7 +26,7 @@ Human Voice hard blockers carried inline, loaded on every request so the banned 
 
 ### Purpose
 
-A hard blocker is a failure, not a deduction. A structural removal is an edit with no penalty. Only hard blockers are counted on the self-scan line.
+A hard blocker is a failure, not a deduction. An always-cut edit carries no penalty. Only hard blockers are counted on the self-scan line.
 
 ---
 
@@ -117,7 +117,7 @@ These govern the written artifact. Nothing below belongs inside a deliverable.
 
 ## 10. ALWAYS CUT
 
-Structural removals, not scored penalties. Cut the word, keep the sentence. These are edits, so they never count toward the hard blocker total.
+Always-cut edits, not scored penalties. Cut the word, keep the sentence. These are edits, so they never count toward the hard blocker total.
 
 very, really, truly, absolutely, incredibly, extremely, quite, rather, somewhat, fairly, just, actually, basically, literally, simply, obviously, clearly, certainly, definitely, undoubtedly, essentially
 
@@ -131,6 +131,6 @@ Draft, reread as a skeptical human reader, fix, then report on the required line
 
 `HVR self-scan: N hard blockers. Fixed: <terms>. Kept with reason: <terms>.`
 
-`N` counts hard blockers only: punctuation, blocker words, blocker phrases, metaphors, setup phrases, unfixed generalisations, output-warning leaks and structural bans. Always-cut modifiers are fixed in place and never counted.
+`N` counts hard blockers only: punctuation, blocker words, blocker phrases, metaphors, setup phrases, unfixed generalisations, output-warning leaks and structural bans. Always-cut modifiers are fixed in place and never counted. A term under Kept with reason counts in N only when it is used as the banned pattern. A literal use, such as a source's own relationship verb, is named with that reason and not counted.
 
 The line is delivery metadata. It belongs in the response beside the export path, never inside the artifact body, exactly as a Mode, Template, Perspectives, Quality Score or Energy header stays out of a delivered artifact. The output warnings above govern the artifact, so a scan reported inside it would break them. Reported in the response, it does not.
