@@ -8,7 +8,7 @@ Hand-maintained local package for the Product Owner claude.ai Project. The kerne
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- synthesized Project kernel v1.2.5 (routing authority, SKILL.md is not loaded in this Project)
+|-- Custom Instructions.md        <- synthesized Project kernel v1.2.6 (routing authority, SKILL.md is not loaded in this Project)
 |-- README.md                     <- upload manifest and hand-authored parity note
 |-- kernel-review.json            <- dated record of one kernel review, read by no tool
 |-- templates/                    <- Product Owner - Local - Push Targets.md, filled and uploaded per user, never shared
@@ -60,7 +60,7 @@ claude project/
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` v1.2.5 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.2.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
+`Custom Instructions.md` v1.2.6 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.2.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
 
 CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Block**, direct resource loading becomes Project Knowledge consultation, and the response reports an export-equivalent path. Refinements keep delivery metadata outside preserved content unless equivalent metadata already exists in the source.
 
@@ -176,7 +176,8 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 - `$story`, `$s`, `$prd` and `$p` select Story; `$stories`, `$prds`, `$sort` and embedded `$s` do not; `create a task to write a PRD` stays Task.
 - `$flow`, `$figjam` and `put the launch plan on a FigJam gantt chart` select Flow Mode, which picks the diagram type from the reader's question, checks the model rule by rule and waits for a yes before any write. `write a task to tidy the figjam board labels` stays Task.
 - `$figjam a mindmap of the launch themes` names the mindmap as a kind the Figma connector cannot draw and offers a table or a list, with no connector call.
-- A `$flow` request replies in order: the intake or one proposed Brief, then a playback of the reading, then a gate as its own reply. A `Yes` to the Brief or the playback writes nothing, and only a `Yes` to the gate writes
+- A `$flow` request replies in order: the intake or one proposed Brief, then a playback of the reading, then a gate as its own reply. A `Yes` to the Brief or the playback writes nothing, and only a `Yes` to the gate writes. The playback and the gate each end their turn on their question, with no status line after it
+- A `$flow` request that names an existing FigJam file by its link gets a gate that names that file, with no plan and no `create_new_file`, and the board lands as a new section beside what the file holds, with nothing already on it changed
 - With a Figma connector that lists `use_figma`, the board is composed in one `use_figma` call. Before it fills the model, the Project shows the composer code came back whole: 1,170 lines and 47,148 characters, a first line `const MODEL=__MODEL__;`, a second line `const THEME=__THEME__;` and a last line `};` after `createdCount:created.length,`. When it cannot show all four it writes through `generate_diagram` and says the board was generated rather than composed
 - A thrown error that starts `nothing was drawn` is not retried with the same model and the board is not read. The Project regroups the zones, checks the model again and says the first compose drew nothing
 - A revision of a written board composes the new board first, reads it back and asks for a second `Yes` before it deletes the old board section

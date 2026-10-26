@@ -112,7 +112,7 @@ Three settings shape the board, each with a default you can override in plain wo
 A board goes into a shared Figma plan, so the write sits behind stops you control:
 
 1. **The playback.** One reply restates the question, the outcome, what each source settled and every fact it assumed. Answer it, or correct a row. A yes here writes nothing
-2. **The gate.** A separate reply shows the checked model and names the Figma plan, the new file, what the write adds, any notes it plans, the tool calls it will spend and how to undo it. It also gives three glance lines: what the eye should land on first, second and last
+2. **The gate.** A separate reply shows the checked model and names the Figma plan and the new file, or the FigJam file you named, what the write adds, any notes it plans, the tool calls it will spend and how to undo it. It also gives three glance lines: what the eye should land on first, second and last
 3. **The write.** Only a yes to the gate's own question writes. A yes to anything else never does
 4. **The read-back.** It reads the board back from Figma and counts what landed against the model, such as `Read-back: 8 of 8 nodes, 8 of 8 connectors, 2 of 2 decision exits labelled, first glance: the failed payment`. A mismatch is reported as measured, and the board is never called done
 
