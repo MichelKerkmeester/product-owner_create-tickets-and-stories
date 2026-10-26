@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/039-figjam-run-findings",
+  "description": "Phase 39: figjam-run-findings",
+  "keywords": [
+    "phase",
+    "figjam-run-findings"
+  ],
+  "lastUpdated": "2026-10-26T16:10:15.705Z",
+  "specId": "039",
+  "folderSlug": "figjam-run-findings",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}
