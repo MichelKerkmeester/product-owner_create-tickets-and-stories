@@ -1,0 +1,184 @@
+{
+ "id": "FJ-026",
+ "label": "glm",
+ "model": "glm-5-3-flash-max",
+ "permission": "dangerous",
+ "runtime": "devin-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/state-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-in moves Upcoming to In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "lying-stingray",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "126:4597"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 226.02,
+   "tool_calls": 42,
+   "tools_used": [
+    "exec",
+    "find_file_by_name",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "mcp_list_tools",
+    "exec",
+    "read",
+    "exec",
+    "read",
+    "read",
+    "exec",
+    "read",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "read",
+    "read",
+    "read",
+    "read",
+    "mcp_read_resource",
+    "mcp_call_tool",
+    "exec",
+    "exec",
+    "exec",
+    "read",
+    "exec",
+    "exec",
+    "read",
+    "read"
+   ],
+   "input_tokens": 3441978,
+   "output_tokens": 43758,
+   "cached_tokens": 3265920,
+   "response_models": [
+    "glm-5-3-flash-max"
+   ],
+   "session_id": "lying-stingray",
+   "inner_calls": [
+    "create_session",
+    "get_figjam",
+    "use_figma"
+   ],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-in moves Upcoming to In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 53.08,
+   "tool_calls": 6,
+   "tools_used": [
+    "exec",
+    "read",
+    "read",
+    "exec",
+    "exec",
+    "exec"
+   ],
+   "input_tokens": 1086202,
+   "output_tokens": 9868,
+   "cached_tokens": 1070976,
+   "response_models": [
+    "glm-5-3-flash-max"
+   ],
+   "session_id": "lying-stingray",
+   "inner_calls": [],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 196.88,
+   "tool_calls": 11,
+   "tools_used": [
+    "mcp_read_resource",
+    "read",
+    "read",
+    "read",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec",
+    "exec",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec"
+   ],
+   "input_tokens": 2312436,
+   "output_tokens": 36554,
+   "cached_tokens": 2225280,
+   "response_models": [
+    "glm-5-3-flash-max"
+   ],
+   "session_id": "lying-stingray",
+   "inner_calls": [
+    "use_figma",
+    "get_figjam",
+    "use_figma",
+    "get_screenshot"
+   ],
+   "composed": true,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "boards": [
+    "126:4597"
+   ],
+   "kind": "DELIVERY"
+  }
+ ]
+}

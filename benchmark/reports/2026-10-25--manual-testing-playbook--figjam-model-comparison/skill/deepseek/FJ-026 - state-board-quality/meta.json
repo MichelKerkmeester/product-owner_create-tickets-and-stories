@@ -1,0 +1,208 @@
+{
+ "id": "FJ-026",
+ "label": "deepseek",
+ "model": "deepseek-v4-1-flash-1017-max",
+ "permission": "dangerous",
+ "runtime": "devin-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/state-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-in moves Upcoming to In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "florentine-cadet",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "130:4897",
+  "131:5009"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 267.33,
+   "tool_calls": 71,
+   "tools_used": [
+    "read",
+    "read",
+    "exec",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "exec",
+    "read",
+    "mcp_list_tools",
+    "exec",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "exec",
+    "read",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "mcp_read_resource",
+    "mcp_read_resource",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "ask_user_question",
+    "ask_user_question",
+    "exec",
+    "exec",
+    "exec",
+    "read",
+    "read",
+    "read",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec",
+    "read",
+    "exec",
+    "exec",
+    "exec"
+   ],
+   "input_tokens": 8199167,
+   "output_tokens": 68020,
+   "cached_tokens": 7985408,
+   "response_models": [
+    "deepseek-v4-1-flash-1017-max"
+   ],
+   "session_id": "florentine-cadet",
+   "inner_calls": [
+    "create_session",
+    "get_figjam",
+    "use_figma",
+    "get_figjam",
+    "get_screenshot"
+   ],
+   "composed": true,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-in moves Upcoming to In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "boards": [
+    "130:4897"
+   ],
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 8.07,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 216180,
+   "output_tokens": 1024,
+   "cached_tokens": 215680,
+   "response_models": [
+    "deepseek-v4-1-flash-1017-max"
+   ],
+   "session_id": "florentine-cadet",
+   "inner_calls": [],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "DELIVERY"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 145.35,
+   "tool_calls": 10,
+   "tools_used": [
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "mcp_call_tool",
+    "exec",
+    "exec",
+    "mcp_call_tool",
+    "exec"
+   ],
+   "input_tokens": 2609576,
+   "output_tokens": 40248,
+   "cached_tokens": 2356224,
+   "response_models": [
+    "deepseek-v4-1-flash-1017-max"
+   ],
+   "session_id": "florentine-cadet",
+   "inner_calls": [
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "boards": [
+    "131:5009"
+   ],
+   "kind": "PLAYBACK"
+  }
+ ]
+}
