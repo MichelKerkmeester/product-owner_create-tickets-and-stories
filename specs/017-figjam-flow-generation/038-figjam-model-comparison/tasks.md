@@ -86,6 +86,7 @@ The operator reopened the phase on 2026-10-26 to fix the six findings in the run
 - [x] T030 Run all 54 FigJam playbook scenarios on Claude Opus 5.5 medium through Claude Code, new files only in drafts of the Barter team plan (run/run_full.sh) [EVIDENCE: the operator stopped the run after 24 scenarios, skill/opus-medium/ holds 24 completed runs]
 - [x] T031 Render every board the full run drew and redact, scan and commit the run [EVIDENCE: 20 renders in renders/opus-medium-*, leak scan 0 hits on 511 files]
 - [x] T032 Report the full run to the operator with the board per template [EVIDENCE: reported 2026-10-26 with a private gallery page of the 20 boards]
+- [x] T033 Compare each gallery type image with the day's best Luna, Opus 5.5 low and Opus 5.5 medium boards and swap any a fresh judge prefers (sk-create-figjam/assets/screenshots/, sk-create-figjam/README.md) [EVIDENCE: the judge kept six images and swapped state for Opus 5.5 medium's FJR-005 board, 13 of 14 visible points against 10]
 <!-- /ANCHOR:phase-4 -->
 
 ---

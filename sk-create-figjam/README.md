@@ -44,9 +44,9 @@ Real boards this packet composed on a fictional test file and rendered through t
 
 ![A sequence board for a checkout payment with seven numbered steps](assets/screenshots/sequence-board.png)
 
-**State.** Pending is the blue first state and Confirmed is a zone holding its own start dot, Upcoming, In stay and end dot. Every transition carries its trigger and the three gray final states, Completed, No-show and Cancelled, each run to an end dot.
+**State.** Two start dots lead in, Pay now to Payment pending and Pay at property straight to Confirmed, so both are blue first states. Payment pending carries the pink outline, Confirmed moves to Cancelled only on its guard, cancel [before deadline], and an unpaid booking expires after 30 minutes. Both gray final states run to an end dot, and the source line names what follows Confirmed as left out.
 
-![A state board for a booking status with a nested Confirmed state](assets/screenshots/state-board.png)
+![A state board for a booking status with two entry points and a timeout](assets/screenshots/state-board.png)
 
 **ER.** A Guest side zone and a Partner side zone keep the two halves apart. Each entity lists its PK, FK and UK columns with types. Each line names the relationship with its cardinality and carries the matching crow's-foot mark at both ends. Booking carries the pink outline.
 

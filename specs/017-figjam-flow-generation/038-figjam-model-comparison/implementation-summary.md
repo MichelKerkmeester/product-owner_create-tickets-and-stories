@@ -55,6 +55,8 @@ The operator then reopened the phase to fix the six findings the run recorded. F
 
 The operator then asked how GPT 6 Luna max and Claude Opus 5.5 low do on the same seven scenarios. `run/runtimes.py` adds a Codex and a Claude Code turn backend behind the same driver, and one fresh Opus 5.5 medium grader scored the 14 runs. Luna totals 142 with two passes and Opus 5.5 low 139 with one, so neither displaces GLM, SWE or DeepSeek. Luna draws clean boards but breaks the stops, and Opus 5.5 low holds every stop but leaves its temporary model behind. Opus 5.5 low drew nothing until the operator allowed a new file in drafts of the Barter team plan. The run README section 8 has the detail. The operator chose Claude Opus 5.5 medium for a full run of all 54 FigJam scenarios and stopped it after 24. It drew 20 boards covering all seven types, and seven scenarios rightly drew nothing. The run README section 8.3 has the detail.
 
+On the operator's request one fresh Opus 5.5 medium judge then compared each gallery type image with the best boards of the day. It kept six and swapped the state image for Opus 5.5 medium's FJR-005 board, which has no crossing exit and one clear focus but no composite zone.
+
 ### Files Changed
 
 | File | Action | Purpose |
