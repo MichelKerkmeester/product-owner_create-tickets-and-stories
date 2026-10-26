@@ -67,7 +67,7 @@ Over budget, collapse each phase to one bar in an overview chart and draw one ch
 
 ## 5. COLOUR, ZONES AND NOTES
 
-None in the model. The tags colour the bars and the sections are the zones. The composer draws no dependency arrow, because an `after` already sets where a bar starts. A note on a date goes on through Templates - Flow Hybrid Workflow. A `%% focus: <id or name>` line may name the one task or milestone the first glance lands on. It is a comment, so the model stays styleless.
+None in the model. The tags colour the bars and the sections are the zones. The composer draws each `after` as an arrow from the end of the bar it names into the bar that waits on it, so a reader sees what must finish first without reading the dates. When two bars end on the same date, the arrow from the higher bar can cross the end of the lower one on its way down, so read an arrow from the bar its tail leaves. A note on a date goes on through Templates - Flow Hybrid Workflow. A `%% focus: <id or name>` line may name the one task or milestone the first glance lands on. It is a comment, so the model stays styleless.
 
 ---
 
@@ -79,10 +79,10 @@ The model is placed into Assets - Flow Board Composer and one `use_figma` call d
 
 ## 7. READ-BACK
 
-Count sections, tasks and milestones, and check each task's section and its start or dependency. A milestone is counted once, as a milestone and not again as a task, so counting every task line in the model gives the board's tasks plus its milestones. Both routes widen very short bars to stay visible, the composer to 16 pixels, so compare order and dependencies, not bar lengths.
+Count sections, tasks, milestones and dependency arrows, and check each task's section and its start or dependency. A composed board draws one arrow for every id an `after` names, so the arrows are the read-back's connectors. A milestone is counted once, as a milestone and not again as a task, so counting every task line in the model gives the board's tasks plus its milestones. Both routes widen very short bars to stay visible, the composer to 16 pixels, so compare order and dependencies, not bar lengths.
 
 ```text
-Read-back: 3 of 3 sections, 7 of 7 tasks, 2 of 2 milestones
+Read-back: 3 of 3 sections, 7 of 7 tasks, 2 of 2 milestones, 6 of 6 dependency arrows
 ```
 
 ---

@@ -102,6 +102,8 @@ ARROWS = {"->>": "request", "-->>": "reply", "-)": "async", "--)": "asyncReply"}
 # A gantt bar is placed in whole days on a date chart and in minutes on a one-day chart.
 SECONDS_PER_DAY, SECONDS_PER_MINUTE = 86400, 60
 CARDINALITY_WORDS = {"||": "1", "|o": "0..1", "o|": "0..1", "}o": "0..n", "o{": "0..n", "}|": "1..n", "|{": "1..n"}
+# The code the composer reads for each end's mark: exactly one, zero or one, zero or more and one or more.
+CARDINALITY_ENDS = {"||": "1", "|o": "?", "o|": "?", "}o": "*", "o{": "*", "}|": "+", "|{": "+"}
 
 
 # ───────────────────────────────────────────────────────────────
@@ -338,7 +340,7 @@ def state_model(diagram: mermaid_extract.Diagram, block_text: str) -> tuple[dict
 
 
 def er_model(block_text: str, zones: list[dict]) -> tuple[dict, list[str]]:
-    """The MODEL for an ER diagram, with each entity's fields and each relationship's cardinality in words."""
+    """The MODEL for an ER diagram, with each entity's fields and each relationship's cardinality in words and as end marks."""
     entities, fields, relationships, current, direction = {}, {}, [], None, "LR"
     for _, text in content_lines(block_text)[1:]:
         if current is not None:
@@ -377,7 +379,7 @@ def er_model(block_text: str, zones: list[dict]) -> tuple[dict, list[str]]:
         style = "dashed" if line == ".." else "solid"
         styles.append("nonIdentifying" if style == "dashed" else "identifying")
         edges.append({"from": left, "to": right, "label": f"{(label or '').strip().strip(chr(34))} ({words})",
-                      "style": style, "undirected": True})
+                      "style": style, "ends": CARDINALITY_ENDS[left_end] + CARDINALITY_ENDS[right_end]})
     problems = zone_problems(zones, list(entities), every_node=False)
     zone_of = {member: zone["id"] for zone in zones for member in zone["members"]}
     nodes = [{"id": entity, "label": alias, "kind": "entity", "fields": fields[entity], "zone": zone_of.get(entity)}
@@ -413,7 +415,7 @@ def sequence_model(block_text: str) -> tuple[dict, list[str]]:
 
 
 def gantt_model(block_text: str) -> tuple[dict, list[str]]:
-    """The MODEL for a gantt chart, with each bar placed in days or minutes from the earliest start."""
+    """The MODEL for a gantt chart, with each bar placed in days or minutes from the earliest start and its `after` ids."""
     date_format, section, tasks, ids = "", None, [], {}
     for number, text in content_lines(block_text)[1:]:
         first = text.split()[0]
@@ -462,10 +464,14 @@ def gantt_model(block_text: str) -> tuple[dict, list[str]]:
             sections.append({"label": label, "tasks": []})
         sections[-1]["tasks"].append({"id": task["id"], "name": task["name"], "tags": task["tags"],
                                       "start": offset(task["span"][0]), "end": offset(task["span"][1])})
+        if task["after"]:
+            # Mermaid reads a repeated id once, so the board draws it once.
+            task["after"] = list(dict.fromkeys(task["after"]))
+            sections[-1]["tasks"][-1]["after"] = task["after"]
     model = {"type": "gantt", "unit": "day" if unit == SECONDS_PER_DAY else "minute",
              "origin": origin.strftime("%Y-%m-%d" if unit == SECONDS_PER_DAY else "%H:%M"),
              "span": max(offset(task["span"][1]) for task in tasks), "sections": sections,
-             "expect": {"nodes": len(tasks), "connectors": 0}}
+             "expect": {"nodes": len(tasks), "connectors": sum(len(task["after"]) for task in tasks)}}
     return model, []
 
 
@@ -791,6 +797,34 @@ def pin_problems(drawn: dict, model: dict) -> list[str]:
     return problems
 
 
+ERD_CAPS = {"1": "ERD_EXACTLY_ONE", "?": "ERD_ZERO_OR_ONE", "*": "ERD_ZERO_OR_MORE", "+": "ERD_ONE_OR_MORE"}
+
+
+def end_problems(drawn: dict, model: dict) -> list[str]:
+    """Gantt dependencies that are not one arrow from the bar waited on, and ER ends without their mark."""
+    ids = {n["name"][5:]: n["id"] for n in drawn["nodes"] if n["name"].startswith("node:")}
+    lines = {c["name"]: c for c in drawn["connectors"]}
+    problems = []
+    if model["type"] == "gantt":
+        for task in (t for s in model["sections"] for t in s["tasks"]):
+            me = task["id"] or task["name"]
+            for before in task.get("after", []):
+                c = lines.get(f"edge:{before}->{me}")
+                if c is None or c["start"].get("endpointNodeId") != ids.get(before) \
+                        or c["end"].get("endpointNodeId") != ids.get(me) or c["endCap"] != "ARROW_LINES":
+                    problems.append(f"{before} -> {me} is not one arrow from the bar it waits on")
+    elif model.get("profile") == "er":
+        # A planted model written before end marks has none to check, and its plain ends are the arrow check's.
+        for e in (e for e in model["edges"] if e.get("ends")):
+            # A pinned route carries its start mark on its first leg and its end mark on the last.
+            last = lines.get(f"edge:{e['from']}->{e['to']}")
+            first = lines.get(f"leg:{e['from']}->{e['to']}:1", last)
+            caps = (first and first["startCap"], last and last["endCap"])
+            if caps != (ERD_CAPS[e["ends"][0]], ERD_CAPS[e["ends"][1]]):
+                problems.append(f"{e['from']} -> {e['to']} ends in {caps}, the model marks {e['ends']}")
+    return problems
+
+
 def drawn_checks(name: str, model: dict, drawn: dict, design: dict) -> list[tuple[str, bool, str]]:
     """What a run of the composer drew, held to the board's geometry rules and to the design it was drawn in."""
     results = []
@@ -816,6 +850,11 @@ def drawn_checks(name: str, model: dict, drawn: dict, design: dict) -> list[tupl
         results.append((f"{name} {what}", not marked, "; ".join(marked)))
         tinted = zone_tint_problems(drawn, model, design)
         results.append((f"{name} tints every zone apart from its members and its neighbour", not tinted, "; ".join(tinted)))
+    if model["type"] == "gantt" or model.get("profile") == "er":
+        ends = end_problems(drawn, model)
+        what = "draws each dependency as one arrow from the bar it waits on" if model["type"] == "gantt" \
+            else "marks each relationship end with the cardinality its model names"
+        results.append((f"{name} {what}", not ends, "; ".join(ends)))
     if model["type"] != "graph":
         return results
     clear = title_gap_problems(drawn)
@@ -1066,6 +1105,13 @@ def font_checks(work: Path) -> list[tuple[str, bool, str]]:
     return results
 
 
+def cap_checks(work: Path) -> list[tuple[str, bool, str]]:
+    """The stand-in refuses a cap Figma does not name, so a misspelt ER mark fails here and not on a live board."""
+    drawn = geometry.run_trace("const c = figma.createConnector(); c.connectorEndStrokeCap = 'ERD_ZERO_OR_MANY';", work)
+    return [("the stand-in refuses a connector cap Figma does not name", "ERD_ZERO_OR_MANY" in (drawn["error"] or ""),
+             drawn["error"] or "no error")]
+
+
 def focus_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
     """A `%% focus:` line marks one thing on each diagram that takes no style line, and is refused where it names nothing."""
     from figjam_checks.fixtures import GOOD
@@ -1269,6 +1315,7 @@ def self_test() -> int:
             results += fan_in_checks(Path(work), sent)
             results += restyle_checks(Path(work), base)
             results += font_checks(Path(work))
+            results += cap_checks(Path(work))
             results += extreme_checks(Path(work), base, design)
     if PROJECT_COPY.is_file():
         block = PROJECT_FENCE.search(PROJECT_COPY.read_text(encoding="utf-8"))
