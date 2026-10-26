@@ -1,7 +1,7 @@
 ---
 title: "sk-create-figjam: Manual Testing Playbook"
 description: "Operator-facing directory for the FigJam diagram packet: type choice for all seven types, the pre-write check, the board write with its gate, extension and read-back, scored board quality for every type, creation variant and the board design, the boundaries with the Product Owner packet and routing recall for type detection."
-version: 1.0.2.0
+version: 1.0.3.0
 ---
 
 # sk-create-figjam: Manual Testing Playbook
@@ -111,7 +111,7 @@ Each counts against Signal only when its colour is outside its palette in the st
 
 - **Reply.** 2: the board URL first, then `Read-back:`, any `Extensions:`, `Left out:` and `Finding:` lines and the `HVR self-scan:` line last, every count true. 1: every line present and true, out of order, or with any text after the `HVR self-scan:` line, even one sentence. 0: a line missing or a count false
 
-A scored board totals 22 points: 8 from the overview zoom, 8 from the reading zoom, 4 from the invariants and 2 from the reply. It passes at 18 or more, with Composition, Fidelity, Reply and all four invariant checks at full marks and no scored dimension at 0.
+A scored board totals 22 points: 8 from the overview zoom, 8 from the reading zoom, 4 from the invariants and 2 from the reply. It passes at 18 or more, with Composition, Fidelity, Reply and all four invariant checks at full marks and no scored dimension at 0. The scorecard is one part of a scored scenario's verdict: the scenario passes only when every expected signal is present as well, as the acceptance rules in Section 5 set out.
 
 Every point lost carries a location and a fix. The location names the shape or the connector by its label and says where it sits in the frame. The fix is a change to the model that is composed again after a yes, or a composer limit the writer cannot move. A point lost with no location or no fix is unmeasured, and an unmeasured point cannot count as a pass.
 
@@ -714,7 +714,7 @@ Verify that a written ER diagram keeps every relationship's two ends and cardina
 
 Prompt: `make a FigJam ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan, and group the partner tables apart from the guest tables. From the schema note: guests, bookings, payments, properties, rooms and rate plans. A guest makes bookings, a booking reserves one room under one rate plan and holds its payments, and a property offers rooms and publishes rate plans. Keep the keys and the few columns support asks about.`
 
-Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds 6 of 6 entities, 6 of 6 relationships with their labels and every attribute of the model, in 2 of 2 zones. The Guest side zone holds Guest, Booking and Payment and the Partner side zone holds Property, Room and Rate Plan. Neither zone covers a label. Each relationship's cardinality reads from its label, such as `makes (1 to 0..n)`, at 100% zoom. No extension call is made and the reply carries no `Extensions:` line. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds 6 of 6 entities, 6 of 6 relationships with their labels and every attribute of the model, in 2 of 2 zones. The Guest side zone holds Guest, Booking and Payment and the Partner side zone holds Property, Room and Rate Plan. Neither zone covers a label. Each relationship's cardinality reads from the marks at its two ends and from its label, such as `makes (1 to 0..n)`, at 100% zoom. No extension call is made and the reply carries no `Extensions:` line. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -733,7 +733,7 @@ Verify that a written gantt chart keeps task order, dependencies and the milesto
 
 Prompt: `put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November 2026 with two weeks of conflict-screen design, the sync engine takes three weeks from the same day, the conflict screen build follows its design for two weeks, and desktop and iOS integration starts when both builds are done, one week, and is the critical path. Then a two-week beta for 5 percent of workspaces and the release. Android follows in the next quarter, not yet approved.`
 
-Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds 3 of 3 sections, 5 of 5 tasks and 1 of 1 milestone in the model's order. Integration carries the critical marking, the reply names Android under `Left out:`, and the reader reads order from the bars, not their lengths. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds 3 of 3 sections, 5 of 5 tasks and 1 of 1 milestone in the model's order. Integration carries the critical marking and the reply names Android under `Left out:`. Every `after` in the model is drawn as an arrow from the bar it names, and the reader reads order from the bars and the arrows, not the bar lengths. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -834,7 +834,7 @@ Verify that a change to a written flow composes the new board first, reads it ba
 
 Prompt: `change the Fernhouse return flow on that board: after 30 days the app now shows Request an exception instead of Contact support`
 
-Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate for the compose and writes nothing. Turn 3 composes the new board, reads it back, asks before deleting and deletes nothing. Turn 4 deletes the old board section. The file ends with one board, every node of the model within 9 and every connector, with Request an exception in place of Contact support. The new board is composed and read back before anything is deleted. The gate's yes covers the compose and never the delete. The delete waits for its own yes, asked after the read-back. It removes only the old board section found by its tag. The operator's sticky is untouched and the compose call carries the same fileKey. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate for the compose and writes nothing. Turn 3 composes the new board, reads it back, asks before deleting in a question that names the old board by its title and deletes nothing. Turn 4 deletes the old board section. The file ends with one board, every node of the model within 9 and every connector, with Request an exception in place of Contact support. The new board is composed and read back before anything is deleted. The gate's yes covers the compose and never the delete. The delete waits for its own yes, asked after the read-back. It removes only the old board section found by its tag. The operator's sticky is untouched and the compose call carries the same fileKey. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
