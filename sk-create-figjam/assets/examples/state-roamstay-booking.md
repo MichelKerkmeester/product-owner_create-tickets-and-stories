@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "state example"
   - "roamstay booking states"
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # Example - State - Roamstay Booking
@@ -71,10 +71,10 @@ stateDiagram-v2
         Upcoming --> InStay: check in
         InStay --> [*]
     }
-    Confirmed --> Completed: check out
+    Confirmed --> Completed: check out [from InStay]
     Pending --> Cancelled: guest cancels
     Confirmed --> Cancelled: guest cancels
-    Confirmed --> NoShow: missed check-in
+    Confirmed --> NoShow: missed check-in [from Upcoming]
     Completed --> [*]
     Cancelled --> [*]
     NoShow --> [*]

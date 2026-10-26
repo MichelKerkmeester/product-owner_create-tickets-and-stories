@@ -66,10 +66,10 @@ stateDiagram-v2
         Upcoming --> InStay: check in
         InStay --> [*]
     }
-    Confirmed --> Completed: check out
+    Confirmed --> Completed: check out [from InStay]
     Pending --> Cancelled: guest cancels
     Confirmed --> Cancelled: guest cancels
-    Confirmed --> NoShow: missed check-in
+    Confirmed --> NoShow: missed check-in [from Upcoming]
     Completed --> [*]
     Cancelled --> [*]
     NoShow --> [*]

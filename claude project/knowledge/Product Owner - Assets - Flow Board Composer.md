@@ -8,8 +8,8 @@ The code that composes a checked Flow model into a framed FigJam board, and how 
 
 1. Check the Mermaid model against Templates - Flow Mode Section 5 and the chosen Flow Type, exactly as for any write
 2. Write the MODEL as one JSON object, following Section 2 for its type. Every value comes from the checked model, never from memory of the sources
-3. Copy the code in Section 4 whole, from its first line to its last. Replace the one `__MODEL__` in its first line with that JSON and the one `__THEME__` in its second line with the `THEME` line in Assets - Flow Board Design, `{}` for the shipped design. Change nothing else, because one dropped line breaks the board and the call cannot tell you which. The code came back whole only when all four hold: it runs 1,161 lines and 46,569 characters, its first line is `const MODEL=__MODEL__;`, its second line is `const THEME=__THEME__;` and its last two lines are `createdCount:created.length,` and `};`. If any one fails, it did not come back whole
-4. Send the result as the `code` of one `use_figma` call, one diagram per call, after the gate's yes. The whole call must stay under 50,000 characters. The code takes 46,551 of them before its two placeholders are filled, so the model JSON, written compact with no space after a comma or a colon, and the `THEME` line together must stay under 3,400 characters. The shipped `{}` costs 2, and the largest shipped example model runs about 2,300. A diagram that will not fit is split, never trimmed
+3. Copy the code in Section 4 whole, from its first line to its last. Replace the one `__MODEL__` in its first line with that JSON and the one `__THEME__` in its second line with the `THEME` line in Assets - Flow Board Design, `{}` for the shipped design. Change nothing else, because one dropped line breaks the board and the call cannot tell you which. The code came back whole only when all four hold: it runs 1,170 lines and 47,148 characters, its first line is `const MODEL=__MODEL__;`, its second line is `const THEME=__THEME__;` and its last two lines are `createdCount:created.length,` and `};`. If any one fails, it did not come back whole
+4. Send the result as the `code` of one `use_figma` call, one diagram per call, after the gate's yes. The whole call must stay under 50,000 characters. The code takes 47,130 of them before its two placeholders are filled, so the model JSON, written compact with no space after a comma or a colon, and the `THEME` line together must stay under 2,850 characters. The shipped `{}` costs 2, and the largest shipped example model runs about 2,300. A diagram that will not fit is split, never trimmed
 5. Read the return value. It holds `boardId`, `tag`, `counts` beside `expect`, the `elements` and `links` it drew with their ids, `warnings` and a screenshot of the board. Counts that differ from `expect`, or any warning, are a finding reported as measured. A thrown error that starts `nothing was drawn` means two zones would have overlapped and nothing was written to the board. Do not retry the same model and do not read the board. Split or regroup the zones in the model, check it again against Templates - Flow Mode Section 5 and fill the code again. Say in the reply that the first compose drew nothing
 6. Read the board back with `get_figjam` on `boardId`, as Templates - Flow Mode Section 7 sets out
 
@@ -35,7 +35,7 @@ Every model carries `title`, `subtitle` and `source` strings, from the `%% title
 - `zones` lists the `%% zone:` lines in the order written, each `id` the label in lower case with every run of other characters as one hyphen and no hyphen at either end. A process takes its lanes in declared order instead, and an architecture its lanes in the order client, gateway, service, async, datastore, external, each `label` the lane's label. A state diagram's zones are its composites
 - Each node's `zone` is the zone id it sits in, or `null`
 - A node the model plans the accent on carries `"accent": true`, as the kind table below says, and no other node does
-- An edge carries `"style": "dashed"` for a `-.->` or `..` line, `"twoWay": true` for `<-->` and `"undirected": true` for every ER relationship. An empty label is `""`
+- An edge carries `"style": "dashed"` for a `-.->` or `..` line, `"twoWay": true` for `<-->` and `"ends"` for every ER relationship, as the kind table below sets out. An empty label is `""`
 - An architecture edge written `a <---|label| b` enters the model as the edge from `b` to `a`
 - `edgeStyles` names each line style the board uses once, for the key: `dashedOptional` for a dashed edge on a user flow or process, `dashedAsync` for one on an architecture, `twoWay`, and on an ER diagram `identifying` and `nonIdentifying`
 - `expect.nodes` counts `nodes` and `expect.connectors` counts `edges`
@@ -47,7 +47,7 @@ A node's `kind` follows its shape and place:
 | User flow, process | A rhombus is `decision`, a circle `merge`, a cylinder `datastore`, a subroutine `subprocess` and a parallelogram `io`. A stadium no edge enters is `start`. A stadium no edge leaves is `error` when its `style` takes the light red pair, `success` when it takes any other pair, and when unstyled `success` if it is the end the longest path reaches and no end is styled, otherwise `exit`. Any other styled step is `focus`, and every styled node, an end, a decision and a start included, keeps the kind its shape gives it and also carries `"accent": true`. Everything else is `screen` on a user flow and `step` on a process |
 | Architecture | The lane sets it: `client`, `gateway`, `service`, `datastore`, `external`, and `queue` for the `async` lane. A `%% focus: <id>` line puts `"accent": true` on that node |
 | State | Each `[*]` arrow gets its own node: `"__start_<n>"` with label `"[start]"` and kind `initial` where an arrow leaves `[*]`, `"__end_<n>"` with label `"[end]"` and kind `final` where one enters it, numbered in the order they appear and zoned in the composite they sit in. A `<<choice>>` state is `choice` and a `<<fork>>` or `<<join>>` is `fork`. A state entered from a top-level start is `firstState`, one that leaves to a top-level end is `finalState`, and every other state is `state`. A composite is a zone, never a node, and an edge to or from it names the composite's id. A `%% focus: <id>` line puts `"accent": true` on that state |
-| ER | Every entity is `entity`, its `label` the alias or the id, with `"fields": [{"type", "name", "keys"}]` where `keys` is the entity's `PK`, `FK` and `UK` marks joined by `, `, or `""`. A relationship runs from the left entity to the right, labelled `<label> (<left> to <right>)`, with each end in words: `\|\|` is `1`, `\|o` or `o\|` is `0..1`, `}o` or `o{` is `0..n` and `}\|` or `\|{` is `1..n`. A `%% focus: <id>` line puts `"accent": true` on that entity |
+| ER | Every entity is `entity`, its `label` the alias or the id, with `"fields": [{"type", "name", "keys"}]` where `keys` is the entity's `PK`, `FK` and `UK` marks joined by `, `, or `""`. A relationship runs from the left entity to the right, labelled `<label> (<left> to <right>)`, with each end in words: `\|\|` is `1`, `\|o` or `o\|` is `0..1`, `}o` or `o{` is `0..n` and `}\|` or `\|{` is `1..n`. Its `"ends"` gives the mark each end draws, one character for the left end and one for the right: `1` for `\|\|`, `?` for `\|o` or `o\|`, `*` for `}o` or `o{` and `+` for `}\|` or `\|{`, so `\|\|--o{` is `"1*"`. A `%% focus: <id>` line puts `"accent": true` on that entity |
 
 ### Sequence
 
@@ -62,11 +62,11 @@ Participants come in declared order, then any others in the order a message firs
 
 ```text
 {"type": "gantt", "unit": "day" | "minute", "origin": "YYYY-MM-DD" | "HH:mm", "span": <number>,
- "sections": [{"label", "tasks": [{"id", "name", "tags", "start", "end"}]}],
- "expect": {"nodes": <tasks>, "connectors": 0}, "title", "subtitle", "source"}
+ "sections": [{"label", "tasks": [{"id", "name", "tags", "start", "end", "after"}]}],
+ "expect": {"nodes": <tasks>, "connectors": <after ids>}, "title", "subtitle", "source"}
 ```
 
-`unit` is `day` for `dateFormat YYYY-MM-DD` and `minute` for `HH:mm`. `origin` is the earliest task start. Each task's `start` and `end` are its offsets from the origin in that unit, an `after` task starting where the latest task it names ends and a task with neither starting where the task above it ends. A milestone's `end` equals its `start`. `span` is the largest `end`. `tags` lists the task's `done`, `active`, `crit` and `milestone` tags, `id` is `""` when the task has none, and a task outside any section sits in a section labelled `Tasks`. A `%% focus: <id or name>` line puts `"accent": true` on that task.
+`unit` is `day` for `dateFormat YYYY-MM-DD` and `minute` for `HH:mm`. `origin` is the earliest task start. Each task's `start` and `end` are its offsets from the origin in that unit, an `after` task starting where the latest task it names ends and a task with neither starting where the task above it ends. A milestone's `end` equals its `start`. A task written `after` carries `"after"`, the list of ids it names, and the code draws one arrow from each of those bars to it, so `expect.connectors` counts every id in every `after`. A task with no `after` leaves the key out. `span` is the largest `end`. `tags` lists the task's `done`, `active`, `crit` and `milestone` tags, `id` is `""` when the task has none, and a task outside any section sits in a section labelled `Tasks`. A `%% focus: <id or name>` line puts `"accent": true` on that task.
 
 ---
 
@@ -166,6 +166,7 @@ const pairOf=(kind)=>SWATCH[kind==='focus'?T.accent.pair:T.role[T.kind[kind].rol
 const ACCENT=SWATCH[T.accent.pair][1];
 const INK='#1E1E1E';
 const OFF_PATH=new Set(['exit','error']);
+const ERD={1:'ERD_EXACTLY_ONE','?':'ERD_ZERO_OR_ONE','*':'ERD_ZERO_OR_MORE','+':'ERD_ONE_OR_MORE'};
 const ROUND=new Set(['DIAMOND','ELLIPSE','HEXAGON','OCTAGON']);
 const GRID=8;
 const snap=(v)=>Math.round(v/GRID)*GRID;
@@ -927,8 +928,8 @@ edges.forEach((e)=>{
 const from=shapes.get(e.from)||zoneOf.get(e.from);
 const to=shapes.get(e.to)||zoneOf.get(e.to);
 const{m0,m1,pts,leg}=portsOf.get(e);
-const style={dashed:e.style==='dashed',startCap:e.twoWay?'ARROW_LINES':'NONE',
-endCap:e.undirected?'NONE':'ARROW_LINES'};
+const style={dashed:e.style==='dashed',startCap:e.ends?ERD[e.ends[0]]:e.twoWay?'ARROW_LINES':'NONE',
+endCap:e.ends?ERD[e.ends[1]]:e.undirected?'NONE':'ARROW_LINES'};
 let c;
 try{
 if(pts){
@@ -1082,7 +1083,7 @@ const key=[...new Set(tasks.map(statusOf))].map((kind)=>({kind})).concat(marked?
 return{
 width,height,key,
 draw(board,ox,oy){
-const ticks=[];
+const ticks=[],bars=new Map();
 for(let t=0;t<=span;t+=tick)ticks.push(t);
 const rule=(parent,x,top,hh,name)=>{
 const r=figma.createRectangle();
@@ -1119,8 +1120,16 @@ const fits=natural(words,MEDIUM,TYPE.small).w+24<=w;
 bar=shape(sec,status,fits?words:'',bx,ry+(ROW-BAR)/2-4,w,BAR,`node:${t.id || t.name}`,TYPE.small,t.accent);
 }
 elements.push({id:bar.id,model:t.id||t.name,kind:status,text:t.name});
+bars.set(t.id||t.name,bar);
 });
 });
+tasks.forEach((t)=>(t.after||[]).forEach((id)=>{
+const me=t.id||t.name,from=bars.get(id),to=bars.get(me);
+if(!from)return warnings.push(`no task ${id} for ${me} to follow`);
+const ms=statusOf(t)==='milestone';
+const c=connect(board,from,to,{name:`edge:${id}->${me}`,m0:ms?'BOTTOM':'RIGHT',m1:ms?'LEFT':'TOP'});
+links.push({id:c.id,from:from.id,to:to.id,model:`${id}->${me}`,label:''});
+}));
 },
 };
 }

@@ -106,6 +106,8 @@ const pairOf = (kind) => SWATCH[kind === 'focus' ? T.accent.pair : T.role[T.kind
 const ACCENT = SWATCH[T.accent.pair][1];
 const INK = '#1E1E1E';
 const OFF_PATH = new Set(['exit', 'error']);
+// An ER end's mark, keyed by the code the model gives each end: exactly one, zero or one, zero or more, one or more.
+const ERD = { 1: 'ERD_EXACTLY_ONE', '?': 'ERD_ZERO_OR_ONE', '*': 'ERD_ZERO_OR_MORE', '+': 'ERD_ONE_OR_MORE' };
 const ROUND = new Set(['DIAMOND', 'ELLIPSE', 'HEXAGON', 'OCTAGON']);
 
 const GRID = 8;
@@ -972,8 +974,9 @@ function buildGraph(M) {
         const from = shapes.get(e.from) || zoneOf.get(e.from);
         const to = shapes.get(e.to) || zoneOf.get(e.to);
         const { m0, m1, pts, leg } = portsOf.get(e);
-        const style = { dashed: e.style === 'dashed', startCap: e.twoWay ? 'ARROW_LINES' : 'NONE',
-          endCap: e.undirected ? 'NONE' : 'ARROW_LINES' };
+        // An ER relationship marks each end with its cardinality, so a reader sees which side is the many.
+        const style = { dashed: e.style === 'dashed', startCap: e.ends ? ERD[e.ends[0]] : e.twoWay ? 'ARROW_LINES' : 'NONE',
+          endCap: e.ends ? ERD[e.ends[1]] : e.undirected ? 'NONE' : 'ARROW_LINES' };
         let c;
         try {
           if (pts) {
@@ -1152,7 +1155,7 @@ function buildGantt(M) {
     draw(board, ox, oy) {
       // Grid lines are 1px rectangles, not connectors, so the read-back never counts them as edges.
       // Sections are opaque, so each one draws its own stretch of every line under its bars.
-      const ticks = [];
+      const ticks = [], bars = new Map();
       for (let t = 0; t <= span; t += tick) ticks.push(t);
       const rule = (parent, x, top, hh, name) => {
         const r = figma.createRectangle();
@@ -1190,8 +1193,20 @@ function buildGantt(M) {
             bar = shape(sec, status, fits ? words : '', bx, ry + (ROW - BAR) / 2 - 4, w, BAR, `node:${t.id || t.name}`, TYPE.small, t.accent);
           }
           elements.push({ id: bar.id, model: t.id || t.name, kind: status, text: t.name });
+          bars.set(t.id || t.name, bar);
         });
       });
+      // A dependency runs from the end of the bar it waits on into the top of the bar it starts, so the arrow
+      // turns once. The check puts every bar an `after` names above it. A milestone sits on that end, so its
+      // arrow leaves the bar's foot and meets the diamond's side. Arrows that leave one bar or enter one bar
+      // share its magnet, so a fork or a join reads as one.
+      tasks.forEach((t) => (t.after || []).forEach((id) => {
+        const me = t.id || t.name, from = bars.get(id), to = bars.get(me);
+        if (!from) return warnings.push(`no task ${id} for ${me} to follow`);
+        const ms = statusOf(t) === 'milestone';
+        const c = connect(board, from, to, { name: `edge:${id}->${me}`, m0: ms ? 'BOTTOM' : 'RIGHT', m1: ms ? 'LEFT' : 'TOP' });
+        links.push({ id: c.id, from: from.id, to: to.id, model: `${id}->${me}`, label: '' });
+      }));
     },
   };
 }

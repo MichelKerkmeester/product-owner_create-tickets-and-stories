@@ -8,7 +8,7 @@ trigger_phrases:
   - "state machine figjam"
   - "lifecycle diagram"
   - "order status flow"
-version: 1.0.2.0
+version: 1.0.3.0
 ---
 
 # FigJam Type - State
@@ -75,6 +75,7 @@ Judged by hand:
 - **States are nouns or adjectives,** such as `Confirmed`. Actions are transition labels, such as `pay`
 - **Labels follow `event [guard] / action`,** dropping the parts a move does not need, in one to three words where possible
 - **A move from any state, such as a timeout, is one transition from a composite,** never one from every state
+- **A move only one inner state takes names that state as its guard.** A transition leaves a composite from the zone's edge and reads as open from every state inside it, so a move that only one inner state takes says which, such as `missed check-in [from Upcoming]`. The guard counts toward the label's length, so at `Wall` distance the event or the guard is shortened
 - **Mark terminal states with `--> [*]`** only when the thing really ends
 
 ---

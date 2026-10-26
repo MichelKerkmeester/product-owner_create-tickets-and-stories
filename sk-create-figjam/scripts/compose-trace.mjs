@@ -57,6 +57,10 @@ class Text {
   remove() { this.parent.children = this.parent.children.filter((c) => c !== this); }
 }
 
+// Figma's ConnectorStrokeCap values, so a cap the real API would refuse throws here as it would there.
+const CAPS = new Set(['NONE', 'ARROW_EQUILATERAL', 'ARROW_LINES', 'TRIANGLE_FILLED', 'DIAMOND_FILLED', 'CIRCLE_FILLED',
+  'ERD_ZERO_OR_ONE', 'ERD_EXACTLY_ONE', 'ERD_ZERO_OR_MORE', 'ERD_ONE_OR_MORE', 'ERD_ONE', 'ERD_MANY']);
+
 class Node {
   constructor(page, type) {
     this.id = `${type[0]}${serial++}`;
@@ -69,6 +73,14 @@ class Node {
     this.name = '';
     this.parent = page;
     if (type === 'SHAPE_WITH_TEXT' || type === 'CONNECTOR') this.text = new Text(this);
+    if (type !== 'CONNECTOR') return;
+    for (const key of ['connectorStartStrokeCap', 'connectorEndStrokeCap']) {
+      let cap = 'NONE';
+      Object.defineProperty(this, key, {
+        get: () => cap,
+        set: (v) => { if (!CAPS.has(v)) throw new Error(`Invalid value for ${key}: ${v}`); cap = v; },
+      });
+    }
   }
   resize(w, h) { this.width = w; this.height = h; }
   appendChild(c) {

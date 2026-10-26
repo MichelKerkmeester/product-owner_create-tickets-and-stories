@@ -1,6 +1,6 @@
 # Product Owner - Templates - Flow Type - ER
 
-An ER diagram shows which entities exist, the fields that matter on each and how they relate. The composer draws each entity as a card in the `neutral` role, its name in bold above one line per field with its keys first, and each relationship as a line with no arrow and its cardinality in the label.
+An ER diagram shows which entities exist, the fields that matter on each and how they relate. The composer draws each entity as a card in the `neutral` role, its name in bold above one line per field with its keys first, and each relationship as a line with no arrow, its cardinality marked at both ends and repeated in words in the label.
 
 ---
 
@@ -43,7 +43,7 @@ erDiagram
 
 The same ends work with `..` in place of `--`.
 
-On the board the label reads the verb and then the two ends in words, such as `makes (1 to 0..n)`. An identifying relationship is a solid line and a non-identifying one dashed, and the key names both. A `%% zone: <label>: <entity>, <entity>` line draws a tinted section around the entities of one domain.
+On the board each end of a relationship carries Figma's crow's-foot mark for its cardinality, so a reader sees which side is the many, and the label reads the verb and then the two ends in words, such as `makes (1 to 0..n)`. An identifying relationship is a solid line and a non-identifying one dashed, and the key names both. A `%% zone: <label>: <entity>, <entity>` line draws a tinted section around the entities of one domain.
 
 ---
 
@@ -93,9 +93,9 @@ The model is placed into Assets - Flow Board Composer and one `use_figma` call d
 
 Count entities, relationships and attributes, and check each relationship's two ends, the cardinality on each end and its label.
 
-On a composed board read the cardinality from the label, which carries both ends in words, and check the line is solid or dashed as the model draws it. The attributes are the lines of each entity card. The right cardinality matters more than a full column list, because it is the part a reader decides on.
+On a composed board read each end's mark against the label, which carries both ends in words, and check the line is solid or dashed as the model draws it. The attributes are the lines of each entity card. The right cardinality matters more than a full column list, because it is the part a reader decides on.
 
-A relationship has no arrow, so the arrow rule in Templates - Flow Mode Section 7 does not apply here. On the generated route Figma's connector cap carries a marker for each of the four cardinalities, named `ERD_EXACTLY_ONE`, `ERD_ZERO_OR_ONE`, `ERD_ZERO_OR_MORE` and `ERD_ONE_OR_MORE`, but no live read has shown the generator drawing them yet. Where those caps read plain, the read counts the two ends and the label and says the cardinality went unread.
+A relationship has no arrow, so the arrow rule in Templates - Flow Mode Section 7 does not apply here. Figma's connector cap carries a mark for each of the four cardinalities, named `ERD_EXACTLY_ONE`, `ERD_ZERO_OR_ONE`, `ERD_ZERO_OR_MORE` and `ERD_ONE_OR_MORE`. The composer sets them on every relationship, while no live read has shown the generated route drawing them yet. Where those caps read plain, the read counts the two ends and the label and says the cardinality went unread.
 
 ```text
 Read-back: 4 of 4 entities, 3 of 3 relationships, 11 of 11 attributes
