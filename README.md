@@ -125,7 +125,7 @@ Both routes run the same rules and the same templates. Section 3 sets up either 
 | Artifacts | Task, subtask, bug report, Story, Epic, Doc and FigJam diagram |
 | Diagram types | Seven: user flow, process, architecture, sequence, state, ER and gantt |
 | Worked examples | 21 filled artifacts and 7 FigJam examples, one per diagram type |
-| Versions | Hub 1.0.6.0, `sk-product-owner` 1.2.3.0, `sk-create-figjam` 1.0.6.0, Project kernel v1.2.7 |
+| Versions | Hub 1.0.6.0, `sk-product-owner` 1.2.3.0, `sk-create-figjam` 1.0.6.0, Project kernel v1.2.8 |
 | License | MIT |
 
 &nbsp;
@@ -469,7 +469,7 @@ A backlog or doc route loads one mode reference and its template, never a second
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem.
 
-- `Custom Instructions.md` is the kernel, v1.2.7, and the routing authority inside the Project
+- `Custom Instructions.md` is the kernel, v1.2.8, and the routing authority inside the Project
 - `knowledge/` holds the 65 knowledge files you upload
 - `README.md` holds the upload steps and the smoke matrix
 

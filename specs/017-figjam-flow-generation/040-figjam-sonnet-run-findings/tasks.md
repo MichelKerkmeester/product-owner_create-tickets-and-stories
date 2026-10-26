@@ -47,6 +47,7 @@ contextType: "implementation"
 - [x] T007 [P] Fold the adjudications into the records (`grades/sonnet-high.jsonl`, `grades/sonnet-high.md`, `renders/`, `results.jsonl`, README section 8.5). Verify: `results.jsonl` holds the 54 sonnet-high rows.
 - [x] T008 Mirror the changes and cut kernel v1.2.7 (`claude project/`, `SYNC.md`, `README.md`, `USER-GUIDE.md`, version files, changelogs). Verify: the Composer Knowledge code block equals `compose_board.py --template`.
 - [x] T009 Review the diff and repair the confirmed findings. Verify: the repair lane's 15 fixes each byte-compare MATCH and the self-tests run 1,240 and 163 checks.
+- [x] T010a Apply the shared Human Voice card change on the operator's yes (`z — Knowledge/Rules - Human Voice Core.md`, every system's copy and mirror, the Sales gate snapshot, kernel v1.2.8). Verify: all 12 copies share one md5 and every system's parity check prints PASSED.
 - [x] T010 Apply the handoffs no lane owned: the gate's read of a named file, the composite state section, the outline weights, FJ-030 and FJ-041, the changelog figures, the version fields and `run/aggregate.py`. Verify: all 26 dispatched files byte-compare MATCH.
 - [ ] T011 Commit and push both repositories with the Sync Loop resync and review records. Verify: `validate_parity.py product-owner` and `residency_check.py product-owner` each print PASSED.
 - [ ] T012 Rerun the 31 scenarios that did not pass, no earlier than 22:00 UTC (`skill/sonnet-high-rerun/`). Verify: `run-log.jsonl` holds 31 rerun rows, the earliest at or after 22:00 UTC.

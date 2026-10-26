@@ -45,7 +45,7 @@ This is **Phase 40** of the Product Owner FigJam flow generation upgrade specifi
 
 **Deliverables**:
 - The skill, design, playbook and driver fixes, released as hub and `sk-create-figjam` v1.0.6.0 and `sk-product-owner` v1.2.3.0.
-- The hand-written Project mirror and kernel v1.2.7.
+- The hand-written Project mirror and kernel v1.2.8.
 - The graded rerun, its renders and the refreshed screenshot gallery.
 
 **Changelog**:
@@ -83,10 +83,10 @@ Remove every contradiction and gap the run recorded, then prove the fixes by rer
 - Give kinds that share a shape distinct outlines, a `Leads to` key entry, a focus reason and an arrival point of their own.
 - Read a file the user named once before the gate and name any same-titled section there.
 - Correct the playbook lines the run showed were wrong and add a `driver:` key for scenarios the driver cannot set up.
+- Count a term kept with a reason on the Human Voice self-scan line only when it is used as the banned pattern, in the shared card and every copy.
 - Rerun the 31 scenarios that did not pass, render and grade every board and refresh the screenshot gallery.
 
 ### Out of Scope
-- The Human Voice Core count wording - it lives in a card five systems share, so it waits for the operator's yes under D4.
 - A router change for the composite state exit that crosses one edge - recorded as an open failure in the self-test instead.
 
 ### Files to Change
@@ -97,7 +97,7 @@ Remove every contradiction and gap the run recorded, then prove the fixes by rer
 | sk-create-figjam/assets/compose-board.js, scripts/ | Modify | Outlines, key entries, arrival points, gantt arrows, focus reason and their checks |
 | sk-create-figjam/manual-testing-playbook/ | Modify | Scenario corrections and the `driver:` key |
 | sk-product-owner/references/interactive-mode.md | Modify | A board command conflict asks about the artifact first |
-| claude project/, SYNC.md, README.md, USER-GUIDE.md | Modify | Mirror, kernel v1.2.7 and release notes |
+| claude project/, SYNC.md, README.md, USER-GUIDE.md | Modify | Mirror, kernel v1.2.8 and release notes |
 | benchmark/reports/2026-10-25--manual-testing-playbook--figjam-model-comparison/ | Modify, Create | Driver, grades, renders and README |
 | changelog/, sk-create-figjam/changelog/, sk-product-owner/changelog/, version files | Create, Modify | v1.0.6.0 and v1.2.3.0 |
 | sk-create-figjam/assets/screenshots/ | Modify | The best v1.0.6.0 board of each type |
@@ -189,5 +189,5 @@ Remove every contradiction and gap the run recorded, then prove the fixes by rer
 <!-- ANCHOR:questions -->
 ## 10. OPEN QUESTIONS
 
-- Should the shared Human Voice card name how a term kept with a reason counts on the self-scan line? It waits for the operator's yes under D4.
+- None. The operator said yes to the shared Human Voice card change on 2026-10-26, and it landed in every system's copy.
 <!-- /ANCHOR:questions -->

@@ -1,6 +1,6 @@
 ---
 title: "Implementation Summary"
-description: "The type question now goes alone, one board stays one board, Quick reaches the playback and boards keep their meaning in greyscale. Released as sk-create-figjam v1.0.6.0 with kernel v1.2.7, with the rerun of the 31 scenarios that did not pass still to come."
+description: "The type question now goes alone, one board stays one board, Quick reaches the playback and boards keep their meaning in greyscale. Released as sk-create-figjam v1.0.6.0 with kernel v1.2.8, with the rerun of the 31 scenarios that did not pass still to come."
 trigger_phrases:
   - "figjam sonnet run findings implementation summary"
 importance_tier: "normal"
@@ -47,7 +47,7 @@ _memory:
 <!-- ANCHOR:what-built -->
 ## What Was Built
 
-Claude Sonnet 5.5 high passed 23 of 54 FigJam scenarios on v1.0.5.0, and its boards averaged 20.6 of 22, so most failures came from the skill and the playbook rather than the drawing. Every finding that held up after review is fixed in `sk-create-figjam` v1.0.6.0, `sk-product-owner` v1.2.3.0 and kernel v1.2.7.
+Claude Sonnet 5.5 high passed 23 of 54 FigJam scenarios on v1.0.5.0, and its boards averaged 20.6 of 22, so most failures came from the skill and the playbook rather than the drawing. Every finding that held up after review is fixed in `sk-create-figjam` v1.0.6.0, `sk-product-owner` v1.2.3.0 and kernel v1.2.8.
 
 ### Phase 40: FigJam Sonnet run findings
 
@@ -63,7 +63,7 @@ A brief that fits two diagram types now gets one question, alone, before anythin
 | sk-create-figjam/scripts/ | Modified | Checks for every new drawing rule and the flow focus line |
 | sk-create-figjam/manual-testing-playbook/ | Modified | Scenario corrections and the `driver:` key |
 | sk-product-owner/references/interactive-mode.md | Modified | A board command conflict asks about the artifact first |
-| claude project/, SYNC.md, README.md, USER-GUIDE.md | Modified | Mirror, kernel v1.2.7 and release notes |
+| claude project/, SYNC.md, README.md, USER-GUIDE.md | Modified | Mirror, kernel v1.2.8 and release notes |
 | benchmark/reports/2026-10-25--manual-testing-playbook--figjam-model-comparison/ | Modified | Driver, aggregator, grades, renders and README section 8.5 |
 | changelog/, sk-create-figjam/changelog/, sk-product-owner/changelog/, version files | Created, Modified | v1.0.6.0 and v1.2.3.0 |
 <!-- /ANCHOR:what-built -->
@@ -83,7 +83,7 @@ Five lanes each owned their own files, a sixth mirrored the changes into the Pro
 
 | Decision | Why |
 |----------|-----|
-| Keep the Human Voice Core count wording out of this change | Five systems hold a byte copy of the card, so it changes only on the operator's yes |
+| Change the shared Human Voice Core card in every system | The operator said yes, and a byte copy in five systems means one change lands in all of them at once |
 | Keep FJ-031 and FJ-032 runnable | Their operator setup steps are graded `harness`, and the rest of each scenario still measures the model |
 | Fix a composite state section in planning, not in the composer | The zone tints sit within 4 luma of each other and a section has one fill |
 | Record the composite exit's one crossing as open | A router rewrite is out of scope, and the self-test now fails on any new crossing |
