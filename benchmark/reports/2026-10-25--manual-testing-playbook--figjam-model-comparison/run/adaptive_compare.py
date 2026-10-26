@@ -58,7 +58,11 @@ def kind(reply):
 
 
 def boards(session_dir, n):
-    """The board ids one turn's composed writes returned, read from its raw export."""
+    """The board ids one turn's `use_figma` calls returned, read from its raw export.
+
+    Any call whose result carries a `boardId` counts, because a model can run the composer from client
+    storage, so the code it sends need not hold `const MODEL`.
+    """
     path = os.path.join(session_dir, f"export-turn-{n}.json")
     if not os.path.isfile(path):
         return []
@@ -70,10 +74,9 @@ def boards(session_dir, n):
                    for x in ((s.get("observation") or {}).get("results") or [])}
         for tc in s.get("tool_calls") or []:
             args = tc.get("arguments") or {}
-            code = str((args.get("arguments") or {}).get("code", ""))
-            if args.get("tool_name") == "use_figma" and "const MODEL" in code:
+            if args.get("tool_name") == "use_figma":
                 found += BOARD_ID.findall(str(results.get(tc.get("tool_call_id")) or ""))
-    return found
+    return list(dict.fromkeys(found))
 
 
 def main():

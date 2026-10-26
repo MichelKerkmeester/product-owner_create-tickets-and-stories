@@ -67,12 +67,14 @@ for sid in IDS:
                                                                                           "r038/shots/grey"))})})
         rows.append(row)
 
-# The gallery rule: highest total, then a pass, then fewer supplementary and adaptive turns. Every run used
-# the three scripted turns, so a tie that survives those falls to the grader's rank.
+# The gallery rule: the most of the 16 board points a viewer sees, then the highest total, then a pass under
+# the current playbook, which needs every expected signal, then fewer supplementary and adaptive turns. Every
+# run used the three scripted turns, so a tie that survives those falls to the grader's rank.
+BOARD = ("composition", "crossings", "shared_trunks", "label_collisions", "fidelity", "legibility", "signal", "clarity")
 for sid in IDS:
     group = [r for r in rows if r["id"] == sid]
-    best = min(group, key=lambda r: (-r["total"], r["verdict"] != "PASS", r["turns"]["supplementary"],
-                                     r["turns"]["adaptive"], r["rank"]))
+    best = min(group, key=lambda r: (-sum(r["scorecard"][k] for k in BOARD), -r["total"], r["strict_verdict"] != "PASS",
+                                     r["turns"]["supplementary"], r["turns"]["adaptive"], r["rank"]))
     for r in group:
         r["gallery"] = r is best
 
