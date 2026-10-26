@@ -396,9 +396,9 @@ Everything sits on an 8 pixel grid with one type scale, from a 64 pixel title do
 #### From Request to Board
 
 1. **Brief.** A short interview fills a nine-row Brief: the reader, their question, the outcome, the scope, the entry, the exit, the actors, the decisions and the sources. Every question carries a reading of your input and a recommended answer, so a plain "yes" moves things on. `$quick` skips the rounds and proposes the whole Brief in one message
-2. **Playback.** Before any model, one reply plays back what each source settled and every fact it assumed, then waits for your answer. That answer covers the reading, never the write
+2. **Playback.** Before any model, one reply plays back what each source settled and every fact it assumed, then ends the turn on its question and waits for your answer. That answer covers the reading, never the write
 3. **Model and check.** The diagram becomes a Mermaid model with a provenance table that ties every item to its source. A pre-write check holds it to its type's rules and layout budgets, and a quality rubric asks whether every node earns its place. Nothing is written until the model passes
-4. **Gate.** A reply of its own names the Figma plan and file, what will be drawn, any notes it adds, the Figma calls it will spend and how to undo it. Only a yes to that question writes
+4. **Gate.** A reply of its own, the last message of its turn, names the Figma plan and file, what will be drawn, any notes it adds, the Figma calls it will spend and how to undo it. Name an existing FigJam file by its link and the board goes beside what it holds, with no plan to pick. Only a yes to that question writes
 5. **Write.** One call per diagram composes the framed board in your plan
 6. **Read-back.** The board is read back from Figma and compared with the model, node by node and connector by connector. The reply opens with the board link and a line such as `Read-back: 8 of 8 nodes, 8 of 8 connectors, 2 of 2 decision exits labelled`. On a match that line also names the first glance
 
@@ -411,7 +411,7 @@ A board that does not match its model is reported as measured and never called d
 - **Colour you can trust.** The same colour means the same kind on every board, and the key explains every colour on it. Each fill is a FigJam palette swatch, so anyone can still recolour it from FigJam's own picker
 - **Proof it landed.** The read-back counts what is on the board, so you know it matches the model before you share it
 - **Nothing dropped quietly.** Every cut and split, and every point the sources left open, appears on a `Left out:` line in the reply
-- **Safe revisions.** A change goes into the model and the board is composed again. The old board is deleted only on its own yes, so a failed write never leaves you with no board
+- **Safe revisions.** A change goes into the model and the board is composed again. The old board is deleted only on a yes to a question that names it by its title, so a failed write never leaves you with no board and a bare yes deletes nothing
 
 #### Ask for a Board
 
@@ -427,7 +427,7 @@ The last request pairs an artifact with a board. The Story is saved and read bac
 
 #### Where It Draws
 
-- **claude.ai Project with the Figma connector.** A new FigJam board in your Figma plan, read back to check it. With the connector off you get the checked model as a Mermaid block
+- **claude.ai Project with the Figma connector.** A new FigJam board in your Figma plan, or in a FigJam file you named, read back to check it. With the connector off you get the checked model as a Mermaid block
 - **Terminal agent with Figma's hosted MCP.** The same composed board, with the same gate and read-back
 - **Figma's diagram generator.** The fallback when the composing tool is not connected. The board is plainer, with Figma's own layout and none of the framing: no title, zone, key or source line
 - **Figma Desktop through `figma-ds-cli`.** User flows and processes without lanes, drawn node by node into the FigJam file you have open. Section 3 covers the one-time setup
@@ -459,7 +459,7 @@ Every shape is a plain markdown file you can change to fit your team.
 | [`sk-product-owner/assets/examples/`](sk-product-owner/assets/examples/) | 21 worked artifacts: 5 tasks, 4 bugs, 7 docs and 5 Stories, one of them an Epic |
 | [`sk-product-owner/references/`](sk-product-owner/references/) | 12 rule files: the mode rules, routing, quality scoring and the two voice cards |
 | [`sk-create-figjam/assets/`](sk-create-figjam/assets/) | The diagram patterns per type, the reply shapes, the board composer and 7 worked examples on fictional companies |
-| [`sk-create-figjam/references/`](sk-create-figjam/references/) | The Flow Mode workflow, one reference per diagram type, the style guide and the quality rubric |
+| [`sk-create-figjam/references/`](sk-create-figjam/references/) | The Flow Mode workflow, the notes-on-a-board workflow, one reference per diagram type, the style guide and the quality rubric |
 
 A backlog or doc route loads one mode reference and its template, never a second pair, plus at most one worked example.
 
