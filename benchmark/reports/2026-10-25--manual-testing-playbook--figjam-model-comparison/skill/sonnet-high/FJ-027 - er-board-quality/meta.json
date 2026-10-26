@@ -1,0 +1,142 @@
+{
+ "id": "FJ-027",
+ "label": "sonnet-high",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/er-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "expects_board": true,
+ "no_figma": false,
+ "scripted_turns": [
+  "make a FigJam ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan, and group the partner tables apart from the guest tables. From the schema note: guests, bookings, payments, properties, rooms and rate plans. A guest makes bookings, a booking reserves one room under one rate plan and holds its payments, and a property offers rooms and publishes rate plans. Keep the keys and the few columns support asks about.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "ac5d9720-3b5c-4492-a5f8-26a54c8cb755",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "2:47"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 69.7,
+   "tool_calls": 12,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 84513,
+   "output_tokens": 8188,
+   "cached_tokens": 244195,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "ac5d9720-3b5c-4492-a5f8-26a54c8cb755",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "make a FigJam ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan, and group the partner tables apart from the guest tables. From the schema note: guests, bookings, payments, properties, rooms and rate plans. A guest makes bookings, a booking reserves one room under one rate plan and holds its payments, and a property offers rooms and publishes rate plans. Keep the keys and the few columns support asks about.\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 42.05,
+   "tool_calls": 3,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 15821,
+   "output_tokens": 4847,
+   "cached_tokens": 414257,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "ac5d9720-3b5c-4492-a5f8-26a54c8cb755",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 155.58,
+   "tool_calls": 8,
+   "tools_used": [
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 85227,
+   "output_tokens": 29233,
+   "cached_tokens": 1026988,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "ac5d9720-3b5c-4492-a5f8-26a54c8cb755",
+   "inner_calls": [
+    "create_session",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "2:47"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "DELIVERY"
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+  "id": "FJ-042",
+  "signals": [
+    {"signal": "Turn 1 asks no intake question", "met": "no", "cite": "turn-1.md: \"Reply with the support runbook, screenshots, a ticket or a Figma link ... Or should I draw the general returns flow from Key flow 6 instead\" asks for a source and a choice despite \"no questions\""},
+    {"signal": "Turn 1 names each inferred fact as assumed in the playback", "met": "no", "cite": "turn-1.md: reader, question, type and target are marked assumed but \"Entry, exit and decisions: unasked, because there is nothing to read them from\" leaves facts unmarked rather than assumed, against flow-mode.md line 87 \"never left silent\""},
+    {"signal": "Turn 1 waits for the yes with no model yet", "met": "no", "cite": "turn-1.md: no model is built, but the reply does not offer to draw on a yes: \"the draw-ready threshold isn't met and I won't draw\""},
+    {"signal": "Turn 2 carries a checked model", "met": "no", "cite": "turn-2.md: \"Nothing is on the board, and I can't build the model yet\" and transcript-turn-2.md shows no tool call or check"},
+    {"signal": "Turn 2 marks every inferred step and actor as assumed", "met": "no", "cite": "turn-2.md: no steps or provenance table exist to mark, only the lane names restated"},
+    {"signal": "Turn 2 ends on a gate that waits", "met": "no", "cite": "turn-2.md: ends on a source request \"The next step needs one of these from you\" rather than the write gate"},
+    {"signal": "No write tool is called", "met": "yes", "cite": "meta.json: turn 1 tools are Read and Bash only, turn 2 has zero tool calls, composed false and boards empty, turn-1.md \"I haven't written anything to Figma\""}
+  ],
+  "stop_reached": "Turn 2 ended on a source request stop with no model, no check and no gate. The run refused to draw under the draw-ready threshold and asked the user for a runbook or a choice of the general returns flow, so the Quick playback never became a model or a write gate",
+  "written_before_gate": false,
+  "suggested_verdict": "FAIL",
+  "reason": "The scenario fails if an intake question is asked. Turn 1 asked for a source and offered an either-or choice despite the plain no-questions request, and it applied the draw-ready stop rule where flow-mode.md line 53 says Quick energy fills the brief from defaults and offers to draw unless corrected. Entry, exit and decisions were left unasked rather than assumed. Turn 2 repeated the source request after the yes, so no model, check or gate was reached. Nothing was written to Figma. No signal depends on an operator step, so none is marked harness."
+}

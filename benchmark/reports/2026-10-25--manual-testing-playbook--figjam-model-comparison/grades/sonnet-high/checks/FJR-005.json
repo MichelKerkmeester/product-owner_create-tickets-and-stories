@@ -1,0 +1,34 @@
+{
+  "id": "FJR-005",
+  "signals": [
+    {
+      "signal": "Step 1: the hub routes the prompt to sk-create-figjam and check_hub.py prints PASSED the hub with this prompt among its gold rows",
+      "met": "yes",
+      "cite": "transcript-turn-1.md: the run opens with 'I'll start by loading the Flow skill.' and reads sk-create-figjam/SKILL.md then the hub SKILL.md and ROUTER.md. Static check rerun by the checker: 'PASSED the hub, 4 registry packets and 51 gold rows' exit 0, and benchmark/hub-routing-cases.json line 172 holds the exact request"
+    },
+    {
+      "signal": "Step 2: the type detection line names state",
+      "met": "yes",
+      "cite": "transcript-turn-1.md: the run reads references/types/state.md and assets/templates/state.md and no other type file. turn-2.md: 'Drawn: three states and three moves.' The packet's detection row is sk-create-figjam/SKILL.md line 86 '\"state\": (\"status\", \"lifecycle\", \"transition\", \"state\")'. The scenario's literal grep for '-> state' returns nothing against the current SKILL.md, which is command drift in the playbook and not a model fault"
+    },
+    {
+      "signal": "Step 3: every declared leaf exists in the packet and in leaf-manifest.json (OK for all 5)",
+      "met": "yes",
+      "cite": "Static loop rerun by the checker printed OK for flow-mode.md, flow-templates.md, types/state.md, templates/state.md and quality-rubric.md. transcript-turn-1.md shows the run read four of them. It did not read quality-rubric.md, which SKILL.md line 66 loads 'before the gate', and the run stopped at the playback before the gate"
+    },
+    {
+      "signal": "Step 4: validate-playbook-topology.cjs prints PASS  FJR-005",
+      "met": "yes",
+      "cite": "Static command rerun by the checker: 'PASS  FJR-005  intra-routing-recall/route-state.md  pairs=5  mode=sk-create-figjam', overall 'verdict=PASS', exit 0. The driver never runs this operator command, so it reads the packet, not the model"
+    },
+    {
+      "signal": "Desired outcome: the state rules load before any model is written",
+      "met": "yes",
+      "cite": "transcript-turn-1.md reads references/types/state.md and assets/templates/state.md before any model. No Mermaid model or board was written in either turn. turn-2.md: 'Nothing has been written to the file.'"
+    }
+  ],
+  "stop_reached": "Playback stop before the write gate. Turn 1 was an intake round ('Round one' with three questions and recommended answers). The driver sent 'Use your recommended answers.' and turn 2 played the reading back, three states and three moves labelled partial with Left out and Assumed lists, ending on 'Is this the right reading of the board?'. No board was composed and no gate yes was given",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The run routed to sk-create-figjam through the hub and ROUTER.md and loaded the Flow pair and the state files before any model. All four static commands pass when rerun (the type row lives at SKILL.md line 86 even though the scenario's literal '-> state' grep is stale). Figma calls were create_session and get_figjam only, the ledger is empty and nothing was written. It stopped at the playback, which this routing scenario does not need to pass"
+}

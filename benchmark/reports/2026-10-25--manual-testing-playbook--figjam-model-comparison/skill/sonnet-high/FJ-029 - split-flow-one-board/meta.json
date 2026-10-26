@@ -1,0 +1,152 @@
+{
+ "id": "FJ-029",
+ "label": "sonnet-high",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/split-flow-one-board.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "expects_board": true,
+ "no_figma": false,
+ "scripted_turns": [
+  "$flow the Loomlist signup and first workspace setup on a new board in our Loomlist Product plan. From the onboarding doc: the landing page, sign up with email or Google, verify the email code, where a wrong code shows an error with a resend, pick a free or team plan, where a team plan asks for teammates' emails and lets you skip, name the workspace, pick a template or start blank, and the editor opens with a welcome tip.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "392818cd-506d-45d4-93f0-73919b09895c",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "2:60",
+  "3:115"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 54.58,
+   "tool_calls": 9,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "ToolSearch",
+    "Bash"
+   ],
+   "input_tokens": 71921,
+   "output_tokens": 6391,
+   "cached_tokens": 186767,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "392818cd-506d-45d4-93f0-73919b09895c",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$flow the Loomlist signup and first workspace setup on a new board in our Loomlist Product plan. From the onboarding doc: the landing page, sign up with email or Google, verify the email code, where a wrong code shows an error with a resend, pick a free or team plan, where a team plan asks for teammates' emails and lets you skip, name the workspace, pick a template or start blank, and the editor opens with a welcome tip.\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 38.13,
+   "tool_calls": 6,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 23182,
+   "output_tokens": 4452,
+   "cached_tokens": 483366,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "392818cd-506d-45d4-93f0-73919b09895c",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 286.14,
+   "tool_calls": 14,
+   "tools_used": [
+    "mcp__figma-remote__create_session",
+    "ToolSearch",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__get_figjam",
+    "Bash",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "Bash",
+    "Bash",
+    "Bash",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 115225,
+   "output_tokens": 54541,
+   "cached_tokens": 1905981,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "392818cd-506d-45d4-93f0-73919b09895c",
+   "inner_calls": [
+    "create_session",
+    "get_figjam",
+    "use_figma",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "2:60",
+    "3:115"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "DELIVERY"
+  }
+ ]
+}

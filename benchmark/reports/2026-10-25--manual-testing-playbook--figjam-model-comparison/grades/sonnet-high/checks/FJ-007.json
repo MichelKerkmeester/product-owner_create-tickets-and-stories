@@ -1,0 +1,21 @@
+{
+  "id": "FJ-007",
+  "signals": [
+    {"signal": "Turn 1 ends on the playback and writes nothing", "met": "yes", "cite": "turn-1.md: \"Before I draw anything, this is how I read the request. Nothing is written yet.\" ends \"Is this the right reading of the board?\". export-turn-1.jsonl holds 13 Read calls and no other tool"},
+    {"signal": "After the playback's yes the model header is stateDiagram-v2 with no styling", "met": "yes", "cite": "export-turn-2.jsonl model.md heredoc opens \"stateDiagram-v2\" with only title, subtitle and source comments plus direction LR and state aliases. No classDef or style line. turn-2.md sketch shows the same body"},
+    {"signal": "The pre-write check passes", "met": "yes", "cite": "export-turn-2.jsonl flow_check.py result: \"diagram 1, state: ok, 7 states and 12 transitions\" then \"PASSED 1 diagram(s) in model.md\" and \"exit 0\""},
+    {"signal": "Turn 2 ends on the gate and waits", "met": "yes", "cite": "turn-2.md: \"The model passes the pre-write check, so this is the write gate.\" and ends \"Write it?\""},
+    {"signal": "The gate names the plan", "met": "yes", "cite": "turn-2.md File line says the user named a plan for the file and \"no plan is needed to write into an existing file\", and the fallback line names the team plan with \"left in drafts with no project\""},
+    {"signal": "The gate names a new file", "met": "yes", "cite": "turn-2.md: \"New file, only if needed: if that file turns out not to be a FigJam board or won't accept the write, I'd create one\". The harness pin asked for the existing file first, so naming the pinned file with a new-file fallback is correct per the brief"},
+    {"signal": "The gate names the composed state diagram", "met": "yes", "cite": "turn-2.md: \"Writes: one composed board titled \\\"Booking status lifecycle\\\". It has 7 states and 12 transitions, a key and a source line\""},
+    {"signal": "The gate names two single-sticky notes on Cancelled and NoShow", "met": "yes", "cite": "turn-2.md: \"Extensions: two single stickies in one colour, named note:1 and note:2\" with note:1 beside Cancelled and note:2 beside No-show"},
+    {"signal": "The gate names the calls the write will spend", "met": "yes", "cite": "turn-2.md: \"Calls: five.\" listing create_session, one get_figjam read, one use_figma for the board, one use_figma for the two notes and one get_figjam read-back"},
+    {"signal": "The gate names the rollback", "met": "yes", "cite": "turn-2.md: \"Rollback: delete the one board section the write returns, which removes the board and its notes.\""},
+    {"signal": "The gate plans no colour step for the end states", "met": "yes", "cite": "turn-2.md plans only the board call and the notes call. turn-1.md: \"The composer draws Completed, Cancelled and No-show in light gray as final states.\""},
+    {"signal": "No write tool is called", "met": "yes", "cite": "meta.json both turns list no inner_calls and empty ledgers. export-turn-2.jsonl holds two Bash calls (flow_check.py and compose_board.py to a local scratch code.js) and no Figma or code mode call"}
+  ],
+  "stop_reached": "Write gate at turn 2 (\"Write it?\"), after the playback at turn 1",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The run stopped at the playback first, then after the scripted yes ran flow_check.py on an unstyled stateDiagram-v2 model that passed with exit 0 and ended on a gate that names the composed board, the two note stickies as extensions, five calls and the rollback, with no colour step and no Figma tool called. The composed code.js was written only to a local temp scratch folder, not to export/ or Figma."
+}

@@ -1,0 +1,15 @@
+{
+  "id": "FJ-037",
+  "signals": [
+    {"signal": "The first reply delivers the Story with its export and read-back line", "met": "no", "cite": "turn-1.md: 'Path: export/001 - Story-fernhouse-return-flow-clarification.md' and 'I haven't drafted the Story or touched the FigJam board'. Turn 1 was an intake round and the Story came in turn 2 after the adaptive turn, which the PASS line does not forbid"},
+    {"signal": "The Story is exported and read back before any board work", "met": "yes", "cite": "turn-2.md: 'Path: export/002 - Story-fernhouse-return-flow.md' and 'Verified: read-back succeeded, 56 lines'"},
+    {"signal": "Flow Mode starts from that Story and the reply ends on its playback with no ClickUp offer", "met": "yes", "cite": "turn-2.md: 'Settled by the sources: the Story I just saved gives the steps' ending 'Is this the right reading of the board, drawn from the Story's steps until you send the screens?' with no ClickUp mention"},
+    {"signal": "After the playback's yes the reply ends on Flow Mode's own gate with no ClickUp offer", "met": "yes", "cite": "turn-3.md: 'Here is the checked model and the write gate' ending 'Write it?' with no ClickUp mention"},
+    {"signal": "No Figma write tool is called before the gate's yes", "met": "yes", "cite": "export-turn-1..3.jsonl: tool_use calls are only Read, Bash, Write and Edit, no mcp__figma call. turn-3.md: 'Nothing has been written to FigJam yet'"},
+    {"signal": "After the gate's yes and a matched read-back the board URL sits in the Story's Flows group, the Story is re-saved at its export path and the read-back line ends with its file name", "met": "harness", "cite": "meta.json: scripted_turns holds only the prompt and 'Yes, that reading is right.' and follow_ups_sent 0, so no gate yes was sent. turn-3.md ends 'Write it?' and export 002 has no Flows group yet"}
+  ],
+  "stop_reached": "Flow Mode write gate (turn 3, 'Write it?'), after an intake round (turn 1) and the Story delivery plus playback (turn 2)",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "Every signal the run could reach is met: the Story was exported and read back first, Flow Mode started from it, the playback and the gate each waited with no ClickUp offer and no Figma tool was called. The final board link signal is harness because the driver never sent the gate yes that the scenario's step 4 scripts. The Story arrived in turn 2 rather than the first reply because of a legitimate intake round, which the PASS line does not count against the run. A strict grader could hold the scenario open rather than PASS since the matched link in the re-saved Story was never observed."
+}

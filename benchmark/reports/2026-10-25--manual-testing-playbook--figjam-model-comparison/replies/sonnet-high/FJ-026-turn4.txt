@@ -1,0 +1,6 @@
+<figma-url>
+Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled, first glance: Pending, the light blue first state
+Finding: The file now holds two boards of this lifecycle, "Booking status" (section `1:3`) and my "Booking status 2". The existing section and its two stickies read back unchanged, and nothing was deleted. Tell me which board to remove if you want only one, and I'll ask once naming the section before deleting.
+Finding: `get_figjam` doesn't print connector text. I checked the 6 transition labels against the labels the write returned and the overview screenshot, so that part of the read-back is visual.
+Finding: the label `missed check-in [from Upcoming]` fills the whole short run above Completed and sits about 8 pixels over its box, at the right of the frame. It is legible with no crossing. If you want it looser, I'd shorten the label in the model, recompose, and ask before deleting any board.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

@@ -1,0 +1,19 @@
+{
+  "id": "FJ-043",
+  "signals": [
+    {
+      "signal": "The output reads 'a rank holds 5 steps, at most 4: split the flow so a rank reads at a glance' and exits 1",
+      "met": "yes",
+      "cite": "transcript-turn-1.md last Bash result and turn-1.md: 'diagram 1, user flow: a rank holds 5 steps, at most 4: split the flow so a rank reads at a glance' then 'FAILED 1 of 1 diagram(s) in model.md' and 'exit status: 1'"
+    },
+    {
+      "signal": "A passing model prints its widest rank, longest path, connectors per step, label average and crossing pairs beside the counts (scenario step 3, the shipped user-flow-fernhouse-return example with exit 0)",
+      "met": "no",
+      "cite": "transcript-turn-1.md: the example file appears only in an 'ls assets/examples' listing and flow_check.py is never run on it. turn-1.md only asserts 'The other layout measures passed: longest path, crossings, label length and connectors per step' with no passing line or exit 0 shown"
+    }
+  ],
+  "stop_reached": "Pre-write check refusal: the wide-rank model failed flow_check.py with exit 1 and the turn ended offering to split the five steps into two ranks and re-run the check before asking for a write yes. No write gate was reached and no board was composed",
+  "written_before_gate": false,
+  "suggested_verdict": "FAIL",
+  "reason": "The wide rank is refused with the exact budget line and exit 1 but the run never ran the check on the shipped example so no passing line with its five measures was shown and the PASS line requires both. No Figma tool was called and the scratch model was written to a temp folder and deleted. The missing step 3 is a model omission rather than a harness gap since it needs no operator step"
+}

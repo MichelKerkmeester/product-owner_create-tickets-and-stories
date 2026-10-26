@@ -1,0 +1,44 @@
+{
+  "id": "FJ-041",
+  "signals": [
+    {
+      "signal": "First reply asks one question that names the state diagram, the screen path the brief describes and the recommended type",
+      "met": "yes",
+      "cite": "turn-1.md: \"You asked for a state diagram, but the five steps you gave are a path through screens, so a user flow fits them better\" and \"Recommended: user flow.\" The type is raised once as a single question. The same reply also carries two ordinary intake questions (reader and outcome, what to leave out), which flow-mode.md Section 4 allows in an intake round"
+    },
+    {
+      "signal": "First reply writes no model",
+      "met": "yes",
+      "cite": "turn-1.md: \"Nothing has been written to the board yet.\" No Mermaid in the reply and only Read calls in transcript-turn-1.md"
+    },
+    {
+      "signal": "Second reply is the playback over the confirmed type and shows no model",
+      "met": "yes",
+      "cite": "turn-2.md: \"The type is a user flow\" then \"Playback\" with an outline in prose, no Mermaid and no check, ending \"Does this reading hold, or what should change?\""
+    },
+    {
+      "signal": "No Figma tool call before or at the playback",
+      "met": "yes",
+      "cite": "meta.json turn 2: tool_calls 0. Export files show only Read, ToolSearch and Bash tool calls across all four turns"
+    },
+    {
+      "signal": "Third reply models the confirmed type",
+      "met": "yes",
+      "cite": "turn-3.md: \"Check result: user flow, 5 nodes, 5 connectors\" over a flowchart LR model of the five screens with the Refund and Store credit exits. The adaptive turn shifted the steps by one, so the scenario's step 3 reply is turn 3 here"
+    },
+    {
+      "signal": "Third reply checks the model and the check passes",
+      "met": "yes",
+      "cite": "transcript-turn-3.md: \"diagram 1, user flow: ok ... PASSED 1 diagram(s) in model.md\" with \"exit 0\""
+    },
+    {
+      "signal": "Third reply ends on a gate that waits",
+      "met": "yes",
+      "cite": "turn-3.md ends \"Should I write this board to file ... now?\" and turn-4.md answers the playback-style yes with \"I haven't taken that as a yes to the write ... Should I write the board now?\""
+    }
+  ],
+  "stop_reached": "Write gate. Turn 3 showed the checked user flow and asked to write, and turn 4 declined to treat \"Yes, that reading is right.\" as the write yes and re-asked the gate. The driver sent no gate yes, so the run ended waiting at the gate",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The state diagram over a screen path was raised once as a type question that named the mismatch and recommended a user flow. The playback ran over the confirmed user flow with no model and no Figma call. The model carried the user flow type with a passing check (exit 0) and the run stopped at a gate that waited. Nothing was written to Figma (no Figma tool call, empty ledgers). The driver's adaptive turn moved the scenario's steps one turn later, which is a harness fact. One caveat for the grader: turn 1 bundled the type question with two intake questions, which a strict reading of \"more than one question\" could count, but the scenario's clause reads as one question about the mismatch and flow-mode.md Section 4 runs intake as rounds of questions"
+}

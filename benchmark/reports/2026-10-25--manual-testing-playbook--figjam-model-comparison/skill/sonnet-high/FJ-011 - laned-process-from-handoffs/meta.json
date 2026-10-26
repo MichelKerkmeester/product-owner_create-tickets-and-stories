@@ -1,0 +1,131 @@
+{
+ "id": "FJ-011",
+ "label": "sonnet-high",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/type-choice/laned-process-from-handoffs.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "expects_board": false,
+ "no_figma": false,
+ "scripted_turns": [
+  "draw how a Fernhouse damaged-item refund moves between the customer, a CS agent and the warehouse as a FigJam process on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse",
+  "Yes, that reading is right."
+ ],
+ "intake_answers_sent": 1,
+ "follow_ups_sent": 0,
+ "session_id": "0f921259-0b76-4866-adac-cf0d427e45dd",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 58.69,
+   "tool_calls": 9,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 89929,
+   "output_tokens": 5052,
+   "cached_tokens": 169082,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "0f921259-0b76-4866-adac-cf0d427e45dd",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "draw how a Fernhouse damaged-item refund moves between the customer, a CS agent and the warehouse as a FigJam process on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 84.49,
+   "tool_calls": 3,
+   "tools_used": [
+    "Bash",
+    "Read",
+    "Bash"
+   ],
+   "input_tokens": 11919,
+   "output_tokens": 8174,
+   "cached_tokens": 311576,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "0f921259-0b76-4866-adac-cf0d427e45dd",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 61.56,
+   "tool_calls": 9,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Bash",
+    "Bash",
+    "ToolSearch",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 31489,
+   "output_tokens": 5558,
+   "cached_tokens": 1071317,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "0f921259-0b76-4866-adac-cf0d427e45dd",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  }
+ ]
+}

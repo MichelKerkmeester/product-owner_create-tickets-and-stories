@@ -1,0 +1,168 @@
+{
+ "id": "FJ-034",
+ "label": "sonnet-high",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/colour-every-team-restraint.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "expects_board": true,
+ "no_figma": false,
+ "scripted_turns": [
+  "$flow the Fernhouse damaged-item refund as a FigJam flow on a new board in our Fernhouse Product plan, and colour each step by the team that does it: customer reports damage with a photo, CS checks it and approves or asks for a second photo, the warehouse books a pickup, inspects the item and releases the refund",
+  "Yes, use lanes.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "ca2ebe53-cbbb-4275-9149-1f9264db558f",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "3:172"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 79.71,
+   "tool_calls": 11,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 88347,
+   "output_tokens": 9922,
+   "cached_tokens": 188556,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "ca2ebe53-cbbb-4275-9149-1f9264db558f",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$flow the Fernhouse damaged-item refund as a FigJam flow on a new board in our Fernhouse Product plan, and colour each step by the team that does it: customer reports damage with a photo, CS checks it and approves or asks for a second photo, the warehouse books a pickup, inspects the item and releases the refund\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 21.75,
+   "tool_calls": 1,
+   "tools_used": [
+    "Bash"
+   ],
+   "input_tokens": 8988,
+   "output_tokens": 1730,
+   "cached_tokens": 207164,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "ca2ebe53-cbbb-4275-9149-1f9264db558f",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, use lanes.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 11.6,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 877,
+   "output_tokens": 426,
+   "cached_tokens": 108665,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "ca2ebe53-cbbb-4275-9149-1f9264db558f",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 173.43,
+   "tool_calls": 10,
+   "tools_used": [
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "Read",
+    "ToolSearch",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 83535,
+   "output_tokens": 28996,
+   "cached_tokens": 1346491,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "ca2ebe53-cbbb-4275-9149-1f9264db558f",
+   "inner_calls": [
+    "create_session",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "3:172"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "DELIVERY"
+  }
+ ]
+}

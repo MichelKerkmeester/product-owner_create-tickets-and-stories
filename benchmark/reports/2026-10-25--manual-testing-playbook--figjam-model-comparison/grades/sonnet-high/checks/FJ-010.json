@@ -1,0 +1,18 @@
+{
+  "id": "FJ-010",
+  "signals": [
+    {"signal": "The run stops at the playback first and the playback shows no model (an intake round came first, which the scenario's step 1 allows)", "met": "yes", "cite": "turn-1.md ends on intake round one: 'Which of these three do you want to correct, or should I take the recommended answers?' then turn-2.md is the playback with an outline and no mermaid block: 'Is this the right reading of the board?'"},
+    {"signal": "The playback carries the question, the outcome, what each source settled and every assumed row", "met": "yes", "cite": "turn-2.md: 'Question: which screens does a Fernhouse customer pass through' / 'Outcome: a reader can follow a return' / 'Assumed, and how each gets settled'"},
+    {"signal": "After the yes the reply is the gate, whose one question asks about the write alone", "met": "yes", "cite": "turn-3.md ends on 'Write it?' after the File, Writes, Calls and Rollback lines"},
+    {"signal": "The model is a user flow of at most 9 nodes with stadium ends, rectangle steps and rhombus decisions", "met": "yes", "cite": "turn-3.md model: 'openOrder([Open an order])' / 'window{Older than 30 days?}' / 'confirmed([Confirmation])', 8 nodes in all"},
+    {"signal": "Every decision exit is labelled", "met": "yes", "cite": "turn-3.md: 'window -->|Yes| notEligible' and 'window -->|No| choose'"},
+    {"signal": "camelCase ids and no %% type: line", "met": "yes", "cite": "transcript-turn-3.md model ids 'openOrder, tapReturn, pickItem, window, notEligible, choose, printLabel, confirmed' and grep finds no '%% type' line in any turn file"},
+    {"signal": "The check prints diagram 1, user flow: ok with exit 0", "met": "yes", "cite": "transcript-turn-3.md tool result: 'diagram 1, user flow: ok, 8 nodes and 7 connectors' / 'PASSED 1 diagram(s) in model.md' / 'exit 0'"},
+    {"signal": "Every doc step is drawn or listed as left out", "met": "yes", "cite": "turn-3.md draws Open an order, Tap Return an item, Pick item and reason, Older than 30 days?, Not eligible, Refund or store credit, Print the label and Confirmation, and the source line says 'Left out: payout, label details and any step after the confirmation or the not-eligible screen'"},
+    {"signal": "No write tool is called and the gate waits with nothing written", "met": "yes", "cite": "export-turn-1.jsonl to export-turn-3.jsonl hold only Read calls and one Bash call (flow_check.py then compose_board.py into a /tmp scratch code.js), no Figma tool call, and meta.json net_file_changes and boards are empty"}
+  ],
+  "stop_reached": "write gate (turn-3.md ends on 'Write it?')",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "An intake round then the playback with no model came first, the gate turn carries an 8 node user flow with labelled Yes and No exits that flow_check.py passes with 'user flow: ok' and exit 0, every doc step is drawn or left out and no Figma tool was called before the gate. The run moved the playback to turn 2 and the model to turn 3 because of the intake round, which the scenario's step 1 allows."
+}

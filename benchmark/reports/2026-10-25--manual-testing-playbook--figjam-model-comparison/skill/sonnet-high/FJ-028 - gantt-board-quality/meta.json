@@ -1,0 +1,144 @@
+{
+ "id": "FJ-028",
+ "label": "sonnet-high",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/gantt-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "expects_board": true,
+ "no_figma": false,
+ "scripted_turns": [
+  "put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November 2026 with two weeks of conflict-screen design, the sync engine takes three weeks from the same day, the conflict screen build follows its design for two weeks, and desktop and iOS integration starts when both builds are done, one week, and is the critical path. Then a two-week beta for 5 percent of workspaces and the release. Android follows in the next quarter, not yet approved.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "09fe1f9b-d01a-48c7-b732-a6df456d6379",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "3:162"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 101.9,
+   "tool_calls": 11,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 84976,
+   "output_tokens": 12082,
+   "cached_tokens": 173090,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "09fe1f9b-d01a-48c7-b732-a6df456d6379",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November 2026 with two weeks of conflict-screen design, the sync engine takes three weeks from the same day, the conflict screen build follows its design for two weeks, and desktop and iOS integration starts when both builds are done, one week, and is the critical path. Then a two-week beta for 5 percent of workspaces and the release. Android follows in the next quarter, not yet approved.\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 51.15,
+   "tool_calls": 4,
+   "tools_used": [
+    "Read",
+    "Bash",
+    "Write",
+    "Bash"
+   ],
+   "input_tokens": 19026,
+   "output_tokens": 5418,
+   "cached_tokens": 429340,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "09fe1f9b-d01a-48c7-b732-a6df456d6379",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 108.01,
+   "tool_calls": 9,
+   "tools_used": [
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__get_figjam",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 68822,
+   "output_tokens": 15001,
+   "cached_tokens": 1010488,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "09fe1f9b-d01a-48c7-b732-a6df456d6379",
+   "inner_calls": [
+    "create_session",
+    "get_figjam",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "3:162"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "DELIVERY"
+  }
+ ]
+}

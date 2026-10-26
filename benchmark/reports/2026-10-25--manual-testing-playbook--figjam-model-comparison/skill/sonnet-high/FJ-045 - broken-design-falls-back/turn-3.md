@@ -1,0 +1,8 @@
+<figma-url>
+Read-back: 7 of 7 nodes, 7 of 7 connectors, 4 of 4 decision exits labelled, first glance: the confirmation with QR code. The 2 boards already in the file are unchanged in count, position and size.
+Left out: screens for picking a drop-off point or booking a pickup slot, because your brief names the choice but not what follows it.
+Finding: the file already holds a board called "Return an item" with a different return flow. It has a refund or store credit step and a printed label, and no QR code. I left it untouched. The two boards now describe returns differently, so one of them needs retiring or reconciling.
+Finding: the connector outline from `get_figjam` carries no label text, so the 4 exit labels were confirmed from the write's own return and the overview screenshot. Node ids, connector ends, directions and zone membership were read from the board.
+Finding: the "Drop-off point" connector leaves the top of the "Drop-off or pickup?" decision and runs 16 pixels under the "Done" zone title before it reaches the confirmation. It crosses nothing and the composer's spacing floor allows it. A model change would remove it, but only by dropping the one route that avoids crossing the "Courier pickup" line.
+Finding: the source line on the board names the clash with the Fernhouse company context, which says there is no self-serve return today. If the flow turns out not to be live, the board needs the planned label you described as the alternative.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

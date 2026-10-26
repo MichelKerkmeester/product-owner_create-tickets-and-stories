@@ -1,0 +1,104 @@
+{
+ "id": "FJ-021",
+ "label": "sonnet-high",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/figjam-as-task-subject.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "expects_board": false,
+ "no_figma": false,
+ "scripted_turns": [
+  "write a task to tidy the figjam board labels"
+ ],
+ "intake_answers_sent": 1,
+ "follow_ups_sent": 0,
+ "session_id": "8256f078-c348-48b1-a61b-cd731ed07c9c",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [
+   "export/001 - task-figjam-board-labels-clarification.md",
+   "export/002 - task-figjam-board-labels.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 54.01,
+   "tool_calls": 12,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Bash",
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 81123,
+   "output_tokens": 4983,
+   "cached_tokens": 378357,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "8256f078-c348-48b1-a61b-cd731ed07c9c",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [
+     "export/001 - task-figjam-board-labels-clarification.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "write a task to tidy the figjam board labels\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 34.48,
+   "tool_calls": 3,
+   "tools_used": [
+    "Read",
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 7219,
+   "output_tokens": 3498,
+   "cached_tokens": 380549,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "8256f078-c348-48b1-a61b-cd731ed07c9c",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [
+     "export/002 - task-figjam-board-labels.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "PLAYBACK"
+  }
+ ]
+}

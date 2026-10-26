@@ -1,0 +1,15 @@
+{
+  "id": "FJR-001",
+  "signals": [
+    {"signal": "The hub routes the prompt to sk-create-figjam (run behaviour)", "met": "yes", "cite": "transcript-turn-1.md: after the hub SKILL.md and ROUTER.md the run reads sk-create-figjam/SKILL.md then references/flow-mode.md and assets/flow-templates.md, \"I'll load the hub and the FigJam skill first.\""},
+    {"signal": "The type detection names user-flow (run behaviour)", "met": "yes", "cite": "turn-1.md: \"I'm reading this as a user flow, because the question is which screens a person passes through when signing up\". transcript-turn-1.md also shows a Read of references/types/user-flow.md"},
+    {"signal": "Step 1 prints PASSED the hub (check_hub.py with this prompt among its gold rows)", "met": "harness", "cite": "meta.json turn 1 tools_used holds only Read and one Bash find for images. The driver never runs the scenario's static gate command"},
+    {"signal": "Step 2 prints the user-flow type detection line (grep -> user-flow in SKILL.md)", "met": "harness", "cite": "No run turn ran the grep. A read-only grep by this checker on the live sk-create-figjam/SKILL.md returned rc 1 because type detection there is the DIAGRAM_TYPES table (line 82 holds the user-flow keywords incl. signup and screenshot), so the scenario's grep pattern looks stale. That is a playbook issue, not a model fault"},
+    {"signal": "Step 3 prints OK for all 4 leaves in the packet and leaf-manifest.json", "met": "harness", "cite": "No run turn ran it. A read-only rerun by this checker printed OK for flow-mode.md, flow-templates.md, types/user-flow.md and quality-rubric.md. The run itself read three of the four leaves in turn 1 and did not open quality-rubric.md before it stopped for missing input"},
+    {"signal": "Step 4 prints PASS FJR-001 (validate-playbook-topology.cjs)", "met": "harness", "cite": "No run turn ran the topology validator. It is an operator step the driver never performs"}
+  ],
+  "stop_reached": "Intake stop on missing input. All three turns are INTAKE: turn 1 asks for the screenshots plus reader and scope, turn 2 records the recommended answers but still lacks screens, turn 3 reads the pinned file to look for them and ends with \"Which of these can you send?\" (screenshots, a Figma link or a written list). No model was written and the write gate was never reached",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "On signals alone the run routed to sk-create-figjam, loaded the Flow pair and the user-flow type file and named the type user flow in turn-1.md, and nothing was written to Figma (turn 3 called only create_session and the read-only get_figjam, ledger empty, boards empty). The four PASS-line commands are static operator steps the driver never ran so they are marked harness. A read-only recheck shows all four leaves resolve but the step 2 grep pattern finds no line in the live SKILL.md, which points at a stale scenario command rather than the model. The quality rubric was not loaded, which is consistent with stopping before any model or gate"
+}

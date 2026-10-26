@@ -1,0 +1,172 @@
+{
+ "id": "FJ-023",
+ "label": "sonnet-high",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/process-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "expects_board": true,
+ "no_figma": false,
+ "scripted_turns": [
+  "make a FigJam process of how a Fernhouse damaged-item refund moves between the customer, CS and the warehouse, on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse. From the support runbook: the customer reports damage with a photo through the help form. A CS agent checks the photo, approves clear damage on the spot and asks for a second photo when it is unclear. An approved claim goes to the warehouse queue, where an operator books a courier pickup, inspects the item on arrival and releases the refund. Every decision is logged in the claims table. Refunds under 20 euros skip the pickup, a pilot that is not yet live.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 1,
+ "follow_ups_sent": 0,
+ "session_id": "45d36c2f-70be-4d1d-8047-96f3d4541f6b",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "1:3"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 73.93,
+   "tool_calls": 12,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 93335,
+   "output_tokens": 7249,
+   "cached_tokens": 258125,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "45d36c2f-70be-4d1d-8047-96f3d4541f6b",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "make a FigJam process of how a Fernhouse damaged-item refund moves between the customer, CS and the warehouse, on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse. From the support runbook: the customer reports damage with a photo through the help form. A CS agent checks the photo, approves clear damage on the spot and asks for a second photo when it is unclear. An approved claim goes to the warehouse queue, where an operator books a courier pickup, inspects the item on arrival and releases the refund. Every decision is logged in the claims table. Refunds under 20 euros skip the pickup, a pilot that is not yet live.\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 42.97,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 4348,
+   "output_tokens": 5148,
+   "cached_tokens": 104667,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "45d36c2f-70be-4d1d-8047-96f3d4541f6b",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 36.94,
+   "tool_calls": 2,
+   "tools_used": [
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 6963,
+   "output_tokens": 3600,
+   "cached_tokens": 338680,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "45d36c2f-70be-4d1d-8047-96f3d4541f6b",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 184.92,
+   "tool_calls": 12,
+   "tools_used": [
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__get_figjam",
+    "Bash",
+    "Read",
+    "Bash",
+    "Bash",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 89086,
+   "output_tokens": 31042,
+   "cached_tokens": 1688045,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "45d36c2f-70be-4d1d-8047-96f3d4541f6b",
+   "inner_calls": [
+    "create_session",
+    "get_figjam",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "1:3"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "DELIVERY"
+  }
+ ]
+}

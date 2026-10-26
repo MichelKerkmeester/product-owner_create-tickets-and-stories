@@ -1,0 +1,14 @@
+{
+  "id": "FJN-001",
+  "signals": [
+    {"signal": "Hub keeps the prompt in sk-product-owner (Task route, not sk-create-figjam)", "met": "yes", "cite": "transcript-turn-1.md: reads SKILL.md, ROUTER.md then sk-product-owner/SKILL.md and sk-product-owner/references/task-mode.md, reply turn-1.md: 'Kind: Task' and 'This request is a task about the board, not a board to draw'"},
+    {"signal": "Empty FigJam leaf set: no sk-create-figjam leaf loads for a ticket about a board", "met": "yes", "cite": "export-turn-1.jsonl and export-turn-2.jsonl: every Read targets the hub files or sk-product-owner files and none targets sk-create-figjam/SKILL.md, flow-mode.md or flow-templates.md, turn-2.md: 'I wrote nothing to FigJam, and the board file is untouched'"},
+    {"signal": "Command 1 check_hub.py prints 'PASSED the hub'", "met": "harness", "cite": "No transcript turn runs benchmark/gates/check_hub.py. It is an operator gate command the driver never performs"},
+    {"signal": "Command 2 grep prints the hand-back line in sk-create-figjam/SKILL.md", "met": "harness", "cite": "No transcript turn runs the grep. It is an operator gate command the driver never performs"},
+    {"signal": "Command 3 topology validator prints 'PASS  FJN-001'", "met": "harness", "cite": "No transcript turn runs validate-playbook-topology.cjs. It is an operator gate command the driver never performs"}
+  ],
+  "stop_reached": "Task Mode delivery: turn 1 saved a clarification to export/001 and asked one consolidated question, turn 2 (adaptive 'Use your recommended answers.') saved the task to export/002, read it back and closed on 'Want me to change anything?'. No Flow stop and no write gate was reached",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The run kept the prompt in sk-product-owner as a Task, loaded no sk-create-figjam leaf and made no Figma call in either turn, so the PASS line holds on observed behaviour. The two export files are the correct Task Mode deliverables for a negative control, not a Flow hygiene breach. The three gate commands are static repository checks the driver never runs, so they are marked harness and do not count against the model"
+}

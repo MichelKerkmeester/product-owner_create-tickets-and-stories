@@ -1,0 +1,18 @@
+{
+  "id": "FJ-036",
+  "signals": [
+    {"signal": "The playback stop writes nothing (scenario turn 1, run turn 3 after two intake rounds the run opened)", "met": "yes", "cite": "turn-3.md: \"Playback. Nothing is drawn or written yet.\" Turns 1 to 3 used only Read and no Figma call (meta.json tools_used, composed false)"},
+    {"signal": "The gate stop writes nothing (scenario turn 2, run turn 4)", "met": "yes", "cite": "turn-4.md: \"Nothing is written to Figma yet, so this is the write gate.\" Turn 4 tools were local Bash checks and one ToolSearch, composed false and no Figma call (transcript-turn-4.md)"},
+    {"signal": "The write comes after the gate's yes (scenario turn 3, run turn 5)", "met": "yes", "cite": "transcript-turn-5.md: user \"Yes, go ahead.\" then create_session, get_figjam, use_figma and a get_figjam read-back"},
+    {"signal": "Every node of the model within 9", "met": "yes", "cite": "turn-5.md: \"Read-back: 9 of 9 nodes\". use_figma result in export-turn-5.jsonl: counts nodes 9 against expect nodes 9"},
+    {"signal": "Every connector", "met": "yes", "cite": "turn-5.md: \"11 of 11 connectors\". use_figma result: counts connectors 11 against expect connectors 11"},
+    {"signal": "2 of 2 decisions with all 5 exits labelled", "met": "yes", "cite": "turn-5.md: \"5 of 5 decision exits labelled (read visually)\". use_figma links carry labels Yes and No on Room free? and Higher, Lower and Same on New price vs old?"},
+    {"signal": "No connector crosses another", "met": "yes", "cite": "transcript-turn-4.md flow_check: \"0 crossing pairs\" and use_figma result \"warnings\":[]. turn-5.md notes the Yes edge arcs over See other rooms, which is a node, not a connector. The render check belongs to the scorecard"},
+    {"signal": "Every exit label reads at 100% zoom without touching another label", "met": "yes", "cite": "use_figma result \"warnings\":[] and turn-5.md: \"the edge labels were confirmed on the composing screenshot\". Measured on the render only by the board scorecard"},
+    {"signal": "Scorecard at least 18 of 22 with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no dimension at 0", "met": "harness", "cite": "Scored separately by the grader from the renders and readers. The driver performs no scoring step (scenario commands 5 to 8)"}
+  ],
+  "stop_reached": "Write and read-back on turn 5 after intake rounds on turns 1 and 2, the playback on turn 3 and the gate on turn 4. Board 4:311 composed with 9 nodes and 11 connectors",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "Every signal the transcript can show is met: playback and gate wrote nothing, the single use_figma write followed the gate's yes and the read-back matched 9 of 9 nodes, 11 of 11 connectors and 5 labelled exits with 0 crossing pairs. The final verdict still depends on the board scorecard, scored separately, and the reply's own finding that See other rooms sits on the main line under an arcing Yes edge is a Composition risk to check there"
+}

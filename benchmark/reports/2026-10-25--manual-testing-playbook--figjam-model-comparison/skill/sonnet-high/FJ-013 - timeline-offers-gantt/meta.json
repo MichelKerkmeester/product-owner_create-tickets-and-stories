@@ -1,0 +1,91 @@
+{
+ "id": "FJ-013",
+ "label": "sonnet-high",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/type-choice/timeline-offers-gantt.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "expects_board": false,
+ "no_figma": false,
+ "scripted_turns": [
+  "$figjam a timeline of the Loomlist offline mode milestones: design done 16 November, beta on 7 December, release on 21 December"
+ ],
+ "intake_answers_sent": 1,
+ "follow_ups_sent": 0,
+ "session_id": "73f5229b-2bb1-4972-8746-c93341ab7c35",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 52.83,
+   "tool_calls": 10,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash"
+   ],
+   "input_tokens": 78315,
+   "output_tokens": 5324,
+   "cached_tokens": 255832,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "73f5229b-2bb1-4972-8746-c93341ab7c35",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam a timeline of the Loomlist offline mode milestones: design done 16 November, beta on 7 December, release on 21 December\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 28.41,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 773,
+   "output_tokens": 1754,
+   "cached_tokens": 89647,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "73f5229b-2bb1-4972-8746-c93341ab7c35",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "PLAYBACK"
+  }
+ ]
+}

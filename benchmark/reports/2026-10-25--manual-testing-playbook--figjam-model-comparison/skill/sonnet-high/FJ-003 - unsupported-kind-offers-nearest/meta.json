@@ -1,0 +1,61 @@
+{
+ "id": "FJ-003",
+ "label": "sonnet-high",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/type-choice/unsupported-kind-offers-nearest.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "expects_board": false,
+ "no_figma": false,
+ "scripted_turns": [
+  "$figjam a mindmap of the Roamstay launch themes: guest trust, partner onboarding, pricing and reviews"
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "779cc504-fc74-459c-bff7-aa1293752046",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 30.32,
+   "tool_calls": 6,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 66273,
+   "output_tokens": 2162,
+   "cached_tokens": 86716,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "779cc504-fc74-459c-bff7-aa1293752046",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam a mindmap of the Roamstay launch themes: guest trust, partner onboarding, pricing and reviews\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "OTHER"
+  }
+ ]
+}

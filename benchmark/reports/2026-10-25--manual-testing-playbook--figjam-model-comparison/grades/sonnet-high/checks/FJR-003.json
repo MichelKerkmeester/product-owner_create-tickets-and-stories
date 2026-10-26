@@ -1,0 +1,24 @@
+{
+  "id": "FJR-003",
+  "signals": [
+    {
+      "signal": "Hub routes the prompt to sk-create-figjam (hub check passes with this prompt among its gold rows)",
+      "met": "yes",
+      "cite": "transcript-turn-1.md: after the hub SKILL.md and ROUTER.md it reads sk-create-figjam/SKILL.md then references/flow-mode.md and assets/flow-templates.md. The gold row sits in benchmark/hub-routing-cases.json line 167 with expect sk-create-figjam. The check_hub.py run itself is an operator command the driver never performs"
+    },
+    {
+      "signal": "Type detection names architecture",
+      "met": "yes",
+      "cite": "turn-1.md: \"reads as 'which parts take part in sync and how do they connect?', which is an architecture\". turn-2.md: \"Type: architecture\". transcript-turn-1.md reads sk-create-figjam/references/types/architecture.md"
+    },
+    {
+      "signal": "Every declared leaf exists in the packet and in leaf-manifest.json",
+      "met": "yes",
+      "cite": "Static step 3 run read-only by this checker prints OK for all 5 leaves. Run side: transcript-turn-1.md loads flow-mode.md, flow-templates.md and types/architecture.md but not assets/templates/architecture.md or references/quality-rubric.md, which is consistent with stopping before any model was written"
+    }
+  ],
+  "stop_reached": "Intake stop on the source question. turn-3.md: \"I'm stopping before the model\" after two adaptive turns, because the recommended answer for the source was for the user to send a doc or repo path. Reader, type and scope were settled on recommendations in turn-2.md. No playback, no model and no write gate were reached",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "On signals alone the run routed to sk-create-figjam at the hub, named architecture as the type and loaded its type reference, and every declared leaf resolves in the packet and manifest. Nothing was written to Figma: turn 2 made only create_session and a get_figjam read, every turn ledger is empty and the reply says nothing is written before the gate. The run correctly refused to invent services or treat the fictional Loomlist example as Barter's system. Operator commands 1 and 4 were not run by the driver. Playbook gap: step 2 grep for the literal \"-> architecture\" returns nothing with exit 1 against sk-create-figjam/SKILL.md, because type detection is written as a keyword tuple at line 84, so the scenario command cannot print the line it expects."
+}

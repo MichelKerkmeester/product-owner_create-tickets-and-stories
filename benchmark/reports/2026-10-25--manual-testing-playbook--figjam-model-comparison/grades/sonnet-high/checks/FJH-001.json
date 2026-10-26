@@ -1,0 +1,16 @@
+{
+  "id": "FJH-001",
+  "signals": [
+    {"signal": "Hub stage one starts the request in sk-create-figjam on the figjam signal", "met": "yes", "cite": "transcript-turn-1.md lines 11 to 37: Read sk-create-figjam/SKILL.md then the hub SKILL.md and ROUTER.md, and turn-1.md answers as the FigJam packet: \"Before I draw this, I need three answers\""},
+    {"signal": "SKILL.md type detection reads status as state", "met": "yes", "cite": "turn-1.md: \"This is a state diagram, because you're asking which statuses exist and what moves an order between them\""},
+    {"signal": "Resolved leaves match FJR-005", "met": "yes", "cite": "transcript-turn-1.md lines 19, 59, 67 and 107: Read references/flow-mode.md, assets/flow-templates.md, references/types/state.md and assets/templates/state.md. references/quality-rubric.md was not read, which SKILL.md line 66 schedules \"before the gate\" and the run stopped at playback before the gate, so this is not a mismatch"},
+    {"signal": "Desired outcome: the state rules load from plain wording", "met": "yes", "cite": "transcript-turn-1.md line 67: Read sk-create-figjam/references/types/state.md, and turn-2.md applies them: \"A state diagram has no note nodes\" and \"A state diagram takes no zones\""},
+    {"signal": "Step 1 check_hub.py prints PASSED the hub with this prompt among its gold rows", "met": "harness", "cite": "Operator command. The driver never runs it and no turn file holds its output"},
+    {"signal": "Step 2 grep prints the state detection line in SKILL.md", "met": "harness", "cite": "Operator command. The driver never runs it and no turn file holds its output"},
+    {"signal": "Step 3 validate-playbook-topology prints PASS  FJH-001", "met": "harness", "cite": "Operator command. The driver never runs it and no turn file holds its output"}
+  ],
+  "stop_reached": "Playback. Turn 1 was the intake round with three questions and turn 2 replayed the settled rows and the moves and ended on \"Is that reading right, including move 8 and the proposed and per parcel framing?\" The write gate was never asked",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The run routed into sk-create-figjam, read the plain word statuses as a state diagram and loaded the same state leaves as FJR-005 up to the playback stop (the rubric is due only before the gate) while no Figma tool was called in either turn and meta.json shows no boards and no file changes. The three command output signals are operator steps the driver never performs so they are marked harness"
+}

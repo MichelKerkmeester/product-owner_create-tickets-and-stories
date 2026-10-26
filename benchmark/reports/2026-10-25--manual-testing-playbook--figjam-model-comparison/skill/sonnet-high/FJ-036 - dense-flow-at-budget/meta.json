@@ -1,0 +1,196 @@
+{
+ "id": "FJ-036",
+ "label": "sonnet-high",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/dense-flow-at-budget.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "expects_board": true,
+ "no_figma": false,
+ "scripted_turns": [
+  "$flow how a Roamstay guest changes their booking dates in the app, on a new board in our Roamstay Product plan. From the booking page they tap Change dates and pick new dates. If the room is not free on those dates they see other rooms. If the new price is higher they pay the difference, if it is lower they get the difference back as credit, and if it is the same nothing is charged. Then they see the updated booking.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 2,
+ "follow_ups_sent": 0,
+ "session_id": "559e0f66-2b65-403c-bc0b-4563c9ab8f66",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "4:311"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 48.18,
+   "tool_calls": 9,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 80696,
+   "output_tokens": 5598,
+   "cached_tokens": 169219,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "559e0f66-2b65-403c-bc0b-4563c9ab8f66",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$flow how a Roamstay guest changes their booking dates in the app, on a new board in our Roamstay Product plan. From the booking page they tap Change dates and pick new dates. If the room is not free on those dates they see other rooms. If the new price is higher they pay the difference, if it is lower they get the difference back as credit, and if it is the same nothing is charged. Then they see the updated booking.\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 15.57,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 2771,
+   "output_tokens": 1637,
+   "cached_tokens": 92030,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "559e0f66-2b65-403c-bc0b-4563c9ab8f66",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 42.81,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 1675,
+   "output_tokens": 5375,
+   "cached_tokens": 94799,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "559e0f66-2b65-403c-bc0b-4563c9ab8f66",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 44.67,
+   "tool_calls": 6,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "ToolSearch",
+    "Bash"
+   ],
+   "input_tokens": 18588,
+   "output_tokens": 5048,
+   "cached_tokens": 745319,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "559e0f66-2b65-403c-bc0b-4563c9ab8f66",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 169.41,
+   "tool_calls": 9,
+   "tools_used": [
+    "mcp__figma-remote__create_session",
+    "ToolSearch",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__get_figjam",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 100077,
+   "output_tokens": 29963,
+   "cached_tokens": 1077619,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "559e0f66-2b65-403c-bc0b-4563c9ab8f66",
+   "inner_calls": [
+    "create_session",
+    "get_figjam",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "4:311"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 5,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  }
+ ]
+}

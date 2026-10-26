@@ -1,0 +1,24 @@
+{
+  "id": "FJ-001",
+  "signals": [
+    {"signal": "Turn 1 ends on the playback", "met": "yes", "cite": "turn-1.md: \"Is this the right reading, and do the assumed items stand as written? Recommended: yes to all\""},
+    {"signal": "The playback names the sequence type", "met": "yes", "cite": "turn-1.md: \"A sequence diagram answers it.\""},
+    {"signal": "Turn 1 shows no model", "met": "yes", "cite": "turn-1.md lists 7 numbered messages in prose under \"How I'd draw it\" with no mermaid block"},
+    {"signal": "Turn 1 makes no write", "met": "yes", "cite": "turn-1.md: \"Nothing has been written to Figma yet.\" meta.json turn 1 tools_used only Read and Bash"},
+    {"signal": "Turn 2 carries a sequenceDiagram model", "met": "yes", "cite": "turn-2.md: \"sequenceDiagram\" block with title Checkout payment, card authorised"},
+    {"signal": "Four declared participants", "met": "yes", "cite": "turn-2.md: \"participant GuestApp\" \"participant BookingApi\" \"participant PaymentProvider\" \"participant PartnerHub\""},
+    {"signal": "No aliases, notes or fragments", "met": "yes", "cite": "turn-2.md model holds only participant lines, 7 messages, a title and a %% focus comment, with no as, Note, alt, opt, loop or par"},
+    {"signal": "A check run whose last result is PASSED with exit 0", "met": "yes", "cite": "transcript-turn-2.md Bash result: \"diagram 1, sequence: ok, 4 participants and 7 messages\\nPASSED 1 diagram(s) in model.md\\nexit=0\""},
+    {"signal": "Turn 2 ends on a gate that waits", "met": "yes", "cite": "turn-2.md: \"this is the write gate. Nothing has been written to Figma.\" ending \"Write it?\""},
+    {"signal": "The gate names the plan", "met": "yes", "cite": "turn-2.md: \"which you described as sitting in the Roamstay Product plan. I haven't verified the plan.\""},
+    {"signal": "The gate names a new file", "met": "yes", "cite": "turn-2.md: \"No new file is created\" because the driver pinned an existing file, which the grader brief rules correct"},
+    {"signal": "The gate names the effect", "met": "yes", "cite": "turn-2.md: \"Writes: one composed board with 4 participants and 7 numbered messages\""},
+    {"signal": "The gate names the rollback", "met": "yes", "cite": "turn-2.md: \"Rollback: delete the one board section the write returns.\""},
+    {"signal": "No write tool or fj create verb is called", "met": "yes", "cite": "meta.json: both turns used only Read and Bash, composed false, boards empty, no mcp tool_use in export-turn-1.jsonl or export-turn-2.jsonl"},
+    {"signal": "The reply claims no board", "met": "yes", "cite": "turn-2.md: \"Nothing has been written to Figma.\""}
+  ],
+  "stop_reached": "Write gate at turn 2 (\"Write it?\"), after the playback at turn 1. The script sends no yes to the gate so no board was written.",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The run stopped at the playback naming the sequence type, then showed a sequenceDiagram with four plain participants that flow_check.py passed with exit 0 and ended on a gate naming the plan, the pinned file in place of a new file, the effect and the rollback, with no Figma tool called. Minor note outside the signal list: the expected process asks for a provenance table with the model and turn 2 carries none, though turn 1 sources each message to the brief summary."
+}

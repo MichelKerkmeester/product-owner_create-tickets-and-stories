@@ -1,0 +1,174 @@
+{
+ "id": "FJ-026",
+ "label": "sonnet-high",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/state-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "expects_board": true,
+ "no_figma": false,
+ "scripted_turns": [
+  "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-in moves Upcoming to In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 1,
+ "session_id": "52e963f7-ff81-42e6-92e8-3afef18c27da",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "3:161"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 69.53,
+   "tool_calls": 12,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 91148,
+   "output_tokens": 8130,
+   "cached_tokens": 173146,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "52e963f7-ff81-42e6-92e8-3afef18c27da",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-in moves Upcoming to In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 28.11,
+   "tool_calls": 1,
+   "tools_used": [
+    "Bash"
+   ],
+   "input_tokens": 7289,
+   "output_tokens": 3047,
+   "cached_tokens": 210890,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "52e963f7-ff81-42e6-92e8-3afef18c27da",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 39.4,
+   "tool_calls": 6,
+   "tools_used": [
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__get_figjam",
+    "ToolSearch",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 15069,
+   "output_tokens": 3244,
+   "cached_tokens": 701751,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "52e963f7-ff81-42e6-92e8-3afef18c27da",
+   "inner_calls": [
+    "create_session",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 184.1,
+   "tool_calls": 7,
+   "tools_used": [
+    "Bash",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 87910,
+   "output_tokens": 30313,
+   "cached_tokens": 972732,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "52e963f7-ff81-42e6-92e8-3afef18c27da",
+   "inner_calls": [
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "3:161"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "DELIVERY"
+  }
+ ]
+}

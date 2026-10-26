@@ -1,0 +1,14 @@
+{
+  "id": "FJ-002",
+  "signals": [
+    {"signal": "The reply asks exactly one question", "met": "no", "cite": "turn-1.md asks three numbered questions in one intake round: '1. Reader, question and outcome' with 'Question: who reads the board, and what do they decide from it?', '2. Diagram type' with 'Question: which one answers the reader's question?' and '3. What the board must not do' with 'Question: what must the board not do, and did Joana's decision land?'"},
+    {"signal": "Names the architecture and the sequence by the question each answers", "met": "yes", "cite": "turn-1.md section 2: 'two types fit. A sequence shows the order of the exchange between Phone, Laptop and sync-service. An architecture shows which parts exist and how they connect.' with a recommended sequence"},
+    {"signal": "Writes no model", "met": "yes", "cite": "turn-1.md opens 'Nothing is written yet. This is intake round one' and carries no Mermaid. turn-2.md (the playback) says 'The model, the check and the write gate come after it' and holds only an outline"},
+    {"signal": "Runs no check (no fj verb)", "met": "yes", "cite": "transcript-turn-1.md shows only Read calls and two Bash calls that grep and list context files ('grep -ril \"loomlist\" .' and 'ls context; wc -l context/*'). transcript-turn-2.md shows two Read calls only"},
+    {"signal": "Calls no write tool", "met": "yes", "cite": "meta.json tools_used is Read and Bash in turn 1 and Read in turn 2, inner_calls is empty, composed is false and every ledger is empty"}
+  ],
+  "stop_reached": "Turn 1 ended on intake round one (reader, type and exclusions). After the adaptive 'Use your recommended answers.' turn 2 ended on the full playback asking 'Is this reading right?'. The run never reached the write gate",
+  "written_before_gate": false,
+  "suggested_verdict": "FAIL",
+  "reason": "The reply names both types by the question each answers and writes nothing, but it asks three questions in one intake round, which the PASS line rules out with 'FAIL if the reply ... asks more than one question'. This looks like a skill gap rather than a model slip: SKILL.md Section 4 rule 2 (line 194) tells the model to fill the Brief's first round (reader, question and outcome) and then ask the type, so the skill itself folds the type question into a multi-question round that this scenario forbids."
+}

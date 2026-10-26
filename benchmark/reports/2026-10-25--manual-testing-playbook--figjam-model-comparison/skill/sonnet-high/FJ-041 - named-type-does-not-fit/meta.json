@@ -1,0 +1,151 @@
+{
+ "id": "FJ-041",
+ "label": "sonnet-high",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/named-type-does-not-fit.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "expects_board": false,
+ "no_figma": false,
+ "scripted_turns": [
+  "$figjam a state diagram of the Fernhouse return flow on a new board in our Fernhouse Product plan: a customer opens an order, taps Return an item, picks a reason, chooses a refund or store credit and sees a confirmation",
+  "use your recommendation",
+  "Yes, that reading is right."
+ ],
+ "intake_answers_sent": 1,
+ "follow_ups_sent": 0,
+ "session_id": "6af19ae6-0930-4cbf-b7de-82fa9aff27ec",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 55.85,
+   "tool_calls": 11,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 88597,
+   "output_tokens": 4521,
+   "cached_tokens": 169084,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "6af19ae6-0930-4cbf-b7de-82fa9aff27ec",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam a state diagram of the Fernhouse return flow on a new board in our Fernhouse Product plan: a customer opens an order, taps Return an item, picks a reason, chooses a refund or store credit and sees a confirmation\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 27.61,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 2702,
+   "output_tokens": 2948,
+   "cached_tokens": 99931,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "6af19ae6-0930-4cbf-b7de-82fa9aff27ec",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 25.67,
+   "tool_calls": 4,
+   "tools_used": [
+    "Read",
+    "ToolSearch",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 12892,
+   "output_tokens": 2782,
+   "cached_tokens": 436629,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "6af19ae6-0930-4cbf-b7de-82fa9aff27ec",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "use your recommendation",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 7.26,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 1469,
+   "output_tokens": 498,
+   "cached_tokens": 115515,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "6af19ae6-0930-4cbf-b7de-82fa9aff27ec",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  }
+ ]
+}

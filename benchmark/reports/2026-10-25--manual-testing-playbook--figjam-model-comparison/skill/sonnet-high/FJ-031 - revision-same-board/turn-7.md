@@ -1,0 +1,6 @@
+<figma-url>
+Read-back: the old board 187:7668 is gone and the revised board 188:7725 is still on the file, with its 7 of 7 nodes, 7 of 7 connectors and 4 of 4 decision exits labelled as read last turn
+Finding: the delete call checked first that 187:7668 was a top-level section named "Start a return" that carries the Product Owner tag, then removed it with its 41 inner nodes. The page went from 131 to 130 top-level items, so nothing else was removed. I confirmed this from that call's return and did not re-read the whole file.
+Finding: I said before that 14 other sections shared the title. That was off by one. 13 are named exactly "Start a return" and one is named "Start a return in the app". All are untouched, and the file now holds 14 sections named exactly "Start a return", counting the new one.
+Finding: this was the seventh Figma tool call on this file. If your seat is limited to six a month, it could be refused next time, and none of these calls was.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

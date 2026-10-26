@@ -1,0 +1,133 @@
+{
+ "id": "FJ-020",
+ "label": "sonnet-high",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "expects_board": false,
+ "no_figma": false,
+ "scripted_turns": [
+  "$task $flow the Fernhouse onboarding checklist"
+ ],
+ "intake_answers_sent": 2,
+ "follow_ups_sent": 0,
+ "session_id": "4dc616da-ea1e-498a-a95f-a565f92ad19e",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [
+   "export/001 - intake-fernhouse-onboarding-checklist-clarification.md",
+   "export/002 - task-fernhouse-onboarding-checklist.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 39.38,
+   "tool_calls": 10,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 74439,
+   "output_tokens": 4199,
+   "cached_tokens": 268619,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "4dc616da-ea1e-498a-a95f-a565f92ad19e",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [
+     "export/001 - intake-fernhouse-onboarding-checklist-clarification.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$task $flow the Fernhouse onboarding checklist\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 50.03,
+   "tool_calls": 8,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 51951,
+   "output_tokens": 5524,
+   "cached_tokens": 569786,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "4dc616da-ea1e-498a-a95f-a565f92ad19e",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [
+     "export/002 - task-fernhouse-onboarding-checklist.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 7.48,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 900,
+   "output_tokens": 600,
+   "cached_tokens": 137712,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "4dc616da-ea1e-498a-a95f-a565f92ad19e",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "INTAKE"
+  }
+ ]
+}

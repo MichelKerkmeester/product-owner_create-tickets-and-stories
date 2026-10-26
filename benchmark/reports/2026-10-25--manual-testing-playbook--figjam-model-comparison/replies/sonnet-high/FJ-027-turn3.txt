@@ -1,0 +1,7 @@
+<figma-url>
+Read-back: 6 of 6 entities, 6 of 6 relationships, 12 of 12 attributes, first glance: Booking
+Left out: every column except the keys, because the support columns were not named and the schema note itself did not reach me
+Finding: the key names (`id`, `guestId`, `roomId`, `ratePlanId`, `bookingId`, `propertyId`) follow the table names and every type reads `key`. These are my assumptions, not the note's real names. Send the real names and I recompose the board, then ask before deleting this one.
+Finding: each join reads as exactly one parent to zero or more children, as assumed in the playback. Booking to Room and Booking to Rate Plan is drawn as stated in your message.
+Finding: the six relationship labels were confirmed from the screenshot the composing call returned. The `get_figjam` outline lists connector names, ends and cardinality marks but not their label text. I took no read of the content already on the file before the write, so I can't measure that it was left as it was. The write only created nodes inside the new "Stays model" section.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: offers, the schema note's own relationship verb between Property and Room.

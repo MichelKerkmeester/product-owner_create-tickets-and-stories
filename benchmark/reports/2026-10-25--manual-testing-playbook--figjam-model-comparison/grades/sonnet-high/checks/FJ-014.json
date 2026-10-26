@@ -1,0 +1,11 @@
+{
+  "id": "FJ-014",
+  "signals": [
+    {"signal": "The check output reads 10 nodes, at most 9: split the flow", "met": "yes", "cite": "transcript-turn-1.md last Bash result: \"diagram 1, user flow: 10 nodes, at most 9: split the flow\" and turn-1.md repeats it in the output block"},
+    {"signal": "The check exits 1", "met": "yes", "cite": "transcript-turn-1.md last Bash result: \"FAILED 1 of 1 diagram(s) in ten-node-flow.mmd\" then \"exit status: 1\" and turn-1.md: \"Exit status: 1\""}
+  ],
+  "stop_reached": "Check result reported with no board and no gate opened. The run used only Read and Bash (meta.json tools_used) and made no Figma call. Nothing was written to Figma before or after any yes and no file was created (meta.json net_file_changes empty). The scratch model lived in a mktemp folder that was deleted.",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The budget failure is named verbatim and the exit status is 1, which meets the PASS line. Minor deviations that do not touch the signals: the scratch model was flowchart LR rather than the TD the commands name, and the reply cites user-flow.md Section 3 for the budget where the file puts it in Section 4."
+}

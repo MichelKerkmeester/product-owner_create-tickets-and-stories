@@ -1,0 +1,16 @@
+{
+  "id": "FJ-009",
+  "signals": [
+    {"signal": "Playback turn ends on the playback and writes nothing (the run opened an intake round in turn 1, so the playback lands in turn 2)", "met": "yes", "cite": "turn-1.md: \"This is intake round one, and nothing has been written to the board yet.\" turn-2.md: \"Is this the right reading of the board?\" with question, outcome, settled rows and assumed rows. Turn 1 and 2 tools are Read and ToolSearch only"},
+    {"signal": "Next turn ends on the gate and writes nothing", "met": "yes", "cite": "turn-3.md: \"This is the write gate, and nothing has been written to the board.\" ending \"Write it?\". transcript-turn-3.md shows only flow_check.py and compose_board.py in a /tmp scratch folder, then rm of that folder"},
+    {"signal": "After the gate's yes, names the hosted Figma MCP as not connected and what it needs", "met": "yes", "cite": "turn-4.md: \"Finding: the Figma MCP connection is missing, and the write needs it. Figma's plugin or your client's connector provides it at https://mcp.figma.com/mcp\""},
+    {"signal": "Says the fj route cannot draw a gantt chart", "met": "yes", "cite": "turn-4.md: \"The fj route can't draw a gantt chart, so there is no route left.\""},
+    {"signal": "Offers the checked model", "met": "yes", "cite": "turn-4.md: \"Finding: the checked model is the one in my previous message. It passed flow_check.py ... so you can keep it.\" The model block itself was printed in turn-3.md, turn 4 offers it by reference with the dates"},
+    {"signal": "Prints no board URL", "met": "yes", "cite": "turn-4.md to turn-7.md carry no board URL. turn-4.md: \"No board was written.\""},
+    {"signal": "Prints no Read-back: line", "met": "no", "cite": "turn-4.md: \"Read-back: not possible, the connector has no read tool\" (repeated in turn-5.md to turn-7.md). The line claims no board, and flow-mode.md Section 8 prescribes this exact line when no read tool is connected, so the scenario and the skill disagree"}
+  ],
+  "stop_reached": "Missing-route reply after the gate's yes (turn 4), repeated unchanged through the three driver supplementary turns 5 to 7, which count against no model",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The PASS line is met: nothing was written to Figma at any turn (every Figma search returned no tool and the ledger is empty), the missing hosted Figma MCP and the fj limit for a gantt chart are named and the checked model is offered, with no board claimed, no fj attempt and no image, HTML or Mermaid file left as a stand-in. One literal signal is unmet: turns 4 to 7 print \"Read-back: not possible, the connector has no read tool\", which the scenario's expected signal forbids but flow-mode.md Section 8 requires, a skill versus scenario conflict rather than a model slip. Under the root rule that every expected signal must be present this would read FAIL, so the grader should decide which contract wins."
+}

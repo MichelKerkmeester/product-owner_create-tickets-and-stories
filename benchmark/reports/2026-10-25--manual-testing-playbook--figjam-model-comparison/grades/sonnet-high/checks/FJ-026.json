@@ -1,0 +1,17 @@
+{
+  "id": "FJ-026",
+  "signals": [
+    {"signal": "Turn 1 ends on the playback and writes nothing", "met": "yes", "cite": "turn-1.md: 'Before I draw anything, this is how I read the request.' ending 'Is this the right reading of the board?' and export-turn-1.jsonl holds only 12 Read calls"},
+    {"signal": "Turn 2 ends on the gate and writes nothing", "met": "yes", "cite": "turn-2.md: 'Writes: one composed board named \"Booking status\", with 7 states and 12 transitions' ending 'Write it?' and export-turn-2.jsonl holds one local Bash check and compose, no Figma call"},
+    {"signal": "Turn 3 writes after the gate's yes", "met": "no", "cite": "turn-3.md: 'I haven't written anything yet. The pre-write read of your file found a \"Booking status\" board already on it, so I'm stopping to ask before adding a second one.' The only use_figma call is in turn 4, a supplementary 'Yes, go ahead.'"},
+    {"signal": "The board holds every state, every transition with its label and the Confirmed composite as a named zone around Upcoming and InStay", "met": "yes", "cite": "turn-4.md: 'Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled' and the get_figjam read-back in export-turn-4.jsonl shows section 3:164 named Confirmed holding Upcoming 3:184 and In stay 3:166, with use_figma counts 12 of 12 nodes and 12 of 12 connectors and every labelled link carrying its model label"},
+    {"signal": "Completed, Cancelled and NoShow are light gray, as the key's Final state entry says", "met": "yes", "cite": "export-turn-4.jsonl: elements Completed, Cancelled and No-show have kind finalState, composer maps finalState to role done and done to 'lightGray', and the read-back Key section holds text 'Final state'"},
+    {"signal": "No tint sits behind the end states", "met": "yes", "cite": "export-turn-4.jsonl read-back: the only sections inside Booking status 2 are 'Confirmed' and 'Key', and No-show 3:170 sits directly in the board section outside any zone"},
+    {"signal": "No extension call is made and the reply carries no Extensions: line", "met": "yes", "cite": "turn-4.md has no 'Extensions:' line, the gate says 'Extensions: none.' and export-turn-4.jsonl holds one use_figma and one get_figjam with no further write"},
+    {"signal": "The scorecard totals at least 18 of 22 with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no dimension at 0", "met": "harness", "cite": "Board scorecard is scored separately by the grader from the screenshots and reader steps the driver does not perform, so it is not scored here"}
+  ],
+  "stop_reached": "Playback in turn 1 and the write gate in turn 2 as planned. Turn 3 then stopped on an unplanned question about a same-named 'Booking status' section already on the pinned file. The supplementary turn 4 yes was read as option 1 and the board 'Booking status 2' (3:161) was composed and read back.",
+  "written_before_gate": false,
+  "suggested_verdict": "FAIL",
+  "reason": "Nothing was written before the gate's yes and the board carries every state, transition label, the Confirmed zone and light gray end states with no tint, but turn 3 stopped on an extra question about a pre-existing same-named board left on the shared pinned file instead of writing, so the signal 'Turn 3 writes after the gate's yes' is missing and the write only came on a supplementary turn. The extra stop was the model's choice, since its gate already said the board goes in as a new section and nothing on the file changes."
+}

@@ -1,0 +1,60 @@
+{
+ "id": "FJ-005",
+ "label": "sonnet-high",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/pre-write-check/planted-defect-refused.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "expects_board": false,
+ "no_figma": false,
+ "scripted_turns": [
+  "As the operator, run the sk-create-figjam check on a sequence model with an aliased participant and a note. Verify it fails and names both rules. Return the output and exit status."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "f5525c26-1f42-4ed8-96a0-8f3dc4f4f3ff",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 25.43,
+   "tool_calls": 5,
+   "tools_used": [
+    "Bash",
+    "Grep",
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 24848,
+   "output_tokens": 2120,
+   "cached_tokens": 140286,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "f5525c26-1f42-4ed8-96a0-8f3dc4f4f3ff",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "As the operator, run the sk-create-figjam check on a sequence model with an aliased participant and a note. Verify it fails and names both rules. Return the output and exit status.\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "OTHER"
+  }
+ ]
+}

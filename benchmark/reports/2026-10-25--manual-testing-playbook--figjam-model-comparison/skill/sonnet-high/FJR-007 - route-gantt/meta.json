@@ -1,0 +1,120 @@
+{
+ "id": "FJR-007",
+ "label": "sonnet-high",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/intra-routing-recall/route-gantt.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "expects_board": false,
+ "no_figma": false,
+ "scripted_turns": [
+  "put the launch plan on a FigJam gantt chart"
+ ],
+ "intake_answers_sent": 2,
+ "follow_ups_sent": 0,
+ "session_id": "d03e44c4-30e7-4e59-9f0d-2e2f6ff2b87b",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 34.98,
+   "tool_calls": 11,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 77296,
+   "output_tokens": 3613,
+   "cached_tokens": 341734,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "d03e44c4-30e7-4e59-9f0d-2e2f6ff2b87b",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "put the launch plan on a FigJam gantt chart\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 15.66,
+   "tool_calls": 1,
+   "tools_used": [
+    "Read"
+   ],
+   "input_tokens": 3249,
+   "output_tokens": 1568,
+   "cached_tokens": 178755,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "d03e44c4-30e7-4e59-9f0d-2e2f6ff2b87b",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 12.36,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 1015,
+   "output_tokens": 1110,
+   "cached_tokens": 91871,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "d03e44c4-30e7-4e59-9f0d-2e2f6ff2b87b",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "INTAKE"
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+  "id": "FJ-039",
+  "signals": [
+    {
+      "signal": "The first reply asks one round of questions, each naming what the brief shows, a recommended answer and a one-line reason, and writes no model",
+      "met": "yes",
+      "cite": "turn-1.md: one round of three questions after a shared Reading paragraph, each with Recommended and Why lines, for example Q3 \"Reading: you named an existing file\" then \"Recommended: write into the existing file\" and \"Why: a board that lands in the wrong plan is visible to that plan's members at once\". No Mermaid or outline in the reply and only Read and Bash calls in transcript-turn-1.md"
+    },
+    {
+      "signal": "A later round follows only when the answers open a gap in a Brief row still unasked, within the Standard cap of three rounds, and it repeats no question",
+      "met": "yes",
+      "cite": "turn-2.md: after the adaptive \"Use your recommended answers.\" the reply goes straight to the playback with \"Still open: none.\" No second round was opened and no question repeated"
+    },
+    {
+      "signal": "The reply after the last round is the playback, which names each assumption and shows no model",
+      "met": "no",
+      "cite": "turn-2.md: it is the playback with no Mermaid model and ends \"Is this the right reading of the board?\", but its Assumed section names only the 200 euro approval join (\"Assumed, with what would settle it: the 200 euro approval applies to the refund at the end of a return\"). The recommended answers the run took from turn-1 (the Post-purchase reader, the CS-led scope and the target file) are restated as settled and never marked assumed, although flow-mode.md Section 8 and flow-templates.md say a recommended answer taken in place of a user answer is marked assumed and named in the playback"
+    },
+    {
+      "signal": "The next reply carries a checked model, marks each fact it read rather than found as assumed and ends on a gate that waits",
+      "met": "no",
+      "cite": "turn-3.md and transcript-turn-3.md: the check ran with \"PASSED 1 diagram(s) in model.md\" and \"exit 0\" and the reply ends on \"Write it?\", which waits (turn-4.md writes nothing and re-asks \"Shall I write the ... board to that file now?\"). But the model marks nothing as assumed: the decision \"Refund over 200 euro?\" and the CS lead lane rest on the assumption turn-2 named, and neither the Mermaid comments, the source line nor the gate block carries an assumed mark or a provenance table"
+    }
+  ],
+  "stop_reached": "Write gate. Turn 3 ended on the write gate after the scripted \"go with your recommendations\" arrived after the playback and was taken as the playback's yes. Turn 4's scripted \"Yes, that reading is right.\" was read as a reading confirmation, not a write yes, so the run re-asked the write gate and stopped there with no board",
+  "written_before_gate": false,
+  "suggested_verdict": "FAIL",
+  "reason": "The intake round, the single-round cap, the passing check and the waiting gate all hold and no Figma tool was called in any turn, but the run modeled the 200 euro approval decision without marking it assumed in the model and its playback never marked the recommended answers it took as assumed, which the PASS line requires. The script order also drifted because the driver's adaptive turn consumed the intake answer, so the scripted turns landed one stop later, which is a harness fact and not counted against the model"
+}

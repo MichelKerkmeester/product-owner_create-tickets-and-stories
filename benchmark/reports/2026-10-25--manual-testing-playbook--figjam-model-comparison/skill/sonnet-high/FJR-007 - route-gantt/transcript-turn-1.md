@@ -1,0 +1,120 @@
+# FJR-007 turn 1 transcript
+
+**User:** put the launch plan on a FigJam gantt chart
+
+Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.
+
+**Assistant:**
+
+I'll start by loading the Flow skill and its router.
+
+**Tool call:** `Read` `{"file_path": "/private/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/devin-compare-bench/FJR-007/sk-create-figjam/SKILL.md"}`
+
+**Tool result:** `Read`
+
+```text
+"1\t---\n2\tname: sk-create-figjam\n3\tdescription: \"Draws FigJam diagrams, from user flows to sequence, state, ER and gantt, as checked Mermaid models composed into framed boards.\"\n4\tallowed-tools: [Read, Write, Edit, Bash, Glob, Grep, mcp__code_mode__call_tool_chain]\n5\tversion: 1.0.5.0\n6\t---\n7\t\n8\t<!-- Keywords: sk-create-figjam, flow mode, figjam, user flow, process, architecture, sequence diagram, state diagram, er diagram, gantt, flowchart, mermaid, board, $flow, $figjam -->\n9\t\n10\t# FigJam Diagrams\n11\t\n12\tThe Product Owner packet that draws FigJam diagrams. It picks the diagram type the reader's question needs, turns screenshots, a Figma flow, a product doc, a schema or a plan into a Mermaid model of that type with a provenance table, checks the model and, after a yes, composes it into a framed FigJam board with a title, zones, colour by kind and a key. Seven types are drawn: user flow, process, architecture, sequence, state, ER and gantt. The hub [`../SKILL.md`](../SKILL.md) picks this packet, the hub [`../ROUTER.md`](../ROUTER.md) maps a Flow request to its leaves, and Section 2 routes inside it.\n13\t\n14\t---\n15\t\n16\t## 1. WHEN TO USE\n17\t\n18\t- `$flow` or `$figjam`, with no other artifact command\n19\t- FigJam output wording such as \"make a FigJam flow from these screenshots\" or \"a sequence diagram in FigJam\"\n20\t- A request to add notes to or update a FigJam board, including one that carries a `figma.com/board` link\n21\t- A Flow route 
+```
+
+**Tool call:** `Read` `{"file_path": "/private/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/devin-compare-bench/FJR-007/SKILL.md"}`
+
+**Tool result:** `Read`
+
+```text
+"1\t---\n2\tname: product-owner\n3\tdescription: \"Product Owner hub: routes backlog, doc and FigJam diagram requests and two vendored tool packets via mode-registry.json.\"\n4\tallowed-tools: [Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, mcp__code_mode__call_tool_chain]\n5\tversion: 1.0.5.0\n6\t---\n7\t\n8\t<!-- Keywords: product-owner, sk-product-owner, sk-create-figjam, mcp-click-up, mcp-figma, backlog, task, bug report, user story, epic, prd, product documentation, figjam, user flow, clickup -->\n9\t\n10\t# Product Owner Hub\n11\t\n12\tOne public skill identity over three workflow packets and one transport packet. This hub holds no packet-local logic. It routes by `workflowMode` through `mode-registry.json`, uses `hub-router.json` for router policy, signals and outcomes, and hands stage two to the root `ROUTER.md`, which maps the request's intent to the packet's leaves.\n13\t\n14\t**Version authority.** This file's `version` frontmatter is the hub's release version and matches the newest entry under `changelog/`. `description.json`, `mode-registry.json` and `hub-router.json` carry the same value. `ROUTER.md` keeps its own document version, and each packet keeps its own release line.\n15\t\n16\t---\n17\t\n18\t## 1. WHEN TO USE\n19\t\n20\tUse this skill for Barter backlog and documentation work, for diagrams drawn on FigJam boards, and for the ClickUp and Figma operations those artifacts travel through.\n21\t\n22\t| Mode | Kind | Use it for | Packet |\n23\t|---
+```
+
+**Tool call:** `Read` `{"file_path": "/private/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/devin-compare-bench/FJR-007/ROUTER.md"}`
+
+**Tool result:** `Read`
+
+```text
+"1\t---\n2\ttitle: \"Product Owner Surface Router: per-intent leaf sets\"\n3\tdescription: \"Stage two of the product-owner hub. hub-router.json selects the workflow mode, and this document maps a request's intent to the exact packet-local leaves that mode loads, as canonical (workflowMode, leafResourceId) pairs.\"\n4\ttrigger_phrases:\n5\t  - \"product owner surface router\"\n6\t  - \"product owner leaf routing\"\n7\t  - \"product owner resource map\"\n8\timportance_tier: important\n9\tcontextType: general\n10\tversion: 1.0.0.0\n11\trouter_state: active\n12\tskill_pointer: SKILL.md\n13\t---\n14\t\n15\t# Product Owner Surface Router: per-intent leaf sets\n16\t\n17\t## 1. OVERVIEW\n18\t\n19\tThis is the product-owner hub's second-layer router, at the hub root beside [`SKILL.md`](SKILL.md). The hub selects a mode in [`hub-router.json`](hub-router.json) (`sk-product-owner`, `sk-create-figjam`, `mcp-click-up` or `mcp-figma`), and this document maps the request's intent to the exact packet-local leaves that mode loads. Every path is packet-qualified (`<packet>/references|assets/...`, where `<packet>` is the mode's `mode-registry.json` `packet` field) and converts to the canonical `(workflowMode, leafResourceId)` pair at the one contract boundary, `.skilled/skills/sk-doc/sk-create-skill/scripts/lib/leaf-resource-contract.cjs` in the skills library. A packet's `INSTALL-GUIDE.md` sits at its packet root, outside that contract, so it is never a leaf here: `mcp-click-up/SKILL.md` loads
+```
+
+**Tool call:** `Read` `{"file_path": "/private/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/devin-compare-bench/FJR-007/sk-create-figjam/references/flow-mode.md"}`
+
+**Tool result:** `Read`
+
+```text
+"1\t---\n2\ttitle: \"Product Owner - Templates - Flow Mode\"\n3\tdescription: \"Product Owner flow-mode workflow: screenshots, Figma flows, product docs, schemas and plans turned into a checked Mermaid model of the right FigJam diagram type, written to a board and delivered as the board URL with a read-back line and the HVR self-scan line.\"\n4\tcontextType: implementation\n5\timportance_tier: important\n6\ttrigger_phrases:\n7\t  - \"flow mode\"\n8\t  - \"$flow figjam board\"\n9\t  - \"figjam diagram type\"\n10\t  - \"figjam flow from screenshots\"\n11\t  - \"flow model pre-write check\"\n12\t  - \"board url read-back\"\n13\tversion: 1.0.4.0\n14\t---\n15\t\n16\t# Product Owner - Templates - Flow Mode\n17\t\n18\tFlow-mode guidance for FigJam diagrams. The workflow picks the diagram type the reader's question needs, turns screenshots, a Figma flow, a product doc, a schema or a plan into a Mermaid model of that type, checks it, writes it to a FigJam board and reads the board back before replying.\n19\t\n20\t**Loading Condition:** ALWAYS on a Flow route, as half of the routed pair with `assets/flow-templates.md`\n21\t**Purpose:** Provides the flow-mode workflow, the type choice, the intake, the rules every type shares, the write routes and the delivery reply when `$flow`, `$figjam` or FigJam output wording is detected\n22\t**Scope:** Type choice, intake per input type, the model, the pre-write check, the quality pass, the write gate, the composed, generated and `fj` write routes,
+```
+
+**Tool call:** `Read` `{"file_path": "/private/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/devin-compare-bench/FJR-007/sk-create-figjam/assets/flow-templates.md"}`
+
+**Tool result:** `Read`
+
+```text
+"1\t---\n2\ttitle: \"Product Owner Flow Templates\"\n3\tdescription: \"User-flow Mermaid patterns, the provenance table and the reply shape for Product Owner Flow Mode, each pattern passing the pre-write check.\"\n4\tcontextType: general\n5\timportance_tier: important\n6\ttrigger_phrases:\n7\t  - \"flow templates\"\n8\t  - \"mermaid flow patterns\"\n9\t  - \"flow provenance table\"\n10\t  - \"flow reply shape\"\n11\tversion: 1.0.1.0\n12\t---\n13\t\n14\t# Product Owner Flow Templates\n15\t\n16\tCopy/apply patterns for Product Owner Flow Mode models.\n17\t\n18\t**Loading Condition:** CONDITIONAL, with `references/flow-mode.md` whenever Flow intent is selected\n19\t**Purpose:** Provides the user-flow patterns, the provenance table every diagram type keeps and the reply shape every type delivers\n20\t**Scope:** Five user-flow patterns, the intake questions, the provenance table and the reply shape. The other types keep their patterns in `assets/templates/`\n21\t**Output Path:** None. The model is working data and the board is the deliverable\n22\t\n23\t---\n24\t\n25\t## 1. OVERVIEW\n26\t\n27\t### Purpose\n28\t\n29\tEvery pattern below passes `scripts/flow_check.py` as a user flow, and `scripts/compose_board.py` composes it into a board. Start from the pattern closest to the flow, rename the nodes after the real screens and triggers, add the board lines below and run the check before the write gate. A process, an architecture, a sequence, a state diagram, an ER diagram or a gantt 
+```
+
+**Tool call:** `Read` `{"file_path": "/private/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/devin-compare-bench/FJR-007/sk-product-owner/references/hvr-core.md"}`
+
+**Tool result:** `Read`
+
+```text
+"1\t---\n2\ttitle: \"Rules - Human Voice Core\"\n3\tdescription: \"Human Voice hard blockers carried inline, loaded on every request so the banned terms are in view while writing.\"\n4\tcontextType: general\n5\timportance_tier: critical\n6\ttrigger_phrases:\n7\t  - \"human voice card\"\n8\t  - \"hard blockers\"\n9\t  - \"hvr self-scan\"\n10\tversion: 0.100.0.0\n11\t---\n12\t\n13\t# Rules - Human Voice Core\n14\t\n15\tHuman Voice hard blockers carried inline, loaded on every request so the banned terms are in view while writing.\n16\t\n17\t**Loading Condition:** ALWAYS\n18\t**Purpose:** Carries the Human Voice hard blockers inline so the banned terms are in view on every request, without loading the full standard\n19\t**Scope:** Punctuation, hard blocker words and phrases, banned metaphors and cliches, setup language, generalisation fixes, output warnings, structural bans, always-cut modifiers and the before-delivery self-scan report line\n20\t**Output Path:** None. The card governs the wording of an artifact another file writes, and produces none of its own\n21\t**Authority:** `Rules - Human Voice - EN` is the full standard, symlinked into every consuming system as its own human-voice reference. Carried here: punctuation, hard blocker words and phrases, banned metaphors, setup phrases, generalisation fixes, output warnings, structural bans, always-cut modifiers. Left there: soft deductions, context-dependent flags, voice directives, the precedence hierarchy and the point scor
+```
+
+**Tool call:** `Read` `{"file_path": "/private/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/devin-compare-bench/FJR-007/sk-product-owner/references/conciseness.md"}`
+
+**Tool result:** `Read`
+
+```text
+"1\t---\n2\ttitle: \"Rules - Conciseness\"\n3\tdescription: \"The conciseness layer above the Human Voice card: what to cut, what is never cut, and the test that decides which is which.\"\n4\tcontextType: general\n5\timportance_tier: critical\n6\ttrigger_phrases:\n7\t  - \"conciseness layer\"\n8\t  - \"reconstruction test\"\n9\t  - \"concise not robotic\"\n10\t  - \"over-compression\"\n11\tversion: 0.100.0.0\n12\t---\n13\t\n14\t# Rules - Conciseness\n15\t\n16\tThe conciseness layer above the Human Voice card: what to cut, what is never cut, and the test that decides which is which.\n17\t\n18\t**Loading Condition:** ALWAYS, and rules only. A file paid for on every turn stays small enough to be worth paying for\n19\t**Purpose:** Carries the cut rules, the keep rules and the reconstruction test that decides between them, so every delivery is sized as well as checked for banned wording\n20\t**Scope:** Quantity, structure and load-bearing-ness, so an artifact that clears every hard blocker is not still three times too long. Nothing routes to it, since being ALWAYS-loaded is what makes it unroutable\n21\t**Output Path:** None. The layer governs the length of an artifact another file writes, and produces none of its own\n22\t**Loads With:** the consuming system's skill entry and `Rules - Human Voice Core`. That card governs word choice and this file governs quantity, so both run on every delivery\n23\t**Authority:** `Rules - Conciseness - On Demand Rationale` carries the reason behi
+```
+
+**Tool call:** `Bash` `{"command": "ls; ls export 2>/dev/null; grep -ril \"launch plan\" --include=* . 2>/dev/null | grep -v node_modules | head -20", "description": "Search workspace for a launch plan source"}`
+
+**Tool result:** `Bash`
+
+```text
+"AGENTS.md\ncontext\ndescription.json\nexport\nFavicon.jpg\ngraph-metadata.json\nhub-router.json\nleaf-manifest.json\nLICENSE\nmcp-click-up\nmcp-code-mode\nmcp-figma\nmode-registry.json\nREADME.md\nROUTER.md\nscripts\nsk-create-figjam\nsk-product-owner\nSKILL.md\nSYNC.md\nUSER-GUIDE.md\nvendor.json\n(eval):1: no matches found: --include=*"
+```
+
+**Tool call:** `Read` `{"file_path": "/private/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/devin-compare-bench/FJR-007/sk-create-figjam/references/types/gantt.md"}`
+
+**Tool result:** `Read`
+
+```text
+"1\t---\n2\ttitle: \"FigJam Type - Gantt\"\n3\tdescription: \"Tasks, phases and milestones on a time axis, drawn as a FigJam gantt chart in one of two date formats, with no styling, anchored dependencies, twelve tasks and five parallel bars per section.\"\n4\tcontextType: implementation\n5\timportance_tier: important\n6\ttrigger_phrases:\n7\t  - \"figjam gantt chart\"\n8\t  - \"roadmap timeline figjam\"\n9\t  - \"launch plan figjam\"\n10\t  - \"milestones on figjam\"\n11\tversion: 1.0.3.0\n12\t---\n13\t\n14\t# FigJam Type - Gantt\n15\t\n16\tA gantt chart puts tasks and phases on a time axis, with milestones as points. The composer draws each section as a tinted band, each task as a named row with its bar on a shared axis and each milestone as a diamond, and picks the tick spacing from the chart's length. Neither it nor the generated fallback honours colour, axis, weekend or marker settings, so the check refuses them.\n17\t\n18\t**Loading Condition:** CONDITIONAL, when the Flow route draws a gantt chart\n19\t**Purpose:** The grammar, rules, budget and read-back for a gantt chart\n20\t**Pairs With:** `assets/templates/gantt.md`\n21\t\n22\t---\n23\t\n24\t## 1. WHEN TO USE\n25\t\n26\t**The reader's question:** which tasks and phases are active when?\n27\t\n28\t- A release plan or a launch plan with dates\n29\t- A sprint or a phase plan with dependencies between tasks\n30\t- A one-day run of show, in hours\n31\t\n32\tUse a process when there are no dates and the order of steps is 
+```
+
+**Tool call:** `Bash` `{"command": "ls -la export context; grep -ril \"launch\" export context 2>/dev/null | head", "description": "List export and context folders, search for launch material"}`
+
+**Tool result:** `Bash`
+
+```text
+"context:\ntotal 344\ndrwxr-xr-x@ 27 michelkerkmeester  staff    864 26 Oct 18:13 .\ndrwxr-xr-x@ 29 michelkerkmeester  staff    928 26 Oct 18:13 ..\n-rw-r--r--@  1 michelkerkmeester  staff   4760 25 Sep 20:55 fernhouse-carrier-label-api-notes.md\n-rw-r--r--@  1 michelkerkmeester  staff   4346 25 Sep 20:55 fernhouse-carrier-label-thread.md\n-rw-r--r--@  1 michelkerkmeester  staff   4237 25 Sep 20:55 fernhouse-carrier-tracking-api-facts.md\n-rw-r--r--@  1 michelkerkmeester  staff  13744 25 Sep 20:55 fernhouse-context.md\n-rw-r--r--@  1 michelkerkmeester  staff   3809 25 Sep 20:55 fernhouse-order-tracking-pm-brief.md\n-rw-r--r--@  1 michelkerkmeester  staff   5230 25 Sep 20:55 fernhouse-promotions-rules.md\n-rw-r--r--@  1 michelkerkmeester  staff   3102 25 Sep 20:55 fernhouse-save-card-draft.md\n-rw-r--r--@  1 michelkerkmeester  staff   2756 25 Sep 20:55 fernhouse-wishlist-feedback.md\n-rw-r--r--@  1 michelkerkmeester  staff  12258 25 Sep 20:54 loomlist-context.md\n-rw-r--r--@  1 michelkerkmeester  staff   2879 25 Sep 20:54 loomlist-email-template-inventory.md\n-rw-r--r--@  1 michelkerkmeester  staff   2783 25 Sep 20:52 loomlist-notification-spec.md\n-rw-r--r--@  1 michelkerkmeester  staff   3017 25 Sep 20:54 loomlist-offline-mode-brief.md\n-rw-r--r--@  1 michelkerkmeester  staff   3144 25 Sep 20:54 loomlist-recurring-todos-parent-task.md\n-rw-r--r--@  1 michelkerkmeester  staff   4163 25 Sep 20:54 loomlist-recurring-todos-pm-brief.md\n-rw-r--r--@  1 michelkerkmeester  staff   3
+```
+
+**Tool call:** `Bash` `{"command": "cd /private/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/devin-compare-bench/FJR-007/context && grep -il -E \"gantt|roadmap|milestone|go-live|rollout|release date|ship\" *.md; echo ---; grep -n -i -E \"20[0-9]{2}-[0-9]{2}|week|milestone|rollout|ship\" loomlist-offline-mode-brief.md | head -20", "description": "Check context files for plan dates or milestones"}`
+
+**Tool result:** `Bash`
+
+```text
+"fernhouse-carrier-label-api-notes.md\nfernhouse-carrier-label-thread.md\nfernhouse-carrier-tracking-api-facts.md\nfernhouse-context.md\nfernhouse-order-tracking-pm-brief.md\nfernhouse-promotions-rules.md\nfernhouse-wishlist-feedback.md\nloomlist-context.md\nloomlist-recurring-todos-parent-task.md\nloomlist-recurring-todos-pm-brief.md\nloomlist-reminders-dst-user-reports.md\nloomlist-sync-conflict-thread.md\nroamstay-context.md\nroamstay-free-cancellation-pm-notes.md\nroamstay-partner-self-onboarding-brief.md\nroamstay-support-ticket-58213.md\n---\n4:Shared with the Sync, Mobile Platform and Web and Desktop teams on 2026-09-23.\n32:Conflict handling is not settled. Joana, Engineering Manager, Sync, decides how sync-service handles conflicting edits on 2026-10-09, choosing between the options in the #sync-eng thread. Offline editing and creation and Sync on reconnect cannot be finalised until that decision lands. Offline reading and the indicator do not depend on it and can start first.\n40:- The share of mobile sessions that hit the no-connection screen drops by half within 8 weeks of release"
+```
+
+**Assistant:**
+
+I haven't drawn anything yet because there's no launch plan to draw from. A gantt chart needs tasks, dates or durations, dependencies and milestones, and Flow Mode doesn't estimate dates the plan doesn't give.
+
+**Reading**
+- Your request names no plan and attaches none.
+- `export/` is empty, and the files in `context/` are product briefs, not schedules.
+- The closest match is `context/loomlist-offline-mode-brief.md`. It has one dated item, Joana's sync conflict decision on 2026-10-09, which is already past. It also says "within 8 weeks of release", with no release date, so it can't carry a gantt chart.
+- The target is settled. I'll write into the existing file `<draft-file-key>` as a new section beside what's already there. Nothing on it changes, and no new file or plan is needed.
+
+**Questions**
+1. Which launch plan is this, and where does it live?
+   - Recommended: paste it here, or give a doc or ticket link. If it's the Loomlist offline mode launch, say so and add the task names, start dates or durations, owners and any dependencies.
+   - Why: the chart can only show tasks and dates the plan states.
+2. Who reads the board, and what should they be able to decide?
+   - Recommended: the launch team, in a weekly review, asking "which launch tasks are active when, and what decides the release date?" so they can tell whether the date holds.
+   - Why: this question picks the gantt type and decides which task or milestone the eye lands on first.
+3. What must the board not do?
+   - Recommended: draw no task or date the plan doesn't state, and list anything undated under `Left out:`.
+   - Why: an estimated date on a shared board reads as a commitment.
+
+If you skip a question, I'll proceed on its recommended answer, mark it assumed and say so before anything is written. A board write only happens after a separate yes to a gate that names the file, what will be drawn and how to roll it back.

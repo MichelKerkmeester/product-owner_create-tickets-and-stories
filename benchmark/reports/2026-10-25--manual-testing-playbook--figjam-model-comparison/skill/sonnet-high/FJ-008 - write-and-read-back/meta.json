@@ -1,0 +1,146 @@
+{
+ "id": "FJ-008",
+ "label": "sonnet-high",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-write/write-and-read-back.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "expects_board": true,
+ "no_figma": false,
+ "scripted_turns": [
+  "$figjam an ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan: a guest makes bookings, a booking holds payments, a room is reserved by bookings, a rate plan prices bookings, and a property offers rooms and publishes rate plans. Keep the keys only.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "2d69f013-9854-4a7b-b301-18bfe015f14c",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "1:3"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 59.9,
+   "tool_calls": 13,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 84329,
+   "output_tokens": 6779,
+   "cached_tokens": 357401,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "2d69f013-9854-4a7b-b301-18bfe015f14c",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam an ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan: a guest makes bookings, a booking holds payments, a room is reserved by bookings, a rate plan prices bookings, and a property offers rooms and publishes rate plans. Keep the keys only.\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 25.77,
+   "tool_calls": 3,
+   "tools_used": [
+    "Read",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 13138,
+   "output_tokens": 2976,
+   "cached_tokens": 302987,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "2d69f013-9854-4a7b-b301-18bfe015f14c",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 156.09,
+   "tool_calls": 10,
+   "tools_used": [
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__get_figjam",
+    "Bash",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 85051,
+   "output_tokens": 28744,
+   "cached_tokens": 1144544,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "2d69f013-9854-4a7b-b301-18bfe015f14c",
+   "inner_calls": [
+    "create_session",
+    "get_figjam",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "1:3"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "OTHER"
+  }
+ ]
+}

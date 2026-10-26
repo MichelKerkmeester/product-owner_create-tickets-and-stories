@@ -1,0 +1,20 @@
+{
+  "id": "FJ-022",
+  "signals": [
+    {"signal": "Turn 1 ends on the playback and writes nothing (an intake round first is allowed by command 2)", "met": "yes", "cite": "turn-1.md opens an intake round: \"Nothing is written to the file yet. This is intake round one\". After the adaptive \"Use your recommended answers.\" turn-2.md is the playback: \"This is the playback. It settles my reading of the request, and a yes to it writes nothing.\" and ends \"Is this the right reading of the board\". meta.json shows no Figma call in turns 1 and 2"},
+    {"signal": "The gate turn ends on the gate and writes nothing", "met": "yes", "cite": "turn-3.md (run turn 3, shifted by the intake round): \"Here is the gate, and it covers the write alone.\" ending \"Write it?\". Tools in turn 3 were two local Bash calls (flow_check.py PASSED and compose_board.py to scratch), no Figma call"},
+    {"signal": "The write happens after the gate's yes", "met": "yes", "cite": "turn-4.md after \"Yes, go ahead.\": transcript-turn-4.md shows create_session then get_figjam then one use_figma returning boardId 1:3 and a get_figjam read-back"},
+    {"signal": "The board holds every node of the model within 9", "met": "yes", "cite": "turn-4.md: \"Read-back: 7 of 7 nodes\". use_figma result counts nodes 7 expect 7"},
+    {"signal": "Every connector is on the board", "met": "yes", "cite": "turn-4.md: \"7 of 7 connectors\". use_figma result counts connectors 7 expect 7"},
+    {"signal": "2 of 2 decisions with every exit labelled", "met": "yes", "cite": "turn-4.md: \"4 of 4 decision exits labelled\". Model: window -->|Tap Start a return| and -->|No|, method -->|Drop-off point| and -->|Courier pickup|"},
+    {"signal": "Left to right in three zones", "met": "yes", "cite": "transcript-turn-3.md model: \"flowchart LR\" with \"%% zone: Find the order\", \"%% zone: Request the return\" and \"%% zone: Done\". Read-back sections Find the order at x 80 and Request the return at x 828"},
+    {"signal": "The goal Return confirmed is light green", "met": "yes", "cite": "transcript-turn-3.md: \"style confirmed fill:#CDF4D3,stroke:#66D575\" and composed kind success with accent. The goal is labelled \"Confirmation with QR code\" after the request's wording, not \"Return confirmed\""},
+    {"signal": "Contact support is a light orange exit", "met": "yes", "cite": "transcript-turn-4.md use_figma result: \"model\":\"support\",\"kind\":\"exit\",\"text\":\"Contact support\". Composer code maps exit:'lightOrange' (#FFE0C2)"},
+    {"signal": "The reply carries Left out: naming the proposal", "met": "yes", "cite": "turn-4.md: \"Left out: free pickup for orders over 100 euros, a proposal under review\""},
+    {"signal": "Scorecard at least 18 of 22 with Composition, Fidelity, four Hygiene checks and Reply full and no dimension at 0", "met": "harness", "cite": "Board scorecard is scored separately from the renders and the fresh reader step (commands 5 to 8), which the driver does not perform. Not scored here"}
+  ],
+  "stop_reached": "Delivery after the write: turn 4 returned the board URL with the read-back line (7 of 7 nodes, 7 of 7 connectors, 4 of 4 exits labelled), the Left out line, three findings and the HVR self-scan line",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "Every signal the transcript can show is present: intake then playback then gate with no Figma call, one composed board after the yes with 7 of 7 nodes, 7 of 7 connectors and 4 of 4 labelled exits in three LR zones, a light green goal, a light orange Contact support exit and Left out naming the proposal. Verdict on signals alone, pending the separate board scorecard. Notes for the grader: the model has 7 nodes where the example has 9 (it drew drop-off and pickup as labelled exits of one choice, not as screens) and the goal reads Confirmation with QR code rather than Return confirmed, which Fidelity may weigh. The reply also flags an uneven Drop-off point connector routed over the top of the zone."
+}

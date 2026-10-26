@@ -1,0 +1,19 @@
+{
+  "id": "FJ-012",
+  "signals": [
+    {"signal": "Turn 1 ends on an intake round that asks for the calls between the parts with a recommended answer for each", "met": "yes", "cite": "turn-1.md: \"2. The calls ... Question: do these calls hold\" with \"Recommended, marked assumed until you confirm\" and a Recommended line on each of the three questions"},
+    {"signal": "Turn 1 shows no model", "met": "yes", "cite": "turn-1.md: \"Nothing is written to the board yet\" and the reply carries no mermaid block"},
+    {"signal": "Turn 2 ends on the playback", "met": "yes", "cite": "turn-2.md: \"Here is how I read the request\" ending on \"Is this the right reading of the board?\""},
+    {"signal": "Turn 2 shows no model", "met": "yes", "cite": "turn-2.md: \"Nothing is drawn or written yet\" and no mermaid block"},
+    {"signal": "Turn 3 carries a model with at most 9 nodes", "met": "yes", "cite": "transcript-turn-3.md: flow_check prints \"diagram 1, architecture: ok, 8 nodes and 7 connectors\" and \"diagram 2, architecture: ok, 3 nodes and 2 connectors\""},
+    {"signal": "No style or classDef in the model", "met": "yes", "cite": "export-turn-3.jsonl heredoc model.md: both diagrams hold only %% lines, subgraphs, nodes and edges with no style or classDef"},
+    {"signal": "Dotted edges for async and external calls", "met": "yes", "cite": "turn-3.md: \"sync -.->|Publishes| changes\", \"changes -.->|Consumes| push\" and \"push -.->|Apple Push: Sends push| apns\""},
+    {"signal": "A Left out: line naming file storage", "met": "no", "cite": "turn-3.md keeps \"files[File Storage]\" on board 1 and the model's source line reads \"Left out: Android and the push reaching the device\". turn-1.md recommended Option A, a split into two boards, over Option B which cut File Storage"},
+    {"signal": "The check prints architecture: ok", "met": "yes", "cite": "transcript-turn-3.md: \"diagram 1, architecture: ok\" ... \"PASSED 2 diagram(s) in model.md\" with \"exit 0\""},
+    {"signal": "The gate names the composed board in its six lanes and waits", "met": "yes", "cite": "turn-3.md: \"both compose within one use_figma call each. This is the write gate\" with \"Board 1 has 8 nodes and 7 connectors in 5 lanes\" and lane ids client, gateway, service, datastore, async, external in the sketch, ending \"Write both boards to that file?\". turn-4.md waits again: \"I haven't written anything\""}
+  ],
+  "stop_reached": "Write gate. Turn 3 ended on the gate and turn 4 re-asked the gate because the scripted \"Yes, that reading is right.\" confirms the reading and not the write. Note the driver sent \"Use your recommended answers.\" as turn 3, so the model took it as the playback yes",
+  "written_before_gate": false,
+  "suggested_verdict": "FAIL",
+  "reason": "Intake, playback, a styled-free checked architecture with dotted async and external edges and a waiting gate are all present and nothing touched Figma (no figma tool call in any turn and empty ledgers), but the PASS line needs a part beyond the budget named under Left out: and the model instead split the ten parts into two boards and kept File Storage, so no Left out: line names file storage. The gate counts lanes per board (5 and 3) rather than naming six lanes, which reads as met since the composed boards and their lanes are named. Possible skill gap: the run treated a split as an acceptable budget answer where the scenario expects a cut, so the architecture reference budget rule should say whether splitting is allowed"
+}

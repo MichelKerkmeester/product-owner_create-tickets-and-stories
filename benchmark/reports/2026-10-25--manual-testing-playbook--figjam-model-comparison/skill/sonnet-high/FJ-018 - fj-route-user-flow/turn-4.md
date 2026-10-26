@@ -1,0 +1,6 @@
+<figma-url>
+Read-back: 7 of 7 nodes, 6 of 6 connectors, 2 of 2 decision exits labelled, first glance: Return confirmed
+Left out: CS, Admin and warehouse steps, refund timing and anything after Not eligible, because you asked for the customer's side only. The "Return an item" tap is the label on the first connector instead of a node of its own.
+Finding: `context/fernhouse-context.md` (updated 2026-09-18) says there is no self-serve return today, that CS creates the return and emails the label, and that the 30 days run from delivery. Your returns doc has the customer start the return and print the label, and it counts from the order, so I drew it as the doc states it. The source line says "status not confirmed". Tell me whether this is current behavior, approved direction or a proposal and which date the 30 days start from, and I'll recompose the board.
+Finding: `get_figjam` returns no text for connectors. The "Yes" and "No" exit labels are confirmed from the connector list the write returned and from its screenshot, and the 7 nodes, 6 connectors and their direction were checked in the `get_figjam` read.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

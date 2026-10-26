@@ -1,0 +1,21 @@
+{
+  "id": "FJ-035",
+  "signals": [
+    {"signal": "Turn 1 ends on the playback and writes nothing", "met": "yes", "cite": "turn-1.md: \"this is the playback before anything is drawn. Nothing has been written.\" Only create_session and a get_figjam read ran (transcript-turn-1.md)"},
+    {"signal": "Turn 2 ends on the gate and writes nothing", "met": "yes", "cite": "turn-2.md ends \"Write it?\" after \"Nothing is written yet.\" transcript-turn-2.md shows only Read and the local check and compose scripts, no Figma call"},
+    {"signal": "fj info runs before the gate and the gate names the open file", "met": "harness", "cite": "turn-2.md names the target as \"the existing FigJam file\" by key. The driver never removed the hosted MCP or started the figma-ds-cli daemon (command 1), so flow-mode.md Section 6 rightly routed to use_figma and fj info never applied"},
+    {"signal": "Turn 3 writes after the gate's yes", "met": "yes", "cite": "transcript-turn-3.md: the only use_figma call follows \"Yes, go ahead.\" and returns boardId 3:264"},
+    {"signal": "Write with fj shape, fj connect and fj text and read back with fj nodes -l", "met": "harness", "cite": "transcript-turn-3.md uses one use_figma compose and a get_figjam read-back. The fj route needs the no-hosted-MCP sandbox the driver never prepared"},
+    {"signal": "Board holds 9 of 9 nodes and 9 of 9 connectors", "met": "yes", "cite": "turn-3.md: \"Read-back: 9 of 9 nodes, 9 of 9 connectors\". The use_figma return shows counts nodes 9 connectors 9 with no warnings"},
+    {"signal": "4 of 4 edge labels as text nodes", "met": "harness", "cite": "turn-3.md: \"4 of 4 decision exits labelled\" (No, Yes, Drop-off, Pickup). On the hosted compose route the labels are connector text, not separate fj text nodes, because the fj route was never available"},
+    {"signal": "No two nodes overlap", "met": "yes", "cite": "transcript-turn-3.md get_figjam geometry: the two diamonds, the six rectangles and the merge dot have disjoint boxes, for example Pick a reason at y 156 to 252 and Contact support at y 332 to 428"},
+    {"signal": "Gaps between rows differ by at most a quarter of the largest gap", "met": "yes", "cite": "transcript-turn-3.md get_figjam: only two node rows (main line centred at y 204 and the lower row of Contact support and Book a courier pickup at y 380), so there is one row gap and nothing to differ"},
+    {"signal": "Each edge label sits closer to its own connector than to any other", "met": "harness", "cite": "The use_figma return lists each label on its own link, for example window->support label No. As connector text it cannot drift off its connector. The fj text placement this signal tests never happened because the fj route was not set up"},
+    {"signal": "No fj delete or fj eval is called", "met": "yes", "cite": "meta.json tools_used across all three turns hold no fj or Bash figma-ds-cli call and turn-3.md says \"I deleted nothing\""},
+    {"signal": "Scorecard at least 18 of 22 with Composition, Fidelity, four Hygiene checks and Reply full and no dimension at 0", "met": "harness", "cite": "Board scorecard is scored separately by the grader from the renders of board 3:264. Not scored in this signal check"}
+  ],
+  "stop_reached": "Delivery: turn 3 wrote board 3:264 after the gate's yes and ended on the board URL with the read-back and HVR self-scan lines",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "On signals alone nothing is unmet: turn 1 played back and turn 2 gated with no write and turn 3 wrote 9 of 9 nodes and 9 of 9 connectors with 4 labelled exits after the yes. Every fj-route signal is harness because the driver never removed the hosted MCP or started the figma-ds-cli daemon, so the skill correctly used use_figma. The final verdict still rests on the separate board scorecard."
+}

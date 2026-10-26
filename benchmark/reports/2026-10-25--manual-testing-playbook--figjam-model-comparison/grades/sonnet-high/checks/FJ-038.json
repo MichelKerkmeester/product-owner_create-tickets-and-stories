@@ -1,0 +1,16 @@
+{
+  "id": "FJ-038",
+  "signals": [
+    {"signal": "The reply says Flow Mode does not move or restyle a composed node", "met": "yes", "cite": "turn-1.md: \"Flow Mode never moves or resizes a single composed node, so both edits are hand edits in FigJam.\""},
+    {"signal": "It says a nudge and a font size are changes the model cannot carry", "met": "yes", "cite": "turn-1.md: \"nudging one node would break the composer's layout and its routed connectors\" and \"a per-node size isn't something the model can carry either\""},
+    {"signal": "It names the drag and the font change as hand edits in FigJam", "met": "yes", "cite": "turn-1.md: \"both edits are hand edits in FigJam\" with \"Selecting the Approve return node and dragging it takes a few seconds\" for the move. The font bullet gives no hand step and points at the type.node design token instead"},
+    {"signal": "It names the Approve return node by its label", "met": "yes", "cite": "turn-1.md: \"Selecting the **Approve return** node and dragging it\""},
+    {"signal": "A change the model can carry (direction, a zone or a style line) is made in the model and composed again after a yes", "met": "yes", "cite": "turn-1.md: \"I can still change the board through the model, with a recompose\" and \"a `style` line can make it the first-glance accent\" then \"Say which you want.\""},
+    {"signal": "The old board section is deleted only on a second yes asked after the new board is read back", "met": "no", "cite": "turn-1.md: \"a delete of the old section only on your separate yes naming it\" names the separate yes but never says it is asked after the new board is read back"},
+    {"signal": "No Figma tool is called", "met": "yes", "cite": "transcript-turn-1.md and export-turn-1.jsonl: the only tool_use calls are three Read and one Bash grep on figjam-design.md. meta.json: composed false and an empty ledger"}
+  ],
+  "stop_reached": "Plain answer with no gate. Turn 1 ended on the hand-edit reply offering a model change and asking which one the user wants. No intake, no write gate and no driver follow-up turns",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The PASS line asks for both edits named as hand edits in FigJam, the node named and no tool called, and the run did all three with only skill-file reads. The one miss sits outside the PASS line: the reply never says the second yes for the delete comes after the new board is read back. The font bullet also steers to the global type.node token rather than a hand resize in FigJam, which is advisory."
+}
