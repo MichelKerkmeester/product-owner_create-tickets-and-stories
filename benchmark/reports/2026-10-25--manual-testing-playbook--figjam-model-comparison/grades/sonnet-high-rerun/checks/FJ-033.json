@@ -1,0 +1,17 @@
+{
+  "id": "FJ-033",
+  "signals": [
+    {"signal": "The playback turn ends on the playback and writes nothing (the run opened an intake round first, so the playback is turn 2)", "met": "yes", "cite": "turn-1.md: 'Round 1 of 3. Nothing is written to the board yet.' then turn-2.md: 'Here is how I read the board, before any model or write.' ending 'Is this the right reading of the board?' with no tool calls in turn 2 (meta.json turn 2 tool_calls 0)"},
+    {"signal": "The gate turn ends on the gate and writes nothing", "met": "yes", "cite": "turn-3.md: 'This is the write gate. Nothing has been written to the board yet.' ending 'Write \"Block sync 2\" into this file?' and transcript-turn-3.md shows only create_session, one get_figjam read and local Bash checks, no use_figma"},
+    {"signal": "The board is written only after the gate's yes", "met": "yes", "cite": "transcript-turn-4.md: use_figma runs after the user's 'Yes, go ahead.' and the read-back shows section 194:8168 'Block sync 2'"},
+    {"signal": "The board holds nodes in capability words with the gateway-lane node among them, every connector of the model and its lanes", "met": "yes", "cite": "turn-4.md: 'Read-back: 7 of 7 nodes, 6 of 6 connectors, 5 of 5 lanes' with nodes Desktop App, Web App, iOS App, Entry point (Edge lane), Sync Platform, Change Store and Apple Push. Note the three apps stay separate rather than collapsing to Apps as Simplified would"},
+    {"signal": "The type stays an architecture and the gateway node is marked assumed on the source line instead of being swapped for a sequence", "met": "yes", "cite": "turn-3.md model: '%% type: architecture' and transcript-turn-3.md source line: 'Entry point and Change Store are named by what they do, assumed.' turn-2.md recommends parts and connections over a sequence"},
+    {"signal": "The reply or the gate names the Executive audience and the Simplified level", "met": "no", "cite": "turn-2.md: 'Detail and audience: balanced, written for leadership' and no turn names Executive or Simplified (grep over all turns and transcripts finds neither word). flow-mode.md line 287 to 288 defines Balanced as the default and Executive and Simplified as the levels this request needed"},
+    {"signal": "No label uses an internal service name such as sync-service or Push Worker", "met": "yes", "cite": "turn-3.md model labels: Desktop App, Web App, iOS App, Entry point, Sync Platform, Change Store, Apple Push and connector labels 'Sends changes', 'Routes changes', 'Stores every change', 'Apple Push: Wakes iPhones'. No sync-service or Push Worker in export-turn-4.jsonl (only the node id apns, not a label)"},
+    {"signal": "The reader is told only that they are a non-engineer", "met": "harness", "cite": "commands.json step 8: 'reader: give a fresh reader the two colour screenshots and ask Q1 to Q3' was skipped as a reader step the driver never performs"}
+  ],
+  "stop_reached": "Delivery: turn 4 composed board 194:8168 'Block sync 2' after the gate's yes and replied with the read-back '7 of 7 nodes, 6 of 6 connectors, 5 of 5 lanes'",
+  "written_before_gate": false,
+  "suggested_verdict": "FAIL",
+  "reason": "No Figma write came before the gate's yes and the board reads back complete. But the run set the detail level to Balanced and the audience only as written for leadership, never naming Executive or Simplified, so an expected signal is missing and the three apps stay separate instead of collapsing. The board scorecard is scored separately."
+}

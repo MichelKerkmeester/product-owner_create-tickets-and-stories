@@ -1,0 +1,14 @@
+[
+ {
+  "step": 1,
+  "text": "session: start fresh -> user: submit the prompt exactly",
+  "status": "skipped",
+  "reason": "session step, not a shell command"
+ },
+ {
+  "step": 2,
+  "text": "operator: read the reply, the tool calls and export/",
+  "status": "skipped",
+  "reason": "operator step, not a shell command"
+ }
+]

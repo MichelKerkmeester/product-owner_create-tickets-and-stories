@@ -1,0 +1,20 @@
+[
+ {
+  "step": 1,
+  "text": "session: start fresh -> user: submit the prompt exactly -> operator: read the questions and the tool calls",
+  "status": "skipped",
+  "reason": "session step, not a shell command"
+ },
+ {
+  "step": 2,
+  "text": "user: reply go with your recommendations -> operator: confirm the reply is the playback, which names each assumed fact, or one further round that asks only a gap the answers opened (answer it with the recommended answers, as the root playbook Section 4 sets out), and that no model, check or Figma tool call has happened",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 3,
+  "text": "user: Yes, that reading is right. -> operator: read the model, the gate and every tool call",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ }
+]

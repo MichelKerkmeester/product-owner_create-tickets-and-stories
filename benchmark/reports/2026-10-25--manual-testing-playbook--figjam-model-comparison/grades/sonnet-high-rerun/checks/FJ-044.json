@@ -1,0 +1,19 @@
+{
+  "id": "FJ-044",
+  "signals": [
+    {"signal": "The design check exits 0 with THEME {}", "met": "harness", "cite": "stdout/FJ-044-sonnet-high-rerun.txt: \"status\": \"skipped\" (no run folder exists)"},
+    {"signal": "Each example prints a COMPOSED line drawn in the design FigJam default with no DESIGN line", "met": "harness", "cite": "stdout/FJ-044-sonnet-high-rerun.txt: \"needs a setup step the driver does not run\""},
+    {"signal": "Each use_figma call returns no warning", "met": "harness", "cite": "stdout/FJ-044-sonnet-high-rerun.txt: \"the playbook marks this scenario operator-only\""},
+    {"signal": "Every board opens on the same title block: 64 px bold title and 28 px subtitle at an 80 px margin", "met": "harness", "cite": "stdout/FJ-044-sonnet-high-rerun.txt: \"status\": \"skipped\""},
+    {"signal": "Every key is a light gray section titled Key as wide as its diagram with entries in kind order then lines, arrows, step pin and In focus last", "met": "harness", "cite": "stdout/FJ-044-sonnet-high-rerun.txt: \"status\": \"skipped\""},
+    {"signal": "Every connector is gray except a blue async message and the pink accent", "met": "harness", "cite": "stdout/FJ-044-sonnet-high-rerun.txt: \"status\": \"skipped\""},
+    {"signal": "A sequence's requests and replies both end in a closed head", "met": "harness", "cite": "stdout/FJ-044-sonnet-high-rerun.txt: \"status\": \"skipped\""},
+    {"signal": "Participants are white", "met": "harness", "cite": "stdout/FJ-044-sonnet-high-rerun.txt: \"status\": \"skipped\""},
+    {"signal": "No zone or gantt band shares a hue with a node inside it, no two neighbouring zones share a tint and pink appears only on the accent", "met": "harness", "cite": "stdout/FJ-044-sonnet-high-rerun.txt: \"status\": \"skipped\""},
+    {"signal": "Every board scores 2 on Matches the active design", "met": "harness", "cite": "stdout/FJ-044-sonnet-high-rerun.txt: \"status\": \"skipped\""}
+  ],
+  "stop_reached": "none, the driver skipped the scenario before any turn because it is marked operator-only",
+  "written_before_gate": false,
+  "suggested_verdict": "SKIP",
+  "reason": "FJ-044 is marked driver operator-only and the driver skipped it with no run folder, so every signal depends on an operator step it never performs and the grader brief says to grade it SKIP for that reason."
+}

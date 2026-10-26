@@ -1,0 +1,32 @@
+[
+ {
+  "step": 1,
+  "text": "session: start fresh -> user: submit the prompt exactly -> operator: if the run opens a Story Mode clarification first, answer it with the recommended answers and confirm the Story follows",
+  "status": "skipped",
+  "reason": "session step, not a shell command"
+ },
+ {
+  "step": 2,
+  "text": "operator: read the reply, export/ and the tool calls",
+  "status": "skipped",
+  "reason": "operator step, not a shell command"
+ },
+ {
+  "step": 3,
+  "text": "user: Yes, that reading is right. -> operator: confirm the reply is Flow Mode's gate with no ClickUp offer and no Figma write",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 4,
+  "text": "user: Yes, go ahead. -> operator: with a Figma connection that writes diagrams, read the reply and the tool calls",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 5,
+  "text": "operator: read the reply and the Story in export/",
+  "status": "skipped",
+  "reason": "operator step, not a shell command"
+ }
+]

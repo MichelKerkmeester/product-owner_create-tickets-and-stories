@@ -1,0 +1,34 @@
+[
+ {
+  "step": 1,
+  "command": "python3 benchmark/gates/check_hub.py",
+  "status": "ran",
+  "exit": 0,
+  "wall_s": 0.04,
+  "output": "PASSED the hub, 4 registry packets and 51 gold rows\n"
+ },
+ {
+  "step": 2,
+  "command": "grep -n -e '\"user-flow\": (.*\"screen\"' sk-create-figjam/SKILL.md",
+  "status": "ran",
+  "exit": 0,
+  "wall_s": 0.01,
+  "output": "82:    \"user-flow\": (\"screen\", \"screenshot\", \"a person's path\", \"signup\", \"onboarding\", \"user flow\"),\n"
+ },
+ {
+  "step": 3,
+  "command": "for p in references/flow-mode.md assets/flow-templates.md references/types/user-flow.md references/quality-rubric.md; do test -e \"sk-create-figjam/$p\" && grep -q \"$p\" leaf-manifest.json && echo \"OK $p\" || echo \"MISS $p\"; done",
+  "status": "ran",
+  "exit": 0,
+  "wall_s": 0.01,
+  "output": "OK references/flow-mode.md\nOK assets/flow-templates.md\nOK references/types/user-flow.md\nOK references/quality-rubric.md\n"
+ },
+ {
+  "step": 4,
+  "command": "node \"$SKILLED/skills/sk-doc/sk-create-skill/scripts/validate-playbook-topology.cjs\" --skill-dir . --dir sk-create-figjam/manual-testing-playbook",
+  "status": "ran",
+  "exit": 0,
+  "wall_s": 0.04,
+  "output": "BLOCK (unknown id)  board-creation/colour-every-team-restraint.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-creation/dense-flow-at-budget.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-creation/existing-board-with-content.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-creation/fj-route-layout-quality.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-creation/leadership-architecture.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-creation/pins-and-legend.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-creation/revision-same-board.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-creation/split-flow-one-board.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-quality/architecture-board-quality.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-quality/broken-design-falls-back.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-quality/design-family-across-types.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-quality/er-board-quality.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-quality/gantt-board-quality.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-quality/process-board-quality.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-quality/sequence-board-quality.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-quality/state-board-quality.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-quality/user-flow-board-quality.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-write/architecture-write-lanes.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-write/fj-route-user-flow.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-write/gantt-with-no-route.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-write/gate-names-extension.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-write/hybrid-extension-written.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  board-write/write-and-read-back.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  boundaries/artifact-plus-board-pair.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  boundaries/command-conflict-asks.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  boundaries/figjam-as-task-subject.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  boundaries/named-type-does-not-fit.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  boundaries/over-broad-brief-narrowed.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  boundaries/quick-energy-no-questions.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  boundaries/restyle-is-a-hand-edit.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  boundaries/thin-brief-asks-with-a-recommendation.md  class=null  excluded_from_denominators=true\nPASS  FJH-001  intra-routing-recall/holdout-state-plain-words.md  pairs=5  mode=sk-create-figjam\nPASS  FJN-001  intra-routing-recall/negative-task-about-figjam.md  pairs=0  mode=UNKNOWN\nPASS  FJR-003  intra-routing-recall/route-architecture.md  pairs=5  mode=sk-create-figjam\nPASS  FJR-006  intra-routing-recall/route-er.md  pairs=5  mode=sk-create-figjam\nPASS  FJR-007  intra-routing-recall/route-gantt.md  pairs=5  mode=sk-create-figjam\nPASS  FJR-002  intra-routing-recall/route-process.md  pairs=5  mode=sk-create-figjam\nPASS  FJR-004  intra-routing-recall/route-sequence.md  pairs=5  mode=sk-create-figjam\nPASS  FJR-005  intra-routing-recall/route-state.md  pairs=5  mode=sk-create-figjam\nPASS  FJR-001  intra-routing-recall/route-user-flow.md  pairs=4  mode=sk-create-figjam\nBLOCK (unknown id)  pre-write-check/architecture-styling-refused.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  pre-write-check/layout-measures-refuse-a-wide-rank.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  pre-write-check/off-palette-colour-refused.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  pre-write-check/planted-defect-refused.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  pre-write-check/self-test-every-type.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  pre-write-check/unsupported-header-refused.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  pre-write-check/user-flow-over-budget.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  type-choice/architecture-with-layout-code.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  type-choice/laned-process-from-handoffs.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  type-choice/sequence-from-api-brief.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  type-choice/timeline-offers-gantt.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  type-choice/two-types-fit-asks.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  type-choice/unsupported-kind-offers-nearest.md  class=null  excluded_from_denominators=true\nBLOCK (unknown id)  type-choice/user-flow-from-product-doc.md  class=null  excluded_from_denominators=true\n\nverdict=PASS valid=9 blocked=0 unenrolled=45 total=54\n"
+ }
+]

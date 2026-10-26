@@ -1,0 +1,20 @@
+[
+ {
+  "step": 1,
+  "text": "session: start fresh -> user: submit the prompt exactly -> operator: confirm the reply is the playback with the question, the outcome, what each source settled and every assumed row. Confirm no model is shown and nothing is written. If the run opens an intake round first, answer it with the recommended answers and confirm the playback follows",
+  "status": "skipped",
+  "reason": "session step, not a shell command"
+ },
+ {
+  "step": 2,
+  "text": "user: Yes, that reading is right. -> operator: confirm the reply is the gate",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 3,
+  "text": "operator: copy the model into <scratch>/model.md and run python3 sk-create-figjam/scripts/flow_check.py <scratch>/model.md",
+  "status": "skipped",
+  "reason": "operator step, not a shell command"
+ }
+]

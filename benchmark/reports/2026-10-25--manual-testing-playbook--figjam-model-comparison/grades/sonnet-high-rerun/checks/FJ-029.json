@@ -1,0 +1,23 @@
+{
+  "id": "FJ-029",
+  "signals": [
+    {"signal": "Playback turn ends on the playback and writes nothing (run opened an intake round first, which the scenario allows)", "met": "yes", "cite": "turn-1.md opens the intake round: \"Round one, three questions\". turn-2.md is the playback ending \"Does this reading hold, or what should change?\" with 0 tool calls in meta.json"},
+    {"signal": "Gate turn ends on the gate and writes nothing", "met": "yes", "cite": "turn-3.md ends \"Write it?\". export-turn-3.jsonl holds only create_session and get_figjam reads plus local check and compose scripts, no use_figma"},
+    {"signal": "Write happens after the gate's yes", "met": "yes", "cite": "export-turn-4.jsonl: the single use_figma call follows \"Yes, go ahead.\" and turn-4.md returns the board"},
+    {"signal": "The file holds two composed boards, Signup and Workspace setup", "met": "no", "cite": "turn-4.md: \"Read-back: 8 of 8 nodes, 9 of 9 connectors\" for one board. meta.json boards lists only 1:3"},
+    {"signal": "Each board within 9 nodes and titled 1. Signup and 2. Workspace setup", "met": "no", "cite": "turn-3.md: \"one board titled \\\"Loomlist signup and workspace setup\\\" with 8 nodes\""},
+    {"signal": "Second board 400 pixels right of the first with its top level", "met": "no", "cite": "No second board was composed. meta.json turn 4 boards [\"1:3\"]"},
+    {"signal": "One shared hand-off label where the first board ends and the second starts", "met": "no", "cite": "turn-3.md mermaid has no hand-off label. The flow runs as one board from Landing page to Editor with welcome tip"},
+    {"signal": "The second use_figma call carries the first call's fileKey", "met": "no", "cite": "export-turn-4.jsonl holds exactly one use_figma call"},
+    {"signal": "The boards do not overlap and neither sits inside the other", "met": "no", "cite": "Only one board exists, so the two-board placement was never produced. meta.json boards [\"1:3\"]"},
+    {"signal": "Each title reads as its ordinal and the diagram's name", "met": "no", "cite": "turn-3.md title \"Loomlist signup and workspace setup\" with no ordinal"},
+    {"signal": "Read-back line names start here: 1. Signup", "met": "no", "cite": "turn-4.md read-back: \"first glance: the editor with welcome tip\" with no start here clause"},
+    {"signal": "The one read-back line counts both diagrams", "met": "no", "cite": "turn-4.md: \"Read-back: 8 of 8 nodes, 9 of 9 connectors\" counts one diagram"},
+    {"signal": "Left out: names the split", "met": "no", "cite": "turn-4.md: \"Left out: the \\\"Code right?\\\" diamond, merged into \\\"Enter email code\\\" to stay inside the 8-step path limit\""},
+    {"signal": "Scorecard at least 18 of 22 with Composition, Fidelity, four Hygiene checks and Reply full and no dimension at 0", "met": "harness", "cite": "Scored separately by the board grader from renders. commands.json steps 5 to 8 are operator steps the driver skipped"}
+  ],
+  "stop_reached": "Delivery (turn 4): one composed board returned with a read-back line, ending on an open finding that asks whether to fold the zero-length wrong-code loop into the screen label or split into two boards",
+  "written_before_gate": false,
+  "suggested_verdict": "FAIL",
+  "reason": "The model kept the request on one board by folding the wrong-code error and then merging the code check into its screen, so no split into 1. Signup and 2. Workspace setup happened and every two-board signal is missing. It offered the split only as an alternative in turns 1, 3 and 4. Nothing was written before the gate's yes. Turn 3 made only read calls."
+}

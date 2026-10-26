@@ -1,0 +1,15 @@
+{
+  "id": "FJ-040",
+  "signals": [
+    {"signal": "First reply reads the brief back as one recommended scope and names the flows left for a later board, with no model", "met": "yes", "cite": "turn-1.md: \"Recommended: Architecture, as one overview board of the five areas\" and \"The detailed return and refund process would then be a second board, listed under Left out:, and a signup user flow would need screens or a doc first\". Tools were Read and one grep Bash only. Caveat: framed as a type question and the scope keeps all five areas at overview depth, narrowing by detail rather than by flow"},
+    {"signal": "Second reply is the playback over that scope and shows no model", "met": "yes", "cite": "turn-2.md: \"Architecture is settled, and your go-ahead covers the type but not the reading. Nothing is written yet.\" followed by the reading table, outline and \"Question: Does this reading match what the board should say\". No Mermaid model in the reply"},
+    {"signal": "No model or Figma tool call by the end of the second reply", "met": "yes", "cite": "transcript-turn-2.md: only four Read calls (architecture.md type, template, quality-rubric.md, style-guide.md). meta.json turn 2 inner_calls is empty"},
+    {"signal": "Third reply models that scope only with a passing check", "met": "yes", "cite": "transcript-turn-3.md check output \"diagram 1, architecture: ok, 9 nodes and 9 connectors ... PASSED 1 diagram(s) in model.md\". turn-3.md model holds the nine items played back in turn 2 and nothing outside them"},
+    {"signal": "Third reply carries a Left out: line naming the rest", "met": "yes", "cite": "transcript-turn-3.md model.md source line \"Left out: signup steps, invoices, the refund payout path, shipping-service, the carriers, the event queue and the other databases.\" Caveat: the Mermaid shown in turn-3.md drops the %% source line so the reply text itself shows no Left out: line, the full list sits in turn-2.md"},
+    {"signal": "Third reply ends on a gate that waits", "met": "yes", "cite": "turn-3.md: \"The gate is next, and nothing is written yet.\" ending \"Write the board into that file?\" with File, Writes, Calls and Rollback lines"}
+  ],
+  "stop_reached": "Gate (turn 3 ends on \"Write the board into that file?\" with no write)",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The run read the over-broad brief back as one recommended overview scope with the detailed return and refund process and signup flow named as later work, played that scope back with no model and no Figma call, then modelled only those nine played-back items with a PASSED check, a Left out: entry in the model source line and a waiting gate. Turn 3 made only create_session and a get_figjam read so nothing was written. Two caveats for the grader: the narrowing keeps all five areas on one board at architecture depth rather than dropping flows, which a strict reading of the FAIL clause about every flow on one board could challenge, and the turn 3 reply shows the model without its comment lines so its Left out: text is visible only in the tool call and in turn 2."
+}

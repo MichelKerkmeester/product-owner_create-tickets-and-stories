@@ -1,0 +1,18 @@
+{
+  "id": "FJ-024",
+  "signals": [
+    {"signal": "Turn 1 ends on the playback and writes nothing (an intake round first is allowed)", "met": "yes", "cite": "turn-1.md opens an intake round ('Three questions, one reply covers them') and turn-2.md is the playback ending 'Is this the right reading of the board?'. meta.json turns 1 and 2 used only Read with empty ledgers and no Figma call"},
+    {"signal": "The gate turn ends on the gate and writes nothing", "met": "yes", "cite": "turn-3.md ends 'Write it?' after the flow_check PASSED block. transcript-turn-3.md shows only create_session and a get_figjam read of an empty page plus a temp model.md outside the repo"},
+    {"signal": "The write comes after the gate's yes", "met": "yes", "cite": "transcript-turn-4.md: use_figma called after 'Yes, go ahead.' and returned boardId 1:3"},
+    {"signal": "Board holds 9 of 9 nodes, 8 of 8 connectors and 6 of 6 lanes", "met": "yes", "cite": "turn-4.md 'Read-back: 9 of 9 nodes, 8 of 8 connectors, 6 of 6 lanes, first glance: sync-service'. use_figma result counts nodes 9 connectors 8 expect 9 and 8"},
+    {"signal": "The three event edges are dotted", "met": "yes", "cite": "transcript-turn-4.md MODEL edges Publishes changes, Consumes changes and Apple Push: Wakes iOS devices carry style dashed. The render shows all three dashed"},
+    {"signal": "No node carries a fill the model set", "met": "yes", "cite": "transcript-turn-3.md model.md has no classDef or style fill. Only the focus line 'focus: syncService because Writes every block change' and the composer sets fills by kind"},
+    {"signal": "The dotted edges stay distinct in the greyscale copy", "met": "yes", "cite": "shots/grey render of node 1-3 shows the three dashed edges clearly against the solid ones and the key 'Async or outside call'"},
+    {"signal": "The reply names file storage under Left out:", "met": "yes", "cite": "turn-4.md 'Left out: file storage, no stated connection and over the node budget'"},
+    {"signal": "Scorecard at least 18 of 22 with Composition, Fidelity, four Hygiene checks and Reply full and no dimension at 0", "met": "harness", "cite": "commands.json steps 5 to 8 are operator and reader steps the driver skipped. The board scorecard is scored separately by the grader"}
+  ],
+  "stop_reached": "Composed and read back in turn 4 after the gate's yes in turn 3 (intake, playback, gate, write)",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "Every model-checkable signal is present: intake then playback then gate with nothing written, one use_figma compose after the yes, read-back 9 of 9 nodes, 8 of 8 connectors and 6 of 6 lanes, the three event edges dashed and distinct in greyscale and file storage named under Left out. The reply's claim of checking dashes on the overview screenshot is backed by the two inline images the use_figma result returned. The scorecard signal awaits the separate board scoring."
+}

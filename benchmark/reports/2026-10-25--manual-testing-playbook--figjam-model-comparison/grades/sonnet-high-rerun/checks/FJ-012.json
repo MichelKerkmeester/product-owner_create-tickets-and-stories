@@ -1,0 +1,18 @@
+{
+  "id": "FJ-012",
+  "signals": [
+    {"signal": "Turn 1 ends on an intake round that asks for the calls between the parts with a recommended answer for each", "met": "yes", "cite": "turn-1.md: '2. Connections ... Question: is that shape right, and is there a doc, repo or service map that states the calls? Recommended: accept it as assumed.' with a Recommended line under each of the three questions"},
+    {"signal": "Turn 1 shows no model", "met": "yes", "cite": "turn-1.md: 'Nothing is written yet, and I've made no Figma calls.' with no Mermaid block in the reply"},
+    {"signal": "Turn 2 ends on the playback and shows no model", "met": "yes", "cite": "turn-2.md: 'The Brief ... What is captured and what is assumed ... Is this reading right, or what changes?' with an outline in bullets and no Mermaid block"},
+    {"signal": "Turn 3 carries a model with at most 9 nodes", "met": "yes", "cite": "turn-3.md: 'Check: passed, with 9 nodes, 8 connectors' and the sketch holds 9 nodes"},
+    {"signal": "No style or classDef in the model", "met": "yes", "cite": "export-turn-3.jsonl Write of model.md and the turn-3.md sketch hold no style, classDef or linkStyle line"},
+    {"signal": "Dotted edges for async and external calls", "met": "yes", "cite": "turn-3.md: 'syncService -.->|\"Publishes block changes\"| changeStream' and 'pushWorker -.->|\"Apple push: Sends notifications\"| applePush'"},
+    {"signal": "A Left out: line naming file storage", "met": "yes", "cite": "turn-3.md: 'Left out: file storage (over the 9-node budget) and Apple's push reaching the iOS client' and the model source line 'Left out: file storage, Apple push to iOS'"},
+    {"signal": "The check prints architecture: ok", "met": "yes", "cite": "transcript-turn-3.md: 'diagram 1, architecture: ok, 9 nodes and 8 connectors ... PASSED 1 diagram(s) in model.md exit=0'"},
+    {"signal": "The gate names the composed board in its six lanes and waits", "met": "yes", "cite": "turn-3.md: 'The model passes the check and the board composes' with 'Composer: the code is 42,575 characters' and a sketch grouped in the six lane ids client, gateway, service, datastore, async and external, ending 'Do you want me to write this board into that file?'"}
+  ],
+  "stop_reached": "Write gate at turn 3, waiting for a yes to write the composed board into the pinned file",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The run stopped at an intake round and then the playback with no model, the model passed the check as architecture: ok with 9 nodes and no styling, file storage is named under Left out: and the gate names the composed board laid out in its six lanes and waits. Only create_session and one get_figjam read ran, and the ledger shows nothing created, modified or deleted. The gate reply never says the words six lanes and shows them only as the six lane subgraphs in the sketch, which a strict reader could mark down."
+}

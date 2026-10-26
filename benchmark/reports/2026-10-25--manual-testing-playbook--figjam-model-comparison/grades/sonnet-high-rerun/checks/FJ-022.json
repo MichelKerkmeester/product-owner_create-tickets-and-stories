@@ -1,0 +1,20 @@
+{
+  "id": "FJ-022",
+  "signals": [
+    {"signal": "The playback comes first, waits for its own yes and writes nothing (after the intake round this run opened)", "met": "yes", "cite": "turn-1.md opens an intake round: 'I'll then play the full reading back for your confirmation before drawing anything'. turn-2.md is the playback: 'Here is the full reading, played back before anything is modelled. Nothing is drawn or written yet.' Turns 1 and 2 used only Read and read-only Bash (transcript-turn-1.md ls and grep)"},
+    {"signal": "The gate turn ends on the gate and writes nothing", "met": "yes", "cite": "turn-3.md: 'Nothing is written yet.' ending on 'Write it?'. transcript-turn-3.md shows only create_session, one get_figjam read and a model file written to a mktemp folder outside the repo"},
+    {"signal": "The write comes after the gate's yes", "met": "yes", "cite": "transcript-turn-4.md: user 'Yes, go ahead.' then the one use_figma call returning boardId 3:210"},
+    {"signal": "The board holds every node of the model within 9", "met": "yes", "cite": "turn-4.md: 'Read-back: 7 of 7 nodes'. use_figma result counts nodes 7 against expect nodes 7"},
+    {"signal": "The board holds every connector", "met": "yes", "cite": "turn-4.md: '7 of 7 connectors'. use_figma result counts connectors 7 against expect connectors 7"},
+    {"signal": "2 of 2 decisions with every exit labelled", "met": "yes", "cite": "turn-4.md: '4 of 4 decision exits labelled' naming 'No, Yes, Drop-off point, Courier pickup' on the two decisions 'Within 30 days of delivery?' and 'Drop-off or pickup?' (transcript-turn-3.md model). The reply counts exits rather than decisions but states no wrong count"},
+    {"signal": "Left to right in three zones", "met": "yes", "cite": "transcript-turn-3.md model: 'flowchart LR' with three '%% zone:' lines (Find the order, Request the return, Done). transcript-turn-4.md get_figjam shows sections 'Find the order', 'Request the return' and a third zone inside board 3:210"},
+    {"signal": "The goal is light green", "met": "yes", "cite": "transcript-turn-3.md: 'style confirmed fill:#CDF4D3,stroke:#66D575' and transcript-turn-4.md MODEL gives confirmed kind 'success' with accent. The goal is labelled 'Confirmation with QR code' rather than the example's 'Return confirmed', a label choice taken from the request's own words"},
+    {"signal": "Contact support is a light orange exit", "met": "yes", "cite": "transcript-turn-4.md MODEL: '\"id\":\"support\",\"label\":\"Contact support\",\"kind\":\"exit\"' and the composed code maps exit to lightOrange '#FFE0C2' (export-turn-4.jsonl)"},
+    {"signal": "The reply carries Left out naming the proposal", "met": "yes", "cite": "turn-4.md: 'Left out: free pickup for orders over €100, a proposal under review'"},
+    {"signal": "The scorecard totals at least 18 of 22 with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no dimension at 0", "met": "harness", "cite": "Operator steps 5 to 8 in commands.json are 'skipped' (operator and reader steps). The board scorecard is scored separately from the renders"}
+  ],
+  "stop_reached": "DELIVERY in turn 4: the board was composed into the pinned file as section 3:210, read back with get_figjam and the reply opened with the redacted board URL. Turn 1 was an intake round, turn 2 the playback (driver adaptive answer) and turn 3 the gate",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "Every expected signal the transcript can show is met: playback and gate wrote nothing, the one use_figma call came after the gate's yes, the read-back counts 7 of 7 nodes and 7 of 7 connectors with both decisions' four exits labelled in three left to right zones, the goal is light green, Contact support is a light orange exit and the reply names the free pickup proposal under Left out. The scorecard signal depends on operator scoring and is graded separately."
+}

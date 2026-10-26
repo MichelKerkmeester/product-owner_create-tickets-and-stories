@@ -1,0 +1,1 @@
+{"id": "FJ-018", "label": "sonnet-high-rerun", "status": "skipped", "reason": "the playbook marks this scenario operator-only, because it needs a setup step the driver does not run"}

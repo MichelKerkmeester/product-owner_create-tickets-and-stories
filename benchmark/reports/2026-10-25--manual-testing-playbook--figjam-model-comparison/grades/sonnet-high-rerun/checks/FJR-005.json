@@ -1,0 +1,14 @@
+{
+  "id": "FJR-005",
+  "signals": [
+    {"signal": "The hub check passes with this prompt among its gold rows (step 1 prints PASSED the hub)", "met": "yes", "cite": "commands.json step 1 exit 0: \"PASSED the hub, 4 registry packets and 51 gold rows\". The prompt is gold row benchmark/hub-routing-cases.json line 172"},
+    {"signal": "The TYPE_SIGNALS row for state carries a cue the prompt uses (step 2 prints the row with the status cue)", "met": "yes", "cite": "commands.json step 2 exit 0: \"86:    \\\"state\\\": (\\\"status\\\", \\\"lifecycle\\\", \\\"transition\\\", \\\"state\\\"),\""},
+    {"signal": "Every declared leaf exists in the packet and in leaf-manifest.json (step 3 prints OK for all 5 leaves)", "met": "yes", "cite": "commands.json step 3 exit 0: OK for flow-mode.md, flow-templates.md, types/state.md, templates/state.md and quality-rubric.md"},
+    {"signal": "Step 4 topology validator prints PASS  FJR-005", "met": "yes", "cite": "commands.json step 4 exit 0: \"PASS  FJR-005  intra-routing-recall/route-state.md  pairs=5  mode=sk-create-figjam\""},
+    {"signal": "Desired outcome: the state rules load before any model is written", "met": "yes", "cite": "transcript-turn-1.md reads sk-create-figjam/SKILL.md then flow-mode.md, flow-templates.md, references/types/state.md and assets/templates/state.md before the reply. turn-1.md: \"I'm still on intake and have written nothing to FigJam.\""}
+  ],
+  "stop_reached": "Intake playback (stop one): turn-1.md ends \"Is this the right reading of the board?\" with three recommended questions. The run stopped there with no write gate reached. Nothing was written to Figma: meta.json figma [] and boards [] and no mcp Figma tool call appears in export-turn-1.jsonl",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "All four commands exited 0 with the expected output (hub PASSED with the prompt as a gold row, the state TYPE_SIGNALS row carries status and lifecycle, all 5 leaves OK and PASS  FJR-005) and the model routed to the hub then the Flow pair and the state files before a playback with no Figma write. Side note: the model did not read quality-rubric.md in this turn but the gate was never reached so the rubric-before-gate rule is not tested here."
+}

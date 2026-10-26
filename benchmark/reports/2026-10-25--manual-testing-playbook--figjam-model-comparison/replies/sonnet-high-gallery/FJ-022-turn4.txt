@@ -1,0 +1,10 @@
+<figma-url>
+Read-back: 7 of 7 nodes, 7 of 7 connectors, 4 of 4 decision exits labelled, first glance: the confirmation with QR code
+Left out: free pickup for orders over €100, a proposal under review
+Finding: The four exit labels (No, Yes, Drop-off point, Courier pickup) were confirmed from the write's return and the overview screenshot. `get_figjam` returned connector layer names and not label text. Nodes and connector ends were matched by id and direction, and each node sits in its zone.
+Finding: The two sections already on the file, "Loomlist block sync" and "Fernhouse damaged-item refund", were re-read after the write. Their count, positions and sizes are unchanged.
+Finding: On "Drop-off or pickup?", the Drop-off point exit leaves the top of the diamond and enters "Confirmation with QR code" from above, while Courier pickup runs straight across. The straight line can read as the default choice. Reordering the two exits in the model and composing again would change that, and it needs your yes. The old section would then go only on a second yes that names "Start a return".
+Finding: The board went into the file's own plan. The file key doesn't tell me whether that is Fernhouse Product, so I can't confirm it. No new file was created, so the Barter team plan fallback was not used.
+Finding: Fernhouse's context note, last updated 2026-09-18, says there is no self-serve return. I drew the flow as current behavior, as you confirmed, with the app and the returns doc governing. A release note for the Start a return button would settle which source is right.
+Finding: I assumed the 30 day check sits on the order detail and that Contact support shows there after the window. I also assumed the reader and outcome. The screens come from your description, not from the app files or the returns doc.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

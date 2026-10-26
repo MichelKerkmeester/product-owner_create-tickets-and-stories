@@ -1,0 +1,5 @@
+No board was written. I listed the tools again this turn, and there is still no `use_figma`, `get_figjam`, `generate_diagram`, `create_session`, `whoami` or `create_new_file`. The reading is settled, but there is nothing to write with, so I haven't sent the write gate. A gate would ask for a yes to a write that can't happen, and file `<draft-file-key>` is unchanged.
+
+Finding: To go on, connect the Figma MCP server (`https://mcp.figma.com/mcp`) through Figma's plugin or the claude.ai connector, then send any message. I'll then read the file once, check for a section already titled "Loomlist offline mode launch" and send the gate for the write. The gate will also say that, on a Starter plan, the write and the read-back count against Figma's six tool calls a month.
+Finding: The checked model and the date table in my last message stand as confirmed, so nothing needs redrafting after you connect.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

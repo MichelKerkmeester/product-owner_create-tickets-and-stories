@@ -1,0 +1,14 @@
+[
+ {
+  "step": 1,
+  "text": "bash: write a sequence model to <scratch>/seq.md with participant G as GuestApp, a message from G and Note over BookingApi: holds the room",
+  "status": "skipped",
+  "reason": "names a path the operator fills in"
+ },
+ {
+  "step": 2,
+  "text": "bash: python3 sk-create-figjam/scripts/flow_check.py <scratch>/seq.md; echo exit $?",
+  "status": "skipped",
+  "reason": "names a path the operator fills in"
+ }
+]

@@ -1,0 +1,29 @@
+{
+  "id": "FJ-039",
+  "signals": [
+    {
+      "signal": "The first reply asks one round of questions, each naming what the brief shows, a recommended answer and a one-line reason, and writes no model",
+      "met": "yes",
+      "cite": "turn-1.md: one question laid out as \"**Reading:** The only Fernhouse return source in the workspace is context/fernhouse-context.md, Key flows item 6\", \"**Recommended:** A process of today's return\" and \"**Why:** It is the only return flow the sources document as current behavior.\" transcript-turn-1.md shows only Read and grep or ls Bash calls, with no model, no check and no Figma call"
+    },
+    {
+      "signal": "A later round follows only when the answers open a gap in a Brief row still unasked, within the Standard cap of three rounds, and it repeats no question",
+      "met": "yes",
+      "cite": "turn-2.md opens \"This is the playback\" with no second round of questions, so the run used one round in all and repeated nothing. The Reader and Scope rows were taken as defaults and marked \"assumed, from your yes to the recommendations\""
+    },
+    {
+      "signal": "The reply after the last round is the playback, which names each assumption and shows no model",
+      "met": "yes",
+      "cite": "turn-2.md: Brief table marks Reader, Scope and Decisions as assumed and says \"Two readings go past what the source states\" naming \"Customer sends the item back\" and \"€200 approval on return refunds\". It shows a numbered outline but no Mermaid model, and transcript-turn-2.md has only Read calls and one grep Bash call with no check and no Figma call. It ends \"Is this reading right?\" and waits"
+    },
+    {
+      "signal": "The next reply carries a checked model, marks each fact it read rather than found as assumed and ends on a gate that waits",
+      "met": "yes",
+      "cite": "transcript-turn-3.md: flow_check first failed \"longest path runs 9 steps, at most 8\" with exit 1, then after a merge \"PASSED 1 diagram(s) in model.md\" and \"exit 0\", and again after the marks. turn-3.md labels read \"Send the item back (assumed)\" and \"Refund over €200? (assumed)\" and the reply ends \"Should I write the \\\"Fernhouse return today\\\" board into\" the pinned file \"as described?\""
+    }
+  ],
+  "stop_reached": "Write gate at turn 3. The model passed the check with exit 0 and the reply asked for the write and waited. The driver sent no further turn because the scenario expects no board",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "Turn 1 asked one question with a reading, a recommended answer and a reason and wrote no model. Turn 2 was a waiting playback that named every assumed reading with no model, check or Figma call. Turn 3 carried a model that passed the check, marked both assumed facts in their labels and ended on a write gate that waits, and the only Figma calls before it were create_session and a get_figjam read with no use_figma. One note for the grader: turn 3 merged two confirmed outline steps to meet the 8 step path limit after the playback yes, and disclosed it at the gate rather than replaying it, which no FAIL clause names"
+}

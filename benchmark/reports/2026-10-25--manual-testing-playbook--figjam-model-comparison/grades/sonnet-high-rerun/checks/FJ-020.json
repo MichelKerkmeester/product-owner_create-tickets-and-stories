@@ -1,0 +1,15 @@
+{
+  "id": "FJ-020",
+  "signals": [
+    {"signal": "The first reply asks one question naming both artifacts", "met": "yes", "cite": "transcript-turn-1.md Write of the clarification file: '1. Which deliverable? ... Task only: a backlog task ... Board only: a FigJam board of the checklist ... Both: the task first, then the board' and turn-1.md: 'The file asks one question in five parts'"},
+    {"signal": "The first reply asks nothing about the board", "met": "yes", "cite": "transcript-turn-1.md clarification file ends: 'If the answer includes a board, the board questions come in a later round, so leave them out here.' The only board mention in turn-1.md Open items is a confirm of the pinned target file the harness supplied ('Confirm the board still goes into that file'), not a board fact"},
+    {"signal": "A later round asks only the board facts the sources leave open", "met": "harness", "cite": "meta.json: one scripted turn, 'intake_answers_sent': 0 and 'follow_ups_sent': 0. The driver never answered the question, so no later round exists to grade. turn-1.md ends 'Answer in one message and I'll draft the task.'"},
+    {"signal": "It writes no model", "met": "yes", "cite": "meta.json tools_used lists only Read, Bash, Write and Read with 'composed': false. The only Write is the clarification file, which holds questions and no board model"},
+    {"signal": "It calls no Figma tool", "met": "yes", "cite": "meta.json 'inner_calls': [] and 'boards': []. export-turn-1.jsonl names figma tools only in the session tool list, no tool_use. turn-1.md: 'I stopped before drafting or touching FigJam'"},
+    {"signal": "It saves nothing beyond the clarification the Product Owner contract allows", "met": "yes", "cite": "meta.json net_file_changes created only 'export/001 - intake-fernhouse-onboarding-checklist-clarification.md'. sk-product-owner/references/interactive-mode.md scope names 'the clarification export contract'"}
+  ],
+  "stop_reached": "Intake stop: the one consolidated artifact question for the $task and $flow conflict, waiting on the user's answer. No draft and no board",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "One question settled the artifact with board facts deferred to a later round, no Figma tool ran and only the allowed clarification file was saved. The later-round signal is harness because the driver sent no answer"
+}

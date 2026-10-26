@@ -1,0 +1,5 @@
+No board was written. The Figma tools are still not connected: `use_figma`, `get_figjam` and `generate_diagram` all came back empty from the listing I ran this turn. Your recommended answers are recorded, but a write needs one of those tools. File `<draft-file-key>` is unchanged.
+
+Finding: These recommended answers now stand as assumed: year 2026, calendar weeks with no holiday gaps, Integration starting 30 Nov after both streams finish, and Integration as the first glance. The critical path (Design, Conflict screen build, Integration, Beta) is tagged, and Sync engine is left untagged. The board is drawn at Laptop distance for a mixed audience and balanced detail, titled "Loomlist offline mode launch".
+Finding: The gate is the next reply once the Figma MCP server (`https://mcp.figma.com/mcp`) is connected through Figma's plugin or the claude.ai connector. It will name the file, the one new section, the calls it spends (one `get_figjam` read, one `use_figma` compose, one `get_figjam` read-back) and the rollback, which is deleting that section. Nothing is written until you say yes to it.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

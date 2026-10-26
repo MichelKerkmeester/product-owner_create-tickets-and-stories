@@ -1,0 +1,12 @@
+{
+  "id": "FJ-041",
+  "signals": [
+    {"signal": "The first reply asks one question that names the state diagram, the screen path the brief describes and the type it recommends, and writes no model", "met": "yes", "cite": "turn-1.md: \"you asked for a state diagram, but the five beats you listed are a person's path through screens with one choice\" then \"Question: which should I draw?\" and \"Recommended: user flow\". meta.json turn 1 tools are seven Reads only and the reply ends \"Nothing has been written.\""},
+    {"signal": "The second reply is the reader round, or the playback over the confirmed type when the run opens no intake round, and shows no model", "met": "yes", "cite": "turn-2.md: \"Type settled as user flow, so the state diagram is out. Here is my reading before I model anything\" ending \"Does this reading hold?\". meta.json turn 2 tools are three Reads with no Figma call and only an outline in prose, no Mermaid model"},
+    {"signal": "The third reply models the confirmed type, checks it and ends on a gate that waits", "met": "yes", "cite": "transcript-turn-3.md: flow_check.py prints \"diagram 1, user flow: ok, 5 nodes and 5 connectors\" then \"PASSED 1 diagram(s) in model.md\" and \"exit 0\". turn-3.md ends \"Do you approve writing this board to file\" with no use_figma call made"}
+  ],
+  "stop_reached": "Write gate after turn 3, waiting for approval. The driver sent no further turn since the scenario expects no board",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "One question named the state diagram against the screen path and recommended a user flow. The playback ran over the confirmed type with no model and no Figma call. Turn 3 modelled a user flow that passed the check with exit 0 and stopped on a waiting gate. Only create_session and get_figjam reads touched Figma and meta.json records no created or modified node. The model text sits in the transcript rather than the reply, which the scenario's Evidence line asks for but the PASS line does not require"
+}

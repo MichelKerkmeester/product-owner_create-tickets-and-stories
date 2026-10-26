@@ -1,0 +1,20 @@
+[
+ {
+  "step": 1,
+  "text": "session: start fresh -> user: submit the prompt exactly -> operator: read the reply and the tool calls",
+  "status": "skipped",
+  "reason": "session step, not a shell command"
+ },
+ {
+  "step": 2,
+  "text": "user: reply use your recommendation -> operator: confirm the reply is the reader round or, when the run opens no intake round, the playback over the recommended type, and that no model or Figma tool call has happened",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 3,
+  "text": "user: Yes, that reading is right. -> operator: read the type at the top of the model, the check run and the gate",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ }
+]

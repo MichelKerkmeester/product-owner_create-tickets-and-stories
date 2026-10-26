@@ -1,0 +1,14 @@
+{
+  "id": "FJ-002",
+  "signals": [
+    {"signal": "The reply asks exactly one question", "met": "yes", "cite": "turn-1.md: \"**Question:** Which question should the board answer?\" is the only question and the reply says \"I need your pick first\""},
+    {"signal": "Names the architecture and the sequence by the question each answers", "met": "yes", "cite": "turn-1.md: \"**Sequence:** in what order do a device and sync-service exchange messages\" and \"**Architecture:** which parts make up sync ... and how do they connect?\""},
+    {"signal": "Writes no model", "met": "yes", "cite": "turn-1.md holds no Mermaid block or provenance table and says \"I haven't written anything to the board yet\""},
+    {"signal": "Runs no check", "met": "yes", "cite": "transcript-turn-1.md: the three Bash calls are grep, ls and sed over context files (\"Search repo for Loomlist sources\") and flow_check.py never runs, confirmed in export-turn-1.jsonl where tools are 9 Read and 3 Bash"},
+    {"signal": "Calls no write tool", "met": "yes", "cite": "meta.json: \"inner_calls\": [] and \"composed\": false with an empty ledger, export-turn-1.jsonl shows only Read and Bash"}
+  ],
+  "stop_reached": "Type-choice question on turn 1 (INTAKE), naming sequence and architecture with Sequence recommended, before the reader and outcome round, playback and write gate",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The single turn asks one question that names both the sequence and the architecture by the reader question each answers, and the run wrote no model, ran no check and called no Figma or write tool. The recommendation of Sequence comes with the question rather than replacing it, so the type was not picked without asking."
+}
