@@ -1,0 +1,8 @@
+<figma-url>
+Read-back: 4 of 4 participants, 8 of 8 messages, each joining the same two lifelines in the same direction with the same arrow as the model. First glance: the `payment.captured` webhook (message 5).
+Left out: the declined payment, because no source describes a decline. The 30-minute `payment_pending` expiry, because it's a separate path from the payment itself. Refunds, payouts and retry loops, which were outside the agreed scope.
+Finding: five of the eight messages say "(assumed)" in their label: Pay now, both charge requests, Payment captured and Booking confirmed. A payments-service route file, or confirmation from Karim or Elif in the Payments squad, would settle them.
+Finding: the key doesn't match message 5. The "In focus" sample is a solid line with a closed head, but message 5 is drawn dashed with an open head. The key also lists "Async reply" in blue, but no blue line appears on the board, because the only async reply is the highlighted one. This comes from the board template (`assets/compose-board.js`), so fixing it there would fix future boards, not just this one.
+Finding: the file already had other Roamstay checkout boards, including "Roamstay checkout payment — authorised card" and "1. Checkout payment, authorised card". They come from a different source and may disagree with the assumed calls here. I didn't touch them.
+Finding: I didn't re-read the 119 items already in the file after the write, to keep to the four calls named at the gate. The write only added new nodes inside its own section, but I haven't confirmed the existing content is unchanged.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

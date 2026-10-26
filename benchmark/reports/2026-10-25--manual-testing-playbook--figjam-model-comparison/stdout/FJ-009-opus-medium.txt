@@ -1,0 +1,4 @@
+{"id": "FJ-009", "label": "opus-medium", "turn": 1, "role": "scripted", "kind": "PLAYBACK", "figma": ["whoami", "create_session", "get_figjam"], "boards": []}
+{"id": "FJ-009", "label": "opus-medium", "turn": 2, "role": "scripted", "kind": "GATE", "figma": [], "boards": []}
+{"id": "FJ-009", "label": "opus-medium", "turn": 3, "role": "scripted", "kind": "DELIVERY", "figma": ["use_figma", "get_figjam"], "boards": ["184:7561"]}
+{"id": "FJ-009", "label": "opus-medium", "status": "ok", "attempts": 1, "turns": 3, "boards": ["184:7561"]}
