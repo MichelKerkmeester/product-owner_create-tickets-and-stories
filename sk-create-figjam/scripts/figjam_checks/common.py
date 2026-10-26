@@ -39,6 +39,10 @@ HTML_TAG = re.compile(r"</?[A-Za-z][A-Za-z0-9]*(?:\s[^<>]*)?/?>")
 EMPHASIS = re.compile(r"\*\*|__\S|(?<![*\w])\*[^*\s][^*]*\*(?![*\w])|`")
 STATE_GRAMMAR = re.compile(r"\[\*\]|<<(?:choice|fork|join)>>", re.I)
 TYPE_DIRECTIVE = re.compile(r"^\s*%%\s*type\s*:\s*([A-Za-z-]+)\s*$", re.M)
+FOCUS_DIRECTIVE = re.compile(r"^\s*%%\s*focus\s*:\s*(.*?)\s*$", re.I | re.M)
+BECAUSE = re.compile(r"\s+because(?:\s+|$)", re.I)
+# The key entry reads `In focus: <reason>`, and a key entry holds 40 characters, so the reason holds the rest.
+FOCUS_REASON_MAX = MAX_LABEL_CHARS - len("In focus: ")
 
 # FigJam's light fills, each with the darker stroke FigJam pairs it with. Dark
 # text reads on every one of them. The saturated fills are left out: FigJam
@@ -90,6 +94,27 @@ def content_lines(block_text: str) -> list[tuple[int, str]]:
         if text and not text.startswith("%%"):
             found.append((number, text))
     return found
+
+
+def focus_reason(value: str) -> tuple[str, str]:
+    """A `%% focus:` value as the id it names and the reason after ` because `, empty when it gives none."""
+    target, _, reason = BECAUSE.sub("\0", value, count=1).partition("\0")
+    return target.strip(), reason.strip()
+
+
+def focus_line_problems(block_text: str) -> list[str]:
+    """A `%% focus: <id> because <reason>` line whose reason is missing or too long for the key."""
+    problems = []
+    for value in FOCUS_DIRECTIVE.findall(block_text):
+        if not BECAUSE.search(value):
+            continue
+        target, reason = focus_reason(value)
+        if not reason:
+            problems.append(f"%% focus: {target} because names no reason: write the reason after because or drop because")
+        elif len(reason) > FOCUS_REASON_MAX:
+            problems.append(f"the focus reason runs to {len(reason)} characters, at most {FOCUS_REASON_MAX}, so the key's "
+                            f"In focus: <reason> fits 40")
+    return problems
 
 
 def type_directive(block_text: str) -> str:

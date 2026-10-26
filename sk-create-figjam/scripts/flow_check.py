@@ -62,8 +62,12 @@ from figjam_checks.common import (
     CANVAS,
     CHARCOAL,
     LANE_PAIR,
+    FOCUS_DIRECTIVE,
     content_lines,
     contrast,
+    focus_line_problems,
+    focus_reason,
+    statements,
     type_directive,
 )  # noqa: E402
 from figjam_checks.er import check_er  # noqa: E402
@@ -120,6 +124,33 @@ def profile_of(block_text: str) -> tuple[str, list[str]]:
 
 def check_block(block: mermaid_extract.SourceBlock, block_text: str) -> tuple[str, list[str], str, str]:
     """Return the profile, its problems, the size and shape summary and the flowchart direction."""
+    profile, problems, size, direction = check_kind(block, block_text)
+    # A focus line may say why the first glance falls there, in words short enough for the key.
+    focus = focus_line_problems(block_text) if profile else []
+    if profile in (flowchart.USER_FLOW, flowchart.PROCESS):
+        focus += flow_focus_problems(block_text)
+    return profile, problems + focus, size, direction
+
+
+def flow_focus_problems(block_text: str) -> list[str]:
+    """A focus line on a user flow or a process, which the composer refuses unless it gives the styled node a reason.
+
+    The style line already places the accent there, so the focus line only says why, on that node.
+    """
+    values = FOCUS_DIRECTIVE.findall(block_text)
+    if not values:
+        return []
+    styled = {words[1] for words in (s.split() for s in statements(block_text)) if len(words) > 2
+              and words[0].lower() == "style"}
+    target, reason = focus_reason(values[0])
+    if len(values) > 1 or not reason or target not in styled:
+        return ["%% focus on a user flow or a process: mark the first glance with a style line, and give its reason as "
+                "%% focus: <styled id> because <reason>"]
+    return []
+
+
+def check_kind(block: mermaid_extract.SourceBlock, block_text: str) -> tuple[str, list[str], str, str]:
+    """The kind's own rules: the profile, its problems, the size and shape summary and the flowchart direction."""
     profile, problems = profile_of(block_text)
     if problems:
         return profile, problems, "", ""

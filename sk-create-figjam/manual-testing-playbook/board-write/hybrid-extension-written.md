@@ -1,7 +1,8 @@
 ---
 title: "FJ-017 -- Notes land after the write"
 description: "This scenario validates notes land after the write for `FJ-017`. It checks that after a yes that named notes, the state diagram is composed with one `use_figma` call and the notes are added with a second `use_figma` call inside the board as single stickies, no composed node moves and the reply carries an `Extensions:` line."
-version: 1.0.1.0
+version: 1.0.2.0
+driver: new-file
 ---
 
 # FJ-017 -- Notes land after the write

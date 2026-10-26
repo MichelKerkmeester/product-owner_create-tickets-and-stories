@@ -1,7 +1,8 @@
 ---
 title: "FJ-035 -- Layout quality on the fj route"
 description: "This scenario validates layout quality on the fj route for `FJ-035`. It checks that a user flow written node by node through fj has no overlap, even spacing and every edge label beside its own connector."
-version: 1.0.2.0
+version: 1.0.3.0
+driver: operator-only
 ---
 
 # FJ-035 -- Layout quality on the fj route

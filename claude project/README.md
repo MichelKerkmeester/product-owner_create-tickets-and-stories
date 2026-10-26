@@ -8,7 +8,7 @@ Hand-maintained local package for the Product Owner claude.ai Project. The kerne
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- synthesized Project kernel v1.2.6 (routing authority, SKILL.md is not loaded in this Project)
+|-- Custom Instructions.md        <- synthesized Project kernel v1.2.7 (routing authority, SKILL.md is not loaded in this Project)
 |-- README.md                     <- upload manifest and hand-authored parity note
 |-- kernel-review.json            <- dated record of one kernel review, read by no tool
 |-- templates/                    <- Product Owner - Local - Push Targets.md, filled and uploaded per user, never shared
@@ -60,7 +60,7 @@ claude project/
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` v1.2.6 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.2.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
+`Custom Instructions.md` v1.2.7 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.3.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
 
 CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Block**, direct resource loading becomes Project Knowledge consultation, and the response reports an export-equivalent path. Refinements keep delivery metadata outside preserved content unless equivalent metadata already exists in the source.
 
@@ -178,7 +178,9 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 - `$figjam a mindmap of the launch themes` names the mindmap as a kind the Figma connector cannot draw and offers a table or a list, with no connector call.
 - A `$flow` request replies in order: the intake or one proposed Brief, then a playback of the reading, then a gate as its own reply. A `Yes` to the Brief or the playback writes nothing, and only a `Yes` to the gate writes. The playback and the gate each end their turn on their question, with no status line after it
 - A `$flow` request that names an existing FigJam file by its link gets a gate that names that file, with no plan and no `create_new_file`, and the board lands as a new section beside what the file holds, with nothing already on it changed
-- With a Figma connector that lists `use_figma`, the board is composed in one `use_figma` call. Before it fills the model, the Project shows the composer code came back whole: 1,170 lines and 47,148 characters, a first line `const MODEL=__MODEL__;`, a second line `const THEME=__THEME__;` and a last line `};` after `createdCount:created.length,`. When it cannot show all four it writes through `generate_diagram` and says the board was generated rather than composed
+- A `$flow` request whose brief fits two types, such as an architecture and a sequence of one system, gets a first reply that asks only which type, naming both and the recommended one, and the reader round follows its answer
+- A `$flow` request for one board that runs over its type's budget cuts the lowest-priority part, names it on the `Left out:` line and offers the split in the playback rather than drawing two boards
+- With a Figma connector that lists `use_figma`, the board is composed in one `use_figma` call. Before it fills the model, the Project shows the composer code came back whole: 155 lines and 47,545 characters, a first line that starts `const MODEL=__MODEL__;const THEME=__THEME__;` and a last line that ends `createdCount:created.length,};`. When it cannot show all three it writes through `generate_diagram` and says the board was generated rather than composed
 - A thrown error that starts `nothing was drawn` is not retried with the same model and the board is not read. The Project regroups the zones, checks the model again and says the first compose drew nothing
 - A revision of a written board composes the new board first, reads it back and asks for a second `Yes` before it deletes the old board section
 - A generated Story-Mode artifact names its artifact kind (Story or Epic), keeps the narrative first, uses Given/When/Then scenario bullets, closes with a Delivery section only when the requester asked for one or the artifact forces it, and carries no ticket header fields, story points or INVEST notes.
@@ -213,5 +215,5 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 
 - Backlog artifacts remain WHAT/WHY focused. Docs may cover source-backed technical HOW, supplied implementation facts, architecture, APIs, schemas, debugging or operational procedures and clearly labelled technical proposals or recommendations. Never fabricate current facts, evidence, approval, authority or professional sign-off.
 - Project Knowledge may be retrieved as chunks, so the kernel repeats the routing, source-safety and delivery gates.
-- The Flow Board Composer file is 58,003 bytes and its code block is 47,148 characters on 1,170 lines, so retrieval may return it in chunks. The call takes at most 50,000 characters, which leaves about 2,850 for the model JSON and the `THEME` line written compact, and the largest shipped example model runs about 2,300. Whether claude.ai retrieval returns the code block whole is UNKNOWN until the live Project test runs, and the guide's whole-file test and the `generate_diagram` fallback cover a miss
+- The Flow Board Composer file is 58,840 bytes and its code block is 47,545 characters on 155 lines, so retrieval may return it in chunks. The call takes at most 50,000 characters, which leaves about 2,470 for the model JSON and the `THEME` line written compact, and the largest shipped example model runs about 2,400. Whether claude.ai retrieval returns the code block whole is UNKNOWN until the live Project test runs, and the guide's whole-file test and the `generate_diagram` fallback cover a miss
 - The local package is hand-maintained and the live claude.ai Project is manually uploaded, so local parity does not prove live deployment currency.

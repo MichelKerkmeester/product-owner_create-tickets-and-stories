@@ -1,7 +1,8 @@
 ---
 title: "FJ-044 -- Seven boards read as one family"
 description: "This scenario validates that the seven diagram types read as one family for `FJ-044`. It checks that the seven shipped examples composed under the shipped design share one title block, one type scale, one key layout and order, one set of line looks and one zone tint rule."
-version: 1.0.1.0
+version: 1.0.2.0
+driver: operator-only
 ---
 
 # FJ-044 -- Seven boards read as one family

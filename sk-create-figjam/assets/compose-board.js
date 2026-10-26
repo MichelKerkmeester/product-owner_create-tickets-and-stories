@@ -81,7 +81,7 @@ const D = {
   line: { color: '#757575', async: '#3DADFF', lifeline: '#B3B3B3', weight: 2 },
   zone: { cycle: ['blue', 'orange', 'teal', 'yellow', 'violet'] },
   key: {
-    title: 'Key', tint: 'gray', pin: 'Step number', dashedOptional: 'Optional or proposed',
+    title: 'Key', tint: 'gray', pin: 'Step number', solid: 'Leads to', dashedOptional: 'Optional or proposed',
     dashedAsync: 'Async or outside call', identifying: 'Identifying', nonIdentifying: 'Non-identifying',
     twoWay: 'Both ways', request: 'Request', reply: 'Reply', async: 'Async message', asyncReply: 'Async reply',
   },
@@ -92,14 +92,19 @@ const T = (function merge(a, b) {
 })(D, THEME);
 
 // What no design changes: a kind's shape, a fixed size and an outline of its own, the ring of an end state,
-// the heavier line of a critical bar and the line gray around a planned bar.
+// the heavier line of a critical bar and the line gray around a planned bar. Kinds that share a shape and
+// whose fills sit close in greyscale also differ by outline, heavy, dashed or both, so colour never carries
+// a kind's meaning alone.
 const SHAPES = {
   decision: 'DIAMOND', choice: 'DIAMOND', milestone: 'DIAMOND', merge: 'ELLIPSE', initial: 'ELLIPSE',
   final: 'ELLIPSE', datastore: 'ENG_DATABASE', queue: 'ENG_QUEUE', subprocess: 'PREDEFINED_PROCESS',
   io: 'PARALLELOGRAM_RIGHT', fork: 'SQUARE', entity: 'SQUARE',
 };
 const FIXED = { merge: [24, 24], initial: [32, 32], final: [32, 32], choice: [56, 56], fork: [16, 96], milestone: [32, 32] };
-const OUTLINE = { final: 'ring', crit: 'heavy', planned: 'line' };
+const OUTLINE = {
+  final: 'ring', crit: 'heavy', planned: 'line', client: 'line', gateway: 'heavy', success: 'heavy', finalState: 'heavy',
+  exit: 'dash', external: 'dash', active: 'dash', error: 'heavy dash',
+};
 const shapeOf = (kind) => SHAPES[kind] || 'ROUNDED_RECTANGLE';
 // A kind's fill, stroke and text. The focus kind draws the accent's own pair.
 const pairOf = (kind) => SWATCH[kind === 'focus' ? T.accent.pair : T.role[T.kind[kind].role]] || SWATCH.white;
@@ -194,11 +199,14 @@ function text(parent, chars, font, size, x, y, width) {
 // The accent is the one pair no kind draws and the heaviest outline on any board, so it outweighs every
 // kind's fill and still reads first in greyscale, where only a line's weight and darkness are left.
 function paint(s, kind, accent) {
-  const pair = pairOf(kind), o = OUTLINE[kind];
+  const pair = pairOf(kind), o = OUTLINE[kind] || '';
   const hot = accent || kind === 'focus';
   s.fills = solid(pair[0]);
   s.strokes = solid(hot ? ACCENT : o === 'line' ? T.line.color : pair[1]);
-  try { s.strokeWeight = hot ? T.accent.node : o === 'ring' ? 6 : o === 'heavy' ? 4 : 2; } catch (err) { /* a shape that refuses a weight keeps FigJam's */ }
+  try {
+    s.strokeWeight = hot ? T.accent.node : o === 'ring' ? 6 : o.startsWith('heavy') ? 4 : 2;
+    s.dashPattern = !hot && o.endsWith('dash') ? [12, 8] : [];
+  } catch (err) { /* a shape that refuses a weight or a dash keeps FigJam's */ }
   return pair;
 }
 function shape(parent, kind, label, x, y, w, hh, name, size, accent) {
@@ -243,10 +251,11 @@ function anchor(parent, cx, cy, name) {
   return a;
 }
 // POINT pins the end to the node's exact centre. A magnet stops short of an anchor's edge, which
-// leaves a visible break wherever two legs meet, while a pinned point joins them into one line.
-function end(node, magnet) {
-  if (magnet === 'POINT') return { endpointNodeId: node.id, position: { x: node.width / 2, y: node.height / 2 } };
-  return { endpointNodeId: node.id, magnet: magnet || 'AUTO' };
+// leaves a visible break wherever two legs meet, while a pinned point joins them into one line. A point
+// given as x and y pins the end there, measured from the node's corner.
+function end(node, magnet = 'AUTO') {
+  if (magnet === 'POINT') magnet = { x: node.width / 2, y: node.height / 2 };
+  return { endpointNodeId: node.id, [magnet.y === undefined ? 'magnet' : 'position']: magnet };
 }
 function connect(parent, from, to, o) {
   const c = figma.createConnector();
@@ -281,15 +290,17 @@ function zoneSection(parent, label, tint, x, y, w, hh) {
   return sec;
 }
 // A zone takes the first tint along the cycle that no kind inside it draws and that no zone already drawn
-// beside it took, within two zone gaps on any side, so a tint never repeats a member's hue and two
-// neighbouring zones never read as one, however the layout placed them. When no tint keeps both, the
-// neighbour rule wins and the warnings say so. The key's own tint is never a zone's.
+// facing it took, in its row or its column however wide the gap a label opened, so a tint never repeats a
+// member's hue and two neighbouring zones never read as one. When no tint keeps both, a zone only keeps
+// clear of the zones within two zone gaps on any side, and when none keeps that, the neighbour rule wins
+// and the warnings say so. The key's own tint is never a zone's.
 const tinted = [];
 function tintFor(i, kinds, label, x, y, w, h) {
   const c = T.zone.cycle, g = 2 * ZONE_GAP, order = [...c.slice(i % c.length), ...c.slice(0, i % c.length)];
   const hues = new Set(kinds.map((k) => (T.role[(T.kind[k] || {}).role] || T.accent.pair).replace('light', '').toLowerCase()));
-  const near = tinted.filter((z) => z.x < x + w + g && x < z.x + z.w + g && z.y < y + h + g && y < z.y + z.h + g).map((z) => z.t);
-  let t = order.find((t) => !hues.has(t) && !near.includes(t));
+  const by = (n) => tinted.filter((z) => (z.x < x + w + g && x < z.x + z.w + g) + (z.y < y + h + g && y < z.y + z.h + g) > n).map((z) => z.t);
+  const near = by(1), free = (n) => order.find((t) => !hues.has(t) && !by(n).includes(t));
+  let t = free(0) || free(1);
   if (!t) {
     t = order.find((t) => !near.includes(t)) || order[0];
     warnings.push(`zone ${label} repeats the ${t} tint of ${near.includes(t) ? 'a zone beside it' : 'a step inside it'}, because the tint cycle has none left for it`);
@@ -781,7 +792,7 @@ function buildGraph(M) {
     return Math.min(u.x, v.x) < b.x + b.w + gap - 1 && Math.max(u.x, v.x) > b.x - gap + 1
       && Math.min(u.y, v.y) < b.y + b.h + gap - 1 && Math.max(u.y, v.y) > b.y - gap + 1;
   });
-  const touch = (r, b) => cuts([{ x: r.x, y: r.y }, { x: r.x + r.w, y: r.y + r.h }], b, 0);
+  const touch = (r, b, gap = 0) => cuts([{ x: r.x, y: r.y }, { x: r.x + r.w, y: r.y + r.h }], b, gap);
   const crossed = (pts, gap) => items.filter((n) => cuts(pts, L.box.get(n.id), gap)).map((n) => n.id);
   const jobs = [];
   const portsOf = new Map();
@@ -795,9 +806,12 @@ function buildGraph(M) {
     if (job.plain) jobs.push(job);
   });
   // A label sits on the middle of its connector: of the whole path when FigJam bends it, and of the
-  // longest run when the route is pinned, where the label rides that run's own leg.
+  // longest run when the route is pinned, where the label rides that run's own leg. A label is as wide as its
+  // words along a level leg and as tall as a line along an upright one, and a leg without AIR past each end
+  // of it reads as a broken line, because the label hides it, so that leg is marked short.
   const labelAt = (job, ln, pinned) => {
     let leg = 0, d = ln.n / 2;
+    const w = job.e.lw + 16, room = (s) => s.b - s.a - (s.h ? w : 24);
     if (pinned) {
       ln.s.forEach((s, i) => { if (s.b - s.a > ln.s[leg].b - ln.s[leg].a) leg = i; });
       d = ln.s.slice(0, leg).reduce((t, s) => t + s.b - s.a, 0) + (ln.s[leg].b - ln.s[leg].a) / 2;
@@ -808,8 +822,7 @@ function buildGraph(M) {
       if (run && d <= run) { at = { x: u.x + (v.x - u.x) * d / run, y: u.y + (v.y - u.y) * d / run }; break; }
       d -= run;
     }
-    const w = job.e.lw + 16;
-    return { x: at.x - w / 2, y: at.y - 12, w, h: 24, leg };
+    return { x: at.x - w / 2, y: at.y - 12, w, h: 24, leg, short: pinned && room(ln.s[leg]) < 2 * AIR };
   };
   // Every route a job can take, each priced for what it meets on its own: boxes, titles and its label.
   let serial = 0;
@@ -828,7 +841,8 @@ function buildGraph(M) {
       const hits = (gap) => ok.some((l) => crossed(l.pts, gap).some((id) => !mine.includes(id)));
       const labs = e.label ? ok.map((l) => labelAt(job, l, pinned)) : [];
       const bad = hits(0) || ok.some((l) => rides(l) || strays(l, homes) || heads.some((t) => cuts(l.pts, t, TITLE_GAP))) || labs.some((r) => heads.some((t) => touch(r, t)));
-      const onNode = labs.some((r) => items.some((n) => !mine.includes(n.id) && touch(r, L.box.get(n.id))));
+      // A label keeps AIR clear of every box it does not name, so it never reads as that box's own.
+      const onNode = labs.some((r) => r.short || items.some((n) => !mine.includes(n.id) && touch(r, L.box.get(n.id), AIR)));
       list.push({ id: ++serial, m0, m1, lines: ok, labs, pinned, bad, leg: labs.length ? labs[0].leg : 0,
         fixed: ok[0].n + DETOUR * Math.max(0, ok[0].n - reach - 240) + CORNER * (ok[0].pts.length - 2) + (bad ? BLOCKED : 0) + (hits(CLEAR) ? NEAR : 0) + (onNode ? CLASH : 0)
           + (L.spine.has(e.from) && L.spine.has(e.to) && ok.some((l) => l.pts.length > 2) ? BENT : 0) });
@@ -951,7 +965,6 @@ function buildGraph(M) {
   const kinds = [...new Set([...M.nodes.map((n) => n.kind), ...M.nodes.filter((n) => n.accent).map(() => 'focus')])];
   const marked = M.nodes.find((n) => n.accent);
   const key = kinds.map((kind) => (kind === 'focus' && marked ? { kind, like: marked.kind } : { kind }));
-  for (const style of M.edgeStyles || []) key.push({ line: style });
   return {
     width: x1 - x0, height: y1 - y0, key,
     draw(board, ox, oy) {
@@ -981,6 +994,31 @@ function buildGraph(M) {
         shapes.set(n.id, s);
         elements.push({ id: s.id, model: n.id, kind: n.kind, text: label });
       }
+      // Edges that arrive at one magnet each take their own point 24 px along that side, in the order their
+      // sources stand across it, so no two run into one arrowhead. FigJam bends a plain connector itself, so the
+      // first one keeps the magnet, and a pinned route's last corner moves with its point. A dot is where paths
+      // join, so it keeps one point.
+      const fan = {};
+      jobs.forEach((j) => (fan[j.e.to + j.m1] = fan[j.e.to + j.m1] || []).push(j));
+      Object.values(fan).forEach((list) => {
+        const to = list[0].e.to, kind = (M.nodes.find((n) => n.id === to) || {}).kind, v = DIR[list[0].m1], b = boxOf(to);
+        const [h, g, s] = v[0] ? ['y', 'x', 'h'] : ['x', 'y', 'w'];
+        if (!list[1] || FIXED[kind]) return;
+        // Two routes that turn in on one level take the side they come from, the one turning nearer outermost,
+        // so neither crosses the other.
+        const across = (j) => {
+          const n = j.pts ? j.pts.length : 0, a = n ? j.pts[n - 2] : dock(j.e.from, j.m0), p = n > 2 ? j.pts[n - 3] : a;
+          return a[h] + Math.sign(p[h] - a[h]) * (1e4 - Math.abs(a[g] - b[g])) / 1e6;
+        };
+        const c = Math.max(0, list.sort((a, o) => across(a) - across(o)).findIndex((j) => !j.pts));
+        list.forEach((j, i) => {
+          // A round shape's side slopes away from its magnet, so the point steps in to meet it.
+          const d = (i - c) * 24, q = dock(to, j.m1), k = ROUND.has(shapeOf(kind)) ? Math.abs(d) / b[s] : 0;
+          if (!d) return;
+          j.m1 = { x: q.x - b.x + (v[0] ? -v[0] * k * b.w : d), y: q.y - b.y + (v[0] ? d : -v[1] * k * b.h) };
+          if (j.pts) j.pts[j.pts.length - 2][h] += d;
+        });
+      });
       edges.forEach((e) => {
         const from = shapes.get(e.from) || zoneOf.get(e.from);
         const to = shapes.get(e.to) || zoneOf.get(e.to);
@@ -1198,15 +1236,21 @@ function buildGantt(M) {
           bars.set(t.id || t.name, bar);
         });
       });
-      // A dependency runs from the end of the bar it waits on into the top of the bar it starts, so the arrow
-      // turns once. The check puts every bar an `after` names above it. A milestone sits on that end, so its
-      // arrow leaves the bar's foot and meets the diamond's side. Arrows that leave one bar or enter one bar
-      // share its magnet, so a fork or a join reads as one.
-      tasks.forEach((t) => (t.after || []).forEach((id) => {
+      // A dependency runs from the right end of the bar it waits on onto the top of the left end of the bar it
+      // starts, so the arrow turns once and lands where that work begins. The check puts every bar an `after`
+      // names above it. A milestone sits on that end, so its arrow drops from the bar's corner onto the diamond's
+      // top, and one leaves a milestone from its foot. Arrows that leave one bar share its magnet, so a fork reads
+      // as one, and each arrow into one bar lands 16 px along from the one before, the nearest bar's first, so none crosses.
+      // A bar too short for that spacing takes its arrows closer together, so each lands on the bar and within 48 px of
+      // its left end. Arrows into a milestone meet on its top, because a moment is a join with no room to spread them.
+      const at = (id) => tasks.findIndex((x) => (x.id || x.name) === id);
+      tasks.forEach((t) => (t.after || []).sort((a, b) => at(b) - at(a)).forEach((id, k) => {
         const me = t.id || t.name, from = bars.get(id), to = bars.get(me);
         if (!from) return warnings.push(`no task ${id} for ${me} to follow`);
         const ms = statusOf(t) === 'milestone';
-        const c = connect(board, from, to, { name: `edge:${id}->${me}`, m0: ms ? 'BOTTOM' : 'RIGHT', m1: ms ? 'LEFT' : 'TOP' });
+        const c = connect(board, from, to, { name: `edge:${id}->${me}`, m0: from.shapeType === 'DIAMOND' ? 'BOTTOM'
+          : ms ? { x: from.width, y: from.height } : 'RIGHT',
+          m1: ms ? 'TOP' : { x: 8 + k * Math.min(16, (Math.min(to.width, 48) - 12) / Math.max(1, t.after.length - 1)), y: 0 } });
         links.push({ id: c.id, from: from.id, to: to.id, model: `${id}->${me}`, label: '' });
       }));
     },
@@ -1251,6 +1295,7 @@ if (MODEL.subtitle) {
 const ox = BOARD_PAD;
 const oy = up8(cursor + 64);
 body.draw(board, ox, oy);
+for (const line of MODEL.edgeStyles || []) body.key.push({ line });
 
 // Key: one sample per kind and line the board uses, in the order a reader meets them, the focus last. It is
 // as wide as the diagram, and an entry that would run past that edge starts a new row.
@@ -1263,9 +1308,11 @@ key.y = oy + body.height + 64;
 created.push(key.id);
 text(key, T.key.title, SEMI, TYPE.zone, 32, 32);
 const LINES = {
-  dashedOptional: { dashed: true }, dashedAsync: { dashed: true }, identifying: { cap: 'NONE' },
+  solid: {}, dashedOptional: { dashed: true }, dashedAsync: { dashed: true }, identifying: { cap: 'NONE' },
   nonIdentifying: { dashed: true, cap: 'NONE' }, twoWay: { start: 'ARROW_LINES' },
 };
+// The focus entry carries the reason the model gives for it, so a reader sees why the accent falls there.
+const FOCUS = T.kind.focus.key + (MODEL.why ? `: ${MODEL.why}` : '');
 const KINDS = Object.keys(T.kind), LINE_ORDER = Object.keys(LINES), ARROW_ORDER = Object.keys(ARROWS);
 const placeOf = (it) => (it.kind === 'focus' || it.arrow === 'focus' ? 999 : it.kind ? KINDS.indexOf(it.kind)
   : it.line ? 100 + LINE_ORDER.indexOf(it.line) : it.arrow ? 200 + ARROW_ORDER.indexOf(it.arrow) : 300);
@@ -1285,7 +1332,7 @@ for (const item of body.key.sort((a, b) => placeOf(a) - placeOf(b))) {
     sample.y = ky + (56 - sample.height) / 2;
     made.push(sample);
     kx += sample.width + 16;
-    label = T.kind[item.kind].key;
+    label = item.kind === 'focus' ? FOCUS : T.kind[item.kind].key;
   } else if (item.pin) {
     made.push(marker(key, '1', kx, ky + 12, 'key:pin'));
     kx += 48;
@@ -1301,7 +1348,7 @@ for (const item of body.key.sort((a, b) => placeOf(a) - placeOf(b))) {
       color: spec.color, weight: spec.weight });
     made.push(a, b);
     kx += 112;
-    label = name === 'focus' ? T.kind.focus.key : T.key[name];
+    label = name === 'focus' ? FOCUS : T.key[name];
   }
   const t = text(key, label, REGULAR, TYPE.label, kx, ky + 18);
   made.push(t);

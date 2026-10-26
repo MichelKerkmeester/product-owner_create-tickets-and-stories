@@ -9,7 +9,7 @@ trigger_phrases:
   - "restyle figjam boards"
   - "figjam design tokens"
   - "figjam board theme"
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # FigJam Board Design
@@ -56,6 +56,8 @@ So `"goal": "lightTeal"` turns every goal on every board teal and the key says s
 | `junction` | Dark gray | Paths that join | A flow's merge dot |
 | `marker` | Violet | A numbered pin | A sequence's step numbers |
 
+A kind's outline is the composer's too. Kinds that share a shape and whose fills sit within 25 of each other in greyscale also differ by outline, so a board read in greyscale keeps every meaning: `success`, `finalState`, `gateway` and `crit` take a 4 pixel outline, `exit`, `external` and `active` a dashed one and `error` both. `client` and `planned` take the line gray. Section 7 holds a role edit to it.
+
 Light blue serves three roles but never two on one board. A flow and a state diagram start in it, an architecture marks its gateways in it and a gantt chart its work in progress, and the key names the one a board uses. Light teal, light orange and light gray split the same way, by diagram type.
 
 ---
@@ -74,7 +76,7 @@ It keeps first place by three measures, which Section 7 holds every edit to:
 
 ## 4. KINDS AND THE KEY
 
-Each kind in the `kind` group names its role and its key words. `focus` names no role, because it draws the accent's own pair. The key shows one sample per kind, line and arrow the board draws, the kinds in the composer's own order, which reordering the `kind` group does not change, then the lines, the arrows, the step pin and the focus last. It is as wide as the diagram, and an entry that would run past that edge starts a new row.
+Each kind in the `kind` group names its role and its key words. `focus` names no role, because it draws the accent's own pair. The key shows one sample per kind, line and arrow the board draws, the kinds in the composer's own order, which reordering the `kind` group does not change, then the lines, the arrows, the step pin and the focus last. A plain one-way connector is a line like any other and takes the `solid` entry. The focus entry reads `In focus: <reason>` when the model's focus line gives a reason after `because`, and the bare words otherwise. It is as wide as the diagram, and an entry that would run past that edge starts a new row.
 
 The `key` group holds the key's own words: its title, the step pin's entry and one entry per line style and sequence arrow. Its `tint` is the section tint the key sits on.
 
@@ -107,7 +109,7 @@ The `key` group holds the key's own words: its title, the step pin's entry and o
 
 A line colour is one of the colours the swatch block holds, any fill, stroke or text, so it stays on FigJam's palette.
 
-`zone.cycle` lists the section tints zones and gantt sections take in turn. Each takes the first tint along the cycle that no node inside it draws and that no zone beside it took, within two zone gaps on any side. An orange exit never sits in an orange zone and two neighbouring zones never read as one, however the layout placed them. When no tint keeps both rules, a zone keeps the neighbour rule, repeats a member's hue and the composer's warnings say so. Pink stays out of the cycle, because it is the accent's hue, and gray is left for the key.
+`zone.cycle` lists the section tints zones and gantt sections take in turn. Each takes the first tint along the cycle that no node inside it draws and that no zone it faces took, along its row or its column, however wide a label made the gap between them. An orange exit never sits in an orange zone and two neighbouring zones never read as one, however the layout placed them. When no tint keeps both rules, a zone only keeps clear of the zones within two zone gaps on any side, and when none keeps that either, it keeps the neighbour rule, repeats a member's hue and the composer's warnings say so. Pink stays out of the cycle, because it is the accent's hue, and gray is left for the key.
 
 Spacing stays the composer's: the gaps between ranks and zones, the zone margins and the board's margin. The router measures every clearance against that spacing, so a board that reads cramped is fixed in the model, as `references/style-guide.md` Section 7 sets out.
 
@@ -127,6 +129,7 @@ A token that misses a floor falls back to its built-in value and the rest of the
 | Lines | 1 to 4 pixels, `line.color` at 3:1 or more on white and `line.async` and `line.lifeline` at 2:1 or more, because an open head also marks an async message and a lifeline is a guide |
 | Dots | A start, an end, a merge and a fork carry no label, so the fill of the role each draws measures 3:1 or more on white |
 | Kinds apart | No two kinds one type draws share a shape, a pair and an outline |
+| Kinds apart in greyscale | Two kinds one type draws that share a shape and an outline have fills 25 or more apart in luma, so they never differ by colour alone |
 | Type | `small` 14 or more, `label` and `field` from `small` up to `node`, `node` 16 to 24, `zone` from `node` up to 24, the largest zone name the router keeps a zone's head clear for, `subtitle` from `zone` up to `title`, `title` from twice `node` up to 128 |
 | Names | A role or the accent names a swatch, a kind names a role, the cycle and the key's tint name section tints, the cycle holds two or more tints once each and never the key's tint |
 | Words | Key words and `meta.name` on one line of 40 characters or fewer, every character of them text |
@@ -206,6 +209,7 @@ Do pick a role's swatch for what it means on every board, and keep the accent th
     "title": "Key",
     "tint": "gray",
     "pin": "Step number",
+    "solid": "Leads to",
     "dashedOptional": "Optional or proposed",
     "dashedAsync": "Async or outside call",
     "identifying": "Identifying",

@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "process example"
   - "fernhouse refund process"
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # Example - Process - Fernhouse Refund
@@ -84,7 +84,7 @@ flowchart LR
     photo --> check
     check -->|Clear| approve
     approve -->|"Claim queued"| pickup
-    approve -.->|"Logs"| log
+    approve -->|"Logs"| log
     pickup --> inspect
     inspect --> refund
     style customer fill:#F5F5F5,stroke:#B3B3B3

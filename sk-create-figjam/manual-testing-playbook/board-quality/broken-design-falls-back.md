@@ -1,7 +1,8 @@
 ---
 title: "FJ-045 -- A broken design falls back with named findings"
 description: "This scenario validates that a broken design falls back with named findings for `FJ-045`. It checks that a design file with a pink zone tint, the accent's pair on a role and an unknown group still draws the board, in the shipped value for each bad token, and that the reply names each fallback on its own Finding line."
-version: 1.0.1.0
+version: 1.0.2.0
+driver: operator-only
 ---
 
 # FJ-045 -- A broken design falls back with named findings

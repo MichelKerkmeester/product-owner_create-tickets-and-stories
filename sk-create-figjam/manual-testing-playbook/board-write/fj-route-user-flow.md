@@ -1,7 +1,8 @@
 ---
 title: "FJ-018 -- A user flow through the fj fallback"
 description: "This scenario validates a user flow through the fj fallback for `FJ-018`. It checks that with no hosted route but `figma-ds-cli` reachable, a user flow is written node by node into the FigJam file open in Figma Desktop after a gate that names it."
-version: 1.0.0.0
+version: 1.0.1.0
+driver: operator-only
 ---
 
 # FJ-018 -- A user flow through the fj fallback

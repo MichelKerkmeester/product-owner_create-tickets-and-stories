@@ -24,7 +24,8 @@ stays plain Mermaid:
   user flow or a process without lanes reads its zones in flow order, an ER
   diagram draws each one around its entities, and lanes and composite states
   are zones already
-- `%% focus: id` names the one thing the first glance lands on in a diagram
+- `%% focus: id` names the one thing the first glance lands on in a diagram, and `%% focus: id because reason`
+  also says why, which the key draws as `In focus: reason`
   that takes no `style` line: a node of an architecture, a state or an ER
   diagram, a message's number in a sequence, a task's id or name in a gantt.
   It is optional, and a user flow or a process marks its first glance with a
@@ -73,8 +74,8 @@ import mermaid_extract  # noqa: E402
 from figjam_checks import board_geometry as geometry  # noqa: E402
 from figjam_checks import design as board_design  # noqa: E402
 from figjam_checks import er, flowchart, gantt, sequence, state  # noqa: E402
-from figjam_checks.board_fixtures import MODELS as DEFECT_MODELS, NEEDS_STACKING  # noqa: E402
-from figjam_checks.common import ACCENT_PAIRS, CANVAS, content_lines, contrast, statements  # noqa: E402
+from figjam_checks.board_fixtures import COMPOSITE_EXIT, MODELS as DEFECT_MODELS, NEEDS_STACKING  # noqa: E402
+from figjam_checks.common import ACCENT_PAIRS, CANVAS, content_lines, contrast, focus_reason, statements  # noqa: E402
 from figjam_checks.layout import closing_edges  # noqa: E402
 
 PACKET = HERE.parent
@@ -153,10 +154,16 @@ def zone_problems(zones: list[dict], node_ids: list[str], every_node: bool) -> l
 FOCUS_LINE = re.compile(r"^\s*%%\s*focus\s*:", re.I | re.M)
 
 
-def focus_problems(model: dict, profile: str, target: str, lines: int) -> list[str]:
-    """Mark the one thing a `%% focus:` line names, or say why it names nothing."""
+def focus_problems(model: dict, profile: str, target: str, lines: int, reason: str = "") -> list[str]:
+    """Mark the one thing a `%% focus:` line names and carry its reason to the key, or say why it names nothing."""
     if profile in (flowchart.USER_FLOW, flowchart.PROCESS):
-        return ["%% focus on a user flow or a process: mark the first glance with a style line"]
+        # A flow marks its first glance with a style line, so its focus line only says why, and names that node.
+        styled = [n for n in model["nodes"] if n["id"] == target and (n.get("accent") or n["kind"] == "focus")]
+        if lines > 1 or not (reason and styled):
+            return ["%% focus on a user flow or a process: mark the first glance with a style line, and give its reason as "
+                    "%% focus: <styled id> because <reason>"]
+        model["why"] = reason
+        return []
     if lines > 1:
         return [f"{lines} %% focus lines, at most 1: the first glance is one thing"]
     if profile == "sequence":
@@ -172,6 +179,8 @@ def focus_problems(model: dict, profile: str, target: str, lines: int) -> list[s
     if not marked:
         return [f"%% focus: {target or '(empty)'} names nothing: write {what}"]
     marked[0]["accent"] = True
+    if reason:
+        model["why"] = reason
     return []
 
 
@@ -291,6 +300,8 @@ def flowchart_model(diagram: mermaid_extract.Diagram, block_text: str, profile: 
         if edge.bidirectional:
             entry["twoWay"] = True
             styles.append("twoWay")
+        if edge.style != "dashed" and not edge.bidirectional:
+            styles.append("solid")
         edges.append(entry)
     model = {"type": "graph", "profile": profile, "direction": "TB" if diagram.direction in ("TD", "TB") else "LR",
              "zoneMode": mode, "zones": model_zones, "nodes": nodes, "edges": edges,
@@ -334,7 +345,7 @@ def state_model(diagram: mermaid_extract.Diagram, block_text: str) -> tuple[dict
         nodes.append({"id": node.id, "label": node.label, "kind": kind, "zone": node.parent})
     edges = [{"from": e.source, "to": e.target, "label": e.label} for e in diagram.edges]
     model = {"type": "graph", "profile": "state", "direction": "TB" if diagram.direction in ("TD", "TB") else "LR",
-             "zoneMode": "group", "zones": zones, "nodes": nodes, "edges": edges, "edgeStyles": [],
+             "zoneMode": "group", "zones": zones, "nodes": nodes, "edges": edges, "edgeStyles": ["solid"] if edges else [],
              "expect": {"nodes": len(nodes), "connectors": len(edges)}}
     return model, []
 
@@ -471,6 +482,7 @@ def gantt_model(block_text: str) -> tuple[dict, list[str]]:
     model = {"type": "gantt", "unit": "day" if unit == SECONDS_PER_DAY else "minute",
              "origin": origin.strftime("%Y-%m-%d" if unit == SECONDS_PER_DAY else "%H:%M"),
              "span": max(offset(task["span"][1]) for task in tasks), "sections": sections,
+             "edgeStyles": ["solid"] if any(task["after"] for task in tasks) else [],
              "expect": {"nodes": len(tasks), "connectors": sum(len(task["after"]) for task in tasks)}}
     return model, []
 
@@ -498,7 +510,12 @@ def build_model(block: mermaid_extract.SourceBlock, number: int) -> tuple[dict |
     if zones and profile in ("state", "sequence", "gantt", flowchart.ARCHITECTURE):
         found.append(f"%% zone lines on a {flow_check.NAMES[profile]}: this kind draws its own grouping")
     if text.get("focus") or FOCUS_LINE.search(block.text):
-        found += focus_problems(model, profile, text.get("focus", ""), len(FOCUS_LINE.findall(block.text)))
+        value = text.get("focus", "")
+        # A gantt task's own name may hold the word because, so a value that names a task whole names that task.
+        whole = profile == "gantt" and any(value in (task["id"], task["name"]) for section in model["sections"]
+                                           for task in section["tasks"])
+        target, reason = (value, "") if whole else focus_reason(value)
+        found += focus_problems(model, profile, target, len(FOCUS_LINE.findall(block.text)), reason)
     model.update({"title": board_title(block.text, text, number), "subtitle": text.get("subtitle", ""),
                   "source": text.get("source", "")})
     return model, found, size
@@ -511,6 +528,7 @@ def build_model(block: mermaid_extract.SourceBlock, number: int) -> tuple[dict |
 # A space between two of these and anything else changes nothing in JavaScript, except where two signs
 # would fuse into one token, which `squeeze` keeps apart.
 LOOSE = set("{}()[],;:=+-*/<>!&|?.%^~")
+JOIN_AFTER, JOIN_BEFORE, JOIN_WIDTH = set(";{[(,"), set("}])"), 500
 FUSING = set("+-")
 
 
@@ -607,7 +625,16 @@ def compact_template(kind: str | None = None) -> str:
     # The code is pasted into every call, so full-line comments, indentation and the spaces around operators
     # are dropped. None carries meaning in JavaScript, and no string in the composer spans a line.
     lines = [squeeze(line.strip()) for line in template.splitlines()]
-    return "\n".join(line for line in lines if line and not line.startswith("//"))
+    lines = [line for line in lines if line and not line.startswith("//")]
+    # A line break after an opening bracket, a comma or a semicolon, or before a closing bracket, ends nothing
+    # JavaScript would not end anyway, so such lines are joined up to JOIN_WIDTH characters to leave the model room.
+    joined: list[str] = []
+    for line in lines:
+        if joined and (joined[-1][-1] in JOIN_AFTER or line[0] in JOIN_BEFORE) and len(joined[-1]) + len(line) <= JOIN_WIDTH:
+            joined[-1] += line
+        else:
+            joined.append(line)
+    return "\n".join(joined)
 
 
 def lean(value: object) -> object:
@@ -739,12 +766,16 @@ def accent_ids(model: dict) -> set[str]:
     return {node["id"] for node in model["nodes"] if node.get("accent") or node["kind"] == "focus"}
 
 
-LINE_ORDER = ("dashedOptional", "dashedAsync", "identifying", "nonIdentifying", "twoWay")
+LINE_ORDER = ("solid", "dashedOptional", "dashedAsync", "identifying", "nonIdentifying", "twoWay")
 ARROW_ORDER = ("request", "reply", "async", "asyncReply")
 
 
 def zone_tint_problems(drawn: dict, model: dict, design: dict) -> list[str]:
-    """Zones and gantt bands whose tint repeats the hue of a node inside them or the tint of a zone beside them."""
+    """Zones and gantt bands whose tint repeats the hue of a node inside them or the tint of a zone beside them.
+
+    A zone facing another along its row or its column takes another tint however wide the gap between them, unless
+    the cycle has no tint left that keeps clear of its members and of every zone it faces.
+    """
     fills, tints = board_design.colour_names(design)
     labels = [z["label"] for z in model.get("zones", [])] or [s["label"] for s in model.get("sections", [])]
     problems, placed = [], []
@@ -758,12 +789,18 @@ def zone_tint_problems(drawn: dict, model: dict, design: dict) -> list[str]:
                 if n["parent"] == label and n["name"].startswith("node:")}
         beside = [z for z in placed if z["x"] < section["x"] + section["w"] + reach and section["x"] < z["x"] + z["w"] + reach
                   and z["y"] < section["y"] + section["h"] + reach and section["y"] < z["y"] + z["h"] + reach]
+        facing = [z for z in placed if (z["x"] < section["x"] + section["w"] + reach and section["x"] < z["x"] + z["w"] + reach)
+                  or (z["y"] < section["y"] + section["h"] + reach and section["y"] < z["y"] + z["h"] + reach)]
+        free = [t for t in design["zone"]["cycle"] if board_design.family(t) not in hues and t not in {z["tint"] for z in facing}]
         if not tint:
             problems.append(f"zone {label} is drawn in {geometry.hex_of(section['fill'])}, which is no FigJam tint")
         elif board_design.family(tint) in hues:
             problems.append(f"zone {label} takes the {tint} tint, the hue of a node inside it")
         else:
             problems += [f"zone {label} takes the {tint} tint of {z['name']} beside it" for z in beside if z["tint"] == tint]
+            if free:
+                problems += [f"zone {label} takes the {tint} tint of {z['name']}, which it faces, while {free[0]} is free"
+                             for z in facing if z["tint"] == tint and z not in beside]
         placed.append({**section, "tint": tint})
     return problems
 
@@ -804,6 +841,24 @@ def key_problems(drawn: dict, design: dict) -> list[str]:
     right = max(n["x"] + n["w"] for n in drawn["nodes"] if n["name"].startswith(("node:", "foot:")))
     if key["x"] + key["w"] < right - 1:
         problems.append(f"the key ends at {key['x'] + key['w']:.0f} and the diagram runs on to {right:.0f}")
+    return problems
+
+
+def outline_problems(drawn: dict, design: dict) -> list[str]:
+    """Shapes whose outline is not their kind's: a heavy, dashed or line-gray cue, a ring or the plain pair stroke."""
+    kinds = {e["id"]: e["kind"] for e in (drawn["result"] or {}).get("elements", [])}
+    problems = []
+    for n in drawn["nodes"]:
+        kind = kinds.get(n["id"])
+        if kind is None or (n.get("weight") or 0) >= design["accent"]["node"]:
+            continue
+        cue = design["outline"].get(kind, "")
+        weight = 6 if cue == "ring" else 4 if cue.startswith("heavy") else 2
+        dashed = bool(n.get("dash"))
+        lined = geometry.hex_of(n.get("stroke")) == design["line"]["color"].lower()
+        if n.get("weight") != weight or dashed != cue.endswith("dash") or lined != (cue == "line"):
+            problems.append(f"{n['name']} is a {kind} drawn {n.get('weight')} px{' dashed' if dashed else ''}"
+                            f"{' in the line gray' if lined else ''} where its outline is {cue or 'plain'}")
     return problems
 
 
@@ -870,6 +925,8 @@ def drawn_checks(name: str, model: dict, drawn: dict, design: dict) -> list[tupl
                     drawn["error"] or "; ".join(warnings)))
     if drawn["error"]:
         return results
+    cues = outline_problems(drawn, design)
+    results.append((f"{name} draws each kind's own outline, so no two kinds differ by colour alone", not cues, "; ".join(cues)))
     keyed = key_problems(drawn, design)
     results.append((f"{name} keys every mark in the design's order, as wide as the diagram", not keyed, "; ".join(keyed)))
     if model["type"] == "sequence":
@@ -887,6 +944,12 @@ def drawn_checks(name: str, model: dict, drawn: dict, design: dict) -> list[tupl
         results.append((f"{name} {what}", not marked, "; ".join(marked)))
         tinted = zone_tint_problems(drawn, model, design)
         results.append((f"{name} tints every zone apart from its members and its neighbour", not tinted, "; ".join(tinted)))
+    if model["type"] != "sequence":
+        merged = geometry.shared_arrivals(drawn)
+        results.append((f"{name} gives every edge into a node its own point", not merged, "; ".join(merged)))
+    if model["type"] == "gantt":
+        ends = geometry.gantt_arrow_ends(drawn)
+        results.append((f"{name} runs each arrow from a bar's right end onto the next bar's left end", not ends, "; ".join(ends)))
     if model["type"] == "gantt" or model.get("profile") == "er":
         ends = end_problems(drawn, model)
         what = "draws each dependency as one arrow from the bar it waits on" if model["type"] == "gantt" \
@@ -921,7 +984,9 @@ def drawn_checks(name: str, model: dict, drawn: dict, design: dict) -> list[tupl
     printed = geometry.labels_off_titles(drawn, labels)
     results.append((f"{name} prints no edge label on a zone title", not printed, "; ".join(printed)))
     tangled = geometry.labels_clear(drawn)
-    results.append((f"{name} keeps every label off a node, another edge and another label", not tangled, "; ".join(tangled)))
+    results.append((f"{name} keeps every label clear of a node, another edge and another label", not tangled, "; ".join(tangled)))
+    hidden = geometry.labels_on_short_legs(drawn)
+    results.append((f"{name} sets every label on a leg longer than the label", not hidden, "; ".join(hidden)))
     crossing = geometry.crossing_edges(drawn)
     results.append((f"{name} draws no edge across another", not crossing, "; ".join(crossing)))
     lying = geometry.shared_stretches(drawn)
@@ -984,6 +1049,12 @@ def design_checks(base: dict, design: dict, notes: list[str], sent: dict) -> lis
     missed = board_design.floors(base)
     results.append(("the composer's built-in design keeps every floor: text, accent hue, contrast and weight, kinds apart "
                     "and type bounds", not missed, "; ".join(problem for problem, _ in missed)))
+    plain = copy.deepcopy(base)
+    plain["outline"] = {kind: cue for kind, cue in base["outline"].items() if kind in ("final", "crit", "planned")}
+    grey = [problem for problem, _ in board_design.floors(plain) if "differ only by colour" in problem]
+    results.append(("without their outlines the flow's start, goal, exit and error differ only by colour, and the floor says so",
+                    all(any(f"{a} and {b} on a user flow" in p for p in grey) for a, b in
+                        (("start", "success"), ("success", "exit"), ("exit", "error"))), "; ".join(grey[:3])))
     results.append((f"{board_design.DESIGN_FILE.name} reads as one json block with no token falling back", not notes,
                     "; ".join(notes)))
     data, reason = board_design.read_block(board_design.DESIGN_FILE.read_text(encoding="utf-8")) \
@@ -1023,8 +1094,10 @@ def design_checks(base: dict, design: dict, notes: list[str], sent: dict) -> lis
         ("a size written as text", design_text({"type": {"node": "20"}}), "type.node should be int", ("type", "node")),
         ("pink back in the tint cycle", design_text({"zone": {"cycle": ["blue", "orange", "pink"]}}), "pink zone tint sits",
          ("zone", "cycle")),
-        ("a goal drawn in the exit's pair", design_text({"role": {"goal": "lightOrange"}}), "success and exit draw one shape",
-         ("role", "goal")),
+        ("a start drawn in the step's pair", design_text({"role": {"entry": "white"}}), "start and screen draw one shape",
+         ("role", "entry")),
+        ("a start as light as a step in greyscale", design_text({"role": {"entry": "lightTeal"}}), "differ only by colour",
+         ("role", "entry")),
         ("a role drawn in the accent's pair", design_text({"role": {"goal": "lightPink"}}), "the accent's own pair",
          ("role", "goal")),
         ("an accent outline no heavier than an end state's ring", design_text({"accent": {"node": 6}}), "outweigh the 6 px ring",
@@ -1181,6 +1254,46 @@ def focus_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
         _, problems, _ = build_model(mermaid_extract.SourceBlock(1, f"{GOOD[kind]}\n{lines}\n", 1), 1)
         results.append((f"{lines.splitlines()[0]} on {kind} is refused with '{message}'", any(message in p for p in problems),
                         "; ".join(problems)))
+    # A reason after `because` reaches the key as `In focus: <reason>`, on a flow's styled node too.
+    reasons = [("an architecture", "orders", "every order passes it"), ("a user flow with one accent", "done", "the goal")]
+    for kind, target, reason in reasons:
+        model, problems, _ = build_model(mermaid_extract.SourceBlock(1, f"{GOOD[kind]}\n%% focus: {target} because {reason}\n", 1), 1)
+        drawn = geometry.run_trace(fill_template(model, sent), work) if model and not problems else None
+        texts = [n["text"] for n in drawn["nodes"] if n["parent"] == "Key" and n["type"] == "TEXT"] if drawn else []
+        results.append((f"%% focus: {target} because {reason} on {kind} keys the focus as In focus: {reason}",
+                        f"In focus: {reason}" in texts, "; ".join(problems) or ", ".join(texts)))
+    _, problems, _ = build_model(mermaid_extract.SourceBlock(1, f"{GOOD['an architecture']}\n%% focus: orders because "
+                                                               f"{'x' * 31}\n", 1), 1)
+    results.append(("a focus reason over 30 characters is refused before a key could run past 40",
+                    any("at most 30" in p for p in problems), "; ".join(problems)))
+    return results
+
+
+def composite_exit_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
+    """A composite state's guarded exit sets its label on a leg longer than the label, clear of every node."""
+    drawn = geometry.run_trace(fill_template(COMPOSITE_EXIT, sent), work)
+    hidden = geometry.labels_on_short_legs(drawn)
+    pressed = [p for p in geometry.labels_clear(drawn) if " prints on node:" in p]
+    texts = [n["text"] for n in drawn["nodes"] if n["parent"] == "Key" and n["type"] == "TEXT"]
+    # The long exit still crosses the Completed end, an open defect recorded here, so any other crossing fails.
+    crossing = geometry.crossing_edges(drawn)
+    open_crossing = len(crossing) <= 1 and all(c.startswith("edge:Confirmed->NoShow ") for c in crossing)
+    name = "a state machine whose composite state has four exits"
+    return [(f"{name} sets every label on a leg longer than the label", not hidden, "; ".join(hidden)),
+            (f"{name} crosses no edge but the one its long exit is known to cross", open_crossing, "; ".join(crossing)),
+            (f"{name} keeps every label 8 px clear of every node", not pressed, "; ".join(pressed)),
+            (f"{name} keys its focus with the reason the model gives", "In focus: guests set it most" in texts, ", ".join(texts))]
+
+
+def key_line_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
+    """A board that draws a plain one-way connector keys it, and one that draws none does not."""
+    results = []
+    for example, keyed in (("user-flow-fernhouse-return.md", True), ("state-roamstay-booking.md", True),
+                           ("gantt-loomlist-offline.md", True), ("er-roamstay-stays.md", False)):
+        model, problems, _ = build_model(mermaid_extract.load_blocks(PACKET / "assets" / "examples" / example)[0], 1)
+        entries = key_entries(geometry.run_trace(fill_template(model, sent), work)) if model else []
+        results.append((f"{example} {'keys' if keyed else 'leaves out'} the plain connector", ("solid" in entries) == keyed,
+                        ", ".join(entries) or "; ".join(problems)))
     return results
 
 
@@ -1251,16 +1364,17 @@ def planted_board(zone: tuple[float, float, float, float] | None, edges: list[di
 
 
 def fan_in_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
-    """Four sockets on a gateway of four magnets: the last one merges into an arrival instead of looping to a free magnet."""
+    """Four sockets on a gateway of four magnets: the last one arrives beside another instead of looping to a free magnet."""
     name = "an architecture with four clients on one gateway"
     drawn = geometry.run_trace(fill_template(DEFECT_MODELS[name], sent), work)
     into = [e for e in geometry.drawn_edges(drawn) if e["name"].endswith("->api")]
     long = [p for p in geometry.long_detours(drawn) if "->api" in p]
     merged = any({x for x in e["ports"] if x[2] == "in"} & {x for x in o["ports"] if x[2] == "in"}
                  for e in into for o in into if e is not o)
+    apart = not [p for p in geometry.shared_arrivals(drawn) if "->api" in p]
     return [(f"{name} runs every edge into the gateway within twice the gap between its boxes", len(into) == 4 and not long,
              "; ".join(long)),
-            (f"{name} lets two sockets arrive at one magnet of the gateway", merged, "")]
+            (f"{name} lets two sockets arrive at one side of the gateway, each at its own point", merged and apart, "")]
 
 
 def checker_checks() -> list[tuple[str, bool, str]]:
@@ -1360,6 +1474,8 @@ def self_test() -> int:
             results += defect_checks(Path(work), sent, design)
             results += focus_checks(Path(work), sent)
             results += fan_in_checks(Path(work), sent)
+            results += key_line_checks(Path(work), sent)
+            results += composite_exit_checks(Path(work), sent)
             results += restyle_checks(Path(work), base)
             results += font_checks(Path(work))
             results += cap_checks(Path(work))

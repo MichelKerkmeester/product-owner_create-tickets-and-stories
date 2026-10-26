@@ -56,15 +56,15 @@ Check these rule by rule before the gate:
 
 Judged by hand:
 
-- **`->>` for a request and `-->>` for its return** covers most diagrams. Add an async arrow only when the message really is fire-and-forget
+- **`->>` for a request and `-->>` for its return** covers most diagrams. Add an async arrow only when the message really is fire-and-forget. A message the caller sends without waiting for an answer, such as telling another system an event happened, is async even when the brief does not say fire-and-forget
 - **Labels carry the specifics that make a sequence useful,** such as the path, the status code or the key field: `POST /bookings`, `402 Declined`
-- **One path per diagram.** A failure path is its own diagram, because `alt` would render flat
+- **One path per diagram.** A failure path is its own diagram, because `alt` would render flat. When the user asked for one diagram, the failure path is named under `Left out:` and offered as a second diagram in the playback
 
 ---
 
 ## 4. BUDGET AND SPLITTING
 
-Over 5 participants or 12 messages, split into the happy path and a detail, such as the failure or the retry. Put both in one file, named after the path each shows. At `Meeting screen` distance message labels drop to 32 characters. At `Wall` distance the budget drops to 3 participants and 8 messages, with labels at 25 characters, as the reading distance dial in Templates - Flow Mode Section 4 sets out.
+Over 5 participants or 12 messages, split into the happy path and a detail, such as the failure or the retry. Put both in one file, named after the path each shows. When the user asked for one diagram or one board, cut the detail instead, name it under `Left out:` and offer the split as the alternative in the playback. At `Meeting screen` distance message labels drop to 32 characters. At `Wall` distance the budget drops to 3 participants and 8 messages, with labels at 25 characters, as the reading distance dial in Templates - Flow Mode Section 4 sets out.
 
 ---
 

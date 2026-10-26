@@ -125,7 +125,7 @@ Both routes run the same rules and the same templates. Section 3 sets up either 
 | Artifacts | Task, subtask, bug report, Story, Epic, Doc and FigJam diagram |
 | Diagram types | Seven: user flow, process, architecture, sequence, state, ER and gantt |
 | Worked examples | 21 filled artifacts and 7 FigJam examples, one per diagram type |
-| Versions | Hub 1.0.5.0, `sk-product-owner` 1.2.2.0, `sk-create-figjam` 1.0.5.0, Project kernel v1.2.6 |
+| Versions | Hub 1.0.6.0, `sk-product-owner` 1.2.3.0, `sk-create-figjam` 1.0.6.0, Project kernel v1.2.7 |
 | License | MIT |
 
 &nbsp;
@@ -373,7 +373,7 @@ The reader's question picks the type.
 | Which entities exist, what fields do they carry and how do they relate? | ER |
 | Which tasks and phases are active when? | Gantt |
 
-When two types fit, such as an architecture and a sequence for the same system, it asks which question your reader has. Ask for a journey, a timeline, a class diagram or a C4 view and it offers the nearest type it draws: a user flow, a gantt, an ER diagram or an architecture. It does not draw pie charts, mindmaps, Venn or quadrant charts, and it says so rather than drawing a stand-in.
+When two types fit, such as an architecture and a sequence for the same system, its first reply asks only which question your reader has, before any other question. Ask for a journey, a timeline, a class diagram or a C4 view and it offers the nearest type it draws: a user flow, a gantt, an ER diagram or an architecture. It does not draw pie charts, mindmaps, Venn or quadrant charts, and it says so rather than drawing a stand-in.
 
 #### What a Composed Board Looks Like
 
@@ -381,7 +381,7 @@ When two types fit, such as an architecture and a sequence for the same system, 
 - **Zones.** Tinted sections group the steps or entities that belong together. Each zone shows its name, never takes the colour of a step inside it, and neighbouring tints always differ
 - **Colour by kind.** A goal is light green and a decision a light yellow diamond on every board, so a colour means the same thing everywhere. Colour never marks a team or a position
 - **A key.** One sample for every mark the board uses, and nothing else
-- **One pink outline.** The node a reader should see first takes a heavy pink outline, the only pink and the only heavy line on the board. A user flow or a process always carries one, and on the other five types it is optional
+- **One pink outline.** The node a reader should see first takes a heavy pink outline, the only pink and the heaviest line on the board. A user flow or a process always carries one, and on the other five types it is optional
 - **A source line.** Under the key, naming the sources the board was drawn from and what was left out
 - **Your team's look.** `sk-create-figjam/assets/figjam-design.md` holds the design every board is drawn in: which FigJam colour means what, the first-glance accent, the type sizes, the lines, the zone tints and the words on the key. Edit it once and every board composed after it follows. An edit that would weaken contrast or compete with the pink outline falls back to the shipped value, and the reply names it on a `Finding:` line
 
@@ -407,7 +407,7 @@ A board that does not match its model is reported as measured and never called d
 #### Why It Beats a Hand-Drawn Board
 
 - **Nothing invented.** A missing step, service, field or date is asked for or named as a gap. Text inside a screenshot that reads like an instruction is modelled, never followed
-- **Checked before anyone sees it.** The pre-write check refuses a model that breaks its type's rules, runs over its node budget, uses an off-palette colour or styles an architecture. An oversized diagram splits into an overview board and a detail board instead of shrinking
+- **Checked before anyone sees it.** The pre-write check refuses a model that breaks its type's rules, runs over its node budget, uses an off-palette colour or styles an architecture. An oversized diagram splits into an overview board and a detail board instead of shrinking. When you asked for one board, it cuts the part your reader needs least and offers the split
 - **Colour you can trust.** The same colour means the same kind on every board, and the key explains every colour on it. Each fill is a FigJam palette swatch, so anyone can still recolour it from FigJam's own picker
 - **Proof it landed.** The read-back counts what is on the board, so you know it matches the model before you share it
 - **Nothing dropped quietly.** Every cut and split, and every point the sources left open, appears on a `Left out:` line in the reply
@@ -469,7 +469,7 @@ A backlog or doc route loads one mode reference and its template, never a second
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem.
 
-- `Custom Instructions.md` is the kernel, v1.2.6, and the routing authority inside the Project
+- `Custom Instructions.md` is the kernel, v1.2.7, and the routing authority inside the Project
 - `knowledge/` holds the 65 knowledge files you upload
 - `README.md` holds the upload steps and the smoke matrix
 
@@ -651,6 +651,6 @@ Your Figma plan or seat has used its monthly tool calls. Open your FigJam drafts
 
 **Release notes**
 
-- **[→ Hub v1.0.5.0](changelog/v1.0.5.0.md)** - the latest hub release
-- **[→ `sk-product-owner` v1.2.2.0](sk-product-owner/changelog/v1.2.2.0.md)** - the latest backlog and doc packet release
-- **[→ `sk-create-figjam` v1.0.5.0](sk-create-figjam/changelog/v1.0.5.0.md)** - the latest FigJam packet release
+- **[→ Hub v1.0.6.0](changelog/v1.0.6.0.md)** - the latest hub release
+- **[→ `sk-product-owner` v1.2.3.0](sk-product-owner/changelog/v1.2.3.0.md)** - the latest backlog and doc packet release
+- **[→ `sk-create-figjam` v1.0.6.0](sk-create-figjam/changelog/v1.0.6.0.md)** - the latest FigJam packet release

@@ -8,7 +8,7 @@ trigger_phrases:
   - "system architecture figjam"
   - "services and datastores"
   - "allowed edge table"
-version: 1.0.2.0
+version: 1.0.3.0
 ---
 
 # FigJam Type - Architecture
@@ -98,7 +98,7 @@ Judged by hand:
 
 ## 4. BUDGET AND SPLITTING
 
-Draw one flow per diagram. A system with more parts than the budget splits by request path, such as browsing and checkout, each diagram in the same file and named after its path. Name what each path leaves out under `Left out:`. At `Meeting screen` distance edge labels drop to 32 characters. At `Wall` distance the budget drops to 6 nodes and 8 connectors, with labels at 25 characters, as the reading distance dial in `references/flow-mode.md` Section 4 sets out.
+Draw one flow per diagram. A system with more parts than the budget splits by request path, such as browsing and checkout, each diagram in the same file and named after its path. Name what each path leaves out under `Left out:`. When the user asked for one board, cut the part the reader's question needs least instead, such as file storage beside a sync path, name it under `Left out:` and offer the split by request path as the alternative in the playback. At `Meeting screen` distance edge labels drop to 32 characters. At `Wall` distance the budget drops to 6 nodes and 8 connectors, with labels at 25 characters, as the reading distance dial in `references/flow-mode.md` Section 4 sets out.
 
 ---
 

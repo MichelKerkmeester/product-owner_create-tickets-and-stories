@@ -1,7 +1,7 @@
 ---
 title: "FJ-005 -- A sequence with an alias and a note is refused"
 description: "This scenario validates a sequence with an alias and a note is refused for `FJ-005`. It checks that the check refuses a sequence model that uses an alias and a note, naming each rule."
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # FJ-005 -- A sequence with an alias and a note is refused
@@ -25,8 +25,8 @@ Neither the composer nor Figma's generated fallback draws aliases and notes, and
 Operators run the exact prompt and command sequence for `FJ-005` and confirm the expected signals without contradictory evidence.
 
 - Objective: Verify that the check refuses a sequence model that uses an alias and a note, naming each rule
-- Real user request: `As the operator, run the sk-create-figjam check on a sequence model with an aliased participant and a note. Verify it fails and names both rules. Return the output and exit status.`
-- Prompt: `As the operator, run the sk-create-figjam check on a sequence model with an aliased participant and a note. Verify it fails and names both rules. Return the output and exit status.`
+- Real user request: `As the operator, run the sk-create-figjam check on a sequence model with a terse participant id G aliased as GuestApp and a note. Verify it fails and names all three rules. Return the output and exit status.`
+- Prompt: `As the operator, run the sk-create-figjam check on a sequence model with a terse participant id G aliased as GuestApp and a note. Verify it fails and names all three rules. Return the output and exit status.`
 - Expected execution process: Write the planted model to a scratch file outside the repository and run the check on it
 - Expected signals: The output names the alias, the note and the short id, ends `FAILED 1 of 1 diagram(s)` and exits 1
 - Desired user-visible outcome: A refusal that says what to change
@@ -38,7 +38,7 @@ Operators run the exact prompt and command sequence for `FJ-005` and confirm the
 
 ### Prompt
 
-- Prompt: `As the operator, run the sk-create-figjam check on a sequence model with an aliased participant and a note. Verify it fails and names both rules. Return the output and exit status.`
+- Prompt: `As the operator, run the sk-create-figjam check on a sequence model with a terse participant id G aliased as GuestApp and a note. Verify it fails and names all three rules. Return the output and exit status.`
 
 ### Recommended Orchestration Process
 
@@ -50,7 +50,7 @@ Operators run the exact prompt and command sequence for `FJ-005` and confirm the
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| FJ-005 | A sequence with an alias and a note is refused | Verify that the check refuses a sequence model that uses an alias and a note, naming each rule | `As the operator, run the sk-create-figjam check on a sequence model with an aliased participant and a note. Verify it fails and names both rules. Return the output and exit status.` | 1. `bash: write a sequence model to <scratch>/seq.md with participant G as GuestApp, a message from G and Note over BookingApi: holds the room` -> 2. `bash: python3 sk-create-figjam/scripts/flow_check.py <scratch>/seq.md; echo exit $?` | Step 2 prints the alias, note and id failures and `exit 1` | The scratch model and the command output with its exit status | PASS if every planted defect is named and the exit status is 1. FAIL if the model passes, a defect goes unnamed or the exit status is not 1 | 1. Check `scripts/figjam_checks/sequence.py` for the alias and note rules 2. Check `references/types/sequence.md` Section 3 |
+| FJ-005 | A sequence with an alias and a note is refused | Verify that the check refuses a sequence model that uses an alias and a note, naming each rule | `As the operator, run the sk-create-figjam check on a sequence model with a terse participant id G aliased as GuestApp and a note. Verify it fails and names all three rules. Return the output and exit status.` | 1. `bash: write a sequence model to <scratch>/seq.md with participant G as GuestApp, a message from G and Note over BookingApi: holds the room` -> 2. `bash: python3 sk-create-figjam/scripts/flow_check.py <scratch>/seq.md; echo exit $?` | Step 2 prints the alias, note and id failures and `exit 1` | The scratch model and the command output with its exit status | PASS if every planted defect is named and the exit status is 1. FAIL if the model passes, a defect goes unnamed or the exit status is not 1 | 1. Check `scripts/figjam_checks/sequence.py` for the alias, note and short id rules 2. Check `references/types/sequence.md` Section 3 |
 
 ### Commands
 
@@ -72,7 +72,7 @@ The scratch model and the command output with its exit status
 
 ### Failure Triage
 
-1. Check `scripts/figjam_checks/sequence.py` for the alias and note rules
+1. Check `scripts/figjam_checks/sequence.py` for the alias, note and short id rules
 2. Check `references/types/sequence.md` Section 3
 
 ---
