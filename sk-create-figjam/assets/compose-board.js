@@ -298,6 +298,17 @@ function tintFor(i, kinds, label, x, y, w, h) {
   return t;
 }
 
+// A request and a reply end in a closed head and an async message in an open one, so the two read apart
+// by their head as well as their colour. A request draws the board's own line, as every other type does.
+// The key draws these too, so they sit with the primitives rather than with the sequence builder.
+const ARROWS = {
+  request: { cap: 'ARROW_EQUILATERAL' },
+  reply: { dashed: true, cap: 'ARROW_EQUILATERAL' },
+  async: { cap: 'ARROW_LINES', color: T.line.async },
+  asyncReply: { dashed: true, cap: 'ARROW_LINES', color: T.line.async },
+  focus: { cap: 'ARROW_EQUILATERAL', color: ACCENT, weight: T.accent.message },
+};
+
 // ───────────────────────────────────────────────────────────────
 // 4. LAYERED LAYOUT
 // ───────────────────────────────────────────────────────────────
@@ -1008,15 +1019,6 @@ function buildGraph(M) {
 // 6. SEQUENCE BOARDS
 // ───────────────────────────────────────────────────────────────
 
-// A request and a reply end in a closed head and an async message in an open one, so the two read apart
-// by their head as well as their colour. A request draws the board's own line, as every other type does.
-const ARROWS = {
-  request: { cap: 'ARROW_EQUILATERAL' },
-  reply: { dashed: true, cap: 'ARROW_EQUILATERAL' },
-  async: { cap: 'ARROW_LINES', color: T.line.async },
-  asyncReply: { dashed: true, cap: 'ARROW_LINES', color: T.line.async },
-  focus: { cap: 'ARROW_EQUILATERAL', color: ACCENT, weight: T.accent.message },
-};
 function buildSequence(M) {
   const sizes = M.participants.map((p) => fit(p.label, 'ROUNDED_RECTANGLE'));
   const pw = Math.max(...sizes.map((s) => s.w));

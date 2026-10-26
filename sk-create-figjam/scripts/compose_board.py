@@ -564,12 +564,46 @@ def squeeze(line: str) -> str:
     return "".join(out)
 
 
-def compact_template() -> str:
-    """The composer code with its comments, indentation and idle spaces dropped and MODEL and THEME left placeholders."""
+# The composer's numbered sections each model type draws with. Sections 1 to 3 and 8 serve every type, and
+# a call carries only its own type's builder, so a sequence or a gantt call is less than half the whole code.
+TYPE_SECTIONS = {"graph": ("4", "5"), "sequence": ("6",), "gantt": ("7",)}
+BUILDERS_LINE = "const builders = { graph: buildGraph, sequence: buildSequence, gantt: buildGantt };"
+BUILD_CALL = "body = (builders[MODEL.type] || buildGraph)(MODEL);"
+SECTION_HEAD = re.compile(r"^// (\d+)\. [A-Z]")
+
+
+def for_type(template: str, kind: str) -> str:
+    """The composer source with the builders other model types need left out."""
+    keep = TYPE_SECTIONS[kind]
+    builder = {"graph": "buildGraph", "sequence": "buildSequence", "gantt": "buildGantt"}[kind]
+    for line in (BUILDERS_LINE, BUILD_CALL):
+        if template.count(line) != 1:
+            raise SystemExit(f"{TEMPLATE} must hold `{line}` exactly once")
+    out, section = [], None
+    for line in template.splitlines():
+        head = SECTION_HEAD.match(line)
+        if head:
+            section = head.group(1)
+        if section in {s for sections in TYPE_SECTIONS.values() for s in sections} - set(keep):
+            continue
+        out.append(line)
+    source = "\n".join(out)
+    source = source.replace(BUILDERS_LINE, f"const builders = {{ {kind}: {builder} }};")
+    return source.replace(BUILD_CALL, "body = builders[MODEL.type](MODEL);")
+
+
+def compact_template(kind: str | None = None) -> str:
+    """The composer code with its comments, indentation and idle spaces dropped and MODEL and THEME left placeholders.
+
+    With a model type it carries only that type's builder. Without one it is the whole composer, which the
+    Project mirror copies, because a Project agent fills MODEL by hand for any type.
+    """
     template = TEMPLATE.read_text(encoding="utf-8")
     for placeholder in (PLACEHOLDER, THEME_PLACEHOLDER):
         if template.count(placeholder) != 1:
             raise SystemExit(f"{TEMPLATE} must hold {placeholder} exactly once")
+    if kind in TYPE_SECTIONS:
+        template = for_type(template, kind)
     # The code is pasted into every call, so full-line comments, indentation and the spaces around operators
     # are dropped. None carries meaning in JavaScript, and no string in the composer spans a line.
     lines = [squeeze(line.strip()) for line in template.splitlines()]
@@ -596,7 +630,7 @@ def fill_template(model: dict, theme: dict | None = None) -> str:
     Both are filled in one pass, so a label that happens to read like a placeholder is never filled itself.
     """
     filled = {PLACEHOLDER: board_design.compact(lean(model)), THEME_PLACEHOLDER: board_design.compact(theme or {})}
-    return FILLED.sub(lambda match: filled[match.group(0)], compact_template())
+    return FILLED.sub(lambda match: filled[match.group(0)], compact_template(model.get("type")))
 
 
 # ───────────────────────────────────────────────────────────────
@@ -654,7 +688,9 @@ def design_check() -> int:
     sent = board_design.theme(design, base)
     swatch, accent = design["swatch"], design["accent"]
     stroke = swatch[accent["pair"]][1]
-    room = MAX_CODE_CHARS - len(fill_template({}, sent)) + len(board_design.compact({}))
+    # Each type's call carries only its own builder, so each leaves the model its own room.
+    room = {kind: MAX_CODE_CHARS - len(fill_template({"type": kind}, sent)) + len(board_design.compact({"type": kind}))
+            for kind in TYPE_SECTIONS}
     changed = board_design.difference({g: design[g] for g in board_design.EDITABLE},
                                       {g: base[g] for g in board_design.EDITABLE}) or {}
     flat = []
@@ -684,7 +720,8 @@ def design_check() -> int:
     print(f"  type: {size['family']}, " + ", ".join(f"{step} {size[step]}" for step in
                                                      ("title", "subtitle", "zone", "node", "label", "field", "small")))
     print(f"THEME {board_design.compact(sent)}")
-    print(f"  the theme costs {len(board_design.compact(sent))} characters and leaves {room:,} for the model in one use_figma call")
+    print(f"  the theme costs {len(board_design.compact(sent))} characters and leaves {room['graph']:,} for a graph model, "
+          f"{room['sequence']:,} for a sequence and {room['gantt']:,} for a gantt in one use_figma call")
     for note in notes:
         print(f"DESIGN {note}")
     print(design_warnings(notes))
@@ -965,6 +1002,16 @@ def design_checks(base: dict, design: dict, notes: list[str], sent: dict) -> lis
     code = fill_template(largest, sent)
     results.append(("the active design's theme leaves room for the largest planted model in one use_figma call",
                     len(code) <= MAX_CODE_CHARS, f"{len(code)} characters"))
+    # A call carries its own type's builder and no other, so the code a model is tempted to trim is already
+    # as short as the board allows.
+    builders = {"graph": "function buildGraph(", "sequence": "function buildSequence(", "gantt": "function buildGantt("}
+    whole = len(compact_template())
+    for kind, own in builders.items():
+        part = compact_template(kind)
+        others = [b for k, b in builders.items() if k != kind and b in part]
+        results.append((f"a {kind} call carries its own builder and no other, shorter than the whole composer",
+                        own in part and not others and len(part) < whole,
+                        f"{len(part)} of {whole} characters, also holds {', '.join(others) or 'nothing else'}"))
     broken = [
         ("a design file with no json block", "# A design\n", "holds 0 json blocks", None),
         ("a design file with two json blocks", design_text({}) + design_text({}), "holds 2 json blocks", None),
