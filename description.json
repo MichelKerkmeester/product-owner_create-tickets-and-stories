@@ -1,7 +1,7 @@
 {
   "name": "product-owner",
   "description": "Parent hub for the Product Owner system: three workflow modes (sk-product-owner writes Barter tasks, bug reports, Stories, Epics and source-safe product or engineering docs as ClickUp-ready markdown, sk-create-figjam draws FigJam diagrams, from user flows to sequence, state, ER and gantt charts, from a checked Mermaid model, and the vendored mcp-click-up runs ClickUp operations through cupt or the ClickUp MCP) plus one read-only transport, the vendored mcp-figma bridging Figma Desktop through figma-ds-cli. The advisor sees one hub identity and workflowMode selects the packet.",
-  "version": "1.0.3.0",
+  "version": "1.0.4.0",
   "importance_tier": "high",
   "keywords": [
     "product-owner",

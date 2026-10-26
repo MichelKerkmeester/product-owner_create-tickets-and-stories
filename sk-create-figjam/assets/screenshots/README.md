@@ -5,7 +5,7 @@ trigger_phrases:
   - "figjam board screenshots"
   - "figjam gallery"
   - "sk-create-figjam examples images"
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # sk-create-figjam - Board Screenshots
@@ -18,14 +18,14 @@ version: 1.0.1.0
 
 The skill composed every board here on a fictional test file, with invented brands such as Roamstay, Loomlist and Fernhouse. Each board was then rendered through the Figma REST API as an overview image with its longest edge at 2048 px or less. Each one was graded on the 22-point board scorecard in [`../../manual-testing-playbook/manual-testing-playbook.md`](../../manual-testing-playbook/manual-testing-playbook.md).
 
-The seven type boards come from the [three-model comparison](../../../benchmark/reports/2026-10-25--manual-testing-playbook--figjam-model-comparison/README.md), which ran each board-quality scenario on DeepSeek V4.1 Flash Max, GLM 5.3 Flash Max and SWE 2 Max with the design file `../figjam-design.md`. Each image is the best of the three: the highest total, then a pass, then the grader's rank. The last two boards come from earlier runs and predate the design file.
+The seven type boards come from the [three-model comparison](../../../benchmark/reports/2026-10-25--manual-testing-playbook--figjam-model-comparison/README.md), which ran each board-quality scenario on DeepSeek V4.1 Flash Max, GLM 5.3 Flash Max and SWE 2 Max with the design file `../figjam-design.md`. Each image is the best of the three: the most of the 16 points the two zooms score, then the highest total, then a pass, then the grader's rank. The last two boards come from earlier runs and predate the design file.
 
 ---
 
 ## 2. IMAGES
 
 - [`user-flow-board.png`](user-flow-board.png): user flow, from [FJ-022](../../manual-testing-playbook/board-quality/user-flow-board-quality.md), GLM 5.3 Flash Max, 22 of 22
-- [`process-board.png`](process-board.png): laned process, from [FJ-023](../../manual-testing-playbook/board-quality/process-board-quality.md), DeepSeek V4.1 Flash Max, 20 of 22. The pink outline sits on Book a courier pickup, where the request asked for Approve the claim
+- [`process-board.png`](process-board.png): laned process, from [FJ-023](../../manual-testing-playbook/board-quality/process-board-quality.md), SWE 2 Max, 20 of 22. The board takes all 16 points of the two zooms, the most of any FJ-023 board. The run itself fails its PASS line on two points that are not the drawing: its reply opens with prose before the board URL and it left its model and compose files in the temporary folder
 - [`architecture-board.png`](architecture-board.png): architecture, from [FJ-024](../../manual-testing-playbook/board-quality/architecture-board-quality.md), SWE 2 Max, 22 of 22
 - [`sequence-board.png`](sequence-board.png): sequence, from [FJ-025](../../manual-testing-playbook/board-quality/sequence-board-quality.md), GLM 5.3 Flash Max, 22 of 22
 - [`state-board.png`](state-board.png): state diagram, from [FJ-026](../../manual-testing-playbook/board-quality/state-board-quality.md), GLM 5.3 Flash Max, 22 of 22
