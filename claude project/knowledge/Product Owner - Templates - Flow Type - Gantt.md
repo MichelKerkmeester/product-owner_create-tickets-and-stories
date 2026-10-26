@@ -67,7 +67,7 @@ Over budget, collapse each phase to one bar in an overview chart and draw one ch
 
 ## 5. COLOUR, ZONES AND NOTES
 
-None in the model. The tags colour the bars and the sections are the zones. The composer draws each `after` as an arrow from the end of the bar it names into the bar that waits on it, so a reader sees what must finish first without reading the dates. When two bars end on the same date, the arrow from the higher bar can cross the end of the lower one on its way down, so read an arrow from the bar its tail leaves. A note on a date goes on through Templates - Flow Hybrid Workflow. A `%% focus: <id or name>` line may name the one task or milestone the first glance lands on. It is a comment, so the model stays styleless.
+None in the model. The tags colour the bars and the sections are the zones. The composer draws each `after` as an arrow from the end of the bar it names into the bar that waits on it, so a reader sees what must finish first without reading the dates. Each arrow drops into the middle of the top of the bar that waits, so it can cross the end of a bar in between whose end falls on that date. Read an arrow from the bar its tail leaves. A note on a date goes on through Templates - Flow Hybrid Workflow. A `%% focus: <id or name>` line may name the one task or milestone the first glance lands on. It is a comment, so the model stays styleless.
 
 ---
 
