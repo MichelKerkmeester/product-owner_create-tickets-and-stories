@@ -1,6 +1,6 @@
 ---
 title: "Decision Record: FigJam model comparison"
-description: "Four decisions for the three-model FigJam run: one harness for all three models, one adaptive operator, graders that are none of the models under test and the rule that picks the gallery board of each type."
+description: "Five decisions for the three-model FigJam run: one harness for all three models, one adaptive operator, neutral graders, the rule that picks the gallery board of each type and the reopening that fixes the run's findings."
 trigger_phrases:
   - "figjam model comparison decision"
 importance_tier: "normal"
@@ -289,6 +289,8 @@ The gallery keeps one board per type and every caption names its score.
 
 **Details**: A board that fails its scenario is still eligible when it is the best of its type, and its caption says it failed and why.
 
+**Amended 2026-10-26**: The rule now ranks on the 16 board points first, the overview and reading dimensions a viewer sees, then the full total, then a pass under the current playbook over a fail, then fewer supplementary turns, fewer adaptive turns and the grader's rank. As first written, a reply point or a temporary file could decide an image, and FJ-023's image went to a board with the accent on the wrong step. Under the amendment only FJ-023 changes, to SWE's board.
+
 <!-- /ANCHOR:adr-004-decision -->
 
 ---
@@ -331,3 +333,82 @@ The gallery keeps one board per type and every caption names its score.
 
 <!-- /ANCHOR:adr-004-impl -->
 <!-- /ANCHOR:adr-004 -->
+
+---
+
+<!-- ANCHOR:adr-005 -->
+## ADR-005: Reopen this phase to fix the run's findings
+
+### Metadata
+
+| Field | Value |
+|-------|-------|
+| **Status** | Accepted |
+| **Date** | 2026-10-26 |
+| **Deciders** | The operator on 2026-10-26: "Fix all", "Reopen phase 038" and "Signals count too" |
+
+---
+
+<!-- ANCHOR:adr-005-context -->
+### Context
+
+The run README Section 7 recorded six findings for a later phase, because this phase changed no skill behaviour. The operator asked to fix all of them and chose this folder over a new phase. Two verdict rules disagreed: the root playbook Section 5 fails a run on any missing expected signal, while each board-quality PASS line read the scorecard alone.
+
+### Constraints
+- The skill, the playbook and the Project mirror change together, so no mirror drifts.
+- The composer must still fit one `use_figma` call.
+
+<!-- /ANCHOR:adr-005-context -->
+
+---
+
+<!-- ANCHOR:adr-005-decision -->
+### Decision
+
+**Summary**: Fix the six findings here, and make every board-quality and board-creation scenario require each expected signal as well as a passing scorecard.
+
+**Details**: The out-of-scope line that kept skill changes out is replaced by one that keeps out any change the findings do not name. The run's existing verdicts already carry the strict rule as `strict_verdict`, applied to the signals as graded, so the results need no regrading. The FJ-027 and FJ-028 signals this fix adds postdate the run and are not scored on it.
+
+<!-- /ANCHOR:adr-005-decision -->
+
+---
+
+<!-- ANCHOR:adr-005-alternatives -->
+### Alternatives Considered
+
+| Option | Pros | Cons | Score |
+|--------|------|------|-------|
+| **Reopen phase 038, signals count** | The fixes sit beside the evidence that found them, and one rule decides a verdict | The phase closes twice | 8/10 |
+| A new phase | A clean close for the run | The findings and their evidence split across two folders | 6/10 |
+| Scorecard alone decides | Fewer failing boards | Two rules keep disagreeing, and a board can pass with a signal missing | 3/10 |
+
+**Why Chosen**: The operator chose it, and it keeps one rule for every scenario.
+
+<!-- /ANCHOR:adr-005-alternatives -->
+
+---
+
+<!-- ANCHOR:adr-005-consequences -->
+### Consequences
+
+**Positive**:
+- A board-quality verdict means the same thing as every other scenario's verdict.
+
+**Negative**:
+- More boards fail. Mitigation: the run README already reports the strict count beside the scorecard count.
+
+**Risks**: A composer change can break a board type the run did not redraw. Mitigation: the composer self-test draws every planted model.
+
+<!-- /ANCHOR:adr-005-consequences -->
+
+---
+
+<!-- ANCHOR:adr-005-impl -->
+### Implementation
+
+**What changes**: `flow-mode.md`, the board-quality scenarios, the composer, the type references, the run folder's aggregator and driver, the gallery and the Project mirror.
+
+**How to roll back**: Revert the fix commits. The run's evidence is untouched.
+
+<!-- /ANCHOR:adr-005-impl -->
+<!-- /ANCHOR:adr-005 -->

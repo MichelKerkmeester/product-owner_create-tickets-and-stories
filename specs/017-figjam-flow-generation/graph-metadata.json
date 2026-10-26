@@ -170,17 +170,17 @@
     ],
     "causal_summary": "Product Owner writes stories, epics and product docs but cannot turn screenshots, Figma flows or product docs into diagrams",
     "created_at": "2026-10-19T20:55:21Z",
-    "last_save_at": "2026-10-26T01:19:47.972Z",
+    "last_save_at": "2026-10-26T07:03:28.029Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
       "spec.md",
       "goal.md"
     ],
-    "source_fingerprint": "sha256:bbcbd925e6b5dfe0804d96244a64ee7cf225dbd29408fca7b1ee5168f4b13049",
+    "source_fingerprint": "sha256:eae051d6bd71601f4b2ea3d42a3989bcadb1d7e1e913a633dc67bf156803c232",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "5bbdd795648c269cb47f434f2ad158822ff6a2cd4e44c9c6a514e666c2c494c5"
+      "spec.md": "16550472d83289b8b1268be409301ab282944b58c56c50f4ef4048f655062287"
     },
     "last_active_child_id": "017-figjam-flow-generation/034-stop-and-label-fixes",
     "last_active_at": "2026-10-25T15:33:38.811Z"

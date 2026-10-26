@@ -51,6 +51,8 @@ _memory:
 
 The seven board-quality scenarios, FJ-022 to FJ-028, ran once on each of DeepSeek V4.1 Flash Max, GLM 5.3 Flash Max and SWE 2 Max through the Devin CLI, against the composer and design file phase 037 shipped. All 21 runs finished and every board was graded on the 22-point scorecard by fresh Claude Sonnet 5.5 graders. GLM and SWE tie at 148 of 154 with five passes each and DeepSeek scores 144. The run README recommends SWE 2 Max, because it is the only model that never wrote before a gate and never changed work it did not create, while GLM, which won four of seven types on rank, deleted ten boards it never created after a generic yes. The seven gallery images are now the best board per type.
 
+The operator then reopened the phase to fix the six findings the run recorded. Flow Mode deletes a board only on a reply that names it and recovers from a `use_figma` call with no `fileKey`. Every board-quality and board-creation scenario now needs its expected signals as well as its scorecard. The gallery rule ranks the 16 board points first, which moved FJ-023's image to SWE's board. The driver reads a board id from any `use_figma` result. The composer draws gantt dependencies as arrows and marks both ends of an ER relationship with Figma's crow's-foot caps, and the state reference names the inner state a composite exit leaves from. Fixing the driver also showed that the runner's URL redaction had cut text from JSON exports, so the 21 exports whose raw copies survived were redacted again from raw.
+
 ### Files Changed
 
 | File | Action | Purpose |
@@ -59,6 +61,11 @@ The seven board-quality scenarios, FJ-022 to FJ-028, ran once on each of DeepSee
 | sk-create-figjam/assets/screenshots/ | Modified | The seven type images and the gallery README's captions |
 | sk-create-figjam/README.md, README.md | Modified | Gallery captions that describe the new boards |
 | benchmark/reports/README.md | Modified | The run's row |
+| sk-create-figjam/references/flow-mode.md, sk-create-figjam/SKILL.md | Modified | The named-delete rule and the missing `fileKey` recovery |
+| sk-create-figjam/manual-testing-playbook/ | Modified | The PASS lines of seventeen scenarios, which now need every expected signal, the root Section 3 note and the FJ-027 and FJ-028 signals |
+| sk-create-figjam/assets/compose-board.js, sk-create-figjam/scripts/compose_board.py, sk-create-figjam/scripts/compose-trace.mjs | Modified | Gantt dependency arrows, ER end marks and their self-test check |
+| sk-create-figjam/references/types/, sk-create-figjam/assets/examples/state-roamstay-booking.md | Modified | The gantt, ER and state guidance and the guarded state example |
+| claude project/, SYNC.md, changelog/, version files | Modified | The hand-written mirror, the maintenance note and the v1.0.4.0 release |
 <!-- /ANCHOR:what-built -->
 
 ---
@@ -81,7 +88,8 @@ Three readers answered every board's questions from its colour render, and seven
 | All three models on Devin at max (ADR-001) | The operator asked for Devin first, and llmgateway refuses `max` for GLM 5.3 Flash |
 | One adaptive operator for every run (ADR-002) | Only the model differs between runs |
 | Sonnet 5.5 graders and readers (ADR-003) | No model grades its own boards |
-| The gallery rule (ADR-004) | Fixed before the runs, so no board was picked by taste |
+| The gallery rule (ADR-004) | Fixed before the runs, so no board was picked by taste, then amended to rank the board points first |
+| Reopen this phase for the findings (ADR-005) | The operator chose it, and that a missing expected signal fails a board scenario |
 
 The remaining calls were judgement, recorded here for the operator to check:
 
@@ -107,7 +115,11 @@ The remaining calls were judgement, recorded here for the operator to check:
 | Grades | 21 scorecards in `results.jsonl`, rebuilt byte for byte by `run/aggregate.py` |
 | Leak scan | 0 hits on every committed file apart from the repository owner's name in the root README's existing badges |
 | Packet gates | `run_gates.sh` with the upstream root set: all 15 pass, exit 0 |
-| Spec validation | `validate.sh --strict` on this folder and the parent |
+| Composer and checker | `compose_board.py --self-test` 1029 of 1029, `--design-check` 0 warnings with 2,869 characters left, `flow_check.py --self-test` 158 of 158, `scripts/tests` 18 passed |
+| Live check | Gantt 147:5390 and ER 148:5423 on the test file, 0 warnings, arrows and crow's-foot marks in both renders |
+| Project gates | `validate_parity.py product-owner` PASSED 65/65, `residency_check.py product-owner` PASSED, output format gate passed |
+| Review | A DeepSeek V4.1 Flash max review, then two fresh Opus medium reviewers. Every confirmed finding was fixed |
+| Spec validation | `validate.sh --strict` on this folder and the parent: RESULT: PASSED |
 <!-- /ANCHOR:verification -->
 
 ---
@@ -117,6 +129,8 @@ The remaining calls were judgement, recorded here for the operator to check:
 
 1. **GLM runs on Devin, not llmgateway.** llmgateway accepts at most `high` for GLM 5.3 Flash, so the max variant ran through Devin.
 2. **One run per model per scenario.** A single run cannot separate a model's habit from chance. The tie between GLM and SWE is within one grader's judgement call.
-3. **Six findings wait for a later phase.** The run README's Section 7 records them: a delete that needs a named yes, the two verdict rules, a gallery rule that ranks on more than the board, the driver's compose check, the misleading missing-key error and three composer limits every reader met.
+3. **The six findings are fixed, not rerun.** No scenario was run again on the fixed skill, so the scores above measure the skill as it was. The gallery's gantt and ER images predate the arrows and the end marks.
 4. **Ten test boards are gone from the test file.** GLM deleted them on FJ-024. Their renders were taken first and Figma's version history holds the file before the delete.
+5. **42 exports keep the redaction loss.** Their raw copies were gone, so text the runner's URL pattern cut after a URL is lost there. The replies, transcripts and grades were never affected.
+6. **A gantt arrow can cross a bar end.** When two bars end on the same date, the arrow from the higher bar drops past the end of the lower one. The live check's design-to-build arrow crossed the end of the Sync engine bar, where the sync arrow starts. `references/types/gantt.md` tells the reader to follow an arrow from the bar its tail leaves.
 <!-- /ANCHOR:limitations -->

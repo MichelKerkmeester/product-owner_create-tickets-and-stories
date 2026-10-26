@@ -36,7 +36,7 @@ contextType: "implementation"
 
 This is **Phase 38** of the Product Owner FigJam flow generation upgrade specification.
 
-**Scope Boundary**: a benchmark run folder under `benchmark/reports/`, the gallery in `sk-create-figjam/assets/screenshots/` and the captions that describe it. No skill behaviour changes. No Barter board.
+**Scope Boundary**: a benchmark run folder under `benchmark/reports/`, the gallery in `sk-create-figjam/assets/screenshots/` and the captions that describe it, and, since the operator reopened the phase on 2026-10-26, the six fixes the run's findings name: two Flow Mode rules, the board-quality verdict rule, the gallery rule, the driver's board detection and three composer limits. No Barter board.
 
 **Dependencies**:
 - The composer and design file phase 037 shipped.
@@ -47,6 +47,7 @@ This is **Phase 38** of the Product Owner FigJam flow generation upgrade specifi
 - A run folder with every reply, tool call, render and grade of 21 scenario runs.
 - A per-type and per-model result table that says which model draws boards best.
 - The gallery's seven type images replaced by the best board of each type, with honest captions.
+- The six findings fixed in the skill, its playbook, the run folder and the Claude Project mirror.
 
 **Changelog**:
 - When this phase closes, refresh the matching file in ../changelog/ using the parent packet number plus this phase folder name.
@@ -69,7 +70,8 @@ The full records are in `decision-record.md`.
 - **D1 (ADR-001)**: All three models run through the Devin CLI at their max variants. The operator asked for Devin first, and llmgateway refuses `max` for GLM 5.3 Flash.
 - **D2 (ADR-002)**: One adaptive operator drives every run: the scripted turns in order, the recommended-answers turn after an intake round and "Yes, go ahead." after a stop that still has no board, each extra turn recorded as supplementary.
 - **D3 (ADR-003)**: Fresh Sonnet 5.5 graders score the boards, never one of the three models under test, and a fresh reader answers each board's questions from its colour screenshots alone.
-- **D4 (ADR-004)**: The best board per type is the highest scorecard total, then a pass over a fail, then fewer supplementary turns.
+- **D4 (ADR-004)**: The best board per type is the highest scorecard total, then a pass over a fail, then fewer supplementary turns. Amended on 2026-10-26: the 16 board points rank first.
+- **D5 (ADR-005)**: The operator reopened this phase to fix the run's six findings, and chose that a board-quality scenario passes only when every expected signal is present as well as the scorecard.
 <!-- /ANCHOR:problem -->
 
 ---
@@ -84,9 +86,14 @@ The full records are in `decision-record.md`.
 - A fresh reader per model and one grader per type on the 22-point scorecard.
 - The gallery's seven type images, its README and the root README captions.
 - Redaction of every board URL, the file key, plan names and emails before any commit.
+- A delete in Flow Mode that runs only on a reply naming the boards, and the missing `fileKey` recovery, in `references/flow-mode.md`.
+- Every board-quality and board-creation PASS line requiring each expected signal, as the root playbook Section 5 does.
+- The gallery rule ranked on the board points first, the results rebuilt and the gallery images and captions that change with it.
+- The driver reading a board id from any `use_figma` result.
+- Gantt dependency arrows, ER end marks and the state guidance for exits from a composite, with the Project mirror and changelogs.
 
 ### Out of Scope
-- Any change to the skill's behaviour, references or Project mirror. A finding that needs one is recorded for a later phase.
+- Any skill change the run's six findings do not name.
 - The two harder gallery boards, `state-on-existing-board.png` and `dense-flow-board.png`, which come from scenarios this run does not repeat.
 - Any Barter board, board URL or Figma file key in a tracked file.
 
@@ -98,6 +105,11 @@ The full records are in `decision-record.md`.
 | sk-create-figjam/assets/screenshots/ | Modify | The seven type images and the gallery README |
 | README.md, sk-create-figjam/README.md | Modify | Gallery captions where they name a score or a source |
 | benchmark/reports/README.md | Modify | The new run's row |
+| sk-create-figjam/references/flow-mode.md | Modify | The named-delete rule and the missing `fileKey` recovery |
+| sk-create-figjam/manual-testing-playbook/ | Modify | The board-quality and board-creation PASS lines and the root scorecard note |
+| sk-create-figjam/assets/compose-board.js, sk-create-figjam/scripts/ | Modify | Gantt dependency arrows, ER end marks, their models, fixtures and self-test checks |
+| sk-create-figjam/references/types/, sk-create-figjam/assets/examples/state-roamstay-booking.md | Modify | The gantt, ER and state guidance |
+| claude project/knowledge/, SYNC.md, changelogs and version files | Modify | The hand-written Project mirror and the release notes |
 <!-- /ANCHOR:scope -->
 
 ---
@@ -119,6 +131,12 @@ The full records are in `decision-record.md`.
 |----|-------------|
 | REQ-004 | The gallery's seven type images are the best board of each type under D4, and every caption names the scenario, the model and the score it came from. |
 | REQ-005 | The run's README states which model draws boards best, per type and overall, with the losses that decided it. |
+| REQ-006 | Flow Mode deletes a board only on a reply that names the boards to delete or answers a question that names exactly those boards, never on a bare yes or a gate's answer. |
+| REQ-007 | Flow Mode's Error Recovery tells a model that `Failed to connect to MCP server` from `use_figma` most often means a missing `fileKey`, so it retries with the key before it falls back. |
+| REQ-008 | Every board-quality and board-creation scenario passes only when its scorecard passes and every expected signal is present, matching the root playbook Section 5. |
+| REQ-009 | The gallery rule ranks on the 16 board points first, and `results.jsonl`, the gallery images and their captions follow the amended rule. |
+| REQ-010 | The driver records a board from any `use_figma` result that returns a board id. |
+| REQ-011 | A gantt board draws each `after` dependency as an arrow, an ER board draws each relationship's two ends with their cardinality marks and the state reference says where an exit from a composite starts, with the Project mirror matching the skill. |
 
 > Acceptance criteria for these requirements live in `acceptance-criteria.md`,
 > which is the document that decides whether this packet may close.
@@ -131,6 +149,7 @@ The full records are in `decision-record.md`.
 
 - **SC-001**: A reader of the run's README can tell which model to use for FigJam boards and why.
 - **SC-002**: Every image in the gallery is a board the current composer drew, with the score it earned.
+- **SC-003**: None of the run's six findings is open.
 <!-- /ANCHOR:success-criteria -->
 
 ---
@@ -144,6 +163,7 @@ The full records are in `decision-record.md`.
 | Risk | SWE 2 Max rate limits | Med | The Devin runner waits out the reset time Devin names |
 | Risk | A model stops before it writes | Med | The driver's follow-up turns, recorded as supplementary |
 | Risk | Boards land beside each other and move | Low | One run at a time |
+| Risk | The composer outgrows one `use_figma` call | Med | Each addition is measured against the 50,000-character budget the design check reports |
 <!-- /ANCHOR:risks -->
 
 ---
@@ -189,5 +209,5 @@ The full records are in `decision-record.md`.
 <!-- ANCHOR:questions -->
 ## 10. OPEN QUESTIONS
 
-- None. The operator chose seven types on each model and a new phase on 2026-10-25.
+- None. The operator chose seven types on each model and a new phase on 2026-10-25, and reopened this phase to fix its findings on 2026-10-26.
 <!-- /ANCHOR:questions -->

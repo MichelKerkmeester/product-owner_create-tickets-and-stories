@@ -24,7 +24,7 @@ _memory:
 <!-- ANCHOR:directive -->
 ## 1. DURABLE DIRECTIVE
 
-**Objective:** Run the seven board-quality scenarios on DeepSeek V4.1 Flash max, SWE 2 Max and GLM 5.3 Flash max against the composer phase 037 shipped, grade every board on the 22-point scorecard, say which model draws FigJam boards best and keep the best board of each type as the gallery.
+**Objective:** Run the seven board-quality scenarios on DeepSeek V4.1 Flash max, SWE 2 Max and GLM 5.3 Flash max against the composer phase 037 shipped, grade every board on the 22-point scorecard, say which model draws FigJam boards best and keep the best board of each type as the gallery. Then fix the six findings the run recorded, in the skill, its playbook, the run folder and the Project mirror.
 
 ### Decisions
 
@@ -35,9 +35,10 @@ Frozen choices. Changing one is an amendment.
 | D1 | All three models run through the Devin CLI at their max variants |
 | D2 | One adaptive operator drives every run and labels each extra turn |
 | D3 | Graders and readers are fresh Sonnet 5.5 agents, never a model under test |
-| D4 | The gallery board of each type is the highest total, then a pass, then fewer extra turns |
+| D4 | The gallery board of each type ranks on the 16 board points first, then the total, then a pass, then fewer extra turns |
 | D5 | Runs go one at a time on the one fictional test file. No Barter board, board URL, file key or plan name in any file |
 | D6 | The operator authorised pushing to the public repository and Barter AI Systems without asking, by sk-git's commit standards |
+| D7 | A board-quality or board-creation scenario passes only when its scorecard passes and every expected signal is present |
 <!-- /ANCHOR:directive -->
 
 ---
@@ -50,6 +51,7 @@ Frozen choices. Changing one is an amendment.
 - [x] The run README names the best model per type and overall with the losses that decided it
 - [x] The seven gallery images are the best board per type with honest captions
 - [x] No board URL, file key, plan name or email is in any changed file
+- [x] The six findings in the run README Section 7 are fixed, mirrored to the Project and verified live
 <!-- /ANCHOR:completion -->
 
 ---
@@ -72,4 +74,6 @@ and findings belong here.
 | Gallery | Done | Seven best boards by ADR-004 in 33f93557 |
 | Deviation | Recorded | Readers rotated across models, ADR-003 as-run note |
 | Finding | Open | GLM deleted ten test boards on FJ-024 after a generic yes, a later phase should require a named yes |
+| Six run findings fixed | Done | gantt arrows, ER end marks, delete names its boards, no-fileKey recovery, one verdict rule, gallery on board points; self-test 1029/1029, 15 gates, parity 65/65, live 147:5390 and 148:5423 |
+| Fresh review of the fixes | Done | DeepSeek review then two Opus medium reviewers, every confirmed finding fixed, kernel v1.2.5 |
 <!-- /ANCHOR:log -->
