@@ -1,0 +1,168 @@
+{
+ "id": "FJ-027",
+ "label": "swe",
+ "model": "swe-2-max",
+ "permission": "dangerous",
+ "runtime": "devin-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/er-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "make a FigJam ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan, and group the partner tables apart from the guest tables. From the schema note: guests, bookings, payments, properties, rooms and rate plans. A guest makes bookings, a booking reserves one room under one rate plan and holds its payments, and a property offers rooms and publishes rate plans. Keep the keys and the few columns support asks about.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "thunder-shrine",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "132:5151"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 180.87,
+   "tool_calls": 32,
+   "tools_used": [
+    "exec",
+    "exec",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "exec",
+    "mcp_list_tools",
+    "exec",
+    "grep",
+    "read",
+    "read",
+    "grep",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec",
+    "exec"
+   ],
+   "input_tokens": 1487953,
+   "output_tokens": 14401,
+   "cached_tokens": 1393344,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "thunder-shrine",
+   "inner_calls": [
+    "create_session",
+    "get_figjam"
+   ],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "make a FigJam ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan, and group the partner tables apart from the guest tables. From the schema note: guests, bookings, payments, properties, rooms and rate plans. A guest makes bookings, a booking reserves one room under one rate plan and holds its payments, and a property offers rooms and publishes rate plans. Keep the keys and the few columns support asks about.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 32.6,
+   "tool_calls": 2,
+   "tools_used": [
+    "exec",
+    "exec"
+   ],
+   "input_tokens": 346684,
+   "output_tokens": 3014,
+   "cached_tokens": 346112,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "thunder-shrine",
+   "inner_calls": [],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 218.03,
+   "tool_calls": 11,
+   "tools_used": [
+    "mcp_read_resource",
+    "mcp_read_resource",
+    "read",
+    "read",
+    "read",
+    "exec",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec",
+    "exec"
+   ],
+   "input_tokens": 1556537,
+   "output_tokens": 25327,
+   "cached_tokens": 1367040,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "thunder-shrine",
+   "inner_calls": [
+    "use_figma",
+    "get_figjam",
+    "get_figjam"
+   ],
+   "composed": true,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "boards": [
+    "132:5151"
+   ],
+   "kind": "DELIVERY"
+  }
+ ]
+}
