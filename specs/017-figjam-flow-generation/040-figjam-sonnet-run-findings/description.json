@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/040-figjam-sonnet-run-findings",
+  "description": "Phase 40: figjam-sonnet-run-findings",
+  "keywords": [
+    "phase",
+    "figjam-sonnet-run-findings"
+  ],
+  "lastUpdated": "2026-10-26T18:02:43.820Z",
+  "specId": "040",
+  "folderSlug": "figjam-sonnet-run-findings",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

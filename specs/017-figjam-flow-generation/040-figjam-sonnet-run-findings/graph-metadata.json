@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/040-figjam-sonnet-run-findings",
+  "spec_folder": "017-figjam-flow-generation/040-figjam-sonnet-run-findings",
+  "parent_id": "017-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "figjam sonnet run findings",
+      "phase 40 figjam sonnet run findings",
+      "figjam sonnet run findings plan",
+      "figjam sonnet run findings tasks",
+      "figjam sonnet run findings acceptance criteria",
+      "packet goal",
+      "durable directive",
+      "completion criteria",
+      "goal binding",
+      "figjam sonnet run findings implementation summary"
+    ],
+    "key_topics": [
+      "figjam",
+      "sonnet",
+      "run",
+      "findings",
+      "phase",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "packet",
+      "goal",
+      "durable"
+    ],
+    "importance_tier": "normal",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "benchmark/gates/run_gates.sh",
+      "sk-create-figjam/SKILL.md",
+      "sk-product-owner/references/interactive-mode.md",
+      "sk-create-figjam/README.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "interactive-mode.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/interactive-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Sonnet",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Progress",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Five",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern One",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Claude Sonnet 5.5 high ran all 54 FigJam scenarios on v1.0.5.0 and passed 23 once skeptics and an adjudicator had checked one grader's verdicts",
+    "created_at": "2026-10-26T18:02:43Z",
+    "last_save_at": "2026-10-26T19:57:34.810Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:4125008523cedb3cc6dc479659d8e2a72b0ba98898bedc449c1976d2f90509dc",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "fdda9b5069fc5e05df6abc3d85ba4c6bc7723e5198c78b3a99449b05e9a3af50",
+      "plan.md": "3e7859165efcc2273dacd1c4c6b7577b873ad5c46ec4830c5ef188723912aec2",
+      "tasks.md": "e7c2f4337c7430a7c20f5541f06baec56e9b979c753f697080e9fe39930c609c",
+      "implementation-summary.md": "e65f633da2e6db37e5632eab03cfd9325a4fa04e48e72686e2aeba896342cd15"
+    },
+    "last_active_at": null
+  }
+}
