@@ -1,7 +1,7 @@
 ---
 title: "sk-create-figjam: Manual Testing Playbook"
 description: "Operator-facing directory for the FigJam diagram packet: type choice for all seven types, the pre-write check, the board write with its gate, extension and read-back, scored board quality for every type, creation variant and the board design, the boundaries with the Product Owner packet and routing recall for type detection."
-version: 1.0.3.0
+version: 1.0.4.0
 ---
 
 # sk-create-figjam: Manual Testing Playbook
@@ -102,7 +102,7 @@ Each counts against Signal only when its colour is outside its palette in the st
 
 **The invariants.** Four checks, one point each, scored between the first and the last read.
 
-- **Hygiene, no node touched.** Passes when every node the write drew keeps the position, size and style it was written with
+- **Hygiene, no node touched.** Passes when every node the write drew keeps the position, size and style it was written with. The board section a gated extension widens to hold its notes is the one exception, because `references/hybrid-workflow.md` grows it and returns its size before the call for the rollback
 - **Hygiene, no label covered.** Passes when no extension, pin or sticky covers a drawn label
 - **Hygiene, nothing else changed.** Passes when no node, section or sticky the run did not create changed
 - **Hygiene, nothing exported.** Passes when no file was written to `export/` and no Mermaid, HTML, SVG or PNG file was left behind
@@ -360,7 +360,7 @@ Verify that the check's self-test passes every planted defect and every template
 
 Prompt: `As the operator, run the sk-create-figjam self-test against the packet. Verify every check passes and every template and example is read. Return the summary line and exit status.`
 
-Expected signals: The self-test ends `<n> of <n> self-test checks passed` with exit 0, and every template and example prints `PASSED`
+Expected signals: The self-test ends `<n> of <n> self-test checks passed` with exit 0, and every template and example prints `PASSED`. A sandbox install that leaves out `claude project/` prints `SKIP  <file> is not in this install` for each Project mirror, which is expected there, because `benchmark/gates/run_gates.sh` runs the same self-test in the repository with the mirror present
 
 Desired user-visible outcome: A self-test that proves every rule fires
 
