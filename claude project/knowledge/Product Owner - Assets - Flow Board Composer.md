@@ -329,6 +329,13 @@ warnings.push(`zone ${label} repeats the ${t} tint of ${near.includes(t) ? 'a zo
 tinted.push({x,y,w,h,t});
 return t;
 }
+const ARROWS={
+request:{cap:'ARROW_EQUILATERAL'},
+reply:{dashed:true,cap:'ARROW_EQUILATERAL'},
+async:{cap:'ARROW_LINES',color:T.line.async},
+asyncReply:{dashed:true,cap:'ARROW_LINES',color:T.line.async},
+focus:{cap:'ARROW_EQUILATERAL',color:ACCENT,weight:T.accent.message},
+};
 function layered(items,edges,opt){
 const LR=opt.LR;
 const ids=items.map((n)=>n.id);
@@ -954,13 +961,6 @@ via:pts?'waypoints':undefined});
 },
 };
 }
-const ARROWS={
-request:{cap:'ARROW_EQUILATERAL'},
-reply:{dashed:true,cap:'ARROW_EQUILATERAL'},
-async:{cap:'ARROW_LINES',color:T.line.async},
-asyncReply:{dashed:true,cap:'ARROW_LINES',color:T.line.async},
-focus:{cap:'ARROW_EQUILATERAL',color:ACCENT,weight:T.accent.message},
-};
 function buildSequence(M){
 const sizes=M.participants.map((p)=>fit(p.label,'ROUNDED_RECTANGLE'));
 const pw=Math.max(...sizes.map((s)=>s.w));
