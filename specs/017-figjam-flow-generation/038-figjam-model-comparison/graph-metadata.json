@@ -3,7 +3,6 @@
   "packet_id": "017-figjam-flow-generation/038-figjam-model-comparison",
   "spec_folder": "017-figjam-flow-generation/038-figjam-model-comparison",
   "parent_id": "017-figjam-flow-generation",
-  "status_review_required": true,
   "children_ids": [],
   "manual": {
     "depends_on": [],
@@ -35,7 +34,7 @@
       "gallery"
     ],
     "importance_tier": "normal",
-    "status": "complete",
+    "status": "in_progress",
     "key_files": [
       "spec.md",
       "plan.md",
@@ -95,6 +94,12 @@
         "source": "derived"
       },
       {
+        "name": "In Progress",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
         "name": "Parent Spec",
         "kind": "proper_noun",
         "path": "spec.md",
@@ -114,12 +119,6 @@
       },
       {
         "name": "Product Owner",
-        "kind": "proper_noun",
-        "path": "spec.md",
-        "source": "derived"
-      },
-      {
-        "name": "Scope Boundary",
         "kind": "proper_noun",
         "path": "spec.md",
         "source": "derived"
@@ -185,7 +184,7 @@
         "source": "derived"
       },
       {
-        "name": "Completion Criteria",
+        "name": "Add Codex",
         "kind": "proper_noun",
         "path": "tasks.md",
         "source": "derived"
@@ -193,7 +192,7 @@
     ],
     "causal_summary": "The gallery shows boards the composer drew before phase 037, so it no longer shows what the skill draws",
     "created_at": "2026-10-25T22:01:09.440Z",
-    "last_save_at": "2026-10-26T07:34:51.082Z",
+    "last_save_at": "2026-10-26T13:02:34.846Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -205,14 +204,14 @@
       "decision-record.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:f1bd1a9143dba725d2f73877f343df075208d94dc448e76231284406eff6a3dd",
+    "source_fingerprint": "sha256:c49d6ffe70cb495f00eedc5ba19cf0bc84596a3bb17ff00140bfd025786fa4c4",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "f8afd93844c6ff7652f0fad0aaeeed58da523765a88280ec288a2111e308bf8c",
+      "spec.md": "1e1e2f6c4facb293dc9df5c83f3df1b04854b8a5e61c6af60ab78715885584a2",
       "plan.md": "7408e75d2be47e558da244db26778565e2c35cb5abc8e0b1d5ab771d1b555869",
-      "tasks.md": "5c61d5a4c3540c141faaa776e5e9d95df6e476d2590d505857a261d2fcb15fbb",
+      "tasks.md": "180c1b136b3ed3decab2ddb74b1164492cffccae2f808b345681337d6f1bdcdb",
       "decision-record.md": "a357c589f4700a0fa37e37fcbb4d10e8f123c6a5147b9a33ba3355f52519b0b9",
-      "implementation-summary.md": "c18f26f771b3511dec68f9aa6f77e3f1ba4753f343dbe25e6643e3aca1545ac7"
+      "implementation-summary.md": "d2a36b42a72bdd747b9d29316566e809bc278951c00b6d4f04af542f6e6e89e6"
     },
     "last_active_child_id": null,
     "last_active_at": null
