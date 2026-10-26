@@ -51,7 +51,7 @@ Flow Mode is the one exemption. Its deliverable is a FigJam board, so it saves n
 
 `HVR self-scan: N hard blockers. Fixed: <terms>. Kept with reason: <terms>.`
 
-Count against `sk-product-owner/references/hvr-core.md`, which carries every hard blocker inline. The card's always-cut modifiers are structural removals, so they are fixed in place and never counted. Name the terms you changed and the terms you kept, each with the reason it was sanctioned. A count of zero with no terms named is valid only when the artifact genuinely has none.
+Count against `sk-product-owner/references/hvr-core.md`, which carries every hard blocker inline. The card's always-cut modifiers are edits, not penalties, so they are fixed in place and never counted. Name the terms you changed and the terms you kept, each with the reason it was sanctioned. A count of zero with no terms named is valid only when the artifact genuinely has none.
 
 The self-scan line is delivery metadata. It belongs in the chat response and never inside the saved artifact, exactly as a Mode, Template, Perspectives, Quality Score or Energy header never enters one. The Human Voice output warnings ban meta-commentary and rule references inside the written artifact, so a scan reported in the artifact body would break them. Reported in the response, it does not.
 

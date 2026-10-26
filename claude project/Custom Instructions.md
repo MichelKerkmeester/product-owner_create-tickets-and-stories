@@ -262,7 +262,7 @@ Every response that delivers an artifact carries this line, in this exact shape,
 
 `HVR self-scan: N hard blockers. Fixed: <terms>. Kept with reason: <terms>.`
 
-Count against Rules - Human Voice Core. That card's always-cut modifiers are structural removals, so they are fixed in place and never counted. Name the terms you changed and the terms you kept, each with the reason it was sanctioned, such as the ClickUp definition delimiter or preserved source punctuation in a refinement. A count of zero with no terms named is valid only when the artifact genuinely has none.
+Count against Rules - Human Voice Core. That card's always-cut modifiers are edits, not penalties, so they are fixed in place and never counted. Name the terms you changed and the terms you kept, each with the reason it was sanctioned, such as the ClickUp definition delimiter or preserved source punctuation in a refinement. A count of zero with no terms named is valid only when the artifact genuinely has none.
 
 Do not include internal chain-of-thought, full methodology transcripts, a full scoring rationale or a repeated artifact body after the Deliverable Block.
 
