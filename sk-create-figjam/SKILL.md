@@ -39,7 +39,7 @@ The packet has one route, Flow Mode, and one choice inside it: the diagram type.
 $flow | $figjam               -> Flow Mode
 FigJam output wording         -> Flow Mode ("make a FigJam flow ...", "a sequence diagram in FigJam")
 board notes or a change       -> Flow Mode ("add notes to the FigJam board", "update the FigJam board", any request with a figma.com/board link)
-$quick | $q                   -> Quick energy: one proposed Brief instead of intake rounds, then the playback and the gate as usual
+$quick | $q                   -> Quick energy: every row filled from the sources and the defaults with each inferred row marked assumed, sent as the playback, then the gate as usual
 another artifact command      -> hand back to the Product Owner packet, whose Interactive Mode asks one question
 another artifact's framing    -> hand back to the Product Owner packet, FigJam is then that artifact's subject ("add a task to update the figjam board")
 ```

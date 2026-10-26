@@ -68,7 +68,7 @@ Those three lines travel into the gate, so the marked node is chosen from them a
 - [ ] When the model gives a reason for the accent as `%% focus: <id> because <reason>`, as `references/style-guide.md` Section 3 sets out, the key's `In focus` entry carries that reason, so a reader who asks why one node is marked finds the answer on the board
 - [ ] No title repeats the focal claim, so one idea carries one focal object. Where the title already states the claim, the marked node carries the evidence, the consequence or the next move
 - [ ] The title names what the reader is looking at, the subtitle says in one sentence who reads it and why, and the source line names the sources and what was left out
-- [ ] Shape and label carry the meaning on their own, so the diagram reads in greyscale
+- [ ] Shape and outline and label carry the meaning without colour, so the diagram reads in greyscale
 - [ ] The key the composer draws names every kind, line and arrow the board shows and nothing else, and no note adds a second key beside it
 - [ ] Every zone carries a name a reader can see, and zones group what belongs together rather than marking a position
 - [ ] Every label uses the product's or the source's own words. Proper nouns are never renamed

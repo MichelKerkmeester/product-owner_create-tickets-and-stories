@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "state example"
   - "roamstay booking states"
-version: 1.0.2.0
+version: 1.0.3.0
 ---
 
 # Example - State - Roamstay Booking
@@ -108,8 +108,8 @@ The gate is its own reply, sent after the playback's answer. Its one question as
 ```text
 Question: which statuses exist and what moves a booking between them?
 Outcome: support can read every booking status and spot the statuses a booking ends in.
-First glance: the end states, Completed, Cancelled and NoShow, drawn in light gray.
-Second glance: the events that lead into them, check out, guest cancels and missed check-in.
+First glance: Confirmed, the composite section the overview shows first.
+Second glance: the end states Completed and Cancelled and NoShow, each in light gray with its heavy outline.
 Last glance: Pending, where every booking starts.
 Plan: Roamstay Product. File: a new FigJam file named "Booking status", created in that plan.
 Writes: one composed board, 7 states and 12 transitions, the end states in light gray, with a title, a key and a source line, at the Laptop reading distance.
@@ -125,6 +125,6 @@ Write it?
 
 ```text
 <board URL>
-Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled, first glance: the end states
+Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled, first glance: Confirmed
 HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
 ```

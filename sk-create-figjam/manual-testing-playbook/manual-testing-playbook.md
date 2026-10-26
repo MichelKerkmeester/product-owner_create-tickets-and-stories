@@ -94,7 +94,7 @@ The operator writes down the glance order the model plans before the first scree
 
 **Marks the key does not list.** The key holds one sample per kind, line and arrow the board uses and nothing else, so three marks are absent from it by design: a zone or lane tint, a note pin and a legend sticky. A grader scores them against `sk-create-figjam/references/style-guide.md` and the active design in `sk-create-figjam/assets/figjam-design.md`, and never counts their absence from the key as a Signal fault.
 
-- **A zone or lane tint** is a light section tint drawn from the active design's zone cycle, blue, orange, teal, yellow and violet as shipped. A zone skips a tint any kind inside it draws and the tint of the zone before it, so it never hides its members and neighbouring zones read apart. It means nothing, so two zones in different tints are not two meanings
+- **A zone or lane tint** is a light section tint drawn from the active design's zone cycle, blue, orange, teal, yellow and violet as shipped. A zone skips a tint any kind inside it draws and the tint of any zone it faces along its row or its column, so it never hides its members and neighbouring zones read apart. It means nothing, so two zones in different tints are not two meanings
 - **A note pin** is the violet preset with a white digit, and a sequence's step pins are the exception because the key names them `Step number`
 - **A legend sticky** takes one colour from the sticky palette, one colour per legend by default
 
@@ -1281,7 +1281,7 @@ Desired user-visible outcome: No FigJam leaf loads for a ticket about a board
 | Test Module | Coverage | Playbook Overlap |
 |---|---|---|
 | `sk-create-figjam/scripts/flow_check.py --self-test` | One planted defect per rule, every template, example, Project mirror and palette row | FJ-004, FJ-005, FJ-006, FJ-014, FJ-015, FJ-016 |
-| `sk-create-figjam/scripts/compose_board.py --self-test` | Every shipped model composes under the design, the design file names every token and keeps every floor, a restyle reaches the board and fourteen broken designs fall back with named warnings | FJ-044, FJ-045 |
+| `sk-create-figjam/scripts/compose_board.py --self-test` | Every shipped model composes under the design, the design file names every token and keeps every floor, a restyle reaches the board and 24 broken designs fall back with named warnings | FJ-044, FJ-045 |
 | `benchmark/gates/check_hub.py` | Hub stage one on every gold row, including each routing prompt here | FJR-001 to FJR-007, FJH-001, FJN-001, FJ-020, FJ-021, FJ-037 |
 | `validate-playbook-topology.cjs` | Every routing scenario's leaves against `leaf-manifest.json` | FJR-001 to FJR-007, FJH-001, FJN-001 |
 

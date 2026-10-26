@@ -26,41 +26,41 @@ It draws seven types, each answering one reader question: a user flow, a laned p
 
 ## 2. GALLERY
 
-Real boards this packet composed on a fictional test file and rendered through the Figma REST API. Each type board is the best of three models in the 2026-10-25 model comparison, drawn in the shipped design file. The gantt, ER and last two boards were drawn again from their best run's model with the composer of the time. Every board predates v1.0.6.0, so none shows its greyscale outlines or its `Leads to` key entry. [`assets/screenshots/README.md`](assets/screenshots/README.md) names the playbook scenario, the model and the scorecard result behind each one.
+Real boards this packet composed on a fictional test file and rendered through the Figma REST API. Each type board and the dense flow is the best board of its type that Claude Sonnet 5.5 high drew with the v1.0.6.0 composer on 2026-10-26, in the shipped design file. They show the outlines that keep kinds apart in greyscale, and the user flow, process, architecture, state and gantt keys carry the `Leads to` entry. Only the existing-board image is older. [`assets/screenshots/README.md`](assets/screenshots/README.md) names the playbook scenario, the model and the scorecard result behind each one.
 
-**User flow.** The pink outline on the green Return confirmed with QR code goal is the first glance. Three zones run left to right, each decision is a yellow diamond with labelled exits and the orange Contact support pill shows where the flow leaves.
+**User flow.** The pink outline on the green Confirmation with QR code goal is the first glance. Three zones run left to right, Find the order, Request the return and Done. Each decision is a yellow diamond with labelled exits, the dashed orange Contact support pill shows where the flow leaves and Drop-off point and Courier pickup reach the goal from two sides.
 
 ![A user flow board for starting a return, with three zones and a highlighted goal](assets/screenshots/user-flow-board.png)
 
-**Process.** One lane per role, Customer, CS agent and Warehouse operator. The claims table is a violet cylinder. The pink fill and outline sit on Approve the claim, the handoff the request named, and the key names it In focus. The run that drew it fails its PASS line on its reply and its leftover temporary files, not on the board.
+**Process.** One lane per role, Customer, CS and Warehouse, each in its own tint. The pink outline sits on the Photo approved? decision, which books a pickup or asks for a second photo that loops back to it. The key names kinds and no team. The run that drew it fails its PASS line on Composition, because the green Refund released goal reads before the Approved exit and the loop the run planned as the second glance.
 
 ![A laned process board for a damaged-item refund across three roles](assets/screenshots/process-board.png)
 
-**Architecture.** Six zones run left to right from Clients through Edge, Services, Events and Stores to External. Sync Service carries the pink outline, the change stream is an orange queue and the blocks database a violet cylinder. Dashed edges mark the async and outside calls and the three live sockets run both ways, the same as the key.
+**Architecture.** Six zones run left to right from Clients through Edge, Services, Events and Stores to Outside. The sync-service node carries the pink outline and the key gives the reason, In focus: Writes every block change. The change stream is an orange queue and the blocks database a violet cylinder. Dashed edges mark the async and outside calls and the three live sockets run both ways, the same as the key.
 
 ![An architecture board for a block sync service across six zones](assets/screenshots/architecture-board.png)
 
-**Sequence.** The four participants are white and repeat at the top and the bottom, and numbered pins mark the seven steps beside each sender's lifeline. The pink heavy arrow on step 3, Authorise card, is the focus, replies are dashed and the async BookingCreated message is blue with an open head. The source line names the declined-card path as left out.
+**Sequence.** The four participants are white and repeat at the top and the bottom, and numbered pins mark the seven steps beside each sender's lifeline. The pink heavy arrow on step 3, Authorise the card, is the focus, replies are dashed and the async Tell the hub message is blue. Each message is in plain words, such as Post the booking, and the source line names the declined-card path as left out.
 
 ![A sequence board for a checkout payment with seven numbered steps](assets/screenshots/sequence-board.png)
 
-**State.** Two start dots lead in, Pay now to Payment pending and Pay at property straight to Confirmed, so both are blue first states. Payment pending carries the pink outline, Confirmed moves to Cancelled only on its guard, cancel [before deadline], and an unpaid booking expires after 30 minutes. Both gray final states run to an end dot, and the source line names what follows Confirmed as left out.
+**State.** Pending is the blue first state, and card authorised moves it into Confirmed, a composite zone that runs from Upcoming through check in to In stay. Completed, No-show and Cancelled are gray final states in one column, each with its end dot, and no transition crosses another. The run that drew it fails its PASS line on two points: no accent leads to the end states the request asked about, and its read-back line claimed a visual read that never ran.
 
-![A state board for a booking status with two entry points and a timeout](assets/screenshots/state-board.png)
+![A state board for a booking status with a composite Confirmed state and three final states](assets/screenshots/state-board.png)
 
-**ER.** A Guest side zone and a Partner side zone keep the two halves apart. Each entity lists its PK, FK and UK columns with types. Each line names the relationship with its cardinality and carries the matching crow's-foot mark at both ends. Booking carries the pink outline.
+**ER.** A Guest side zone and a Partner side zone keep the two halves apart. Each entity lists its PK and FK columns. Each line names the relationship with its cardinality and carries the matching crow's-foot mark at both ends. Booking carries the pink outline. The board shows key columns only, because the run had no schema note.
 
 ![An ER board with six entities split into guest and partner zones](assets/screenshots/er-board.png)
 
-**Gantt.** A weekly date axis runs across the top and Design, Build and Launch are tinted zones. Each bar shows its length, the critical integration week carries the pink outline and a yellow diamond marks the release on 21 December. An arrow runs from each bar to the work that waits on it. Each arrow drops into the middle of the bar that waits, so the design arrow crosses the end of Sync engine, which ends on the day it drops. The source line names the platform left out.
+**Gantt.** A weekly date axis runs across the top and Design, Build and Rollout are tinted zones. Each bar shows its length, the critical bars carry a heavy outline, the integration week carries the pink outline and a yellow diamond marks the release on 21 December. An arrow runs from each bar's right end onto the top of the work that waits on it, and two arrowheads crowd into Desktop and iOS integration. The source line names Android as left out.
 
 ![A gantt board for a launch plan with three phases and a release milestone](assets/screenshots/gantt-board.png)
 
-**Written onto an existing board.** In FJ-032 this state diagram was added to a board that already held content, which the write left in place. The overview shows the new section only. Completed carries the pink outline as the first glance this time, because the gate planned it first.
+**Written onto an existing board.** In FJ-032 this state diagram was added to a board that already held content, which the write left in place. The overview shows the new section only. Completed carries the pink outline as the first glance this time, because the gate planned it first. The board predates v1.0.6.0, because the rerun's FJ-032 board scored 20 and failed on Composition.
 
 ![A state board for a booking lifecycle written onto a board with existing content](assets/screenshots/state-on-existing-board.png)
 
-**Dense flow at the node budget.** Nine nodes and two decisions with five labelled exits, No, Yes, Higher, Lower and Same, and no connector crossing another. The pink outline sits on the three-way price decision and the key shows the same diamond.
+**Dense flow at the node budget.** Nine nodes and two decisions with five labelled exits, No, Yes, Higher, Lower and Same, and no connector crossing another. The pink outline sits on the three-way New price? decision and the key gives the reason, the only three-way choice. The run that drew it fails its PASS line on its reply, which opened on a cleanup line, not on the board.
 
 ![A dense user flow board for changing booking dates with a three-way decision](assets/screenshots/dense-flow-board.png)
 
