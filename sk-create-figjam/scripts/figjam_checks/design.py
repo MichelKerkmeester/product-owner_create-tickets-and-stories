@@ -48,6 +48,9 @@ ZONE_TYPE_MAX = 24
 DOT_KINDS = ("initial", "final", "merge", "fork")
 # The ring around an end state is the heaviest outline after the accent's, so the accent stays above it.
 RING_WEIGHT = 6
+# Two kinds that share a shape and an outline read apart in greyscale only when their fills differ by this much
+# luma or more. FigJam's light pairs sit within 12 of one another, so those kinds differ by outline instead.
+GREY_STEP = 25
 # The kinds each type can draw on one board. Two of them never share a shape, a pair and an outline, so a
 # reader who cannot read the label still tells them apart.
 TYPE_KINDS = {
@@ -231,6 +234,12 @@ def apart(first: str, second: str) -> float:
     return min(gap, 360 - gap)
 
 
+def grey(colour: str) -> float:
+    """A colour's luma, the lightness it keeps in greyscale."""
+    red, green, blue = (int(colour[i:i + 2], 16) for i in (1, 3, 5))
+    return 0.299 * red + 0.587 * green + 0.114 * blue
+
+
 def used_roles(design: dict) -> dict[str, list[str]]:
     """Each role some kind draws, with the kinds that draw it, and the marker role the sequence pins draw."""
     roles: dict[str, list[str]] = {}
@@ -305,6 +314,17 @@ def floors(design: dict) -> list[tuple[str, list[tuple]]]:
                               [("kind", other, "role"), ("kind", kind, "role"),
                                ("role", design["kind"][other]["role"]), ("role", role)]))
             seen.setdefault(look, kind)
+        # Kinds in two pairs still read as one in greyscale when nothing but the colour sets them apart.
+        for i, first in enumerate(kinds):
+            for second in kinds[i + 1:]:
+                looks = [(design["shape"].get(k, "ROUNDED_RECTANGLE"), design["outline"].get(k),
+                          design["role"][design["kind"][k]["role"]]) for k in (first, second)]
+                gap = abs(grey(design["swatch"][looks[0][2]][0]) - grey(design["swatch"][looks[1][2]][0]))
+                if looks[0][:2] == looks[1][:2] and looks[0][2] != looks[1][2] and gap < GREY_STEP:
+                    found.append((f"{first} and {second} on {name} share a shape and an outline and their fills sit {gap:.0f} "
+                                  f"apart in greyscale, under {GREY_STEP}, so they differ only by colour",
+                                  [("kind", first, "role"), ("kind", second, "role"),
+                                   ("role", design["kind"][first]["role"]), ("role", design["kind"][second]["role"])]))
     size = design["type"]
     bounds = [
         (size["small"] >= 14, "small type is under 14 px", [("type", "small")]),

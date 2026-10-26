@@ -48,6 +48,10 @@ TITLE_INSET, TITLE_GAP, LABEL_HEIGHT, LABEL_PAD, LABEL_CHAR, SHARE_MAX = 32, 8, 
 # LABEL_CLEAR of air from every other line.
 ZONE_OUT, ZONE_IN, CORRIDOR, SIDE_BY_SIDE, LABEL_CLEAR, MERGE_MAX = 16, 40, 16, 56, 8, 200
 DETOUR_LIMIT = 2.0
+# A dot is at most this wide. An arrow into a gantt bar lands within this many pixels of the bar's left end.
+DOT_WIDTH, GANTT_LANDING = 32, 48
+# A choice or a milestone is a diamond at most this wide, too small to give each arrival a point of its own.
+JOIN_DIAMOND = 56
 
 
 def use_design(design: dict) -> None:
@@ -77,10 +81,27 @@ def boxes_of(drawn: dict) -> dict[str, dict]:
     return {n["name"][5:]: n for n in drawn["nodes"] if n["name"].startswith("node:")}
 
 
+def _side(shape: dict, end: dict) -> str:
+    """The side of its node a connector end holds: its magnet or the side nearest the point it is pinned to."""
+    if "magnet" in end:
+        return end["magnet"]
+    x, y = end["position"]["x"], end["position"]["y"]
+    gaps = {"TOP": y, "BOTTOM": shape["h"] - y, "LEFT": x, "RIGHT": shape["w"] - x}
+    return min(gaps, key=gaps.get)
+
+
 def _point(drawn_by_id: dict, end: dict) -> tuple[tuple[float, float], tuple[int, int] | None]:
     shape = drawn_by_id[end["endpointNodeId"]]
     if "position" in end:
-        return (shape["x"] + end["position"]["x"], shape["y"] + end["position"]["y"]), None
+        x, y = end["position"]["x"], end["position"]["y"]
+        # A point at the centre joins two legs at an anchor and faces no way.
+        if (x, y) == (shape["w"] / 2, shape["h"] / 2):
+            return (shape["x"] + x, shape["y"] + y), None
+        # A point on a side arrives straight against it. One stepped in to meet a round shape's sloped side is
+        # measured where its line crosses the box's own edge, since the rest lies inside the box it belongs to.
+        vx, vy = DIRECTIONS[_side(shape, end)]
+        x, y = (max(vx, 0) * shape["w"], y) if vx else (x, max(vy, 0) * shape["h"])
+        return (shape["x"] + x, shape["y"] + y), (vx, vy)
     vx, vy = DIRECTIONS[end["magnet"]]
     return (shape["x"] + shape["w"] / 2 * (1 + vx), shape["y"] + shape["h"] / 2 * (1 + vy)), (vx, vy)
 
@@ -248,10 +269,56 @@ def drawn_edges(drawn: dict) -> list[dict]:
                       "paths": paths, "label_paths": carried or paths,
                       "ends": {e["name"] for e in ends}, "boxes": ends,
                       "homes": {e["name"] if e["type"] == "SECTION" else e["parent"] for e in ends},
-                      "ports": {(e["name"], end["magnet"], role) for e, end, role in
-                                zip(ends, (legs[0]["start"], c["end"]), ("out", "in")) if "magnet" in end}})
+                      "ports": {(e["name"], _side(e, end), role) for e, end, role in
+                                zip(ends, (legs[0]["start"], c["end"]), ("out", "in"))
+                                if "magnet" in end or not e["name"].startswith("via:")}})
         legs = []
     return edges
+
+
+def shared_arrivals(drawn: dict) -> list[str]:
+    """The edges that arrive at one point of one node, which reads as one arrowhead.
+
+    A dot, a choice and a milestone are where paths join, so edges may meet on them, as the composer leaves them.
+    Every other node gives each arrival its own point.
+    """
+    shapes = {n["id"]: n for n in drawn["nodes"]}
+    seen: dict[tuple, str] = {}
+    problems = []
+    for c in drawn["connectors"]:
+        if not c["name"].startswith("edge:"):
+            continue
+        node = shapes[c["end"]["endpointNodeId"]]
+        joins = {"ELLIPSE": DOT_WIDTH, "DIAMOND": JOIN_DIAMOND}.get(node.get("shape"), 0)
+        if node["w"] <= joins:
+            continue
+        (x, y), _ = _point(shapes, c["end"])
+        spot = (node["name"], round(x), round(y))
+        if spot in seen:
+            problems.append(f"{seen[spot]} and {c['name']} arrive at one point of {node['name']}")
+        seen.setdefault(spot, c["name"])
+    return problems
+
+
+def gantt_arrow_ends(drawn: dict) -> list[str]:
+    """The gantt arrows that leave a bar anywhere but its right end, or land anywhere but the top of the next bar's left end.
+
+    A milestone is one moment, so an arrow leaves it from its foot and reaches it at its top.
+    """
+    shapes = {n["id"]: n for n in drawn["nodes"]}
+    problems = []
+    for c in drawn["connectors"]:
+        if not c["name"].startswith("edge:"):
+            continue
+        source, target = (shapes[c[side]["endpointNodeId"]] for side in ("start", "end"))
+        (x0, _), _ = _point(shapes, c["start"])
+        (x1, y1), _ = _point(shapes, c["end"])
+        leaves = x0 == source["x"] + (source["w"] / 2 if source.get("shape") == "DIAMOND" else source["w"])
+        lands = x1 == target["x"] + target["w"] / 2 if target.get("shape") == "DIAMOND" \
+            else target["x"] < x1 <= target["x"] + min(GANTT_LANDING, target["w"])
+        if not (leaves and lands and y1 == target["y"]):
+            problems.append(f"{c['name']} leaves {source['name']} at x {x0:g} and lands on {target['name']} at {x1:g}, {y1:g}")
+    return problems
 
 
 def long_detours(drawn: dict, limit: float = DETOUR_LIMIT) -> list[str]:
@@ -316,7 +383,7 @@ def labels_off_titles(drawn: dict, labels: list[str]) -> list[str]:
 
 
 def labels_clear(drawn: dict) -> list[str]:
-    """The labels that sit on a node, on another edge's line or on another label."""
+    """The labels that sit on a node or within LABEL_CLEAR of one, on another edge's line or on another label."""
     edges = drawn_edges(drawn)
     nodes = list(boxes_of(drawn).values())
     problems = []
@@ -326,7 +393,7 @@ def labels_clear(drawn: dict) -> list[str]:
         for path in e["label_paths"]:
             box = _label_box(e["label"], path)
             air = _grown(box, LABEL_CLEAR)
-            on_node = next((n["name"] for n in nodes if n["name"] not in e["ends"] and _overlap(box, n)), None)
+            on_node = next((n["name"] for n in nodes if n["name"] not in e["ends"] and _overlap(air, n)), None)
             on_line = next((o["who"] for o in edges if o is not e and any(_cuts(p, air) for p in o["paths"])), None)
             on_label = next((o["who"] for o in edges if o is not e and o["label"]
                              and any(_overlap(box, _label_box(o["label"], p)) for p in o["label_paths"])), None)
@@ -334,6 +401,22 @@ def labels_clear(drawn: dict) -> list[str]:
             if found:
                 problems.append(f"{e['who']} prints on {found}")
                 break
+    return problems
+
+
+def labels_on_short_legs(drawn: dict) -> list[str]:
+    """The labels that ride a straight leg shorter than themselves and their air, so the line reads as broken there."""
+    shapes = {n["id"]: n for n in drawn["nodes"]}
+    problems = []
+    for c in drawn["connectors"]:
+        if not c["label"] or c["line"] != "STRAIGHT" or not c["name"].startswith(("edge:", "leg:")):
+            continue
+        (p, _), (q, _) = _point(shapes, c["start"]), _point(shapes, c["end"])
+        level = p[1] == q[1]
+        need = (len(c["label"]) * LABEL_CHAR + LABEL_PAD if level else LABEL_HEIGHT) + 2 * LABEL_CLEAR
+        run = abs(q[0] - p[0]) + abs(q[1] - p[1])
+        if run < need:
+            problems.append(f"{c['name']} ({c['label']}) rides a {run:g} px leg that needs {need:g}")
     return problems
 
 
@@ -403,7 +486,8 @@ def edges_side_by_side(drawn: dict) -> list[str]:
     """The pairs of edges whose runs lie parallel, closer than SIDE_BY_SIDE, for longer than a stub.
 
     Two lines a few pixels apart read as one doubled line, so a pair is either clearly apart or a merge
-    that lasts no longer than SHARE_MAX. Runs closer than CORRIDOR are the trunk measure's.
+    that lasts no longer than SHARE_MAX. Runs closer than CORRIDOR are the trunk measure's. Two edges that
+    arrive at one side of one node, each at its own point, may run side by side into it up to MERGE_MAX.
     """
     edges = drawn_edges(drawn)
     found = []
@@ -412,7 +496,8 @@ def edges_side_by_side(drawn: dict) -> list[str]:
             longest = max((min(a[3], b[3]) - max(a[2], b[2]) for p in e["paths"] for q in o["paths"]
                            for a in _runs(p) for b in _runs(q)
                            if a[0] == b[0] and CORRIDOR <= abs(a[1] - b[1]) < SIDE_BY_SIDE), default=0)
-            if longest > SHARE_MAX:
+            arriving = {x for x in e["ports"] if x[2] == "in"} & {x for x in o["ports"] if x[2] == "in"}
+            if longest > (MERGE_MAX if arriving else SHARE_MAX):
                 found.append(f"{e['who']} and {o['who']} run side by side for {longest:g} px")
     return found
 

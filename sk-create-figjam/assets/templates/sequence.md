@@ -6,7 +6,7 @@ importance_tier: important
 trigger_phrases:
   - "sequence templates"
   - "figjam sequence pattern"
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # FigJam Sequence Templates
@@ -23,7 +23,7 @@ Copy/apply patterns for a sequence model. Each pattern passes `scripts/flow_chec
 
 - The participant id is what the board shows, so write `AuthServer`, never `a` with an alias
 - Declare every participant in the order the board should show them
-- `->>` for a request and `-->>` for its return. `-)` and `--)` only when the message really is fire-and-forget
+- `->>` for a request and `-->>` for its return. `-)` and `--)` only when the message really is fire-and-forget, such as telling another system an event happened, which the caller does not wait on
 - A failure path is a second diagram, because `alt` renders flat
 
 ---

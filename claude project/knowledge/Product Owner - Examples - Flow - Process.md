@@ -79,7 +79,7 @@ flowchart LR
     photo --> check
     check -->|Clear| approve
     approve -->|"Claim queued"| pickup
-    approve -.->|"Logs"| log
+    approve -->|"Logs"| log
     pickup --> inspect
     inspect --> refund
     style customer fill:#F5F5F5,stroke:#B3B3B3

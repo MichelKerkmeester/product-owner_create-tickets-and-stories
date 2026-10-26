@@ -86,7 +86,7 @@ The reader's question picks the type. Name one if you know it, or let it recomme
 | Which entities exist, what fields do they carry and how do they relate? | ER |
 | Which tasks and phases are active when? | Gantt |
 
-When two types fit, such as an architecture and a sequence for the same system, it asks which question your reader has. When the type you named does not match what the sources describe, it says so once and recommends the better fit.
+When two types fit, such as an architecture and a sequence for the same system, its first reply asks only which question your reader has, before any other question. When the type you named does not match what the sources describe, that first reply says so and recommends the better fit.
 
 ### Ask for a Board
 
@@ -125,12 +125,12 @@ Every board comes out finished, on an 8 pixel grid, with nothing to tidy by hand
 - **A framed board.** One white section holds everything, named after the board's title
 - **A title and subtitle.** The title in 64 pixel type, with a one-sentence subtitle under it
 - **Zones.** Tinted sections group related steps. A zone never takes the colour of a step inside it, and two neighbouring zones never read as one
-- **Colour by kind.** The same colour means the same thing on every board: a light blue start, light yellow decision diamonds, a light green goal, a light orange exit and a light red error. Colour never stands alone, because shapes and labels carry the meaning too
+- **Colour by kind.** The same colour means the same thing on every board: a light blue start, light yellow decision diamonds, a light green goal, a light orange exit and a light red error. Colour never stands alone, because shapes, outlines and labels carry the meaning too
 - **A key.** Under the diagram, with one sample of every colour, line and arrow the board uses and nothing else
-- **One pink outline.** A heavy pink outline marks the one thing to see first, such as the failed payment on a checkout flow. It is the only heavy line on the board, and the key names it `In focus`
+- **One pink outline.** A heavy pink outline marks the one thing to see first, such as the failed payment on a checkout flow. It is the heaviest line on the board, and the key names it `In focus`, with the reason it is marked when the model gives one
 - **A source line.** Under the key, naming what the board was drawn from
 
-A model too big for one readable board becomes an overview board and a detail board, offered together, never a thinner board that quietly drops steps.
+A model too big for one readable board becomes an overview board and a detail board, offered together, never a thinner board that quietly drops steps. When you asked for one board, it cuts the part your reader needs least instead, names it on the `Left out:` line and offers the split.
 
 ### Revise or Replace a Board
 

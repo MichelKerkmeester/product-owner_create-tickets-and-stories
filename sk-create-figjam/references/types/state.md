@@ -8,7 +8,7 @@ trigger_phrases:
   - "state machine figjam"
   - "lifecycle diagram"
   - "order status flow"
-version: 1.0.3.0
+version: 1.0.4.0
 ---
 
 # FigJam Type - State
@@ -82,13 +82,13 @@ Judged by hand:
 
 ## 4. BUDGET AND SPLITTING
 
-Over budget, split by phase, such as booking and stay, or by entity. A coarse machine with one composite per phase plus one diagram per composite reads better than one deep machine. At `Meeting screen` distance transition labels drop to 32 characters. At `Wall` distance the budget drops to 6 states and 8 transitions, with labels at 25 characters, as the reading distance dial in `references/flow-mode.md` Section 4 sets out.
+Over budget, split by phase, such as booking and stay, or by entity. When the user asked for one board, cut the lowest-priority part instead, name it under `Left out:` and offer the split as the alternative in the playback. A coarse machine with one composite per phase plus one diagram per composite reads better than one deep machine. At `Meeting screen` distance transition labels drop to 32 characters. At `Wall` distance the budget drops to 6 states and 8 transitions, with labels at 25 characters, as the reading distance dial in `references/flow-mode.md` Section 4 sets out.
 
 ---
 
 ## 5. COLOUR, ZONES AND NOTES
 
-None in the model. The composer colours the first and final states and the pseudo-states by role, and composites are the zones. A grouping the model does not hold, such as every error state, is a composite when the states share a way out, and otherwise a note. A self-transition can render tight against its state, so tell the user they can drag its loop in FigJam if it crowds. A `%% focus: <id>` line may name the one node the first glance lands on. It is a comment, so the model stays styleless.
+None in the model. The composer colours the first and final states and the pseudo-states by role, and composites are the zones. A grouping the model does not hold, such as every error state, is a composite when the states share a way out, and otherwise a note. A self-transition can render tight against its state, so tell the user they can drag its loop in FigJam if it crowds. A `%% focus: <id>` line may name the one node the first glance lands on. It is a comment, so the model stays styleless. A composite section reads first in the overview, because it is the largest tinted shape on the board, so plan it as the first glance or put the focus inside it.
 
 ---
 

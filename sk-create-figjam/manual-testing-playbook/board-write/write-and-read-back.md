@@ -1,7 +1,8 @@
 ---
 title: "FJ-008 -- A written ER diagram is read back"
 description: "This scenario validates a written ER diagram is read back for `FJ-008`. It checks that with the hosted Figma MCP connected, a yes writes an ER diagram, the board is read back node by node and the reply carries the measured counts."
-version: 1.0.1.0
+version: 1.0.2.0
+driver: new-file
 ---
 
 # FJ-008 -- A written ER diagram is read back

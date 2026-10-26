@@ -7,7 +7,7 @@ trigger_phrases:
   - "process templates"
   - "laned process pattern"
   - "decision tree pattern"
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # FigJam Process Templates
@@ -25,7 +25,7 @@ Copy/apply patterns for a process model. Each pattern passes `scripts/flow_check
 - Keep the `%% type: process` line first, or the check reads the block as a user flow
 - Name a lane after the actor, `subgraph agent ["CS agent"]`, and keep its id short and camelCase
 - A lane takes the neutral pair or no style, and the one accent goes on the focal step, such as the step that hands work to the next lane. The composer draws that step in focus. A `linkStyle` passes the check and changes nothing on a composed board
-- `-.->` marks a step that is optional or happens later, such as a log write
+- `-.->` marks a step that is optional or proposed. A log write that runs today is drawn solid
 - The patterns all run left to right, because the check reads every process in one file as one flow that runs one way
 
 ---
@@ -88,7 +88,7 @@ flowchart LR
     valid -->|Yes| save[Save the import]
     valid -->|No| errors[/Error report/]
     save --> store[(Imports)]
-    save -.->|"Later"| notify[[Notify the owner]]
+    save -->|"Later"| notify[[Notify the owner]]
     notify --> done([Import finished])
     style done fill:#CDF4D3,stroke:#66D575
 ```

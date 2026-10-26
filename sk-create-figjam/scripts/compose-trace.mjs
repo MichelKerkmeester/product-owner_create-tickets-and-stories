@@ -5,7 +5,7 @@
 // what it drew as JSON: every node with its absolute box, every connector with its two endpoints,
 // the script's return value, and the error it threw, if any. A connector also reports its end caps,
 // dash pattern, stroke and weight, so the arrow a message draws can be measured, and a shape reports its
-// stroke, weight and fill, so the accent can be measured against every other mark. Text is measured with fixed
+// stroke, weight, fill and dash pattern, so the accent and each kind's outline can be measured against every other mark. Text is measured with fixed
 // Inter proportions, so the geometry is a model of the board and never a screenshot of it. Each text reports the
 // font it was set in, and two planted families fail to load, so the composer's font fallbacks can be proved.
 // Usage: node compose-trace.mjs <filled-code.js>
@@ -129,7 +129,7 @@ export async function trace(code) {
       } else {
         nodes.push({ id: c.id, name: c.name || '', type: c.type, shape: c.shapeType, x: a.x, y: a.y, w: c.width, h: c.height,
           text: c.type === 'TEXT' ? c.characters : (c.text ? c.text.characters : ''), parent: n.name || '',
-          weight: c.strokeWeight, stroke: c.strokes, fill: c.fills, font: c.type === 'TEXT' ? c.fontName : c.text && c.text.fontName });
+          weight: c.strokeWeight, stroke: c.strokes, fill: c.fills, dash: c.dashPattern, font: c.type === 'TEXT' ? c.fontName : c.text && c.text.fontName });
       }
       walk(c);
     }

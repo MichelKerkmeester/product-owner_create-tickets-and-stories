@@ -155,6 +155,12 @@ sequenceDiagram
     BookingApi-->>GuestApp: Trip list
 ```
 """,
+    "a user flow whose focus line gives the styled node a reason": """flowchart LR
+    a([Open app]) --> b[Pick item]
+    b --> c([Paid])
+    style c fill:#CDF4D3,stroke:#66D575
+    %% focus: c because it is the goal
+""",
 }
 
 PLANTED = {
@@ -772,4 +778,28 @@ flowchart LR
     c --> a
     s --> c
 """, "9 connectors for 4 steps"),
+    "a focus reason too long for the key": ("""stateDiagram-v2
+    %% focus: Paid because every booking and every refund passes through it
+    [*] --> Open
+    Open --> Paid: pay
+    Paid --> [*]
+""", "at most 30"),
+    "a focus line with because and no reason": ("""stateDiagram-v2
+    %% focus: Paid because
+    [*] --> Open
+    Open --> Paid: pay
+    Paid --> [*]
+""", "names no reason"),
+    "a bare focus line on a user flow": ("""flowchart LR
+    a([Open app]) --> b[Pick item]
+    b --> c([Paid])
+    style c fill:#CDF4D3,stroke:#66D575
+    %% focus: c
+""", "give its reason as %% focus: <styled id> because <reason>"),
+    "a focus line on a user flow node its style line does not mark": ("""flowchart LR
+    a([Open app]) --> b[Pick item]
+    b --> c([Paid])
+    style c fill:#CDF4D3,stroke:#66D575
+    %% focus: b because a reason
+""", "give its reason as %% focus: <styled id> because <reason>"),
 }

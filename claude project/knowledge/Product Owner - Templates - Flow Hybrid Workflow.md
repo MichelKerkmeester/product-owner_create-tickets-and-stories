@@ -41,7 +41,7 @@ Every node inside a zone has coordinates relative to that zone, so a recipe plac
 
 ### Numbered pins with a sticky legend
 
-The default for three or more notes. A small numbered circle sits on each annotated node's top-left corner, and the matching stickies stand in a column inside the board, to the right of the diagram, each starting with its number. The write widens the board to hold the column. The diagram stays clean and ten notes read as easily as three. The column stands 200 pixels clear of the diagram, a same-topic gap, and its stickies keep FigJam's 64 pixel grid between rows, as Rules - Flow Style Guide Section 7 sets the bands.
+The default for three or more notes. A small numbered circle sits on each annotated node's top-left corner, or on its top vertex when the node is a diamond, and the matching stickies stand in a column inside the board, to the right of the diagram, each starting with its number. The write widens the board to hold the column. The diagram stays clean and ten notes read as easily as three. The column stands 200 pixels clear of the diagram, a same-topic gap, and its stickies keep FigJam's 64 pixel grid between rows, as Rules - Flow Style Guide Section 7 sets the bands.
 
 ```javascript
 // boardId from the composing write, notes: [{ id, note }] with each id from its node list
@@ -56,7 +56,9 @@ const created = []
 const edge = board.width - 80
 let top = Infinity
 for (let i = 0; i < notes.length; i++) {
-  const box = (await figma.getNodeByIdAsync(notes[i].id)).absoluteBoundingBox
+  const node = await figma.getNodeByIdAsync(notes[i].id)
+  const box = node.absoluteBoundingBox
+  const diamond = node.type === 'SHAPE_WITH_TEXT' && node.shapeType === 'DIAMOND'
   const pin = figma.createShapeWithText()
   pin.shapeType = 'ELLIPSE'
   pin.name = `pin:${i + 1}`
@@ -68,7 +70,7 @@ for (let i = 0; i < notes.length; i++) {
   pin.strokes = [{ type: 'SOLID', color: h('#5427B4') }]
   pin.text.fills = [{ type: 'SOLID', color: h('#FFFFFF') }]
   board.appendChild(pin)
-  pin.x = box.x - origin.x - 24
+  pin.x = box.x - origin.x - 24 + (diamond ? box.width / 2 : 0)
   pin.y = box.y - origin.y - 24
   top = Math.min(top, pin.y)
   created.push(pin.id)

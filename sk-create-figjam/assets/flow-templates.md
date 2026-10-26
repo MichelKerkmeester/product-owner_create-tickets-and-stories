@@ -8,7 +8,7 @@ trigger_phrases:
   - "mermaid flow patterns"
   - "flow provenance table"
   - "flow reply shape"
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # Product Owner Flow Templates
@@ -110,7 +110,7 @@ flowchart TD
 
 ### A flow split across two diagrams
 
-Divide the ordered source list into groups of at most 9 nodes before the first Mermaid block, each group ending on a hand-off node that names it, so the split is read off the sources rather than a model that already overran. A flow over 9 nodes ends the first diagram on a named hand-off and starts the second diagram from the same name. Both diagrams go into the same file as two boards, read left to right: the second write passes the `fileKey` the first one used, and each board's `%% title:` carries its ordinal and its hand-off, such as `1. Sign up` and `2. Setup`. Every source step lands in one of the diagrams or is listed as left out under the provenance table.
+Divide the ordered source list into groups of at most 9 nodes before the first Mermaid block, each group ending on a hand-off node that names it, so the split is read off the sources rather than a model that already overran. A flow over 9 nodes ends the first diagram on a named hand-off and starts the second diagram from the same name. Both diagrams go into the same file as two boards, read left to right: the second write passes the `fileKey` the first one used, and each board's `%% title:` carries its ordinal and its hand-off, such as `1. Sign up` and `2. Setup`. Every source step lands in one of the diagrams or is listed as left out under the provenance table. When the user asked for one board, cut the lowest-priority part instead, name it under `Left out:` and offer this split in the playback, as `references/flow-mode.md` Section 5 sets out.
 
 ```mermaid
 flowchart TD
@@ -166,7 +166,7 @@ Finding: <a read-back finding, a write warning, an open item or a question>
 HVR self-scan: <n> hard blockers. Fixed: <terms>. Kept with reason: <terms>.
 ```
 
-The `Read-back:` counts follow the type: nodes, connectors and labelled decision exits for a user flow, lanes as well for a process, participants and messages for a sequence, states and transitions for a state diagram, entities, relationships and attributes for an ER diagram, and sections, tasks and milestones for a gantt chart. The `Extensions:` line appears only when the write added any, and the `Left out:` line only when the provenance table lists items left out, so the user sees what the board does not hold. When only a screenshot could be read, the read-back line ends with `, read visually`, because a picture cannot prove which nodes a connector joins. When the connector has no read tool, the line is `Read-back: not possible, the connector has no read tool`, and the board is never called done.
+The `Read-back:` counts follow the type: nodes, connectors and labelled decision exits for a user flow, lanes as well for a process, participants and messages for a sequence, states and transitions for a state diagram, entities, relationships and attributes for an ER diagram, and sections, tasks and milestones for a gantt chart. The `Extensions:` line appears only when the write added any, and the `Left out:` line only when the provenance table lists items left out, so the user sees what the board does not hold. When only a screenshot could be read, the read-back line ends with `, read visually`, because a picture cannot prove which nodes a connector joins. When a board was written and the connector has no read tool, the line is `Read-back: not possible, the connector has no read tool`, and the board is never called done.
 
 These lines are the whole reply, and the self-scan is always the last. Each finding, warning, open item or question is one `Finding:` line, and nothing follows the self-scan. The playback of the settled rows runs before the model and the gate, as `references/flow-mode.md` Section 8 sets out, and it never becomes a line here.
 
@@ -181,6 +181,8 @@ The type table in `references/flow-mode.md` Section 3 reads as questions. Ask th
 | One | The reader, the question and the outcome | Who the board is for, what it must answer and what the reader decides next |
 | Two | Entry, exit and actors | Where the flow starts, where it ends and who takes each step |
 | Three | Decisions, states, sources and class | Where the flow branches, which states exist, which source states each fact and what class that source holds |
+
+When two types fit, or a type the user names does not fit what the brief describes, the type question is asked alone in the first reply, before round one, as `references/flow-mode.md` Section 3 sets out.
 
 ### Every question carries a reading and a recommendation
 
@@ -211,4 +213,4 @@ An answer that names nothing is asked once more with one probe from this set, an
 
 ### An unanswered question is never a dead end
 
-When the user skips a question or says they do not know, the AI takes the recommended answer. That fact is marked assumed in the Brief and named in the playback before the gate, so the user corrects it before anything is written. A row the user corrects is recorded as `corrected` and counts as settled. No later round asks it again.
+When the user skips a question or says they do not know, the AI takes the recommended answer. That fact is marked assumed in the Brief and named in the playback before the gate, so the user corrects it before anything is written. A recommendation the user accepts without supplying a source stays assumed, with what would settle it, and the playback names it. A row the user corrects is recorded as `corrected` and counts as settled. No later round asks it again.

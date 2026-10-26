@@ -1,7 +1,7 @@
 ---
 title: "sk-create-figjam: Manual Testing Playbook"
 description: "Operator-facing directory for the FigJam diagram packet: type choice for all seven types, the pre-write check, the board write with its gate, extension and read-back, scored board quality for every type, creation variant and the board design, the boundaries with the Product Owner packet and routing recall for type detection."
-version: 1.0.4.0
+version: 1.0.5.0
 ---
 
 # sk-create-figjam: Manual Testing Playbook
@@ -80,7 +80,7 @@ The operator writes down the glance order the model plans before the first scree
 
 **The overview zoom.** Four dimensions, each 0, 1 or 2, scored on the whole board in one frame.
 
-- **Composition.** 2: the board reads in the planned glance order, and the element the request is about comes first. 1: the order holds and one part comes before that element. 0: two parts read in the reverse of the planned order
+- **Composition.** 2: the board reads in the planned glance order, and the element the request is about comes first. 1: the order holds and one part comes before that element. 0: two parts read in the reverse of the planned order. The title block is the frame entry and never counts as a part of the glance order
 - **Crossings.** 2: no connector crosses another. 1: one crossing. 0: two or more
 - **Shared trunks.** 2: every connector runs alone between its shapes, or a trunk carries only the edges the model draws as one path. 1: one trunk joins two edges the model draws apart. 0: two or more
 - **Label collisions.** 2: no two labels touch, and each label sits nearer its own connector than any other. 1: one pair touches. 0: a label covers another or reads as another connector's
@@ -89,7 +89,7 @@ The operator writes down the glance order the model plans before the first scree
 
 - **Fidelity.** 2: every read-back count matches the model and every label matches it word for word. 1: the counts match and one label differs. 0: a count differs
 - **Legibility.** 2: no label is cut off, wrapped mid-word or smaller than its neighbours. 1: one label wraps awkwardly. 0: a label is cut off or unreadable
-- **Signal.** 2: every colour the key lists matches its entry and the role `sk-create-figjam/assets/figjam-design.md` gives it, every mark it leaves out passes the rule below, the accent the model sets, a `style` line on a user flow or a process or an optional `%% focus:` line on another type, sits on the element the request names and the greyscale copy answers the reader questions as the colour one does. 1: the accent sits on a different element. 0: a colour the key does not explain and the rule below does not cover, more than one accent in the model or meaning lost in greyscale
+- **Signal.** 2: every colour the key lists matches its entry and the role `sk-create-figjam/assets/figjam-design.md` gives it, every mark it leaves out passes the rule below, the accent the model sets, a `style` line on a user flow or a process or an optional `%% focus:` line on another type, sits on the element the request names and the greyscale copy answers the reader questions as the colour one does. 1: the accent sits on a different element. 0: a colour the key does not explain and the rule below does not cover, more than one accent in the model or meaning lost in greyscale. Meaning lost in greyscale is a reader question the colour copy answers and the greyscale copy cannot. Two kinds that share a shape differ by outline, as `sk-create-figjam/references/style-guide.md` Section 1 sets out. They score 0 when the board draws two such kinds with the same outline and fills under 25 luma apart, or when a node of either kind carries its meaning by fill alone
 - **Clarity.** A fresh reader, a person or a new model session given only the two colour screenshots, answers the scenario's three questions. 2: three correct. 1: two correct. 0: one or none
 
 **Marks the key does not list.** The key holds one sample per kind, line and arrow the board uses and nothing else, so three marks are absent from it by design: a zone or lane tint, a note pin and a legend sticky. A grader scores them against `sk-create-figjam/references/style-guide.md` and the active design in `sk-create-figjam/assets/figjam-design.md`, and never counts their absence from the key as a Signal fault.
@@ -127,6 +127,7 @@ When Crossings, Shared trunks, Label collisions or Legibility loses a point, the
 - `<scratch>` is a folder outside the repository
 - `->` separates sequential steps
 - Every stop Flow Mode makes before a write gets its own `user:` turn with its own wording, because the runner drops a repeated turn. The intake round answers `Use your recommended answers.`, the playback answers `Yes, that reading is right.` and the write gate answers `Yes, go ahead.` A scenario with no intake turn is one whose prompt settles every Brief row. When its run asks an intake round anyway, the operator answers it with the recommended answers before sending the next turn
+- A scenario's frontmatter may carry a `driver:` key for the automated run driver. `driver: operator-only` marks a scenario whose setup the driver cannot perform, such as an open Figma Desktop file or a design file edited before the session, so a model run leaves it out and the operator runs it by hand. `driver: new-file` marks a scenario the driver runs with no file pin, so the plan pick and the new file are tested. A scenario with no `driver:` key runs with the pin
 
 ---
 
@@ -291,13 +292,13 @@ Desired user-visible outcome: A checked returns flow and a gate that waits
 
 #### Description
 
-Verify that work that changes hands between teams becomes a process with one lane per actor, the neutral lane pair and one `style` line that puts the handoff step in focus.
+Verify that work that changes hands between teams becomes a process with one lane per actor and one `style` line that puts the handoff step in focus, where each lane takes the neutral pair or no style.
 
 #### Scenario Contract
 
 Prompt: `draw how a Fernhouse damaged-item refund moves between the customer, a CS agent and the warehouse as a FigJam process on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse`
 
-Expected signals: Turn 1 ends on the playback and shows no model. Turn 2 carries a model that opens with `%% type: process`, holds 2 to 6 lanes with `#F5F5F5` and `#B3B3B3` and carries one `style` line from the style guide on the step that hands the work to the warehouse and no `linkStyle`. The check prints `process: ok` with exit 0. The gate waits
+Expected signals: Turn 1 ends on the playback and shows no model. Turn 2 carries a model that opens with `%% type: process`, holds 2 to 6 lanes, each with the neutral pair `#F5F5F5` and `#B3B3B3` or no style, and carries one `style` line from the style guide on the step that hands the work to the warehouse and no `linkStyle`. The check prints `process: ok` with exit 0. The gate waits
 
 Desired user-visible outcome: A checked laned process and a gate that waits
 
@@ -377,7 +378,7 @@ Verify that the check refuses a sequence model that uses an alias and a note, na
 
 #### Scenario Contract
 
-Prompt: `As the operator, run the sk-create-figjam check on a sequence model with an aliased participant and a note. Verify it fails and names both rules. Return the output and exit status.`
+Prompt: `As the operator, run the sk-create-figjam check on a sequence model with a terse participant id G aliased as GuestApp and a note. Verify it fails and names all three rules. Return the output and exit status.`
 
 Expected signals: The output names the alias, the note and the short id, ends `FAILED 1 of 1 diagram(s)` and exits 1
 
@@ -815,7 +816,7 @@ Verify that three notes the request asks for land as violet numbered pins on the
 
 Prompt: `$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review. Pin the three places support says customers give up, with a note on each: the reason list, where there are too many reasons, the drop-off or pickup choice, where the pickup fee is unclear, and the 30-day cut-off, where there is no warning before day 30.`
 
-Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds the flow of FJ-022, 3 of 3 pins and 3 of 3 legend stickies. Each pin is 48 by 48 in violet `#874FFF` with a white digit on its node's top-left corner and is named `pin:1` to `pin:3`. The stickies are named `note:1` to `note:3` and stand in one column inside the board, 200 pixels to the right of the diagram, each starting with its number. The board is widened to hold the column and no composed node moves. No pin or sticky covers a label and the sticky colour shows as a palette swatch in FigJam's picker. The reply carries `Extensions: 3 of 3 pins, 3 of 3 legend stickies, 0 overlaps`. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds the flow of FJ-022, 3 of 3 pins and 3 of 3 legend stickies. Each pin is 48 by 48 in violet `#874FFF` with a white digit on its node's top-left corner, or on the top vertex of a diamond such as the drop-off or pickup choice, and is named `pin:1` to `pin:3`. The stickies are named `note:1` to `note:3` and stand in one column inside the board, 200 pixels to the right of the diagram, each starting with its number. The board is widened to hold the column and no composed node moves. No pin or sticky covers a label and the sticky colour shows as a palette swatch in FigJam's picker. The reply carries `Extensions: 3 of 3 pins, 3 of 3 legend stickies, 0 overlaps`. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -872,7 +873,7 @@ Verify that the same system asked for a leadership audience lands with capabilit
 
 Prompt: `draw how Loomlist block sync works as a FigJam architecture diagram for the leadership update, on a new board in our Loomlist Product plan: desktop, web and iOS apps talk to our sync platform, which stores every change and wakes sleeping iPhones through Apple's push service.`
 
-Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds at most 6 nodes in capability words, such as Apps, Entry point, Sync platform and Apple Push, with the gateway-lane node counted among them because the architecture check lets a client edge enter only a gateway, every connector of the model and its lanes. The type stays an architecture, and the gateway node is marked assumed on the source line instead of being swapped for a sequence. The reply or the gate names the Executive audience and the Simplified level, no label uses an internal service name such as sync-service or Push Worker, and the reader is told only that they are a non-engineer. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The board holds nodes in capability words, such as Apps, Entry point, Sync platform and Apple Push, with the gateway-lane node among them because the architecture check lets a client edge enter only a gateway, every connector of the model and its lanes. The type stays an architecture, and the gateway node is marked assumed on the source line instead of being swapped for a sequence. The reply or the gate names the Executive audience and the Simplified level, no label uses an internal service name such as sync-service or Push Worker, and the reader is told only that they are a non-engineer. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 
@@ -992,7 +993,7 @@ Verify that a Story asked for beside a FigJam flow is written and exported first
 
 Prompt: `write a story for the Fernhouse return flow and make a FigJam flow of its screens`
 
-Expected signals: The first reply delivers a Story with its export and read-back line, then starts Flow Mode from that Story and ends on Flow Mode's playback with no ClickUp offer. After the playback's yes it ends on Flow Mode's own gate with no ClickUp offer. No Figma write tool is called before the gate's yes. After the gate's yes and a matched read-back, the board URL sits in the Story's `Flows` group, the Story is saved again at its export path and the read-back line ends with its file name
+Expected signals: The reply after any Story Mode clarification delivers a Story with its export and read-back line, then starts Flow Mode from that Story and ends on Flow Mode's playback with no ClickUp offer. After the playback's yes it ends on Flow Mode's own gate with no ClickUp offer. No Figma write tool is called before the gate's yes. After the gate's yes and a matched read-back, the board URL sits in the Story's `Flows` group, the Story is saved again at its export path and the read-back line ends with its file name
 
 Desired user-visible outcome: A Story, a gate for a FigJam board drawn from its screens, then the Story re-saved with the board link
 
@@ -1068,7 +1069,7 @@ Verify that a request that names a state diagram over a brief that describes a p
 
 Prompt: `$figjam a state diagram of the Fernhouse return flow on a new board in our Fernhouse Product plan: a customer opens an order, taps Return an item, picks a reason, chooses a refund or store credit and sees a confirmation`
 
-Expected signals: The first reply asks one question that names the state diagram, the screen path the brief describes and the type it recommends, and writes no model. The second reply is the playback over the confirmed type and shows no model. The third reply models the confirmed type, checks it and ends on a gate that waits
+Expected signals: The first reply asks one question that names the state diagram, the screen path the brief describes and the type it recommends, and writes no model. The second reply is the reader round, or the playback over the confirmed type when the run opens no intake round, and shows no model. The third reply models the confirmed type, checks it and ends on a gate that waits
 
 Desired user-visible outcome: A checked flow of the screens, chosen with one word from the user
 
@@ -1106,13 +1107,13 @@ Routing gold for the packet's type detection: one fitted prompt per type, a natu
 
 #### Description
 
-Verify that a request for a FigJam user flow reaches `sk-create-figjam` at the hub and loads the Flow pair, the user flow files and the quality rubric.
+Verify that a request for a FigJam user flow reaches `sk-create-figjam` at the hub and resolves the Flow pair, the user flow files and the quality rubric as leaves, with the rubric loading before the gate.
 
 #### Scenario Contract
 
 Prompt: `make a FigJam flow of the signup screens from these screenshots`
 
-Expected signals: The hub check passes with this prompt among its gold rows, the type detection line names the type, and every declared leaf exists in the packet and in `leaf-manifest.json`
+Expected signals: The hub check passes with this prompt among its gold rows, the `TYPE_SIGNALS` row for the type carries a cue the prompt uses and every declared leaf exists in the packet and in `leaf-manifest.json`
 
 Desired user-visible outcome: The user flow rules load before any model is written
 
@@ -1125,13 +1126,13 @@ Desired user-visible outcome: The user flow rules load before any model is writt
 
 #### Description
 
-Verify that a request for a FigJam process reaches `sk-create-figjam` at the hub and loads the Flow pair, the process files and the quality rubric.
+Verify that a request for a FigJam process reaches `sk-create-figjam` at the hub and resolves the Flow pair, the process files and the quality rubric as leaves, with the rubric loading before the gate.
 
 #### Scenario Contract
 
 Prompt: `draw how a refund moves between support, the warehouse and finance as a FigJam process with a lane per team`
 
-Expected signals: The hub check passes with this prompt among its gold rows, the type detection line names the type, and every declared leaf exists in the packet and in `leaf-manifest.json`
+Expected signals: The hub check passes with this prompt among its gold rows, the `TYPE_SIGNALS` row for the type carries a cue the prompt uses and every declared leaf exists in the packet and in `leaf-manifest.json`
 
 Desired user-visible outcome: The process rules load before any model is written
 
@@ -1144,13 +1145,13 @@ Desired user-visible outcome: The process rules load before any model is written
 
 #### Description
 
-Verify that a request for a FigJam architecture reaches `sk-create-figjam` at the hub and loads the Flow pair, the architecture files and the quality rubric.
+Verify that a request for a FigJam architecture reaches `sk-create-figjam` at the hub and resolves the Flow pair, the architecture files and the quality rubric as leaves, with the rubric loading before the gate.
 
 #### Scenario Contract
 
 Prompt: `draw the services behind block sync as a FigJam architecture diagram`
 
-Expected signals: The hub check passes with this prompt among its gold rows, the type detection line names the type, and every declared leaf exists in the packet and in `leaf-manifest.json`
+Expected signals: The hub check passes with this prompt among its gold rows, the `TYPE_SIGNALS` row for the type carries a cue the prompt uses and every declared leaf exists in the packet and in `leaf-manifest.json`
 
 Desired user-visible outcome: The architecture rules load before any model is written
 
@@ -1163,13 +1164,13 @@ Desired user-visible outcome: The architecture rules load before any model is wr
 
 #### Description
 
-Verify that a request for a FigJam sequence reaches `sk-create-figjam` at the hub and loads the Flow pair, the sequence files and the quality rubric.
+Verify that a request for a FigJam sequence reaches `sk-create-figjam` at the hub and resolves the Flow pair, the sequence files and the quality rubric as leaves, with the rubric loading before the gate.
 
 #### Scenario Contract
 
 Prompt: `draw the checkout payment as a sequence diagram in FigJam`
 
-Expected signals: The hub check passes with this prompt among its gold rows, the type detection line names the type, and every declared leaf exists in the packet and in `leaf-manifest.json`
+Expected signals: The hub check passes with this prompt among its gold rows, the `TYPE_SIGNALS` row for the type carries a cue the prompt uses and every declared leaf exists in the packet and in `leaf-manifest.json`
 
 Desired user-visible outcome: The sequence rules load before any model is written
 
@@ -1182,13 +1183,13 @@ Desired user-visible outcome: The sequence rules load before any model is writte
 
 #### Description
 
-Verify that a request for a FigJam state reaches `sk-create-figjam` at the hub and loads the Flow pair, the state files and the quality rubric.
+Verify that a request for a FigJam state reaches `sk-create-figjam` at the hub and resolves the Flow pair, the state files and the quality rubric as leaves, with the rubric loading before the gate.
 
 #### Scenario Contract
 
 Prompt: `put the booking status lifecycle on a FigJam state diagram`
 
-Expected signals: The hub check passes with this prompt among its gold rows, the type detection line names the type, and every declared leaf exists in the packet and in `leaf-manifest.json`
+Expected signals: The hub check passes with this prompt among its gold rows, the `TYPE_SIGNALS` row for the type carries a cue the prompt uses and every declared leaf exists in the packet and in `leaf-manifest.json`
 
 Desired user-visible outcome: The state rules load before any model is written
 
@@ -1201,13 +1202,13 @@ Desired user-visible outcome: The state rules load before any model is written
 
 #### Description
 
-Verify that a request for a FigJam er reaches `sk-create-figjam` at the hub and loads the Flow pair, the er files and the quality rubric.
+Verify that a request for a FigJam ER diagram reaches `sk-create-figjam` at the hub and resolves the Flow pair, the ER files and the quality rubric as leaves, with the rubric loading before the gate.
 
 #### Scenario Contract
 
 Prompt: `make a FigJam ER diagram of the stays model from the schema note`
 
-Expected signals: The hub check passes with this prompt among its gold rows, the type detection line names the type, and every declared leaf exists in the packet and in `leaf-manifest.json`
+Expected signals: The hub check passes with this prompt among its gold rows, the `TYPE_SIGNALS` row for the type carries a cue the prompt uses and every declared leaf exists in the packet and in `leaf-manifest.json`
 
 Desired user-visible outcome: The er rules load before any model is written
 
@@ -1220,13 +1221,13 @@ Desired user-visible outcome: The er rules load before any model is written
 
 #### Description
 
-Verify that a request for a FigJam gantt reaches `sk-create-figjam` at the hub and loads the Flow pair, the gantt files and the quality rubric.
+Verify that a request for a FigJam gantt reaches `sk-create-figjam` at the hub and resolves the Flow pair, the gantt files and the quality rubric as leaves, with the rubric loading before the gate.
 
 #### Scenario Contract
 
 Prompt: `put the launch plan on a FigJam gantt chart`
 
-Expected signals: The hub check passes with this prompt among its gold rows, the type detection line names the type, and every declared leaf exists in the packet and in `leaf-manifest.json`
+Expected signals: The hub check passes with this prompt among its gold rows, the `TYPE_SIGNALS` row for the type carries a cue the prompt uses and every declared leaf exists in the packet and in `leaf-manifest.json`
 
 Desired user-visible outcome: The gantt rules load before any model is written
 

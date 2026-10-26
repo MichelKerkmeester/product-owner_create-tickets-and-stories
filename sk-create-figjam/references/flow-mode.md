@@ -10,7 +10,7 @@ trigger_phrases:
   - "figjam flow from screenshots"
   - "flow model pre-write check"
   - "board url read-back"
-version: 1.0.4.0
+version: 1.0.5.0
 ---
 
 # Product Owner - Templates - Flow Mode
@@ -62,7 +62,7 @@ Use another mode instead for:
 4. **Model.** Run the outline pass below first, so the shape is agreed as text before a line is drawn. Then write one Mermaid block per diagram in the type's grammar, drawn from the provenance rows the intake wrote, so no node and no connector appears in Mermaid that has no row. A shape first seen while writing is read into a row before it is kept. A process or an architecture starts with a `%% type:` line. The board's title, subtitle, source line and zones ride on `%% title:`, `%% subtitle:`, `%% source:` and `%% zone:` comment lines, as `assets/flow-templates.md` Section 1 sets out. The model is working data, never a deliverable
 5. **Check.** Run `scripts/flow_check.py` on the model. A failing model is fixed or split, then checked again, and nothing is written until every diagram passes
 6. **Quality pass.** Walk `references/quality-rubric.md`. The script checks what a script can see, and the rubric checks whether every node earns its place
-7. **Gate.** State the Brief's question and the outcome the board must deliver, so the yes covers the purpose and not only the destination, then the three glance lines `references/quality-rubric.md` Section 3 asks to be written before the model, the first glance the board must win, the second glance that advances it and the last glance that may wait. The first glance is the accented node on a user flow or a process, marked by its one required `style` line, and on any other type the node, message or task an optional `%% focus:` line names. The gate then gives the target plan and file, what will be written, any planned extensions, the calls the write will spend and the rollback in one message and waits for a yes. On the composed route the calls are `whoami` for the plan, `create_new_file` for a new board, the `use_figma` call that composes each diagram and the `get_figjam` read-back. Figma limits a Starter plan and a View or Collab seat to six tool calls a month. Read tools count against that allowance and some write tools are exempt, so such a user may spend the whole allowance on one or two boards. The file is a new file, which the write creates first, an existing FigJam file the user named by its link or key or the `fileKey` of a board this work already wrote. A file the user named takes the board as a new section beside what it already holds, and nothing already on it changes, so it needs no plan and no `create_new_file`. A FigJam file has one page and no write can add another, so a page is never the target. An earlier yes never carries over to a new board. The gate is its own reply, sent only after the playback's answer, as Section 8 sets out under The gate is its own reply
+7. **Gate.** State the Brief's question and the outcome the board must deliver, so the yes covers the purpose and not only the destination, then the three glance lines `references/quality-rubric.md` Section 3 asks to be written before the model, the first glance the board must win, the second glance that advances it and the last glance that may wait. The first glance is the accented node on a user flow or a process, marked by its one required `style` line, and on any other type the node, message or task an optional `%% focus:` line names. The gate then gives the target plan and file, what will be written, any planned extensions, the calls the write will spend and the rollback in one message and waits for a yes. On the composed route the calls are `whoami` for the plan, `create_new_file` for a new board, one `get_figjam` read of a file the user named, the `use_figma` call that composes each diagram and the `get_figjam` read-back. Figma limits a Starter plan and a View or Collab seat to six tool calls a month. Read tools count against that allowance and some write tools are exempt, so such a user may spend the whole allowance on one or two boards. The file is a new file, which the write creates first, an existing FigJam file the user named by its link or key or the `fileKey` of a board this work already wrote. A file the user named takes the board as a new section beside what it already holds, and nothing already on it changes, so it needs no plan and no `create_new_file`. Before the gate, read a file the user named once with `get_figjam`, so the read-back has a read to compare with, and name at the gate any section on it that shares the board's title, recommending a numbered title such as `Booking status 2` for the new board. A same-titled section this conversation did not write is named at the gate, never found after the yes, and it is replaced or deleted only as Section 6 sets out for a delete. A FigJam file has one page and no write can add another, so a page is never the target. An earlier yes never carries over to a new board. The gate is its own reply, sent only after the playback's answer, as Section 8 sets out under The gate is its own reply
 8. **Write.** Compose the board with `scripts/compose_board.py` and one `use_figma` call per diagram. Fall back to `generate_diagram` only when `use_figma` is not connected, and to the `fj` route when neither hosted tool is connected and the type allows it, as Section 6 sets out
 9. **Extend.** Only when the gate named an extension, add it through `references/hybrid-workflow.md`
 10. **Read back.** Read the written board with `get_figjam` on the board id the write returned, never from memory, and compare it with the model as Section 7 and the type's reference set out. The composing call returns a screenshot of the whole board, which is the overview, and `get_figjam` returns the outline with a screenshot of each node. A node that needs its own view is read with `get_screenshot` and the node id from that read, because the tool fails without one. Then check the overview for stretching, a label cut off, overlap, a connector crossing, an edge that reads as joining the wrong node, a colour that does not match its entry in the key and whether the board answers the `userIntent` sentence. A finding there goes on a `Finding:` line of the reply, and it is fixed only by reshaping the model and recomposing after a yes, inside the two-attempt bound Section 9 sets. Section 7 names the read for each route. The rows that fail silently are read back the same way, one at a time and before the gate. Each provenance row whose class is not current behavior or whose edge is inferred gets one re-read of its source, and that row records the reason. A row that quotes a source line is not re-read
@@ -78,13 +78,17 @@ Flow Mode draws when all three hold:
 - The reader and the question are settled
 - At most two rows are assumed, and each one names how it gets settled
 
+Under Quick energy the threshold is met once every row is filled from the sources or the defaults and each inferred row is marked assumed, however many rows that is, and the reply is the playback with the offer to draw. The same holds once the user accepts the recommended answers: each accepted row stays assumed, and the next reply is the playback, or one round about a gap those answers opened.
+
 Stop asking at the first of these that is true:
 - The brief is complete and the user confirms it
 - Two rounds in a row change no row
 - The user says stop
 - The energy cap is reached
 
-The cap counts rounds, never questions, because one round is one message however many questions it carries. A later round asks only about a row the sources and the last answers left unasked, such as a gap the answers opened, and never repeats a question. Quick energy is zero rounds, Standard is three and Deep is five. At the cap Flow Mode draws with the assumed rows named, or where the sources cannot carry a diagram it says so and offers a table, as Section 3 sets out. A row still unasked at the cap is named as assumed, never left silent.
+The cap counts rounds, never questions, because one round is one message however many questions it carries. The type question Section 3 asks alone is the one exception, sent before round one. A later round asks only about a row the sources and the last answers left unasked, such as a gap the answers opened, and never repeats a question. Quick energy is zero rounds, Standard is three and Deep is five. At the cap Flow Mode draws with the assumed rows named, or where the sources cannot carry a diagram it says so and offers a table, as Section 3 sets out. A row still unasked at the cap is named as assumed, never left silent.
+
+A brief that spans several flows is read back as one recommended scope, the flow the reader's question needs, with every other flow named under `Left out:` as a later board. The first reply names that scope and the flows it leaves for later, so only that scope is modelled and gated.
 
 ### The outline pass
 
@@ -103,7 +107,7 @@ The look is settled last, in five proposed choices:
 - The title, the one-sentence subtitle under it and the source line under the key
 - Four critique questions the gate answers about the sketch, opening with where the eye goes first and whether that is the node the board most needs read
 
-An unanswered proposal never stops the run. The recommended answer stands and is marked assumed. The playback names it, so the user can correct it before anything is written.
+An unanswered proposal never stops the run. The recommended answer stands and is marked assumed, and so does a recommendation the user accepts without supplying a source. The playback names it, so the user can correct it before anything is written.
 
 ---
 
@@ -111,7 +115,7 @@ An unanswered proposal never stops the run. The recommended answer stands and is
 
 The question the reader needs answered picks the type. Ask before drawing when two types fit, such as an architecture and a sequence for the same system, because they answer different questions.
 
-The Brief's first round, the reader, the question and the outcome, runs before the type is chosen, because the reader's question picks the type. The type is then challenged, and the later rounds ask what that type needs, because types do not want the same sources: a state diagram's actors are not a sequence's participants, so rows asked ahead of the type answer questions another diagram owns.
+The Brief's first round, the reader, the question and the outcome, runs before the type is chosen, because the reader's question picks the type. When two types fit, or a type the user names does not fit what the brief describes, the first reply asks that one question alone, naming both types and the recommended one, and the reader round follows its answer. The type is then challenged, and the later rounds ask what that type needs, because types do not want the same sources: a state diagram's actors are not a sequence's participants, so rows asked ahead of the type answer questions another diagram owns.
 
 | The reader asks | Type | Reference |
 |---|---|---|
@@ -149,7 +153,7 @@ Five rungs in cost order, so the cheapest question comes before any source is re
 1. **What must this board not do.** Ask it in the request's own words before any source is read, with the AI's reading of the request and a recommended answer, and ask it even when the request names no type. A board that refused nothing is the expensive case
 2. **Would a list, a table or a paragraph serve better.** The test above answers it, and a yes ends the work with that offer
 3. **The remove test on the outline.** Cut every step, node and connector the reader would not miss before a single line of Mermaid is written, as `references/quality-rubric.md` Section 2 sets out
-4. **Split rather than shrink.** A model over budget becomes an overview board and a detail board, offered together, never a thinner board that drops a step
+4. **Split rather than shrink.** A model over budget becomes an overview board and a detail board, offered together, never a thinner board that drops a step. When the user asked for one board, the lowest-priority part is cut and named under `Left out:` instead, and the split is offered in the playback as the alternative
 5. **Name every omission.** Every cut, every split and every point the sources left open is named in the reply's `Left out:` line, so the user sees what the board does not hold
 
 ### What Flow Mode does not draw
@@ -303,7 +307,7 @@ The check enforces these on every diagram, and each type adds its own in `refere
 - **No emoji, no markup and no literal `\n`.** The board shows every label exactly as the model writes it, so markup would land as literal characters, and the `generate_diagram` fallback rejects emoji and a literal `\n`. Markup means an HTML tag, emphasis stars or underscores and backticks, anywhere in the block but a `%%` comment
 - **Labels of at most 40 characters on one line.** Detail moves onto an edge label or into a second node
 - **camelCase ids.** Letters and digits only, starting with a letter. No underscore, which breaks connector routing on the `generate_diagram` fallback, and never `end`, `subgraph`, `graph` or another Mermaid keyword. The composer names every layer after its id, such as `node:refund` and `edge:refund->done`, so the read-back finds each one by name
-- **A budget per type.** sk-design-diagram's general budget of 9 nodes and 12 connectors applies unless the type sets its own. Over budget, split rather than shrink, and offer the overview board and the detail board together rather than choosing one quietly
+- **A budget per type.** sk-design-diagram's general budget of 9 nodes and 12 connectors applies unless the type sets its own. Over budget, split rather than shrink, and offer the overview board and the detail board together rather than choosing one quietly. When the user asked for one board, cut the lowest-priority part rather than splitting, name it under `Left out:` and offer the split as the alternative in the playback
 - **Allocate before the first block.** The ordered source list is divided into diagram-sized groups before any Mermaid is written, each group ending on a hand-off node and named after that hand-off, so the ledger checks an allocation rather than a model that already overran. A group still over budget takes the fixed cut order the hand-judged rules below give
 - **Colour by meaning.** The composer colours every node by its kind in the design `assets/figjam-design.md` holds, as `references/style-guide.md` Section 2 sets out, so the same colour means the same thing on every board and the model never colours a node for looks. A user flow and a process each carry exactly one `style` line, which marks the first glance. A styled goal, failing end or decision keeps its kind and takes a pink outline, and a styled step is drawn light pink. The other types take no `style` line and may name the first glance with a `%% focus:` comment line, which is refused where it names nothing, as `references/style-guide.md` Section 3 sets out. The pairs come from the style guide, and the check refuses a second accent. Colour marks a kind and never a team, and the rule holds for the reply text and the key as well as the fills, so no sentence or key entry ties a colour or a zone tint to a team
 - **The composer owns the layout.** Never move a composed node or rewire its connectors. A layout that reads badly is fixed by splitting the diagram or reshaping the model and composing it again, not by dragging. The levers that reshape a layout are named at the end of this section. The composer tags the board it draws, and a tag changes nothing a reader sees, as Section 6 sets out
@@ -312,7 +316,7 @@ Judged by hand, on every type:
 
 - **Restraint.** Every node is a distinct idea, every connector carries information and no label repeats its shape
 - **The source's words.** Labels use the product's or the source's own terms
-- **Splits cut in order.** Decoration first, then exact duplicates, then items that change nothing a reader decides, then cross-cutting items such as logging. Still over, split into an overview and a detail
+- **Splits cut in order.** Decoration first, then exact duplicates, then items that change nothing a reader decides, then cross-cutting items such as logging. Still over, split into an overview and a detail, or, when the user asked for one board, cut the next item in this order and offer the split in the playback
 - **Named omissions.** Every cut, every split and every point the sources left open appears in the reply's `Left out:` line, never dropped silently
 
 ### What a redraw changes
@@ -381,7 +385,7 @@ When `use_figma` is not among the connected tools and `generate_diagram` is, Fig
 
 ### No route
 
-When no route is reachable, or the type needs a hosted route and neither `use_figma` nor `generate_diagram` is connected, say which one is missing and what it needs. Offer the checked model in the reply for the user to keep. Never render the diagram as an image, an HTML page or a Mermaid file as a stand-in for the board.
+When no route is reachable, or the type needs a hosted route and neither `use_figma` nor `generate_diagram` is connected, say which one is missing and what it needs. Offer the checked model in the reply for the user to keep. With no Figma route, never claim a board exists and print no `Read-back:` line, because nothing was written. Never render the diagram as an image, an HTML page or a Mermaid file as a stand-in for the board.
 
 When the type is one the `fj` route draws, a user flow or a process with no lanes, and `figma-ds-cli` is missing or not connected, the reply also names its setup. The vendored `../mcp-figma/` packet owns these steps and their scripts:
 
@@ -423,7 +427,7 @@ A board that already holds content can be slower to read than a fresh one. A rea
 The reply carries the board, its proof and the self-scan, and nothing else. Anything the user must know or answer has a place above the self-scan.
 
 - The first line is the board URL
-- The second line is the read-back, counts measured on the board against the model, in the words the type's reference uses: `Read-back: 8 of 8 nodes, 8 of 8 connectors, 2 of 2 decision exits labelled`. When the connected tools include no read tool, the line is `Read-back: not possible, the connector has no read tool`, and the board is never called done. When the board URL landed in a re-saved artifact, the line ends with the name of the file the artifact was saved to. On a matched read-back the same line also names the first glance in one clause, such as `, first glance: the failed payment`, so the user knows what should win before the board is opened
+- The second line is the read-back, counts measured on the board against the model, in the words the type's reference uses: `Read-back: 8 of 8 nodes, 8 of 8 connectors, 2 of 2 decision exits labelled`. When a board was written and the connected tools include no read tool, the line is `Read-back: not possible, the connector has no read tool`, and the board is never called done. When the board URL landed in a re-saved artifact, the line ends with the name of the file the artifact was saved to. On a matched read-back the same line also names the first glance in one clause, such as `, first glance: the failed payment`, so the user knows what should win before the board is opened
 - When the write added extensions, the next line counts them: `Extensions: 4 of 4 pins, 4 of 4 legend stickies, 0 overlaps`, or `Extensions: 2 of 2 notes, 0 overlaps` for single stickies
 - When the provenance table lists items left out, the next line names them as `Left out: <item>, <reason>`, so the user sees what the board does not hold. On a split or a cut, the reason names the detail level and the cut, such as `Left out: the retry path, split into a second diagram`
 - A contradicted item appears in that same line with both of its sources and the reason it was not drawn, so a finding the sources disagree on is still visible to the reader
@@ -435,7 +439,7 @@ The reply carries the board, its proof and the self-scan, and nothing else. Anyt
 - When the request came with an artifact and the read-back matched the model, a Task, Bug, Story or Epic uses its `Flows` group and a Doc uses `Related references`, with the diagram’s name as the link text. The paired-output route and link placement are owned here
 - The artifact is then saved again at its existing export path and read back, so the file the user keeps carries the link. That save is the artifact's own export step, not a Flow Mode one
 - When only a screenshot could be read, the read-back line ends with `, read visually`
-- No file is written to `export/`, and no Mermaid, HTML, SVG or PNG file is left behind. The check and the composer read and write one scratch folder outside the repository, which the clean-up step deletes before the reply is sent
+- No file is written to `export/`, and no Mermaid, HTML, SVG or PNG file is left behind. The check and the composer read and write one scratch folder outside the repository, which the clean-up step deletes before the reply is sent. Create the scratch folder with `mktemp -d` and keep its path in the conversation, never in a fixed file
 
 ### The playback
 

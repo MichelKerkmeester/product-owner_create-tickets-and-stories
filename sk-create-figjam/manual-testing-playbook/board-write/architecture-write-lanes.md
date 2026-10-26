@@ -1,7 +1,8 @@
 ---
 title: "FJ-019 -- An architecture composed in its six lanes"
 description: "This scenario validates an architecture composed in its six lanes for `FJ-019`. It checks that with the hosted Figma MCP connected, one `use_figma` call composes the architecture with its lanes as columns and the read-back counts its lanes."
-version: 1.0.1.0
+version: 1.0.2.0
+driver: new-file
 ---
 
 # FJ-019 -- An architecture composed in its six lanes

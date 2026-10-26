@@ -12,7 +12,7 @@ trigger_phrases:
   - "clarification flow"
   - "document intake"
   - "source authority clarification"
-version: 0.17.0.20
+version: 0.17.0.21
 ---
 
 # Product Owner - System - Interactive Mode
@@ -55,7 +55,7 @@ For an ambiguous no-command request, the first question also offers the energy c
 
 ### Core Rules
 
-1. **ONE comprehensive question** - Ask for ALL unresolved information at once. Once the user answers, the next reply drafts: a gap with a safe default is drafted with that default and listed under Open items, and only a source conflict with no authority winner, a promised source that has not arrived or a decision the user calls unsettled or a board intake still short of the draw-ready threshold and stop rule in `../sk-create-figjam/references/flow-mode.md` Section 2 may hold the draft a second time, with a question about those alone. For a board that second round asks three things only: who reads it, which question it answers and what the reader should decide
+1. **ONE comprehensive question** - Ask for ALL unresolved information at once. When two artifact commands conflict and one of them draws a board, such as `$task $flow`, the first question settles the artifact and asks no board fact. The board facts wait for Flow Mode's own round. Once the user answers, the next reply drafts: a gap with a safe default is drafted with that default and listed under Open items, and only a source conflict with no authority winner, a promised source that has not arrived or a decision the user calls unsettled or a board intake still short of the draw-ready threshold and stop rule in `../sk-create-figjam/references/flow-mode.md` Section 2 may hold the draft a second time, with a question about those alone. For a board that second round asks three things only: who reads it, which question it answers and what the reader should decide
 2. **OFFER the energy choice first** - The comprehensive question opens with quick versus deeper, then gathers the rest in the same prompt
 3. **WAIT for response** - Never proceed without user input when clarification or a document safety decision is required
 4. **SEPARATE intent from energy** - Recognize Task, Bug, Doc, Story or Interactive intent independently from Quick, Standard or Deep energy
@@ -112,7 +112,7 @@ If the user does not pick, default to Standard energy and proceed with the answe
 
 Every question also states the reading the input already shows and a recommended answer with a one-line reason so a user who does not know can accept it. An unanswered question is never a dead end. A fact the user does not settle is assumed rather than escalated, marked `assumed` with what would settle it and named in the playback before the gate, where it can be corrected before anything is written. That holds for the reader and the question as much as for any other fact.
 
-A board fact follows the same rule. Quick fills every row of Flow Mode's Brief, in the `sk-create-figjam` packet's `flow-mode.md` Section 4, from the sources and the defaults. It marks each row it inferred `assumed` with what would settle it and sends one message with the rows, the chosen type and an offer to draw unless corrected. The check, the gate and the read-back then run unchanged.
+A board fact follows the same rule. Quick fills every row of Flow Mode's Brief, in the `sk-create-figjam` packet's `flow-mode.md` Section 4, from the sources and the defaults. It marks each row it inferred `assumed` with what would settle it, however many rows that is, and sends one message with the rows, the chosen type and an offer to draw unless corrected. The check, the gate and the read-back then run unchanged.
 
 ### Two-Layer Transparency
 
