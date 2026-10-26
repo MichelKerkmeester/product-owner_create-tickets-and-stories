@@ -84,6 +84,7 @@ and findings belong here.
 | Design and composer lane, Project mirror and review | In Progress | Implementation workflow running |
 | Rerun of the 31 failed and skipped scenarios | Pending | Held until 22:00 UTC by D1 |
 | Fixes, mirror, review repairs and leftover handoffs | Done | 1,240 and 163 self-test checks, all 15 gates and the format gate exit 0, 040 validates PASSED |
+| Shared Human Voice card and FJ-027 rescore | Done | operator yes, 12 copies one md5, kernel v1.2.8, 7 systems parity PASSED, record 24 PASS 28 FAIL 2 SKIP |
 
 ### Deviations and findings
 
