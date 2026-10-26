@@ -19,7 +19,7 @@ contextType: "implementation"
 |-------|-------|
 | **Level** | 2 |
 | **Priority** | P1 |
-| **Status** | Complete |
+| **Status** | In Progress |
 | **Created** | 2026-10-25 |
 | **Branch** | `main` |
 | **Parent Spec** | ../spec.md |
@@ -92,6 +92,7 @@ The full records are in `decision-record.md`.
 - The driver reading a board id from any `use_figma` result.
 - Gantt dependency arrows, ER end marks and the state guidance for exits from a composite, with the Project mirror and changelogs.
 - On the operator's request of 2026-10-26, the seven scenarios run again on GPT 6 Luna max fast through Codex and Claude Opus 5.5 low through Claude Code, on today's skill, with one fresh Opus 5.5 medium grader for all fourteen boards and a report before any further run.
+- On the operator's choice after that report, all 54 FigJam playbook scenarios run on Claude Opus 5.5 medium through Claude Code, to collect a board and a reply for every template, with a new file allowed only in drafts of the Barter team plan.
 - Four gallery boards drawn again from their best run's model on the operator's request of 2026-10-26: gantt and ER for their arrows and end marks, and the existing-board state and the dense flow for the design file.
 
 ### Out of Scope
