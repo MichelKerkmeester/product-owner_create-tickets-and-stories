@@ -1,7 +1,7 @@
 ---
 title: "FJ-004 -- The self-test covers every type"
 description: "This scenario validates the self-test covers every type for `FJ-004`. It checks that the check's self-test passes every planted defect and every template, example and Project mirror of all seven types."
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # FJ-004 -- The self-test covers every type
@@ -59,7 +59,7 @@ Operators run the exact prompt and command sequence for `FJ-004` and confirm the
 
 ### Expected
 
-Step 1 prints all checks passed with exit 0. Step 2 prints `PASSED` for every file
+Step 1 prints all checks passed with exit 0. Step 2 prints `PASSED` for every file. A sandbox install that leaves out `claude project/` prints `SKIP  <file> is not in this install` for each Project mirror, which is expected there, because `benchmark/gates/run_gates.sh` runs the same self-test in the repository with the mirror present
 
 ### Evidence
 
