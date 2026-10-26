@@ -1,0 +1,155 @@
+{
+ "id": "FJ-028",
+ "label": "swe",
+ "model": "swe-2-max",
+ "permission": "dangerous",
+ "runtime": "devin-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/gantt-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November 2026 with two weeks of conflict-screen design, the sync engine takes three weeks from the same day, the conflict screen build follows its design for two weeks, and desktop and iOS integration starts when both builds are done, one week, and is the critical path. Then a two-week beta for 5 percent of workspaces and the release. Android follows in the next quarter, not yet approved.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "resolute-magnolia",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "146:5370"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 82.67,
+   "tool_calls": 17,
+   "tools_used": [
+    "exec",
+    "read",
+    "read",
+    "read",
+    "exec",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read"
+   ],
+   "input_tokens": 284130,
+   "output_tokens": 9250,
+   "cached_tokens": 205824,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "resolute-magnolia",
+   "inner_calls": [],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November 2026 with two weeks of conflict-screen design, the sync engine takes three weeks from the same day, the conflict screen build follows its design for two weeks, and desktop and iOS integration starts when both builds are done, one week, and is the critical path. Then a two-week beta for 5 percent of workspaces and the release. Android follows in the next quarter, not yet approved.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 48.88,
+   "tool_calls": 5,
+   "tools_used": [
+    "read",
+    "grep",
+    "write",
+    "exec",
+    "exec"
+   ],
+   "input_tokens": 514698,
+   "output_tokens": 3683,
+   "cached_tokens": 439616,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "resolute-magnolia",
+   "inner_calls": [],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 173.6,
+   "tool_calls": 13,
+   "tools_used": [
+    "mcp_list_tools",
+    "exec",
+    "exec",
+    "mcp_read_resource",
+    "mcp_read_resource",
+    "mcp_call_tool",
+    "exec",
+    "read",
+    "read",
+    "read",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec"
+   ],
+   "input_tokens": 1502513,
+   "output_tokens": 22961,
+   "cached_tokens": 1353664,
+   "response_models": [
+    "swe-2-max"
+   ],
+   "session_id": "resolute-magnolia",
+   "inner_calls": [
+    "create_session",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "boards": [
+    "146:5370"
+   ],
+   "kind": "PLAYBACK"
+  }
+ ]
+}

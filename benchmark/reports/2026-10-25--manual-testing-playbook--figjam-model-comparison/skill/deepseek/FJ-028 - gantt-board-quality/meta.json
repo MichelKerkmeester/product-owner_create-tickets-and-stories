@@ -1,0 +1,175 @@
+{
+ "id": "FJ-028",
+ "label": "deepseek",
+ "model": "deepseek-v4-1-flash-1017-max",
+ "permission": "dangerous",
+ "runtime": "devin-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/gantt-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November 2026 with two weeks of conflict-screen design, the sync engine takes three weeks from the same day, the conflict screen build follows its design for two weeks, and desktop and iOS integration starts when both builds are done, one week, and is the critical path. Then a two-week beta for 5 percent of workspaces and the release. Android follows in the next quarter, not yet approved.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "eggplant-shampoo",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "141:5330"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 88.24,
+   "tool_calls": 39,
+   "tools_used": [
+    "exec",
+    "find_file_by_name",
+    "read",
+    "read",
+    "read",
+    "exec",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "read",
+    "mcp_list_tools",
+    "exec",
+    "exec",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "mcp_read_resource",
+    "mcp_read_resource",
+    "mcp_call_tool",
+    "exec"
+   ],
+   "input_tokens": 2179870,
+   "output_tokens": 17940,
+   "cached_tokens": 2064000,
+   "response_models": [
+    "deepseek-v4-1-flash-1017-max"
+   ],
+   "session_id": "eggplant-shampoo",
+   "inner_calls": [
+    "whoami",
+    "create_session",
+    "get_metadata",
+    "get_figjam",
+    "get_figma_skill",
+    "get_figma_skill",
+    "use_figma"
+   ],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November 2026 with two weeks of conflict-screen design, the sync engine takes three weeks from the same day, the conflict screen build follows its design for two weeks, and desktop and iOS integration starts when both builds are done, one week, and is the critical path. Then a two-week beta for 5 percent of workspaces and the release. Android follows in the next quarter, not yet approved.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 7.03,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 127649,
+   "output_tokens": 1310,
+   "cached_tokens": 125184,
+   "response_models": [
+    "deepseek-v4-1-flash-1017-max"
+   ],
+   "session_id": "eggplant-shampoo",
+   "inner_calls": [],
+   "composed": false,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "boards": [],
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 75.17,
+   "tool_calls": 10,
+   "tools_used": [
+    "exec",
+    "exec",
+    "read",
+    "read",
+    "read",
+    "mcp_list_servers",
+    "exec",
+    "mcp_call_tool",
+    "mcp_call_tool",
+    "exec"
+   ],
+   "input_tokens": 1677786,
+   "output_tokens": 27813,
+   "cached_tokens": 1621376,
+   "response_models": [
+    "deepseek-v4-1-flash-1017-max"
+   ],
+   "session_id": "eggplant-shampoo",
+   "inner_calls": [
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "rate_waits": 0,
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "boards": [
+    "141:5330"
+   ],
+   "kind": "DELIVERY"
+  }
+ ]
+}

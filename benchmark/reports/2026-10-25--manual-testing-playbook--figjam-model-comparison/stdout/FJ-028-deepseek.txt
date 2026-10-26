@@ -1,0 +1,4 @@
+{"id": "FJ-028", "label": "deepseek", "turn": 1, "role": "scripted", "kind": "PLAYBACK", "figma": ["whoami", "create_session", "get_metadata", "get_figjam", "get_figma_skill", "get_figma_skill", "use_figma"], "boards": []}
+{"id": "FJ-028", "label": "deepseek", "turn": 2, "role": "scripted", "kind": "GATE", "figma": [], "boards": []}
+{"id": "FJ-028", "label": "deepseek", "turn": 3, "role": "scripted", "kind": "DELIVERY", "figma": ["use_figma", "get_figjam"], "boards": ["141:5330"]}
+{"id": "FJ-028", "label": "deepseek", "status": "ok", "attempts": 1, "turns": 3, "boards": ["141:5330"]}

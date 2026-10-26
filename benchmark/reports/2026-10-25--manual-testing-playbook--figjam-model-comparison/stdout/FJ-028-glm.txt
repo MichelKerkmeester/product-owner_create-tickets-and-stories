@@ -1,0 +1,4 @@
+{"id": "FJ-028", "label": "glm", "turn": 1, "role": "scripted", "kind": "PLAYBACK", "figma": ["create_session", "get_figjam", "use_figma"], "boards": []}
+{"id": "FJ-028", "label": "glm", "turn": 2, "role": "scripted", "kind": "GATE", "figma": [], "boards": []}
+{"id": "FJ-028", "label": "glm", "turn": 3, "role": "scripted", "kind": "DELIVERY", "figma": ["use_figma", "get_figjam", "use_figma", "use_figma", "get_figjam", "get_screenshot", "get_figjam"], "boards": ["145:5350"]}
+{"id": "FJ-028", "label": "glm", "status": "ok", "attempts": 1, "turns": 3, "boards": ["145:5350"]}
