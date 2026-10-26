@@ -193,7 +193,7 @@
     ],
     "causal_summary": "The gallery shows boards the composer drew before phase 037, so it no longer shows what the skill draws",
     "created_at": "2026-10-25T22:01:09.440Z",
-    "last_save_at": "2026-10-26T07:03:23.899Z",
+    "last_save_at": "2026-10-26T07:34:51.082Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -205,14 +205,14 @@
       "decision-record.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:78004f1659abf354d0c29d95699a9d579463401d1eb5d0802ff45f1ef11aba44",
+    "source_fingerprint": "sha256:f1bd1a9143dba725d2f73877f343df075208d94dc448e76231284406eff6a3dd",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "6aa3ba81bc831ee36b825f3cc30f208fb0c98fe52fca0484c5fc6fe9a12c4282",
+      "spec.md": "f8afd93844c6ff7652f0fad0aaeeed58da523765a88280ec288a2111e308bf8c",
       "plan.md": "7408e75d2be47e558da244db26778565e2c35cb5abc8e0b1d5ab771d1b555869",
-      "tasks.md": "8320f462e3ab2c29a82aaf5e27a18e14c54ad4216689ec1081b8e494fc85efbd",
+      "tasks.md": "5c61d5a4c3540c141faaa776e5e9d95df6e476d2590d505857a261d2fcb15fbb",
       "decision-record.md": "a357c589f4700a0fa37e37fcbb4d10e8f123c6a5147b9a33ba3355f52519b0b9",
-      "implementation-summary.md": "c2345d4436473d387e0af4af896ed73fda3723a1ddeaf494ad07122d5b27ee76"
+      "implementation-summary.md": "c18f26f771b3511dec68f9aa6f77e3f1ba4753f343dbe25e6643e3aca1545ac7"
     },
     "last_active_child_id": null,
     "last_active_at": null

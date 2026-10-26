@@ -76,4 +76,5 @@ and findings belong here.
 | Finding | Open | GLM deleted ten test boards on FJ-024 after a generic yes, a later phase should require a named yes |
 | Six run findings fixed | Done | gantt arrows, ER end marks, delete names its boards, no-fileKey recovery, one verdict rule, gallery on board points, self-test 1029/1029, 15 gates, parity 65/65, live 147:5390 and 148:5423 |
 | Fresh review of the fixes | Done | DeepSeek review then two Opus medium reviewers, every confirmed finding fixed, kernel v1.2.5 |
+| Gallery redrawn from best output | Done | gantt 149:5482, ER 150:5517, existing board 151:5578, dense flow 152:5695, 0 warnings each, captions updated, 15 gates |
 <!-- /ANCHOR:log -->
