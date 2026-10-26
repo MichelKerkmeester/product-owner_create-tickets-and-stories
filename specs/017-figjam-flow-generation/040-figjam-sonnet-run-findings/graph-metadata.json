@@ -198,7 +198,7 @@
     ],
     "causal_summary": "Claude Sonnet 5.5 high ran all 54 FigJam scenarios on v1.0.5.0 and passed 23 once skeptics and an adjudicator had checked one grader's verdicts",
     "created_at": "2026-10-26T18:02:43Z",
-    "last_save_at": "2026-10-26T20:11:12.533Z",
+    "last_save_at": "2026-10-26T20:13:56.025Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -209,7 +209,7 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:f733aad083cb9f8f559337af6af35aaa50fb1a16cf9e7efe7b224a1e62b7516f",
+    "source_fingerprint": "sha256:574f09811c12c63bba81f9b7ac689a4cc2e619a70100ff75b7421c541093b1e5",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
       "spec.md": "1fa2e41a46d74218ac0fcddb9346ea3d89bf92c53941649b2998469a7e7ec7b6",

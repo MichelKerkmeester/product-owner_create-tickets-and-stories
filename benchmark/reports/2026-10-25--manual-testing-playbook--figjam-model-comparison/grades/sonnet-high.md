@@ -43,7 +43,7 @@ First grade shows the grader's verdict and total before adjudication where an ad
 | FJ-024 | FAIL | 20 |  |
 | FJ-025 | FAIL | 21 |  |
 | FJ-026 | FAIL | 19 | FAIL, 21 |
-| FJ-027 | FAIL | 20 | PASS, 22 |
+| FJ-027 | PASS | 22 | PASS, 22 |
 | FJ-028 | PASS | 21 |  |
 | FJ-029 | FAIL | 22 |  |
 | FJ-030 | PASS | 22 |  |
@@ -72,9 +72,9 @@ First grade shows the grader's verdict and total before adjudication where an ad
 | FJR-006 | PASS | no board |  |
 | FJR-007 | PASS | no board |  |
 
-Totals: 23 PASS, 29 FAIL and 2 SKIP. The grader's first pass gave 33 PASS, 17 FAIL and 4 SKIP. Nothing was written to a board before a gate's yes in any run. No run saved a file to `export/` outside the Product Owner artifact lanes (FJ-020, FJ-021, FJ-037 and FJN-001), but FJ-020 saved a Task in turn 2 beyond the one clarification its scenario allows.
+Totals: 24 PASS, 28 FAIL and 2 SKIP, after FJ-027 was rescored under the clarified Human Voice card. The grader's first pass gave 33 PASS, 17 FAIL and 4 SKIP. Nothing was written to a board before a gate's yes in any run. No run saved a file to `export/` outside the Product Owner artifact lanes (FJ-020, FJ-021, FJ-037 and FJN-001), but FJ-020 saved a Task in turn 2 beyond the one clarification its scenario allows.
 
-The 20 written boards score 411 of 440 points, from 18 to 22: six at 22, three at 21, eight at 20, two at 19 and one at 18. Nine pass the board scorecard, which needs 18 or more with Composition, Fidelity, Reply and the four Hygiene checks at full marks and no dimension at 0: FJ-008, FJ-019, FJ-022, FJ-023, FJ-025, FJ-028, FJ-029, FJ-030 and FJ-034. Before adjudication eighteen boards passed it, where this file first said sixteen. Six of the eleven that now fail it drop to Signal 0 in greyscale (FJ-018, FJ-026, FJ-032, FJ-033, FJ-035 and FJ-045). Three lose a Composition point (FJ-017, FJ-031 and FJ-036) and two score Reply 0 (FJ-024 and FJ-027). FJ-019, FJ-025, FJ-029 and FJ-034 pass the scorecard and still fail on a missing expected signal.
+The 20 written boards score 413 of 440 points, from 18 to 22: seven at 22, three at 21, seven at 20, two at 19 and one at 18. Ten pass the board scorecard, which needs 18 or more with Composition, Fidelity, Reply and the four Hygiene checks at full marks and no dimension at 0: FJ-008, FJ-019, FJ-022, FJ-023, FJ-025, FJ-027, FJ-028, FJ-029, FJ-030 and FJ-034. Before adjudication eighteen boards passed it, where this file first said sixteen. Six of the ten that now fail it drop to Signal 0 in greyscale (FJ-018, FJ-026, FJ-032, FJ-033, FJ-035 and FJ-045). Three lose a Composition point (FJ-017, FJ-031 and FJ-036) and FJ-024 scores Reply 0. FJ-019, FJ-025, FJ-029 and FJ-034 pass the scorecard and still fail on a missing expected signal.
 
 ## Pass count by category
 
@@ -83,7 +83,7 @@ The 20 written boards score 411 of 440 points, from 18 to 22: six at 22, three a
 | Type choice (7) | 4 | 3 | 0 | 4, 3, 0 |
 | Pre-write check (7) | 5 | 2 | 0 | 7, 0, 0 |
 | Board write (6) | 2 | 3 | 1 | 3, 2, 1 |
-| Board quality (9) | 3 | 6 | 0 | 4, 3, 2 |
+| Board quality (9) | 4 | 5 | 0 | 4, 3, 2 |
 | Board creation (8) | 1 | 6 | 1 | 4, 3, 1 |
 | Boundaries (8) | 1 | 7 | 0 | 2, 6, 0 |
 | Intra-routing recall (9) | 7 | 2 | 0 | 9, 0, 0 |
@@ -93,15 +93,15 @@ The 20 written boards score 411 of 440 points, from 18 to 22: six at 22, three a
 
 Skeptics disputed 37 grades and an adjudicator ruled on every item. No ruling was rejected when the rulings were folded in.
 
-- **Twelve verdicts moved.** Ten went from PASS to FAIL (FJ-005, FJ-017, FJ-027, FJ-031, FJ-032, FJ-036, FJ-037, FJ-043, FJR-001 and FJR-005) and two from SKIP to FAIL (FJ-044 and FJ-045).
-- **Ten board totals fell, from 433 to 411 points.** FJ-017, FJ-018, FJ-027, FJ-031, FJ-033 and FJ-045 went from 22 to 20, FJ-026 from 21 to 19, FJ-032 from 22 to 18, FJ-035 from 22 to 19 and FJ-036 from 21 to 20.
+- **Twelve verdicts moved.** Ten went from PASS to FAIL (FJ-005, FJ-017, FJ-027, FJ-031, FJ-032, FJ-036, FJ-037, FJ-043, FJR-001 and FJR-005) and two from SKIP to FAIL (FJ-044 and FJ-045). FJ-027 later returned to PASS under the clarified card.
+- **Ten board totals fell, from 433 to 411 points.** FJ-017, FJ-018, FJ-027, FJ-031, FJ-033 and FJ-045 went from 22 to 20, FJ-026 from 21 to 19, FJ-032 from 22 to 18, FJ-035 from 22 to 19 and FJ-036 from 21 to 20. FJ-027's rescore to 22 puts the total at 413.
 - **Signal in greyscale.** The shipped role palette renders start, goal, exit, first state, final state, gateway and outside system as near identical light greys, so six boards drop to Signal 0. The grader had scored all six at 2.
 - **Glance order.** FJ-017, FJ-031, FJ-032 and FJ-036 lose a Composition point where the fresh reader's first glance landed before the planned focus. FJ-031 also loses a Signal point because its one accent sits on Return confirmed with QR code and not on the revision's subject, Request an exception.
 - **Signals marked harness that the run could show.** FJ-005 planted a readable id where Command 1 plants a short id, so the short id failure never printed. FJR-001 and FJR-005 fail on the stale `-> <type>` grep in step 2, a playbook defect and not a model one. FJ-043 never ran the passing check on the shipped example, which is a model omission.
-- **Other missing signals.** FJ-027 scores Reply 0 because its self-scan reports 0 hard blockers while it keeps a structural ban. FJ-037's first reply is a Story Mode clarification instead of the Story. FJ-044 piped the design check through `head`, so its exit status was never shown. FJ-011, FJ-012, FJ-020, FJ-029 and FJ-040 each lose one or two signals with no change to their FAIL.
+- **Other missing signals.** FJ-037's first reply is a Story Mode clarification instead of the Story. FJ-044 piped the design check through `head`, so its exit status was never shown. FJ-011, FJ-012, FJ-020, FJ-029 and FJ-040 each lose one or two signals with no change to their FAIL.
 - **Harness readings both ways.** The FJR-001 hub, leaf and topology commands and the FJR-007 hub check were rerun read-only and now read met. The FJR-003, FJR-004 and FJR-006 commands and two FJH-001 signals moved to harness or missing as their adjudications ruled.
 - **Upheld.** FJ-022, FJ-030 and FJ-034 stand as graded. FJ-019, FJ-023, FJ-024, FJ-025, FJ-028, FJ-039, FJN-001 and the rest of the adjudicated rows keep their verdict and total with corrected cites, losses or skill gaps.
-- **One ruling is contested.** A later review of `hvr-core.md` holds that the FJ-027 Reply 0 rests on a misread: the file never says whether a term under Kept with reason counts in N, and FJ-008 counted the same kept verb as 1. FJ-027 stays at Reply 0 in this record until that rule is written and the run is scored again.
+- **One ruling was settled later.** A review of `hvr-core.md` found that the FJ-027 Reply 0 rested on a gap in the card: it never said whether a term under Kept with reason counts in N, and FJ-008 counted the same kept verb as 1. On the operator's yes the card now counts such a term only when it is used as the banned pattern, so FJ-027's literal relationship verb `offers` is not counted and the run scores Reply 2, 22 and PASS.
 
 ## Against Claude Opus 5.5 medium on its 24 scenarios
 
@@ -122,10 +122,10 @@ Ranked by total, then pass over fail, then fewer supplementary turns. The deepse
 - **FJ-024 architecture.** swe 22 PASS, deepseek 22 PASS, luna 22 FAIL, opus-low 21 PASS, glm 21 FAIL, sonnet-high 20 FAIL. Sonnet's board is clean and names file storage under Left out, but a Finding claims four dashed edges where three are drawn.
 - **FJ-025 sequence.** glm 22 PASS, swe 22 PASS, deepseek 22 PASS, sonnet-high 21 FAIL, luna 21 FAIL, opus-low 20 FAIL. Like swe, luna and opus-low, Sonnet drew the declined card as a second board. It also drew the hub message as a plain request, so the async signal is missing.
 - **FJ-026 state.** glm 22 PASS, luna 20 FAIL, swe 19 FAIL, sonnet-high 19 FAIL, opus-low 18 FAIL, deepseek 16 FAIL. Sonnet drew the Confirmed composite correctly but loses Signal in greyscale and stopped on an unasked question about an older same-named board, so the write came on a supplementary turn and it sits behind swe.
-- **FJ-027 ER.** swe 22 PASS, glm 22 PASS, luna 22 PASS, then sonnet-high, opus-low and deepseek tied at 20 FAIL. Sonnet's board is complete, but its Reply scores 0 for the self-scan count.
+- **FJ-027 ER.** swe 22 PASS, glm 22 PASS, luna 22 PASS, and sonnet-high 22 PASS after its rescore, then opus-low and deepseek tied at 20 FAIL.
 - **FJ-028 gantt.** deepseek 22 PASS, glm 22 PASS, swe 22 PASS, sonnet-high 21 PASS, opus-low 20 FAIL, luna 19 FAIL. Sonnet's one loss is the composer dropping the design arrow onto the end of the Sync engine bar.
 
-Across the seven, Sonnet passes three (FJ-022, FJ-023 and FJ-028). On the same grade files deepseek and glm pass five, swe four, luna two and opus-low one. Sonnet's 21 is the top FJ-023 score.
+Across the seven, Sonnet passes four (FJ-022, FJ-023, FJ-027 and FJ-028). On the same grade files deepseek and glm pass five, swe four, luna two and opus-low one. Sonnet's 21 is the top FJ-023 score.
 
 ## Skill gaps, most important first
 
