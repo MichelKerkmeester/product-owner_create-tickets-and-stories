@@ -26,7 +26,7 @@ It draws seven types, each answering one reader question: a user flow, a laned p
 
 ## 2. GALLERY
 
-Real boards this packet composed on a fictional test file and rendered through the Figma REST API. Each type board is the best of three models in the 2026-10-25 model comparison, drawn in the shipped design file. [`assets/screenshots/README.md`](assets/screenshots/README.md) names the playbook scenario, the model and the scorecard result behind each one.
+Real boards this packet composed on a fictional test file and rendered through the Figma REST API. Each type board is the best of three models in the 2026-10-25 model comparison, drawn in the shipped design file. The gantt, ER and last two boards were drawn again from their best run's model with the current composer. [`assets/screenshots/README.md`](assets/screenshots/README.md) names the playbook scenario, the model and the scorecard result behind each one.
 
 **User flow.** The pink outline on the green Return confirmed with QR code goal is the first glance. Three zones run left to right, each decision is a yellow diamond with labelled exits and the orange Contact support pill shows where the flow leaves.
 
@@ -48,15 +48,15 @@ Real boards this packet composed on a fictional test file and rendered through t
 
 ![A state board for a booking status with a nested Confirmed state](assets/screenshots/state-board.png)
 
-**ER.** A Guest side zone and a Partner side zone keep the two halves apart. Each entity lists its PK, FK and UK columns with types, each line names the relationship with its cardinality and Booking carries the pink outline.
+**ER.** A Guest side zone and a Partner side zone keep the two halves apart. Each entity lists its PK, FK and UK columns with types. Each line names the relationship with its cardinality and carries the matching crow's-foot mark at both ends. Booking carries the pink outline.
 
 ![An ER board with six entities split into guest and partner zones](assets/screenshots/er-board.png)
 
-**Gantt.** A weekly date axis runs across the top and Design, Build and Launch are tinted zones. Each bar shows its length, the critical integration week carries the pink outline and a yellow diamond marks the release on 21 December. The source line names the platform left out.
+**Gantt.** A weekly date axis runs across the top and Design, Build and Launch are tinted zones. Each bar shows its length, the critical integration week carries the pink outline and a yellow diamond marks the release on 21 December. An arrow runs from each bar to the work that waits on it. Each arrow drops into the middle of the bar that waits, so the design arrow crosses the end of Sync engine, which ends on the day it drops. The source line names the platform left out.
 
 ![A gantt board for a launch plan with three phases and a release milestone](assets/screenshots/gantt-board.png)
 
-**Written onto an existing board.** This state diagram was added to a board that already held content, which the write left in place. The overview shows the new section only. Completed carries the pink outline as the first glance this time, because the gate planned it first.
+**Written onto an existing board.** In FJ-032 this state diagram was added to a board that already held content, which the write left in place. The overview shows the new section only. Completed carries the pink outline as the first glance this time, because the gate planned it first.
 
 ![A state board for a booking lifecycle written onto a board with existing content](assets/screenshots/state-on-existing-board.png)
 
