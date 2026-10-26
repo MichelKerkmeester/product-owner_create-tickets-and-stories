@@ -77,6 +77,7 @@ The operator reopened the phase on 2026-10-26 to fix the six findings in the run
 - [x] T021 Hand-write the Project mirror, the SYNC note and the changelogs (claude project/knowledge/, SYNC.md, changelog/)
 - [x] T022 Compose a gantt and an ER board on the test file and read the renders
 - [x] T023 Run every gate, a fresh review and validate.sh --strict, then close
+- [x] T024 Draw the gantt, ER, existing-board and dense-flow gallery boards again from their best run's model and update the captions (sk-create-figjam/assets/screenshots/, sk-create-figjam/README.md)
 <!-- /ANCHOR:phase-4 -->
 
 ---

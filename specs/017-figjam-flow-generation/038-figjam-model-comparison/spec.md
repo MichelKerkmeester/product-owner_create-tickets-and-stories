@@ -91,10 +91,11 @@ The full records are in `decision-record.md`.
 - The gallery rule ranked on the board points first, the results rebuilt and the gallery images and captions that change with it.
 - The driver reading a board id from any `use_figma` result.
 - Gantt dependency arrows, ER end marks and the state guidance for exits from a composite, with the Project mirror and changelogs.
+- Four gallery boards drawn again from their best run's model on the operator's request of 2026-10-26: gantt and ER for their arrows and end marks, and the existing-board state and the dense flow for the design file.
 
 ### Out of Scope
 - Any skill change the run's six findings do not name.
-- The two harder gallery boards, `state-on-existing-board.png` and `dense-flow-board.png`, which come from scenarios this run does not repeat.
+- A grade for the redrawn gallery boards, whose captions keep the score their run gave the original board.
 - Any Barter board, board URL or Figma file key in a tracked file.
 
 ### Files to Change
@@ -102,7 +103,7 @@ The full records are in `decision-record.md`.
 | File Path | Change Type | Description |
 |-----------|-------------|-------------|
 | benchmark/reports/2026-10-25--manual-testing-playbook--figjam-model-comparison/ | Create | The run folder: driver, evidence, renders list, grades and README |
-| sk-create-figjam/assets/screenshots/ | Modify | The seven type images and the gallery README |
+| sk-create-figjam/assets/screenshots/ | Modify | The seven type images, the four redrawn boards and the gallery README |
 | README.md, sk-create-figjam/README.md | Modify | Gallery captions where they name a score or a source |
 | benchmark/reports/README.md | Modify | The new run's row |
 | sk-create-figjam/references/flow-mode.md | Modify | The named-delete rule and the missing `fileKey` recovery |
