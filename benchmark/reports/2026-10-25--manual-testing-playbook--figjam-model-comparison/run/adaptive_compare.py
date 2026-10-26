@@ -13,7 +13,10 @@ at most three times, so a model that stops once more than the script still reach
 board a grader can score. Each turn is labelled scripted, adaptive or supplementary in
 meta.json, and a small classifier's label for each reply's stop is kept as `kind`.
 
-Usage: adaptive_compare.py <system dir> <run folder> <label> <devin model> <scenario id> <file key>
+A model id of the form `codex:<model>:<effort>` or `claude:<model>:<effort>` runs on that CLI
+through `runtimes.py` instead of Devin, with the same sandbox, operator and record.
+
+Usage: adaptive_compare.py <system dir> <run folder> <label> <model> <scenario id> <file key>
 """
 import json
 import os
@@ -24,10 +27,15 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import devin_playbook_runner as dv  # noqa: E402
+import runtimes  # noqa: E402
 
 INTAKE_ANSWER = "Use your recommended answers."
 MAX_INTAKE = 2
 MAX_FOLLOW = 3
+# Opus 5.5 low would not draw on the pinned file and stopped to ask for a plan, so the
+# operator allowed it one new file, in drafts of the Barter team plan and never in a project
+DRAFTS_PIN = ("If you need a new file instead, create it in the Barter team plan and leave it "
+              "in drafts, with no project.")
 CLAUDE_BIN = os.path.expanduser("~/.local/bin/claude")
 # An empty folder, so the classifier loads no project instructions
 CLASSIFY_DIR = os.path.join(os.environ.get("TMPDIR", "/tmp"), "claude-reply-classifier")
@@ -83,6 +91,7 @@ def main():
     system_dir, out, label, model, sid, key = (os.path.abspath(sys.argv[1]), sys.argv[2], sys.argv[3],
                                                sys.argv[4], sys.argv[5], sys.argv[6])
     dv.MODEL = model
+    spec = runtimes.runtime(model)
     sk = next(r for r in dv.load_playbook(system_dir, "product-owner") if r["id"] == sid and r["side"] == "skill")
     harness_root = os.path.join(os.environ.get("TMPDIR", "/tmp"), "devin-compare-bench")
     scratch = os.path.join(harness_root, sid)
@@ -90,6 +99,8 @@ def main():
     dest = os.path.join(out, "skill", label, f"{sid} - {sk['slug']}")
     replies = os.path.join(out, "replies", label)
     pin = dv.FILE_PIN.format(key=key)
+    if spec and spec[0] == "claude":
+        pin += " " + DRAFTS_PIN
     failures = []
     for attempt in range(1, dv.ATTEMPTS + 1):
         dv.build(system_dir, "skill", scratch, sk["seed_export"])
@@ -107,12 +118,16 @@ def main():
         while queue:
             prompt, role = queue.pop(0)
             n += 1
-            r = dv.run_turn(scratch, sessions, session_id, prompt, n, dest, dv.deny_roots(system_dir, harness_root))
+            if spec:
+                r = runtimes.run_turn(spec, scratch, sessions, session_id, prompt, n, dest,
+                                      dv.deny_roots(system_dir, harness_root))
+            else:
+                r = dv.run_turn(scratch, sessions, session_id, prompt, n, dest, dv.deny_roots(system_dir, harness_root))
             session_id = session_id or r["session_id"]
             after = dv.snapshot(scratch)
             r["ledger"], before = dv.diff(before, after), after
             r["turn"], r["input"], r["role"] = n, prompt, role
-            r["boards"] = boards(sessions, n)
+            r["boards"] = r["boards"] if spec else boards(sessions, n)
             turns.append(r)
             with open(os.path.join(out, "run-log.jsonl"), "a", encoding="utf-8") as fh:
                 fh.write(json.dumps({k: v for k, v in r.items() if k not in ("reply", "transcript")}
@@ -147,7 +162,7 @@ def main():
         open(os.path.join(dest, f"turn-{r['turn']}.md"), "w", encoding="utf-8").write(dv.redact(r["reply"]))
         open(os.path.join(replies, f"{sid}-turn{r['turn']}.txt"), "w", encoding="utf-8").write(dv.redact(r["reply"]))
         dv.write_transcript(os.path.join(dest, f"transcript-turn-{r['turn']}.md"), sk, r["turn"], r["input"], r)
-    meta = {"id": sid, "label": label, "model": model, "permission": dv.PERMISSION, "runtime": "devin-adaptive",
+    meta = {"id": sid, "label": label, "model": model, "permission": dv.PERMISSION, "runtime": f"{spec[0]}-adaptive" if spec else "devin-adaptive",
             "scenario_file": sk["file"], "file_pin": pin, "scripted_turns": sk["turns"],
             "intake_answers_sent": intake, "follow_ups_sent": follow, "session_id": session_id,
             "attempts": attempt, "failures": failures, "completed": ok,

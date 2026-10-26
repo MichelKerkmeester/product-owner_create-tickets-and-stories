@@ -1,0 +1,40 @@
+# FJ-027 turn 2 transcript
+
+**User:** Use your recommended answers.
+
+**Assistant:**
+
+I’ll carry the recommendation forward with clearly marked assumptions for the unspecified keys, types, and multiplicities. I’m replaying the proposed ERD now; the schema check and separate write gate follow after this reading is settled.
+
+**Assistant:**
+
+## Playback
+
+**Reader and question:** Guest Support needs to trace a booking to its guest, payment, room, rate plan, and property. Which entities, support-relevant fields, and joins make up the stays model?
+
+**Outcome:** Find a booking by reference and follow its links to the payment and property details that help explain a charge.
+
+**Sources:** Your schema summary names the six entities and their relationships. Roamstay context and Support ticket 58213 support the booking reference, stay and occupancy details, payment amount and status, price breakdown, room details, rate-plan options, and property tax rule. They do not establish exact database column names or types.
+
+**Scope and assumptions:** I’ll group Guest, Booking, and Payment together, apart from Property, Room, and Rate Plan. I’ll use `id` and conventional `*Id` key names as placeholders, with types shown as unknown. The unspecified relationship counts use `0..n` on the many side. The support field names and their table placement are inferred from the context and ticket, not confirmed schema columns.
+
+**Outline**
+
+- Guest: assumed `id` primary key
+- Booking: assumed `id` primary key and `guestId`, `roomId`, `ratePlanId` foreign keys; `bookingReference`, `stayNights`, `adultCount`, `roomAmount`, `cityTaxAmount`, `totalAmount`
+- Payment: assumed `id` primary key and `bookingId` foreign key; `amount`, `currency`, `status`
+- Property: assumed `id` primary key; `cityTaxRule`
+- Room: assumed `id` primary key and `propertyId` foreign key; `roomType`, `occupancy`
+- Rate Plan: assumed `id` primary key and `propertyId` foreign key; `cancellationPolicy`, `paymentOption`
+- Guest makes Booking: one Guest to zero or more Bookings
+- Booking holds Payment: one Booking to zero or more Payments
+- Booking reserves Room: each Booking has one Room; a Room can be used by zero or more Bookings
+- Booking uses Rate Plan: each Booking has one Rate Plan; a Rate Plan can be used by zero or more Bookings
+- Property offers Room: one Property to zero or more Rooms
+- Property publishes Rate Plan: one Property to zero or more Rate Plans
+
+The context says rate plans apply to room types, but your schema summary does not specify a direct Room–Rate Plan key, so I’ll leave that join out. I recommend a booking-centered layout because Support can start at the booking reference, with **Booking** as the first glance. A catalog-first layout would foreground Property, Room, and Rate Plan, but make the support lookup less direct.
+
+The board will use two zones, a laptop reading distance, and a source note that calls out the assumed keys, types, and field mappings. I’ll check that Booking is prominent, the one-room and one-rate-plan links read clearly, the zones are distinct, and the assumptions are visible.
+
+Does this reading match your intent?

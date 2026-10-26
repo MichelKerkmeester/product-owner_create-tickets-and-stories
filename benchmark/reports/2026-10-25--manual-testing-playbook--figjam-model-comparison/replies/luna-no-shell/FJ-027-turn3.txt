@@ -1,0 +1,1 @@
+I have your approval and the write check is ready. I still can’t read the required FigJam workflow instructions because workspace access fails with `sandbox_apply: Operation not permitted`. I haven’t changed the board. Please restore workspace read access or provide those instructions so I can complete the write.

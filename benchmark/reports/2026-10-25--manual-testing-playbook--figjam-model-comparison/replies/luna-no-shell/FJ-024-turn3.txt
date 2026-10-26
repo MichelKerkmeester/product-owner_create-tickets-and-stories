@@ -1,0 +1,3 @@
+Your “go ahead” authorizes the board write. I retried reading the required `figma-generate-diagram` skill, but the workspace still returns `sandbox_apply: Operation not permitted`. The Flow instructions also require loading `sk-create-figjam` guidance before writing.
+
+I haven’t edited the FigJam file. Restore local file read access or provide those instruction files, and I can continue with your approval already in place.

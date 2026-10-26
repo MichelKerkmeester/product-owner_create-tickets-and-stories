@@ -1,0 +1,3 @@
+I couldn’t read the required `sk-create-figjam` instructions: workspace reads fail with `sandbox_apply: Operation not permitted`. The project rules require those instructions before I can write to FigJam, so I haven’t changed the file.
+
+The schema note also doesn’t name any columns. Once access is restored, I can use conventional PK/FK labels inferred from the relationships and leave out other unsupported columns. Please restore workspace read access or provide the FigJam instructions.

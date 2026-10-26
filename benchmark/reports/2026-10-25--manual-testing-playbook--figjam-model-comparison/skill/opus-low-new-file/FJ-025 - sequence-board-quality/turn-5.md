@@ -1,0 +1,5 @@
+<figma-url>
+Read-back: 7 of 7 participants and 13 of 13 messages, numbered, across 2 diagrams, start here: 1. Card authorised
+Finding: The source line "Payments brief" and a shared "Roamstay checkout payment" title, both promised in the write confirmation, aren't on the board. The model went to the composer without them, so each diagram shows only its own title, "Card authorised" or "Card declined". The file name still says "Roamstay checkout payment". I can add a "Payments brief" source line to both diagrams by redrawing them if you want it.
+Finding: The diagrams rest on the two assumptions you confirmed. The hold, confirm and release steps happen inside the Booking API, and the partner hub isn't told about a declined card.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
