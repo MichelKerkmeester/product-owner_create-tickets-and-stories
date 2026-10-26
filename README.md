@@ -385,7 +385,7 @@ When two types fit, such as an architecture and a sequence for the same system, 
 - **A source line.** Under the key, naming the sources the board was drawn from and what was left out
 - **Your team's look.** `sk-create-figjam/assets/figjam-design.md` holds the design every board is drawn in: which FigJam colour means what, the first-glance accent, the type sizes, the lines, the zone tints and the words on the key. Edit it once and every board composed after it follows. An edit that would weaken contrast or compete with the pink outline falls back to the shipped value, and the reply names it on a `Finding:` line
 
-A real board the packet composed on a fictional test file. The pink outline on the green Return confirmed goal is the first glance, three zones run left to right and each decision is a yellow diamond with labelled exits:
+A real board the packet composed on a fictional test file. The pink outline on the green Return confirmed with QR code goal is the first glance, three zones run left to right and each decision is a yellow diamond with labelled exits:
 
 ![A user flow board for starting a return, with three zones and a highlighted goal](sk-create-figjam/assets/screenshots/user-flow-board.png)
 
