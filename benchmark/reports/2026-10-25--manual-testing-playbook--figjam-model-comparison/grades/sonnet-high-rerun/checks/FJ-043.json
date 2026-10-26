@@ -1,0 +1,24 @@
+{
+  "id": "FJ-043",
+  "signals": [
+    {
+      "signal": "Step 2 output reads `a rank holds 5 steps, at most 4: split the flow so a rank reads at a glance`",
+      "met": "yes",
+      "cite": "transcript-turn-1.md final Bash result and turn-1.md: \"diagram 1, user flow: a rank holds 5 steps, at most 4: split the flow so a rank reads at a glance\". The model's own scratch file was model.mmd in a temp folder rather than rank.md, a stadium start fanning to five steps that meet at one stadium end as the step asks"
+    },
+    {
+      "signal": "The wide model exits 1",
+      "met": "yes",
+      "cite": "transcript-turn-1.md final Bash result: \"FAILED 1 of 1 diagram(s) in model.mmd\" then \"exit status: 1\" (same in turn-1.md)"
+    },
+    {
+      "signal": "A passing model (the shipped example, step 3) prints widest rank, longest path, connectors per step, label average and crossing pairs beside the counts and exits 0",
+      "met": "yes",
+      "cite": "commands.json step 3 (run by the driver, not by the model): \"ok, 9 nodes and 9 connectors, widest rank 2 steps, longest path 7 steps, 1.0 connectors per step, labels average 16 characters, 0 crossing pairs\" and \"exit 0\". The model never ran step 3 itself since the prompt asked only for the failing case"
+    }
+  ],
+  "stop_reached": "Ended on the check result reply with no board: the model reported the refusal, offered to playback a split model and asked before any write gate (turn-1.md: \"I can playback that revised model and then ask for the write gate ... Do you want me to?\"). No playback gate or write gate was reached",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The five-step rank is refused with the budget named and exit 1 and the shipped example passes with all five measures and exit 0 in commands.json. No Figma call was made (meta.json inner_calls empty and boards empty) and no file was left behind. The model first hit an off-palette fill failure and fixed it so the layout failure stood alone. Its reply repeats the pinned file key, a hygiene note for reply quality rather than a signal miss"
+}

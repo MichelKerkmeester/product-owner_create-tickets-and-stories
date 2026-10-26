@@ -1,0 +1,16 @@
+{
+  "id": "FJ-036",
+  "signals": [
+    {"signal": "The playback turn ends on the playback and writes nothing (the run opened one intake round first, which the scenario allows, so the playback is turn 2)", "met": "yes", "cite": "turn-1.md: 'Round 1 of 3. Nothing is written yet, and I haven't called any Figma tool.' turn-2.md: 'Here is the playback. Nothing is written yet' and meta.json turns 1 and 2 show only Read calls"},
+    {"signal": "The gate turn ends on the gate and writes nothing", "met": "yes", "cite": "turn-3.md ends 'Write this board to the file?' and transcript-turn-3.md shows only Bash (local check and compose), create_session and a get_figjam read of the page"},
+    {"signal": "The write comes after the gate's yes", "met": "yes", "cite": "transcript-turn-4.md: user 'Yes, go ahead.' then the one use_figma call returning boardId 2:125"},
+    {"signal": "The board holds every node of the model within 9, every connector and 2 of 2 decisions with all 5 exits labelled", "met": "yes", "cite": "turn-4.md: 'Read-back: 9 of 9 nodes, 11 of 11 connectors, 5 of 5 decision exits labelled, 2 of 2 zones' and the render shows Room free? (Yes, No) and New price? (Higher, Lower, Same) all labelled"},
+    {"signal": "No connector crosses another", "met": "yes", "cite": "turn-3.md check line: '0 crossing pairs' and the overview render shows the Yes and Picks a room connectors running near-parallel into New price? without crossing, as turn-4.md notes: 'about 12 pixels apart for a short stretch'"},
+    {"signal": "Every exit label reads at 100% zoom without touching another label", "met": "yes", "cite": "overview render: Yes, No, Higher, Lower and Same each sit clear on their own connector and turn-4.md: 'I checked the eight exit and step labels on the screenshot the write returned'"},
+    {"signal": "The scorecard totals at least 18 of 22 with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no dimension at 0", "met": "harness", "cite": "commands.json steps 5 to 8 are operator and reader scoring steps the driver skipped. The board scorecard is scored separately by the grader"}
+  ],
+  "stop_reached": "Delivery after the write: turn 4 wrote board 2:125 on the gate's yes, read it back and read the untouched existing board, then deleted its scratch folder",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "On signals alone every expected signal is met: intake then playback then gate with no write, one use_figma after 'Yes, go ahead.', a read-back of 9 of 9 nodes, 11 of 11 connectors and 5 of 5 labelled exits, and no crossing or label collision on the render. The scorecard part is left to the separate board scoring. Possible Composition loss to weigh there: the See other rooms detour sits on the straight spine and the Yes path loops over it, which the model itself flagged in turn-4.md"
+}

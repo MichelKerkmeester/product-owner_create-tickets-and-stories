@@ -1,0 +1,16 @@
+{
+  "id": "FJ-011",
+  "signals": [
+    {"signal": "Turn 1 ends on the playback and shows no model (an intake round first is allowed, then the playback follows)", "met": "yes", "cite": "turn-1.md opens an intake round: \"I haven't drawn or written anything yet, and I haven't touched Figma. I need three answers first.\" turn-2.md is the playback with no model: \"Before I draw anything, this is how I read the request.\" ending \"Is this the right reading of the board?\""},
+    {"signal": "The model opens with %% type: process", "met": "yes", "cite": "turn-3.md sketch and the model.md Write in transcript-turn-3.md both start \"%% type: process\" then \"flowchart LR\""},
+    {"signal": "2 to 6 lanes, each with the neutral pair #F5F5F5 and #B3B3B3 or no style", "met": "yes", "cite": "export-turn-3.jsonl Write of model.md: three subgraphs Customer, CS agent and Warehouse operator, each \"style customer fill:#F5F5F5,stroke:#B3B3B3\" and the same for cs and warehouse. The turn-3.md sketch shows the lanes with no style"},
+    {"signal": "One style line from the style guide on the step that hands the work to the warehouse", "met": "yes", "cite": "turn-3.md \"style create fill:#FFC2EC,stroke:#F849C1\" on \"Create return, email label\", the CS step whose edge goes to \"Check the returned item\". Light pink with pink outline is a palette pair in references/style-guide.md"},
+    {"signal": "No linkStyle", "met": "yes", "cite": "turn-3.md and the model.md Write carry no linkStyle line"},
+    {"signal": "The check prints process: ok with exit 0", "met": "yes", "cite": "transcript-turn-3.md \"diagram 1, process: ok, 4 nodes and 3 connectors ... PASSED 1 diagram(s) in model.md\" then \"check exit 0\""},
+    {"signal": "The gate waits", "met": "yes", "cite": "turn-3.md ends \"Shall I write this board to that file?\" and the run stops there with no use_figma call"}
+  ],
+  "stop_reached": "Write gate in turn 3 (intake in turn 1, playback in turn 2, gate in turn 3). The driver sent no yes after the gate because the scenario expects no board.",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The run opened an intake round, then the playback with no model, then a checked laned process with three neutral lanes and one light pink style line on the CS step that hands the claim to the warehouse, no linkStyle, process ok with exit 0 and a waiting gate. The only Figma calls before the gate were create_session and one get_figjam read, and meta.json records no created, modified or deleted node. The model shown in the reply drops the three neutral lane style lines that the checked model carries, which the signal allows either way."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "FJ-038",
+  "signals": [
+    {"signal": "Reply says Flow Mode does not move or restyle a composed node", "met": "yes", "cite": "turn-1.md: \"I'm not allowed to move, resize or restyle a node once the composer has drawn it.\""},
+    {"signal": "Says a nudge and a font size are changes the model cannot carry", "met": "yes", "cite": "turn-1.md: \"a position or font size on one node isn't something the model can hold.\""},
+    {"signal": "Names the drag and the font change as hand edits in FigJam", "met": "yes", "cite": "turn-1.md: \"Hand edit in FigJam ... drag it right and raise its font size in the text panel.\""},
+    {"signal": "Names the Approve return node by its label", "met": "yes", "cite": "turn-1.md: \"select the node labelled \\\"Approve return\\\"\""},
+    {"signal": "Says a change the model can carry (direction, zone or style line) is made in the model and composed again after a yes", "met": "yes", "cite": "turn-1.md: \"I can change the diagram's direction, the declaration order, its zones or its edges ... then compose the board again as a new section in the same file.\" offered as a choice ending \"Which of the three do you want?\" (no style line named)"},
+    {"signal": "Old board section deleted only on a second yes asked after the new board is read back", "met": "no", "cite": "turn-1.md: \"I'd delete the old section only after you say yes to a question that names it.\" The second yes is there but the reply never says the question comes after the new board is read back"},
+    {"signal": "Step 1 returns the answer with no gate", "met": "yes", "cite": "turn-1.md: plain answer with three options and no write gate question"},
+    {"signal": "No Figma read or write tool is called", "met": "yes", "cite": "transcript-turn-1.md and export-turn-1.jsonl: tool_use calls are Read x3 and one ToolSearch that only loaded Figma tool schemas. meta.json inner_calls [] and ledger empty"}
+  ],
+  "stop_reached": "Plain answer stop after turn 1: a recovery reply offering a hand edit in FigJam, a model reshape or a token change and asking which one, with no gate and no board",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The reply names the drag and the font change as hand edits in FigJam, names the Approve return node by label and calls no Figma tool (only Read and a ToolSearch schema load), which meets the PASS line. One secondary signal is partial: the old section delete is tied to a yes but not to a read-back of the new board. The reply also printed the pinned file key and offered a global label-size token edit to a skill asset, both outside the scenario's signals."
+}

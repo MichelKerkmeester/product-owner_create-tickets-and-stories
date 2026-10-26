@@ -1,0 +1,61 @@
+{
+ "id": "FJ-038",
+ "label": "sonnet-high-rerun",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/restyle-is-a-hand-edit.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "driver": "model",
+ "expects_board": false,
+ "no_figma": false,
+ "scripted_turns": [
+  "$flow on the Fernhouse return board you drew, move the Approve return node further right and make its text bigger"
+ ],
+ "commands_run": 0,
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "4be0c969-237e-43b2-bca4-4db2fec00dfd",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 25.58,
+   "tool_calls": 4,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "ToolSearch"
+   ],
+   "input_tokens": 58641,
+   "output_tokens": 1961,
+   "cached_tokens": 40975,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "4be0c969-237e-43b2-bca4-4db2fec00dfd",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$flow on the Fernhouse return board you drew, move the Approve return node further right and make its text bigger\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "OTHER"
+  }
+ ]
+}

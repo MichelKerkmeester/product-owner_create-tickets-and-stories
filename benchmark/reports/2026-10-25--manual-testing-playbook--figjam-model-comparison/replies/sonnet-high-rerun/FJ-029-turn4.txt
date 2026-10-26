@@ -1,0 +1,7 @@
+<figma-url>
+Read-back: 8 of 8 nodes, 9 of 9 connectors, 2 of 2 decision exits labelled, first glance: the editor with welcome tip, connector labels read visually
+Left out: the "Code right?" diamond, merged into "Enter email code" to stay inside the 8-step path limit
+Left out: a separate Google path and anything after the welcome tip, both outside the agreed scope
+Finding: the "Wrong code: error with resend" connector on "Enter email code", at the right end of the "Create the account" zone, draws as a zero-length loop. Its label sits on the box's top edge with no loop line, and the composer warned that two edges share a magnet on that node. The fix is to drop the loop and write the retry into the screen's label, "Enter email code, resend if wrong", then compose again after a yes. The old section "Loomlist signup and workspace setup" would be deleted only on its own second yes. The alternative is two boards with the diamond restored. Which do you want?
+Finding: `get_figjam` returns no connector label text, so the labels "Free", "Team", "Right code" and "Send invites or skip" were checked on the compose screenshot only
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

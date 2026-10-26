@@ -1,0 +1,26 @@
+[
+ {
+  "step": 1,
+  "text": "session: start fresh -> user: submit the prompt exactly -> operator: confirm the reply is an intake round that asks for the calls between the parts, gives a recommended answer for each and shows no model",
+  "status": "skipped",
+  "reason": "session step, not a shell command"
+ },
+ {
+  "step": 2,
+  "text": "user: Use your recommended answers. -> operator: confirm the reply is the playback with the question, the outcome, what each source settled and every assumed row. Confirm no model is shown and nothing is written",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 3,
+  "text": "user: Yes, that reading is right. -> operator: confirm the reply is the gate naming the composed board in its six lanes",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 4,
+  "text": "operator: copy the model into <scratch>/model.md and run python3 sk-create-figjam/scripts/flow_check.py <scratch>/model.md",
+  "status": "skipped",
+  "reason": "operator step, not a shell command"
+ }
+]

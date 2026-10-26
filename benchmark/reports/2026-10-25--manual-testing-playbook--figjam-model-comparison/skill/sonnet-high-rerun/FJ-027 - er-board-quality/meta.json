@@ -1,0 +1,174 @@
+{
+ "id": "FJ-027",
+ "label": "sonnet-high-rerun",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/er-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "driver": "model",
+ "expects_board": true,
+ "no_figma": false,
+ "scripted_turns": [
+  "make a FigJam ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan, and group the partner tables apart from the guest tables. From the schema note: guests, bookings, payments, properties, rooms and rate plans. A guest makes bookings, a booking reserves one room under one rate plan and holds its payments, and a property offers rooms and publishes rate plans. Keep the keys and the few columns support asks about.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "commands_run": 0,
+ "intake_answers_sent": 1,
+ "follow_ups_sent": 0,
+ "session_id": "6fd73fc5-5f71-4221-8821-cf2a680b6cb5",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "1:3"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 71.16,
+   "tool_calls": 13,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Read",
+    "Bash",
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__get_figjam"
+   ],
+   "input_tokens": 80826,
+   "output_tokens": 5083,
+   "cached_tokens": 533055,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "6fd73fc5-5f71-4221-8821-cf2a680b6cb5",
+   "inner_calls": [
+    "create_session",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "make a FigJam ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan, and group the partner tables apart from the guest tables. From the schema note: guests, bookings, payments, properties, rooms and rate plans. A guest makes bookings, a booking reserves one room under one rate plan and holds its payments, and a property offers rooms and publishes rate plans. Keep the keys and the few columns support asks about.\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 25.55,
+   "tool_calls": 1,
+   "tools_used": [
+    "Bash"
+   ],
+   "input_tokens": 4024,
+   "output_tokens": 2194,
+   "cached_tokens": 186165,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "6fd73fc5-5f71-4221-8821-cf2a680b6cb5",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 30.08,
+   "tool_calls": 3,
+   "tools_used": [
+    "Read",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 9868,
+   "output_tokens": 3047,
+   "cached_tokens": 298978,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "6fd73fc5-5f71-4221-8821-cf2a680b6cb5",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 165.24,
+   "tool_calls": 7,
+   "tools_used": [
+    "ToolSearch",
+    "Read",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 76562,
+   "output_tokens": 28413,
+   "cached_tokens": 676712,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "6fd73fc5-5f71-4221-8821-cf2a680b6cb5",
+   "inner_calls": [
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "1:3"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "DELIVERY"
+  }
+ ]
+}

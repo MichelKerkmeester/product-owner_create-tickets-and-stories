@@ -1,0 +1,17 @@
+{
+ "id": "FJ-025",
+ "signals": [
+  {"signal": "Turn 1 ends on the playback and writes nothing", "met": "yes", "cite": "turn-1.md: 'Nothing is written yet. This is how I read the request' ending 'Is this the right reading of the board, with those recommended answers standing?' and meta turn 1 used only Read and Bash with no Figma call"},
+  {"signal": "Turn 2 ends on the gate and writes nothing", "met": "yes", "cite": "turn-2.md: 'The model passed the pre-write check ... Nothing is written yet.' ending 'Write the board into that file?' and transcript-turn-2.md shows only create_session and a get_figjam read of an empty page"},
+  {"signal": "Turn 3 writes after the gate's yes", "met": "yes", "cite": "transcript-turn-3.md: user 'Yes, go ahead.' then use_figma returns boardId 1:3 with counts nodes 4 connectors 7"},
+  {"signal": "Board holds 4 of 4 participants and 7 of 7 messages", "met": "yes", "cite": "turn-3.md: 'Read-back: 4 of 4 participants, 7 of 7 messages' and get_figjam read shows edge connectors numbered 1 to 7"},
+  {"signal": "Participants left to right as GuestApp, BookingApi, PaymentProvider and PartnerHub", "met": "yes", "cite": "transcript-turn-3.md get_figjam: GuestApp x=80, BookingApi x=400, PaymentProvider x=720 and PartnerHub follows at x=1040 in the render"},
+  {"signal": "Replies are dashed and the async message has an open arrow, both distinct in greyscale", "met": "yes", "cite": "export-turn-3.jsonl composer code 'reply:{dashed:true,cap:ARROW_EQUILATERAL},async:{cap:ARROW_LINES}' and read-back edge 6 'connectorEndCap=ARROW_LINES' while edges 4 and 7 render dashed in the greyscale shot"},
+  {"signal": "Reply names the declined path under Left out:", "met": "yes", "cite": "turn-3.md: 'Left out: the declined-card path (release the hold, 402), kept for a second board if you want one'"},
+  {"signal": "Scorecard totals at least 18 of 22 with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no dimension at 0", "met": "harness", "cite": "Board scorecard is scored separately by the grader from the renders, not part of this signal check"}
+ ],
+ "stop_reached": "Turn 3 read-back after the write on the gate's yes (board 1:3 composed and read back with get_figjam)",
+ "written_before_gate": false,
+ "suggested_verdict": "PASS",
+ "reason": "Every signal the transcript can show is met: playback in turn 1 and gate in turn 2 wrote nothing, turn 3 wrote one board with 4 of 4 participants and 7 of 7 messages in call order, dashed replies, an open async arrow and the decline under Left out. The verdict on signals alone is PASS pending the separate board scorecard."
+}

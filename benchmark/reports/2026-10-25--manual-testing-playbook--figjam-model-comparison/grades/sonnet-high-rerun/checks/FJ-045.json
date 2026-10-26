@@ -1,0 +1,16 @@
+{
+  "id": "FJ-045",
+  "signals": [
+    {"signal": "The design check prints three DESIGN lines naming shadow, role.goal and zone.cycle and exits 1", "met": "harness", "cite": "stdout/FJ-045-sonnet-high-rerun.txt: \"status\": \"skipped\" because the scenario is operator-only and the driver never broke the design file"},
+    {"signal": "The compose prints the same three DESIGN lines and a COMPOSED line ending 3 design warnings", "met": "harness", "cite": "stdout/FJ-045-sonnet-high-rerun.txt: \"needs a setup step the driver does not run\" and no run folder exists"},
+    {"signal": "The board is written after the gate's yes", "met": "harness", "cite": "stdout/FJ-045-sonnet-high-rerun.txt: \"status\": \"skipped\" so no session ran and no turn files exist"},
+    {"signal": "The goal Return confirmed is light green under the pink outline and no zone is pink and the key names the goal Goal reached", "met": "harness", "cite": "stdout/FJ-045-sonnet-high-rerun.txt: skipped before any board, depends on the operator breaking the design file"},
+    {"signal": "The reply carries three Finding: lines above the HVR self-scan: line, each naming the token, what the design asked for and what the board drew", "met": "harness", "cite": "stdout/FJ-045-sonnet-high-rerun.txt: skipped, no turn-N.md reply exists"},
+    {"signal": "The first glance is still the goal", "met": "harness", "cite": "stdout/FJ-045-sonnet-high-rerun.txt: skipped, no board composed"},
+    {"signal": "After the restore the design file shows no change (git diff exits 0)", "met": "harness", "cite": "stdout/FJ-045-sonnet-high-rerun.txt: skipped, the operator break and restore steps never ran"}
+  ],
+  "stop_reached": "none: the driver skipped the scenario before any session started, so no stop was reached",
+  "written_before_gate": false,
+  "suggested_verdict": "SKIP",
+  "reason": "FJ-045 is marked driver: operator-only because it needs the operator to break and later restore the design file, so the driver skipped it with no run folder and no Figma call and the grader brief says to grade it SKIP with that reason. The scenario's own SKIP clause names only an unavailable Figma MCP, so the operator-only skip rests on the brief's harness rule rather than on the PASS or FAIL line."
+}

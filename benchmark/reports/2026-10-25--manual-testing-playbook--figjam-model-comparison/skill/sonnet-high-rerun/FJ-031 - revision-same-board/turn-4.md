@@ -1,0 +1,9 @@
+<figma-url>
+Read-back: 7 of 7 nodes, 7 of 7 connectors, 4 of 4 decision exits labelled, first glance: the confirmed return
+Left out: the free pickup over €100, a proposal under review. Also any screen after the method choice, because your message names none
+Finding: the board is titled "Start a return 15" because 14 sections in the file already carry the exact title "Start a return". I left all of them untouched.
+Finding: screen names, the live status and the 30-day check on the order detail come from your message and my recommended answers, not from the screens or the returns doc. The Fernhouse context note of 18 September says no self-serve return exists, so the board shows the flow as current behavior on your word. The returns doc or a note from the app team would settle both points.
+Finding: `get_figjam` returns connector shapes but not their text. The 4 exit labels are counted from the list the write returned and from the overview screenshot, not from the read itself.
+Finding: I did not re-read the 96 existing sections after the write. "Left as it was" rests on the write creating nodes only inside its own section, which landed 400 pixels right of the last one. Say so if you want a measured re-read, which costs another call.
+Finding: the "Drop-off point" connector arcs over the choice diamond and enters the goal from above, while "Courier pickup" runs straight. That is the composer's routing for two edges between one pair, and only a model change would alter it, such as a separate screen per method once a source shows one.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

@@ -1,0 +1,2 @@
+{"id": "FJR-005", "label": "sonnet-high-rerun", "turn": 1, "role": "scripted", "kind": "PLAYBACK", "figma": [], "boards": []}
+{"id": "FJR-005", "label": "sonnet-high-rerun", "status": "ok", "attempts": 1, "turns": 1, "boards": []}

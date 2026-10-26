@@ -1,0 +1,20 @@
+{
+  "id": "FJ-026",
+  "signals": [
+    {"signal": "Turn 1 ends on the playback and writes nothing", "met": "yes", "cite": "turn-1.md ends 'Is this the right reading of the board?' and meta.json turn 1 tools are Read only with figma []"},
+    {"signal": "Turn 2 ends on the gate and writes nothing", "met": "yes", "cite": "turn-2.md ends 'Write it?' and transcript-turn-2.md Figma calls are create_session and one get_figjam read of node 0:1 only (the Write call went to a local tmp model.md)"},
+    {"signal": "Turn 3 writes after the gate's yes", "met": "yes", "cite": "transcript-turn-3.md after 'Yes, go ahead.' runs one use_figma returning boardId 1:3 then one get_figjam read-back"},
+    {"signal": "The board holds every state of the model", "met": "yes", "cite": "turn-3.md 'Read-back: 7 of 7 states' and use_figma result counts nodes 12 expect 12"},
+    {"signal": "Every transition with its label", "met": "yes", "cite": "turn-3.md '12 of 12 transitions, 6 of 6 transitions labelled' and the links list carries card authorised, check in, check out [from InStay], guest cancels twice and missed check-in [from Upcoming]"},
+    {"signal": "The Confirmed composite is a named zone around Upcoming and InStay", "met": "yes", "cite": "transcript-turn-3.md get_figjam 'section id=1:6 name=Confirmed' holding text Confirmed, Upcoming 1:18 and In stay 1:22"},
+    {"signal": "Completed, Cancelled and NoShow are light gray as the key's Final state entry says", "met": "yes", "cite": "export-turn-3.jsonl composer maps finalState:{role:'done',key:'Final state'} and done:'lightGray', and the render shows the three gray with the key entry 'Final state'"},
+    {"signal": "No tint sits behind the end states", "met": "yes", "cite": "transcript-turn-3.md get_figjam places the only zone section 1:6 Confirmed at y 320 to 560, and Completed, Cancelled and No-show sit below it outside any section but the board"},
+    {"signal": "No extension call is made", "met": "yes", "cite": "meta.json turn 3 inner_calls are use_figma and get_figjam only and turn-2.md gate says 'Extensions: none.'"},
+    {"signal": "The reply carries no Extensions: line", "met": "yes", "cite": "turn-3.md holds only the URL, the Read-back line, the Left out line and the HVR self-scan line"},
+    {"signal": "Scorecard totals at least 18 of 22 with Composition, Fidelity, the four Hygiene checks and Reply full and no dimension at 0", "met": "harness", "cite": "scored separately by the board grader from the renders, commands.json steps 5 to 8 are operator and reader steps the driver skipped"}
+  ],
+  "stop_reached": "Turn 3 delivery reply after the composed write and get_figjam read-back (turn 1 stopped on the playback and turn 2 on the gate)",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "Every model-side signal is present: playback then gate with only reads, one use_figma on the yes composing 7 states and 12 transitions with Confirmed as a named zone and the three end states light gray with no tint, no extension and no Extensions line, so the run passes on signals alone with the scorecard left to the board grader. Minor note for the scorecard: two guard labels name the id InStay rather than the display name In stay."
+}

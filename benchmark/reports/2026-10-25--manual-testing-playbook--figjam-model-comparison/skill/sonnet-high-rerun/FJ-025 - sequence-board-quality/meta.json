@@ -1,0 +1,150 @@
+{
+ "id": "FJ-025",
+ "label": "sonnet-high-rerun",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/sequence-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "driver": "model",
+ "expects_board": true,
+ "no_figma": false,
+ "scripted_turns": [
+  "$figjam draw the Roamstay checkout payment as a sequence diagram on a new board in our Roamstay Product plan. From the payments brief: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold, tells the partner hub and answers the app with 201. A declined card releases the hold and returns 402.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "commands_run": 0,
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "c9c7a2e7-70c5-48a3-80a0-b773ff9d223d",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "1:3"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 89.83,
+   "tool_calls": 12,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 84934,
+   "output_tokens": 8989,
+   "cached_tokens": 259545,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "c9c7a2e7-70c5-48a3-80a0-b773ff9d223d",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam draw the Roamstay checkout payment as a sequence diagram on a new board in our Roamstay Product plan. From the payments brief: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold, tells the partner hub and answers the app with 201. A declined card releases the hold and returns 402.\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 29.43,
+   "tool_calls": 8,
+   "tools_used": [
+    "ToolSearch",
+    "Read",
+    "Read",
+    "mcp__figma-remote__create_session",
+    "Bash",
+    "mcp__figma-remote__get_figjam",
+    "Write",
+    "Bash"
+   ],
+   "input_tokens": 25697,
+   "output_tokens": 3029,
+   "cached_tokens": 561211,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "c9c7a2e7-70c5-48a3-80a0-b773ff9d223d",
+   "inner_calls": [
+    "create_session",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 90.13,
+   "tool_calls": 7,
+   "tools_used": [
+    "Read",
+    "ToolSearch",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 49315,
+   "output_tokens": 13290,
+   "cached_tokens": 862963,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "c9c7a2e7-70c5-48a3-80a0-b773ff9d223d",
+   "inner_calls": [
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "1:3"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  }
+ ]
+}

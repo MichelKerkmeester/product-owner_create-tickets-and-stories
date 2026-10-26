@@ -1,0 +1,8 @@
+<figma-url>
+Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled (labels read visually), 97 of 97 earlier sections unchanged in id, position and size, first glance: the Confirmed section
+Left out: refunds, payment steps and when No-show is marked, because your message gave nothing on them
+Finding: the guard on "check out [from InStay]" shows the model id "InStay" where the board's own state reads "In stay". The fix is to change the guard to `[from In stay]` in the model and compose again after your yes.
+Finding: on the right of the Confirmed section, the "check out [from InStay]" line and the "missed check-in [from Upcoming]" line run side by side about 18 pixels apart for roughly 250 pixels. The "missed check-in" label also sits about 16 pixels above the Completed box. One fix is to compose again with `direction TB` after your yes. I'd stay inside the two-attempt limit and would not promise it clears both.
+Finding: `get_figjam` doesn't print connector text, so I read the six transition labels from the composing call's screenshot and its returned list. Every connector's two ends and arrow direction were read from `get_figjam`.
+Finding: the new section sits to the right of the last existing one. The file already has 10 sections titled "Booking status" and 6 titled "Booking status lifecycle". I left them untouched, and nothing was deleted.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

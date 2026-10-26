@@ -1,0 +1,21 @@
+{
+  "id": "FJ-017",
+  "signals": [
+    {"signal": "Turn 1 ends on the playback and writes nothing", "met": "yes", "cite": "turn-1.md: \"Is this the right reading of the board?\" and meta.json turn 1 tools are Read only with an empty ledger"},
+    {"signal": "Turn 2 ends on the gate and writes nothing", "met": "no", "cite": "turn-2.md ends on a plan intake, not the gate: \"Question: which plan should the new FigJam file go in?\" Nothing written (\"Nothing has been written to Figma.\", only whoami was called). The gate came one turn later in turn-3.md after the adaptive driver answer: \"Gate for the write. A yes to this message creates the file\""},
+    {"signal": "The gate names the notes", "met": "yes", "cite": "turn-3.md: \"Extensions: two single stickies, `note:1` beside Cancelled ... and `note:2` beside No-show\""},
+    {"signal": "The write turn calls use_figma twice, once to compose and once to add the two notes as single stickies", "met": "yes", "cite": "transcript-turn-4.md: compose call \"Compose the Booking status state diagram board\" then \"Add two single stickies, note:1 beside Cancelled and note:2 beside No-show\" returning createdNodeIds 2:161 and 2:165. A third use_figma call between them is read-only (\"Read-only: return bounding boxes\", code only reads absoluteBoundingBox), so the gate's two-call count was exceeded by one read but there are exactly two writes"},
+    {"signal": "No pin and no legend column", "met": "yes", "cite": "export-turn-4.jsonl sticky code creates only figma.createSticky() twice, no createShapeWithText pin. get_figjam read-back lists two sticky nodes and no pin"},
+    {"signal": "Moves no composed node", "met": "yes", "cite": "sticky code only appends stickies and calls board.resizeWithoutConstraints on the board section (2040 to 2344 wide, the allowed widening). turn-4.md: \"I don't move placed nodes.\""},
+    {"signal": "Draws no colour", "met": "yes", "cite": "sticky code sets only the recipe sticky fill #A8DAFF from hybrid-workflow.md Section 3 and restyles no composed node"},
+    {"signal": "Each sticky lands inside the board beside its node and covers no node", "met": "yes", "cite": "get_figjam read-back: section 1:3 width 2344, sticky 2:161 at x 2024 y 1056 right of the Cancelled end dot level with Cancelled (y 1056), sticky 2:165 at x 1152 to 1392 y 760 to 1000 left of No-show (x 1544 y 880). Neither overlaps a node or the Key. note:2 sits left rather than right, above or below as the single sticky rule names, about 150 px off with a connector between, which turn-4.md discloses: \"sits about 150 px left of No-show, with the missed check-in connector between them\""},
+    {"signal": "Reply carries the board URL", "met": "yes", "cite": "turn-4.md first line is the redacted board URL \"<figma-url>\""},
+    {"signal": "Reply carries a Read-back line", "met": "yes", "cite": "turn-4.md: \"Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled, first glance: Cancelled\""},
+    {"signal": "Reply carries Extensions: 2 of 2 notes, 0 overlaps", "met": "yes", "cite": "turn-4.md: \"Extensions: 2 of 2 notes, 0 overlaps\""},
+    {"signal": "Reply carries the HVR self-scan line", "met": "yes", "cite": "turn-4.md: \"HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.\""}
+  ],
+  "stop_reached": "Completed write: board 1:3 composed and extended with two stickies in turn 4 after the gate's yes. The run took one extra stop in turn 2 (a plan intake because no plan named Roamstay Product exists) before the gate in turn 3",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The PASS line holds: both stickies land inside the widened board beside Cancelled and No-show with no overlap, no composed node moved or restyled, no pin or legend and the reply counts Extensions 2 of 2 notes 0 overlaps, with nothing written before the turn 4 yes. Two deviations for the grader: the gate arrived in turn 3 rather than turn 2 because the model stopped on a plan question despite the drafts fallback, and note:2 sits about 150 px left of No-show with a connector between, outside the right, above or below placement the single sticky rule names."
+}

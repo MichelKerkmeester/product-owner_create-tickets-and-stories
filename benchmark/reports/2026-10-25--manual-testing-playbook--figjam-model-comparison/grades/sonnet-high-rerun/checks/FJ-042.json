@@ -1,0 +1,16 @@
+{
+  "id": "FJ-042",
+  "signals": [
+    {"signal": "Turn 1 asks no intake question", "met": "yes", "cite": "turn-1.md: \"this is the Quick-energy playback with no questions in it\". The reply holds no question, only an offer to correct a row"},
+    {"signal": "Turn 1 names each inferred fact as assumed in the playback", "met": "yes", "cite": "turn-1.md: \"Brief (every row below is `assumed`. the note on each says what would settle it)\" with Reader, Question, Outcome, Scope, Entry, Exit, Actors and Decisions each given a Settled by note, plus the Finding that no source describes damage handling"},
+    {"signal": "Turn 1 waits for the yes with no model yet", "met": "yes", "cite": "turn-1.md: \"Unless you correct a row, I'll model it, run the check and bring the write gate next.\" transcript-turn-1.md shows only Read and Bash reads, no model file and no flow_check run"},
+    {"signal": "Turn 2 carries a checked model", "met": "yes", "cite": "transcript-turn-2.md: flow_check.py first fails on a 9-step path, then \"PASSED 1 diagram(s) in model.md\" after merging two nodes, and turn-2.md: \"the model passed the pre-write check and composed cleanly\""},
+    {"signal": "Turn 2 marks every step and actor it inferred as assumed", "met": "no", "cite": "turn-2.md never shows the model or a provenance table and repeats no assumption. The Mermaid in export-turn-2.jsonl carries no assumed marks and its source line reads \"Source: Fernhouse company context, key flow 6 and personas\", so the assumed damage-as-return scope and the assumed actors reach the model unmarked"},
+    {"signal": "Turn 2 ends on a gate that waits", "met": "yes", "cite": "turn-2.md ends on the gate block with \"Write it?\", a question about the write alone"},
+    {"signal": "No write tool is called", "met": "yes", "cite": "meta.json: turn 2 inner_calls are create_session and get_figjam only and the ledger is empty. turn-2.md: \"nothing is written yet\""}
+  ],
+  "stop_reached": "Write gate in turn 2 (\"Write it?\"), after the turn 1 playback was accepted with the scripted yes",
+  "written_before_gate": false,
+  "suggested_verdict": "FAIL",
+  "reason": "No intake question was asked and the playback named every brief row as assumed and nothing was written before the gate, but the turn 2 model carries no provenance table or assumed marks and its source line presents the inferred damage scope and actors as sourced, which meets the FAIL clause that an inferred fact reaches the model unmarked. This is a near miss a grader may read as PASS if the turn 1 playback alone is taken as the record."
+}

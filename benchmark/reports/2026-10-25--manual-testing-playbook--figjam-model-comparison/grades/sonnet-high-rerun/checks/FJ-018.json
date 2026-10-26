@@ -1,0 +1,12 @@
+{
+  "id": "FJ-018",
+  "signals": [
+    {"signal": "Turn 1 ends on the playback and writes nothing", "met": "harness", "cite": "stdout/FJ-018-sonnet-high-rerun.txt: \"status\": \"skipped\" because the playbook marks this scenario operator-only"},
+    {"signal": "Turn 2 writes nothing and ends on the gate, which names the open FigJam file from fj info", "met": "harness", "cite": "stdout/FJ-018-sonnet-high-rerun.txt: no run folder exists and the scenario file says driver: operator-only"},
+    {"signal": "Turn 3 uses only create verbs, never fj delete or fj eval, and replies with a Read-back line counting nodes, connectors and labelled exits that match fj nodes -l", "met": "harness", "cite": "stdout/FJ-018-sonnet-high-rerun.txt: \"it needs a setup step the driver does not run\" (Figma Desktop with a FigJam file and the figma-ds-cli daemon)"}
+  ],
+  "stop_reached": "none, the driver skipped the scenario before turn 1 so no reply exists",
+  "written_before_gate": false,
+  "suggested_verdict": "SKIP",
+  "reason": "FJ-018 is marked driver: operator-only and needs Figma Desktop with an open FigJam file plus the figma-ds-cli daemon, a setup the driver does not perform, so it was skipped with no run folder and grader-brief-040 says to grade it SKIP with that reason."
+}

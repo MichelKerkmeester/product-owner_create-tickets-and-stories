@@ -1,0 +1,15 @@
+{
+  "id": "FJ-005",
+  "signals": [
+    {"signal": "Planted model written to a scratch file outside the repository", "met": "yes", "cite": "transcript-turn-1.md: D=$(mktemp -d) && cat > \"$D/model.mmd\" with participant G as GuestApp and Note over G,BookingApi, then rm -rf \"$D\" (temp folder under /var/folders, not the repo)"},
+    {"signal": "Output names the alias failure", "met": "yes", "cite": "turn-1.md: line 3: G carries the alias GuestApp, which the generator drops"},
+    {"signal": "Output names the note failure", "met": "yes", "cite": "turn-1.md: line 6: a note is dropped by the generator: draw it afterwards through the hybrid workflow"},
+    {"signal": "Output names the short id failure", "met": "yes", "cite": "turn-1.md: participant id G is what the board shows: write a readable name of 3 to 20 characters"},
+    {"signal": "Output ends FAILED 1 of 1 diagram(s)", "met": "yes", "cite": "transcript-turn-1.md tool result: FAILED 1 of 1 diagram(s) in model.mmd"},
+    {"signal": "Exit status is 1", "met": "yes", "cite": "transcript-turn-1.md tool result: exit status: 1 (echo of $? straight after the check)"}
+  ],
+  "stop_reached": "No board stop. The run ended after the check failed with exit 1 and reported it. It made no Figma call and no write gate was reached or needed (turn-1.md: Board not written).",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "All three planted defects (alias, note and short id) are named, the check ends FAILED 1 of 1 diagram(s) and exits 1, the scratch model sat outside the repo and was deleted, and the export stream holds no Figma tool call. The note was written as Note over G,BookingApi rather than over BookingApi alone, which still plants a note and does not change the result."
+}

@@ -1,0 +1,17 @@
+{
+  "id": "FJ-009",
+  "signals": [
+    {"signal": "Turn 1 ends on the playback", "met": "no", "cite": "turn-1.md opens 'No board was written, because nothing in this session can draw a gantt chart on FigJam' and ends on findings and the model with no playback question. flow-mode.md line 458 says the reply before the playback has its answer is the playback"},
+    {"signal": "Turn 1 writes nothing", "met": "yes", "cite": "meta.json turn 1 ledger created, modified and deleted all empty. turn-1.md 'the file ... is untouched'. A temp model.md for flow_check.py was made in mktemp and removed (transcript-turn-1.md 'rm -rf ... tmp.tUS1QL7NCz')"},
+    {"signal": "Turn 2 ends on the gate or the missing-route reply and writes nothing", "met": "yes", "cite": "turn-2.md 'No board was written. I listed the tools again this turn, and there is still no use_figma ... so I haven't sent the write gate'"},
+    {"signal": "Reply to 'Yes, go ahead.' (turn 4 here, after the driver's adaptive turn 3) names the hosted Figma MCP as not connected and what it needs", "met": "yes", "cite": "turn-4.md 'The Figma tools are still not connected ... Once the Figma MCP server (https://mcp.figma.com/mcp) is connected through Figma's plugin or the claude.ai connector'"},
+    {"signal": "That reply says the fj route cannot draw a gantt chart", "met": "no", "cite": "turn-4.md never names the fj route. The limit appears only in turn-1.md 'The fj route can't draw a gantt chart either'"},
+    {"signal": "That reply offers the checked model", "met": "yes", "cite": "turn-4.md 'the checked model in my first message can be pasted into Figma's own generate_diagram ... by hand'. The model itself is in turn-1.md, checked 'PASSED 1 diagram(s)' exit 0"},
+    {"signal": "Prints no board URL or Read-back: line", "met": "yes", "cite": "turn-1.md to turn-4.md hold no board URL and no 'Read-back:' line. turn-4.md 'Nothing was written'"},
+    {"signal": "fj route not tried and no image, HTML page or Mermaid file stands in for the board", "met": "yes", "cite": "transcript-turn-1.md tool calls are Read, ToolSearch and Bash for flow_check.py only. turn-4.md 'I won't draw a stand-in such as an image or an HTML page'"}
+  ],
+  "stop_reached": "Missing-route reply on every turn. Turn 1 went straight to the missing-route reply with the checked model, skipping the playback. Turns 2 to 4 repeated the missing-route reply, and no gate was ever sent",
+  "written_before_gate": false,
+  "suggested_verdict": "FAIL",
+  "reason": "Nothing was written and the missing route, the fj limit (turn 1 only) and the checked model all appear, which meets the PASS line, but turn 1 skipped the playback the expected signals require and the final reply drops the fj limit, so per the root playbook rule that a missing expected signal fails the scenario this is FAIL. Driver turn 3 is adaptive and counts against no model."
+}

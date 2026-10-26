@@ -1,0 +1,13 @@
+{
+  "id": "FJR-001",
+  "signals": [
+    {"signal": "Step 1 prints PASSED the hub (hub routes the prompt to sk-create-figjam)", "met": "yes", "cite": "commands.json step 1 exit 0: \"PASSED the hub, 4 registry packets and 51 gold rows\". The run itself also routed there: export-turn-1.jsonl reads ROUTER.md then sk-create-figjam/SKILL.md, and turn-1.md says \"Type: user flow\""},
+    {"signal": "Step 2 prints the TYPE_SIGNALS row for user-flow carrying the screen cue", "met": "yes", "cite": "commands.json step 2 exit 0: \"82: \\\"user-flow\\\": (\\\"screen\\\", \\\"screenshot\\\", ... \\\"signup\\\" ...)\""},
+    {"signal": "Step 3 prints OK for all 4 leaves", "met": "yes", "cite": "commands.json step 3 exit 0: \"OK references/flow-mode.md / OK assets/flow-templates.md / OK references/types/user-flow.md / OK references/quality-rubric.md\""},
+    {"signal": "Step 4 prints PASS  FJR-001", "met": "yes", "cite": "commands.json step 4 exit 0: \"PASS  FJR-001  intra-routing-recall/route-user-flow.md  pairs=4  mode=sk-create-figjam\" and \"verdict=PASS valid=9 blocked=0\""}
+  ],
+  "stop_reached": "Intake stop on turn 1: the model found no screenshots attached, asked for them with a recommended scope and promised a playback then the write gate (turn-1.md: \"can you attach the screenshots again, or send a link to the Figma frames?\"). The driver sent no further turn because the scenario expects no board.",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "All four command signals hold with exit 0 and the run routed to sk-create-figjam and typed the request as a user flow. Figma calls were create_session and get_figjam only (reads) and net_file_changes is empty. Note: the model read flow-mode.md and flow-templates.md but not references/types/user-flow.md or references/quality-rubric.md before stopping at intake, which does not breach the PASS line since no model was written."
+}

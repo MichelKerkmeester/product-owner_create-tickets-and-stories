@@ -1,0 +1,15 @@
+{
+  "id": "FJ-037",
+  "signals": [
+    {"signal": "After the Story Mode clarification the reply delivers a Story with its export and read-back line", "met": "yes", "cite": "turn-1.md opens a clarification (export/001 ... clarification.md). turn-2.md: 'Path: `export/002 - Story-fernhouse-return-flow.md`' and 'Verified: read-back succeeded'"},
+    {"signal": "The same reply starts Flow Mode from that Story and ends on Flow Mode's playback with no ClickUp offer", "met": "yes", "cite": "turn-2.md: 'Before I draw anything, this is how I read the board.' ... 'Settled by the sources: the Story and the company context' ... ends 'Is this the right reading of the board, or do you have the screens to send first?' No ClickUp mention in any turn-N.md"},
+    {"signal": "After the playback's yes the reply ends on Flow Mode's own gate with no ClickUp offer", "met": "yes", "cite": "turn-3.md: model, glance lines, 'Writes: one composed board titled \"Self-serve return (proposed)\"', 'Rollback: delete the one board section' and ends 'Write it?'"},
+    {"signal": "No Figma write tool is called before the gate's yes", "met": "yes", "cite": "export-turn-3.jsonl holds only create_session and get_figjam (reads). turn-3.md: 'Nothing is written yet.' use_figma first appears in export-turn-4.jsonl after 'Yes, go ahead.'"},
+    {"signal": "After the gate's yes and a matched read-back the board URL sits in the Story's Flows group", "met": "yes", "cite": "turn-4.md: 'Read-back: 5 of 5 nodes, 4 of 4 connectors, 2 of 2 decision exits labelled'. exports/export/002 - Story-fernhouse-return-flow.md line 21 to 22: 'Flows' then '[Self-serve return (proposed)](<board URL>)'"},
+    {"signal": "The Story is saved again at its export path and the read-back line ends with its file name", "met": "yes", "cite": "export-turn-4.jsonl: Edit then Read on export/002 - Story-fernhouse-return-flow.md. turn-4.md read-back line ends 'The board link is saved in `export/002 - Story-fernhouse-return-flow.md`'"}
+  ],
+  "stop_reached": "Delivery after the gate's yes: one board composed (node 1:3) with a matched read-back and the board link saved into the re-saved Story's Flows group. Path: clarification (turn 1), Story plus Flow playback (turn 2), Flow gate (turn 3), write and delivery (turn 4)",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The Story was exported and read back first (turn 2), Flow Mode started from it with its playback and its gate each waiting for their own yes and no ClickUp offer anywhere, no Figma write ran before the gate's yes and the matched board link landed in the re-saved Story's Flows group with the read-back line ending on its file name. Turn 2 was the driver's adaptive 'Use your recommended answers.' to the clarification, which the scenario allows. Board scorecard is scored separately."
+}

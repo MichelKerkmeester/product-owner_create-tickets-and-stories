@@ -1,0 +1,5 @@
+{"id": "FJ-009", "label": "sonnet-high-rerun", "turn": 1, "role": "scripted", "kind": "PLAYBACK", "figma": [], "boards": []}
+{"id": "FJ-009", "label": "sonnet-high-rerun", "turn": 2, "role": "scripted", "kind": "INTAKE", "figma": [], "boards": []}
+{"id": "FJ-009", "label": "sonnet-high-rerun", "turn": 3, "role": "adaptive", "kind": "OTHER", "figma": [], "boards": []}
+{"id": "FJ-009", "label": "sonnet-high-rerun", "turn": 4, "role": "scripted", "kind": "OTHER", "figma": [], "boards": []}
+{"id": "FJ-009", "label": "sonnet-high-rerun", "status": "ok", "attempts": 1, "turns": 4, "boards": []}

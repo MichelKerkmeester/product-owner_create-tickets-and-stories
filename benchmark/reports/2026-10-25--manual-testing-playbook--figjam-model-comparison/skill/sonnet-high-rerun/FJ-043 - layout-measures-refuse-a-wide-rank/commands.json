@@ -1,0 +1,22 @@
+[
+ {
+  "step": 1,
+  "text": "bash: write a flowchart TD whose stadium start links to five steps that each link to one stadium end to <scratch>/rank.md",
+  "status": "skipped",
+  "reason": "names a path the operator fills in"
+ },
+ {
+  "step": 2,
+  "text": "bash: python3 sk-create-figjam/scripts/flow_check.py <scratch>/rank.md; echo exit $?",
+  "status": "skipped",
+  "reason": "names a path the operator fills in"
+ },
+ {
+  "step": 3,
+  "command": "python3 sk-create-figjam/scripts/flow_check.py sk-create-figjam/assets/examples/user-flow-fernhouse-return.md; echo exit $?",
+  "status": "ran",
+  "exit": 0,
+  "wall_s": 0.06,
+  "output": "  diagram 1, user flow: ok, 9 nodes and 9 connectors, widest rank 2 steps, longest path 7 steps, 1.0 connectors per step, labels average 16 characters, 0 crossing pairs\nPASSED 1 diagram(s) in user-flow-fernhouse-return.md\nexit 0\n"
+ }
+]
