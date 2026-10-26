@@ -1,0 +1,142 @@
+{
+ "id": "FJ-024",
+ "label": "opus-low",
+ "model": "claude:claude-opus-5-5:low",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/architecture-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "scripted_turns": [
+  "draw the services behind Loomlist block sync as a FigJam architecture diagram on a new board in our Loomlist Engineering plan: desktop, web and iOS clients, an API gateway, sync-service, a push worker, the blocks database, file storage, a change stream and Apple's push service. Clients hold a live socket to the gateway, sync-service writes every block change and publishes it to the change stream, and the push worker reads the stream and wakes sleeping iOS devices.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "44b6467e-0bcc-4f9b-b6d2-9689edecf0d6",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "1:3"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 32.86,
+   "tool_calls": 7,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Read",
+    "Read",
+    "ToolSearch",
+    "mcp__figma-remote__whoami"
+   ],
+   "input_tokens": 33987,
+   "output_tokens": 2340,
+   "cached_tokens": 223783,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "44b6467e-0bcc-4f9b-b6d2-9689edecf0d6",
+   "inner_calls": [
+    "whoami"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "draw the services behind Loomlist block sync as a FigJam architecture diagram on a new board in our Loomlist Engineering plan: desktop, web and iOS clients, an API gateway, sync-service, a push worker, the blocks database, file storage, a change stream and Apple's push service. Clients hold a live socket to the gateway, sync-service writes every block change and publishes it to the change stream, and the push worker reads the stream and wakes sleeping iOS devices.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 32.72,
+   "tool_calls": 4,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 6469,
+   "output_tokens": 2708,
+   "cached_tokens": 241474,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "44b6467e-0bcc-4f9b-b6d2-9689edecf0d6",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 229.03,
+   "tool_calls": 11,
+   "tools_used": [
+    "ToolSearch",
+    "Bash",
+    "mcp__figma-remote__create_new_file",
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "ReadMcpResourceTool",
+    "Bash",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 78315,
+   "output_tokens": 30719,
+   "cached_tokens": 690965,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "44b6467e-0bcc-4f9b-b6d2-9689edecf0d6",
+   "inner_calls": [
+    "create_new_file",
+    "create_session",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "1:3"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  }
+ ]
+}

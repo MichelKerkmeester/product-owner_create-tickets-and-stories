@@ -11,7 +11,7 @@ contextType: "general"
 
 # Playbook run: FigJam boards on DeepSeek V4.1 Flash Max, GLM 5.3 Flash Max and SWE 2 Max
 
-This run asks which model drives Flow Mode to the best FigJam board. The seven board-quality scenarios, FJ-022 to FJ-028, ran once on each of three models against the composer and design file phase 037 shipped. All 21 runs finished and 21 boards were graded by fresh Claude Sonnet 5.5 graders. Every model passed five of seven scenarios on the scenarios' own PASS lines, once one Reply point was reconciled (section 6.2).
+This run asks which model drives Flow Mode to the best FigJam board. The seven board-quality scenarios, FJ-022 to FJ-028, ran once on each of three models against the composer and design file phase 037 shipped. All 21 runs finished and 21 boards were graded by fresh Claude Sonnet 5.5 graders. Every model passed five of seven scenarios on the scenarios' own PASS lines, once one Reply point was reconciled (section 6.2). On 2026-10-26 the same seven scenarios ran on GPT 6 Luna and Claude Opus 5.5 low as well, and neither displaced the first three (section 8).
 
 ---
 
@@ -141,16 +141,59 @@ The run recorded six findings for a later phase. The operator reopened phase 038
 
 ---
 
-## 8. Files
+## 8. Two more models: GPT 6 Luna and Opus 5.5 low
+
+The operator asked how GPT 6 Luna at max effort and Claude Opus 5.5 at low effort compare on the same seven scenarios with the v1.0.4.0 skill. Neither runs through Devin, so `run/runtimes.py` adds two turn backends behind the same driver: `codex:<model>:<effort>` runs Codex CLI 0.164.0 with the fast service tier and `claude:<model>:<effort>` runs Claude Code 2.1.310. `run/run_more.sh` ran the 14 runs one at a time and one fresh Claude Opus 5.5 medium grader scored all of them.
+
+**Neither new model beats the first three.**
+
+| Model | Total of 154 | Passes | Mean turns | Wall time | Output tokens |
+|---|---|---|---|---|---|
+| GLM 5.3 Flash Max | 148 | 5 | 3.00 | 57.9 min | 699,669 |
+| SWE 2 Max | 148 (147 as graded) | 5 (4 as graded) | 3.00 | 59.5 min | 361,566 |
+| DeepSeek V4.1 Flash Max | 144 | 5 | 3.00 | 30.6 min | 474,256 |
+| GPT 6 Luna max | 142 | 2 | 3.57 | 120.1 min | 1,197,317 |
+| Opus 5.5 low | 139 | 1 | 3.00 | 32.6 min | 227,099 |
+
+| Scenario | GPT 6 Luna | Opus 5.5 low |
+|---|---|---|
+| FJ-022 user flow | 22 PASS, rank 3 | 20 FAIL, rank 5 |
+| FJ-023 process | 16 FAIL, rank 5 | 20 FAIL, rank 3 |
+| FJ-024 architecture | 22 FAIL, rank 3 | 21 PASS, rank 4 |
+| FJ-025 sequence | 21 FAIL, rank 4 | 20 FAIL, rank 5 |
+| FJ-026 state | 20 FAIL, rank 2 | 18 FAIL, rank 4 |
+| FJ-027 ER | 22 PASS, rank 3 | 20 FAIL, rank 4 |
+| FJ-028 gantt | 19 FAIL, rank 5 | 20 FAIL, rank 4 |
+
+Ranks run 1 to 5 across all five models in a scenario. The grades are `grades/luna-opus-low.jsonl` and the grader's summary is `grades/luna-opus-low.md`.
+
+**What decided it.** Luna draws clean boards, four of them at 21 or 22, but its turns break the stops. It posted the FJ-025 and FJ-026 playback and gate as interim messages with a one-line status as the reply, ended FJ-023 on a second gate instead of a delivery, split FJ-024 into two boards and resized its FJ-028 section after the compose. Opus 5.5 low held every stop in exactly three turns, but it left its temporary model on disk in six runs, resized a drawn section on FJ-022, cut the compose code down before sending it on three runs and said in several replies that Flow Mode writes only into files it created, which the skill does not say. Their failed shell commands, mostly help lookups, touched no board.
+
+### 8.1 How the two runtimes were made to work
+
+- **Luna's first seven runs are void.** Codex applies its own seatbelt, which cannot nest inside the runner's, so every shell command failed with "sandbox_apply: Operation not permitted" and Luna never read the skill. The operator approved running Codex with its own sandbox off inside the runner's seatbelt, and all seven ran again. The void runs are kept in `skill/luna-no-shell/` and `replies/luna-no-shell/`
+- **Codex reaches Figma through the account's Figma app**, served as `codex_apps` with tool names prefixed `figma.`. A `use_figma` call is refused while the client's approval policy is `never`, so the isolated Codex home approves app tools
+- **Claude Code needed its own temp folder**, because it roots temp files at `/tmp/claude-<uid>`, which the seatbelt denies
+- **Opus 5.5 low made new files.** Its first runs made new FigJam files in the account's team plan, past the pin naming the test file, first with `create_new_file` and then with `generate_diagram`. With both withheld it drew nothing and stopped to ask for a plan. The operator then allowed a new file in the drafts of the Barter team plan, so both tools came back and the first turn gained one sentence: "If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project." Only Opus 5.5 low received it. Six graded runs made one new file in drafts each and FJ-028 wrote into the test file. The earlier runs are kept in `skill/opus-low-new-file/`, `skill/opus-low-blocked-new-file/` and `skill/opus-low-test-file-only/` and are not graded
+
+### 8.2 Grading differences
+
+- One grader scored all 14 runs where the first run used one grader per scenario
+- No fresh readers answered these boards, so the grader scored Clarity from the colour renders itself
+- The grader left the first run's grades as they were and noted where it would differ: SWE's FJ-022 Legibility at 2 and no FJ-028 board drawing a dependency arrow
+
+---
+
+## 9. Files
 
 | Path | Holds |
 |---|---|
-| `skill/<model>/<ID> - <slug>/` | Each run's replies, transcripts, full Devin exports and `meta.json` |
+| `skill/<model>/<ID> - <slug>/` | Each run's replies, transcripts, full Devin, Codex or Claude Code exports and `meta.json` |
 | `replies/<model>/` | The replies alone, one file per turn |
 | `stdout/` | The driver's per-turn lines for each run |
 | `failed-attempts/` | The attempts a retry replaced |
 | `renders/` | Every board at overview zoom |
-| `grades/` | The grader brief, the special cases, seven grader files, reader tasks, answers and key |
-| `results.jsonl` | One row per run, rebuilt by `run/aggregate.py` |
-| `run/` | The Devin runner, the adaptive driver, the batch script, the redaction script, the aggregator and `finals.json` |
-| `batch.log`, `run-log.jsonl` | The batch's start and exit lines and every turn's log row |
+| `grades/` | The grader brief, the special cases, seven grader files, reader tasks, answers and key, and `luna-opus-low.*` for section 8 |
+| `results.jsonl` | One row per run of the first three models, rebuilt by `run/aggregate.py` |
+| `run/` | The Devin runner, the Codex and Claude Code backends, the adaptive driver, the batch scripts, the redaction script, the aggregator and `finals.json` |
+| `batch.log`, `batch-more.log`, `run-log.jsonl` | Each batch's start and exit lines and every turn's log row |

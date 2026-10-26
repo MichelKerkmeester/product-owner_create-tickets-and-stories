@@ -1,0 +1,244 @@
+{
+ "id": "FJ-023",
+ "label": "opus-low",
+ "model": "claude:claude-opus-5-5:low",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/process-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "make a FigJam process of how a Fernhouse damaged-item refund moves between the customer, CS and the warehouse, on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse. From the support runbook: the customer reports damage with a photo through the help form. A CS agent checks the photo, approves clear damage on the spot and asks for a second photo when it is unclear. An approved claim goes to the warehouse queue, where an operator books a courier pickup, inspects the item on arrival and releases the refund. Every decision is logged in the claims table. Refunds under 20 euros skip the pickup, a pilot that is not yet live.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 2,
+ "follow_ups_sent": 3,
+ "session_id": "5b6ef7c8-5015-4cbf-97f0-e8b728339420",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 18.45,
+   "tool_calls": 2,
+   "tools_used": [
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 24168,
+   "output_tokens": 1407,
+   "cached_tokens": 73237,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "5b6ef7c8-5015-4cbf-97f0-e8b728339420",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "make a FigJam process of how a Fernhouse damaged-item refund moves between the customer, CS and the warehouse, on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse. From the support runbook: the customer reports damage with a photo through the help form. A CS agent checks the photo, approves clear damage on the spot and asks for a second photo when it is unclear. An approved claim goes to the warehouse queue, where an operator books a courier pickup, inspects the item on arrival and releases the refund. Every decision is logged in the claims table. Refunds under 20 euros skip the pickup, a pilot that is not yet live.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 14.74,
+   "tool_calls": 2,
+   "tools_used": [
+    "ToolSearch",
+    "mcp__figma-remote__whoami"
+   ],
+   "input_tokens": 1890,
+   "output_tokens": 732,
+   "cached_tokens": 108602,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "5b6ef7c8-5015-4cbf-97f0-e8b728339420",
+   "inner_calls": [
+    "whoami"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "OTHER"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 5.81,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 481,
+   "output_tokens": 195,
+   "cached_tokens": 37272,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "5b6ef7c8-5015-4cbf-97f0-e8b728339420",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 10.02,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 233,
+   "output_tokens": 425,
+   "cached_tokens": 37751,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "5b6ef7c8-5015-4cbf-97f0-e8b728339420",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 6.69,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 463,
+   "output_tokens": 202,
+   "cached_tokens": 37982,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "5b6ef7c8-5015-4cbf-97f0-e8b728339420",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 5,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "OTHER"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 5.63,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 240,
+   "output_tokens": 224,
+   "cached_tokens": 38443,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "5b6ef7c8-5015-4cbf-97f0-e8b728339420",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 6,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 7.9,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 262,
+   "output_tokens": 156,
+   "cached_tokens": 38681,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "5b6ef7c8-5015-4cbf-97f0-e8b728339420",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 7,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 6.0,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 194,
+   "output_tokens": 122,
+   "cached_tokens": 38941,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "5b6ef7c8-5015-4cbf-97f0-e8b728339420",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 8,
+   "input": "Use your recommended answers.",
+   "role": "supplementary",
+   "kind": "INTAKE"
+  }
+ ]
+}

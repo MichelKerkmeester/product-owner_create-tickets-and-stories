@@ -1,0 +1,1 @@
+The target FigJam file already has content. I’ll add the ERD as a separate section, preserving what’s there. I’m waiting on the schema details so I can use the actual keys, types, and cardinalities instead of guessing.

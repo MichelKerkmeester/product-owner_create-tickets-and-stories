@@ -1,0 +1,3 @@
+Understood: I’ll update the existing “Booking status” section rather than add a duplicate.
+
+The required Flow Mode files are still inaccessible; the retry returned the same sandbox error. Since the workspace instructions require reading them before a FigJam write, I can’t proceed yet. No board changes have been made. Please provide `sk-create-figjam/SKILL.md` and `references/flow-mode.md`, or restore shell read access.

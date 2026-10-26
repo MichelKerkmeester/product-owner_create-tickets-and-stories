@@ -1,0 +1,196 @@
+{
+ "id": "FJ-025",
+ "label": "opus-low",
+ "model": "claude:claude-opus-5-5:low",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/sequence-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "$figjam draw the Roamstay checkout payment as a sequence diagram on a new board in our Roamstay Product plan. From the payments brief: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold, tells the partner hub and answers the app with 201. A declined card releases the hold and returns 402.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 1,
+ "follow_ups_sent": 1,
+ "session_id": "63833216-ec9f-4b23-b074-79fbf9008277",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "1:3",
+  "2:137"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 24.86,
+   "tool_calls": 2,
+   "tools_used": [
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 28210,
+   "output_tokens": 1413,
+   "cached_tokens": 77166,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "63833216-ec9f-4b23-b074-79fbf9008277",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam draw the Roamstay checkout payment as a sequence diagram on a new board in our Roamstay Product plan. From the payments brief: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold, tells the partner hub and answers the app with 201. A declined card releases the hold and returns 402.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 14.97,
+   "tool_calls": 2,
+   "tools_used": [
+    "ToolSearch",
+    "mcp__figma-remote__whoami"
+   ],
+   "input_tokens": 1861,
+   "output_tokens": 675,
+   "cached_tokens": 120691,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "63833216-ec9f-4b23-b074-79fbf9008277",
+   "inner_calls": [
+    "whoami"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 10.94,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 445,
+   "output_tokens": 768,
+   "cached_tokens": 41285,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "63833216-ec9f-4b23-b074-79fbf9008277",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 23.92,
+   "tool_calls": 3,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 5529,
+   "output_tokens": 1344,
+   "cached_tokens": 175705,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "63833216-ec9f-4b23-b074-79fbf9008277",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 411.68,
+   "tool_calls": 13,
+   "tools_used": [
+    "Bash",
+    "ToolSearch",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__create_new_file",
+    "mcp__figma-remote__create_session",
+    "Bash",
+    "Read",
+    "Bash",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam"
+   ],
+   "input_tokens": 128042,
+   "output_tokens": 59120,
+   "cached_tokens": 996861,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "63833216-ec9f-4b23-b074-79fbf9008277",
+   "inner_calls": [
+    "create_new_file",
+    "create_session",
+    "use_figma",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "1:3",
+    "2:137"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 5,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "DELIVERY"
+  }
+ ]
+}

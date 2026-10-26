@@ -1,0 +1,163 @@
+{
+ "id": "FJ-026",
+ "label": "luna",
+ "model": "codex:gpt-6-luna:max",
+ "permission": "dangerous",
+ "runtime": "codex-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/state-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-in moves Upcoming to In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "01a177de-b9b5-7b61-8a32-e71d4bab6e5b",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "171:6550"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 1141.81,
+   "tool_calls": 21,
+   "tools_used": [
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "figma.create_session",
+    "figma.get_figjam",
+    "figma.get_figjam",
+    "command_execution",
+    "command_execution"
+   ],
+   "input_tokens": 3714933,
+   "output_tokens": 42888,
+   "cached_tokens": 3570688,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a177de-b9b5-7b61-8a32-e71d4bab6e5b",
+   "inner_calls": [
+    "create_session",
+    "get_figjam",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-in moves Upcoming to In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "kind": "OTHER"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 493.3,
+   "tool_calls": 15,
+   "tools_used": [
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution"
+   ],
+   "input_tokens": 8264779,
+   "output_tokens": 66301,
+   "cached_tokens": 8079488,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a177de-b9b5-7b61-8a32-e71d4bab6e5b",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 96.39,
+   "tool_calls": 6,
+   "tools_used": [
+    "command_execution",
+    "figma.use_figma",
+    "figma.get_figjam",
+    "figma.get_screenshot",
+    "command_execution",
+    "command_execution"
+   ],
+   "input_tokens": 8554022,
+   "output_tokens": 71793,
+   "cached_tokens": 8337536,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a177de-b9b5-7b61-8a32-e71d4bab6e5b",
+   "inner_calls": [
+    "use_figma",
+    "get_figjam",
+    "get_screenshot"
+   ],
+   "composed": true,
+   "boards": [
+    "171:6550"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "DELIVERY"
+  }
+ ]
+}

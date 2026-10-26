@@ -1,0 +1,4 @@
+{"id": "FJ-026", "label": "luna", "turn": 1, "role": "scripted", "kind": "OTHER", "figma": ["create_session", "get_figjam", "get_figjam"], "boards": []}
+{"id": "FJ-026", "label": "luna", "turn": 2, "role": "scripted", "kind": "GATE", "figma": [], "boards": []}
+{"id": "FJ-026", "label": "luna", "turn": 3, "role": "scripted", "kind": "DELIVERY", "figma": ["use_figma", "get_figjam", "get_screenshot"], "boards": ["171:6550"]}
+{"id": "FJ-026", "label": "luna", "status": "ok", "attempts": 1, "turns": 3, "boards": ["171:6550"]}

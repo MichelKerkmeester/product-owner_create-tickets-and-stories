@@ -1,0 +1,153 @@
+{
+ "id": "FJ-026",
+ "label": "luna",
+ "model": "codex:gpt-6-luna:max",
+ "permission": "dangerous",
+ "runtime": "codex-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/state-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-in moves Upcoming to In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "01a17776-1e01-7a62-982a-cfdadcec0f3d",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 264.14,
+   "tool_calls": 22,
+   "tools_used": [
+    "list_mcp_resources",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "figma.create_session",
+    "figma.get_figjam",
+    "figma.get_figjam",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "list_mcp_resources",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "read_mcp_resource"
+   ],
+   "input_tokens": 1489732,
+   "output_tokens": 19474,
+   "cached_tokens": 1351936,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a17776-1e01-7a62-982a-cfdadcec0f3d",
+   "inner_calls": [
+    "create_session",
+    "get_figjam",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-in moves Upcoming to In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "kind": "OTHER"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 26.9,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 1793642,
+   "output_tokens": 21331,
+   "cached_tokens": 1649024,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a17776-1e01-7a62-982a-cfdadcec0f3d",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "OTHER"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 256.12,
+   "tool_calls": 11,
+   "tools_used": [
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "figma.get_screenshot",
+    "figma.use_figma",
+    "figma.use_figma",
+    "figma.use_figma",
+    "figma.get_figjam",
+    "figma.use_figma",
+    "figma.get_screenshot",
+    "list_mcp_resources"
+   ],
+   "input_tokens": 3141774,
+   "output_tokens": 42709,
+   "cached_tokens": 2964480,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a17776-1e01-7a62-982a-cfdadcec0f3d",
+   "inner_calls": [
+    "get_screenshot",
+    "use_figma",
+    "use_figma",
+    "use_figma",
+    "get_figjam",
+    "use_figma",
+    "get_screenshot"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "DELIVERY"
+  }
+ ]
+}

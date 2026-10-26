@@ -1,0 +1,1 @@
+Should I add the highlighted version as a new section in the same file, preserving the current `Damaged-item refund` section, or treat the existing section as the one to replace? I recommend adding a new section, since you asked for a new board.

@@ -1,0 +1,1 @@
+The two sequence diagrams passed the pre-write check. The write gate is still awaiting your approval, so the FigJam file is unchanged.

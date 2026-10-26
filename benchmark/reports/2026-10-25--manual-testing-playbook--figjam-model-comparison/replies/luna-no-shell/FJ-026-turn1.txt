@@ -1,0 +1,3 @@
+I couldn’t finish the board update because the required local `sk-create-figjam` flow instructions aren’t accessible. Shell reads fail with `sandbox_apply: Operation not permitted`, and those instructions aren’t available as an MCP resource.
+
+I found an existing “Booking status” section in the FigJam file, but made no board changes. Please restore access to the flow instructions or provide `sk-create-figjam/SKILL.md` and `references/flow-mode.md` so I can follow the required write gate and complete the update.

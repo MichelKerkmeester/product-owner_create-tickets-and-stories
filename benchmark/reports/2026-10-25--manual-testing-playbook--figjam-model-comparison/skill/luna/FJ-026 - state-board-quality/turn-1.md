@@ -1,0 +1,3 @@
+I found an existing `Booking status` section in the [Roamstay Product plan](<figma-url> with the same lifecycle and distinct colors for Completed, No-show, and Cancelled. I haven’t changed the file.
+
+The pending playback prompt asks whether to add a separate section and use the standard shared gray fill for its final states, with Completed outlined as the focus. Once you answer, I’ll run the model check and present the separate write gate.

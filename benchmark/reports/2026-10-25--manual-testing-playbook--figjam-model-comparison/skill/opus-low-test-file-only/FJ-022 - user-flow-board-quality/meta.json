@@ -1,0 +1,256 @@
+{
+ "id": "FJ-022",
+ "label": "opus-low",
+ "model": "claude:claude-opus-5-5:low",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/user-flow-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 2,
+ "follow_ups_sent": 3,
+ "session_id": "b20d198b-c29a-4679-8d13-67580008d362",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 14.65,
+   "tool_calls": 1,
+   "tools_used": [
+    "Bash"
+   ],
+   "input_tokens": 13275,
+   "output_tokens": 1061,
+   "cached_tokens": 53121,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "b20d198b-c29a-4679-8d13-67580008d362",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 27.56,
+   "tool_calls": 7,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 6851,
+   "output_tokens": 2441,
+   "cached_tokens": 326725,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "b20d198b-c29a-4679-8d13-67580008d362",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 9.77,
+   "tool_calls": 2,
+   "tools_used": [
+    "ToolSearch",
+    "mcp__figma-remote__whoami"
+   ],
+   "input_tokens": 1873,
+   "output_tokens": 586,
+   "cached_tokens": 133541,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "b20d198b-c29a-4679-8d13-67580008d362",
+   "inner_calls": [
+    "whoami"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 7.38,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 474,
+   "output_tokens": 528,
+   "cached_tokens": 45533,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "b20d198b-c29a-4679-8d13-67580008d362",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 12.43,
+   "tool_calls": 4,
+   "tools_used": [
+    "Bash",
+    "ToolSearch",
+    "ToolSearch",
+    "ToolSearch"
+   ],
+   "input_tokens": 5835,
+   "output_tokens": 931,
+   "cached_tokens": 144259,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "b20d198b-c29a-4679-8d13-67580008d362",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 5,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 5.15,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 685,
+   "output_tokens": 269,
+   "cached_tokens": 51834,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "b20d198b-c29a-4679-8d13-67580008d362",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 6,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "OTHER"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 4.66,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 307,
+   "output_tokens": 226,
+   "cached_tokens": 52517,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "b20d198b-c29a-4679-8d13-67580008d362",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 7,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "OTHER"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 5.35,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 264,
+   "output_tokens": 266,
+   "cached_tokens": 52822,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "b20d198b-c29a-4679-8d13-67580008d362",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 8,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "GATE"
+  }
+ ]
+}

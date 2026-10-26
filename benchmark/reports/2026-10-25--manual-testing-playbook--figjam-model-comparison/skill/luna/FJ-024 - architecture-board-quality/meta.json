@@ -1,0 +1,209 @@
+{
+ "id": "FJ-024",
+ "label": "luna",
+ "model": "codex:gpt-6-luna:max",
+ "permission": "dangerous",
+ "runtime": "codex-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/architecture-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "draw the services behind Loomlist block sync as a FigJam architecture diagram on a new board in our Loomlist Engineering plan: desktop, web and iOS clients, an API gateway, sync-service, a push worker, the blocks database, file storage, a change stream and Apple's push service. Clients hold a live socket to the gateway, sync-service writes every block change and publishes it to the change stream, and the push worker reads the stream and wakes sleeping iOS devices.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 2,
+ "follow_ups_sent": 0,
+ "session_id": "01a177c0-d24b-71e0-95e4-124d3fe351ab",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "169:6116",
+  "169:6297"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 155.97,
+   "tool_calls": 8,
+   "tools_used": [
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "figma.create_session",
+    "figma.get_figjam"
+   ],
+   "input_tokens": 678766,
+   "output_tokens": 12896,
+   "cached_tokens": 596992,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a177c0-d24b-71e0-95e4-124d3fe351ab",
+   "inner_calls": [
+    "create_session",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "draw the services behind Loomlist block sync as a FigJam architecture diagram on a new board in our Loomlist Engineering plan: desktop, web and iOS clients, an API gateway, sync-service, a push worker, the blocks database, file storage, a change stream and Apple's push service. Clients hold a live socket to the gateway, sync-service writes every block change and publishes it to the change stream, and the push worker reads the stream and wakes sleeping iOS devices.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 76.65,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 779982,
+   "output_tokens": 19301,
+   "cached_tokens": 688256,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a177c0-d24b-71e0-95e4-124d3fe351ab",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 41.97,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 887614,
+   "output_tokens": 21731,
+   "cached_tokens": 789248,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a177c0-d24b-71e0-95e4-124d3fe351ab",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 323.88,
+   "tool_calls": 12,
+   "tools_used": [
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution"
+   ],
+   "input_tokens": 1981138,
+   "output_tokens": 51977,
+   "cached_tokens": 1835520,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a177c0-d24b-71e0-95e4-124d3fe351ab",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 324.86,
+   "tool_calls": 12,
+   "tools_used": [
+    "command_execution",
+    "command_execution",
+    "figma.use_figma",
+    "command_execution",
+    "figma.use_figma",
+    "figma.get_figjam",
+    "figma.get_figjam",
+    "figma.get_screenshot",
+    "figma.get_screenshot",
+    "command_execution",
+    "command_execution",
+    "command_execution"
+   ],
+   "input_tokens": 3646314,
+   "output_tokens": 81096,
+   "cached_tokens": 3439232,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a177c0-d24b-71e0-95e4-124d3fe351ab",
+   "inner_calls": [
+    "use_figma",
+    "use_figma",
+    "get_figjam",
+    "get_figjam",
+    "get_screenshot",
+    "get_screenshot"
+   ],
+   "composed": true,
+   "boards": [
+    "169:6116",
+    "169:6297"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 5,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  }
+ ]
+}

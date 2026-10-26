@@ -1,0 +1,6 @@
+{"id": "FJ-024", "label": "luna", "turn": 1, "role": "scripted", "kind": "INTAKE", "figma": ["create_session", "get_figjam"], "boards": []}
+{"id": "FJ-024", "label": "luna", "turn": 2, "role": "adaptive", "kind": "INTAKE", "figma": [], "boards": []}
+{"id": "FJ-024", "label": "luna", "turn": 3, "role": "adaptive", "kind": "PLAYBACK", "figma": [], "boards": []}
+{"id": "FJ-024", "label": "luna", "turn": 4, "role": "scripted", "kind": "GATE", "figma": [], "boards": []}
+{"id": "FJ-024", "label": "luna", "turn": 5, "role": "scripted", "kind": "PLAYBACK", "figma": ["use_figma", "use_figma", "get_figjam", "get_figjam", "get_screenshot", "get_screenshot"], "boards": ["169:6116", "169:6297"]}
+{"id": "FJ-024", "label": "luna", "status": "ok", "attempts": 1, "turns": 5, "boards": ["169:6116", "169:6297"]}

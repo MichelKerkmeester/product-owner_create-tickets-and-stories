@@ -1,0 +1,201 @@
+{
+ "id": "FJ-026",
+ "label": "opus-low",
+ "model": "claude:claude-opus-5-5:low",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/state-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-in moves Upcoming to In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 3,
+ "session_id": "c24f00e1-dbd5-4551-a4ed-1e12e62a5081",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 19.8,
+   "tool_calls": 2,
+   "tools_used": [
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 14162,
+   "output_tokens": 1622,
+   "cached_tokens": 85874,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "c24f00e1-dbd5-4551-a4ed-1e12e62a5081",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and colour the end states so support can spot them. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-in moves Upcoming to In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 35.59,
+   "tool_calls": 7,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "ToolSearch",
+    "mcp__figma-remote__whoami"
+   ],
+   "input_tokens": 5582,
+   "output_tokens": 2900,
+   "cached_tokens": 323717,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "c24f00e1-dbd5-4551-a4ed-1e12e62a5081",
+   "inner_calls": [
+    "whoami"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 8.96,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 923,
+   "output_tokens": 615,
+   "cached_tokens": 43274,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "c24f00e1-dbd5-4551-a4ed-1e12e62a5081",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 18.66,
+   "tool_calls": 3,
+   "tools_used": [
+    "ToolSearch",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 7904,
+   "output_tokens": 1189,
+   "cached_tokens": 191920,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "c24f00e1-dbd5-4551-a4ed-1e12e62a5081",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "OTHER"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 6.42,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 563,
+   "output_tokens": 329,
+   "cached_tokens": 52091,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "c24f00e1-dbd5-4551-a4ed-1e12e62a5081",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 5,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "OTHER"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 5.89,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 367,
+   "output_tokens": 342,
+   "cached_tokens": 52652,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "c24f00e1-dbd5-4551-a4ed-1e12e62a5081",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 6,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "OTHER"
+  }
+ ]
+}

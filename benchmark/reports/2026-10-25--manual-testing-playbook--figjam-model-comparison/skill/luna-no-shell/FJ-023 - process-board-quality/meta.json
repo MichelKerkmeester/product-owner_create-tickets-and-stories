@@ -1,0 +1,150 @@
+{
+ "id": "FJ-023",
+ "label": "luna",
+ "model": "codex:gpt-6-luna:max",
+ "permission": "dangerous",
+ "runtime": "codex-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/process-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "make a FigJam process of how a Fernhouse damaged-item refund moves between the customer, CS and the warehouse, on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse. From the support runbook: the customer reports damage with a photo through the help form. A CS agent checks the photo, approves clear damage on the spot and asks for a second photo when it is unclear. An approved claim goes to the warehouse queue, where an operator books a courier pickup, inspects the item on arrival and releases the refund. Every decision is logged in the claims table. Refunds under 20 euros skip the pickup, a pilot that is not yet live.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "01a1774c-fc62-7db2-8a12-593f30006c2c",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 242.15,
+   "tool_calls": 9,
+   "tools_used": [
+    "list_mcp_resource_templates",
+    "list_mcp_resources",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "figma.create_session",
+    "figma.get_figjam",
+    "read_mcp_resource",
+    "read_mcp_resource"
+   ],
+   "input_tokens": 759346,
+   "output_tokens": 18803,
+   "cached_tokens": 680320,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a1774c-fc62-7db2-8a12-593f30006c2c",
+   "inner_calls": [
+    "create_session",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "make a FigJam process of how a Fernhouse damaged-item refund moves between the customer, CS and the warehouse, on a new board in our Fernhouse Product plan, and highlight the handoff to the warehouse. From the support runbook: the customer reports damage with a photo through the help form. A CS agent checks the photo, approves clear damage on the spot and asks for a second photo when it is unclear. An approved claim goes to the warehouse queue, where an operator books a courier pickup, inspects the item on arrival and releases the refund. Every decision is logged in the claims table. Refunds under 20 euros skip the pickup, a pilot that is not yet live.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 340.36,
+   "tool_calls": 16,
+   "tools_used": [
+    "figma.generate_diagram",
+    "figma.get_figjam",
+    "figma.get_figjam",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "read_mcp_resource",
+    "figma.use_figma",
+    "figma.get_screenshot",
+    "figma.get_screenshot",
+    "figma.get_screenshot",
+    "figma.get_figjam",
+    "figma.get_screenshot",
+    "figma.use_figma",
+    "figma.get_screenshot",
+    "figma.get_figjam",
+    "figma.get_figjam"
+   ],
+   "input_tokens": 2373714,
+   "output_tokens": 44179,
+   "cached_tokens": 2236416,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a1774c-fc62-7db2-8a12-593f30006c2c",
+   "inner_calls": [
+    "generate_diagram",
+    "get_figjam",
+    "get_figjam",
+    "use_figma",
+    "get_screenshot",
+    "get_screenshot",
+    "get_screenshot",
+    "get_figjam",
+    "get_screenshot",
+    "use_figma",
+    "get_screenshot",
+    "get_figjam",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "DELIVERY"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 23.48,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 2518807,
+   "output_tokens": 45700,
+   "cached_tokens": 2380288,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a1774c-fc62-7db2-8a12-593f30006c2c",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "DELIVERY"
+  }
+ ]
+}

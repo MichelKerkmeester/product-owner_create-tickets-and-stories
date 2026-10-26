@@ -1,0 +1,155 @@
+{
+ "id": "FJ-025",
+ "label": "luna",
+ "model": "codex:gpt-6-luna:max",
+ "permission": "dangerous",
+ "runtime": "codex-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/sequence-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "$figjam draw the Roamstay checkout payment as a sequence diagram on a new board in our Roamstay Product plan. From the payments brief: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold, tells the partner hub and answers the app with 201. A declined card releases the hold and returns 402.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "01a177cf-90d6-7803-8703-2e5c0e424f32",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "170:6282",
+  "170:6516"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 777.28,
+   "tool_calls": 25,
+   "tools_used": [
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "figma.create_session",
+    "figma.get_figjam",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution"
+   ],
+   "input_tokens": 3765078,
+   "output_tokens": 46564,
+   "cached_tokens": 3603456,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a177cf-90d6-7803-8703-2e5c0e424f32",
+   "inner_calls": [
+    "create_session",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam draw the Roamstay checkout payment as a sequence diagram on a new board in our Roamstay Product plan. From the payments brief: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold, tells the partner hub and answers the app with 201. A declined card releases the hold and returns 402.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 96.33,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 4447200,
+   "output_tokens": 49461,
+   "cached_tokens": 4281600,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a177cf-90d6-7803-8703-2e5c0e424f32",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 103.85,
+   "tool_calls": 8,
+   "tools_used": [
+    "command_execution",
+    "command_execution",
+    "figma.use_figma",
+    "command_execution",
+    "figma.use_figma",
+    "figma.get_figjam",
+    "figma.get_figjam",
+    "command_execution"
+   ],
+   "input_tokens": 4709336,
+   "output_tokens": 55034,
+   "cached_tokens": 4485760,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a177cf-90d6-7803-8703-2e5c0e424f32",
+   "inner_calls": [
+    "use_figma",
+    "use_figma",
+    "get_figjam",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "170:6282",
+    "170:6516"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  }
+ ]
+}

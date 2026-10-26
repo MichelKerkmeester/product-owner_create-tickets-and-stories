@@ -1,0 +1,260 @@
+{
+ "id": "FJ-027",
+ "label": "opus-low",
+ "model": "claude:claude-opus-5-5:low",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/er-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "make a FigJam ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan, and group the partner tables apart from the guest tables. From the schema note: guests, bookings, payments, properties, rooms and rate plans. A guest makes bookings, a booking reserves one room under one rate plan and holds its payments, and a property offers rooms and publishes rate plans. Keep the keys and the few columns support asks about.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 2,
+ "follow_ups_sent": 3,
+ "session_id": "0e5b6cbd-f2f6-4142-b914-563a85d00c64",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 28.72,
+   "tool_calls": 6,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 46654,
+   "output_tokens": 2337,
+   "cached_tokens": 170789,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "0e5b6cbd-f2f6-4142-b914-563a85d00c64",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "make a FigJam ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan, and group the partner tables apart from the guest tables. From the schema note: guests, bookings, payments, properties, rooms and rate plans. A guest makes bookings, a booking reserves one room under one rate plan and holds its payments, and a property offers rooms and publishes rate plans. Keep the keys and the few columns support asks about.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 15.84,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 1025,
+   "output_tokens": 1235,
+   "cached_tokens": 57870,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "0e5b6cbd-f2f6-4142-b914-563a85d00c64",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 21.5,
+   "tool_calls": 2,
+   "tools_used": [
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 4077,
+   "output_tokens": 1924,
+   "cached_tokens": 181147,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "0e5b6cbd-f2f6-4142-b914-563a85d00c64",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 44.8,
+   "tool_calls": 10,
+   "tools_used": [
+    "ToolSearch",
+    "Bash",
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__get_figjam",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 11904,
+   "output_tokens": 2950,
+   "cached_tokens": 692620,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "0e5b6cbd-f2f6-4142-b914-563a85d00c64",
+   "inner_calls": [
+    "create_session",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 5.93,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 605,
+   "output_tokens": 333,
+   "cached_tokens": 74848,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "0e5b6cbd-f2f6-4142-b914-563a85d00c64",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 5,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 5.92,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 371,
+   "output_tokens": 327,
+   "cached_tokens": 75451,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "0e5b6cbd-f2f6-4142-b914-563a85d00c64",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 6,
+   "input": "Use your recommended answers.",
+   "role": "supplementary",
+   "kind": "OTHER"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 5.55,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 365,
+   "output_tokens": 328,
+   "cached_tokens": 75820,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "0e5b6cbd-f2f6-4142-b914-563a85d00c64",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 7,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 4.56,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 366,
+   "output_tokens": 227,
+   "cached_tokens": 76183,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "0e5b6cbd-f2f6-4142-b914-563a85d00c64",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 8,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "GATE"
+  }
+ ]
+}

@@ -1,0 +1,215 @@
+{
+ "id": "FJ-022",
+ "label": "luna",
+ "model": "codex:gpt-6-luna:max",
+ "permission": "dangerous",
+ "runtime": "codex-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/user-flow-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+ "scripted_turns": [
+  "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 1,
+ "session_id": "01a177a3-36c4-7a82-9ffc-415caafe5125",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "167:5959"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 187.16,
+   "tool_calls": 24,
+   "tools_used": [
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "figma.create_session",
+    "figma.get_figjam",
+    "command_execution",
+    "command_execution",
+    "command_execution"
+   ],
+   "input_tokens": 1054446,
+   "output_tokens": 12909,
+   "cached_tokens": 924672,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a177a3-36c4-7a82-9ffc-415caafe5125",
+   "inner_calls": [
+    "create_session",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 378.69,
+   "tool_calls": 19,
+   "tools_used": [
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution"
+   ],
+   "input_tokens": 2532554,
+   "output_tokens": 42805,
+   "cached_tokens": 2352640,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a177a3-36c4-7a82-9ffc-415caafe5125",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 191.59,
+   "tool_calls": 19,
+   "tools_used": [
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution",
+    "command_execution"
+   ],
+   "input_tokens": 3801724,
+   "output_tokens": 57735,
+   "cached_tokens": 3592832,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a177a3-36c4-7a82-9ffc-415caafe5125",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 140.55,
+   "tool_calls": 6,
+   "tools_used": [
+    "command_execution",
+    "command_execution",
+    "figma.use_figma",
+    "figma.get_figjam",
+    "figma.get_figjam",
+    "command_execution"
+   ],
+   "input_tokens": 4030225,
+   "output_tokens": 64121,
+   "cached_tokens": 3788800,
+   "response_models": [
+    "gpt-6-luna"
+   ],
+   "session_id": "01a177a3-36c4-7a82-9ffc-415caafe5125",
+   "inner_calls": [
+    "use_figma",
+    "get_figjam",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "167:5959"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "PLAYBACK"
+  }
+ ]
+}

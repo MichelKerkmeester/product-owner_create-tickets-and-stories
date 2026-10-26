@@ -1,0 +1,3 @@
+The existing FigJam file already has a “Start a return” section. I haven’t written because the workspace instructions require your approval at the Flow Mode pre-write gate. The approval prompt is pending: choose whether to update that section or add a separate flow.
+
+The exact return reason labels weren’t available in the prompt or existing section, so the proposed flow shows the reason list without inventing options. The connected Figma account has no plan named “Fernhouse Product”; the supplied file key is accessible.
