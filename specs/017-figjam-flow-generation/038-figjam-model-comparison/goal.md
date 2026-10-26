@@ -8,10 +8,10 @@ contextType: "planning"
 _memory:
   continuity:
     packet_pointer: "017-figjam-flow-generation/038-figjam-model-comparison"
-    last_updated_at: "2026-10-25T23:30:00Z"
+    last_updated_at: "2026-10-26T01:45:00Z"
     last_updated_by: "claude-code"
-    recent_action: "Wrote the spec folder"
-    next_safe_action: "Write the adaptive driver and probe Figma on both harnesses"
+    recent_action: "Closed every completion criterion"
+    next_safe_action: "Open a phase for the run README findings"
 ---
 <!-- SPECKIT_TEMPLATE_SOURCE: goal | v2.2 -->
 # Goal: Phase 38: FigJam model comparison
@@ -45,11 +45,11 @@ Frozen choices. Changing one is an amendment.
 <!-- ANCHOR:completion -->
 ## 3. COMPLETION CRITERIA
 
-- [ ] All 21 runs are in the run folder with their replies, tool calls and `meta.json`
-- [ ] Every written board has three renders and a 22-point scorecard from a neutral grader
-- [ ] The run README names the best model per type and overall with the losses that decided it
-- [ ] The seven gallery images are the best board per type with honest captions
-- [ ] No board URL, file key, plan name or email is in any changed file
+- [x] All 21 runs are in the run folder with their replies, tool calls and `meta.json`
+- [x] Every written board has three renders and a 22-point scorecard from a neutral grader
+- [x] The run README names the best model per type and overall with the losses that decided it
+- [x] The seven gallery images are the best board per type with honest captions
+- [x] No board URL, file key, plan name or email is in any changed file
 <!-- /ANCHOR:completion -->
 
 ---
@@ -66,4 +66,10 @@ and findings belong here.
 | Item | State | Evidence |
 |------|-------|----------|
 | Phase opened | Done | 2026-10-25, a child of 017 after 037 |
+| Batch run | Done | 21 of 21 runs completed, pushed per scenario through 315c8179 |
+| Grading | Done | 21 scorecards by Sonnet 5.5 graders, three rotated readers, results in 23eb8293 |
+| Best model | Done | GLM and SWE tie at 148, SWE 2 Max recommended for never writing early or changing others' boards |
+| Gallery | Done | Seven best boards by ADR-004 in 33f93557 |
+| Deviation | Recorded | Readers rotated across models, ADR-003 as-run note |
+| Finding | Open | GLM deleted ten test boards on FJ-024 after a generic yes, a later phase should require a named yes |
 <!-- /ANCHOR:log -->
