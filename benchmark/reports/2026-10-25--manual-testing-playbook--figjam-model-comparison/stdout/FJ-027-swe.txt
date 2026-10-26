@@ -1,0 +1,4 @@
+{"id": "FJ-027", "label": "swe", "turn": 1, "role": "scripted", "kind": "PLAYBACK", "figma": ["create_session", "get_figjam"], "boards": []}
+{"id": "FJ-027", "label": "swe", "turn": 2, "role": "scripted", "kind": "GATE", "figma": [], "boards": []}
+{"id": "FJ-027", "label": "swe", "turn": 3, "role": "scripted", "kind": "DELIVERY", "figma": ["use_figma", "get_figjam", "get_figjam"], "boards": ["132:5151"]}
+{"id": "FJ-027", "label": "swe", "status": "ok", "attempts": 1, "turns": 3, "boards": ["132:5151"]}
