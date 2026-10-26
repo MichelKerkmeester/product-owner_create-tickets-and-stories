@@ -83,9 +83,9 @@ The operator reopened the phase on 2026-10-26 to fix the six findings in the run
 - [x] T027 Render and grade the fourteen boards with one fresh Opus 5.5 medium grader, ranked against the first run's boards [EVIDENCE: grades/luna-opus-low.jsonl 14 rows, totals recomputed 142 and 139]
 - [x] T028 Report the five-model result to the operator before any further run [EVIDENCE: reported 2026-10-26, the operator chose Claude Opus 5.5 medium for the full run]
 - [x] T029 Note how a Claude Code or Codex child reaches Figma's hosted server, in the vendored wiring guide from Code_Environment `mcp-tooling/025-figma-hosted-from-cli-children` and in the hosted-connection paragraph (mcp-figma/, sk-create-figjam/references/flow-mode.md, SYNC.md)
-- [ ] T030 Run all 54 FigJam playbook scenarios on Claude Opus 5.5 medium through Claude Code, new files only in drafts of the Barter team plan (run/run_full.sh)
-- [ ] T031 Render every board the full run drew and redact, scan and commit the run
-- [ ] T032 Report the full run to the operator with the board per template
+- [x] T030 Run all 54 FigJam playbook scenarios on Claude Opus 5.5 medium through Claude Code, new files only in drafts of the Barter team plan (run/run_full.sh) [EVIDENCE: the operator stopped the run after 24 scenarios, skill/opus-medium/ holds 24 completed runs]
+- [x] T031 Render every board the full run drew and redact, scan and commit the run [EVIDENCE: 20 renders in renders/opus-medium-*, leak scan 0 hits on 511 files]
+- [x] T032 Report the full run to the operator with the board per template [EVIDENCE: reported 2026-10-26 with a private gallery page of the 20 boards]
 <!-- /ANCHOR:phase-4 -->
 
 ---
