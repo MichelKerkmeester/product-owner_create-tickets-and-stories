@@ -74,6 +74,6 @@ and findings belong here.
 | Gallery | Done | Seven best boards by ADR-004 in 33f93557 |
 | Deviation | Recorded | Readers rotated across models, ADR-003 as-run note |
 | Finding | Open | GLM deleted ten test boards on FJ-024 after a generic yes, a later phase should require a named yes |
-| Six run findings fixed | Done | gantt arrows, ER end marks, delete names its boards, no-fileKey recovery, one verdict rule, gallery on board points; self-test 1029/1029, 15 gates, parity 65/65, live 147:5390 and 148:5423 |
+| Six run findings fixed | Done | gantt arrows, ER end marks, delete names its boards, no-fileKey recovery, one verdict rule, gallery on board points, self-test 1029/1029, 15 gates, parity 65/65, live 147:5390 and 148:5423 |
 | Fresh review of the fixes | Done | DeepSeek review then two Opus medium reviewers, every confirmed finding fixed, kernel v1.2.5 |
 <!-- /ANCHOR:log -->
