@@ -1,0 +1,171 @@
+{
+ "id": "FJ-010",
+ "label": "opus-medium",
+ "model": "claude:claude-opus-5-5:medium",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/type-choice/user-flow-from-product-doc.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "scripted_turns": [
+  "$flow make a FigJam flow of Fernhouse returns on a new board in our Fernhouse Product plan. From the returns doc: the customer opens an order, taps Return an item, picks the item and a reason, and if the order is older than 30 days they see a not-eligible screen. Otherwise they choose a refund or store credit, print the label and see a confirmation.",
+  "Yes, that reading is right."
+ ],
+ "intake_answers_sent": 1,
+ "follow_ups_sent": 1,
+ "session_id": "94135e85-14f7-4f69-a5a3-bf0d28d4bf3d",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "1:3"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 40.0,
+   "tool_calls": 8,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "ToolSearch",
+    "mcp__figma-remote__whoami"
+   ],
+   "input_tokens": 51469,
+   "output_tokens": 3258,
+   "cached_tokens": 284255,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "94135e85-14f7-4f69-a5a3-bf0d28d4bf3d",
+   "inner_calls": [
+    "whoami"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$flow make a FigJam flow of Fernhouse returns on a new board in our Fernhouse Product plan. From the returns doc: the customer opens an order, taps Return an item, picks the item and a reason, and if the order is older than 30 days they see a not-eligible screen. Otherwise they choose a refund or store credit, print the label and see a confirmation.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 44.63,
+   "tool_calls": 2,
+   "tools_used": [
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 8189,
+   "output_tokens": 3792,
+   "cached_tokens": 194644,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "94135e85-14f7-4f69-a5a3-bf0d28d4bf3d",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 29.91,
+   "tool_calls": 4,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "ToolSearch"
+   ],
+   "input_tokens": 12448,
+   "output_tokens": 2521,
+   "cached_tokens": 380372,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "94135e85-14f7-4f69-a5a3-bf0d28d4bf3d",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 218.92,
+   "tool_calls": 11,
+   "tools_used": [
+    "ToolSearch",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__create_new_file",
+    "mcp__figma-remote__create_session",
+    "Bash",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 88423,
+   "output_tokens": 30513,
+   "cached_tokens": 1159662,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "94135e85-14f7-4f69-a5a3-bf0d28d4bf3d",
+   "inner_calls": [
+    "create_new_file",
+    "create_session",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "1:3"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "DELIVERY"
+  }
+ ]
+}

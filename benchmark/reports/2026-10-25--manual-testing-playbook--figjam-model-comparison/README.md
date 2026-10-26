@@ -182,6 +182,16 @@ Ranks run 1 to 5 across all five models in a scenario. The grades are `grades/lu
 - No fresh readers answered these boards, so the grader scored Clarity from the colour renders itself
 - The grader left the first run's grades as they were and noted where it would differ: SWE's FJ-022 Legibility at 2 and no FJ-028 board drawing a dependency arrow
 
+### 8.3 The full playbook run on Opus 5.5 medium
+
+After this report the operator chose Claude Opus 5.5 medium to run all 54 FigJam scenarios, to collect a board for every template. `run/run_full.sh` ran them one at a time in playbook order, with the same drafts sentence Opus 5.5 low received. The operator stopped the run after 24 scenarios, so FJ-016 to FJ-045 did not run. None of these runs was graded.
+
+- **20 boards** cover all seven types: four user flows, two processes, three architectures, five sequences, two states, one ER and two gantts. Each went into the test file or one of seven new files in drafts of the Barter team plan, none in a project. Their renders are `renders/opus-medium-*.png`
+- **Seven scenarios drew nothing, as they require.** FJ-003 refused a mindmap, FJ-006 refused a pie chart, FJN-001 kept a FigJam task a task, FJH-001 asked for the real order statuses, and FJR-001, FJR-006 and FJR-007 asked for the screenshots, schema note and launch plan their prompts mention but do not carry
+- **Every check scenario's first reply was right.** FJ-003, FJ-005, FJ-006, FJ-014 and FJ-015 refused with exit 1 where the scenario asks, and FJ-004's self-tests passed. FJ-004 also reported that the check skipped one Project copy of a template
+- **The driver carried six runs past their end point.** When a run ends with no board the driver sends up to three "Yes, go ahead." turns, so FJ-002, FJ-004, FJ-005, FJ-013, FJ-014 and FJ-015 went on to draw a board the scenario does not grade
+- **FJ-009 assumes no hosted Figma server.** This harness connects one, so the gantt was drawn
+
 ---
 
 ## 9. Files
@@ -196,4 +206,4 @@ Ranks run 1 to 5 across all five models in a scenario. The grades are `grades/lu
 | `grades/` | The grader brief, the special cases, seven grader files, reader tasks, answers and key, and `luna-opus-low.*` for section 8 |
 | `results.jsonl` | One row per run of the first three models, rebuilt by `run/aggregate.py` |
 | `run/` | The Devin runner, the Codex and Claude Code backends, the adaptive driver, the batch scripts, the redaction script, the aggregator and `finals.json` |
-| `batch.log`, `batch-more.log`, `run-log.jsonl` | Each batch's start and exit lines and every turn's log row |
+| `batch.log`, `batch-more.log`, `batch-full.log`, `run-log.jsonl` | Each batch's start and exit lines and every turn's log row |

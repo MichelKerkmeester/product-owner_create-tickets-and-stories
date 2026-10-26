@@ -1,0 +1,189 @@
+{
+ "id": "FJR-001",
+ "label": "opus-medium",
+ "model": "claude:claude-opus-5-5:medium",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/intra-routing-recall/route-user-flow.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "scripted_turns": [
+  "make a FigJam flow of the signup screens from these screenshots"
+ ],
+ "intake_answers_sent": 2,
+ "follow_ups_sent": 3,
+ "session_id": "4f819ba1-2971-4040-af4c-5379f39eb2d0",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 42.52,
+   "tool_calls": 6,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 38030,
+   "output_tokens": 2850,
+   "cached_tokens": 188817,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "4f819ba1-2971-4040-af4c-5379f39eb2d0",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "make a FigJam flow of the signup screens from these screenshots\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 8.7,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 1041,
+   "output_tokens": 464,
+   "cached_tokens": 49244,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "4f819ba1-2971-4040-af4c-5379f39eb2d0",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 9.5,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 502,
+   "output_tokens": 481,
+   "cached_tokens": 50283,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "4f819ba1-2971-4040-af4c-5379f39eb2d0",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 9.91,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 519,
+   "output_tokens": 527,
+   "cached_tokens": 50783,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "4f819ba1-2971-4040-af4c-5379f39eb2d0",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Use your recommended answers.",
+   "role": "supplementary",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 8.64,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 565,
+   "output_tokens": 542,
+   "cached_tokens": 51300,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "4f819ba1-2971-4040-af4c-5379f39eb2d0",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 5,
+   "input": "Use your recommended answers.",
+   "role": "supplementary",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 7.0,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 580,
+   "output_tokens": 205,
+   "cached_tokens": 51863,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "4f819ba1-2971-4040-af4c-5379f39eb2d0",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 6,
+   "input": "Use your recommended answers.",
+   "role": "supplementary",
+   "kind": "INTAKE"
+  }
+ ]
+}

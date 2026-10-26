@@ -1,0 +1,170 @@
+{
+ "id": "FJ-008",
+ "label": "opus-medium",
+ "model": "claude:claude-opus-5-5:medium",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-write/write-and-read-back.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "scripted_turns": [
+  "$figjam an ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan: a guest makes bookings, a booking holds payments, a room is reserved by bookings, a rate plan prices bookings, and a property offers rooms and publishes rate plans. Keep the keys only.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "intake_answers_sent": 1,
+ "follow_ups_sent": 0,
+ "session_id": "13bebcf6-e043-4d2a-9c9e-60b9c0af2523",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "183:7515"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 67.86,
+   "tool_calls": 8,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Read",
+    "Bash",
+    "Bash",
+    "ToolSearch",
+    "mcp__figma-remote__whoami"
+   ],
+   "input_tokens": 65466,
+   "output_tokens": 5257,
+   "cached_tokens": 459654,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "13bebcf6-e043-4d2a-9c9e-60b9c0af2523",
+   "inner_calls": [
+    "whoami"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam an ER diagram of the Roamstay stays model on a new board in our Roamstay Product plan: a guest makes bookings, a booking holds payments, a room is reserved by bookings, a rate plan prices bookings, and a property offers rooms and publishes rate plans. Keep the keys only.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 38.8,
+   "tool_calls": 3,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 7859,
+   "output_tokens": 2815,
+   "cached_tokens": 317979,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "13bebcf6-e043-4d2a-9c9e-60b9c0af2523",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 8.77,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 1337,
+   "output_tokens": 502,
+   "cached_tokens": 84525,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "13bebcf6-e043-4d2a-9c9e-60b9c0af2523",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 244.23,
+   "tool_calls": 13,
+   "tools_used": [
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__get_figjam",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Read",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 98650,
+   "output_tokens": 31762,
+   "cached_tokens": 1482884,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "13bebcf6-e043-4d2a-9c9e-60b9c0af2523",
+   "inner_calls": [
+    "create_session",
+    "get_figjam",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "183:7515"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "DELIVERY"
+  }
+ ]
+}

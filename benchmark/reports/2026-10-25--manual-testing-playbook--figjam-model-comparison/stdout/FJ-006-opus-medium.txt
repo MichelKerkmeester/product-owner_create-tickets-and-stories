@@ -1,0 +1,4 @@
+{"id": "FJ-006", "label": "opus-medium", "turn": 1, "role": "scripted", "kind": "OTHER", "figma": [], "boards": []}
+{"id": "FJ-006", "label": "opus-medium", "turn": 2, "role": "supplementary", "kind": "INTAKE", "figma": [], "boards": []}
+{"id": "FJ-006", "label": "opus-medium", "turn": 3, "role": "adaptive", "kind": "DELIVERY", "figma": [], "boards": []}
+{"id": "FJ-006", "label": "opus-medium", "status": "ok", "attempts": 1, "turns": 3, "boards": []}

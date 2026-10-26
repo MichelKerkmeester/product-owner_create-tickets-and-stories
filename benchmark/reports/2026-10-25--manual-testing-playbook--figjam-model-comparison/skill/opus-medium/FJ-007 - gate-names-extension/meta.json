@@ -1,0 +1,145 @@
+{
+ "id": "FJ-007",
+ "label": "opus-medium",
+ "model": "claude:claude-opus-5-5:medium",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-write/gate-names-extension.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "scripted_turns": [
+  "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+  "Yes, that reading is right."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 1,
+ "session_id": "2e77df2d-bac6-4a54-8cb3-c1d7a7a5d192",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "182:7357"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 67.0,
+   "tool_calls": 7,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Read",
+    "Bash",
+    "ToolSearch",
+    "mcp__figma-remote__whoami"
+   ],
+   "input_tokens": 56277,
+   "output_tokens": 4752,
+   "cached_tokens": 346642,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "2e77df2d-bac6-4a54-8cb3-c1d7a7a5d192",
+   "inner_calls": [
+    "whoami"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 29.59,
+   "tool_calls": 3,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 15578,
+   "output_tokens": 2584,
+   "cached_tokens": 219064,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "2e77df2d-bac6-4a54-8cb3-c1d7a7a5d192",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 303.56,
+   "tool_calls": 15,
+   "tools_used": [
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__get_figjam",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 105864,
+   "output_tokens": 36374,
+   "cached_tokens": 1781022,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "2e77df2d-bac6-4a54-8cb3-c1d7a7a5d192",
+   "inner_calls": [
+    "create_session",
+    "get_figjam",
+    "use_figma",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "182:7357"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "DELIVERY"
+  }
+ ]
+}

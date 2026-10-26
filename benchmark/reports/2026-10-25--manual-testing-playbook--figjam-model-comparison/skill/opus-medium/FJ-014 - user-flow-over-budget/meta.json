@@ -1,0 +1,175 @@
+{
+ "id": "FJ-014",
+ "label": "opus-medium",
+ "model": "claude:claude-opus-5-5:medium",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/pre-write-check/user-flow-over-budget.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "scripted_turns": [
+  "As the operator, run the sk-create-figjam check on a straight user flow of 10 nodes. Verify it fails on the node budget. Return the output and exit status."
+ ],
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 3,
+ "session_id": "9326aa92-cd73-41d3-849a-2152665b7b78",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "1:3",
+  "2:38"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 26.03,
+   "tool_calls": 6,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 26443,
+   "output_tokens": 1905,
+   "cached_tokens": 177605,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "9326aa92-cd73-41d3-849a-2152665b7b78",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "As the operator, run the sk-create-figjam check on a straight user flow of 10 nodes. Verify it fails on the node budget. Return the output and exit status.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 30.42,
+   "tool_calls": 2,
+   "tools_used": [
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 6488,
+   "output_tokens": 2450,
+   "cached_tokens": 118615,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "9326aa92-cd73-41d3-849a-2152665b7b78",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 33.76,
+   "tool_calls": 5,
+   "tools_used": [
+    "Bash",
+    "ToolSearch",
+    "Bash",
+    "mcp__figma-remote__whoami",
+    "Bash"
+   ],
+   "input_tokens": 7312,
+   "output_tokens": 2619,
+   "cached_tokens": 237775,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "9326aa92-cd73-41d3-849a-2152665b7b78",
+   "inner_calls": [
+    "whoami"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 415.53,
+   "tool_calls": 14,
+   "tools_used": [
+    "ToolSearch",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__create_new_file",
+    "mcp__figma-remote__create_session",
+    "Bash",
+    "Bash",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "Bash",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 122078,
+   "output_tokens": 58935,
+   "cached_tokens": 1269031,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "9326aa92-cd73-41d3-849a-2152665b7b78",
+   "inner_calls": [
+    "create_new_file",
+    "create_session",
+    "use_figma",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "1:3",
+    "2:38"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "DELIVERY"
+  }
+ ]
+}

@@ -1,0 +1,198 @@
+{
+ "id": "FJR-004",
+ "label": "opus-medium",
+ "model": "claude:claude-opus-5-5:medium",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/intra-routing-recall/route-sequence.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "scripted_turns": [
+  "draw the checkout payment as a sequence diagram in FigJam"
+ ],
+ "intake_answers_sent": 2,
+ "follow_ups_sent": 2,
+ "session_id": "08b68209-d400-42e0-8ca4-58813dbb4d12",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "177:6900"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 45.67,
+   "tool_calls": 6,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Read",
+    "Read",
+    "Bash"
+   ],
+   "input_tokens": 50905,
+   "output_tokens": 3134,
+   "cached_tokens": 258070,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "08b68209-d400-42e0-8ca4-58813dbb4d12",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "draw the checkout payment as a sequence diagram in FigJam\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 42.0,
+   "tool_calls": 3,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 6842,
+   "output_tokens": 3164,
+   "cached_tokens": 257732,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "08b68209-d400-42e0-8ca4-58813dbb4d12",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 41.33,
+   "tool_calls": 1,
+   "tools_used": [
+    "Bash"
+   ],
+   "input_tokens": 4722,
+   "output_tokens": 3782,
+   "cached_tokens": 139399,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "08b68209-d400-42e0-8ca4-58813dbb4d12",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 50.71,
+   "tool_calls": 5,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 8730,
+   "output_tokens": 3827,
+   "cached_tokens": 469972,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "08b68209-d400-42e0-8ca4-58813dbb4d12",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 259.52,
+   "tool_calls": 13,
+   "tools_used": [
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__get_figjam",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 96710,
+   "output_tokens": 33308,
+   "cached_tokens": 1385963,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "08b68209-d400-42e0-8ca4-58813dbb4d12",
+   "inner_calls": [
+    "create_session",
+    "get_figjam",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "177:6900"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 5,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "DELIVERY"
+  }
+ ]
+}

@@ -1,0 +1,6 @@
+<figma-url>
+Read-back: 3 of 3 milestones, 0 of 0 dependency arrows, 1 section drawn where the model has 0. The board doesn't fully match what I described before you approved it, first glance: Release on 21 December
+Finding: The board shows one tinted band headed "Tasks" around the three milestones. I told you before the write there would be no sections. The board-drawing script adds that band whenever a gantt chart has no section of its own. I can fix it by naming one section in the chart and redrawing the board. Two names are possible: "Milestones", or "Offline mode", which would avoid repeating the word in the title. I'd redraw only on your yes, and remove the current board only on a separate yes that names it
+Finding: The milestones sit on the correct dates. Design done is on the 16 November line, Beta on 7 December and Release on 21 December. The labels match, and the write returned no warnings
+Finding: I didn't re-read the rest of the file to confirm the earlier boards were untouched, because that would have been a fifth call. You approved four. The write added 36 items, all inside the new board section at x 260640, to the right of everything else. I can re-read the file if you approve one more call
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

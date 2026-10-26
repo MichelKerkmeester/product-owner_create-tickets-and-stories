@@ -1,0 +1,204 @@
+{
+ "id": "FJN-001",
+ "label": "opus-medium",
+ "model": "claude:claude-opus-5-5:medium",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/intra-routing-recall/negative-task-about-figjam.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "scripted_turns": [
+  "write a task to tidy the figjam board labels"
+ ],
+ "intake_answers_sent": 2,
+ "follow_ups_sent": 2,
+ "session_id": "f33f625f-7b57-431d-9e95-015e53f02ff0",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [
+   "export/001 - task-figjam-board-labels-clarification.md",
+   "export/002 - task-figjam-board-labels.md",
+   "export/003 - task-figjam-board-labels-clarification.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 40.74,
+   "tool_calls": 8,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Read",
+    "Read",
+    "Bash",
+    "Bash",
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 57330,
+   "output_tokens": 2949,
+   "cached_tokens": 368309,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "f33f625f-7b57-431d-9e95-015e53f02ff0",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [
+     "export/001 - task-figjam-board-labels-clarification.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "write a task to tidy the figjam board labels\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 31.14,
+   "tool_calls": 5,
+   "tools_used": [
+    "Bash",
+    "Write",
+    "Read",
+    "Bash",
+    "Read"
+   ],
+   "input_tokens": 5667,
+   "output_tokens": 2164,
+   "cached_tokens": 356382,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "f33f625f-7b57-431d-9e95-015e53f02ff0",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [
+     "export/002 - task-figjam-board-labels.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 21.25,
+   "tool_calls": 2,
+   "tools_used": [
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 2521,
+   "output_tokens": 1558,
+   "cached_tokens": 149196,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "f33f625f-7b57-431d-9e95-015e53f02ff0",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [
+     "export/003 - task-figjam-board-labels-clarification.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 73.15,
+   "tool_calls": 11,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__get_figjam",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 21915,
+   "output_tokens": 4820,
+   "cached_tokens": 1053827,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "f33f625f-7b57-431d-9e95-015e53f02ff0",
+   "inner_calls": [
+    "create_session",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "OTHER"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 24.69,
+   "tool_calls": 2,
+   "tools_used": [
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 2846,
+   "output_tokens": 2280,
+   "cached_tokens": 198175,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "f33f625f-7b57-431d-9e95-015e53f02ff0",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [
+     "export/002 - task-figjam-board-labels.md"
+    ],
+    "deleted": []
+   },
+   "turn": 5,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "DELIVERY"
+  }
+ ]
+}

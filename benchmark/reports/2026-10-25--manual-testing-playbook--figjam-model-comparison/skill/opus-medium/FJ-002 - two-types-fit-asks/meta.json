@@ -1,0 +1,179 @@
+{
+ "id": "FJ-002",
+ "label": "opus-medium",
+ "model": "claude:claude-opus-5-5:medium",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/type-choice/two-types-fit-asks.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "scripted_turns": [
+  "make a FigJam diagram of how Loomlist block sync works"
+ ],
+ "intake_answers_sent": 1,
+ "follow_ups_sent": 2,
+ "session_id": "75838cc6-6769-4c4d-be53-ba7c7e7b776e",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "179:7084",
+  "180:7216"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 46.88,
+   "tool_calls": 7,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Read",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 54454,
+   "output_tokens": 3929,
+   "cached_tokens": 229851,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "75838cc6-6769-4c4d-be53-ba7c7e7b776e",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "make a FigJam diagram of how Loomlist block sync works\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 43.63,
+   "tool_calls": 1,
+   "tools_used": [
+    "Bash"
+   ],
+   "input_tokens": 5053,
+   "output_tokens": 4043,
+   "cached_tokens": 133422,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "75838cc6-6769-4c4d-be53-ba7c7e7b776e",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 66.94,
+   "tool_calls": 10,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__whoami",
+    "mcp__figma-remote__get_figjam",
+    "Bash",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 22160,
+   "output_tokens": 5346,
+   "cached_tokens": 741495,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "75838cc6-6769-4c4d-be53-ba7c7e7b776e",
+   "inner_calls": [
+    "create_session",
+    "whoami",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 296.44,
+   "tool_calls": 12,
+   "tools_used": [
+    "ToolSearch",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "Bash",
+    "Read",
+    "Bash",
+    "Bash",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 105549,
+   "output_tokens": 40619,
+   "cached_tokens": 1508264,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "75838cc6-6769-4c4d-be53-ba7c7e7b776e",
+   "inner_calls": [
+    "use_figma",
+    "use_figma",
+    "get_figjam",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "179:7084",
+    "180:7216"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "DELIVERY"
+  }
+ ]
+}

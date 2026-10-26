@@ -1,0 +1,167 @@
+{
+ "id": "FJ-001",
+ "label": "opus-medium",
+ "model": "claude:claude-opus-5-5:medium",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/type-choice/sequence-from-api-brief.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+ "scripted_turns": [
+  "$figjam draw the Roamstay checkout payment as a sequence diagram on a new board in our Roamstay Product plan. From the payments brief: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold, tells the partner hub and answers the app with 201.",
+  "Yes, that reading is right."
+ ],
+ "intake_answers_sent": 1,
+ "follow_ups_sent": 1,
+ "session_id": "7ba842ce-43a3-4cdd-8ab9-5397cc637fef",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "1:3"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 53.09,
+   "tool_calls": 8,
+   "tools_used": [
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "ToolSearch",
+    "Bash",
+    "mcp__figma-remote__whoami"
+   ],
+   "input_tokens": 46522,
+   "output_tokens": 4154,
+   "cached_tokens": 327428,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "7ba842ce-43a3-4cdd-8ab9-5397cc637fef",
+   "inner_calls": [
+    "whoami"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam draw the Roamstay checkout payment as a sequence diagram on a new board in our Roamstay Product plan. From the payments brief: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold, tells the partner hub and answers the app with 201.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file. If you need a new file instead, create it in the Barter team plan and leave it in drafts, with no project.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 28.92,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 1992,
+   "output_tokens": 2515,
+   "cached_tokens": 57732,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "7ba842ce-43a3-4cdd-8ab9-5397cc637fef",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 26.74,
+   "tool_calls": 2,
+   "tools_used": [
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 7892,
+   "output_tokens": 2187,
+   "cached_tokens": 188812,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "7ba842ce-43a3-4cdd-8ab9-5397cc637fef",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 218.25,
+   "tool_calls": 12,
+   "tools_used": [
+    "ToolSearch",
+    "Bash",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__create_new_file",
+    "mcp__figma-remote__create_session",
+    "Bash",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 93172,
+   "output_tokens": 30517,
+   "cached_tokens": 927917,
+   "response_models": [
+    "claude-opus-5-5"
+   ],
+   "session_id": "7ba842ce-43a3-4cdd-8ab9-5397cc637fef",
+   "inner_calls": [
+    "create_new_file",
+    "create_session",
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "1:3"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "PLAYBACK"
+  }
+ ]
+}

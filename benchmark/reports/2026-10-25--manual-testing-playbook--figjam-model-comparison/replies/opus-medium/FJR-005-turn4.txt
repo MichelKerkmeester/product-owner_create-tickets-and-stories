@@ -1,0 +1,7 @@
+<figma-url>
+Read-back: 4 of 4 states, 7 of 7 transitions (each joins the right two ends, arrow pointing forward), 5 of 5 state-to-state and entry transitions labelled; the 2 unlabelled end transitions are as the model has them, first glance: Payment pending
+Left out: what follows Confirmed, the source names no Completed or No-show status; cancelling after the deadline or on a non-refundable rate, the source only says the guest contacts Guest Support; date changes under Trips, the source doesn't say whether the status changes
+Finding: the only source is Roamstay's company context, not a Barter source. Send Barter's status list and I'll redraw the board from it
+Finding: the file already held five other boards titled "Booking status lifecycle", none written in this conversation. This one sits to their right, so the file now has six with that title. I haven't touched them. If you want any removed, name which ones and I'll delete them only on that request
+Finding: the board sits 400 px to the right of the existing content and the write only added nodes. To save Figma calls I didn't re-measure the existing content after the write
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

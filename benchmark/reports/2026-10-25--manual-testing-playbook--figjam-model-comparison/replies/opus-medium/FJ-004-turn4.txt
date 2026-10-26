@@ -1,0 +1,6 @@
+<figma-url>
+Read-back: 9 of 9 nodes, 9 of 9 connectors, 4 of 4 decision exits labelled, 3 of 3 zones; first glance: Return confirmed. The decision-exit labels were read visually. The other 123 top-level nodes on the page match the read taken before the write exactly.
+Left out: a free pickup over €100, and a proposal under review. Both were already left out of the shipped example, and the board's source line names them.
+Finding: the page's read tool reports connectors by layer name and doesn't return their label text. I confirmed the four exit labels (No, Yes, Drop-off, Pickup) from the list the write returned and from the board screenshot.
+Finding: this file already held 11 other sections titled "Start a return", which look like earlier test writes of the same example, so this board is the 12th copy. I left all of them as they were. If you want them removed, name the ones to delete and I'll ask once more before deleting.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
