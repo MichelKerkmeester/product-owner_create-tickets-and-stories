@@ -49,11 +49,11 @@ contextType: "implementation"
 - [x] T009 Review the diff and repair the confirmed findings. Verify: the repair lane's 15 fixes each byte-compare MATCH and the self-tests run 1,240 and 163 checks.
 - [x] T010a Apply the shared Human Voice card change on the operator's yes (`z — Knowledge/Rules - Human Voice Core.md`, every system's copy and mirror, the Sales gate snapshot, kernel v1.2.8). Verify: all 12 copies share one md5 and every system's parity check prints PASSED.
 - [x] T010 Apply the handoffs no lane owned: the gate's read of a named file, the composite state section, the outline weights, FJ-030 and FJ-041, the changelog figures, the version fields and `run/aggregate.py`. Verify: all 26 dispatched files byte-compare MATCH.
-- [ ] T011 Commit and push both repositories with the Sync Loop resync and review records. Verify: `validate_parity.py product-owner` and `residency_check.py product-owner` each print PASSED.
-- [ ] T012 Rerun the 31 scenarios that did not pass, no earlier than 22:00 UTC (`skill/sonnet-high-rerun/`). Verify: `run-log.jsonl` holds 31 rerun rows, the earliest at or after 22:00 UTC.
-- [ ] T013 Render every rerun board at 100% (`renders/`). Verify: each board in the rerun has one render file.
-- [ ] T014 Grade the rerun with one grader, then skeptics and adjudicators (`grades/sonnet-high-rerun.jsonl`). Verify: the file holds 31 lines.
-- [ ] T015 Refresh the gallery and every doc that names an image (`sk-create-figjam/assets/screenshots/`, `sk-create-figjam/README.md`). Verify: the gallery holds one v1.0.6.0 board per type with a caption naming its scenario, model and score.
+- [x] T011 Commit and push both repositories with the Sync Loop resync and review records. Verify: `validate_parity.py product-owner` and `residency_check.py product-owner` each print PASSED.
+- [x] T012 Rerun the 31 scenarios that did not pass, no earlier than 22:00 UTC (`skill/sonnet-high-rerun/`). Verify: `run-log.jsonl` holds 82 turn rows for the 27 runnable scenarios, the driver printed a skipped row for the 4 operator-only ones and the earliest stream timestamp is 22:00:50 UTC.
+- [x] T013 Render every rerun board at 100% (`renders/`). Verify: each of the 16 boards still on its file has one render file. FJ-031's first board was deleted by its own scripted turns before it could be rendered.
+- [x] T014 Grade the rerun with one grader, then skeptics and adjudicators (`grades/sonnet-high-rerun.jsonl`). Verify: the file holds 31 lines.
+- [x] T015 Refresh the gallery and every doc that names an image (`sk-create-figjam/assets/screenshots/`, `sk-create-figjam/README.md`). Verify: the gallery holds one v1.0.6.0 board per type with a caption naming its scenario, model and score.
 <!-- /ANCHOR:phase-2 -->
 
 ---
@@ -62,7 +62,7 @@ contextType: "implementation"
 ## Phase 3: Verification
 
 - [x] T016 Run the self-tests and gates. Verify: 1,240 of 1,240 composer checks, 163 of 163 check checks, 18 pytest tests, 15 of 15 gates and the output format gate pass.
-- [ ] T017 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both.
+- [x] T017 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both.
 <!-- /ANCHOR:phase-3 -->
 
 ---
@@ -122,7 +122,7 @@ contextType: "implementation"
 <!-- ANCHOR:testing -->
 ## Testing Checklist
 
-- [ ] CHK-020 [P0] All acceptance criteria met [EVIDENCE: pending the rerun]
+- [x] CHK-020 [P0] All acceptance criteria met [EVIDENCE: AC-001 to AC-008 read Met in acceptance-criteria.md]
 - [x] CHK-021 [P0] Gates pass [EVIDENCE: `run_gates.sh` prints "all 15 gates pass", the output format gate passes across 72 source files]
 <!-- /ANCHOR:testing -->
 
@@ -145,7 +145,7 @@ contextType: "implementation"
 <!-- ANCHOR:security -->
 ## Security
 
-- [ ] CHK-030 [P0] No board URL, Figma file key, plan name or email in any committed file [EVIDENCE: pending the leak scan before each commit]
+- [x] CHK-030 [P0] No board URL, Figma file key, plan name or email in any committed file [EVIDENCE: the leak scan over the 474 rerun files found 995 hits before redaction and none after it, and no added line in README.md or SYNC.md carries a hit]
 <!-- /ANCHOR:security -->
 
 ---
@@ -162,7 +162,7 @@ contextType: "implementation"
 <!-- ANCHOR:file-org -->
 ## File Organization
 
-- [ ] CHK-050 [P1] No change outside the files named in spec.md Section 3 [EVIDENCE: pending the final `git status`]
+- [x] CHK-050 [P1] No change outside the files named in spec.md Section 3 [EVIDENCE: every commit of this phase touches only the paths spec.md Section 3 names, and `git status --short` in Product Owner is empty once the temporary `.skilled` and `.opencode` links are removed]
 - [x] CHK-051 [P1] scratch/ holds no file [EVIDENCE: `ls scratch` is empty]
 <!-- /ANCHOR:file-org -->
 
