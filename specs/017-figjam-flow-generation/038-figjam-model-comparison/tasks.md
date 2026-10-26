@@ -62,12 +62,31 @@ contextType: "implementation"
 
 ---
 
+<!-- ANCHOR:phase-4 -->
+## Phase 4: Findings
+
+The operator reopened the phase on 2026-10-26 to fix the six findings in the run README Section 7.
+
+- [x] T014 Reopen this folder: status, scope, REQ-006 to REQ-011, AC-006 to AC-011 and ADR-005 (spec.md, acceptance-criteria.md, decision-record.md)
+- [x] T015 Delete only on a reply that names the boards, and the missing `fileKey` recovery (sk-create-figjam/references/flow-mode.md)
+- [x] T016 Require every expected signal in each board-quality PASS line (sk-create-figjam/manual-testing-playbook/)
+- [x] T017 Rank the gallery on the board points first, rebuild `results.jsonl` and swap any image the rule changes (run/aggregate.py, sk-create-figjam/assets/screenshots/)
+- [x] T018 Read a board id from any `use_figma` result (run/adaptive_compare.py)
+- [x] T019 Draw gantt dependency arrows and ER end marks, with their fixtures and self-test checks (assets/compose-board.js, scripts/)
+- [x] T020 Write the gantt, ER and state guidance (references/types/, assets/examples/state-roamstay-booking.md)
+- [x] T021 Hand-write the Project mirror, the SYNC note and the changelogs (claude project/knowledge/, SYNC.md, changelog/)
+- [x] T022 Compose a gantt and an ER board on the test file and read the renders
+- [x] T023 Run every gate, a fresh review and validate.sh --strict, then close
+<!-- /ANCHOR:phase-4 -->
+
+---
+
 <!-- ANCHOR:completion -->
 ## Completion Criteria
 
-- [x] All tasks marked `[x]`
+- [ ] All tasks marked `[x]`
 - [x] No `[B]` blocked tasks remaining
-- [x] Manual verification passed
+- [ ] Manual verification passed
 <!-- /ANCHOR:completion -->
 
 ---
@@ -117,7 +136,7 @@ contextType: "implementation"
 <!-- ANCHOR:testing -->
 ## Testing Checklist
 
-- [x] CHK-020 [P0] All acceptance criteria met [EVIDENCE: AC-001 to AC-005 Met in acceptance-criteria.md]
+- [x] CHK-020 [P0] All acceptance criteria met [EVIDENCE: AC-001 to AC-011 Met in acceptance-criteria.md]
 - [x] CHK-021 [P1] Every written board has its three renders and a scorecard [EVIDENCE: 23 overview, 23 full and 23 greyscale renders, and 21 rows in results.jsonl each with a scorecard]
 <!-- /ANCHOR:testing -->
 
@@ -147,13 +166,24 @@ contextType: "implementation"
 
 ---
 
+<!-- ANCHOR:findings -->
+## Findings
+
+- [x] CHK-060 [P0] Flow Mode never deletes on a bare yes [EVIDENCE: `references/flow-mode.md` Section 6 bullet "A delete of anything that was on the file before this write runs only on a reply that names the boards it removes", the rollback and revision bullets and Section 9's read-back step all name the board, mirrored in Templates - Flow Mode]
+- [x] CHK-061 [P1] Each board-quality PASS line names the expected signals [EVIDENCE: "every expected signal is present" twice in each of the nine board-quality and eight board-creation files, and root playbook Section 3 ties the scorecard to Section 5]
+- [x] CHK-062 [P1] The composer still fits one `use_figma` call with the largest planted model [EVIDENCE: `compose_board.py --self-test` 1029 of 1029, the largest planted model fits, and `--design-check` leaves 2,869 characters for the model]
+- [x] CHK-063 [P1] A live gantt and ER board show the arrows and the end marks [EVIDENCE: on the operator-approved test file, gantt 147:5390 drew 6 nodes and 5 connectors with 0 warnings and ER 148:5423 drew 6 nodes and 6 connectors with 0 warnings. Both renders show the arrows and the crow's-foot marks. One gantt arrow crosses a bar end, recorded as a known limitation]
+<!-- /ANCHOR:findings -->
+
+---
+
 <!-- ANCHOR:summary -->
 ## Verification Summary
 
 | Category | Total | Verified |
 |----------|-------|----------|
-| P0 Items | 4 | 4/4 |
-| P1 Items | 5 | 5/5 |
+| P0 Items | 5 | 5/5 |
+| P1 Items | 8 | 8/8 |
 | P2 Items | 0 | 0/0 |
 
 **Verification Date**: 2026-10-26
