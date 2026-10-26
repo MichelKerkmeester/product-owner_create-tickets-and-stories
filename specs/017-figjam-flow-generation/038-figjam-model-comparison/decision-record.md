@@ -8,10 +8,10 @@ contextType: "general"
 _memory:
   continuity:
     packet_pointer: "017-figjam-flow-generation/038-figjam-model-comparison"
-    last_updated_at: "2026-10-25T23:30:00Z"
+    last_updated_at: "2026-10-26T01:45:00Z"
     last_updated_by: "claude-code"
-    recent_action: "Wrote the spec folder"
-    next_safe_action: "Write the adaptive driver and probe Figma on both harnesses"
+    recent_action: "Recorded the four decisions and the as-run reader note"
+    next_safe_action: "None, the decisions are closed"
 ---
 # Decision Record: FigJam model comparison
 
@@ -209,6 +209,8 @@ Twenty-one boards need grading on the 22-point scorecard and a fresh reader. Del
 **Summary**: Fresh Claude Sonnet 5.5 agents grade, one per diagram type across all three models, and one fresh reader per model answers the questions from the colour renders alone.
 
 **Details**: A grader per type sees the three boards of one scenario side by side, so the scores rank them on one scale. A reader per model never sees two boards of one scenario, so one board cannot answer another's questions.
+
+**As run**: The three readers were rotated across the models instead, each answering one board of every scenario, so every reader saw two or three boards of each model. No reader saw two boards of one scenario, which is what this decision protects, and one reader's skill no longer lands on a single model's Clarity.
 
 <!-- /ANCHOR:adr-003-decision -->
 

@@ -22,7 +22,7 @@ contextType: "implementation"
 
 **Packet:** product-owner/017-figjam-flow-generation/038-figjam-model-comparison
 **Level:** 2
-**Status:** In Progress
+**Status:** Complete
 **Date:** 2026-10-25
 <!-- /ANCHOR:metadata -->
 
@@ -35,11 +35,11 @@ One row per criterion. `AC-ID` is stable once written: supersede a criterion, ne
 
 | AC-ID | REQ | Given / When / Then | Verification | Status | Waiver |
 |-------|-----|---------------------|--------------|--------|--------|
-| AC-001 | REQ-001 | Given the driver and the three models, When the batch finishes, Then each of the 21 runs has its replies, tool calls and `meta.json` in the run folder and ran alone on the fictional test file | Pending | Unmet | - |
-| AC-002 | REQ-002 | Given every written board, When it is graded, Then it has an overview, a 100% and a greyscale render and a 22-point scorecard from a grader that is none of the three models, with Clarity from a fresh reader | Pending | Unmet | - |
-| AC-003 | REQ-003 | Given the run folder and every changed file, When they are scanned, Then no board URL, Figma file key, plan name or email appears | Pending | Unmet | - |
-| AC-004 | REQ-004 | Given `results.jsonl`, When the gallery rule picks the best board per type, Then each of the seven type images is that board and its caption names the scenario, the model and the score | Pending | Unmet | - |
-| AC-005 | REQ-005 | Given the graded runs, When the run README is read, Then it says which model draws boards best per type and overall, with the losses that decided it | Pending | Unmet | - |
+| AC-001 | REQ-001 | Given the driver and the three models, When the batch finishes, Then each of the 21 runs has its replies, tool calls and `meta.json` in the run folder and ran alone on the fictional test file | 21 `meta.json` files with `completed: true` under `skill/`, every turn's `response_models` naming the model asked for, and `batch.log` showing one run at a time | Met | - |
+| AC-002 | REQ-002 | Given every written board, When it is graded, Then it has an overview, a 100% and a greyscale render and a 22-point scorecard from a grader that is none of the three models, with Clarity from a fresh reader | 23 overview, 23 full and 23 greyscale renders, seven Sonnet 5.5 grader files in `grades/` and three reader answer files scored against `grades/reader-key.md` | Met | - |
+| AC-003 | REQ-003 | Given the run folder and every changed file, When they are scanned, Then no board URL, Figma file key, plan name or email appears | The leak scan read 0 hits on each scenario commit, on `grades/` and `results.jsonl` and on every changed file, apart from the repository owner's name in the root README's existing badges | Met | - |
+| AC-004 | REQ-004 | Given `results.jsonl`, When the gallery rule picks the best board per type, Then each of the seven type images is that board and its caption names the scenario, the model and the score | The seven images are the `gallery: true` rows of `results.jsonl`, and `assets/screenshots/README.md` names the scenario, the model and the score for each | Met | - |
+| AC-005 | REQ-005 | Given the graded runs, When the run README is read, Then it says which model draws boards best per type and overall, with the losses that decided it | The run README's Verdict and Results sections, with the deciding losses per model and per type | Met | - |
 
 ### Status values
 
@@ -64,7 +64,7 @@ waiver is treated as an unmet criterion rather than as a pass.
 <!-- ANCHOR:closure -->
 ## 3. CLOSURE STATEMENT
 
-**Closeable:** No
+**Closeable:** Yes
 
-The runs have not started.
+Every criterion is Met. The 21 runs finished, every board was graded by a neutral grader, the gallery holds the best board per type and the run README names the recommended model with the losses that decided it.
 <!-- /ANCHOR:closure -->
