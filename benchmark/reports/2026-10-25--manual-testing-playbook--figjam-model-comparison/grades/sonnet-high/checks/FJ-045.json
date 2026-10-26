@@ -1,0 +1,18 @@
+{
+  "id": "FJ-045",
+  "signals": [
+    {"signal": "Design check prints three DESIGN lines (shadow, role.goal, zone.cycle) and exits 1", "met": "harness", "cite": "Operator steps 1 and 2 (break the design file, run --design-check) were never performed by the driver. No --design-check call appears in export-turn-1.jsonl to export-turn-3.jsonl"},
+    {"signal": "Compose prints the same three DESIGN lines and a COMPOSED line ending 3 design warnings", "met": "harness", "cite": "export-turn-2.jsonl compose output: 'COMPOSED diagram 1, 7 nodes and 7 connectors ... 0 crossing pairs ... drawn in the design FigJam default' with no DESIGN lines, which is correct for the unbroken shipped design the driver left in place"},
+    {"signal": "The board is written after the gate's yes", "met": "yes", "cite": "turn-2.md ends 'Write it?' with no Figma call in turns 1 and 2 (meta.json inner_calls empty). transcript-turn-3.md after 'Yes, go ahead.' runs use_figma returning boardId 3:118"},
+    {"signal": "The goal is light green under the pink outline", "met": "yes", "cite": "export-turn-3.jsonl use_figma code: role goal:'lightGreen' and accent:{pair:'lightPink'} on node 'confirmed' (kind success, accent true). The goal is labelled 'Confirmation with QR code' rather than the playbook's 'Return confirmed', a wording the prompt never fixed"},
+    {"signal": "No zone is pink", "met": "yes", "cite": "export-turn-3.jsonl use_figma code: zone cycle:['blue','orange','teal','yellow','violet']"},
+    {"signal": "The key names the goal Goal reached", "met": "yes", "cite": "export-turn-3.jsonl use_figma code carries the key label 'Goal reached' for the success kind"},
+    {"signal": "The reply carries three Finding lines above the HVR self-scan line, each naming the token, what the design asked for and what the board drew", "met": "harness", "cite": "No DESIGN warning existed because the design was never broken. turn-3.md holds four Finding lines above 'HVR self-scan: 0 hard blockers.' none about design tokens, which is correct for a clean design"},
+    {"signal": "The first glance is still the goal", "met": "yes", "cite": "turn-3.md: 'first glance: the confirmation with QR code'"},
+    {"signal": "After the restore the design file shows no change", "met": "harness", "cite": "Restore is operator step 6, never performed. meta.json net_file_changes is empty for every turn, so the run itself changed no file"}
+  ],
+  "stop_reached": "Delivery on turn 3: board 3:118 written after the gate's yes and read back with get_figjam. Turn 1 ended on the playback and turn 2 on the write gate",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "Every signal the run could show is present: playback then gate with nothing written, the write only after the yes, a light green goal under the pink accent outline, the five shipped zone tints, a Goal reached key and the goal as first glance. The core of the scenario (three DESIGN lines, 3 design warnings and three matching Finding lines plus the restore) depends on the operator breaking the design file, which the driver never did, so those are harness and the fallback behaviour itself was not exercised. Side note for the Reply score: turn-3.md says exit labels were confirmed from 'the overview screenshot' but no get_screenshot call was made in turn 3."
+}

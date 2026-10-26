@@ -1,0 +1,6 @@
+<figma-url>
+Read-back: 4 of 4 participants and 7 of 7 messages on board 1, 3 of 3 participants and 6 of 6 messages on board 2, first glance: Authorise card on board 1 and 402 Card declined on board 2, start here: 1. Checkout payment, card authorised
+Left out: the webhook confirmation and the `payments-service` routing from the Roamstay company context, contradicted by the payments brief, which governs here as you confirmed
+Finding: the company context says only `payments-service` talks to the payment provider and a Pay now booking waits in `payment_pending` for a webhook, while the brief has the booking API call the provider and answer 201 straight after. Both boards draw the brief as given, so the clash is still open if the brief describes a proposal.
+Finding: `get_figjam` returns no text for connectors, so the message labels, the dashed replies and the pink first-glance lines were read from the screenshots the two writes returned. The counts, directions and endpoints were read from the board itself.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

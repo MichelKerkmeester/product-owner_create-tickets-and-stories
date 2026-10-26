@@ -1,0 +1,19 @@
+{
+  "id": "FJ-044",
+  "signals": [
+    {"signal": "The design check exits 0 with THEME {}", "met": "yes", "cite": "transcript-turn-1.md last Bash call: 'THEME {}' and '0 design warnings'. The exit status itself was not echoed (output piped through head) so exit 0 is read from the usage line '0 the design reads with no warning'"},
+    {"signal": "Each example prints a COMPOSED line drawn in the design FigJam default with no DESIGN line", "met": "yes", "cite": "transcript-turn-1.md compose loop (full output in export-turn-1.jsonl): seven lines such as 'COMPOSED diagram 1, 4 participants and 7 messages ... drawn in the design FigJam default' with no DESIGN line in any compose output. The only DESIGN line is the design-check header 'DESIGN figjam-design.md: FigJam default' from step 1"},
+    {"signal": "Each use_figma call returns no warning", "met": "harness", "cite": "meta.json tools_used lists only Read and Bash and boards is empty. turn-1.md: 'nothing has been written to the file'. Sending the code is an operator step the driver never performs"},
+    {"signal": "Every board opens on the same title block: 64 px bold title and 28 px subtitle in even lines at an 80 px margin", "met": "harness", "cite": "No board composed in Figma. turn-1.md stops at 'Is this the right reading of the board?'"},
+    {"signal": "Every key is a light gray section titled Key as wide as its diagram with entries in kind order then lines, arrows, step pin and In focus last", "met": "harness", "cite": "No board composed. Depends on the operator screenshot step"},
+    {"signal": "Every connector is gray except an async message (blue) and the accent (pink)", "met": "harness", "cite": "No board composed. Depends on the operator screenshot step"},
+    {"signal": "A sequence's requests and replies both end in a closed head", "met": "harness", "cite": "No board composed. Depends on the operator screenshot step"},
+    {"signal": "Participants are white", "met": "harness", "cite": "No board composed. The design check shows 'neutral: white ... drawn by participant' but the signal is about the drawn board"},
+    {"signal": "No zone or gantt band shares a hue with a node inside it, no two neighbouring zones share a tint and pink appears only on the accent", "met": "harness", "cite": "No board composed. Depends on the operator screenshot step"},
+    {"signal": "Every board scores 2 on the rubric's Matches the active design criterion", "met": "harness", "cite": "No board composed. Scoring is operator step 5 in the scenario commands"}
+  ],
+  "stop_reached": "Playback stop (meta.json turn 1 kind PLAYBACK). turn-1.md: 'Flow Mode stops here for your answer on the reading. The write gate comes after that, as its own message.' The driver sent no adaptive or supplementary turn (intake_answers_sent 0 and follow_ups_sent 0) so the run never reached the write gate",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "Both model-reachable signals are met: the design check printed THEME {} with 0 warnings and all seven examples composed in FigJam default with no DESIGN line. The run made no Figma call (only Read and Bash) and stopped correctly at the Flow Mode playback. The remaining eight signals depend on operator steps the driver never performs (sending the code, screenshots, rubric scoring) so they are harness rather than unmet. On signals alone no model-attributable signal is missing and no FAIL condition fired. The grader may prefer to record this as ungradeable for the board half since no board exists. One small gap: the design check's exit status was not echoed as the scenario's command asks"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "FJ-013",
+  "signals": [
+    {
+      "signal": "The reply names the timeline as a kind Flow Mode does not draw",
+      "met": "yes",
+      "cite": "turn-1.md Question 1: \"FigJam has no timeline kind here. The nearest type I draw is a gantt chart with each event as a milestone\". turn-2.md repeats it: \"Type: a gantt chart of milestones, since FigJam has no timeline kind here\". It says FigJam rather than Flow Mode but the meaning is the same"
+    },
+    {
+      "signal": "The reply offers a gantt chart with milestones",
+      "met": "yes",
+      "cite": "turn-1.md Question 1: \"should I draw the three milestones as diamonds on one axis\" and \"Recommended: draw the gantt\". turn-2.md Framings: \"Milestones only: three diamonds on one axis\""
+    },
+    {
+      "signal": "The run calls no Figma tool",
+      "met": "yes",
+      "cite": "export-turn-1.jsonl holds 10 tool_use blocks (9 Read and 1 Bash) and export-turn-2.jsonl holds none. meta.json turn 1 tools_used lists only Read and Bash with inner_calls empty and boards empty"
+    }
+  ],
+  "stop_reached": "Turn 2 playback (role adaptive, kind PLAYBACK) ending on \"Is this reading right, including the 2026 year and the committed status?\" before any model is shown or write gate is asked. Turn 1 was intake round one",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "Both replies name the timeline as a kind FigJam does not draw and offer a gantt chart with the three events as milestones, and no Figma tool was called in either turn. One soft deviation that no signal scores: before any yes, turn 1 ran flow_check.py on a scratch milestones-only Mermaid gantt in a temp folder it then removed (transcript-turn-1.md Bash call, result \"PASSED 1 diagram(s) in m.md\"), and the turn 1 reply opens with \"Your three dates make a milestones-only gantt, and that passes the pre-write check\" while still asking about type in Question 1. That is quiet modelling ahead of the yes the expected process asks for, but nothing reached Figma or the repository (meta.json net_file_changes empty)."
+}

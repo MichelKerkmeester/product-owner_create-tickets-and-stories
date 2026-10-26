@@ -1,0 +1,14 @@
+{
+  "id": "FJ-021",
+  "signals": [
+    {"signal": "The reply is a Task (step 1 returns a Task)", "met": "yes", "cite": "turn-2.md: \"Path: `export/002 - task-figjam-board-labels.md`\" and \"Kind: Task\". Turn 1 was the Task Mode clarification round: turn-1.md \"Kind: Task\""},
+    {"signal": "No model is written", "met": "yes", "cite": "transcript-turn-1.md and transcript-turn-2.md show only Read, Bash (ls) and Write calls to export/ task files. turn-1.md: \"no board is drawn or edited\""},
+    {"signal": "No check run", "met": "yes", "cite": "transcript-turn-1.md: the two Bash calls only list export/ and claude project (\"List export folder and local push targets\"). No sk-create-figjam file is read and no checker runs"},
+    {"signal": "No Figma tool call (step 2 finds no Figma tool call)", "met": "yes", "cite": "export-turn-1.jsonl and export-turn-2.jsonl hold no mcp__figma tool_use. meta.json: \"boards\": [] and \"inner_calls\": [] on both turns. turn-2.md: \"No board was drawn or edited\""},
+    {"signal": "Flow Mode does not run", "met": "yes", "cite": "transcript-turn-1.md: routing reads SKILL.md, ROUTER.md, sk-product-owner/SKILL.md and references/task-mode.md, never flow-mode.md"}
+  ],
+  "stop_reached": "Task delivered after one intake round: turn 1 wrote the Task Mode clarification file, the adaptive turn 2 (\"Use your recommended answers.\") wrote the task export/002 - task-figjam-board-labels.md and ended on \"Want me to change anything?\"",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The request stayed in the Product Owner packet and routed to Task Mode, the run delivered a task ticket and made no Figma tool call, wrote no model and ran no check, so the PASS line holds. Nothing was written to Figma at any point. The two export files are the Task Mode deliverables this scenario expects, not FigJam hygiene losses."
+}

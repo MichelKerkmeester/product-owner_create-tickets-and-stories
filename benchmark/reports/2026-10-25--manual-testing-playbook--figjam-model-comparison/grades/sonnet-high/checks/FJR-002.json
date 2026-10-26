@@ -1,0 +1,34 @@
+{
+  "id": "FJR-002",
+  "signals": [
+    {
+      "signal": "Step 1: the hub check passes with this prompt among its gold rows (PASSED the hub)",
+      "met": "harness",
+      "cite": "The driver never ran check_hub.py. Run side: transcript-turn-1.md shows the first Read is sk-create-figjam/SKILL.md then ROUTER.md, so the request reached sk-create-figjam. A read-only grep finds the prompt once in benchmark/hub-routing-cases.json."
+    },
+    {
+      "signal": "Step 2: the type detection line names the type (process)",
+      "met": "yes",
+      "cite": "turn-1.md: \"Type: process, with one lane each for Support, the warehouse and Finance\". Note that the scenario's own grep for \"-> process\" in SKILL.md matches nothing today because the detection now sits on line 83 as a keyword tuple, a playbook command defect and not a model fault."
+    },
+    {
+      "signal": "Step 3: every declared leaf exists in the packet and in leaf-manifest.json (OK for all 5)",
+      "met": "harness",
+      "cite": "Static operator check the driver never ran. A read-only rerun prints OK for all 5 leaves. Run side: transcript-turn-1.md reads flow-mode.md, flow-templates.md, types/process.md and templates/process.md. quality-rubric.md was not read, which SKILL.md line 66 allows because the rubric loads before the gate and the run never reached the gate."
+    },
+    {
+      "signal": "Step 4: the playbook topology validator prints PASS FJR-002",
+      "met": "harness",
+      "cite": "Operator command the driver never ran. Nothing in turn-1.md to turn-3.md bears on it."
+    },
+    {
+      "signal": "Desired outcome: the process rules load before any model is written",
+      "met": "yes",
+      "cite": "transcript-turn-1.md reads references/types/process.md and assets/templates/process.md before any reply, and turn-1.md says \"nothing is drawn or written yet\". No model was ever written."
+    }
+  ],
+  "stop_reached": "Intake cap at round 3 of 3 with no source steps. turn-3.md: \"Two answers in a row have added no steps, and the intake cap is reached\". It asked the user for the refund steps and never reached the playback or the write gate.",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The run routed to sk-create-figjam and named the type process in turn 1, loaded the Flow pair and both process files before anything else and wrote nothing to Figma (turn 3 made only create_session and a read-only get_figjam call and meta.json shows no boards and no file changes). The hub and leaf checks are operator commands the driver never ran, so they count as harness, and a read-only rerun of the leaf loop prints OK for all 5. The scenario's step 2 grep pattern no longer matches the SKILL.md detection line, which is a playbook defect to fix rather than a model fault."
+}

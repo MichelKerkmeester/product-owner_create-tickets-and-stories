@@ -1,0 +1,14 @@
+{
+  "id": "FJR-004",
+  "signals": [
+    {"signal": "Hub check passes with this prompt among its gold rows (command 1, check_hub.py)", "met": "harness", "cite": "The driver never runs the operator command. Behaviourally the run went to sk-create-figjam: transcript-turn-1.md first call reads sk-create-figjam/SKILL.md after 'I'll start by loading the Flow skill and its Flow Mode reference.'"},
+    {"signal": "Type detection line names sequence (command 2, before any model is written)", "met": "yes", "cite": "turn-1.md: 'A sequence diagram fits the question \"in what order do these parties exchange messages?\".' and transcript-turn-1.md reads references/types/sequence.md before any outline"},
+    {"signal": "Every declared leaf exists in the packet: flow-mode.md, flow-templates.md, types/sequence.md, templates/sequence.md, quality-rubric.md (command 3, packet half)", "met": "yes", "cite": "transcript-turn-1.md reads references/flow-mode.md, assets/flow-templates.md and references/types/sequence.md. transcript-turn-2.md reads assets/templates/sequence.md ('FigJam Sequence Templates') and references/quality-rubric.md ('FigJam Diagram Quality Rubric') before the nine-message outline. No read returned an error"},
+    {"signal": "Every declared leaf is listed in leaf-manifest.json (command 3, manifest half)", "met": "harness", "cite": "Operator grep against leaf-manifest.json was never run by the driver and the run had no reason to open the manifest"},
+    {"signal": "Playbook topology validator prints PASS FJR-004 (command 4)", "met": "harness", "cite": "Operator command never run by the driver. Nothing in the run depends on it"}
+  ],
+  "stop_reached": "Playback stop at turn 2: turn-2.md ends 'Is this the right reading of the board?' after an intake round at turn 1. The write gate was never reached",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The run went straight to sk-create-figjam, named sequence as the type in turn 1 and loaded all five declared leaves before writing its outline. It made no Figma call in either turn (tools used were Read and Bash only, ledger empty). The hub gold row, manifest and topology checks are operator commands the driver never runs, so they are harness."
+}

@@ -1,0 +1,19 @@
+{
+  "id": "FJ-008",
+  "signals": [
+    {"signal": "Turn 1 ends on the playback and writes nothing", "met": "yes", "cite": "turn-1.md: \"This is the playback for the board. Nothing is written yet\" and ends \"Is this the right reading of the board?\". meta.json turn 1 tools are Read and Bash only with an empty ledger and no Figma call"},
+    {"signal": "Turn 2 ends on the gate and writes nothing", "met": "yes", "cite": "turn-2.md: \"The model passes the pre-write check and composes cleanly, so this is the gate. Nothing has been written.\" and ends on \"Write the \\\"Stays model\\\" board into file ... now?\". transcript-turn-2.md Bash calls only ran flow_check and wrote a scratch model under /tmp with no Figma call"},
+    {"signal": "Turn 3 calls whoami", "met": "harness", "cite": "transcript-turn-3.md has no whoami call. The harness file pin put the board into a named existing file and flow-mode.md Section 3 step 7 says a named file \"needs no plan and no create_new_file\". turn-2.md disclosed it: \"whoami lists the plans you hold but doesn't say which plan owns a file\""},
+    {"signal": "Turn 3 calls create_new_file", "met": "harness", "cite": "transcript-turn-3.md has no create_new_file call. The harness pin named an existing file and turn-2.md says \"I create no new file, so the Barter team plan and drafts instruction does not apply.\" Writing into the pinned file is correct per the grader brief"},
+    {"signal": "Turn 3 makes one use_figma call that composes the board", "met": "yes", "cite": "transcript-turn-3.md: one mcp__figma-remote__use_figma call with the composer code returning \"boardId\":\"1:3\" and \"counts\":{\"nodes\":6,\"connectors\":6}"},
+    {"signal": "Turn 3 reads the board back with one get_figjam on the returned board id", "met": "yes", "cite": "transcript-turn-3.md: get_figjam with \"nodeId\": \"1:3\" after the compose returns section \"Stays model\" with 6 entity shapes and 6 relationship connectors. A second get_figjam on node 0:1 ran before the write as a read of the empty file, which turn-2.md announced under Calls"},
+    {"signal": "Reply leads with the board URL", "met": "yes", "cite": "turn-3.md first line: \"<figma-url>\" (redacted URL in first position)"},
+    {"signal": "Reply carries a Read-back line counting entities relationships and attributes", "met": "yes", "cite": "turn-3.md: \"Read-back: 6 of 6 entities, 6 of 6 relationships, 12 of 12 attributes, first glance: Booking\""},
+    {"signal": "Reply carries the HVR self-scan line", "met": "yes", "cite": "turn-3.md: \"HVR self-scan: 1 hard blockers. Fixed: none. Kept with reason: \\\"offers\\\" ...\""},
+    {"signal": "PASS line: board holds every entity and relationship and the read-back counts match the board", "met": "yes", "cite": "export-turn-3.jsonl get_figjam on 1:3 lists Guest, Booking, Payment, Property, Room and Rate Plan, connectors Booking to Payment, Property to Room, Room to Booking, Property to RatePlan, RatePlan to Booking and Guest to Booking (drawn as a waypoint leg 1:33 plus 1:37 through ellipse 1:30) and 12 key rows (1+4+2+1+2+2), matching the reply's 6, 6 and 12"}
+  ],
+  "stop_reached": "Turn 1 stopped on the playback, turn 2 on the gate, turn 3 wrote and read back board 1:3 and delivered the reply with URL, read-back and HVR self-scan lines",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "Playback and gate came in order with nothing written before the gate's yes, one use_figma composed the board, a get_figjam on the returned board id read it back and the 6 entities, 6 relationships and 12 attributes in the read-back line match the board. whoami and create_new_file are marked harness because the file pin named an existing file, which the contract says needs neither."
+}

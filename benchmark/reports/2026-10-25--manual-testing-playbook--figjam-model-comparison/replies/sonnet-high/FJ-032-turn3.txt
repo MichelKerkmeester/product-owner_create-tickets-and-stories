@@ -1,0 +1,8 @@
+<figma-url>
+Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled, existing content left as it was, first glance: In stay
+Left out: payment failure, expiry on Pending and refunds, because your message states none of them
+Finding: The file already holds 17 earlier sections titled for this booking lifecycle, such as "Booking status" at `62:66` and `73:785`, and "Booking status lifecycle" at `97:3363`. I compared the labels of the first two, which show the same six statuses, and not the rest. This is now another copy beside them, and I deleted nothing. Name the ones to remove and I'll ask once to confirm.
+Finding: "Guest cancels" from Confirmed leaves the section's bottom edge directly beneath In stay, so the board shows a guest cancelling mid-stay. That follows your wording. Say if a stay shouldn't be cancellable and I'll change the model and compose again.
+Finding: "Missed check-in" leaves the Confirmed section's right edge beside the end dot that In stay feeds, so by position it reads as leaving after In stay. Only the `[from Upcoming]` guard says otherwise. This is a composer limit on exits from a section. A flat layout, with Upcoming and In stay as separate states, would fix it. That redraw needs your yes, and then a separate yes to delete this section.
+Finding: `get_figjam` returned no connector label text. The 6 labels were checked from the write's return and the overview screenshot, not from the board read. The 12 connectors and their end points were read from the board.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

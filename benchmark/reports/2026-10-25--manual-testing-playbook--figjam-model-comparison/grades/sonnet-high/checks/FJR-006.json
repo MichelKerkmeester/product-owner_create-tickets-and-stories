@@ -1,0 +1,34 @@
+{
+  "id": "FJR-006",
+  "signals": [
+    {
+      "signal": "Step 1: the hub check passes with this prompt among its gold rows (check_hub.py prints PASSED the hub)",
+      "met": "harness",
+      "cite": "Operator command the driver never runs. The run itself routed to the FigJam packet: transcript-turn-1.md reads SKILL.md then ROUTER.md then sk-create-figjam/SKILL.md, and the prompt sits as a gold row in benchmark/hub-routing-cases.json line 142 \"make a FigJam ER diagram of the stays model from the schema note\""
+    },
+    {
+      "signal": "Step 2: the type detection line names the type er",
+      "met": "yes",
+      "cite": "transcript-turn-1.md reads sk-create-figjam/references/types/er.md and turn-1.md says \"I read this as an ER diagram for whoever builds against stays data\". No literal type detection line is printed in the reply. The operator grep for \"-> er\" prints nothing against SKILL.md, whose er row is a keyword tuple at line 87"
+    },
+    {
+      "signal": "Step 3: every declared leaf exists in the packet and in leaf-manifest.json (OK for all 5 leaves)",
+      "met": "harness",
+      "cite": "Operator command the driver never runs. A read-only rerun prints OK for all five. The run itself read flow-mode.md, flow-templates.md and types/er.md (transcript-turn-1.md) but not assets/templates/er.md or references/quality-rubric.md before it stopped on the missing source"
+    },
+    {
+      "signal": "Step 4: validate-playbook-topology prints PASS FJR-006",
+      "met": "harness",
+      "cite": "Operator command the driver never runs and no turn file shows it"
+    },
+    {
+      "signal": "Desired outcome: the er rules load before any model is written",
+      "met": "yes",
+      "cite": "transcript-turn-1.md reads references/types/er.md, and turn-1.md says \"I haven't drawn anything\" with no model written in any turn"
+    }
+  ],
+  "stop_reached": "Source stop at intake. turn-1.md asks \"Can you paste the schema note, or tell me where it lives\" after a repo search and a read of the pinned file. turn-2.md and turn-3.md answer the two adaptive \"Use your recommended answers.\" turns by recording the reader and the must-not answers and asking again for the note, ending in turn-3.md on two options: send the note or say \"draw the Roamstay example\". No playback and no write gate was reached",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "On signals alone the run routed to the FigJam packet, read the er type reference and named the diagram as ER before any model, and the three repo checks it could not run are harness items (a read-only rerun of the leaf check prints OK for all five). Figma saw only create_session and a get_figjam read, so nothing was written before any gate. Note that the scenario's step 2 grep for \"-> er\" matches no line in SKILL.md, which points at a playbook command gap rather than a model fault"
+}

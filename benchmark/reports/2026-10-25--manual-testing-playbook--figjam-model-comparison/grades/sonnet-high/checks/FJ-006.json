@@ -1,0 +1,12 @@
+{
+  "id": "FJ-006",
+  "signals": [
+    {"signal": "The output names a pie block as undrawable", "met": "yes", "cite": "transcript-turn-1.md flow_check result and turn-1.md: \"diagram 1, unknown: a pie block: Flow Mode does not draw it\""},
+    {"signal": "The output points at references/flow-mode.md Section 3", "met": "yes", "cite": "turn-1.md: \"see references/flow-mode.md Section 3\" and the reply confirms Section 3 is \"PICK THE DIAGRAM TYPE\" with the \"What Flow Mode does not draw\" table"},
+    {"signal": "The check exits 1", "met": "yes", "cite": "transcript-turn-1.md Bash result: \"FAILED 1 of 1 diagram(s) in model.md\" then \"exit status: 1\""}
+  ],
+  "stop_reached": "Check refusal reported in turn 1. A single scripted turn with no write gate and no board, as the scenario expects (expects_board false).",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The pie model in a mktemp scratch folder outside the repository was refused with a pointer to flow-mode.md Section 3 and exit 1. No Figma tool was called (meta tools_used holds only Bash and Read) and the scratch folder was removed. The model used a three-slice Signup sources pie rather than the two-slice Bookings pie the command names, which does not touch any expected signal."
+}

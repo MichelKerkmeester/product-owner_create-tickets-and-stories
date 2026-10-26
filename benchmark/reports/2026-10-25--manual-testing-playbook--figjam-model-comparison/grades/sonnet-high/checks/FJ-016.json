@@ -1,0 +1,12 @@
+{
+  "id": "FJ-016",
+  "signals": [
+    {"signal": "The output reads the block carries styling: the architecture layout colours each lane itself, drop it", "met": "yes", "cite": "turn-1.md and export-turn-1.jsonl styled run: \"diagram 1, architecture: the block carries styling: the architecture layout colours each lane itself, drop it\""},
+    {"signal": "Names no other rule (styling is the only finding and no other rule fires on the unchanged example)", "met": "yes", "cite": "turn-1.md: styled run prints only the styling line then \"FAILED 1 of 1 diagram(s) in styled.md\" and the unchanged copy prints \"architecture: ok ... PASSED 1 diagram(s) in base.md\" with exit 0"},
+    {"signal": "Exits 1", "met": "yes", "cite": "export-turn-1.jsonl tool result: \"styled exit=1\" and turn-1.md: \"Exit status: 1\""}
+  ],
+  "stop_reached": "Check run completed and reported, no write gate reached. The reply says it did not write to the pinned file and that a board needs a yes at the write gate",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The styled copy of the architecture example (added style sync fill:#CDF4D3,stroke:#66D575 inside the Mermaid block) printed only the styling failure and exited 1 while the unchanged copy passed with exit 0. No Figma tool was called and scratch files were removed. A stray head error after the run is cosmetic and the model owned it in the reply."
+}

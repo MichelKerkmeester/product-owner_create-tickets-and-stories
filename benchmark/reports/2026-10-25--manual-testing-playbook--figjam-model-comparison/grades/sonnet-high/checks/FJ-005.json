@@ -1,0 +1,15 @@
+{
+  "id": "FJ-005",
+  "signals": [
+    {"signal": "The output names the alias", "met": "yes", "cite": "transcript-turn-1.md tool result: \"line 2: Api carries the alias \\\"Booking API\\\", which the generator drops\""},
+    {"signal": "The output names the note", "met": "yes", "cite": "transcript-turn-1.md tool result: \"line 5: a note is dropped by the generator: draw it afterwards through the hybrid workflow\""},
+    {"signal": "The output names the short id", "met": "no", "cite": "transcript-turn-1.md model planted \"participant Api as \\\"Booking API\\\"\" instead of the scenario's \"participant G as GuestApp\". Api is a readable id so no id failure printed. Output has only the alias and note lines"},
+    {"signal": "Output ends FAILED 1 of 1 diagram(s)", "met": "yes", "cite": "transcript-turn-1.md tool result: \"FAILED 1 of 1 diagram(s) in seq-alias-note.md\""},
+    {"signal": "Exit status is 1", "met": "yes", "cite": "transcript-turn-1.md tool result: \"exit status: 1\" and turn-1.md \"Exit status: 1\""},
+    {"signal": "Model written to a scratch file outside the repository", "met": "yes", "cite": "transcript-turn-1.md: d=$(mktemp -d) then model at a tmp folder, meta.json net_file_changes empty"}
+  ],
+  "stop_reached": "Check-only turn ended after reporting the failed check. No write gate was offered or crossed and no board was composed (meta.json boards empty, composed false). Reply declined the pinned file because the request was a check and the model fails.",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "By the PASS line every defect the run planted (alias and note) was named and the exit status was 1 so it passes. But the expected signals also name a short id failure that never appears because the model swapped the scenario's single-letter participant G for the readable id Api. The prompt only asks for both rules so the grader may treat the missing short id as a scenario wording gap rather than a model fault. No Figma tool was called and nothing was written."
+}

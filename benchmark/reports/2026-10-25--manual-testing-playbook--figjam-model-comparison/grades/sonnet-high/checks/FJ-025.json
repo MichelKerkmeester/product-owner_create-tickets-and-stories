@@ -1,0 +1,18 @@
+{
+  "id": "FJ-025",
+  "signals": [
+    {"signal": "Turn 1 ends on the playback and writes nothing", "met": "yes", "cite": "turn-1.md ends \"Is this the right reading of the board, with the brief governing where it differs from the company context?\" and meta.json turn 1 tools are Read and Bash only with no Figma call"},
+    {"signal": "Turn 2 ends on the gate and writes nothing", "met": "yes", "cite": "turn-2.md ends \"Write both boards into the file?\" and transcript-turn-2.md shows only Bash and Read calls (flow_check and compose_board into a temp folder)"},
+    {"signal": "Turn 3 writes after the gate's yes", "met": "yes", "cite": "transcript-turn-3.md shows create_session then get_figjam then two use_figma calls after the scripted \"Yes, go ahead.\""},
+    {"signal": "The board holds 4 of 4 participants and 7 of 7 messages", "met": "yes", "cite": "turn-3.md \"Read-back: 4 of 4 participants and 7 of 7 messages on board 1\" and transcript-turn-2.md \"diagram 1, sequence: ok, 4 participants and 7 messages\""},
+    {"signal": "Participants left to right as GuestApp, BookingApi, PaymentProvider and PartnerHub", "met": "yes", "cite": "export-turn-2.jsonl model declares \"participant GuestApp / participant BookingApi / participant PaymentProvider / participant PartnerHub\" in that order for board 1"},
+    {"signal": "Replies are dashed", "met": "yes", "cite": "export-turn-2.jsonl model \"PaymentProvider-->>BookingApi: Authorised\" and \"BookingApi-->>GuestApp: 201 Created\""},
+    {"signal": "The async message has an open arrow", "met": "no", "cite": "turn-1.md \"Messages use plain requests and replies, with no async arrow, because the brief doesn't say the hub's message is fire-and-forget\" and the model draws \"BookingApi->>PartnerHub: Tell the partner hub\" as a plain call"},
+    {"signal": "Replies and async arrow both still distinct in greyscale", "met": "no", "cite": "No async arrow exists to distinguish (model \"BookingApi->>PartnerHub\"). Dashed replies are a render question for the board scorecard, not scored here"},
+    {"signal": "The reply names the declined path under Left out:", "met": "no", "cite": "turn-3.md \"Left out: the webhook confirmation and the `payments-service` routing from the Roamstay company context\". The declined path was drawn as board 2 \"2. Checkout payment, card declined\" instead of being left out by name"}
+  ],
+  "stop_reached": "Delivery: turn 3 wrote two boards after the gate's yes and replied with the URL, read-back line, Left out line, two Finding lines and the HVR self-scan",
+  "written_before_gate": false,
+  "suggested_verdict": "FAIL",
+  "reason": "Gate discipline held and board 1 matches 4 of 4 participants and 7 of 7 messages in the expected order with dashed replies, but the partner hub message is drawn as a plain call rather than an async open arrow and the declined path was drawn as a second board instead of being named under Left out, so two expected signals are missing"
+}

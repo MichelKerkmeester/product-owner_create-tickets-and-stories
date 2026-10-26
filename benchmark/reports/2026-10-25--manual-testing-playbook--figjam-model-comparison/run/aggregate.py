@@ -78,9 +78,16 @@ for sid in IDS:
     for r in group:
         r["gallery"] = r is best
 
-with open(os.path.join(RUN, "results.jsonl"), "w", encoding="utf-8") as fh:
+# Rows of models this script does not aggregate stay, because a rerun rebuilds only the three below.
+path = os.path.join(RUN, "results.jsonl")
+kept = []
+if os.path.exists(path):
+    with open(path, encoding="utf-8") as fh:
+        kept = [line for line in fh if line.strip() and json.loads(line).get("model") not in ("deepseek", "glm", "swe")]
+with open(path, "w", encoding="utf-8") as fh:
     for r in rows:
         fh.write(json.dumps(r, ensure_ascii=False) + "\n")
+    fh.writelines(kept)
 
 by = collections.defaultdict(list)
 for r in rows:

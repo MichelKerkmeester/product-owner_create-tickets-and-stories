@@ -1,0 +1,18 @@
+{
+  "id": "FJ-028",
+  "signals": [
+    {"signal": "Turn 1 ends on the playback and writes nothing", "met": "yes", "cite": "turn-1.md ends 'Is this the right reading of the board?' after 'Nothing is written to FigJam yet.' export-turn-1.jsonl holds only Read calls"},
+    {"signal": "Turn 2 ends on the gate and writes nothing", "met": "yes", "cite": "turn-2.md 'This is the write gate, and nothing is on the board yet.' ends 'Write it?'. export-turn-2.jsonl holds Read, Bash and one Write of model.md to a temp folder, no Figma call"},
+    {"signal": "Turn 3 writes after the gate's yes", "met": "yes", "cite": "export-turn-3.jsonl: create_session, get_figjam, one use_figma returning boardId 3:162, then a get_figjam read-back, all after 'Yes, go ahead.'"},
+    {"signal": "Board holds 3 of 3 sections, 5 of 5 tasks and 1 of 1 milestone in the model's order", "met": "yes", "cite": "turn-3.md 'Read-back: 3 of 3 sections, 5 of 5 tasks, 1 of 1 milestone, 5 of 5 dependency arrows'. use_figma result counts nodes 6 of expect 6 with elements in order design, engine, screen, integrate, beta, Release"},
+    {"signal": "Integration carries the critical marking", "met": "yes", "cite": "turn-2.md model 'Desktop and iOS integration :crit, integrate'. use_figma result element 3:217 kind 'crit'"},
+    {"signal": "Reply names Android under Left out:", "met": "yes", "cite": "turn-3.md 'Left out: Android in the next quarter, a proposal with no start or length, named in the board's source line as not yet approved'"},
+    {"signal": "Every after in the model is drawn as an arrow from the bar it names", "met": "yes", "cite": "use_figma result in export-turn-3.jsonl links design->screen, engine->integrate, screen->integrate, integrate->beta, beta->Release, connectors 5 of expect 5"},
+    {"signal": "Reader reads order from the bars and the arrows, not the bar lengths", "met": "harness", "cite": "Depends on the operator screenshots and fresh reader step (commands 5 and 8) the driver never performs. The arrows exist per the use_figma result. turn-3.md notes the design to screen build arrow runs along the right end of the Sync engine bar"},
+    {"signal": "Scorecard totals at least 18 of 22 with Composition, Fidelity, four Hygiene checks and Reply at full marks and no dimension at 0", "met": "harness", "cite": "Operator scoring steps (commands 6 to 8) are not performed by the driver. The board scorecard is graded separately"}
+  ],
+  "stop_reached": "Delivery: turn 3 wrote board 3:162 into the pinned file and read it back. Turn 1 stopped on the playback and turn 2 on the write gate",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "Every transcript-checkable signal is met: playback then gate with no Figma call, one compose after the yes with 6 of 6 nodes and 5 of 5 arrows, integration tagged crit and Android under Left out. The reader and scorecard signals rest on operator steps and the board is scored separately, so the final verdict also depends on that scorecard"
+}

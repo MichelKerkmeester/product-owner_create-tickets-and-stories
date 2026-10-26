@@ -1,0 +1,21 @@
+{
+  "id": "FJ-017",
+  "signals": [
+    {"signal": "Turn 1 ends on the playback and writes nothing", "met": "yes", "cite": "turn-1.md ends \"Is this the right reading of the board?\" and meta.json turn 1 tools are 11 Read calls only, ledger empty"},
+    {"signal": "Turn 2 ends on the gate, names the notes and writes nothing", "met": "yes", "cite": "turn-2.md \"Extensions: two single stickies named note:1 and note:2, one beside Cancelled and one beside No-show\" and ends \"Write it?\". transcript-turn-2.md tools are Read, Read and two local Bash calls (flow_check.py and compose_board.py into a /tmp scratch folder), no Figma tool"},
+    {"signal": "Turn 3 calls use_figma once to compose the board", "met": "yes", "cite": "transcript-turn-3.md use_figma \"Compose the Booking status state diagram board as a new section\" returns boardId 1:3 with 12 of 12 nodes and 12 of 12 connectors"},
+    {"signal": "Turn 3 calls use_figma a second time to add the two notes as single stickies", "met": "yes", "cite": "transcript-turn-3.md second use_figma \"Add two single stickies, note:1 beside Cancelled and note:2 beside No-show, inside the Booking status board section\" returns createdNodeIds 2:158 and 2:162 with text \"Cancelled: set by the guest\" and \"No-show: set by the hotel\""},
+    {"signal": "No pin and no legend column", "met": "yes", "cite": "export-turn-3.jsonl second use_figma code only calls figma.createSticky twice plus a removed font probe, no pin or legend nodes"},
+    {"signal": "Each sticky lands inside the board beside its node", "met": "yes", "cite": "export-turn-3.jsonl result: board widened from w 2040 to 2344, note:2 at x 2024 y 808 right of No-show (y 880 to 976) and note:1 at x 2024 y 1112 right of Cancelled (y 1056 to 1152), each 64 px past the end dot that follows its node. Exact visual placement is for the board scorecard"},
+    {"signal": "Moves no composed node", "met": "yes", "cite": "export-turn-3.jsonl second use_figma code sets x and y only on the two new stickies and calls board.resizeWithoutConstraints to widen the section, which the brief allows for a gated extension"},
+    {"signal": "Draws no colour", "met": "yes", "cite": "export-turn-2.jsonl model.md has no style, classDef or linkStyle line (only a %% focus: Cancelled composer directive). The sticky fill #A8DAFF is the hybrid-workflow.md recipe colour, and no call restyles a composed node"},
+    {"signal": "Reply carries the board URL", "met": "yes", "cite": "turn-3.md first line \"<figma-url>\" (redacted URL in first position counts as the URL)"},
+    {"signal": "Reply carries a Read-back: line", "met": "yes", "cite": "turn-3.md \"Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled, first glance: Cancelled\""},
+    {"signal": "Reply carries Extensions: 2 of 2 notes, 0 overlaps", "met": "yes", "cite": "turn-3.md \"Extensions: 2 of 2 notes, 0 overlaps\""},
+    {"signal": "Reply carries the HVR self-scan: line", "met": "yes", "cite": "turn-3.md \"HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.\""}
+  ],
+  "stop_reached": "Turn 3 wrote the board and both notes into the pinned file after the gate's yes, read it back with get_figjam and replied with the URL, Read-back, Extensions and HVR lines",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "Every expected signal is present: playback at turn 1 and gate naming the notes at turn 2 with no Figma call, then one compose use_figma and one sticky-only use_figma inside the widened board with no pin, legend, colour step or moved node, and a reply carrying Extensions: 2 of 2 notes, 0 overlaps. Writing into the pinned file instead of whoami and create_new_file is correct under the harness pin. The gate's Plan line cites whoami though no whoami was called, which is a reply accuracy point for the scorecard rather than a signal."
+}

@@ -1,0 +1,12 @@
+{
+  "id": "FJ-003",
+  "signals": [
+    {"signal": "The reply says Flow Mode does not draw a mindmap", "met": "yes", "cite": "turn-1.md: \"I did not draw the mindmap ... Flow Mode draws only user flow, process, architecture, sequence, state, ER and gantt. A mindmap is not among them\""},
+    {"signal": "The reply offers a table or a list in a Doc", "met": "yes", "cite": "turn-1.md: \"my recommendation is a Doc with a table of the four themes. The columns would be theme, what it covers, owner and status\" (also offers a gantt if dates are given)"},
+    {"signal": "The run calls no Figma tool", "met": "yes", "cite": "transcript-turn-1.md and export-turn-1.jsonl: six tool_use calls, all Read (SKILL.md, ROUTER.md, sk-create-figjam/SKILL.md, flow-mode.md, hvr-core.md, conciseness.md), meta.json inner_calls empty and boards empty"}
+  ],
+  "stop_reached": "Turn 1 ended on the plain refusal with the Doc table offer, waiting for the user to accept and send notes. No gate was reached and no board was composed",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "One scripted turn, kind OTHER. The reply names the mindmap as undrawable, offers a Doc with a table and calls no Figma tool, so every signal of the PASS line is met. No file was written (net_file_changes empty). Minor note outside the signals: the reply repeats the pinned file key back to the user and says the Doc would be saved to export/ on acceptance, which did not happen"
+}

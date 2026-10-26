@@ -1,0 +1,9 @@
+<figma-url>
+Read-back: 7 of 7 nodes, 7 of 7 connectors, 4 of 4 decision exits labelled, first glance: the confirmed return
+Left out: free pickup over 100 euros, a proposal under review. The steps after the confirmation (drop-off, warehouse check, refund) and the CS-created return in Admin, both outside the question
+Finding: the file already holds 14 top-level sections named "Start a return" or "Start a return in the app" from earlier work. This board sits beside them, and I deleted none. Tell me which to remove if you want only one, and I'll ask you to confirm each by title first.
+Finding: the Fernhouse company context (updated 2026-09-18) says there is no self-serve return today, while you describe a Start a return button. I treated your description as current behaviour, marked assumed. The board does not show the clash.
+Finding: `get_figjam` returns connector names but not their label text. The four exit labels and "Start a return" on the first connector were confirmed from the write's own return and the overview screenshot, so they were read visually.
+Finding: I did not re-read the rest of the file after the write. The board landed 400 pixels right of the old rightmost item, and the code only created nodes (42), so nothing already there was touched. I used four tool calls, as the gate said.
+Finding: you named no screens or doc, so the sources line says the board is drawn from your description. The window check after the order detail and the direct links from both pickup choices to the confirmation are my assumptions from the answers you accepted.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

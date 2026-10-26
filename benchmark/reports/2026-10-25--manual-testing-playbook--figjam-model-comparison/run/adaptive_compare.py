@@ -6,12 +6,19 @@ driven by the same operator through the same runner, and only the model differs.
 sandbox, the isolation proof, the turn runner and the redaction are the Devin runner's
 own, imported unchanged.
 
-The operator sends the scenario's scripted turns in order. After a reply that is an
-intake round it first sends the recommended answers, at most twice, as the playbook
-tells it to. When the script runs out with no board written, it sends "Yes, go ahead."
-at most three times, so a model that stops once more than the script still reaches a
-board a grader can score. Each turn is labelled scripted, adaptive or supplementary in
+The operator sends the scenario's scripted turns in order. An intake round takes the
+script's own answer while the script still holds one before its "Yes, that reading is
+right." turn. Only once those are used up does the operator send the recommended answers,
+at most twice, as the playbook tells it to, and never past the script's end in a scenario
+that expects no board. When the script runs out with no board written, it sends "Yes, go
+ahead." at most three times, so a model that stops once more than the script still reaches
+a board a grader can score. Each turn is labelled scripted, adaptive or supplementary in
 meta.json, and a small classifier's label for each reply's stop is kept as `kind`.
+
+A scenario's `driver:` frontmatter key changes how it runs. `operator-only` is skipped with
+its reason, because it needs a setup step the driver does not run. `new-file` drops the pin
+to the test file and keeps only where a new file may go. After the run the scenario's
+read-only shell steps run in its sandbox through `scenario_commands.py` into commands.json.
 
 A model id of the form `codex:<model>:<effort>` or `claude:<model>:<effort>` runs on that CLI
 through `runtimes.py` instead of Devin, with the same sandbox, operator and record.
@@ -28,8 +35,13 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import devin_playbook_runner as dv  # noqa: E402
 import runtimes  # noqa: E402
+import scenario_commands  # noqa: E402
 
 INTAKE_ANSWER = "Use your recommended answers."
+# The scripted answer to the playback. A scripted turn before it answers an intake round.
+READING_YES = "yes, that reading is right"
+# Why an operator-only scenario is skipped when its frontmatter gives no reason of its own
+OPERATOR_ONLY = "the playbook marks this scenario operator-only, because it needs a setup step the driver does not run"
 MAX_INTAKE = 2
 MAX_FOLLOW = 3
 # Opus 5.5 low would not draw on the pinned file and stopped to ask for a plan, so the
@@ -54,13 +66,15 @@ Reply:
 """
 
 
-def kind(reply):
-    """The stop one reply ends on, as a one-word label from a small model."""
+def kind(reply, tmp):
+    """The stop one reply ends on, as a one-word label from a small model, with the run's own TMPDIR."""
     os.makedirs(CLASSIFY_DIR, exist_ok=True)
+    os.makedirs(tmp, exist_ok=True)
     p = subprocess.run([CLAUDE_BIN, "-p", CLASSIFY + reply[:6000], "--model", "claude-haiku-5-5",
                         "--output-format", "json", "--setting-sources", "project", "--tools", "",
                         "--strict-mcp-config", "--no-session-persistence"],
-                       cwd=CLASSIFY_DIR, stdin=subprocess.DEVNULL, capture_output=True, text=True)
+                       cwd=CLASSIFY_DIR, stdin=subprocess.DEVNULL, capture_output=True, text=True,
+                       env=dict(os.environ, TMPDIR=tmp))
     try:
         word = json.loads(p.stdout).get("result", "").strip().upper()
     except ValueError:
@@ -90,6 +104,40 @@ def boards(session_dir, n):
     return list(dict.fromkeys(found))
 
 
+def plan(sk):
+    """How the driver runs one scenario, read from its file.
+
+    `driver` is the frontmatter's `driver:` value, `model` when the key is absent. A reason may
+    follow the value on the same line or sit in `driver_reason:`. A scenario expects a board only
+    when its script answers the write gate itself and a Figma server is there to draw it. Otherwise
+    it grades an earlier stop, so the driver adds no follow-up yes."""
+    text = open(sk["file"], encoding="utf-8").read()
+    fm = re.match(r"---\n(.*?)\n---\n", text, re.S)
+    fm = fm.group(1) if fm else ""
+    m = re.search(r"^driver:\s*(.+)$", fm, re.M)
+    value = m.group(1).strip().strip("\"'") if m else "model"
+    mode, _, rest = value.partition(" ")
+    why = re.search(r"^driver_reason:\s*(.+)$", fm, re.M)
+    reason = rest.strip(" :,()-") or (why.group(1).strip().strip("\"'") if why else "")
+    no_figma = NO_FIGMA in text
+    return {"driver": mode.rstrip(":,"), "reason": reason or (OPERATOR_ONLY if mode.startswith("operator-only") else ""),
+            "no_figma": no_figma,
+            "expects_board": not no_figma and any(t.strip().lower().startswith(WRITE_YES) for t in sk["turns"])}
+
+
+def scripted_answer(queue, sk):
+    """Whether the next queued turn is the scenario's own answer to an intake round.
+
+    That is a scripted turn that comes before the script's playback answer, is not itself a gate
+    answer and is not the request that opens a chained scenario's own part."""
+    if not queue or queue[0][1] != "scripted":
+        return False
+    i = queue[0][2]
+    said = [t.strip().lower() for t in sk["turns"]]
+    return (i != sk.get("setup_turns") and not said[i].startswith((READING_YES, WRITE_YES))
+            and any(t.startswith(READING_YES) for t in said[i + 1:]))
+
+
 def main():
     system_dir, out, label, model, sid, key = (os.path.abspath(sys.argv[1]), sys.argv[2], sys.argv[3],
                                                sys.argv[4], sys.argv[5], sys.argv[6])
@@ -101,14 +149,23 @@ def main():
     sessions = os.path.join(harness_root, ".sessions", sid)
     dest = os.path.join(out, "skill", label, f"{sid} - {sk['slug']}")
     replies = os.path.join(out, "replies", label)
-    pin = dv.FILE_PIN.format(key=key)
-    if spec and spec[0] == "claude":
-        pin += " " + DRAFTS_PIN
-    # A scenario expects a board only when its script answers the write gate itself. Without that
-    # turn it grades an earlier stop, so the driver adds no follow-up yes that would carry the run past it.
-    expects_board = any(t.strip().lower().startswith(WRITE_YES) for t in sk["turns"])
+    how = plan(sk)
+    if how["driver"] == "operator-only":
+        print(json.dumps({"id": sid, "label": label, "status": "skipped", "reason": how["reason"]}))
+        return 0
+    if how["driver"] not in ("model", "new-file"):
+        print(json.dumps({"id": sid, "label": label, "status": "bad-driver",
+                          "reason": f"unknown driver value {how['driver']}"}))
+        return 2
+    # A new-file scenario tests making a file, so it keeps only where the new file may go
+    if how["driver"] == "new-file":
+        pin = DRAFTS_PIN
+    else:
+        pin = dv.FILE_PIN.format(key=key)
+        if spec and spec[0] == "claude":
+            pin += " " + DRAFTS_PIN
     # A scenario written for a runtime with no hosted Figma server runs only where one can be left out.
-    no_figma = NO_FIGMA in open(sk["file"], encoding="utf-8").read()
+    no_figma, expects_board = how["no_figma"], how["expects_board"]
     if no_figma and not (spec and spec[0] == "claude"):
         print(json.dumps({"id": sid, "label": label, "status": "skipped",
                           "reason": "the scenario needs a runtime without the hosted Figma server"}))
@@ -123,12 +180,12 @@ def main():
         for d in (sessions, dest):
             shutil.rmtree(d, ignore_errors=True)
             os.makedirs(d)
-        queue = [(t, "scripted") for t in sk["turns"]]
-        queue[0] = (f"{queue[0][0]}\n\n{pin}", "scripted")
+        queue = [(t, "scripted", i) for i, t in enumerate(sk["turns"])]
+        queue[0] = (f"{queue[0][0]}\n\n{pin}", "scripted", 0)
         turns, intake, follow, n, ok, session_id = [], 0, 0, 0, True, None
         before0 = before = dv.snapshot(scratch)
         while queue:
-            prompt, role = queue.pop(0)
+            prompt, role, _ = queue.pop(0)
             n += 1
             if spec:
                 r = runtimes.run_turn(spec, scratch, sessions, session_id, prompt, n, dest,
@@ -148,14 +205,19 @@ def main():
                 ok = False
                 failures.append({"attempt": attempt, "turn": n, "status": r["status"], "rc": r["rc"]})
                 break
-            r["kind"] = kind(r["reply"])
-            if r["kind"] == "INTAKE" and intake < MAX_INTAKE:
+            r["kind"] = kind(r["reply"], os.path.join(sessions, "tmp"))
+            # The script's own answer to an intake round goes next unchanged. The recommended answers
+            # go only once the script has none left before its playback answer, and never past the
+            # script's end in a scenario that expects no board.
+            if r["kind"] == "INTAKE" and scripted_answer(queue, sk):
+                pass
+            elif r["kind"] == "INTAKE" and intake < MAX_INTAKE and (queue or expects_board):
                 intake += 1
-                queue.insert(0, (INTAKE_ANSWER, "adaptive"))
+                queue.insert(0, (INTAKE_ANSWER, "adaptive", None))
             elif (expects_board and not queue and not any(t.get("composed") for t in turns)
                   and r["kind"] != "DELIVERY" and follow < MAX_FOLLOW):
                 follow += 1
-                queue.append((INTAKE_ANSWER if r["kind"] == "INTAKE" else dv.FOLLOW_UP, "supplementary"))
+                queue.append((INTAKE_ANSWER if r["kind"] == "INTAKE" else dv.FOLLOW_UP, "supplementary", None))
             print(json.dumps({"id": sid, "label": label, "turn": n, "role": role, "kind": r["kind"],
                               "figma": r["inner_calls"], "boards": r["boards"]}), flush=True)
         if ok:
@@ -174,8 +236,12 @@ def main():
         open(os.path.join(dest, f"turn-{r['turn']}.md"), "w", encoding="utf-8").write(dv.redact(r["reply"]))
         open(os.path.join(replies, f"{sid}-turn{r['turn']}.txt"), "w", encoding="utf-8").write(dv.redact(r["reply"]))
         dv.write_transcript(os.path.join(dest, f"transcript-turn-{r['turn']}.md"), sk, r["turn"], r["input"], r)
+    # The model is done, so the scenario's read-only shell steps run in its sandbox for the grader
+    steps = scenario_commands.run(system_dir, sk["file"], scratch, os.path.join(sessions, "tmp"),
+                                  os.path.join(dest, "commands.json"))
     meta = {"id": sid, "label": label, "model": model, "permission": dv.PERMISSION, "runtime": f"{spec[0]}-adaptive" if spec else "devin-adaptive",
-            "scenario_file": sk["file"], "file_pin": pin, "expects_board": expects_board, "no_figma": no_figma, "scripted_turns": sk["turns"],
+            "scenario_file": sk["file"], "file_pin": pin, "driver": how["driver"], "expects_board": expects_board, "no_figma": no_figma, "scripted_turns": sk["turns"],
+            "commands_run": sum(s["status"] != "skipped" for s in steps),
             "intake_answers_sent": intake, "follow_ups_sent": follow, "session_id": session_id,
             "attempts": attempt, "failures": failures, "completed": ok,
             "boards": [b for r in turns for b in r["boards"]], "net_file_changes": changed,

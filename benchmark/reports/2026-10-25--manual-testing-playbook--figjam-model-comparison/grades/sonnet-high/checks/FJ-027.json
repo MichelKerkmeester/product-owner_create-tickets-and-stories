@@ -1,0 +1,18 @@
+{
+  "id": "FJ-027",
+  "signals": [
+    {"signal": "Turn 1 ends on the playback and writes nothing", "met": "yes", "cite": "turn-1.md ends 'Is this the right reading of the board?' after Question, Outcome, Settled and Assumed rows. export-turn-1.jsonl holds only Read calls and one read-only Bash grep, no Figma call"},
+    {"signal": "Turn 2 ends on the gate and writes nothing", "met": "yes", "cite": "turn-2.md 'Nothing is written yet.' then File, Writes, Extensions, Calls and Rollback rows and ends 'Write it?'. export-turn-2.jsonl holds three local Bash calls only (check and compose into a temp folder)"},
+    {"signal": "Turn 3 writes after the gate's yes", "met": "yes", "cite": "transcript-turn-3.md after 'Yes, go ahead.' runs create_session, one use_figma (boardId 2:47) and one get_figjam read-back"},
+    {"signal": "Board holds 6 of 6 entities, 6 of 6 relationships with labels and every attribute of the model in 2 of 2 zones", "met": "yes", "cite": "use_figma result 'counts nodes 6 connectors 6 expect nodes 6 connectors 6' with six labels such as 'makes (1 to 0..n)'. get_figjam shows sections 'Guest side' and 'Partner side'. turn-3.md 'Read-back: 6 of 6 entities, 6 of 6 relationships, 12 of 12 attributes'"},
+    {"signal": "Guest side holds Guest, Booking and Payment and Partner side holds Property, Room and Rate Plan", "met": "yes", "cite": "get_figjam: section 2:50 'Guest side' contains 2:54 Guest, 2:58 Booking and 2:62 Payment. Section 2:52 'Partner side' contains Property, Room and Rate Plan. Render sonnet-high-FJ-027-2-47.png agrees"},
+    {"signal": "Neither zone covers a label", "met": "yes", "cite": "Render sonnet-high-FJ-027-2-47.png: 'is reserved by (1 to 0..n)' sits in the gap between the two zones and 'prices (1 to 0..n)' outside Partner side. All six labels read in full and none sits under a zone header"},
+    {"signal": "Each relationship's cardinality reads from its two end marks and its label at 100% zoom", "met": "yes", "cite": "get_figjam caps ERD_EXACTLY_ONE at each parent and ERD_ZERO_OR_MORE at each child on all six edges. use_figma labels 'makes (1 to 0..n)', 'holds (1 to 0..n)', 'is reserved by (1 to 0..n)', 'prices (1 to 0..n)', 'offers (1 to 0..n)', 'publishes (1 to 0..n)'"},
+    {"signal": "No extension call is made and the reply carries no Extensions: line", "met": "yes", "cite": "turn-3 tool calls are ToolSearch, create_session, two ReadMcpResourceTool, Read, one use_figma, one get_figjam and Bash cleanup. turn-3.md has no 'Extensions:' line (the 'Extensions: none.' row sits in the turn-2 gate only)"},
+    {"signal": "Scorecard totals at least 18 of 22 with Composition, Fidelity, four Hygiene checks and Reply at full and no dimension at 0", "met": "harness", "cite": "Board scorecard is scored separately by the grader from the renders, so this check does not score it"}
+  ],
+  "stop_reached": "Turn 1 stopped on the playback, turn 2 on the write gate, turn 3 ended delivered with board 2:47 written and read back",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "Every expected signal the transcript can show is met: playback and gate wrote nothing, one use_figma composed 6 of 6 entities and 6 of 6 labelled relationships with ER end caps in the two correct zones, no extension call and no Extensions line in the delivery. The final verdict still rests on the separately scored board scorecard. Keys-only attributes follow the run's own assumption that support columns were not named."
+}

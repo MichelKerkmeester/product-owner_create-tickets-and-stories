@@ -1,0 +1,34 @@
+{
+  "id": "FJ-040",
+  "signals": [
+    {
+      "signal": "The first reply reads the brief back as one recommended scope and names the flows left for a later board, with no model",
+      "met": "yes",
+      "cite": "turn-1.md: \"The whole product can't be one board.\" and \"Without them I draw the three boards the doc supports and list signup and billing under `Left out:`.\" No Mermaid block and only Read and Bash calls. Caveat: the scope is three boards out of five areas rather than one board, and signup and billing are left out pending a source rather than framed as a later board"
+    },
+    {
+      "signal": "The second reply is the playback over that scope and shows no model (and no Figma tool call)",
+      "met": "yes",
+      "cite": "turn-2.md: \"This is the playback of how I read the request, and it needs your answer before I build the model.\" It lists Returns, Refunds and Warehouse with no Mermaid block and \"Still open: ... they stay off the board and go under `Left out:`\". meta.json turn 2 tools_used holds only Read and Bash, kind PLAYBACK"
+    },
+    {
+      "signal": "The third reply models that scope only with a passing check",
+      "met": "yes",
+      "cite": "turn-3.md: \"All three diagrams pass `flow_check.py`\" with three process models (Returns, Refunds, Warehouse) and no signup or billing node. transcript-turn-3.md: \"PASSED 3 diagram(s) in model.md\" and \"exit 0\""
+    },
+    {
+      "signal": "The third reply carries a `Left out:` line naming the rest",
+      "met": "no",
+      "cite": "turn-3.md: each source line has a Left out list of in-scope gaps, for example \"Left out: label failures and the proposed webhook fixes, orders paid after 15:00 ...\", but no line in turn 3 names signup or billing, the flows outside the scope that turn 1 and turn 2 promised to list under `Left out:`"
+    },
+    {
+      "signal": "The third reply ends on a gate that waits",
+      "met": "yes",
+      "cite": "turn-3.md: \"Do you want me to write these three boards to file ...?\" and turn-4.md keeps waiting: \"That confirms the reading, but it isn't a yes to the write, so nothing has been written.\""
+    }
+  ],
+  "stop_reached": "Write gate. The run went intake (turn 1), playback (turn 2), checked model with gate (turn 3, after the scripted \"go ahead with that scope\" answered the playback), then held the gate again at turn 4 because \"Yes, that reading is right.\" is not a yes to the write. No board was written",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The PASS line is met: one recommended scope (Returns, Refunds and Warehouse) was read back with signup and billing named as left out, the playback came before the model, only that scope was modelled with a passing check and no Figma tool was called in any turn (meta.json tools_used holds only Read and Bash, ledgers empty). No FAIL clause fires because no flow outside the scope appears on any model. One expected signal is missing: the turn 3 model's `Left out:` lines name only in-scope gaps and never name signup and billing, so a grader applying every-signal strictness could read this as FAIL. The driver's adaptive turn shifted the script by one turn, so the scripted \"go ahead with that scope\" answered the playback and the final scripted line arrived at the write gate. That shift is a harness fact, and the model handled it correctly by not treating a reading confirmation as a write yes"
+}

@@ -1,0 +1,24 @@
+{
+  "id": "FJR-007",
+  "signals": [
+    {
+      "signal": "The hub check passes with this prompt among its gold rows",
+      "met": "harness",
+      "cite": "Command 1 (check_hub.py) is an operator step the driver never runs. Run-side evidence of the route: transcript-turn-1.md first call reads sk-create-figjam/SKILL.md after the line 'I'll start by loading the Flow skill and its router.' The prompt is a gold row in benchmark/hub-routing-cases.json near line 147 with expect sk-create-figjam."
+    },
+    {
+      "signal": "The type detection line names the type",
+      "met": "yes",
+      "cite": "turn-2.md: 'Type: gantt, since the question is about which tasks are active when.' and transcript-turn-1.md reads sk-create-figjam/references/types/gantt.md before replying. Note that the static command 2 grep for '-> gantt' finds no line in sk-create-figjam/SKILL.md, whose gantt signals sit in the TYPE_SIGNALS dict, which is playbook drift and not a model fault."
+    },
+    {
+      "signal": "Every declared leaf exists in the packet and in leaf-manifest.json",
+      "met": "yes",
+      "cite": "Read-only rerun of command 3 prints OK for all 5 leaves. In the run itself transcript-turn-1.md loads flow-mode.md, flow-templates.md and types/gantt.md but never assets/templates/gantt.md or references/quality-rubric.md. The rubric is due only before the gate, which the run never reached, while the gantt template is due on the route."
+    }
+  ],
+  "stop_reached": "Intake stop on a missing source. All three turns ask for the launch plan and its dates and no model, pre-write check or write gate was reached. turn-3.md: 'I can't take the recommended answer to that question, because it asks you for the plan.' and it offers a process board as the nearest drawable alternative.",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The run routed to sk-create-figjam and named gantt as the type and every declared leaf resolves on a read-only check, so the PASS line holds on signals alone. The run called only Read and Bash with no Figma tool and an empty ledger. Two caveats for the grader: the hub check was never run by the driver (harness) and the run skipped the gantt template leaf. The playbook command 2 pattern also no longer matches SKILL.md, which is a skill or playbook gap."
+}

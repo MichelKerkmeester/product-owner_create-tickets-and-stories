@@ -1,0 +1,4 @@
+{"id": "FJ-032", "label": "sonnet-high", "turn": 1, "role": "scripted", "kind": "PLAYBACK", "figma": [], "boards": []}
+{"id": "FJ-032", "label": "sonnet-high", "turn": 2, "role": "scripted", "kind": "GATE", "figma": [], "boards": []}
+{"id": "FJ-032", "label": "sonnet-high", "turn": 3, "role": "scripted", "kind": "DELIVERY", "figma": ["create_session", "get_figjam", "use_figma", "get_figjam"], "boards": ["189:7725"]}
+{"id": "FJ-032", "label": "sonnet-high", "status": "ok", "attempts": 1, "turns": 3, "boards": ["189:7725"]}

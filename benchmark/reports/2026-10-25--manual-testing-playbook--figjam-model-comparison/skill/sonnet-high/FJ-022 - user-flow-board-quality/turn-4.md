@@ -1,0 +1,7 @@
+<figma-url>
+Read-back: 7 of 7 nodes, 7 of 7 connectors, 4 of 4 decision exits labelled, first glance: the confirmation with QR code
+Left out: free pickup for orders over 100 euros, a proposal under review
+Finding: `get_figjam` returns each connector's name and its two ends but not its label text. The 4 exit labels ("Tap Start a return", "No", "Drop-off point" and "Courier pickup") are confirmed from the composing call's returned list and the overview screenshot. The connector ends and directions, the zone membership and the node labels match the model on the board itself. The page was empty before the write, so there was no existing content to compare.
+Finding: the "Drop-off point" connector leaves the method choice, runs along the top of the "Request the return" zone and drops into "Confirmation with QR code" from above. "Courier pickup" runs straight across, so the two exits read unevenly. This is a composer layout limit. A fix means reshaping the model and composing again, with a delete of this section only on its own yes, or a nudge by hand in FigJam.
+Finding: two scratch entries from another run, `/tmp/fj-return-7LXJF9` and `/tmp/fj-return-path`, are still in `/tmp`. They hold a `model.md` and a `code.js` and were not created by this write, so I left them. My own scratch folder is deleted, and nothing was added to the repository or to `export/`.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

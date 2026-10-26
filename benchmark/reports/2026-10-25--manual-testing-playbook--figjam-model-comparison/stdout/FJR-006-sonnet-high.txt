@@ -1,0 +1,4 @@
+{"id": "FJR-006", "label": "sonnet-high", "turn": 1, "role": "scripted", "kind": "INTAKE", "figma": ["create_session", "get_figjam"], "boards": []}
+{"id": "FJR-006", "label": "sonnet-high", "turn": 2, "role": "adaptive", "kind": "INTAKE", "figma": [], "boards": []}
+{"id": "FJR-006", "label": "sonnet-high", "turn": 3, "role": "adaptive", "kind": "OTHER", "figma": [], "boards": []}
+{"id": "FJR-006", "label": "sonnet-high", "status": "ok", "attempts": 1, "turns": 3, "boards": []}

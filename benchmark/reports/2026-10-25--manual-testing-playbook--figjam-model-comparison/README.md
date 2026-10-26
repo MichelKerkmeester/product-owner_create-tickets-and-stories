@@ -203,6 +203,22 @@ The transcripts showed five things in the skill that got in the model's way, and
 - **Room for the model.** A call now carries only its own type's builder, so a graph model has about 9,670 characters of room and a sequence or gantt model about 33,000, where every type had about 2,850
 - **The driver** sends a follow-up yes only to a scenario whose script answers the write gate, runs FJ-009 on Claude Code with the hosted Figma server left out and skips it on Codex. FJ-044, whose operator sends the composed code directly with no gate, gets no follow-up yes either. FJ-004 now says its SKIP line is expected in a sandbox, which leaves out `claude project/`
 
+### 8.5 The full playbook run on Sonnet 5.5 high
+
+After `sk-create-figjam` v1.0.5.0 shipped, the operator ran all 54 FigJam scenarios on Claude Sonnet 5.5 at high effort, through the Claude Code backend as `claude:claude-sonnet-5-5:high`, to see how the fixed skill holds across the whole playbook.
+
+- **Lanes.** Eight lanes ran side by side with six to eight scenarios each, and each lane wrote into its own pinned test file. The run went from 16:47 to about 17:15 UTC on 2026-10-26, with 153 turns (116 scripted, 33 adaptive and 4 supplementary), 166.4 minutes of turn time summed over the lanes, 1,284,471 output tokens, 97 Figma calls and no retry
+- **Grading.** An independent checker read each run's signals first. One Claude Opus grader then scored all 54 runs from `grades/grader-brief-039.md`, and fresh readers answered from the 23 colour renders. Skeptics challenged 37 grades and an adjudicator ruled on every disputed item. Every ruling is folded into `grades/sonnet-high.jsonl`, and `grades/sonnet-high.md` is computed from it
+- **Result.** 23 PASS, 29 FAIL and 2 SKIP, where the grader's first pass gave 33 PASS, 17 FAIL and 4 SKIP. FJ-018 and FJ-035 are SKIP because the driver never set up the `fj` route they test
+- **Boards.** The 20 written boards score 411 of 440 points, from 18 to 22. Nine pass the board scorecard. Six of the eleven that fail it drop to Signal 0 in greyscale and the rest lose a Composition point or score Reply 0
+- **What the skeptics changed.** Twelve verdicts moved. Ten went from PASS to FAIL, and FJ-044 and FJ-045 went from SKIP to FAIL because the hosted Figma server was connected. Ten board totals fell, from 433 to 411 points. The shipped role palette renders start, goal, exit and the state and system kinds as near identical greys, so six boards lost Signal. Four boards lost a Composition point to their glance order. Signals marked harness that the run could show became missing, such as the short id on FJ-005 and the stale type grep on FJR-001 and FJR-005. One ruling is contested: the FJ-027 Reply 0 rests on a reading of `hvr-core.md` that a later review disputes
+- **Against the other models.** On FJ-022 to FJ-028 Sonnet passes three of seven, where DeepSeek and GLM pass five, SWE four, GPT 6 Luna two and Opus 5.5 low one. Those grades had no skeptic round
+- **Phase 040.** The operator chose to fix every finding group the run produced:
+  - **Skill contradictions**, such as one question against one intake round, split against cut on architecture and quick energy against the draw-ready stop. The HVR count of a term kept with reason waits for the operator's yes, because `hvr-core.md` is a shared card
+  - **Design and composer**, such as the greyscale role palette, neighbouring zones that share a tint, the composite exit leg and two edges on one magnet. The composite exit's label now fits its leg, but its route still crosses one edge and stays open
+  - **Playbook fixes**, such as the stale `-> <type>` grep, the FJ-005 defect count and the FJ-011 lane style
+  - **Driver and records**, such as the duplicate intake answer, the operator setup steps the driver skips and the pinned file and `/tmp` the lanes share. This run record is part of the group too
+
 ---
 
 ## 9. Files
@@ -213,8 +229,9 @@ The transcripts showed five things in the skill that got in the model's way, and
 | `replies/<model>/` | The replies alone, one file per turn |
 | `stdout/` | The driver's per-turn lines for each run |
 | `failed-attempts/` | The attempts a retry replaced |
-| `renders/` | Every board at overview zoom |
-| `grades/` | The grader brief, the special cases, seven grader files, reader tasks, answers and key, and `luna-opus-low.*` for section 8 |
-| `results.jsonl` | One row per run of the first three models, rebuilt by `run/aggregate.py` |
+| `renders/` | Every board at overview zoom, with the Sonnet 5.5 high boards at full size as `sonnet-high-<ID>-<node>.png` |
+| `grades/` | The grader briefs, the special cases, seven grader files, the reader tasks with their answers and key, `luna-opus-low.*` for section 8 and `sonnet-high.*` for section 8.5 |
+| `grades/sonnet-high/` | The Sonnet 5.5 high checker files in `checks/` and the fresh readers' notes in `readers/` |
+| `results.jsonl` | One row per run of the first three models, rebuilt by `run/aggregate.py`, then one row per Sonnet 5.5 high run built from `grades/sonnet-high.jsonl`. A rerun of `run/aggregate.py` rewrites the file without the Sonnet rows |
 | `run/` | The Devin runner, the Codex and Claude Code backends, the adaptive driver, the batch scripts, the redaction script, the aggregator and `finals.json` |
 | `batch.log`, `batch-more.log`, `batch-full.log`, `run-log.jsonl` | Each batch's start and exit lines and every turn's log row |

@@ -1,0 +1,19 @@
+{
+  "id": "FJ-015",
+  "signals": [
+    {
+      "signal": "The output reads fill #00ff00 is not a FigJam light fill: pick a pair from references/style-guide.md",
+      "met": "yes",
+      "cite": "transcript-turn-1.md final Bash result and turn-1.md: \"diagram 1, user flow: fill #00ff00 is not a FigJam light fill: pick a pair from references/style-guide.md\""
+    },
+    {
+      "signal": "The check exits 1",
+      "met": "yes",
+      "cite": "transcript-turn-1.md final Bash result, exit taken from echo $? right after flow_check.py: \"FAILED 1 of 1 diagram(s) in bad.mmd\\nexit status: 1\""
+    }
+  ],
+  "stop_reached": "No stop and no write gate. The single scripted turn asked for the check only and the run ended on the check report (turn-1.md: \"I didn't write to ... or create a new file, since you asked for the check only\"). meta.json lists only Read and Bash calls and no boards.",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The off-palette fill is named with the style guide pointer and the check exits 1 with the palette line as the only failure. The model used a nine-node flowchart LR from the worked example instead of the three-node flowchart TD the commands name and the stroke was #66D575 not #008800, but the signal and the PASS line do not depend on that. Its first ten-node try also tripped the node budget, which it removed with a nine-node rerun and a passing palette control. Nothing was written to Figma and the scratch folder was deleted."
+}

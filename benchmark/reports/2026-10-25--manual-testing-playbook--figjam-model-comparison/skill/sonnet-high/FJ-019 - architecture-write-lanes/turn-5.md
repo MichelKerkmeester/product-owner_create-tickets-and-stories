@@ -1,0 +1,7 @@
+<figma-url>
+Read-back: board 1 has 8 of 8 nodes, 7 of 7 connectors and 5 of 5 lanes. Board 2 has 5 of 5 nodes, 4 of 4 connectors and 4 of 4 lanes (board 2 is at `node-id=2-99`). First glance: sync-service on board 1 and the push worker on board 2. Start here: 1. Block sync. The page was empty before the write.
+Left out: auth, retries and conflict handling, which you cut. Delivery from Apple's push service to the iOS device, which the architecture layout can't draw. The clients and stores on board 2, which sit on board 1 as the split.
+Finding: every call between the parts and every edge label is assumed from your description, with no doc read. A doc, repo path or schema would confirm them, and a correction means recomposing the board.
+Finding: `get_figjam` lists connectors by name and endpoints but not their labels or dash style. Those come from the composing call's returned list and its overview screenshot, and I took no 100% zoom view.
+Finding: the scratch pointer file in `/tmp` held another run's folder path when I went to clean up. I removed only the folder I created, and `/tmp/loomlist-flow.gl6qVB` is untouched.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

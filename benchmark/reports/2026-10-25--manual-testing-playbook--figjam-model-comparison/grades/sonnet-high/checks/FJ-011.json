@@ -1,0 +1,17 @@
+{
+  "id": "FJ-011",
+  "signals": [
+    {"signal": "The first reply before the gate is the playback (after an intake round when the run opens one) and shows no model", "met": "yes", "cite": "turn-1.md opens an intake round ('Round 1 of 3: reader, question and outcome') with no Mermaid block. turn-2.md is the playback ('Playback: what I read and what I assumed') ending 'Does this reading hold' with no model shown"},
+    {"signal": "The model opens with %% type: process", "met": "yes", "cite": "turn-3.md model block first line '%% type: process'"},
+    {"signal": "The model holds 2 to 6 lanes, not nested", "met": "yes", "cite": "turn-3.md three flat subgraphs 'subgraph customer [\"Customer\"]' 'subgraph agent [\"CS agent\"]' 'subgraph warehouse [\"Warehouse\"]'"},
+    {"signal": "The lanes carry the neutral pair #F5F5F5 and #B3B3B3", "met": "no", "cite": "turn-3.md model has no lane style line. Its only style line is 'style check fill:#FFC2EC,stroke:#F849C1'. process.md Section 3 allows 'the neutral pair ... or no style at all' so the check passes, but the literal signal is absent"},
+    {"signal": "One style line from the style guide on the step that hands the work to the warehouse", "met": "yes", "cite": "turn-3.md 'style check fill:#FFC2EC,stroke:#F849C1' on Check the item, the end of the 'sendBack -->|Parcel| check' handoff. turn-2.md explains the source shows no direct CS to warehouse handoff, so the accent sits on the warehouse step of the handoff rather than a CS step"},
+    {"signal": "No linkStyle", "met": "yes", "cite": "turn-3.md model holds no linkStyle line"},
+    {"signal": "The check prints process: ok with exit 0", "met": "yes", "cite": "transcript-turn-3.md 'diagram 1, process: ok, 6 nodes and 5 connectors ... 0 crossing pairs PASSED 1 diagram(s) in model.md exit=0'"},
+    {"signal": "The gate waits", "met": "yes", "cite": "turn-3.md 'Write gate for the Damaged-item refund board' ending with a write question and 'no file was written to Figma'. No Figma tool was called in any export-turn file"}
+  ],
+  "stop_reached": "Write gate in turn 3 (after an intake round in turn 1 and the playback in turn 2), waiting for a write yes that the script never sends",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The run stopped at the playback first, the model is a flat three-lane process that passes flow_check as process: ok with exit 0, it carries one style line on the warehouse handoff step and no linkStyle and nothing was written to Figma. The only unmet literal signal is the neutral lane pair, which process.md allows to be omitted and which no FAIL clause names. The accent sits on the warehouse check rather than a CS step because the run's source routes the item to the warehouse through the customer, which it stated in the playback"
+}

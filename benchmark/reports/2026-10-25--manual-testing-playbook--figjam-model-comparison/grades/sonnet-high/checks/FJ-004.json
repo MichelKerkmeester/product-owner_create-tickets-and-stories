@@ -1,0 +1,19 @@
+{
+  "id": "FJ-004",
+  "signals": [
+    {
+      "signal": "The self-test ends <n> of <n> self-test checks passed with exit 0",
+      "met": "yes",
+      "cite": "transcript-turn-1.md line 180 shows \"flow_check exit=0\" and line 224 shows \"144 of 144 self-test checks passed\". turn-1.md reports \"flow_check.py --self-test exited 0\". The one SKIP is the Knowledge mirror absent from the sandbox, which the scenario's Expected section names as expected"
+    },
+    {
+      "signal": "Every template and example prints PASSED",
+      "met": "yes",
+      "cite": "transcript-turn-1.md line 180 shows the self-test checking each file, for example \"PASS  templates/process.md passes\" and \"PASS  examples/state-roamstay-booking.md passes\", covering all 6 templates and 7 examples plus assets/flow-templates.md. The model also read every file (Read calls at lines 59 to 155). It did not run the separate per-file loop of command 2, so the literal per-file PASSED line was never printed, but every file passed the same check inside the self-test"
+    }
+  ],
+  "stop_reached": "Final report after both self-tests, no write gate (a self-test scenario that draws no board). The compose_board self-test also ran and passed 1029 of 1029 on a rerun with nvm node after the Homebrew node failed to load a library",
+  "written_before_gate": false,
+  "suggested_verdict": "PASS",
+  "reason": "The flow_check self-test passed 144 of 144 with exit 0 and every template and example passed inside it. No Figma tool was called (only Read and Bash) and no file was left behind. The per-file loop of command 2 was skipped, which is a minor process gap rather than a failed signal"
+}
