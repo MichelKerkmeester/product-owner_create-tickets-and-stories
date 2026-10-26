@@ -78,6 +78,11 @@ The operator reopened the phase on 2026-10-26 to fix the six findings in the run
 - [x] T022 Compose a gantt and an ER board on the test file and read the renders
 - [x] T023 Run every gate, a fresh review and validate.sh --strict, then close
 - [x] T024 Draw the gantt, ER, existing-board and dense-flow gallery boards again from their best run's model and update the captions (sk-create-figjam/assets/screenshots/, sk-create-figjam/README.md)
+- [x] T025 Add Codex and Claude Code turn backends to the driver, each in the runner's sandbox and seatbelt with only Figma reachable (run/runtimes.py, run/adaptive_compare.py, run/run_more.sh)
+- [ ] T026 Run FJ-022 to FJ-028 on GPT 6 Luna max fast and Claude Opus 5.5 low on today's skill
+- [ ] T027 Render and grade the fourteen boards with one fresh Opus 5.5 medium grader, ranked against the first run's boards
+- [ ] T028 Report the five-model result to the operator before any further run
+- [x] T029 Note how a Claude Code or Codex child reaches Figma's hosted server, in the vendored wiring guide from Code_Environment `mcp-tooling/025-figma-hosted-from-cli-children` and in the hosted-connection paragraph (mcp-figma/, sk-create-figjam/references/flow-mode.md, SYNC.md)
 <!-- /ANCHOR:phase-4 -->
 
 ---

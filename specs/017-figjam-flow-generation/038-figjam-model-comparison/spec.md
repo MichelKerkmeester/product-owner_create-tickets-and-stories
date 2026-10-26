@@ -91,6 +91,7 @@ The full records are in `decision-record.md`.
 - The gallery rule ranked on the board points first, the results rebuilt and the gallery images and captions that change with it.
 - The driver reading a board id from any `use_figma` result.
 - Gantt dependency arrows, ER end marks and the state guidance for exits from a composite, with the Project mirror and changelogs.
+- On the operator's request of 2026-10-26, the seven scenarios run again on GPT 6 Luna max fast through Codex and Claude Opus 5.5 low through Claude Code, on today's skill, with one fresh Opus 5.5 medium grader for all fourteen boards and a report before any further run.
 - Four gallery boards drawn again from their best run's model on the operator's request of 2026-10-26: gantt and ER for their arrows and end marks, and the existing-board state and the dense flow for the design file.
 
 ### Out of Scope
@@ -102,7 +103,7 @@ The full records are in `decision-record.md`.
 
 | File Path | Change Type | Description |
 |-----------|-------------|-------------|
-| benchmark/reports/2026-10-25--manual-testing-playbook--figjam-model-comparison/ | Create | The run folder: driver, evidence, renders list, grades and README |
+| benchmark/reports/2026-10-25--manual-testing-playbook--figjam-model-comparison/ | Create | The run folder: driver, evidence, renders list, grades and README, and the Codex and Claude Code turn backends in `run/runtimes.py` |
 | sk-create-figjam/assets/screenshots/ | Modify | The seven type images, the four redrawn boards and the gallery README |
 | README.md, sk-create-figjam/README.md | Modify | Gallery captions where they name a score or a source |
 | benchmark/reports/README.md | Modify | The new run's row |
