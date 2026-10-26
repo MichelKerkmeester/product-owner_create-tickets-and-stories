@@ -34,6 +34,9 @@ MAX_INTAKE = 2
 MAX_FOLLOW = 3
 # Opus 5.5 low would not draw on the pinned file and stopped to ask for a plan, so the
 # operator allowed it one new file, in drafts of the Barter team plan and never in a project
+# The scripted answer to the write gate, and the phrase a scenario uses for a runtime with no Figma server
+WRITE_YES = "yes, go ahead"
+NO_FIGMA = "no hosted Figma MCP"
 DRAFTS_PIN = ("If you need a new file instead, create it in the Barter team plan and leave it "
               "in drafts, with no project.")
 CLAUDE_BIN = os.path.expanduser("~/.local/bin/claude")
@@ -101,6 +104,15 @@ def main():
     pin = dv.FILE_PIN.format(key=key)
     if spec and spec[0] == "claude":
         pin += " " + DRAFTS_PIN
+    # A scenario expects a board only when its script answers the write gate itself. Without that
+    # turn it grades an earlier stop, so the driver adds no follow-up yes that would carry the run past it.
+    expects_board = any(t.strip().lower().startswith(WRITE_YES) for t in sk["turns"])
+    # A scenario written for a runtime with no hosted Figma server runs only where one can be left out.
+    no_figma = NO_FIGMA in open(sk["file"], encoding="utf-8").read()
+    if no_figma and not (spec and spec[0] == "claude"):
+        print(json.dumps({"id": sid, "label": label, "status": "skipped",
+                          "reason": "the scenario needs a runtime without the hosted Figma server"}))
+        return 0
     failures = []
     for attempt in range(1, dv.ATTEMPTS + 1):
         dv.build(system_dir, "skill", scratch, sk["seed_export"])
@@ -120,7 +132,7 @@ def main():
             n += 1
             if spec:
                 r = runtimes.run_turn(spec, scratch, sessions, session_id, prompt, n, dest,
-                                      dv.deny_roots(system_dir, harness_root))
+                                      dv.deny_roots(system_dir, harness_root), figma=not no_figma)
             else:
                 r = dv.run_turn(scratch, sessions, session_id, prompt, n, dest, dv.deny_roots(system_dir, harness_root))
             session_id = session_id or r["session_id"]
@@ -140,7 +152,7 @@ def main():
             if r["kind"] == "INTAKE" and intake < MAX_INTAKE:
                 intake += 1
                 queue.insert(0, (INTAKE_ANSWER, "adaptive"))
-            elif (not queue and not any(t.get("composed") for t in turns)
+            elif (expects_board and not queue and not any(t.get("composed") for t in turns)
                   and r["kind"] != "DELIVERY" and follow < MAX_FOLLOW):
                 follow += 1
                 queue.append((INTAKE_ANSWER if r["kind"] == "INTAKE" else dv.FOLLOW_UP, "supplementary"))
@@ -163,7 +175,7 @@ def main():
         open(os.path.join(replies, f"{sid}-turn{r['turn']}.txt"), "w", encoding="utf-8").write(dv.redact(r["reply"]))
         dv.write_transcript(os.path.join(dest, f"transcript-turn-{r['turn']}.md"), sk, r["turn"], r["input"], r)
     meta = {"id": sid, "label": label, "model": model, "permission": dv.PERMISSION, "runtime": f"{spec[0]}-adaptive" if spec else "devin-adaptive",
-            "scenario_file": sk["file"], "file_pin": pin, "scripted_turns": sk["turns"],
+            "scenario_file": sk["file"], "file_pin": pin, "expects_board": expects_board, "no_figma": no_figma, "scripted_turns": sk["turns"],
             "intake_answers_sent": intake, "follow_ups_sent": follow, "session_id": session_id,
             "attempts": attempt, "failures": failures, "completed": ok,
             "boards": [b for r in turns for b in r["boards"]], "net_file_changes": changed,

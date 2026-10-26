@@ -192,6 +192,17 @@ After this report the operator chose Claude Opus 5.5 medium to run all 54 FigJam
 - **The driver carried six runs past their end point.** When a run ends with no board the driver sends up to three "Yes, go ahead." turns, so FJ-002, FJ-004, FJ-005, FJ-013, FJ-014 and FJ-015 went on to draw a board the scenario does not grade
 - **FJ-009 assumes no hosted Figma server.** This harness connects one, so the gantt was drawn
 
+### 8.4 What the full run changed
+
+The transcripts showed five things in the skill that got in the model's way, and phase `039-figjam-run-findings` fixed them with the three driver findings above in `sk-create-figjam` v1.0.5.0.
+
+- **A file the user named.** Flow Mode now lists an existing FigJam file the user named by its link or key as a target, so a model no longer stops to ask for a plan when the prompt already gave the file
+- **Scratch files.** Flow Mode gains a clean-up step that deletes the scratch folder of the model and the composed code before the reply
+- **Stops mid-turn.** The playback and the gate are each the last message of their turn, so no stop sits in the middle of a turn that goes on working
+- **A widened section.** The playbook's hygiene rule exempts the board section a gated extension widens to hold its notes
+- **Room for the model.** A call now carries only its own type's builder, so a graph model has about 9,670 characters of room and a sequence or gantt model about 33,000, where every type had about 2,850
+- **The driver** sends a follow-up yes only to a scenario whose script answers the write gate, runs FJ-009 on Claude Code with the hosted Figma server left out and skips it on Codex. FJ-044, whose operator sends the composed code directly with no gate, gets no follow-up yes either. FJ-004 now says its SKIP line is expected in a sandbox, which leaves out `claude project/`
+
 ---
 
 ## 9. Files

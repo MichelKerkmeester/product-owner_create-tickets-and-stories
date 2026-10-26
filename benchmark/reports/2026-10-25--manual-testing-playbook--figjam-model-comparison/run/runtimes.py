@@ -188,13 +188,16 @@ def codex_turn(spec, scratch, session_dir, session_id, prompt, n, dest, deny_roo
     return finish(r, raw, dest, n)
 
 
-def claude_turn(spec, scratch, session_dir, session_id, prompt, n, dest, deny_roots):
+def claude_turn(spec, scratch, session_dir, session_id, prompt, n, dest, deny_roots, figma=True):
     """One Claude Code turn. The sandbox's AGENTS.md is appended to Claude Code's own system
     prompt, as Devin and Codex load it as the checkout's rule file."""
     _, model, effort = spec
     raw = os.path.join(session_dir, f"export-turn-{n}.jsonl")
     mcp = os.path.join(session_dir, "figma-mcp.json")
-    json.dump({"mcpServers": {CLAUDE_FIGMA: {"type": "http", "url": FIGMA_URL}}}, open(mcp, "w"))
+    # A scenario that needs no hosted Figma server, such as FJ-009, gets an empty server list, so the
+    # child sees the route missing exactly as a user without the connector would.
+    servers = {CLAUDE_FIGMA: {"type": "http", "url": FIGMA_URL}} if figma else {}
+    json.dump({"mcpServers": servers}, open(mcp, "w"))
     claude_dir = os.path.join(HOME, ".claude")
     denied = deny_roots + [os.path.join(claude_dir, p) for p in CLAUDE_PRIVATE]
     # Claude Code files a session under ~/.claude/projects by its encoded working folder
@@ -263,8 +266,11 @@ def claude_turn(spec, scratch, session_dir, session_id, prompt, n, dest, deny_ro
     return finish(r, raw, dest, n)
 
 
-def run_turn(spec, scratch, session_dir, session_id, prompt, n, dest, deny_roots):
+def run_turn(spec, scratch, session_dir, session_id, prompt, n, dest, deny_roots, figma=True):
     """One turn on the runtime the model id names. A failed turn is retried as a whole
-    attempt by the driver, as on Devin, because a turn may already have written a board."""
-    turn = codex_turn if spec[0] == "codex" else claude_turn
-    return turn(spec, scratch, session_dir, session_id, prompt, n, dest, deny_roots)
+    attempt by the driver, as on Devin, because a turn may already have written a board.
+    Only Claude Code runs without the hosted Figma server. Codex reaches it through the account's
+    Figma app, and no way to switch that off for one run has been tried here."""
+    if spec[0] == "codex":
+        return codex_turn(spec, scratch, session_dir, session_id, prompt, n, dest, deny_roots)
+    return claude_turn(spec, scratch, session_dir, session_id, prompt, n, dest, deny_roots, figma)
