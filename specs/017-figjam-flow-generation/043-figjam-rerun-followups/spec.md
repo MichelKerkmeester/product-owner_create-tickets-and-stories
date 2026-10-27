@@ -20,13 +20,13 @@ contextType: "implementation"
 |-------|-------|
 | **Level** | 2 |
 | **Priority** | P1 |
-| **Status** | In Progress |
+| **Status** | Complete |
 | **Created** | 2026-10-27 |
 | **Branch** | `main` |
 | **Parent Spec** | ../spec.md |
-| **Phase** | 43 of 43 |
+| **Phase** | 43 of 44 |
 | **Predecessor** | 042-figjam-glance-and-left-out |
-| **Successor** | None |
+| **Successor** | 044-figjam-composite-and-path-order |
 | **Handoff Criteria** | Every row in acceptance-criteria.md is Met |
 <!-- /ANCHOR:metadata -->
 
@@ -146,6 +146,8 @@ Close each gap at its source and in the Project, make the playbook grade lanes, 
 
 - **SC-001**: At least 5 of the 7 rerun scenarios pass, and every remaining failure is named with its cause in the run README.
 - **SC-002**: No rerun board loses a Composition point that only one of its two readers saw.
+
+Outcome: SC-001 is unmet, with 1 of 7 passing and every remaining failure named with its cause in README section 8.9. SC-002 is met. The operator chose on 2026-10-27 to close this phase and carry SC-001 into phase 044.
 <!-- /ANCHOR:success-criteria -->
 
 ---
