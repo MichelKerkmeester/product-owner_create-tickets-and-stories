@@ -607,6 +607,18 @@ flowchart LR
     "a machine with no entry": ("""stateDiagram-v2
     Draft --> Review: submit
 """, "start it with [*]"),
+    "a composite with no inner entry": ("""stateDiagram-v2
+    [*] --> Pending
+    Pending --> Confirmed: card authorised
+    state Confirmed {
+        Upcoming --> InStay: check in
+        InStay --> [*]
+    }
+    Confirmed --> Completed: check out
+    Pending --> Cancelled: guest cancels
+    Completed --> [*]
+    Cancelled --> [*]
+""", "composite Confirmed has no [*] entry"),
     "an unlabelled transition": ("""stateDiagram-v2
     [*] --> Draft
     Draft --> Review

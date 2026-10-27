@@ -53,7 +53,7 @@ One row per criterion. `AC-ID` is stable once written: supersede a criterion, ne
 |-------|-----|---------------------|--------------|--------|--------|
 | AC-001 | REQ-001 | Given the changed sources, When every gate runs, Then each exits 0 | Pending | Unmet | - |
 | AC-002 | REQ-002 | Given the last commit, When the Sync Loop checks run, Then both pass and the composer mirror equals `--template` | Pending | Unmet | - |
-| AC-003 | REQ-003 | Given a state model with a composite, When it is composed, Then the first state sits top left and the composite after the state that enters it, and a board with no composite is byte-identical | Pending | Unmet | - |
+| AC-003 | REQ-003 | Given a state model with a composite, When it is composed, Then the first state sits left of the composite even when a label line is declared first, and every existing model traces to the same geometry | Pending | Unmet | - |
 | AC-004 | REQ-004 | Given the rubric, the playbook row and the Project, When they are read, Then each states the path-order glance rule | Pending | Unmet | - |
 | AC-005 | REQ-005 | Given a revision, When its Composition is graded, Then every main-row node planned last is exempt when it reads before the changed end | Pending | Unmet | - |
 | AC-006 | REQ-006 | Given the launcher, When the fixture runs through its PATH, Then a `Label:` line prints | Pending | Unmet | - |

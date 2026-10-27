@@ -1276,14 +1276,24 @@ def composite_exit_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]
     hidden = geometry.labels_on_short_legs(drawn)
     pressed = [p for p in geometry.labels_clear(drawn) if " prints on node:" in p]
     texts = [n["text"] for n in drawn["nodes"] if n["parent"] == "Key" and n["type"] == "TEXT"]
-    # The long exit still crosses the Completed end, an open defect recorded here, so any other crossing fails.
     crossing = geometry.crossing_edges(drawn)
-    open_crossing = len(crossing) <= 1 and all(c.startswith("edge:Confirmed->NoShow ") for c in crossing)
+    open_crossing = not crossing
     name = "a state machine whose composite state has four exits"
     return [(f"{name} sets every label on a leg longer than the label", not hidden, "; ".join(hidden)),
-            (f"{name} crosses no edge but the one its long exit is known to cross", open_crossing, "; ".join(crossing)),
+            (f"{name} crosses no edge", open_crossing, "; ".join(crossing)),
             (f"{name} keeps every label 8 px clear of every node", not pressed, "; ".join(pressed)),
             (f"{name} keys its focus with the reason the model gives", "In focus: guests set it most" in texts, ", ".join(texts))]
+
+
+def composite_labels_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
+    """A composite whose members the model lists before its entering edge still draws after the state that enters it."""
+    drawn = geometry.run_trace(fill_template(COMPOSITE_EXIT, sent), work)
+    first, section = geometry.boxes_of(drawn)["Pending"], geometry.zone_sections(drawn, ["Confirmed"])[0]
+    middle = first["y"] + first["h"] / 2
+    ok = first["x"] < section["x"] and section["y"] <= middle <= section["y"] + section["h"]
+    return [("a state machine that declares a label line before its transitions draws its first state left of its composite",
+             ok, f"node:Pending {first['x']}, {first['y']} {first['w']}x{first['h']} and Confirmed section {section['x']}, "
+                 f"{section['y']} {section['w']}x{section['h']}")]
 
 
 def key_line_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
@@ -1486,6 +1496,7 @@ def self_test() -> int:
             results += fan_in_checks(Path(work), sent)
             results += key_line_checks(Path(work), sent)
             results += composite_exit_checks(Path(work), sent)
+            results += composite_labels_checks(Path(work), sent)
             results += restyle_checks(Path(work), base)
             results += font_checks(Path(work))
             results += cap_checks(Path(work))

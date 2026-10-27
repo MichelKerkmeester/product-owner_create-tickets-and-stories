@@ -45,6 +45,9 @@
       "acceptance-criteria.md",
       "goal.md",
       "implementation-summary.md",
+      "sk-create-figjam/assets/compose-board.js",
+      "sk-create-figjam/scripts/compose_board.py",
+      "sk-create-figjam/references/quality-rubric.md",
       "benchmark/gates/run_gates.sh"
     ],
     "entities": [
@@ -82,6 +85,24 @@
         "name": "implementation-summary.md",
         "kind": "doc",
         "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "compose-board.js",
+        "kind": "code",
+        "path": "sk-create-figjam/assets/compose-board.js",
+        "source": "derived"
+      },
+      {
+        "name": "compose_board.py",
+        "kind": "file",
+        "path": "sk-create-figjam/scripts/compose_board.py",
+        "source": "derived"
+      },
+      {
+        "name": "quality-rubric.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/references/quality-rubric.md",
         "source": "derived"
       },
       {
@@ -173,29 +194,11 @@
         "kind": "proper_noun",
         "path": "tasks.md",
         "source": "derived"
-      },
-      {
-        "name": "Composer Knowledge",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
-      },
-      {
-        "name": "Completion Criteria",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
-      },
-      {
-        "name": "Verification Checklist",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
       }
     ],
     "causal_summary": "Claude Sonnet 5.5 high reran the 7 failures of v1.0.8.0 on v1.0.9.0 and 1 passes",
     "created_at": "2026-10-26T18:02:43Z",
-    "last_save_at": "2026-10-27T14:29:43.252Z",
+    "last_save_at": "2026-10-27T14:59:57.616Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -206,13 +209,13 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:d46187c95a700e3ccb8ff54920eb91018fc90c3deb8cf299d8a40c56345b3538",
+    "source_fingerprint": "sha256:9a1e369f89c59991cd43f3a5743f0d98283e7249411cca8af4997e7568161409",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "65f50bb7254312ed6b6c300f0ce1a3e70f569f6341a3ae3ffff7c7d5645cd589",
+      "spec.md": "6d1c50c5f8aeada7b9a1bfa78653476caefa2deae6776cabb837d6ee692f655d",
       "plan.md": "9ca44dba580026adf9a64ebb0a3bc72cc0441ad8a6cf465c9ece44b948eb6ea0",
-      "tasks.md": "7641ea77a288c116f366b55208f0db981d39e8485008ee2f089f91116d68b6fe",
-      "implementation-summary.md": "9054f321ec0ee5fc2c0d466fbef185b94c49519af6a4b98aa98deae5a2384dcf"
+      "tasks.md": "9f88946d64475d102ad1a9dbaa888fdcc50e27a830d18bb2bf0ee7662d1b7c87",
+      "implementation-summary.md": "89f84930ae98a4035e5db55abbea8ff9a58b038b761d1a7657f6f35857c065f6"
     },
     "last_active_at": null
   }
