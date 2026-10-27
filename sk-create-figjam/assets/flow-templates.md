@@ -8,7 +8,7 @@ trigger_phrases:
   - "mermaid flow patterns"
   - "flow provenance table"
   - "flow reply shape"
-version: 1.0.4.0
+version: 1.0.5.0
 ---
 
 # Product Owner Flow Templates
@@ -110,7 +110,7 @@ flowchart TD
 
 ### A flow split across two diagrams
 
-Divide the ordered source list into groups of at most 9 nodes before the first Mermaid block, each group ending on a hand-off node that names it, so the split is read off the sources rather than a model that already overran. A flow over 9 nodes ends the first diagram on a named hand-off and starts the second diagram from the same name. Both diagrams go into the same file as two boards, read left to right: the second write passes the `fileKey` the first one used, and each board's `%% title:` carries its ordinal and its hand-off, such as `1. Sign up` and `2. Setup`. Every source step lands in one of the diagrams or is listed as left out under the provenance table. When the user asked in so many words for one board, cut the lowest-priority part instead, name it under `Left out:` and offer this split in the playback, as `references/flow-mode.md` Section 5 sets out.
+Divide the ordered source list into groups of at most 9 nodes before the first Mermaid block, each group ending on a hand-off node that names it, so the split is read off the sources rather than a model that already overran. A flow over 9 nodes ends the first diagram on a named hand-off and starts the second diagram from the same name. Both diagrams go into the same file as two boards, read left to right: the second write passes the `fileKey` the first one used, and each board's `%% title:` carries its ordinal and its hand-off, such as `1. Sign up` and `2. Workspace setup`. The gate and the reply still carry a `Left out:` line that names the second board, such as `Left out: workspace setup, split into 2. Workspace setup`, even when both boards sit in the same file. Every source step lands in one of the diagrams or is listed as left out under the provenance table. When the user asked in so many words for one board, cut the lowest-priority part instead, name it under `Left out:` and offer this split in the playback, as `references/flow-mode.md` Section 5 sets out.
 
 ```mermaid
 flowchart TD

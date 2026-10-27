@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "gantt example"
   - "loomlist offline mode plan"
-version: 1.0.2.0
+version: 1.0.3.0
 ---
 
 # Example - Gantt - Loomlist Offline Mode
@@ -117,6 +117,19 @@ Extensions: none.
 Calls: whoami, create_new_file, one use_figma and one get_figjam read-back.
 Rollback: delete the new file.
 Write it?
+```
+
+When no hosted Figma route is connected, the gate names the missing route in place of the plan and the calls, and its yes is to the missing-route reply:
+
+```text
+Question: which work runs when, and what holds the release?
+Outcome: a reader can see the order of the offline mode work, the critical path and where the release lands.
+First glance: Integration, the critical path task that holds the release.
+Second glance: Sync engine and Conflict screen build, the two builds Integration waits for.
+Last glance: Beta for 5 percent and the Release milestone at the end.
+Route: the hosted Figma MCP is not connected, and the `fj` route cannot draw a gantt chart.
+Left out: Android next quarter, a proposal with no dates
+Send the model? A yes sends the checked model to keep, and a later write asks again.
 ```
 
 ---

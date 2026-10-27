@@ -37,7 +37,8 @@ accent and has no other way to know where it falls.
 A model that passes is composed into a board by `compose_board.py`, which keeps
 its own self-test. With node on the PATH the board is also composed in memory,
 and a label the composer would wrap one word alone onto its last line is
-reported, since a shorter label is the fix and a wider box is not.
+reported, since a shorter label is the fix and a wider box is not. Without node,
+or when the trace fails, it prints one `Label: skipped` line instead.
 
 Usage:
   flow_check.py <model.md|model.mmd>  -> 0 every diagram passes, 1 a rule fails, 2 unreadable
@@ -189,11 +190,12 @@ def label_words(block: mermaid_extract.SourceBlock, number: int) -> list[str]:
     """A line for each label this diagram would wrap one word alone onto, read off a board composed in memory.
 
     The composer fits a label inside its shape and never widens the box for it, so one word can be left alone
-    on a last line and the model is the only place to shorten it. A missing node or a board that will not
-    compose says nothing, since neither is a fault of the model.
+    on a last line and the model is the only place to shorten it. A missing node or a failed trace prints one
+    skipped line, so the model reads its labels by hand instead of reading silence as a pass. A model that will
+    not compose says nothing here, because the check reports it.
     """
     if not shutil.which("node"):
-        return []
+        return ["Label: skipped, node is not on the PATH, so read each label for one word alone on its last line"]
     # compose_board imports this module, so it is loaded here rather than at the top of the file.
     import compose_board
     from figjam_checks import design as board_design
@@ -206,8 +208,10 @@ def label_words(block: mermaid_extract.SourceBlock, number: int) -> list[str]:
     try:
         with tempfile.TemporaryDirectory(prefix="po-flow-check-labels-") as work:
             drawn = geometry.run_trace(compose_board.fill_template(model, board_design.theme(design)), Path(work))
-    except (OSError, ValueError, RuntimeError):
-        return []
+    except (OSError, ValueError, RuntimeError) as error:
+        # A node stack trace runs to many lines, and the skipped line keeps to one.
+        first = str(error).splitlines()[0] if str(error).strip() else "no message"
+        return [f"Label: skipped, the trace failed ({first}), so read each label for one word alone on its last line"]
     return [f"Label: {line}, so shorten it when a shorter label keeps the source's words"
             for line in geometry.orphan_words(drawn)]
 
@@ -296,12 +300,26 @@ def palette_results() -> list[tuple[str, bool, str]]:
 def label_results() -> list[tuple[str, bool, str]]:
     """A label the composer would wrap one word alone is reported for shortening, and a short one is not.
 
-    Both readings need node on the PATH to compose the board, so a missing node is reported and counted as no
-    check at all, the way an absent install skips a shipped model.
+    The readings that compose a board need node on the PATH, so a missing node skips them the way an absent
+    install skips a shipped model, and the skip itself is read on every machine.
     """
+    # Only the self-test patches, so a plain check run never loads unittest.
+    import unittest.mock
+
+    results = []
+    with tempfile.TemporaryDirectory(prefix="po-flow-check-labels-") as scratch:
+        path = Path(scratch) / "labels.mmd"
+        path.write_text("flowchart LR\n    a([Order placed]) --> b[Send the parcel]\n    b --> c([Parcel sent])\n"
+                        "    style c fill:#CDF4D3\n", encoding="utf-8")
+        # A skip read on every machine, so a label the check could not read never passes for a clean one.
+        with unittest.mock.patch.object(shutil, "which", return_value=None):
+            code, output = run_quietly(path)
+        skip = "Label: skipped, node is not on the PATH"
+        results.append(("a missing node prints a skipped Label line",
+                        code == 0 and any(line.startswith(skip) for line in output.splitlines()), output))
     if not shutil.which("node"):
         print("SKIP  a label's last line needs node on the PATH to compose the board")
-        return []
+        return results
     cases = (
         ("a label that wraps one word alone is reported for shortening",
          "flowchart LR\n    a([Order placed]) --> b[Book a courier pickup]\n    b --> c([Parcel sent])\n"
@@ -312,7 +330,6 @@ def label_results() -> list[tuple[str, bool, str]]:
          "    style c fill:#CDF4D3\n",
          None),
     )
-    results = []
     with tempfile.TemporaryDirectory(prefix="po-flow-check-labels-") as scratch:
         for name, model, wanted in cases:
             path = Path(scratch) / "labels.mmd"
@@ -320,6 +337,13 @@ def label_results() -> list[tuple[str, bool, str]]:
             code, output = run_quietly(path)
             reported = "\n".join(line for line in output.splitlines() if line.startswith("Label:"))
             results.append((name, code == 0 and (wanted in reported if wanted else not reported), output))
+        path.write_text("flowchart LR\n    a([Order placed]) --> b[Send the parcel]\n    b --> c([Parcel sent])\n"
+                        "    style c fill:#CDF4D3\n", encoding="utf-8")
+        # A trace that dies is no fault of the model, so it says so rather than letting the label pass unread.
+        with unittest.mock.patch.object(geometry, "run_trace", side_effect=RuntimeError("planted")):
+            code, output = run_quietly(path)
+        failed = "Label: skipped, the trace failed (planted)"
+        results.append(("a failed trace prints a skipped Label line", code == 0 and failed in output, output))
     return results
 
 

@@ -111,6 +111,19 @@ Rollback: delete the new file.
 Write it?
 ```
 
+When this Project has no Figma connector, the gate names the missing connector in place of the plan and the calls, and its yes is to the missing-connector reply:
+
+```text
+Question: which work runs when, and what holds the release?
+Outcome: a reader can see the order of the offline mode work, the critical path and where the release lands.
+First glance: Integration, the critical path task that holds the release.
+Second glance: Sync engine and Conflict screen build, the two builds Integration waits for.
+Last glance: Beta for 5 percent and the Release milestone at the end.
+Connector: this Project has no Figma connector, so the board cannot be written here.
+Left out: Android next quarter, a proposal with no dates
+Send the model? A yes sends the checked model to keep, and a later write asks again.
+```
+
 ---
 
 ## 6. REPLY

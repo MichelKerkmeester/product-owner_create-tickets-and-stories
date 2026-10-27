@@ -72,6 +72,8 @@ Close each gap at its source and in the Project, make the playbook grade lanes, 
 - **D6**: Exact sentence swaps whose wording this phase sets are applied by script and byte-checked in the skill and the mirror alike. DeepSeek V4.1 Flash max on cli-pi through llmgateway makes the code changes, one change per brief. A fresh Opus reviewer verifies the whole diff. GPT 6 Luna max fast on cli-codex is the only fallback.
 - **D7**: Every skill change reaches its Project file in the same commit.
 - **D8**: Each rerun board scenario writes into a fresh draft file in the Barter team plan with its starting section count recorded, and each run has its own temp folder. No board URL, file key, plan name or email reaches a committed file.
+- **D9**: On a revision whose changed end holds the planned second glance, the entry and the decisions the rubric plans last cost no Composition point when they read before it (the operator chose this on 2026-10-27).
+- **D10**: A request to colour the end states names a group, so the state example marks its most telling member with a focus line and plans the first state with the composite's states second and the other end states last (the operator chose this on 2026-10-27).
 <!-- /ANCHOR:problem -->
 
 ---
@@ -198,5 +200,5 @@ Close each gap at its source and in the Project, make the playbook grade lanes, 
 <!-- ANCHOR:questions -->
 ## 10. OPEN QUESTIONS
 
-- None. The operator settled D1 to D5 on 2026-10-27.
+- None. The operator settled D1 to D5, D9 and D10 on 2026-10-27.
 <!-- /ANCHOR:questions -->
