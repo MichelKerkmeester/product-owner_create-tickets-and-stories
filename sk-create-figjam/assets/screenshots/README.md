@@ -5,7 +5,7 @@ trigger_phrases:
   - "figjam board screenshots"
   - "figjam gallery"
   - "sk-create-figjam examples images"
-version: 1.0.6.0
+version: 1.0.7.0
 ---
 
 # sk-create-figjam - Board Screenshots
@@ -18,14 +18,14 @@ version: 1.0.6.0
 
 The skill composed every board here on a fictional test file, with invented brands such as Roamstay, Loomlist and Fernhouse. Each board was then rendered through the Figma REST API as an overview image with its longest edge at 2048 px or less. Each one was graded on the 22-point board scorecard in [`../../manual-testing-playbook/manual-testing-playbook.md`](../../manual-testing-playbook/manual-testing-playbook.md).
 
-The seven type boards and the dense flow come from the [model comparison run](../../../benchmark/reports/2026-10-25--manual-testing-playbook--figjam-model-comparison/README.md). On 2026-10-26 Claude Sonnet 5.5 high ran again the 31 scenarios its first run did not pass, plus FJ-022, FJ-023 and FJ-028 for the gallery, with the v1.0.6.0 composer and the design file `../figjam-design.md`. One Opus grader scored every board on the 22-point scorecard, and skeptics and an adjudicator checked each verdict. One judge then picked the best board of each type: the type shown most fully and the faster read first, then the total. The process and state images come from failing runs, because no board of either type passed. Each caption names the scenario, the model and the score, and says why a failing run failed. The existing-board image is older, because the rerun's FJ-032 board scored lower.
+The seven type boards and the dense flow come from the [model comparison run](../../../benchmark/reports/2026-10-25--manual-testing-playbook--figjam-model-comparison/README.md). On 2026-10-26 Claude Sonnet 5.5 high ran again the 31 scenarios its first run did not pass, plus FJ-022, FJ-023 and FJ-028 for the gallery, with the v1.0.6.0 composer and the design file `../figjam-design.md`. One Opus grader scored every board on the 22-point scorecard, and skeptics and an adjudicator checked each verdict. One judge then picked the best board of each type: the type shown most fully and the faster read first, then the total. The process and state images come from failing runs, because no board of either type passed. Each caption names the scenario, the model and the score, and says why a failing run failed. The existing-board image is older, because the rerun's FJ-032 board scored lower. On 2026-10-27 the same model ran the scenarios that still failed again on v1.0.7.0, and the same judge rule replaced only the process image, with the FJ-023 board from that run.
 
 ---
 
 ## 2. IMAGES
 
 - [`user-flow-board.png`](user-flow-board.png): user flow, from [FJ-022](../../manual-testing-playbook/board-quality/user-flow-board-quality.md), Claude Sonnet 5.5 high, 21 of 22, PASS. The point lost is Legibility, where Order detail (Start a return) wraps inside its parenthesis
-- [`process-board.png`](process-board.png): laned process, from [FJ-034](../../manual-testing-playbook/board-creation/colour-every-team-restraint.md), Claude Sonnet 5.5 high, 21 of 22, FAIL. The run fails on Composition, because the green Refund released goal reads before the Approved exit and the second-photo loop it planned as the second glance. The FJ-023 board scored 18
+- [`process-board.png`](process-board.png): laned process, from [FJ-023](../../manual-testing-playbook/board-quality/process-board-quality.md), Claude Sonnet 5.5 high on v1.0.7.0, 21 of 22, FAIL. The run fails on Composition, because the green Refund released goal, left out of the glance plan, reads before the Damage clear? decision it planned as the second glance. It replaced the FJ-034 board, which scored the same 21 and failed the same way, because it shows more of the type: an input step, a data store and both decision exits labelled
 - [`architecture-board.png`](architecture-board.png): architecture, from [FJ-024](../../manual-testing-playbook/board-quality/architecture-board-quality.md), Claude Sonnet 5.5 high, 22 of 22, PASS
 - [`sequence-board.png`](sequence-board.png): sequence, from [FJ-025](../../manual-testing-playbook/board-quality/sequence-board-quality.md), Claude Sonnet 5.5 high, 22 of 22, PASS
 - [`state-board.png`](state-board.png): state diagram, from [FJ-026](../../manual-testing-playbook/board-quality/state-board-quality.md), Claude Sonnet 5.5 high, 20 of 22, FAIL. All three state boards the rerun drew scored 20, and this one reads fastest, with a composite Confirmed state and no crossing. The run fails on two points: no accent leads to the end states the request asked about, and its read-back line claimed a visual read that never ran

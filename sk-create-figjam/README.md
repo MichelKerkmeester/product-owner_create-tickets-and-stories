@@ -26,15 +26,15 @@ It draws seven types, each answering one reader question: a user flow, a laned p
 
 ## 2. GALLERY
 
-Real boards this packet composed on a fictional test file and rendered through the Figma REST API. Each type board and the dense flow is the best board of its type that Claude Sonnet 5.5 high drew with the v1.0.6.0 composer on 2026-10-26, in the shipped design file. They show the outlines that keep kinds apart in greyscale, and the user flow, process, architecture, state and gantt keys carry the `Leads to` entry. Only the existing-board image is older. [`assets/screenshots/README.md`](assets/screenshots/README.md) names the playbook scenario, the model and the scorecard result behind each one.
+Real boards this packet composed on a fictional test file and rendered through the Figma REST API. Each type board and the dense flow is the best board of its type that Claude Sonnet 5.5 high drew in the shipped design file, with the v1.0.6.0 composer on 2026-10-26 or, for the process board, the v1.0.7.0 composer on 2026-10-27. They show the outlines that keep kinds apart in greyscale, and the user flow, process, architecture, state and gantt keys carry the `Leads to` entry. Only the existing-board image is older. [`assets/screenshots/README.md`](assets/screenshots/README.md) names the playbook scenario, the model and the scorecard result behind each one.
 
 **User flow.** The pink outline on the green Confirmation with QR code goal is the first glance. Three zones run left to right, Find the order, Request the return and Done. Each decision is a yellow diamond with labelled exits, the dashed orange Contact support pill shows where the flow leaves and Drop-off point and Courier pickup reach the goal from two sides.
 
 ![A user flow board for starting a return, with three zones and a highlighted goal](assets/screenshots/user-flow-board.png)
 
-**Process.** One lane per role, Customer, CS and Warehouse, each in its own tint. The pink outline sits on the Photo approved? decision, which books a pickup or asks for a second photo that loops back to it. The key names kinds and no team. The run that drew it fails its PASS line on Composition, because the green Refund released goal reads before the Approved exit and the loop the run planned as the second glance.
+**Process.** One lane per role, Customer, CS agent and Warehouse, each in its own tint. The pink outline sits on the Approve the claim step, which logs each decision to a violet Claims table store and hands the claim to the warehouse queue. The Damage clear? decision sends an unclear photo back to the customer as an input step that loops to it. The key names kinds and no team. The run that drew it fails its PASS line on Composition, because the green Refund released goal, left out of the glance plan, reads before the decision the run planned as the second glance.
 
-![A laned process board for a damaged-item refund across three roles](assets/screenshots/process-board.png)
+![A laned refund process where the highlighted Approve the claim step logs to a Claims table store](assets/screenshots/process-board.png)
 
 **Architecture.** Six zones run left to right from Clients through Edge, Services, Events and Stores to Outside. The sync-service node carries the pink outline and the key gives the reason, In focus: Writes every block change. The change stream is an orange queue and the blocks database a violet cylinder. Dashed edges mark the async and outside calls and the three live sockets run both ways, the same as the key.
 
