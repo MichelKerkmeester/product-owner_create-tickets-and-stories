@@ -45,11 +45,11 @@ _memory:
 <!-- ANCHOR:what-built -->
 ## What Was Built
 
-The fixes are released as v1.0.10.0 and the rerun of the 6 failures is next.
+The fixes are released as v1.0.10.0 and the rerun of the 6 failures passed 2, FJ-031 and FJ-032, the second by the operator's ruling.
 
 ### Phase 44: FigJam composite placement and path order
 
-The composer now lays out an edge to or from a composite state against the composite's inner start, so an alias line declared before the transitions can no longer pull the composite ahead of the state that enters it. The pre-write check fails a composite with no inner `[*]`. The rubric plans a flow's main row in path order, the revision exemption covers every node the rubric plans last, FJ-017 places the second sticky when two noted nodes share adjacent rows, and the run launcher pins a node that loads.
+The composer now lays out an edge to or from a composite state against the composite's inner start, so an alias line declared before the transitions can no longer pull the composite ahead of the state that enters it. The pre-write check fails a composite with no inner `[*]`. The rubric plans a flow's main row in path order, the revision exemption covers every node the rubric plans last, FJ-017 places the second sticky when two noted nodes share adjacent rows, and the run launcher pins a node that loads, which the rerun showed does not reach the model's own Bash tool.
 
 ### Files Changed
 
@@ -77,6 +77,7 @@ DeepSeek V4.1 Flash max on cli-pi through llmgateway made the composer change, t
 
 | Decision | Why |
 |----------|-----|
+| Supersede the node pin with a Homebrew reinstall (ADR-001) | The launcher cannot reach the PATH the model's Bash tool builds |
 | Move the composite, not the plan | A focus outline on an end state still lost to a composite drawn across the top row |
 | Plan a flow's main row in path order | Readers take the main row in path order after the accent, whatever its fills |
 <!-- /ANCHOR:decisions -->
@@ -92,7 +93,9 @@ DeepSeek V4.1 Flash max on cli-pi through llmgateway made the composer change, t
 | Flow check self-test | 172 of 172 |
 | pytest, repository gates, output format gate | 18 passed, 15 of 15, passed across 72 source files |
 | Composer Knowledge block | Equals `--template`, 47,600 bytes |
-| Rerun of the 6 failures | Pending |
+| Rerun of the 6 failures | 2 PASS and 4 FAIL, 101 of 110 points on the 5 scored boards, README section 8.10 |
+| Parity and residency | PASSED 65/65 and PASSED 7 |
+| Strict validation | RESULT: PASSED for this phase and the parent |
 <!-- /ANCHOR:verification -->
 
 ---
@@ -101,4 +104,6 @@ DeepSeek V4.1 Flash max on cli-pi through llmgateway made the composer change, t
 ## Known Limitations
 
 1. **FJ-018 and FJ-035 stay operator-only.** They need Figma Desktop and the figma-ds-cli daemon.
+2. **SC-001 and SC-002 are unmet.** The rerun passed 2 of 6 against a target of 4, and FJ-026's focused end state reads after the composite because the composer draws end states on the bottom rows.
+3. **No run had a label trace.** The Bash tool inside each run rebuilds PATH from the shell profile, so the launcher's pin never reached the check. ADR-001 replaces it with a Homebrew node reinstall.
 <!-- /ANCHOR:limitations -->

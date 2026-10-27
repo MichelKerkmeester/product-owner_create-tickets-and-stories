@@ -143,7 +143,7 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 41 | 041-figjam-rerun-findings/ | The 35 findings of the v1.0.6.0 rerun, fixed in `sk-create-figjam` v1.0.7.0, then a rerun of every scenario that did not pass | Complete |
 | 42 | 042-figjam-glance-and-left-out/ | The gaps the v1.0.7.0 rerun still shows: glance plans that match the drawn board, a Left out line on every split and gate, the sticky fallback and the router spacing, then a rerun of the 14 failures | Complete |
 | 43 | 043-figjam-rerun-followups/ | The gaps the v1.0.8.0 rerun still shows: a composite's inner states, the split title, a revision's second glance and title, the reply's first line, adjacent stickies and a missing-route gate, then a rerun of the 7 failures with two readers per board | Complete |
-| 44 | 044-figjam-composite-and-path-order/ | The causes the v1.0.9.0 rerun still shows: the composer draws a composite across the top row, plans order a flow by fill while readers take its main row in path order and the revision exemption is too narrow, with a working node pinned for the label trace, then a rerun of the 6 failures | In Progress |
+| 44 | 044-figjam-composite-and-path-order/ | The causes the v1.0.9.0 rerun still shows: the composer draws a composite across the top row, plans order a flow by fill while readers take its main row in path order and the revision exemption is too narrow, with a working node pinned for the label trace, then a rerun of the 6 failures | Complete |
 
 ### Phase Transition Rules
 

@@ -38,7 +38,7 @@ _memory:
 
 **Packet:** 017-figjam-flow-generation/044-figjam-composite-and-path-order
 **Level:** 2
-**Status:** In Progress
+**Status:** Complete
 **Date:** 2026-10-27
 <!-- /ANCHOR:metadata -->
 
@@ -51,14 +51,14 @@ One row per criterion. `AC-ID` is stable once written: supersede a criterion, ne
 
 | AC-ID | REQ | Given / When / Then | Verification | Status | Waiver |
 |-------|-----|---------------------|--------------|--------|--------|
-| AC-001 | REQ-001 | Given the changed sources, When every gate runs, Then each exits 0 | Pending | Unmet | - |
-| AC-002 | REQ-002 | Given the last commit, When the Sync Loop checks run, Then both pass and the composer mirror equals `--template` | Pending | Unmet | - |
-| AC-003 | REQ-003 | Given a state model with a composite, When it is composed, Then the first state sits left of the composite even when a label line is declared first, and every existing model traces to the same geometry | Pending | Unmet | - |
-| AC-004 | REQ-004 | Given the rubric, the playbook row and the Project, When they are read, Then each states the path-order glance rule | Pending | Unmet | - |
-| AC-005 | REQ-005 | Given a revision, When its Composition is graded, Then every main-row node planned last is exempt when it reads before the changed end | Pending | Unmet | - |
-| AC-006 | REQ-006 | Given the launcher, When the fixture runs through its PATH, Then a `Label:` line prints | Pending | Unmet | - |
-| AC-007 | REQ-007 | Given the 6 failures, When they rerun in fresh files, Then each has one graded line and every board a render and two readers | Pending | Unmet | - |
-| AC-008 | REQ-008 | Given v1.0.10.0, When the release files are read, Then they name 1.0.10.0 with changelogs and the kernel H1 matches its rules | Pending | Unmet | - |
+| AC-001 | REQ-001 | Given the changed sources, When every gate runs, Then each exits 0 | Composer self-test 1245 of 1245, design check exit 0, flow check 172 of 172, pytest 18 passed, 15 of 15 gates and the output format gate passed on the committed tree | Met | - |
+| AC-002 | REQ-002 | Given the last commit, When the Sync Loop checks run, Then both pass and the composer mirror equals `--template` | Parity PASSED 65/65 and residency PASSED 7 after outer commit 0001092, and the Composer Knowledge block equals `--template` at 47,600 bytes | Met | - |
+| AC-003 | REQ-003 | Given a state model with a composite, When it is composed, Then the first state sits left of the composite even when a label line is declared first, and every existing model traces to the same geometry | The label-line self-test case passes, the 38-model trace moved only the two composite fixtures, and the FJ-026, FJ-032 and FJ-017 renders draw Confirmed right of Pending | Met | - |
+| AC-004 | REQ-004 | Given the rubric, the playbook row and the Project, When they are read, Then each states the path-order glance rule | The path-order sentence reads in `references/quality-rubric.md`, its Knowledge file and playbook row 83 | Met | - |
+| AC-005 | REQ-005 | Given a revision, When its Composition is graded, Then every main-row node planned last is exempt when it reads before the changed end | Playbook row 83 and the rubric's revision line exempt the entry, the decisions and the main row planned last, and FJ-031 scored Composition 2 under it | Met | - |
+| AC-006 | REQ-006 | Given the launcher, When the fixture runs through its PATH, Then a `Label:` line prints | The pin held in a direct probe, but every run printed `Label: skipped` because the Bash tool rebuilds PATH from the shell profile. The operator chose a Homebrew node reinstall instead | Superseded | ADR-001 |
+| AC-007 | REQ-007 | Given the 6 failures, When they rerun in fresh files, Then each has one graded line and every board a render and two readers | `grades/sonnet-high-044.jsonl` holds 6 lines, 10 renders sit in `renders/` and two reader notes per scored board sit in `grades/sonnet-high-044/readers/` | Met | - |
+| AC-008 | REQ-008 | Given v1.0.10.0, When the release files are read, Then they name 1.0.10.0 with changelogs and the kernel H1 matches its rules | The hub, its three JSON files and `sk-create-figjam/SKILL.md` read 1.0.10.0 with both changelogs, and the kernel stays v1.2.11 since no kernel rule changed | Met | - |
 
 ### Status values
 
@@ -83,7 +83,7 @@ waiver is treated as an unmet criterion rather than as a pass.
 <!-- ANCHOR:closure -->
 ## 3. CLOSURE STATEMENT
 
-**Closeable:** No
+**Closeable:** Yes
 
-All criteria wait for the fixes and the rerun.
+Seven rows are Met with observed evidence and AC-006 is Superseded by ADR-001. The success criteria are not met: the rerun passed 2 of 6 against SC-001's 4, and FJ-026 misses SC-002. The operator closed testing on 2026-10-27 and sent the findings to the skills.
 <!-- /ANCHOR:closure -->
