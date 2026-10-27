@@ -44,7 +44,8 @@
     "017-figjam-flow-generation/038-figjam-model-comparison",
     "017-figjam-flow-generation/039-figjam-run-findings",
     "017-figjam-flow-generation/040-figjam-sonnet-run-findings",
-    "017-figjam-flow-generation/041-figjam-rerun-findings"
+    "017-figjam-flow-generation/041-figjam-rerun-findings",
+    "017-figjam-flow-generation/042-figjam-glance-and-left-out"
   ],
   "manual": {
     "depends_on": [],
@@ -173,17 +174,17 @@
     ],
     "causal_summary": "Product Owner writes stories, epics and product docs but cannot turn screenshots, Figma flows or product docs into diagrams",
     "created_at": "2026-10-19T20:55:21Z",
-    "last_save_at": "2026-10-27T07:28:11.660Z",
+    "last_save_at": "2026-10-27T07:52:24.559Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
       "spec.md",
       "goal.md"
     ],
-    "source_fingerprint": "sha256:c0ca58963072db6b37f8932baa8b6b7ed1aa711cfd04e1d0f012fea06123db9c",
+    "source_fingerprint": "sha256:aa486d39aac0335d7b9e2092a772e56640c0c4f4e224901b178bb990bbe37487",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "fbb4509507268fa59eb80f28cb4e6d963b2b864d69f3033296fe652536d098ce"
+      "spec.md": "5bede81642a3a36a656ab4eb76dd78bb4cf3b133f7db9688cfa0f4f9f9a6aa9c"
     },
     "last_active_child_id": "017-figjam-flow-generation/034-stop-and-label-fixes",
     "last_active_at": "2026-10-25T15:33:38.811Z"

@@ -24,9 +24,9 @@ contextType: "implementation"
 | **Created** | 2026-10-26 |
 | **Branch** | `main` |
 | **Parent Spec** | ../spec.md |
-| **Phase** | 41 of 41 |
+| **Phase** | 41 of 42 |
 | **Predecessor** | 040-figjam-sonnet-run-findings |
-| **Successor** | None |
+| **Successor** | 042-figjam-glance-and-left-out |
 | **Handoff Criteria** | Every row in acceptance-criteria.md is Met |
 <!-- /ANCHOR:metadata -->
 
