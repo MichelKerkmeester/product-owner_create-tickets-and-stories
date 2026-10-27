@@ -1,0 +1,29 @@
+DESIGN figjam-design.md: FigJam default
+  changes from the built-in design: none
+  pseudo: black, text 16.67:1 on its fill, drawn by initial, fork, final
+  entry: lightBlue, text 12.66:1 on its fill, drawn by start, firstState
+  client: lightTeal, text 14.61:1 on its fill, drawn by client
+  gateway: lightBlue, text 12.66:1 on its fill, drawn by gateway
+  neutral: white, text 16.67:1 on its fill, drawn by participant, screen, step, state, service, subprocess, entity, planned
+  io: lightTeal, text 14.61:1 on its fill, drawn by io
+  queue: lightOrange, text 13.25:1 on its fill, drawn by queue
+  decision: lightYellow, text 14.28:1 on its fill, drawn by decision, choice, milestone
+  junction: darkGray, text 4.61:1 on its fill, drawn by merge
+  goal: lightGreen, text 13.87:1 on its fill, drawn by success
+  exit: lightOrange, text 13.25:1 on its fill, drawn by exit
+  error: lightRed, text 11.72:1 on its fill, drawn by error, crit
+  done: lightGray, text 11.81:1 on its fill, drawn by finalState, done
+  store: lightViolet, text 11.21:1 on its fill, drawn by datastore
+  external: lightGray, text 11.81:1 on its fill, drawn by external
+  inProgress: lightBlue, text 12.66:1 on its fill, drawn by active
+  marker: violet, text 4.57:1 on its fill, drawn by the step pins
+  accent: lightPink, stroke 3.13:1 on white, 8 px on a node and 4 px on a message, nearest hue error at 52 degrees
+  zone tints: blue, orange, teal, yellow, violet, nearest the accent violet at 61 degrees
+  type: Inter, title 64, subtitle 28, zone 24, node 20, label 18, field 16, small 14
+THEME {}
+  the theme costs 2 characters and leaves 9,341 for a graph model, 33,350 for a sequence and 32,974 for a gantt in one use_figma call
+DESIGN shadow is no group this composer reads, so it was left out
+DESIGN role.goal fell back to "lightGreen": the goal role draws lightPink, the accent's own pair
+DESIGN zone.cycle fell back to ["blue", "orange", "teal", "yellow", "violet"]: the pink zone tint sits under 45 degrees of hue from the accent, at 1
+3 design warnings
+exit 1
