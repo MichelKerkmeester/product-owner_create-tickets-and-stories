@@ -7,7 +7,7 @@ trigger_phrases:
   - "$figjam"
   - "figjam flow"
   - "figjam diagram"
-version: 1.0.6.0
+version: 1.0.7.0
 ---
 
 # sk-create-figjam
@@ -56,7 +56,7 @@ Real boards this packet composed on a fictional test file and rendered through t
 
 ![A gantt board for a launch plan with three phases and a release milestone](assets/screenshots/gantt-board.png)
 
-**Written onto an existing board.** In FJ-032 this state diagram was added to a board that already held content, which the write left in place. The overview shows the new section only. Completed carries the pink outline as the first glance this time, because the gate planned it first. The board predates v1.0.6.0, because the rerun's FJ-032 board scored 20 and failed on Composition.
+**Written onto an existing board.** In FJ-032 this state diagram was added to a board that already held content, which the write left in place. The overview shows the new section only. Completed carries the pink outline as the first glance this time, because the gate planned it first. The board predates v1.0.6.0, because the rerun's FJ-032 board scored 19 and failed on Composition and Reply.
 
 ![A state board for a booking lifecycle written onto a board with existing content](assets/screenshots/state-on-existing-board.png)
 

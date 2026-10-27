@@ -8,7 +8,7 @@ trigger_phrases:
   - "state machine figjam"
   - "lifecycle diagram"
   - "order status flow"
-version: 1.0.4.0
+version: 1.0.5.0
 ---
 
 # FigJam Type - State
@@ -75,20 +75,20 @@ Judged by hand:
 - **States are nouns or adjectives,** such as `Confirmed`. Actions are transition labels, such as `pay`
 - **Labels follow `event [guard] / action`,** dropping the parts a move does not need, in one to three words where possible
 - **A move from any state, such as a timeout, is one transition from a composite,** never one from every state
-- **A move only one inner state takes names that state as its guard.** A transition leaves a composite from the zone's edge and reads as open from every state inside it, so a move that only one inner state takes says which, such as `missed check-in [from Upcoming]`. The guard counts toward the label's length, so at `Wall` distance the event or the guard is shortened
+- **A move only one inner state takes names that state as its guard.** A transition leaves a composite from the zone's edge and reads as open from every state inside it, so a move that only one inner state takes says which, such as `missed check-in [from Upcoming]`, using the inner state's label as the board shows it, never its id. The guard counts toward the label's length, so at `Wall` distance the event or the guard is shortened
 - **Mark terminal states with `--> [*]`** only when the thing really ends
 
 ---
 
 ## 4. BUDGET AND SPLITTING
 
-Over budget, split by phase, such as booking and stay, or by entity. When the user asked for one board, cut the lowest-priority part instead, name it under `Left out:` and offer the split as the alternative in the playback. A coarse machine with one composite per phase plus one diagram per composite reads better than one deep machine. At `Meeting screen` distance transition labels drop to 32 characters. At `Wall` distance the budget drops to 6 states and 8 transitions, with labels at 25 characters, as the reading distance dial in `references/flow-mode.md` Section 4 sets out.
+Over budget, split by phase, such as booking and stay, or by entity. When the user asked in so many words for one board, cut the lowest-priority part instead, name it under `Left out:` and offer the split as the alternative in the playback. A coarse machine with one composite per phase plus one diagram per composite reads better than one deep machine. At `Meeting screen` distance transition labels drop to 32 characters. At `Wall` distance the budget drops to 6 states and 8 transitions, with labels at 25 characters, as the reading distance dial in `references/flow-mode.md` Section 4 sets out.
 
 ---
 
 ## 5. COLOUR, ZONES AND NOTES
 
-None in the model. The composer colours the first and final states and the pseudo-states by role, and composites are the zones. A grouping the model does not hold, such as every error state, is a composite when the states share a way out, and otherwise a note. A self-transition can render tight against its state, so tell the user they can drag its loop in FigJam if it crowds. A `%% focus: <id>` line may name the one node the first glance lands on. It is a comment, so the model stays styleless. A composite section reads first in the overview, because it is the largest tinted shape on the board, so plan it as the first glance or put the focus inside it.
+None in the model. The composer colours the first and final states and the pseudo-states by role, and composites are the zones. A grouping the model does not hold, such as every error state, is a composite when the states share a way out, and otherwise a note. A self-transition can render tight against its state, so tell the user they can drag its loop in FigJam if it crowds. A `%% focus: <id>` line may name the one node the first glance lands on. It is a comment, so the model stays styleless. A composite section and the first state, drawn light blue with its outline, both read early in the overview, because one is the largest tinted shape and the other the most saturated. Plan the composite first and the first state second, unless the request names other states. Then put the `%% focus:` line on the state the request names, or on its most telling member when the request names a group such as the end states, and plan the composite and the first state after it.
 
 ---
 

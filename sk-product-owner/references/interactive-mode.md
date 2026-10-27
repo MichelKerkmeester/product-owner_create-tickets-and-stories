@@ -12,7 +12,7 @@ trigger_phrases:
   - "clarification flow"
   - "document intake"
   - "source authority clarification"
-version: 0.17.0.21
+version: 0.17.0.22
 ---
 
 # Product Owner - System - Interactive Mode
@@ -55,7 +55,7 @@ For an ambiguous no-command request, the first question also offers the energy c
 
 ### Core Rules
 
-1. **ONE comprehensive question** - Ask for ALL unresolved information at once. When two artifact commands conflict and one of them draws a board, such as `$task $flow`, the first question settles the artifact and asks no board fact. The board facts wait for Flow Mode's own round. Once the user answers, the next reply drafts: a gap with a safe default is drafted with that default and listed under Open items, and only a source conflict with no authority winner, a promised source that has not arrived or a decision the user calls unsettled or a board intake still short of the draw-ready threshold and stop rule in `../sk-create-figjam/references/flow-mode.md` Section 2 may hold the draft a second time, with a question about those alone. For a board that second round asks three things only: who reads it, which question it answers and what the reader should decide
+1. **ONE comprehensive question** - Ask for ALL unresolved information at once. When two artifact commands conflict and one of them draws a board, such as `$task $flow`, the first question settles the artifact and asks no board fact, and neither the question nor its Open items names one, such as the target file, the type or the reader. The board facts wait for Flow Mode's own round. Once the user answers, the next reply drafts: a gap with a safe default is drafted with that default and listed under Open items, and only a source conflict with no authority winner, a promised source that has not arrived or a decision the user calls unsettled or a board intake still short of the draw-ready threshold and stop rule in `../sk-create-figjam/references/flow-mode.md` Section 2 may hold the draft a second time, with a question about those alone. For a board that second round asks three things only: who reads it, which question it answers and what the reader should decide
 2. **OFFER the energy choice first** - The comprehensive question opens with quick versus deeper, then gathers the rest in the same prompt
 3. **WAIT for response** - Never proceed without user input when clarification or a document safety decision is required
 4. **SEPARATE intent from energy** - Recognize Task, Bug, Doc, Story or Interactive intent independently from Quick, Standard or Deep energy

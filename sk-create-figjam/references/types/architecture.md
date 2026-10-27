@@ -8,7 +8,7 @@ trigger_phrases:
   - "system architecture figjam"
   - "services and datastores"
   - "allowed edge table"
-version: 1.0.3.0
+version: 1.0.4.0
 ---
 
 # FigJam Type - Architecture
@@ -87,6 +87,7 @@ The check enforces:
 
 Judged by hand:
 
+- **No node returns to itself.** A connector from a node back onto the same node draws no loop a reader can follow, so a retry goes into a label or through the node it returns through, and `scripts/flow_check.py` refuses one
 - **One node is one deployable unit.** Ask whether it can be deployed, restarted or scaled on its own. A module inside a service is not a node
 - **A worker that reads a queue is a service, never `async`**
 - **A read replica, a shard or change data capture is not its own node** unless the flow addresses it on its own
@@ -98,7 +99,7 @@ Judged by hand:
 
 ## 4. BUDGET AND SPLITTING
 
-Draw one flow per diagram. A system with more parts than the budget splits by request path, such as browsing and checkout, each diagram in the same file and named after its path. Name what each path leaves out under `Left out:`. When the user asked for one board, cut the part the reader's question needs least instead, such as file storage beside a sync path, name it under `Left out:` and offer the split by request path as the alternative in the playback. At `Meeting screen` distance edge labels drop to 32 characters. At `Wall` distance the budget drops to 6 nodes and 8 connectors, with labels at 25 characters, as the reading distance dial in `references/flow-mode.md` Section 4 sets out.
+Draw one flow per diagram. A system with more parts than the budget splits by request path, such as browsing and checkout, each diagram in the same file and named after its path. Name what each path leaves out under `Left out:`. When the user asked in so many words for one board, cut the part the reader's question needs least instead, such as file storage beside a sync path, name it under `Left out:` and offer the split by request path as the alternative in the playback. At `Meeting screen` distance edge labels drop to 32 characters. At `Wall` distance the budget drops to 6 nodes and 8 connectors, with labels at 25 characters, as the reading distance dial in `references/flow-mode.md` Section 4 sets out.
 
 ---
 

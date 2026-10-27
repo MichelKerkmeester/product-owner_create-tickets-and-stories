@@ -9,7 +9,7 @@ trigger_phrases:
   - "sticky legend"
   - "numbered pins"
   - "use_figma extension"
-version: 1.0.2.0
+version: 1.0.3.0
 ---
 
 # FigJam Hybrid Workflow
@@ -119,7 +119,7 @@ return { createdNodeIds: created, boardBefore: before }
 
 ### A single sticky
 
-For one or two notes, a sticky beside its node is clearer than a legend, so a request for one or two notes gets this form and no pin, no legend column and no sticky at the board's far edge. Place it inside the board, to the right of the node, or above or below when the right is taken, 64 pixels clear, which is the gap a sticky keeps from the sticky beside it, and widen the board when the sticky reaches past its margin. Name it `note:<n>`, so the read-back counts it by name. Past two notes, switch to pins and a legend. Never mix the two in one diagram.
+For one or two notes, a sticky beside its node is clearer than a legend, so a request for one or two notes gets this form and no pin, no legend column and no sticky parked at the board's far edge away from its node. Place it inside the board 64 pixels clear of its node, which is the gap a sticky keeps from the sticky beside it: to the right first, then below, then above and to the left only when all three are taken and no connector runs between the sticky and its node. A sticky to the right of a node in the last column is allowed, and the board widens to hold it. Name it `note:<n>`, so the read-back counts it by name. Past two notes, switch to pins and a legend. Never mix the two in one diagram.
 
 ---
 
