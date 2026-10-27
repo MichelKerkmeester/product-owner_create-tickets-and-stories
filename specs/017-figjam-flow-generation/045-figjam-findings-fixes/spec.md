@@ -24,9 +24,9 @@ contextType: "implementation"
 | **Created** | 2026-10-27 |
 | **Branch** | `main` |
 | **Parent Spec** | ../spec.md |
-| **Phase** | 45 of 45 |
+| **Phase** | 45 of 46 |
 | **Predecessor** | 044-figjam-composite-and-path-order |
-| **Successor** | None |
+| **Successor** | 046-figjam-gate-and-accent-fixes |
 | **Handoff Criteria** | Every row in acceptance-criteria.md is Met |
 <!-- /ANCHOR:metadata -->
 
