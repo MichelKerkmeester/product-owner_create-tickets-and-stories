@@ -1,0 +1,7 @@
+<figma-url>
+Read-back: 7 of 7 nodes, 7 of 7 connectors, 4 of 4 decision exits labelled, first glance: the confirmation with QR code. The earlier board and the sticky were read again and are unchanged.
+Left out: free pickup over 100 euros, a proposal under review. Anything after the confirmation or after Request an exception, because no source was given for it. Contact support, replaced by Request an exception from your update, while the returns doc as you described it still says Contact support.
+Finding: Request an exception wraps as "Request an" over "exception", so one word sits alone on its last line. It reads cleanly in the overview with nothing cut off, and I kept the app's wording instead of shortening it.
+Finding: the `get_figjam` outline does not carry connector text, so the four exit labels (No, Yes, Drop-off point and Courier pickup) were confirmed from the labels the write returned and the overview screenshot.
+Finding: both boards are titled "Start a return" and both are still on the file. Shall I delete the earlier one (section `2:3`, the board on the left that still says Contact support)? Both stay until you say yes to that.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

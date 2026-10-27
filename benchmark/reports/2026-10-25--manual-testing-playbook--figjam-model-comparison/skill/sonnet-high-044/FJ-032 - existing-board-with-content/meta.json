@@ -1,0 +1,206 @@
+{
+ "id": "FJ-032",
+ "label": "sonnet-high-044",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/existing-board-with-content.md",
+ "file_pin": null,
+ "operator_setup_done": false,
+ "operator_pause_before": null,
+ "operator_paused": false,
+ "file_start_sections": 1,
+ "driver": "model",
+ "expects_board": true,
+ "no_figma": false,
+ "scripted_turns": [
+  "$figjam add the Roamstay booking status lifecycle to our existing retro board <fileKey of the prepared board>. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "commands_run": 0,
+ "intake_answers_sent": 2,
+ "follow_ups_sent": 0,
+ "session_id": "bb60273d-f575-4523-880d-c6a86b55310a",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "3:21"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 87.43,
+   "tool_calls": 12,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "ToolSearch",
+    "Read",
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__get_figjam"
+   ],
+   "input_tokens": 87320,
+   "output_tokens": 7361,
+   "cached_tokens": 394044,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "bb60273d-f575-4523-880d-c6a86b55310a",
+   "inner_calls": [
+    "create_session",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam add the Roamstay booking status lifecycle to our existing retro board <draft-file-key>. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 17.26,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 2239,
+   "output_tokens": 1330,
+   "cached_tokens": 98697,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "bb60273d-f575-4523-880d-c6a86b55310a",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 22.36,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 1347,
+   "output_tokens": 2321,
+   "cached_tokens": 100932,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "bb60273d-f575-4523-880d-c6a86b55310a",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 39.61,
+   "tool_calls": 6,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Bash",
+    "Write",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 11303,
+   "output_tokens": 3364,
+   "cached_tokens": 543943,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "bb60273d-f575-4523-880d-c6a86b55310a",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 170.46,
+   "tool_calls": 8,
+   "tools_used": [
+    "ToolSearch",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "Read",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 80054,
+   "output_tokens": 28821,
+   "cached_tokens": 1010725,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "bb60273d-f575-4523-880d-c6a86b55310a",
+   "inner_calls": [
+    "use_figma",
+    "get_figjam",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "3:21"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 5,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  }
+ ]
+}

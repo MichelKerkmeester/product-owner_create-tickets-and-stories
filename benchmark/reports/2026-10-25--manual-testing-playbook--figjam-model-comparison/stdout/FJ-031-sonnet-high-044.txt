@@ -1,0 +1,11 @@
+{"id": "FJ-031", "label": "sonnet-high-044", "turn": 1, "role": "scripted", "kind": "INTAKE", "figma": [], "boards": []}
+{"id": "FJ-031", "label": "sonnet-high-044", "turn": 2, "role": "adaptive", "kind": "INTAKE", "figma": [], "boards": []}
+{"id": "FJ-031", "label": "sonnet-high-044", "turn": 3, "role": "adaptive", "kind": "GATE", "figma": ["create_session", "get_figjam"], "boards": []}
+{"id": "FJ-031", "label": "sonnet-high-044", "turn": 4, "role": "scripted", "kind": "GATE", "figma": [], "boards": []}
+{"id": "FJ-031", "label": "sonnet-high-044", "turn": 5, "role": "scripted", "kind": "PLAYBACK", "figma": ["use_figma", "get_figjam"], "boards": ["2:3"]}
+{"id": "FJ-031", "label": "sonnet-high-044", "status": "paused", "resume": "/private/tmp/claude-501/-Users-michelkerkmeester-MEGA-Development-AI-Systems/348b59cb-58a2-4b49-8147-c40143312bc1/scratchpad/r044/tmp/FJ-031/devin-compare-bench/.pause/FJ-031/resume"}
+{"id": "FJ-031", "label": "sonnet-high-044", "turn": 6, "role": "scripted", "kind": "PLAYBACK", "figma": [], "boards": []}
+{"id": "FJ-031", "label": "sonnet-high-044", "turn": 7, "role": "scripted", "kind": "GATE", "figma": ["get_figjam"], "boards": []}
+{"id": "FJ-031", "label": "sonnet-high-044", "turn": 8, "role": "scripted", "kind": "DELIVERY", "figma": ["use_figma", "get_figjam"], "boards": ["4:70"]}
+{"id": "FJ-031", "label": "sonnet-high-044", "turn": 9, "role": "scripted", "kind": "DELIVERY", "figma": ["use_figma", "get_figjam"], "boards": []}
+{"id": "FJ-031", "label": "sonnet-high-044", "status": "ok", "attempts": 1, "turns": 9, "boards": ["2:3", "4:70"]}
