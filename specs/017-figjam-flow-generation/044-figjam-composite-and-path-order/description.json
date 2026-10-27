@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/044-figjam-composite-and-path-order",
+  "description": "Phase 44: figjam-composite-and-path-order",
+  "keywords": [
+    "phase",
+    "figjam-composite-and-path-order"
+  ],
+  "lastUpdated": "2026-10-27T12:40:00.000Z",
+  "specId": "044",
+  "folderSlug": "figjam-composite-and-path-order",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

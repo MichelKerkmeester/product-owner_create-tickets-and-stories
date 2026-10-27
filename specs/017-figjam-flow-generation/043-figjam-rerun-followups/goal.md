@@ -60,11 +60,11 @@ Frozen choices. Changing one is an amendment.
 <!-- ANCHOR:completion -->
 ## 3. COMPLETION CRITERIA
 
-- [ ] `compose_board.py --self-test`, `--design-check`, `flow_check.py --self-test`, `pytest scripts/tests`, `run_gates.sh` (all 15 gates) and the output format gate each exit 0 on the committed tree
-- [ ] `validate_parity.py product-owner` and `residency_check.py --all` each print PASSED after the last commit, and the Flow Board Composer Knowledge code block equals `compose_board.py --template`
-- [ ] Each finding and critic gap of the v1.0.8.0 rerun is fixed in its named file and its Project counterpart, or recorded in the implementation summary with the reason it needed no change
-- [ ] `sk-create-figjam` and the hub read 1.0.9.0 with a changelog, and the kernel H1 matches its rules
-- [ ] Each of the 7 failures has one graded line in `grades/sonnet-high-043.jsonl`, every board it writes has a full-size render in `renders/` and two reader notes, and the run README names every remaining failure with its cause
+- [x] `compose_board.py --self-test`, `--design-check`, `flow_check.py --self-test`, `pytest scripts/tests`, `run_gates.sh` (all 15 gates) and the output format gate each exit 0 on the committed tree
+- [x] `validate_parity.py product-owner` and `residency_check.py --all` each print PASSED after the last commit, and the Flow Board Composer Knowledge code block equals `compose_board.py --template`
+- [x] Each finding and critic gap of the v1.0.8.0 rerun is fixed in its named file and its Project counterpart, or recorded in the implementation summary with the reason it needed no change
+- [x] `sk-create-figjam` and the hub read 1.0.9.0 with a changelog, and the kernel H1 matches its rules
+- [x] Each of the 7 failures has one graded line in `grades/sonnet-high-043.jsonl`, every board it writes has a full-size render in `renders/` and two reader notes, and the run README names every remaining failure with its cause
 - [ ] `validate.sh --strict` on this phase prints RESULT: PASSED, and both repositories are pushed with `git status --short` empty in Product Owner
 <!-- /ANCHOR:completion -->
 
