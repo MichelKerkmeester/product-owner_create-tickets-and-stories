@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "user flow example"
   - "fernhouse return flow"
-version: 1.0.5.0
+version: 1.0.6.0
 ---
 
 # Example - User Flow - Fernhouse Return
@@ -68,12 +68,12 @@ The first draft, kept as text because it fails the check:
 flowchart LR
     %% goal: confirmed
     orders([Order list]) --> detail[Order detail]
-    detail --> window{Within 30 days?}
+    detail --> window{Within 30 days of delivery?}
     window -->|No| support([Contact support])
     window -->|Yes| reason[Pick a reason]
-    reason --> method{Drop-off or pickup?}
-    method -->|Drop-off| dropoff[Choose a drop-off point]
-    method -->|Pickup| pickup[Book a courier pickup]
+    reason --> method{Drop-off point or pickup?}
+    method -->|Drop-off| dropoff[Choose your drop-off point]
+    method -->|Pickup| pickup[Book a courier to pick it up]
     dropoff --> merge((.))
     pickup --> merge
     merge --> confirmed([Return confirmed])
@@ -98,12 +98,12 @@ flowchart LR
     %% zone: Request the return: window, support, reason, method, dropoff, pickup
     %% zone: Done: confirmed
     orders([Order list]) --> detail[Order detail]
-    detail --> window{Within 30 days?}
+    detail --> window{Within 30 days of delivery?}
     window -->|No| support([Contact support])
     window -->|Yes| reason[Pick a reason]
-    reason --> method{Drop-off or pickup?}
-    method -->|Drop-off| dropoff[Choose a drop-off point]
-    method -->|Pickup| pickup[Book a courier pickup]
+    reason --> method{Drop-off point or pickup?}
+    method -->|Drop-off| dropoff[Choose your drop-off point]
+    method -->|Pickup| pickup[Book a courier to pick it up]
     dropoff --> confirmed([Return confirmed])
     pickup --> confirmed
     style window fill:#FFC2EC,stroke:#F849C1
@@ -128,7 +128,8 @@ Left out: free pickup over €100, a proposal under review
 ### Check
 
 ```text
-  diagram 1, user flow: ok, 9 nodes and 9 connectors, widest rank 2 steps, longest path 7 steps, 1.0 connectors per step, labels average 16 characters, 0 crossing pairs
+  diagram 1, user flow: ok, 9 nodes and 9 connectors, widest rank 2 steps, longest path 7 steps, 1.0 connectors per step, labels average 19 characters, 0 crossing pairs
+Glance: Within 30 days of delivery? (accent) > Order list > Order detail > Pick a reason > Contact support > Drop-off point or pickup? > Choose your drop-off point > Book a courier to pick it up > Return confirmed (goal)
 PASSED 1 diagram(s) in model.md
 ```
 
@@ -141,13 +142,13 @@ The gate is its own reply, sent after the playback's answer. Its one question as
 ```text
 Question: which screens does a customer pass through to start a return, and where do they choose?
 Outcome: a reader can follow a return from the order list to a confirmed return and see where the 30 day window ends it.
-First glance: Within 30 days?, the decision where the 30 day window ends a return.
-Second glance: Order list, the light blue entry where the return starts, then Order detail, Pick a reason, the drop-off or pickup choice, Choose a drop-off point and Return confirmed, the main row the composer draws, in path order up to the goal.
-Last glance: Contact support, the exit after 30 days, then Book a courier pickup, the second way to the goal, drawn below the row.
-Sketch: the Section 4 model above, and the check printed PASSED for it.
-Eye first: Within 30 days?, the outlined decision, and it is the node the board most needs read.
-Reads second: the main row from Order list to Return confirmed, which carries the reader past the window to the goal.
-Could miss: Book a courier pickup below the row, which would hide the second way the item goes back.
+First glance: Within 30 days of delivery?, the decision where the 30 day window ends a return.
+Second glance: Order list, the light blue entry where the return starts, then Order detail, Pick a reason, Contact support, the exit after 30 days drawn below it, the drop-off or pickup choice, Choose your drop-off point, Book a courier to pick it up, the second way to the goal drawn below it, and Return confirmed, the goal, in the order the check's Glance line prints.
+Last glance: the key and the source line, since the goal comes last.
+Sketch: the Section 4 model above in full, every `%%` and `style` line included, with the check's PASSED line as it printed.
+Eye first: Within 30 days of delivery?, the outlined decision, and it is the node the board most needs read.
+Reads second: the board from Order list to Return confirmed, column by column, which carries the reader past the window to the goal.
+Could miss: Book a courier to pick it up below the row, which would hide the second way the item goes back.
 Remove next: Order detail, kept because it holds the Start a return button the screens show.
 Plan: Fernhouse Product. File: a new FigJam file named "Start a return", created in that plan.
 Writes: one composed board, 9 nodes and 9 connectors in three zones, with a title, a key and a source line, at the Laptop reading distance.
@@ -164,7 +165,7 @@ Write it?
 
 ```text
 <board URL>
-Read-back: 9 of 9 nodes, 9 of 9 connectors, 4 of 4 decision exits labelled, first glance: Within 30 days?
+Read-back: 9 of 9 nodes, 9 of 9 connectors, 4 of 4 decision exits labelled, first glance: Within 30 days of delivery?
 Left out: free pickup over €100, a proposal under review
 HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
 ```

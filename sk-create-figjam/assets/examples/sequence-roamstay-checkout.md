@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "sequence example"
   - "roamstay checkout sequence"
-version: 1.0.3.0
+version: 1.0.4.0
 ---
 
 # Example - Sequence - Roamstay Checkout
@@ -99,7 +99,7 @@ Outcome: the payments team can read the checkout calls in order, with their path
 First glance: Authorise card, the call to the payment provider that decides the checkout.
 Second glance: Authorised, the answer that lets the booking API confirm the hold and answer the app.
 Last glance: BookingCreated, the message to the partner hub that does not hold up the answer.
-Sketch: the Section 4 model above, and the check printed PASSED for it.
+Sketch: the Section 4 model above in full, every `%%` and `style` line included, with the check's PASSED line as it printed.
 Eye first: Authorise card, the call that decides the checkout, and it is the message the board most needs read.
 Reads second: Authorised, which lets the booking API confirm the hold and answer the app.
 Could miss: BookingCreated, which would hide that the partner hub hears of the booking without holding up the answer.

@@ -100,7 +100,7 @@ Outcome: a reader can see the order of the offline mode work, the critical path 
 First glance: Integration, the critical path task that holds the release.
 Second glance: Sync engine and Conflict screen build, the two builds Integration waits for.
 Last glance: Beta for 5 percent and the Release milestone at the end.
-Sketch: the Section 4 model above, and it passed the check by hand.
+Sketch: the Section 4 model above in full, every `%%` and `style` line included, and it passed the check by hand.
 Eye first: Integration, the critical path task, and it is the bar the board most needs read.
 Reads second: Sync engine and Conflict screen build, which show what Integration waits for.
 Could miss: the arrow from Conflict screen design to its build, which would hide that the build waits for the design.
@@ -122,7 +122,7 @@ Outcome: a reader can see the order of the offline mode work, the critical path 
 First glance: Integration, the critical path task that holds the release.
 Second glance: Sync engine and Conflict screen build, the two builds Integration waits for.
 Last glance: Beta for 5 percent and the Release milestone at the end.
-Sketch: the Section 4 model above, and it passed the check by hand.
+Sketch: the Section 4 model above in full, every `%%` and `style` line included, and it passed the check by hand.
 Eye first: Integration, the critical path task, and it is the bar the board most needs read.
 Reads second: Sync engine and Conflict screen build, which show what Integration waits for.
 Could miss: the arrow from Conflict screen design to its build, which would hide that the build waits for the design.

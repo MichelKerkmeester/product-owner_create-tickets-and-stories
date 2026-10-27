@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "er example"
   - "roamstay stays data model"
-version: 1.0.3.0
+version: 1.0.4.0
 ---
 
 # Example - ER - Roamstay Stays
@@ -129,7 +129,7 @@ Outcome: a reader can see the six stay tables, how they join and which tables si
 First glance: Booking, the table every other stay table joins.
 Second glance: the keys on Booking that tie it to the guest, the room and the rate plan.
 Last glance: Property, the partner table that offers rooms and rate plans.
-Sketch: the Section 4 model above, and the check printed PASSED for it.
+Sketch: the Section 4 model above in full, every `%%` and `style` line included, with the check's PASSED line as it printed.
 Eye first: Booking, the table every other stay table joins, and it is the node the board most needs read.
 Reads second: the keys on Booking that tie it to the guest, the room and the rate plan, which show what a booking needs.
 Could miss: Payment, which would hide that one booking can carry many payments.

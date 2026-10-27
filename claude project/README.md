@@ -8,7 +8,7 @@ Hand-maintained local package for the Product Owner claude.ai Project. The kerne
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- synthesized Project kernel v1.2.12 (routing authority, SKILL.md is not loaded in this Project)
+|-- Custom Instructions.md        <- synthesized Project kernel v1.2.13 (routing authority, SKILL.md is not loaded in this Project)
 |-- README.md                     <- upload manifest and hand-authored parity note
 |-- kernel-review.json            <- dated record of one kernel review, read by no tool
 |-- templates/                    <- Product Owner - Local - Push Targets.md, filled and uploaded per user, never shared
@@ -60,7 +60,7 @@ claude project/
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` v1.2.12 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.5.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
+`Custom Instructions.md` v1.2.13 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.5.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
 
 CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Block**, direct resource loading becomes Project Knowledge consultation, and the response reports an export-equivalent path. Refinements keep delivery metadata outside preserved content unless equivalent metadata already exists in the source.
 
@@ -215,5 +215,5 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 
 - Backlog artifacts remain WHAT/WHY focused. Docs may cover source-backed technical HOW, supplied implementation facts, architecture, APIs, schemas, debugging or operational procedures and clearly labelled technical proposals or recommendations. Never fabricate current facts, evidence, approval, authority or professional sign-off.
 - Project Knowledge may be retrieved as chunks, so the kernel repeats the routing, source-safety and delivery gates.
-- The Flow Board Composer file is 59,214 bytes and its code block is 47,612 characters on 156 lines, so retrieval may return it in chunks. The call takes at most 50,000 characters, which leaves about 2,406 for the model JSON and the `THEME` line written compact, and the largest shipped example model runs about 2,400. Whether claude.ai retrieval returns the code block whole is UNKNOWN until the live Project test runs, and the guide's whole-file test and the `generate_diagram` fallback cover a miss
+- The Flow Board Composer file is 59,242 bytes and its code block is 47,612 characters on 156 lines, so retrieval may return it in chunks. The call takes at most 50,000 characters, which leaves about 2,406 for the model JSON and the `THEME` line written compact, and the largest shipped example model runs about 2,400. Whether claude.ai retrieval returns the code block whole is UNKNOWN until the live Project test runs, and the guide's whole-file test and the `generate_diagram` fallback cover a miss
 - The local package is hand-maintained and the live claude.ai Project is manually uploaded, so local parity does not prove live deployment currency.

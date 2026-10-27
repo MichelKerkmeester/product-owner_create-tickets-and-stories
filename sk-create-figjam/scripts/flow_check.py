@@ -39,9 +39,15 @@ its own self-test. With node on the PATH the board is also composed in memory,
 and a label the composer would wrap one word alone onto its last line is
 reported, since a shorter label is the fix and a wider box is not. Without node,
 or when the trace fails, it prints one `Label: skipped` line instead.
+On a user flow or a process the same board prints a `Glance:` line, the order
+a reader meets its nodes, the accent first and then column by column along the
+flow, so the glance lines are planned from where the composer draws each node
+rather than from its path. A `Row:` line, never a failure, names a line between
+two main-row steps that bends off the row, with the node standing between them.
 With `--notes`, the same board names the first side of each noted node that
-holds a single sticky on a `Sides:` line, or says the node is boxed in, so the
-gate can offer pins with a legend or a recompose before any write.
+holds a single sticky on a `Sides:` line, with how it lines up with the node,
+or says the node is boxed in, so the gate can offer pins with a legend or a
+recompose before any write.
 
 Usage:
   flow_check.py <model.md|model.mmd>  -> 0 every diagram passes, 1 a rule fails, 2 unreadable
@@ -204,19 +210,24 @@ def composer_refusals(block: mermaid_extract.SourceBlock, number: int) -> list[s
     return problems if problems or model is not None else ["the composer built no board from this diagram"]
 
 
-def label_words(block: mermaid_extract.SourceBlock, number: int, notes: list[str] | None = None) -> list[str]:
-    """A line for each label this diagram would wrap one word alone onto, read off a board composed in memory.
+def board_lines(block: mermaid_extract.SourceBlock, number: int, notes: list[str] | None = None) -> list[str]:
+    """The lines a board composed in memory gives the model: its labels, its reading order, its row and its notes.
 
     The composer fits a label inside its shape and never widens the box for it, so one word can be left alone
     on a last line and the model is the only place to shorten it. A missing node or a failed trace prints one
     skipped line, so the model reads its labels by hand instead of reading silence as a pass. A model that will
-    not compose says nothing here, because the check reports it. Each id in `notes` also gets a `Sides:` line
-    from the same board, naming the side its single sticky takes or saying no side holds one.
+    not compose says nothing here, because the check reports it. A user flow or a process also gets a `Glance:`
+    line, the order a reader meets its nodes, and a `Row:` line for each line that bends off the main row.
+    Each id in `notes` also gets a `Sides:` line from the same board, naming the side its single sticky takes
+    and how it lines up, or saying no side holds one.
     """
+    flow = profile_of(block.text)[0] in (flowchart.USER_FLOW, flowchart.PROCESS)
     if not shutil.which("node"):
         skipped = ["Label: skipped, node is not on the PATH, so read each label for one word alone on its last line"]
-        return skipped + [f"Sides: skipped for {node}, node is not on the PATH, so offer pins with a legend"
-                          for node in notes or []]
+        glance = ["Glance: skipped, node is not on the PATH, so plan the main row in path order and the nodes off "
+                  "it last"] if flow else []
+        return skipped + glance + [f"Sides: skipped for {node}, node is not on the PATH, so offer pins with a legend"
+                                   for node in notes or []]
     # compose_board imports this module, so it is loaded here rather than at the top of the file.
     import compose_board
     from figjam_checks import design as board_design
@@ -233,17 +244,48 @@ def label_words(block: mermaid_extract.SourceBlock, number: int, notes: list[str
         # A node stack trace runs to many lines, and the skipped line keeps to one.
         first = str(error).splitlines()[0] if str(error).strip() else "no message"
         return ([f"Label: skipped, the trace failed ({first}), so read each label for one word alone on its last line"]
+                + (["Glance: skipped, the trace failed, so plan the main row in path order and the nodes off it last"]
+                   if flow else [])
                 + [f"Sides: skipped for {node}, the trace failed, so offer pins with a legend" for node in notes or []])
-    lines = [f"Label: {line}, so shorten it when a shorter label keeps the source's words"
+    lines = [f"Label: {line}, so shorten it, or reword it in the source's words, when that keeps the meaning"
              for line in geometry.orphan_words(drawn)]
-    for node, label, side in geometry.sticky_sides(drawn, notes or []):
+    if flow:
+        lines += glance_lines(model, drawn)
+    for node, label, side, align in geometry.sticky_sides(drawn, notes or []):
         if label is None:
             lines.append(f"Sides: {node} names no node: write the id of a node this diagram draws")
         elif side:
-            lines.append(f"Sides: {label} takes its sticky {side}")
+            lines.append(f"Sides: {label} takes its sticky {side}, {align}")
         else:
             lines.append(f"Sides: {label} is boxed in, no side holds a sticky, so offer pins with a legend "
                          "or a change to the model that frees a side before any write")
+    return lines
+
+
+def glance_lines(model: dict, drawn: dict) -> list[str]:
+    """The `Glance:` line of a flow's reading order, and a `Row:` line for each line that bends off its row.
+
+    The accent is marked as such and the goal too, since the glance lines split at the goal. A bend is advice,
+    never a failure: the board still reads, and the model is where it is mended.
+    """
+    nodes = {n["id"]: n for n in model["nodes"]}
+    name = {node_id: " ".join(n["label"].replace("<br>", " ").split()) or node_id for node_id, n in nodes.items()}
+    marks = {node_id: " (" + ", ".join(m for m, on in (("accent", n.get("accent")), ("goal", n["kind"] == "success"))
+                                       if on) + ")" if n.get("accent") or n["kind"] == "success" else ""
+             for node_id, n in nodes.items()}
+    lines = ["Glance: " + " > ".join(name[i] + marks[i] for i in geometry.reading_order(drawn, model))]
+    for start, end, between in geometry.row_breaks(drawn, model):
+        line = f"Row: the line from {name[start]} to {name[end]} bends off its row"
+        if between:
+            line += f" round {', '.join(name[i] for i in between)}"
+        moved = [i for i in between if model["zoneMode"] == "stage" and model["zones"]
+                 and nodes[i]["zone"] != nodes[end]["zone"]]
+        if moved:
+            line += (f", so move {', '.join(name[i] for i in moved)} into the zone {name[end]} sits in, "
+                     "where it shares that step's column")
+        else:
+            line += ", so name the break at the gate and offer a model that keeps the row straight"
+        lines.append(line)
     return lines
 
 
@@ -269,7 +311,7 @@ def check(path: Path, notes: list[str] | None = None) -> int:
         else:
             print(f"  {name}: ok, {size}")
             # A label the board would strand one word on is the model's to shorten, so it never fails here.
-            lines = label_words(block, number, notes)
+            lines = board_lines(block, number, notes)
             for line in lines:
                 print(line)
             # A notes id the board does not draw is a typo in the command, never a boxed-in node.
@@ -305,6 +347,7 @@ SHIPPED_MODELS = (
     + sorted(KNOWLEDGE.glob("Product Owner - Assets - Flow Templates - *.md"))
     + sorted(KNOWLEDGE.glob("Product Owner - Examples - Flow - *.md"))
 )
+CHECK_BLOCK = re.compile(r"^### Check\n\n```text\n(.*?)\n```", re.S | re.M)
 STYLE_GUIDE = PACKET / "references" / "style-guide.md"
 PALETTE_BLOCK = re.compile(r"<!-- FIGJAM_PALETTE:BEGIN -->(.*?)<!-- FIGJAM_PALETTE:END -->", re.S)
 PALETTE_ROW = re.compile(
@@ -362,7 +405,7 @@ def label_results() -> list[tuple[str, bool, str]]:
          "Label: Book a courier pickup leaves 'pickup' alone"),
         ("a label FigJam wraps narrower than the node measure is still reported",
          "flowchart LR\n    a([Email verified]) --> b([Editor with welcome tip])\n    style b fill:#CDF4D3\n",
-         "Label: Editor with welcome tip leaves 'tip' alone"),
+         "Label: Editor with welcome tip may leave 'tip' alone"),
         ("a model with short labels reports none",
          "flowchart LR\n    a([Order placed]) --> b[Send the parcel]\n    b --> c([Parcel sent])\n"
          "    style c fill:#CDF4D3\n",
@@ -391,6 +434,32 @@ def label_results() -> list[tuple[str, bool, str]]:
         code, output = run_quietly(path, ["c", "ghost"])
         results.append(("a notes id the board does not draw fails the check instead of reading as boxed in",
                         code == 1 and "Sides: ghost names no node" in output and "boxed in" not in output, output))
+        # A node off the path that takes a column of its own between two row steps is read between them, and
+        # the row line bends round it, until the node joins the next step's zone and its column.
+        zoned = ("flowchart LR\n    %% zone: Find: a, d, x{extra}\n    %% zone: Act: b{moved}, c\n    %% zone: Done: e\n"
+                 "    a([Order list]) --> d{{Within 30 days?}}\n    d -->|Yes| b[Start a return]\n"
+                 "    d -->|No| x([Contact support])\n    b --> c[Pick a reason]\n    c --> e([Return confirmed])\n"
+                 "    style d fill:#FFC2EC,stroke:#F849C1\n")
+        path.write_text(zoned.format(extra="", moved=", x").replace("a, d, x", "a, d"), encoding="utf-8")
+        code, moved = run_quietly(path)
+        path.write_text(zoned.format(extra="", moved=""), encoding="utf-8")
+        code_split, split = run_quietly(path)
+        glance = "Glance: Within 30 days? (accent) > Order list > Contact support > Start a return"
+        results.append(("a flow prints the order a reader meets it, and a node between two row steps is met there "
+                        "and named on a Row line", code_split == 0 and glance in split
+                        and "Row: the line from Within 30 days? to Start a return bends off its row round Contact "
+                        "support, so move Contact support into the zone Start a return sits in" in split, split))
+        results.append(("the same node in the next step's zone shares its column and leaves the row straight",
+                        code == 0 and "Glance: Within 30 days? (accent) > Order list > Start a return > Contact support"
+                        in moved and "Row:" not in moved, moved))
+        # A line that skips a step on its way to the next one bends on purpose, so it is never a broken row.
+        path.write_text("flowchart LR\n    %% zone: Sign in: o, q, g\n    %% zone: Shop: h, k, p\n"
+                        "    o([Open the app]) --> q{Logged in?}\n    q -->|No| g[Log in]\n    g --> h[Home screen]\n"
+                        "    q -->|Yes| h\n    h --> k[Cart]\n    k --> p([Paid])\n    style q fill:#FFC2EC,stroke:#F849C1\n",
+                        encoding="utf-8")
+        code, output = run_quietly(path)
+        results.append(("a line that skips a step on the row is no bent row", code == 0 and "Glance:" in output
+                        and "Row:" not in output, output))
         path.write_text("flowchart LR\n    %% goal: b\n    a([Start]) --> b[Pack it]\n    b --> c([Done])\n"
                         "    style b fill:#FFC2EC,stroke:#F849C1\n", encoding="utf-8")
         code, output = run_quietly(path)
@@ -419,12 +488,23 @@ def sides_boxed_result() -> tuple[str, bool, str]:
     pinned = geometry.sticky_sides({"nodes": [board, shape("node:upper", 1000, 1000), shape("node:lower", 1000, 1200),
                                               shape("node:under", 1000, 1350), shape("node:beside", 700, 1200)],
                                     "connectors": []}, ["upper", "lower"])
-    ok = (boxed == [("noted", "noted", None)] and freed == [("noted", "noted", "right")]
-          and stacked[0] == ("upper", "upper", "right") and stacked[1][2] in ("below", "left")
-          and pinned == [("upper", "upper", "above"), ("lower", "lower", "right")])
+    # An end dot past the node pushes the right-hand sticky out, and past one sticky's width it reads as the dot's.
+    def dotted(gap: int) -> list:
+        dot = {"id": "node:__end1", "name": "node:__end1", "type": "SHAPE_WITH_TEXT", "shape": "ELLIPSE",
+               "x": 1224 + gap, "y": 1032, "w": 32, "h": 32, "text": "", "parent": "Board"}
+        line = {"name": "edge:noted->__end1", "line": "STRAIGHT", "label": "", "start": {"endpointNodeId": "node:noted",
+                "magnet": "RIGHT"}, "end": {"endpointNodeId": "node:__end1", "magnet": "LEFT"}}
+        return geometry.sticky_sides({"nodes": [board, shape("node:noted", 1000, 1000), dot], "connectors": [line]},
+                                     ["noted"])
+    near, far = dotted(76), dotted(276)
+    ok = (boxed == [("noted", "noted", None, None)] and freed == [("noted", "noted", "right", "top aligned")]
+          and stacked[0] == ("upper", "upper", "right", "top aligned") and stacked[1][2] in ("below", "left")
+          and pinned == [("upper", "upper", "above", "left aligned"), ("lower", "lower", "right", "top aligned")]
+          and near[0][2] == "right" and far[0][2] not in ("right", None))
     return ("a node with a shape on every side is boxed in, a freed side takes the sticky, a placed sticky "
-            "takes its side from the next node and the sides are chosen so every noted node gets one", ok,
-            f"boxed {boxed}, freed {freed}, stacked {stacked}, pinned {pinned}")
+            "takes its side from the next node, the sides are chosen so every noted node gets one and no sticky "
+            "stands further than one sticky's width from its node", ok,
+            f"boxed {boxed}, freed {freed}, stacked {stacked}, pinned {pinned}, near {near}, far {far}")
 
 
 def run_quietly(path: Path, notes: list[str] | None = None) -> tuple[int, str]:
@@ -460,8 +540,17 @@ def self_test() -> int:
             results.append((f"{model.name} carries a Mermaid block", False, "no ```mermaid block in a shipped model"))
             continue
         code, output = run_quietly(model)
-        results.append((f"{model.relative_to(model.parents[1]) if PACKET in model.parents else model.name} passes",
-                        code == 0, output))
+        shown = f"{model.relative_to(model.parents[1]) if PACKET in model.parents else model.name}"
+        results.append((f"{shown} passes", code == 0, output))
+        # A worked example shows the check's output, so a model copying it learns what the check really prints.
+        printed = CHECK_BLOCK.search(model.read_text(encoding="utf-8"))
+        if PACKET in model.parents and model.parent.name == "examples":
+            # Every skill example shows its check, so a heading that drifts cannot drop it from this proof.
+            results.append((f"{shown} carries a Check block", printed is not None, "no `### Check` text block"))
+        if printed and shutil.which("node"):
+            wanted = output.replace(f"in {model.name}", "in model.md").rstrip("\n")
+            results.append((f"{shown} shows the output the check prints", printed.group(1) == wanted,
+                            f"shown:\n{printed.group(1)}\nprinted:\n{wanted}"))
     results += label_results()
     results += palette_results()
     skill_types = re.search(r'DIAGRAM_TYPES = \(([^)]*)\)', (PACKET / "SKILL.md").read_text(encoding="utf-8"))
