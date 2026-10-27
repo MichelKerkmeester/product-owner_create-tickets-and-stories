@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/041-figjam-rerun-findings",
+  "description": "Phase 41: figjam-rerun-findings",
+  "keywords": [
+    "phase",
+    "figjam-rerun-findings"
+  ],
+  "lastUpdated": "2026-10-26T23:50:00.000Z",
+  "specId": "041",
+  "folderSlug": "figjam-rerun-findings",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}
