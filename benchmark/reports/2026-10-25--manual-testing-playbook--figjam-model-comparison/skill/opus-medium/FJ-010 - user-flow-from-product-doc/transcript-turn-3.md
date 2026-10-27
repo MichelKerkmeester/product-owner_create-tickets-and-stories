@@ -67,7 +67,7 @@ flowchart LR
 - **Can anything be removed?** No. Each step is a screen the customer passes through.
 
 **The write**
-- **Plan:** <figma-plan-1> (`team::1297132374291579406`). Your seat there is Full on a Pro plan, so Figma's six-calls-a-month limit doesn't apply.
+- **Plan:** <figma-plan-1> (`team::<plan-id>`). Your seat there is Full on a Pro plan, so Figma's six-calls-a-month limit doesn't apply.
 - **File:** a new FigJam file called "Fernhouse returns", left in your drafts with no project. The file `<test-file-key>` is not touched.
 - **On the board:** one framed section with the title, subtitle, the 8 nodes and 7 arrows, a key and the source line. No pins or sticky notes are added.
 - **Figma calls:** 4. One creates the file, one opens a session, one draws the board and one reads it back to check it. The plan lookup has already run.

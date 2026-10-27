@@ -2,7 +2,7 @@
 
 The runners redact replies as they write them, but the raw event streams, the
 transcripts, the manifest and each scenario's meta carry the test file's key, board
-and asset links, plan names and the account id as the tools returned them. This pass
+and asset links, plan names, plan keys and the account id as the tools returned them. This pass
 covers every text file under the folder except the harness itself.
 
 Usage: RUN_REDACT_FILE=<names file> RUN_FILE_KEY=<key> [RUN_EXTRA_KEYS=<keys file>]
@@ -18,6 +18,8 @@ import sys
 
 URL = re.compile(r"https?://(?:www\.)?figma\.com/[^\s\"'<>)\]\\]+")
 USER_ID = re.compile(r'(\\*"user_id\\*":\s*\\*")\d+')
+# A plan key names the team or organization the account belongs to, so it is redacted like a plan name
+PLAN_KEY = re.compile(r"\b(team|organization)::\d+")
 
 
 def main(folder):
@@ -46,6 +48,7 @@ def main(folder):
             for n, name in order:
                 new = new.replace(name, f"<figma-plan-{n}>")
             new = USER_ID.sub(r"\g<1><user-id>", new)
+            new = PLAN_KEY.sub(r"\g<1>::<plan-id>", new)
             if new != text:
                 open(p, "w", encoding="utf-8").write(new)
                 changed += 1

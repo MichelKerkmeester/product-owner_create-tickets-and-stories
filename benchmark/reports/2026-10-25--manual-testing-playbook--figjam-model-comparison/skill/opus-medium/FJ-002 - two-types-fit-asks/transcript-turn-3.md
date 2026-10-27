@@ -47,7 +47,7 @@
 **Tool result:** `mcp__figma-remote__whoami`
 
 ```text
-"{\"whoami\":{\"user_id\":\"<redacted>\",\"handle\":\"<redacted>\",\"email\":\"<email>\",\"code_layers_enabled\":true,\"plans\":[{\"name\":\"<figma-plan-3>\",\"seat\":\"View\",\"tier\":\"starter\",\"key\":\"team::955111831884247158\",\"role\":\"admin\",\"specs_enabled\":true,\"code_layers_enabled\":true},{\"name\":\"<figma-plan-1>\",\"seat\":\"Full\",\"tier\":\"pro\",\"key\":\"team::1297132374291579406\",\"role\":\"admin\",\"specs_enabled\":false,\"code_layers_enabled\":true},{\"name\":\"<figma-plan-2>\",\"seat\":\"Full\",\"tier\":\"pro\",\"key\":\"team::1285583218246154085\",\"role\":\"member\",\"specs_enabled\":false,\"code_layers_enabled\":true}]},\"instructions\":\"For more details on rate limits and access, refer to https://developers.figma.com/docs/figma-mcp-server/rate-limits-access/\"}"
+"{\"whoami\":{\"user_id\":\"<redacted>\",\"handle\":\"<redacted>\",\"email\":\"<email>\",\"code_layers_enabled\":true,\"plans\":[{\"name\":\"<figma-plan-3>\",\"seat\":\"View\",\"tier\":\"starter\",\"key\":\"team::<plan-id>\",\"role\":\"admin\",\"specs_enabled\":true,\"code_layers_enabled\":true},{\"name\":\"<figma-plan-1>\",\"seat\":\"Full\",\"tier\":\"pro\",\"key\":\"team::<plan-id>\",\"role\":\"admin\",\"specs_enabled\":false,\"code_layers_enabled\":true},{\"name\":\"<figma-plan-2>\",\"seat\":\"Full\",\"tier\":\"pro\",\"key\":\"team::<plan-id>\",\"role\":\"member\",\"specs_enabled\":false,\"code_layers_enabled\":true}]},\"instructions\":\"For more details on rate limits and access, refer to https://developers.figma.com/docs/figma-mcp-server/rate-limits-access/\"}"
 ```
 
 **Tool call:** `mcp__figma-remote__get_figjam` `{"fileKey": "<test-file-key>", "nodeId": "0:1", "includeImagesOfNodes": false, "sessionId": "a7ab7ce5-e201-4942-a0a9-679723985599"}`
@@ -128,7 +128,7 @@ sequenceDiagram
 - It's a busy shared board with about 75 earlier boards. Two of them, "Block sync" and "Loomlist block sync", are system-overview diagrams from earlier sessions.
 - They show parts our sources never mention, such as an API gateway, file storage and a push worker. I'll leave them untouched.
 - The new boards are titled "1. Loomlist block sync, protocol v3" and "2. Loomlist edit made without a connection", so they won't replace either of those.
-- I don't know which plan owns this file, and I'll only state it if you tell me. If a new file turns out to be needed, it will go to **<figma-plan-1>** (`team::1297132374291579406`, Full seat) in drafts, with no project. That's the only Barter plan on your Figma account.
+- I don't know which plan owns this file, and I'll only state it if you tell me. If a new file turns out to be needed, it will go to **<figma-plan-1>** (`team::<plan-id>`, Full seat) in drafts, with no project. That's the only Barter plan on your Figma account.
 
 **What will be written:** two boards placed to the right of everything already on the page, read left to right. Each has a title, a subtitle, a key and a source line. Nothing else is added, and nothing already on the board is moved or deleted.
 

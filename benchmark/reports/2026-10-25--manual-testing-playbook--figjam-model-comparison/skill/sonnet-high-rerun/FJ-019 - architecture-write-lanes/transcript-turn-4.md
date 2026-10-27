@@ -2,7 +2,7 @@
 
 **User:** Yes, go ahead.
 
-**Tool call:** `mcp__figma-remote__create_new_file` `{"fileName": "Block sync", "planKey": "team::1297132374291579406", "editorType": "figjam"}`
+**Tool call:** `mcp__figma-remote__create_new_file` `{"fileName": "Block sync", "planKey": "team::<plan-id>", "editorType": "figjam"}`
 
 **Tool call:** `ToolSearch` `{"query": "select:ReadMcpResourceTool,mcp__figma-remote__get_screenshot", "max_results": 3}`
 

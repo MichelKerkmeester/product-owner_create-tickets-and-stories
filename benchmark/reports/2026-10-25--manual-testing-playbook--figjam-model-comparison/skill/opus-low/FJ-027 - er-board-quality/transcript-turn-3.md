@@ -18,7 +18,7 @@
 "COMPOSED diagram 1, 6 entities and 6 relationships: 6 nodes and 6 connectors to read back, 49052 characters in /tmp/fj027/code.js, drawn in the design FigJam default"
 ```
 
-**Tool call:** `mcp__figma-remote__create_new_file` `{"fileName": "Roamstay stays model", "planKey": "team::1297132374291579406", "editorType": "figjam"}`
+**Tool call:** `mcp__figma-remote__create_new_file` `{"fileName": "Roamstay stays model", "planKey": "team::<plan-id>", "editorType": "figjam"}`
 
 **Tool result:** `mcp__figma-remote__create_new_file`
 

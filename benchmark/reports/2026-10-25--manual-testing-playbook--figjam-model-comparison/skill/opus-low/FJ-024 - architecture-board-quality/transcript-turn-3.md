@@ -18,7 +18,7 @@
 "COMPOSED diagram 1, 9 nodes and 8 connectors, widest rank 3 steps, longest path 6 steps, 0.9 connectors per step, labels average 15 characters, 0 crossing pairs: 9 nodes and 8 connectors to read back, 49039 characters in /tmp/fj024/code.js, drawn in the design FigJam default\nexit 0\n   49039 /tmp/fj024/code.js"
 ```
 
-**Tool call:** `mcp__figma-remote__create_new_file` `{"fileName": "Loomlist block sync, services", "planKey": "team::1297132374291579406", "editorType": "figjam"}`
+**Tool call:** `mcp__figma-remote__create_new_file` `{"fileName": "Loomlist block sync, services", "planKey": "team::<plan-id>", "editorType": "figjam"}`
 
 **Tool call:** `ToolSearch` `{"query": "select:ReadMcpResourceTool", "max_results": 1}`
 

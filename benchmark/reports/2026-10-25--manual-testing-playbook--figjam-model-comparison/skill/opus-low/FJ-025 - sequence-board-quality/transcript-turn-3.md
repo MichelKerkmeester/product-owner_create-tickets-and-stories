@@ -34,7 +34,7 @@
 "  diagram 1, sequence: ok, 4 participants and 7 messages\n  diagram 2, sequence: ok, 3 participants and 6 messages\nPASSED 2 diagram(s) in model.md\nCOMPOSED diagram 1, 4 participants and 7 messages: 4 nodes and 7 connectors to read back, 48172 characters in /tmp/fj025/d1.js, drawn in the design FigJam default\nCOMPOSED diagram 2, 3 participants and 6 messages: 3 nodes and 6 connectors to read back, 48102 characters in /tmp/fj025/d2.js, drawn in the design FigJam default\n   48172 /tmp/fj025/d1.js\n   48102 /tmp/fj025/d2.js\n   96274 total"
 ```
 
-**Tool call:** `mcp__figma-remote__create_new_file` `{"editorType": "figjam", "fileName": "Roamstay checkout payment", "planKey": "team::1297132374291579406"}`
+**Tool call:** `mcp__figma-remote__create_new_file` `{"editorType": "figjam", "fileName": "Roamstay checkout payment", "planKey": "team::<plan-id>"}`
 
 **Tool result:** `mcp__figma-remote__create_new_file`
 

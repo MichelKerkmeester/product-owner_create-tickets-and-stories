@@ -23,7 +23,7 @@
 **Tool result:** `mcp__figma-remote__whoami`
 
 ```text
-"{\"whoami\":{\"user_id\":\"<redacted>\",\"handle\":\"<redacted>\",\"email\":\"<email>\",\"code_layers_enabled\":true,\"plans\":[{\"name\":\"<figma-plan-3>\",\"seat\":\"View\",\"tier\":\"starter\",\"key\":\"team::955111831884247158\",\"role\":\"admin\",\"specs_enabled\":true,\"code_layers_enabled\":true},{\"name\":\"<figma-plan-1>\",\"seat\":\"Full\",\"tier\":\"pro\",\"key\":\"team::1297132374291579406\",\"role\":\"admin\",\"specs_enabled\":false,\"code_layers_enabled\":true},{\"name\":\"<figma-plan-2>\",\"seat\":\"Full\",\"tier\":\"pro\",\"key\":\"team::1285583218246154085\",\"role\":\"member\",\"specs_enabled\":false,\"code_layers_enabled\":true}]},\"instructions\":\"For more details on rate limits and access, refer to https://developers.figma.com/docs/figma-mcp-server/rate-limits-access/\"}"
+"{\"whoami\":{\"user_id\":\"<redacted>\",\"handle\":\"<redacted>\",\"email\":\"<email>\",\"code_layers_enabled\":true,\"plans\":[{\"name\":\"<figma-plan-3>\",\"seat\":\"View\",\"tier\":\"starter\",\"key\":\"team::<plan-id>\",\"role\":\"admin\",\"specs_enabled\":true,\"code_layers_enabled\":true},{\"name\":\"<figma-plan-1>\",\"seat\":\"Full\",\"tier\":\"pro\",\"key\":\"team::<plan-id>\",\"role\":\"admin\",\"specs_enabled\":false,\"code_layers_enabled\":true},{\"name\":\"<figma-plan-2>\",\"seat\":\"Full\",\"tier\":\"pro\",\"key\":\"team::<plan-id>\",\"role\":\"member\",\"specs_enabled\":false,\"code_layers_enabled\":true}]},\"instructions\":\"For more details on rate limits and access, refer to https://developers.figma.com/docs/figma-mcp-server/rate-limits-access/\"}"
 ```
 
 **Tool call:** `Bash` `{"command": "D=/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/tmp.90Qf6PBYgV; cd $D; sed -i '' 's/^flowchart LR$/%% focus: sync\\\nflowchart LR/' model.md; cat model.md; cd /private/var/folders/3c/zfqcqsts0kn19cgblj82gqhm0000gn/T/devin-compare-bench/FJR-003; python3 sk-create-figjam/scripts/flow_check.py $D/model.md && python3 sk-create-figjam/scripts/compose_board.py $D/model.md --diagram 1 --out $D/code.js; echo \"exit $?\"; wc -c $D/code.js", "description": "Add focus line, check and compose the board code"}`
@@ -46,7 +46,7 @@ Reading confirmed. This is the write gate, and nothing has been written yet.
 - Last: Block storage and the source line, which name the two assumed parts and what was left out
 
 **The write**
-- Plan: <figma-plan-1> (`team::1297132374291579406`), where you have a Full seat on Pro. It goes to your drafts, with no project
+- Plan: <figma-plan-1> (`team::<plan-id>`), where you have a Full seat on Pro. It goes to your drafts, with no project
 - File: a new FigJam file named "Loomlist block sync on protocol v3", not `<test-file-key>`
 - Board: one framed architecture with 6 nodes and 5 connectors across four lanes: Clients, Edge, Services and Stores. It has a title, subtitle, key and source line, and the source line names Entry point as assumed and Options A, B and C as left out. It passed the pre-write check and the composer, at 48,513 of the 50,000 characters one call allows
 - Extensions: none

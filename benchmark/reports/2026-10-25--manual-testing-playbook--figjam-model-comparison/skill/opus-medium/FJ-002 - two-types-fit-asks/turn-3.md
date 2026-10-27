@@ -38,7 +38,7 @@ sequenceDiagram
 - It's a busy shared board with about 75 earlier boards. Two of them, "Block sync" and "Loomlist block sync", are system-overview diagrams from earlier sessions.
 - They show parts our sources never mention, such as an API gateway, file storage and a push worker. I'll leave them untouched.
 - The new boards are titled "1. Loomlist block sync, protocol v3" and "2. Loomlist edit made without a connection", so they won't replace either of those.
-- I don't know which plan owns this file, and I'll only state it if you tell me. If a new file turns out to be needed, it will go to **<figma-plan-1>** (`team::1297132374291579406`, Full seat) in drafts, with no project. That's the only Barter plan on your Figma account.
+- I don't know which plan owns this file, and I'll only state it if you tell me. If a new file turns out to be needed, it will go to **<figma-plan-1>** (`team::<plan-id>`, Full seat) in drafts, with no project. That's the only Barter plan on your Figma account.
 
 **What will be written:** two boards placed to the right of everything already on the page, read left to right. Each has a title, a subtitle, a key and a source line. Nothing else is added, and nothing already on the board is moved or deleted.
 

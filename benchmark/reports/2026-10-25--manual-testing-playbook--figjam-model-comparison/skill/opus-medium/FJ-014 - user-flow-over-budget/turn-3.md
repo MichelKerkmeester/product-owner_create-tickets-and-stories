@@ -33,7 +33,7 @@ flowchart LR
 - **Labels:** all placeholders, as you agreed.
 
 **Where it goes:**
-- **Plan:** <figma-plan-1> (`team::1297132374291579406`), Pro plan with a Full seat, so the six-calls-a-month limit doesn't apply. I already used one call (`whoami`) to look up this plan.
+- **Plan:** <figma-plan-1> (`team::<plan-id>`), Pro plan with a Full seat, so the six-calls-a-month limit doesn't apply. I already used one call (`whoami`) to look up this plan.
 - **File:** a new FigJam file named "Find a product and check out", left in drafts with no project. I won't write to `<test-file-key>`, because Flow Mode only writes to a new file or a board this work already wrote.
 - **Extensions:** none.
 

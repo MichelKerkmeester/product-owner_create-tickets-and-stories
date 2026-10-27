@@ -972,7 +972,7 @@ Output from command in shell eb9d30:
               "type": "string",
               "minLength": 1,
               "pattern": "^(team|organization)::\\d+$",
-              "description": "The team or organization key (e.g. \"team::1234567890\" or \"organization::1234567890\"). Use the `key` field verbatim from one of the user's plans. If the user has more than one plan, ask which one to use before calling. If the user is authenticated, you MUST provide this parameter. If the user already provided a planKey, use it directly. Otherwise, call the whoami tool first to get the list of plans. If the user has one plan, use its \"key\" field. If multiple, ask the user which team or organization to use."
+              "description": "The team or organization key (e.g. \"team::<plan-id>\" or \"organization::<plan-id>\"). Use the `key` field verbatim from one of the user's plans. If the user has more than one plan, ask which one to use before calling. If the user is authenticated, you MUST provide this parameter. If the user already provided a planKey, use it directly. Otherwise, call the whoami tool first to get the list of plans. If the user has one plan, use its \"key\" field. If multiple, ask the user which team or organization to use."
             },
             "useArchitectureLayoutCode": {
               "description": "Optional. To generate a diagram using the software architecture layout, pass the code from the architecture-diagram-instructions resource. Omit this parameter for standard diagrams.",
@@ -1014,7 +1014,7 @@ Available tools on server `figma`:
 **Tool result:** `mcp_call_tool`
 
 ```text
-{"whoami":{"user_id":"<redacted>","handle":"<redacted>","email":"<email>","code_layers_enabled":true,"plans":[{"name":"<figma-plan-3>","seat":"View","tier":"starter","key":"team::955111831884247158","role":"admin","specs_enabled":true,"code_layers_enabled":true},{"name":"<figma-plan-1>","seat":"Full","tier":"pro","key":"team::1297132374291579406","role":"admin","specs_enabled":false,"code_layers_enabled":true},{"name":"<figma-plan-2>","seat":"Full","tier":"pro","key":"team::1285583218246154085","role":"member","specs_enabled":false,"code_layers_enabled":true}]},"instructions":"For more details on rate limits and access, refer to https://developers.figma.com/docs/figma-mcp-server/rate-limits-access/"}
+{"whoami":{"user_id":"<redacted>","handle":"<redacted>","email":"<email>","code_layers_enabled":true,"plans":[{"name":"<figma-plan-3>","seat":"View","tier":"starter","key":"team::<plan-id>","role":"admin","specs_enabled":true,"code_layers_enabled":true},{"name":"<figma-plan-1>","seat":"Full","tier":"pro","key":"team::<plan-id>","role":"admin","specs_enabled":false,"code_layers_enabled":true},{"name":"<figma-plan-2>","seat":"Full","tier":"pro","key":"team::<plan-id>","role":"member","specs_enabled":false,"code_layers_enabled":true}]},"instructions":"For more details on rate limits and access, refer to https://developers.figma.com/docs/figma-mcp-server/rate-limits-access/"}
 ```
 
 **Assistant:**

@@ -15,7 +15,7 @@ I'll take that as <figma-plan-1>, the plan I recommended. Your yes picked the pl
 - **Last:** the opening steps (post booking, hold room, authorise card)
 
 **What gets written**
-- **Plan:** <figma-plan-1> (`team::1297132374291579406`)
+- **Plan:** <figma-plan-1> (`team::<plan-id>`)
 - **File:** a new FigJam board, created by this write, titled **"Roamstay checkout payment"**. File `<test-file-key>` isn't touched
 - **Contents:** one sequence diagram with four participants (Guest app, Booking API, Payment provider, Partner hub), the eight steps you confirmed, and the authorised/declined split with its two branches labelled
 - **Extras:** none, so no sticky notes, pins or legend

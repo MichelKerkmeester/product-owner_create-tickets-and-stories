@@ -28,7 +28,7 @@ stateDiagram-v2
 **First glance:** Cancelled, marked with the pink outline.
 **Second glance:** the two notes, one beside Cancelled and one beside No-show, with the light gray end states around them.
 **Last glance:** Pending, where every booking starts.
-**Plan:** <figma-plan-1>, a Pro team plan where you hold a Full seat (`team::1297132374291579406`). Your account has no plan named "Roamstay Product" or "Barter team", and <figma-plan-1> is the only Barter plan on it. The other two are "<figma-plan-3>" and "<figma-plan-2>".
+**Plan:** <figma-plan-1>, a Pro team plan where you hold a Full seat (`team::<plan-id>`). Your account has no plan named "Roamstay Product" or "Barter team", and <figma-plan-1> is the only Barter plan on it. The other two are "<figma-plan-3>" and "<figma-plan-2>".
 **File:** a new FigJam file named "Booking status", created in your drafts in that plan, with no project.
 **Writes:** one composed board with a title, a subtitle, a key and a source line, at the Laptop reading distance. It draws 7 states and 12 transitions, with Confirmed as a section around Upcoming and In stay.
 **Extensions:** two single stickies added after the board lands, one beside Cancelled reading "Set by the guest" and one beside No-show reading "Set by the hotel".

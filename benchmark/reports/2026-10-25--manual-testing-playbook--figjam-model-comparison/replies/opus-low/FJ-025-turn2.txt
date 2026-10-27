@@ -9,7 +9,7 @@ The model passed the check: two sequence diagrams on one board. The approved and
 - **Next:** the provider's answer. "Authorised" leads to confirming the hold and 201. "Declined" leads to releasing the hold and 402.
 - **Last:** "Tell the partner hub", which happens on the approved path only.
 
-**Plan:** <figma-plan-1> (`team::1297132374291579406`).
+**Plan:** <figma-plan-1> (`team::<plan-id>`).
 
 **File:** a new FigJam file named "Roamstay checkout payment", created in that plan. It stays in drafts with no project. File `<test-file-key>` isn't touched.
 

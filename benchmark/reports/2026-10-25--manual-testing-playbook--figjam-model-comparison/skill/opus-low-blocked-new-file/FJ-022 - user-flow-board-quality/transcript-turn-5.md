@@ -2,7 +2,7 @@
 
 **User:** Yes, go ahead.
 
-**Tool call:** `mcp__figma-remote__generate_diagram` `{"name": "Start a return", "planKey": "team::1297132374291579406", "userIntent": "Show how a Fernhouse customer starts a return in the app, from the order list to the QR confirmation, including the 30-day cut-off", "mermaidSyntax": "flowchart LR\n    orders([\"Order list\"]) --> detail[\"Order detail\"]\n    detail --> window{\"Within 30 days of delivery?\"}\n    window -->|\"Yes\"| start[\"Start a return\"]\n    window -->|\"No\"| support([\"Contact support\"])\n    start --> reason[\"Pick a return reason\"]\n    reason --> method{\"Drop-off or pickup?\"}\n    method -->|\"Drop-off point\"| q`
+**Tool call:** `mcp__figma-remote__generate_diagram` `{"name": "Start a return", "planKey": "team::<plan-id>", "userIntent": "Show how a Fernhouse customer starts a return in the app, from the order list to the QR confirmation, including the 30-day cut-off", "mermaidSyntax": "flowchart LR\n    orders([\"Order list\"]) --> detail[\"Order detail\"]\n    detail --> window{\"Within 30 days of delivery?\"}\n    window -->|\"Yes\"| start[\"Start a return\"]\n    window -->|\"No\"| support([\"Contact support\"])\n    start --> reason[\"Pick a return reason\"]\n    reason --> method{\"Drop-off or pickup?\"}\n    method -->|\"Drop-off point\"| q`
 
 **Tool result:** `mcp__figma-remote__generate_diagram`
 

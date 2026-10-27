@@ -7,7 +7,7 @@ trigger_phrases:
   - "$figjam"
   - "figjam flow"
   - "figjam diagram"
-version: 1.0.9.0
+version: 1.0.10.0
 ---
 
 # sk-create-figjam
@@ -26,7 +26,7 @@ It draws seven types, each answering one reader question: a user flow, a laned p
 
 ## 2. GALLERY
 
-Real boards this packet composed on a fictional test file and rendered through the Figma REST API. Each type board and the dense flow is the best board of its type that Claude Sonnet 5.5 high drew in the shipped design file, with the v1.0.6.0 composer on 2026-10-26 or, for the process and state boards, the v1.0.7.0 and v1.0.8.0 skill on 2026-10-27. They show the outlines that keep kinds apart in greyscale, and the user flow, process, architecture, state and gantt keys carry the `Leads to` entry. Only the existing-board image is older. [`assets/screenshots/README.md`](assets/screenshots/README.md) names the playbook scenario, the model and the scorecard result behind each one.
+Real boards this packet composed on a fictional test file and rendered through the Figma REST API. Each type board and the dense flow is the best board of its type that Claude Sonnet 5.5 high drew in the shipped design file, with the v1.0.6.0 composer on 2026-10-26 or, for the process board, the v1.0.7.0 skill and, for the state board, the v1.0.11.0 skill on 2026-10-27. They show the outlines that keep kinds apart in greyscale, and the user flow, process, architecture, state and gantt keys carry the `Leads to` entry. Only the existing-board image is older. [`assets/screenshots/README.md`](assets/screenshots/README.md) names the playbook scenario, the model and the scorecard result behind each one.
 
 **User flow.** The pink outline on the green Confirmation with QR code goal is the first glance. Three zones run left to right, Find the order, Request the return and Done. Each decision is a yellow diamond with labelled exits, the dashed orange Contact support pill shows where the flow leaves and Drop-off point and Courier pickup reach the goal from two sides.
 
@@ -44,9 +44,9 @@ Real boards this packet composed on a fictional test file and rendered through t
 
 ![A sequence board for a checkout payment with seven numbered steps](assets/screenshots/sequence-board.png)
 
-**State.** Pending is the blue first state, and card authorised moves it into Confirmed, a composite zone that runs from Upcoming through check in to In stay. Completed, No-show and Cancelled are gray final states in one column, each with its end dot, and no transition crosses another. Cancelled carries the pink outline as the end state two statuses lead to, with its own key entry. The run that drew it fails on Composition alone: a reader takes Upcoming and In stay inside Confirmed before Cancelled, where the state rule plans them last.
+**State.** Pending is the blue first state, and card authorised moves it into Confirmed, a composite zone that runs from Upcoming through check in to In stay. Completed, No-show and Cancelled are gray final states in one column, each with its end dot, and no transition crosses another. Cancelled carries the pink outline as the end state two statuses lead to, with its own key entry. The run that drew it passes at 22 of 22: its plan follows the board as drawn, and Cancelled leads the end states for both readers.
 
-![A state board for a booking status with a composite Confirmed state and three final states](assets/screenshots/state-board.png)
+![Roamstay booking status state diagram with a Confirmed composite and pink Cancelled end](assets/screenshots/state-board.png)
 
 **ER.** A Guest side zone and a Partner side zone keep the two halves apart. Each entity lists its PK and FK columns. Each line names the relationship with its cardinality and carries the matching crow's-foot mark at both ends. Booking carries the pink outline. The board shows key columns only, because the run had no schema note.
 

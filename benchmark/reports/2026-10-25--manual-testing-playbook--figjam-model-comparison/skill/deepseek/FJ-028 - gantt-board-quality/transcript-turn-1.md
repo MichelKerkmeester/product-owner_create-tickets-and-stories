@@ -712,7 +712,7 @@ weave_run_tool | ['recipeId', 'version', 'inputs', 'numberOfRuns', 'a
 **Tool result:** `mcp_call_tool`
 
 ```text
-{"whoami":{"user_id":"<redacted>","handle":"<redacted>","email":"<email>","code_layers_enabled":true,"plans":[{"name":"<figma-plan-3>","seat":"View","tier":"starter","key":"team::955111831884247158","role":"admin","specs_enabled":true,"code_layers_enabled":true},{"name":"<figma-plan-1>","seat":"Full","tier":"pro","key":"team::1297132374291579406","role":"admin","specs_enabled":false,"code_layers_enabled":true},{"name":"<figma-plan-2>","seat":"Full","tier":"pro","key":"team::1285583218246154085","role":"member","specs_enabled":false,"code_layers_enabled":true}]},"instructions":"For more details on rate limits and access, refer to https://developers.figma.com/docs/figma-mcp-server/rate-limits-access/"}
+{"whoami":{"user_id":"<redacted>","handle":"<redacted>","email":"<email>","code_layers_enabled":true,"plans":[{"name":"<figma-plan-3>","seat":"View","tier":"starter","key":"team::<plan-id>","role":"admin","specs_enabled":true,"code_layers_enabled":true},{"name":"<figma-plan-1>","seat":"Full","tier":"pro","key":"team::<plan-id>","role":"admin","specs_enabled":false,"code_layers_enabled":true},{"name":"<figma-plan-2>","seat":"Full","tier":"pro","key":"team::<plan-id>","role":"member","specs_enabled":false,"code_layers_enabled":true}]},"instructions":"For more details on rate limits and access, refer to https://developers.figma.com/docs/figma-mcp-server/rate-limits-access/"}
 ```
 
 **Tool call:** `mcp_call_tool` `{"server_name": "figma", "tool_name": "create_session", "arguments": {"description": "Draw the Loomlist offline mode launch plan as a FigJam gantt chart in a new board section", "fileKey": "<test-file-key>"}}`

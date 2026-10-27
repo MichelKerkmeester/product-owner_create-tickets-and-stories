@@ -1,0 +1,7 @@
+<figma-url>
+Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled, first glance: Pending
+Left out: the notes on Cancelled and No-show, because Cancelled has no free side for a sticky
+Left out: a Pending booking whose card is never authorised, and any cancel by the hotel or the system, because your message doesn't cover them
+Finding: the Cancelled sticky has no place. Its right side is crossed by the guest-cancels connector at y 1112, with the key below it from y 1296. Its left side has the Pending connector running into it, and there is no room above or below. I wrote no notes. The No-show sticky would fit, but one note on a two-note request leaves the board half done. Reply "pins" to get two numbered pins on Cancelled and No-show, with a two-sticky legend in a column to the right of the diagram (recommended, since it leaves the layout alone). Reply "recompose" to redraw with more room, which makes a second board and deletes this one only on your second yes.
+Finding: "check in" on the Upcoming to In stay move and the `[from In stay]` guard on check-out are my readings. Your message names the states but not that trigger.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

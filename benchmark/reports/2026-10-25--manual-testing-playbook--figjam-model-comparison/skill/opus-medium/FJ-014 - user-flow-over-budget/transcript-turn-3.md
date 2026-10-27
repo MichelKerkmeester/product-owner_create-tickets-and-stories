@@ -31,7 +31,7 @@
 **Tool result:** `mcp__figma-remote__whoami`
 
 ```text
-"{\"whoami\":{\"user_id\":\"<redacted>\",\"handle\":\"<redacted>\",\"email\":\"<email>\",\"code_layers_enabled\":true,\"plans\":[{\"name\":\"<figma-plan-3>\",\"seat\":\"View\",\"tier\":\"starter\",\"key\":\"team::955111831884247158\",\"role\":\"admin\",\"specs_enabled\":true,\"code_layers_enabled\":true},{\"name\":\"<figma-plan-1>\",\"seat\":\"Full\",\"tier\":\"pro\",\"key\":\"team::1297132374291579406\",\"role\":\"admin\",\"specs_enabled\":false,\"code_layers_enabled\":true},{\"name\":\"<figma-plan-2>\",\"seat\":\"Full\",\"tier\":\"pro\",\"key\":\"team::1285583218246154085\",\"role\":\"member\",\"specs_enabled\":false,\"code_layers_enabled\":true}]},\"instructions\":\"For more details on rate limits and access, refer to https://developers.figma.com/docs/figma-mcp-server/rate-limits-access/\"}"
+"{\"whoami\":{\"user_id\":\"<redacted>\",\"handle\":\"<redacted>\",\"email\":\"<email>\",\"code_layers_enabled\":true,\"plans\":[{\"name\":\"<figma-plan-3>\",\"seat\":\"View\",\"tier\":\"starter\",\"key\":\"team::<plan-id>\",\"role\":\"admin\",\"specs_enabled\":true,\"code_layers_enabled\":true},{\"name\":\"<figma-plan-1>\",\"seat\":\"Full\",\"tier\":\"pro\",\"key\":\"team::<plan-id>\",\"role\":\"admin\",\"specs_enabled\":false,\"code_layers_enabled\":true},{\"name\":\"<figma-plan-2>\",\"seat\":\"Full\",\"tier\":\"pro\",\"key\":\"team::<plan-id>\",\"role\":\"member\",\"specs_enabled\":false,\"code_layers_enabled\":true}]},\"instructions\":\"For more details on rate limits and access, refer to https://developers.figma.com/docs/figma-mcp-server/rate-limits-access/\"}"
 ```
 
 **Tool call:** `Bash` `{"command": "D=$(mktemp -d) && cat > \"$D/model.md\" <<'EOF'\n```mermaid\nflowchart LR\n    %% title: 1. Find a product\n    start([Open app]) --> home[Home]\n    home --> search[Search]\n    search --> results[Results]\n    results --> detail[Detail]\n    detail --> toCheckout([Go to checkout])\n    style toCheckout fill:#CDF4D3,stroke:#66D575\n```\n\n```mermaid\nflowchart LR\n    %% title: 2. Check out\n    fromDetail([Go to checkout]) --> cart[Cart]\n    cart --> address[Address]\n    address --> payment[Payment]\n    payment --> review[Review order]\n    review --> done([Order placed])\n  `
@@ -79,7 +79,7 @@ flowchart LR
 - **Labels:** all placeholders, as you agreed.
 
 **Where it goes:**
-- **Plan:** <figma-plan-1> (`team::1297132374291579406`), Pro plan with a Full seat, so the six-calls-a-month limit doesn't apply. I already used one call (`whoami`) to look up this plan.
+- **Plan:** <figma-plan-1> (`team::<plan-id>`), Pro plan with a Full seat, so the six-calls-a-month limit doesn't apply. I already used one call (`whoami`) to look up this plan.
 - **File:** a new FigJam file named "Find a product and check out", left in drafts with no project. I won't write to `<test-file-key>`, because Flow Mode only writes to a new file or a board this work already wrote.
 - **Extensions:** none.
 

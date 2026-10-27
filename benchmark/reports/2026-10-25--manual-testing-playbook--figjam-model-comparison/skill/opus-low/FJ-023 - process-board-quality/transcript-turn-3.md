@@ -14,7 +14,7 @@
 
 Creating the new FigJam file in <figma-plan-1> drafts.
 
-**Tool call:** `mcp__figma-remote__create_new_file` `{"fileName": "Fernhouse damaged-item refund", "planKey": "team::1297132374291579406", "editorType": "figjam"}`
+**Tool call:** `mcp__figma-remote__create_new_file` `{"fileName": "Fernhouse damaged-item refund", "planKey": "team::<plan-id>", "editorType": "figjam"}`
 
 **Tool result:** `mcp__figma-remote__create_new_file`
 

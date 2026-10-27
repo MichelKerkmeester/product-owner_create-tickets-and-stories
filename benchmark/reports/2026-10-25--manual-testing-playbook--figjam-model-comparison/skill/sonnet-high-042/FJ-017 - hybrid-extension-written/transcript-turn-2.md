@@ -39,7 +39,7 @@
 **Tool result:** `mcp__figma-remote__whoami`
 
 ```text
-"{\"whoami\":{\"user_id\":\"<redacted>\",\"handle\":\"<redacted>\",\"email\":\"<email>\",\"code_layers_enabled\":true,\"plans\":[{\"name\":\"<figma-plan-3>\",\"seat\":\"View\",\"tier\":\"starter\",\"key\":\"team::955111831884247158\",\"role\":\"admin\",\"specs_enabled\":true,\"code_layers_enabled\":true},{\"name\":\"<figma-plan-1>\",\"seat\":\"Full\",\"tier\":\"pro\",\"key\":\"team::1297132374291579406\",\"role\":\"admin\",\"specs_enabled\":false,\"code_layers_enabled\":true},{\"name\":\"<figma-plan-2>\",\"seat\":\"Full\",\"tier\":\"pro\",\"key\":\"team::1285583218246154085\",\"role\":\"member\",\"specs_enabled\":false,\"code_layers_enabled\":true}]},\"instructions\":\"For more details on rate limits and access, refer to https://developers.figma.com/docs/figma-mcp-server/rate-limits-access/\"}"
+"{\"whoami\":{\"user_id\":\"<redacted>\",\"handle\":\"<redacted>\",\"email\":\"<email>\",\"code_layers_enabled\":true,\"plans\":[{\"name\":\"<figma-plan-3>\",\"seat\":\"View\",\"tier\":\"starter\",\"key\":\"team::<plan-id>\",\"role\":\"admin\",\"specs_enabled\":true,\"code_layers_enabled\":true},{\"name\":\"<figma-plan-1>\",\"seat\":\"Full\",\"tier\":\"pro\",\"key\":\"team::<plan-id>\",\"role\":\"admin\",\"specs_enabled\":false,\"code_layers_enabled\":true},{\"name\":\"<figma-plan-2>\",\"seat\":\"Full\",\"tier\":\"pro\",\"key\":\"team::<plan-id>\",\"role\":\"member\",\"specs_enabled\":false,\"code_layers_enabled\":true}]},\"instructions\":\"For more details on rate limits and access, refer to https://developers.figma.com/docs/figma-mcp-server/rate-limits-access/\"}"
 ```
 
 **Assistant:**
@@ -51,7 +51,7 @@ Everything passed the pre-write check. This is the gate.
 **First glance:** Cancelled, the final state with the pink outline. You named it, and it is where a reader looks first.
 **Second glance:** Pending, the light blue first state. Next come No-show and Completed, the other final states in light gray with heavy outlines, then the two notes.
 **Last glance:** Upcoming and In stay, the states inside Confirmed, whose section reads as part of the frame.
-**Plan:** <figma-plan-1> (`team::1297132374291579406`). The account has no plan named Roamstay Product, so I'm reading your Barter team plan as this one. The other two plans are your personal Starter plan and <figma-plan-2>
+**Plan:** <figma-plan-1> (`team::<plan-id>`). The account has no plan named Roamstay Product, so I'm reading your Barter team plan as this one. The other two plans are your personal Starter plan and <figma-plan-2>
 **File:** a new FigJam file named "Booking status", created in your drafts with no project.
 **Writes:** one composed board with 7 states and 12 transitions, a title, a key and a source line, at the Laptop reading distance.
 **Extensions:** 2 single stickies, each placed beside its state and 64 pixels clear of it:

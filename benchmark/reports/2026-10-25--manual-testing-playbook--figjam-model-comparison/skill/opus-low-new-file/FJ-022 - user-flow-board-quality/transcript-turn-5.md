@@ -10,7 +10,7 @@
 [{"type": "tool_reference", "tool_name": "mcp__figma-remote__create_new_file"}, {"type": "tool_reference", "tool_name": "mcp__figma-remote__create_session"}, {"type": "tool_reference", "tool_name": "mcp__figma-remote__use_figma"}, {"type": "tool_reference", "tool_name": "mcp__figma-remote__get_figjam"}]
 ```
 
-**Tool call:** `mcp__figma-remote__create_new_file` `{"fileName": "Fernhouse - Start a return", "planKey": "team::1297132374291579406", "editorType": "figjam"}`
+**Tool call:** `mcp__figma-remote__create_new_file` `{"fileName": "Fernhouse - Start a return", "planKey": "team::<plan-id>", "editorType": "figjam"}`
 
 **Tool result:** `mcp__figma-remote__create_new_file`
 

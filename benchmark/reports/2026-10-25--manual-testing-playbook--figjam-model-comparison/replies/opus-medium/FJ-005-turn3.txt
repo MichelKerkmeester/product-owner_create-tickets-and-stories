@@ -21,7 +21,7 @@ sequenceDiagram
 ```
 
 **Target: a new FigJam file named "Booking request test"**
-- It goes in the **<figma-plan-1>** plan (`team::1297132374291579406`), where you have a Full seat on Pro. It stays in drafts, with no project.
+- It goes in the **<figma-plan-1>** plan (`team::<plan-id>`), where you have a Full seat on Pro. It stays in drafts, with no project.
 - I won't write into `<test-file-key>`. Flow Mode only writes into a new file or a board this work already drew, and that file wasn't drawn by this work. That makes your stated fallback the target.
 
 **What gets written**

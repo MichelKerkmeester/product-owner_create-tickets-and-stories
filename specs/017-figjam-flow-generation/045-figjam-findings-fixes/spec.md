@@ -37,7 +37,7 @@ contextType: "implementation"
 
 This is **Phase 45** of the Product Owner FigJam flow generation upgrade specification.
 
-**Scope Boundary**: the findings and critic gaps of the v1.0.10.0 rerun in `sk-create-figjam`, its examples, the playbook and the Claude Project mirror. No board is read or written and no scenario is rerun.
+**Scope Boundary**: the findings and critic gaps of the v1.0.10.0 rerun in `sk-create-figjam`, its examples, the playbook and the Claude Project mirror, then a rerun of the four scenarios still failing on v1.0.11.0. The operator reopened this phase for that rerun on 2026-10-27.
 
 **Dependencies**:
 - The rerun records in `benchmark/reports/2026-10-25--manual-testing-playbook--figjam-model-comparison/` (`grades/sonnet-high-044.*`, README section 8.10).
@@ -86,10 +86,11 @@ Make every plan follow the board the composer draws, make the intake, sticky, re
 - Read the board before a revision playback and name the changed end on the revision read-back per D5.
 - State how connector labels are read per D6.
 - Write the grading conventions per D7 and add the write time to FJ-031's delete signal.
+- Rerun FJ-017, FJ-026, FJ-029 and FJ-036 on v1.0.11.0 with Claude Sonnet 5.5 high, each board scenario in a fresh draft file, and grade them as phase 044 graded its rerun.
 
 ### Out of Scope
 - The composer and its geometry.
-- Any rerun or board write.
+- A rerun of FJ-031 and FJ-032, which passed on v1.0.10.0.
 - The machine's Homebrew node, which waits for the operator's yes to a reinstall.
 
 ### Files to Change
@@ -125,6 +126,7 @@ Make every plan follow the board the composer draws, make the intake, sticky, re
 | REQ-007 | Flow Mode reads the board before a revision playback, names the changed end on the revision read-back and says how connector labels are read, per D5 and D6. |
 | REQ-008 | The playbook states the D7 conventions, and FJ-031's delete signal names the write time. |
 | REQ-009 | `sk-create-figjam` and the hub read 1.0.11.0 with a changelog, and the kernel H1 moves only when its rules change. |
+| REQ-010 | The four scenarios still failing are rerun on v1.0.11.0, graded by one Opus grader with two readers per board, and recorded in the run README as section 8.11. |
 
 > Acceptance criteria for these requirements live in `acceptance-criteria.md`,
 > which is the document that decides whether this packet may close.
@@ -137,6 +139,7 @@ Make every plan follow the board the composer draws, make the intake, sticky, re
 
 - **SC-001**: Each finding of README section 8.10 that names a skill, playbook or mirror cause has a change in this phase or a recorded reason it needs none.
 - **SC-002**: The skill and the Project state each changed rule in the same words, as the Sync Loop parity check shows.
+- **SC-003**: At least three of the four rerun scenarios pass on v1.0.11.0.
 <!-- /ANCHOR:success-criteria -->
 
 ---
@@ -190,5 +193,5 @@ Make every plan follow the board the composer draws, make the intake, sticky, re
 <!-- ANCHOR:questions -->
 ## 10. OPEN QUESTIONS
 
-- None. The operator settled D1 to D4 on 2026-10-27.
+- None. The operator settled D1 to D4 on 2026-10-27 and reopened the phase for the rerun the same day.
 <!-- /ANCHOR:questions -->
