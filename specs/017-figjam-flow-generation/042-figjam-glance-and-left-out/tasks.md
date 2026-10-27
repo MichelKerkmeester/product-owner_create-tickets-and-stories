@@ -49,10 +49,10 @@ contextType: "implementation"
 - [x] T009 Drop the FJ-017 scorecard, give the reader brief its persona and questions and each run its own temp folder (`grades/sonnet-high-041.jsonl`, `run/`). Verify: pytest passes and the FJ-017 line has a null scorecard. [EVIDENCE: the FJ-017 line parses with a null scorecard and pytest passes 18. The reader brief carries the persona and Q1 to Q3 at grading and the launcher gives each run its own temp folder]
 - [x] T010 Mirror the changes, update the kernel and release v1.0.8.0 (`claude project/`, `SYNC.md`, `README.md`, version files, changelogs). Verify: the Composer Knowledge code block equals `compose_board.py --template`. [EVIDENCE: compose self-test confirms the Composer Knowledge file carries the current code, kernel v1.2.10, hub and `sk-create-figjam` 1.0.8.0, `sk-product-owner` 1.2.5.0]
 - [x] T011 Review the whole diff with a fresh Opus reviewer and repair the confirmed findings. Verify: each repair is read back. [EVIDENCE: a fresh Opus reviewer reported 7 findings. Six were confirmed and repaired by counted swaps. The label finding was declined because the rendered boards wrap those labels]
-- [ ] T012 Commit and push both repositories. Verify: `validate_parity.py product-owner` and `residency_check.py --all` each print PASSED.
-- [ ] T013 Rerun the 14 failures, each board scenario in a fresh file (`skill/sonnet-high-042/`). Verify: the driver exits 0 for each lane.
-- [ ] T014 Render every board and grade the rerun with one grader, then skeptics and adjudicators (`renders/`, `grades/sonnet-high-042.jsonl`). Verify: one line per rerun scenario.
-- [ ] T015 Write README section 8.8 and check the gallery against the new boards. Verify: every remaining failure is named with its cause.
+- [x] T012 Commit and push both repositories. Verify: `validate_parity.py product-owner` and `residency_check.py --all` each print PASSED. [EVIDENCE: PO pushed through 0000153 and the outer repo through 0001087, with parity PASSED 65/65 and residency PASSED 7 systems]
+- [x] T013 Rerun the 14 failures, each board scenario in a fresh file (`skill/sonnet-high-042/`). Verify: the driver exits 0 for each lane. [EVIDENCE: 14 runs, 47 turns, every turn exit 0 and none retried, after a relaunch once the disk had room]
+- [x] T014 Render every board and grade the rerun with one grader, then skeptics and adjudicators (`renders/`, `grades/sonnet-high-042.jsonl`). Verify: one line per rerun scenario. [EVIDENCE: 13 board renders and the FJ-032 page, nine readers, one Opus grader, skeptics on 14 runs with 11 adjudications, a fold and a critic, and 14 lines in `grades/sonnet-high-042.jsonl`]
+- [x] T015 Write README section 8.8 and check the gallery against the new boards. Verify: every remaining failure is named with its cause. [EVIDENCE: README section 8.8 names each of the 7 remaining failures with its cause, and the gallery takes the FJ-026 state board]
 <!-- /ANCHOR:phase-2 -->
 
 ---
@@ -61,7 +61,7 @@ contextType: "implementation"
 ## Phase 3: Verification
 
 - [x] T016 Run the self-tests and gates. Verify: both self-tests, pytest, 15 of 15 gates and the output format gate pass. [EVIDENCE: compose 1244 of 1244, design check exit 0, flow 169 of 169, pytest 18, 15 of 15 gates, output format gate passed]
-- [ ] T017 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both.
+- [x] T017 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both. [EVIDENCE: `validate.sh --strict` prints RESULT: PASSED for this phase and the parent]
 <!-- /ANCHOR:phase-3 -->
 
 
