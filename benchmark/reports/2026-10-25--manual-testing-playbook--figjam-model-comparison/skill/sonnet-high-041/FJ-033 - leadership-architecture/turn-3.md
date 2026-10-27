@@ -1,0 +1,7 @@
+<figma-url>
+Read-back: 7 of 7 nodes, 6 of 6 connectors, 5 of 5 lanes, first glance: Sync platform
+Left out: the order of one sync and the Apple-to-iPhone step as its own arrow, because the architecture layout has no connector from an outside service back to an app, so the wake-up is carried by the label on the Sync platform to Apple push service arrow
+Finding: `get_figjam` does not report connector labels or dash style, so those were read visually from the composing call's overview screenshot. All six labels and the dashed Apple push service arrow showed as modelled. Every node, connector and lane was matched by id and direction on the `get_figjam` read, and the write returned no warnings.
+Finding: the edge label "Apple push: Wakes sleeping iPhones" is 34 characters, 2 over the 32 I said meeting-screen labels would hold. It is drawn as written to keep your words. If you want it inside the limit, tell me which words to drop and I will recompose, which needs your yes to delete this board first.
+Finding: the board has an added Entry point node, which the layout requires between the apps and the sync platform. The source line says so.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

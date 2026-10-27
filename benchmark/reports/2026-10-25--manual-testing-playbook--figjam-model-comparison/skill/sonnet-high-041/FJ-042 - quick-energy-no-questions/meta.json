@@ -1,0 +1,112 @@
+{
+ "id": "FJ-042",
+ "label": "sonnet-high-041",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/quick-energy-no-questions.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file. That file is in the plan named above.",
+ "operator_setup_done": false,
+ "operator_pause_before": null,
+ "operator_paused": false,
+ "file_start_sections": null,
+ "driver": "model",
+ "expects_board": false,
+ "no_figma": false,
+ "scripted_turns": [
+  "$flow $quick the Fernhouse damaged-item flow on a new board in our Fernhouse Product plan. Just do it, no questions.",
+  "Yes, that reading is right."
+ ],
+ "commands_run": 0,
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "12e72e05-07be-4e6a-8627-e04fa85bf0d6",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 51.94,
+   "tool_calls": 12,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 77619,
+   "output_tokens": 5031,
+   "cached_tokens": 419145,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "12e72e05-07be-4e6a-8627-e04fa85bf0d6",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$flow $quick the Fernhouse damaged-item flow on a new board in our Fernhouse Product plan. Just do it, no questions.\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file. That file is in the plan named above.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 46.53,
+   "tool_calls": 8,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "ToolSearch",
+    "Bash",
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 22598,
+   "output_tokens": 5152,
+   "cached_tokens": 395730,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "12e72e05-07be-4e6a-8627-e04fa85bf0d6",
+   "inner_calls": [
+    "create_session",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  }
+ ]
+}

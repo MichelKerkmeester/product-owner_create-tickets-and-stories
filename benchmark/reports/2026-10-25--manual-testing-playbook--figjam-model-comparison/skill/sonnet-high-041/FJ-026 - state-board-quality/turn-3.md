@@ -1,0 +1,5 @@
+<figma-url>
+Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled, first glance: Cancelled, labels and colours read from the overview screenshot because the outline returns no label text or fills
+Finding: the check-out and missed check-in moves run side by side to the right of the Confirmed section, about 24 pixels apart for about 236 pixels, so they can read as one line. The fix is to reorder those two moves in the model and compose again after your yes. The old board section is deleted only on its own yes that names "Roamstay booking status"
+Finding: three readings stand as assumed because you accepted them without a source. Cancel is open from In stay, a new Confirmed booking starts as Upcoming, and the lifecycle is current behavior. One product doc line for each would settle them
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

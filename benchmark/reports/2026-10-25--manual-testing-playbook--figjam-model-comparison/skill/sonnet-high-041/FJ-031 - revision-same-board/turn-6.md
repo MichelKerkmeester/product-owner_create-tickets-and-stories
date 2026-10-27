@@ -1,0 +1,7 @@
+<figma-url>
+Read-back: 7 of 7 nodes, 7 of 7 connectors, 4 of 4 decision exits labelled on the screenshot, every node inside its zone, the content already on the file unchanged, first glance: Return confirmed with QR code
+Left out: free pickup over €100, a proposal under review. Orders not yet delivered, your description gives them no behavior. The Start a return button, not drawn on Order detail
+Finding: both boards on the file are titled "Start a return", and the earlier one (section `1:3`, the left-most, in the file before this write) still shows Contact support. Do you want me to delete that earlier "Start a return" board and nothing else? Until you say yes, both stay
+Finding: the `get_figjam` read returns no connector label text, so the four exit labels (Yes, No, Drop-off, Pickup) were checked on the composing screenshot only
+Finding: the Drop-off connector leaves the top of the Drop-off or pickup diamond and runs just under the Done heading, with its label near the border of the Request the return zone, as on the first board. The fix is a model change composed again, such as separate steps for the two methods, which your sources don't state, so the board stands as written
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

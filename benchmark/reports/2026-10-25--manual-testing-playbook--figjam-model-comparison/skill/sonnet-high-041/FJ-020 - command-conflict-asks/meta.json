@@ -1,0 +1,109 @@
+{
+ "id": "FJ-020",
+ "label": "sonnet-high-041",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/command-conflict-asks.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file.",
+ "operator_setup_done": false,
+ "operator_pause_before": null,
+ "operator_paused": false,
+ "file_start_sections": null,
+ "driver": "model",
+ "expects_board": false,
+ "no_figma": false,
+ "scripted_turns": [
+  "$task $flow the Fernhouse onboarding checklist",
+  "The FigJam board."
+ ],
+ "commands_run": 0,
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "b2bdb7e8-f1e1-410b-9564-ef40b93646be",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [
+   "export/001 - intake-fernhouse-onboarding-checklist-clarification.md"
+  ],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 49.0,
+   "tool_calls": 10,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Write",
+    "Read"
+   ],
+   "input_tokens": 75775,
+   "output_tokens": 5612,
+   "cached_tokens": 309162,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "b2bdb7e8-f1e1-410b-9564-ef40b93646be",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [
+     "export/001 - intake-fernhouse-onboarding-checklist-clarification.md"
+    ],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$task $flow the Fernhouse onboarding checklist\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 51.53,
+   "tool_calls": 6,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Bash",
+    "Read",
+    "Read",
+    "Bash"
+   ],
+   "input_tokens": 40922,
+   "output_tokens": 5010,
+   "cached_tokens": 538851,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "b2bdb7e8-f1e1-410b-9564-ef40b93646be",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "The FigJam board.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  }
+ ]
+}
