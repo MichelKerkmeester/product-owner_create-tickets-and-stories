@@ -37,7 +37,7 @@
       "directive"
     ],
     "importance_tier": "normal",
-    "status": "in_progress",
+    "status": "complete",
     "key_files": [
       "spec.md",
       "plan.md",
@@ -45,8 +45,10 @@
       "acceptance-criteria.md",
       "goal.md",
       "implementation-summary.md",
+      "sk-create-figjam/scripts/flow_check.py",
       "benchmark/gates/run_gates.sh",
-      "manual-testing-playbook/manual-testing-playbook.md"
+      "manual-testing-playbook/manual-testing-playbook.md",
+      "changelog/v1.0.9.0.md"
     ],
     "entities": [
       {
@@ -86,6 +88,12 @@
         "source": "derived"
       },
       {
+        "name": "flow_check.py",
+        "kind": "file",
+        "path": "sk-create-figjam/scripts/flow_check.py",
+        "source": "derived"
+      },
+      {
         "name": "run_gates.sh",
         "kind": "script",
         "path": "benchmark/gates/run_gates.sh",
@@ -98,13 +106,13 @@
         "source": "derived"
       },
       {
-        "name": "Feature Specification",
-        "kind": "proper_noun",
-        "path": "spec.md",
+        "name": "v1.0.9.0.md",
+        "kind": "doc",
+        "path": "changelog/v1.0.9.0.md",
         "source": "derived"
       },
       {
-        "name": "In Progress",
+        "name": "Feature Specification",
         "kind": "proper_noun",
         "path": "spec.md",
         "source": "derived"
@@ -129,6 +137,12 @@
       },
       {
         "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
         "kind": "proper_noun",
         "path": "spec.md",
         "source": "derived"
@@ -180,23 +194,11 @@
         "kind": "proper_noun",
         "path": "tasks.md",
         "source": "derived"
-      },
-      {
-        "name": "Composer Knowledge",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
-      },
-      {
-        "name": "Completion Criteria",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
       }
     ],
     "causal_summary": "Claude Sonnet 5.5 high reran the 14 failures of v1.0.7.0 on v1.0.8.0 and 7 pass under the operator's rulings",
     "created_at": "2026-10-26T18:02:43Z",
-    "last_save_at": "2026-10-27T13:10:26.593Z",
+    "last_save_at": "2026-10-27T14:27:42.176Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -207,13 +209,13 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:04dc92bc2d4a551b5415345ea171d1c86744fd05b1b1d9f514aff596435e7123",
+    "source_fingerprint": "sha256:3d6138707af958eeb2befb1dd8ff033e57ac26842b235b190b9610f300690b01",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "002f6682c7bae4cd2e6f5b76e83d020afd5e831733012d34e8b11e970bc7f26a",
+      "spec.md": "f5a1319ee427b442e49b6d941fe3935d45c035e742e81c0394cf8016b2ad85cd",
       "plan.md": "2807ac618e92585a0b0109fd3eafd09a4bcc9630ad877de12cf7b2fd6be30706",
-      "tasks.md": "4518a1c3ba42c2d105f85cc4f8729a946bb9a11d7616efc6fed9a18f06448f41",
-      "implementation-summary.md": "c7bb002df5688b499547747d2a66ec5ad414f93978e96ae2fb775779fa07c4cf"
+      "tasks.md": "bfc93d6ba51dd2079f26ba66dcd0a9e243c220fa55ea4dce7b096ff8b0dce162",
+      "implementation-summary.md": "13ce2633112e25f410c0d06248975d8c7271f0df51e7ca6911e8a856bdfbbae9"
     },
     "last_active_at": null
   }

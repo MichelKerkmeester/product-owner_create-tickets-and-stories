@@ -82,6 +82,7 @@ and findings belong here.
 | Item | State | Evidence |
 |------|-------|----------|
 | Phase scaffolded | Done | spec, plan, tasks, acceptance criteria and this goal |
+| Phase 043 closed | done | v1.0.9.0 shipped, rerun 1 of 7 PASS, SC-001 unmet and carried to 044, validate PASSED |
 
 ### Deviations and findings
 

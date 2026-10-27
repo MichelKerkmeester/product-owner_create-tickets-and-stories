@@ -50,9 +50,9 @@ contextType: "implementation"
 - [x] T010 Mirror the changes, update the kernel when its rules change and release v1.0.9.0 (`claude project/`, `SYNC.md`, `README.md`, version files, changelogs). Verify: the Composer Knowledge code block equals `compose_board.py --template`. [EVIDENCE: 8 Knowledge files mirrored, kernel H1 v1.2.11, hub and `sk-create-figjam` at 1.0.9.0 with both changelogs and the SYNC note, and the Composer Knowledge block still equals `--template`]
 - [x] T011 Review the whole diff with a fresh Opus reviewer and repair the confirmed findings. Verify: each repair is read back. [EVIDENCE: a fresh Opus medium reviewer found no P0 and 3 P1 findings, two settled by the operator and all confirmed ones repaired by `swaps2.py` and read back]
 - [x] T012 Commit and push both repositories. Verify: `validate_parity.py product-owner` and `residency_check.py --all` each print PASSED. [EVIDENCE: PO 0000157 and outer 7337c9dfa plus 0001090 pushed, `validate_parity.py product-owner` PASSED 65/65 and `residency_check.py --all` PASSED 7 after the kernel statement resync]
-- [ ] T013 Rerun the 7 failures, each board scenario in a fresh file (`skill/sonnet-high-043/`). Verify: the driver exits 0 for each lane.
-- [ ] T014 Render every board, read each with two readers and grade the rerun with one grader, then skeptics and adjudicators (`renders/`, `grades/sonnet-high-043.jsonl`). Verify: one line per rerun scenario.
-- [ ] T015 Write README section 8.9 and check the gallery against the new boards. Verify: every remaining failure is named with its cause.
+- [x] T013 Rerun the 7 failures, each board scenario in a fresh file (`skill/sonnet-high-043/`). Verify: the driver exits 0 for each lane. [EVIDENCE: all seven lanes exited 0 between 12:59 and 13:08 UTC, five board scenarios in fresh draft files, FJ-017 in its own new file and FJ-031 paused once for the operator sticky, recorded in PO 0000158]
+- [x] T014 Render every board, read each with two readers and grade the rerun with one grader, then skeptics and adjudicators (`renders/`, `grades/sonnet-high-043.jsonl`). Verify: one line per rerun scenario. [EVIDENCE: 10 renders, two readers per scored board, one Opus grader, 6 skeptic disputes adjudicated, folded into 7 lines, plus the operator's FJ-017 ruling: 1 PASS and 6 FAIL]
+- [x] T015 Write README section 8.9 and check the gallery against the new boards. Verify: every remaining failure is named with its cause. [EVIDENCE: README section 8.9 names every failure with its cause, and the gallery judge kept every image]
 <!-- /ANCHOR:phase-2 -->
 
 ---
@@ -60,8 +60,8 @@ contextType: "implementation"
 <!-- ANCHOR:phase-3 -->
 ## Phase 3: Verification
 
-- [ ] T016 Run the self-tests and gates. Verify: both self-tests, pytest, 15 of 15 gates and the output format gate pass.
-- [ ] T017 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both.
+- [x] T016 Run the self-tests and gates. Verify: both self-tests, pytest, 15 of 15 gates and the output format gate pass. [EVIDENCE: composer 1244/1244, flow check 171/171, pytest 18, 15 of 15 gates and the format gate]
+- [x] T017 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both. [EVIDENCE: `validate.sh --strict` prints `RESULT: PASSED` for this phase and the parent]
 <!-- /ANCHOR:phase-3 -->
 
 
@@ -70,9 +70,9 @@ contextType: "implementation"
 <!-- ANCHOR:completion -->
 ## Completion Criteria
 
-- [ ] All tasks marked `[x]`
+- [x] All tasks marked `[x]`
 - [x] No `[B]` blocked tasks remaining
-- [ ] Manual verification passed
+- [x] Manual verification passed
 <!-- /ANCHOR:completion -->
 
 ---
@@ -113,8 +113,8 @@ contextType: "implementation"
 <!-- ANCHOR:code-quality -->
 ## Code Quality
 
-- [ ] CHK-010 [P0] The composer and checks agree on every new rule [EVIDENCE: pending]
-- [ ] CHK-011 [P1] The driver compiles and its tests pass [EVIDENCE: pending]
+- [x] CHK-010 [P0] The composer and checks agree on every new rule [EVIDENCE: the composer is unchanged and its self-test passes 1244/1244 beside the new rules]
+- [x] CHK-011 [P1] The driver compiles and its tests pass [EVIDENCE: `flow_check.py` self-test 171/171 and pytest 18 passed]
 <!-- /ANCHOR:code-quality -->
 
 ---
@@ -122,8 +122,8 @@ contextType: "implementation"
 <!-- ANCHOR:testing -->
 ## Testing Checklist
 
-- [ ] CHK-020 [P0] All acceptance criteria met [EVIDENCE: pending]
-- [ ] CHK-021 [P0] Gates pass [EVIDENCE: pending]
+- [x] CHK-020 [P0] All acceptance criteria met [EVIDENCE: AC-001 to AC-011 Met in acceptance-criteria.md]
+- [x] CHK-021 [P0] Gates pass [EVIDENCE: 15 of 15 gates and the output format gate pass]
 <!-- /ANCHOR:testing -->
 
 ---
@@ -131,13 +131,13 @@ contextType: "implementation"
 <!-- ANCHOR:fix-completeness -->
 ## Fix Completeness
 
-- [ ] CHK-FIX-001 [P0] Each actionable finding has a finding class [EVIDENCE: pending]
-- [ ] CHK-FIX-002 [P0] Same-class producer inventory completed [EVIDENCE: pending]
-- [ ] CHK-FIX-003 [P0] Consumer inventory completed [EVIDENCE: pending]
-- [ ] CHK-FIX-004 [P0] Adversarial cases for parser fixes [EVIDENCE: pending]
-- [ ] CHK-FIX-005 [P1] Matrix axes and row count listed [EVIDENCE: pending]
-- [ ] CHK-FIX-006 [P1] Hostile env variant [EVIDENCE: pending]
-- [ ] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: pending]
+- [x] CHK-FIX-001 [P0] Each actionable finding has a finding class [EVIDENCE: each finding of the v1.0.8.0 rerun maps to a swap in `swaps.py` or the code brief]
+- [x] CHK-FIX-002 [P0] Same-class producer inventory completed [EVIDENCE: every file holding the old wording was found by `rg` and changed, skill and mirror alike]
+- [x] CHK-FIX-003 [P0] Consumer inventory completed [EVIDENCE: the reply contract readers (SKILL.md, AGENTS.md, README, kernel, Templates - Flow Mode) were all updated]
+- [x] CHK-FIX-004 [P0] Adversarial cases for parser fixes [EVIDENCE: the label check has a missing-node case and a failed-trace case]
+- [x] CHK-FIX-005 [P1] Matrix axes and row count listed [EVIDENCE: 7 scenarios by 1 model, two readers on each of the 5 scored boards]
+- [x] CHK-FIX-006 [P1] Hostile env variant [EVIDENCE: the self-test passes with node removed from PATH, 168/168]
+- [x] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: PO 0000157 for the fixes and 0000158 for the rerun]
 <!-- /ANCHOR:fix-completeness -->
 
 ---
@@ -145,7 +145,7 @@ contextType: "implementation"
 <!-- ANCHOR:security -->
 ## Security
 
-- [ ] CHK-030 [P0] No board URL, Figma file key, plan name or email in any committed file [EVIDENCE: pending]
+- [x] CHK-030 [P0] No board URL, Figma file key, plan name or email in any committed file [EVIDENCE: leak scan 0 hits on 108 rerun files and the 12 grade files]
 <!-- /ANCHOR:security -->
 
 ---
@@ -153,8 +153,8 @@ contextType: "implementation"
 <!-- ANCHOR:docs -->
 ## Documentation
 
-- [ ] CHK-040 [P1] Spec, plan and tasks synchronized [EVIDENCE: pending]
-- [ ] CHK-041 [P1] Project mirror and SYNC note [EVIDENCE: pending]
+- [x] CHK-040 [P1] Spec, plan and tasks synchronized [EVIDENCE: spec D1 to D10, plan and tasks agree]
+- [x] CHK-041 [P1] Project mirror and SYNC note [EVIDENCE: 8 Knowledge files mirrored and the SYNC note names each]
 <!-- /ANCHOR:docs -->
 
 ---
@@ -162,8 +162,8 @@ contextType: "implementation"
 <!-- ANCHOR:file-org -->
 ## File Organization
 
-- [ ] CHK-050 [P1] No change outside the files named in spec.md Section 3 [EVIDENCE: pending]
-- [ ] CHK-051 [P1] scratch/ holds no file [EVIDENCE: pending]
+- [x] CHK-050 [P1] No change outside the files named in spec.md Section 3 [EVIDENCE: every changed file sits under spec.md Section 3]
+- [x] CHK-051 [P1] scratch/ holds no file [EVIDENCE: scratch/ holds only .gitkeep]
 <!-- /ANCHOR:file-org -->
 
 ---
