@@ -13,7 +13,10 @@ at most twice, as the playbook tells it to, and never past the script's end in a
 that expects no board. When the script runs out with no board written, it sends "Yes, go
 ahead." at most three times, so a model that stops once more than the script still reaches
 a board a grader can score. Each turn is labelled scripted, adaptive or supplementary in
-meta.json, and a small classifier's label for each reply's stop is kept as `kind`.
+meta.json, and a small classifier's label for each reply's stop is kept as `kind`. A reply with
+a counted `Read-back:` line, or a turn whose `use_figma` call returned a board, is a DELIVERY without asking the classifier.
+The run log is tracked, so with `RUN_REDACT_FILE` or `RUN_FILE_KEY` set each row is redacted the way
+`redact_run.py` redacts a file before it is written.
 
 A scenario's `driver:` frontmatter key changes how it runs. `operator-only` is skipped with
 its reason, because it needs a setup step the driver does not run. `new-file` drops the pin
@@ -40,6 +43,7 @@ import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import devin_playbook_runner as dv  # noqa: E402
+import redact_run  # noqa: E402
 import runtimes  # noqa: E402
 import scenario_commands  # noqa: E402
 
@@ -64,6 +68,9 @@ CLAUDE_BIN = os.path.expanduser("~/.local/bin/claude")
 # An empty folder, so the classifier loads no project instructions
 CLASSIFY_DIR = os.path.join(os.environ.get("TMPDIR", "/tmp"), "claude-reply-classifier")
 PREPARED = re.compile(r"<fileKey[^>]*>")
+# The line a delivery reply carries, whether or not the model bolds or bullets it. It counts what the board
+# holds, so a read-back line that says nothing was written is no delivery.
+READ_BACK = re.compile(r"^[\s>*_-]*Read-back:[\s*_]*\d+ of \d+", re.I | re.M)
 BOARD_ID = re.compile(r'boardId\\*"?\s*:\s*\\*"(\d+:\d+)')
 
 CLASSIFY = """Classify one reply from a FigJam drawing assistant that works in stops: intake rounds of
@@ -90,6 +97,28 @@ def kind(reply, tmp):
     except ValueError:
         return "OTHER"
     return next((k for k in ("INTAKE", "PLAYBACK", "GATE", "DELIVERY") if k in word), "OTHER")
+
+
+def classify(r, tmp):
+    """The stop one turn ends on.
+
+    A delivery restates the brief, so the small model can read it as a playback. A counted read-back line or
+    a `use_figma` call that returned a board settles it first, since a call that failed may end on a retry
+    question. Devin reports the call in `inner_calls`, and Codex and Claude Code
+    report it in `tools_used` under their own prefixes."""
+    wrote = r.get("boards") and any(str(t).endswith("use_figma") for t in r["tools_used"] + r["inner_calls"])
+    if READ_BACK.search(r["reply"]) or wrote:
+        return "DELIVERY"
+    return kind(r["reply"], tmp)
+
+
+def log_line(r, sid, label, attempt):
+    """One turn's run-log row, redacted when the run names a key or a plan name to hide."""
+    hide = bool(os.environ.get("RUN_REDACT_FILE") or os.environ.get("RUN_FILE_KEY"))
+    # Unescaped when redacting, so a name with accented letters still matches
+    line = json.dumps({k: v for k, v in r.items() if k not in ("reply", "transcript")}
+                      | {"id": sid, "label": label, "attempt": attempt}, ensure_ascii=not hide)
+    return (redact_run.redact_text(line, redact_run.settings()) if hide else line) + "\n"
 
 
 def boards(session_dir, n):
@@ -246,13 +275,12 @@ def main():
             r["boards"] = r["boards"] if spec else boards(sessions, n)
             turns.append(r)
             with open(os.path.join(out, "run-log.jsonl"), "a", encoding="utf-8") as fh:
-                fh.write(json.dumps({k: v for k, v in r.items() if k not in ("reply", "transcript")}
-                                    | {"id": sid, "label": label, "attempt": attempt}) + "\n")
+                fh.write(log_line(r, sid, label, attempt))
             if r["status"] != "ok":
                 ok = False
                 failures.append({"attempt": attempt, "turn": n, "status": r["status"], "rc": r["rc"]})
                 break
-            r["kind"] = kind(r["reply"], os.path.join(sessions, "tmp"))
+            r["kind"] = classify(r, os.path.join(sessions, "tmp"))
             # The script's own answer to an intake round goes next unchanged. The recommended answers
             # go only once the script has none left before its playback answer, and never past the
             # script's end in a scenario that expects no board.
