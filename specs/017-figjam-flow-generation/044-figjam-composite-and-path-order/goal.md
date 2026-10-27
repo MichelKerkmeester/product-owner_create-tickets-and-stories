@@ -60,13 +60,13 @@ Frozen choices. Changing one is an amendment.
 <!-- ANCHOR:completion -->
 ## 3. COMPLETION CRITERIA
 
-- [ ] `compose_board.py --self-test`, `--design-check`, `flow_check.py --self-test`, `pytest scripts/tests`, `run_gates.sh` (all 15 gates) and the output format gate each exit 0 on the committed tree
-- [ ] `validate_parity.py product-owner` and `residency_check.py --all` each print PASSED after the last commit, and the Flow Board Composer Knowledge code block equals `compose_board.py --template`
-- [ ] A state model that declares a label line first composes with the first state left of its composite, and every shipped example and board fixture traces to the same geometry
-- [ ] The path-order glance rule and the wider revision exemption read in the rubric, the playbook and the Project
-- [ ] `sk-create-figjam` and the hub read 1.0.10.0 with a changelog
-- [ ] Each of the 6 failures has one graded line in `grades/sonnet-high-044.jsonl`, every board it writes has a render and two reader notes, and the run README names every remaining failure with its cause
-- [ ] `validate.sh --strict` on this phase prints RESULT: PASSED, and both repositories are pushed
+- [x] `compose_board.py --self-test`, `--design-check`, `flow_check.py --self-test`, `pytest scripts/tests`, `run_gates.sh` (all 15 gates) and the output format gate each exit 0 on the committed tree
+- [x] `validate_parity.py product-owner` and `residency_check.py --all` each print PASSED after the last commit, and the Flow Board Composer Knowledge code block equals `compose_board.py --template`
+- [x] A state model that declares a label line first composes with the first state left of its composite, and every shipped example and board fixture traces to the same geometry
+- [x] The path-order glance rule and the wider revision exemption read in the rubric, the playbook and the Project
+- [x] `sk-create-figjam` and the hub read 1.0.10.0 with a changelog
+- [x] Each of the 6 failures has one graded line in `grades/sonnet-high-044.jsonl`, every board it writes has a render and two reader notes, and the run README names every remaining failure with its cause
+- [x] `validate.sh --strict` on this phase prints RESULT: PASSED, and both repositories are pushed
 <!-- /ANCHOR:completion -->
 
 ---
@@ -83,10 +83,13 @@ and findings belong here.
 | Item | State | Evidence |
 |------|-------|----------|
 | Phase scaffolded | Done | spec, plan, tasks, acceptance criteria and this goal |
+| Phase 044 closed | Done | rerun 2 of 6 with FJ-032 by operator ruling, README 8.10, ACs Met with AC-006 superseded by ADR-001, validate RESULT: PASSED |
 
 ### Deviations and findings
 
 | Item | Note |
 |------|------|
+| D4 superseded | The launcher's node pin did not reach the model's Bash tool, which rebuilds PATH from the shell profile. ADR-001 replaces it with a Homebrew node reinstall |
+| Result | 2 of 6 pass, FJ-032 by the operator's ruling. SC-001 and SC-002 are unmet, and the operator closed testing and sent the findings to the skills |
 | None yet | - |
 <!-- /ANCHOR:log -->

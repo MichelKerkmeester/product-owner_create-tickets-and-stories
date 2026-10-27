@@ -20,6 +20,7 @@
       "durable directive",
       "completion criteria",
       "goal binding",
+      "figjam node pin decision",
       "figjam composite and path order implementation summary"
     ],
     "key_topics": [
@@ -37,18 +38,20 @@
       "goal"
     ],
     "importance_tier": "normal",
-    "status": "in_progress",
+    "status": "complete",
     "key_files": [
       "spec.md",
       "plan.md",
       "tasks.md",
       "acceptance-criteria.md",
       "goal.md",
+      "decision-record.md",
       "implementation-summary.md",
       "sk-create-figjam/assets/compose-board.js",
       "sk-create-figjam/scripts/compose_board.py",
       "sk-create-figjam/references/quality-rubric.md",
-      "benchmark/gates/run_gates.sh"
+      "benchmark/gates/run_gates.sh",
+      "sk-create-figjam/SKILL.md"
     ],
     "entities": [
       {
@@ -82,6 +85,12 @@
         "source": "derived"
       },
       {
+        "name": "decision-record.md",
+        "kind": "doc",
+        "path": "decision-record.md",
+        "source": "derived"
+      },
+      {
         "name": "implementation-summary.md",
         "kind": "doc",
         "path": "implementation-summary.md",
@@ -112,13 +121,13 @@
         "source": "derived"
       },
       {
-        "name": "Feature Specification",
-        "kind": "proper_noun",
-        "path": "spec.md",
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/SKILL.md",
         "source": "derived"
       },
       {
-        "name": "In Progress",
+        "name": "Feature Specification",
         "kind": "proper_noun",
         "path": "spec.md",
         "source": "derived"
@@ -143,6 +152,12 @@
       },
       {
         "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
         "kind": "proper_noun",
         "path": "spec.md",
         "source": "derived"
@@ -182,23 +197,11 @@
         "kind": "proper_noun",
         "path": "plan.md",
         "source": "derived"
-      },
-      {
-        "name": "Task Format",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
-      },
-      {
-        "name": "Task Notation",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
       }
     ],
     "causal_summary": "Claude Sonnet 5.5 high reran the 7 failures of v1.0.8.0 on v1.0.9.0 and 1 passes",
     "created_at": "2026-10-26T18:02:43Z",
-    "last_save_at": "2026-10-27T15:15:03.670Z",
+    "last_save_at": "2026-10-27T16:12:55.513Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -207,15 +210,17 @@
       "tasks.md",
       "acceptance-criteria.md",
       "goal.md",
+      "decision-record.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:532b735434ed0c14d6d43ffbe0de789702d00c9604cb7ee4c7233a44fb237542",
+    "source_fingerprint": "sha256:9bf4a5c368692216142525bed18ed9f7f4cae8813a77f9b8d0c69889c11091d2",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "6d1c50c5f8aeada7b9a1bfa78653476caefa2deae6776cabb837d6ee692f655d",
+      "spec.md": "bf7676eb9aa29f09d4321acc0453cb110c956b703e3e28613c256b55656f8fa6",
       "plan.md": "9ca44dba580026adf9a64ebb0a3bc72cc0441ad8a6cf465c9ece44b948eb6ea0",
-      "tasks.md": "3d4bfea9872f931e1bdb1e4898caa4185ce33dbed379f7a6f0031e30a9f08ce3",
-      "implementation-summary.md": "89f84930ae98a4035e5db55abbea8ff9a58b038b761d1a7657f6f35857c065f6"
+      "tasks.md": "5060e18d1f64cc5606c3a4bf8b1a747c74033ee01742941cc9604244a2365dcf",
+      "decision-record.md": "816f41dfa57aea5895fec485adbc69a6f49c25f624798de5912cc97b0418a200",
+      "implementation-summary.md": "f6fdf7b63e19c27dc5171e90cb99759a9790b1922f1c54c692f93d06f1f92e8e"
     },
     "last_active_at": null
   }

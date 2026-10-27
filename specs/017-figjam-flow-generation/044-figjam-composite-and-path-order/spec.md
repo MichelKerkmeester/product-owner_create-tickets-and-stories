@@ -20,7 +20,7 @@ contextType: "implementation"
 |-------|-------|
 | **Level** | 2 |
 | **Priority** | P1 |
-| **Status** | In Progress |
+| **Status** | Complete |
 | **Created** | 2026-10-27 |
 | **Branch** | `main` |
 | **Parent Spec** | ../spec.md |
@@ -137,6 +137,8 @@ Make the board draw what the plan says reads first, make the plan follow the ord
 
 - **SC-001**: At least 4 of the 6 rerun scenarios pass, and every remaining failure is named with its cause in the run README.
 - **SC-002**: No rerun state board has a composite state in both readers' orders ahead of the planned first glance.
+
+Outcome: SC-001 is unmet, with 2 of 6 passing (FJ-032 by the operator's ruling) and every remaining failure named with its cause in README section 8.10. SC-002 is unmet on FJ-026, where both readers take Pending, Upcoming and In stay before the focused Cancelled on the bottom row. The operator closed testing on 2026-10-27 and sent the findings to the skills.
 <!-- /ANCHOR:success-criteria -->
 
 ---

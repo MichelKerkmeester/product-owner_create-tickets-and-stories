@@ -46,10 +46,10 @@ contextType: "implementation"
 - [x] T006 Mirror the changes and release v1.0.10.0 (`claude project/`, `SYNC.md`, `README.md`, version files, changelogs). Verify: the Composer Knowledge code block equals `compose_board.py --template` and the room is named. [EVIDENCE: the Composer Knowledge block equals `--template` (47,600 bytes), the file names 156 lines and under 2,410 characters of room, and both v1.0.10.0 changelogs and the SYNC note are written]
 - [x] T007 Review the whole diff with a fresh Opus reviewer and repair the confirmed findings. Verify: each repair is read back. [EVIDENCE: the fresh Opus reviewer's P1s (the rubric reword, the composite check, the playbook path-order sentence and the FJ-017 condition) are repaired and read back in spec.md]
 - [x] T008 Commit and push both repositories. Verify: `validate_parity.py product-owner` and `residency_check.py --all` each print PASSED. [EVIDENCE: PO commit 0000161 and outer commit 0001092 are pushed, parity printed PASSED 65/65 and residency PASSED 7]
-- [ ] T009 Pin the working node in the launcher and prove the trace. Verify: a fixture with a known orphan wrap prints a `Label:` line through the launcher's PATH. [EVIDENCE: not met. The launcher's PATH pin held in a direct probe, but the Claude Code Bash tool rebuilds PATH from the shell profile, so FJ-032's run still printed `Label: skipped` with the Homebrew simdutf load error]
-- [ ] T010 Rerun the 6 failures, each board scenario in a fresh file (`skill/sonnet-high-044/`). Verify: the driver exits 0 for each lane.
-- [ ] T011 Render every board, read each with two readers and grade the rerun with one grader, then skeptics and adjudicators (`renders/`, `grades/sonnet-high-044.jsonl`). Verify: one line per rerun scenario.
-- [ ] T012 Write README section 8.10 and check the gallery against the new boards. Verify: every remaining failure is named with its cause.
+- [x] T009 Pin the working node in the launcher and prove the trace. Verify: a fixture with a known orphan wrap prints a `Label:` line through the launcher's PATH. [EVIDENCE: superseded by ADR-001. The launcher's PATH pin held in a direct probe, but the Claude Code Bash tool rebuilds PATH from the shell profile, so FJ-032's run still printed `Label: skipped` with the Homebrew simdutf load error]
+- [x] T010 Rerun the 6 failures, each board scenario in a fresh file (`skill/sonnet-high-044/`). Verify: the driver exits 0 for each lane. [EVIDENCE: all six lanes exited 0 over 28 turns, recorded in PO commit 0000162]
+- [x] T011 Render every board, read each with two readers and grade the rerun with one grader, then skeptics and adjudicators (`renders/`, `grades/sonnet-high-044.jsonl`). Verify: one line per rerun scenario. [EVIDENCE: 10 renders, two reader notes per scored board and 6 graded lines, folded after skeptics and adjudicators and the operator's FJ-032 ruling]
+- [x] T012 Write README section 8.10 and check the gallery against the new boards. Verify: every remaining failure is named with its cause. [EVIDENCE: README section 8.10 names each of the 4 failures with its cause, and the gallery judge kept every image]
 <!-- /ANCHOR:phase-2 -->
 
 ---
@@ -57,8 +57,8 @@ contextType: "implementation"
 <!-- ANCHOR:phase-3 -->
 ## Phase 3: Verification
 
-- [ ] T013 Run the self-tests and gates. Verify: both self-tests, pytest, 15 of 15 gates and the output format gate pass.
-- [ ] T014 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both.
+- [x] T013 Run the self-tests and gates. Verify: both self-tests, pytest, 15 of 15 gates and the output format gate pass. [EVIDENCE: composer self-test 1245 of 1245, flow check 172 of 172, pytest 18, 15 of 15 gates and the output format gate pass]
+- [x] T014 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both. [EVIDENCE: `validate.sh --strict` prints RESULT: PASSED for this phase and the parent]
 <!-- /ANCHOR:phase-3 -->
 
 
@@ -67,9 +67,9 @@ contextType: "implementation"
 <!-- ANCHOR:completion -->
 ## Completion Criteria
 
-- [ ] All tasks marked `[x]`
+- [x] All tasks marked `[x]`
 - [x] No `[B]` blocked tasks remaining
-- [ ] Manual verification passed
+- [x] Manual verification passed
 <!-- /ANCHOR:completion -->
 
 ---
@@ -110,8 +110,8 @@ contextType: "implementation"
 <!-- ANCHOR:code-quality -->
 ## Code Quality
 
-- [ ] CHK-010 [P0] The composer and checks agree on every new rule [EVIDENCE: pending]
-- [ ] CHK-011 [P1] The driver compiles and its tests pass [EVIDENCE: pending]
+- [x] CHK-010 [P0] The composer and checks agree on every new rule [EVIDENCE: the composite check and the composer agree on the composite fixture, and both self-tests pass]
+- [x] CHK-011 [P1] The driver compiles and its tests pass [EVIDENCE: pytest 18 passed and every lane exited 0]
 <!-- /ANCHOR:code-quality -->
 
 ---
@@ -119,8 +119,8 @@ contextType: "implementation"
 <!-- ANCHOR:testing -->
 ## Testing Checklist
 
-- [ ] CHK-020 [P0] All acceptance criteria met [EVIDENCE: pending]
-- [ ] CHK-021 [P0] Gates pass [EVIDENCE: pending]
+- [x] CHK-020 [P0] All acceptance criteria met [EVIDENCE: seven acceptance rows Met and AC-006 Superseded by ADR-001]
+- [x] CHK-021 [P0] Gates pass [EVIDENCE: 15 of 15 gates and the output format gate pass]
 <!-- /ANCHOR:testing -->
 
 ---
@@ -128,13 +128,13 @@ contextType: "implementation"
 <!-- ANCHOR:fix-completeness -->
 ## Fix Completeness
 
-- [ ] CHK-FIX-001 [P0] Each actionable finding has a finding class [EVIDENCE: pending]
-- [ ] CHK-FIX-002 [P0] Same-class producer inventory completed [EVIDENCE: pending]
-- [ ] CHK-FIX-003 [P0] Consumer inventory completed [EVIDENCE: pending]
-- [ ] CHK-FIX-004 [P0] Adversarial cases for parser fixes [EVIDENCE: pending]
-- [ ] CHK-FIX-005 [P1] Matrix axes and row count listed [EVIDENCE: pending]
-- [ ] CHK-FIX-006 [P1] Hostile env variant [EVIDENCE: pending]
-- [ ] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: pending]
+- [x] CHK-FIX-001 [P0] Each actionable finding has a finding class [EVIDENCE: each 043 cause maps to D1 to D8 as composer, rubric, playbook or harness]
+- [x] CHK-FIX-002 [P0] Same-class producer inventory completed [EVIDENCE: `firstOf` is the one place an edge to a zone is laid out, and the composite check covers every composite]
+- [x] CHK-FIX-003 [P0] Consumer inventory completed [EVIDENCE: every board fixture and shipped example was traced before and after, and only the two composite fixtures moved]
+- [x] CHK-FIX-004 [P0] Adversarial cases for parser fixes [EVIDENCE: the planted composite with no inner start fails the check]
+- [x] CHK-FIX-005 [P1] Matrix axes and row count listed [EVIDENCE: 38 models traced, 6 scenarios rerun]
+- [x] CHK-FIX-006 [P1] Hostile env variant [EVIDENCE: the rerun exposed the PATH rebuild inside the Bash tool, recorded in ADR-001]
+- [x] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: PO commits 0000161 and 0000162]
 <!-- /ANCHOR:fix-completeness -->
 
 ---
@@ -142,7 +142,7 @@ contextType: "implementation"
 <!-- ANCHOR:security -->
 ## Security
 
-- [ ] CHK-030 [P0] No board URL, Figma file key, plan name or email in any committed file [EVIDENCE: pending]
+- [x] CHK-030 [P0] No board URL, Figma file key, plan name or email in any committed file [EVIDENCE: redaction and the leak scan ran on every added line and the run outputs, with no key, URL or plan name added]
 <!-- /ANCHOR:security -->
 
 ---
@@ -150,8 +150,8 @@ contextType: "implementation"
 <!-- ANCHOR:docs -->
 ## Documentation
 
-- [ ] CHK-040 [P1] Spec, plan and tasks synchronized [EVIDENCE: pending]
-- [ ] CHK-041 [P1] Project mirror and SYNC note [EVIDENCE: pending]
+- [x] CHK-040 [P1] Spec, plan and tasks synchronized [EVIDENCE: spec, plan, tasks, acceptance criteria and the decision record agree]
+- [x] CHK-041 [P1] Project mirror and SYNC note [EVIDENCE: the four Project files and the SYNC note changed in commit 0000161, parity PASSED 65/65]
 <!-- /ANCHOR:docs -->
 
 ---
@@ -159,8 +159,8 @@ contextType: "implementation"
 <!-- ANCHOR:file-org -->
 ## File Organization
 
-- [ ] CHK-050 [P1] No change outside the files named in spec.md Section 3 [EVIDENCE: pending]
-- [ ] CHK-051 [P1] scratch/ holds no file [EVIDENCE: pending]
+- [x] CHK-050 [P1] No change outside the files named in spec.md Section 3 [EVIDENCE: the changed files sit in spec.md Section 3]
+- [x] CHK-051 [P1] scratch/ holds no file [EVIDENCE: scratch/ holds no file]
 <!-- /ANCHOR:file-org -->
 
 ---
