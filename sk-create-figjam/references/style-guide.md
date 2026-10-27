@@ -10,7 +10,7 @@ trigger_phrases:
   - "figjam type scale"
   - "palette derivation record"
   - "figjam contrast"
-version: 1.0.5.0
+version: 1.0.6.0
 ---
 
 # FigJam Diagram Style Guide
@@ -50,7 +50,7 @@ The composer reads each node's kind from the model: its shape, its place in the 
 | Start | Rounded rectangle | Light blue | Where it starts | A stadium node no edge enters |
 | Screen or step | Rounded rectangle | White | Screen or step, or Step on a process | A plain node |
 | Decision | Diamond | Light yellow | Decision | A rhombus |
-| Goal | Rounded rectangle | Light green | Goal reached | A styled end, or the end the longest path reaches when none is styled |
+| Goal | Rounded rectangle | Light green | Goal reached | The end a `%% goal:` line names, else a styled end, else the end the longest path reaches |
 | Exit | Rounded rectangle | Light orange | Leaves the flow | Every other unstyled end |
 | Error | Rounded rectangle | Light red | Error or blocked | An end styled with the light red pair |
 | Focus | Rounded rectangle | Light pink, 8 pixel outline | In focus | A styled step that is none of the kinds above |
@@ -61,7 +61,7 @@ The composer reads each node's kind from the model: its shape, its place in the 
 
 An exit and an error sit beside the main line rather than on it, so the longest route to the goal stays one straight line.
 
-The accent is not a kind. A styled goal, error, decision or any other node keeps the kind and fill it has and takes the pink outline on top, so a goal stays green and reads first. Only a styled step has no kind of its own to keep, so it is drawn light pink. The key adds `In focus` whenever the board carries an accent, or `In focus: <reason>` when the model gives a reason, and its sample is drawn as the marked node is, its own kind under the pink outline, so a goal in focus shows a green sample and a styled step a light pink one.
+The accent is not a kind. A styled goal, error, decision or any other node keeps the kind and fill it has and takes the pink outline on top, so a decision stays light yellow and a failure light red. Only a styled step has no kind of its own to keep, so it is drawn light pink. The key adds `In focus` whenever the board carries an accent, or `In focus: <reason>` when the model gives a reason, and its sample is drawn as the marked node is, its own kind under the pink outline, so a decision in focus shows a light yellow sample and a styled step a light pink one.
 
 ### Architecture
 
@@ -128,11 +128,11 @@ A user flow or a process may carry one `style` line, or several on nodes that sh
 | Where it sits | Pair | What the board shows |
 |---|---|---|
 | On an end | Light red | An error, in light red, with the pink outline |
-| On an end | Any other pair | The goal, in light green, with the pink outline, and the spine runs to it |
+| On an end | Any other pair | The goal, in light green, with the pink outline, and the spine runs to it. The rubric never accents the goal, so a `%% goal:` line names it instead |
 | On a decision | Any pair | The decision keeps its light yellow diamond and takes the pink outline |
 | On a step | Any pair | That step in focus, in light pink |
 
-Pick the node the board exists to explain first, then the line that says what it is. A user flow and a process each need one such line, because the board has no other way to say what the first glance is, and the check refuses a model without one. With no end styled, the end the longest path reaches is still the goal and the others leave the flow, but the goal then carries no outline. A `linkStyle` line passes the check and changes nothing on a composed board, because a connector's colour belongs to its kind, and it never counts as the accent. An architecture, a sequence, a state diagram, an ER diagram and a gantt chart take no `style` line, because their kinds already carry their colour, and the check refuses styling on an architecture.
+Pick the node the board exists to explain first, then the line that says what it is. A user flow and a process each need one such line, because the board has no other way to say what the first glance is, and the check refuses a model without one. A `%% goal: <id>` line names the goal without the accent, so the spine runs to it while the style line marks the decision or step the board explains. With no goal line and no styled end, the end the longest path reaches is the goal and the others leave the flow. A `linkStyle` line passes the check and changes nothing on a composed board, because a connector's colour belongs to its kind, and it never counts as the accent. An architecture, a sequence, a state diagram, an ER diagram and a gantt chart take no `style` line, because their kinds already carry their colour, and the check refuses styling on an architecture.
 
 ### The accent
 
@@ -146,7 +146,7 @@ The start pill keeps its light blue, because at those weights it cannot outweigh
 
 | Type | What carries the accent | How the model says so |
 |---|---|---|
-| User flow, process | A node: a step, a decision, the goal or an error end | A `style` line, which the check requires |
+| User flow, process | A node: a step, a decision or an error end, never the goal | A `style` line, which the check requires |
 | Architecture, state, ER | A node | `%% focus: <id>`, optional |
 | Sequence | A message | `%% focus: <number>`, the message's place in the order, optional |
 | Gantt | A task or a milestone | `%% focus: <id or name>`, optional |

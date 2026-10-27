@@ -131,7 +131,7 @@ def colour_problems(block_text: str, lanes: set[str], need_accent: bool = False)
             accents.add(PAIRED_FILL[stroke])
     if need_accent and not marked:
         problems.append("the model has no accent: the first glance needs one style line on the node it names, "
-                        "the goal, a failing end or the one step in focus, such as style done fill:#CDF4D3,stroke:#66D575")
+                        "a decision, a failing end or the one step in focus, such as style pick fill:#FFC2EC,stroke:#F849C1")
     if len(accents) > 1:
         problems.append(f"{len(accents)} accent colours ({', '.join(sorted(accents))}), at most 1: "
                         "colour marks the happy path, one decision or one handoff")

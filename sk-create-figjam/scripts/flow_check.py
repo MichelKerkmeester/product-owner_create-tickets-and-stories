@@ -39,9 +39,14 @@ its own self-test. With node on the PATH the board is also composed in memory,
 and a label the composer would wrap one word alone onto its last line is
 reported, since a shorter label is the fix and a wider box is not. Without node,
 or when the trace fails, it prints one `Label: skipped` line instead.
+With `--notes`, the same board names the first side of each noted node that
+holds a single sticky on a `Sides:` line, or says the node is boxed in, so the
+gate can offer pins with a legend or a recompose before any write.
 
 Usage:
   flow_check.py <model.md|model.mmd>  -> 0 every diagram passes, 1 a rule fails, 2 unreadable
+  flow_check.py <model.md> --notes <id,id>
+                                      -> the same, plus a `Sides:` line for each noted node id
   flow_check.py --self-test           -> prove each rule fails on a planted model with its own message,
                                          that the good models, the templates and the examples pass,
                                          and that the style guide's palette record still measures true
@@ -186,16 +191,32 @@ def check_kind(block: mermaid_extract.SourceBlock, block_text: str) -> tuple[str
     return profile, found + measures, f"{nodes} nodes and {len(diagram.edges)} connectors, {shape}", diagram.direction
 
 
-def label_words(block: mermaid_extract.SourceBlock, number: int) -> list[str]:
+def composer_refusals(block: mermaid_extract.SourceBlock, number: int) -> list[str]:
+    """What the composer refuses in a block this check passed, such as a goal line naming a step.
+
+    The composer reads the comment lines this check does not, so a model it would refuse fails here too,
+    rather than passing a gate the write then stops at.
+    """
+    # compose_board imports this module, so it is loaded here rather than at the top of the file.
+    import compose_board
+
+    model, problems, _ = compose_board.build_model(block, number)
+    return problems if problems or model is not None else ["the composer built no board from this diagram"]
+
+
+def label_words(block: mermaid_extract.SourceBlock, number: int, notes: list[str] | None = None) -> list[str]:
     """A line for each label this diagram would wrap one word alone onto, read off a board composed in memory.
 
     The composer fits a label inside its shape and never widens the box for it, so one word can be left alone
     on a last line and the model is the only place to shorten it. A missing node or a failed trace prints one
     skipped line, so the model reads its labels by hand instead of reading silence as a pass. A model that will
-    not compose says nothing here, because the check reports it.
+    not compose says nothing here, because the check reports it. Each id in `notes` also gets a `Sides:` line
+    from the same board, naming the side its single sticky takes or saying no side holds one.
     """
     if not shutil.which("node"):
-        return ["Label: skipped, node is not on the PATH, so read each label for one word alone on its last line"]
+        skipped = ["Label: skipped, node is not on the PATH, so read each label for one word alone on its last line"]
+        return skipped + [f"Sides: skipped for {node}, node is not on the PATH, so offer pins with a legend"
+                          for node in notes or []]
     # compose_board imports this module, so it is loaded here rather than at the top of the file.
     import compose_board
     from figjam_checks import design as board_design
@@ -211,12 +232,22 @@ def label_words(block: mermaid_extract.SourceBlock, number: int) -> list[str]:
     except (OSError, ValueError, RuntimeError) as error:
         # A node stack trace runs to many lines, and the skipped line keeps to one.
         first = str(error).splitlines()[0] if str(error).strip() else "no message"
-        return [f"Label: skipped, the trace failed ({first}), so read each label for one word alone on its last line"]
-    return [f"Label: {line}, so shorten it when a shorter label keeps the source's words"
-            for line in geometry.orphan_words(drawn)]
+        return ([f"Label: skipped, the trace failed ({first}), so read each label for one word alone on its last line"]
+                + [f"Sides: skipped for {node}, the trace failed, so offer pins with a legend" for node in notes or []])
+    lines = [f"Label: {line}, so shorten it when a shorter label keeps the source's words"
+             for line in geometry.orphan_words(drawn)]
+    for node, label, side in geometry.sticky_sides(drawn, notes or []):
+        if label is None:
+            lines.append(f"Sides: {node} names no node: write the id of a node this diagram draws")
+        elif side:
+            lines.append(f"Sides: {label} takes its sticky {side}")
+        else:
+            lines.append(f"Sides: {label} is boxed in, no side holds a sticky, so offer pins with a legend "
+                         "or a change to the model that frees a side before any write")
+    return lines
 
 
-def check(path: Path) -> int:
+def check(path: Path, notes: list[str] | None = None) -> int:
     """Check every diagram in a model file, print the report and return the exit code."""
     try:
         blocks = mermaid_extract.load_blocks(path)
@@ -230,6 +261,7 @@ def check(path: Path) -> int:
     failed, ways = 0, {}
     for number, (block, (profile, problems, size, direction)) in enumerate(results, 1):
         name = f"diagram {number}, {NAMES.get(profile, 'unknown')}"
+        problems = problems or composer_refusals(block, number)
         if problems:
             failed += 1
             for problem in problems:
@@ -237,8 +269,11 @@ def check(path: Path) -> int:
         else:
             print(f"  {name}: ok, {size}")
             # A label the board would strand one word on is the model's to shorten, so it never fails here.
-            for line in label_words(block, number):
+            lines = label_words(block, number, notes)
+            for line in lines:
                 print(line)
+            # A notes id the board does not draw is a typo in the command, never a boxed-in node.
+            failed += any(line.startswith("Sides:") and "names no node" in line for line in lines)
         if profile in (flowchart.USER_FLOW, flowchart.PROCESS) and direction:
             ways.setdefault(profile, set()).add(flowchart.direction_family(direction))
     for profile, found in ways.items():
@@ -325,6 +360,9 @@ def label_results() -> list[tuple[str, bool, str]]:
          "flowchart LR\n    a([Order placed]) --> b[Book a courier pickup]\n    b --> c([Parcel sent])\n"
          "    style c fill:#CDF4D3\n",
          "Label: Book a courier pickup leaves 'pickup' alone"),
+        ("a label FigJam wraps narrower than the node measure is still reported",
+         "flowchart LR\n    a([Email verified]) --> b([Editor with welcome tip])\n    style b fill:#CDF4D3\n",
+         "Label: Editor with welcome tip leaves 'tip' alone"),
         ("a model with short labels reports none",
          "flowchart LR\n    a([Order placed]) --> b[Send the parcel]\n    b --> c([Parcel sent])\n"
          "    style c fill:#CDF4D3\n",
@@ -344,14 +382,56 @@ def label_results() -> list[tuple[str, bool, str]]:
             code, output = run_quietly(path)
         failed = "Label: skipped, the trace failed (planted)"
         results.append(("a failed trace prints a skipped Label line", code == 0 and failed in output, output))
+        # The last node may widen the board to its right, and the middle one has the title above, the key
+        # below and a neighbour on each side, so a compact board boxes it in.
+        code, output = run_quietly(path, ["c", "b"])
+        results.append(("a noted node names the side its sticky takes, or that it is boxed in",
+                        code == 0 and "Sides: Parcel sent takes its sticky right" in output
+                        and "Sides: Send the parcel is boxed in" in output, output))
+        code, output = run_quietly(path, ["c", "ghost"])
+        results.append(("a notes id the board does not draw fails the check instead of reading as boxed in",
+                        code == 1 and "Sides: ghost names no node" in output and "boxed in" not in output, output))
+        path.write_text("flowchart LR\n    %% goal: b\n    a([Start]) --> b[Pack it]\n    b --> c([Done])\n"
+                        "    style b fill:#FFC2EC,stroke:#F849C1\n", encoding="utf-8")
+        code, output = run_quietly(path)
+        results.append(("a goal line the composer refuses fails the check too", code == 1 and "is not an end" in output,
+                        output))
+    results.append(sides_boxed_result())
     return results
 
 
-def run_quietly(path: Path) -> tuple[int, str]:
+def sides_boxed_result() -> tuple[str, bool, str]:
+    """A node with a shape on every side is boxed in, and freeing its right side gives the sticky that side."""
+    def shape(name: str, x: int, y: int) -> dict:
+        return {"id": name, "name": name, "type": "SHAPE_WITH_TEXT", "shape": "SQUARE", "x": x, "y": y,
+                "w": 224, "h": 96, "text": name[5:], "parent": "Board"}
+    board = {"id": "board", "name": "Board", "type": "SECTION", "x": 0, "y": 0, "w": 2400, "h": 2400,
+             "text": "", "parent": ""}
+    hemmed = [shape("node:noted", 1000, 1000), shape("node:right", 1300, 1000), shape("node:below", 1000, 1150),
+              shape("node:above", 1000, 850), shape("node:left", 700, 1000)]
+    boxed = geometry.sticky_sides({"nodes": [board, *hemmed], "connectors": []}, ["noted"])
+    freed = geometry.sticky_sides({"nodes": [board, *[n for n in hemmed if n["name"] != "node:right"]],
+                                   "connectors": []}, ["noted"])
+    # Two noted nodes on adjacent rows: the first sticky takes the right, so the second goes below or left.
+    stacked = geometry.sticky_sides({"nodes": [board, shape("node:upper", 1000, 1000), shape("node:lower", 1000, 1200)],
+                                     "connectors": []}, ["upper", "lower"])
+    # The lower node can only take the right, so the upper one gives up the right and takes the side above.
+    pinned = geometry.sticky_sides({"nodes": [board, shape("node:upper", 1000, 1000), shape("node:lower", 1000, 1200),
+                                              shape("node:under", 1000, 1350), shape("node:beside", 700, 1200)],
+                                    "connectors": []}, ["upper", "lower"])
+    ok = (boxed == [("noted", "noted", None)] and freed == [("noted", "noted", "right")]
+          and stacked[0] == ("upper", "upper", "right") and stacked[1][2] in ("below", "left")
+          and pinned == [("upper", "upper", "above"), ("lower", "lower", "right")])
+    return ("a node with a shape on every side is boxed in, a freed side takes the sticky, a placed sticky "
+            "takes its side from the next node and the sides are chosen so every noted node gets one", ok,
+            f"boxed {boxed}, freed {freed}, stacked {stacked}, pinned {pinned}")
+
+
+def run_quietly(path: Path, notes: list[str] | None = None) -> tuple[int, str]:
     """Run the check on one file and return its exit code with the report it printed."""
     out = io.StringIO()
     with contextlib.redirect_stdout(out):
-        code = check(path)
+        code = check(path, notes)
     return code, out.getvalue()
 
 
@@ -406,10 +486,14 @@ def main() -> int:
     args = sys.argv[1:]
     if args == ["--self-test"]:
         return self_test()
+    notes = None
+    if len(args) == 3 and args[1] == "--notes":
+        notes = [node.strip() for node in args[2].split(",") if node.strip()]
+        args = args[:1]
     if len(args) != 1:
         print(__doc__.strip().split("Usage:")[1], file=sys.stderr)
         return 2
-    return check(Path(args[0]))
+    return check(Path(args[0]), notes)
 
 
 if __name__ == "__main__":

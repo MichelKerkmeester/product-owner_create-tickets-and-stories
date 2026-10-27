@@ -121,6 +121,11 @@ Outcome: a reader can see the six stay tables, how they join and which tables si
 First glance: Booking, the table every other stay table joins.
 Second glance: the keys on Booking that tie it to the guest, the room and the rate plan.
 Last glance: Property, the partner table that offers rooms and rate plans.
+Sketch: the Section 4 model above, and it passed the check by hand.
+Eye first: Booking, the table every other stay table joins, and it is the node the board most needs read.
+Reads second: the keys on Booking that tie it to the guest, the room and the rate plan, which show what a booking needs.
+Could miss: Payment, which would hide that one booking can carry many payments.
+Remove next: Property, kept because it is where rooms and rate plans come from.
 Plan: Roamstay Product. File: a new FigJam file named "Stays model", created in that plan.
 Writes: one composed board, 6 entities and 6 relationships in two zones, guest side and partner side, with a title, a key and a source line, at the Laptop reading distance.
 Left out: 20 columns no stay story cites, cut at the balanced detail level

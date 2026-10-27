@@ -9,7 +9,7 @@ trigger_phrases:
   - "figjam swimlane"
   - "process lanes"
   - "approval flow figjam"
-version: 1.0.4.0
+version: 1.0.5.0
 ---
 
 # FigJam Type - Process
@@ -95,7 +95,7 @@ Over budget, cut in sk-design-diagram's degrade order and stop as soon as the di
 
 ## 5. COLOUR, ZONES AND NOTES
 
-The composer colours every step by its kind. A user flow and a process each carry exactly one `style` line, which marks the first glance. A styled goal, failing end or decision keeps its kind and takes the accent's outline. A styled step is drawn in the accent's pair. The line marks meaning: on an end it names the goal or, in light red, a failure, and on a step it puts that step in focus. Figma's guidance gives every subgraph a different tint, and sk-design-diagram keeps containers neutral so the marked step stays the strongest signal. The composer takes both: each lane gets its own tint by the zone rule in `references/style-guide.md` Section 2, pale enough that a lane reads as a container and never as a mark. Notes on a step, such as a service level or a failure rate, go on through `references/hybrid-workflow.md`.
+The composer colours every step by its kind. A user flow and a process each carry exactly one `style` line, which marks the first glance. A styled failing end or decision keeps its kind and takes the accent's outline. The goal is named by a `%% goal:` line rather than styled. A styled step is drawn in the accent's pair. The line marks meaning: on an end, in light red, it marks a failure, and on a step it puts that step in focus. Figma's guidance gives every subgraph a different tint, and sk-design-diagram keeps containers neutral so the marked step stays the strongest signal. The composer takes both: each lane gets its own tint by the zone rule in `references/style-guide.md` Section 2, pale enough that a lane reads as a container and never as a mark. Notes on a step, such as a service level or a failure rate, go on through `references/hybrid-workflow.md`.
 
 ---
 

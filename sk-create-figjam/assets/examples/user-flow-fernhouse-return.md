@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "user flow example"
   - "fernhouse return flow"
-version: 1.0.4.0
+version: 1.0.5.0
 ---
 
 # Example - User Flow - Fernhouse Return
@@ -39,7 +39,7 @@ Sources: five app screenshots and a returns doc.
 
 - **Reader question:** which screens does a customer pass through to start a return, and where do they choose? A user flow
 - **Detail:** balanced. **Audience:** mixed, so the labels use the app's own words
-- **Look:** left to right in three zones, finding the order, requesting the return and done. The confirmation is styled as the goal, so the main line runs from the order list to it and Contact support sits below as an exit
+- **Look:** left to right in three zones, finding the order, requesting the return and done. A `%% goal:` line names the confirmation as the goal, so the main line runs from the order list to it and Contact support sits below as an exit. The 30 day decision takes the accent, because it is where a return can end early
 
 ---
 
@@ -66,6 +66,7 @@ The first draft, kept as text because it fails the check:
 
 ```text
 flowchart LR
+    %% goal: confirmed
     orders([Order list]) --> detail[Order detail]
     detail --> window{Within 30 days?}
     window -->|No| support([Contact support])
@@ -76,7 +77,7 @@ flowchart LR
     dropoff --> merge((.))
     pickup --> merge
     merge --> confirmed([Return confirmed])
-    style confirmed fill:#CDF4D3,stroke:#66D575
+    style window fill:#FFC2EC,stroke:#F849C1
 ```
 
 That is ten nodes, one over the budget:
@@ -89,6 +90,7 @@ The merge dot goes: both methods lead straight to the confirmation, which says t
 
 ```mermaid
 flowchart LR
+    %% goal: confirmed
     %% title: Start a return
     %% subtitle: How a Fernhouse customer starts a return in the app, from the order list to a confirmed return
     %% source: Sources: five app screenshots and the returns doc. Left out: a free pickup over €100, a proposal under review.
@@ -104,7 +106,7 @@ flowchart LR
     method -->|Pickup| pickup[Book a courier pickup]
     dropoff --> confirmed([Return confirmed])
     pickup --> confirmed
-    style confirmed fill:#CDF4D3,stroke:#66D575
+    style window fill:#FFC2EC,stroke:#F849C1
 ```
 
 ### Provenance
@@ -139,9 +141,14 @@ The gate is its own reply, sent after the playback's answer. Its one question as
 ```text
 Question: which screens does a customer pass through to start a return, and where do they choose?
 Outcome: a reader can follow a return from the order list to a confirmed return and see where the 30 day window ends it.
-First glance: the confirmed return, the goal the flow reaches.
-Second glance: Order list, the light blue entry where the return starts, then Order detail, Within 30 days?, Pick a reason, the drop-off or pickup choice and Choose a drop-off point, the main row the composer draws, in path order up to the goal.
+First glance: Within 30 days?, the decision where the 30 day window ends a return.
+Second glance: Order list, the light blue entry where the return starts, then Order detail, Pick a reason, the drop-off or pickup choice, Choose a drop-off point and Return confirmed, the main row the composer draws, in path order up to the goal.
 Last glance: Contact support, the exit after 30 days, then Book a courier pickup, the second way to the goal, drawn below the row.
+Sketch: the Section 4 model above, and the check printed PASSED for it.
+Eye first: Within 30 days?, the outlined decision, and it is the node the board most needs read.
+Reads second: the main row from Order list to Return confirmed, which carries the reader past the window to the goal.
+Could miss: Book a courier pickup below the row, which would hide the second way the item goes back.
+Remove next: Order detail, kept because it holds the Start a return button the screens show.
 Plan: Fernhouse Product. File: a new FigJam file named "Start a return", created in that plan.
 Writes: one composed board, 9 nodes and 9 connectors in three zones, with a title, a key and a source line, at the Laptop reading distance.
 Left out: free pickup over €100, a proposal under review
@@ -157,7 +164,7 @@ Write it?
 
 ```text
 <board URL>
-Read-back: 9 of 9 nodes, 9 of 9 connectors, 4 of 4 decision exits labelled, first glance: the confirmed return
+Read-back: 9 of 9 nodes, 9 of 9 connectors, 4 of 4 decision exits labelled, first glance: Within 30 days?
 Left out: free pickup over €100, a proposal under review
 HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
 ```

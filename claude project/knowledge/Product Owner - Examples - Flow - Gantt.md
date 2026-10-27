@@ -100,6 +100,11 @@ Outcome: a reader can see the order of the offline mode work, the critical path 
 First glance: Integration, the critical path task that holds the release.
 Second glance: Sync engine and Conflict screen build, the two builds Integration waits for.
 Last glance: Beta for 5 percent and the Release milestone at the end.
+Sketch: the Section 4 model above, and it passed the check by hand.
+Eye first: Integration, the critical path task, and it is the bar the board most needs read.
+Reads second: Sync engine and Conflict screen build, which show what Integration waits for.
+Could miss: the arrow from Conflict screen design to its build, which would hide that the build waits for the design.
+Remove next: Beta for 5 percent, kept because the release waits on it.
 Plan: Loomlist Product. File: a new FigJam file named "Offline mode launch", created in that plan.
 Writes: one composed board, 3 sections, 5 tasks and 1 milestone on one axis, with a title, a key and a source line, at the Laptop reading distance.
 Left out: Android next quarter, a proposal with no dates
@@ -117,6 +122,11 @@ Outcome: a reader can see the order of the offline mode work, the critical path 
 First glance: Integration, the critical path task that holds the release.
 Second glance: Sync engine and Conflict screen build, the two builds Integration waits for.
 Last glance: Beta for 5 percent and the Release milestone at the end.
+Sketch: the Section 4 model above, and it passed the check by hand.
+Eye first: Integration, the critical path task, and it is the bar the board most needs read.
+Reads second: Sync engine and Conflict screen build, which show what Integration waits for.
+Could miss: the arrow from Conflict screen design to its build, which would hide that the build waits for the design.
+Remove next: Beta for 5 percent, kept because the release waits on it.
 Connector: this Project has no Figma connector, so the board cannot be written here.
 Left out: Android next quarter, a proposal with no dates
 Send the model? A yes sends the checked model to keep, and a later write asks again.
