@@ -8,17 +8,19 @@ contextType: "implementation"
 _memory:
   continuity:
     packet_pointer: "017-figjam-flow-generation/046-figjam-gate-and-accent-fixes"
-    last_updated_at: "2026-10-27T22:30:00Z"
-    last_updated_by: "claude-code"
-    recent_action: "Scaffolded the phase"
-    next_safe_action: "Write the sentence swaps"
+    last_updated_at: "2026-10-27T23:47:17Z"
+    last_updated_by: "generate-context"
+    recent_action: "Rerun graded at 0 of 4 and recorded as run README section 8.12"
+    next_safe_action: "None: phase 047 carries the causes"
     blockers: []
-    key_files: []
+    key_files:
+      - "benchmark/reports/2026-10-25--manual-testing-playbook--figjam-model-comparison/README.md"
+      - "benchmark/reports/2026-10-25--manual-testing-playbook--figjam-model-comparison/grades/sonnet-high-046.md"
     session_dedup:
-      fingerprint: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      fingerprint: "sha256:b053245f1ff1d1baeccda844fe53cb495bf9cd4b8d2d73c8a21c0c56b7aea3d6"
       session_id: "348b59cb-58a2-4b49-8147-c40143312bc1"
       parent_session_id: null
-    completion_pct: 5
+    completion_pct: 100
     open_questions: []
     answered_questions: []
 ---
@@ -36,7 +38,7 @@ _memory:
 | Field | Value |
 |-------|-------|
 | **Spec Folder** | 046-figjam-gate-and-accent-fixes |
-| **Completed** | In progress |
+| **Completed** | 2026-10-28 |
 | **Level** | 2 |
 <!-- /ANCHOR:metadata -->
 
@@ -96,6 +98,7 @@ The script changes came first, each with self-test cases, and the Project compos
 | `python3 sk-create-figjam/scripts/flow_check.py --self-test` and the 7 examples | 177 of 177, every example PASSED |
 | `python3 -m pytest scripts/tests`, `bash benchmark/gates/run_gates.sh`, `validate-output-format.cjs --system product-owner` | 18 passed, 15 of 15, passed across 72 source files |
 | `residency_check.py product-owner` and `pair_divergence.py product-owner` on the working tree | PASSED, every declared statement owned and placed, PASSED 65 pairs |
+| The rerun of FJ-017, FJ-022, FJ-023 and FJ-036 on v1.0.12.0 | 0 of 4 pass: FJ-017 FAIL with no scorecard, FJ-022 20, FJ-023 19 and FJ-036 19 |
 <!-- /ANCHOR:verification -->
 
 ---
@@ -103,5 +106,5 @@ The script changes came first, each with self-test cases, and the Project compos
 <!-- ANCHOR:limitations -->
 ## Known Limitations
 
-1. **The rerun is pending.** FJ-017, FJ-036, FJ-022 and FJ-023 rerun on v1.0.12.0 after the commit.
+1. **SC-003 is not met.** The rerun passed 0 of 4. Three gates dropped lines of the checked model from their sketch, the glance plan put off-row nodes last where the composer draws them early, FJ-017's past-the-dot sticky sat 328 px from its node and label wraps the sources' words could not clear cost Legibility. Run README section 8.12 records each cause and phase 047 takes them all
 <!-- /ANCHOR:limitations -->

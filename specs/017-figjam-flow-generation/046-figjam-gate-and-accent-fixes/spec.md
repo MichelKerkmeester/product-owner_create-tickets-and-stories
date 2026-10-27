@@ -20,13 +20,13 @@ contextType: "implementation"
 |-------|-------|
 | **Level** | 2 |
 | **Priority** | P1 |
-| **Status** | In Progress |
+| **Status** | Complete |
 | **Created** | 2026-10-27 |
 | **Branch** | `main` |
 | **Parent Spec** | ../spec.md |
 | **Phase** | 46 of 46 |
 | **Predecessor** | 045-figjam-findings-fixes |
-| **Successor** | None |
+| **Successor** | 047-figjam-glance-and-row-fixes |
 | **Handoff Criteria** | Every row in acceptance-criteria.md is Met |
 <!-- /ANCHOR:metadata -->
 
