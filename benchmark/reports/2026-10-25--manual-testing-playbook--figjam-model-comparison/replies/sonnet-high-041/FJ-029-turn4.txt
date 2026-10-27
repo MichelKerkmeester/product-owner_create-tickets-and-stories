@@ -1,0 +1,6 @@
+<figma-url> (1. Sign up) and <figma-url> (2. Workspace setup)
+Read-back: 1. Sign up 7 of 7 nodes, 8 of 8 connectors, 4 of 4 decision exits labelled. 2. Workspace setup 7 of 7 nodes, 8 of 8 connectors, 4 of 4 decision exits labelled. First glance: the Code correct? choice on board 1 and the editor with welcome tip on board 2, start here: 1. Sign up
+Finding: the `get_figjam` read returns connector layer names but not their label text, so the 8 exit labels and the Resend and "Emails added or skipped" labels were checked on the composing screenshot, not in the read.
+Finding: board 2's Key section stretches across the full 2784 pixel width with six entries, leaving the right half empty. The composer sizes the key to the diagram's width, so only a different diagram width would change it. Board 2 is a wide strip, 2944 by 872 pixels, because its seven steps run on one straight line.
+Finding: three moves are assumed and not confirmed by the doc. Google sign-up also asks for the email code, Resend returns to "Enter email code", and Blank goes straight to the editor. The doc owner can settle them, and a correction is a model change composed again.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

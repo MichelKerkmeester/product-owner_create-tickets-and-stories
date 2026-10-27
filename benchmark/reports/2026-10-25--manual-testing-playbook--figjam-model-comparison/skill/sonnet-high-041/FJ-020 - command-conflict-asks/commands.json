@@ -1,0 +1,20 @@
+[
+ {
+  "step": 1,
+  "text": "session: start fresh -> user: submit the prompt exactly",
+  "status": "skipped",
+  "reason": "session step, not a shell command"
+ },
+ {
+  "step": 2,
+  "text": "user: The FigJam board. -> operator: confirm the reply asks only the board facts the sources leave open, or the type question alone, and writes nothing",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 3,
+  "text": "operator: read the reply, the tool calls and export/",
+  "status": "skipped",
+  "reason": "operator step, not a shell command"
+ }
+]

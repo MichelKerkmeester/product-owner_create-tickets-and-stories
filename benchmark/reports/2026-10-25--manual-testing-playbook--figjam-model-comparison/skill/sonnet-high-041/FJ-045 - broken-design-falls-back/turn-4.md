@@ -1,0 +1,9 @@
+<figma-url>
+Read-back: 7 of 7 nodes, 7 of 7 connectors, 4 of 4 decision exits labelled, first glance: the 30-day window decision
+Left out: everything after the confirmation (parcel handover, warehouse check, refund), screens inside each method, item selection, orders not yet delivered and guest customers, because none of them are in the sources
+Finding: Status is unverified. The board draws the flow as current behavior on your answer, but `context/fernhouse-context.md` (2026-09-18) says there is no self-serve return, and I worked from your description rather than the app or the returns doc. The 4.9.0 release notes would settle it. If the flow isn't live, I compose it again with a proposal status in the labels.
+Finding: `get_figjam` returned the node labels, the connector ends and the arrow directions, but not connector text. The five edge labels (Opens an order, No, Yes: Start a return, Drop-off point, Courier pickup) were confirmed from the write's return value and the overview screenshot. That screenshot shows no crossings, no cut-off labels and the pink outline on the window decision.
+Finding: DESIGN, shadow. The design file sets a shadow group the composer doesn't read, so the board draws no shadow.
+Finding: DESIGN, role.goal. The design file asked for light pink, which is the accent's own pair. The board drew the goal in light green.
+Finding: DESIGN, zone.cycle. The design file's cycle has a pink tint within 45 degrees of the accent's hue. The board used blue, orange, teal, yellow and violet, which doesn't show here because the board has no zones.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
