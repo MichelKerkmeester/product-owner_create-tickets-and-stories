@@ -60,13 +60,13 @@ Frozen choices. Changing one is an amendment.
 <!-- ANCHOR:completion -->
 ## 3. COMPLETION CRITERIA
 
-- [ ] `compose_board.py --self-test`, `--design-check`, `flow_check.py --self-test`, `pytest scripts/tests`, `run_gates.sh` (all 15 gates) and the output format gate each exit 0 on the committed tree
-- [ ] `validate_parity.py product-owner` and `residency_check.py --all` each print PASSED after the last commit
-- [ ] The state, flow glance, boxed-in sticky, intake, revision and read-back rules read the same in the skill and the Project
-- [ ] No source keeps "two decisions share a line" or the single-round intake wording
-- [ ] The playbook carries the grading conventions and FJ-031's write-time signal
-- [ ] `sk-create-figjam` and the hub read 1.0.11.0 with a changelog
-- [ ] `validate.sh --strict` on this phase prints RESULT: PASSED, and both repositories are pushed
+- [x] `compose_board.py --self-test`, `--design-check`, `flow_check.py --self-test`, `pytest scripts/tests`, `run_gates.sh` (all 15 gates) and the output format gate each exit 0 on the committed tree
+- [x] `validate_parity.py product-owner` and `residency_check.py --all` each print PASSED after the last commit
+- [x] The state, flow glance, boxed-in sticky, intake, revision and read-back rules read the same in the skill and the Project
+- [x] No source keeps "two decisions share a line" or the single-round intake wording
+- [x] The playbook carries the grading conventions and FJ-031's write-time signal
+- [x] `sk-create-figjam` and the hub read 1.0.11.0 with a changelog
+- [x] `validate.sh --strict` on this phase prints RESULT: PASSED, and both repositories are pushed
 <!-- /ANCHOR:completion -->
 
 ---
@@ -83,6 +83,7 @@ and findings belong here.
 | Item | State | Evidence |
 |------|-------|----------|
 | Phase scaffolded | Done | spec, plan, tasks, acceptance criteria and this goal |
+| Phase 045 closed | Done | v1.0.11.0 skill and Project fixes, review repaired, parity PASSED 65/65, residency PASSED 7, validate RESULT: PASSED |
 
 ### Deviations and findings
 

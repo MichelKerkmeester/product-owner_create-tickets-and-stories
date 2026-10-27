@@ -38,7 +38,7 @@ _memory:
 
 **Packet:** 017-figjam-flow-generation/045-figjam-findings-fixes
 **Level:** 2
-**Status:** In Progress
+**Status:** Complete
 **Date:** 2026-10-27
 <!-- /ANCHOR:metadata -->
 
@@ -52,7 +52,7 @@ One row per criterion. `AC-ID` is stable once written: supersede a criterion, ne
 | AC-ID | REQ | Given / When / Then | Verification | Status | Waiver |
 |-------|-----|---------------------|--------------|--------|--------|
 | AC-001 | REQ-001 | Given the changed sources, When every gate runs, Then each exits 0 | Composer self-test 1245 of 1245, design check exit 0, flow check 172 of 172, pytest 18, 15 of 15 gates and the output format gate passed | Met | - |
-| AC-002 | REQ-002 | Given the last commit, When the Sync Loop checks run, Then both pass | Pending | Unmet | - |
+| AC-002 | REQ-002 | Given the last commit, When the Sync Loop checks run, Then both pass | Parity PASSED 65/65 and residency PASSED 7 after outer commit 0001095, with the flow-mode review recorded at the source commit | Met | - |
 | AC-003 | REQ-003 | Given a state board, When its glance lines are planned, Then the skill and the Project plan it as drawn with the named state leading its line | `references/types/state.md` Section 5, the rubric's first-glance line, Flow Mode's gate step, the style guide, the state example and their mirrors plan the state board as drawn | Met | - |
 | AC-004 | REQ-004 | Given a user flow or a process, When its glance lines are planned, Then the main row as drawn is the second glance and the nodes off it the last, and no source keeps "two decisions share a line" | The rubric and both flow examples plan the drawn main row second and the nodes off it last, in the skill and the mirror, and no live file keeps the old phrase | Met | - |
 | AC-005 | REQ-005 | Given a noted node with every side taken, When the gate is written, Then it says so and offers the pin and legend form or a recompose, and the sticky's size is stated | `references/hybrid-workflow.md` Section 3 and its mirror carry the gate question, the 240 pixel size and the in-call probe | Met | - |
@@ -84,7 +84,7 @@ waiver is treated as an unmet criterion rather than as a pass.
 <!-- ANCHOR:closure -->
 ## 3. CLOSURE STATEMENT
 
-**Closeable:** No
+**Closeable:** Yes
 
-All criteria wait for the fixes.
+All nine rows are Met with observed evidence. No rerun tested the new rules, because the operator closed testing on 2026-10-27.
 <!-- /ANCHOR:closure -->

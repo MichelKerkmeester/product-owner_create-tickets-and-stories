@@ -36,7 +36,7 @@ _memory:
 | Field | Value |
 |-------|-------|
 | **Spec Folder** | 045-figjam-findings-fixes |
-| **Completed** | In progress |
+| **Completed** | 2026-10-27 |
 | **Level** | 2 |
 <!-- /ANCHOR:metadata -->
 
@@ -93,7 +93,8 @@ Every change is a sentence swap set by this phase, applied by two scripts that r
 | Composer self-test and design check | 1245 of 1245, exit 0 |
 | Flow check self-test and the 7 examples | 172 of 172, every example PASSED |
 | pytest, repository gates, output format gate | 18 passed, 15 of 15, passed across 72 source files |
-| `validate.sh --strict` | RESULT: PASSED on the scaffold |
+| Parity and residency | PASSED 65/65 and PASSED 7 |
+| `validate.sh --strict` | RESULT: PASSED for this phase and the parent |
 <!-- /ANCHOR:verification -->
 
 ---
