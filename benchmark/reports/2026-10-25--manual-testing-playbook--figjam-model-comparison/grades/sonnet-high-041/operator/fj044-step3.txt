@@ -1,0 +1,9 @@
+FJ-044 step 3: each composed example sent unchanged, one use_figma call each, active design FigJam default (THEME {})
+sequence  board 1:3    nodes 4  connectors 7  expect 4/7   warnings none
+gantt     board 2:144  nodes 6  connectors 5  expect 6/5   warnings none
+architecture board 3:184 nodes 9 connectors 8 expect 9/8   warnings none
+er        board 4:312  nodes 6  connectors 6  expect 6/6   warnings none
+process   board 5:371  nodes 8  connectors 8  expect 8/8   warnings none
+state     board 6:486  nodes 12 connectors 12 expect 12/12 warnings none
+user-flow board 7:608  nodes 9  connectors 9  expect 9/9   warnings none
+Step 4/5: each overview screenshot shows the built-in palette, the pink accent only on the focus node, zone tints from the default cycle, Inter type. Matches the active design.
