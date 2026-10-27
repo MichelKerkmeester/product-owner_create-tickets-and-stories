@@ -151,7 +151,7 @@ DeepSeek V4.1 Flash max made the prose edits, Opus agents planned and verified e
 ## Known Limitations
 
 1. **SC-001 is unmet.** The rerun passes 2 of the 16 scenarios it ran, against the 14 of 27 the v1.0.6.0 rerun passed. Of the 14 run on both versions, only FJ-020 moved to PASS. Counted over every scenario run on either version, 16 of 29 pass.
-2. **Composition still fails most boards.** It is below full marks on 9 of the 14 failures. The plans copy shipped examples that leave the goal, gateway or entry out of their glance lines, and the state rule plans the composite first where readers read the saturated first state first.
+2. **Composition still fails most boards.** It is below full marks on 8 of the 9 scored boards. The plans copy shipped examples that leave the goal, gateway or entry out of their glance lines, and the state rule plans the composite first where readers read the saturated first state first.
 3. **Gaps left for phase 042.** No `Left out:` line on a split or a gate. The single sticky has no free side next to an end-dot connector. The router lets two runs lie 24 px apart. The rubric lets FJ-045's accent sit on a decision. FJ-017 is scored on a scorecard its scenario does not hold.
 4. **FJ-018 and FJ-035 were not run.** They need Figma Desktop and the figma-ds-cli daemon.
 <!-- /ANCHOR:limitations -->
