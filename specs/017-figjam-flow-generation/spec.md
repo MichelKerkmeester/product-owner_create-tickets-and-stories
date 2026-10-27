@@ -141,7 +141,7 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 39 | 039-figjam-run-findings/ | The five skill findings and three driver findings of the stopped Opus 5.5 medium run, fixed in `sk-create-figjam` v1.0.5.0 and the run's driver | Complete |
 | 40 | 040-figjam-sonnet-run-findings/ | The Sonnet 5.5 high run's findings, fixed in `sk-create-figjam` v1.0.6.0 with kernel v1.2.8, then a rerun of the 31 scenarios that did not pass and a v1.0.6.0 gallery | Complete |
 | 41 | 041-figjam-rerun-findings/ | The 35 findings of the v1.0.6.0 rerun, fixed in `sk-create-figjam` v1.0.7.0, then a rerun of every scenario that did not pass | Complete |
-| 42 | 042-figjam-glance-and-left-out/ | The gaps the v1.0.7.0 rerun still shows: glance plans that match the drawn board, a Left out line on every split and gate, the sticky fallback and the router spacing, then a rerun of the 14 failures | In Progress |
+| 42 | 042-figjam-glance-and-left-out/ | The gaps the v1.0.7.0 rerun still shows: glance plans that match the drawn board, a Left out line on every split and gate, the sticky fallback and the router spacing, then a rerun of the 14 failures | Complete |
 
 ### Phase Transition Rules
 

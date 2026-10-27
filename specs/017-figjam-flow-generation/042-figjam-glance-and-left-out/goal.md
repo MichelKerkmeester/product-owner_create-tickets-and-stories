@@ -81,6 +81,7 @@ and findings belong here.
 | Item | State | Evidence |
 |------|-------|----------|
 | Phase scaffolded | Done | spec, plan, tasks, acceptance criteria and this goal |
+| Phase 042 close-out | done | v1.0.8.0 shipped, rerun 7 PASS 7 FAIL under operator rulings, README 8.8, state gallery swap, validate PASSED |
 
 ### Deviations and findings
 

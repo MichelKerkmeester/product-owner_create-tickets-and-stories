@@ -45,8 +45,13 @@
       "acceptance-criteria.md",
       "goal.md",
       "implementation-summary.md",
+      "sk-product-owner/SKILL.md",
+      "sk-create-figjam/assets/screenshots/state-board.png",
       "benchmark/gates/run_gates.sh",
-      "manual-testing-playbook/manual-testing-playbook.md"
+      "manual-testing-playbook/manual-testing-playbook.md",
+      "changelog/v1.0.8.0.md",
+      "sk-create-figjam/changelog/v1.0.8.0.md",
+      "sk-product-owner/changelog/v1.2.5.0.md"
     ],
     "entities": [
       {
@@ -86,6 +91,18 @@
         "source": "derived"
       },
       {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "state-board.png",
+        "kind": "file",
+        "path": "sk-create-figjam/assets/screenshots/state-board.png",
+        "source": "derived"
+      },
+      {
         "name": "run_gates.sh",
         "kind": "script",
         "path": "benchmark/gates/run_gates.sh",
@@ -98,13 +115,19 @@
         "source": "derived"
       },
       {
-        "name": "Feature Specification",
-        "kind": "proper_noun",
-        "path": "spec.md",
+        "name": "v1.0.8.0.md",
+        "kind": "doc",
+        "path": "changelog/v1.0.8.0.md",
         "source": "derived"
       },
       {
-        "name": "In Progress",
+        "name": "v1.2.5.0.md",
+        "kind": "doc",
+        "path": "sk-product-owner/changelog/v1.2.5.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
         "kind": "proper_noun",
         "path": "spec.md",
         "source": "derived"
@@ -129,6 +152,12 @@
       },
       {
         "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
         "kind": "proper_noun",
         "path": "spec.md",
         "source": "derived"
@@ -168,35 +197,11 @@
         "kind": "proper_noun",
         "path": "plan.md",
         "source": "derived"
-      },
-      {
-        "name": "Task Format",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
-      },
-      {
-        "name": "Task Notation",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
-      },
-      {
-        "name": "Composer Knowledge",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
-      },
-      {
-        "name": "Completion Criteria",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
       }
     ],
     "causal_summary": "Claude Sonnet 5.5 high reran every scenario that did not pass on v1.0.6.0 and passed 2 of 16",
     "created_at": "2026-10-26T18:02:43Z",
-    "last_save_at": "2026-10-27T10:09:38.631Z",
+    "last_save_at": "2026-10-27T12:20:02.525Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -207,13 +212,13 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:02003b56b055eef8a9b1435736e1a8a163656b74cb21cffa204a39e327c3d2e9",
+    "source_fingerprint": "sha256:062b9d62d3c12cdbe7b01a8be558a8e9ebbbbc26df7ed0f6ea71d41e6825ee49",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "f439dec78253572b726cd92ada8a4322ae9b59786a0512a214971fad411183a1",
+      "spec.md": "74720ca8529138371c4ba39621a4cd762073acd3e0ad2e30599cef6f0b0b909d",
       "plan.md": "a731e44ffff7eea82cc8e8431100d914102c3b8dada1f35ecec662db4ba5829e",
-      "tasks.md": "203c7fbb8cf247bae1f3af66ff868823697a5e5afe155d0e8571e5b09edcc0ef",
-      "implementation-summary.md": "ee9c22fcf4076cbcecf97d85e4ca481c1e4030ed607c248e7982a45bf7c5a1bc"
+      "tasks.md": "6027bbf5faaee62af247496a25b5842ecf0aeec91ae77a0ab2db59d8d72b5e5b",
+      "implementation-summary.md": "661b06fd23435e675630a431bdbe779413855d9648c4b0a728806f9314c9327e"
     },
     "last_active_at": null
   }
