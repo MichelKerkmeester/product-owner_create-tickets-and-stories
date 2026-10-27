@@ -2,7 +2,7 @@
 name: sk-product-owner
 description: "Writes Barter tasks, bug reports, Stories, Epics and source-safe product or engineering docs as ClickUp-ready markdown."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.2.4.0
+version: 1.2.5.0
 ---
 
 <!-- Keywords: product-owner, backlog, task, subtask, parent task, bug report, acceptance criteria, story mode, user story, prd, product requirements document, epic, doc mode, product documentation, engineering documentation, ClickUp, $task, $bug, $doc, $story, $prd, $epic, $quick -->
@@ -172,7 +172,7 @@ Ask one comprehensive question and wait when required information is missing. Ne
 9. Write acceptance criteria as outcomes the user can rely on, few in number and open on the mechanism, growing only with the surfaces a story touches. A Story's Requirements holds hard constraints only, every supplied value carried as `references/story-mode.md` states, and a supplied value never travels into an acceptance criterion instead. Keep Task QA checklist items inside a Task's Requirements.
 10. Use `---` between required Task and Bug sections. Use `-` and `- []` for Task, Bug and Interactive bullets and checklists. Use exact `*   ` bullets in new Doc, Story and Epic artifacts, `*   []` checklists in Doc and `- []` in a Story or Epic only for requirement items, the Mark-as-done line and optional readiness or done gates. Write every checkbox `[]`, never `[ ]` with a space. Never end a newly authored or rewritten bullet item with a full stop. Preserve untouched source punctuation and markers in refinements unless normalization is requested.
 11. Use `## About` at H2 and H3 for the other generated Task and Bug artifact section headers, without leading icons or symbols.
-12. Export before responding and verify the save before claiming delivery. A Flow route is the one exception: it hands off to the `sk-create-figjam` packet, whose deliverable is a FigJam board, and replies with five items: the board URL, the read-back line, an `Extensions:` line when the write added any, a `Left out:` line when steps were left out and the HVR self-scan, as `../sk-create-figjam/references/flow-mode.md` Section 8 sets out.
+12. Export before responding and verify the save before claiming delivery. A Flow route is the one exception: it hands off to the `sk-create-figjam` packet, whose deliverable is a FigJam board, and replies with five items: the board URL, the read-back line, an `Extensions:` line when the write added any, a `Left out:` line whenever the board leaves out a cut, a split, a later board or a point the sources left open and the HVR self-scan, as `../sk-create-figjam/references/flow-mode.md` Section 8 sets out.
 13. Reply after export in the Delivery Reply Shape, `assets/interactive-response-templates.md` Section 3, closing on the ClickUp offer when ClickUp tooling is available.
 14. Wait for explicit approval in the current conversation before any ClickUp write. When approved, follow the ClickUp handoff in Section 7 and its transport pointer to the vendored packet.
 15. For Story work, resolve the artifact kind (Story or Epic) before any file is read, name it in the delivery response, and add a `## Delivery` close only where the requester asked for it or an open question or an undated external constraint forced it.

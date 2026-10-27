@@ -104,6 +104,7 @@ Second glance: Sync engine and Conflict screen build, the two builds Integration
 Last glance: Beta for 5 percent and the Release milestone at the end.
 Plan: Loomlist Product. File: a new FigJam file named "Offline mode launch", created in that plan.
 Writes: one composed board, 3 sections, 5 tasks and 1 milestone on one axis, with a title, a key and a source line, at the Laptop reading distance.
+Left out: Android next quarter, a proposal with no dates
 Extensions: none.
 Calls: whoami, create_new_file, one use_figma and one get_figjam read-back.
 Rollback: delete the new file.

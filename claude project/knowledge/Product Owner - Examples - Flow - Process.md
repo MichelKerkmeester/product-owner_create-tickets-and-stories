@@ -116,10 +116,11 @@ The gate is its own reply, sent after the playback's answer. Its one question as
 Question: who does what, and where does the claim change hands?
 Outcome: a reader can see which team owns each step of a damaged-item refund and where the claim moves from CS to the warehouse.
 First glance: Approve the claim, the handoff from CS to the warehouse that the runbook names as the slowest.
-Second glance: Damage clear?, the check that decides whether the claim moves on.
-Last glance: the claims table, where every decision is logged.
+Second glance: Refund released, the goal the claim reaches once the warehouse clears it, and Damage reported, the light blue entry where the claim starts.
+Last glance: Damage clear?, the check that decides whether the claim moves on, and the claims table, where every decision is logged.
 Plan: Fernhouse Product. File: a new FigJam file named "Damaged-item refund", created in that plan.
 Writes: one composed board, 3 lanes, 8 nodes and 8 connectors, with a title, a key and a source line, at the Laptop reading distance.
+Left out: pickup skipped under €20, a pilot that is not live
 Extensions: none.
 Calls: whoami, create_new_file, one use_figma and one get_figjam read-back.
 Rollback: delete the new file.

@@ -100,9 +100,9 @@ The gate is its own reply, sent after the playback's answer. Its one question as
 ```text
 Question: which statuses exist and what moves a booking between them?
 Outcome: support can read every booking status and spot the statuses a booking ends in.
-First glance: Confirmed, the composite section the overview shows first.
+First glance: Pending, the light blue first state where every booking starts and the shape the overview shows first.
 Second glance: the end states Completed and Cancelled and NoShow, each in light gray with its heavy outline.
-Last glance: Pending, where every booking starts.
+Last glance: Upcoming and InStay, the states inside Confirmed, whose section reads as part of the frame.
 Plan: Roamstay Product. File: a new FigJam file named "Booking status", created in that plan.
 Writes: one composed board, 7 states and 12 transitions, the end states in light gray, with a title, a key and a source line, at the Laptop reading distance.
 Extensions: none.
@@ -117,6 +117,6 @@ Write it?
 
 ```text
 <board URL>
-Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled, first glance: Confirmed
+Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled, first glance: Pending
 HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
 ```

@@ -1,7 +1,7 @@
 ---
 title: "FJ-009 -- A gantt chart with no route"
 description: "This scenario validates a gantt chart with no route for `FJ-009`. It checks that a yes on a gantt chart with no hosted Figma MCP names the missing route, says the `fj` route cannot draw a gantt chart, offers the checked model and claims no board."
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # FJ-009 -- A gantt chart with no route
@@ -28,7 +28,7 @@ Operators run the exact prompt and command sequence for `FJ-009` and confirm the
 - Real user request: `put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November for two weeks, the sync engine takes three weeks from the same day, the conflict screen build follows design for two weeks, integration starts when both are done for one week, then a two-week beta and the release.`
 - Prompt: `put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November for two weeks, the sync engine takes three weeks from the same day, the conflict screen build follows design for two weeks, integration starts when both are done for one week, then a two-week beta and the release.`
 - Expected execution process: Open with the playback, which waits for its own yes and comes after an intake round only when the run opens one. Then pick the gantt type, model and check it, stop at the gate, then on the gate's yes find no hosted route, say the `fj` route does not draw a gantt chart, offer the checked model and write nothing
-- Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate or the missing-route reply and writes nothing. Turn 3 names the hosted Figma MCP as not connected and what it needs, says the `fj` route cannot draw a gantt chart, offers the checked model and prints no board URL or `Read-back:` line
+- Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate, which names the missing route in place of the plan and the calls, and writes nothing. Turn 3 names the hosted Figma MCP as not connected and what it needs, says the `fj` route cannot draw a gantt chart, offers the checked model and prints no board URL or `Read-back:` line
 - Desired user-visible outcome: A plain account of the missing route with the checked model to keep
 - Pass/fail: PASS if nothing is written, the missing route and the `fj` limit are named, and the checked model is offered. FAIL if a reply claims a board, the `fj` route is tried for the gantt chart, or an image, HTML page or Mermaid file stands in for the board. Record SKIP only when a Figma route is reachable, naming that as the sandbox blocker
 

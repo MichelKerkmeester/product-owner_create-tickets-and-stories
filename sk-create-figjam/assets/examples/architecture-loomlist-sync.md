@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "architecture example"
   - "loomlist sync architecture"
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # Example - Architecture - Loomlist Sync
@@ -118,10 +118,11 @@ The gate is its own reply, sent after the playback's answer. Its one question as
 Question: which parts take part in sync and how do they connect?
 Outcome: the offline mode kickoff group can see which parts carry a block change from one client to the others.
 First glance: Sync Service, where every block change is written and published.
-Second glance: the Change Stream that carries each change on to the Push Worker.
+Second glance: the API Gateway, the edge every client socket enters through, and the Change Stream that carries each change on to the Push Worker.
 Last glance: Apple Push, the external hop that wakes sleeping iOS devices.
 Plan: Loomlist Engineering. File: a new FigJam file named "Block sync", created in that plan.
 Writes: one composed board, 9 nodes and 8 connectors in 6 lanes, with a title, a key and a source line, at the Laptop reading distance.
+Left out: file storage, off the sync path, cut at the balanced detail level
 Extensions: none.
 Calls: whoami, create_new_file, one use_figma and one get_figjam read-back.
 Rollback: delete the new file.

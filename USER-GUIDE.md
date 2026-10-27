@@ -116,7 +116,7 @@ A board goes into a shared Figma plan, so the write sits behind stops you contro
 3. **The write.** Only a yes to the gate's own question writes. A yes to anything else never does
 4. **The read-back.** It reads the board back from Figma and counts what landed against the model, such as `Read-back: 8 of 8 nodes, 8 of 8 connectors, 2 of 2 decision exits labelled, first glance: the failed payment`. A mismatch is reported as measured, and the board is never called done
 
-The reply then gives the board URL first and the read-back line second. An `Extensions:` line counts any notes, a `Left out:` line names anything cut or split away and a `Finding:` line carries each open point. The voice check comes last.
+The reply then gives the board URL first and the read-back line second. An `Extensions:` line counts any notes, a `Left out:` line names any cut, split, later board or point the sources left open and a `Finding:` line carries each open point. The voice check comes last.
 
 ### What a Composed Board Looks Like
 
