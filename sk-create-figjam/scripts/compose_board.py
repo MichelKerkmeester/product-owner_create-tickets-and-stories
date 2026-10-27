@@ -945,8 +945,9 @@ def drawn_checks(name: str, model: dict, drawn: dict, design: dict) -> list[tupl
         tinted = zone_tint_problems(drawn, model, design)
         results.append((f"{name} tints every zone apart from its members and its neighbour", not tinted, "; ".join(tinted)))
     if model["type"] != "sequence":
-        merged = geometry.shared_arrivals(drawn)
-        results.append((f"{name} gives every edge into a node its own point", not merged, "; ".join(merged)))
+        merged = geometry.shared_arrivals(drawn, model["type"] == "gantt")
+        results.append((f"{name} gives every edge into a node its own point, 24 px from the next where the side holds them",
+                        not merged, "; ".join(merged)))
     if model["type"] == "gantt":
         ends = geometry.gantt_arrow_ends(drawn)
         results.append((f"{name} runs each arrow from a bar's right end onto the next bar's left end", not ends, "; ".join(ends)))
@@ -1391,6 +1392,10 @@ def checker_checks() -> list[tuple[str, bool, str]]:
         {"name": "x", "pts": [(-run, 48), (0, 48)], "to": "LEFT"}, {"name": "y", "pts": [(-run, 48), (0, 48)], "to": "LEFT"}]))
     parallel = lambda gap: geometry.edges_side_by_side(planted_board(None, [
         {"name": "x", "pts": [(0, 100), (200, 100)]}, {"name": "y", "pts": [(0, 100 + gap), (200, 100 + gap)]}]))
+    spread = lambda xs, width=224, gantt=False: geometry.shared_arrivals({"nodes": [
+        {"id": "n1", "name": "node:a", "shape": "ROUNDED_RECTANGLE", "x": 0, "y": 0, "w": width, "h": 96}],
+        "connectors": [{"name": f"edge:{k}", "end": {"endpointNodeId": "n1", "position": {"x": x, "y": 0}}}
+                       for k, x in enumerate(xs)]}, gantt)
     air = lambda gap: geometry.labels_clear(planted_board(None, [
         {"name": "x", "pts": [(0, 200), (300, 200)], "label": "reserves"},
         {"name": "y", "pts": [(150, 200 + gap), (150, 360)]}]))
@@ -1412,6 +1417,11 @@ def checker_checks() -> list[tuple[str, bool, str]]:
         ("two runs 80 px apart are two lines", not parallel(80), ""),
         ("another edge's line 4 px from a label is a label at a junction", bool(air(16)), ""),
         ("another edge's line 20 px from a label is clear", not air(32), ""),
+        ("two arrivals 16 px apart on one side of a card read as one arrowhead", bool(spread([8, 24])), ""),
+        ("two arrivals 24 px apart on one side of a card are two", not spread([8, 32]), ""),
+        ("two arrows 16 px apart into a long gantt bar are flagged", bool(spread([8, 24], gantt=True)), ""),
+        ("three arrows into a 40 px gantt bar may land 14 px apart, all the bar holds",
+         not spread([8, 22, 36], 40, True), ""),
     ]
 
 

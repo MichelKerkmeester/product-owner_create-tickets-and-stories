@@ -61,7 +61,7 @@ Judged by hand:
 
 ## 4. BUDGET AND SPLITTING
 
-Over budget, collapse each phase to one bar in an overview chart and draw one chart per phase beside it in the same file. When the user asked for one board, cut the lowest-priority part instead, name it under `Left out:` and offer the split as the alternative in the playback. At `Meeting screen` distance task names drop to 32 characters. At `Wall` distance the budget drops to 8 tasks and 3 bars running at once in a section, with names at 25 characters, as the reading distance dial in Templates - Flow Mode Section 4 sets out.
+Over budget, collapse each phase to one bar in an overview chart and draw one chart per phase beside it in the same file. When the user asked in so many words for one board, cut the lowest-priority part instead, name it under `Left out:` and offer the split as the alternative in the playback. At `Meeting screen` distance task names drop to 32 characters. At `Wall` distance the budget drops to 8 tasks and 3 bars running at once in a section, with names at 25 characters, as the reading distance dial in Templates - Flow Mode Section 4 sets out.
 
 ---
 

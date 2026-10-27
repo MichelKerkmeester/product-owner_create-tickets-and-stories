@@ -8,7 +8,7 @@ Hand-maintained local package for the Product Owner claude.ai Project. The kerne
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- synthesized Project kernel v1.2.8 (routing authority, SKILL.md is not loaded in this Project)
+|-- Custom Instructions.md        <- synthesized Project kernel v1.2.9 (routing authority, SKILL.md is not loaded in this Project)
 |-- README.md                     <- upload manifest and hand-authored parity note
 |-- kernel-review.json            <- dated record of one kernel review, read by no tool
 |-- templates/                    <- Product Owner - Local - Push Targets.md, filled and uploaded per user, never shared
@@ -60,7 +60,7 @@ claude project/
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` v1.2.8 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.3.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
+`Custom Instructions.md` v1.2.9 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.4.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
 
 CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Block**, direct resource loading becomes Project Knowledge consultation, and the response reports an export-equivalent path. Refinements keep delivery metadata outside preserved content unless equivalent metadata already exists in the source.
 

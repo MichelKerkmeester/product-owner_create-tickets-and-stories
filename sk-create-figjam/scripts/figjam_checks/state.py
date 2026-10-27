@@ -75,6 +75,12 @@ def check_state(diagram: Diagram, block_text: str) -> list[str]:
         between_states = kind(source) not in PSEUDO and kind(target) not in PSEUDO
         if between_states and not edge.label.strip():
             problems.append(f"{name} has no label: name the event that triggers it")
+        # The board shows each state by its label, so a guard that names the id points at nothing a reader sees.
+        for guard in re.finditer(r"\[from ([^\]]+)\]", edge.label, re.I):
+            for named in re.split(r",|\bor\b", guard.group(1)):
+                guarded = by_id.get(named.strip())
+                if guarded and guarded.label != guarded.id:
+                    problems.append(f"{name} guards on the id {guarded.id}: name the state by its label, {guarded.label}")
     for node in diagram.nodes:
         if kind(node) != "choice":
             continue

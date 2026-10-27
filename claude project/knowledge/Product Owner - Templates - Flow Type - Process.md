@@ -39,7 +39,7 @@ The last three come from Figma's list of shapes that render as distinct FigJam s
 
 A lane is a subgraph with a readable label, `subgraph agent ["CS agent"]`, holding the steps that actor performs.
 
-Connectors are `-->` for the flow and `-.->` for an optional or proposed step. A log write that runs today is drawn solid.
+Connectors are `-->` for the flow and `-.->` for an optional or proposed step. A log write that runs today is drawn solid. A source that says every decision or every step is logged names those nodes as its writers, so the log store is drawn with one solid edge from the decision the reader most needs and the source line says the others write it too.
 
 On the board each lane is a band in a light tint, named after its label and stacked in the order the model declares them. Every step sits inside its lane's band. The kinds take their shapes from Rules - Flow Style Guide Section 2 and their colour roles from Assets - Flow Board Design: a store is a cylinder in the `store` role, data entering or leaving a parallelogram in the `io` role and a sub-process a predefined-process shape in the `neutral` role. A process without lanes may group its steps into stages with `%% zone:` lines.
 
@@ -60,6 +60,7 @@ Check these rule by rule before the gate:
 
 Judged by hand:
 
+- **No node returns to itself.** A connector from a node back onto the same node draws no loop a reader can follow, so a retry goes into a label or through the node it returns through
 - **A handoff is the edge that matters most.** When the process has lanes, a connector that crosses lanes is a handoff, and the step in focus is the sending step of the handoff that adds the most delay or risk
 - **One owner per step.** A step two teams share is two steps or a handoff
 - **Every non-rectangle shape earns its place.** A store that only one step touches may be a label on that step instead
@@ -70,7 +71,7 @@ Judged by hand:
 
 ## 4. BUDGET AND SPLITTING
 
-Over budget, cut in the house diagram guide's degrade order and stop as soon as the diagram fits: notes and decoration first, then exact duplicates merged into one step, then steps that change nothing a reader decides, then cross-cutting steps such as logging. Still over, split into an overview, with each phase as one subroutine step, and one detail diagram per phase. When the user asked for one board, cut the next item in that order instead, name it under `Left out:` and offer the split as the alternative in the playback. Everything cut is named under `Left out:`. At `Meeting screen` distance labels drop to 32 characters. At `Wall` distance the budget drops to 6 nodes and 8 connectors, or 8 nodes and 11 connectors with lanes, with labels at 25 characters, as the reading distance dial in Templates - Flow Mode Section 4 sets out.
+Over budget, cut in the house diagram guide's degrade order and stop as soon as the diagram fits: notes and decoration first, then exact duplicates merged into one step, then steps that change nothing a reader decides, then cross-cutting steps such as logging. Still over, split into an overview, with each phase as one subroutine step, and one detail diagram per phase. When the user asked in so many words for one board, cut the next item in that order instead, name it under `Left out:` and offer the split as the alternative in the playback. Everything cut is named under `Left out:`. At `Meeting screen` distance labels drop to 32 characters. At `Wall` distance the budget drops to 6 nodes and 8 connectors, or 8 nodes and 11 connectors with lanes, with labels at 25 characters, as the reading distance dial in Templates - Flow Mode Section 4 sets out.
 
 ---
 

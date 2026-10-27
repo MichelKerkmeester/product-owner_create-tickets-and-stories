@@ -1,7 +1,7 @@
 ---
 title: "FJ-020 -- Two artifact commands ask one question"
 description: "This scenario validates two artifact commands ask one question for `FJ-020`. It checks that `$task $flow` names two artifacts, so the Product Owner packet asks one question that settles the artifact, later rounds ask only what the board needs and nothing is drawn or saved."
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # FJ-020 -- Two artifact commands ask one question
@@ -50,16 +50,17 @@ Operators run the exact prompt and command sequence for `FJ-020` and confirm the
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| FJ-020 | Two artifact commands ask one question | Verify that `$task $flow` names two artifacts, so the Product Owner packet asks one question that settles the artifact, later rounds ask only what the board needs and nothing is drawn or saved | `$task $flow the Fernhouse onboarding checklist` | 1. `session: start fresh -> user: submit the prompt exactly` -> 2. `operator: read the reply, the tool calls and export/` | Step 1 returns one question. Step 2 finds no Figma tool call and no model | The reply, the tool calls and the `export/` listing | PASS if one question settles the artifact, later rounds ask only what the board needs and nothing is drawn until the artifact is settled. FAIL if a board or a model is produced before the artifact is settled, or a round that settles a board fact is refused as a second question | 1. Check `$task $flow` in `benchmark/hub-routing-cases.json` and `python3 benchmark/gates/check_hub.py` 2. Check the conflict rule in `../sk-product-owner/references/interactive-mode.md` |
+| FJ-020 | Two artifact commands ask one question | Verify that `$task $flow` names two artifacts, so the Product Owner packet asks one question that settles the artifact, later rounds ask only what the board needs and nothing is drawn or saved | `$task $flow the Fernhouse onboarding checklist` | 1. `session: start fresh -> user: submit the prompt exactly` -> 2. `user: The FigJam board. -> operator: confirm the reply asks only the board facts the sources leave open, or the type question alone, and writes nothing` -> 3. `operator: read the reply, the tool calls and export/` | Step 1 returns one question. Step 2 asks only what the board needs. Step 3 finds no Figma tool call and no model | The reply, the tool calls and the `export/` listing | PASS if one question settles the artifact, later rounds ask only what the board needs and nothing is drawn until the artifact is settled. FAIL if a board or a model is produced before the artifact is settled, or a round that settles a board fact is refused as a second question | 1. Check `$task $flow` in `benchmark/hub-routing-cases.json` and `python3 benchmark/gates/check_hub.py` 2. Check the conflict rule in `../sk-product-owner/references/interactive-mode.md` |
 
 ### Commands
 
 1. `session: start fresh -> user: submit the prompt exactly`
-2. `operator: read the reply, the tool calls and export/`
+2. `user: The FigJam board. -> operator: confirm the reply asks only the board facts the sources leave open, or the type question alone, and writes nothing`
+3. `operator: read the reply, the tool calls and export/`
 
 ### Expected
 
-Step 1 returns one question. Step 2 finds no Figma tool call and no model
+Step 1 returns one question. Step 2 asks only what the board needs. Step 3 finds no Figma tool call and no model
 
 ### Evidence
 

@@ -228,6 +228,11 @@ sequenceDiagram
     a([Start]) --> b([Done])
     c[Orphan source] --> b
 """, "has no way in"),
+    "a step that returns to itself": ("""flowchart TD
+    a([Start]) --> b[Retry payment]
+    b -->|Declined| b
+    b --> c([Paid])
+""", "to itself: a node that returns to itself draws no loop"),
     "a 10-node user flow": ("flowchart TD\n    n1([Start]) --> n2[Step 2]\n"
                             + "".join(f"    n{i}[Step {i}] --> n{i + 1}[Step {i + 1}]\n" for i in range(2, 9))
                             + "    n9[Step 9] --> n10([End])\n", "10 nodes, at most 9"),
@@ -442,6 +447,13 @@ flowchart LR
     loose[Loose Node]
     a -->|"Calls"| loose
 """, "the layout cannot place it"),
+    "a component that returns to itself": ("""%% type: architecture
+flowchart LR
+    subgraph service ["Core Services"]
+        api[Booking API]
+    end
+    api -->|retry| api
+""", "to itself: a node that returns to itself draws no loop"),
     "styling in an architecture": ("""%% type: architecture
 flowchart LR
     subgraph client ["Clients"]
@@ -631,6 +643,30 @@ flowchart LR
     Gate --> Approved: approve
     Gate --> Rejected
 """, "has no guard label"),
+    "a guard that names a state by its id": ("""stateDiagram-v2
+    [*] --> Booked
+    state Stay {
+        state "Upcoming" as upcoming
+        [*] --> upcoming
+        upcoming --> Arrived: check in
+        Arrived --> [*]
+    }
+    Booked --> Stay: confirm
+    Stay --> Cancelled: missed check-in [from upcoming]
+    Cancelled --> [*]
+""", "guards on the id upcoming"),
+    "a guard that names two states, one by its id": ("""stateDiagram-v2
+    [*] --> Booked
+    state Stay {
+        state "Upcoming" as upcoming
+        [*] --> upcoming
+        upcoming --> Arrived: check in
+        Arrived --> [*]
+    }
+    Booked --> Stay: confirm
+    Stay --> Cancelled: cancel [From Arrived or upcoming]
+    Cancelled --> [*]
+""", "guards on the id upcoming"),
     "ten states": ("stateDiagram-v2\n    [*] --> S1\n"
                    + "".join(f"    S{i} --> S{i + 1}: next\n" for i in range(1, 10)), "10 states, at most 9"),
     # ER

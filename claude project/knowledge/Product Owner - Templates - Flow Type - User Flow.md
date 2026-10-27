@@ -52,6 +52,7 @@ Check these rule by rule before the gate:
 
 Judged by hand:
 
+- **No node returns to itself.** A connector from a node back onto the same node draws no loop a reader can follow, so a retry goes into a label or through the node it returns through
 - **Labels name the screen or the action in the product's own words,** one to four words where those words allow
 - **A decision label is a question and each exit one of its answers**
 - **Exits read the same way across the flow,** such as Yes to the right and No below, so a reader learns the pattern once
@@ -62,7 +63,7 @@ Judged by hand:
 
 ## 4. BUDGET AND SPLITTING
 
-Nine nodes is the house diagram guide's general budget and matches what a hand-drawn user flow uses. A longer flow splits into diagrams that hand off through a named end and a start with the same label, all in one file. When the user asked for one board, cut the lowest-priority part instead, name it under `Left out:` and offer the split as the alternative in the playback. Every source step lands in one diagram or under `Left out:`, never dropped silently. At `Meeting screen` distance labels drop to 32 characters. At `Wall` distance the budget drops to 6 nodes, with labels at 25 characters, as the reading distance dial in Templates - Flow Mode Section 4 sets out.
+Nine nodes is the house diagram guide's general budget and matches what a hand-drawn user flow uses. A longer flow splits into diagrams that hand off through a named end and a start with the same label, all in one file. When the user asked in so many words for one board, cut the lowest-priority part instead, name it under `Left out:` and offer the split as the alternative in the playback. Every source step lands in one diagram or under `Left out:`, never dropped silently. At `Meeting screen` distance labels drop to 32 characters. At `Wall` distance the budget drops to 6 nodes, with labels at 25 characters, as the reading distance dial in Templates - Flow Mode Section 4 sets out.
 
 ---
 

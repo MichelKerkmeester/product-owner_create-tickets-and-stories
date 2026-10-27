@@ -73,7 +73,7 @@ Judged by hand:
 
 ## 4. BUDGET AND SPLITTING
 
-Split by bounded context, such as guests and bookings in one diagram and properties and rates in another, each in the same file. When the user asked for one board, cut the lowest-priority part instead, name it under `Left out:` and offer the split as the alternative in the playback. When two diagrams share an entity, draw it in both and say so in the reply. At `Meeting screen` distance labels drop to 32 characters. At `Wall` distance the budget drops to 6 entities and 8 relationships, with labels at 25 characters, as the reading distance dial in Templates - Flow Mode Section 4 sets out.
+Split by bounded context, such as guests and bookings in one diagram and properties and rates in another, each in the same file. When the user asked in so many words for one board, cut the lowest-priority part instead, name it under `Left out:` and offer the split as the alternative in the playback. When two diagrams share an entity, draw it in both and say so in the reply. At `Meeting screen` distance labels drop to 32 characters. At `Wall` distance the budget drops to 6 entities and 8 relationships, with labels at 25 characters, as the reading distance dial in Templates - Flow Mode Section 4 sets out.
 
 ---
 

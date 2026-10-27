@@ -41,7 +41,7 @@ The marked node is chosen against a target written down first. A board judged on
 2. **Second glance.** The evidence or relationship that advances it
 3. **Last glance.** The risk, the metadata or the appendix that stays available without competing
 
-Those three lines travel into the gate, so the marked node is chosen from them and the reply can say what should win. After the first glance, filled shapes and their keyed fills outweigh connector labels and text in the overview, so the lines name a filled group such as the gray end states before the labels between them.
+Those three lines travel into the gate, so the marked node is chosen from them and the reply can say what should win. After the first glance, filled shapes and their keyed fills outweigh connector labels and text in the overview, so the lines name a filled group such as the gray end states before the labels between them. A goal, a final state, a gateway, an error and a critical bar carry a 4 pixel outline and read right after the accent, so plan them second unless the accent sits on them. A state board takes its order from Templates - Flow Type - State Section 5 instead.
 
 - [ ] One accent on a user flow or a process, on the node a reader would keep if they could keep only one, never the node that comes first. The goal, a failure end, a decision and the one step in focus are the candidates, as Rules - Flow Style Guide Section 3 sets out. Two that tie mean the diagram splits
 - [ ] The three glance lines were written before the model and named in the gate

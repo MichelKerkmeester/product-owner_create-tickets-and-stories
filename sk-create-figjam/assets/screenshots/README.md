@@ -5,7 +5,7 @@ trigger_phrases:
   - "figjam board screenshots"
   - "figjam gallery"
   - "sk-create-figjam examples images"
-version: 1.0.5.0
+version: 1.0.6.0
 ---
 
 # sk-create-figjam - Board Screenshots
@@ -31,7 +31,7 @@ The seven type boards and the dense flow come from the [model comparison run](..
 - [`state-board.png`](state-board.png): state diagram, from [FJ-026](../../manual-testing-playbook/board-quality/state-board-quality.md), Claude Sonnet 5.5 high, 20 of 22, FAIL. All three state boards the rerun drew scored 20, and this one reads fastest, with a composite Confirmed state and no crossing. The run fails on two points: no accent leads to the end states the request asked about, and its read-back line claimed a visual read that never ran
 - [`er-board.png`](er-board.png): ER diagram, from [FJ-027](../../manual-testing-playbook/board-quality/er-board-quality.md), Claude Sonnet 5.5 high, 21 of 22, PASS. The point lost is Clarity, because the reader missed that a booking reserves one room. The board carries key columns only, because the driver never supplied the schema note
 - [`gantt-board.png`](gantt-board.png): gantt chart, from [FJ-028](../../manual-testing-playbook/board-quality/gantt-board-quality.md), Claude Sonnet 5.5 high, 20 of 22, PASS. It loses one Shared trunks point where two arrowheads crowd into Desktop and iOS integration, and one Clarity point because the reader named the critical chain instead of Integration
-- [`state-on-existing-board.png`](state-on-existing-board.png): state diagram written onto a board that already held content, from [FJ-032](../../manual-testing-playbook/board-creation/existing-board-with-content.md) on its second recheck, 22 of 22, drawn again in the design file before v1.0.6.0. The rerun's FJ-032 board scored 20 and failed on Composition, so this image stays
+- [`state-on-existing-board.png`](state-on-existing-board.png): state diagram written onto a board that already held content, from [FJ-032](../../manual-testing-playbook/board-creation/existing-board-with-content.md) on its second recheck, 22 of 22, drawn again in the design file before v1.0.6.0. The rerun's FJ-032 board scored 19 and failed on Composition and Reply, so this image stays
 - [`dense-flow-board.png`](dense-flow-board.png): user flow at the 9-node budget with a three-way decision, from [FJ-036](../../manual-testing-playbook/board-creation/dense-flow-at-budget.md), Claude Sonnet 5.5 high, 21 of 22, FAIL. The drawing keeps both Composition points with no crossing, and the run fails only on its reply, which opened on a cleanup line instead of the board URL. The Picks a room and Yes lines still arrive close together at the price decision, as they did on the older board
 
 ---

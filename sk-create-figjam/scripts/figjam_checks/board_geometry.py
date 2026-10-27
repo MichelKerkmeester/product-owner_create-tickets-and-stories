@@ -48,8 +48,9 @@ TITLE_INSET, TITLE_GAP, LABEL_HEIGHT, LABEL_PAD, LABEL_CHAR, SHARE_MAX = 32, 8, 
 # LABEL_CLEAR of air from every other line.
 ZONE_OUT, ZONE_IN, CORRIDOR, SIDE_BY_SIDE, LABEL_CLEAR, MERGE_MAX = 16, 40, 16, 56, 8, 200
 DETOUR_LIMIT = 2.0
-# A dot is at most this wide. An arrow into a gantt bar lands within this many pixels of the bar's left end.
-DOT_WIDTH, GANTT_LANDING = 32, 48
+# A dot is at most this wide. An arrow into a gantt bar lands within this many pixels of the bar's left end, and
+# the arrivals on one side of a node stand SPREAD apart where the side holds them.
+DOT_WIDTH, GANTT_LANDING, SPREAD = 32, 72, 24
 # A choice or a milestone is a diamond at most this wide, too small to give each arrival a point of its own.
 JOIN_DIAMOND = 56
 
@@ -276,14 +277,16 @@ def drawn_edges(drawn: dict) -> list[dict]:
     return edges
 
 
-def shared_arrivals(drawn: dict) -> list[str]:
-    """The edges that arrive at one point of one node, which reads as one arrowhead.
+def shared_arrivals(drawn: dict, gantt: bool = False) -> list[str]:
+    """The edges that arrive at one point of one node, or closer than SPREAD along one side, which read as one arrowhead.
 
     A dot, a choice and a milestone are where paths join, so edges may meet on them, as the composer leaves them.
-    Every other node gives each arrival its own point.
+    Every other node gives each arrival its own point, SPREAD from the next where the side holds them all. A gantt
+    bar takes its arrows within GANTT_LANDING of its left end, so a short bar spaces them closer to fit.
     """
     shapes = {n["id"]: n for n in drawn["nodes"]}
     seen: dict[tuple, str] = {}
+    sides: dict[tuple, list[tuple[float, str]]] = {}
     problems = []
     for c in drawn["connectors"]:
         if not c["name"].startswith("edge:"):
@@ -292,11 +295,24 @@ def shared_arrivals(drawn: dict) -> list[str]:
         joins = {"ELLIPSE": DOT_WIDTH, "DIAMOND": JOIN_DIAMOND}.get(node.get("shape"), 0)
         if node["w"] <= joins:
             continue
-        (x, y), _ = _point(shapes, c["end"])
+        (x, y), way = _point(shapes, c["end"])
         spot = (node["name"], round(x), round(y))
         if spot in seen:
             problems.append(f"{seen[spot]} and {c['name']} arrive at one point of {node['name']}")
         seen.setdefault(spot, c["name"])
+        if way:
+            sides.setdefault((node["id"], way), []).append((x if way[1] else y, c["name"]))
+    for (node_id, way), points in sides.items():
+        node = shapes[node_id]
+        room = node["w"] if way[1] else node["h"]
+        if gantt:
+            room = min(room, GANTT_LANDING) - 12
+        need = min(SPREAD, room / max(1, len(points) - 1))
+        points.sort()
+        for (a, first), (b, second) in zip(points, points[1:]):
+            if 0 < b - a < need - 0.5:
+                problems.append(f"{first} and {second} arrive {round(b - a)} px apart on one side of {node['name']}, "
+                                f"at least {round(need)} where the side holds them")
     return problems
 
 

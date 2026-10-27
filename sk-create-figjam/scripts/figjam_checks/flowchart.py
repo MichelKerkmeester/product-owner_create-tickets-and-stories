@@ -249,6 +249,13 @@ def repeated_label_problems(diagram: Diagram) -> list[str]:
             for key, count in sorted(counted.items()) if count > MAX_LABEL_REPEATS]
 
 
+def self_loop_problems(diagram: Diagram) -> list[str]:
+    """The edges from a node back onto the same node, which the board draws as no loop a reader can follow."""
+    return [f"edge {edge.source} to itself: a node that returns to itself draws no loop, "
+            "so write the retry into a label or draw the node it returns through"
+            for edge in diagram.edges if edge.source == edge.target]
+
+
 def check_flow(diagram: Diagram, block_text: str, profile: str) -> list[str]:
     """A user flow or a process, both laid out in ranks."""
     problems = raw_problems(block_text)
@@ -276,6 +283,7 @@ def check_flow(diagram: Diagram, block_text: str, profile: str) -> list[str]:
     if max_edges is not None and len(diagram.edges) > max_edges:
         problems.append(f"{len(diagram.edges)} connectors, at most {max_edges}: split the flow")
     problems += edge_problems(diagram, block_text, allow_dotted=profile == PROCESS)
+    problems += self_loop_problems(diagram)
     problems += repeated_label_problems(diagram)
     return problems
 
@@ -345,6 +353,7 @@ def check_architecture(diagram: Diagram, block_text: str, backward: set[tuple[st
             f"{len(diagram.edges)} connectors, at most {BUDGET[ARCHITECTURE][1]}: "
             "draw one flow per diagram"
         )
+    problems += self_loop_problems(diagram)
     pairs, forward, ways_in, ways_out = set(), [], {}, {}
     for edge in diagram.edges:
         name = f"edge {edge.source} to {edge.target}"

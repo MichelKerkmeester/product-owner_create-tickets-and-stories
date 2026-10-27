@@ -1,7 +1,7 @@
 ---
 title: "sk-create-figjam: Manual Testing Playbook"
 description: "Operator-facing directory for the FigJam diagram packet: type choice for all seven types, the pre-write check, the board write with its gate, extension and read-back, scored board quality for every type, creation variant and the board design, the boundaries with the Product Owner packet and routing recall for type detection."
-version: 1.0.5.0
+version: 1.0.6.0
 ---
 
 # sk-create-figjam: Manual Testing Playbook
@@ -80,16 +80,16 @@ The operator writes down the glance order the model plans before the first scree
 
 **The overview zoom.** Four dimensions, each 0, 1 or 2, scored on the whole board in one frame.
 
-- **Composition.** 2: the board reads in the planned glance order, and the element the request is about comes first. 1: the order holds and one part comes before that element. 0: two parts read in the reverse of the planned order. The title block is the frame entry and never counts as a part of the glance order
+- **Composition.** 2: the board reads in the planned glance order, and the element the request is about comes first. 1: the order holds and one part comes before that element. 0: two parts read in the reverse of the planned order. The title block is the frame entry and never counts as a part of the glance order. When the request names a group, such as the end states, its most telling member marked by the focus line is the element the request is about. When `sk-create-figjam/references/quality-rubric.md` Section 3 makes the requested element the second glance, as on a revision that changes an end other than a failure end, the board scores 2 when that element holds the planned second glance and the rest of the order holds
 - **Crossings.** 2: no connector crosses another. 1: one crossing. 0: two or more
 - **Shared trunks.** 2: every connector runs alone between its shapes, or a trunk carries only the edges the model draws as one path. 1: one trunk joins two edges the model draws apart. 0: two or more
 - **Label collisions.** 2: no two labels touch, and each label sits nearer its own connector than any other. 1: one pair touches. 0: a label covers another or reads as another connector's
 
 **The reading zoom.** Four dimensions, each 0, 1 or 2, scored on the 100% screenshot and its greyscale copy.
 
-- **Fidelity.** 2: every read-back count matches the model and every label matches it word for word. 1: the counts match and one label differs. 0: a count differs
+- **Fidelity.** Scored against the run's own checked model. 2: every read-back count matches the model and every label matches it word for word. 1: the counts match and one label differs. 0: a count differs. A count or label the scenario expects and the run's model left out is an expected-signal miss, not a Fidelity loss
 - **Legibility.** 2: no label is cut off, wrapped mid-word or smaller than its neighbours. 1: one label wraps awkwardly. 0: a label is cut off or unreadable
-- **Signal.** 2: every colour the key lists matches its entry and the role `sk-create-figjam/assets/figjam-design.md` gives it, every mark it leaves out passes the rule below, the accent the model sets, a `style` line on a user flow or a process or an optional `%% focus:` line on another type, sits on the element the request names and the greyscale copy answers the reader questions as the colour one does. 1: the accent sits on a different element. 0: a colour the key does not explain and the rule below does not cover, more than one accent in the model or meaning lost in greyscale. Meaning lost in greyscale is a reader question the colour copy answers and the greyscale copy cannot. Two kinds that share a shape differ by outline, as `sk-create-figjam/references/style-guide.md` Section 1 sets out. They score 0 when the board draws two such kinds with the same outline and fills under 25 luma apart, or when a node of either kind carries its meaning by fill alone
+- **Signal.** 2: every colour the key lists matches its entry and the role `sk-create-figjam/assets/figjam-design.md` gives it, every mark it leaves out passes the rule below, the accent the model sets, a `style` line on a user flow or a process or an optional `%% focus:` line on another type, sits on the element the request names and the greyscale copy answers the reader questions as the colour one does. An accent `sk-create-figjam/references/quality-rubric.md` Section 3 keeps on the goal, as on a revision that changes an end other than a failure end, sits where the request needs it. 1: the accent sits on a different element. 0: a colour the key does not explain and the rule below does not cover, more than one accent in the model or meaning lost in greyscale. Meaning lost in greyscale is a reader question the colour copy answers and the greyscale copy cannot. Two kinds that share a shape differ by outline, as `sk-create-figjam/references/style-guide.md` Section 1 sets out. They score 0 when the board draws two such kinds with the same outline and fills under 25 luma apart, or when a node of either kind carries its meaning by fill alone
 - **Clarity.** A fresh reader, a person or a new model session given only the two colour screenshots, answers the scenario's three questions. 2: three correct. 1: two correct. 0: one or none
 
 **Marks the key does not list.** The key holds one sample per kind, line and arrow the board uses and nothing else, so three marks are absent from it by design: a zone or lane tint, a note pin and a legend sticky. A grader scores them against `sk-create-figjam/references/style-guide.md` and the active design in `sk-create-figjam/assets/figjam-design.md`, and never counts their absence from the key as a Signal fault.
@@ -105,7 +105,7 @@ Each counts against Signal only when its colour is outside its palette in the st
 - **Hygiene, no node touched.** Passes when every node the write drew keeps the position, size and style it was written with. The board section a gated extension widens to hold its notes is the one exception, because `references/hybrid-workflow.md` grows it and returns its size before the call for the rollback
 - **Hygiene, no label covered.** Passes when no extension, pin or sticky covers a drawn label
 - **Hygiene, nothing else changed.** Passes when no node, section or sticky the run did not create changed
-- **Hygiene, nothing exported.** Passes when no file was written to `export/` and no Mermaid, HTML, SVG or PNG file was left behind
+- **Hygiene, nothing exported.** Passes when no file was written to `export/` and no Mermaid, HTML, SVG or PNG file was left behind. The paired artifact's own re-save at its existing export path, which `references/flow-mode.md` Section 8 owns, is the one exception
 
 **The reply.** Two points, scored on the reply text.
 

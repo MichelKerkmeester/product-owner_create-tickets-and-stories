@@ -1240,8 +1240,8 @@ function buildGantt(M) {
       // starts, so the arrow turns once and lands where that work begins. The check puts every bar an `after`
       // names above it. A milestone sits on that end, so its arrow drops from the bar's corner onto the diamond's
       // top, and one leaves a milestone from its foot. Arrows that leave one bar share its magnet, so a fork reads
-      // as one, and each arrow into one bar lands 16 px along from the one before, the nearest bar's first, so none crosses.
-      // A bar too short for that spacing takes its arrows closer together, so each lands on the bar and within 48 px of
+      // as one, and each arrow into one bar lands 24 px along from the one before, the nearest bar's first, so none crosses.
+      // A bar too short for that spacing takes its arrows closer together, so each lands on the bar and within 72 px of
       // its left end. Arrows into a milestone meet on its top, because a moment is a join with no room to spread them.
       const at = (id) => tasks.findIndex((x) => (x.id || x.name) === id);
       tasks.forEach((t) => (t.after || []).sort((a, b) => at(b) - at(a)).forEach((id, k) => {
@@ -1250,7 +1250,7 @@ function buildGantt(M) {
         const ms = statusOf(t) === 'milestone';
         const c = connect(board, from, to, { name: `edge:${id}->${me}`, m0: from.shapeType === 'DIAMOND' ? 'BOTTOM'
           : ms ? { x: from.width, y: from.height } : 'RIGHT',
-          m1: ms ? 'TOP' : { x: 8 + k * Math.min(16, (Math.min(to.width, 48) - 12) / Math.max(1, t.after.length - 1)), y: 0 } });
+          m1: ms ? 'TOP' : { x: 8 + k * Math.min(24, (Math.min(to.width, 72) - 12) / Math.max(1, t.after.length - 1)), y: 0 } });
         links.push({ id: c.id, from: from.id, to: to.id, model: `${id}->${me}`, label: '' });
       }));
     },
