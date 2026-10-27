@@ -1,0 +1,70 @@
+{
+ "id": "FJ-038",
+ "label": "sonnet-high-042",
+ "model": "claude:claude-sonnet-5-5:high",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/boundaries/restyle-is-a-hand-edit.md",
+ "file_pin": "Write the board into the existing FigJam file with key <draft-file-key> rather than a new file.",
+ "operator_setup_done": false,
+ "operator_pause_before": null,
+ "operator_paused": false,
+ "file_start_sections": null,
+ "driver": "model",
+ "expects_board": false,
+ "no_figma": false,
+ "scripted_turns": [
+  "$flow on the Fernhouse return board you drew, move the Approve return node further right and make its text bigger"
+ ],
+ "commands_run": 0,
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "8ebf8254-c4fa-4868-b74f-3a5e4addca74",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 57.97,
+   "tool_calls": 9,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 78220,
+   "output_tokens": 5919,
+   "cached_tokens": 255606,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "8ebf8254-c4fa-4868-b74f-3a5e4addca74",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$flow on the Fernhouse return board you drew, move the Approve return node further right and make its text bigger\n\nWrite the board into the existing FigJam file with key <draft-file-key> rather than a new file.",
+   "role": "scripted",
+   "kind": "OTHER"
+  }
+ ]
+}

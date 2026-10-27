@@ -1,0 +1,20 @@
+[
+ {
+  "step": 1,
+  "text": "session: start fresh -> user: submit the prompt exactly -> operator: read the reply and the tool calls",
+  "status": "skipped",
+  "reason": "session step, not a shell command"
+ },
+ {
+  "step": 2,
+  "text": "user: Yes, that reading is right. -> operator: read the model and the gate, and confirm no intake question was asked and the gate's one question asks about the write alone",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 3,
+  "text": "operator: list every fact the brief does not state and compare it with the playback",
+  "status": "skipped",
+  "reason": "operator step, not a shell command"
+ }
+]

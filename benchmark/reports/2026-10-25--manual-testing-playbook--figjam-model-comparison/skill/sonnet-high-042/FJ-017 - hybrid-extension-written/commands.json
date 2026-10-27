@@ -1,0 +1,26 @@
+[
+ {
+  "step": 1,
+  "text": "sandbox: confirm the hosted Figma MCP is connected -> session: start fresh",
+  "status": "skipped",
+  "reason": "sandbox step, not a shell command"
+ },
+ {
+  "step": 2,
+  "text": "user: submit the prompt exactly -> operator: confirm the reply is the playback with the question, the outcome, what each source settled and every assumed row. Confirm nothing is written. If the run opens an intake round first, answer it with the recommended answers and confirm the playback follows",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 3,
+  "text": "user: Yes, that reading is right. -> operator: confirm the gate names the notes and that nothing is written yet",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 4,
+  "text": "user: Yes, go ahead. -> operator: read the reply and tool calls, open the board and confirm each sticky stands inside the board beside Cancelled and NoShow",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ }
+]
