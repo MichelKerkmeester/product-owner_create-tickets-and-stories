@@ -196,7 +196,7 @@
     ],
     "causal_summary": "Claude Sonnet 5.5 high reran the 6 failures of v1.0.9.0 on v1.0.10.0 and 2 pass, FJ-032 by the operator's ruling",
     "created_at": "2026-10-26T18:02:43Z",
-    "last_save_at": "2026-10-27T17:40:36.688Z",
+    "last_save_at": "2026-10-27T18:27:57.294Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -207,13 +207,13 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:3421ae5bc01b23fc7c48575ef25d104c0b3c4605c99be4c5f2a012c754dee50b",
+    "source_fingerprint": "sha256:7d96f3407f8792b09f703946bdef1a758d72854c9f0f6437353cf2fb56087c9d",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
       "spec.md": "b0768a02568fd38b7d1d0390adacfcba6b5112778e9805ebe23effbcdc391129",
       "plan.md": "f7cdc77612afd4ba179f02b373cc79d15871b7f89c70e4a129228947d836b843",
-      "tasks.md": "536f9e5183bd00ec3630d402149e69c0d08df696aa8f157a47292de55354619e",
-      "implementation-summary.md": "7f2cea1ec307a117cae6b4850e95f18cb4721a4a969b73e08bf6f54d4ace79aa"
+      "tasks.md": "16e55c707f47772fea9b0752a2fbb832d9f9c847dccbc280c8277cff65e1dbca",
+      "implementation-summary.md": "4e8615add343273dc9f0ab59c501197dd53c9819eaa36e1bbc71f1a0c34da72b"
     },
     "last_active_at": null
   }

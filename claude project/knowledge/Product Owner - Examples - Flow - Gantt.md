@@ -86,9 +86,7 @@ Left out: Android next quarter, a proposal with no dates
 
 ### Check
 
-Every rule in Templates - Flow Type - Gantt holds, checked one by one: 6 task lines in 3 sections.
-
-The check counts every task line, so its 6 is the 5 tasks and the Release milestone. The gate and the read-back count the milestone once, apart from the tasks.
+The check counts every task line, so its 6 is the 5 tasks and the Release milestone. Every rule in Templates - Flow Type - Gantt holds, checked one by one: 6 task lines in 3 sections. The gate and the read-back count the milestone once, apart from the tasks.
 
 ---
 
