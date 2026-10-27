@@ -17,7 +17,12 @@ meta.json, and a small classifier's label for each reply's stop is kept as `kind
 
 A scenario's `driver:` frontmatter key changes how it runs. `operator-only` is skipped with
 its reason, because it needs a setup step the driver does not run. `new-file` drops the pin
-to the test file and keeps only where a new file may go. After the run the scenario's
+to the test file and names the plan the new file goes in, which `NEW_FILE_PLAN` sets at launch. `OPERATOR_PAUSE_BEFORE`, a scripted
+turn index or `part` for a chained scenario's own first turn, holds the run before that turn
+until the operator marks their own step done, and `FILE_START_SECTIONS` records how many
+sections the file held before turn 1. `OPERATOR_DONE` set to a scenario id runs that operator-only
+scenario once the operator has done the setup the driver cannot, and a prompt that names its
+prepared board by a `<fileKey ...>` placeholder gets the file key in its place and no pin. After the run the scenario's
 read-only shell steps run in its sandbox through `scenario_commands.py` into commands.json.
 
 A model id of the form `codex:<model>:<effort>` or `claude:<model>:<effort>` runs on that CLI
@@ -31,6 +36,7 @@ import re
 import shutil
 import subprocess
 import sys
+import time
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import devin_playbook_runner as dv  # noqa: E402
@@ -44,16 +50,20 @@ READING_YES = "yes, that reading is right"
 OPERATOR_ONLY = "the playbook marks this scenario operator-only, because it needs a setup step the driver does not run"
 MAX_INTAKE = 2
 MAX_FOLLOW = 3
-# Opus 5.5 low would not draw on the pinned file and stopped to ask for a plan, so the
-# operator allowed it one new file, in drafts of the Barter team plan and never in a project
 # The scripted answer to the write gate, and the phrase a scenario uses for a runtime with no Figma server
 WRITE_YES = "yes, go ahead"
 NO_FIGMA = "no hosted Figma MCP"
-DRAFTS_PIN = ("If you need a new file instead, create it in the Barter team plan and leave it "
-              "in drafts, with no project.")
+# A prompt that names a fictional plan tells a pinned run the test file is in it and a run that makes a file
+# which real plan that is. A pin naming a second plan made runs ask the plan question. The real plan's name
+# comes from NEW_FILE_PLAN at launch, so this public file names none.
+IN_PLAN = "That file is in the plan named above."
+NAMES_PLAN = re.compile(r"\bplan\b", re.I)
+# Where a paused run waits for the operator's own step, such as a sticky added by hand
+PAUSE_DIR = ".pause"
 CLAUDE_BIN = os.path.expanduser("~/.local/bin/claude")
 # An empty folder, so the classifier loads no project instructions
 CLASSIFY_DIR = os.path.join(os.environ.get("TMPDIR", "/tmp"), "claude-reply-classifier")
+PREPARED = re.compile(r"<fileKey[^>]*>")
 BOARD_ID = re.compile(r'boardId\\*"?\s*:\s*\\*"(\d+:\d+)')
 
 CLASSIFY = """Classify one reply from a FigJam drawing assistant that works in stops: intake rounds of
@@ -129,13 +139,15 @@ def scripted_answer(queue, sk):
     """Whether the next queued turn is the scenario's own answer to an intake round.
 
     That is a scripted turn that comes before the script's playback answer, is not itself a gate
-    answer and is not the request that opens a chained scenario's own part."""
+    answer and is not the request that opens a chained scenario's own part. A script with no playback
+    answer, such as a conflict that never reaches a board, answers each round with its own next turn."""
     if not queue or queue[0][1] != "scripted":
         return False
     i = queue[0][2]
     said = [t.strip().lower() for t in sk["turns"]]
+    playback = [t.startswith(READING_YES) for t in said]
     return (i != sk.get("setup_turns") and not said[i].startswith((READING_YES, WRITE_YES))
-            and any(t.startswith(READING_YES) for t in said[i + 1:]))
+            and (any(playback[i + 1:]) or not any(playback)))
 
 
 def main():
@@ -150,27 +162,50 @@ def main():
     dest = os.path.join(out, "skill", label, f"{sid} - {sk['slug']}")
     replies = os.path.join(out, "replies", label)
     how = plan(sk)
-    if how["driver"] == "operator-only":
+    operator_done = os.environ.get("OPERATOR_DONE") == sid
+    if how["driver"] == "operator-only" and not operator_done:
         print(json.dumps({"id": sid, "label": label, "status": "skipped", "reason": how["reason"]}))
         return 0
+    if how["driver"] == "operator-only":
+        # The operator has done the setup the driver cannot, so the scenario's own turns run as usual
+        how["driver"] = "model"
     if how["driver"] not in ("model", "new-file"):
         print(json.dumps({"id": sid, "label": label, "status": "bad-driver",
                           "reason": f"unknown driver value {how['driver']}"}))
         return 2
-    # A new-file scenario tests making a file, so it keeps only where the new file may go
+    # A new-file scenario tests making a file, so it is told only which plan the new file goes in
+    names_plan = bool(NAMES_PLAN.search(sk["turns"][0]))
+    new_plan = os.environ.get("NEW_FILE_PLAN", "").strip()
     if how["driver"] == "new-file":
-        pin = DRAFTS_PIN
+        pin = (f"The plan named above is the {new_plan} plan on this account." if names_plan
+               else f"Use the {new_plan} plan on this account.") + " Create the new file there, in drafts, with no project."
     else:
-        pin = dv.FILE_PIN.format(key=key)
-        if spec and spec[0] == "claude":
-            pin += " " + DRAFTS_PIN
+        pin = dv.FILE_PIN.format(key=key) + (f" {IN_PLAN}" if names_plan else "")
+    # A prompt that names its prepared board by placeholder gets the file key there, so it needs no pin on top
+    if how["driver"] == "model" and PREPARED.search(sk["turns"][0]):
+        pin = None
+    pause_env = os.environ.get("OPERATOR_PAUSE_BEFORE", "")
+    pause_at = sk.get("setup_turns") if pause_env == "part" else int(pause_env) if pause_env.isdigit() else None
+    start_sections = os.environ.get("FILE_START_SECTIONS", "")
+    # A bad value would only show once every turn had run, so it stops the run before the first
+    bad = []
+    if how["driver"] == "new-file" and not new_plan:
+        bad.append("NEW_FILE_PLAN names no plan for a new-file scenario")
+    if pause_env and not (pause_at is not None and 0 < pause_at < len(sk["turns"])):
+        bad.append(f"OPERATOR_PAUSE_BEFORE={pause_env} names no scripted turn of {sid}")
+    if start_sections and not start_sections.isdigit():
+        bad.append(f"FILE_START_SECTIONS={start_sections} is not a count")
+    if bad:
+        print(json.dumps({"id": sid, "label": label, "status": "bad-env", "reason": " and ".join(bad)}))
+        return 2
+    hold = os.path.join(harness_root, PAUSE_DIR, sid)
     # A scenario written for a runtime with no hosted Figma server runs only where one can be left out.
     no_figma, expects_board = how["no_figma"], how["expects_board"]
     if no_figma and not (spec and spec[0] == "claude"):
         print(json.dumps({"id": sid, "label": label, "status": "skipped",
                           "reason": "the scenario needs a runtime without the hosted Figma server"}))
         return 0
-    failures = []
+    failures, paused = [], None
     for attempt in range(1, dv.ATTEMPTS + 1):
         dv.build(system_dir, "skill", scratch, sk["seed_export"])
         problems = dv.prove_isolation("skill", scratch)
@@ -181,10 +216,22 @@ def main():
             shutil.rmtree(d, ignore_errors=True)
             os.makedirs(d)
         queue = [(t, "scripted", i) for i, t in enumerate(sk["turns"])]
-        queue[0] = (f"{queue[0][0]}\n\n{pin}", "scripted", 0)
+        queue[0] = (f"{queue[0][0]}\n\n{pin}" if pin else PREPARED.sub(key, queue[0][0]), "scripted", 0)
         turns, intake, follow, n, ok, session_id = [], 0, 0, 0, True, None
+        # A retry does not ask again, so the operator's own step lands in the file once
+        pause = pause_at if attempt == 1 else None
         before0 = before = dv.snapshot(scratch)
         while queue:
+            if pause is not None and queue[0][1] == "scripted" and queue[0][2] == pause:
+                # The operator's own step runs here, and the run waits until they mark it done
+                pause, paused = None, attempt
+                shutil.rmtree(hold, ignore_errors=True)
+                os.makedirs(hold)
+                open(os.path.join(hold, "paused"), "w", encoding="utf-8").write(f"{sid} waits before scripted turn {pause_at}\n")
+                print(json.dumps({"id": sid, "label": label, "status": "paused",
+                                  "resume": os.path.join(hold, "resume")}), flush=True)
+                while not os.path.exists(os.path.join(hold, "resume")):
+                    time.sleep(5)
             prompt, role, _ = queue.pop(0)
             n += 1
             if spec:
@@ -240,7 +287,8 @@ def main():
     steps = scenario_commands.run(system_dir, sk["file"], scratch, os.path.join(sessions, "tmp"),
                                   os.path.join(dest, "commands.json"))
     meta = {"id": sid, "label": label, "model": model, "permission": dv.PERMISSION, "runtime": f"{spec[0]}-adaptive" if spec else "devin-adaptive",
-            "scenario_file": sk["file"], "file_pin": pin, "driver": how["driver"], "expects_board": expects_board, "no_figma": no_figma, "scripted_turns": sk["turns"],
+            "scenario_file": sk["file"], "file_pin": pin, "operator_setup_done": operator_done, "operator_pause_before": pause_at, "operator_paused": paused is not None,
+            "file_start_sections": int(start_sections) if start_sections else None, "driver": how["driver"], "expects_board": expects_board, "no_figma": no_figma, "scripted_turns": sk["turns"],
             "commands_run": sum(s["status"] != "skipped" for s in steps),
             "intake_answers_sent": intake, "follow_ups_sent": follow, "session_id": session_id,
             "attempts": attempt, "failures": failures, "completed": ok,
