@@ -37,7 +37,7 @@
       "directive"
     ],
     "importance_tier": "normal",
-    "status": "in_progress",
+    "status": "complete",
     "key_files": [
       "spec.md",
       "plan.md",
@@ -45,9 +45,12 @@
       "acceptance-criteria.md",
       "goal.md",
       "implementation-summary.md",
-      "benchmark/gates/run_gates.sh",
       "sk-product-owner/references/interactive-mode.md",
-      "manual-testing-playbook/manual-testing-playbook.md"
+      "sk-create-figjam/assets/screenshots/process-board.png",
+      "benchmark/gates/run_gates.sh",
+      "manual-testing-playbook/manual-testing-playbook.md",
+      "sk-create-figjam/SKILL.md",
+      "sk-product-owner/SKILL.md"
     ],
     "entities": [
       {
@@ -87,15 +90,21 @@
         "source": "derived"
       },
       {
-        "name": "run_gates.sh",
-        "kind": "script",
-        "path": "benchmark/gates/run_gates.sh",
-        "source": "derived"
-      },
-      {
         "name": "interactive-mode.md",
         "kind": "doc",
         "path": "sk-product-owner/references/interactive-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "process-board.png",
+        "kind": "file",
+        "path": "sk-create-figjam/assets/screenshots/process-board.png",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
         "source": "derived"
       },
       {
@@ -105,13 +114,13 @@
         "source": "derived"
       },
       {
-        "name": "Feature Specification",
-        "kind": "proper_noun",
-        "path": "spec.md",
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/SKILL.md",
         "source": "derived"
       },
       {
-        "name": "In Progress",
+        "name": "Feature Specification",
         "kind": "proper_noun",
         "path": "spec.md",
         "source": "derived"
@@ -136,6 +145,12 @@
       },
       {
         "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
         "kind": "proper_noun",
         "path": "spec.md",
         "source": "derived"
@@ -181,23 +196,11 @@
         "kind": "proper_noun",
         "path": "tasks.md",
         "source": "derived"
-      },
-      {
-        "name": "Task Notation",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
-      },
-      {
-        "name": "Composer Knowledge",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
       }
     ],
     "causal_summary": "Claude Sonnet 5.5 high reran the 31 scenarios v1.0.5.0 did not pass on v1.0.6.0 and passed 14",
     "created_at": "2026-10-26T18:02:43Z",
-    "last_save_at": "2026-10-27T04:50:17.055Z",
+    "last_save_at": "2026-10-27T07:29:50.409Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -208,13 +211,13 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:31b0af5bb8989b93ea80daf86a3f6a9043eea013e5aec6b4f23dc88e6f83f1c4",
+    "source_fingerprint": "sha256:e2fe9adc55feb9bda7a83b87dc540ea883942eb99c606bf88f1ae6c96805550c",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "2e8234e39e471b95beff73a013d2604dcd9b84a21770c0fe5174e6244aad1a6a",
+      "spec.md": "71f4b04bc70c4e13a5e672508d12989756f33e30d7bb202e326ff807b289edc0",
       "plan.md": "56f409ef3788e732caa740776a53d947bbde2603d8514b01b4faef660af829d4",
-      "tasks.md": "44909738458c29e913ecd46508e0f43407aa759e78ec4d1d83439b34dcd2dec9",
-      "implementation-summary.md": "dc29df1c0950a11ecc178ce01f261cbd67f295f3053aa02c6ccfdbc68f29d755"
+      "tasks.md": "41e2dd9e1c25d523537cb4964356644875594f62e458dafb31c9afd245beb92f",
+      "implementation-summary.md": "2bd21d6d9edbecaa67202864e695c7aa169cbe3ec6386c0b8c482f0ec9a201dd"
     },
     "last_active_at": null
   }

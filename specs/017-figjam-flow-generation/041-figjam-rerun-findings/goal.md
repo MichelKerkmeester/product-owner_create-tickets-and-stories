@@ -11,17 +11,17 @@ contextType: "planning"
 _memory:
   continuity:
     packet_pointer: "017-figjam-flow-generation/041-figjam-rerun-findings"
-    last_updated_at: "2026-10-26T23:45:00Z"
+    last_updated_at: "2026-10-27T08:10:00Z"
     last_updated_by: "claude-code"
-    recent_action: "Authored the durable directive"
-    next_safe_action: "Execute against the completion criteria"
+    recent_action: "Closed the phase: release, rerun, grades and README section 8.7"
+    next_safe_action: "Open phase 042"
     blockers: []
     key_files: []
     session_dedup:
       fingerprint: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       session_id: "348b59cb-58a2-4b49-8147-c40143312bc1"
       parent_session_id: null
-    completion_pct: 0
+    completion_pct: 100
     open_questions: []
     answered_questions: []
 ---
@@ -80,6 +80,8 @@ and findings belong here.
 | Item | State | Evidence |
 |------|-------|----------|
 | Phase scaffolded | Done | spec, plan, tasks, acceptance criteria and this goal |
+| Release v1.0.7.0 and kernel v1.2.9 | Done | commits 47258c0a and ea7d13fe, parity PASSED 65/65 |
+| Rerun graded and close-out | Done | 2 PASS 14 FAIL 2 NOT RUN in grades/sonnet-high-041.jsonl, README 8.7, validate.sh PASSED, SC-001 unmet |
 
 ### Deviations and findings
 

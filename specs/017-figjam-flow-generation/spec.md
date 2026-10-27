@@ -140,7 +140,7 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 38 | 038-figjam-model-comparison/ | The seven board-quality scenarios on DeepSeek V4.1 Flash max, SWE 2 Max and GLM 5.3 Flash max, graded on the scorecard, with the best board per type as the gallery, then the fixes for its six findings | Complete |
 | 39 | 039-figjam-run-findings/ | The five skill findings and three driver findings of the stopped Opus 5.5 medium run, fixed in `sk-create-figjam` v1.0.5.0 and the run's driver | Complete |
 | 40 | 040-figjam-sonnet-run-findings/ | The Sonnet 5.5 high run's findings, fixed in `sk-create-figjam` v1.0.6.0 with kernel v1.2.8, then a rerun of the 31 scenarios that did not pass and a v1.0.6.0 gallery | Complete |
-| 41 | 041-figjam-rerun-findings/ | The 35 findings of the v1.0.6.0 rerun, fixed in `sk-create-figjam` v1.0.7.0, then a rerun of every scenario that did not pass | In Progress |
+| 41 | 041-figjam-rerun-findings/ | The 35 findings of the v1.0.6.0 rerun, fixed in `sk-create-figjam` v1.0.7.0, then a rerun of every scenario that did not pass | Complete |
 
 ### Phase Transition Rules
 
