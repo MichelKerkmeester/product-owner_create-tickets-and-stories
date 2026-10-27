@@ -1,6 +1,6 @@
 {
   "skill": "product-owner",
-  "version": "1.0.10.0",
+  "version": "1.0.11.0",
   "routerPolicy": {
     "defaultMode": "sk-product-owner",
     "ambiguityDelta": 1,

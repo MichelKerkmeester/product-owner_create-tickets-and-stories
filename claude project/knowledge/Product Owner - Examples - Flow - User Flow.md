@@ -132,8 +132,8 @@ The gate is its own reply, sent after the playback's answer. Its one question as
 Question: which screens does a customer pass through to start a return, and where do they choose?
 Outcome: a reader can follow a return from the order list to a confirmed return and see where the 30 day window ends it.
 First glance: the confirmed return, the goal the flow reaches.
-Second glance: Order list, the light blue entry where the return starts, then Order detail, Within 30 days?, Pick a reason and the drop-off or pickup choice, the main row in path order up to the choice that leads to the goal.
-Last glance: Choose a drop-off point and Book a courier pickup, the two ways to the goal, and Contact support, the exit after 30 days.
+Second glance: Order list, the light blue entry where the return starts, then Order detail, Within 30 days?, Pick a reason, the drop-off or pickup choice and Choose a drop-off point, the main row the composer draws, in path order up to the goal.
+Last glance: Contact support, the exit after 30 days, then Book a courier pickup, the second way to the goal, drawn below the row.
 Plan: Fernhouse Product. File: a new FigJam file named "Start a return", created in that plan.
 Writes: one composed board, 9 nodes and 9 connectors in three zones, with a title, a key and a source line, at the Laptop reading distance.
 Left out: free pickup over €100, a proposal under review
