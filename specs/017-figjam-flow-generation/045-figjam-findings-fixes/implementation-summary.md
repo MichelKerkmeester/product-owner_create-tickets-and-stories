@@ -94,6 +94,8 @@ Every change is a sentence swap set by this phase, applied by two scripts that r
 | Flow check self-test and the 7 examples | 172 of 172, every example PASSED |
 | pytest, repository gates, output format gate | 18 passed, 15 of 15, passed across 72 source files |
 | Parity and residency | PASSED 65/65 and PASSED 7 |
+| Rule-content divergence, `pair_divergence.py` | PASSED, 65 pairs compared, after five mirror lines were brought in line |
+| FigJam playbook package validator | PASS, 54 scenarios, 0 violations, after one SKIP line named its reason |
 | `validate.sh --strict` | RESULT: PASSED for this phase and the parent |
 <!-- /ANCHOR:verification -->
 

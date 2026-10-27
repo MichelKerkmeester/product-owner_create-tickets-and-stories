@@ -58,6 +58,8 @@ contextType: "implementation"
 - [x] T011 Run the self-tests and gates. Verify: both self-tests, pytest, 15 of 15 gates and the output format gate pass. [EVIDENCE: composer self-test 1245 of 1245, design check exit 0, flow check 172 of 172 and all 7 examples, pytest 18, 15 of 15 gates and the output format gate pass]
 - [x] T012 Commit and push both repositories. Verify: `validate_parity.py product-owner` and `residency_check.py --all` each print PASSED. [EVIDENCE: PO commits 0000164 and 0000165 and outer commits 0001094 and 0001095 are pushed, parity printed PASSED 65/65 and residency PASSED 7]
 - [x] T013 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both. [EVIDENCE: `validate.sh --strict` prints RESULT: PASSED for this phase and the parent]
+- [x] T014 Compare what every declared pair says, not only when it moved (`claude project/knowledge/`). Verify: `pair_divergence.py product-owner` prints PASSED. [EVIDENCE: it found 5 anchors stated two ways, all where the skill says the check script refuses a line and the Project's hand check said it another way. The mirror now names its step Check by hand and states the same refusals as the skill, and the check prints PASSED for 65 pairs]
+- [x] T015 Run the Sync Loop's completion criteria for anything else Product Owner owns (`check_criteria.sh`). Verify: every playbook package of Product Owner validates. [EVIDENCE: the FigJam playbook package failed SKIP_BLOCKER_MISSING on a quoted `SKIP` output line in `pre-write-check/self-test-every-type.md`, dating from 2026-10-26. The line now names the missing mirror as the reason, and the validator prints PASS for 54 scenarios with no violation]
 <!-- /ANCHOR:phase-3 -->
 
 
