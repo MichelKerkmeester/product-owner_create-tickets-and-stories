@@ -1,0 +1,44 @@
+[
+ {
+  "step": 1,
+  "text": "sandbox: confirm the hosted Figma MCP is connected, record the tool list and pick a plan the operator owns -> bash: cp sk-create-figjam/assets/figjam-design.md <scratch>/figjam-design.md",
+  "status": "skipped",
+  "reason": "sandbox step, not a shell command"
+ },
+ {
+  "step": 2,
+  "text": "bash: in the json block of sk-create-figjam/assets/figjam-design.md add \"pink\" to the end of zone.cycle, set role.goal to \"lightPink\" and add a top-level group \"shadow\": {\"blur\": 4} -> bash: python3 sk-create-figjam/scripts/compose_board.py --design-check -> bash: echo \"exit $?\"",
+  "status": "skipped",
+  "reason": "chains more than one action"
+ },
+ {
+  "step": 3,
+  "text": "session: start fresh -> user: submit the prompt exactly -> operator: confirm the reply is the playback and nothing is written. If the run opens an intake round first, answer it with the recommended answers and confirm the playback follows",
+  "status": "skipped",
+  "reason": "session step, not a shell command"
+ },
+ {
+  "step": 4,
+  "text": "user: Yes, that reading is right. -> operator: confirm the passing check and the gate, with nothing written yet",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 5,
+  "text": "user: Yes, go ahead. -> operator: record the reply, the DESIGN and COMPOSED lines, every tool call and the get_figjam read, then screenshot the whole board",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 6,
+  "text": "bash: cp <scratch>/figjam-design.md sk-create-figjam/assets/figjam-design.md -> bash: git diff --exit-code -- sk-create-figjam/assets/figjam-design.md -> bash: echo \"exit $?\"",
+  "status": "skipped",
+  "reason": "chains more than one action"
+ },
+ {
+  "step": 7,
+  "text": "reader: give a fresh reader the colour screenshot and ask Q1 to Q3 -> operator: record the answers",
+  "status": "skipped",
+  "reason": "reader step, not a shell command"
+ }
+]

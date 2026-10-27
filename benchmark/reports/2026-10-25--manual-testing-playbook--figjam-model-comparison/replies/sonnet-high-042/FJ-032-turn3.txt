@@ -1,0 +1,8 @@
+<figma-url>
+Read-back: 7 of 7 states, 12 of 12 transitions, 6 of 6 transitions labelled (labels read visually), first glance: Pending. The 7 nodes already on the board, the Sprint retro section and its 6 stickies, kept the same position, size and colour as in the read before the write.
+Left out: payments and refunds, hotel-side screens and a timing rule for No-show, because your description gives none of them.
+Finding: `get_figjam` returns no connector text, so the 6 transition labels were checked on the overview screenshot and the write's own return. The state and transition counts and directions come from the `get_figjam` read.
+Finding: on the board, "check out [from In stay]" and "missed check-in [from Upcoming]" run side by side, about 24 px apart, for roughly 240 px down the right of Confirmed. Each label names its source state, so they stay readable. Reshaping the model and recomposing might separate them, and that costs another write plus a delete of this section, so say if you want it.
+Finding: three moves are assumed and not sourced: "check in" from Upcoming to In stay, check-out taken from In stay, and No-show taken from Upcoming. You confirmed the reading, but nothing states them.
+Finding: cancelling is drawn from Confirmed as you wrote it, so the board allows a mid-stay cancel from In stay. Tell me if it should stop at Upcoming.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

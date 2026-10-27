@@ -1,0 +1,11 @@
+1. Sign up <figma-url> and 2. Setup <figma-url>
+Read-back: board 1, 6 of 6 nodes, 6 of 6 connectors, 2 of 2 decision exits labelled. Board 2, 8 of 8 nodes, 10 of 10 connectors, 6 of 6 decision exits labelled. Exit labels are read from the write's screenshot. Start here: 1. Sign up. First glance: Email verified on board 1 and Editor with welcome tip on board 2
+Left out: billing or payment for the team plan, not in your summary and ruled out in round one
+Left out: error states beyond a wrong code and anything after the editor's welcome tip, ruled out in round one
+Left out: a Google sign-up that skips the email code, because your summary states no skip, so both methods lead to the code screen
+Finding: the read tool returns connector names and ends but not connector label text, so the labels "Yes", "No", "Resend", "Free", "Team", "Add emails", "Skip", "Template" and "Blank" were checked only on the screenshot. Node labels and every connector's two ends were read from the file.
+Finding: on board 2, the "Editor with welcome tip" label wraps and leaves "tip" alone on its last line. A shorter label that keeps your words would fix it, composed again after a yes.
+Finding: board 2 reads as a wide strip (3,272 by 960 pixels), because its main route is eight steps in one row. Fixes are a model change, such as top-to-bottom direction or a third board that starts at "Name the workspace", composed again after a yes.
+Finding: still assumed and unconfirmed against the doc itself: the doc's status as current behavior, the same code step for Google sign-up, and the resend returning to the code screen. Both source lines say the boards follow your summary. The Loomlist Product plan is also your word, because the file's plan couldn't be checked from here.
+Finding: this write used up to six Figma tool calls. If the file's plan is Starter or your seat is View or Collab, a further read or recompose this month may be refused.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
