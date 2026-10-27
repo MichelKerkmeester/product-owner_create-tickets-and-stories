@@ -58,14 +58,14 @@ This is **Phase 44** of the Product Owner FigJam flow generation upgrade specifi
 ## 2. PROBLEM & PURPOSE
 
 ### Problem Statement
-Claude Sonnet 5.5 high reran the 7 failures of v1.0.8.0 on v1.0.9.0 and 1 passes. Every scored board has Composition at 0. The composer's `layered()` gives each zone its own lane and puts every node outside a zone in the last lane, so on FJ-026 and FJ-032 the Confirmed composite spans the top row above the first state and both readers read Upcoming and In stay first, a pink focus outline included. On FJ-029, FJ-031 and FJ-036 readers take a flow's main row in path order after the accent, while the plans order nodes by fill and outline: FJ-031's plain screens read before its changed end, which the revision exemption does not cover, FJ-029 puts one kind of diamond in two glance lines and FJ-036 leaves two nodes out of every line. FJ-017's second sticky sits right of its node, and no check traced a label because Homebrew's node on the run machine cannot load its `simdutf` library.
+Claude Sonnet 5.5 high reran the 7 failures of v1.0.8.0 on v1.0.9.0 and 1 passes. Every scored board has Composition at 0. The composer lays an edge into a composite against the zone's first member in model order (`firstOf` in `assets/compose-board.js`). Both run models declared `state "In stay" as InStay` before their transitions, so `Pending --> Confirmed` was laid out against InStay, the composite's inner start took rank 0 and the Confirmed composite spanned the first column and top row above the first state. Both readers read Upcoming and In stay first, a pink focus outline included. The shipped example declares no label line early, so it composes with the composite right of Pending. On FJ-029, FJ-031 and FJ-036 readers take a flow's main row in path order after the accent, while the plans order nodes by fill and outline: FJ-031's plain screens read before its changed end, which the revision exemption does not cover, FJ-029 puts one kind of diamond in two glance lines and FJ-036 leaves two nodes out of every line. FJ-017's second sticky sits right of its node, and no check traced a label because Homebrew's node on the run machine cannot load its `simdutf` library.
 
 ### Purpose
 Make the board draw what the plan says reads first, make the plan follow the order readers take, and prove it by rerunning the 6 failures on the same model with a working node.
 
 ### Decisions
-- **D1**: The composer places a composite after the state that enters it in reading order, to its right on a left-to-right board and below it on a top-to-bottom one, so the first state keeps the top-left place. A board with no composite composes byte-identical, and the composer keeps the Project's room.
-- **D2**: After the accent and the entry, readers follow a flow's main row in path order. A plan names every node the board draws in some glance line, names the main row in path order and keeps nodes of one kind in one line.
+- **D1**: The composer places a composite after the state that enters it in reading order, so the first state keeps the top-left place whatever order the model declares its states in. It lays an edge to or from a composite against the zone's inner start, and the state check refuses a composite with no inner start, which the composer could still pull ahead. Every existing model composes to the same geometry, and the composer keeps the Project's room.
+- **D2**: After the accent and the entry, readers follow a flow's main row in path order. A plan names every node the board draws in some glance line and names the main row, the path from the entry to the goal, in path order after the outlined kinds and the entry, and two decisions share a line. The first draft said nodes of one kind share a line, which a fresh review showed would split a flow's screens against path order, so it was narrowed to decisions on 2026-10-27.
 - **D3**: On a revision whose changed end holds the planned second glance, every main-row node the rubric plans last costs no Composition point when it reads before the changed end, not only the entry and the decisions.
 - **D4**: The launcher puts the working nvm node first on PATH, and a fixture that prints a `Label:` line proves it before any lane starts.
 - **D5**: The rerun covers FJ-017, FJ-026, FJ-029, FJ-031, FJ-032 and FJ-036. FJ-017 is graded on the reading of beside the v1.0.8.0 grade used, as the operator ruled for phase 043.
@@ -119,7 +119,7 @@ Make the board draw what the plan says reads first, make the plan follow the ord
 
 | ID | Requirement |
 |----|-------------|
-| REQ-003 | A state board with a composite composes with the first state at the top left and the composite after the state that enters it, proved by a self-test case, and a board with no composite composes byte-identical. |
+| REQ-003 | A state model that declares a label line before its transitions composes with the first state left of its composite, proved by a self-test case, and every shipped example and board fixture traces to the same geometry as before. |
 | REQ-004 | The rubric, the playbook Composition row and the Project state the path-order glance rule per D2. |
 | REQ-005 | The rubric, the playbook Composition row and the Project state the wider revision exemption per D3. |
 | REQ-006 | The launcher pins a working node, and a fixture prints a `Label:` line through it before the lanes start. |
@@ -148,7 +148,7 @@ Make the board draw what the plan says reads first, make the plan follow the ord
 |------|------|--------|------------|
 | Dependency | Draft files in the Barter team plan for every board scenario | High | Files are created before the lanes start and their keys stay in the scratchpad |
 | Risk | The composer's room in the Project | High | `--design-check` measures the room after the change and the Composer Knowledge file names it |
-| Risk | A layout change moves boards with zones on other types | Med | The self-test composes every shipped example and the change is limited to composites |
+| Risk | A layout change moves boards with zones on other types | Med | Every shipped example and board fixture is traced before and after and compared node by node |
 <!-- /ANCHOR:risks -->
 
 ---
@@ -166,7 +166,7 @@ Make the board draw what the plan says reads first, make the plan follow the ord
 ## L2: EDGE CASES
 
 ### Data Boundaries
-- A state board with no composite: it composes byte-identical to v1.0.9.0.
+- A model whose composite already lists its inner start first: it traces to the same geometry as on v1.0.9.0.
 - A composite entered from two states: it sits after the first of them in reading order.
 
 ### Error Scenarios

@@ -44,8 +44,8 @@ Frozen choices. Changing one is an amendment.
 
 | ID | Decision |
 |----|----------|
-| D1 | The composer places a composite after the state that enters it in reading order, so the first state keeps the top-left place. A board with no composite composes byte-identical and the Project keeps its room |
-| D2 | After the accent and the entry, readers follow a flow's main row in path order. A plan names every node it draws, the main row in path order, and keeps one kind in one line |
+| D1 | The composer lays an edge to or from a composite against the zone's inner start, so the first state keeps the top-left place whatever order the model declares its states in. Every existing model keeps its geometry and the Project keeps its room |
+| D2 | After the accent and the entry, readers follow a flow's main row in path order. A plan names every node it draws, the main row in path order after the outlined kinds and the entry, and two decisions share a line |
 | D3 | On a revision whose changed end holds the planned second glance, every main-row node planned last costs no point when it reads before the changed end |
 | D4 | The launcher puts the working nvm node first on PATH, proven by a fixture that prints a `Label:` line |
 | D5 | The rerun covers FJ-017, FJ-026, FJ-029, FJ-031, FJ-032 and FJ-036, with FJ-017 graded on the 042 reading of beside |
@@ -62,7 +62,7 @@ Frozen choices. Changing one is an amendment.
 
 - [ ] `compose_board.py --self-test`, `--design-check`, `flow_check.py --self-test`, `pytest scripts/tests`, `run_gates.sh` (all 15 gates) and the output format gate each exit 0 on the committed tree
 - [ ] `validate_parity.py product-owner` and `residency_check.py --all` each print PASSED after the last commit, and the Flow Board Composer Knowledge code block equals `compose_board.py --template`
-- [ ] A state model with a composite composes with the first state top left and the composite after it, and every shipped example with no composite composes byte-identical
+- [ ] A state model that declares a label line first composes with the first state left of its composite, and every shipped example and board fixture traces to the same geometry
 - [ ] The path-order glance rule and the wider revision exemption read in the rubric, the playbook and the Project
 - [ ] `sk-create-figjam` and the hub read 1.0.10.0 with a changelog
 - [ ] Each of the 6 failures has one graded line in `grades/sonnet-high-044.jsonl`, every board it writes has a render and two reader notes, and the run README names every remaining failure with its cause

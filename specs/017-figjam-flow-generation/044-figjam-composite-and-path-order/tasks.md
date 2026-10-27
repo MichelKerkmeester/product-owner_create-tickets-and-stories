@@ -32,7 +32,7 @@ contextType: "implementation"
 ## Phase 1: Setup
 
 - [x] T001 Scaffold this phase under the parent (`specs/017-figjam-flow-generation/044-figjam-composite-and-path-order/`). Verify: `ls` lists the Level 2 docs and `goal.md`. [EVIDENCE: spec, plan, tasks, acceptance criteria, goal, implementation summary and the metadata pair are present]
-- [ ] T002 Write the composer brief and the sentence swaps, each with its file and its check. Verify: every cause in README section 8.9 names a change or a reason it needs none.
+- [x] T002 Write the composer brief and the sentence swaps, each with its file and its check. Verify: every cause in README section 8.9 names a change or a reason it needs none. [EVIDENCE: the 043 causes map to D1 to D8 in spec.md Section 2, and the four out-of-scope findings are listed there with the reason they wait]
 <!-- /ANCHOR:phase-1 -->
 
 ---
@@ -40,13 +40,13 @@ contextType: "implementation"
 <!-- ANCHOR:phase-2 -->
 ## Phase 2: Implementation
 
-- [ ] T003 Place a composite after the state that enters it (`assets/compose-board.js`, `scripts/compose_board.py`). Verify: a self-test case puts the first state top left and the composite after it, and every shipped example with no composite composes byte-identical.
-- [ ] T004 Write the path-order glance rule and the wider revision exemption (`references/quality-rubric.md`, the playbook Composition row). Verify: both read in the skill and the mirror.
-- [ ] T005 Bring the examples' glance lines in line with the path-order rule (`assets/examples/`). Verify: each example names every node it draws, the main row in path order.
-- [ ] T006 Mirror the changes and release v1.0.10.0 (`claude project/`, `SYNC.md`, `README.md`, version files, changelogs). Verify: the Composer Knowledge code block equals `compose_board.py --template` and the room is named.
-- [ ] T007 Review the whole diff with a fresh Opus reviewer and repair the confirmed findings. Verify: each repair is read back.
+- [x] T003 Place a composite after the state that enters it (`assets/compose-board.js`, `scripts/compose_board.py`). Verify: a self-test case with a label line declared first puts the first state left of the composite, and every shipped example and board fixture traces to the same geometry. [EVIDENCE: `firstOf` prefers the composite's inner start, `state.py` fails a composite with no inner `[*]`, the composer self-test passes 1245 of 1245 with the label-line case and the 38-model geometry trace moved only the two composite fixtures]
+- [x] T004 Write the path-order glance rule and the wider revision exemption (`references/quality-rubric.md`, the playbook Composition row). Verify: both read in the skill and the mirror. [EVIDENCE: the path-order sentence and the wider revision line read the same in `references/quality-rubric.md` and its Knowledge file, and playbook row 83 carries both]
+- [x] T005 Bring the examples' glance lines in line with the path-order rule (`assets/examples/`). Verify: each example names every node it draws, the main row in path order. [EVIDENCE: the user flow and process examples name every drawn node in path order in the skill and the mirror, and the flow check passes all seven examples]
+- [x] T006 Mirror the changes and release v1.0.10.0 (`claude project/`, `SYNC.md`, `README.md`, version files, changelogs). Verify: the Composer Knowledge code block equals `compose_board.py --template` and the room is named. [EVIDENCE: the Composer Knowledge block equals `--template` (47,600 bytes), the file names 156 lines and under 2,410 characters of room, and both v1.0.10.0 changelogs and the SYNC note are written]
+- [x] T007 Review the whole diff with a fresh Opus reviewer and repair the confirmed findings. Verify: each repair is read back. [EVIDENCE: the fresh Opus reviewer's P1s (the rubric reword, the composite check, the playbook path-order sentence and the FJ-017 condition) are repaired and read back in spec.md]
 - [ ] T008 Commit and push both repositories. Verify: `validate_parity.py product-owner` and `residency_check.py --all` each print PASSED.
-- [ ] T009 Pin the working node in the launcher and prove the trace. Verify: a fixture with a known orphan wrap prints a `Label:` line through the launcher's PATH.
+- [x] T009 Pin the working node in the launcher and prove the trace. Verify: a fixture with a known orphan wrap prints a `Label:` line through the launcher's PATH. [EVIDENCE: the launcher's pinned PATH runs node v26.8.2 and the orphan-wrap fixture prints its `Label:` line]
 - [ ] T010 Rerun the 6 failures, each board scenario in a fresh file (`skill/sonnet-high-044/`). Verify: the driver exits 0 for each lane.
 - [ ] T011 Render every board, read each with two readers and grade the rerun with one grader, then skeptics and adjudicators (`renders/`, `grades/sonnet-high-044.jsonl`). Verify: one line per rerun scenario.
 - [ ] T012 Write README section 8.10 and check the gallery against the new boards. Verify: every remaining failure is named with its cause.

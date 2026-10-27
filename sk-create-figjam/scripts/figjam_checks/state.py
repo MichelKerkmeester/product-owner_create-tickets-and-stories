@@ -64,6 +64,14 @@ def check_state(diagram: Diagram, block_text: str) -> list[str]:
         touching = [edge for edge in diagram.edges if node.id in (edge.source, edge.target)]
         if not touching and not node.container:
             problems.append(f"state {node.id} has no transition")
+        # The composer anchors an edge to or from a composite on its inner start, so a composite without one
+        # is placed against whichever member the model lists first.
+        if node.container and not any(by_id[edge.source].shape == "start" and by_id[edge.source].parent == node.id
+                                      for edge in diagram.edges):
+            problems.append(
+                f"composite {node.id} has no [*] entry: start it with [*] --> a state inside, "
+                "which the composer needs to place the composite after the state that enters it"
+            )
     if not any(by_id[edge.source].shape == "start" and by_id[edge.source].parent is None for edge in diagram.edges):
         problems.append("the machine has no entry: start it with [*] --> a state")
     for edge in diagram.edges:

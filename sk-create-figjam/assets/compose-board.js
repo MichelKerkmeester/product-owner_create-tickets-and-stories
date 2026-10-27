@@ -691,8 +691,10 @@ function buildGraph(M) {
     return ok;
   });
   edges.forEach((e) => { e.lw = e.label ? natural(e.label, MEDIUM, TYPE.label).w : 0; });
-  // An edge to a composite state is laid out against its first member and drawn to the zone itself.
-  const firstOf = (zid) => (M.nodes.find((n) => n.zone === zid) || {}).id;
+  // An edge to or from a composite state is laid out against its inner start, or its first member when it has
+  // none, and drawn to the zone itself, so a label line declared early cannot pull a composite ahead of the
+  // state that enters it.
+  const firstOf = (zid) => (M.nodes.find((n) => n.zone === zid && n.kind === 'initial') || M.nodes.find((n) => n.zone === zid) || {}).id;
   const layoutEdges = edges
     .map((e) => ({ from: zoneIds.has(e.from) ? firstOf(e.from) : e.from, to: zoneIds.has(e.to) ? firstOf(e.to) : e.to, lw: e.lw }))
     .filter((e) => e.from && e.to && e.from !== e.to);
