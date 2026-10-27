@@ -1,7 +1,7 @@
 ---
 title: "FJ-038 -- A restyle request becomes a hand edit"
 description: "This scenario validates a restyle request becomes a hand edit for `FJ-038`. It checks that a request to move or restyle a composed node in a way the model cannot carry gets a plain answer naming the edit in FigJam, and no tool is called."
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # FJ-038 -- A restyle request becomes a hand edit
@@ -30,7 +30,7 @@ Operators run the exact prompt and command sequence for `FJ-038` and confirm the
 - Expected execution process: Route to Flow Mode on `$flow`, recognise a nudge and a font change that the model cannot carry and answer as `references/flow-mode.md` Section 9 sets out, naming the node by its label and saying a change the model can carry is made in the model and composed again after a yes, with the old board section deleted only on a second yes asked after the new board is read back
 - Expected signals: The reply says Flow Mode does not move or restyle a composed node, because a nudge and a font size are changes the model cannot carry, names the drag and the font change as hand edits in FigJam, names the `Approve return` node by its label and says a change the model can carry, such as the direction, a zone or a `style` line, is made in the model and composed again after a yes, with the old board section deleted only on a second yes asked after the new board is read back. No Figma tool is called
 - Desired user-visible outcome: A plain answer that names the two hand edits in FigJam
-- Pass/fail: PASS if the reply names both edits as hand edits in FigJam, names the node and calls no tool. FAIL if a Figma tool is called, the node is moved or restyled, or the board is composed again for a change the model cannot carry
+- Pass/fail: PASS if the reply names both edits as hand edits in FigJam, names the node, says the old section is deleted only on a second yes asked after the new board is read back and calls no tool. FAIL if a Figma tool is called, the node is moved or restyled, or the board is composed again for a change the model cannot carry
 
 ---
 
@@ -50,7 +50,7 @@ Operators run the exact prompt and command sequence for `FJ-038` and confirm the
 
 | Feature ID | Feature Name | Scenario Name / Objective | Exact Prompt | Exact Command Sequence | Expected Signals | Evidence | Pass/Fail Criteria | Failure Triage |
 |---|---|---|---|---|---|---|---|---|
-| FJ-038 | A restyle request becomes a hand edit | Verify that a request to move or restyle a composed node in a way the model cannot carry gets a plain answer naming the edit in FigJam, and no tool is called | `$flow on the Fernhouse return board you drew, move the Approve return node further right and make its text bigger` | 1. `session: start fresh -> user: submit the prompt exactly` -> 2. `operator: read the reply and the tool calls` | Step 1 returns the answer with no gate. Step 2 finds no Figma read or write tool call | The reply and the tool calls | PASS if the reply names both edits as hand edits in FigJam, names the node and calls no tool. FAIL if a Figma tool is called, the node is moved or restyled, or the board is composed again for a change the model cannot carry | 1. Check `references/flow-mode.md` Section 9, the subsection A node needs moving, resizing or restyling 2. Check the layout rule and the redraw levers in `references/flow-mode.md` Section 5 |
+| FJ-038 | A restyle request becomes a hand edit | Verify that a request to move or restyle a composed node in a way the model cannot carry gets a plain answer naming the edit in FigJam, and no tool is called | `$flow on the Fernhouse return board you drew, move the Approve return node further right and make its text bigger` | 1. `session: start fresh -> user: submit the prompt exactly` -> 2. `operator: read the reply and the tool calls` | Step 1 returns the answer with no gate. Step 2 finds no Figma read or write tool call | The reply and the tool calls | PASS if the reply names both edits as hand edits in FigJam, names the node, says the old section is deleted only on a second yes asked after the new board is read back and calls no tool. FAIL if a Figma tool is called, the node is moved or restyled, or the board is composed again for a change the model cannot carry | 1. Check `references/flow-mode.md` Section 9, the subsection A node needs moving, resizing or restyling 2. Check the layout rule and the redraw levers in `references/flow-mode.md` Section 5 |
 
 ### Commands
 

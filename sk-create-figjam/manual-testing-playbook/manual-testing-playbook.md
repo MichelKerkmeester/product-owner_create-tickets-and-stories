@@ -1,7 +1,7 @@
 ---
 title: "sk-create-figjam: Manual Testing Playbook"
 description: "Operator-facing directory for the FigJam diagram packet: type choice for all seven types, the pre-write check, the board write with its gate, extension and read-back, scored board quality for every type, creation variant and the board design, the boundaries with the Product Owner packet and routing recall for type detection."
-version: 1.0.6.0
+version: 1.0.7.0
 ---
 
 # sk-create-figjam: Manual Testing Playbook
@@ -80,7 +80,7 @@ The operator writes down the glance order the model plans before the first scree
 
 **The overview zoom.** Four dimensions, each 0, 1 or 2, scored on the whole board in one frame.
 
-- **Composition.** 2: the board reads in the planned glance order, and the element the request is about comes first. 1: the order holds and one part comes before that element. 0: two parts read in the reverse of the planned order. The title block is the frame entry and never counts as a part of the glance order. When the request names a group, such as the end states, its most telling member marked by the focus line is the element the request is about. When `sk-create-figjam/references/quality-rubric.md` Section 3 makes the requested element the second glance, as on a revision that changes an end other than a failure end, the board scores 2 when that element holds the planned second glance and the rest of the order holds
+- **Composition.** 2: the board reads in the planned glance order, and the element the request is about comes first. 1: the order holds and one part comes before that element. 0: two parts read in the reverse of the planned order. The title block is the frame entry and never counts as a part of the glance order. On a state board a composite section reads as part of the frame too and never counts as a part. When the request names a group, such as the end states, its most telling member marked by the focus line is the element the request is about. When `sk-create-figjam/references/quality-rubric.md` Section 3 makes the requested element the second glance, as on a revision that changes an end other than a failure end, the board scores 2 when that element holds the planned second glance and the rest of the order holds. A part the plan does not name that reads at or before the planned second glance costs one point, as one part read out of order does
 - **Crossings.** 2: no connector crosses another. 1: one crossing. 0: two or more
 - **Shared trunks.** 2: every connector runs alone between its shapes, or a trunk carries only the edges the model draws as one path. 1: one trunk joins two edges the model draws apart. 0: two or more
 - **Label collisions.** 2: no two labels touch, and each label sits nearer its own connector than any other. 1: one pair touches. 0: a label covers another or reads as another connector's
@@ -538,7 +538,7 @@ Verify that a yes on a gantt chart with no hosted Figma MCP names the missing ro
 
 Prompt: `put the Loomlist offline mode launch plan on a FigJam gantt chart in a new board in our Loomlist Product plan. Design starts 2 November for two weeks, the sync engine takes three weeks from the same day, the conflict screen build follows design for two weeks, integration starts when both are done for one week, then a two-week beta and the release.`
 
-Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate or the missing-route reply and writes nothing. Turn 3 names the hosted Figma MCP as not connected and what it needs, says the `fj` route cannot draw a gantt chart, offers the checked model and prints no board URL or `Read-back:` line
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate, which names the missing route in place of the plan and the calls, and writes nothing. Turn 3 names the hosted Figma MCP as not connected and what it needs, says the `fj` route cannot draw a gantt chart, offers the checked model and prints no board URL or `Read-back:` line
 
 Desired user-visible outcome: A plain account of the missing route with the checked model to keep
 
@@ -772,7 +772,7 @@ Verify that a design file with a pink zone tint, the accent's pair on a role and
 
 Prompt: `$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support.`
 
-Expected signals: The design check prints three `DESIGN` lines naming `shadow`, `role.goal` and `zone.cycle` and exits 1. The compose prints the same three lines and a `COMPOSED` line ending `3 design warnings`. The board is written after the gate's yes with a light green goal under the pink outline and no pink zone, the reply carries three `Finding:` lines above the `HVR self-scan:` line and the restored design file shows no change
+Expected signals: The design check prints three `DESIGN` lines naming `shadow`, `role.goal` and `zone.cycle` and exits 1. The compose prints the same three lines and a `COMPOSED` line ending `3 design warnings`. The board is written after the gate's yes with a light green goal that is not pink, no pink zone and the accented node read back as the first glance, the reply carries three `Finding:` lines above the `HVR self-scan:` line and the restored design file shows no change. A fresh reader answers from the colour screenshot. Q1: What does a customer see more than 30 days after delivery? Answer: Contact support. Q2: Which two ways can the item go back? Answer: a drop-off point or a courier pickup. Q3: Where does a return end? Answer: Return confirmed with a QR code.
 
 Desired user-visible outcome: A board drawn in the shipped look for the three bad tokens, and a reply that says which tokens fell back and why
 
@@ -791,13 +791,13 @@ The ways a board gets made beyond one fresh write: a split across two diagrams, 
 
 #### Description
 
-Verify that a request too long for one user flow becomes two composed boards in one file, the second composed into the first one's file, titled `1. Signup` and `2. Workspace setup`, placed left to right 400 pixels apart with no overlap and the reply naming the board to open first.
+Verify that a request too long for one user flow becomes two composed boards in one file, the second composed into the first one's file, titled `1. Sign up` and `2. Workspace setup`, placed left to right 400 pixels apart with no overlap and the reply naming the board to open first.
 
 #### Scenario Contract
 
 Prompt: `$flow the Loomlist signup and first workspace setup on a new board in our Loomlist Product plan. From the onboarding doc: the landing page, sign up with email or Google, verify the email code, where a wrong code shows an error with a resend, pick a free or team plan, where a team plan asks for teammates' emails and lets you skip, name the workspace, pick a template or start blank, and the editor opens with a welcome tip.`
 
-Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The file holds two composed boards, Signup and Workspace setup, each within 9 nodes and titled `1. Signup` and `2. Workspace setup`, the second 400 pixels to the right of the first with its top level, with one shared hand-off label where the first ends and the second starts. The second `use_figma` call carries the first call's fileKey, the boards do not overlap and neither sits inside the other. Each title reads as its ordinal and the diagram's name. The read-back line names `start here: 1. Signup`, that one line counts both diagrams and `Left out:` names the split. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+Expected signals: Turn 1 ends on the playback and writes nothing. Turn 2 ends on the gate and writes nothing. Turn 3 writes after the gate's yes. The file holds two composed boards, Sign up and Workspace setup, each within 9 nodes and titled `1. Sign up` and `2. Workspace setup`, the second 400 pixels to the right of the first with its top level, with one shared hand-off label where the first ends and the second starts. The second `use_figma` call carries the first call's fileKey, the boards do not overlap and neither sits inside the other. Each title reads as its ordinal and the diagram's name. The read-back line names `start here: 1. Sign up`, that one line counts both diagrams and `Left out:` names the split. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
 
 Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
 

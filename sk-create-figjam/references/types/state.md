@@ -8,7 +8,7 @@ trigger_phrases:
   - "state machine figjam"
   - "lifecycle diagram"
   - "order status flow"
-version: 1.0.5.0
+version: 1.0.6.0
 ---
 
 # FigJam Type - State
@@ -88,7 +88,7 @@ Over budget, split by phase, such as booking and stay, or by entity. When the us
 
 ## 5. COLOUR, ZONES AND NOTES
 
-None in the model. The composer colours the first and final states and the pseudo-states by role, and composites are the zones. A grouping the model does not hold, such as every error state, is a composite when the states share a way out, and otherwise a note. A self-transition can render tight against its state, so tell the user they can drag its loop in FigJam if it crowds. A `%% focus: <id>` line may name the one node the first glance lands on. It is a comment, so the model stays styleless. A composite section and the first state, drawn light blue with its outline, both read early in the overview, because one is the largest tinted shape and the other the most saturated. Plan the composite first and the first state second, unless the request names other states. Then put the `%% focus:` line on the state the request names, or on its most telling member when the request names a group such as the end states, and plan the composite and the first state after it.
+None in the model. The composer colours the first and final states and the pseudo-states by role, and composites are the zones. A grouping the model does not hold, such as every error state, is a composite when the states share a way out, and otherwise a note. A self-transition can render tight against its state, so tell the user they can drag its loop in FigJam if it crowds. A `%% focus: <id>` line may name the one node the first glance lands on. It is a comment, so the model stays styleless. The first state, drawn light blue with its outline, is the most saturated shape and reads first in the overview. A composite section reads as part of the frame, like the title block, so it is never planned as a glance and never counts in the glance order. With no state named, plan the first state first, the end states second and the states inside a composite last. When the request names a state, put the `%% focus:` line on it, or on its most telling member when the request names a group such as the end states, and plan the first state second.
 
 ---
 

@@ -132,10 +132,11 @@ The gate is its own reply, sent after the playback's answer. Its one question as
 Question: which screens does a customer pass through to start a return, and where do they choose?
 Outcome: a reader can follow a return from the order list to a confirmed return and see where the 30 day window ends it.
 First glance: the confirmed return, the goal the flow reaches.
-Second glance: the drop-off or pickup choice that leads to it.
+Second glance: Order list, the light blue entry where the return starts, and the drop-off or pickup choice that leads to the goal.
 Last glance: Contact support, the exit after 30 days.
 Plan: Fernhouse Product. File: a new FigJam file named "Start a return", created in that plan.
 Writes: one composed board, 9 nodes and 9 connectors in three zones, with a title, a key and a source line, at the Laptop reading distance.
+Left out: free pickup over €100, a proposal under review
 Extensions: none.
 Calls: whoami, create_new_file, one use_figma and one get_figjam read-back.
 Rollback: delete the new file.

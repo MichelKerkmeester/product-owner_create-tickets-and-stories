@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "sequence example"
   - "roamstay checkout sequence"
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # Example - Sequence - Roamstay Checkout
@@ -101,6 +101,7 @@ Second glance: Authorised, the answer that lets the booking API confirm the hold
 Last glance: BookingCreated, the message to the partner hub that does not hold up the answer.
 Plan: Roamstay Product. File: a new FigJam file named "Checkout payment, happy path", created in that plan.
 Writes: one composed board, 4 participants and 7 numbered messages, with a title, a key and a source line, at the Laptop reading distance.
+Left out: the declined-card path, 402 and the released hold, kept for a second diagram
 Extensions: none.
 Calls: whoami, create_new_file, one use_figma and one get_figjam read-back.
 Rollback: delete the new file.

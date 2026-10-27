@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "er example"
   - "roamstay stays data model"
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # Example - ER - Roamstay Stays
@@ -131,6 +131,7 @@ Second glance: the keys on Booking that tie it to the guest, the room and the ra
 Last glance: Property, the partner table that offers rooms and rate plans.
 Plan: Roamstay Product. File: a new FigJam file named "Stays model", created in that plan.
 Writes: one composed board, 6 entities and 6 relationships in two zones, guest side and partner side, with a title, a key and a source line, at the Laptop reading distance.
+Left out: 20 columns no stay story cites, cut at the balanced detail level
 Extensions: none.
 Calls: whoami, create_new_file, one use_figma and one get_figjam read-back.
 Rollback: delete the new file.
