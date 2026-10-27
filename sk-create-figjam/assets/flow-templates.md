@@ -8,7 +8,7 @@ trigger_phrases:
   - "mermaid flow patterns"
   - "flow provenance table"
   - "flow reply shape"
-version: 1.0.5.0
+version: 1.0.6.0
 ---
 
 # Product Owner Flow Templates
@@ -35,7 +35,7 @@ Every pattern below passes `scripts/flow_check.py` as a user flow, and `scripts/
 - A label with a parenthesis, a colon or a slash goes in double quotes, such as `pick["Pick a plan (monthly)"]`
 - A decision label is a question, and each exit label is one of its answers
 - Every connector is a solid arrow `-->`
-- A user flow and a process each carry exactly one `style` line, which marks the first glance. A styled goal, failing end or decision keeps its kind and takes a pink outline, and a styled step is drawn light pink. `style done fill:#CDF4D3,stroke:#66D575` makes that end the goal and the light red pair makes an end a failure. Every pair comes from `references/style-guide.md`, and any other colour is refused or counts as a second accent
+- A user flow and a process each carry exactly one `style` line, which marks the first glance. A styled failing end or decision keeps its kind and takes a pink outline, a styled step is drawn light pink and the goal is named by a `%% goal:` line and never styled, because readers reach it last. `%% goal: done` names that end the goal without the accent, and the light red pair makes an end a failure. Every pair comes from `references/style-guide.md`, and any other colour is refused or counts as a second accent
 - Write `flowchart LR` unless the chain is short, because a board reads wider than it reads tall
 
 ### Board lines
@@ -54,6 +54,8 @@ The board's own text rides on `%%` comment lines, which the check ignores and th
 - `%% subtitle:` is one sentence under the title on who reads the board and why
 - `%% source:` is the line under the key naming the sources and what was left out
 - `%% zone: <label>: <id>, <id>` groups nodes in a tinted section. A user flow or a process without lanes reads its zones in flow order, and once a flow has zones every node sits in exactly one. An ER diagram draws each zone around its entities. Lanes and composite states are zones already, so a laned process, an architecture or a state diagram takes no zone line
+- `%% goal: <id>` names the end the main row of a user flow or a process reaches, without the accent, so the `style` line can mark the decision or step the board explains
+- `%% notes: <id>, <id>` names the nodes a single sticky will sit beside and moves the key down by one sticky and its gap, so a node on the bottom row keeps the side below it
 
 ---
 
@@ -63,28 +65,31 @@ The board's own text rides on `%%` comment lines, which the check ignores and th
 
 ```mermaid
 flowchart TD
+    %% goal: done
     start([Open the page]) --> step1[Fill in the form]
     step1 --> step2[Submit]
     step2 --> done([Confirmation shown])
-    style done fill:#CDF4D3,stroke:#66D575
+    style step1 fill:#FFC2EC,stroke:#F849C1
 ```
 
 ### One decision
 
 ```mermaid
 flowchart TD
+    %% goal: done
     start([Open the page]) --> step1[Submit the form]
     step1 --> valid{Valid?}
     valid -->|Yes| done([Confirmation shown])
     valid -->|No| fix[Show the field errors]
     fix --> step1
-    style done fill:#CDF4D3,stroke:#66D575
+    style valid fill:#FFC2EC,stroke:#F849C1
 ```
 
 ### Platform split with a merge dot
 
 ```mermaid
 flowchart TD
+    %% goal: done
     start([Open the page]) --> open[Open the selector]
     open --> device{Which device?}
     device -->|Desktop| menu[Dropdown menu]
@@ -93,19 +98,20 @@ flowchart TD
     sheet --> merge
     merge --> pick[Pick an item]
     pick --> done([Item shown])
-    style done fill:#CDF4D3,stroke:#66D575
+    style device fill:#FFC2EC,stroke:#F849C1
 ```
 
 ### Three outcomes
 
 ```mermaid
 flowchart TD
+    %% goal: done
     start([Request sent]) --> result{Response?}
     result -->|Approved| done([Access granted])
     result -->|Rejected| reject([Reason shown])
     result -->|Needs info| ask[Ask for missing info]
     ask --> start
-    style done fill:#CDF4D3,stroke:#66D575
+    style result fill:#FFC2EC,stroke:#F849C1
 ```
 
 ### A flow split across two diagrams
@@ -114,17 +120,19 @@ Divide the ordered source list into groups of at most 9 nodes before the first M
 
 ```mermaid
 flowchart TD
+    %% goal: handoff
     start([Sign up]) --> verify[Verify the email]
     verify --> profile[Fill in the profile]
     profile --> handoff([Continue to setup])
-    style handoff fill:#CDF4D3,stroke:#66D575
+    style verify fill:#FFC2EC,stroke:#F849C1
 ```
 
 ```mermaid
 flowchart TD
+    %% goal: done
     handoff([Continue to setup]) --> connect[Connect an account]
     connect --> done([Dashboard shown])
-    style done fill:#CDF4D3,stroke:#66D575
+    style connect fill:#FFC2EC,stroke:#F849C1
 ```
 
 ---

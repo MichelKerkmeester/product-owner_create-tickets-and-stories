@@ -104,6 +104,11 @@ Outcome: support can read every booking status and spot the statuses a booking e
 First glance: Pending, the light blue first state where every booking starts.
 Second glance: Upcoming and InStay, the states inside Confirmed, read with the section that frames them.
 Last glance: Cancelled, the end state support most needs to spot, marked by the focus line where it is drawn, then Completed and NoShow, the other end states, each in light gray with its heavy outline.
+Sketch: the Section 4 model above, and it passed the check by hand.
+Eye first: Pending, the first state the layout always shows first, and Cancelled, the state the request names, is marked where it is drawn.
+Reads second: Upcoming and InStay inside Confirmed, which carry the booking from payment to the stay.
+Could miss: NoShow, which would hide that the hotel, not the guest, ends a missed booking.
+Remove next: InStay, kept because check-out leaves from it.
 Plan: Roamstay Product. File: a new FigJam file named "Booking status", created in that plan.
 Writes: one composed board, 7 states and 12 transitions, the end states in light gray, with a title, a key and a source line, at the Laptop reading distance.
 Extensions: none.

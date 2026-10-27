@@ -91,6 +91,11 @@ Outcome: the payments team can read the checkout calls in order, with their path
 First glance: Authorise card, the call to the payment provider that decides the checkout.
 Second glance: Authorised, the answer that lets the booking API confirm the hold and answer the app.
 Last glance: BookingCreated, the message to the partner hub that does not hold up the answer.
+Sketch: the Section 4 model above, and it passed the check by hand.
+Eye first: Authorise card, the call that decides the checkout, and it is the message the board most needs read.
+Reads second: Authorised, which lets the booking API confirm the hold and answer the app.
+Could miss: BookingCreated, which would hide that the partner hub hears of the booking without holding up the answer.
+Remove next: Hold the room, kept because the hold is what Confirm the hold later confirms.
 Plan: Roamstay Product. File: a new FigJam file named "Checkout payment, happy path", created in that plan.
 Writes: one composed board, 4 participants and 7 numbered messages, with a title, a key and a source line, at the Laptop reading distance.
 Left out: the declined-card path, 402 and the released hold, kept for a second diagram

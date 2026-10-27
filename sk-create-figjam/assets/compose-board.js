@@ -1306,7 +1306,8 @@ board.appendChild(key);
 key.name = 'Key';
 key.fills = solid(TINT[T.key.tint] || TINT.gray);
 key.x = BOARD_PAD;
-key.y = oy + body.height + 64;
+// A model that names noted nodes widens this gap by one sticky and its gap, so the bottom row keeps its side below.
+key.y = oy + body.height + (MODEL.gap || 64);
 created.push(key.id);
 text(key, T.key.title, SEMI, TYPE.zone, 32, 32);
 const LINES = {

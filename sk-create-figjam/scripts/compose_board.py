@@ -24,12 +24,19 @@ stays plain Mermaid:
   user flow or a process without lanes reads its zones in flow order, an ER
   diagram draws each one around its entities, and lanes and composite states
   are zones already
-- `%% focus: id` names the one thing the first glance lands on in a diagram, and `%% focus: id because reason`
-  also says why, which the key draws as `In focus: reason`
+- `%% focus: id` names the one thing the first glance lands on in a diagram
   that takes no `style` line: a node of an architecture, a state or an ER
   diagram, a message's number in a sequence, a task's id or name in a gantt.
-  It is optional, and a user flow or a process marks its first glance with a
-  `style` line instead
+  `%% focus: id because reason` also says why, which the key draws as
+  `In focus: reason`. It is optional, and a user flow or a process marks its
+  first glance with a `style` line instead
+- `%% goal: id` names the end a user flow or a process reaches on its main
+  row without accenting it, so the accent can mark the decision or step the
+  board explains. With no goal line a styled end is the goal, and with no goal
+  line and no styled end, the end the longest path reaches
+- `%% notes: id, id` names the nodes a single sticky will sit beside, and the
+  key moves one sticky and its gap further down, so a node on the bottom row
+  keeps the side below it free
 
 The board's style comes from `assets/figjam-design.md`, read over the composer's
 built-in design by `figjam_checks/design.py`. Only the tokens it changes are
@@ -92,7 +99,8 @@ FILLED = re.compile(f"{PLACEHOLDER}|{THEME_PLACEHOLDER}")
 MAX_CODE_CHARS = 50_000
 # The composer's gap between two zones. A zone within two of them on any side sits beside it and takes another tint.
 ZONE_GAP = 48
-DIRECTIVE = re.compile(r"^\s*%%\s*(title|subtitle|source|zone|focus)\s*:\s*(.+?)\s*$", re.I)
+DIRECTIVE = re.compile(r"^\s*%%\s*(title|subtitle|source|zone|focus|notes|goal)\s*:\s*(.+?)\s*$", re.I)
+GOAL_LINE = re.compile(r"^\s*%%\s*goal\s*:\s*(.+?)\s*$", re.I | re.M)
 ARCHITECTURE_KINDS = {"client": "client", "gateway": "gateway", "service": "service", "datastore": "datastore",
                       "external": "external", "async": "queue"}
 FLOW_SHAPES = {"rhombus": "decision", "circle": "merge", "cylinder": "datastore", "subroutine": "subprocess",
@@ -241,6 +249,8 @@ def flow_kinds(diagram: mermaid_extract.Diagram, block_text: str, profile: str,
     exits = {node.id: [e for e in diagram.edges if e.source == node.id] for node in steps}
     entries = {node.id: [e for e in diagram.edges if e.target == node.id] for node in steps}
     kinds, open_ends = {}, []
+    named = GOAL_LINE.search(block_text)
+    goal_id = named.group(1) if named else None
     for node in steps:
         if profile == flowchart.ARCHITECTURE:
             kinds[node.id] = ARCHITECTURE_KINDS.get(lanes.get(node.id, ""), "service")
@@ -250,7 +260,9 @@ def flow_kinds(diagram: mermaid_extract.Diagram, block_text: str, profile: str,
             kinds[node.id] = "start"
         elif node.shape == "stadium" and not exits[node.id]:
             fill = fills.get(node.id)
-            if fill:
+            if node.id == goal_id and fill not in ERROR_FILLS:
+                kinds[node.id] = "success"
+            elif fill:
                 kinds[node.id] = "error" if fill in ERROR_FILLS else "success"
             else:
                 open_ends.append(node.id)
@@ -288,6 +300,10 @@ def flowchart_model(diagram: mermaid_extract.Diagram, block_text: str, profile: 
         model_zones = [{"id": zone["id"], "label": zone["label"]} for zone in zones]
         zone_of = {member: zone["id"] for zone in zones for member in zone["members"]}
     kinds = flow_kinds(diagram, block_text, profile, lanes)
+    named = GOAL_LINE.search(block_text)
+    if named and kinds.get(named.group(1)) != "success":
+        problems.append(f"%% goal: {named.group(1)} is not an end: name the end the main row reaches, "
+                        "a rounded node no connector leaves")
     styled = accent_fills(block_text)
     nodes = [{"id": node.id, "label": node.label, "kind": kinds[node.id], "zone": zone_of.get(node.id),
               **({"accent": True} if styled.get(node.id) else {})} for node in steps]
@@ -516,6 +532,15 @@ def build_model(block: mermaid_extract.SourceBlock, number: int) -> tuple[dict |
                                            for task in section["tasks"])
         target, reason = (value, "") if whole else focus_reason(value)
         found += focus_problems(model, profile, target, len(FOCUS_LINE.findall(block.text)), reason)
+    if text.get("notes"):
+        noted = [n.strip() for n in text["notes"].split(",") if n.strip()]
+        known = ({node["id"] for node in model.get("nodes", [])}
+                 | {part["id"] for part in model.get("participants", [])}
+                 | {task["id"] for section in model.get("sections", []) for task in section["tasks"]})
+        found += [f"%% notes: {n} names no node: write the id of a node this diagram draws"
+                  for n in noted if n not in known]
+        # The key's usual 64 px gap plus one sticky and the 64 px a sticky keeps from its node.
+        model["gap"] = 64 + 240 + 64
     model.update({"title": board_title(block.text, text, number), "subtitle": text.get("subtitle", ""),
                   "source": text.get("source", "")})
     return model, found, size
@@ -1256,7 +1281,7 @@ def focus_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
         results.append((f"{lines.splitlines()[0]} on {kind} is refused with '{message}'", any(message in p for p in problems),
                         "; ".join(problems)))
     # A reason after `because` reaches the key as `In focus: <reason>`, on a flow's styled node too.
-    reasons = [("an architecture", "orders", "every order passes it"), ("a user flow with one accent", "done", "the goal")]
+    reasons = [("an architecture", "orders", "every order passes it"), ("a user flow with one accent", "saved", "the save decides it")]
     for kind, target, reason in reasons:
         model, problems, _ = build_model(mermaid_extract.SourceBlock(1, f"{GOOD[kind]}\n%% focus: {target} because {reason}\n", 1), 1)
         drawn = geometry.run_trace(fill_template(model, sent), work) if model and not problems else None
@@ -1435,6 +1460,42 @@ def checker_checks() -> list[tuple[str, bool, str]]:
     ]
 
 
+def goal_line_checks() -> list[tuple[str, bool, str]]:
+    """A goal line names the goal over the longest path's end, and the accent stays on the styled decision."""
+    flow = ("flowchart LR\n{goal}    a([Start]) --> d{{Paid?}}\n    d -->|Yes| done([Order placed])\n"
+            "    d -->|No| retry[Try another card]\n    retry --> help[Contact support]\n    help --> left([Left the shop])\n"
+            "    style d fill:#FFC2EC,stroke:#F849C1\n")
+    kinds = {}
+    for name, goal in (("plain", ""), ("named", "    %% goal: done\n")):
+        model, problems, _ = build_model(mermaid_extract.SourceBlock(1, flow.format(goal=goal), 1), 1)
+        kinds[name] = ({n["id"]: (n["kind"], bool(n.get("accent"))) for n in model["nodes"]}
+                       if model and not problems else problems)
+    ok = (isinstance(kinds["plain"], dict) and isinstance(kinds["named"], dict)
+          and kinds["plain"]["left"][0] == "success" and kinds["named"]["done"] == ("success", False)
+          and kinds["named"]["left"][0] == "exit" and kinds["named"]["d"] == ("decision", True))
+    return [("a goal line names the goal without the accent, which stays on the styled decision", ok, str(kinds))]
+
+
+def note_room_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
+    """A notes line moves the key down by one sticky and its gap, which frees the side below a boxed-in node."""
+    flow = ("flowchart LR\n{notes}    a([Order placed]) --> b[Send the parcel]\n    b --> c([Parcel sent])\n"
+            "    style c fill:#CDF4D3\n")
+    drawn = {}
+    for name, notes in (("plain", ""), ("noted", "    %% notes: b\n")):
+        model, problems, _ = build_model(mermaid_extract.SourceBlock(1, flow.format(notes=notes), 1), 1)
+        drawn[name] = geometry.run_trace(fill_template(model, sent), work) if model and not problems else None
+    if not all(drawn.values()):
+        return [("a notes line composes", False, "the planted flow did not compose")]
+    key_y = {name: next(n["y"] for n in board["nodes"] if n["name"] == "Key") for name, board in drawn.items()}
+    sides = {name: geometry.sticky_sides(board, ["b"])[0][2] for name, board in drawn.items()}
+    return [
+        ("a notes line moves the key down by one sticky and its gap", key_y["noted"] - key_y["plain"] == 304,
+         f"key at {key_y}"),
+        ("a notes line frees the side below a node the plain board boxes in",
+         sides == {"plain": None, "noted": "below"}, f"sides {sides}"),
+    ]
+
+
 def self_test() -> int:
     """Prove every shipped model composes and draws true, and print one line per check."""
     results = []
@@ -1481,11 +1542,16 @@ def self_test() -> int:
                                 "one zone each"),
         "a node left out of the zones": ("flowchart LR\n    %% zone: One: a\n    a([Start]) --> b([End])\n    style b fill:#CDF4D3\n",
                                          "sit in no zone"),
+        "a goal line naming a step": ("flowchart LR\n    %% goal: b\n    a([Start]) --> b[Pay]\n    b --> c([Paid])\n"
+                                      "    style b fill:#FFC2EC,stroke:#F849C1\n", "b is not an end"),
+        "a notes line naming a missing node": ("flowchart LR\n    %% notes: ghost\n    a([Start]) --> b([End])\n    style b fill:#CDF4D3\n",
+                                               "ghost names no node"),
     }
     for name, (text, message) in planted.items():
         block = mermaid_extract.SourceBlock(1, text, 1)
         _, problems, _ = build_model(block, 1)
         results.append((f"{name} is refused with '{message}'", any(message in p for p in problems), "; ".join(problems)))
+    results += goal_line_checks()
     results += checker_checks()
     results += sequence_order_checks()
     results += design_checks(base, design, notes, sent)
@@ -1498,6 +1564,7 @@ def self_test() -> int:
             results += composite_exit_checks(Path(work), sent)
             results += composite_labels_checks(Path(work), sent)
             results += restyle_checks(Path(work), base)
+            results += note_room_checks(Path(work), sent)
             results += font_checks(Path(work))
             results += cap_checks(Path(work))
             results += extreme_checks(Path(work), base, design)

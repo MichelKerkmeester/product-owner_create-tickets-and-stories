@@ -7,7 +7,7 @@ trigger_phrases:
   - "process templates"
   - "laned process pattern"
   - "decision tree pattern"
-version: 1.0.2.0
+version: 1.0.3.0
 ---
 
 # FigJam Process Templates
@@ -37,6 +37,7 @@ Copy/apply patterns for a process model. Each pattern passes `scripts/flow_check
 ```mermaid
 %% type: process
 flowchart LR
+    %% goal: done
     start([Request in]) --> size{Over the limit?}
     size -->|No| auto[Approve automatically]
     size -->|Yes| risk{Known customer?}
@@ -44,7 +45,7 @@ flowchart LR
     risk -->|No| reject([Declined])
     auto --> done([Approved])
     review --> done
-    style done fill:#CDF4D3,stroke:#66D575
+    style size fill:#FFC2EC,stroke:#F849C1
 ```
 
 ### Laned process with a handoff in focus
@@ -83,6 +84,7 @@ flowchart LR
 ```mermaid
 %% type: process
 flowchart LR
+    %% goal: done
     upload[/Upload a file/] --> parse[Parse rows]
     parse --> valid{Rows valid?}
     valid -->|Yes| save[Save the import]
@@ -90,5 +92,5 @@ flowchart LR
     save --> store[(Imports)]
     save -->|"Later"| notify[[Notify the owner]]
     notify --> done([Import finished])
-    style done fill:#CDF4D3,stroke:#66D575
+    style valid fill:#FFC2EC,stroke:#F849C1
 ```

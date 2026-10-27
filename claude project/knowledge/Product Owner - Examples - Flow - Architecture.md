@@ -112,6 +112,11 @@ Outcome: the offline mode kickoff group can see which parts carry a block change
 First glance: Sync Service, where every block change is written and published.
 Second glance: the API Gateway, the edge every client socket enters through, and the Change Stream that carries each change on to the Push Worker.
 Last glance: Apple Push, the external hop that wakes sleeping iOS devices.
+Sketch: the Section 4 model above, and it passed the check by hand.
+Eye first: Sync Service, where every block change is written and published, and it is the node the board most needs read.
+Reads second: the API Gateway and the Change Stream, which show how a change enters and how it leaves.
+Could miss: Apple Push in the external lane, which would hide how a sleeping iOS device hears of a change.
+Remove next: the Web Client, kept because it is one of the three clients the sources name.
 Plan: Loomlist Engineering. File: a new FigJam file named "Block sync", created in that plan.
 Writes: one composed board, 9 nodes and 8 connectors in 6 lanes, with a title, a key and a source line, at the Laptop reading distance.
 Left out: file storage, off the sync path, cut at the balanced detail level

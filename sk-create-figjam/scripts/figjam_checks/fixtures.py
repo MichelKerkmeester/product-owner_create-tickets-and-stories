@@ -18,7 +18,8 @@ GOOD = {
     saved -->|No| retry[Show the error]
     retry --> pick
     %% a comment may hold `backticks`
-    style done fill:#CDF4D3,stroke:#66D575
+    %% goal: done
+    style saved fill:#CDF4D3,stroke:#66D575
     style pick stroke:#66D575
     linkStyle 2 stroke:#66d575
 """,

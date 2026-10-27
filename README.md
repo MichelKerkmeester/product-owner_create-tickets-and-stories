@@ -125,7 +125,7 @@ Both routes run the same rules and the same templates. Section 3 sets up either 
 | Artifacts | Task, subtask, bug report, Story, Epic, Doc and FigJam diagram |
 | Diagram types | Seven: user flow, process, architecture, sequence, state, ER and gantt |
 | Worked examples | 21 filled artifacts and 7 FigJam examples, one per diagram type |
-| Versions | Hub 1.0.11.0, `sk-product-owner` 1.2.5.0, `sk-create-figjam` 1.0.11.0, Project kernel v1.2.11 |
+| Versions | Hub 1.0.12.0, `sk-product-owner` 1.2.5.0, `sk-create-figjam` 1.0.12.0, Project kernel v1.2.12 |
 | License | MIT |
 
 &nbsp;
@@ -469,7 +469,7 @@ A backlog or doc route loads one mode reference and its template, never a second
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem.
 
-- `Custom Instructions.md` is the kernel, v1.2.11, and the routing authority inside the Project
+- `Custom Instructions.md` is the kernel, v1.2.12, and the routing authority inside the Project
 - `knowledge/` holds the 65 knowledge files you upload
 - `README.md` holds the upload steps and the smoke matrix
 
@@ -651,6 +651,6 @@ Your Figma plan or seat has used its monthly tool calls. Open your FigJam drafts
 
 **Release notes**
 
-- **[→ Hub v1.0.11.0](changelog/v1.0.11.0.md)** - the latest hub release
+- **[→ Hub v1.0.12.0](changelog/v1.0.12.0.md)** - the latest hub release
 - **[→ `sk-product-owner` v1.2.5.0](sk-product-owner/changelog/v1.2.5.0.md)** - the latest backlog and doc packet release
-- **[→ `sk-create-figjam` v1.0.11.0](sk-create-figjam/changelog/v1.0.11.0.md)** - the latest FigJam packet release
+- **[→ `sk-create-figjam` v1.0.12.0](sk-create-figjam/changelog/v1.0.12.0.md)** - the latest FigJam packet release

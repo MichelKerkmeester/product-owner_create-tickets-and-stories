@@ -41,9 +41,16 @@ GRID_STEP = 8
 # A label's width is its characters at the trace's Inter proportion of the label size, which `use_design` sets.
 # A node's own text wraps at a narrower average, NODE_WIDTH of the node size: at that measure the wraps match the
 # ones rendered boards show, where the label proportion flags labels that fit.
-CHAR_WIDTH, NODE_WIDTH = 0.56, 0.5
+# FigJam's own wrap runs narrower still on lowercase words: a rendered board fitted 19 characters where NODE_WIDTH
+# fits 17, so a label is also read at NODE_NARROW and a stranded word at either measure is reported.
+CHAR_WIDTH, NODE_WIDTH, NODE_NARROW = 0.56, 0.5, 0.45
 TITLE_INSET, TITLE_GAP, LABEL_HEIGHT, LABEL_PAD, LABEL_CHAR, SHARE_MAX = 32, 8, 24, 16, 18 * CHAR_WIDTH, 56
 NODE_CHAR = 20 * NODE_WIDTH
+NODE_NARROW_CHAR = 20 * NODE_NARROW
+# A FigJam sticky is a fixed square, and a single sticky keeps one sticky gap from its node, as the hybrid
+# workflow sets them. Its sides are tried in the order that workflow names.
+STICKY, STICKY_GAP = 240, 64
+STICKY_SIDES = ("right", "below", "above", "left")
 # The shapes whose text the composer fits into the inscribed half box, so the box a trace records is never the
 # width its label wraps at. A parallelogram gives up its slanted ends the same way.
 ROUND_SHAPES = {"DIAMOND", "ELLIPSE", "HEXAGON", "OCTAGON"}
@@ -63,9 +70,10 @@ JOIN_DIAMOND = 56
 
 def use_design(design: dict) -> None:
     """Measure boards against the design they are drawn in: its text sizes and its accent's pair and weights."""
-    global LABEL_CHAR, NODE_CHAR, ACCENT_STROKE, ACCENT_WEIGHT, ACCENT_LINE
+    global LABEL_CHAR, NODE_CHAR, NODE_NARROW_CHAR, ACCENT_STROKE, ACCENT_WEIGHT, ACCENT_LINE
     LABEL_CHAR = design["type"]["label"] * CHAR_WIDTH
     NODE_CHAR = design["type"]["node"] * NODE_WIDTH
+    NODE_NARROW_CHAR = design["type"]["node"] * NODE_NARROW
     ACCENT_STROKE = design["swatch"][design["accent"]["pair"]][1].lower()
     ACCENT_WEIGHT, ACCENT_LINE = design["accent"]["node"], design["accent"]["message"]
 
@@ -560,10 +568,102 @@ def orphan_words(drawn: dict) -> list[str]:
     for n in drawn["nodes"]:
         if n["type"] != "SHAPE_WITH_TEXT" or not n["text"].strip():
             continue
-        lines = _wrapped(n["text"], max(1, int(_text_width(n) // NODE_CHAR)))
-        if len(lines) > 1 and len(lines[-1].split()) == 1:
-            found.append(f"{' '.join(n['text'].split())} leaves {lines[-1]!r} alone on its last line")
+        # The label is read at both measures, since FigJam may wrap at either.
+        for per in sorted({max(1, int(_text_width(n) // NODE_CHAR)), max(1, int(_text_width(n) // NODE_NARROW_CHAR))}):
+            lines = _wrapped(n["text"], per)
+            if len(lines) > 1 and len(lines[-1].split()) == 1:
+                found.append(f"{' '.join(n['text'].split())} leaves {lines[-1]!r} alone on its last line")
+                break
     return found
+
+
+def _end_dots(drawn: dict, node: dict) -> tuple[list[dict], list[str]]:
+    """The end dots a node's own connectors run to, and the names of those connectors' edges."""
+    dots, names = [], []
+    for edge in drawn_edges(drawn):
+        if node["name"] in edge["ends"]:
+            others = [box for box in edge["boxes"] if box["name"] != node["name"]]
+            if others and all(box["name"].startswith("node:__end") for box in others):
+                dots += others
+                names.append(edge["name"])
+    return dots, names
+
+
+def sticky_sides(drawn: dict, ids: list[str]) -> list[tuple[str, str, str | None]]:
+    """For each noted node, its label and the side that holds its single sticky, or None when none does.
+
+    An id the board does not draw comes back with no label, so the caller can name it as a typo.
+
+    A side holds the sticky when the sticky's square and the gap between it and its node are clear of every
+    other shape, text and the key, and no estimated line runs through them. The sticky stands level with its
+    node on the right and the left, and lined up with it below and above, top or left aligned or centred. On
+    the right, a node's own connector to its end dot does not take the side, so the sticky goes past the
+    dot. Only the right may run past the board, which widens to hold it. A sticky placed for one node takes
+    its square and the gap around it from the next, so the sides are chosen together: the first choice in
+    side order that gives every noted node a sticky, or the one that gives the most.
+    """
+    boxes = boxes_of(drawn)
+    board = next((n for n in drawn["nodes"] if n["type"] == "SECTION" and n["parent"] == ""), None)
+    edges = drawn_edges(drawn)
+    drawn_ids = [node_id for node_id in ids if node_id in boxes]
+
+    def places(node: dict, placed: list[dict]) -> list[tuple[str, dict]]:
+        """Every side and square that holds this node's sticky, in side order."""
+        dots, own = _end_dots(drawn, node)
+        ignore = {node["id"]} | {dot["id"] for dot in dots}
+        blockers = [n for n in drawn["nodes"] if n["id"] not in ignore and n["parent"] != node["name"]
+                    and (n["type"] != "SECTION" or n["name"] == "Key")] + placed
+        x, y, w, h = node["x"], node["y"], node["w"], node["h"]
+        right_from = max([x + w] + [dot["x"] + dot["w"] for dot in dots])
+        spots = {
+            "right": [(right_from, right_from + STICKY_GAP, yy) for yy in (y, y + h / 2 - STICKY / 2)],
+            "left": [(x - STICKY_GAP - STICKY, x - STICKY_GAP - STICKY, yy) for yy in (y, y + h / 2 - STICKY / 2)],
+            "below": [(xx, xx, y + h) for xx in (x, x + w / 2 - STICKY / 2)],
+            "above": [(xx, xx, y - STICKY_GAP - STICKY) for xx in (x, x + w / 2 - STICKY / 2)],
+        }
+        found = []
+        for side in STICKY_SIDES:
+            for start, left, top in spots[side]:
+                if side in ("right", "left"):
+                    sticky = {"x": left, "y": top, "w": STICKY, "h": STICKY}
+                    span = {"x": min(start, left), "y": top, "w": STICKY + STICKY_GAP, "h": STICKY}
+                else:
+                    top_edge = top if side == "above" else top + STICKY_GAP
+                    sticky = {"x": left, "y": top_edge, "w": STICKY, "h": STICKY}
+                    span = {"x": left, "y": min(top_edge, top), "w": STICKY, "h": STICKY + STICKY_GAP}
+                if board is not None and side != "right" and not (
+                        sticky["x"] >= board["x"] and sticky["y"] >= board["y"]
+                        and sticky["x"] + STICKY <= board["x"] + board["w"]
+                        and sticky["y"] + STICKY <= board["y"] + board["h"]):
+                    continue
+                if board is not None and side == "right" and (
+                        sticky["y"] < board["y"] or sticky["y"] + STICKY > board["y"] + board["h"]):
+                    continue
+                if any(_overlap(span, b) for b in blockers):
+                    continue
+                if any(_cuts(path, span) for edge in edges if edge["name"] not in own for path in edge["paths"]):
+                    continue
+                found.append((side, sticky))
+                break
+        return found
+
+    def choose(index: int, placed: list[dict]) -> list[str | None]:
+        """The sides for the noted nodes from this one on: the first full choice, else the fullest."""
+        if index == len(drawn_ids):
+            return []
+        best = None
+        for side, sticky in places(boxes[drawn_ids[index]], placed) + [(None, None)]:
+            rest = choose(index + 1, placed + ([_grown(sticky, STICKY_GAP)] if sticky else []))
+            pick = [side] + rest
+            if best is None or sum(s is not None for s in pick) > sum(s is not None for s in best):
+                best = pick
+            if None not in pick:
+                break
+        return best
+
+    sides = dict(zip(drawn_ids, choose(0, [])))
+    return [(node_id, " ".join(boxes[node_id]["text"].split()) or node_id, sides[node_id]) if node_id in boxes
+            else (node_id, None, None) for node_id in ids]
 
 
 def arrow_heads(drawn: dict, messages: list[dict]) -> list[str]:

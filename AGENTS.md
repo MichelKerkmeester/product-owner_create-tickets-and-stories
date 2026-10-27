@@ -36,7 +36,7 @@ This Context Override supersedes:
 
 > **BLOCKING REQUIREMENT**: Save every artifact to `export/` before responding to the user. The one exemption is Flow Mode, below.
 
-Flow Mode is the one exemption. Its deliverable is a FigJam board, so it saves nothing to `export/` and replies with the board URL on its first line, a read-back line, an `Extensions:` line when the write added any, a `Left out:` line whenever the board leaves out a cut, a split, a later board or a point the sources left open, a `Finding:` line for each finding or question and the step 8 self-scan as its last line, as `sk-create-figjam/references/flow-mode.md` Section 8 sets out. Its pre-write check and write gate stand in for steps 4 to 7, and step 8 still applies.
+Flow Mode is the one exemption. Its deliverable is a FigJam board, so it saves nothing to `export/` and replies with the board URL on its first line, a read-back line, an `Extensions:` line when the write added any, a `Left out:` line whenever the board leaves out a cut, a split, a later board or a point the sources left open, a `Finding:` line for each finding or question and the step 8 self-scan as its last line, as `sk-create-figjam/references/flow-mode.md` Section 8 sets out. Its pre-write check and write gate stand in for steps 4 to 7, and step 8 still applies. Its stops before the write, an intake round, the playback and the gate, deliver nothing, so each ends on its question with no self-scan line after it.
 
 ## Strict Sequence
 
