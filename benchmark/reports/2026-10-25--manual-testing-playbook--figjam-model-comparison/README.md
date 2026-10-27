@@ -286,6 +286,18 @@ After `sk-create-figjam` v1.0.10.0 shipped, Claude Sonnet 5.5 high ran again the
 - **Findings.** A findings pass named 15 findings and the critic 6 more. Beyond the four failures they name the read-back that cannot read connector labels, the revision playback that reads nothing first, the second glance missing from the revision reply shape and the two intake sentences. The reader notes, greyscale renders and the FJ-031 operator file sit in `grades/sonnet-high-044/`. The operator closed testing here and sent the findings to the skills
 - **Gallery.** The judge kept every gallery image. No rerun board scores at least as high as the board it would replace
 
+### 8.11 The rerun on v1.0.11.0
+
+After `sk-create-figjam` v1.0.11.0 shipped, Claude Sonnet 5.5 high ran again the 4 scenarios that failed on v1.0.10.0: FJ-017, FJ-026, FJ-029 and FJ-036.
+
+- **Lanes.** On 2026-10-27 every board scenario wrote into its own new draft file in the operator's team plan, FJ-017 created its own file and each run had its own temp folder. The 4 driver runs took 14 turns (12 scripted and 2 adaptive), 26.5 minutes of turn time summed over the lanes and 219,762 output tokens. Every turn exited 0 and none was retried
+- **Harness.** Homebrew's node was reinstalled before the rerun, so the label trace ran on every run and no check printed `Label: skipped`. `run/redact_run.py` now also redacts plan keys, and it ran over the whole run folder before the commit
+- **Grading.** Two fresh readers read each scored board, one Claude Opus grader scored all 4 scenarios from `grades/grader-brief-045.md`, skeptics challenged the grades and adjudicators ruled on each dispute. The skeptics changed citations on FJ-017 and FJ-026 and no verdict or total
+- **Result.** 2 PASS and 2 FAIL. FJ-026 passes at 22 now that the plan follows the board as drawn, and FJ-029 at 21 with both boards planned along the drawn main row. SC-003 asks for at least 3, so phase 045 does not meet it. Counted over every scenario run on any version, 28 of 29 now pass
+- **What still fails.** FJ-017 found Cancelled boxed in only after the compose. It wrote no notes and asked for pins or a recompose, as the skill's after-compose branch says, but the scenario expects that offer from the Turn 2 gate, and nothing tells the gate how to see a node's sides before the write. FJ-036 put its one accent on the goal at the far right end of the main row and planned it first, so both readers read the whole row before it and Composition scores 0. Its playback and gate also end on a self-scan line after their question
+- **Findings.** A findings pass named 11 findings and the critic 7 more. Beyond the two failures they name a label trace that missed FigJam's lone `tip` on FJ-029, a gate that skipped its sketch or critique questions in most runs, and FJ-026's pass resting on a reading the playbook never states, that end states named as one group carry no order. The reader notes and greyscale renders sit in `grades/sonnet-high-045/`
+- **Gallery.** The judge replaced the state image with FJ-026's 22-point board and kept every other image
+
 ---
 
 ## 9. Files
@@ -296,14 +308,15 @@ After `sk-create-figjam` v1.0.10.0 shipped, Claude Sonnet 5.5 high ran again the
 | `replies/<model>/` | The replies alone, one file per turn |
 | `stdout/` | The driver's per-turn lines for each run |
 | `failed-attempts/` | The attempts a retry replaced |
-| `renders/` | Every board at overview zoom, with the Sonnet 5.5 high boards at full size as `sonnet-high-<ID>-<node>.png` and the rerun and gallery boards as `sonnet-high-rerun-<ID>-<node>.png` and `sonnet-high-gallery-<ID>-<node>.png`, the section 8.7 boards as `sonnet-high-041-<ID>-<node>.png` the section 8.8 boards as `sonnet-high-042-<ID>-<node>.png` the section 8.9 boards as `sonnet-high-043-<ID>-<node>.png` and the section 8.10 boards as `sonnet-high-044-<ID>-<node>.png` |
-| `grades/` | The grader briefs, the special cases, seven grader files, the reader tasks with their answers and key, `luna-opus-low.*` for section 8, `sonnet-high.*` for section 8.5 `sonnet-high-rerun.*` and `sonnet-high-gallery.jsonl` for section 8.6 `sonnet-high-041.*` for section 8.7 `sonnet-high-042.*` for section 8.8 `sonnet-high-043.*` for section 8.9 and `sonnet-high-044.*` for section 8.10 |
+| `renders/` | Every board at overview zoom, with the Sonnet 5.5 high boards at full size as `sonnet-high-<ID>-<node>.png` and the rerun and gallery boards as `sonnet-high-rerun-<ID>-<node>.png` and `sonnet-high-gallery-<ID>-<node>.png`, the section 8.7 boards as `sonnet-high-041-<ID>-<node>.png` the section 8.8 boards as `sonnet-high-042-<ID>-<node>.png` the section 8.9 boards as `sonnet-high-043-<ID>-<node>.png` the section 8.10 boards as `sonnet-high-044-<ID>-<node>.png` and the section 8.11 boards as `sonnet-high-045-<ID>-<node>.png` |
+| `grades/` | The grader briefs, the special cases, seven grader files, the reader tasks with their answers and key, `luna-opus-low.*` for section 8, `sonnet-high.*` for section 8.5 `sonnet-high-rerun.*` and `sonnet-high-gallery.jsonl` for section 8.6 `sonnet-high-041.*` for section 8.7 `sonnet-high-042.*` for section 8.8 `sonnet-high-043.*` for section 8.9 `sonnet-high-044.*` for section 8.10 and `sonnet-high-045.*` for section 8.11 |
 | `grades/sonnet-high/` | The Sonnet 5.5 high checker files in `checks/` and the fresh readers' notes in `readers/` |
 | `grades/sonnet-high-rerun/` | The same checker files and reader notes for the section 8.6 rerun and gallery runs, and the greyscale renders the readers saw in `grey/` |
 | `grades/sonnet-high-041/` | The section 8.7 reader notes in `readers/`, the greyscale renders in `grey/` and the FJ-044 and FJ-045 operator step files in `operator/` |
 | `grades/sonnet-high-042/` | The section 8.8 reader notes in `readers/`, the greyscale renders in `grey/` and the FJ-031 and FJ-045 operator files in `operator/` |
 | `grades/sonnet-high-043/` | The section 8.9 notes of two readers per board in `readers/`, the greyscale renders in `grey/` and the FJ-031 operator file in `operator/` |
 | `grades/sonnet-high-044/` | The section 8.10 notes of two readers per board in `readers/`, the greyscale renders in `grey/` and the FJ-031 operator file in `operator/` |
+| `grades/sonnet-high-045/` | The section 8.11 notes of two readers per board in `readers/` and the greyscale renders in `grey/` |
 | `results.jsonl` | One row per run of the first three models, rebuilt by `run/aggregate.py`, then one row per Sonnet 5.5 high run built from `grades/sonnet-high.jsonl`. A rerun of `run/aggregate.py` rewrites the file without the Sonnet rows |
 | `run/` | The Devin runner, the Codex and Claude Code backends, the adaptive driver, the batch scripts, the redaction script, the aggregator and `finals.json` |
 | `batch.log`, `batch-more.log`, `batch-full.log`, `run-log.jsonl` | Each batch's start and exit lines and every turn's log row |

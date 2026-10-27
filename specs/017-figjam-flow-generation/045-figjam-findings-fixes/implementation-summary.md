@@ -1,6 +1,6 @@
 ---
 title: "Implementation Summary"
-description: "The v1.0.10.0 rerun findings are fixed as v1.0.11.0 in the skill and the Project, with no rerun."
+description: "The v1.0.10.0 rerun findings are fixed as v1.0.11.0 in the skill and the Project, and a rerun of the four remaining failures passed two of them."
 trigger_phrases:
   - "figjam findings fixes implementation summary"
 importance_tier: "normal"
@@ -45,7 +45,7 @@ _memory:
 <!-- ANCHOR:what-built -->
 ## What Was Built
 
-Every skill, playbook and mirror finding of README section 8.10 has a change, released as v1.0.11.0 with no rerun.
+Every skill, playbook and mirror finding of README section 8.10 has a change, released as v1.0.11.0. The operator then reopened the phase for a rerun of the four remaining failures, recorded as README section 8.11: FJ-026 and FJ-029 pass, FJ-017 and FJ-036 fail.
 
 ### Phase 45: FigJam findings fixes
 
@@ -97,6 +97,7 @@ Every change is a sentence swap set by this phase, applied by two scripts that r
 | Rule-content divergence, `pair_divergence.py` | PASSED, 65 pairs compared, after five mirror lines were brought in line |
 | FigJam playbook package validator | PASS, 54 scenarios, 0 violations, after one SKIP line named its reason |
 | `validate.sh --strict` | RESULT: PASSED for this phase and the parent |
+| Rerun on v1.0.11.0 | 2 PASS and 2 FAIL. FJ-026 at 22 and FJ-029 at 21 pass, FJ-017 and FJ-036 at 20 fail, graded by two readers per board, one Opus grader and adjudicated skeptics |
 <!-- /ANCHOR:verification -->
 
 ---
@@ -104,5 +105,6 @@ Every change is a sentence swap set by this phase, applied by two scripts that r
 <!-- ANCHOR:limitations -->
 ## Known Limitations
 
-1. **No rerun tests these rules.** The operator closed testing, so the fixes rest on the graded findings and a review.
+1. **SC-003 is not met.** Two of the four rerun scenarios pass where three were asked for. FJ-017 shows the gate has no way to see a noted node's sides before the write, and its scenario accepts the boxed-in offer only from the gate. FJ-036 shows the rubric offers the goal as a user flow's accent while the composer draws the goal last on the row.
+2. **Findings left open.** The label trace missed a lone `tip` FigJam drew on FJ-029, no rule says whether a self-scan line may follow a stop's question, gates skipped their sketch or critique questions in most runs and FJ-026's pass rests on end states named as one group carrying no order, which the playbook never states. README section 8.11 and `grades/sonnet-high-045.md` carry them for the next phase.
 <!-- /ANCHOR:limitations -->

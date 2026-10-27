@@ -61,6 +61,7 @@ One row per criterion. `AC-ID` is stable once written: supersede a criterion, ne
 | AC-008 | REQ-008 | Given the playbook, When it is read, Then the Composition and Shared trunks rows carry the D7 conventions and FJ-031's delete signal names the write time | The playbook root rows carry the conventions, and FJ-031 names the write time in both its copies | Met | - |
 | AC-009 | REQ-009 | Given v1.0.11.0, When the release files are read, Then they name 1.0.11.0 with changelogs and the kernel H1 matches its rules | The hub and `sk-create-figjam` read 1.0.11.0 with changelogs, and the kernel stays v1.2.11 with its reason in SYNC.md | Met | - |
 | AC-010 | REQ-002 | Given every declared pair, When the rule-content divergence check reads both sides, Then no shared anchor states one rule two ways | `pair_divergence.py product-owner` printed PASSED, 65 declared pairs compared, after five mirror lines were brought in line | Met | - |
+| AC-011 | REQ-010 | Given v1.0.11.0, When FJ-017, FJ-026, FJ-029 and FJ-036 are rerun and graded, Then each has a recorded verdict and section 8.11 states the result | `grades/sonnet-high-045.jsonl` holds a verdict for each of the four, and README section 8.11 states 2 PASS and 2 FAIL | Met | - |
 
 ### Status values
 
@@ -87,5 +88,5 @@ waiver is treated as an unmet criterion rather than as a pass.
 
 **Closeable:** Yes
 
-All ten rows are Met with observed evidence. No rerun tested the new rules, because the operator closed testing on 2026-10-27.
+All eleven rows are Met with observed evidence. The rerun the operator reopened this phase for passed 2 of 4, so success criterion SC-003 is not met, and its two failures are recorded for the next phase.
 <!-- /ANCHOR:closure -->

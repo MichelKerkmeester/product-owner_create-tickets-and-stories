@@ -5,7 +5,7 @@ trigger_phrases:
   - "figjam board screenshots"
   - "figjam gallery"
   - "sk-create-figjam examples images"
-version: 1.0.9.0
+version: 1.0.10.0
 ---
 
 # sk-create-figjam - Board Screenshots
@@ -28,7 +28,7 @@ The seven type boards and the dense flow come from the [model comparison run](..
 - [`process-board.png`](process-board.png): laned process, from [FJ-023](../../manual-testing-playbook/board-quality/process-board-quality.md), Claude Sonnet 5.5 high on v1.0.7.0, 21 of 22, FAIL. The run fails on Composition, because the green Refund released goal, left out of the glance plan, reads before the Damage clear? decision it planned as the second glance. It replaced the FJ-034 board, which scored the same 21 and failed the same way, because it shows more of the type: an input step, a data store and both decision exits labelled
 - [`architecture-board.png`](architecture-board.png): architecture, from [FJ-024](../../manual-testing-playbook/board-quality/architecture-board-quality.md), Claude Sonnet 5.5 high, 22 of 22, PASS
 - [`sequence-board.png`](sequence-board.png): sequence, from [FJ-025](../../manual-testing-playbook/board-quality/sequence-board-quality.md), Claude Sonnet 5.5 high, 22 of 22, PASS
-- [`state-board.png`](state-board.png): state diagram, from [FJ-026](../../manual-testing-playbook/board-quality/state-board-quality.md), Claude Sonnet 5.5 high on v1.0.8.0, 21 of 22, FAIL. The pink outline marks Cancelled, the end state two statuses lead to, with its own key entry, beside a composite Confirmed state and no crossing. The run fails on Composition alone: the reader takes Upcoming and In stay inside Confirmed before Cancelled, where the v1.0.8.0 state rule planned them last
+- [`state-board.png`](state-board.png): state diagram, from [FJ-026](../../manual-testing-playbook/board-quality/state-board-quality.md), Claude Sonnet 5.5 high on v1.0.11.0, 22 of 22, PASS. Pending starts on the left, Upcoming and In stay sit inside the Confirmed composite and the three end states stand in one column, with Cancelled in the pink outline as the end state two statuses lead to. The plan follows the board as drawn, and both readers take Cancelled first among the end states
 - [`er-board.png`](er-board.png): ER diagram, from [FJ-027](../../manual-testing-playbook/board-quality/er-board-quality.md), Claude Sonnet 5.5 high, 21 of 22, PASS. The point lost is Clarity, because the reader missed that a booking reserves one room. The board carries key columns only, because the driver never supplied the schema note
 - [`gantt-board.png`](gantt-board.png): gantt chart, from [FJ-028](../../manual-testing-playbook/board-quality/gantt-board-quality.md), Claude Sonnet 5.5 high, 20 of 22, PASS. It loses one Shared trunks point where two arrowheads crowd into Desktop and iOS integration, and one Clarity point because the reader named the critical chain instead of Integration
 - [`state-on-existing-board.png`](state-on-existing-board.png): state diagram written onto a board that already held content, from [FJ-032](../../manual-testing-playbook/board-creation/existing-board-with-content.md) on its second recheck, 22 of 22, drawn again in the design file before v1.0.6.0. The rerun's FJ-032 board scored 19 and failed on Composition and Reply, so this image stays
