@@ -9,7 +9,7 @@ trigger_phrases:
   - "sticky legend"
   - "numbered pins"
   - "use_figma extension"
-version: 1.0.5.0
+version: 1.0.6.0
 ---
 
 # FigJam Hybrid Workflow
@@ -119,7 +119,7 @@ return { createdNodeIds: created, boardBefore: before }
 
 ### A single sticky
 
-For one or two notes, a sticky beside its node is clearer than a legend, so a request for one or two notes gets this form and no pin, no legend column and no sticky parked at the board's far edge away from its node. Place it inside the board 64 pixels clear of its node, which is the gap a sticky keeps from the sticky beside it: to the right first, then below, then above and to the left only when all three are taken and no connector runs between the sticky and its node. A node's own connector to its end dot does not take the right side: the sticky goes 64 pixels past the end dot, level with its node. A sticky already placed takes its side, so when two noted nodes sit on adjacent rows and their level stickies would sit closer than 64 pixels, the second sticky goes below or to the left of its node and the reply names it on a `Finding:` line. When every side is taken, the sticky goes on the side with the shortest clear line to its node and the reply says so on a `Finding:` line. A sticky that lands badly is reported and never moved, unless a new yes covers the move. A sticky to the right of a node in the last column is allowed, and the board widens to hold it. Name it `note:<n>`, so the read-back counts it by name. Past two notes, switch to pins and a legend. Never mix the two in one diagram.
+For one or two notes, a sticky beside its node is clearer than a legend, so a request for one or two notes gets this form and no pin, no legend column and no sticky parked at the board's far edge away from its node. Place it inside the board 64 pixels clear of its node, which is the gap a sticky keeps from the sticky beside it: to the right first, then below, then above and to the left only when all three are taken and no connector runs between the sticky and its node. A node's own connector to its end dot does not take the right side: the sticky goes 64 pixels past the end dot, level with its node. A sticky already placed takes its side, so when two noted nodes sit on adjacent rows and their level stickies would sit closer than 64 pixels, the second sticky goes below or to the left of its node and the reply names it on a `Finding:` line. A FigJam sticky is a fixed 240 pixel square that cannot be resized, so a side holds one only with 240 pixels clear past the 64 pixel gap, and any probe of a sticky's size runs inside the notes call, never as a call of its own. When every side of a noted node is taken, the gate says so before any write and offers the pin and legend form or a recompose with more room, and when that shows only after the compose, no notes call runs and the reply asks the same question. A single sticky never sits more than one sticky width from its node. A sticky that lands badly is reported and never moved, unless a new yes covers the move. A sticky to the right of a node in the last column is allowed, and the board widens to hold it. Name it `note:<n>`, so the read-back counts it by name. Past two notes, switch to pins and a legend. Never mix the two in one diagram.
 
 ---
 

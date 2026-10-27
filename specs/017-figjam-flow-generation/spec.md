@@ -144,6 +144,7 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 42 | 042-figjam-glance-and-left-out/ | The gaps the v1.0.7.0 rerun still shows: glance plans that match the drawn board, a Left out line on every split and gate, the sticky fallback and the router spacing, then a rerun of the 14 failures | Complete |
 | 43 | 043-figjam-rerun-followups/ | The gaps the v1.0.8.0 rerun still shows: a composite's inner states, the split title, a revision's second glance and title, the reply's first line, adjacent stickies and a missing-route gate, then a rerun of the 7 failures with two readers per board | Complete |
 | 44 | 044-figjam-composite-and-path-order/ | The causes the v1.0.9.0 rerun still shows: the composer draws a composite across the top row, plans order a flow by fill while readers take its main row in path order and the revision exemption is too narrow, with a working node pinned for the label trace, then a rerun of the 6 failures | Complete |
+| 45 | 045-figjam-findings-fixes/ | The causes the v1.0.10.0 rerun still shows, fixed with no rerun: plans that ignore the drawn state board and main row, two intake sentences that disagree, a boxed-in sticky with no place, a revision playback that reads nothing, a read-back that assumes connector labels and grading conventions the playbook never stated | In Progress |
 
 ### Phase Transition Rules
 
@@ -193,6 +194,7 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 041-figjam-rerun-findings | 042-figjam-glance-and-left-out | The operator chose phase 042 to fix the remaining gaps and rerun the 14 failures | 038 run README section 8.7 |
 | 042-figjam-glance-and-left-out | 043-figjam-rerun-followups | The operator chose phase 043 to fix the remaining gaps and rerun the 7 failures | 038 run README section 8.8 |
 | 043-figjam-rerun-followups | 044-figjam-composite-and-path-order | The operator chose phase 044 to fix the composite placement and the path-order glance plan and rerun the 6 failures | 038 run README section 8.9 |
+| 044-figjam-composite-and-path-order | 045-figjam-findings-fixes | The operator closed testing and chose phase 045 to fix the findings in the skills and sync them to the Claude Project | 038 run README section 8.10 |
 <!-- /ANCHOR:phase-map -->
 
 ---

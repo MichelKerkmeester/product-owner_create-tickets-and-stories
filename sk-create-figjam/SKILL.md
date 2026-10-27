@@ -2,7 +2,7 @@
 name: sk-create-figjam
 description: "Draws FigJam diagrams, from user flows to sequence, state, ER and gantt, as checked Mermaid models composed into framed boards."
 allowed-tools: [Read, Write, Edit, Bash, Glob, Grep, mcp__code_mode__call_tool_chain]
-version: 1.0.10.0
+version: 1.0.11.0
 ---
 
 <!-- Keywords: sk-create-figjam, flow mode, figjam, user flow, process, architecture, sequence diagram, state diagram, er diagram, gantt, flowchart, mermaid, board, $flow, $figjam -->
@@ -44,7 +44,7 @@ another artifact command      -> hand back to the Product Owner packet, whose In
 another artifact's framing    -> hand back to the Product Owner packet, FigJam is then that artifact's subject ("add a task to update the figjam board")
 ```
 
-A board that already exists is revised here too. Notes go on top through `references/hybrid-workflow.md`, with the target ids from a `get_figjam` read, which works in a session that did not write the board. An update or a redraw opens with a playback of the rows it changes, is made in the model and composed again, and the old board section is deleted only on its own yes to a question that names it, never on a bare yes, as `references/flow-mode.md` Sections 5 and 6 set out. A session that did not write the board reads it with `get_figjam` first and takes what the read shows as a source for the intake. Moving, resizing or restyling a composed node is not a route, as rule 4 under NEVER in Section 4 says.
+A board that already exists is revised here too. Notes go on top through `references/hybrid-workflow.md`, with the target ids from a `get_figjam` read, which works in a session that did not write the board. An update or a redraw reads the board with `get_figjam` first, opens with a playback of the rows it changes, is made in the model and composed again. The old board section is deleted only on its own yes to a question that names it, never on a bare yes, as `references/flow-mode.md` Sections 5 and 6 set out. A session that did not write the board reads it with `get_figjam` first and takes what the read shows as a source for the intake. Moving, resizing or restyling a composed node is not a route, as rule 4 under NEVER in Section 4 says.
 
 ### Type Detection
 
