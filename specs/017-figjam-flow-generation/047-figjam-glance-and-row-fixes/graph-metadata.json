@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/047-figjam-glance-and-row-fixes",
+  "spec_folder": "017-figjam-flow-generation/047-figjam-glance-and-row-fixes",
+  "parent_id": "017-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "figjam glance and row fixes",
+      "phase 47 figjam fixes",
+      "figjam glance and row fixes plan",
+      "figjam glance and row fixes tasks",
+      "figjam glance and row fixes acceptance criteria",
+      "packet goal",
+      "durable directive",
+      "completion criteria",
+      "goal binding",
+      "figjam glance and row fixes implementation summary"
+    ],
+    "key_topics": [
+      "figjam",
+      "glance",
+      "row",
+      "phase",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "packet",
+      "goal",
+      "durable",
+      "directive"
+    ],
+    "importance_tier": "normal",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "sk-create-figjam/scripts/flow_check.py",
+      "sk-create-figjam/assets/flow-templates.md",
+      "sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md",
+      "claude project/Custom Instructions.md",
+      "benchmark/gates/run_gates.sh",
+      "manual-testing-playbook/manual-testing-playbook.md",
+      "sk-create-figjam/SKILL.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "flow_check.py",
+        "kind": "file",
+        "path": "sk-create-figjam/scripts/flow_check.py",
+        "source": "derived"
+      },
+      {
+        "name": "flow-templates.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/assets/flow-templates.md",
+        "source": "derived"
+      },
+      {
+        "name": "manual-testing-playbook.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Progress",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern One",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Claude Sonnet 5.5 high reran FJ-017 and FJ-036, which failed on v1.0.11.0, and the board-quality scenarios FJ-022 and FJ-023 on v1.0.12.0, and 0 of 4 pass: FJ-017 FAIL with no scorecard, FJ-022 20, FJ-023 19 and FJ-036 19",
+    "created_at": "2026-10-27T23:49:42.787Z",
+    "last_save_at": "2026-10-27T23:49:42.787Z",
+    "save_lineage": "same_pass",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:bedb71155f45885cfafef50417e03fff97892dcf138b74d013ef2938202063cb",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "165ceff1387742883f7cf69d3565e7f784801d28a3d48675b9d7eb1a81aeb39a",
+      "plan.md": "60315f470c490da1acbcf5b154b78e2eb5b747276a756abbdcacdc3f76af4ff1",
+      "tasks.md": "0dcb0cef7f5b492599c6ba1ab87ae852ee2e9e7be2472033ec92d4bb2aa4868f",
+      "implementation-summary.md": "9973cf84332fcbfa60320bd97abcbafaf1ca9649b64365bf75494d250b606614"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}
