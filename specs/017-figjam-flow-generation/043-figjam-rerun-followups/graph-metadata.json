@@ -198,7 +198,7 @@
     ],
     "causal_summary": "Claude Sonnet 5.5 high reran the 14 failures of v1.0.7.0 on v1.0.8.0 and 7 pass under the operator's rulings",
     "created_at": "2026-10-26T18:02:43Z",
-    "last_save_at": "2026-10-27T14:27:42.176Z",
+    "last_save_at": "2026-10-27T14:30:02.038Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -209,7 +209,7 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:3d6138707af958eeb2befb1dd8ff033e57ac26842b235b190b9610f300690b01",
+    "source_fingerprint": "sha256:2ef2c0da686bf285c5cc8659d1979096806f1194df4c2ed7937603fc4850c0f9",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
       "spec.md": "f5a1319ee427b442e49b6d941fe3935d45c035e742e81c0394cf8016b2ad85cd",
