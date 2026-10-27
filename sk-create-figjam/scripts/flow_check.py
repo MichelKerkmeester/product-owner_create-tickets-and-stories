@@ -35,7 +35,9 @@ processes in one file must agree on it. A user flow and a process must also
 carry one `style` line, because the board marks the first glance with its one
 accent and has no other way to know where it falls.
 A model that passes is composed into a board by `compose_board.py`, which keeps
-its own self-test.
+its own self-test. With node on the PATH the board is also composed in memory,
+and a label the composer would wrap one word alone onto its last line is
+reported, since a shorter label is the fix and a wider box is not.
 
 Usage:
   flow_check.py <model.md|model.mmd>  -> 0 every diagram passes, 1 a rule fails, 2 unreadable
@@ -48,6 +50,7 @@ from __future__ import annotations
 import contextlib
 import io
 import re
+import shutil
 import sys
 import tempfile
 from pathlib import Path
@@ -56,7 +59,7 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE / "vendored"))
 sys.path.insert(0, str(HERE))
 import mermaid_extract  # noqa: E402
-from figjam_checks import flowchart, layout  # noqa: E402
+from figjam_checks import board_geometry as geometry, flowchart, layout  # noqa: E402
 from figjam_checks.common import (
     ACCENT_PAIRS,
     CANVAS,
@@ -182,6 +185,33 @@ def check_kind(block: mermaid_extract.SourceBlock, block_text: str) -> tuple[str
     return profile, found + measures, f"{nodes} nodes and {len(diagram.edges)} connectors, {shape}", diagram.direction
 
 
+def label_words(block: mermaid_extract.SourceBlock, number: int) -> list[str]:
+    """A line for each label this diagram would wrap one word alone onto, read off a board composed in memory.
+
+    The composer fits a label inside its shape and never widens the box for it, so one word can be left alone
+    on a last line and the model is the only place to shorten it. A missing node or a board that will not
+    compose says nothing, since neither is a fault of the model.
+    """
+    if not shutil.which("node"):
+        return []
+    # compose_board imports this module, so it is loaded here rather than at the top of the file.
+    import compose_board
+    from figjam_checks import design as board_design
+
+    model, problems, _ = compose_board.build_model(block, number)
+    if problems or model is None:
+        return []
+    design, _ = board_design.resolve()
+    geometry.use_design(design)
+    try:
+        with tempfile.TemporaryDirectory(prefix="po-flow-check-labels-") as work:
+            drawn = geometry.run_trace(compose_board.fill_template(model, board_design.theme(design)), Path(work))
+    except (OSError, ValueError, RuntimeError):
+        return []
+    return [f"Label: {line}, so shorten it when a shorter label keeps the source's words"
+            for line in geometry.orphan_words(drawn)]
+
+
 def check(path: Path) -> int:
     """Check every diagram in a model file, print the report and return the exit code."""
     try:
@@ -194,7 +224,7 @@ def check(path: Path) -> int:
         print(f"UNREADABLE {path}: no Mermaid block found")
         return 2
     failed, ways = 0, {}
-    for number, (_, (profile, problems, size, direction)) in enumerate(results, 1):
+    for number, (block, (profile, problems, size, direction)) in enumerate(results, 1):
         name = f"diagram {number}, {NAMES.get(profile, 'unknown')}"
         if problems:
             failed += 1
@@ -202,6 +232,9 @@ def check(path: Path) -> int:
                 print(f"  {name}: {problem}")
         else:
             print(f"  {name}: ok, {size}")
+            # A label the board would strand one word on is the model's to shorten, so it never fails here.
+            for line in label_words(block, number):
+                print(line)
         if profile in (flowchart.USER_FLOW, flowchart.PROCESS) and direction:
             ways.setdefault(profile, set()).add(flowchart.direction_family(direction))
     for profile, found in ways.items():
@@ -260,6 +293,36 @@ def palette_results() -> list[tuple[str, bool, str]]:
     return results
 
 
+def label_results() -> list[tuple[str, bool, str]]:
+    """A label the composer would wrap one word alone is reported for shortening, and a short one is not.
+
+    Both readings need node on the PATH to compose the board, so a missing node is reported and counted as no
+    check at all, the way an absent install skips a shipped model.
+    """
+    if not shutil.which("node"):
+        print("SKIP  a label's last line needs node on the PATH to compose the board")
+        return []
+    cases = (
+        ("a label that wraps one word alone is reported for shortening",
+         "flowchart LR\n    a([Order placed]) --> b[Book a courier pickup]\n    b --> c([Parcel sent])\n"
+         "    style c fill:#CDF4D3\n",
+         "Label: Book a courier pickup leaves 'pickup' alone"),
+        ("a model with short labels reports none",
+         "flowchart LR\n    a([Order placed]) --> b[Send the parcel]\n    b --> c([Parcel sent])\n"
+         "    style c fill:#CDF4D3\n",
+         None),
+    )
+    results = []
+    with tempfile.TemporaryDirectory(prefix="po-flow-check-labels-") as scratch:
+        for name, model, wanted in cases:
+            path = Path(scratch) / "labels.mmd"
+            path.write_text(model, encoding="utf-8")
+            code, output = run_quietly(path)
+            reported = "\n".join(line for line in output.splitlines() if line.startswith("Label:"))
+            results.append((name, code == 0 and (wanted in reported if wanted else not reported), output))
+    return results
+
+
 def run_quietly(path: Path) -> tuple[int, str]:
     """Run the check on one file and return its exit code with the report it printed."""
     out = io.StringIO()
@@ -295,6 +358,7 @@ def self_test() -> int:
         code, output = run_quietly(model)
         results.append((f"{model.relative_to(model.parents[1]) if PACKET in model.parents else model.name} passes",
                         code == 0, output))
+    results += label_results()
     results += palette_results()
     skill_types = re.search(r'DIAGRAM_TYPES = \(([^)]*)\)', (PACKET / "SKILL.md").read_text(encoding="utf-8"))
     declared = set(re.findall(r'"([a-z-]+)"', skill_types.group(1))) if skill_types else set()

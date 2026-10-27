@@ -39,8 +39,14 @@ GRID_STEP = 8
 # A zone's title sits 32 px in from its corner. A label is its text plus a pad, 24 px tall, and sits on
 # the middle of the line it names. Two edges may share their first stub, and nothing longer.
 # A label's width is its characters at the trace's Inter proportion of the label size, which `use_design` sets.
-CHAR_WIDTH = 0.56
+# A node's own text wraps at a narrower average, NODE_WIDTH of the node size: at that measure the wraps match the
+# ones rendered boards show, where the label proportion flags labels that fit.
+CHAR_WIDTH, NODE_WIDTH = 0.56, 0.5
 TITLE_INSET, TITLE_GAP, LABEL_HEIGHT, LABEL_PAD, LABEL_CHAR, SHARE_MAX = 32, 8, 24, 16, 18 * CHAR_WIDTH, 56
+NODE_CHAR = 20 * NODE_WIDTH
+# The shapes whose text the composer fits into the inscribed half box, so the box a trace records is never the
+# width its label wraps at. A parallelogram gives up its slanted ends the same way.
+ROUND_SHAPES = {"DIAMOND", "ELLIPSE", "HEXAGON", "OCTAGON"}
 # A run along a zone's edge reads as part of the border when it is closer than ZONE_OUT outside it or ZONE_IN
 # inside it. The gap between two zones is 48 wide, so its middle clears both borders by 24, and the zone's
 # own padding is 48, so a run inside it clears the border by that much. Two runs closer than CORRIDOR on
@@ -56,9 +62,10 @@ JOIN_DIAMOND = 56
 
 
 def use_design(design: dict) -> None:
-    """Measure boards against the design they are drawn in: its label size and its accent's pair and weights."""
-    global LABEL_CHAR, ACCENT_STROKE, ACCENT_WEIGHT, ACCENT_LINE
+    """Measure boards against the design they are drawn in: its text sizes and its accent's pair and weights."""
+    global LABEL_CHAR, NODE_CHAR, ACCENT_STROKE, ACCENT_WEIGHT, ACCENT_LINE
     LABEL_CHAR = design["type"]["label"] * CHAR_WIDTH
+    NODE_CHAR = design["type"]["node"] * NODE_WIDTH
     ACCENT_STROKE = design["swatch"][design["accent"]["pair"]][1].lower()
     ACCENT_WEIGHT, ACCENT_LINE = design["accent"]["node"], design["accent"]["message"]
 
@@ -515,6 +522,47 @@ def edges_side_by_side(drawn: dict) -> list[str]:
             arriving = {x for x in e["ports"] if x[2] == "in"} & {x for x in o["ports"] if x[2] == "in"}
             if longest > (MERGE_MAX if arriving else SHARE_MAX):
                 found.append(f"{e['who']} and {o['who']} run side by side for {longest:g} px")
+    return found
+
+
+def _text_width(shape: dict) -> float:
+    """The width the composer fits a shape's label into, which is its box less what the shape takes of it."""
+    w, kind = shape["w"], shape.get("shape")
+    if kind in ROUND_SHAPES:
+        return w / 2 - 32
+    return w - (96 if kind == "PARALLELOGRAM_RIGHT" else 48)
+
+
+def _wrapped(text: str, per: int) -> list[str]:
+    """The text in lines of at most `per` characters, filled word by word after each break it carries."""
+    lines = []
+    for chunk in text.split("\n"):
+        line = ""
+        for word in chunk.split():
+            if line and len(line) + 1 + len(word) > per:
+                lines.append(line)
+                line = word
+            else:
+                line = f"{line} {word}".strip()
+        lines.append(line)
+    return [line for line in lines if line]
+
+
+def orphan_words(drawn: dict) -> list[str]:
+    """The labels that wrap one word alone onto their last line, while holding two lines or more.
+
+    A label wraps at the text width its shape leaves, which is narrower than the box on a round shape and
+    narrower again on a parallelogram, so a box with room to spare can still strand one word. A line of one
+    word reads as a stray word rather than as part of the label, so the label's shape is lost at a glance.
+    This measure is advice for shortening the label before the board is written, never a failure.
+    """
+    found = []
+    for n in drawn["nodes"]:
+        if n["type"] != "SHAPE_WITH_TEXT" or not n["text"].strip():
+            continue
+        lines = _wrapped(n["text"], max(1, int(_text_width(n) // NODE_CHAR)))
+        if len(lines) > 1 and len(lines[-1].split()) == 1:
+            found.append(f"{' '.join(n['text'].split())} leaves {lines[-1]!r} alone on its last line")
     return found
 
 
