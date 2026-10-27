@@ -84,6 +84,7 @@ and findings belong here.
 |------|-------|----------|
 | Phase scaffolded | Done | spec, plan, tasks, acceptance criteria and this goal |
 | Phase 045 closed | Done | v1.0.11.0 skill and Project fixes, review repaired, parity PASSED 65/65, residency PASSED 7, validate RESULT: PASSED |
+| Homebrew node reinstalled | Done | v26.12.1 loads and flow_check prints the Label line on it and from a login shell |
 
 ### Deviations and findings
 
