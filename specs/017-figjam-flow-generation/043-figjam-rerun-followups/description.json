@@ -1,0 +1,17 @@
+{
+  "specFolder": "017-figjam-flow-generation/043-figjam-rerun-followups",
+  "description": "Phase 43: figjam-rerun-followups",
+  "keywords": [
+    "phase",
+    "figjam-rerun-followups"
+  ],
+  "lastUpdated": "2026-10-27T12:40:00.000Z",
+  "specId": "043",
+  "folderSlug": "figjam-rerun-followups",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "2"
+}

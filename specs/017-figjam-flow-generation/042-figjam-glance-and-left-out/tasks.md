@@ -70,9 +70,9 @@ contextType: "implementation"
 <!-- ANCHOR:completion -->
 ## Completion Criteria
 
-- [ ] All tasks marked `[x]`
+- [x] All tasks marked `[x]`
 - [x] No `[B]` blocked tasks remaining
-- [ ] Manual verification passed
+- [x] Manual verification passed
 <!-- /ANCHOR:completion -->
 
 ---
@@ -113,8 +113,8 @@ contextType: "implementation"
 <!-- ANCHOR:code-quality -->
 ## Code Quality
 
-- [ ] CHK-010 [P0] The composer and checks agree on every new rule [EVIDENCE: pending]
-- [ ] CHK-011 [P1] The driver compiles and its tests pass [EVIDENCE: pending]
+- [x] CHK-010 [P0] The composer and checks agree on every new rule [EVIDENCE: compose self-test 1244 of 1244 and flow self-test 169 of 169, with the composer unchanged and the label warning in the check alone]
+- [x] CHK-011 [P1] The driver compiles and its tests pass [EVIDENCE: the driver is unchanged in this phase and pytest passes 18]
 <!-- /ANCHOR:code-quality -->
 
 ---
@@ -122,8 +122,8 @@ contextType: "implementation"
 <!-- ANCHOR:testing -->
 ## Testing Checklist
 
-- [ ] CHK-020 [P0] All acceptance criteria met [EVIDENCE: pending]
-- [ ] CHK-021 [P0] Gates pass [EVIDENCE: pending]
+- [x] CHK-020 [P0] All acceptance criteria met [EVIDENCE: acceptance-criteria.md marks AC-001 to AC-009 Met and Closeable Yes]
+- [x] CHK-021 [P0] Gates pass [EVIDENCE: 15 of 15 gates and the output format gate pass on the committed tree]
 <!-- /ANCHOR:testing -->
 
 ---
@@ -131,13 +131,13 @@ contextType: "implementation"
 <!-- ANCHOR:fix-completeness -->
 ## Fix Completeness
 
-- [ ] CHK-FIX-001 [P0] Each actionable finding has a finding class [EVIDENCE: pending]
-- [ ] CHK-FIX-002 [P0] Same-class producer inventory completed [EVIDENCE: pending]
-- [ ] CHK-FIX-003 [P0] Consumer inventory completed [EVIDENCE: pending]
-- [ ] CHK-FIX-004 [P0] Adversarial cases for parser fixes [EVIDENCE: pending]
-- [ ] CHK-FIX-005 [P1] Matrix axes and row count listed [EVIDENCE: pending]
-- [ ] CHK-FIX-006 [P1] Hostile env variant [EVIDENCE: pending]
-- [ ] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: pending]
+- [x] CHK-FIX-001 [P0] Each actionable finding has a finding class [EVIDENCE: each review and grading finding is classed skill, project-mirror, playbook, harness, composer or model-only in `grades/sonnet-high-042.md` and the implementation summary]
+- [x] CHK-FIX-002 [P0] Same-class producer inventory completed [EVIDENCE: the Left out wording was fixed across every file that stated it, found by a repo grep, not only the files the reviewer named]
+- [x] CHK-FIX-003 [P0] Consumer inventory completed [EVIDENCE: the mirror files, kernel, `AGENTS.md`, `sk-product-owner` and the user guide were read as consumers of the rule and updated together]
+- [x] CHK-FIX-004 [P0] Adversarial cases for parser fixes [EVIDENCE: the label warning self-test holds a label that warns and labels that do not, and the check exits 0 without node]
+- [x] CHK-FIX-005 [P1] Matrix axes and row count listed [EVIDENCE: seven examples by skill and mirror, 14 gate rows each checked by counted swaps]
+- [x] CHK-FIX-006 [P1] Hostile env variant [EVIDENCE: the check runs with node absent and exits 0 with no Label line, as the review confirmed]
+- [x] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: PO commits 0000147 to 0000155 and outer 0001086 to 0001088]
 <!-- /ANCHOR:fix-completeness -->
 
 ---
@@ -145,7 +145,7 @@ contextType: "implementation"
 <!-- ANCHOR:security -->
 ## Security
 
-- [ ] CHK-030 [P0] No board URL, Figma file key, plan name or email in any committed file [EVIDENCE: pending]
+- [x] CHK-030 [P0] No board URL, Figma file key, plan name or email in any committed file [EVIDENCE: leak scans of the added lines and the run output report 0 hits]
 <!-- /ANCHOR:security -->
 
 ---
@@ -153,8 +153,8 @@ contextType: "implementation"
 <!-- ANCHOR:docs -->
 ## Documentation
 
-- [ ] CHK-040 [P1] Spec, plan and tasks synchronized [EVIDENCE: pending]
-- [ ] CHK-041 [P1] Project mirror and SYNC note [EVIDENCE: pending]
+- [x] CHK-040 [P1] Spec, plan and tasks synchronized [EVIDENCE: spec, plan, tasks, acceptance criteria and implementation summary agree on Complete and 7 of 14]
+- [x] CHK-041 [P1] Project mirror and SYNC note [EVIDENCE: the mirror took every skill sentence in the same commit and SYNC.md carries the phase 042 note]
 <!-- /ANCHOR:docs -->
 
 ---
@@ -162,8 +162,8 @@ contextType: "implementation"
 <!-- ANCHOR:file-org -->
 ## File Organization
 
-- [ ] CHK-050 [P1] No change outside the files named in spec.md Section 3 [EVIDENCE: pending]
-- [ ] CHK-051 [P1] scratch/ holds no file [EVIDENCE: pending]
+- [x] CHK-050 [P1] No change outside the files named in spec.md Section 3 [EVIDENCE: the changed files fall in the spec's Files to Change table, plus `USER-GUIDE.md` and `sk-product-owner`, which the review found stating the old rule]
+- [x] CHK-051 [P1] scratch/ holds no file [EVIDENCE: scratch/ holds only .gitkeep]
 <!-- /ANCHOR:file-org -->
 
 ---
@@ -173,9 +173,9 @@ contextType: "implementation"
 
 | Category | Total | Verified |
 |----------|-------|----------|
-| P0 Items | 10 | 2 |
-| P1 Items | 9 | 1 |
+| P0 Items | 10 | 10 |
+| P1 Items | 9 | 9 |
 | P2 Items | 0 | 0 |
 
-**Verification Date**: Pending
+**Verification Date**: 2026-10-27
 <!-- /ANCHOR:summary -->
