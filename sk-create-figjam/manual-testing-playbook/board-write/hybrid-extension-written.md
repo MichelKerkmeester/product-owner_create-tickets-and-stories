@@ -1,7 +1,7 @@
 ---
 title: "FJ-017 -- Notes land after the write"
 description: "This scenario validates notes land after the write for `FJ-017`. It checks that after a yes that named notes, the state diagram is composed with one `use_figma` call and the notes are added with a second `use_figma` call inside the board as single stickies, no composed node moves and the reply carries an `Extensions:` line."
-version: 1.0.2.0
+version: 1.0.3.0
 driver: new-file
 ---
 
@@ -29,7 +29,7 @@ Operators run the exact prompt and command sequence for `FJ-017` and confirm the
 - Real user request: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
 - Prompt: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
 - Expected execution process: Run Turns 1 and 2 as `FJ-007` to reach the gate, then on the gate's yes call `whoami` and `create_new_file`, compose the board with one `use_figma` call, add one sticky beside Cancelled and one beside NoShow with a second `use_figma` call inside the board, read the board back and reply
-- Expected signals: Turn 1 ends on the playback and Turn 2 ends on the gate, and both write nothing. Turn 3 calls `use_figma` twice, once to compose the board and once to add the two notes as single stickies, with no pin and no legend column. It moves no composed node, draws no colour and replies with the board URL, a `Read-back:` line, `Extensions: 2 of 2 notes, 0 overlaps` and the `HVR self-scan:` line
+- Expected signals: Turn 1 ends on the playback and Turn 2 ends on the gate, and both write nothing. Turn 3 calls `use_figma` twice, once to compose the board and once to add the two notes as single stickies, with no pin and no legend column. It moves no composed node, draws no colour and replies with the board URL, a `Read-back:` line, `Extensions: 2 of 2 notes, 0 overlaps`, a `Finding:` line naming any sticky that sits below or left of its node and the `HVR self-scan:` line
 - Desired user-visible outcome: A board with a note beside Cancelled and beside NoShow and both writes counted
 - Pass/fail: PASS if each sticky lands inside the board beside its node, no composed node moved and the reply counts the extension. FAIL if a write precedes the gate's yes, a composed node is moved or restyled, a sticky covers a node or lands outside the board, the notes land as pins with a legend column or the reply has no `Extensions:` line. Record SKIP only when the hosted Figma MCP is unavailable in this environment, naming that blocker
 

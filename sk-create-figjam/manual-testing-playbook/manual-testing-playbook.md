@@ -1,7 +1,7 @@
 ---
 title: "sk-create-figjam: Manual Testing Playbook"
 description: "Operator-facing directory for the FigJam diagram packet: type choice for all seven types, the pre-write check, the board write with its gate, extension and read-back, scored board quality for every type, creation variant and the board design, the boundaries with the Product Owner packet and routing recall for type detection."
-version: 1.0.7.0
+version: 1.0.8.0
 ---
 
 # sk-create-figjam: Manual Testing Playbook
@@ -69,7 +69,7 @@ Coverage note (2026-10-20): every type has a type-choice or board-write scenario
 - Every tool call, with each check run's output and exit status
 - The model the check read, with its provenance table
 - For a board write, the board URL and the operator's own count of what the board holds
-- For a scored board, the planned glance order, the overview screenshot, the colour and greyscale reading screenshots, the reader's answers and the scorecard with one reason, one location and one fix per score
+- For a scored board, the planned glance order, the overview screenshot, the colour and greyscale reading screenshots, the two readers' reading orders and answers and the scorecard with one reason, one location and one fix per score
 - The verdict with its reason
 
 ### Board Quality Scorecard
@@ -80,7 +80,7 @@ The operator writes down the glance order the model plans before the first scree
 
 **The overview zoom.** Four dimensions, each 0, 1 or 2, scored on the whole board in one frame.
 
-- **Composition.** 2: the board reads in the planned glance order, and the element the request is about comes first. 1: the order holds and one part comes before that element. 0: two parts read in the reverse of the planned order. The title block is the frame entry and never counts as a part of the glance order. On a state board a composite section reads as part of the frame too and never counts as a part. When the request names a group, such as the end states, its most telling member marked by the focus line is the element the request is about. When `sk-create-figjam/references/quality-rubric.md` Section 3 makes the requested element the second glance, as on a revision that changes an end other than a failure end, the board scores 2 when that element holds the planned second glance and the rest of the order holds. A part the plan does not name that reads at or before the planned second glance costs one point, as one part read out of order does
+- **Composition.** 2: the board reads in the planned glance order, and the element the request is about comes first. 1: the order holds and one part comes before that element. 0: two parts read in the reverse of the planned order. The title block is the frame entry and never counts as a part of the glance order. Lanes and zones read as part of the frame on every type, like the title block, and never count as parts, but the nodes inside them do. On a state board the states inside a composite are parts, planned second with their section as `sk-create-figjam/references/types/state.md` Section 5 sets out. When the request names a group, such as the end states, its most telling member marked by the focus line is the element the request is about. When `sk-create-figjam/references/quality-rubric.md` Section 3 makes the requested element the second glance, as on a revision that changes an end other than a failure end, the board scores 2 when that element holds the planned second glance and the rest of the order holds. On such a revision the entry and the decisions the rubric plans last cost no point when they read before the changed end. A part the plan does not name that reads at or before the planned second glance costs one point, as one part read out of order does. Two fresh readers read each scored board, and a part costs a point only when both readers read it early or out of order
 - **Crossings.** 2: no connector crosses another. 1: one crossing. 0: two or more
 - **Shared trunks.** 2: every connector runs alone between its shapes, or a trunk carries only the edges the model draws as one path. 1: one trunk joins two edges the model draws apart. 0: two or more
 - **Label collisions.** 2: no two labels touch, and each label sits nearer its own connector than any other. 1: one pair touches. 0: a label covers another or reads as another connector's
@@ -557,7 +557,7 @@ Verify that after a yes that named notes, the state diagram is composed with one
 
 Prompt: `$figjam the Roamstay booking status lifecycle on a new board in our Roamstay Product plan, and add a short note on Cancelled and on No-show saying who sets each, so support knows who to ask. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.`
 
-Expected signals: Turn 1 ends on the playback and Turn 2 ends on the gate, and both write nothing. Turn 3 calls `use_figma` twice, once to compose the board and once to add the two notes as single stickies, with no pin and no legend column. It moves no composed node, draws no colour and replies with the board URL, a `Read-back:` line, `Extensions: 2 of 2 notes, 0 overlaps` and the `HVR self-scan:` line
+Expected signals: Turn 1 ends on the playback and Turn 2 ends on the gate, and both write nothing. Turn 3 calls `use_figma` twice, once to compose the board and once to add the two notes as single stickies, with no pin and no legend column. It moves no composed node, draws no colour and replies with the board URL, a `Read-back:` line, `Extensions: 2 of 2 notes, 0 overlaps`, a `Finding:` line naming any sticky that sits below or left of its node and the `HVR self-scan:` line
 
 Desired user-visible outcome: A board with a note beside Cancelled and beside NoShow and both writes counted
 
