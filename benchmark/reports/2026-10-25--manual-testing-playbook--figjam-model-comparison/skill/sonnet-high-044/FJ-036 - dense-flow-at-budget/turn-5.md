@@ -1,0 +1,7 @@
+<figma-url>
+Read-back: 9 of 9 nodes, 11 of 11 connectors, 5 of 5 decision exits labelled, first glance: the price comparison
+Left out: card entry and payment failures, cancellation, change fees and deadlines, the case with no other room free and where the credit goes afterwards, all outside the guest-facing path you described
+Finding: two labels wrap with one word alone on the last line, "How does the new price compare?" (compare?, in the diamond in Settle the price) and "Choose another room" (room, in Find a room). The fix is shorter labels, "Price change?" and "See other rooms", composed again after your yes. The old section would then be deleted only on its own yes, which names it by its title
+Finding: the read returned no connector text, so the five exit labels (Yes, No, Higher, Lower, Same) were counted on the overview screenshot
+Finding: the Yes exit from "Room free on new dates?" runs along the top of Find a room and arrives at the same corner of the price diamond as the arrow from "Choose another room". The two lie together for a short stretch, within the composer's arrival limit, and a reader could take the Yes route as a bypass of the detour
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

@@ -1,0 +1,4 @@
+<figma-url>
+Read-back: 7 of 7 nodes, 7 of 7 connectors, 4 of 4 decision exits labelled, first glance: the confirmation with QR code. The earlier "Start a return" board (section `2:3`) is deleted and the board above is unchanged. The operator sticky is still on the file, untouched.
+Left out: free pickup over 100 euros, a proposal under review. Anything after the confirmation or after Request an exception, because no source was given for it. Contact support, replaced by Request an exception from your update, while the returns doc as you described it still says Contact support.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.
