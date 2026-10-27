@@ -8,7 +8,7 @@ trigger_phrases:
   - "mermaid flow patterns"
   - "flow provenance table"
   - "flow reply shape"
-version: 1.0.6.0
+version: 1.0.7.0
 ---
 
 # Product Owner Flow Templates
@@ -186,7 +186,7 @@ The type table in `references/flow-mode.md` Section 3 reads as questions. Ask th
 
 | Round | Asks | Settles |
 |---|---|---|
-| One | The reader, the question and the outcome | Who the board is for, what it must answer and what the reader decides next |
+| One | The reader, the question, the outcome and the three dials | Who the board is for, what it must answer, what the reader decides next and the detail level, the audience and the reading distance `references/flow-mode.md` Section 4 sets |
 | Two | Entry, exit and actors | Where the flow starts, where it ends and who takes each step |
 | Three | Decisions, states, sources and class | Where the flow branches, which states exist, which source states each fact and what class that source holds |
 

@@ -62,15 +62,15 @@ flowchart LR
     %% source: Source: the support runbook, Section 3. Left out: pickup skipped under €20, a pilot that is not live.
     subgraph customer ["Customer"]
         report([Damage reported])
-        photo[/Send a second photo/]
+        photo[/Send the second photo/]
     end
     subgraph cs ["CS agent"]
-        check{Damage clear?}
+        check{Damage clear in the photo?}
         approve[Approve the claim]
         log[(Claims table)]
     end
     subgraph warehouse ["Warehouse operator"]
-        pickup[Book a courier pickup]
+        pickup[Book a courier]
         inspect[Inspect the item]
         refund([Refund released])
     end
@@ -104,7 +104,7 @@ Left out: pickup skipped under €20, a pilot that is not live
 
 ### Check
 
-Every rule in Templates - Flow Type - Process holds, checked one by one: 8 nodes and 8 connectors, widest rank 2 steps, longest path 6 steps, 1.0 connectors per step, labels average 16 characters, 0 crossing pairs.
+Every rule in Templates - Flow Type - Process holds, checked one by one: 8 nodes and 8 connectors, widest rank 2 steps, longest path 6 steps, 1.0 connectors per step, labels average 17 characters, 0 crossing pairs and no label leaves one word alone on its last line. A reader meets the nodes on the board in this order, the accent first and then column by column along the flow and down each column across the lanes: Approve the claim (accent) > Damage reported > Damage clear in the photo? > Send the second photo > Claims table > Book a courier > Inspect the item > Refund released (goal).
 
 ---
 
@@ -116,12 +116,12 @@ The gate is its own reply, sent after the playback's answer. Its one question as
 Question: who does what, and where does the claim change hands?
 Outcome: a reader can see which team owns each step of a damaged-item refund and where the claim moves from CS to the warehouse.
 First glance: Approve the claim, the handoff from CS to the warehouse that the runbook names as the slowest.
-Second glance: Damage reported, the light blue entry where the claim starts, then Damage clear?, Book a courier pickup, Inspect the item and Refund released, the goal, the main path in path order across the lanes.
-Last glance: Send a second photo, the loop back to the customer, then the claims table, where every decision is logged.
-Sketch: the Section 4 model above, and it passed the check by hand.
+Second glance: Damage reported, the light blue entry where the claim starts, then Damage clear in the photo?, Send the second photo, the loop back to the customer, the claims table, where every decision is logged, then Book a courier, Inspect the item and Refund released, the goal, in the order a reader meets them on the board.
+Last glance: the key and the source line, since the goal comes last.
+Sketch: the Section 4 model above in full, every `%%` and `style` line included, and it passed the check by hand.
 Eye first: Approve the claim, the handoff the runbook names as the slowest, and it is the node the board most needs read.
-Reads second: the main path from Damage reported to Refund released, which shows who holds the claim at each step.
-Could miss: Send a second photo, the loop back to the customer, which would hide why some claims stall.
+Reads second: the claim from Damage reported to Refund released, column by column across the lanes, which shows who holds the claim at each step.
+Could miss: Send the second photo, the loop back to the customer, which would hide why some claims stall.
 Remove next: the claims table, kept because every decision on the claim is logged there.
 Plan: Fernhouse Product. File: a new FigJam file named "Damaged-item refund", created in that plan.
 Writes: one composed board, 3 lanes, 8 nodes and 8 connectors, with a title, a key and a source line, at the Laptop reading distance.

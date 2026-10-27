@@ -48,9 +48,14 @@ TITLE_INSET, TITLE_GAP, LABEL_HEIGHT, LABEL_PAD, LABEL_CHAR, SHARE_MAX = 32, 8, 
 NODE_CHAR = 20 * NODE_WIDTH
 NODE_NARROW_CHAR = 20 * NODE_NARROW
 # A FigJam sticky is a fixed square, and a single sticky keeps one sticky gap from its node, as the hybrid
-# workflow sets them. Its sides are tried in the order that workflow names.
+# workflow sets them. Its sides are tried in the order that workflow names. A sticky further from its node than
+# one sticky's width reads as a note on whatever stands nearer, so no square past that reach holds it.
 STICKY, STICKY_GAP = 240, 64
+STICKY_REACH = STICKY
 STICKY_SIDES = ("right", "below", "above", "left")
+# A reader takes a flow column by column along its direction and down each column. Two boxes whose centres stand
+# closer than COLUMN along the flow read as one column, since the composer sets a rank's boxes on one line.
+COLUMN = 120
 # The shapes whose text the composer fits into the inscribed half box, so the box a trace records is never the
 # width its label wraps at. A parallelogram gives up its slanted ends the same way.
 ROUND_SHAPES = {"DIAMOND", "ELLIPSE", "HEXAGON", "OCTAGON"}
@@ -563,17 +568,22 @@ def orphan_words(drawn: dict) -> list[str]:
     narrower again on a parallelogram, so a box with room to spare can still strand one word. A line of one
     word reads as a stray word rather than as part of the label, so the label's shape is lost at a glance.
     This measure is advice for shortening the label before the board is written, never a failure.
+    FigJam may wrap at either measure, so a word stranded at both is left alone, and one stranded at one
+    measure only may be, which the line says, since a rendered board has shown each measure right once.
     """
     found = []
     for n in drawn["nodes"]:
         if n["type"] != "SHAPE_WITH_TEXT" or not n["text"].strip():
             continue
-        # The label is read at both measures, since FigJam may wrap at either.
-        for per in sorted({max(1, int(_text_width(n) // NODE_CHAR)), max(1, int(_text_width(n) // NODE_NARROW_CHAR))}):
+        stranded = []
+        for per in {max(1, int(_text_width(n) // NODE_CHAR)), max(1, int(_text_width(n) // NODE_NARROW_CHAR))}:
             lines = _wrapped(n["text"], per)
             if len(lines) > 1 and len(lines[-1].split()) == 1:
-                found.append(f"{' '.join(n['text'].split())} leaves {lines[-1]!r} alone on its last line")
-                break
+                stranded.append(lines[-1])
+        if stranded:
+            sure = len(stranded) == 2 or int(_text_width(n) // NODE_CHAR) == int(_text_width(n) // NODE_NARROW_CHAR)
+            found.append(f"{' '.join(n['text'].split())} {'leaves' if sure else 'may leave'} {stranded[0]!r} "
+                         "alone on its last line")
     return found
 
 
@@ -589,26 +599,28 @@ def _end_dots(drawn: dict, node: dict) -> tuple[list[dict], list[str]]:
     return dots, names
 
 
-def sticky_sides(drawn: dict, ids: list[str]) -> list[tuple[str, str, str | None]]:
-    """For each noted node, its label and the side that holds its single sticky, or None when none does.
+def sticky_sides(drawn: dict, ids: list[str]) -> list[tuple[str, str, str | None, str | None]]:
+    """For each noted node, its label, the side that holds its single sticky and how the sticky lines up with it.
 
-    An id the board does not draw comes back with no label, so the caller can name it as a typo.
+    The side and the alignment are None when no side holds a sticky. An id the board does not draw comes back
+    with no label, so the caller can name it as a typo.
 
     A side holds the sticky when the sticky's square and the gap between it and its node are clear of every
     other shape, text and the key, and no estimated line runs through them. The sticky stands level with its
-    node on the right and the left, and lined up with it below and above, top or left aligned or centred. On
-    the right, a node's own connector to its end dot does not take the side, so the sticky goes past the
-    dot. Only the right may run past the board, which widens to hold it. A sticky placed for one node takes
-    its square and the gap around it from the next, so the sides are chosen together: the first choice in
-    side order that gives every noted node a sticky, or the one that gives the most.
+    node on the right and the left, top aligned or else centred, and lined up with it below and above, left
+    aligned or else centred. On the right, a node's own connector to its end dot does not take the side, so the
+    sticky goes past the dot, but never further from the node than STICKY_REACH. Only the right may run past the
+    board, which widens to hold it. A sticky placed for one node takes its square and the gap around it from the
+    next, so the sides are chosen together: the first choice in side order that gives every noted node a
+    sticky, or the one that gives the most.
     """
     boxes = boxes_of(drawn)
     board = next((n for n in drawn["nodes"] if n["type"] == "SECTION" and n["parent"] == ""), None)
     edges = drawn_edges(drawn)
     drawn_ids = [node_id for node_id in ids if node_id in boxes]
 
-    def places(node: dict, placed: list[dict]) -> list[tuple[str, dict]]:
-        """Every side and square that holds this node's sticky, in side order."""
+    def places(node: dict, placed: list[dict]) -> list[tuple[str, dict, str]]:
+        """Every side, square and alignment that holds this node's sticky, in side order."""
         dots, own = _end_dots(drawn, node)
         ignore = {node["id"]} | {dot["id"] for dot in dots}
         blockers = [n for n in drawn["nodes"] if n["id"] not in ignore and n["parent"] != node["name"]
@@ -616,14 +628,20 @@ def sticky_sides(drawn: dict, ids: list[str]) -> list[tuple[str, str, str | None
         x, y, w, h = node["x"], node["y"], node["w"], node["h"]
         right_from = max([x + w] + [dot["x"] + dot["w"] for dot in dots])
         spots = {
-            "right": [(right_from, right_from + STICKY_GAP, yy) for yy in (y, y + h / 2 - STICKY / 2)],
-            "left": [(x - STICKY_GAP - STICKY, x - STICKY_GAP - STICKY, yy) for yy in (y, y + h / 2 - STICKY / 2)],
-            "below": [(xx, xx, y + h) for xx in (x, x + w / 2 - STICKY / 2)],
-            "above": [(xx, xx, y - STICKY_GAP - STICKY) for xx in (x, x + w / 2 - STICKY / 2)],
+            "right": [(right_from, right_from + STICKY_GAP, yy, align)
+                      for yy, align in ((y, "top aligned"), (y + h / 2 - STICKY / 2, "centred"))],
+            "left": [(x - STICKY_GAP - STICKY, x - STICKY_GAP - STICKY, yy, align)
+                     for yy, align in ((y, "top aligned"), (y + h / 2 - STICKY / 2, "centred"))],
+            "below": [(xx, xx, y + h, align) for xx, align in ((x, "left aligned"), (x + w / 2 - STICKY / 2, "centred"))],
+            "above": [(xx, xx, y - STICKY_GAP - STICKY, align)
+                      for xx, align in ((x, "left aligned"), (x + w / 2 - STICKY / 2, "centred"))],
         }
         found = []
         for side in STICKY_SIDES:
-            for start, left, top in spots[side]:
+            for start, left, top, align in spots[side]:
+                # Past an end dot the square may stand too far off to read as this node's note.
+                if side == "right" and left - (x + w) > STICKY_REACH:
+                    continue
                 if side in ("right", "left"):
                     sticky = {"x": left, "y": top, "w": STICKY, "h": STICKY}
                     span = {"x": min(start, left), "y": top, "w": STICKY + STICKY_GAP, "h": STICKY}
@@ -643,27 +661,107 @@ def sticky_sides(drawn: dict, ids: list[str]) -> list[tuple[str, str, str | None
                     continue
                 if any(_cuts(path, span) for edge in edges if edge["name"] not in own for path in edge["paths"]):
                     continue
-                found.append((side, sticky))
+                found.append((side, sticky, align))
                 break
         return found
 
-    def choose(index: int, placed: list[dict]) -> list[str | None]:
-        """The sides for the noted nodes from this one on: the first full choice, else the fullest."""
+    def choose(index: int, placed: list[dict]) -> list[tuple[str | None, str | None]]:
+        """The sides and alignments for the noted nodes from this one on: the first full choice, else the fullest."""
         if index == len(drawn_ids):
             return []
         best = None
-        for side, sticky in places(boxes[drawn_ids[index]], placed) + [(None, None)]:
+        for side, sticky, align in places(boxes[drawn_ids[index]], placed) + [(None, None, None)]:
             rest = choose(index + 1, placed + ([_grown(sticky, STICKY_GAP)] if sticky else []))
-            pick = [side] + rest
-            if best is None or sum(s is not None for s in pick) > sum(s is not None for s in best):
+            pick = [(side, align)] + rest
+            if best is None or sum(s is not None for s, _ in pick) > sum(s is not None for s, _ in best):
                 best = pick
-            if None not in pick:
+            if all(s is not None for s, _ in pick):
                 break
         return best
 
     sides = dict(zip(drawn_ids, choose(0, [])))
-    return [(node_id, " ".join(boxes[node_id]["text"].split()) or node_id, sides[node_id]) if node_id in boxes
-            else (node_id, None, None) for node_id in ids]
+    return [(node_id, " ".join(boxes[node_id]["text"].split()) or node_id, *sides[node_id]) if node_id in boxes
+            else (node_id, None, None, None) for node_id in ids]
+
+
+def _centre(box: dict, lr: bool) -> tuple[float, float]:
+    """A box's centre as its place along the flow and its place across it."""
+    x, y = box["x"] + box["w"] / 2, box["y"] + box["h"] / 2
+    return (x, y) if lr else (y, x)
+
+
+def reading_order(drawn: dict, model: dict) -> list[str]:
+    """The ids of a flow's nodes in the order a reader meets them on the board.
+
+    The accent comes first. The rest follow column by column along the flow and down each column, or row by
+    row and left to right on a top-down flow, so a node the composer sets between two main-row steps is met
+    between them, wherever its path puts it. End dots and merge points carry no words and are left out.
+    """
+    boxes = {name: box for name, box in boxes_of(drawn).items() if not name.startswith("__")}
+    lr = model.get("direction", "LR") == "LR"
+    ids = sorted((n["id"] for n in model["nodes"] if n["id"] in boxes and n.get("kind") != "merge"),
+                 key=lambda i: _centre(boxes[i], lr)[0])
+    columns: list[list[str]] = []
+    for node_id in ids:
+        if columns and _centre(boxes[node_id], lr)[0] - _centre(boxes[columns[-1][0]], lr)[0] <= COLUMN:
+            columns[-1].append(node_id)
+        else:
+            columns.append([node_id])
+    order = [node_id for column in columns for node_id in sorted(column, key=lambda i: _centre(boxes[i], lr)[1])]
+    accent = [n["id"] for n in model["nodes"] if n.get("accent") and n["id"] in boxes]
+    return accent + [node_id for node_id in order if node_id not in accent]
+
+
+def row_breaks(drawn: dict, model: dict) -> list[tuple[str, str, list[str]]]:
+    """Each forward line between two nodes on one row that leaves the row, with the nodes standing between them.
+
+    The composer keeps the main row on one straight line, so a line between two of its steps that bends off
+    it reads as a break in the row. It happens when a node the path leaves sideways takes a column of its own
+    between them, and the line gives up the side it would leave from. A pair joined twice is read by its
+    straight line, since only one of two lines can run along the row. A line that skips a step on its way, a
+    node between them that sits on the row or leads on to the line's far end, is a shortcut the composer bends
+    on purpose, so it is never named.
+    """
+    boxes = boxes_of(drawn)
+    lr = model.get("direction", "LR") == "LR"
+    by_name: dict[str, list[dict]] = {}
+    for edge in drawn_edges(drawn):
+        by_name.setdefault(edge["name"], []).append(edge)
+    following: dict[str, set[str]] = {}
+    for edge in model["edges"]:
+        following.setdefault(edge["from"], set()).add(edge["to"])
+
+    def reaches(start: str, goal: str) -> bool:
+        seen, todo = set(), [start]
+        while todo:
+            node = todo.pop()
+            if node == goal:
+                return True
+            if node not in seen:
+                seen.add(node)
+                todo += following.get(node, ())
+        return False
+
+    found = []
+    for edge in model["edges"]:
+        a, b = boxes.get(edge["from"]), boxes.get(edge["to"])
+        if a is None or b is None or (edge["from"], edge["to"]) in {(f, t) for f, t, _ in found}:
+            continue
+        (a_along, a_across), (b_along, b_across) = _centre(a, lr), _centre(b, lr)
+        if abs(a_across - b_across) > GRID_STEP or b_along <= a_along:
+            continue
+        lines = by_name.get(f"edge:{edge['from']}->{edge['to']}", [])
+        straight = any(all(abs((pt[1] if lr else pt[0]) - a_across) <= GRID_STEP for pt in path)
+                       for line in lines for path in line["paths"])
+        if not lines or straight:
+            continue
+        near, far = (a["x"] + a["w"], b["x"]) if lr else (a["y"] + a["h"], b["y"])
+        between = [n["id"] for n in model["nodes"] if n["id"] in boxes and n["id"] not in (edge["from"], edge["to"])
+                   and n.get("kind") != "merge" and near <= _centre(boxes[n["id"]], lr)[0] <= far]
+        if any(abs(_centre(boxes[i], lr)[1] - a_across) <= GRID_STEP or reaches(i, edge["to"]) for i in between):
+            continue
+        found.append((edge["from"], edge["to"], between))
+    return found
 
 
 def arrow_heads(drawn: dict, messages: list[dict]) -> list[str]:

@@ -2,7 +2,7 @@
 name: sk-create-figjam
 description: "Draws FigJam diagrams, from user flows to sequence, state, ER and gantt, as checked Mermaid models composed into framed boards."
 allowed-tools: [Read, Write, Edit, Bash, Glob, Grep, mcp__code_mode__call_tool_chain]
-version: 1.0.12.0
+version: 1.0.13.0
 ---
 
 <!-- Keywords: sk-create-figjam, flow mode, figjam, user flow, process, architecture, sequence diagram, state diagram, er diagram, gantt, flowchart, mermaid, board, $flow, $figjam -->
@@ -191,7 +191,7 @@ The packet runs under the Product Owner bootstrap in [`../AGENTS.md`](../AGENTS.
 ### ALWAYS
 
 1. Load `references/flow-mode.md` with `assets/flow-templates.md`, beside `../sk-product-owner/references/hvr-core.md` and `../sk-product-owner/references/conciseness.md`, then the chosen type's reference and template
-2. Fill the Brief's first round, the reader, the question and the outcome, as `references/flow-mode.md` Section 4 sets out, then pick the type from the reader's question. Compare a type the user names with what the brief describes before intake. When two types fit, or a named type does not fit what the brief describes, the first reply asks that one question alone, naming both types and the one you recommend, and the reader round follows its answer
+2. Fill the Brief's first round, the reader, the question, the outcome and the three dials, as `references/flow-mode.md` Section 4 sets out, then pick the type from the reader's question. Compare a type the user names with what the brief describes before intake. When two types fit, or a named type does not fit what the brief describes, the first reply asks that one question alone, naming both types and the one you recommend, and the reader round follows its answer
 3. Run `scripts/flow_check.py` on every model before the write gate, and write nothing until every diagram passes. Compose each diagram with `scripts/compose_board.py` and paste its code unchanged into one `use_figma` call
 4. Walk `references/quality-rubric.md` before the gate
 5. Ask for a yes before any board write, naming any planned extension, in a gate reply of its own sent after the playback's answer, and write only on a yes to that gate. Read the board back before replying when the connector has a read tool

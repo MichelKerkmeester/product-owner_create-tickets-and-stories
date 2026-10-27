@@ -112,7 +112,7 @@ Outcome: the offline mode kickoff group can see which parts carry a block change
 First glance: Sync Service, where every block change is written and published.
 Second glance: the API Gateway, the edge every client socket enters through, and the Change Stream that carries each change on to the Push Worker.
 Last glance: Apple Push, the external hop that wakes sleeping iOS devices.
-Sketch: the Section 4 model above, and it passed the check by hand.
+Sketch: the Section 4 model above in full, every `%%` and `style` line included, and it passed the check by hand.
 Eye first: Sync Service, where every block change is written and published, and it is the node the board most needs read.
 Reads second: the API Gateway and the Change Stream, which show how a change enters and how it leaves.
 Could miss: Apple Push in the external lane, which would hide how a sleeping iOS device hears of a change.

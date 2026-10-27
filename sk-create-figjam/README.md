@@ -7,7 +7,7 @@ trigger_phrases:
   - "$figjam"
   - "figjam flow"
   - "figjam diagram"
-version: 1.0.10.0
+version: 1.0.11.0
 ---
 
 # sk-create-figjam
@@ -85,7 +85,7 @@ python3 sk-create-figjam/scripts/compose_board.py --design-check
 python3 sk-create-figjam/scripts/compose_board.py --self-test
 ```
 
-A flowchart that is not a user flow starts with `%% type: process` or `%% type: architecture`. The check exits 0 when every diagram passes, 1 when a rule fails and 2 when the file cannot be read. For a user flow, a process or an architecture it also prints five layout measures, the widest rank, the longest path, connectors per step, the average label length and the crossing pairs, and fails a model outside their budgets. When `node` is on the path it also prints a `Label:` line for each node label the board would wrap with one word alone on its last line, or one `Label: skipped` line when it could not trace the board, and neither fails the check. The composer exits 0 with the code written and a `COMPOSED` line naming the counts the read-back will look for, 1 when the model fails the check or the code would not fit one `use_figma` call, and 2 when the file or the diagram cannot be read. `--design-check` prints the design a board is drawn in with its measured contrast and exits 1 on any design warning. The self-test needs `node` on the path to syntax-check the code it fills.
+A flowchart that is not a user flow starts with `%% type: process` or `%% type: architecture`. The check exits 0 when every diagram passes, 1 when a rule fails and 2 when the file cannot be read. For a user flow, a process or an architecture it also prints five layout measures, the widest rank, the longest path, connectors per step, the average label length and the crossing pairs, and fails a model outside their budgets. When `node` is on the path it also prints a `Label:` line for each node label the board would wrap with one word alone on its last line, or one `Label: skipped` line when it could not trace the board, and a label stranded at only one of the two widths FigJam wraps at reads `may leave`. On a user flow or a process it prints a `Glance:` line, the order a reader meets the nodes, and a `Row:` line for a main-row line that bends off its row. With `--notes <id>,<id>` it prints a `Sides:` line per noted node with the side and alignment its sticky takes. None of these lines fails the check. The composer exits 0 with the code written and a `COMPOSED` line naming the counts the read-back will look for, 1 when the model fails the check or the code would not fit one `use_figma` call, and 2 when the file or the diagram cannot be read. `--design-check` prints the design a board is drawn in with its measured contrast and exits 1 on any design warning. The self-test needs `node` on the path to syntax-check the code it fills.
 
 ---
 
