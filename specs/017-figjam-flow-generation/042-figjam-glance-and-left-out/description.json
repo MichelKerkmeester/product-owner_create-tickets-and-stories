@@ -1,13 +1,13 @@
 {
   "specFolder": "017-figjam-flow-generation/042-figjam-glance-and-left-out",
-  "description": "Phase 41: figjam-rerun-findings",
+  "description": "Phase 42: figjam-glance-and-left-out",
   "keywords": [
     "phase",
-    "figjam-rerun-findings"
+    "figjam-glance-and-left-out"
   ],
-  "lastUpdated": "2026-10-26T23:50:00.000Z",
-  "specId": "041",
-  "folderSlug": "figjam-rerun-findings",
+  "lastUpdated": "2026-10-27T11:30:00.000Z",
+  "specId": "042",
+  "folderSlug": "figjam-glance-and-left-out",
   "parentChain": [
     "017-figjam-flow-generation"
   ],
