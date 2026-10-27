@@ -24,9 +24,9 @@ contextType: "implementation"
 | **Created** | 2026-10-27 |
 | **Branch** | `main` |
 | **Parent Spec** | ../spec.md |
-| **Phase** | 42 of 42 |
+| **Phase** | 42 of 43 |
 | **Predecessor** | 041-figjam-rerun-findings |
-| **Successor** | None |
+| **Successor** | 043-figjam-rerun-followups |
 | **Handoff Criteria** | Every row in acceptance-criteria.md is Met |
 <!-- /ANCHOR:metadata -->
 
