@@ -56,8 +56,8 @@ contextType: "implementation"
 ## Phase 3: Verification
 
 - [x] T011 Run the self-tests and gates. Verify: both self-tests, pytest, 15 of 15 gates and the output format gate pass. [EVIDENCE: composer self-test 1245 of 1245, design check exit 0, flow check 172 of 172 and all 7 examples, pytest 18, 15 of 15 gates and the output format gate pass]
-- [ ] T012 Commit and push both repositories. Verify: `validate_parity.py product-owner` and `residency_check.py --all` each print PASSED.
-- [ ] T013 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both.
+- [x] T012 Commit and push both repositories. Verify: `validate_parity.py product-owner` and `residency_check.py --all` each print PASSED. [EVIDENCE: PO commits 0000164 and 0000165 and outer commits 0001094 and 0001095 are pushed, parity printed PASSED 65/65 and residency PASSED 7]
+- [x] T013 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both. [EVIDENCE: `validate.sh --strict` prints RESULT: PASSED for this phase and the parent]
 <!-- /ANCHOR:phase-3 -->
 
 
@@ -66,9 +66,9 @@ contextType: "implementation"
 <!-- ANCHOR:completion -->
 ## Completion Criteria
 
-- [ ] All tasks marked `[x]`
+- [x] All tasks marked `[x]`
 - [x] No `[B]` blocked tasks remaining
-- [ ] Manual verification passed
+- [x] Manual verification passed
 <!-- /ANCHOR:completion -->
 
 ---
@@ -109,8 +109,8 @@ contextType: "implementation"
 <!-- ANCHOR:code-quality -->
 ## Code Quality
 
-- [ ] CHK-010 [P0] The composer and checks are unchanged and their self-tests pass [EVIDENCE: pending]
-- [ ] CHK-011 [P1] pytest passes [EVIDENCE: pending]
+- [x] CHK-010 [P0] The composer and checks are unchanged and their self-tests pass [EVIDENCE: no composer or check file changed, and the composer self-test passes 1245 of 1245 and the flow check 172 of 172]
+- [x] CHK-011 [P1] pytest passes [EVIDENCE: pytest 18 passed]
 <!-- /ANCHOR:code-quality -->
 
 ---
@@ -118,8 +118,8 @@ contextType: "implementation"
 <!-- ANCHOR:testing -->
 ## Testing Checklist
 
-- [ ] CHK-020 [P0] All acceptance criteria met [EVIDENCE: pending]
-- [ ] CHK-021 [P0] Gates pass [EVIDENCE: pending]
+- [x] CHK-020 [P0] All acceptance criteria met [EVIDENCE: all nine acceptance rows Met]
+- [x] CHK-021 [P0] Gates pass [EVIDENCE: 15 of 15 gates and the output format gate pass]
 <!-- /ANCHOR:testing -->
 
 ---
@@ -127,13 +127,13 @@ contextType: "implementation"
 <!-- ANCHOR:fix-completeness -->
 ## Fix Completeness
 
-- [ ] CHK-FIX-001 [P0] Each actionable finding has a finding class [EVIDENCE: pending]
-- [ ] CHK-FIX-002 [P0] Same-class producer inventory completed [EVIDENCE: pending]
-- [ ] CHK-FIX-003 [P0] Consumer inventory completed [EVIDENCE: pending]
-- [ ] CHK-FIX-004 [P0] Adversarial cases for parser fixes [EVIDENCE: pending]
-- [ ] CHK-FIX-005 [P1] Matrix axes and row count listed [EVIDENCE: pending]
-- [ ] CHK-FIX-006 [P1] Hostile env variant [EVIDENCE: pending]
-- [ ] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: pending]
+- [x] CHK-FIX-001 [P0] Each actionable finding has a finding class [EVIDENCE: each 8.10 finding is classed as skill, playbook, mirror, harness, record or model slip in the implementation summary]
+- [x] CHK-FIX-002 [P0] Same-class producer inventory completed [EVIDENCE: a search for each old sentence across the skill, the mirror and the playbook found every copy, and the scripts refused any target not found once]
+- [x] CHK-FIX-003 [P0] Consumer inventory completed [EVIDENCE: the reviewer read every sibling reference, which found the gate step, the style guide and the state example, all repaired]
+- [x] CHK-FIX-004 [P0] Adversarial cases for parser fixes [EVIDENCE: not applicable, no parser changed, and the flow check passes all 7 examples]
+- [x] CHK-FIX-005 [P1] Matrix axes and row count listed [EVIDENCE: 25 swaps over 38 files, then 12 over 11 files, in two scripted passes]
+- [x] CHK-FIX-006 [P1] Hostile env variant [EVIDENCE: the spec tools ran with the PO links created only for each run and removed after, as the operator asked]
+- [x] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: PO commits 0000164 and 0000165]
 <!-- /ANCHOR:fix-completeness -->
 
 ---
@@ -141,7 +141,7 @@ contextType: "implementation"
 <!-- ANCHOR:security -->
 ## Security
 
-- [ ] CHK-030 [P0] No board URL, Figma file key, plan name or email in any committed file [EVIDENCE: pending]
+- [x] CHK-030 [P0] No board URL, Figma file key, plan name or email in any committed file [EVIDENCE: the leak scan found no key, URL or plan name in the added lines]
 <!-- /ANCHOR:security -->
 
 ---
@@ -149,8 +149,8 @@ contextType: "implementation"
 <!-- ANCHOR:docs -->
 ## Documentation
 
-- [ ] CHK-040 [P1] Spec, plan and tasks synchronized [EVIDENCE: pending]
-- [ ] CHK-041 [P1] Project mirror and SYNC note [EVIDENCE: pending]
+- [x] CHK-040 [P1] Spec, plan and tasks synchronized [EVIDENCE: spec, plan, tasks and acceptance criteria agree, with D6's narrowing recorded]
+- [x] CHK-041 [P1] Project mirror and SYNC note [EVIDENCE: eight Knowledge files changed with their sources, and the SYNC note names them]
 <!-- /ANCHOR:docs -->
 
 ---
@@ -158,8 +158,8 @@ contextType: "implementation"
 <!-- ANCHOR:file-org -->
 ## File Organization
 
-- [ ] CHK-050 [P1] No change outside the files named in spec.md Section 3 [EVIDENCE: pending]
-- [ ] CHK-051 [P1] scratch/ holds no file [EVIDENCE: pending]
+- [x] CHK-050 [P1] No change outside the files named in spec.md Section 3 [EVIDENCE: the changed files sit in spec.md Section 3]
+- [x] CHK-051 [P1] scratch/ holds no file [EVIDENCE: scratch/ holds no file]
 <!-- /ANCHOR:file-org -->
 
 ---
