@@ -60,12 +60,12 @@ Frozen choices. Changing one is an amendment.
 <!-- ANCHOR:completion -->
 ## 3. COMPLETION CRITERIA
 
-- [ ] `compose_board.py --self-test`, `--design-check`, `flow_check.py --self-test`, `pytest scripts/tests`, `run_gates.sh` (all 15 gates) and the output format gate each exit 0 on the committed tree
-- [ ] `validate_parity.py product-owner`, `residency_check.py --all` and `pair_divergence.py product-owner` each print PASSED after the last commit
-- [ ] The reading order, reply lead, queue, examples, dials and Composition rules read the same in the skill and the Project
-- [ ] `sk-create-figjam` and the hub read 1.0.15.0 with a changelog, and the kernel H1 reads v1.2.15
-- [ ] FJ-022 and FJ-023 are rerun and graded on v1.0.15.0, recorded as README section 8.15, with the gallery refreshed
-- [ ] `validate.sh --strict` on this phase prints RESULT: PASSED, and both repositories are pushed
+- [x] `compose_board.py --self-test`, `--design-check`, `flow_check.py --self-test`, `pytest scripts/tests`, `run_gates.sh` (all 15 gates) and the output format gate each exit 0 on the committed tree
+- [x] `validate_parity.py product-owner`, `residency_check.py --all` and `pair_divergence.py product-owner` each print PASSED after the last commit
+- [x] The reading order, reply lead, queue, examples, dials and Composition rules read the same in the skill and the Project
+- [x] `sk-create-figjam` and the hub read 1.0.15.0 with a changelog, and the kernel H1 reads v1.2.15
+- [x] FJ-022 and FJ-023 are rerun and graded on v1.0.15.0, recorded as README section 8.15, with the gallery refreshed
+- [x] `validate.sh --strict` on this phase prints RESULT: PASSED, and both repositories are pushed
 <!-- /ANCHOR:completion -->
 
 ---
@@ -82,6 +82,8 @@ and findings belong here.
 | Item | State | Evidence |
 |------|-------|----------|
 | Phase scaffolded | Done | spec, plan, tasks, acceptance criteria, implementation summary and this goal |
+| v1.0.15.0 released | Done | PO 0000184 with kernel v1.2.15, review findings repaired, 15 of 15 gates and Sync Loop PASSED |
+| Last rerun graded | Done | FJ-022 and FJ-023 FAIL at 22 of 22 each, README 8.15, PO 0000185, testing ended here |
 
 ### Deviations and findings
 
