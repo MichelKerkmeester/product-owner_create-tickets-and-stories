@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "er example"
   - "roamstay stays data model"
-version: 1.0.4.0
+version: 1.0.5.0
 ---
 
 # Example - ER - Roamstay Stays
@@ -18,7 +18,7 @@ Roamstay is a fictional booking marketplace used across the Product Owner fixtur
 ## 1. REQUEST
 
 ```text
-make a FigJam ER diagram of the stays model from the schema note, and group the partner tables apart from the guest tables
+make a FigJam ER diagram of the stays model from the schema note, for the partner integration team, and group the partner tables apart from the guest tables
 ```
 
 The schema note lists six tables: guests, bookings, payments, properties, rooms and rate plans. A guest makes bookings, a booking reserves one room under one rate plan and holds its payments, a property offers rooms and rate plans. The note marks keys and foreign keys and lists twenty more columns that the diagram does not need.
@@ -40,8 +40,8 @@ The playback is its own reply, sent before the model. It waits for its own answe
 ```text
 Before I draw anything, this is how I read the request.
 Question: which entities exist, which fields join them and how many of each?
-Outcome: a reader can see the six stay tables, how they join and which tables sit on the guest side and which on the partner side.
-Settled by the sources: the schema note gives six tables, their keys and how they join, and the request asks for the partner tables apart from the guest tables.
+Outcome: the partner integration team can see the six stay tables, how they join and which tables sit on the guest side and which on the partner side.
+Settled by the sources: the schema note gives six tables, their keys and how they join, and the request names the partner integration team as the reader and asks for the partner tables apart from the guest tables.
 Left out: 20 columns no stay story cites.
 Assumed: balanced detail, so each table keeps its keys and the columns a story about stays would cite.
 Still open: none.
@@ -125,7 +125,7 @@ The gate is its own reply, sent after the playback's answer. Its one question as
 
 ```text
 Question: which entities exist, which fields join them and how many of each?
-Outcome: a reader can see the six stay tables, how they join and which tables sit on the guest side and which on the partner side.
+Outcome: the partner integration team can see the six stay tables, how they join and which tables sit on the guest side and which on the partner side.
 First glance: Booking, the table every other stay table joins.
 Second glance: the keys on Booking that tie it to the guest, the room and the rate plan.
 Last glance: Property, the partner table that offers rooms and rate plans.

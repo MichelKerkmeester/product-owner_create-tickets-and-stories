@@ -14,7 +14,7 @@ that expects no board. When the script runs out with no board written, it sends 
 ahead." at most three times, so a model that stops once more than the script still reaches
 a board a grader can score. Each turn is labelled scripted, adaptive or supplementary in
 meta.json, and a small classifier's label for each reply's stop is kept as `kind`. A reply with
-a counted `Read-back:` line, or a turn whose `use_figma` call returned a board, is a DELIVERY without asking the classifier.
+a counted `Read-back:` line, or a turn whose `use_figma` call returned a board, is a DELIVERY without asking the classifier. A delivery also records `url_first`, whether its first characters are the board URL.
 The run log is tracked, so with `RUN_REDACT_FILE` or `RUN_FILE_KEY` set each row is redacted the way
 `redact_run.py` redacts a file before it is written.
 
@@ -71,6 +71,9 @@ PREPARED = re.compile(r"<fileKey[^>]*>")
 # The line a delivery reply carries, whether or not the model bolds or bullets it. It counts what the board
 # holds, so a read-back line that says nothing was written is no delivery.
 READ_BACK = re.compile(r"^[\s>*_-]*Read-back:[\s*_]*\d+ of \d+", re.I | re.M)
+# A delivery opens on the board URL as its first characters, with no sentence before it. A redacted URL counts as
+# the URL, and a bullet, quote mark or angle bracket around it is formatting, not a sentence.
+URL_FIRST = re.compile(r"^[\s>*_<-]*(?:https?://\S+|<figma-url>)")
 BOARD_ID = re.compile(r'boardId\\*"?\s*:\s*\\*"(\d+:\d+)')
 
 CLASSIFY = """Classify one reply from a FigJam drawing assistant that works in stops: intake rounds of
@@ -110,6 +113,11 @@ def classify(r, tmp):
     if READ_BACK.search(r["reply"]) or wrote:
         return "DELIVERY"
     return kind(r["reply"], tmp)
+
+
+def lead_is_url(reply):
+    """Whether a reply opens on the board URL, which a delivery must do whatever the model says first."""
+    return bool(URL_FIRST.match(reply))
 
 
 def log_line(r, sid, label, attempt):
@@ -281,6 +289,9 @@ def main():
                 failures.append({"attempt": attempt, "turn": n, "status": r["status"], "rc": r["rc"]})
                 break
             r["kind"] = classify(r, os.path.join(sessions, "tmp"))
+            # A delivery whose first line is not the URL is flagged, so the grader reads a record, not a hunch
+            if r["kind"] == "DELIVERY":
+                r["url_first"] = lead_is_url(r["reply"])
             # The script's own answer to an intake round goes next unchanged. The recommended answers
             # go only once the script has none left before its playback answer, and never past the
             # script's end in a scenario that expects no board.
@@ -294,7 +305,8 @@ def main():
                 follow += 1
                 queue.append((INTAKE_ANSWER if r["kind"] == "INTAKE" else dv.FOLLOW_UP, "supplementary", None))
             print(json.dumps({"id": sid, "label": label, "turn": n, "role": role, "kind": r["kind"],
-                              "figma": r["inner_calls"], "boards": r["boards"]}), flush=True)
+                              "figma": r["inner_calls"], "boards": r["boards"],
+                              **({"url_first": r["url_first"]} if "url_first" in r else {})}), flush=True)
         if ok:
             break
         # A failed attempt keeps its evidence beside the retry, never silently replaced

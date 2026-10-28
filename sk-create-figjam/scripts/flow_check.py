@@ -40,8 +40,7 @@ and a label the composer would wrap one word alone onto its last line is
 reported, since a shorter label is the fix and a wider box is not. Without node,
 or when the trace fails, it prints one `Label: skipped` line instead.
 On a user flow or a process the same board prints a `Glance:` line, the order
-a reader meets its nodes, the accent first, then a decision joined to it on its
-own row with no node between them and then column by column along the
+a reader meets its nodes, the accent first and then column by column along the
 flow, so the glance lines are planned from where the composer draws each node
 rather than from its path. A `Row:` line, never a failure, names a line between
 two main-row steps that bends off the row, with the node standing between them.
@@ -407,10 +406,18 @@ def label_results() -> list[tuple[str, bool, str]]:
         ("a label FigJam wraps narrower than the node measure is still reported",
          "flowchart LR\n    a([Email verified]) --> b([Editor with welcome tip])\n    style b fill:#CDF4D3\n",
          "Label: Editor with welcome tip may leave 'tip' alone"),
-        ("a decision label FigJam strands at the traced diamond size is still reported",
+        ("a decision label FigJam strands at the traced diamond size is reported as leaving its word",
          "flowchart LR\n    a([Order list]) --> d{Drop-off point or courier?}\n    d -->|Drop-off| b([Drop-off booked])\n"
          "    d -->|Pickup| c([Pickup booked])\n    style d fill:#FFC2EC,stroke:#F849C1\n",
-         "Label: Drop-off point or courier? may leave 'courier?' alone"),
+         "Label: Drop-off point or courier? leaves 'courier?' alone"),
+        ("a decision label of wide letters whose last word FigJam strands is reported though it is 26 characters",
+         "flowchart LR\n    a([Order list]) --> d{New price compared to old?}\n    d -->|Higher| b([Pay difference])\n"
+         "    d -->|Lower| c([Credit difference])\n    style d fill:#FFC2EC,stroke:#F849C1\n",
+         "Label: New price compared to old? leaves 'old?' alone"),
+        ("a decision label that wraps clear at the glyph measure reports none though it is 27 characters",
+         "flowchart LR\n    a([Order list]) --> d{Within 30 days of delivery?}\n    d -->|Yes| b([Return started])\n"
+         "    d -->|No| c([Contact support])\n    style d fill:#FFC2EC,stroke:#F849C1\n",
+         None),
         ("a decision label that wraps clear at that width reports none",
          "flowchart LR\n    a([Order list]) --> d{Drop-off or courier pickup?}\n    d -->|Drop-off| b([Drop-off booked])\n"
          "    d -->|Pickup| c([Pickup booked])\n    style d fill:#FFC2EC,stroke:#F849C1\n",
@@ -461,8 +468,8 @@ def label_results() -> list[tuple[str, bool, str]]:
         results.append(("the same node in the next step's zone shares its column and leaves the row straight",
                         code == 0 and "Glance: Within 30 days? (accent) > Order list > Start a return > Contact support"
                         in moved and "Row:" not in moved, moved))
-        # A decision joined to the accent by one line on the accent's own row is read in the same look as the
-        # accent, and one with a node standing between them on that row is not.
+        # A decision in the accent's lane is read in its column, after an entry to its left, and a decision joined
+        # to the accent keeps its column place whether or not a node stands between them.
         path.write_text("%% type: process\nflowchart LR\n    subgraph customer [\"Customer\"]\n        report([Damage reported])\n"
                         "        photo[/Send the second photo/]\n    end\n    subgraph cs [\"CS agent\"]\n"
                         "        check{Damage clear in the photo?}\n        approve[Approve the claim]\n        log[(Claims table)]\n"
@@ -472,8 +479,8 @@ def label_results() -> list[tuple[str, bool, str]]:
                         "    approve -->|Logs| log\n    pickup --> inspect\n    inspect --> refund\n"
                         "    style approve fill:#FFE0C2,stroke:#FF9E42\n", encoding="utf-8")
         code, output = run_quietly(path)
-        results.append(("a decision beside the accent on its row reads right after it",
-                        code == 0 and "Glance: Approve the claim (accent) > Damage clear in the photo? > Damage reported"
+        results.append(("a decision in the accent's lane is read in its column, after an entry to its left",
+                        code == 0 and "Glance: Approve the claim (accent) > Damage reported > Damage clear in the photo?"
                         in output, output))
         path.write_text("flowchart LR\n    %% goal: updated\n    page([Booking page]) --> dates[Pick new dates]\n"
                         "    dates --> free{Room free on those dates?}\n    free -->|Yes| price{New price?}\n"
@@ -482,7 +489,7 @@ def label_results() -> list[tuple[str, bool, str]]:
                         "    price -->|Same| merge((.))\n    pay --> merge\n    credit --> merge\n"
                         "    merge --> updated([Updated booking])\n    style price fill:#FFC2EC,stroke:#F849C1\n", encoding="utf-8")
         code, output = run_quietly(path)
-        results.append(("a decision joined to the accent with a node between them on the row keeps its column place",
+        results.append(("a decision joined to the accent keeps its column place",
                         code == 0 and "Glance: New price? (accent) > Booking page" in output, output))
         path.write_text("flowchart LR\n    a([Order list]) --> b[Pick the item]\n    b --> d{Within 30 days?}\n"
                         "    d -->|Yes| r[Start a return]\n    d -->|No| s([Contact support])\n    r --> e([Return confirmed])\n"

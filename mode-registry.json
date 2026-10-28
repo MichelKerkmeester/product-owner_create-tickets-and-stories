@@ -1,6 +1,6 @@
 {
   "skill": "product-owner",
-  "version": "1.0.14.0",
+  "version": "1.0.15.0",
   "resourceContractVersion": 1,
   "description": "Declarative mode registry: the single source of truth for the discriminator (workflowMode/packetKind/backendKind) plus the advisorRouting projection for product-owner. The hub reads this file to resolve a mode. Every mode routes by hub membership (routingClass 'metadata'), so the advisor routes the single identity product-owner and the hub picks the mode. The shared parent-hub contract requires an empty toolSurface.bashAllowlist array where no shell command is approved.",
   "discriminator": {

@@ -1,12 +1,12 @@
 ---
 title: "Example - Process - Fernhouse Refund"
-description: "A worked laned process on the fictional Fernhouse store: a support runbook turned into a three-lane refund process with its handoff step in focus, a playback, a gate message and the reply."
+description: "A worked laned process on the fictional Fernhouse store: a support runbook turned into a three-lane refund process with its handoff step in focus, an intake round, a playback, a gate message and the reply."
 contextType: general
 importance_tier: normal
 trigger_phrases:
   - "process example"
   - "fernhouse refund process"
-version: 1.0.8.0
+version: 1.0.9.0
 ---
 
 # Example - Process - Fernhouse Refund
@@ -35,12 +35,34 @@ make a FigJam process of how a damaged-item refund moves between the customer, C
 ## 2. TYPE AND DIALS
 
 - **Reader question:** who does what, and where does the claim change hands? A process with three lanes
-- **Detail:** balanced. **Audience:** mixed
+- **Detail:** balanced. **Audience:** mixed. **Distance:** laptop
 - **Focus:** Approve the claim, the step that hands the claim from CS to the warehouse, which the runbook names as the slowest handoff
 
 ---
 
-## 3. PLAYBACK
+## 3. INTAKE AND PLAYBACK
+
+### Intake round
+
+The request names the actors and the runbook but no reader, so the first reply is an intake round. Nothing is modelled, checked or written, and the reply ends on its closing question.
+
+```text
+Reading: the request names the customer, CS and the warehouse as actors but not who reads the board, and the runbook calls the handoff from CS to the warehouse the slowest.
+Question: who reads the board, and what should they be able to decide after reading it?
+Recommended: CS and warehouse leads, who can then see which team owns each step and where a claim changes hands.
+Why: both teams sit on the handoff the runbook calls the slowest.
+
+Reading: the runbook is plain support language and the board is read at a laptop.
+Question: which detail level, audience and reading distance?
+Recommended: Balanced detail, a Mixed audience and a Laptop reading distance.
+Why: the runbook's steps are the story and no source asks for more or less.
+
+Take the recommended answers, or correct any of them?
+```
+
+The user answers `Use your recommended answers.` and the playback follows.
+
+### Playback
 
 The playback is its own reply, sent before the model. It waits for its own answer, and a yes to it moves the work on to the model and writes nothing.
 
@@ -50,7 +72,7 @@ Question: who does what, and where does the claim change hands?
 Outcome: a reader can see which team owns each step of a damaged-item refund and where the claim moves from CS to the warehouse.
 Settled by the sources: runbook lines 3.1 to 3.5 give the steps, the three lanes and the one decision, and the runbook names the handoff from CS to the warehouse as the slowest.
 Left out: the pickup skipped under €20 in line 3.6, a pilot that is not live.
-Assumed: balanced detail and a mixed audience.
+Assumed: CS and warehouse leads as the reader, balanced detail, a mixed audience and a laptop reading distance.
 Still open: none.
 Is this the right reading of the board?
 ```
@@ -111,7 +133,7 @@ Left out: pickup skipped under €20, a pilot that is not live
 
 ```text
   diagram 1, process: ok, 8 nodes and 8 connectors, widest rank 2 steps, longest path 6 steps, 1.0 connectors per step, labels average 17 characters, 0 crossing pairs
-Glance: Approve the claim (accent) > Damage clear in the photo? > Damage reported > Send the second photo > Claims table > Book a courier > Inspect the item > Refund released (goal)
+Glance: Approve the claim (accent) > Damage reported > Damage clear in the photo? > Send the second photo > Claims table > Book a courier > Inspect the item > Refund released (goal)
 PASSED 1 diagram(s) in model.md
 ```
 
@@ -125,11 +147,11 @@ The gate is its own reply, sent after the playback's answer. Its one question as
 Question: who does what, and where does the claim change hands?
 Outcome: a reader can see which team owns each step of a damaged-item refund and where the claim moves from CS to the warehouse.
 First glance: Approve the claim, the handoff from CS to the warehouse that the runbook names as the slowest.
-Second glance: Damage clear in the photo?, the decision beside the handoff on its row, then Damage reported, the light blue entry where the claim starts, then Send the second photo, the loop back to the customer, the claims table, where every decision is logged, then Book a courier, Inspect the item and Refund released, the goal, in the order the check's Glance line prints.
+Second glance: Damage reported, the light blue entry where the claim starts, then Damage clear in the photo?, the decision the claim turns on, then Send the second photo, the loop back to the customer, the claims table, where every decision is logged, then Book a courier, Inspect the item and Refund released, the goal, in the order the check's Glance line prints.
 Last glance: the key and the source line, since the goal comes last.
 Sketch: the Section 4 model above in full, every `%%` and `style` line included, with the check's PASSED line as it printed.
 Eye first: Approve the claim, the handoff the runbook names as the slowest, and it is the node the board most needs read.
-Reads second: Damage clear in the photo? beside it, then the claim from Damage reported to Refund released, column by column across the lanes, which shows who holds the claim at each step.
+Reads second: Damage reported, where the claim starts, then Damage clear in the photo?, then the claim on to Refund released, column by column across the lanes, which shows who holds the claim at each step.
 Could miss: Send the second photo, the loop back to the customer, which would hide why some claims stall.
 Remove next: the claims table, kept because every decision on the claim is logged there.
 Plan: Fernhouse Product. File: a new FigJam file named "Damaged-item refund", created in that plan.

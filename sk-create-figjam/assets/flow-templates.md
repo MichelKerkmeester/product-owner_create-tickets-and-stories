@@ -8,7 +8,7 @@ trigger_phrases:
   - "mermaid flow patterns"
   - "flow provenance table"
   - "flow reply shape"
-version: 1.0.8.0
+version: 1.0.9.0
 ---
 
 # Product Owner Flow Templates
@@ -177,6 +177,11 @@ HVR self-scan: <n> hard blockers. Fixed: <terms>. Kept with reason: <terms>.
 The `Read-back:` counts follow the type: nodes, connectors and labelled decision exits for a user flow, lanes as well for a process, participants and messages for a sequence, states and transitions for a state diagram, entities, relationships and attributes for an ER diagram, and sections, tasks and milestones for a gantt chart. The `Extensions:` line appears only when the write added any, and the `Left out:` line whenever the board does not hold something the request or the sources named, a cut, a split, a later board or a point the sources left open, so the user sees what the board does not hold. When only a screenshot could be read, the read-back line ends with `, read visually`, because a picture cannot prove which nodes a connector joins. When a board was written and the connector has no read tool, the line is `Read-back: not possible, the connector has no read tool`, and the board is never called done.
 
 These lines are the whole reply, and the self-scan is always the last. Each finding, warning, open item or question is one `Finding:` line, and nothing follows the self-scan. The playback of the settled rows runs before the model and the gate, as `references/flow-mode.md` Section 8 sets out, and it never becomes a line here.
+
+Everything written after the last tool call is the reply, so its first characters are the board URL and no sentence comes before it, not even one that says the board is written or that the reply follows.
+
+- Wrong first line: `The board is written and read back, so I'm sending the delivery reply now.`
+- Right first line: the board URL, alone
 
 ---
 
