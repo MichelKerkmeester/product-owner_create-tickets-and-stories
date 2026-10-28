@@ -20,7 +20,7 @@ contextType: "implementation"
 |-------|-------|
 | **Level** | 2 |
 | **Priority** | P1 |
-| **Status** | In Progress |
+| **Status** | Complete |
 | **Created** | 2026-10-28 |
 | **Branch** | `main` |
 | **Parent Spec** | ../spec.md |
@@ -94,6 +94,7 @@ The operator's call the recommendation left open, charging only parts read earli
 ### Out of Scope
 - The composer's layout and geometry.
 - A rerun of FJ-017 and FJ-036, which passed on v1.0.14.0 and which these rules touch only in wording.
+- A further fix phase. On 2026-10-28 the operator ended testing at this rerun, so a scenario that still fails is recorded as a known limitation, not reopened.
 
 ### Files to Change
 
@@ -145,7 +146,7 @@ The operator's call the recommendation left open, charging only parts read earli
 
 - **SC-001**: Each cause of README section 8.14 that names a skill, script, playbook, harness or mirror cause has a change in this phase or a recorded reason it needs none.
 - **SC-002**: The skill and the Project state each changed rule in the same words, as the Sync Loop parity and divergence checks show.
-- **SC-003**: FJ-022 and FJ-023 both pass on v1.0.15.0.
+- **SC-003**: FJ-022 and FJ-023 both pass on v1.0.15.0. Not met: both boards score 22 of 22, and each scenario fails one expected signal, as README section 8.15 records. The operator ended testing here, so both stand as known limitations.
 <!-- /ANCHOR:success-criteria -->
 
 ---
