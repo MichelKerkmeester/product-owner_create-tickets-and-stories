@@ -76,6 +76,8 @@ Taken from the fresh Opus recommendation of 2026-10-28, which checked each cause
 - **D8**: Release. Every change lands in the skill and its hand-written Project mirror in the same commit as hub and `sk-create-figjam` v1.0.14.0, with a kernel bump only if a kernel sentence changes.
 
 FJ-022's 047 PASS stands: its scenario's signals and PASS line held when it was graded, and D7 scores later runs on the rule it broke.
+
+Three calls made while implementing, kept on review: the composer keeps edge labels 4 px clear of a zone title as the check asks, the user flow example's 30-day label reads `Within 30 days after delivery?` in the returns doc's words so its check prints no `Label:` line, and FJ-022 states turn 1 is an intake round because D7 makes it binding.
 <!-- /ANCHOR:problem -->
 
 ---
@@ -91,14 +93,14 @@ FJ-022's 047 PASS stands: its scenario's signals and PASS line held when it was 
 - Rerun FJ-017, FJ-022, FJ-023 and FJ-036 on v1.0.14.0 with Claude Sonnet 5.5 high, each in a fresh draft file in the operator's team drafts, grade them as phase 047 graded its rerun and refresh the gallery boards the passing runs earn.
 
 ### Out of Scope
-- The composer's layout and geometry beyond the trace's line height.
+- The composer's layout and geometry beyond the trace's line height and the edge label's clearance from a zone title, which moves to the check's 4 px because the whole-pixel line height left one planted label 1 px into a title and REQ-001 needs the composer self-test to pass.
 - A rerun of scenarios that passed on v1.0.13.0 or earlier and are untouched by these rules.
 
 ### Files to Change
 
 | File Path | Change Type | Description |
 |-----------|-------------|-------------|
-| sk-create-figjam/scripts/flow_check.py, scripts/figjam_checks/board_geometry.py, scripts/compose-trace.mjs | Modify | The accent neighbour, the diamond text box, the whole-pixel line height and their self-tests |
+| sk-create-figjam/scripts/flow_check.py, scripts/figjam_checks/board_geometry.py, scripts/compose-trace.mjs, scripts/compose_board.py, assets/compose-board.js | Modify | The accent neighbour, the diamond text box, the whole-pixel line height and their self-tests |
 | sk-create-figjam/references/, assets/ | Modify | Flow Mode, rubric, hybrid workflow, flow templates and the user flow and process examples |
 | sk-create-figjam/manual-testing-playbook/ | Modify | The Composition row, the Section 5 rules and FJ-017 |
 | claude project/, SYNC.md, README.md | Modify | The mirror and the release notes |
