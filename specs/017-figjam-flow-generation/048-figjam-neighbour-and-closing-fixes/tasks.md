@@ -57,12 +57,12 @@ contextType: "implementation"
 <!-- ANCHOR:phase-3 -->
 ## Phase 3: Verification
 
-- [ ] T013 Run the self-tests and gates on the committed tree. Verify: both self-tests, the design check, pytest, 15 of 15 gates and the output format gate pass.
-- [ ] T014 Commit and push both repositories. Verify: `validate_parity.py product-owner`, `residency_check.py --all` and `pair_divergence.py product-owner` each print PASSED.
-- [ ] T015 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both after the closing edits.
-- [ ] T016 Rerun FJ-017, FJ-022, FJ-023 and FJ-036 on v1.0.14.0, each in a fresh draft file (`benchmark/reports/.../skill/sonnet-high-048/`). Verify: each run has a `meta.json` and every turn exited 0.
-- [ ] T017 Grade the four runs with two readers per board and one Opus grader (`grades/sonnet-high-048.*`). Verify: every scenario has a verdict with its signals.
-- [ ] T018 Record the rerun as run README section 8.14, refresh the gallery with each passing board and commit both repositories. Verify: `validate_parity.py product-owner` prints PASSED.
+- [x] T013 Run the self-tests and gates on the committed tree. Verify: both self-tests, the design check, pytest, 15 of 15 gates and the output format gate pass. [EVIDENCE: on the release tree committed as e0a082d5 the flow check printed 199 of 199, the composer 1251 of 1251, the design check exit 0, pytest 18 passed, all 15 gates and the output format gate across 72 source files]
+- [x] T014 Commit and push both repositories. Verify: `validate_parity.py product-owner`, `residency_check.py --all` and `pair_divergence.py product-owner` each print PASSED. [EVIDENCE: PO commits e0a082d5 and 3a3a356a and outer commits 2ea776e8e, 8bc6d1014 and 997560542 pushed, parity PASSED 65 of 65, residency PASSED 7 systems, divergence PASSED 208 pairs and every `check_criteria.sh` row ok]
+- [x] T015 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both after the closing edits. [EVIDENCE: `RESULT: PASSED` for this phase and for 017 after the closing edits]
+- [x] T016 Rerun FJ-017, FJ-022, FJ-023 and FJ-036 on v1.0.14.0, each in a fresh draft file (`benchmark/reports/.../skill/sonnet-high-048/`). Verify: each run has a `meta.json` and every turn exited 0. [EVIDENCE: four `meta.json` files, 15 turns at rc 0, one attempt each on the relaunch after a first launch stopped on the weekly usage limit before any model ran]
+- [x] T017 Grade the four runs with two readers per board and one Opus grader (`grades/sonnet-high-048.*`). Verify: every scenario has a verdict with its signals. [EVIDENCE: `sonnet-high-048.jsonl` holds 4 lines with their signals, FJ-017 and FJ-036 PASS and FJ-022 and FJ-023 FAIL, six reader files, and a completeness check corrected three scores against the notes]
+- [x] T018 Record the rerun as run README section 8.14, refresh the gallery with each passing board and commit both repositories. Verify: `validate_parity.py product-owner` prints PASSED. [EVIDENCE: section 8.14 records 2 of 4, the process gallery image is FJ-023's board and PO commit 62320e19 carries the records]
 <!-- /ANCHOR:phase-3 -->
 
 ---
@@ -70,9 +70,9 @@ contextType: "implementation"
 <!-- ANCHOR:completion -->
 ## Completion Criteria
 
-- [ ] All tasks marked `[x]`
+- [x] All tasks marked `[x]`
 - [x] No `[B]` blocked tasks remaining
-- [ ] Manual verification passed
+- [x] Manual verification passed
 <!-- /ANCHOR:completion -->
 
 ---
@@ -122,7 +122,7 @@ contextType: "implementation"
 <!-- ANCHOR:testing -->
 ## Testing Checklist
 
-- [ ] CHK-020 [P0] All acceptance criteria met
+- [x] CHK-020 [P0] All acceptance criteria met [EVIDENCE: AC-001 to AC-011 read Met, with SC-003 recorded as not met]
 - [x] CHK-021 [P0] Gates pass [EVIDENCE: all 15 gates and the output format gate across 72 source files pass]
 <!-- /ANCHOR:testing -->
 
@@ -153,7 +153,7 @@ contextType: "implementation"
 <!-- ANCHOR:docs -->
 ## Documentation
 
-- [ ] CHK-040 [P1] Spec, plan and tasks synchronized
+- [x] CHK-040 [P1] Spec, plan and tasks synchronized [EVIDENCE: every task, acceptance row and goal criterion carries its evidence and `validate.sh --strict` passes]
 - [x] CHK-041 [P1] Project mirror and SYNC note [EVIDENCE: see T010]
 <!-- /ANCHOR:docs -->
 
@@ -173,9 +173,9 @@ contextType: "implementation"
 
 | Category | Total | Verified |
 |----------|-------|----------|
-| P0 Items | 10 | 2 |
-| P1 Items | 9 | 3 |
+| P0 Items | 10 | 10 |
+| P1 Items | 9 | 9 |
 | P2 Items | 0 | 0 |
 
-**Verification Date**: Pending
+**Verification Date**: 2026-10-28
 <!-- /ANCHOR:summary -->

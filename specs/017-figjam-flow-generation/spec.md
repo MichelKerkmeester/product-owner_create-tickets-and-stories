@@ -147,7 +147,8 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 45 | 045-figjam-findings-fixes/ | The causes the v1.0.10.0 rerun still shows, fixed with no rerun: plans that ignore the drawn state board and main row, two intake sentences that disagree, a boxed-in sticky with no place, a revision playback that reads nothing, a read-back that assumes connector labels and grading conventions the playbook never stated | Complete |
 | 46 | 046-figjam-gate-and-accent-fixes/ | The v1.0.11.0 rerun findings: a gate that cannot see a noted node's sides, an accent on the goal the composer draws last, a gate without its sketch, a stop ending on a self-scan line, a missed lone word and an unwritten end-state reading, then a rerun of FJ-017, FJ-036, FJ-022 and FJ-023 | Complete |
 | 47 | 047-figjam-glance-and-row-fixes/ | The v1.0.12.0 rerun causes: a glance plan that ignores where the composer draws off-row nodes, a main row that bends unflagged, a sticky side with no alignment or reach, a gate sketch that drops checked lines, label wraps the sources' words cannot clear, an intake round with no dials and a harness that redacted committed records, then a rerun of FJ-017, FJ-022, FJ-023 and FJ-036 | Complete |
-| 48 | 048-figjam-neighbour-and-closing-fixes/ | The v1.0.13.0 rerun causes: a decision beside the accent read before the entry, an intake round ending on its reason, an FJ-017 Finding the skill does not ask for, a diamond trace wider than FigJam draws, the dials at the gate, a swapped pair charged twice and a turn 1 that models before its intake, then a rerun of FJ-017, FJ-022, FJ-023 and FJ-036 | In Progress |
+| 48 | 048-figjam-neighbour-and-closing-fixes/ | The v1.0.13.0 rerun causes: a decision beside the accent read before the entry, an intake round ending on its reason, an FJ-017 Finding the skill does not ask for, a diamond trace wider than FigJam draws, the dials at the gate, a swapped pair charged twice and a turn 1 that models before its intake, then a rerun of FJ-017, FJ-022, FJ-023 and FJ-036 | Complete |
+| 49 | 049-figjam-reading-order-and-reply-lead/ | The v1.0.14.0 rerun causes: a lifted decision readers did not take second, a delivery reply opening on a sentence above the URL, an FJ-023 scenario and examples that skip the turn 1 intake, a label trace counting characters and Composition read by eye, then a rerun of FJ-022 and FJ-023 | In Progress |
 
 ### Phase Transition Rules
 
@@ -201,6 +202,7 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 045-figjam-findings-fixes | 046-figjam-gate-and-accent-fixes | The operator chose phase 046 under 017 to fix the v1.0.11.0 rerun findings and rerun the affected scenarios | 038 run README section 8.11 |
 | 046-figjam-gate-and-accent-fixes | 047-figjam-glance-and-row-fixes | Under the operator's standing instruction of 2026-10-28, phase 047 fixes every cause of the v1.0.12.0 rerun and reruns the four scenarios | 038 run README section 8.12 |
 | 047-figjam-glance-and-row-fixes | 048-figjam-neighbour-and-closing-fixes | Under the operator's standing instruction, phase 048 fixes every cause of the v1.0.13.0 rerun from the fresh Opus recommendation and reruns the four scenarios | 038 run README section 8.13 |
+| 048-figjam-neighbour-and-closing-fixes | 049-figjam-reading-order-and-reply-lead | Under the operator's standing instruction, phase 049 fixes every cause of the v1.0.14.0 rerun from a fresh Sonnet recommendation and reruns the two failures | 038 run README section 8.14 |
 <!-- /ANCHOR:phase-map -->
 
 ---

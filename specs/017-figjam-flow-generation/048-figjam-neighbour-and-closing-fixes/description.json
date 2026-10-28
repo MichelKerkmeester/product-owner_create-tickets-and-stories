@@ -1,4 +1,5 @@
 {
+  "level": "2",
   "specFolder": "017-figjam-flow-generation/048-figjam-neighbour-and-closing-fixes",
   "description": "Claude Sonnet 5.5 high reran FJ-017, FJ-022, FJ-023 and FJ-036 on v1.0.13.0 and 1 of 4 passed: FJ-022 PASS at 21, FJ-023 FAIL at 21",
   "keywords": [
@@ -14,15 +15,15 @@
     "pass",
     "fail"
   ],
-  "lastUpdated": "2026-10-28T00:53:24.280Z",
+  "lastUpdated": "2026-10-28T05:06:07.401Z",
   "specId": "048",
   "folderSlug": "figjam-neighbour-and-closing-fixes",
   "parentChain": [
     "017-figjam-flow-generation"
   ],
-  "memorySequence": 1,
+  "memorySequence": 2,
   "memoryNameHistory": [
-    "28-10-26_01-53__opened-phase-048-with-decisions-d1-to-d8-from-the.md"
-  ],
-  "level": "2"
+    "28-10-26_01-53__opened-phase-048-with-decisions-d1-to-d8-from-the.md",
+    "28-10-26_06-06__closed-phase-048-v1-0-14-0-shipped-and-the-rerun.md"
+  ]
 }
