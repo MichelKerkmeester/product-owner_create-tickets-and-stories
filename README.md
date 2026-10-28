@@ -387,7 +387,7 @@ When two types fit, such as an architecture and a sequence for the same system, 
 
 A real board the packet composed on a fictional test file. The pink outline on the green Confirmation with QR code goal is the first glance, three zones run left to right and each decision is a yellow diamond with labelled exits:
 
-![A user flow board for starting a return, with three zones and a highlighted goal](sk-create-figjam/assets/screenshots/user-flow-board.png)
+![A user flow board for starting a return, with three zones and the 30-day decision highlighted](sk-create-figjam/assets/screenshots/user-flow-board.png)
 
 The [FigJam packet gallery](sk-create-figjam/README.md) shows a board for each of the seven types.
 
