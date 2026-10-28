@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "packet_id": "020-story-turn-one-gate",
+  "spec_folder": "020-story-turn-one-gate",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "story turn one gate",
+      "story turn one gate and reply linter fixes",
+      "explicit command asks first",
+      "story turn one gate plan",
+      "story turn one gate tasks",
+      "story turn one gate implementation summary"
+    ],
+    "key_topics": [
+      "story",
+      "turn",
+      "one",
+      "gate",
+      "reply",
+      "linter",
+      "explicit",
+      "command",
+      "asks",
+      "first",
+      "plan",
+      "tasks"
+    ],
+    "importance_tier": "normal",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md",
+      "claude project/Custom Instructions.md",
+      "sk-product-owner/SKILL.md",
+      "sk-product-owner/assets/interactive-response-templates.md",
+      "sk-product-owner/references/story-mode.md",
+      "benchmark/grader/hvr_lint.py",
+      "changelog/v1.0.16.0.md",
+      "sk-product-owner/changelog/v1.2.6.0.md",
+      "sk-create-figjam/assets/screenshots/README.md",
+      "claude project/README.md",
+      "benchmark/gates/run_gates.sh"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "interactive-response-templates.md",
+        "kind": "doc",
+        "path": "sk-product-owner/assets/interactive-response-templates.md",
+        "source": "derived"
+      },
+      {
+        "name": "story-mode.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/story-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "hvr_lint.py",
+        "kind": "file",
+        "path": "benchmark/grader/hvr_lint.py",
+        "source": "derived"
+      },
+      {
+        "name": "v1.0.16.0.md",
+        "kind": "doc",
+        "path": "changelog/v1.0.16.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.2.6.0.md",
+        "kind": "doc",
+        "path": "sk-product-owner/changelog/v1.2.6.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/assets/screenshots/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement Five",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Human Voice",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose An",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Measured Behavior",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Product Owner",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Story Mode",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Five story runs of the Product Owner Project on DeepSeek V4.1 Flash high, through Devin and again through Pi, drafted on turn 1 in PST-003 (`$s`) and PST-004 (`$story`) on both harnesses",
+    "created_at": "2026-10-28T09:07:55Z",
+    "last_save_at": "2026-10-28T09:38:14.454Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:85020d440af0ba46bb1ae70ac0372498eaf318bf6e74a2b330a141852c893e84",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "d8a92f9dfd70714aebeaf74941f74d2db8ca5faf43facb7ba38fa20e8adca81f",
+      "plan.md": "0ff1dd973db763f8e6a83b7acde4205888d79a07191c7a8ba8834df4b79737a1",
+      "tasks.md": "d7da5cf63f285f52318db343f4428cad92cadfd202155598a4c318f137edfada",
+      "implementation-summary.md": "d974ed50dbcc16814d47a992d9cc81eb822c6c6b69720ba162d114ce6967c702"
+    },
+    "last_active_at": null
+  }
+}
