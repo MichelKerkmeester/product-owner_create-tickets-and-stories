@@ -13,7 +13,7 @@ trigger_phrases:
   - "document context question"
   - "source authority question"
   - "one question intake"
-version: 0.17.0.11
+version: 0.17.0.12
 ---
 
 # Product Owner - Assets - Interactive Response Templates
@@ -117,7 +117,7 @@ I'll create your bug report. Quick questions:
 
 ### Story Context Question
 
-Use this when an explicit Story or Epic command selects Story intent, or when Story intent is selected but role, value, requirement shape or artifact kind (Story or Epic) cannot be inferred safely. Populate only unresolved fields and wait once.
+Use this when an explicit Story or Epic command selects Story intent, or when Story intent is selected but role, value, requirement shape or artifact kind (Story or Epic) cannot be inferred safely. Populate only unresolved fields and wait once. Its **Validation** field is never settled by the sources, so the question an explicit command asks always carries it and still waits when every other field is settled.
 
 ```markdown
 I'll create or refine your Story or Epic. Before drafting, I need the unresolved decisions below in one response:
@@ -132,7 +132,7 @@ I'll create or refine your Story or Epic. Before drafting, I need the unresolved
 
 ### Doc Context and Clarification Question
 
-Use this single pattern for new-document intake, refinement intake, missing source authority, source-status ambiguity and contradictory sources. Include only unresolved items, state known conflicts explicitly, then wait once for the complete response.
+Use this single pattern for new-document intake, refinement intake, missing source authority, source-status ambiguity and contradictory sources. Include only unresolved items, state known conflicts explicitly, then wait once for the complete response. Its **Validation** field is never settled by the sources, so the question an explicit command asks always carries it and still waits when every other field is settled.
 
 ```markdown
 I'll create or refine the product or engineering document. Before drafting, I need the unresolved decisions below in one response:
