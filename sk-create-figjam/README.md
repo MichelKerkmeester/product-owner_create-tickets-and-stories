@@ -7,7 +7,7 @@ trigger_phrases:
   - "$figjam"
   - "figjam flow"
   - "figjam diagram"
-version: 1.0.11.0
+version: 1.0.12.0
 ---
 
 # sk-create-figjam
@@ -30,7 +30,7 @@ Real boards this packet composed on a fictional test file and rendered through t
 
 **User flow.** The pink outline on the green Confirmation with QR code goal is the first glance. Three zones run left to right, Find the order, Request the return and Done. Each decision is a yellow diamond with labelled exits, the dashed orange Contact support pill shows where the flow leaves and Drop-off point and Courier pickup reach the goal from two sides.
 
-![A user flow board for starting a return, with three zones and a highlighted goal](assets/screenshots/user-flow-board.png)
+![A user flow board for starting a return, with three zones and the 30-day decision highlighted](assets/screenshots/user-flow-board.png)
 
 **Process.** One lane per role, Customer, CS agent and Warehouse, each in its own tint. The pink outline sits on the Approve the claim step, which logs each decision to a violet Claims table store and hands the claim to the warehouse queue. The Damage clear? decision sends an unclear photo back to the customer as an input step that loops to it. The key names kinds and no team. The run that drew it fails its PASS line on Composition, because the green Refund released goal, left out of the glance plan, reads before the decision the run planned as the second glance.
 
