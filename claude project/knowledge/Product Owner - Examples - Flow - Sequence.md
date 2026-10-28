@@ -13,7 +13,7 @@ Roamstay is a fictional booking marketplace used across the Product Owner fixtur
 ## 1. REQUEST
 
 ```text
-draw the checkout payment as a sequence diagram in FigJam, from the payments API brief
+draw the checkout payment as a sequence diagram in FigJam, from the payments API brief, for the payments team
 ```
 
 The brief lists the calls in order: the guest app posts the booking, the booking API holds the room, asks the payment provider to authorise the card, confirms the hold and tells the partner's hub, then answers the app. A declined card releases the hold and returns 402.
@@ -36,7 +36,7 @@ The playback is its own reply, sent before the model. It waits for its own answe
 Before I draw anything, this is how I read the request.
 Question: in what order do the app, the booking API, the payment provider and the hub exchange messages?
 Outcome: the payments team can read the checkout calls in order, with their paths and status codes, for a card that is authorised.
-Settled by the sources: the payments API brief gives the calls in order, for the authorised card and for the declined card.
+Settled by the sources: the payments API brief gives the calls in order, for the authorised card and for the declined card, and the request names the payments team as the reader.
 Left out: the declined-card path, kept for a second diagram if you want one.
 Assumed: balanced detail and an engineer audience, so paths and status codes stay in the labels.
 Still open: none.

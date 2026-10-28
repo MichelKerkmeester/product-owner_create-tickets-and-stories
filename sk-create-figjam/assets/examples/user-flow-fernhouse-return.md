@@ -1,12 +1,12 @@
 ---
 title: "Example - User Flow - Fernhouse Return"
-description: "A worked user flow on the fictional Fernhouse store: app screenshots and a returns doc turned into a checked model with its board lines and zones, a playback, a gate message and the reply."
+description: "A worked user flow on the fictional Fernhouse store: app screenshots and a returns doc turned into a checked model with its board lines and zones, an intake round, a playback, a gate message and the reply."
 contextType: general
 importance_tier: normal
 trigger_phrases:
   - "user flow example"
   - "fernhouse return flow"
-version: 1.0.7.0
+version: 1.0.8.0
 ---
 
 # Example - User Flow - Fernhouse Return
@@ -38,12 +38,34 @@ Sources: five app screenshots and a returns doc.
 ## 2. TYPE AND DIALS
 
 - **Reader question:** which screens does a customer pass through to start a return, and where do they choose? A user flow
-- **Detail:** balanced. **Audience:** mixed, so the labels use the app's own words
+- **Detail:** balanced. **Audience:** mixed, so the labels use the app's own words. **Distance:** laptop
 - **Look:** left to right in three zones, finding the order, requesting the return and done. A `%% goal:` line names the confirmation as the goal, so the main line runs from the order list to it and Contact support sits below as an exit. The 30 day decision takes the accent, because it is where a return can end early
 
 ---
 
-## 3. PLAYBACK
+## 3. INTAKE AND PLAYBACK
+
+### Intake round
+
+The request names the app, the screenshots and the returns doc but no reader, so the first reply is an intake round. Nothing is modelled, checked or written, and the reply ends on its closing question.
+
+```text
+Reading: the request names the app and its sources but not who reads the board.
+Question: who reads the board, and what should they be able to decide after reading it?
+Recommended: the product team, who can then follow a return from the order list to a confirmed return and see where the 30 day window ends it.
+Why: the returns doc is a product document and the screens are the product's own.
+
+Reading: the labels come from the app's own screens and the board is read at a laptop.
+Question: which detail level, audience and reading distance?
+Recommended: Balanced detail, a Mixed audience and a Laptop reading distance.
+Why: the screens are the story and no source asks for more or less.
+
+Take the recommended answers, or correct any of them?
+```
+
+The user answers `Use your recommended answers.` and the playback follows.
+
+### Playback
 
 The playback is its own reply, sent before the model. It waits for its own answer, and a yes to it moves the work on to the model and writes nothing.
 
@@ -53,7 +75,7 @@ Question: which screens does a customer pass through to start a return, and wher
 Outcome: a reader can follow a return from the order list to a confirmed return and see where the 30 day window ends it.
 Settled by the sources: the five screenshots give the screens and the returns doc, Section 2, gives the 30 day window and its Contact support exit.
 Left out: the free pickup over €100, a proposal under review in Section 4 of the returns doc.
-Assumed: balanced detail and a mixed audience, so the labels use the app's own words.
+Assumed: the product team as the reader, balanced detail, a mixed audience so the labels use the app's own words and a laptop reading distance.
 Still open: none.
 Is this the right reading of the board?
 ```

@@ -2,7 +2,7 @@
 name: sk-create-figjam
 description: "Draws FigJam diagrams, from user flows to sequence, state, ER and gantt, as checked Mermaid models composed into framed boards."
 allowed-tools: [Read, Write, Edit, Bash, Glob, Grep, mcp__code_mode__call_tool_chain]
-version: 1.0.14.0
+version: 1.0.15.0
 ---
 
 <!-- Keywords: sk-create-figjam, flow mode, figjam, user flow, process, architecture, sequence diagram, state diagram, er diagram, gantt, flowchart, mermaid, board, $flow, $figjam -->
@@ -195,7 +195,7 @@ The packet runs under the Product Owner bootstrap in [`../AGENTS.md`](../AGENTS.
 3. Run `scripts/flow_check.py` on every model before the write gate, and write nothing until every diagram passes. Compose each diagram with `scripts/compose_board.py` and paste its code unchanged into one `use_figma` call
 4. Walk `references/quality-rubric.md` before the gate
 5. Ask for a yes before any board write, naming any planned extension, in a gate reply of its own sent after the playback's answer, and write only on a yes to that gate. Read the board back before replying when the connector has a read tool
-6. Open the reply on the board URL with nothing before it, then the `Read-back:` line, an `Extensions:` line when the write added any, a `Left out:` line whenever the board leaves out a cut, a split, a later board or a point the sources left open, a `Finding:` line for each finding or open question and the `HVR self-scan:` line last with nothing after it, as `references/flow-mode.md` Section 8 sets out
+6. Open the reply on the board URL as the first characters of the message sent after the last tool call, with no sentence before it, not even one that says the board is written or that the reply follows, then the `Read-back:` line, an `Extensions:` line when the write added any, a `Left out:` line whenever the board leaves out a cut, a split, a later board or a point the sources left open, a `Finding:` line for each finding or open question and the `HVR self-scan:` line last with nothing after it, as `references/flow-mode.md` Section 8 sets out
 7. State the reading of the input and a recommended answer in every question, and when one goes unanswered, proceed on that recommendation, mark it assumed and name it in the playback before the gate
 
 ### NEVER
@@ -234,7 +234,7 @@ The packet runs under the Product Owner bootstrap in [`../AGENTS.md`](../AGENTS.
 - `scripts/flow_check.py` passes every diagram in the model before the write gate opens
 - The type answers the reader's question, and the quality rubric holds
 - The board was written only after a yes naming the plan, the file, any extension and the rollback
-- The reply carries the board URL on its first line, a `Read-back:` line measured on the board, an `Extensions:` line when the write added any, a `Left out:` line whenever the board leaves out a cut, a split, a later board or a point the sources left open, a `Finding:` line for each finding and the `HVR self-scan:` line last
+- The reply carries the board URL as its first characters, with no sentence before it, a `Read-back:` line measured on the board, an `Extensions:` line when the write added any, a `Left out:` line whenever the board leaves out a cut, a split, a later board or a point the sources left open, a `Finding:` line for each finding and the `HVR self-scan:` line last
 - Nothing was saved to `export/`, and no Mermaid, HTML, SVG or PNG file was left behind, in the repository or in a temporary folder
 
 ---

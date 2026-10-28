@@ -42,26 +42,39 @@ GRID_STEP = 8
 # A node's own text wraps at a narrower average, NODE_WIDTH of the node size: at that measure the wraps match the
 # ones rendered boards show, where the label proportion flags labels that fit.
 # FigJam's own wrap runs narrower still on lowercase words: a rendered board fitted 19 characters where NODE_WIDTH
-# fits 17, so a label is also read at NODE_NARROW and a stranded word at either measure is reported. In a diamond
-# the two measures give 16 and 17 characters, which reproduce every wrap a live render of the decisions showed.
+# fits 17, so a label is also read at NODE_NARROW and a stranded word at either measure is reported. A diamond is
+# measured by glyph width instead, below, because a character count cannot rank a label of wide letters against
+# one of narrow letters.
 CHAR_WIDTH, NODE_WIDTH, NODE_NARROW = 0.56, 0.5, 0.45
 TITLE_INSET, TITLE_GAP, LABEL_HEIGHT, LABEL_PAD, LABEL_CHAR, SHARE_MAX = 32, 8, 24, 16, 18 * CHAR_WIDTH, 56
-NODE_CHAR = 20 * NODE_WIDTH
-NODE_NARROW_CHAR = 20 * NODE_NARROW
+NODE_SIZE = 20
+NODE_CHAR = NODE_SIZE * NODE_WIDTH
+NODE_NARROW_CHAR = NODE_SIZE * NODE_NARROW
+# Inter Medium advance widths for the printable ASCII range from a space to a tilde, in 1/1000 em, read from the
+# font at size 1000. Any other character takes the width of a mid-sized letter.
+INTER_MEDIUM = [265, 294, 400, 637, 643, 828, 651, 217, 378, 378, 522, 666, 288, 463, 283, 368, 646, 473, 613, 644,
+                654, 620, 636, 579, 631, 636, 283, 288, 666, 666, 666, 526, 968, 700, 654, 735, 722, 603, 586, 749,
+                742, 270, 552, 664, 564, 898, 747, 768, 639, 768, 645, 643, 651, 738, 700, 978, 666, 685, 639, 378,
+                368, 378, 475, 460, 497, 569, 626, 568, 626, 587, 369, 617, 602, 249, 249, 556, 249, 884, 597, 602,
+                617, 617, 384, 536, 372, 594, 566, 825, 551, 566, 551, 378, 342, 378, 666]
+OTHER_GLYPH = 600
+# A diamond's text box is half its width less this many pixels.
+DIAMOND_BOX_LESS = 4
 # A FigJam sticky is a fixed square, and a single sticky keeps one sticky gap from its node, as the hybrid
 # workflow sets them. Its sides are tried in the order that workflow names. A sticky further from its node than
 # one sticky's width reads as a note on whatever stands nearer, so no square past that reach holds it.
 STICKY, STICKY_GAP = 240, 64
 STICKY_REACH = STICKY
 STICKY_SIDES = ("right", "below", "above", "left")
-# A reader takes the accent first, then a decision joined to it by one line on its own row with nothing between
-# them, then the flow column by column along its direction and down each column. Two boxes whose centres stand
-# closer than COLUMN along the flow read as one column, since the composer sets a rank's boxes on one line.
+# A reader takes the accent first, then the flow column by column along its direction and down each column. Two
+# boxes whose centres stand closer than COLUMN along the flow read as one column, since the composer sets a
+# rank's boxes on one line.
 COLUMN = 120
 # The shapes whose text the composer fits into the inscribed half box, so the box a trace records is never the
 # width its label wraps at. A parallelogram gives up its slanted ends the same way. A diamond is the one round
-# shape measured on a live render: in a 336 px diamond FigJam's text box stood between 156 and 165 px wide, so a
-# diamond's label wraps at half its box less 8. The others keep half their box less 32 until a render measures them.
+# shape measured on a live render: FigJam fitted a line of 161.6 px and refused one of 166.9 px across seven wraps
+# in 336 px diamonds, so a diamond's label wraps by glyph width at half its box less 4. The others keep half their
+# box less 32 until a render measures them.
 ROUND_SHAPES = {"DIAMOND", "ELLIPSE", "HEXAGON", "OCTAGON"}
 # A run along a zone's edge reads as part of the border when it is closer than ZONE_OUT outside it or ZONE_IN
 # inside it. The gap between two zones is 48 wide, so its middle clears both borders by 24, and the zone's
@@ -79,10 +92,11 @@ JOIN_DIAMOND = 56
 
 def use_design(design: dict) -> None:
     """Measure boards against the design they are drawn in: its text sizes and its accent's pair and weights."""
-    global LABEL_CHAR, NODE_CHAR, NODE_NARROW_CHAR, ACCENT_STROKE, ACCENT_WEIGHT, ACCENT_LINE
+    global LABEL_CHAR, NODE_SIZE, NODE_CHAR, NODE_NARROW_CHAR, ACCENT_STROKE, ACCENT_WEIGHT, ACCENT_LINE
     LABEL_CHAR = design["type"]["label"] * CHAR_WIDTH
-    NODE_CHAR = design["type"]["node"] * NODE_WIDTH
-    NODE_NARROW_CHAR = design["type"]["node"] * NODE_NARROW
+    NODE_SIZE = design["type"]["node"]
+    NODE_CHAR = NODE_SIZE * NODE_WIDTH
+    NODE_NARROW_CHAR = NODE_SIZE * NODE_NARROW
     ACCENT_STROKE = design["swatch"][design["accent"]["pair"]][1].lower()
     ACCENT_WEIGHT, ACCENT_LINE = design["accent"]["node"], design["accent"]["message"]
 
@@ -543,10 +557,11 @@ def edges_side_by_side(drawn: dict) -> list[str]:
 
 
 def _text_width(shape: dict) -> float:
-    """The width the composer fits a shape's label into, which is its box less what the shape takes of it."""
+    """The width the composer fits a shape's label into, which is its box less what the shape takes of it.
+
+    A diamond is measured by glyph width in `orphan_words`, so this is the character measure of the rest.
+    """
     w, kind = shape["w"], shape.get("shape")
-    if kind == "DIAMOND":
-        return w / 2 - 8
     if kind in ROUND_SHAPES:
         return w / 2 - 32
     return w - (96 if kind == "PARALLELOGRAM_RIGHT" else 48)
@@ -567,6 +582,27 @@ def _wrapped(text: str, per: int) -> list[str]:
     return [line for line in lines if line]
 
 
+def _advance(text: str, size: float) -> float:
+    """The width of a line of text in Inter Medium at the given size."""
+    return sum(INTER_MEDIUM[ord(c) - 32] if 32 <= ord(c) < 127 else OTHER_GLYPH for c in text) * size / 1000
+
+
+def _wrapped_px(text: str, limit: float, size: float) -> list[str]:
+    """The text in lines no wider than `limit` px, filled word by word after each break it carries."""
+    lines = []
+    for chunk in text.split("\n"):
+        line = ""
+        for word in chunk.split():
+            joined = f"{line} {word}".strip()
+            if line and _advance(joined, size) > limit:
+                lines.append(line)
+                line = word
+            else:
+                line = joined
+        lines.append(line)
+    return [line for line in lines if line]
+
+
 def orphan_words(drawn: dict) -> list[str]:
     """The labels that wrap one word alone onto their last line, while holding two lines or more.
 
@@ -574,12 +610,19 @@ def orphan_words(drawn: dict) -> list[str]:
     narrower again on a parallelogram, so a box with room to spare can still strand one word. A line of one
     word reads as a stray word rather than as part of the label, so the label's shape is lost at a glance.
     This measure is advice for shortening the label before the board is written, never a failure.
-    FigJam may wrap at either measure, so a word stranded at both is left alone, and one stranded at one
-    measure only may be, which the line says, since a rendered board has shown each measure right once.
+    A diamond's label is wrapped by glyph width at the one measure live renders fitted, so a stranded word
+    there is reported as leaving. Every other shape is read at two character measures, since FigJam may wrap
+    at either: a word stranded at both is left alone, and one stranded at one measure only may be, which the
+    line says, since a rendered board has shown each measure right once.
     """
     found = []
     for n in drawn["nodes"]:
         if n["type"] != "SHAPE_WITH_TEXT" or not n["text"].strip():
+            continue
+        if n.get("shape") == "DIAMOND":
+            lines = _wrapped_px(n["text"], n["w"] / 2 - DIAMOND_BOX_LESS, NODE_SIZE)
+            if len(lines) > 1 and len(lines[-1].split()) == 1:
+                found.append(f"{' '.join(n['text'].split())} leaves {lines[-1]!r} alone on its last line")
             continue
         stranded = []
         for per in {max(1, int(_text_width(n) // NODE_CHAR)), max(1, int(_text_width(n) // NODE_NARROW_CHAR))}:
@@ -699,12 +742,12 @@ def _centre(box: dict, lr: bool) -> tuple[float, float]:
 def reading_order(drawn: dict, model: dict) -> list[str]:
     """The ids of a flow's nodes in the order a reader meets them on the board.
 
-    The accent comes first. A decision joined to the accent by one line and set on the accent's own row (its
-    own column on a top-down flow), with no node standing between them on that row, comes right after it, since the eye that lands on the accent
-    takes the decision beside it in the same look. The rest follow column by column along the flow and down
-    each column, or row by row and left to right on a top-down flow, so a node the composer sets between two
-    main-row steps is met between them, wherever its path puts it. End dots and merge points carry no words
-    and are left out.
+    The accent comes first. The rest follow column by column along the flow and down each column, or row by
+    row and left to right on a top-down flow, so a node the composer sets between two main-row steps is met
+    between them, wherever its path puts it. End dots and merge points carry no words and are left out.
+    Readers differ on three points the order does not try to predict: some take the goal right after the
+    accent, some take an exit below the row after the goal and some read the entry after a decision in the
+    accent's lane. The order is the majority read.
     """
     boxes = {name: box for name, box in boxes_of(drawn).items() if not name.startswith("__")}
     lr = model.get("direction", "LR") == "LR"
@@ -718,25 +761,7 @@ def reading_order(drawn: dict, model: dict) -> list[str]:
             columns.append([node_id])
     order = [node_id for column in columns for node_id in sorted(column, key=lambda i: _centre(boxes[i], lr)[1])]
     accent = [n["id"] for n in model["nodes"] if n.get("accent") and n["id"] in boxes]
-    beside = []
-    if accent:
-        kinds = {n["id"]: n.get("kind") for n in model["nodes"]}
-        a_along, a_across = _centre(boxes[accent[0]], lr)
-        joined = ({e["to"] for e in model["edges"] if e["from"] == accent[0]}
-                  | {e["from"] for e in model["edges"] if e["to"] == accent[0]})
-
-        def on_row(i: str) -> bool:
-            return abs(_centre(boxes[i], lr)[1] - a_across) <= GRID_STEP
-
-        for i in sorted((j for j in joined if j in boxes), key=lambda j: _centre(boxes[j], lr)[0]):
-            if i in accent or kinds.get(i) != "decision" or not on_row(i):
-                continue
-            lo, hi = sorted((_centre(boxes[i], lr)[0], a_along))
-            if not any(j not in (accent[0], i) and kinds.get(j) not in (None, "merge") and on_row(j)
-                       and lo < _centre(boxes[j], lr)[0] < hi for j in boxes):
-                beside.append(i)
-    first = accent + beside
-    return first + [node_id for node_id in order if node_id not in first]
+    return accent + [node_id for node_id in order if node_id not in accent]
 
 
 def row_breaks(drawn: dict, model: dict) -> list[tuple[str, str, list[str]]]:

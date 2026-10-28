@@ -160,6 +160,11 @@ The `Read-back:` counts follow the type: nodes, connectors and labelled decision
 
 These lines are the whole reply, and the self-scan is always the last. Each finding, warning, open item or question is one `Finding:` line, and nothing follows the self-scan. The playback of the settled rows runs before the model and the gate, as Templates - Flow Mode Section 8 sets out, and it never becomes a line here.
 
+Everything written after the last tool call is the reply, so its first characters are the board URL and no sentence comes before it, not even one that says the board is written or that the reply follows.
+
+- Wrong first line: `The board is written and read back, so I'm sending the delivery reply now.`
+- Right first line: the board URL, alone
+
 ---
 
 ## 5. INTAKE QUESTIONS

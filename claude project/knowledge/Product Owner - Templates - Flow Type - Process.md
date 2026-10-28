@@ -31,7 +31,7 @@ The first line of the block names the type for the check, and the composer reads
 | Rectangle | `id[Label]` | A step |
 | Rhombus | `id{Label?}` | A decision |
 | Circle | `id((.))` | A merge dot |
-| Cylinder | `id[(Label)]` | A store, such as a database or a queue |
+| Cylinder | `id[(Label)]` | A store, such as a database or a log table steps read and write |
 | Subroutine | `id[[Label]]` | A step that is a process of its own, drawn elsewhere |
 | Parallelogram | `id[/Label/]` | Data entering or leaving, such as a form or a report |
 
@@ -64,6 +64,7 @@ Judged by hand:
 - **A handoff is the edge that matters most.** When the process has lanes, a connector that crosses lanes is a handoff, and the step in focus is the sending step of the handoff that adds the most delay or risk
 - **One owner per step.** A step two teams share is two steps or a handoff
 - **Every non-rectangle shape earns its place.** A store that only one step touches may be a label on that step instead
+- **A queue between two lanes is the handoff.** A queue that only carries work from one lane to the next adds nothing the crossing connector's label cannot say, so it fails the remove test and is drawn as that label, such as `Claim queued`. It is a store only when the source treats it as a place steps read and write on their own, such as a ticket tool
 - **Lanes follow the order work first reaches them,** top to bottom or left to right
 - **No diagram carries the same label on four or more connectors.** Cut them all, or keep one where the label says something the shape cannot. A decision's exits are the exception, because they read the same way through the process
 

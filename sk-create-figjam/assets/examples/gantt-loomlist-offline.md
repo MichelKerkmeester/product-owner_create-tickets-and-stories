@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "gantt example"
   - "loomlist offline mode plan"
-version: 1.0.5.0
+version: 1.0.6.0
 ---
 
 # Example - Gantt - Loomlist Offline Mode
@@ -18,7 +18,7 @@ Loomlist is a fictional workspace app used across the Product Owner fixtures. Ev
 ## 1. REQUEST
 
 ```text
-put the offline mode launch plan on a FigJam gantt chart, from the planning doc
+put the offline mode launch plan on a FigJam gantt chart, from the planning doc, for the release review
 ```
 
 | Doc line | Says | Class |
@@ -46,8 +46,8 @@ The playback is its own reply, sent before the model. It waits for its own answe
 ```text
 Before I draw anything, this is how I read the request.
 Question: which work runs when, and what holds the release?
-Outcome: a reader can see the order of the offline mode work, the critical path and where the release lands.
-Settled by the sources: planning doc lines 1 to 5 give the tasks, their dates and durations, the dependencies and the critical path.
+Outcome: the release review can see the order of the offline mode work, the critical path and where the release lands.
+Settled by the sources: planning doc lines 1 to 5 give the tasks, their dates and durations, the dependencies and the critical path, and the request names the release review as the reader.
 Left out: Android next quarter, a proposal with no dates.
 Assumed: balanced detail and a mixed audience.
 Still open: none.
@@ -106,7 +106,7 @@ The gate is its own reply, sent after the playback's answer. Its one question as
 
 ```text
 Question: which work runs when, and what holds the release?
-Outcome: a reader can see the order of the offline mode work, the critical path and where the release lands.
+Outcome: the release review can see the order of the offline mode work, the critical path and where the release lands.
 First glance: Integration, the critical path task that holds the release.
 Second glance: Sync engine and Conflict screen build, the two builds Integration waits for.
 Last glance: Beta for 5 percent and the Release milestone at the end.
@@ -128,7 +128,7 @@ When no hosted Figma route is connected, the gate names the missing route in pla
 
 ```text
 Question: which work runs when, and what holds the release?
-Outcome: a reader can see the order of the offline mode work, the critical path and where the release lands.
+Outcome: the release review can see the order of the offline mode work, the critical path and where the release lands.
 First glance: Integration, the critical path task that holds the release.
 Second glance: Sync engine and Conflict screen build, the two builds Integration waits for.
 Last glance: Beta for 5 percent and the Release milestone at the end.

@@ -10,7 +10,7 @@ trigger_phrases:
   - "figjam flow from screenshots"
   - "flow model pre-write check"
   - "board url read-back"
-version: 1.0.12.0
+version: 1.0.13.0
 ---
 
 # Product Owner - Templates - Flow Mode
@@ -66,7 +66,7 @@ Use another mode instead for:
 8. **Write.** Compose the board with `scripts/compose_board.py` and one `use_figma` call per diagram. Fall back to `generate_diagram` only when `use_figma` is not connected, and to the `fj` route when neither hosted tool is connected and the type allows it, as Section 6 sets out
 9. **Extend.** Only when the gate named an extension, add it through `references/hybrid-workflow.md`
 10. **Read back.** Read the written board with `get_figjam` on the board id the write returned, never from memory, and compare it with the model as Section 7 and the type's reference set out. The composing call returns a screenshot of the whole board, which is the overview, and `get_figjam` returns the outline with a screenshot of each node. A node that needs its own view is read with `get_screenshot` and the node id from that read, because the tool fails without one. Then check the overview for stretching, a label cut off, overlap, a connector crossing, an edge that reads as joining the wrong node, a colour that does not match its entry in the key and whether the board answers the `userIntent` sentence. A finding there goes on a `Finding:` line of the reply, and it is fixed only by reshaping the model and recomposing after a yes, inside the two-attempt bound Section 9 sets. Section 7 names the read for each route. The rows that fail silently are read back the same way, one at a time and before the gate. Each provenance row whose class is not current behavior or whose edge is inferred gets one re-read of its source, and that row records the reason. A row that quotes a source line is not re-read
-11. **Clean up.** Delete the scratch folder that holds the model and the composed code, the one folder outside the repository the check and the composer wrote to, so no model or code file outlives the write
+11. **Clean up.** Delete the scratch folder that holds the model and the composed code, the one folder outside the repository the check and the composer wrote to, so no model or code file outlives the write. The next text written after the clean-up call is the reply, so it opens on the board URL
 12. **Reply.** Deliver as Section 8 sets out
 
 ### The draw-ready threshold and the stop rule
@@ -77,6 +77,8 @@ Flow Mode draws when all three hold:
 - No row of the brief is unasked
 - The reader and the question are settled
 - At most two rows are assumed, and each one names how it gets settled
+
+The detail level, the audience and the reading distance are dials, not rows. An unstated dial takes its recommended default, the playback names it and it never counts toward the two. The reader is a row, so a reader no source names is unsettled whatever the audience dial says.
 
 Under Quick energy the threshold is met once every row is filled from the sources or the defaults and each inferred row is marked assumed, however many rows that is, and the reply is the playback with the offer to draw. The same holds once the user accepts the recommended answers: each accepted row stays assumed, and the next reply is the playback, or one round about a row the last round named as still open or a gap those answers opened.
 
@@ -426,7 +428,7 @@ A board that already holds content can be slower to read than a fresh one. A rea
 
 The reply carries the board, its proof and the self-scan, and nothing else. Anything the user must know or answer has a place above the self-scan.
 
-- The first line is the board URL, with nothing before it, not a heading, a summary or a note. The reply after a delete keeps this shape: it opens on the URL of the board that stays and repeats the `Left out:` line when the board has one
+- Everything written after the last tool call is the reply, and its first characters are the board URL. No sentence comes before it, not a heading, a summary, a note, a status line or a sentence announcing the reply, such as "The board is written and read back, so I'm sending the delivery reply now." The reply after a delete keeps this shape: it opens on the URL of the board that stays and repeats the `Left out:` line when the board has one
 - The second line is the read-back, counts measured on the board against the model, in the words the type's reference uses: `Read-back: 8 of 8 nodes, 8 of 8 connectors, 2 of 2 decision exits labelled`. When a board was written and the connected tools include no read tool, the line is `Read-back: not possible, the connector has no read tool`, and the board is never called done. When the board URL landed in a re-saved artifact, the line ends with the name of the file the artifact was saved to. On a matched read-back the same line also names the first glance in one clause, such as `, first glance: the failed payment`, so the user knows what should win before the board is opened. On a revision whose changed end is the second glance, the next clause names it, such as `, second glance: the exception request`
 - When the write added extensions, the next line counts them: `Extensions: 4 of 4 pins, 4 of 4 legend stickies, 0 overlaps`, or `Extensions: 2 of 2 notes, 0 overlaps` for single stickies
 - When the board does not hold something the request or the sources named, a cut, a split into a second diagram, a flow left for a later board or a point the sources left open, the next line names each one as `Left out: <item>, <reason>`, whether or not the provenance table lists it, so the user sees what the board does not hold. On a split or a cut, the reason names the detail level and the cut, such as `Left out: the retry path, split into a second diagram`, and a split is named this way even when both boards sit in the same file
