@@ -22,7 +22,7 @@ contextType: "implementation"
 
 **Packet:** 017-figjam-flow-generation/048-figjam-neighbour-and-closing-fixes
 **Level:** 2
-**Status:** In Progress
+**Status:** Complete
 **Date:** 2026-10-28
 <!-- /ANCHOR:metadata -->
 
@@ -35,17 +35,17 @@ One row per criterion. `AC-ID` is stable once written: supersede a criterion, ne
 
 | AC-ID | REQ | Given / When / Then | Verification | Status | Waiver |
 |-------|-----|---------------------|--------------|--------|--------|
-| AC-001 | REQ-001 | Given the changed sources, When every gate runs, Then each exits 0 | Not yet run | Unmet | - |
-| AC-002 | REQ-002 | Given the last commit, When the Sync Loop checks run, Then parity, residency and divergence pass | Not yet run | Unmet | - |
-| AC-003 | REQ-003 | Given a decision joined to the accent on its row, When the check reads it, Then the `Glance:` line puts it right after the accent unless a node stands between | Not yet run | Unmet | - |
-| AC-004 | REQ-004 | Given an intake round, When it ends, Then its last line is one closing question after its last block | Not yet run | Unmet | - |
-| AC-005 | REQ-005 | Given FJ-017, When its stickies land where their `Sides:` lines named, Then no `Finding:` line is asked for | Not yet run | Unmet | - |
-| AC-006 | REQ-006 | Given a 26-character decision, When the trace draws it, Then the diamond is 336 px wide and its text box reads 160 px | Not yet run | Unmet | - |
-| AC-007 | REQ-007 | Given a playback, When it is scored, Then it names the three dials and the gate need not | Not yet run | Unmet | - |
-| AC-008 | REQ-008 | Given a swapped pair, When Composition is scored, Then only the part read early costs the point | Not yet run | Unmet | - |
-| AC-009 | REQ-009 | Given unsettled sources under Standard energy, When turn 1 runs, Then it is an intake round with no model or check before the playback's answer | Not yet run | Unmet | - |
-| AC-010 | REQ-010 | Given v1.0.14.0, When the release files are read, Then they name 1.0.14.0 with changelogs and the mirror carries every change | Not yet run | Unmet | - |
-| AC-011 | REQ-011 | Given v1.0.14.0, When FJ-017, FJ-022, FJ-023 and FJ-036 are rerun and graded, Then each has a recorded verdict, section 8.14 states the result and the gallery takes each passing board | Not yet run | Unmet | - |
+| AC-001 | REQ-001 | Given the changed sources, When every gate runs, Then each exits 0 | On the release tree e0a082d5 the self-tests, the design check, pytest and the gates pass, see tasks T013 | Met | - |
+| AC-002 | REQ-002 | Given the last commit, When the Sync Loop checks run, Then parity, residency and divergence pass | Parity PASSED 65 of 65, residency PASSED 7 systems and divergence PASSED 208 pairs after outer commit 8bc6d1014 | Met | - |
+| AC-003 | REQ-003 | Given a decision joined to the accent on its row, When the check reads it, Then the `Glance:` line puts it right after the accent unless a node stands between | The cases "a decision beside the accent on its row reads right after it" and "a decision joined to the accent with a node between them on the row keeps its column place" pass in `flow_check.py`, and rubric Section 3 states the exception | Met | - |
+| AC-004 | REQ-004 | Given an intake round, When it ends, Then its last line is one closing question after its last block | Flow templates Section 5, flow-mode Section 8, playbook Section 5 and the kernel state the closing question, and every intake round of the 048 rerun ended on it | Met | - |
+| AC-005 | REQ-005 | Given FJ-017, When its stickies land where their `Sides:` lines named, Then no `Finding:` line is asked for | `hybrid-extension-written.md` 1.0.7.0 asks for the Finding only for a moved sticky, and the 048 FJ-017 run passed with none owed | Met | - |
+| AC-006 | REQ-006 | Given a 26-character decision, When the trace draws it, Then the diamond is 336 px wide and its text box reads 160 px | `compose_board.py` holds a 26-character decision to 336 by 216 and `_text_width` reads a diamond at half its width less 8 px | Met | - |
+| AC-007 | REQ-007 | Given a playback, When it is scored, Then it names the three dials and the gate need not | Flow-mode Section 4 and the playback sentence name the dials, playbook Section 5 checks them and all four 048 playbacks named them | Met | - |
+| AC-008 | REQ-008 | Given a swapped pair, When Composition is scored, Then only the part read early costs the point | The playbook Composition row carries the levels and the swapped-pair sentence | Met | - |
+| AC-009 | REQ-009 | Given unsettled sources under Standard energy, When turn 1 runs, Then it is an intake round with no model or check before the playback's answer | Playbook Section 5 states the turn 1 rule, FJ-022 scripts its intake turn and the 048 FJ-022 and FJ-036 streams show no model before the playback's answer | Met | - |
+| AC-010 | REQ-010 | Given v1.0.14.0, When the release files are read, Then they name 1.0.14.0 with changelogs and the mirror carries every change | The hub, its JSON files and `sk-create-figjam/SKILL.md` read 1.0.14.0, both changelogs exist and the kernel H1 reads v1.2.14 | Met | - |
+| AC-011 | REQ-011 | Given v1.0.14.0, When FJ-017, FJ-022, FJ-023 and FJ-036 are rerun and graded, Then each has a recorded verdict, section 8.14 states the result and the gallery takes each passing board | `grades/sonnet-high-048.jsonl` holds a verdict for each, section 8.14 records 2 of 4 and the gallery took FJ-023's board | Met | - |
 
 ### Status values
 
@@ -70,7 +70,7 @@ waiver is treated as an unmet criterion rather than as a pass.
 <!-- ANCHOR:closure -->
 ## 3. CLOSURE STATEMENT
 
-**Closeable:** No
+**Closeable:** Yes
 
-Every criterion is Unmet. The fixes, the release and the rerun come next.
+Every criterion is Met. SC-003 in `spec.md` is a success measure, not a criterion here, and the rerun passed 2 of 4, so it is recorded as not met and phase 049 takes the causes.
 <!-- /ANCHOR:closure -->

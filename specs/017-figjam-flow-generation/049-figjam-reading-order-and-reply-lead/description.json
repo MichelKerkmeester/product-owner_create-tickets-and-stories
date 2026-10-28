@@ -1,0 +1,27 @@
+{
+  "specFolder": "017-figjam-flow-generation/049-figjam-reading-order-and-reply-lead",
+  "description": "Claude Sonnet 5.5 high reran FJ-017, FJ-022, FJ-023 and FJ-036 on v1.0.14.0 and 2 of 4 passed: FJ-017 PASS, FJ-036 PASS at 21",
+  "keywords": [
+    "claude",
+    "sonnet",
+    "high",
+    "reran",
+    "fj-017",
+    "fj-022",
+    "fj-023",
+    "fj-036",
+    "passed",
+    "pass"
+  ],
+  "lastUpdated": "2026-10-28T05:04:25.443Z",
+  "specId": "049",
+  "folderSlug": "figjam-reading-order-and-reply-lead",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 1,
+  "memoryNameHistory": [
+    "28-10-26_06-04__opened-phase-049-with-decisions-d1-to-d8-from-the.md"
+  ],
+  "level": "2"
+}

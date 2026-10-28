@@ -37,7 +37,7 @@
       "directive"
     ],
     "importance_tier": "normal",
-    "status": "in_progress",
+    "status": "complete",
     "key_files": [
       "spec.md",
       "plan.md",
@@ -46,7 +46,6 @@
       "goal.md",
       "implementation-summary.md",
       "sk-create-figjam/scripts/figjam_checks/board_geometry.py",
-      "sk-create-figjam/scripts/compose-trace.mjs",
       "benchmark/gates/run_gates.sh",
       "manual-testing-playbook/manual-testing-playbook.md",
       "sk-create-figjam/SKILL.md"
@@ -95,12 +94,6 @@
         "source": "derived"
       },
       {
-        "name": "compose-trace.mjs",
-        "kind": "file",
-        "path": "sk-create-figjam/scripts/compose-trace.mjs",
-        "source": "derived"
-      },
-      {
         "name": "run_gates.sh",
         "kind": "script",
         "path": "benchmark/gates/run_gates.sh",
@@ -131,12 +124,6 @@
         "source": "derived"
       },
       {
-        "name": "In Progress",
-        "kind": "proper_noun",
-        "path": "spec.md",
-        "source": "derived"
-      },
-      {
         "name": "Parent Spec",
         "kind": "proper_noun",
         "path": "spec.md",
@@ -150,6 +137,12 @@
       },
       {
         "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
         "kind": "proper_noun",
         "path": "spec.md",
         "source": "derived"
@@ -195,11 +188,17 @@
         "kind": "proper_noun",
         "path": "tasks.md",
         "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
       }
     ],
     "causal_summary": "Claude Sonnet 5.5 high reran FJ-017, FJ-022, FJ-023 and FJ-036 on v1.0.13.0 and 1 of 4 passed: FJ-022 PASS at 21, FJ-023 FAIL at 21, FJ-036 FAIL at 22 and FJ-017 FAIL with no scorecard",
     "created_at": "2026-10-28T00:53:24.280Z",
-    "last_save_at": "2026-10-28T04:05:00.889Z",
+    "last_save_at": "2026-10-28T05:06:07.401Z",
     "save_lineage": "same_pass",
     "last_accessed_at": null,
     "source_docs": [
@@ -210,13 +209,13 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:333579eff8e1d4bca671e2ead0139baf744dcfff91575891f0c4a7b76a5a7c65",
+    "source_fingerprint": "sha256:bac3d78cf875ebf6783be7e8e5c1d0e7ad520e50e8bc854f14254fe5ae102f2b",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "1009fa6a623a0233d0db50b8982e5fc02569937bf35bc02100c8a53334d24d9e",
+      "spec.md": "7b4c6defc70d4edd9b2e34af61beb6dd5e9c8eb56bd3963eada1725d452cf88b",
       "plan.md": "ddf1e2d86e96d2aa7d4237c3c643ce740db838314c1801ad129aa03532f5cb70",
-      "tasks.md": "bcb595002e28e2b71a96a0337869406858331ecb09dec2c49977744901264c7e",
-      "implementation-summary.md": "60628efb734f298445269db88506a1f92a038e1d7e47c282cd7d1d827f1a190a"
+      "tasks.md": "d038c46f97f556f069cabac793376f05db60a2b4ea4c3a833a4d23ba488de5fd",
+      "implementation-summary.md": "8066f258bd5173285218b9b9bd5daa8fa33a81160bba9432529a5f0a870b20bc"
     },
     "last_active_child_id": null,
     "last_active_at": null
