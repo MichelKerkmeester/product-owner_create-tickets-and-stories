@@ -25,7 +25,7 @@ Then answer in plain prose under these headings:
 5. Anything you could not read, could not follow or found ambiguous, with where it sits.
 6. One sentence: could you act on this board without asking anyone, yes or no and why.
 
-Write everything to `<output path>`. Finish the file with one last line, `Order: <label> > <label> > ...`, that names only the board's nodes, in the order you read them, using the labels exactly as printed on the board. Leave out the title, the subtitle, lanes, zones, the key and the footnote. Name every node once.
+Write everything to `<output path>`. Finish the file with one last line, `Order: <label> > <label> > ...`, that repeats the reading order you wrote first, at the top of the note, with the board's nodes only and in that same order, using the labels exactly as printed on the board. It is the order your eye landed on them in the overview, not the order the flow runs. Leave out the title, the subtitle, lanes, zones, the key and the footnote. Name every node once.
 
 ## Grader brief wording
 
