@@ -40,7 +40,8 @@ and a label the composer would wrap one word alone onto its last line is
 reported, since a shorter label is the fix and a wider box is not. Without node,
 or when the trace fails, it prints one `Label: skipped` line instead.
 On a user flow or a process the same board prints a `Glance:` line, the order
-a reader meets its nodes, the accent first and then column by column along the
+a reader meets its nodes, the accent first, then a decision joined to it on its
+own row with no node between them and then column by column along the
 flow, so the glance lines are planned from where the composer draws each node
 rather than from its path. A `Row:` line, never a failure, names a line between
 two main-row steps that bends off the row, with the node standing between them.
@@ -406,6 +407,14 @@ def label_results() -> list[tuple[str, bool, str]]:
         ("a label FigJam wraps narrower than the node measure is still reported",
          "flowchart LR\n    a([Email verified]) --> b([Editor with welcome tip])\n    style b fill:#CDF4D3\n",
          "Label: Editor with welcome tip may leave 'tip' alone"),
+        ("a decision label FigJam strands at the traced diamond size is still reported",
+         "flowchart LR\n    a([Order list]) --> d{Drop-off point or courier?}\n    d -->|Drop-off| b([Drop-off booked])\n"
+         "    d -->|Pickup| c([Pickup booked])\n    style d fill:#FFC2EC,stroke:#F849C1\n",
+         "Label: Drop-off point or courier? may leave 'courier?' alone"),
+        ("a decision label that wraps clear at that width reports none",
+         "flowchart LR\n    a([Order list]) --> d{Drop-off or courier pickup?}\n    d -->|Drop-off| b([Drop-off booked])\n"
+         "    d -->|Pickup| c([Pickup booked])\n    style d fill:#FFC2EC,stroke:#F849C1\n",
+         None),
         ("a model with short labels reports none",
          "flowchart LR\n    a([Order placed]) --> b[Send the parcel]\n    b --> c([Parcel sent])\n"
          "    style c fill:#CDF4D3\n",
@@ -452,6 +461,36 @@ def label_results() -> list[tuple[str, bool, str]]:
         results.append(("the same node in the next step's zone shares its column and leaves the row straight",
                         code == 0 and "Glance: Within 30 days? (accent) > Order list > Start a return > Contact support"
                         in moved and "Row:" not in moved, moved))
+        # A decision joined to the accent by one line on the accent's own row is read in the same look as the
+        # accent, and one with a node standing between them on that row is not.
+        path.write_text("%% type: process\nflowchart LR\n    subgraph customer [\"Customer\"]\n        report([Damage reported])\n"
+                        "        photo[/Send the second photo/]\n    end\n    subgraph cs [\"CS agent\"]\n"
+                        "        check{Damage clear in the photo?}\n        approve[Approve the claim]\n        log[(Claims table)]\n"
+                        "    end\n    subgraph warehouse [\"Warehouse\"]\n        pickup[Book a courier]\n        inspect[Inspect the item]\n"
+                        "        refund([Refund released])\n    end\n    report --> check\n    check -->|Unclear| photo\n"
+                        "    photo --> check\n    check -->|Clear| approve\n    approve -->|Claim queued| pickup\n"
+                        "    approve -->|Logs| log\n    pickup --> inspect\n    inspect --> refund\n"
+                        "    style approve fill:#FFE0C2,stroke:#FF9E42\n", encoding="utf-8")
+        code, output = run_quietly(path)
+        results.append(("a decision beside the accent on its row reads right after it",
+                        code == 0 and "Glance: Approve the claim (accent) > Damage clear in the photo? > Damage reported"
+                        in output, output))
+        path.write_text("flowchart LR\n    %% goal: updated\n    page([Booking page]) --> dates[Pick new dates]\n"
+                        "    dates --> free{Room free on those dates?}\n    free -->|Yes| price{New price?}\n"
+                        "    free -->|No| other[See other rooms]\n    other -->|Pick a room| price\n"
+                        "    price -->|Higher| pay[Pay difference]\n    price -->|Lower| credit[Credit difference]\n"
+                        "    price -->|Same| merge((.))\n    pay --> merge\n    credit --> merge\n"
+                        "    merge --> updated([Updated booking])\n    style price fill:#FFC2EC,stroke:#F849C1\n", encoding="utf-8")
+        code, output = run_quietly(path)
+        results.append(("a decision joined to the accent with a node between them on the row keeps its column place",
+                        code == 0 and "Glance: New price? (accent) > Booking page" in output, output))
+        path.write_text("flowchart LR\n    a([Order list]) --> b[Pick the item]\n    b --> d{Within 30 days?}\n"
+                        "    d -->|Yes| r[Start a return]\n    d -->|No| s([Contact support])\n    r --> e([Return confirmed])\n"
+                        "    style b fill:#FFC2EC,stroke:#F849C1\n    style d fill:#FFC2EC,stroke:#F849C1\n", encoding="utf-8")
+        code, output = run_quietly(path)
+        glance_line = next((line for line in output.splitlines() if line.startswith("Glance:")), "")
+        results.append(("a second node in the accent fill joined to the first is named once",
+                        code == 0 and glance_line.count("Within 30 days?") == 1, output))
         # A line that skips a step on its way to the next one bends on purpose, so it is never a broken row.
         path.write_text("flowchart LR\n    %% zone: Sign in: o, q, g\n    %% zone: Shop: h, k, p\n"
                         "    o([Open the app]) --> q{Logged in?}\n    q -->|No| g[Log in]\n    g --> h[Home screen]\n"

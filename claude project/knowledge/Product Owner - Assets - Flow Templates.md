@@ -186,6 +186,7 @@ Why: <the one line of reason>
 ```
 
 - One to three questions per round and no later round while an earlier one is open
+- A round ends on one closing question after its last block, such as `Take the recommended answers, or correct any of them?`, so each Why line stays inside its block
 - Never a question a supplied source already answers, because that answer is stated as the reading instead
 - A round closes when each of its questions is answered, accepted or corrected
 
