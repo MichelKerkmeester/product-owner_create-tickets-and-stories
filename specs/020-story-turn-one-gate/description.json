@@ -1,0 +1,18 @@
+{
+  "specFolder": "020-story-turn-one-gate",
+  "description": "Story turn-one gate and reply linter fixes",
+  "keywords": [
+    "story",
+    "turn-one",
+    "gate",
+    "reply",
+    "linter"
+  ],
+  "lastUpdated": "2026-10-28T09:07:55.526Z",
+  "specId": "020",
+  "folderSlug": "story-turn-one-gate",
+  "parentChain": [],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "1"
+}
