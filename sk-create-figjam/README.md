@@ -7,7 +7,7 @@ trigger_phrases:
   - "$figjam"
   - "figjam flow"
   - "figjam diagram"
-version: 1.0.12.0
+version: 1.0.13.0
 ---
 
 # sk-create-figjam
@@ -34,7 +34,7 @@ Real boards this packet composed on a fictional test file and rendered through t
 
 **Process.** One lane per role, Customer, CS agent and Warehouse, each in its own tint. The pink outline sits on the Approve the claim step, which logs each decision to a violet Claims table store and hands the claim to the warehouse queue. The Damage clear? decision sends an unclear photo back to the customer as an input step that loops to it. The key names kinds and no team. The run that drew it fails its PASS line on Composition, because the green Refund released goal, left out of the glance plan, reads before the decision the run planned as the second glance.
 
-![A laned refund process where the highlighted Approve the claim step logs to a Claims table store](assets/screenshots/process-board.png)
+![A laned refund process where the highlighted Approve the claim step logs to a Claims table and hands off to a warehouse queue](assets/screenshots/process-board.png)
 
 **Architecture.** Six zones run left to right from Clients through Edge, Services, Events and Stores to Outside. The sync-service node carries the pink outline and the key gives the reason, In focus: Writes every block change. The change stream is an orange queue and the blocks database a violet cylinder. Dashed edges mark the async and outside calls and the three live sockets run both ways, the same as the key.
 
