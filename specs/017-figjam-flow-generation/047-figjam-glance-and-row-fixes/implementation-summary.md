@@ -1,6 +1,6 @@
 ---
 title: "Implementation Summary"
-description: "The v1.0.12.0 rerun causes are fixed in the working tree for v1.0.13.0: the check prints the drawn reading order and a bending row, stickies keep their side and alignment within reach, the gate shows the checked model line for line and labels have a way past a wrap."
+description: "v1.0.13.0 fixed every v1.0.12.0 rerun cause: the check prints the drawn reading order and a bending row, stickies keep their side and alignment within reach, the gate shows the checked model line for line and labels have a way past a wrap. The rerun passed 1 of 4."
 trigger_phrases:
   - "figjam glance and row fixes implementation summary"
 importance_tier: "normal"
@@ -8,19 +8,19 @@ contextType: "implementation"
 _memory:
   continuity:
     packet_pointer: "017-figjam-flow-generation/047-figjam-glance-and-row-fixes"
-    last_updated_at: "2026-10-27T23:49:42Z"
+    last_updated_at: "2026-10-28T00:53:23Z"
     last_updated_by: "generate-context"
-    recent_action: "Reviewed and gated the release"
-    next_safe_action: "Commit and rerun the scenarios"
+    recent_action: "Closed phase after rerun"
+    next_safe_action: "Continue in phase 048"
     blockers: []
     key_files:
       - "sk-create-figjam/scripts/flow_check.py"
       - "sk-create-figjam/scripts/figjam_checks/board_geometry.py"
     session_dedup:
-      fingerprint: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      fingerprint: "sha256:e1446d858bf5e8974d9de21b09b911685bb36d54775e6f1d81cfadf396f41fcd"
       session_id: "348b59cb-58a2-4b49-8147-c40143312bc1"
       parent_session_id: null
-    completion_pct: 60
+    completion_pct: 100
     open_questions: []
     answered_questions: []
 ---
@@ -38,7 +38,7 @@ _memory:
 | Field | Value |
 |-------|-------|
 | **Spec Folder** | 047-figjam-glance-and-row-fixes |
-| **Completed** | Pending |
+| **Completed** | 2026-10-28 |
 | **Level** | 2 |
 <!-- /ANCHOR:metadata -->
 
@@ -47,7 +47,7 @@ _memory:
 <!-- ANCHOR:what-built -->
 ## What Was Built
 
-Every script, skill, playbook and harness cause of README section 8.12 has a change in the working tree, for release as v1.0.13.0. The mirror, the release and the rerun are still to come.
+Every script, skill, playbook and harness cause of README section 8.12 has a change, released as v1.0.13.0 with kernel v1.2.13, and the four failed scenarios were rerun on it.
 
 ### Phase 47: FigJam glance and row fixes
 
@@ -64,7 +64,9 @@ Causes with no skill change: FJ-017's hard-coded Cancelled sticky and the three 
 | `sk-create-figjam/assets/flow-templates.md` and the seven `assets/examples/` | Modify | Round One dials, the Sketch line and the relabelled models |
 | `sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md` | Modify | The Composition and Legibility rows and the Section 5 stop rules |
 | `claude project/Custom Instructions.md` | Modify | The verbatim sketch in the Flow write bullet |
-| `benchmark/reports/.../run/` (`run_full.sh`, `adaptive_compare.py`, three `redact_run.py` copies) | Modify | The harness |
+| `benchmark/reports/.../run/` (`run_full.sh`, `adaptive_compare.py`, three `redact_run.py` copies) | Modify | The harness, and key discovery for a file a run creates for itself |
+| `claude project/` (twelve Knowledge files, the composer mirror), `SYNC.md`, the release files | Modify, Create | The mirror and the v1.0.13.0 release |
+| The run folder and `sk-create-figjam/assets/screenshots/` | Create, Modify | The 047 rerun records, README section 8.13 and the user flow gallery image |
 <!-- /ANCHOR:what-built -->
 
 ---
@@ -72,7 +74,7 @@ Causes with no skill change: FJ-017's hard-coded Cancelled sticky and the three 
 <!-- ANCHOR:how-delivered -->
 ## How It Was Delivered
 
-The check reads both new lines off the board it already composes in memory for the label trace, so nothing in the composer moved. Each check change came with self-test cases: a zoned flow whose off-row exit sits in its own column and the same flow with that exit moved into the next zone, a sticky case with an end dot inside and past one sticky width and a lone word only the narrow measure strands. The two flow examples were relabelled until their checks printed no `Label:` line, and a new self-test row compares every example's Check block with the real output. The fresh review, the mirror and the release follow.
+The check reads both new lines off the board it already composes in memory for the label trace, so nothing in the composer moved. Each check change came with self-test cases: a zoned flow whose off-row exit sits in its own column and the same flow with that exit moved into the next zone, a sticky case with an end dot inside and past one sticky width and a lone word only the narrow measure strands. The two flow examples were relabelled until their checks printed no `Label:` line, and a new self-test row compares every example's Check block with the real output. A fresh Opus reviewer read the whole diff and found 1 P1 and 11 P2, each confirmed and repaired: the P1 read a skip edge as a bent row, mended by skipping a line that passes a node on the row or reaches the edge's target. The kernel edit moved a residency row, resynced and committed before the Sync Loop checks ran, and the flow-mode review pin moved in its own commit. The rerun used four parallel lanes, and a file FJ-017 created for itself leaked its key until `redact_run.py` learned to find keys in the output.
 <!-- /ANCHOR:how-delivered -->
 
 ---
@@ -85,6 +87,7 @@ The check reads both new lines off the board it already composes in memory for t
 | Plan the glance from the drawn order | Readers met off-row nodes where the composer drew them, early, while the plan put them last |
 | Advise on a bending row, never fail | The board still reads, and the model is where a bend is mended |
 | Show the checked model verbatim | Three gates showed a sketch that was not the model the check read |
+| Keep FJ-022's PASS | It ran the check before the playback under Standard energy, but the scenario's signals and PASS line held when it was graded, so the breach is a finding and the playbook rule comes in phase 048 |
 <!-- /ANCHOR:decisions -->
 
 ---
@@ -94,11 +97,13 @@ The check reads both new lines off the board it already composes in memory for t
 
 | Check | Result |
 |-------|--------|
-| `python3 sk-create-figjam/scripts/flow_check.py --self-test` on the working tree | 186 of 186, exit 0 |
-| `python3 sk-create-figjam/scripts/compose_board.py --self-test` on the working tree | 1250 of 1250, exit 0 |
+| `python3 sk-create-figjam/scripts/flow_check.py --self-test` on the committed tree | 194 of 194, exit 0 |
+| `python3 sk-create-figjam/scripts/compose_board.py --self-test` and `--design-check` on the committed tree | 1250 of 1250, exit 0 |
 | `flow_check.py` on the relabelled user flow and process examples | PASSED with a `Glance:` line and no `Label:` line |
 | The three `redact_run.py` copies | One hash |
-| Gates, pytest, the output format gate and the Sync Loop checks | Pending |
+| pytest, the gates and the output format gate | 18 passed, 15 of 15 on the release tree, format passed across 72 source files |
+| Sync Loop checks after outer commit 3fe1a442e | parity PASSED 65 of 65, residency PASSED 7, divergence PASSED 208 pairs, every `check_criteria.sh` row ok |
+| Rerun, `grades/sonnet-high-047.jsonl` | FJ-022 PASS at 21, FJ-023 FAIL at 21, FJ-036 FAIL at 22, FJ-017 FAIL with no scorecard |
 <!-- /ANCHOR:verification -->
 
 ---
@@ -106,5 +111,5 @@ The check reads both new lines off the board it already composes in memory for t
 <!-- ANCHOR:limitations -->
 ## Known Limitations
 
-1. **The rerun is pending.** No scenario has run on v1.0.13.0, so SC-003 is untested. The mirror, the release, the review, the commits and the rerun are still open
+1. **SC-003 is not met.** The rerun passed 1 of 4. FJ-017 named no sticky on a `Finding:` line where its scenario asked for one the skill does not, FJ-036's intake round ended on a `Why:` line after its question, FJ-023's readers met the accent's lane neighbour before the entry the `Glance:` line put second and the label trace passed a diamond label FigJam wrapped. Run README section 8.13 records each cause and phase 048 takes them all
 <!-- /ANCHOR:limitations -->
