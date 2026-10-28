@@ -40,16 +40,16 @@ contextType: "implementation"
 <!-- ANCHOR:phase-2 -->
 ## Phase 2: Implementation
 
-- [ ] T003 Lift the accent's row decision (`scripts/figjam_checks/board_geometry.py`, `scripts/flow_check.py`, `references/quality-rubric.md`, `assets/examples/process-fernhouse-refund.md`). Verify: the flow check self-test passes the case with a node between and the process example's Check block matches.
-- [ ] T004 End each intake round on one closing question (`assets/flow-templates.md`, `references/flow-mode.md`, `manual-testing-playbook/manual-testing-playbook.md`). Verify: the three files state it.
-- [ ] T005 Align FJ-017's Finding with the skill (`manual-testing-playbook/board-write/hybrid-extension-written.md`, `manual-testing-playbook/manual-testing-playbook.md`, `references/hybrid-workflow.md`). Verify: the scenario reads 1.0.7.0 and every copy of the signal names a sticky that left its side.
-- [ ] T006 Trace diamonds at FigJam's size and box (`scripts/compose-trace.mjs`, `scripts/figjam_checks/board_geometry.py`, `assets/examples/user-flow-fernhouse-return.md`). Verify: the self-test traces a 26-character decision at 336 px and the reworded user flow example prints no `Label:` line.
-- [ ] T007 Keep the dials at the playback (`references/flow-mode.md`, `manual-testing-playbook/manual-testing-playbook.md`). Verify: flow-mode names the playback alone and playbook Section 5 checks it.
-- [ ] T008 Rewrite the Composition levels and the swapped-pair sentence (`manual-testing-playbook/manual-testing-playbook.md`). Verify: the row carries the three levels.
-- [ ] T009 Add the turn 1 intake rule (`manual-testing-playbook/manual-testing-playbook.md`). Verify: playbook Section 5 states it.
-- [ ] T010 Write the Project mirror for every changed skill file (`claude project/knowledge/`, `SYNC.md`). Verify: `validate_parity.py product-owner` and `pair_divergence.py product-owner` print PASSED.
-- [ ] T011 Release v1.0.14.0 (`SYNC.md`, `README.md`, version files, changelogs). Verify: the hub, its JSON files and `sk-create-figjam/SKILL.md` read 1.0.14.0.
-- [ ] T012 Review the whole diff with a fresh Opus reviewer and repair the confirmed findings. Verify: each repair is read back.
+- [x] T003 Lift the accent's row decision (`scripts/figjam_checks/board_geometry.py`, `scripts/flow_check.py`, `references/quality-rubric.md`, `assets/examples/process-fernhouse-refund.md`). Verify: the flow check self-test passes the case with a node between and the process example's Check block matches. [EVIDENCE: `reading_order` lifts a decision joined to the accent on its row with no node between, the self-test cases "a decision beside the accent on its row reads right after it" and "a decision joined to the accent with a node between them on the row keeps its column place" pass, rubric Section 3 states the exception and the process example's Check block matches the check]
+- [x] T004 End each intake round on one closing question (`assets/flow-templates.md`, `references/flow-mode.md`, `manual-testing-playbook/manual-testing-playbook.md`). Verify: the three files state it. [EVIDENCE: flow templates Section 5 adds the closing question bullet, flow-mode Section 8 says an intake round ends on it and playbook Section 5 fails a round whose last line is anything else, with the kernel's Flow Mode Delivery paragraph carrying the same sentence]
+- [x] T005 Align FJ-017's Finding with the skill (`manual-testing-playbook/board-write/hybrid-extension-written.md`, `manual-testing-playbook/manual-testing-playbook.md`, `references/hybrid-workflow.md`). Verify: the scenario reads 1.0.7.0 and every copy of the signal names a sticky that left its side. [EVIDENCE: `hybrid-extension-written.md` reads 1.0.7.0 and asks for a `Finding:` line only for a sticky that left its named side, the root playbook FJ-017 summary matches and hybrid-workflow Section 3 says the check names the second sticky's side on its `Sides:` line]
+- [x] T006 Trace diamonds at FigJam's size and box (`scripts/compose-trace.mjs`, `scripts/figjam_checks/board_geometry.py`, `assets/examples/user-flow-fernhouse-return.md`). Verify: the self-test traces a 26-character decision at 336 px and the reworded user flow example prints no `Label:` line. [EVIDENCE: `compose-trace.mjs` rounds each line height, `_text_width` reads a diamond at half its width less 8 px, `compose_board.py` holds a 26-character decision to 336 by 216 and the user flow example reads `Within 30 days after delivery?` and `Drop-off or courier pickup?` with no `Label:` line]
+- [x] T007 Keep the dials at the playback (`references/flow-mode.md`, `manual-testing-playbook/manual-testing-playbook.md`). Verify: flow-mode names the playback alone and playbook Section 5 checks it. [EVIDENCE: flow-mode Section 4 has the playback alone name the dials, the playback sentence names them by their words, the Flow Mode mirror matches and playbook Section 5 fails a playback that leaves one out]
+- [x] T008 Rewrite the Composition levels and the swapped-pair sentence (`manual-testing-playbook/manual-testing-playbook.md`). Verify: the row carries the three levels. [EVIDENCE: the Composition row reads 2, 1 and 0 with the requested element held to its planned place and "When two parts swap, the part out of place is the one read earlier than its planned place"]
+- [x] T009 Add the turn 1 intake rule (`manual-testing-playbook/manual-testing-playbook.md`). Verify: playbook Section 5 states it. [EVIDENCE: playbook Section 5 states the Standard energy turn 1 intake rule, and FJ-022 now scripts the intake turn its prompt calls for]
+- [x] T010 Write the Project mirror for every changed skill file (`claude project/knowledge/`, `SYNC.md`). Verify: `validate_parity.py product-owner` and `pair_divergence.py product-owner` print PASSED. [EVIDENCE: kernel v1.2.14, seven Knowledge files and the composer mirror changed with their sources and the SYNC.md note of 2026-10-28 records each, parity is read after outer commit 2ea776e8e]
+- [x] T011 Release v1.0.14.0 (`SYNC.md`, `README.md`, version files, changelogs). Verify: the hub, its JSON files and `sk-create-figjam/SKILL.md` read 1.0.14.0. [EVIDENCE: `SKILL.md`, `description.json`, `hub-router.json`, `mode-registry.json` and `sk-create-figjam/SKILL.md` read 1.0.14.0, both v1.0.14.0 changelogs exist and the kernel H1 reads v1.2.14, committed as PO e0a082d5]
+- [x] T012 Review the whole diff with a fresh Opus reviewer and repair the confirmed findings. Verify: each repair is read back. [EVIDENCE: the fresh reviewer found 1 P1 and 9 P2 and no P0, each confirmed and repaired: a second accent-fill node named twice, the top-down reading of the accent's row, a test name, FJ-022's missing intake turn, the playback sentence without the dials, the Composition level against the revision exception, the README code figure, the SYNC section name, the changelog sizes and two serial commas, with 199 of 199 and 1251 of 1251 self-test checks after]
 <!-- /ANCHOR:phase-2 -->
 
 ---
@@ -113,8 +113,8 @@ contextType: "implementation"
 <!-- ANCHOR:code-quality -->
 ## Code Quality
 
-- [ ] CHK-010 [P0] The composer and check self-tests pass with the new cases
-- [ ] CHK-011 [P1] pytest passes
+- [x] CHK-010 [P0] The composer and check self-tests pass with the new cases [EVIDENCE: flow check 199 of 199, composer 1251 of 1251, design check exit 0, and the two-accent case fails with its fix removed]
+- [x] CHK-011 [P1] pytest passes [EVIDENCE: 18 passed]
 <!-- /ANCHOR:code-quality -->
 
 ---
@@ -123,7 +123,7 @@ contextType: "implementation"
 ## Testing Checklist
 
 - [ ] CHK-020 [P0] All acceptance criteria met
-- [ ] CHK-021 [P0] Gates pass
+- [x] CHK-021 [P0] Gates pass [EVIDENCE: all 15 gates and the output format gate across 72 source files pass]
 <!-- /ANCHOR:testing -->
 
 ---
@@ -131,13 +131,13 @@ contextType: "implementation"
 <!-- ANCHOR:fix-completeness -->
 ## Fix Completeness
 
-- [ ] CHK-FIX-001 [P0] Each actionable finding has a finding class
-- [ ] CHK-FIX-002 [P0] Same-class producer inventory completed
-- [ ] CHK-FIX-003 [P0] Consumer inventory completed
-- [ ] CHK-FIX-004 [P0] Adversarial cases for parser fixes
-- [ ] CHK-FIX-005 [P1] Matrix axes and row count listed
+- [x] CHK-FIX-001 [P0] Each actionable finding has a finding class [EVIDENCE: each 8.13 cause is classed as script, skill, playbook or model in spec.md D1 to D8]
+- [x] CHK-FIX-002 [P0] Same-class producer inventory completed [EVIDENCE: the reviewer searched the skill, the mirror and the examples for the six old phrases and found none left stating the old rule]
+- [x] CHK-FIX-003 [P0] Consumer inventory completed [EVIDENCE: the playback sentence, FJ-022's turns and the revision exception, readers of the changed rules, were found and repaired in review]
+- [x] CHK-FIX-004 [P0] Adversarial cases for parser fixes [EVIDENCE: cases for a node between, two accents, a decision joined both ways and a top-down flow were probed, and each new self-test fails with its fix removed]
+- [x] CHK-FIX-005 [P1] Matrix axes and row count listed [EVIDENCE: four check changes with five new self-tests, nine rule files with their seven mirrors and the kernel]
 - [x] CHK-FIX-006 [P1] Hostile env variant [EVIDENCE: the spec tools run with the PO links created only for each run and removed after, as the operator asked]
-- [ ] CHK-FIX-007 [P1] Evidence pinned to a diff range
+- [x] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: `git diff e359b8a6..e0a082d5` in the PO repository]
 <!-- /ANCHOR:fix-completeness -->
 
 ---
@@ -145,7 +145,7 @@ contextType: "implementation"
 <!-- ANCHOR:security -->
 ## Security
 
-- [ ] CHK-030 [P0] No board URL, Figma file key, plan name or email in any committed file
+- [x] CHK-030 [P0] No board URL, Figma file key, plan name or email in any committed file [EVIDENCE: the scan of the 245 added lines found no file key, URL, plan key, email or em dash]
 <!-- /ANCHOR:security -->
 
 ---
@@ -154,7 +154,7 @@ contextType: "implementation"
 ## Documentation
 
 - [ ] CHK-040 [P1] Spec, plan and tasks synchronized
-- [ ] CHK-041 [P1] Project mirror and SYNC note
+- [x] CHK-041 [P1] Project mirror and SYNC note [EVIDENCE: see T010]
 <!-- /ANCHOR:docs -->
 
 ---
@@ -162,7 +162,7 @@ contextType: "implementation"
 <!-- ANCHOR:file-org -->
 ## File Organization
 
-- [ ] CHK-050 [P1] No change outside the files named in spec.md Section 3
+- [x] CHK-050 [P1] No change outside the files named in spec.md Section 3 [EVIDENCE: the release touches only the scripts, references, assets, playbook, mirror and release files Section 3 names, the composer among them by amendment]
 - [x] CHK-051 [P1] scratch/ holds no file [EVIDENCE: this phase has no scratch folder]
 <!-- /ANCHOR:file-org -->
 
