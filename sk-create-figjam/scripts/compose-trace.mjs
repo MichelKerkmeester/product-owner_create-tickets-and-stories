@@ -6,7 +6,8 @@
 // the script's return value, and the error it threw, if any. A connector also reports its end caps,
 // dash pattern, stroke and weight, so the arrow a message draws can be measured, and a shape reports its
 // stroke, weight, fill and dash pattern, so the accent and each kind's outline can be measured against every other mark. Text is measured with fixed
-// Inter proportions, so the geometry is a model of the board and never a screenshot of it. Each text reports the
+// Inter proportions, with each line's height rounded to a whole pixel as FigJam sets it, so the geometry is a
+// model of the board and never a screenshot of it. Each text reports the
 // font it was set in, and two planted families fail to load, so the composer's font fallbacks can be proved.
 // Usage: node compose-trace.mjs <filled-code.js>
 // Exit: 0 the trace was printed, including when the script under test threw, since that error rides in the
@@ -35,7 +36,7 @@ class Text {
   get characters() { return this.chars; }
   set characters(v) { this.chars = v; this.measure(); }
   measure() {
-    const cw = this.fontSize * CHAR, lh = this.fontSize * LINE, lines = this.chars.split('\n');
+    const cw = this.fontSize * CHAR, lh = Math.round(this.fontSize * LINE), lines = this.chars.split('\n');
     if (this.textAutoResize === 'WIDTH_AND_HEIGHT') {
       this.w = Math.max(...lines.map((l) => l.length)) * cw;
       this.h = lines.length * lh;

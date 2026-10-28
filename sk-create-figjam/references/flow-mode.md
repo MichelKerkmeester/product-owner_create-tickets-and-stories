@@ -10,7 +10,7 @@ trigger_phrases:
   - "figjam flow from screenshots"
   - "flow model pre-write check"
   - "board url read-back"
-version: 1.0.11.0
+version: 1.0.12.0
 ---
 
 # Product Owner - Templates - Flow Mode
@@ -296,7 +296,7 @@ The composer sets one type scale for every board: a 64 pixel title, a 28 pixel s
 
 Each type's budget section states its own counts at `Wall`. A board over its distance budget splits rather than shrinks, as Section 5 sets out.
 
-Distance is asked with the other two dial settings in intake round one, as `assets/flow-templates.md` Section 5 sets out, with the AI's reading of where the board will be read and a recommended answer. Unanswered, `Laptop` stands. The playback and the gate name all three settings by their words, the detail level, the audience and the distance, so a reader who disagrees corrects them before anything is written.
+Distance is asked with the other two dial settings in intake round one, as `assets/flow-templates.md` Section 5 sets out, with the AI's reading of where the board will be read and a recommended answer. Unanswered, `Laptop` stands. The playback names all three settings by their words, the detail level, the audience and the distance, so a reader who disagrees corrects them before the model is written.
 
 ---
 
@@ -445,7 +445,7 @@ The reply carries the board, its proof and the self-scan, and nothing else. Anyt
 
 Each round of intake opens with a short replay of the rows settled so far, one row per line, each in the words the product uses. The replay sits above the round's next question, so a wrong row is corrected before more answers build on it.
 
-Before the model there is one full playback, and it waits for one answer. It states the Brief's question and its outcome, what each source settled, every row still open and every fact it assumed. That answer is not the gate's yes, because the gate asks about a write and the playback asks about the reading.
+Before the model there is one full playback, and it waits for one answer. It states the Brief's question and its outcome, the detail level, the audience and the distance by their words, what each source settled, every row still open and every fact it assumed. That answer is not the gate's yes, because the gate asks about a write and the playback asks about the reading.
 
 An unanswered question never stops the work. The reading proceeds on the recommendation the question gave, the fact is marked assumed and the playback names it, so the user corrects it before anything is written. A yes moves the work on to the model. A correction changes that row and the playback runs again over the rows it touched.
 
@@ -453,7 +453,7 @@ The playback is not one of the five reply lines. It runs before the write, and t
 
 ### The gate is its own reply
 
-The playback and the gate are two replies, never one. Each is the last message of its turn: the turn ends on the stop's question, never on a status line after it, and a stop is never posted as a message in the middle of a turn that goes on working. An intake round ends the same way. None of the three carries the `HVR self-scan:` line, which belongs to the reply that delivers the board, because a stop delivers nothing. The playback comes before the model, so its reply carries no Mermaid, no check result and no composed code. It ends on its one question about the reading, names no plan, lists no calls and never asks whether to write. The gate reply follows the playback's answer, and its one question asks about the write alone. No question is ever worded so that one yes covers both, such as a yes that confirms the reading and the write together.
+The playback and the gate are two replies, never one. Each is the last message of its turn: the turn ends on the stop's question, never on a status line after it, and a stop is never posted as a message in the middle of a turn that goes on working. An intake round ends the same way, on the closing question `assets/flow-templates.md` Section 5 puts after its last block. None of the three carries the `HVR self-scan:` line, which belongs to the reply that delivers the board, because a stop delivers nothing. The playback comes before the model, so its reply carries no Mermaid, no check result and no composed code. It ends on its one question about the reading, names no plan, lists no calls and never asks whether to write. The gate reply follows the playback's answer, and its one question asks about the write alone. No question is ever worded so that one yes covers both, such as a yes that confirms the reading and the write together.
 
 Only a yes to the gate's own question writes. A yes to the playback, an answer to an intake round, a request to use the recommended answers or a yes to a question no reply asked never writes. Before the playback has had its answer, the reply to any of those is the playback. Once it has, and the gate has not been shown yet, the reply is the gate, and the write waits for the yes that answers it. A request to use the recommended answers sent after the playback counts as the playback's answer.
 

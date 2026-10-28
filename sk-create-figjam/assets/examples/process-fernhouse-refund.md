@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "process example"
   - "fernhouse refund process"
-version: 1.0.7.0
+version: 1.0.8.0
 ---
 
 # Example - Process - Fernhouse Refund
@@ -111,7 +111,7 @@ Left out: pickup skipped under €20, a pilot that is not live
 
 ```text
   diagram 1, process: ok, 8 nodes and 8 connectors, widest rank 2 steps, longest path 6 steps, 1.0 connectors per step, labels average 17 characters, 0 crossing pairs
-Glance: Approve the claim (accent) > Damage reported > Damage clear in the photo? > Send the second photo > Claims table > Book a courier > Inspect the item > Refund released (goal)
+Glance: Approve the claim (accent) > Damage clear in the photo? > Damage reported > Send the second photo > Claims table > Book a courier > Inspect the item > Refund released (goal)
 PASSED 1 diagram(s) in model.md
 ```
 
@@ -125,11 +125,11 @@ The gate is its own reply, sent after the playback's answer. Its one question as
 Question: who does what, and where does the claim change hands?
 Outcome: a reader can see which team owns each step of a damaged-item refund and where the claim moves from CS to the warehouse.
 First glance: Approve the claim, the handoff from CS to the warehouse that the runbook names as the slowest.
-Second glance: Damage reported, the light blue entry where the claim starts, then Damage clear in the photo?, Send the second photo, the loop back to the customer, the claims table, where every decision is logged, then Book a courier, Inspect the item and Refund released, the goal, in the order the check's Glance line prints.
+Second glance: Damage clear in the photo?, the decision beside the handoff on its row, then Damage reported, the light blue entry where the claim starts, then Send the second photo, the loop back to the customer, the claims table, where every decision is logged, then Book a courier, Inspect the item and Refund released, the goal, in the order the check's Glance line prints.
 Last glance: the key and the source line, since the goal comes last.
 Sketch: the Section 4 model above in full, every `%%` and `style` line included, with the check's PASSED line as it printed.
 Eye first: Approve the claim, the handoff the runbook names as the slowest, and it is the node the board most needs read.
-Reads second: the claim from Damage reported to Refund released, column by column across the lanes, which shows who holds the claim at each step.
+Reads second: Damage clear in the photo? beside it, then the claim from Damage reported to Refund released, column by column across the lanes, which shows who holds the claim at each step.
 Could miss: Send the second photo, the loop back to the customer, which would hide why some claims stall.
 Remove next: the claims table, kept because every decision on the claim is logged there.
 Plan: Fernhouse Product. File: a new FigJam file named "Damaged-item refund", created in that plan.

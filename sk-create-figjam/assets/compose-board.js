@@ -842,7 +842,9 @@ function buildGraph(M) {
       if (!ok.length) return;
       const hits = (gap) => ok.some((l) => crossed(l.pts, gap).some((id) => !mine.includes(id)));
       const labs = e.label ? ok.map((l) => labelAt(job, l, pinned)) : [];
-      const bad = hits(0) || ok.some((l) => rides(l) || strays(l, homes) || heads.some((t) => cuts(l.pts, t, TITLE_GAP))) || labs.some((r) => heads.some((t) => touch(r, t)));
+      // A label keeps 4 pixels, half the title gap, clear of every zone title, the clearance the check measures,
+      // so a title a whole-pixel line height leaves a pixel shorter never lets a label sit on its last pixel.
+      const bad = hits(0) || ok.some((l) => rides(l) || strays(l, homes) || heads.some((t) => cuts(l.pts, t, TITLE_GAP))) || labs.some((r) => heads.some((t) => touch(r, t, 4)));
       // A label keeps AIR clear of every box it does not name, so it never reads as that box's own.
       const onNode = labs.some((r) => r.short || items.some((n) => !mine.includes(n.id) && touch(r, L.box.get(n.id), AIR)));
       list.push({ id: ++serial, m0, m1, lines: ok, labs, pinned, bad, leg: labs.length ? labs[0].leg : 0,

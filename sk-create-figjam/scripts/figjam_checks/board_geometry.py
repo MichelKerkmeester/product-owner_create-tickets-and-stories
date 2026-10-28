@@ -42,7 +42,8 @@ GRID_STEP = 8
 # A node's own text wraps at a narrower average, NODE_WIDTH of the node size: at that measure the wraps match the
 # ones rendered boards show, where the label proportion flags labels that fit.
 # FigJam's own wrap runs narrower still on lowercase words: a rendered board fitted 19 characters where NODE_WIDTH
-# fits 17, so a label is also read at NODE_NARROW and a stranded word at either measure is reported.
+# fits 17, so a label is also read at NODE_NARROW and a stranded word at either measure is reported. In a diamond
+# the two measures give 16 and 17 characters, which reproduce every wrap a live render of the decisions showed.
 CHAR_WIDTH, NODE_WIDTH, NODE_NARROW = 0.56, 0.5, 0.45
 TITLE_INSET, TITLE_GAP, LABEL_HEIGHT, LABEL_PAD, LABEL_CHAR, SHARE_MAX = 32, 8, 24, 16, 18 * CHAR_WIDTH, 56
 NODE_CHAR = 20 * NODE_WIDTH
@@ -53,11 +54,14 @@ NODE_NARROW_CHAR = 20 * NODE_NARROW
 STICKY, STICKY_GAP = 240, 64
 STICKY_REACH = STICKY
 STICKY_SIDES = ("right", "below", "above", "left")
-# A reader takes a flow column by column along its direction and down each column. Two boxes whose centres stand
+# A reader takes the accent first, then a decision joined to it by one line on its own row with nothing between
+# them, then the flow column by column along its direction and down each column. Two boxes whose centres stand
 # closer than COLUMN along the flow read as one column, since the composer sets a rank's boxes on one line.
 COLUMN = 120
 # The shapes whose text the composer fits into the inscribed half box, so the box a trace records is never the
-# width its label wraps at. A parallelogram gives up its slanted ends the same way.
+# width its label wraps at. A parallelogram gives up its slanted ends the same way. A diamond is the one round
+# shape measured on a live render: in a 336 px diamond FigJam's text box stood between 156 and 165 px wide, so a
+# diamond's label wraps at half its box less 8. The others keep half their box less 32 until a render measures them.
 ROUND_SHAPES = {"DIAMOND", "ELLIPSE", "HEXAGON", "OCTAGON"}
 # A run along a zone's edge reads as part of the border when it is closer than ZONE_OUT outside it or ZONE_IN
 # inside it. The gap between two zones is 48 wide, so its middle clears both borders by 24, and the zone's
@@ -541,6 +545,8 @@ def edges_side_by_side(drawn: dict) -> list[str]:
 def _text_width(shape: dict) -> float:
     """The width the composer fits a shape's label into, which is its box less what the shape takes of it."""
     w, kind = shape["w"], shape.get("shape")
+    if kind == "DIAMOND":
+        return w / 2 - 8
     if kind in ROUND_SHAPES:
         return w / 2 - 32
     return w - (96 if kind == "PARALLELOGRAM_RIGHT" else 48)
@@ -693,9 +699,12 @@ def _centre(box: dict, lr: bool) -> tuple[float, float]:
 def reading_order(drawn: dict, model: dict) -> list[str]:
     """The ids of a flow's nodes in the order a reader meets them on the board.
 
-    The accent comes first. The rest follow column by column along the flow and down each column, or row by
-    row and left to right on a top-down flow, so a node the composer sets between two main-row steps is met
-    between them, wherever its path puts it. End dots and merge points carry no words and are left out.
+    The accent comes first. A decision joined to the accent by one line and set on the accent's own row (its
+    own column on a top-down flow), with no node standing between them on that row, comes right after it, since the eye that lands on the accent
+    takes the decision beside it in the same look. The rest follow column by column along the flow and down
+    each column, or row by row and left to right on a top-down flow, so a node the composer sets between two
+    main-row steps is met between them, wherever its path puts it. End dots and merge points carry no words
+    and are left out.
     """
     boxes = {name: box for name, box in boxes_of(drawn).items() if not name.startswith("__")}
     lr = model.get("direction", "LR") == "LR"
@@ -709,7 +718,25 @@ def reading_order(drawn: dict, model: dict) -> list[str]:
             columns.append([node_id])
     order = [node_id for column in columns for node_id in sorted(column, key=lambda i: _centre(boxes[i], lr)[1])]
     accent = [n["id"] for n in model["nodes"] if n.get("accent") and n["id"] in boxes]
-    return accent + [node_id for node_id in order if node_id not in accent]
+    beside = []
+    if accent:
+        kinds = {n["id"]: n.get("kind") for n in model["nodes"]}
+        a_along, a_across = _centre(boxes[accent[0]], lr)
+        joined = ({e["to"] for e in model["edges"] if e["from"] == accent[0]}
+                  | {e["from"] for e in model["edges"] if e["to"] == accent[0]})
+
+        def on_row(i: str) -> bool:
+            return abs(_centre(boxes[i], lr)[1] - a_across) <= GRID_STEP
+
+        for i in sorted((j for j in joined if j in boxes), key=lambda j: _centre(boxes[j], lr)[0]):
+            if i in accent or kinds.get(i) != "decision" or not on_row(i):
+                continue
+            lo, hi = sorted((_centre(boxes[i], lr)[0], a_along))
+            if not any(j not in (accent[0], i) and kinds.get(j) not in (None, "merge") and on_row(j)
+                       and lo < _centre(boxes[j], lr)[0] < hi for j in boxes):
+                beside.append(i)
+    first = accent + beside
+    return first + [node_id for node_id in order if node_id not in first]
 
 
 def row_breaks(drawn: dict, model: dict) -> list[tuple[str, str, list[str]]]:

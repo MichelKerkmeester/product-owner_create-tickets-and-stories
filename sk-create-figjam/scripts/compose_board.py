@@ -1476,6 +1476,19 @@ def goal_line_checks() -> list[tuple[str, bool, str]]:
     return [("a goal line names the goal without the accent, which stays on the styled decision", ok, str(kinds))]
 
 
+def diamond_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
+    """A 26-character decision traces at the 336 by 216 diamond a live FigJam board drew for it, because the trace
+    sets each line at a whole-pixel height, as FigJam does, and three lines at step 1.3 then fit."""
+    flow = ("flowchart LR\n    a([Order list]) --> d{Drop-off point or courier?}\n    d -->|Drop-off| b([Drop-off booked])\n"
+            "    d -->|Pickup| c([Pickup booked])\n    style d fill:#FFC2EC,stroke:#F849C1\n")
+    model, problems, _ = build_model(mermaid_extract.SourceBlock(1, flow, 1), 1)
+    drawn = geometry.run_trace(fill_template(model, sent), work) if model and not problems else None
+    box = next((n for n in (drawn or {}).get("nodes", []) if n["name"] == "node:d"), None)
+    return [("a 26-character decision traces at the 336 by 216 diamond FigJam draws",
+             bool(box) and (box["w"], box["h"]) == (336, 216),
+             f"traced {(box['w'], box['h']) if box else problems or 'no diamond'}")]
+
+
 def note_room_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
     """A notes line moves the key down by one sticky and its gap, which frees the side below a boxed-in node."""
     flow = ("flowchart LR\n{notes}    a([Order placed]) --> b[Send the parcel]\n    b --> c([Parcel sent])\n"
@@ -1565,6 +1578,7 @@ def self_test() -> int:
             results += composite_labels_checks(Path(work), sent)
             results += restyle_checks(Path(work), base)
             results += note_room_checks(Path(work), sent)
+            results += diamond_checks(Path(work), sent)
             results += font_checks(Path(work))
             results += cap_checks(Path(work))
             results += extreme_checks(Path(work), base, design)
