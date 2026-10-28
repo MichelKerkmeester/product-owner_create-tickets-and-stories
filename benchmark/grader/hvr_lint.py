@@ -142,13 +142,20 @@ CATALOG_ENTRY_LINE = re.compile(
     rf"^### {CATALOG_STABLE_ID} — [^—\s][^—]*$|^\* {{3}}\[{CATALOG_STABLE_ID} — [^\]—]+\]\(#[^)\s]+\)\s*$"
 )
 CURLY_QUOTES = re.compile("[‘’“”]")
-ELLIPSIS = re.compile(r"\.\.\.|…")
+# `TBD...` is the fixed Delivery placeholder `references/hvr-core.md` Section 2
+# grants as a token rather than prose punctuation, so it never counts toward
+# the one-ellipsis cap.
+ELLIPSIS = re.compile(r"(?<!TBD)\.\.\.|…")
 # A bullet line (ClickUp `*   ` or a plain `-   `) whose content ends in a
 # single period. Excludes `...` and a line ending in two or more periods, and
 # never matches a numbered acceptance-criteria title, which HVR core does not
 # ban from ending in punctuation the way it bans bullets from it.
 BULLET_FULL_STOP = re.compile(r"^[ \t]*[*\-]\s+.*[^.\n]\.[ \t]*$", re.M)
 NOT_JUST_X_BUT = re.compile(r"not (?:just|only) .{1,40}? but", re.I)
+# Phrase terms match whole words only, the same boundary the output format
+# gate uses, so "acts as" never fires inside "contacts as".
+TERM_EDGE_BEFORE = r"(?<![A-Za-z0-9])"
+TERM_EDGE_AFTER = r"(?![A-Za-z0-9])"
 
 
 # ───────────────────────────────────────────────────────────────
@@ -171,6 +178,11 @@ def extract_deliverable(raw: str) -> tuple[str, str]:
     kept = [line for line in raw.splitlines() if not META_LINE.match(line)]
     text = SELF_SCAN.sub("", "\n".join(kept))
     return text, ("high" if found_scan else "low")
+
+
+def term_pattern(term: str) -> re.Pattern:
+    """A case-blind pattern for one listed phrase, bounded at both ends."""
+    return re.compile(TERM_EDGE_BEFORE + re.escape(term) + TERM_EDGE_AFTER, re.I)
 
 
 def samples(pattern: re.Pattern, text: str, n: int = 2) -> list[str]:
@@ -262,11 +274,11 @@ def lint(text: str, confidence: str = "high") -> list[dict[str, object]]:
     # the model narrating its own reasoning rather than shipping copy.
     phrase_severity = "hard" if confidence == "high" else "soft"
     for p in HARD_BLOCKER_PHRASES:
-        add(f"hard_blocker_phrase:{p}", re.compile(re.escape(p), re.I), severity=phrase_severity)
+        add(f"hard_blocker_phrase:{p}", term_pattern(p), severity=phrase_severity)
     for m in BANNED_METAPHORS:
-        add(f"metaphor:{m}", re.compile(re.escape(m), re.I), severity=phrase_severity)
+        add(f"metaphor:{m}", term_pattern(m), severity=phrase_severity)
     for c in COPULA_AVOIDANCE:
-        add(f"copula:{c}", re.compile(re.escape(c), re.I), severity=phrase_severity)
+        add(f"copula:{c}", term_pattern(c), severity=phrase_severity)
 
     return v
 
