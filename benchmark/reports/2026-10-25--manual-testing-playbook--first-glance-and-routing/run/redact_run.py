@@ -12,6 +12,8 @@ The names file holds one plan or team name per line and stays outside the reposi
 The keys file holds the key of each new file a run made in drafts, the first word of a
 line, and stays outside the repository too.
 Names that are also the system's own public words belong out of that file.
+A key a tool call or a response names in a `file_key` or `fileKey` field is redacted in every file
+of the batch as well, so a file a run creates for itself never needs a keys file entry.
 A file path redacts that file alone, so a batch can redact one scenario's own output and
 leave the older records in the same run folder as they are.
 The substitutions are also importable (`settings`, `redact_text`), so the driver can redact
@@ -25,6 +27,9 @@ URL = re.compile(r"https?://(?:www\.)?figma\.com/[^\s\"'<>)\]\\]+")
 USER_ID = re.compile(r'(\\*"user_id\\*":\s*\\*")\d+')
 # A plan key names the team or organization the account belongs to, so it is redacted like a plan name
 PLAN_KEY = re.compile(r"\b(team|organization)::\d+")
+# A file the run creates for itself has a key no keys file can name ahead of time, so the key is read off
+# the tool call or the response that carries it, escaped or not, and every copy of it is redacted.
+KEY_FIELD = re.compile(r'\\*"(?:file_key|fileKey)\\*"\s*:\s*\\*"([A-Za-z0-9]{15,})')
 
 
 def settings():
@@ -38,9 +43,15 @@ def settings():
     return key, extra, sorted(enumerate(names, 1), key=lambda x: -len(x[1]))
 
 
+def found_keys(text):
+    """The file keys a tool call or a response in the text names."""
+    return set(KEY_FIELD.findall(text))
+
+
 def redact_text(text, cfg):
     """The text with every substitution the folder pass applies to a file."""
     key, extra, order = cfg
+    extra = list(extra) + sorted(found_keys(text) - {key} - set(extra))
     new = URL.sub("<figma-url>", text)
     if key:
         new = new.replace(key, "<test-file-key>")
@@ -65,8 +76,30 @@ def redact_file(p, cfg):
     return True
 
 
+def texts(paths):
+    """Every text file the paths name, a folder walked without its harness."""
+    for path in paths:
+        if os.path.isfile(path):
+            if os.path.basename(os.path.dirname(os.path.abspath(path))) != "run":
+                yield path
+            continue
+        for root, _, files in os.walk(path):
+            if os.path.basename(root) != "run":
+                yield from (os.path.join(root, f) for f in files)
+
+
 def main(paths):
     cfg = settings()
+    # A key one file names, such as a new file's key in the call that made it, is redacted in every file of
+    # the batch, since a reply or a transcript may carry it with no field around it.
+    seen = set()
+    for p in texts(paths):
+        try:
+            seen |= found_keys(open(p, encoding="utf-8").read())
+        except UnicodeDecodeError:
+            pass
+    key, extra, order = cfg
+    cfg = (key, list(extra) + sorted(seen - {key} - set(extra)), order)
     changed = 0
     for path in paths:
         if os.path.isfile(path):
