@@ -59,12 +59,12 @@ contextType: "implementation"
 <!-- ANCHOR:phase-3 -->
 ## Phase 3: Verification
 
-- [ ] T015 Run the self-tests and gates on the committed tree. Verify: both self-tests, the design check, pytest, 15 of 15 gates and the output format gate pass.
-- [ ] T016 Commit and push both repositories. Verify: `validate_parity.py product-owner`, `residency_check.py --all` and `pair_divergence.py product-owner` each print PASSED.
-- [ ] T017 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both after the closing edits.
-- [ ] T018 Rerun FJ-017, FJ-022, FJ-023 and FJ-036 on v1.0.13.0, each in a fresh draft file (`benchmark/reports/.../skill/sonnet-high-047/`). Verify: each run has a `meta.json` and every turn exited 0.
-- [ ] T019 Grade the four runs with two readers per board and one Opus grader (`grades/sonnet-high-047.*`). Verify: every scenario has a verdict with its signals.
-- [ ] T020 Record the rerun as run README section 8.13, refresh the gallery with each passing board and commit both repositories. Verify: `validate_parity.py product-owner` prints PASSED.
+- [x] T015 Run the self-tests and gates on the committed tree. Verify: both self-tests, the design check, pytest, 15 of 15 gates and the output format gate pass. [EVIDENCE: on the committed tree at f0c0ba95 on 2026-10-28 the flow check printed 194 of 194, the composer 1250 of 1250, the design check exit 0, pytest 18 passed and the gates 12 of 15 with the three that need the outer repository skipped in the scratch copy, all 15 having passed on the release tree, and the output format gate passed across 72 source files]
+- [x] T016 Commit and push both repositories. Verify: `validate_parity.py product-owner`, `residency_check.py --all` and `pair_divergence.py product-owner` each print PASSED. [EVIDENCE: PO commits 99fbf956, b573d033 and f0c0ba95 and outer commits 0f808e801 and 3fe1a442e pushed, parity PASSED 65 of 65, residency PASSED 7 systems, divergence PASSED 208 pairs and every `check_criteria.sh` row ok]
+- [x] T017 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both after the closing edits. [EVIDENCE: `RESULT: PASSED` for this phase and for 017 after the closing edits]
+- [x] T018 Rerun FJ-017, FJ-022, FJ-023 and FJ-036 on v1.0.13.0, each in a fresh draft file (`benchmark/reports/.../skill/sonnet-high-047/`). Verify: each run has a `meta.json` and every turn exited 0. [EVIDENCE: four `meta.json` files, 15 turns at rc 0, one attempt each]
+- [x] T019 Grade the four runs with two readers per board and one Opus grader (`grades/sonnet-high-047.*`). Verify: every scenario has a verdict with its signals. [EVIDENCE: `sonnet-high-047.jsonl` holds 4 lines with their signals, FJ-022 PASS and three FAIL, six reader files for the three scored boards]
+- [x] T020 Record the rerun as run README section 8.13, refresh the gallery with each passing board and commit both repositories. Verify: `validate_parity.py product-owner` prints PASSED. [EVIDENCE: section 8.13 records 1 of 4, the user flow gallery image is FJ-022's board, and parity is rerun after the commit]
 <!-- /ANCHOR:phase-3 -->
 
 ---
@@ -72,9 +72,9 @@ contextType: "implementation"
 <!-- ANCHOR:completion -->
 ## Completion Criteria
 
-- [ ] All tasks marked `[x]`
+- [x] All tasks marked `[x]`
 - [x] No `[B]` blocked tasks remaining
-- [ ] Manual verification passed
+- [x] Manual verification passed
 <!-- /ANCHOR:completion -->
 
 ---
@@ -116,7 +116,7 @@ contextType: "implementation"
 ## Code Quality
 
 - [x] CHK-010 [P0] The composer and check self-tests pass with the new cases [EVIDENCE: on the working tree on 2026-10-28, `flow_check.py --self-test` printed 186 of 186 and `compose_board.py --self-test` 1250 of 1250, each exit 0]
-- [ ] CHK-011 [P1] pytest passes
+- [x] CHK-011 [P1] pytest passes [EVIDENCE: pytest 18 passed on the committed tree at f0c0ba95 on 2026-10-28]
 <!-- /ANCHOR:code-quality -->
 
 ---
@@ -124,8 +124,8 @@ contextType: "implementation"
 <!-- ANCHOR:testing -->
 ## Testing Checklist
 
-- [ ] CHK-020 [P0] All acceptance criteria met
-- [ ] CHK-021 [P0] Gates pass
+- [x] CHK-020 [P0] All acceptance criteria met [EVIDENCE: AC-001 to AC-013 read Met in `acceptance-criteria.md`, with SC-003 recorded as not met]
+- [x] CHK-021 [P0] Gates pass [EVIDENCE: see T015]
 <!-- /ANCHOR:testing -->
 
 ---
@@ -135,11 +135,11 @@ contextType: "implementation"
 
 - [x] CHK-FIX-001 [P0] Each actionable finding has a finding class [EVIDENCE: each 8.12 cause is classed as script, skill, playbook, harness or model slip in the implementation summary]
 - [x] CHK-FIX-002 [P0] Same-class producer inventory completed [EVIDENCE: the verbatim sketch rule reaches flow-mode step 7, rubric Section 5, the kernel, all seven examples and playbook Section 5, and a search of `claude project/` on 2026-10-28 finds the new wording in the kernel, the Flow Mode and rubric Knowledge files and the seven example files]
-- [ ] CHK-FIX-003 [P0] Consumer inventory completed
+- [x] CHK-FIX-003 [P0] Consumer inventory completed [EVIDENCE: the fresh reviewer read every reader of the new lines and found 1 P1 and 11 P2, the worst a skip edge read as a bent row, all repaired before the release]
 - [x] CHK-FIX-004 [P0] Adversarial cases for parser fixes [EVIDENCE: the row cases cover a node in its own zone and the same node moved into the next zone, the sides case covers an end dot inside and past one sticky width and the label case covers a word only the narrow measure strands]
 - [x] CHK-FIX-005 [P1] Matrix axes and row count listed [EVIDENCE: the sketch rule over seven examples, three rule files, the kernel and the playbook, and the relabel over the two flow examples whose checks printed a `Label:` line]
 - [x] CHK-FIX-006 [P1] Hostile env variant [EVIDENCE: the spec tools run with the PO links created only for each run and removed after, as the operator asked]
-- [ ] CHK-FIX-007 [P1] Evidence pinned to a diff range
+- [x] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: `git diff 7d10f39e..f0c0ba95` in the PO repository]
 <!-- /ANCHOR:fix-completeness -->
 
 ---
@@ -147,7 +147,7 @@ contextType: "implementation"
 <!-- ANCHOR:security -->
 ## Security
 
-- [ ] CHK-030 [P0] No board URL, Figma file key, plan name or email in any committed file
+- [x] CHK-030 [P0] No board URL, Figma file key, plan name or email in any committed file [EVIDENCE: the leak scan of the diff and the new run files found no file key, URL, plan key, plan name, email or em dash]
 <!-- /ANCHOR:security -->
 
 ---
@@ -155,8 +155,8 @@ contextType: "implementation"
 <!-- ANCHOR:docs -->
 ## Documentation
 
-- [ ] CHK-040 [P1] Spec, plan and tasks synchronized
-- [ ] CHK-041 [P1] Project mirror and SYNC note
+- [x] CHK-040 [P1] Spec, plan and tasks synchronized [EVIDENCE: every task, acceptance row and goal criterion carries its evidence and `validate.sh --strict` passes]
+- [x] CHK-041 [P1] Project mirror and SYNC note [EVIDENCE: kernel v1.2.13, twelve Knowledge files and the composer mirror changed with their sources, and the SYNC note names them]
 <!-- /ANCHOR:docs -->
 
 ---
@@ -164,7 +164,7 @@ contextType: "implementation"
 <!-- ANCHOR:file-org -->
 ## File Organization
 
-- [ ] CHK-050 [P1] No change outside the files named in spec.md Section 3
+- [x] CHK-050 [P1] No change outside the files named in spec.md Section 3 [EVIDENCE: the commits touch only the scripts, references, assets, playbook, mirror, release, harness, rerun and gallery paths Section 3 names]
 - [x] CHK-051 [P1] scratch/ holds no file [EVIDENCE: this phase has no scratch folder]
 <!-- /ANCHOR:file-org -->
 
@@ -175,9 +175,9 @@ contextType: "implementation"
 
 | Category | Total | Verified |
 |----------|-------|----------|
-| P0 Items | 10 | 6 |
-| P1 Items | 9 | 4 |
+| P0 Items | 10 | 10 |
+| P1 Items | 9 | 9 |
 | P2 Items | 0 | 0 |
 
-**Verification Date**: Pending
+**Verification Date**: 2026-10-28
 <!-- /ANCHOR:summary -->

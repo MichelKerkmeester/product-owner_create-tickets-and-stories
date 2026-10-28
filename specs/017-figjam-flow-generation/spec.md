@@ -146,7 +146,8 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 44 | 044-figjam-composite-and-path-order/ | The causes the v1.0.9.0 rerun still shows: the composer draws a composite across the top row, plans order a flow by fill while readers take its main row in path order and the revision exemption is too narrow, with a working node pinned for the label trace, then a rerun of the 6 failures | Complete |
 | 45 | 045-figjam-findings-fixes/ | The causes the v1.0.10.0 rerun still shows, fixed with no rerun: plans that ignore the drawn state board and main row, two intake sentences that disagree, a boxed-in sticky with no place, a revision playback that reads nothing, a read-back that assumes connector labels and grading conventions the playbook never stated | Complete |
 | 46 | 046-figjam-gate-and-accent-fixes/ | The v1.0.11.0 rerun findings: a gate that cannot see a noted node's sides, an accent on the goal the composer draws last, a gate without its sketch, a stop ending on a self-scan line, a missed lone word and an unwritten end-state reading, then a rerun of FJ-017, FJ-036, FJ-022 and FJ-023 | Complete |
-| 47 | 047-figjam-glance-and-row-fixes/ | The v1.0.12.0 rerun causes: a glance plan that ignores where the composer draws off-row nodes, a main row that bends unflagged, a sticky side with no alignment or reach, a gate sketch that drops checked lines, label wraps the sources' words cannot clear, an intake round with no dials and a harness that redacted committed records, then a rerun of FJ-017, FJ-022, FJ-023 and FJ-036 | In Progress |
+| 47 | 047-figjam-glance-and-row-fixes/ | The v1.0.12.0 rerun causes: a glance plan that ignores where the composer draws off-row nodes, a main row that bends unflagged, a sticky side with no alignment or reach, a gate sketch that drops checked lines, label wraps the sources' words cannot clear, an intake round with no dials and a harness that redacted committed records, then a rerun of FJ-017, FJ-022, FJ-023 and FJ-036 | Complete |
+| 48 | 048-figjam-neighbour-and-closing-fixes/ | The v1.0.13.0 rerun causes: a decision beside the accent read before the entry, an intake round ending on its reason, an FJ-017 Finding the skill does not ask for, a diamond trace wider than FigJam draws, the dials at the gate, a swapped pair charged twice and a turn 1 that models before its intake, then a rerun of FJ-017, FJ-022, FJ-023 and FJ-036 | In Progress |
 
 ### Phase Transition Rules
 
@@ -199,6 +200,7 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 044-figjam-composite-and-path-order | 045-figjam-findings-fixes | The operator closed testing and chose phase 045 to fix the findings in the skills and sync them to the Claude Project | 038 run README section 8.10 |
 | 045-figjam-findings-fixes | 046-figjam-gate-and-accent-fixes | The operator chose phase 046 under 017 to fix the v1.0.11.0 rerun findings and rerun the affected scenarios | 038 run README section 8.11 |
 | 046-figjam-gate-and-accent-fixes | 047-figjam-glance-and-row-fixes | Under the operator's standing instruction of 2026-10-28, phase 047 fixes every cause of the v1.0.12.0 rerun and reruns the four scenarios | 038 run README section 8.12 |
+| 047-figjam-glance-and-row-fixes | 048-figjam-neighbour-and-closing-fixes | Under the operator's standing instruction, phase 048 fixes every cause of the v1.0.13.0 rerun from the fresh Opus recommendation and reruns the four scenarios | 038 run README section 8.13 |
 <!-- /ANCHOR:phase-map -->
 
 ---

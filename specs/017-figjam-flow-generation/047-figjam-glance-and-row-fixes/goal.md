@@ -61,12 +61,12 @@ Frozen choices. Changing one is an amendment.
 <!-- ANCHOR:completion -->
 ## 3. COMPLETION CRITERIA
 
-- [ ] `compose_board.py --self-test`, `--design-check`, `flow_check.py --self-test`, `pytest scripts/tests`, `run_gates.sh` (all 15 gates) and the output format gate each exit 0 on the committed tree
-- [ ] `validate_parity.py product-owner`, `residency_check.py --all` and `pair_divergence.py product-owner` each print PASSED after the last commit
-- [ ] The glance, row, sides, sketch, label, composition, dials and intake rules read the same in the skill and the Project
-- [ ] `sk-create-figjam` and the hub read 1.0.13.0 with a changelog, and the kernel H1 reads v1.2.13
-- [ ] FJ-017, FJ-022, FJ-023 and FJ-036 are rerun and graded on v1.0.13.0, recorded as README section 8.13, with the gallery refreshed
-- [ ] `validate.sh --strict` on this phase prints RESULT: PASSED, and both repositories are pushed
+- [x] `compose_board.py --self-test`, `--design-check`, `flow_check.py --self-test`, `pytest scripts/tests`, `run_gates.sh` (all 15 gates) and the output format gate each exit 0 on the committed tree
+- [x] `validate_parity.py product-owner`, `residency_check.py --all` and `pair_divergence.py product-owner` each print PASSED after the last commit
+- [x] The glance, row, sides, sketch, label, composition, dials and intake rules read the same in the skill and the Project
+- [x] `sk-create-figjam` and the hub read 1.0.13.0 with a changelog, and the kernel H1 reads v1.2.13
+- [x] FJ-017, FJ-022, FJ-023 and FJ-036 are rerun and graded on v1.0.13.0, recorded as README section 8.13, with the gallery refreshed
+- [x] `validate.sh --strict` on this phase prints RESULT: PASSED, and both repositories are pushed
 <!-- /ANCHOR:completion -->
 
 ---
@@ -83,6 +83,8 @@ and findings belong here.
 | Item | State | Evidence |
 |------|-------|----------|
 | Phase scaffolded | Done | spec, plan, tasks, acceptance criteria, implementation summary and this goal |
+| Release v1.0.13.0 committed and pushed | Done | PO 99fbf956, b573d033 and f0c0ba95, outer 0f808e801 and 3fe1a442e, parity PASSED 65 of 65 |
+| Rerun on v1.0.13.0 graded | Done | 1 of 4 pass, run README section 8.13, SC-003 not met and phase 048 takes the causes |
 
 ### Deviations and findings
 

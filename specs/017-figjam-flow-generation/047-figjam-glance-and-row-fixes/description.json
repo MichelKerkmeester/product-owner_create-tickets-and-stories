@@ -1,4 +1,5 @@
 {
+  "level": "2",
   "specFolder": "017-figjam-flow-generation/047-figjam-glance-and-row-fixes",
   "description": "Claude Sonnet 5.5 high reran FJ-017 and FJ-036, which failed on v1.0.11.0, and the board-quality scenarios FJ-022 and FJ-023 on v1.0.12.0",
   "keywords": [
@@ -14,14 +15,15 @@
     "fj-022",
     "fj-023"
   ],
-  "lastUpdated": "2026-10-27T23:49:42.787Z",
+  "lastUpdated": "2026-10-28T00:53:23.770Z",
   "specId": "047",
   "folderSlug": "figjam-glance-and-row-fixes",
   "parentChain": [
     "017-figjam-flow-generation"
   ],
-  "memorySequence": 1,
+  "memorySequence": 2,
   "memoryNameHistory": [
-    "28-10-26_00-49__figjam-glance-and-row-fixes-the-glance-order.md"
+    "28-10-26_00-49__figjam-glance-and-row-fixes-the-glance-order.md",
+    "28-10-26_01-53__closed-phase-047-after-the-v1-0-13-0-rerun-passed.md"
   ]
 }

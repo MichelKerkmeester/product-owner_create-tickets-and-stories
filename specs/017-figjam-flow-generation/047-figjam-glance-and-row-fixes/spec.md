@@ -20,13 +20,13 @@ contextType: "implementation"
 |-------|-------|
 | **Level** | 2 |
 | **Priority** | P1 |
-| **Status** | In Progress |
+| **Status** | Complete |
 | **Created** | 2026-10-28 |
 | **Branch** | `main` |
 | **Parent Spec** | ../spec.md |
-| **Phase** | 47 of 47 |
+| **Phase** | 47 of 48 |
 | **Predecessor** | 046-figjam-gate-and-accent-fixes |
-| **Successor** | None |
+| **Successor** | 048-figjam-neighbour-and-closing-fixes |
 | **Handoff Criteria** | Every row in acceptance-criteria.md is Met |
 <!-- /ANCHOR:metadata -->
 
