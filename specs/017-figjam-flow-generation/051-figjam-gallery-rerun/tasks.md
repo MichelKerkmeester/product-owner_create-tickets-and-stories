@@ -54,7 +54,7 @@ contextType: "implementation"
 ## Phase 3: Verification
 
 - [x] T009 Redact, scan and run the gates. Verify: the scan prints nothing and `run_gates.sh` passes 15 of 15. [EVIDENCE: the scan prints nothing; the vendor gate failed on another session's upstream commits, the three vendored packages were pulled at pins already on origin, and run_gates.sh then passed 15 of 15]
-- [ ] T010 Commit both repositories and push on the operator's standing yes. Verify: `main` matches `origin` in both.
+- [x] T010 Commit both repositories and push on the operator's standing yes. Verify: `main` matches `origin` in both. [EVIDENCE: Product Owner 88d919f3 and cf744009, outer ad147c53d and 4eb25c274, both pushed; parity PASSED 66 of 66, residency 7, divergence 66]
 - [x] T011 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED`. [EVIDENCE: RESULT: PASSED for this phase and the parent]
 <!-- /ANCHOR:phase-3 -->
 
@@ -63,9 +63,9 @@ contextType: "implementation"
 <!-- ANCHOR:completion -->
 ## Completion Criteria
 
-- [ ] All tasks marked `[x]`
-- [ ] No `[B]` blocked tasks remaining
-- [ ] Manual verification passed
+- [x] All tasks marked `[x]`
+- [x] No `[B]` blocked tasks remaining
+- [x] Manual verification passed
 <!-- /ANCHOR:completion -->
 
 ---
