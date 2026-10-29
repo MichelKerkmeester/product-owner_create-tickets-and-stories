@@ -47,6 +47,7 @@ _memory:
 - **Subtitle rule.** Every subtitle names where the flow starts and ends, and the shipped examples follow it
 - **Worked example.** `assets/examples/process-fernhouse-commission.md`, a fictional client and maker moving a planter commission through five statuses, plus a status lane pattern in `assets/templates/process.md`
 - **Playbook.** FJ-046, FJ-047 and FJ-048
+- **Gallery image.** `assets/screenshots/process-status-lane-board.png` shows the worked example's board, captioned as a release check rather than a graded run
 - **Release.** Hub 1.0.17.0, `sk-create-figjam` 1.0.16.0, 13 Project knowledge files rewritten by hand, one new Project file and a SYNC note
 <!-- /ANCHOR:what-built -->
 
