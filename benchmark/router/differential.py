@@ -27,9 +27,9 @@ Nine guards fire, each on its own:
    the reader to score vocabulary the router does not carry.
 1. Copy parity. The kernel's closing Router Code section is held equal to the
    reference block minus its comments, line for line and as a parsed syntax
-   tree, while SKILL.md and routing.md grow no python fence and no Router
-   Contract Knowledge document returns as a second routing copy nothing
-   compares.
+   tree, while SKILL.md, its sibling ROUTER.md and routing.md grow no python
+   fence and no Router Contract Knowledge document returns as a second routing
+   copy nothing compares.
 2. Table parity. Semantic topics (order included, since order is the score
    tie-break), confidence thresholds, token and phrase regexes, resource lanes
    and the disambiguation checklist must match value for value. A table that
@@ -50,7 +50,8 @@ Nine guards fire, each on its own:
    packet has to be a Flow route here, and a Flow route behind the default mode
    is allowed only as the hand-off a Product Owner artifact word starts.
 7. Flow type detection. The FigJam packet picks one of seven diagram types from
-   the words of a request, and that table is code in its `SKILL.md`. The block
+   the words of a request, and that table is code in its `SKILL.md`, or in the
+   sibling `ROUTER.md` that `SKILL.md` links once the router moves. The block
    is lifted out and run against `flow_types.json`, which pins two phrasings per
    type, a request where two types fit and one where none does. The table's types
    must also be the packet's drawable types, each with its reference file.
@@ -98,6 +99,9 @@ SKILL_MD = SKILL_ROOT / "SKILL.md"
 # table and the contract pointer live in references/routing.md, so they are read
 # there, and both files are held free of a pasted router.
 ROUTER_MD = SKILL_ROOT / "references" / "routing.md"
+# The packet's sibling router, which SKILL.md links. It is prose a model reads
+# beside SKILL.md, so it is held free of a pasted router the same way.
+SIBLING_ROUTER_MD = SKILL_ROOT / "ROUTER.md"
 ROUTER_CONTRACT_MD = SKILL_ROOT / "references" / "router-contract.md"
 PROJECT_MD = REPO_ROOT / "claude project" / "Custom Instructions.md"
 CORPUS_PATH = HERE / "differential_corpus.json"
@@ -351,7 +355,9 @@ def check_copy_parity() -> List[str]:
     kernel_text = PROJECT_MD.read_text(encoding="utf-8")
     router_text = ROUTER_MD.read_text(encoding="utf-8")
 
-    for prose_path in (SKILL_MD, ROUTER_MD):
+    for prose_path in (SKILL_MD, SIBLING_ROUTER_MD, ROUTER_MD):
+        if not prose_path.is_file():
+            continue
         prose_text = prose_path.read_text(encoding="utf-8")
         if PYTHON_FENCE_RE.search(prose_text):
             failures.append(
@@ -713,6 +719,9 @@ HUB_ROUTER_PATH = REPO_ROOT / "hub-router.json"
 HUB_CASES_PATH = REPO_ROOT / "benchmark" / "hub-routing-cases.json"
 HUB_GATE_PATH = REPO_ROOT / "benchmark" / "gates" / "check_hub.py"
 FIGJAM_SKILL_MD = REPO_ROOT / "sk-create-figjam" / "SKILL.md"
+# The FigJam packet's sibling router. Its machine router moves here from SKILL.md,
+# so the type detector is lifted from SKILL.md first and from ROUTER.md second.
+FIGJAM_ROUTER_MD = REPO_ROOT / "sk-create-figjam" / "ROUTER.md"
 FLOW_TYPES_PATH = HERE / "flow_types.json"
 
 # The intent each singular noun in the hub's artifact-request vocabulary has to
@@ -810,13 +819,20 @@ def check_stage_agreement(corpus: List[str]) -> List[str]:
 def check_flow_type_detection() -> List[str]:
     """Run the FigJam packet's type detector against the pinned phrasings."""
     failures: List[str] = []
-    source = FIGJAM_SKILL_MD.read_text(encoding="utf-8")
-    block = re.search(r"```python\n(.*?)\n```", source, re.S)
+    block = None
+    lifted_from = FIGJAM_SKILL_MD
+    for candidate in (FIGJAM_SKILL_MD, FIGJAM_ROUTER_MD):
+        if candidate.is_file():
+            block = re.search(r"```python\n(.*?)\n```", candidate.read_text(encoding="utf-8"), re.S)
+        if block:
+            lifted_from = candidate
+            break
     if not block:
-        return ["flow types: sk-create-figjam/SKILL.md has no python block to lift"]
+        return ["flow types: neither sk-create-figjam/SKILL.md nor its ROUTER.md has a python block to lift"]
     module = types.ModuleType("figjam_skill_router")
+    # __file__ stays SKILL.md: the block resolves its resources from the packet root either way.
     module.__dict__.update({"__file__": str(FIGJAM_SKILL_MD), "load": lambda relative_path: None})
-    exec(compile(block.group(1), "sk-create-figjam/SKILL.md::router", "exec"), module.__dict__)
+    exec(compile(block.group(1), f"sk-create-figjam/{lifted_from.name}::router", "exec"), module.__dict__)
 
     drawable = list(module.DIAGRAM_TYPES)
     if list(module.TYPE_SIGNALS) != drawable:

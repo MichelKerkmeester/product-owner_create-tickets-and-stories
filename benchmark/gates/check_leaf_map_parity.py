@@ -6,7 +6,8 @@
 """Check that every router lane maps to a packet manifest and registered leaf.
 
 Each vendored packet's lane has to equal the leaf set of the intent its own
-SKILL.md calls common, because the packet routes the rest.
+router calls common, because the packet routes the rest. That router is read
+from the packet's SKILL.md, or from its sibling ROUTER.md once it has moved.
 
 It also replays the FLOW keywords of the ROUTER.md block against the hub gold
 rows, the way the shared leaf-route-replay script scores a block: one point of
@@ -84,11 +85,20 @@ def parse_router() -> tuple[list[str], dict[str, list[str]], dict[str, dict]]:
 
 
 def packet_leaves(packet: str, intent: str) -> list[str]:
-    """The packet-qualified leaves a vendored packet's RESOURCE_MAP gives one intent."""
-    source = (ROOT / packet / "SKILL.md").read_text(encoding="utf-8")
-    match = re.search(r"^RESOURCE_MAP = (\{.*?^\})", source, re.S | re.M)
+    """The packet-qualified leaves a vendored packet's RESOURCE_MAP gives one intent.
+
+    The map sits in the packet's SKILL.md until the packet moves its machine
+    router into a sibling ROUTER.md, so SKILL.md is read first and ROUTER.md second.
+    """
+    match = None
+    for name in ("SKILL.md", "ROUTER.md"):
+        path = ROOT / packet / name
+        if path.is_file():
+            match = re.search(r"^RESOURCE_MAP = (\{.*?^\})", path.read_text(encoding="utf-8"), re.S | re.M)
+        if match:
+            break
     if not match:
-        raise ValueError(f"{packet}/SKILL.md has no RESOURCE_MAP")
+        raise ValueError(f"{packet}/SKILL.md and {packet}/ROUTER.md have no RESOURCE_MAP")
     entry = ast.literal_eval(match.group(1))[intent]
     return [f"{packet}/{leaf}" for leaf in entry if leaf.startswith(("references/", "assets/"))]
 
