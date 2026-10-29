@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "packet_id": "017-figjam-flow-generation/051-figjam-gallery-rerun",
+  "spec_folder": "017-figjam-flow-generation/051-figjam-gallery-rerun",
+  "parent_id": "017-figjam-flow-generation",
+  "status_review_required": true,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "figjam gallery rerun",
+      "phase 51 figjam",
+      "sonnet medium figjam boards",
+      "figjam gallery rerun plan",
+      "figjam gallery rerun tasks",
+      "figjam gallery rerun acceptance criteria",
+      "packet goal",
+      "durable directive",
+      "completion criteria",
+      "goal binding",
+      "figjam spec board learnings implementation summary"
+    ],
+    "key_topics": [
+      "figjam",
+      "gallery",
+      "rerun",
+      "phase",
+      "sonnet",
+      "medium",
+      "boards",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "packet"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "sk-create-figjam/manual-testing-playbook/board-quality/status-lane-board-quality.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "status-lane-board-quality.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/manual-testing-playbook/board-quality/status-lane-board-quality.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Sonnet",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Code",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Depends On",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Estimated Effort",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Rollback Procedure",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Score Composition",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Completion Criteria",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Acceptance Criteria",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Verification Checklist",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Each gallery image shows the composer of the run it came from, from v1.0.6.0 to v1.0.15.0",
+    "created_at": "2026-10-29T21:01:03.429Z",
+    "last_save_at": "2026-10-29T23:12:38.778Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:99daffe60d35c6acea63547780a0bfc826925cac767c6f7d49bec576958581e0",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "366d50fc4dc7c81d6fbbaa7b488d0d0c69e19f44d72eecccd0dccafc60d14d15",
+      "plan.md": "4a3f1d7a7b988e5cf5a9a7e1921c3e65e937fff80dee4717fa0fb3922cbfd21d",
+      "tasks.md": "522d1b330c5ad931be0d5483c3361d148f338e6ee6fa000795c2fe437b360dae",
+      "implementation-summary.md": "31d0ea9c999e36fac16d0d21fa8b5bd46c3981dcbd30732938cd0a7d4a96707f"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

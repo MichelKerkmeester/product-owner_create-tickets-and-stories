@@ -1,0 +1,229 @@
+{
+ "id": "FJ-032",
+ "label": "sonnet-medium-051",
+ "model": "claude:claude-sonnet-5-5:medium",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-creation/existing-board-with-content.md",
+ "file_pin": null,
+ "operator_setup_done": true,
+ "operator_pause_before": null,
+ "operator_paused": false,
+ "file_start_sections": null,
+ "driver": "model",
+ "expects_board": true,
+ "no_figma": false,
+ "scripted_turns": [
+  "$figjam add the Roamstay booking status lifecycle to our existing retro board <fileKey of the prepared board>. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "commands_run": 0,
+ "intake_answers_sent": 2,
+ "follow_ups_sent": 1,
+ "session_id": "326bd82c-57b0-46b9-b4f7-c0a88910d596",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "2:21"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 41.04,
+   "tool_calls": 8,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "ToolSearch"
+   ],
+   "input_tokens": 75017,
+   "output_tokens": 3678,
+   "cached_tokens": 105542,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "326bd82c-57b0-46b9-b4f7-c0a88910d596",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$figjam add the Roamstay booking status lifecycle to our existing retro board <test-file-key>. Pending until the card is authorised, then Confirmed, which covers Upcoming and In stay. Check-out ends it as Completed. A guest can cancel while Pending or Confirmed, and the hotel marks No-show after a missed check-in.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 12.69,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 2441,
+   "output_tokens": 1377,
+   "cached_tokens": 86400,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "326bd82c-57b0-46b9-b4f7-c0a88910d596",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 10.63,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 1394,
+   "output_tokens": 1190,
+   "cached_tokens": 88837,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "326bd82c-57b0-46b9-b4f7-c0a88910d596",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Use your recommended answers.",
+   "role": "adaptive",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 19.0,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 1208,
+   "output_tokens": 2297,
+   "cached_tokens": 90227,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "326bd82c-57b0-46b9-b4f7-c0a88910d596",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 45.27,
+   "tool_calls": 8,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Bash",
+    "mcp__figma-remote__create_session",
+    "Write",
+    "mcp__figma-remote__get_figjam",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 13970,
+   "output_tokens": 3668,
+   "cached_tokens": 497504,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "326bd82c-57b0-46b9-b4f7-c0a88910d596",
+   "inner_calls": [
+    "create_session",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 5,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 157.24,
+   "tool_calls": 7,
+   "tools_used": [
+    "Read",
+    "ToolSearch",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 79275,
+   "output_tokens": 27550,
+   "cached_tokens": 856188,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "326bd82c-57b0-46b9-b4f7-c0a88910d596",
+   "inner_calls": [
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "2:21"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 6,
+   "input": "Yes, go ahead.",
+   "role": "supplementary",
+   "kind": "DELIVERY",
+   "url_first": true
+  }
+ ]
+}

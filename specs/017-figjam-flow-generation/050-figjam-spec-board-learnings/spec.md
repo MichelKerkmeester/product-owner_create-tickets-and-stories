@@ -28,7 +28,7 @@ contextType: "implementation"
 | **Parent Spec** | ../spec.md |
 | **Phase** | 50 of 50 |
 | **Predecessor** | 049-figjam-reading-order-and-reply-lead |
-| **Successor** | None |
+| **Successor** | 051-figjam-gallery-rerun |
 | **Handoff Criteria** | Every row in acceptance-criteria.md is Met |
 <!-- /ANCHOR:metadata -->
 
