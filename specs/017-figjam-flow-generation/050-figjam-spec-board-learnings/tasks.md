@@ -65,6 +65,7 @@ contextType: "implementation"
 - [x] T018 Run the self-tests and gates on the tree to be committed. Verify: every gate in plan.md Section 2 exits 0. [EVIDENCE: rerun after the review repairs: flow_check 227 of 227, composer 1302 of 1302, design check 0, pytest 18 passed, run_gates.sh 15 of 15; the output format gate fails only on sk-product-owner/SKILL.md:46, a semicolon present before this phase]
 - [x] T019 Commit Product Owner and the outer mirror, and push only on the operator's go-ahead. Verify: `validate_parity.py product-owner`, `residency_check.py --all` and `pair_divergence.py product-owner` each print PASSED. [EVIDENCE: Product Owner c1533f7e, outer 1c4013b2 and the review record in 4f4aacb09; parity PASSED 66 of 66, residency PASSED 7, divergence PASSED 66; nothing pushed]
 - [x] T020 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both. [EVIDENCE: RESULT: PASSED for this phase and the parent]
+- [x] T021 Add the worked example's board to the gallery (`sk-create-figjam/assets/screenshots/`, both READMEs, `leaf-manifest.json`). Verify: the image is 2048 px on its longest edge and the gates pass. [EVIDENCE: process-status-lane-board.png, 2048 by 1022, rendered from the scratch board with download_assets; captioned as a release check, not a graded run; run_gates.sh 15 of 15]
 <!-- /ANCHOR:phase-3 -->
 
 ---

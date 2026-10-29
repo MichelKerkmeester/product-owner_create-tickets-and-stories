@@ -7,7 +7,7 @@ trigger_phrases:
   - "$figjam"
   - "figjam flow"
   - "figjam diagram"
-version: 1.0.14.0
+version: 1.0.15.0
 ---
 
 # sk-create-figjam
@@ -26,7 +26,7 @@ It draws seven types, each answering one reader question: a user flow, a laned p
 
 ## 2. GALLERY
 
-Real boards this packet composed on a fictional test file and rendered through the Figma REST API. Each type board and the dense flow is the best board of its type that Claude Sonnet 5.5 high drew in the shipped design file, with the v1.0.6.0 composer on 2026-10-26 or, for the process board, the v1.0.7.0 skill and, for the state board, the v1.0.11.0 skill on 2026-10-27. They show the outlines that keep kinds apart in greyscale, and the user flow, process, architecture, state and gantt keys carry the `Leads to` entry. Only the existing-board image is older. [`assets/screenshots/README.md`](assets/screenshots/README.md) names the playbook scenario, the model and the scorecard result behind each one.
+Real boards this packet composed on a fictional test file and rendered through the Figma REST API. Each type board and the dense flow is the best board of its type that Claude Sonnet 5.5 high drew in the shipped design file, with the v1.0.6.0 composer on 2026-10-26 or, for the process board, the v1.0.7.0 skill and, for the state board, the v1.0.11.0 skill on 2026-10-27. They show the outlines that keep kinds apart in greyscale, and the user flow, process, architecture, state and gantt keys carry the `Leads to` entry. Only the existing-board image is older, and the status lane board comes from the v1.0.16.0 release check rather than a graded run. [`assets/screenshots/README.md`](assets/screenshots/README.md) names the playbook scenario, the model and the scorecard result behind each one.
 
 **User flow.** The pink outline on the green Confirmation with QR code goal is the first glance. Three zones run left to right, Find the order, Request the return and Done. Each decision is a yellow diamond with labelled exits, the dashed orange Contact support pill shows where the flow leaves and Drop-off point and Courier pickup reach the goal from two sides.
 
@@ -35,6 +35,10 @@ Real boards this packet composed on a fictional test file and rendered through t
 **Process.** One lane per role, Customer, CS agent and Warehouse, each in its own tint. The pink outline sits on the Approve the claim step, which logs each decision to a violet Claims table store and hands the claim to the warehouse queue. The Damage clear? decision sends an unclear photo back to the customer as an input step that loops to it. The key names kinds and no team. The run that drew it fails its PASS line on Composition, because the green Refund released goal, left out of the glance plan, reads before the decision the run planned as the second glance.
 
 ![A laned refund process where the highlighted Approve the claim step logs to a Claims table and hands the claim to the warehouse on a Claim queued line](assets/screenshots/process-board.png)
+
+**Process with a status lane.** The Commission status lane runs across the top as white chevrons, Requested to Closed, and each step that moves the commission draws a dotted gray line up into its status, which the key names Moves the status. Confirm the commission, Ship the planter and Make the changes are detail cards, a Bold label over the spec's lines. The pink outline sits on As agreed?, the decision every change loop returns to. It is the worked example `assets/examples/process-fernhouse-commission.md`, composed once to check the release and not graded on the scorecard. The dotted moves into Confirmed and In the making share one run above the Maker lane, because the check measures crossings on the work alone.
+
+![A laned planter commission process with a status lane of five chevrons on top, dotted status moves from the client and maker steps and three detail cards](assets/screenshots/process-status-lane-board.png)
 
 **Architecture.** Six zones run left to right from Clients through Edge, Services, Events and Stores to Outside. The sync-service node carries the pink outline and the key gives the reason, In focus: Writes every block change. The change stream is an orange queue and the blocks database a violet cylinder. Dashed edges mark the async and outside calls and the three live sockets run both ways, the same as the key.
 
