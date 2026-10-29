@@ -150,6 +150,7 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 48 | 048-figjam-neighbour-and-closing-fixes/ | The v1.0.13.0 rerun causes: a decision beside the accent read before the entry, an intake round ending on its reason, an FJ-017 Finding the skill does not ask for, a diamond trace wider than FigJam draws, the dials at the gate, a swapped pair charged twice and a turn 1 that models before its intake, then a rerun of FJ-017, FJ-022, FJ-023 and FJ-036 | Complete |
 | 49 | 049-figjam-reading-order-and-reply-lead/ | The v1.0.14.0 rerun causes: a lifted decision readers did not take second, a delivery reply opening on a sentence above the URL, an FJ-023 scenario and examples that skip the turn 1 intake, a label trace counting characters and Composition read by eye, then a rerun of FJ-022 and FJ-023 | Complete |
 | 50 | 050-figjam-spec-board-learnings/ | Five lessons from a hand-built spec board: a read-back that trusts only a view rendered after its write, a subtitle naming start and end, an optional status lane on a laned process, detail cards at `Faithful` and one anonymized worked example of that board shape | Complete |
+| 51 | 051-figjam-gallery-rerun/ | The nine gallery scenarios and a new status lane scenario rerun on v1.0.16.0 with Claude Sonnet 5.5 medium as the board maker, graded, with each image kept by the higher-scoring board | Complete |
 
 ### Phase Transition Rules
 
@@ -205,6 +206,7 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 047-figjam-glance-and-row-fixes | 048-figjam-neighbour-and-closing-fixes | Under the operator's standing instruction, phase 048 fixes every cause of the v1.0.13.0 rerun from the fresh Opus recommendation and reruns the four scenarios | 038 run README section 8.13 |
 | 048-figjam-neighbour-and-closing-fixes | 049-figjam-reading-order-and-reply-lead | Under the operator's standing instruction, phase 049 fixes every cause of the v1.0.14.0 rerun from a fresh Sonnet recommendation and reruns the two failures | 038 run README section 8.14 |
 | 049-figjam-reading-order-and-reply-lead | 050-figjam-spec-board-learnings | On the operator's request of 2026-10-29, phase 050 folds the lessons of a hand-built spec board into the skill and the Project | 050 spec.md Section 2 |
+| 050-figjam-spec-board-learnings | 051-figjam-gallery-rerun | On the operator's request of 2026-10-29, phase 051 reruns the gallery scenarios so the images show the current design | 051 spec.md Section 2 |
 <!-- /ANCHOR:phase-map -->
 
 ---

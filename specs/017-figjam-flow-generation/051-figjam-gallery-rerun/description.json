@@ -1,0 +1,23 @@
+{
+  "level": "2",
+  "specFolder": "017-figjam-flow-generation/051-figjam-gallery-rerun",
+  "description": "The sk-create-figjam gallery images were drawn on older composers, from v1.0.6.0 to v1.0.15.0",
+  "keywords": [
+    "figjam",
+    "gallery",
+    "rerun",
+    "sonnet",
+    "medium",
+    "screenshots",
+    "status",
+    "lane"
+  ],
+  "lastUpdated": "2026-10-29T21:00:00.000Z",
+  "specId": "051",
+  "folderSlug": "figjam-gallery-rerun",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

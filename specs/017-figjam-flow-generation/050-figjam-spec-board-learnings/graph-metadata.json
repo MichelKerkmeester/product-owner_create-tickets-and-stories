@@ -199,7 +199,7 @@
     ],
     "causal_summary": "On 2026-10-29 the operator had a FigJam board drawn by hand, outside Flow Mode, from a set of product prompt docs and their screens: two parties moving one shared record through a series of statuses",
     "created_at": "2026-10-29T17:21:48.000Z",
-    "last_save_at": "2026-10-29T20:37:54.034Z",
+    "last_save_at": "2026-10-29T21:01:03.499Z",
     "save_lineage": "same_pass",
     "last_accessed_at": null,
     "source_docs": [
@@ -210,10 +210,10 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:2273f61e7a689c7e7f19c581be2e4592c71e3fa449c81520cf5ce5d17756f769",
+    "source_fingerprint": "sha256:9de1c8c0cf033e8dfc1ce25fc6b7ea4a63e1081d2a9c6c9913c0c8b5c23c7fbc",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "df81ed0591949173c7eb771575223d73d144f7250082006e4023617a2df6b92a",
+      "spec.md": "4fb17d67b0f1cf3496665669b3fe3f573ae4f0994c4fe7b890af7826d1286ed8",
       "plan.md": "5def7569b50a6169f53111ca20490e96fa057c874fe7fa1dd0a237940bbddb90",
       "tasks.md": "3035e9d4a57dbbd9175f0423f25c06f839b8802db815203a4981dd29163d6b38",
       "implementation-summary.md": "85195d3895e4a3d98d25eec0c18a9746bfcb7b2ae41643d9edf86b6d64e78467"

@@ -7,7 +7,7 @@ trigger_phrases:
   - "$figjam"
   - "figjam flow"
   - "figjam diagram"
-version: 1.0.15.0
+version: 1.0.16.0
 ---
 
 # sk-create-figjam
@@ -26,7 +26,7 @@ It draws seven types, each answering one reader question: a user flow, a laned p
 
 ## 2. GALLERY
 
-Real boards this packet composed on a fictional test file and rendered through the Figma REST API. Each type board and the dense flow is the best board of its type that Claude Sonnet 5.5 high drew in the shipped design file, with the v1.0.6.0 composer on 2026-10-26 or, for the process board, the v1.0.7.0 skill and, for the state board, the v1.0.11.0 skill on 2026-10-27. They show the outlines that keep kinds apart in greyscale, and the user flow, process, architecture, state and gantt keys carry the `Leads to` entry. Only the existing-board image is older, and the status lane board comes from the v1.0.16.0 release check rather than a graded run. [`assets/screenshots/README.md`](assets/screenshots/README.md) names the playbook scenario, the model and the scorecard result behind each one.
+Real boards this packet composed on a fictional test file and rendered through the Figma REST API. Each type board and the dense flow is the best board of its type that Claude Sonnet 5.5 high drew in the shipped design file, with the v1.0.6.0 composer on 2026-10-26 or, for the process board, the v1.0.7.0 skill and, for the state board, the v1.0.11.0 skill on 2026-10-27. They show the outlines that keep kinds apart in greyscale, and the user flow, process, architecture, state and gantt keys carry the `Leads to` entry. On 2026-10-29 Claude Sonnet 5.5 medium ran the nine gallery scenarios and a status lane scenario on v1.0.16.0, and a new board replaced its image only when it scored at least as high, which gave the sequence, ER, gantt, existing-board and status lane images. [`assets/screenshots/README.md`](assets/screenshots/README.md) names the playbook scenario, the model and the scorecard result behind each one.
 
 **User flow.** The pink outline on the green Confirmation with QR code goal is the first glance. Three zones run left to right, Find the order, Request the return and Done. Each decision is a yellow diamond with labelled exits, the dashed orange Contact support pill shows where the flow leaves and Drop-off point and Courier pickup reach the goal from two sides.
 
@@ -36,33 +36,33 @@ Real boards this packet composed on a fictional test file and rendered through t
 
 ![A laned refund process where the highlighted Approve the claim step logs to a Claims table and hands the claim to the warehouse on a Claim queued line](assets/screenshots/process-board.png)
 
-**Process with a status lane.** The Commission status lane runs across the top as white chevrons, Requested to Closed, and each step that moves the commission draws a dotted gray line up into its status, which the key names Moves the status. Confirm the commission, Ship the planter and Make the changes are detail cards, a Bold label over the spec's lines. The pink outline sits on As agreed?, the decision every change loop returns to. It is the worked example `assets/examples/process-fernhouse-commission.md`, composed once to check the release and not graded on the scorecard. The dotted moves into Confirmed and In the making share one run above the Maker lane, because the check measures crossings on the work alone.
+**Process with a status lane.** The Claim status lane runs across the top as white chevrons, Reported to Closed, and each step that moves the claim draws a dotted gray line into its status, which the key names Moves the status. Report damage, Send claim to guest and Review dispute are detail cards, a Bold label over the policy's lines. The pink outline sits on the guest's Accept within 7 days? decision. It comes from FJ-049, Claude Sonnet 5.5 medium on v1.0.16.0, 19 of 22, FAIL: both readers took the green Claim closed goal and the orange Card charged exit early, so Composition scores 0, and `days?` stands alone on the decision's last line. The dotted moves into With the guest and Under review cross the Hotel lane, and an accepted claim ends on Card charged without reaching Closed.
 
-![A laned planter commission process with a status lane of five chevrons on top, dotted status moves from the client and maker steps and three detail cards](assets/screenshots/process-status-lane-board.png)
+![A laned damage claim process with a status lane of four chevrons on top, dotted status moves from the hotel and support steps and three detail cards](assets/screenshots/process-status-lane-board.png)
 
 **Architecture.** Six zones run left to right from Clients through Edge, Services, Events and Stores to Outside. The sync-service node carries the pink outline and the key gives the reason, In focus: Writes every block change. The change stream is an orange queue and the blocks database a violet cylinder. Dashed edges mark the async and outside calls and the three live sockets run both ways, the same as the key.
 
 ![An architecture board for a block sync service across six zones](assets/screenshots/architecture-board.png)
 
-**Sequence.** The four participants are white and repeat at the top and the bottom, and numbered pins mark the seven steps beside each sender's lifeline. The pink heavy arrow on step 3, Authorise the card, is the focus, replies are dashed and the async Tell the hub message is blue. Each message is in plain words, such as Post the booking, and the source line names the declined-card path as left out.
+**Sequence.** The checkout splits into two boards side by side, 1. the happy path and 2. the declined card, as the skill splits a failure path. Participants are white and repeat at the top and the bottom, numbered pins mark each step beside its sender's lifeline, the pink heavy arrow on Authorise card is the focus on both, replies are dashed and the async Tell the partner hub message is blue. It comes from FJ-025, Claude Sonnet 5.5 medium on v1.0.16.0, 22 of 22, PASS.
 
-![A sequence board for a checkout payment with seven numbered steps](assets/screenshots/sequence-board.png)
+![Two sequence boards for a checkout payment, the happy path and the declined card, with numbered steps](assets/screenshots/sequence-board.png)
 
 **State.** Pending is the blue first state, and card authorised moves it into Confirmed, a composite zone that runs from Upcoming through check in to In stay. Completed, No-show and Cancelled are gray final states in one column, each with its end dot, and no transition crosses another. Cancelled carries the pink outline as the end state two statuses lead to, with its own key entry. The run that drew it passes at 22 of 22: its plan follows the board as drawn, and Cancelled leads the end states for both readers.
 
 ![Roamstay booking status state diagram with a Confirmed composite and pink Cancelled end](assets/screenshots/state-board.png)
 
-**ER.** A Guest side zone and a Partner side zone keep the two halves apart. Each entity lists its PK and FK columns. Each line names the relationship with its cardinality and carries the matching crow's-foot mark at both ends. Booking carries the pink outline. The board shows key columns only, because the run had no schema note.
+**ER.** A Guest side zone and a Partner side zone keep the two halves apart. Each entity lists its PK and FK columns, and each line names the relationship with its cardinality and carries the matching crow's-foot mark at both ends. Booking carries the pink outline. It comes from FJ-027, Claude Sonnet 5.5 medium on v1.0.16.0, 22 of 22, PASS, and its subtitle names what the model covers.
 
 ![An ER board with six entities split into guest and partner zones](assets/screenshots/er-board.png)
 
-**Gantt.** A weekly date axis runs across the top and Design, Build and Rollout are tinted zones. Each bar shows its length, the critical bars carry a heavy outline, the integration week carries the pink outline and a yellow diamond marks the release on 21 December. An arrow runs from each bar's right end onto the top of the work that waits on it, and two arrowheads crowd into Desktop and iOS integration. The source line names Android as left out.
+**Gantt.** A weekly date axis runs across the top and Design, Build and Launch are tinted zones. Each bar shows its length, the critical integration week carries the pink outline and a yellow diamond marks the release on 21 December. An arrow runs from each bar's right end onto the work that waits on it, though the arrow from Conflict screen design runs through the Sync engine bar and two arrows crowd into the integration bar. The source line names Android as left out. It comes from FJ-028, Claude Sonnet 5.5 medium on v1.0.16.0, 20 of 22, FAIL on Composition, the same total as the board it replaced.
 
 ![A gantt board for a launch plan with three phases and a release milestone](assets/screenshots/gantt-board.png)
 
-**Written onto an existing board.** In FJ-032 this state diagram was added to a board that already held content, which the write left in place. The overview shows the new section only. Completed carries the pink outline as the first glance this time, because the gate planned it first. The board predates v1.0.6.0, because the rerun's FJ-032 board scored 19 and failed on Composition and Reply.
+**Written onto an existing board.** In FJ-032 this state diagram was added to a board that already held a Sprint retro section of six stickies, which the write left in place and clear of the new section. The page view shows both. Pending is the blue first state, Confirmed is a composite holding Upcoming and In stay, and the three final states stand in one column. It comes from Claude Sonnet 5.5 medium on v1.0.16.0, 22 of 22, PASS.
 
-![A state board for a booking lifecycle written onto a board with existing content](assets/screenshots/state-on-existing-board.png)
+![A booking lifecycle state board written beside a Sprint retro section of six stickies](assets/screenshots/state-on-existing-board.png)
 
 **Dense flow at the node budget.** Nine nodes and two decisions with five labelled exits, No, Yes, Higher, Lower and Same, and no connector crossing another. The pink outline sits on the three-way New price? decision and the key gives the reason, the only three-way choice. The run that drew it fails its PASS line on its reply, which opened on a cleanup line, not on the board.
 

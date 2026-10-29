@@ -1,7 +1,7 @@
 ---
 title: "sk-create-figjam: Manual Testing Playbook"
 description: "Operator-facing directory for the FigJam diagram packet: type choice for all seven types, the pre-write check, the board write with its gate, extension and read-back, scored board quality for every type, creation variant and the board design, the boundaries with the Product Owner packet and routing recall for type detection."
-version: 1.0.15.0
+version: 1.0.16.0
 ---
 
 # sk-create-figjam: Manual Testing Playbook
@@ -197,7 +197,7 @@ This section plans the order of a full run. It is not a runtime support matrix.
 1. Wave 1 runs the shell scenarios with no model runtime: FJ-004, FJ-005, FJ-006, FJ-014, FJ-015, FJ-016, FJ-043, FJ-046, FJ-047 and the routing scenarios
 2. Wave 2 runs the conversational type-choice and boundary scenarios, each in a fresh session
 3. Wave 3 runs the board writes one at a time, because they share one Figma account: FJ-007, FJ-008, FJ-009, FJ-017, FJ-018, FJ-019, FJ-048
-4. Wave 4 runs the scored boards one at a time, and each Clarity read uses a reader who has not seen an earlier board of the same request: FJ-022, FJ-023, FJ-024, FJ-025, FJ-026, FJ-027, FJ-028, FJ-029, FJ-030, FJ-031, FJ-032, FJ-033, FJ-034, FJ-035, FJ-036, FJ-044, FJ-045. FJ-045 edits the shipped design file, so no other scenario runs until its restore step passes
+4. Wave 4 runs the scored boards one at a time, and each Clarity read uses a reader who has not seen an earlier board of the same request: FJ-022, FJ-023, FJ-024, FJ-025, FJ-026, FJ-027, FJ-028, FJ-029, FJ-030, FJ-031, FJ-032, FJ-033, FJ-034, FJ-035, FJ-036, FJ-044, FJ-045, FJ-049. FJ-045 edits the shipped design file, so no other scenario runs until its restore step passes
 5. After each wave, record the evidence and the verdicts before the next wave starts
 6. Record the evidence paths for every scenario in the final report
 
@@ -665,7 +665,7 @@ Desired user-visible outcome: A read-back that counts and shows the note the las
 
 ---
 
-## 10. BOARD QUALITY (`FJ-022`, `FJ-023`, `FJ-024`, `FJ-025`, `FJ-026`, `FJ-027`, `FJ-028`, `FJ-044`, `FJ-045`)
+## 10. BOARD QUALITY (`FJ-022`, `FJ-023`, `FJ-024`, `FJ-025`, `FJ-026`, `FJ-027`, `FJ-028`, `FJ-044`, `FJ-045`, `FJ-049`)
 
 One written board per diagram type, scored on the board quality scorecard in Section 3 at two zooms. The overview screenshot scores composition, crossings, shared trunks and label collisions. The 100% screenshot scores fidelity, legibility and signal. The four hygiene checks and the reply close the run. Each scenario names three reader questions with its answers, so clarity is measured, not judged. Two more check the design every type is drawn in: the seven types side by side under the shipped design, and a broken design that falls back token by token.
 
@@ -838,6 +838,25 @@ Desired user-visible outcome: A board drawn in the shipped look for the three ba
 #### Test Execution
 
 > **Feature File:** [FJ-045](board-quality/broken-design-falls-back.md)
+> **Catalog:** none, the packet has no feature catalog
+
+### FJ-049 | Status lane board quality
+
+#### Description
+
+Verify that a laned process with a status lane draws its statuses on top in order, moves each with a dotted line, carries detail cards at Faithful and puts the named decision in focus.
+
+#### Scenario Contract
+
+Prompt: `make a FigJam process of how a Roamstay damage claim moves between the hotel, the guest and Roamstay support, on a new board in our Roamstay Product plan, with the status the claim holds at each step, and keep the policy's detail on the steps. Highlight where the guest decides. From the claims policy: after check-out the hotel reports damage with photos and a repair quote, and the claim is Reported. Support sends the claim to the guest with the photos and the quote, and the claim is With the guest. The guest has 7 days to accept or dispute it. An accepted claim is charged to the card on file. A disputed claim is Under review while support reads the photos and the guest's reply and decides within 5 working days to uphold it, which charges the card, or to drop it. Either way the claim ends Closed. Claims under 25 euros are waived, a rule that is not yet live.`
+
+Expected signals: The prompt leaves the reader unstated, so under the Standard energy rule in the Section 5 Turn 1 is an intake round that ends on its closing question, and no model is written and no check runs before the playback's answer, read from the tool stream. Turn 2 ends on the playback, which names the question, the outcome and the three dials, and writes nothing. Turn 3 ends on the gate and writes nothing. Turn 4 writes after the gate's yes. A further intake round moves the later turn numbers by one, as the Section 4 sets out. The status lane sits on top and holds Reported, With the guest, Under review and Closed as chevrons in that order, joined by the status line. Each status after the first is reached by a dotted line the key names Moves the status. Hotel, Guest and Roamstay support are lanes below it, each step in its lane, and both decisions have both exits labelled. At least the step that sends the claim and the step that reviews a dispute are detail cards, a one-line label over the policy's lines. The only mark is the guest's decision drawn in focus with the pink outline and named In focus in the key. Every count in the read-back matches the model. The scorecard totals at least 18 of 22, with Composition, Fidelity, the four Hygiene checks and Reply at full marks and no scored dimension at 0
+
+Desired user-visible outcome: A board that reads in its planned order at both zooms, with every count measured
+
+#### Test Execution
+
+> **Feature File:** [FJ-049](board-quality/status-lane-board-quality.md)
 > **Catalog:** none, the packet has no feature catalog
 
 ---
