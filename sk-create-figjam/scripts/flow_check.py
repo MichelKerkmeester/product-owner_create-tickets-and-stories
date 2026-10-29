@@ -599,7 +599,14 @@ def self_test() -> int:
                             f"shown:\n{printed.group(1)}\nprinted:\n{wanted}"))
     results += label_results()
     results += palette_results()
-    skill_types = re.search(r'DIAGRAM_TYPES = \(([^)]*)\)', (PACKET / "SKILL.md").read_text(encoding="utf-8"))
+    # The packet router declares DIAGRAM_TYPES in SKILL.md, or in the sibling ROUTER.md
+    # SKILL.md links once the machine router moves there, so both are read in that order.
+    skill_types = None
+    for router_doc in ("SKILL.md", "ROUTER.md"):
+        if (PACKET / router_doc).is_file():
+            skill_types = re.search(r'DIAGRAM_TYPES = \(([^)]*)\)', (PACKET / router_doc).read_text(encoding="utf-8"))
+        if skill_types:
+            break
     declared = set(re.findall(r'"([a-z-]+)"', skill_types.group(1))) if skill_types else set()
     results.append(("SKILL.md DIAGRAM_TYPES names the types this check dispatches", declared == set(NAMES),
                     f"SKILL.md {sorted(declared)} against the check {sorted(NAMES)}"))

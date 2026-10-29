@@ -35,32 +35,11 @@ Use this skill for Barter backlog and documentation work, for diagrams drawn on 
 
 ## 2. SMART ROUTING
 
-Routing is registry-driven in two stages. Stage one picks the mode here, from `mode-registry.json` and `hub-router.json`. Stage two is the root [`ROUTER.md`](ROUTER.md), which maps the request's intent to the exact packet-local leaves that mode loads, and the packet's own `SKILL.md` Section 2 routes inside the packet. The hub never emits leaf paths, and `ROUTER.md` never re-decides the mode.
-
-> **Compiled routing (default-on, flag-gated, additive).** Resolve the mode via the compiled router contract first:
-> ```bash
-> node .skilled/bin/compiled-route.cjs --hub product-owner --prompt "<task>"
-> ```
-> Follow the returned decision: `route` (use its `targets`), `clarify` or `defer` (disambiguate) or `reject` (refuse). On a `{"servingAuthority":"legacy"}` sentinel or any error, use the routing below. The front door self-gates on serving-authority. Compiled routing is the default for `product-owner`. Set `SPECKIT_COMPILED_ROUTING=0`, the explicit kill-switch, to force legacy routing fleet-wide.
-
-`product-owner` ships without a compiled activation manifest, so the directive above returns the legacy sentinel and the stage one rules below route every request. A Product Owner clone that has no `.skilled/bin/` gets an error from the same command and takes the same path.
-
-### Stage One Rules
+Routing is registry-driven in two stages. Stage one picks the mode here, from `mode-registry.json` and `hub-router.json`. Stage two is the root [`ROUTER.md`](ROUTER.md), which maps the request's intent to the exact packet-local leaves that mode loads, and the packet's own router, its `SKILL.md` Section 2 and the sibling `ROUTER.md` that section links, routes inside the packet. The hub never emits leaf paths, and `ROUTER.md` never re-decides the mode.
 
 Stage one follows the ordered rules in [`hub-router.json`](hub-router.json) `routerPolicy.stageOneOrder`. The first matching rule wins. Packet commands run first, then an artifact request, then an opening packet signal, a default artifact word, one non-negated packet signal, and the default mode.
 
-Examples: `cupt list my open tasks` stays in `mcp-click-up` because `tasks` is data, while `figma-ds-cli fj nodes` opens in `mcp-figma`. `figma-ds-cli fj nodes and write a task for the spacing` and `figjam the checkout flow, then write a story` start in `sk-product-owner` because each asks for an artifact. The bare words "figma" and "clickup" remain subjects, and a negated signal such as "do not use figma-ds-cli" starts no packet. A `figma.com/board` link is a FigJam signal, because that address is a FigJam file, while a `figma.com/design` link is not. A full stop ends a clause only before a space, so the dots inside a link stay in the clause that carries it.
-
-A Flow request that stage one keeps in the Product Owner packet follows the single-route handoff contract in [`sk-product-owner/SKILL.md`](sk-product-owner/SKILL.md) Section 2. A command conflict such as `$task $flow` follows that packet's Interactive route.
-
-
-### Outcomes
-
-- `single`: one packet's commands or signals route to that one mode
-- `orderedBundle`: never formed here. Signals of two packets start in the default mode, whose Interactive Mode asks which comes first. A FigJam second output beside an artifact is the exception, because it forms an ordered pair in stage two with the artifact first, while two artifacts still ask
-- `defer`: a request with no packet command or signal starts in the default mode, and one it cannot route there gets one clarifying question
-
-`benchmark/hub-routing-cases.json` holds the hub gold rows, and `benchmark/gates/check_hub.py` replays them against these rules and checks that the hub files, the registry, the router and the packets agree.
+Run the compiled-routing directive in [`ROUTER.md`](./ROUTER.md) before selecting hub resources.
 
 ---
 

@@ -8,10 +8,10 @@
 The hub is the repository root and follows the skilled parent-hub contract:
 `mode-registry.json` and `hub-router.json` pick a mode, the root `ROUTER.md`
 maps the request's intent to that mode's leaves, and each workflow packet
-routes inside its own `SKILL.md` Section 2. A hub drifts without a sound: a new
-packet folder nobody registers, a default that names a vendored packet, or a
-packet that grows its own `ROUTER.md` or identity file again. None of those
-breaks a fixture, because the fixtures call the packet router directly.
+routes inside itself. A hub drifts without a sound: a new packet folder nobody
+registers, a default that names a vendored packet, or a packet that grows an
+identity file again. None of those breaks a fixture, because the fixtures call
+the packet router directly.
 
 The skilled checker holds the schema. This gate holds what only Product Owner
 has: the vendored packets, which are byte copies of shared skills and route
@@ -19,8 +19,11 @@ inside their own `SKILL.md`, and the stage one rules the hub `SKILL.md` states.
 A packet the registry's `vendored-packets` extension names must also be listed
 in `vendor.json`, and the default may never be one, so the mark cannot excuse a
 packet nobody vendors or lift the packet checks off the default. Every other
-packet is a workflow packet that keeps its routing in `SKILL.md` Section 2,
-held to the skilled smart-router markers.
+packet is a workflow packet held to the skilled smart-router markers. A packet
+with a sibling `ROUTER.md` keeps its machine router there, under a final
+`## 3. MACHINE ROUTER`, and its `SKILL.md` Section 2 links that file; a packet
+without one keeps the markers in `SKILL.md` Section 2. So this gate reads both
+`SKILL.md` and `ROUTER.md`.
 
 The gold rows in `benchmark/hub-routing-cases.json` replay stage
 one. Stage two is the router fixtures' job, so the figma row only proves its
@@ -28,7 +31,7 @@ fixture still exists and still routes to Task.
 
 Usage:
   check_hub.py             -> exit 0 when the hub, the registry and the gold rows agree
-  check_hub.py --self-test -> prove the gate fails on eleven planted defects
+  check_hub.py --self-test -> prove the gate fails on each planted defect
 """
 import json
 import os
@@ -54,12 +57,19 @@ CASES = Path("benchmark/hub-routing-cases.json")
 FIXTURES = Path("benchmark/router/fixtures.json")
 ROUTER_STATE_LINE = "router_state: active"
 SKILL_POINTER_LINE = "skill_pointer: SKILL.md"
-# Only the hub carries a router or an identity, so a packet holding one of these has a second.
-PACKET_RESIDUE = ("ROUTER.md", "graph-metadata.json", "description.json", "leaf-manifest.json",
+# Only the hub carries an identity, so a packet holding one of these has a second.
+# A packet's own ROUTER.md is not on this list: it is where the skilled canon
+# keeps that packet's machine router, beside the SKILL.md that links it.
+PACKET_RESIDUE = ("graph-metadata.json", "description.json", "leaf-manifest.json",
                   "leaf-manifest.config.json", "leaf-aliases.json")
-# The skilled validator reads these in a packet's SMART ROUTING section.
+# The skilled validator reads these in a packet's SMART ROUTING section or its sibling ROUTER.md.
 SMART_ROUTER_MARKERS = ("discover_markdown_resources", "_guard_in_skill", "UNKNOWN_FALLBACK")
 SMART_ROUTING_SECTION = re.compile(r"^## 2\. SMART ROUTING\n(.*?)(?=^## )", re.M | re.S)
+PACKET_ROUTER = "ROUTER.md"
+# The one section of a packet ROUTER.md that holds its machine router, always its last H2.
+MACHINE_ROUTER_HEADING = "## 3. MACHINE ROUTER"
+# SKILL.md reaches its router only through a relative link, so Section 2 has to carry one.
+ROUTER_POINTER = re.compile(r"\]\(\./ROUTER\.md(?:#[^)]*)?\)")
 WORKFLOW_KIND = "workflow"
 FRONTMATTER_NAME = re.compile(r"^name:\s*(.+)$", re.M)
 FIGMA_FIXTURE_LABEL = "the existing figma Task fixture"
@@ -133,6 +143,23 @@ def frontmatter(text: str) -> list[str]:
     return lines[1:lines.index("---", 1)]
 
 
+def h2_sections(text: str) -> list[tuple[str, str]]:
+    """Each H2 heading outside a fence, with the body up to the next one."""
+    sections: list[tuple[str, list[str]]] = []
+    fence = None
+    for line in text.split("\n"):
+        stripped = line.strip()
+        if stripped.startswith(("```", "~~~")):
+            marker = stripped[:3]
+            fence = None if fence == marker else (fence or marker)
+        elif fence is None and line.startswith("## "):
+            sections.append((line.rstrip(), []))
+            continue
+        if sections:
+            sections[-1][1].append(line)
+    return [(heading, "\n".join(body)) for heading, body in sections]
+
+
 def vendored_folders() -> set[str]:
     """Every local path vendor.json lists as a vendored package."""
     data = read_json(ROOT / VENDOR_FILE)
@@ -185,10 +212,28 @@ def check_packet(mode: dict, hub_text: str, vendored: set[str], listed: set[str]
     section = SMART_ROUTING_SECTION.search(skill_text)
     if not section:
         problems.append(f"packet SKILL.md has no Section 2 SMART ROUTING: {packet}/SKILL.md")
-    else:
+        return
+    router = hub() / packet / PACKET_ROUTER
+    if not router.is_file():
         for marker in SMART_ROUTER_MARKERS:
             if marker not in section.group(1):
                 problems.append(f"{packet}/SKILL.md Section 2 lacks the smart-router marker {marker}")
+        return
+    if not ROUTER_POINTER.search(section.group(1)):
+        problems.append(f"{packet}/SKILL.md Section 2 does not link its sibling ./{PACKET_ROUTER}")
+    router_text = read_text(router)
+    header = frontmatter(router_text)
+    for line in (ROUTER_STATE_LINE, SKILL_POINTER_LINE):
+        if line not in header:
+            problems.append(f"{packet}/{PACKET_ROUTER} frontmatter lacks: {line}")
+    sections = h2_sections(router_text)
+    if not sections or sections[-1][0] != MACHINE_ROUTER_HEADING:
+        problems.append(f"{packet}/{PACKET_ROUTER} does not end with {MACHINE_ROUTER_HEADING}")
+        return
+    # The skilled validator reads the markers anywhere in the sibling router, so this gate does too.
+    for marker in SMART_ROUTER_MARKERS:
+        if marker not in router_text:
+            problems.append(f"{packet}/{PACKET_ROUTER} lacks the smart-router marker {marker}")
 
 
 def check_router(problems: list[str]) -> None:
@@ -487,6 +532,8 @@ def self_test() -> int:
         tree = Path(scratch)
         copies = [Path(name) for name in HUB_FILES]
         copies += [Path(packet) / "SKILL.md" for packet in packets]
+        copies += [Path(packet) / PACKET_ROUTER for packet in packets
+                   if (original / packet / PACKET_ROUTER).is_file()]
         copies += [Path(VENDOR_FILE), CASES, FIXTURES]
         for relative in copies:
             target = tree / relative
@@ -545,15 +592,39 @@ def self_test() -> int:
             results.append(("a missing stage-one rule fails", check() == 1))
             hub_router.write_text(clean, encoding="utf-8")
 
-            residue = hub_dir / "sk-product-owner" / "ROUTER.md"
-            residue.write_text("---\nrouter_state: active\n---\n", encoding="utf-8")
+            residue = hub_dir / "sk-product-owner" / "graph-metadata.json"
+            residue.write_text("{}\n", encoding="utf-8")
             results.append(
                 (
-                    "a packet ROUTER.md fails",
+                    "a packet identity file fails",
                     any("hub-only file" in problem for problem in check_hub()) and check() == 1,
                 )
             )
             residue.unlink()
+
+            # The planted router replaces the packet's real one for this case only.
+            planted = hub_dir / "sk-product-owner" / PACKET_ROUTER
+            kept = planted.read_text(encoding="utf-8") if planted.is_file() else None
+            planted.write_text(
+                "---\nrouter_state: active\nskill_pointer: SKILL.md\n---\n\n## 1. OVERVIEW\n", encoding="utf-8"
+            )
+            results.append(
+                (
+                    "a packet ROUTER.md without a final machine section fails",
+                    any(MACHINE_ROUTER_HEADING in problem for problem in check_hub()) and check() == 1,
+                )
+            )
+            if kept is None:
+                planted.unlink()
+            else:
+                planted.write_text(kept, encoding="utf-8")
+
+            if kept is not None:
+                skill = hub_dir / "sk-product-owner" / "SKILL.md"
+                clean = skill.read_text(encoding="utf-8")
+                skill.write_text(clean.replace("](./ROUTER.md)", "](ROUTER-moved.md)"), encoding="utf-8")
+                results.append(("a packet ROUTER.md its SKILL.md never links fails", check() == 1))
+                skill.write_text(clean, encoding="utf-8")
 
             vendor = tree / VENDOR_FILE
             clean = vendor.read_text(encoding="utf-8")
@@ -600,10 +671,13 @@ def self_test() -> int:
             )
             hub_router.write_text(clean, encoding="utf-8")
 
-            skill = hub_dir / "sk-create-figjam" / "SKILL.md"
+            # The marker lives in the packet ROUTER.md once the packet has one, in SKILL.md before.
+            skill = hub_dir / "sk-create-figjam" / PACKET_ROUTER
+            if not skill.is_file():
+                skill = hub_dir / "sk-create-figjam" / "SKILL.md"
             clean = skill.read_text(encoding="utf-8")
             skill.write_text(clean.replace("_guard_in_skill", "_guard"), encoding="utf-8")
-            results.append(("a packet Section 2 without a smart-router marker fails", check() == 1))
+            results.append(("a packet machine router without a smart-router marker fails", check() == 1))
             skill.write_text(clean, encoding="utf-8")
 
             clean = _edit_json(registry, lambda data: data["modes"][1].update(packetKind="transport"))
