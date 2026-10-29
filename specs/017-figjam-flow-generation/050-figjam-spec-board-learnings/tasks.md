@@ -63,8 +63,8 @@ contextType: "implementation"
 
 - [x] T017 Compose the worked example once on a scratch board and read it back under D1. Verify: the read-back counts match the model and the view was rendered after the write. [EVIDENCE: composed on a scratch FigJam board in one use_figma call: 15 of 15 nodes, 20 of 20 connectors, 0 warnings; the three-line body clipped at 160 px, a probe measured 176 as the fit, the card allowance moved from 8 to 32 px and the three cards were resized in place and read back with node.screenshot() after that write]
 - [x] T018 Run the self-tests and gates on the tree to be committed. Verify: every gate in plan.md Section 2 exits 0. [EVIDENCE: rerun after the review repairs: flow_check 227 of 227, composer 1302 of 1302, design check 0, pytest 18 passed, run_gates.sh 15 of 15; the output format gate fails only on sk-product-owner/SKILL.md:46, a semicolon present before this phase]
-- [ ] T019 Commit Product Owner and the outer mirror, and push only on the operator's go-ahead. Verify: `validate_parity.py product-owner`, `residency_check.py --all` and `pair_divergence.py product-owner` each print PASSED.
-- [ ] T020 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both.
+- [x] T019 Commit Product Owner and the outer mirror, and push only on the operator's go-ahead. Verify: `validate_parity.py product-owner`, `residency_check.py --all` and `pair_divergence.py product-owner` each print PASSED. [EVIDENCE: Product Owner c1533f7e, outer 1c4013b2 and the review record in 4f4aacb09; parity PASSED 66 of 66, residency PASSED 7, divergence PASSED 66; nothing pushed]
+- [x] T020 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both. [EVIDENCE: RESULT: PASSED for this phase and the parent]
 <!-- /ANCHOR:phase-3 -->
 
 ---
@@ -72,9 +72,9 @@ contextType: "implementation"
 <!-- ANCHOR:completion -->
 ## Completion Criteria
 
-- [ ] All tasks marked `[x]`
-- [ ] No `[B]` blocked tasks remaining
-- [ ] Manual verification passed
+- [x] All tasks marked `[x]`
+- [x] No `[B]` blocked tasks remaining
+- [x] Manual verification passed
 <!-- /ANCHOR:completion -->
 
 ---
@@ -125,7 +125,7 @@ contextType: "implementation"
 <!-- ANCHOR:testing -->
 ## Testing Checklist
 
-- [ ] CHK-020 [P0] All acceptance criteria met
+- [x] CHK-020 [P0] All acceptance criteria met [EVIDENCE: acceptance-criteria.md AC-001 to AC-010 Met]
 - [x] CHK-021 [P0] Gates pass [EVIDENCE: flow_check 227 of 227, compose_board 1302 of 1302, design check 0, pytest 18 passed, run_gates.sh 15 of 15, residency and divergence PASSED in a scratch clone; the format gate fails only on the earlier sk-product-owner/SKILL.md:46]
 <!-- /ANCHOR:testing -->
 
@@ -162,9 +162,9 @@ contextType: "implementation"
 
 | Category | Total | Verified |
 |----------|-------|----------|
-| P0 Items | 7 | 2 |
-| P1 Items | 5 | 1 |
+| P0 Items | 7 | 7 |
+| P1 Items | 5 | 5 |
 | P2 Items | 0 | 0 |
 
-**Verification Date**: Not yet verified
+**Verification Date**: 2026-10-29
 <!-- /ANCHOR:summary -->

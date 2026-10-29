@@ -22,7 +22,7 @@ contextType: "implementation"
 
 **Packet:** 017-figjam-flow-generation/050-figjam-spec-board-learnings
 **Level:** 2
-**Status:** In progress
+**Status:** Complete
 **Date:** 2026-10-29
 <!-- /ANCHOR:metadata -->
 
@@ -36,7 +36,7 @@ One row per criterion. `AC-ID` is stable once written: supersede a criterion, ne
 | AC-ID | REQ | Given / When / Then | Verification | Status | Waiver |
 |-------|-----|---------------------|--------------|--------|--------|
 | AC-001 | REQ-001 | Given the changed sources, When every gate runs, Then each exits 0 | flow_check 227 of 227, compose_board 1302 of 1302, design check 0, pytest 18 passed, run_gates.sh 15 of 15. The output format gate fails only on sk-product-owner/SKILL.md:46, a line from before this packet | Met | - |
-| AC-002 | REQ-002 | Given the last commit, When the Sync Loop checks run, Then parity, residency and divergence pass | Not yet run | Unmet | - |
+| AC-002 | REQ-002 | Given the last commit, When the Sync Loop checks run, Then parity, residency and divergence pass | After the Product Owner commit c1533f7e, the outer commit 1c4013b2 and the review record moved to it in 4f4aacb09, parity PASSED 66 of 66, residency PASSED 7 systems and divergence PASSED 66 pairs | Met | - |
 | AC-003 | REQ-003 | Given every changed file, When the anonymity scan runs on the local term list, Then it prints nothing | The scan on every added line matches only the generic word deal in this packet's own spec text, and no line carries a board URL, file key or email | Met | - |
 | AC-004 | REQ-004 | Given a write followed by a read-back, When the view still shows the board before the write, Then the read-back reports it stale and counts only a fresh view | flow-mode.md step 10 and Section 7, quality-rubric.md and hybrid-workflow.md Section 6 state the rule, FJ-048 tests it, and the scratch board was read back with node.screenshot() after its last write | Met | - |
 | AC-005 | REQ-005 | Given every shipped example, When its subtitle line is read, Then it names where the flow starts and where it ends | Every shipped process, state, sequence, gantt and architecture subtitle names a start and an end. The ER example names what it covers, as the rule allows | Met | - |
@@ -69,7 +69,7 @@ waiver is treated as an unmet criterion rather than as a pass.
 <!-- ANCHOR:closure -->
 ## 3. CLOSURE STATEMENT
 
-**Closeable:** No
+**Closeable:** Yes
 
-Nine of ten criteria are Met. AC-002 waits for the release commit, after which the flow-mode review record moves to that commit and the parity check runs again.
+Every criterion is Met.
 <!-- /ANCHOR:closure -->
