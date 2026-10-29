@@ -50,7 +50,7 @@ Is this the right reading of the board?
 ```mermaid
 sequenceDiagram
     title Checkout payment, happy path
-    %% subtitle: The calls a Roamstay checkout makes when the card is authorised, for the payments team
+    %% subtitle: The calls a Roamstay checkout makes, from the booking request to the confirmed booking, for the payments team
     %% source: Source: the payments API brief. Left out: the declined-card path, kept for a second diagram.
     participant GuestApp
     participant BookingApi

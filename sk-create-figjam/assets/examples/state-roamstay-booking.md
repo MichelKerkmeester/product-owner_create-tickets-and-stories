@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "state example"
   - "roamstay booking states"
-version: 1.0.8.0
+version: 1.0.9.0
 ---
 
 # Example - State - Roamstay Booking
@@ -61,7 +61,7 @@ Is this the right reading of the board?
 ```mermaid
 stateDiagram-v2
     %% title: Booking status
-    %% subtitle: Every status a Roamstay booking passes through, and what moves it on
+    %% subtitle: Every status a Roamstay booking passes through, from the pending request to a completed, cancelled or missed stay, and what moves it on
     %% source: Source: the bookings doc, Section 2.
     %% focus: Cancelled
     direction LR

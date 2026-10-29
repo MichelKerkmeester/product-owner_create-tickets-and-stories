@@ -1,0 +1,25 @@
+{
+  "level": "2",
+  "specFolder": "017-figjam-flow-generation/050-figjam-spec-board-learnings",
+  "description": "On 2026-10-29 the operator had a FigJam board drawn by hand, outside Flow Mode, from a set of product prompt docs and their screens",
+  "keywords": [
+    "figjam",
+    "spec",
+    "board",
+    "status",
+    "lane",
+    "detail",
+    "cards",
+    "read-back",
+    "subtitle",
+    "example"
+  ],
+  "lastUpdated": "2026-10-29T17:21:38.000Z",
+  "specId": "050",
+  "folderSlug": "figjam-spec-board-learnings",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

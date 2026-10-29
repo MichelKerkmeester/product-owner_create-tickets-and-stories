@@ -149,6 +149,7 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 47 | 047-figjam-glance-and-row-fixes/ | The v1.0.12.0 rerun causes: a glance plan that ignores where the composer draws off-row nodes, a main row that bends unflagged, a sticky side with no alignment or reach, a gate sketch that drops checked lines, label wraps the sources' words cannot clear, an intake round with no dials and a harness that redacted committed records, then a rerun of FJ-017, FJ-022, FJ-023 and FJ-036 | Complete |
 | 48 | 048-figjam-neighbour-and-closing-fixes/ | The v1.0.13.0 rerun causes: a decision beside the accent read before the entry, an intake round ending on its reason, an FJ-017 Finding the skill does not ask for, a diamond trace wider than FigJam draws, the dials at the gate, a swapped pair charged twice and a turn 1 that models before its intake, then a rerun of FJ-017, FJ-022, FJ-023 and FJ-036 | Complete |
 | 49 | 049-figjam-reading-order-and-reply-lead/ | The v1.0.14.0 rerun causes: a lifted decision readers did not take second, a delivery reply opening on a sentence above the URL, an FJ-023 scenario and examples that skip the turn 1 intake, a label trace counting characters and Composition read by eye, then a rerun of FJ-022 and FJ-023 | Complete |
+| 50 | 050-figjam-spec-board-learnings/ | Five lessons from a hand-built spec board: a read-back that trusts only a view rendered after its write, a subtitle naming start and end, an optional status lane on a laned process, detail cards at `Faithful` and one anonymized worked example of that board shape | Planned |
 
 ### Phase Transition Rules
 
@@ -203,6 +204,7 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 046-figjam-gate-and-accent-fixes | 047-figjam-glance-and-row-fixes | Under the operator's standing instruction of 2026-10-28, phase 047 fixes every cause of the v1.0.12.0 rerun and reruns the four scenarios | 038 run README section 8.12 |
 | 047-figjam-glance-and-row-fixes | 048-figjam-neighbour-and-closing-fixes | Under the operator's standing instruction, phase 048 fixes every cause of the v1.0.13.0 rerun from the fresh Opus recommendation and reruns the four scenarios | 038 run README section 8.13 |
 | 048-figjam-neighbour-and-closing-fixes | 049-figjam-reading-order-and-reply-lead | Under the operator's standing instruction, phase 049 fixes every cause of the v1.0.14.0 rerun from a fresh Sonnet recommendation and reruns the two failures | 038 run README section 8.14 |
+| 049-figjam-reading-order-and-reply-lead | 050-figjam-spec-board-learnings | On the operator's request of 2026-10-29, phase 050 folds the lessons of a hand-built spec board into the skill and the Project | 050 spec.md Section 2 |
 <!-- /ANCHOR:phase-map -->
 
 ---

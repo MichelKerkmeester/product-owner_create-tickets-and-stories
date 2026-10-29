@@ -127,7 +127,7 @@ The rollback is to delete exactly the ids the extension returned and resize the 
 
 ## 6. READ-BACK
 
-Read the board with `get_figjam` and count the pins and the notes by name against what the extension planned, then check one screenshot for a pin or a sticky that covers a label. The line takes the form the recipe drew, pins with a legend or single stickies.
+Read the board with `get_figjam` and count the pins and the notes by name against what the extension planned, then check one screenshot for a pin or a sticky that covers a label. The screenshot is taken after the extension's write with `node.screenshot()` on the board inside a `use_figma` call, because `get_screenshot` can return the board as it stood before the write, and a view without the notes is reported `stale` and taken again. The line takes the form the recipe drew, pins with a legend or single stickies.
 
 ```text
 Extensions: 4 of 4 pins, 4 of 4 legend stickies, 0 overlaps

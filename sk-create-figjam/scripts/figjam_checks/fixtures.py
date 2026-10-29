@@ -162,6 +162,49 @@ sequenceDiagram
     style c fill:#CDF4D3,stroke:#66D575
     %% focus: c because it is the goal
 """,
+    "a laned process with a status lane": """%% type: process
+flowchart LR
+    %% status: status
+    subgraph status ["Status"]
+        open[Open]
+        made[In the making]
+        done[Delivered]
+    end
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        start[Start the work]
+        ship[Ship the order]
+    end
+    open --> made
+    made --> done
+    ask --> start
+    start -.-> made
+    start --> ship
+    ship -.-> done
+    ship --> got
+    style ship fill:#C2E5FF,stroke:#3DADFF
+""",
+    "a laned process with detail cards at the Faithful level": """%% type: process
+flowchart LR
+    %% level: faithful
+    %% detail: check | Reads the order form | Checks the size and the wood
+    %% detail: build | Cuts and joins the planter: up to 10 days
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        check[Check the order]
+        build[Build the planter]
+    end
+    ask --> check
+    check --> build
+    build --> got
+    style build fill:#C2E5FF,stroke:#3DADFF
+""",
 }
 
 PLANTED = {
@@ -851,4 +894,403 @@ flowchart LR
     style c fill:#CDF4D3,stroke:#66D575
     %% focus: b because a reason
 """, "give its reason as %% focus: <styled id> because <reason>"),
+    "a status line naming no lane": ("""%% type: process
+flowchart LR
+    %% status: phase
+    subgraph status ["Status"]
+        open[Open]
+        made[In the making]
+        done[Delivered]
+    end
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        start[Start the work]
+        ship[Ship the order]
+    end
+    open --> made
+    made --> done
+    ask --> start
+    start -.-> made
+    start --> ship
+    ship -.-> done
+    ship --> got
+    style ship fill:#C2E5FF,stroke:#3DADFF
+""", "%% status: phase names no lane"),
+    "two status lines": ("""%% type: process
+flowchart LR
+    %% status: status
+    %% status: client
+    subgraph status ["Status"]
+        open[Open]
+        made[In the making]
+        done[Delivered]
+    end
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        start[Start the work]
+        ship[Ship the order]
+    end
+    open --> made
+    made --> done
+    ask --> start
+    start -.-> made
+    start --> ship
+    ship -.-> done
+    ship --> got
+    style ship fill:#C2E5FF,stroke:#3DADFF
+""", "2 %% status lines, at most 1"),
+    "a status lane declared after an actor lane": ("""%% type: process
+flowchart LR
+    %% status: status
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph status ["Status"]
+        open[Open]
+        done[Delivered]
+    end
+    subgraph maker ["Maker"]
+        ship[Ship the order]
+    end
+    open --> done
+    ask --> ship
+    ship -.-> done
+    ship --> got
+    style ship fill:#C2E5FF,stroke:#3DADFF
+""", "declare it first"),
+    "a status state that is not a plain step": ("""%% type: process
+flowchart LR
+    %% status: status
+    subgraph status ["Status"]
+        open[Open]
+        made[In the making]
+        done([Delivered])
+    end
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        start[Start the work]
+        ship[Ship the order]
+    end
+    open --> made
+    made --> done
+    ask --> start
+    start -.-> made
+    start --> ship
+    ship -.-> done
+    ship --> got
+    style ship fill:#C2E5FF,stroke:#3DADFF
+""", "write it [Label]"),
+    "a status state that leads a step": ("""%% type: process
+flowchart LR
+    %% status: status
+    subgraph status ["Status"]
+        open[Open]
+        made[In the making]
+        done[Delivered]
+    end
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        start[Start the work]
+        ship[Ship the order]
+    end
+    open --> made
+    made --> done
+    ask --> start
+    start -.-> made
+    start --> ship
+    ship -.-> done
+    ship --> got
+    done --> got
+    style ship fill:#C2E5FF,stroke:#3DADFF
+""", "a status only moves"),
+    "a solid status move": ("""%% type: process
+flowchart LR
+    %% status: status
+    subgraph status ["Status"]
+        open[Open]
+        made[In the making]
+        done[Delivered]
+    end
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        start[Start the work]
+        ship[Ship the order]
+    end
+    open --> made
+    made --> done
+    ask --> start
+    start --> made
+    start --> ship
+    ship -.-> done
+    ship --> got
+    style ship fill:#C2E5FF,stroke:#3DADFF
+""", "moves the status with -.->"),
+    "status states in no single chain": ("""%% type: process
+flowchart LR
+    %% status: status
+    subgraph status ["Status"]
+        open[Open]
+        made[In the making]
+        done[Delivered]
+    end
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        start[Start the work]
+        ship[Ship the order]
+    end
+    open --> made
+    ask --> start
+    start -.-> made
+    start --> ship
+    ship -.-> done
+    ship --> got
+    style ship fill:#C2E5FF,stroke:#3DADFF
+""", "join them in order"),
+    "a status no step moves": ("""%% type: process
+flowchart LR
+    %% status: status
+    subgraph status ["Status"]
+        open[Open]
+        made[In the making]
+        done[Delivered]
+    end
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        start[Start the work]
+        ship[Ship the order]
+    end
+    open --> made
+    made --> done
+    ask --> start
+    start --> ship
+    ship -.-> done
+    ship --> got
+    style ship fill:#C2E5FF,stroke:#3DADFF
+""", "status made is never moved"),
+    "a status that takes the accent": ("""%% type: process
+flowchart LR
+    %% status: status
+    subgraph status ["Status"]
+        open[Open]
+        made[In the making]
+        done[Delivered]
+    end
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        start[Start the work]
+        ship[Ship the order]
+    end
+    open --> made
+    made --> done
+    ask --> start
+    start -.-> made
+    start --> ship
+    ship -.-> done
+    ship --> got
+    style made fill:#C2E5FF,stroke:#3DADFF
+""", "status made takes a style line"),
+    "a status line on an architecture": ("""%% type: architecture
+flowchart LR
+    %% status: client
+    subgraph client ["Client Apps"]
+        web[Web App]
+    end
+    subgraph gateway ["API Layer"]
+        edge[API Gateway]
+    end
+    subgraph service ["Core Services"]
+        orders[Order Service]
+        payments[Payment Service]
+    end
+    subgraph datastore ["Data Stores"]
+        db[Orders DB]
+    end
+    subgraph external ["External"]
+        psp[Card Processor]
+    end
+    subgraph async ["Events"]
+        queue[Order Events]
+    end
+    web <-->|"HTTPS"| edge
+    edge -->|"Routes /orders"| orders
+    orders <---|"Refund"| payments
+    orders -->|"Writes Orders"| db
+    payments -.->|"Card Processor: Charges"| psp
+    orders -.->|"Produces"| queue
+    queue -.->|"Consumes"| payments
+""", "a status lane and detail cards belong to a laned process"),
+    "detail lines on an architecture": ("""%% type: architecture
+flowchart LR
+    %% level: faithful
+    %% detail: web | Serves the store | Signs the client in
+    subgraph client ["Client Apps"]
+        web[Web App]
+    end
+    subgraph gateway ["API Layer"]
+        edge[API Gateway]
+    end
+    subgraph service ["Core Services"]
+        orders[Order Service]
+        payments[Payment Service]
+    end
+    subgraph datastore ["Data Stores"]
+        db[Orders DB]
+    end
+    subgraph external ["External"]
+        psp[Card Processor]
+    end
+    subgraph async ["Events"]
+        queue[Order Events]
+    end
+    web <-->|"HTTPS"| edge
+    edge -->|"Routes /orders"| orders
+    orders <---|"Refund"| payments
+    orders -->|"Writes Orders"| db
+    payments -.->|"Card Processor: Charges"| psp
+    orders -.->|"Produces"| queue
+    queue -.->|"Consumes"| payments
+""", "a status lane and detail cards belong to a laned process"),
+    "a status line on a user flow": ("""flowchart LR
+    %% status: a
+    a([Start]) --> b([Done])
+    style b fill:#CDF4D3
+""", "a status lane belongs to a laned process"),
+    "a detail line below the Faithful level": ("""%% type: process
+flowchart LR
+    %% level: balanced
+    %% detail: check | Reads the order form
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        check[Check the order]
+    end
+    ask --> check
+    check --> got
+    style check fill:#C2E5FF,stroke:#3DADFF
+""", "need %% level: faithful"),
+    "a detail line with no level": ("""%% type: process
+flowchart LR
+    %% detail: check | Reads the order form
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        check[Check the order]
+    end
+    ask --> check
+    check --> got
+    style check fill:#C2E5FF,stroke:#3DADFF
+""", "need %% level: faithful"),
+    "a detail line naming no step": ("""%% type: process
+flowchart LR
+    %% level: faithful
+    %% detail: ghost | Reads the order form
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        check[Check the order]
+    end
+    ask --> check
+    check --> got
+    style check fill:#C2E5FF,stroke:#3DADFF
+""", "%% detail: ghost names no step"),
+    "a detail line on a decision": ("""%% type: process
+flowchart LR
+    %% level: faithful
+    %% detail: check | Reads the order form
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        check{Order complete?}
+    end
+    ask --> check
+    check -->|Yes| got
+    style check fill:#C2E5FF,stroke:#3DADFF
+""", "only a step [Label] carries a body"),
+    "a body line over 44 characters": ("""%% type: process
+flowchart LR
+    %% level: faithful
+    %% detail: check | Reads the order form and the notes the client added
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        check[Check the order]
+    end
+    ask --> check
+    check --> got
+    style check fill:#C2E5FF,stroke:#3DADFF
+""", "at most 44"),
+    "a body over 10 lines": ("""%% type: process
+flowchart LR
+    %% level: faithful
+    %% detail: check | Line 0 | Line 1 | Line 2 | Line 3 | Line 4 | Line 5 | Line 6 | Line 7 | Line 8 | Line 9 | Line 10
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        check[Check the order]
+    end
+    ask --> check
+    check --> got
+    style check fill:#C2E5FF,stroke:#3DADFF
+""", "11 body lines, at most 10"),
+    "an unknown detail level": ("""%% type: process
+flowchart LR
+    %% level: exact
+    %% detail: check | Reads the order form
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        check[Check the order]
+    end
+    ask --> check
+    check --> got
+    style check fill:#C2E5FF,stroke:#3DADFF
+""", "is no detail level"),
+    "a 19-node laned process with detail cards": ("%% type: process\nflowchart LR\n    %% level: faithful\n"
+                                                  "    %% detail: n2 | Body\n    subgraph one [\"One\"]\n        n1([Start])\n"
+                                                  + "".join(f"        n{i}[Step {i}]\n" for i in range(2, 10))
+                                                  + "    end\n    subgraph two [\"Two\"]\n"
+                                                  + "".join(f"        n{i}[Step {i}]\n" for i in range(10, 19))
+                                                  + "        n19([End])\n    end\n"
+                                                  + "".join(f"    n{i} --> n{i + 1}\n" for i in range(1, 19))
+                                                  + "    style n2 fill:#C2E5FF,stroke:#3DADFF\n",
+                                                  "19 nodes, at most 18"),
 }

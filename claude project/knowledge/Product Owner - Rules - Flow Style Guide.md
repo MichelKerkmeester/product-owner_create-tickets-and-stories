@@ -39,6 +39,7 @@ The composer reads each node's kind from the model: its shape, its place in the 
 | Data store | Cylinder | Light violet | Data store | A cylinder |
 | Sub-process | Predefined process | White | Sub-process | A subroutine |
 | Input or output | Parallelogram | Light teal | Input or output | A parallelogram |
+| Status | Chevron | White | Status | A plain node in the lane a process's `%% status:` line names |
 
 An exit and an error sit beside the main line rather than on it, so the longest route to the goal stays one straight line.
 

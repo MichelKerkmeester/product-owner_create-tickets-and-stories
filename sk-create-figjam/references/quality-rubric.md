@@ -9,7 +9,7 @@ trigger_phrases:
   - "remove test"
   - "figjam review checklist"
   - "figjam design rubric"
-version: 1.0.12.0
+version: 1.0.13.0
 ---
 
 # FigJam Diagram Quality Rubric
@@ -67,7 +67,7 @@ Those three lines travel into the gate, so the marked node is chosen from them a
 - [ ] On a revision the changed step, decision or failure end is the first glance and takes the accent. When the change is any other end, the accent stays on the decision or step the board already marks and the gate and the reply name the changed end alone as the second glance, with every other node in the last glance line, the entry and the decisions included, because a style line on an end makes that end the goal and a second glance shared with the entry hides the change. On an extension that pins several problems, the accent stays where the board put it and the pins carry the problems as the second glance
 - [ ] When the model gives a reason for the accent as `%% focus: <id> because <reason>`, as `references/style-guide.md` Section 3 sets out, the key's `In focus` entry carries that reason, so a reader who asks why one node is marked finds the answer on the board
 - [ ] No title repeats the focal claim, so one idea carries one focal object. Where the title already states the claim, the marked node carries the evidence, the consequence or the next move
-- [ ] The title names what the reader is looking at, the subtitle says in one sentence who reads it and why, and the source line names the sources and what was left out
+- [ ] The title names what the reader is looking at, the subtitle says in one sentence where the flow starts and where it ends, and who reads it when the brief names a reader, and the source line names the sources and what was left out
 - [ ] Shape and outline and label carry the meaning without colour, so the diagram reads in greyscale
 - [ ] The key the composer draws names every kind, line and arrow the board shows and nothing else, and no note adds a second key beside it
 - [ ] Every zone carries a name a reader can see, and zones group what belongs together rather than marking a position
@@ -108,6 +108,7 @@ After the write, before the reply:
 - [ ] The `COMPOSED` line named the design the board was drawn in, and each `DESIGN` warning it counted became a `Finding:` line naming the token and the shipped value the board used instead
 - [ ] The overview is the screenshot the composing call returned, and `get_figjam` supplies the outline with a screenshot of each node
 - [ ] A node that needs its own view is read with `get_screenshot` and a node id from that read, because the tool fails without one
+- [ ] Every screenshot judged here was rendered after the write it checks: after any write but the composing call it was taken with `node.screenshot()` inside a `use_figma` call, and a view that still showed the board before the change was reported `stale` and taken again
 - [ ] Two screenshots of the board were taken for this pass: one of the whole board in a single frame and one at 100% zoom. Composition is judged on the overview, because a crossing and a crowded label are invisible at reading size
 - [ ] The overview reads in the order the model plans, and that order was written down before the first screenshot
 - [ ] The overview shows no connector crossing another, no connector or label on a zone title, no two edges sharing a trunk the model draws apart and no two labels touching

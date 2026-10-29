@@ -9,7 +9,7 @@ trigger_phrases:
   - "restyle figjam boards"
   - "figjam design tokens"
   - "figjam board theme"
-version: 1.0.1.0
+version: 1.0.2.0
 ---
 
 # FigJam Board Design
@@ -39,7 +39,7 @@ So `"goal": "lightTeal"` turns every goal on every board teal and the key says s
 | Role | Swatch | What it marks | Drawn by |
 |---|---|---|---|
 | `entry` | Light blue | Where a reader starts | A flow's start, a state diagram's first state |
-| `neutral` | White | An ordinary step | Screens, steps, states, services, sub-processes, entities, participants and planned bars |
+| `neutral` | White | An ordinary step | Screens, steps, states, a process's statuses, services, sub-processes, entities, participants and planned bars |
 | `goal` | Light green | The outcome the flow exists for | A flow's goal |
 | `exit` | Light orange | A way out of the flow | An exit end |
 | `error` | Light red | An error or a block | An error end, a critical gantt bar |
@@ -92,6 +92,7 @@ The `key` group holds the key's own words: its title, the step pin's entry and o
 | `node` | 20 | Medium | Node labels and entity names |
 | `label` | 18 | Medium on a connector, Regular elsewhere | Edge labels, key entries, gantt axis and task names, the source line |
 | `field` | 16 | Regular | Entity fields |
+| `body` | 16 | Regular at 145% line height | A detail card's body under its Bold label, after a 10 pixel spacer |
 | `small` | 14 | Medium | Gantt bar lengths and step pins |
 
 `family` names the face. The board loads its Medium, Regular, Semi Bold and Bold styles, taking Semi Bold under either name FigJam gives it, `Semi Bold` or `SemiBold`. When a style will not load, the board is set in Inter and the composer's warnings say so, so pick a family that carries all four.
@@ -104,7 +105,7 @@ The `key` group holds the key's own words: its title, the step pin's entry and o
 |---|---|---|
 | `line.color` | `#757575` | Every connector, and a sequence's requests and replies |
 | `line.async` | `#3DADFF` | A sequence's async messages and replies |
-| `line.lifeline` | `#B3B3B3` | A sequence's lifelines |
+| `line.lifeline` | `#B3B3B3` | A sequence's lifelines, and the dotted line a process step moves its status with |
 | `line.weight` | 2 | Every line but the accent's |
 
 A line colour is one of the colours the swatch block holds, any fill, stroke or text, so it stays on FigJam's palette.
@@ -130,7 +131,7 @@ A token that misses a floor falls back to its built-in value and the rest of the
 | Dots | A start, an end, a merge and a fork carry no label, so the fill of the role each draws measures 3:1 or more on white |
 | Kinds apart | No two kinds one type draws share a shape, a pair and an outline |
 | Kinds apart in greyscale | Two kinds one type draws that share a shape and an outline have fills 25 or more apart in luma, so they never differ by colour alone |
-| Type | `small` 14 or more, `label` and `field` from `small` up to `node`, `node` 16 to 24, `zone` from `node` up to 24, the largest zone name the router keeps a zone's head clear for, `subtitle` from `zone` up to `title`, `title` from twice `node` up to 128 |
+| Type | `small` 14 or more, `label`, `field` and `body` from `small` up to `node`, `node` 16 to 24, `zone` from `node` up to 24, the largest zone name the router keeps a zone's head clear for, `subtitle` from `zone` up to `title`, `title` from twice `node` up to 128 |
 | Names | A role or the accent names a swatch, a kind names a role, the cycle and the key's tint name section tints, the cycle holds two or more tints once each and never the key's tint |
 | Words | Key words and `meta.name` on one line of 40 characters or fewer, every character of them text |
 
@@ -179,6 +180,7 @@ Do pick a role's swatch for what it means on every board, and keep the accent th
     "screen": {"role": "neutral", "key": "Screen or step"},
     "step": {"role": "neutral", "key": "Step"},
     "state": {"role": "neutral", "key": "State"},
+    "status": {"role": "neutral", "key": "Status"},
     "service": {"role": "neutral", "key": "Service"},
     "subprocess": {"role": "neutral", "key": "Sub-process"},
     "io": {"role": "io", "key": "Input or output"},
@@ -202,7 +204,7 @@ Do pick a role's swatch for what it means on every board, and keep the accent th
     "milestone": {"role": "decision", "key": "Milestone"},
     "focus": {"key": "In focus"}
   },
-  "type": {"family": "Inter", "title": 64, "subtitle": 28, "zone": 24, "node": 20, "label": 18, "field": 16, "small": 14},
+  "type": {"family": "Inter", "title": 64, "subtitle": 28, "zone": 24, "node": 20, "label": 18, "field": 16, "body": 16, "small": 14},
   "line": {"color": "#757575", "async": "#3DADFF", "lifeline": "#B3B3B3", "weight": 2},
   "zone": {"cycle": ["blue", "orange", "teal", "yellow", "violet"]},
   "key": {
@@ -211,6 +213,7 @@ Do pick a role's swatch for what it means on every board, and keep the accent th
     "pin": "Step number",
     "solid": "Leads to",
     "dashedOptional": "Optional or proposed",
+    "statusMove": "Moves the status",
     "dashedAsync": "Async or outside call",
     "identifying": "Identifying",
     "nonIdentifying": "Non-identifying",

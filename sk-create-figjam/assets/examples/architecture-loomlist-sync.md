@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "architecture example"
   - "loomlist sync architecture"
-version: 1.0.4.0
+version: 1.0.5.0
 ---
 
 # Example - Architecture - Loomlist Sync
@@ -56,7 +56,7 @@ Is this the right reading of the board?
 %% type: architecture
 flowchart LR
     %% title: Block sync
-    %% subtitle: The parts that carry a block change from one Loomlist client to the others, for the offline mode kickoff
+    %% subtitle: The parts that carry a block change, from the client that makes it to the clients that receive it, for the offline mode kickoff
     %% source: Source: the sync-service doc. Left out: file storage, off the sync path.
     subgraph client ["Clients"]
         desktop[Desktop App]

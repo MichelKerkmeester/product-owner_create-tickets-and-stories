@@ -33,7 +33,7 @@ The board's own text rides on `%%` comment lines, which the check ignores and th
 ```
 
 - `%% title:` names the board. With none, the composer takes a Mermaid frontmatter title, a sequence or gantt `title` line, then `Diagram <n>`
-- `%% subtitle:` is one sentence under the title on who reads the board and why
+- `%% subtitle:` is one sentence under the title that names where the flow starts and where it ends, and the reader when the brief names one, such as `From the order list to a confirmed return, for the support team`. A board with no start or end, an ER model, names what it covers instead
 - `%% source:` is the line under the key naming the sources and what was left out
 - `%% zone: <label>: <id>, <id>` groups nodes in a tinted section. A user flow or a process without lanes reads its zones in flow order, and once a flow has zones every node sits in exactly one. An ER diagram draws each zone around its entities. Lanes and composite states are zones already, so a laned process, an architecture or a state diagram takes no zone line
 - `%% goal: <id>` names the end the main row of a user flow or a process reaches, without the accent, so the `style` line can mark the decision or step the board explains

@@ -1,7 +1,7 @@
 ---
 title: "sk-create-figjam: Manual Testing Playbook"
 description: "Operator-facing directory for the FigJam diagram packet: type choice for all seven types, the pre-write check, the board write with its gate, extension and read-back, scored board quality for every type, creation variant and the board design, the boundaries with the Product Owner packet and routing recall for type detection."
-version: 1.0.14.0
+version: 1.0.15.0
 ---
 
 # sk-create-figjam: Manual Testing Playbook
@@ -194,9 +194,9 @@ This section plans the order of a full run. It is not a runtime support matrix.
 
 ### Operational Rules
 
-1. Wave 1 runs the shell scenarios with no model runtime: FJ-004, FJ-005, FJ-006, FJ-014, FJ-015, FJ-016, FJ-043 and the routing scenarios
+1. Wave 1 runs the shell scenarios with no model runtime: FJ-004, FJ-005, FJ-006, FJ-014, FJ-015, FJ-016, FJ-043, FJ-046, FJ-047 and the routing scenarios
 2. Wave 2 runs the conversational type-choice and boundary scenarios, each in a fresh session
-3. Wave 3 runs the board writes one at a time, because they share one Figma account: FJ-007, FJ-008, FJ-009, FJ-017, FJ-018, FJ-019
+3. Wave 3 runs the board writes one at a time, because they share one Figma account: FJ-007, FJ-008, FJ-009, FJ-017, FJ-018, FJ-019, FJ-048
 4. Wave 4 runs the scored boards one at a time, and each Clarity read uses a reader who has not seen an earlier board of the same request: FJ-022, FJ-023, FJ-024, FJ-025, FJ-026, FJ-027, FJ-028, FJ-029, FJ-030, FJ-031, FJ-032, FJ-033, FJ-034, FJ-035, FJ-036, FJ-044, FJ-045. FJ-045 edits the shipped design file, so no other scenario runs until its restore step passes
 5. After each wave, record the evidence and the verdicts before the next wave starts
 6. Record the evidence paths for every scenario in the final report
@@ -349,7 +349,7 @@ Desired user-visible outcome: A clear offer of the nearest drawable type
 
 ---
 
-## 8. PRE-WRITE CHECK (`FJ-004`, `FJ-005`, `FJ-006`, `FJ-014`, `FJ-015`, `FJ-016`, `FJ-043`)
+## 8. PRE-WRITE CHECK (`FJ-004`, `FJ-005`, `FJ-006`, `FJ-014`, `FJ-015`, `FJ-016`, `FJ-043`, `FJ-046`, `FJ-047`)
 
 The check refuses what the composer or the generated fallback would drop or mangle, and its self-test proves every rule fires. These run from a shell with no model runtime.
 
@@ -486,9 +486,47 @@ Desired user-visible outcome: A refusal that names the layout measure and its bu
 > **Feature File:** [FJ-043](pre-write-check/layout-measures-refuse-a-wide-rank.md)
 > **Catalog:** none, the packet has no feature catalog
 
+### FJ-046 | A status lane is checked and drawn
+
+#### Description
+
+Verify that a laned process with a status lane passes the check and composes its statuses as chevrons moved by dotted lines, and that a solid status move is refused.
+
+#### Scenario Contract
+
+Prompt: `As the operator, run the sk-create-figjam check and composer on the worked status lane example, then on a copy whose first status move is solid. Return the output and exit status.`
+
+Expected signals: Step 1 prints `ok, 15 nodes and 20 connectors` and `exit 0`. Step 2 prints five nodes of kind `status` and the edge style `statusMove`. Step 4 prints `is solid: a step moves the status with -.->` and `exit 1`
+
+Desired user-visible outcome: A status lane that passes, composes as its own kind and line, and a solid move refused with the rule it breaks
+
+#### Test Execution
+
+> **Feature File:** [FJ-046](pre-write-check/status-lane-checked.md)
+> **Catalog:** none, the packet has no feature catalog
+
+### FJ-047 | Detail cards only at the Faithful level
+
+#### Description
+
+Verify that a step's body passes at the Faithful detail level and is refused below it or over its line limit.
+
+#### Scenario Contract
+
+Prompt: `As the operator, run the sk-create-figjam check on the worked detail card example, on a copy at the Balanced level and on a copy with a 50-character body line. Return the output and exit status.`
+
+Expected signals: Step 1 prints `ok` and `exit 0`. Step 3 prints `need %% level: faithful` and `exit 1`. Step 5 prints `at most 44: split it into two lines` and `exit 1`
+
+Desired user-visible outcome: Detail cards that pass at Faithful and a refusal that names the level or the line limit
+
+#### Test Execution
+
+> **Feature File:** [FJ-047](pre-write-check/detail-cards-at-faithful.md)
+> **Catalog:** none, the packet has no feature catalog
+
 ---
 
-## 9. BOARD WRITE (`FJ-007`, `FJ-008`, `FJ-009`, `FJ-017`, `FJ-018`, `FJ-019`)
+## 9. BOARD WRITE (`FJ-007`, `FJ-008`, `FJ-009`, `FJ-017`, `FJ-018`, `FJ-019`, `FJ-048`)
 
 The gate, the write, the extension and the read-back. Scenarios that need a Figma route record SKIP with that route named as the blocker when it is unavailable.
 
@@ -604,6 +642,25 @@ Desired user-visible outcome: An architecture board in lanes with counts measure
 #### Test Execution
 
 > **Feature File:** [FJ-019](board-write/architecture-write-lanes.md)
+> **Catalog:** none, the packet has no feature catalog
+
+### FJ-048 | A read-back judges a view taken after the write
+
+#### Description
+
+Verify that a read-back after a later write judges a view rendered after that write, and reports a view that still shows the board before it as stale.
+
+#### Scenario Contract
+
+Prompt: `Add one sticky note beside the first step of the board you just wrote, saying `Owner: support lead`, then read the board back.`
+
+Expected signals: The read-back's view shows the new note. Any view that does not show it is reported `stale` and taken again before it is judged, and the reply's read-back line counts the note
+
+Desired user-visible outcome: A read-back that counts and shows the note the last write added
+
+#### Test Execution
+
+> **Feature File:** [FJ-048](board-write/fresh-read-back-after-write.md)
 > **Catalog:** none, the packet has no feature catalog
 
 ---
@@ -1340,6 +1397,9 @@ The packet has no feature catalog, so every scenario names `SKILL.md` and the re
 | FJ-041 | A named type that does not answer the brief | Boundaries | [`boundaries/named-type-does-not-fit.md`](boundaries/named-type-does-not-fit.md) |
 | FJ-042 | A thin brief at Quick energy with no questions | Boundaries | [`boundaries/quick-energy-no-questions.md`](boundaries/quick-energy-no-questions.md) |
 | FJ-043 | A rank of five steps is refused | Pre-write check | [`pre-write-check/layout-measures-refuse-a-wide-rank.md`](pre-write-check/layout-measures-refuse-a-wide-rank.md) |
+| FJ-046 | A status lane is checked and drawn | Pre-write check | [`pre-write-check/status-lane-checked.md`](pre-write-check/status-lane-checked.md) |
+| FJ-047 | Detail cards only at the Faithful level | Pre-write check | [`pre-write-check/detail-cards-at-faithful.md`](pre-write-check/detail-cards-at-faithful.md) |
+| FJ-048 | A read-back judges a view taken after the write | Board write | [`board-write/fresh-read-back-after-write.md`](board-write/fresh-read-back-after-write.md) |
 | FJR-001 | User Flow routing | Intra-routing recall | [`intra-routing-recall/route-user-flow.md`](intra-routing-recall/route-user-flow.md) |
 | FJR-002 | Process routing | Intra-routing recall | [`intra-routing-recall/route-process.md`](intra-routing-recall/route-process.md) |
 | FJR-003 | Architecture routing | Intra-routing recall | [`intra-routing-recall/route-architecture.md`](intra-routing-recall/route-architecture.md) |

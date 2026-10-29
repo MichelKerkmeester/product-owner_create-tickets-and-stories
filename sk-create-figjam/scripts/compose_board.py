@@ -17,7 +17,8 @@ stays plain Mermaid:
 
 - `%% title: Start a return` names the board, and falls back to a Mermaid
   frontmatter title, a sequence or gantt `title` line, then the diagram's place
-- `%% subtitle: ...` is one sentence under the title on who reads it and why
+- `%% subtitle: ...` is one sentence under the title naming where the flow
+  starts and where it ends, and its reader when the brief names one
 - `%% source: ...` is the line under the key naming the sources and what was
   left out
 - `%% zone: Find the order: orders, detail` groups nodes into a tinted zone. A
@@ -299,18 +300,29 @@ def flowchart_model(diagram: mermaid_extract.Diagram, block_text: str, profile: 
         problems += zone_problems(zones, [node.id for node in steps], every_node=True)
         model_zones = [{"id": zone["id"], "label": zone["label"]} for zone in zones]
         zone_of = {member: zone["id"] for zone in zones for member in zone["members"]}
-    kinds = flow_kinds(diagram, block_text, profile, lanes)
+    states = flowchart.status_states(diagram, block_text)
+    kinds = flow_kinds(flowchart.work_view(diagram, states), block_text, profile, lanes)
+    kinds.update({state: "status" for state in states})
+    bodies = {}
+    for value in flowchart.DETAIL_DIRECTIVE.findall(block_text):
+        node_id, *body = [part.strip() for part in value.split("|")]
+        bodies[node_id] = [line for line in body if line]
     named = GOAL_LINE.search(block_text)
     if named and kinds.get(named.group(1)) != "success":
         problems.append(f"%% goal: {named.group(1)} is not an end: name the end the main row reaches, "
                         "a rounded node no connector leaves")
     styled = accent_fills(block_text)
     nodes = [{"id": node.id, "label": node.label, "kind": kinds[node.id], "zone": zone_of.get(node.id),
-              **({"accent": True} if styled.get(node.id) else {})} for node in steps]
+              **({"accent": True} if styled.get(node.id) else {}),
+              **({"body": bodies[node.id]} if bodies.get(node.id) else {})} for node in steps]
     edges, styles = [], []
     for edge in diagram.edges:
         entry = {"from": edge.source, "to": edge.target, "label": edge.label}
-        if edge.style == "dashed":
+        if edge.style == "dashed" and edge.target in states:
+            # A step's dotted move into a status is its own line, so the key tells it from an optional step.
+            entry["style"] = "status"
+            styles.append("statusMove")
+        elif edge.style == "dashed":
             entry["style"] = "dashed"
             styles.append("dashedAsync" if profile == flowchart.ARCHITECTURE else "dashedOptional")
         if edge.bidirectional:
@@ -555,6 +567,15 @@ def build_model(block: mermaid_extract.SourceBlock, number: int) -> tuple[dict |
 LOOSE = set("{}()[],;:=+-*/<>!&|?.%^~")
 JOIN_AFTER, JOIN_BEFORE, JOIN_WIDTH = set(";{[(,"), set("}])"), 500
 FUSING = set("+-")
+# An arrow function's single plain parameter needs no brackets, and a closing brace already ends the statement
+# or the last property before it, so those characters carry nothing either.
+LONE_PARAMETER = re.compile(r"(?<![\w$.])\(([A-Za-z_$][\w$]*)\)=>")
+BEFORE_BRACE = re.compile(r"[;,](?=})")
+
+
+def tidy(code: str) -> str:
+    """A run of squeezed code outside any string with its idle brackets, semicolons and commas dropped."""
+    return BEFORE_BRACE.sub("", LONE_PARAMETER.sub(r"\1=>", code))
 
 
 def squeeze(line: str) -> str:
@@ -604,7 +625,15 @@ def squeeze(line: str) -> str:
         else:
             out.append(char)
             i += 1
-    return "".join(out)
+    # Each string and template literal is its own piece, so only the code between them is tidied.
+    pieces, run = [], ""
+    for part in out:
+        if part[0] in "'\"`":
+            pieces += [tidy(run), part]
+            run = ""
+        else:
+            run += part
+    return "".join(pieces) + tidy(run)
 
 
 # The composer's numbered sections each model type draws with. Sections 1 to 3 and 8 serve every type, and
@@ -656,6 +685,8 @@ def compact_template(kind: str | None = None) -> str:
     joined: list[str] = []
     for line in lines:
         if joined and (joined[-1][-1] in JOIN_AFTER or line[0] in JOIN_BEFORE) and len(joined[-1]) + len(line) <= JOIN_WIDTH:
+            if line[0] == "}" and joined[-1][-1] in ";,":
+                joined[-1] = joined[-1][:-1]
             joined[-1] += line
         else:
             joined.append(line)
@@ -791,7 +822,7 @@ def accent_ids(model: dict) -> set[str]:
     return {node["id"] for node in model["nodes"] if node.get("accent") or node["kind"] == "focus"}
 
 
-LINE_ORDER = ("solid", "dashedOptional", "dashedAsync", "identifying", "nonIdentifying", "twoWay")
+LINE_ORDER = ("solid", "dashedOptional", "statusMove", "dashedAsync", "identifying", "nonIdentifying", "twoWay")
 ARROW_ORDER = ("request", "reply", "async", "asyncReply")
 
 
@@ -1208,8 +1239,8 @@ def extreme_checks(work: Path, base: dict, design: dict) -> list[tuple[str, bool
     """The planted models draw clean at the largest and the smallest sizes the floors allow, and a zone the tint
     cycle cannot fit repeats a cycle tint with a warning, never the key's gray."""
     results = []
-    for name, sizes in (("largest", {"node": 24, "zone": 24, "label": 24, "field": 24, "small": 24, "subtitle": 128, "title": 128}),
-                        ("smallest", {"node": 16, "zone": 16, "label": 14, "field": 14, "small": 14, "subtitle": 16, "title": 32})):
+    for name, sizes in (("largest", {"node": 24, "zone": 24, "label": 24, "field": 24, "body": 24, "small": 24, "subtitle": 128, "title": 128}),
+                        ("smallest", {"node": 16, "zone": 16, "label": 14, "field": 14, "body": 14, "small": 14, "subtitle": 16, "title": 32})):
         tried, warned = board_design.resolve(design_text({"type": sizes}), base)
         geometry.use_design(tried)
         failed = []
@@ -1489,6 +1520,35 @@ def diamond_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
              f"traced {(box['w'], box['h']) if box else problems or 'no diamond'}")]
 
 
+def status_and_detail_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
+    """A status lane draws its states as chevrons moved by dotted gray lines, and a detail card sets its label over its body."""
+    from figjam_checks.fixtures import GOOD as good
+    hexed = lambda paint: "#" + "".join(f"{round(paint[0]['color'][c] * 255):02X}" for c in "rgb") if paint else ""
+    results = []
+    for kind in ("a laned process with a status lane", "a laned process with detail cards at the Faithful level"):
+        model, problems, _ = build_model(mermaid_extract.SourceBlock(1, good[kind], 1), 1)
+        drawn = geometry.run_trace(fill_template(model, sent), work) if model and not problems else {}
+        nodes = {n["name"]: n for n in drawn.get("nodes", [])}
+        edges = {c["name"]: c for c in drawn.get("connectors", [])}
+        if kind.endswith("status lane"):
+            states = [nodes.get(f"node:{s}", {}).get("shape") for s in ("open", "made", "done")]
+            move = edges.get("edge:start->made", {})
+            results.append(("a status lane draws each state as a chevron", states == ["CHEVRON"] * 3, f"drew {states}"))
+            results.append(("a status move is a dotted line in the lifeline gray",
+                            move.get("dash") == [2, 8] and hexed(move.get("stroke")) == "#B3B3B3",
+                            f"drew {move.get('dash')} {hexed(move.get('stroke'))}"))
+            results.append(("the key names the status move", any(n["text"] == "Moves the status" for n in drawn.get("nodes", [])),
+                            "no key entry"))
+        else:
+            card = nodes.get("node:check", {})
+            results.append(("a detail card sets its label, a spacer line and its body",
+                            card.get("text") == "Check the order\n\nReads the order form\nChecks the size and the wood",
+                            repr(card.get("text"))))
+            results.append(("a detail card grows past a one-line step", card.get("h", 0) > nodes.get("node:ask", {}).get("h", 0),
+                            f"card {card.get('h')}, step {nodes.get('node:ask', {}).get('h')}"))
+    return results
+
+
 def note_room_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
     """A notes line moves the key down by one sticky and its gap, which frees the side below a boxed-in node."""
     flow = ("flowchart LR\n{notes}    a([Order placed]) --> b[Send the parcel]\n    b --> c([Parcel sent])\n"
@@ -1578,6 +1638,7 @@ def self_test() -> int:
             results += composite_labels_checks(Path(work), sent)
             results += restyle_checks(Path(work), base)
             results += note_room_checks(Path(work), sent)
+            results += status_and_detail_checks(Path(work), sent)
             results += diamond_checks(Path(work), sent)
             results += font_checks(Path(work))
             results += cap_checks(Path(work))
