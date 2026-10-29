@@ -26,7 +26,7 @@ contextType: "implementation"
 | **Parent Spec** | ../spec.md |
 | **Phase** | 49 of 49 |
 | **Predecessor** | 048-figjam-neighbour-and-closing-fixes |
-| **Successor** | None |
+| **Successor** | 050-figjam-spec-board-learnings |
 | **Handoff Criteria** | Every row in acceptance-criteria.md is Met |
 <!-- /ANCHOR:metadata -->
 

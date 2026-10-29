@@ -55,6 +55,7 @@ class Text {
   }
   setRangeFontName() {}
   setRangeFontSize() {}
+  setRangeLineHeight() {}
   remove() { this.parent.children = this.parent.children.filter((c) => c !== this); }
 }
 

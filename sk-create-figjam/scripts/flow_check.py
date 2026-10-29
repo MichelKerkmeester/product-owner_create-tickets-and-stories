@@ -193,7 +193,8 @@ def check_kind(block: mermaid_extract.SourceBlock, block_text: str) -> tuple[str
         diagram = mermaid_extract.parse_block(block)
         found = flowchart.check_flow(diagram, block_text, profile)
     nodes = sum(1 for node in diagram.nodes if not node.container)
-    measures, shape = layout.measure(diagram)
+    states = set() if profile == flowchart.ARCHITECTURE else flowchart.status_states(diagram, block_text)
+    measures, shape = layout.measure(flowchart.work_view(diagram, states))
     return profile, found + measures, f"{nodes} nodes and {len(diagram.edges)} connectors, {shape}", diagram.direction
 
 

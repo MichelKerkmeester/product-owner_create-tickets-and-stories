@@ -199,7 +199,7 @@
     ],
     "causal_summary": "Claude Sonnet 5.5 high reran FJ-017, FJ-022, FJ-023 and FJ-036 on v1.0.14.0 and 2 of 4 passed: FJ-017 PASS, FJ-036 PASS at 21, FJ-022 FAIL at 20 and FJ-023 FAIL at 21",
     "created_at": "2026-10-28T05:04:25.443Z",
-    "last_save_at": "2026-10-28T06:03:22.167Z",
+    "last_save_at": "2026-10-29T17:28:43.088Z",
     "save_lineage": "same_pass",
     "last_accessed_at": null,
     "source_docs": [
@@ -210,10 +210,10 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:c7a1a0cd6544946b8b745f4c923182d4cc9892e6c9f2e8e361c6f0f6b1575d0f",
+    "source_fingerprint": "sha256:e4c3743db9593c6743ea94d7995e5838f2cf42f9d90c60847ffd078705535bf5",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "ae801bffeae1993918f37e83e461b11067d1cfe5fbc7b3fef036e4a00a9228fc",
+      "spec.md": "f757bf1997df84e19798f24adec64473c44d4a4835089c48edb108cb699b8f67",
       "plan.md": "d2dc49fa5c4285f1f801361c69d2a7cbd964426e09eac4c1b6e99508bab40006",
       "tasks.md": "d5fc4f166ef77c282682b374d3c022767970abfad227497d4b52caf79d3f2296",
       "implementation-summary.md": "a2d63e292c199c7463a6c50f7484949ba6d157193b718b7e78b25c9f56b4833b"

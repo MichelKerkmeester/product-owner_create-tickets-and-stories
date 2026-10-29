@@ -1,13 +1,13 @@
 ---
 title: "FigJam Process Templates"
-description: "Process patterns that pass the pre-write check: a decision tree, a laned process with its handoff step in focus and a pipeline with a store and data in and out."
+description: "Process patterns that pass the pre-write check: a decision tree, a laned process with its handoff step in focus, a laned process with a status lane and detail cards, and a pipeline with a store and data in and out."
 contextType: general
 importance_tier: important
 trigger_phrases:
   - "process templates"
   - "laned process pattern"
   - "decision tree pattern"
-version: 1.0.3.0
+version: 1.0.4.0
 ---
 
 # FigJam Process Templates
@@ -16,7 +16,7 @@ Copy/apply patterns for a process model. Each pattern passes `scripts/flow_check
 
 **Loading Condition:** CONDITIONAL, with `references/types/process.md`
 **Purpose:** Starting points for a process or decision flowchart
-**Scope:** Three patterns. The provenance table and the reply shape are in `assets/flow-templates.md`
+**Scope:** Four patterns. The provenance table and the reply shape are in `assets/flow-templates.md`
 
 ---
 
@@ -77,6 +77,40 @@ flowchart LR
     style team fill:#F5F5F5,stroke:#B3B3B3
     style ops fill:#F5F5F5,stroke:#B3B3B3
     style approve fill:#C2E5FF,stroke:#3DADFF
+```
+
+### Laned process with a status lane and detail cards
+
+A client and a maker move one record through its statuses. The status lane is declared first, each status move is a dotted `-.->` and the `Faithful` level gives one step a body.
+
+```mermaid
+%% type: process
+flowchart LR
+    %% status: status
+    %% level: faithful
+    %% detail: start | Checks the order form | Replies within two working days
+    subgraph status ["Order status"]
+        open[Open]
+        made[In the making]
+        done[Delivered]
+    end
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        start[Start the work]
+        ship[Ship the order]
+    end
+    open --> made
+    made --> done
+    ask --> start
+    ask -.-> open
+    start -.-> made
+    start --> ship
+    ship -.-> done
+    ship --> got
+    style ship fill:#C2E5FF,stroke:#3DADFF
 ```
 
 ### Pipeline with a store and data in and out

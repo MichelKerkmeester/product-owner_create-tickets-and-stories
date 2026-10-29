@@ -39,9 +39,23 @@ The last three come from Figma's list of shapes that render as distinct FigJam s
 
 A lane is a subgraph with a readable label, `subgraph agent ["CS agent"]`, holding the steps that actor performs.
 
+**Status lane.** When the parties move one shared record through named statuses, such as an order or a commission, a laned process may give those statuses a lane of their own. `%% status: <lane id>` names it. The lane is declared first, so the board draws it on top, and holds each status as a plain node `id[Label]`, joined in order by `-->` from the first status to the last. A step that moves the record to a status draws a dotted `-.->` into that status. The status lane is never an actor lane: no work happens in it, a status never leads to a step, and its states and connectors count toward the budget.
+
+```text
+%% status: status
+subgraph status ["Order status"]
+    placed[Placed]
+    shipped[Shipped]
+end
+placed --> shipped
+ship -.-> shipped
+```
+
+**Detail cards.** At the `Faithful` detail level a step may carry a body under its one-line label, as Templates - Flow Mode Section 4 sets out: `%% level: faithful` once, then one `%% detail: <step id> | <line> | <line>` line per step.
+
 Connectors are `-->` for the flow and `-.->` for an optional or proposed step. A log write that runs today is drawn solid. A source that says every decision or every step is logged names those nodes as its writers, so the log store is drawn with one solid edge from the decision the reader most needs and the source line says the others write it too.
 
-On the board each lane is a band in a light tint, named after its label and stacked in the order the model declares them. Every step sits inside its lane's band. The kinds take their shapes from Rules - Flow Style Guide Section 2 and their colour roles from Assets - Flow Board Design: a store is a cylinder in the `store` role, data entering or leaving a parallelogram in the `io` role and a sub-process a predefined-process shape in the `neutral` role. A process without lanes may group its steps into stages with `%% zone:` lines.
+On the board the status lane draws each status as a white chevron, joined by the status line, and each move as a dotted gray line the key names `Moves the status`. A step with a body is a card: its label in Bold on one line, a spacer and the body left-aligned under it. On the board each lane is a band in a light tint, named after its label and stacked in the order the model declares them. Every step sits inside its lane's band. The kinds take their shapes from Rules - Flow Style Guide Section 2 and their colour roles from Assets - Flow Board Design: a store is a cylinder in the `store` role, data entering or leaving a parallelogram in the `io` role and a sub-process a predefined-process shape in the `neutral` role. A process without lanes may group its steps into stages with `%% zone:` lines.
 
 ---
 
@@ -55,7 +69,9 @@ Check these rule by rule before the gate:
 - **`-->` or `-.->` only.** A thick connector competes with the marked step, and a headless or two-way one hides the direction work moves in
 - **Lanes, when used, number 2 to 6,** never nest, each hold a step, and every step sits in one. A connector joins steps, never a lane
 - **A lane takes the neutral pair** `fill:#F5F5F5,stroke:#B3B3B3` or no style at all, and never counts as the accent. The composer tints lanes itself, so a lane style changes nothing on the board
-- **Without lanes, at most 9 nodes and 12 connectors. With lanes, at most 12 and 16,** the house diagram guide's process budget and its balanced detail level
+- **Without lanes, at most 9 nodes and 12 connectors. With lanes, at most 12 and 16,** the house diagram guide's process budget and its balanced detail level. **A laned process at `Faithful` with detail cards reads at 18 and 24**, because a step's body carries what would otherwise be cut
+- **A status lane, when used, is one lane,** named by one `%% status:` line, declared first, holding two or more statuses as plain `[Label]` nodes in a single `-->` chain. A step moves a status with `-.->` only, and no status leads to a step. A status move is no way out of a step, so an end may move the last status and stay an end. Every status after the first is reached by a step's move, and a status never takes the accent
+- **A body only at `Faithful`.** A `%% detail:` line needs `%% level: faithful`, names a plain step `[Label]` that is no status, and holds 1 to 10 lines of 44 characters or fewer. The model must still fit the room Assets - Flow Board Composer states for one call, so several long bodies split the process into two diagrams
 - The shared rules: labels, quoting, ids, no emoji or markup, exactly one `style` line from Rules - Flow Style Guide, one direction for every process diagram in the file
 
 Judged by hand:
@@ -98,9 +114,12 @@ The lane order is compared as well, because a lane count never reads their order
 Read-back: 11 of 11 nodes, 12 of 12 connectors, 2 of 2 decision exits labelled, 3 of 3 lanes
 ```
 
+A status lane counts as a lane, and its statuses as nodes. Its order is read too: the status lane sits first, and its statuses run in the order the chain joins them. A detail card counts as one node, and its body is compared line by line with the model's `%% detail:` line.
+
 ---
 
 ## 8. PATTERNS AND EXAMPLE
 
-- Assets - Flow Templates - Process holds a decision tree, a laned process and a pipeline with a store
+- Assets - Flow Templates - Process holds a decision tree, a laned process, a laned process with a status lane and detail cards, and a pipeline with a store
 - Examples - Flow - Process walks a laned refund process from a support runbook to the reply
+- Examples - Flow - Process Commission walks a laned process with a status lane and detail cards, a client and a maker moving one commission through its statuses

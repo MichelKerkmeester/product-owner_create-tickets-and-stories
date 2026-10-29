@@ -54,6 +54,7 @@ const D = {
     screen: { role: 'neutral', key: 'Screen or step' },
     step: { role: 'neutral', key: 'Step' },
     state: { role: 'neutral', key: 'State' },
+    status: { role: 'neutral', key: 'Status' },
     service: { role: 'neutral', key: 'Service' },
     subprocess: { role: 'neutral', key: 'Sub-process' },
     io: { role: 'io', key: 'Input or output' },
@@ -77,11 +78,11 @@ const D = {
     milestone: { role: 'decision', key: 'Milestone' },
     focus: { key: 'In focus' },
   },
-  type: { family: 'Inter', title: 64, subtitle: 28, zone: 24, node: 20, label: 18, field: 16, small: 14 },
+  type: { family: 'Inter', title: 64, subtitle: 28, zone: 24, node: 20, label: 18, field: 16, body: 16, small: 14 },
   line: { color: '#757575', async: '#3DADFF', lifeline: '#B3B3B3', weight: 2 },
   zone: { cycle: ['blue', 'orange', 'teal', 'yellow', 'violet'] },
   key: {
-    title: 'Key', tint: 'gray', pin: 'Step number', solid: 'Leads to', dashedOptional: 'Optional or proposed',
+    title: 'Key', tint: 'gray', pin: 'Step number', solid: 'Leads to', dashedOptional: 'Optional or proposed', statusMove: 'Moves the status',
     dashedAsync: 'Async or outside call', identifying: 'Identifying', nonIdentifying: 'Non-identifying',
     twoWay: 'Both ways', request: 'Request', reply: 'Reply', async: 'Async message', asyncReply: 'Async reply',
   },
@@ -98,7 +99,7 @@ const T = (function merge(a, b) {
 const SHAPES = {
   decision: 'DIAMOND', choice: 'DIAMOND', milestone: 'DIAMOND', merge: 'ELLIPSE', initial: 'ELLIPSE',
   final: 'ELLIPSE', datastore: 'ENG_DATABASE', queue: 'ENG_QUEUE', subprocess: 'PREDEFINED_PROCESS',
-  io: 'PARALLELOGRAM_RIGHT', fork: 'SQUARE', entity: 'SQUARE',
+  io: 'PARALLELOGRAM_RIGHT', fork: 'SQUARE', entity: 'SQUARE', status: 'CHEVRON',
 };
 const FIXED = { merge: [24, 24], initial: [32, 32], final: [32, 32], choice: [56, 56], fork: [16, 96], milestone: [32, 32] };
 const OUTLINE = {
@@ -110,7 +111,7 @@ const shapeOf = (kind) => SHAPES[kind] || 'ROUNDED_RECTANGLE';
 const pairOf = (kind) => SWATCH[kind === 'focus' ? T.accent.pair : T.role[T.kind[kind].role]] || SWATCH.white;
 const ACCENT = SWATCH[T.accent.pair][1];
 const INK = '#1E1E1E';
-const OFF_PATH = new Set(['exit', 'error']);
+const OFF_PATH = new Set(['exit', 'error', 'status']);
 // An ER end's mark, keyed by the code the model gives each end: exactly one, zero or one, zero or more, one or more.
 const ERD = { 1: 'ERD_EXACTLY_ONE', '?': 'ERD_ZERO_OR_ONE', '*': 'ERD_ZERO_OR_MORE', '+': 'ERD_ONE_OR_MORE' };
 const ROUND = new Set(['DIAMOND', 'ELLIPSE', 'HEXAGON', 'OCTAGON']);
@@ -170,7 +171,7 @@ function fit(label, type) {
   let w = w0, hh = h0;
   for (let s = 1; s < 3; s += 0.1) {
     w = w0 * s; hh = h0 * s;
-    const aw = round ? w / 2 - 32 : w - (type === 'PARALLELOGRAM_RIGHT' ? 96 : 48);
+    const aw = round ? w / 2 - 32 : w - (type === 'PARALLELOGRAM_RIGHT' || type === 'CHEVRON' ? 96 : 48);
     const ah = round ? hh / 2 - 32 : hh - (tall ? 64 : 40);
     measurer.resize(Math.max(aw, 1), measurer.height);
     measurer.characters = label || ' ';
@@ -266,9 +267,10 @@ function connect(parent, from, to, o) {
   c.connectorEnd = end(to, o.m1);
   c.connectorStartStrokeCap = o.startCap || 'NONE';
   c.connectorEndStrokeCap = o.endCap === undefined ? 'ARROW_LINES' : o.endCap;
-  c.strokes = solid(o.color || T.line.color);
+  c.strokes = solid(o.color || (o.dashed > 1 ? T.line.lifeline : T.line.color));
   c.strokeWeight = o.weight || T.line.weight;
-  c.dashPattern = o.dashed ? [10, 6] : [];
+  // A dashed value of 2 draws the dotted gray line a step moves a status with.
+  c.dashPattern = o.dashed ? o.dashed > 1 ? [2, 8] : [10, 6] : [];
   if (o.label) {
     c.text.fontName = MEDIUM;
     c.text.fontSize = TYPE.label;
@@ -650,14 +652,17 @@ function layered(items, edges, opt) {
 // ───────────────────────────────────────────────────────────────
 
 // A user flow, a process, an architecture, a state machine or an ER model.
+// An entity lists its fields under its name. A step's body at the Faithful level is set the same way: its label
+// in Bold on one line, an empty 10 px line, then the body at body size and a 145% line height.
 function entityCard(n) {
-  const lines = (n.fields || []).map((f) => [f.keys, f.name, f.type].filter(Boolean).join('  '));
-  const titleSize = natural(n.label, SEMI, TYPE.node);
-  const widest = Math.max(titleSize.w, ...lines.map((l) => natural(l, REGULAR, TYPE.field).w));
+  const b = n.body, lines = b || (n.fields || []).map((f) => [f.keys, f.name, f.type].filter(Boolean).join('  '));
+  const titleSize = natural(n.label, b ? BOLD : SEMI, TYPE.node);
+  const widest = Math.max(titleSize.w, ...lines.map((l) => natural(l, REGULAR, b ? TYPE.body : TYPE.field).w));
   // Every paragraph adds its spacing on top of its line, and a field line is budgeted at 24 px at least,
-  // so the last field keeps clear of the card's bottom edge.
-  const fieldLine = Math.max(24, natural('Ag', REGULAR, TYPE.field).h);
-  return { lines, w: Math.max(224, up8(widest + 64)), h: up8(48 + titleSize.h + PARA + lines.length * (fieldLine + PARA)) };
+  // so the last field keeps clear of the card's bottom edge. A body card keeps 32 px more, because a live
+  // board clipped a three-line body on a card 16 px shorter than that.
+  const fieldLine = b ? Math.ceil(TYPE.body * 1.45) - PARA : Math.max(24, natural('Ag', REGULAR, TYPE.field).h);
+  return { b, lines, w: Math.max(224, up8(widest + 64)), h: up8(48 + titleSize.h + PARA + lines.length * (fieldLine + PARA) + (b ? 32 : 0)) };
 }
 function buildGraph(M) {
   const LR = (M.direction || 'LR') === 'LR';
@@ -667,20 +672,20 @@ function buildGraph(M) {
     const f = FIXED[n.kind];
     let s;
     if (f) s = { w: f[0], h: f[1] };
-    else if (n.kind === 'entity') { const card = entityCard(n); cards.set(n.id, card); s = { w: card.w, h: card.h }; }
+    else if (n.kind === 'entity' || n.body) { const card = entityCard(n); cards.set(n.id, card); s = { w: card.w, h: card.h }; }
     else s = fit(n.label, shapeOf(n.kind));
     return { id: n.id, w: s.w, h: s.h, zone: n.zone, offPath: OFF_PATH.has(n.kind), goal: n.kind === 'success', kind: n.kind };
   });
   // One size per shape class keeps a rhythm across the board.
   const classMax = new Map();
   for (const it of items) {
-    if (FIXED[it.kind] || it.kind === 'entity') continue;
+    if (FIXED[it.kind] || cards.has(it.id)) continue;
     const cls = shapeOf(it.kind);
     const m = classMax.get(cls) || { w: 0, h: 0 };
     classMax.set(cls, { w: Math.max(m.w, it.w), h: Math.max(m.h, it.h) });
   }
   for (const it of items) {
-    if (FIXED[it.kind] || it.kind === 'entity') continue;
+    if (FIXED[it.kind] || cards.has(it.id)) continue;
     Object.assign(it, classMax.get(shapeOf(it.kind)));
   }
   const nodeIds = new Set(M.nodes.map((n) => n.id));
@@ -985,15 +990,17 @@ function buildGraph(M) {
         const parent = zoneOf.get(n.zone) || board;
         const px = parent === board ? 0 : parent.x, py = parent === board ? 0 : parent.y;
         const card = cards.get(n.id);
-        const label = card ? [n.label, ...card.lines].join('\n') : (FIXED[n.kind] ? '' : n.label);
+        const label = card ? [n.label, ...(card.b ? [''] : []), ...card.lines].join('\n') : (FIXED[n.kind] ? '' : n.label);
         const s = shape(parent, n.kind, label, ox + b.x - px, oy + b.y - py, b.w, b.h, `node:${n.id}`, 0, n.accent);
         if (card) {
+          const k = n.label.length;
           s.text.fontName = REGULAR;
-          s.text.fontSize = TYPE.field;
-          s.text.setRangeFontName(0, n.label.length, SEMI);
-          s.text.setRangeFontSize(0, n.label.length, TYPE.node);
+          s.text.fontSize = card.b ? TYPE.body : TYPE.field;
+          s.text.setRangeFontName(0, k, card.b ? BOLD : SEMI);
+          s.text.setRangeFontSize(0, k, TYPE.node);
           s.text.textAlignHorizontal = 'LEFT';
-          s.text.paragraphSpacing = PARA;
+          if (!card.b) s.text.paragraphSpacing = PARA;
+          else { s.text.setRangeFontSize(k + 1, k + 2, 10); s.text.setRangeLineHeight(k + 2, label.length, { value: 145, unit: 'PERCENT' }); }
         }
         shapes.set(n.id, s);
         elements.push({ id: s.id, model: n.id, kind: n.kind, text: label });
@@ -1028,7 +1035,7 @@ function buildGraph(M) {
         const to = shapes.get(e.to) || zoneOf.get(e.to);
         const { m0, m1, pts, leg } = portsOf.get(e);
         // An ER relationship marks each end with its cardinality, so a reader sees which side is the many.
-        const style = { dashed: e.style === 'dashed', startCap: e.ends ? ERD[e.ends[0]] : e.twoWay ? 'ARROW_LINES' : 'NONE',
+        const style = { dashed: e.style === 'dashed' || 2 * (e.style === 'status'), startCap: e.ends ? ERD[e.ends[0]] : e.twoWay ? 'ARROW_LINES' : 'NONE',
           endCap: e.ends ? ERD[e.ends[1]] : e.undirected ? 'NONE' : 'ARROW_LINES' };
         let c;
         try {
@@ -1313,7 +1320,7 @@ key.y = oy + body.height + (MODEL.gap || 64);
 created.push(key.id);
 text(key, T.key.title, SEMI, TYPE.zone, 32, 32);
 const LINES = {
-  solid: {}, dashedOptional: { dashed: true }, dashedAsync: { dashed: true }, identifying: { cap: 'NONE' },
+  solid: {}, dashedOptional: { dashed: true }, statusMove: { dashed: 2 }, dashedAsync: { dashed: true }, identifying: { cap: 'NONE' },
   nonIdentifying: { dashed: true, cap: 'NONE' }, twoWay: { start: 'ARROW_LINES' },
 };
 // The focus entry carries the reason the model gives for it, so a reader sees why the accent falls there.

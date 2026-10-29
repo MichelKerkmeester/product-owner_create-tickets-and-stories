@@ -14,6 +14,7 @@ mis-draws without.
 """
 from __future__ import annotations
 
+import dataclasses
 import re
 from typing import TYPE_CHECKING
 
@@ -66,6 +67,17 @@ ALLOWED_ARCHITECTURE_EDGES = {
     ("service", "async", "dotted"), ("async", "service", "dotted"), ("service", "external", "dotted"),
 }
 DOTTED_LANES = {"async", "external"}
+# A laned process may name one lane as its status lane: the states a shared record moves through, drawn
+# first, joined in order and moved by a step's dotted `-.->`. It is never an actor lane.
+STATUS_DIRECTIVE = re.compile(r"^\s*%%\s*status\s*:\s*(.*?)\s*$", re.I | re.M)
+# A step's body under its one-line label belongs to the Faithful detail level alone, which the model names.
+LEVEL_DIRECTIVE = re.compile(r"^\s*%%\s*level\s*:\s*(.*?)\s*$", re.I | re.M)
+DETAIL_DIRECTIVE = re.compile(r"^\s*%%\s*detail\s*:\s*(.*?)\s*$", re.I | re.M)
+LEVELS = ("simplified", "balanced", "faithful")
+DETAIL_LEVEL = "faithful"
+MAX_BODY_LINES, MAX_BODY_CHARS = 10, 44
+# A laned process at the Faithful level with detail cards keeps more of its source, so it reads at a larger budget.
+DETAILED_PROCESS_BUDGET = (18, 24)
 # A connector longer than `-->` or an invisible link renders differently from
 # the arrow the rule names, and the extractor reads both as plain edges.
 ODD_CONNECTOR = re.compile(r"-{3,}>|~~~")
@@ -219,6 +231,127 @@ def lane_problems(diagram: Diagram) -> tuple[list[str], set[str]]:
     return problems, lane_ids
 
 
+def status_problems(diagram: Diagram, block_text: str, profile: str, lane_ids: set[str]) -> tuple[list[str], set[str]]:
+    """The problems with a status lane, and the ids of the states it holds."""
+    named = STATUS_DIRECTIVE.findall(block_text)
+    if not named:
+        return [], set()
+    if profile != PROCESS or not lane_ids:
+        return ["%% status on a diagram without lanes: a status lane belongs to a laned process"], set()
+    if len(named) > 1:
+        return [f"{len(named)} %% status lines, at most 1: a record moves through one series of statuses"], set()
+    lane = named[0]
+    if lane not in lane_ids:
+        return [f"%% status: {lane or '(empty)'} names no lane: write the id of the lane that holds the statuses"], set()
+    problems = []
+    first = next(node.id for node in diagram.nodes if node.container)
+    if first != lane:
+        problems.append(f"status lane {lane} is declared after lane {first}: declare it first, so the board draws it on top")
+    states = {node.id for node in diagram.nodes if node.parent == lane and not node.container}
+    for node in diagram.nodes:
+        if node.id in states and node.shape != "rect":
+            problems.append(f"status state {node.id} is drawn as a {node.shape}: write it [Label], "
+                            "the board draws a status as a chevron")
+    if len(states) < 2:
+        problems.append(f"status lane {lane} holds {len(states)} states: a status lane holds two or more")
+    following, preceding = {}, {}
+    for edge in diagram.edges:
+        name = f"edge {edge.source} to {edge.target}"
+        if edge.source in states and edge.target in states:
+            if edge.style != "solid":
+                problems.append(f"{name} joins two statuses dotted: join them in order with -->")
+            following.setdefault(edge.source, []).append(edge.target)
+            preceding.setdefault(edge.target, []).append(edge.source)
+        elif edge.source in states:
+            problems.append(f"status state {edge.source} leads to {edge.target}: a status only moves, "
+                            f"so draw the step's -.-> into the status instead")
+        elif edge.target in states and edge.style != "dashed":
+            problems.append(f"{name} is solid: a step moves the status with -.->")
+    heads = [state for state in states if state not in preceding]
+    walked, at = [], heads[0] if len(heads) == 1 else None
+    while at and at not in walked:
+        walked.append(at)
+        at = following.get(at, [None])[0]
+    chained = len(heads) == 1 and len(walked) == len(states) and all(len(v) == 1 for v in following.values()) \
+        and all(len(v) == 1 for v in preceding.values())
+    if states and not chained:
+        problems.append(f"the states in lane {lane} form no single chain: join them in order with --> "
+                        "from the first status to the last")
+    moved = {edge.target for edge in diagram.edges if edge.target in states and edge.source not in states}
+    for state in walked[1:] if chained else []:
+        if state not in moved:
+            problems.append(f"status {state} is never moved: draw -.-> into it from the step that moves the record there")
+    for statement in statements(block_text):
+        words = statement.split()
+        if STYLE_STATEMENT.match(statement) and len(words) > 1 and words[1] in states:
+            problems.append(f"status {words[1]} takes a style line: the accent goes on a decision, "
+                            "a failing end or the one step in focus, never a status")
+    return problems, states
+
+
+def status_states(diagram: Diagram, block_text: str) -> set[str]:
+    """The ids of the states a single `%% status:` line's lane holds, or none."""
+    named = STATUS_DIRECTIVE.findall(block_text)
+    lane = named[0] if len(named) == 1 else None
+    return {node.id for node in diagram.nodes if lane and node.parent == lane and not node.container}
+
+
+def work_view(diagram: Diagram, states: set[str]) -> Diagram:
+    """The diagram without its status lane: the steps and the connectors the work moves along.
+
+    A status move is no way out of a step and the status chain is no path the work takes, so the rules on
+    ways in and out, the path lengths and the goal are read on this view.
+    """
+    if not states:
+        return diagram
+    lanes = {node.parent for node in diagram.nodes if node.id in states}
+    return dataclasses.replace(diagram, nodes=[node for node in diagram.nodes if node.id not in states | lanes],
+                               edges=[edge for edge in diagram.edges if edge.source not in states and edge.target not in states])
+
+
+def detail_problems(diagram: Diagram, block_text: str, states: set[str]) -> tuple[list[str], int]:
+    """The problems with the bodies `%% detail:` lines give steps, and how many steps carry one."""
+    lines = DETAIL_DIRECTIVE.findall(block_text)
+    levels = [value.lower() for value in LEVEL_DIRECTIVE.findall(block_text)]
+    problems = []
+    if len(levels) > 1:
+        problems.append(f"{len(levels)} %% level lines, at most 1")
+    for value in levels:
+        if value not in LEVELS:
+            problems.append(f"%% level: {value or '(empty)'} is no detail level: write {', '.join(LEVELS)}")
+    if not lines:
+        return problems, 0
+    if DETAIL_LEVEL not in levels:
+        problems.append(f"{len(lines)} %% detail lines need %% level: {DETAIL_LEVEL}: a body belongs to the Faithful "
+                        "detail level, and Balanced and Simplified keep one-line labels")
+    shapes = {node.id: node.shape for node in diagram.nodes if not node.container}
+    seen = set()
+    for value in lines:
+        parts = [part.strip() for part in value.split("|")]
+        node_id, body = parts[0], parts[1:]
+        if node_id not in shapes:
+            problems.append(f"%% detail: {node_id or '(empty)'} names no step: write %% detail: <step id> | line | line")
+            continue
+        if node_id in seen:
+            problems.append(f"node {node_id} has two %% detail lines: write its whole body on one")
+        seen.add(node_id)
+        if shapes[node_id] != "rect" or node_id in states:
+            problems.append(f"%% detail on {node_id}, a {'status' if node_id in states else shapes[node_id]}: "
+                            "only a step [Label] carries a body")
+        if not any(body):
+            problems.append(f"%% detail: {node_id} has no body line: write %% detail: {node_id} | line | line")
+        if len(body) > MAX_BODY_LINES:
+            problems.append(f"node {node_id} carries {len(body)} body lines, at most {MAX_BODY_LINES}: "
+                            "keep what a reader acts on and leave the rest in the source")
+        for line in body:
+            if not line:
+                problems.append(f"node {node_id} has an empty body line: drop the extra |")
+            elif len(line) > MAX_BODY_CHARS:
+                problems.append(f"node {node_id} body line {line[:24]!r}... runs {len(line)} characters, "
+                                f"at most {MAX_BODY_CHARS}: split it into two lines")
+    return problems, len(seen)
+
+
 def edge_problems(diagram: Diagram, block_text: str, allow_dotted: bool) -> list[str]:
     """Each edge that is not a one-way arrow this diagram draws, and each problem with an edge label."""
     problems = []
@@ -233,14 +366,14 @@ def edge_problems(diagram: Diagram, block_text: str, allow_dotted: bool) -> list
     return problems
 
 
-def repeated_label_problems(diagram: Diagram) -> list[str]:
+def repeated_label_problems(diagram: Diagram, states: frozenset[str] = frozenset()) -> list[str]:
     """One label on four or more connectors says nothing: the shape already carries the step."""
     decisions = {node.id for node in diagram.nodes if node.shape == "rhombus"}
     counted, written = {}, {}
     for edge in diagram.edges:
         label = edge.label.strip()
         key = label.lower()
-        if not key or edge.source in decisions:
+        if not key or edge.source in decisions or edge.target in states:
             continue
         counted[key] = counted.get(key, 0) + 1
         written.setdefault(key, label)
@@ -272,19 +405,30 @@ def check_flow(diagram: Diagram, block_text: str, profile: str) -> list[str]:
         shapes = PROCESS_SHAPES
         found, lane_ids = lane_problems(diagram)
         problems += found
+    found, states = status_problems(diagram, block_text, profile, lane_ids)
+    problems += found
+    found, detailed = detail_problems(diagram, block_text, states)
+    problems += found
     problems += colour_problems(block_text, lane_ids, need_accent=True)
     steps = [node for node in diagram.nodes if not node.container]
-    first_id = steps[0].id if steps else ""
+    first_id = next((node.id for node in steps if node.id not in states), "")
+    work = work_view(diagram, states)
     for node in steps:
-        problems += node_problems(diagram, node, block_text, first_id, shapes)
+        if node.id in states:
+            # A status has its own rules above: it is reached by moves and chained, never a step with a way through.
+            problems += id_problems(node.id) + label_problems(f"node {node.id}", node.label, block_text)
+            continue
+        problems += node_problems(work, node, block_text, first_id, shapes)
     max_nodes, max_edges = LANED_PROCESS_BUDGET if lane_ids else BUDGET[profile]
+    if lane_ids and detailed:
+        max_nodes, max_edges = DETAILED_PROCESS_BUDGET
     if len(steps) > max_nodes:
         problems.append(f"{len(steps)} nodes, at most {max_nodes}: split the flow")
     if max_edges is not None and len(diagram.edges) > max_edges:
         problems.append(f"{len(diagram.edges)} connectors, at most {max_edges}: split the flow")
     problems += edge_problems(diagram, block_text, allow_dotted=profile == PROCESS)
     problems += self_loop_problems(diagram)
-    problems += repeated_label_problems(diagram)
+    problems += repeated_label_problems(diagram, frozenset(states))
     return problems
 
 
@@ -326,6 +470,9 @@ def check_architecture(diagram: Diagram, block_text: str, backward: set[tuple[st
         problems.append(f"direction {diagram.direction}, an architecture runs left to right: write flowchart LR")
     if any(STYLE_STATEMENT.match(s) for s in statements(block_text)) or ":::" in block_text:
         problems.append("the block carries styling: the architecture layout colours each lane itself, drop it")
+    if STATUS_DIRECTIVE.search(block_text) or DETAIL_DIRECTIVE.search(block_text):
+        problems.append("the block carries %% status or %% detail: a status lane and detail cards belong to "
+                        "a laned process, and an architecture keeps one-line services")
     lanes = [node for node in diagram.nodes if node.container]
     lane_of = {}
     seen_lanes = set()

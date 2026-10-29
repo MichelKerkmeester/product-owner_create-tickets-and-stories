@@ -6,7 +6,7 @@ importance_tier: normal
 trigger_phrases:
   - "gantt example"
   - "loomlist offline mode plan"
-version: 1.0.6.0
+version: 1.0.7.0
 ---
 
 # Example - Gantt - Loomlist Offline Mode
@@ -61,7 +61,7 @@ Is this the right reading of the board?
 ```mermaid
 gantt
     title Offline mode launch
-    %% subtitle: Which work runs when before the offline mode release, and what holds it
+    %% subtitle: Which work runs when, from the first design week to the offline mode release, and what holds it
     %% source: Source: the offline mode planning doc. Left out: Android next quarter, a proposal with no dates.
     dateFormat YYYY-MM-DD
     section Design

@@ -55,7 +55,8 @@ GREY_STEP = 25
 # reader who cannot read the label still tells them apart.
 TYPE_KINDS = {
     "a user flow": ("start", "screen", "decision", "success", "exit", "error", "merge", "datastore", "subprocess", "io"),
-    "a process": ("start", "step", "decision", "success", "exit", "error", "merge", "datastore", "subprocess", "io"),
+    "a process": ("start", "step", "status", "decision", "success", "exit", "error", "merge", "datastore", "subprocess",
+                  "io"),
     "an architecture": ("client", "gateway", "service", "queue", "datastore", "external"),
     "a state diagram": ("initial", "final", "firstState", "state", "finalState", "choice", "fork"),
     "a sequence": ("participant",),
@@ -332,6 +333,8 @@ def floors(design: dict) -> list[tuple[str, list[tuple]]]:
          [("type", "label"), ("type", "small"), ("type", "node")]),
         (size["small"] <= size["field"] <= size["node"], "field type is smaller than small type or larger than node type",
          [("type", "field"), ("type", "small"), ("type", "node")]),
+        (size["small"] <= size["body"] <= size["node"], "body type is smaller than small type or larger than node type",
+         [("type", "body"), ("type", "small"), ("type", "node")]),
         (16 <= size["node"] <= ZONE_TYPE_MAX, f"node type is outside 16 to {ZONE_TYPE_MAX} px", [("type", "node")]),
         (size["node"] <= size["zone"] <= ZONE_TYPE_MAX,
          f"zone type is smaller than node type or over {ZONE_TYPE_MAX} px", [("type", "zone"), ("type", "node")]),

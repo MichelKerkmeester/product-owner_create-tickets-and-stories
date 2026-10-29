@@ -2,7 +2,7 @@
 name: sk-create-figjam
 description: "Draws FigJam diagrams, from user flows to sequence, state, ER and gantt, as checked Mermaid models composed into framed boards."
 allowed-tools: [Read, Write, Edit, Bash, Glob, Grep, mcp__code_mode__call_tool_chain]
-version: 1.0.15.0
+version: 1.0.16.0
 ---
 
 <!-- Keywords: sk-create-figjam, flow mode, figjam, user flow, process, architecture, sequence diagram, state diagram, er diagram, gantt, flowchart, mermaid, board, $flow, $figjam -->
@@ -51,7 +51,7 @@ sk-create-figjam/
   references/hybrid-workflow.md  notes as numbered pins or stickies through use_figma, and boards of several diagrams
   assets/flow-templates.md       user flow patterns, the provenance table, the intake questions and the reply for every type
   assets/templates/              patterns that pass the check, one file per type beyond user flow
-  assets/examples/               one worked example per type on fictional companies
+  assets/examples/               one worked example per type on fictional companies, two for a process
   assets/compose-board.js        the use_figma code that composes a board, with its model and theme left to fill
   assets/figjam-design.md        the design every board is drawn in, one json token block a team edits, with its floors
   scripts/flow_check.py          the pre-write check for every type and its self-test

@@ -63,6 +63,40 @@ flowchart LR
     style approve fill:#C2E5FF,stroke:#3DADFF
 ```
 
+### Laned process with a status lane and detail cards
+
+A client and a maker move one record through its statuses. The status lane is declared first, each status move is a dotted `-.->` and the `Faithful` level gives one step a body.
+
+```mermaid
+%% type: process
+flowchart LR
+    %% status: status
+    %% level: faithful
+    %% detail: start | Checks the order form | Replies within two working days
+    subgraph status ["Order status"]
+        open[Open]
+        made[In the making]
+        done[Delivered]
+    end
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        start[Start the work]
+        ship[Ship the order]
+    end
+    open --> made
+    made --> done
+    ask --> start
+    ask -.-> open
+    start -.-> made
+    start --> ship
+    ship -.-> done
+    ship --> got
+    style ship fill:#C2E5FF,stroke:#3DADFF
+```
+
 ### Pipeline with a store and data in and out
 
 ```mermaid

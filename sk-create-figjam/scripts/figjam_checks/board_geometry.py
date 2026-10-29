@@ -617,7 +617,8 @@ def orphan_words(drawn: dict) -> list[str]:
     """
     found = []
     for n in drawn["nodes"]:
-        if n["type"] != "SHAPE_WITH_TEXT" or not n["text"].strip():
+        # A card sets each of its lines on its own, so only a one-paragraph label wraps.
+        if n["type"] != "SHAPE_WITH_TEXT" or not n["text"].strip() or "\n" in n["text"]:
             continue
         if n.get("shape") == "DIAMOND":
             lines = _wrapped_px(n["text"], n["w"] / 2 - DIAMOND_BOX_LESS, NODE_SIZE)
