@@ -1,6 +1,6 @@
 ---
 title: "Implementation Summary"
-description: "Phase 052 lets FigJam boards carry what their source says and scores it, then reruns the gallery on GLM 5.3 Flash max."
+description: "Phase 052 lets FigJam boards carry what their source says and scores it, then reruns the gallery on Sonnet 5.5 medium."
 trigger_phrases:
   - "figjam boards that teach implementation summary"
 importance_tier: "normal"
@@ -11,7 +11,7 @@ _memory:
     last_updated_at: "2026-10-30T11:00:00Z"
     last_updated_by: "claude-code"
     recent_action: "Skill change and release done; gates pass"
-    next_safe_action: "Run FJ-022 on glm-5-3-flash-max and read its board as the live composer check"
+    next_safe_action: "Grade the ten Sonnet 5.5 medium boards"
     blockers: []
     key_files: []
     completion_pct: 50

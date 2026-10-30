@@ -1,0 +1,9 @@
+<figma-url>
+Read-back: 9 of 9 nodes, 8 of 8 connectors, 6 of 6 lanes, first glance: the change stream, read from the board with `get_figjam`. The three live-socket connectors read as two-way. Connector labels and dashed lines are counted from the write's return and the overview screenshot, because `get_figjam` returns no connector labels or dash styles.
+Left out: file storage, no source states which part uses it
+Left out: Apple's push service waking the iOS device, an architecture has no edge from an outside system to a client, so the push worker's edge label carries it
+Finding: the Blocks database body "Keeps 30 days of block history" does not show in the overview screenshot, and only a stray mark sits under its title. The text is on the board, so the cylinder shape is clipping it. I took no 100% zoom view, so I haven't confirmed how much is cut off. The fix is a shorter body such as "30 days of block history", composed again after your yes.
+Finding: the Change stream body wraps to "Keeps events for 7" with "days" alone on the second line. The fix is a shorter body such as "Keeps 7 days of events", composed again after your yes.
+Finding: the "Writes blocks" connector leaves the top of sync-service and runs along the top edge of the Events zone, then drops beside that zone's right edge into Stores. It crosses no box, but the route is long and hugs a zone border. I'd leave it unless you want it reshaped, and the composer cannot move it, so any change goes through the model.
+Finding: the gateway to sync-service route is assumed, as the source line on the board says, because your message doesn't state that connection.
+HVR self-scan: 0 hard blockers. Fixed: none. Kept with reason: none.

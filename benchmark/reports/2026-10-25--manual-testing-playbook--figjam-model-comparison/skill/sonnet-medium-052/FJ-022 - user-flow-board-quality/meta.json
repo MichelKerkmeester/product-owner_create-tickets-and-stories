@@ -1,0 +1,179 @@
+{
+ "id": "FJ-022",
+ "label": "sonnet-medium-052",
+ "model": "claude:claude-sonnet-5-5:medium",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/user-flow-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file. That file is in the plan named above.",
+ "operator_setup_done": false,
+ "operator_pause_before": null,
+ "operator_paused": false,
+ "file_start_sections": null,
+ "driver": "model",
+ "expects_board": true,
+ "no_figma": false,
+ "scripted_turns": [
+  "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review. The returns doc also says: the order detail lists each item with its price and delivery date, with the Start a return button under the items. The reasons are Damaged, Wrong size, Not as shown and Changed my mind. A drop-off point is picked from a map of the 5 nearest points, and a courier pickup takes a date in the next 3 working days. The confirmation shows a QR code to scan at the drop-off point or hand to the courier, and sends it by email.",
+  "Use your recommended answers.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "commands_run": 0,
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "9fba50a8-a43f-4e3a-a625-14259e318d5a",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "1:3"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 41.22,
+   "tool_calls": 8,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 58725,
+   "output_tokens": 4204,
+   "cached_tokens": 212751,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "9fba50a8-a43f-4e3a-a625-14259e318d5a",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "$flow how a Fernhouse customer starts a return in the app, on a new board in our Fernhouse Product plan. From the app and the returns doc: the order list, the order detail with a Start a return button, a list of return reasons, a choice between a drop-off point and a courier pickup, and a confirmation with a QR code. Returns are open for 30 days after delivery, after that the app shows Contact support. A free pickup for orders over 100 euros is a proposal under review. The returns doc also says: the order detail lists each item with its price and delivery date, with the Start a return button under the items. The reasons are Damaged, Wrong size, Not as shown and Changed my mind. A drop-off point is picked from a map of the 5 nearest points, and a courier pickup takes a date in the next 3 working days. The confirmation shows a QR code to scan at the drop-off point or hand to the courier, and sends it by email.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file. That file is in the plan named above.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 35.64,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 2251,
+   "output_tokens": 4446,
+   "cached_tokens": 88617,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "9fba50a8-a43f-4e3a-a625-14259e318d5a",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 64.14,
+   "tool_calls": 9,
+   "tools_used": [
+    "ToolSearch",
+    "Read",
+    "Bash",
+    "Write",
+    "mcp__figma-remote__create_session",
+    "Bash",
+    "mcp__figma-remote__get_figjam",
+    "Bash",
+    "Bash"
+   ],
+   "input_tokens": 19702,
+   "output_tokens": 7566,
+   "cached_tokens": 616857,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "9fba50a8-a43f-4e3a-a625-14259e318d5a",
+   "inner_calls": [
+    "create_session",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 174.62,
+   "tool_calls": 7,
+   "tools_used": [
+    "ToolSearch",
+    "Read",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 81402,
+   "output_tokens": 29237,
+   "cached_tokens": 901478,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "9fba50a8-a43f-4e3a-a625-14259e318d5a",
+   "inner_calls": [
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "1:3"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "DELIVERY",
+   "url_first": true
+  }
+ ]
+}

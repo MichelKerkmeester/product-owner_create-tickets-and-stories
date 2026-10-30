@@ -1,0 +1,56 @@
+[
+ {
+  "step": 1,
+  "text": "sandbox: confirm the hosted Figma MCP is connected, record the tool list and pick a plan the operator owns -> session: start fresh",
+  "status": "skipped",
+  "reason": "sandbox step, not a shell command"
+ },
+ {
+  "step": 2,
+  "text": "user: submit the prompt exactly -> operator: confirm the reply is an intake round that ends on its closing question, with nothing modelled, checked or written",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 3,
+  "text": "user: Use your recommended answers. -> operator: confirm the playback names the question, the outcome, the detail level, the audience and the distance, what each source settled and every assumed row, with nothing written",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 4,
+  "text": "user: Yes, that reading is right. -> operator: confirm the passing check and the gate, with nothing written yet",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 5,
+  "text": "user: Yes, go ahead. -> operator: record the reply, every tool call and each get_figjam read",
+  "status": "skipped",
+  "reason": "user step, not a shell command"
+ },
+ {
+  "step": 6,
+  "text": "operator: write down the glance order the model plans, then screenshot the whole board and the diagram at 100% zoom and copy the reading one in greyscale",
+  "status": "skipped",
+  "reason": "operator step, not a shell command"
+ },
+ {
+  "step": 7,
+  "text": "operator: score Composition, Crossings, Shared trunks, Label collisions, Fidelity, Legibility and Signal, and name a location and a fix for each point lost",
+  "status": "skipped",
+  "reason": "operator step, not a shell command"
+ },
+ {
+  "step": 8,
+  "text": "operator: score the four Hygiene checks against the first and last read and score Reply",
+  "status": "skipped",
+  "reason": "operator step, not a shell command"
+ },
+ {
+  "step": 9,
+  "text": "reader: give a fresh reader the two colour screenshots and ask Q1 to Q5 -> operator: score Clarity on Q1 to Q3 and Substance on Q4 and Q5, and total the scorecard",
+  "status": "skipped",
+  "reason": "reader step, not a shell command"
+ }
+]

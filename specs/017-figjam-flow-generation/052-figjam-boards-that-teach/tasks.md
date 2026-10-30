@@ -44,9 +44,9 @@ contextType: "implementation"
 - [x] T004 Docs, templates and examples (`sk-create-figjam/references/`, `assets/`). Verify: every example checks clean. [EVIDENCE: every shipped model and its Project copy passes the self-test]
 - [x] T005 Scorecard Substance and the ten scenarios (`sk-create-figjam/manual-testing-playbook/`). Verify: each scored scenario totals 24 and names two source questions. [EVIDENCE: root Section 3 defines Substance; each of the ten files carries Q4 and Q5 twice and 20 of 24 four times; FJ-047 moved to Balanced and Faithful]
 - [x] T006 Release 1.0.17.0, hub 1.0.18.0 and the Claude Project mirror. Verify: parity passes. [EVIDENCE: changelogs, versions and SYNC.md; run_gates.sh 15 of 15; residency and divergence pass; parity runs on the commit]
-- [ ] T007 Run the ten scenarios on `glm-5-3-flash-max` (`skill/glm-052/`). Verify: each run has a meta.json and a board.
-- [ ] T008 Read and grade each board. Verify: twenty reader notes and ten scorecard rows.
-- [ ] T009 Gallery, captions and report section 8.17. Verify: every caption names its run and score.
+- [x] T007 Run the ten scenarios on Sonnet 5.5 medium (`skill/sonnet-medium-052/`). Verify: each run has a meta.json and a board. [EVIDENCE: ten meta.json files each name a board; seven reruns after the composer fixes and a third run of FJ-024 and FJ-049, first passes in `failed-attempts/sonnet-medium-052/`]
+- [x] T008 Read and grade each board. Verify: twenty reader notes and ten scorecard rows. [EVIDENCE: `grades/sonnet-medium-052/readers/` holds 20 notes each ending on an Order line; `grades/sonnet-medium-052.jsonl` holds 10 rows; composition_check.py rerun by the operator gives the recorded levels]
+- [x] T009 Gallery, captions and report section 8.17. Verify: every caption names its run and score. [EVIDENCE: nine images replaced, each caption names FJ-0xx, Sonnet 5.5 medium on v1.0.17.0 and its total of 24; the status lane caption keeps its v1.0.16.0 run per the D7 amendment]
 <!-- /ANCHOR:phase-2 -->
 
 ---
@@ -100,7 +100,7 @@ contextType: "implementation"
 
 - [x] CHK-001 [P0] Requirements documented in spec.md [EVIDENCE: spec.md REQ-001 to REQ-009]
 - [x] CHK-002 [P0] Technical approach defined in plan.md [EVIDENCE: plan.md Sections 1 and 3]
-- [x] CHK-003 [P1] Approach and board maker confirmed by Michel [EVIDENCE: answers of 2026-10-30: skill and tests then rerun, child 052, GLM via Devin]
+- [x] CHK-003 [P1] Approach and board maker confirmed by Michel [EVIDENCE: answers of 2026-10-30: skill and tests then rerun, child 052, GLM via Devin, then Sonnet 5.5 medium once the Devin quota was spent]
 <!-- /ANCHOR:pre-impl -->
 
 ---

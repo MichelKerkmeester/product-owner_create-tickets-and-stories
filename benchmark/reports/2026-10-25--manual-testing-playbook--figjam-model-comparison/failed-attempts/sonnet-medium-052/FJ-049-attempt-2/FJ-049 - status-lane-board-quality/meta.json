@@ -1,0 +1,184 @@
+{
+ "id": "FJ-049",
+ "label": "sonnet-medium-052",
+ "model": "claude:claude-sonnet-5-5:medium",
+ "permission": "dangerous",
+ "runtime": "claude-adaptive",
+ "scenario_file": "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/board-quality/status-lane-board-quality.md",
+ "file_pin": "Write the board into the existing FigJam file with key <test-file-key> rather than a new file. That file is in the plan named above.",
+ "operator_setup_done": false,
+ "operator_pause_before": null,
+ "operator_paused": false,
+ "file_start_sections": 1,
+ "driver": "model",
+ "expects_board": true,
+ "no_figma": false,
+ "scripted_turns": [
+  "make a FigJam process of how a Roamstay damage claim moves between the hotel, the guest and Roamstay support, on a new board in our Roamstay Product plan, with the status the claim holds at each step, and keep the policy's detail on the steps. Highlight where the guest decides. From the claims policy: after check-out the hotel reports damage with photos and a repair quote, and the claim is Reported. Support sends the claim to the guest with the photos and the quote, and the claim is With the guest. The guest has 7 days to accept or dispute it. An accepted claim is charged to the card on file and the claim is Closed. A disputed claim is Under review while support reads the photos and the guest's reply and decides within 5 working days to uphold it, which charges the card, or to drop it. A decided dispute ends Closed either way. Claims under 25 euros are waived, a rule that is not yet live. The policy also says: the repair quote must come from a listed supplier, the guest sees the photos, the quote and the amount in the app, support asks the hotel for more photos when the photos do not show the damage, and an upheld claim is charged within 2 working days.",
+  "Use your recommended answers.",
+  "Yes, that reading is right.",
+  "Yes, go ahead."
+ ],
+ "commands_run": 0,
+ "intake_answers_sent": 0,
+ "follow_ups_sent": 0,
+ "session_id": "b87d0f72-2de5-4ea9-bb3b-56f4ce82980a",
+ "attempts": 1,
+ "failures": [],
+ "completed": true,
+ "boards": [
+  "1:3"
+ ],
+ "net_file_changes": {
+  "created": [],
+  "modified": [],
+  "deleted": []
+ },
+ "turns": [
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 60.92,
+   "tool_calls": 7,
+   "tools_used": [
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read",
+    "Read"
+   ],
+   "input_tokens": 72822,
+   "output_tokens": 6879,
+   "cached_tokens": 104264,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "b87d0f72-2de5-4ea9-bb3b-56f4ce82980a",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 1,
+   "input": "make a FigJam process of how a Roamstay damage claim moves between the hotel, the guest and Roamstay support, on a new board in our Roamstay Product plan, with the status the claim holds at each step, and keep the policy's detail on the steps. Highlight where the guest decides. From the claims policy: after check-out the hotel reports damage with photos and a repair quote, and the claim is Reported. Support sends the claim to the guest with the photos and the quote, and the claim is With the guest. The guest has 7 days to accept or dispute it. An accepted claim is charged to the card on file and the claim is Closed. A disputed claim is Under review while support reads the photos and the guest's reply and decides within 5 working days to uphold it, which charges the card, or to drop it. A decided dispute ends Closed either way. Claims under 25 euros are waived, a rule that is not yet live. The policy also says: the repair quote must come from a listed supplier, the guest sees the photos, the quote and the amount in the app, support asks the hotel for more photos when the photos do not show the damage, and an upheld claim is charged within 2 working days.\n\nWrite the board into the existing FigJam file with key <test-file-key> rather than a new file. That file is in the plan named above.",
+   "role": "scripted",
+   "kind": "INTAKE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 37.08,
+   "tool_calls": 0,
+   "tools_used": [],
+   "input_tokens": 5676,
+   "output_tokens": 4349,
+   "cached_tokens": 84207,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "b87d0f72-2de5-4ea9-bb3b-56f4ce82980a",
+   "inner_calls": [],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 2,
+   "input": "Use your recommended answers.",
+   "role": "scripted",
+   "kind": "PLAYBACK"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 91.73,
+   "tool_calls": 12,
+   "tools_used": [
+    "Read",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "Bash",
+    "ToolSearch",
+    "mcp__figma-remote__create_session",
+    "mcp__figma-remote__get_figjam"
+   ],
+   "input_tokens": 18967,
+   "output_tokens": 7829,
+   "cached_tokens": 1108313,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "b87d0f72-2de5-4ea9-bb3b-56f4ce82980a",
+   "inner_calls": [
+    "create_session",
+    "get_figjam"
+   ],
+   "composed": false,
+   "boards": [],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 3,
+   "input": "Yes, that reading is right.",
+   "role": "scripted",
+   "kind": "GATE"
+  },
+  {
+   "rc": 0,
+   "status": "ok",
+   "wall_s": 203.38,
+   "tool_calls": 10,
+   "tools_used": [
+    "ToolSearch",
+    "ReadMcpResourceTool",
+    "ReadMcpResourceTool",
+    "Read",
+    "Bash",
+    "Read",
+    "Bash",
+    "mcp__figma-remote__use_figma",
+    "mcp__figma-remote__get_figjam",
+    "Bash"
+   ],
+   "input_tokens": 86397,
+   "output_tokens": 29634,
+   "cached_tokens": 1311451,
+   "response_models": [
+    "claude-sonnet-5-5"
+   ],
+   "session_id": "b87d0f72-2de5-4ea9-bb3b-56f4ce82980a",
+   "inner_calls": [
+    "use_figma",
+    "get_figjam"
+   ],
+   "composed": true,
+   "boards": [
+    "1:3"
+   ],
+   "ledger": {
+    "created": [],
+    "modified": [],
+    "deleted": []
+   },
+   "turn": 4,
+   "input": "Yes, go ahead.",
+   "role": "scripted",
+   "kind": "DELIVERY",
+   "url_first": true
+  }
+ ]
+}
