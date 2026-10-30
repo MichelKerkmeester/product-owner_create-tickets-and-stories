@@ -21,7 +21,7 @@ _memory:
       fingerprint: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
       session_id: "cb7f5c8f-ad61-46e0-8985-4b3286150879"
       parent_session_id: null
-    completion_pct: 0
+    completion_pct: 100
     open_questions: []
     answered_questions: []
 ---
@@ -61,9 +61,9 @@ Frozen choices. Changing one is an amendment.
 
 - [x] The checker and composer changes pass their fixtures and a scratch board shows notes and the compact key
 - [x] The scorecard defines Substance and the ten scenarios carry sources and source questions
-- [ ] Release 1.0.17.0 with the Claude Project mirror, and parity passes
+- [x] Release 1.0.17.0 with the Claude Project mirror, and parity passes
 - [x] Ten runs on Sonnet 5.5 medium are graded and the gallery comes from them
-- [ ] The scan prints nothing, the gates pass and `validate.sh --strict` prints RESULT: PASSED
+- [x] The scan prints nothing, the gates pass and `validate.sh --strict` prints RESULT: PASSED
 <!-- /ANCHOR:completion -->
 
 ---
