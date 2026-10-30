@@ -184,17 +184,17 @@
     ],
     "causal_summary": "Product Owner writes stories, epics and product docs but cannot turn screenshots, Figma flows or product docs into diagrams",
     "created_at": "2026-10-19T20:55:21Z",
-    "last_save_at": "2026-10-30T05:41:12.832Z",
+    "last_save_at": "2026-10-30T08:42:13.550Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
       "spec.md",
       "goal.md"
     ],
-    "source_fingerprint": "sha256:e8f77d002d9f937e856d45030ff988f82ccbe2107acfa4b78dc827ffd0fd5d62",
+    "source_fingerprint": "sha256:2088ca7e5c7f044225e4a5dd462d43a382f1a18c3a7397937432b81629688a4b",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "c2ebbbaa33d890b7b60362b07162b115cecf0dcc0d95b189922e926e9c4302a9"
+      "spec.md": "67a6e040938d9059098acc0b251549fdee1dc1494a6d709df4d4114210683f02"
     },
     "last_active_child_id": "017-figjam-flow-generation/049-figjam-reading-order-and-reply-lead",
     "last_active_at": "2026-10-28T06:03:22.199Z"

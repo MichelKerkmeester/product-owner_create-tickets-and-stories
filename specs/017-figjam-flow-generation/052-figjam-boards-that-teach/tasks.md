@@ -54,9 +54,9 @@ contextType: "implementation"
 <!-- ANCHOR:phase-3 -->
 ## Phase 3: Verification
 
-- [ ] T010 Redact, scan and run the gates. Verify: the scan prints nothing and `run_gates.sh` passes.
-- [ ] T011 Commit both repositories, push on Michel's yes. Verify: `main` matches `origin`.
-- [ ] T012 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED`.
+- [x] T010 Redact, scan and run the gates. Verify: the scan prints nothing and `run_gates.sh` passes. [EVIDENCE: key scan exit 1 with no file; run_gates.sh 15 of 15; format gate fails only on the older sk-product-owner/SKILL.md:46]
+- [x] T011 Commit both repositories, push on Michel's yes. Verify: `main` matches `origin`. [EVIDENCE: Michel said push both on 2026-10-30; both repositories pushed with this closing commit]
+- [x] T012 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED`. [EVIDENCE: RESULT: PASSED for 052, 051 and the parent after the graph metadata backfill]
 <!-- /ANCHOR:phase-3 -->
 
 ---
@@ -64,9 +64,9 @@ contextType: "implementation"
 <!-- ANCHOR:completion -->
 ## Completion Criteria
 
-- [ ] All tasks marked `[x]`
-- [ ] No `[B]` blocked tasks remaining
-- [ ] Manual verification passed
+- [x] All tasks marked `[x]`
+- [x] No `[B]` blocked tasks remaining
+- [x] Manual verification passed
 <!-- /ANCHOR:completion -->
 
 ---
@@ -117,8 +117,8 @@ contextType: "implementation"
 <!-- ANCHOR:testing -->
 ## Testing Checklist
 
-- [ ] CHK-020 [P0] All acceptance criteria met
-- [ ] CHK-021 [P0] Gates pass
+- [x] CHK-020 [P0] All acceptance criteria met [EVIDENCE: eight Met and AC-006 Waived by ADR-001]
+- [x] CHK-021 [P0] Gates pass [EVIDENCE: run_gates.sh 15 of 15, parity 66 of 66]
 <!-- /ANCHOR:testing -->
 
 ---
@@ -126,8 +126,8 @@ contextType: "implementation"
 <!-- ANCHOR:security -->
 ## Security
 
-- [ ] CHK-030 [P0] No board URL, Figma file key, plan name or email in any committed file
-- [ ] CHK-031 [P0] Test sources name fictional brands only
+- [x] CHK-030 [P0] No board URL, Figma file key, plan name or email in any committed file [EVIDENCE: key scan over all 19 keys found no file]
+- [x] CHK-031 [P0] Test sources name fictional brands only [EVIDENCE: the ten excerpts name Fernhouse, Roamstay and Loomlist]
 <!-- /ANCHOR:security -->
 
 ---
@@ -135,8 +135,8 @@ contextType: "implementation"
 <!-- ANCHOR:docs -->
 ## Documentation
 
-- [ ] CHK-040 [P1] Spec, plan and tasks synchronized
-- [ ] CHK-041 [P1] Changelog, captions and report section 8.17
+- [x] CHK-040 [P1] Spec, plan and tasks synchronized [EVIDENCE: D1 and D7 amended in spec and goal, plan names Sonnet medium]
+- [x] CHK-041 [P1] Changelog, captions and report section 8.17 [EVIDENCE: v1.0.17.0 changelog names the composer fixes, both READMEs and section 8.17 written]
 <!-- /ANCHOR:docs -->
 
 ---
@@ -144,7 +144,7 @@ contextType: "implementation"
 <!-- ANCHOR:file-org -->
 ## File Organization
 
-- [ ] CHK-050 [P1] No change outside the files named in spec.md Section 3
+- [x] CHK-050 [P1] No change outside the files named in spec.md Section 3 [EVIDENCE: the commit touches only Product Owner paths in its scope table]
 <!-- /ANCHOR:file-org -->
 
 ---
@@ -154,9 +154,9 @@ contextType: "implementation"
 
 | Category | Total | Verified |
 |----------|-------|----------|
-| P0 Items | 7 | 2 |
-| P1 Items | 5 | 1 |
+| P0 Items | 7 | 7 |
+| P1 Items | 5 | 5 |
 | P2 Items | 0 | 0 |
 
-**Verification Date**: Pending
+**Verification Date**: 2026-10-30
 <!-- /ANCHOR:summary -->

@@ -151,7 +151,7 @@ Detail is fixed by the research synthesis and lives in each child's plan.md.
 | 49 | 049-figjam-reading-order-and-reply-lead/ | The v1.0.14.0 rerun causes: a lifted decision readers did not take second, a delivery reply opening on a sentence above the URL, an FJ-023 scenario and examples that skip the turn 1 intake, a label trace counting characters and Composition read by eye, then a rerun of FJ-022 and FJ-023 | Complete |
 | 50 | 050-figjam-spec-board-learnings/ | Five lessons from a hand-built spec board: a read-back that trusts only a view rendered after its write, a subtitle naming start and end, an optional status lane on a laned process, detail cards at `Faithful` and one anonymized worked example of that board shape | Complete |
 | 51 | 051-figjam-gallery-rerun/ | The nine gallery scenarios and a new status lane scenario rerun on v1.0.16.0 with Claude Sonnet 5.5 medium as the board maker, graded, with each image kept by the higher-scoring board | Complete |
-| 52 | 052-figjam-boards-that-teach/ | Zone notes, detail cards at Balanced on four types, a compact key, focus reasons and a Substance score, then the gallery rerun on GLM 5.3 Flash max | In Progress |
+| 52 | 052-figjam-boards-that-teach/ | Zone notes, detail cards at Balanced on four types, a compact key, focus reasons and a Substance score, then the gallery rerun on GLM 5.3 Flash max | Complete |
 
 ### Phase Transition Rules
 
