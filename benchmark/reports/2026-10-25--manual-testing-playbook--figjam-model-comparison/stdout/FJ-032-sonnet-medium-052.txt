@@ -1,0 +1,6 @@
+{"id": "FJ-032", "label": "sonnet-medium-052", "turn": 1, "role": "scripted", "kind": "INTAKE", "figma": [], "boards": []}
+{"id": "FJ-032", "label": "sonnet-medium-052", "turn": 2, "role": "adaptive", "kind": "PLAYBACK", "figma": [], "boards": []}
+{"id": "FJ-032", "label": "sonnet-medium-052", "turn": 3, "role": "scripted", "kind": "PLAYBACK", "figma": [], "boards": []}
+{"id": "FJ-032", "label": "sonnet-medium-052", "turn": 4, "role": "scripted", "kind": "GATE", "figma": ["create_session", "get_figjam"], "boards": []}
+{"id": "FJ-032", "label": "sonnet-medium-052", "turn": 5, "role": "supplementary", "kind": "DELIVERY", "figma": ["use_figma", "get_figjam"], "boards": ["2:21"], "url_first": true}
+{"id": "FJ-032", "label": "sonnet-medium-052", "status": "ok", "attempts": 1, "turns": 5, "boards": ["2:21"]}

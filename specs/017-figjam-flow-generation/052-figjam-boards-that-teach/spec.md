@@ -1,6 +1,6 @@
 ---
 title: "Feature Specification: Phase 52: FigJam boards that teach the reader something"
-description: "The gallery boards are tidy but say little: one-line labels, zones with only a name, a large key and a highlight with no reason. This phase lets cards and sections carry what the source says, makes the key compact, asks every highlight for its reason, adds a Substance score, gives each gallery test a spec-sized source and reruns the gallery with GLM 5.3 Flash max on Devin."
+description: "The gallery boards are tidy but say little: one-line labels, zones with only a name, a large key and a highlight with no reason. This phase lets cards and sections carry what the source says, makes the key compact, asks every highlight for its reason, adds a Substance score, gives each gallery test a spec-sized source and reruns the gallery with Sonnet 5.5 medium."
 trigger_phrases:
   - "figjam boards that teach"
   - "phase 52 figjam"
@@ -43,7 +43,7 @@ This is **Phase 52** of the Product Owner FigJam flow generation upgrade specifi
 
 **Dependencies**:
 - `sk-create-figjam` v1.0.16.0 and the phase 051 gallery.
-- The Devin CLI serving `glm-5-3-flash-max` with Figma's hosted MCP, and a draft file per run in the operator's team plan.
+- Claude Code serving `claude-sonnet-5-5` at medium effort with Figma's hosted MCP, and a draft file per run in the operator's team plan.
 
 **Deliverables**:
 - Section notes, detail cards at Balanced and Faithful on four types, a compact key and a required focus reason.
@@ -70,13 +70,13 @@ A board that teaches the reader what its source says: what a step asks, where a 
 
 ### Decisions
 
-- **D1**: GLM 5.3 Flash max draws every board, through Devin as `glm-5-3-flash-max`. Michel chose GLM on Pi first. Pi has no Figma write route, since its only MCP server is Code Mode, whose Figma manual is read-only, so Michel chose the Devin route on 2026-10-30.
+- **D1**: GLM 5.3 Flash max draws every board, through Devin as `glm-5-3-flash-max`. Michel chose GLM on Pi first. Pi has no Figma write route, since its only MCP server is Code Mode, whose Figma manual is read-only, so Michel chose the Devin route on 2026-10-30. Devin's weekly quota was spent on the first run, so Michel amended D1 the same day: Sonnet 5.5 medium on Claude Code draws every board, the model the 051 gallery used.
 - **D2**: A `%% about: <zone label or lane id> | line | line` line gives a zone or lane up to three note lines of at most 56 characters, drawn under its title. A user flow or process at Balanced or Faithful with two or more zones gives every zone one. The docs show Starts, Ends and Good to know as the lines a stage zone takes.
 - **D3**: Detail cards are allowed at Balanced, up to 4 body lines, and at Faithful, up to 10, on a user flow, a process with or without lanes, an architecture and a state diagram. Simplified keeps one-line labels. A sequence, an ER model and a gantt have no card to describe, since an ER entity already lists its fields.
 - **D4**: The key draws on one compact band, with smaller samples and small type. Every accent needs its reason, so a user flow or process with a `style` accent also needs `%% focus: <id> because <reason>`.
 - **D5**: The scorecard gains Substance in the reading zoom: each scored scenario names two source questions whose answers are in its source and in no one-line label. 2: both readers answer both. 1: one question. 0: none. A board totals 24 and passes at 20.
 - **D6**: The ten gallery scenarios, FJ-022 to FJ-028, FJ-032, FJ-036 and FJ-049, each give a spec-sized fictional source with screens, rules and edge cases in the prompt, and name the two source questions.
-- **D7**: Every gallery image comes from this run. A failing board is rerun once and the better of its two runs takes the image, and its caption names the failure. The old images are not kept, because none of them could answer a source question.
+- **D7**: Every gallery image comes from this run. A failing board is rerun once and the better of its two runs takes the image, and its caption names the failure. The old images are not kept, because none of them could answer a source question. Amended on 2026-10-30: the status lane image keeps its v1.0.16.0 board on Michel's choice, because the graded FJ-049 run drew no status lane, and the seven boards with body cards ran again after the composer fixes for card corners, key samples and cylinder cards, which Michel chose.
 - **D8**: Grading follows phase 051: two fresh readers per board, `run/composition_check.py` and one Claude Sonnet 5.5 high grader.
 <!-- /ANCHOR:problem -->
 
@@ -130,8 +130,8 @@ A board that teaches the reader what its source says: what a step asks, where a 
 |----|-------------|---------------------|
 | REQ-006 | The key is compact | A composed board's key band is at most 104 pixels tall on one row |
 | REQ-007 | The scorecard scores Substance | The playbook root and rubric define it, and every scored scenario totals 24 |
-| REQ-008 | Ten graded runs on GLM 5.3 Flash max | Each meta.json names `glm-5-3-flash-max`, with two reader notes and a scorecard row |
-| REQ-009 | The gallery comes from this run | Every caption names its run, model, version and score |
+| REQ-008 | Ten graded runs on Sonnet 5.5 medium | Each meta.json names `claude-sonnet-5-5` at medium effort, with two reader notes and a scorecard row |
+| REQ-009 | The gallery comes from this run, the status lane image excepted by D7 | Every caption names its run, model, version and score |
 <!-- /ANCHOR:requirements -->
 
 ---
@@ -150,9 +150,9 @@ A board that teaches the reader what its source says: what a step asks, where a 
 | Type | Item | Impact | Mitigation |
 |------|------|--------|------------|
 | Risk | The composer grows past the Claude Project's room | High | Measure the compact code before and after, and cut elsewhere if it does |
-| Risk | GLM writes before the gate or deletes boards, as on 2026-10-25 | Med | Each run gets its own draft file, and the delete rule from that run is in Flow Mode |
-| Risk | GLM's 30K output cap empties a long reply | Med | The run log records the stop reason, and a failed run is rerun once |
-| Dependency | Devin quota | High | The batch resumes where it stopped |
+| Risk | The board maker writes before the gate or deletes boards, as GLM did on 2026-10-25 | Med | Each run gets its own draft file, and the delete rule from that run is in Flow Mode |
+| Risk | A long reply is cut off | Low | The run log records the stop reason, and a failed run is rerun once |
+| Dependency | Claude Code usage | Med | The batch resumes where it stopped |
 <!-- /ANCHOR:risks -->
 
 ---

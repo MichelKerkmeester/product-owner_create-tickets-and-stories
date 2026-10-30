@@ -10,11 +10,13 @@ Open only these images and no other file: `<overview image>` (overview) and `<fu
 
 First, before anything else, write your reading order. List in order the parts of the board your eye lands on in the overview, one line each, naming each shape or group by its label, such as the title, a coloured state, a section or a key. Say where the frame (title block, key, lanes, zones, sections) sits in that order, but list the parts inside it separately.
 
-Then answer these three questions from the board alone, each in one or two sentences, and say how sure you are and where on the board you found it:
+Then answer these questions from the board alone, each in one or two sentences, and say how sure you are and where on the board you found it. Q4 and Q5 are there only when the scenario names source questions. For each, name the card, note, field or label you read the answer from, or write that the board does not say:
 
 - Q1: `<question 1>`
 - Q2: `<question 2>`
 - Q3: `<question 3>`
+- Q4: `<source question 4>`
+- Q5: `<source question 5>`
 
 Then answer in plain prose under these headings:
 
@@ -28,6 +30,8 @@ Then answer in plain prose under these headings:
 Write everything to `<output path>`. Finish the file with one last line, `Order: <label> > <label> > ...`, that repeats the reading order you wrote first, at the top of the note, with the board's nodes only and in that same order, using the labels exactly as printed on the board. It is the order your eye landed on them in the overview, not the order the flow runs. Leave out the title, the subtitle, lanes, zones, the key and the footnote. Name every node once.
 
 ## Grader brief wording
+
+Substance scores from both readers' answers to Q4 and Q5 against the scenario's answers, as the playbook's Section 3 sets out. An answer that names nothing on the board to point at does not count.
 
 On a user flow or a process, Composition is the output of `run/composition_check.py` on the plan and the readers' notes, never a reading by eye. Other board types print no `Glance:` line, so they score by the playbook's Composition row.
 

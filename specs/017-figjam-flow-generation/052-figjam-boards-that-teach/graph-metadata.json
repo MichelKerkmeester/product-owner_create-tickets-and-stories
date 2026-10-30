@@ -190,13 +190,13 @@
         "source": "derived"
       },
       {
-        "name": "Claude Project",
+        "name": "Claude Code",
         "kind": "proper_noun",
         "path": "plan.md",
         "source": "derived"
       },
       {
-        "name": "Depends On",
+        "name": "Claude Project",
         "kind": "proper_noun",
         "path": "plan.md",
         "source": "derived"
@@ -204,7 +204,7 @@
     ],
     "causal_summary": "Michel found the gallery boards tidy but empty next to the collab chat prompt board",
     "created_at": "2026-10-30T05:41:12.667Z",
-    "last_save_at": "2026-10-30T05:41:12.667Z",
+    "last_save_at": "2026-10-30T08:37:01.904Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -215,13 +215,13 @@
       "goal.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:9a769a987a6d0289c8b2bc46f06df430fde05ef933de02a083d5756f62f4ace0",
+    "source_fingerprint": "sha256:c5de25636f3150bd260aa1f420706af81bef83b196fb0ff2efd4e85008b12cd4",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "a2c6f60f4cf36a837143e2e9f80040a11db6ac06de8ba0e636746e2216ddb124",
-      "plan.md": "f17be8f39ff5176cee670810eb5af5acfd40d8c61666a0a0f8a76cf4564804ab",
-      "tasks.md": "e9b6b84213dbfe28d31025ef581e7ab88820df14247dfdbeeb052b73e2571582",
-      "implementation-summary.md": "facd753f87dd293b9b4b3deb176900a7523586625e4f72787a54305b3b2b603a"
+      "spec.md": "641f03ee4b3d5b4a2a73cb798571a6cb706080daa096f8c1f82fa150117f4c8a",
+      "plan.md": "7b135febaafbafd93ddd0e6b967b7163b797c91f5838f3b9e9f8b62127f9c35d",
+      "tasks.md": "4c045753c94f5f6b279b1aa32a695b63d419dec1fc24302c50dd46a9bed765a1",
+      "implementation-summary.md": "6f4ee0716a934dd78d4765d756a0464891637cbc1e9cbef06f5f7ed83ab0f9da"
     },
     "last_active_child_id": null,
     "last_active_at": null

@@ -1,6 +1,6 @@
 ---
 title: "Implementation Plan: Phase 52: FigJam boards that teach the reader something"
-description: "Add section notes, wider detail cards, a compact key and a required focus reason to the checker and composer, score Substance, rewrite the ten gallery scenarios with spec-sized sources, release, mirror, then rerun the gallery on GLM 5.3 Flash max through Devin."
+description: "Add section notes, wider detail cards, a compact key and a required focus reason to the checker and composer, score Substance, rewrite the ten gallery scenarios with spec-sized sources, release, mirror, then rerun the gallery on Sonnet 5.5 medium."
 trigger_phrases:
   - "figjam boards that teach plan"
 importance_tier: "normal"
@@ -16,7 +16,7 @@ contextType: "implementation"
 <!-- ANCHOR:summary -->
 ## 1. SUMMARY
 
-`compose_board.py` already passes a `%% detail:` body to the composer for any flowchart step, and `compose-board.js` already draws a body card and a focus reason. The work is mostly in the rules: the checker opens detail cards to Balanced and to two more types, refuses an accent without a reason and reads the new `%% about:` line. The composer draws the notes under a zone or lane title and a compact key. The playbook gains Substance, and the run driver reruns the ten scenarios on `glm-5-3-flash-max`.
+`compose_board.py` already passes a `%% detail:` body to the composer for any flowchart step, and `compose-board.js` already draws a body card and a focus reason. The work is mostly in the rules: the checker opens detail cards to Balanced and to two more types, refuses an accent without a reason and reads the new `%% about:` line. The composer draws the notes under a zone or lane title and a compact key. The playbook gains Substance, and the run driver reruns the ten scenarios on Sonnet 5.5 medium.
 <!-- /ANCHOR:summary -->
 
 ---
@@ -38,7 +38,7 @@ contextType: "implementation"
 <!-- ANCHOR:architecture -->
 ## 3. ARCHITECTURE
 
-The checker (`scripts/figjam_checks/flowchart.py`, `state.py`) owns the rules. `scripts/compose_board.py` turns a checked model into the MODEL JSON, with `about` notes on each zone and `body` on each step. `assets/compose-board.js` draws them inside `use_figma`. The run driver `run/adaptive_compare.py` sends a model id with no runtime prefix to Devin.
+The checker (`scripts/figjam_checks/flowchart.py`, `state.py`) owns the rules. `scripts/compose_board.py` turns a checked model into the MODEL JSON, with `about` notes on each zone and `body` on each step. `assets/compose-board.js` draws them inside `use_figma`. The run driver `run/adaptive_compare.py` sends a model id with the `claude:` prefix to Claude Code.
 <!-- /ANCHOR:architecture -->
 
 ---
@@ -68,7 +68,7 @@ Fixtures cover each new rule on its happy path and one refusal. A composed scrat
 
 | Dependency | Type | Status | Impact if Blocked |
 |------------|------|--------|-------------------|
-| Devin with `glm-5-3-flash-max` | External | To confirm | The rerun waits |
+| Claude Code with `claude-sonnet-5-5` at medium effort | External | Available | The rerun waits |
 | The hosted Figma MCP and the team plan | External | Available | The rerun waits |
 <!-- /ANCHOR:dependencies -->
 

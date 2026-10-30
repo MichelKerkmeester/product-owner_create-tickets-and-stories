@@ -116,6 +116,7 @@ export async function trace(code) {
     createConnector: make(Node, 'CONNECTOR'),
     createSection: make(Node, 'SECTION'),
     createRectangle: make(Node, 'RECTANGLE'),
+    createVector: make(Node, 'VECTOR'),
   };
   const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
   let result = null, error = null;

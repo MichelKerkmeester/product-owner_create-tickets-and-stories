@@ -232,6 +232,27 @@ function shape(parent, kind, label, x, y, w, hh, name, size, accent) {
   created.push(s.id);
   return s;
 }
+// FigJam never draws these shapes under 80 px, so the key draws each as a small vector of its own outline,
+// with the inner line that tells it apart, in the kind's own pair.
+const SMALL = {
+  ENG_DATABASE: [32, 40, 'M 0 6 C 0 -2 32 -2 32 6 L 32 34 C 32 42 0 42 0 34 Z', 'M 0 6 C 0 14 32 14 32 6'],
+  ENG_QUEUE: [40, 32, 'M 6 0 L 34 0 C 42 0 42 32 34 32 L 6 32 C -2 32 -2 0 6 0 Z', 'M 34 0 C 26 0 26 32 34 32'],
+  CHEVRON: [48, 32, 'M 0 0 L 36 0 L 48 16 L 36 32 L 0 32 L 12 16 Z'],
+  PREDEFINED_PROCESS: [56, 32, 'M 0 0 L 56 0 L 56 32 L 0 32 Z', 'M 7 0 L 7 32 M 49 0 L 49 32'],
+};
+function smallSample(parent, kind, x, y, name, accent) {
+  const [w, hh, ...paths] = SMALL[shapeOf(kind)];
+  const v = figma.createVector();
+  v.name = name;
+  v.vectorPaths = paths.map((data) => ({ windingRule: 'NONZERO', data }));
+  v.resize(w, hh);
+  paint(v, kind, accent);
+  parent.appendChild(v);
+  v.x = x;
+  v.y = y;
+  created.push(v.id);
+  return v;
+}
 // A step pin: a 32 px dot in the marker role's pair, its number in the pair's own text colour.
 function marker(parent, digit, x, y, name) {
   const p = shape(parent, 'initial', digit, x, y, 32, 32, name, TYPE.small);
@@ -700,7 +721,15 @@ function buildGraph(M) {
     const f = FIXED[n.kind];
     let s;
     if (f) s = { w: f[0], h: f[1] };
-    else if (n.kind === 'entity' || n.body) { const card = entityCard(n); cards.set(n.id, card); s = { w: card.w, h: card.h }; }
+    else if (n.kind === 'entity' || n.body) {
+      const card = entityCard(n), sh = shapeOf(n.kind);
+      // A database spends height on its curved top and a queue spends width on its round end, so a body
+      // card in either gets that room back, or FigJam cuts the body to an ellipsis or wraps it early.
+      if (n.body && sh === 'ENG_DATABASE') card.h += 32;
+      if (n.body && sh === 'ENG_QUEUE') card.w += 48;
+      cards.set(n.id, card);
+      s = { w: card.w, h: card.h };
+    }
     else s = fit(n.label, shapeOf(n.kind));
     return { id: n.id, w: s.w, h: s.h, zone: n.zone, offPath: OFF_PATH.has(n.kind), goal: n.kind === 'success', kind: n.kind };
   });
@@ -1029,6 +1058,9 @@ function buildGraph(M) {
           s.text.textAlignHorizontal = 'LEFT';
           if (!card.b) s.text.paragraphSpacing = PARA;
           else { s.text.setRangeFontSize(k + 1, k + 2, 10); s.text.setRangeLineHeight(k + 2, label.length, { value: 145, unit: 'PERCENT' }); }
+          // FigJam rounds a rounded rectangle by its height, so a tall card turns into a pill and its lines
+          // start inside the curve; a card with a body keeps a small fixed corner instead.
+          if (card.b && s.shapeType === 'ROUNDED_RECTANGLE') s.cornerRadius = 16;
         }
         shapes.set(n.id, s);
         elements.push({ id: s.id, model: n.id, kind: n.kind, text: label });
@@ -1369,11 +1401,12 @@ for (const item of body.key.sort((a, b) => placeOf(a) - placeOf(b))) {
   if (item.kind) {
     // The focus sample is drawn as the marked node is, its own kind under the accent's outline.
     const as = item.like || item.kind, f = FIXED[as], sh = shapeOf(as);
-    const tall = sh === 'ENG_DATABASE' || sh === 'ENG_QUEUE';
-    const sw = f ? Math.min(f[0], 40) : (ROUND.has(sh) ? 48 : (tall ? 32 : 56));
-    const sht = f ? Math.min(f[1], 40) : (ROUND.has(sh) || tall ? 40 : 32);
-    // FigJam keeps some shapes above a minimum size, so spacing follows the size it actually drew.
-    const sample = shape(key, as, '', kx, ky, sw, sht, `key:${item.kind}`, 0, !!item.like);
+    const sw = f ? Math.min(f[0], 40) : (ROUND.has(sh) ? 48 : 56);
+    const sht = f ? Math.min(f[1], 40) : (ROUND.has(sh) ? 40 : 32);
+    // FigJam keeps some shapes above a minimum size, so spacing follows the size it actually drew, and a
+    // shape it never draws under 80 px gets a small sample of its own the row can hold.
+    const sample = SMALL[sh] ? smallSample(key, as, kx, ky, `key:${item.kind}`, !!item.like)
+      : shape(key, as, '', kx, ky, sw, sht, `key:${item.kind}`, 0, !!item.like);
     sample.y = ky + (KEY_ROW - sample.height) / 2;
     made.push(sample);
     kx += sample.width + 12;
