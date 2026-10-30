@@ -65,6 +65,7 @@ Check these rule by rule before the gate:
 - **No cycle among the forward and two-way edges.** A returning flow is a backward edge
 - **Every service has a way in and a way out,** and every other node a connector
 - **Every edge between two lanes carries a label,** and an edge to an outside system reads `"Service: Purpose"`
+- **A body at `Balanced` or `Faithful`.** A `%% detail: <node id> | <line> | <line>` line, with `%% level: balanced` or `%% level: faithful`, gives a part what it owns or does, such as the data it keeps or the jobs it runs: up to 4 lines at Balanced and 10 at Faithful, each of 44 characters or fewer. A `%% status:` line stays refused, since a status lane belongs to a laned process
 - **At most 9 nodes and 12 connectors,** the house diagram guide's general budget, inside Figma's advice of 15 to 20 edges
 - The shared rules: labels, quoting, ids, no emoji or markup
 

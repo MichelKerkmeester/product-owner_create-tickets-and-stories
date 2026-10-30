@@ -16,6 +16,7 @@ import re
 from typing import TYPE_CHECKING
 
 from .common import content_lines, id_problems, length_problems, raw_problems
+from .flowchart import detail_problems
 
 if TYPE_CHECKING:
     from mermaid_extract import Diagram, Node
@@ -53,6 +54,7 @@ def check_state(diagram: Diagram, block_text: str) -> list[str]:
     def kind(node: Node) -> str:
         return stereotypes.get(node.id, node.shape)
     named = [node for node in diagram.nodes if kind(node) not in PSEUDO]
+    cards = {node.id for node in named if not node.container}
     by_id = {node.id: node for node in diagram.nodes}
     for node in named:
         problems += id_problems(node.id, "state id") + length_problems(f"state {node.id}", node.label)
@@ -98,6 +100,8 @@ def check_state(diagram: Diagram, block_text: str) -> list[str]:
         for edge in exits:
             if not edge.label.strip():
                 problems.append(f"choice {node.id} exit to {edge.target} has no guard label")
+    # A state may carry what holds while the thing sits in it, as a step does, and a composite never does.
+    problems += detail_problems(diagram, block_text, set(), cards)[0]
     if len(named) > MAX_STATES:
         problems.append(f"{len(named)} states, at most {MAX_STATES}: split by phase or by entity")
     if len(diagram.edges) > MAX_TRANSITIONS:

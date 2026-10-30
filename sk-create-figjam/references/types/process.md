@@ -69,7 +69,9 @@ placed --> shipped
 ship -.-> shipped
 ```
 
-**Detail cards.** At the `Faithful` detail level a step may carry a body under its one-line label, as `references/flow-mode.md` Section 4 sets out: `%% level: faithful` once, then one `%% detail: <step id> | <line> | <line>` line per step.
+**Detail cards.** At the `Balanced` and `Faithful` detail levels a step may carry a body under its one-line label, as `references/flow-mode.md` Section 4 sets out: `%% level: balanced` or `%% level: faithful` once, then one `%% detail: <step id> | <line> | <line>` line per step.
+
+**Notes.** A `%% about: <lane id or zone label> | <line> | <line>` line puts up to three note lines under a lane's or a zone's title, such as how long that party has to act. A process without lanes and with two or more `%% zone:` stages gives every zone notes, `Starts:`, `Ends:` and `Good to know:` where the source holds them, unless it runs at `Simplified`.
 
 Connectors are `-->` for the flow and `-.->` for an optional or proposed step. A log write that runs today is drawn solid. A source that says every decision or every step is logged names those nodes as its writers, so the log store is drawn with one solid edge from the decision the reader most needs and the source line says the others write it too.
 
@@ -89,7 +91,9 @@ The check enforces:
 - **A lane takes the neutral pair** `fill:#F5F5F5,stroke:#B3B3B3` or no style at all, and never counts as the accent. The composer tints lanes itself, so a lane style changes nothing on the board
 - **Without lanes, at most 9 nodes and 12 connectors. With lanes, at most 12 and 16,** sk-design-diagram's process budget and its balanced detail level. **A laned process at `Faithful` with detail cards reads at 18 and 24**, because a step's body carries what would otherwise be cut
 - **A status lane, when used, is one lane,** named by one `%% status:` line, declared first, holding two or more statuses as plain `[Label]` nodes in a single `-->` chain. A step moves a status with `-.->` only, and no status leads to a step. A status move is no way out of a step, so an end may move the last status and stay an end. Every status after the first is reached by a step's move, and a status never takes the accent
-- **A body only at `Faithful`.** A `%% detail:` line needs `%% level: faithful`, names a plain step `[Label]` that is no status, and holds 1 to 10 lines of 44 characters or fewer
+- **A body at `Balanced` or `Faithful`.** A `%% detail:` line needs `%% level: balanced` or `%% level: faithful`, names a plain step `[Label]` that is no status, and holds 1 to 4 lines at Balanced and 1 to 10 at Faithful, each of 44 characters or fewer
+- **Notes on zones and lanes.** A `%% about:` line names a lane or a zone, holds 1 to 3 lines of 56 characters or fewer, and every `%% zone:` stage of a process at `Balanced` or `Faithful` carries one
+- **A reason for the accent.** The styled step or decision takes `%% focus: <id> because <reason>`, at most 30 characters, which the key draws as `In focus: <reason>`
 - The shared rules: labels, quoting, ids, no emoji or markup, exactly one `style` line from `references/style-guide.md`, one direction for every process diagram in the file
 
 Judged by hand:

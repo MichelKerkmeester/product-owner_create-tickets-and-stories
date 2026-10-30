@@ -70,12 +70,13 @@ DOTTED_LANES = {"async", "external"}
 # A laned process may name one lane as its status lane: the states a shared record moves through, drawn
 # first, joined in order and moved by a step's dotted `-.->`. It is never an actor lane.
 STATUS_DIRECTIVE = re.compile(r"^\s*%%\s*status\s*:\s*(.*?)\s*$", re.I | re.M)
-# A step's body under its one-line label belongs to the Faithful detail level alone, which the model names.
+# A step's body under its one-line label is what the source says about it: a few lines at the Balanced level,
+# more at Faithful, and none at Simplified, which keeps one-line labels. The model names its level.
 LEVEL_DIRECTIVE = re.compile(r"^\s*%%\s*level\s*:\s*(.*?)\s*$", re.I | re.M)
 DETAIL_DIRECTIVE = re.compile(r"^\s*%%\s*detail\s*:\s*(.*?)\s*$", re.I | re.M)
 LEVELS = ("simplified", "balanced", "faithful")
-DETAIL_LEVEL = "faithful"
-MAX_BODY_LINES, MAX_BODY_CHARS = 10, 44
+BODY_LINES = {"balanced": 4, "faithful": 10}
+MAX_BODY_CHARS = 44
 # A laned process at the Faithful level with detail cards keeps more of its source, so it reads at a larger budget.
 DETAILED_PROCESS_BUDGET = (18, 24)
 # A connector longer than `-->` or an invisible link renders differently from
@@ -309,8 +310,11 @@ def work_view(diagram: Diagram, states: set[str]) -> Diagram:
                                edges=[edge for edge in diagram.edges if edge.source not in states and edge.target not in states])
 
 
-def detail_problems(diagram: Diagram, block_text: str, states: set[str]) -> tuple[list[str], int]:
-    """The problems with the bodies `%% detail:` lines give steps, and how many steps carry one."""
+def detail_problems(diagram: Diagram, block_text: str, states: set[str], cards: set[str] | None = None) -> tuple[list[str], int]:
+    """The problems with the bodies `%% detail:` lines give steps, and how many steps carry one.
+
+    `cards` names the nodes that may carry a body, every plain step [Label] outside the status lane by default.
+    """
     lines = DETAIL_DIRECTIVE.findall(block_text)
     levels = [value.lower() for value in LEVEL_DIRECTIVE.findall(block_text)]
     problems = []
@@ -321,28 +325,34 @@ def detail_problems(diagram: Diagram, block_text: str, states: set[str]) -> tupl
             problems.append(f"%% level: {value or '(empty)'} is no detail level: write {', '.join(LEVELS)}")
     if not lines:
         return problems, 0
-    if DETAIL_LEVEL not in levels:
-        problems.append(f"{len(lines)} %% detail lines need %% level: {DETAIL_LEVEL}: a body belongs to the Faithful "
-                        "detail level, and Balanced and Simplified keep one-line labels")
-    shapes = {node.id: node.shape for node in diagram.nodes if not node.container}
+    level = next((value for value in levels if value in BODY_LINES), "")
+    if not level:
+        problems.append(f"{len(lines)} %% detail lines need %% level: balanced or faithful: a body holds up to "
+                        f"{BODY_LINES['balanced']} lines at Balanced and {BODY_LINES['faithful']} at Faithful, "
+                        "and Simplified keeps one-line labels")
+    most = BODY_LINES.get(level, BODY_LINES["faithful"])
+    steps = {node.id: node.shape for node in diagram.nodes if not node.container}
+    if cards is None:
+        cards = {node_id for node_id, shape in steps.items() if shape == "rect" and node_id not in states}
     seen = set()
     for value in lines:
         parts = [part.strip() for part in value.split("|")]
         node_id, body = parts[0], parts[1:]
-        if node_id not in shapes:
+        if node_id not in steps:
             problems.append(f"%% detail: {node_id or '(empty)'} names no step: write %% detail: <step id> | line | line")
             continue
         if node_id in seen:
             problems.append(f"node {node_id} has two %% detail lines: write its whole body on one")
         seen.add(node_id)
-        if shapes[node_id] != "rect" or node_id in states:
-            problems.append(f"%% detail on {node_id}, a {'status' if node_id in states else shapes[node_id]}: "
+        if node_id not in cards:
+            problems.append(f"%% detail on {node_id}, a {'status' if node_id in states else steps[node_id]}: "
                             "only a step [Label] carries a body")
         if not any(body):
             problems.append(f"%% detail: {node_id} has no body line: write %% detail: {node_id} | line | line")
-        if len(body) > MAX_BODY_LINES:
-            problems.append(f"node {node_id} carries {len(body)} body lines, at most {MAX_BODY_LINES}: "
-                            "keep what a reader acts on and leave the rest in the source")
+        if len(body) > most:
+            problems.append(f"node {node_id} carries {len(body)} body lines, at most {most} at the "
+                            f"{(level or 'faithful').capitalize()} level: keep what a reader acts on and leave the "
+                            "rest in the source")
         for line in body:
             if not line:
                 problems.append(f"node {node_id} has an empty body line: drop the extra |")
@@ -470,9 +480,8 @@ def check_architecture(diagram: Diagram, block_text: str, backward: set[tuple[st
         problems.append(f"direction {diagram.direction}, an architecture runs left to right: write flowchart LR")
     if any(STYLE_STATEMENT.match(s) for s in statements(block_text)) or ":::" in block_text:
         problems.append("the block carries styling: the architecture layout colours each lane itself, drop it")
-    if STATUS_DIRECTIVE.search(block_text) or DETAIL_DIRECTIVE.search(block_text):
-        problems.append("the block carries %% status or %% detail: a status lane and detail cards belong to "
-                        "a laned process, and an architecture keeps one-line services")
+    if STATUS_DIRECTIVE.search(block_text):
+        problems.append("the block carries %% status: a status lane belongs to a laned process")
     lanes = [node for node in diagram.nodes if node.container]
     lane_of = {}
     seen_lanes = set()
@@ -486,6 +495,7 @@ def check_architecture(diagram: Diagram, block_text: str, backward: set[tuple[st
         if lane.parent:
             problems.append(f"lane {lane.id} sits inside lane {lane.parent}: lanes do not nest")
     steps = [node for node in diagram.nodes if not node.container]
+    problems += detail_problems(diagram, block_text, set())[0]
     for node in steps:
         problems += id_problems(node.id) + label_problems(f"node {node.id}", node.label, block_text)
         if node.shape != "rect":

@@ -99,6 +99,7 @@ flowchart LR
     change --> receive
     done -.-> closed
     style check fill:#FFC2EC,stroke:#F849C1
+    %% focus: check because changes loop back from here
 ```
 
 ### Provenance

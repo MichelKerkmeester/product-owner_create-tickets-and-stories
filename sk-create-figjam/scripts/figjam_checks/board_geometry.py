@@ -869,14 +869,14 @@ def short_cards(drawn: dict) -> list[str]:
     return short
 
 
-def tall_zones(drawn: dict, labels: list[str], mode: str, slack: int = ZONE_PAD) -> list[str]:
+def tall_zones(drawn: dict, labels: list[str], mode: str, slack: int = ZONE_PAD, head: int = ZONE_HEAD) -> list[str]:
     """Zones that hold more cross-axis space than their members ask for, on a left to right board.
 
     A stage zone's top is the row's shared top edge or, where its row keeps its own fit, its own members' head, within
     one grid step. Its bottom is one pad below its lowest member, so it is measured from its own top
     whichever of the two it took. A lane is never taller than its members stacked one above another with the
     standard gap, plus the head and the pad, because no packing of them is taller. The slack is the second pad a zone
-    takes when an edge loops back inside it.
+    takes when an edge loops back inside it. `head` is the zone head, taller when a zone carries notes.
     """
     boxes = boxes_of(drawn)
     zones = zone_sections(drawn, labels)
@@ -888,13 +888,13 @@ def tall_zones(drawn: dict, labels: list[str], mode: str, slack: int = ZONE_PAD)
             continue
         lowest = max(b["y"] + b["h"] for b in inside)
         if mode == "stage":
-            own, shared = min(b["y"] for b in inside) - ZONE_HEAD, top - ZONE_HEAD
+            own, shared = min(b["y"] for b in inside) - head, top - head
             if min(abs(z["y"] - own), abs(z["y"] - shared)) > GRID_STEP or z["y"] + z["h"] > lowest + ZONE_PAD + slack:
                 tall.append(f"{z['name']} runs from {z['y']} to {z['y'] + z['h']} around members reaching {lowest}, where its "
                             f"top is {shared} or {own} and its bottom at most {lowest + ZONE_PAD + slack}")
             continue
         stacked = sum(b["h"] for b in inside) + CROSS_GAP * (len(inside) - 1)
-        allowed = stacked + ZONE_HEAD + ZONE_PAD + slack
+        allowed = stacked + head + ZONE_PAD + slack
         if z["h"] > allowed:
             tall.append(f"{z['name']} is {z['h']} high around {stacked} of members, at most {allowed}")
     return tall

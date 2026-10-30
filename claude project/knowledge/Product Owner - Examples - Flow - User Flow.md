@@ -114,6 +114,10 @@ flowchart LR
     %% zone: Find the order: orders, detail
     %% zone: Request the return: window, support, reason, method, dropoff, pickup
     %% zone: Done: confirmed
+    %% about: Find the order | Starts: the order list | Ends: the Start a return button
+    %% about: Request the return | Starts: the 30-day check | Ends: drop-off or courier pickup | Good to know: after 30 days, Contact support
+    %% about: Done | Shows a QR code for the return
+    %% focus: window because returns can end early here
     orders([Order list]) --> detail[Order detail]
     detail --> window{Within 30 days after delivery?}
     window -->|No| support([Contact support])

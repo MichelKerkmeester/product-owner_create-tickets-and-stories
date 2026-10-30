@@ -48,6 +48,7 @@ The remove test runs on the outline before the first Mermaid block, because a st
 - [ ] No diagram carries the same label on four or more connectors. Cut them all, or keep one where the label says something the shape cannot. Decision exits and sequence messages are exempt, and an architecture renames each edge instead, as its type reference sets out
 - [ ] The remove test ran on the outline before the first Mermaid block, so no node was drawn only to be cut
 - [ ] The diagram sits inside its budget, or was split, and every cut is named under `Left out:`
+- [ ] The board teaches what its source says beyond the request: where the source holds the options a screen offers, the rule a step applies or where a stage starts and ends, the board carries it in a body or a zone note, so a reader answers a question the request's first sentence does not
 
 ---
 

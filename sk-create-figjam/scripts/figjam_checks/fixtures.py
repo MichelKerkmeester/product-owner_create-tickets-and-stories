@@ -12,6 +12,7 @@ fails the self-test.
 
 GOOD = {
     "a user flow with one accent": """flowchart TD
+    %% focus: saved because it is the step in question
     start([Open settings]) --> pick[Pick an option]
     pick --> saved{"Saved (to the account)?"}
     saved -->|Yes| done([Option shown])
@@ -30,6 +31,7 @@ GOOD = {
 """,
     "a laned process": """%% type: process
 flowchart LR
+    %% focus: approve because it is the step in question
     subgraph customer ["Customer"]
         ask([Return asked])
         label[/Print the label/]
@@ -164,6 +166,7 @@ sequenceDiagram
 """,
     "a laned process with a status lane": """%% type: process
 flowchart LR
+    %% focus: ship because it is the step in question
     %% status: status
     subgraph status ["Status"]
         open[Open]
@@ -189,6 +192,7 @@ flowchart LR
 """,
     "a laned process with detail cards at the Faithful level": """%% type: process
 flowchart LR
+    %% focus: build because it is the step in question
     %% level: faithful
     %% detail: check | Reads the order form | Checks the size and the wood
     %% detail: build | Cuts and joins the planter: up to 10 days
@@ -204,6 +208,79 @@ flowchart LR
     check --> build
     build --> got
     style build fill:#C2E5FF,stroke:#3DADFF
+""",
+    "an architecture with detail cards at the Faithful level": """%% type: architecture
+flowchart LR
+    %% level: faithful
+    %% detail: web | Serves the store | Signs the client in
+    subgraph client ["Client Apps"]
+        web[Web App]
+    end
+    subgraph gateway ["API Layer"]
+        edge[API Gateway]
+    end
+    subgraph service ["Core Services"]
+        orders[Order Service]
+        payments[Payment Service]
+    end
+    subgraph datastore ["Data Stores"]
+        db[Orders DB]
+    end
+    subgraph external ["External"]
+        psp[Card Processor]
+    end
+    subgraph async ["Events"]
+        queue[Order Events]
+    end
+    web <-->|"HTTPS"| edge
+    edge -->|"Routes /orders"| orders
+    orders <---|"Refund"| payments
+    orders -->|"Writes Orders"| db
+    payments -.->|"Card Processor: Charges"| psp
+    orders -.->|"Produces"| queue
+    queue -.->|"Consumes"| payments
+""",
+    "a state diagram with detail cards at the Balanced level": """stateDiagram-v2
+    %% level: balanced
+    %% detail: Held | The room is kept for 15 minutes | No card charge yet
+    %% detail: Paid | Card charged in full
+    [*] --> Held
+    Held --> Paid: Card charged
+    Paid --> [*]
+""",
+    "a user flow with detail cards at the Balanced level": """flowchart LR
+    %% level: balanced
+    %% detail: reason | Damaged, Wrong size, Not as shown | Changed my mind
+    %% focus: reason because the reasons decide the refund
+    list([Order list]) --> reason[Pick a reason]
+    reason --> done([Return confirmed])
+    style reason fill:#FFC2EC,stroke:#F849C1
+""",
+    "a zoned user flow with notes on every zone": """flowchart LR
+    %% zone: Find the order: list, detail
+    %% zone: Return it: reason, done
+    %% about: Find the order | Starts: the order list | Ends: the Start a return button
+    %% about: Return it | Starts: the reasons | Ends: a QR code by email | Good to know: open 30 days after delivery
+    %% focus: reason because the reason sets the refund
+    list([Order list]) --> detail[Order detail]
+    detail --> reason[Pick a reason]
+    reason --> done([Return confirmed])
+    style reason fill:#FFC2EC,stroke:#F849C1
+""",
+    "a laned process with notes on one lane": """%% type: process
+flowchart LR
+    %% about: maker | Builds within 10 working days
+    %% focus: check because every order passes it
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        check[Check the order]
+    end
+    ask --> check
+    check --> got
+    style check fill:#C2E5FF,stroke:#3DADFF
 """,
 }
 
@@ -440,6 +517,7 @@ flowchart LR
 """, "joins the lane right"),
     "a lane in an accent colour": ("""%% type: process
 flowchart LR
+    %% focus: left because it is the step in question
     subgraph left ["Left"]
         a([Start])
     end
@@ -500,6 +578,7 @@ flowchart LR
 """, "to itself: a node that returns to itself draws no loop"),
     "styling in an architecture": ("""%% type: architecture
 flowchart LR
+    %% focus: web because it is the step in question
     subgraph client ["Clients"]
         web[Web App]
     end
@@ -896,6 +975,7 @@ flowchart LR
 """, "give its reason as %% focus: <styled id> because <reason>"),
     "a status line naming no lane": ("""%% type: process
 flowchart LR
+    %% focus: ship because it is the step in question
     %% status: phase
     subgraph status ["Status"]
         open[Open]
@@ -921,6 +1001,7 @@ flowchart LR
 """, "%% status: phase names no lane"),
     "two status lines": ("""%% type: process
 flowchart LR
+    %% focus: ship because it is the step in question
     %% status: status
     %% status: client
     subgraph status ["Status"]
@@ -947,6 +1028,7 @@ flowchart LR
 """, "2 %% status lines, at most 1"),
     "a status lane declared after an actor lane": ("""%% type: process
 flowchart LR
+    %% focus: ship because it is the step in question
     %% status: status
     subgraph client ["Client"]
         ask([Order placed])
@@ -967,6 +1049,7 @@ flowchart LR
 """, "declare it first"),
     "a status state that is not a plain step": ("""%% type: process
 flowchart LR
+    %% focus: ship because it is the step in question
     %% status: status
     subgraph status ["Status"]
         open[Open]
@@ -992,6 +1075,7 @@ flowchart LR
 """, "write it [Label]"),
     "a status state that leads a step": ("""%% type: process
 flowchart LR
+    %% focus: ship because it is the step in question
     %% status: status
     subgraph status ["Status"]
         open[Open]
@@ -1018,6 +1102,7 @@ flowchart LR
 """, "a status only moves"),
     "a solid status move": ("""%% type: process
 flowchart LR
+    %% focus: ship because it is the step in question
     %% status: status
     subgraph status ["Status"]
         open[Open]
@@ -1043,6 +1128,7 @@ flowchart LR
 """, "moves the status with -.->"),
     "status states in no single chain": ("""%% type: process
 flowchart LR
+    %% focus: ship because it is the step in question
     %% status: status
     subgraph status ["Status"]
         open[Open]
@@ -1067,6 +1153,7 @@ flowchart LR
 """, "join them in order"),
     "a status no step moves": ("""%% type: process
 flowchart LR
+    %% focus: ship because it is the step in question
     %% status: status
     subgraph status ["Status"]
         open[Open]
@@ -1091,6 +1178,7 @@ flowchart LR
 """, "status made is never moved"),
     "a status that takes the accent": ("""%% type: process
 flowchart LR
+    %% focus: made because it is the step in question
     %% status: status
     subgraph status ["Status"]
         open[Open]
@@ -1143,46 +1231,16 @@ flowchart LR
     payments -.->|"Card Processor: Charges"| psp
     orders -.->|"Produces"| queue
     queue -.->|"Consumes"| payments
-""", "a status lane and detail cards belong to a laned process"),
-    "detail lines on an architecture": ("""%% type: architecture
-flowchart LR
-    %% level: faithful
-    %% detail: web | Serves the store | Signs the client in
-    subgraph client ["Client Apps"]
-        web[Web App]
-    end
-    subgraph gateway ["API Layer"]
-        edge[API Gateway]
-    end
-    subgraph service ["Core Services"]
-        orders[Order Service]
-        payments[Payment Service]
-    end
-    subgraph datastore ["Data Stores"]
-        db[Orders DB]
-    end
-    subgraph external ["External"]
-        psp[Card Processor]
-    end
-    subgraph async ["Events"]
-        queue[Order Events]
-    end
-    web <-->|"HTTPS"| edge
-    edge -->|"Routes /orders"| orders
-    orders <---|"Refund"| payments
-    orders -->|"Writes Orders"| db
-    payments -.->|"Card Processor: Charges"| psp
-    orders -.->|"Produces"| queue
-    queue -.->|"Consumes"| payments
-""", "a status lane and detail cards belong to a laned process"),
+""", "a status lane belongs to a laned process"),
     "a status line on a user flow": ("""flowchart LR
     %% status: a
     a([Start]) --> b([Done])
     style b fill:#CDF4D3
 """, "a status lane belongs to a laned process"),
-    "a detail line below the Faithful level": ("""%% type: process
+    "a detail line at the Simplified level": ("""%% type: process
 flowchart LR
-    %% level: balanced
+    %% focus: check because it is the step in question
+    %% level: simplified
     %% detail: check | Reads the order form
     subgraph client ["Client"]
         ask([Order placed])
@@ -1194,9 +1252,10 @@ flowchart LR
     ask --> check
     check --> got
     style check fill:#C2E5FF,stroke:#3DADFF
-""", "need %% level: faithful"),
+""", "need %% level: balanced or faithful"),
     "a detail line with no level": ("""%% type: process
 flowchart LR
+    %% focus: check because it is the step in question
     %% detail: check | Reads the order form
     subgraph client ["Client"]
         ask([Order placed])
@@ -1208,9 +1267,10 @@ flowchart LR
     ask --> check
     check --> got
     style check fill:#C2E5FF,stroke:#3DADFF
-""", "need %% level: faithful"),
+""", "need %% level: balanced or faithful"),
     "a detail line naming no step": ("""%% type: process
 flowchart LR
+    %% focus: check because it is the step in question
     %% level: faithful
     %% detail: ghost | Reads the order form
     subgraph client ["Client"]
@@ -1226,6 +1286,7 @@ flowchart LR
 """, "%% detail: ghost names no step"),
     "a detail line on a decision": ("""%% type: process
 flowchart LR
+    %% focus: check because it is the step in question
     %% level: faithful
     %% detail: check | Reads the order form
     subgraph client ["Client"]
@@ -1241,6 +1302,7 @@ flowchart LR
 """, "only a step [Label] carries a body"),
     "a body line over 44 characters": ("""%% type: process
 flowchart LR
+    %% focus: check because it is the step in question
     %% level: faithful
     %% detail: check | Reads the order form and the notes the client added
     subgraph client ["Client"]
@@ -1256,6 +1318,7 @@ flowchart LR
 """, "at most 44"),
     "a body over 10 lines": ("""%% type: process
 flowchart LR
+    %% focus: check because it is the step in question
     %% level: faithful
     %% detail: check | Line 0 | Line 1 | Line 2 | Line 3 | Line 4 | Line 5 | Line 6 | Line 7 | Line 8 | Line 9 | Line 10
     subgraph client ["Client"]
@@ -1269,8 +1332,70 @@ flowchart LR
     check --> got
     style check fill:#C2E5FF,stroke:#3DADFF
 """, "11 body lines, at most 10"),
+    "a body over 4 lines at the Balanced level": ("""%% type: process
+flowchart LR
+    %% level: balanced
+    %% detail: check | Line 1 | Line 2 | Line 3 | Line 4 | Line 5
+    %% focus: check because it is the step in question
+    subgraph client ["Client"]
+        ask([Order placed])
+        got([Order received])
+    end
+    subgraph maker ["Maker"]
+        check[Check the order]
+    end
+    ask --> check
+    check --> got
+    style check fill:#C2E5FF,stroke:#3DADFF
+""", "5 body lines, at most 4 at the Balanced level"),
+    "a body on a state at the Simplified level": ("""stateDiagram-v2
+    %% level: simplified
+    %% detail: Paid | Card charged
+    [*] --> Held
+    Held --> Paid: Card charged
+    Paid --> [*]
+""", "need %% level: balanced or faithful"),
+    "a zoned user flow with a zone and no notes": ("""flowchart LR
+    %% zone: Find the order: list, detail
+    %% zone: Return it: reason, done
+    %% about: Find the order | Starts: the order list
+    %% focus: reason because the reason sets the refund
+    list([Order list]) --> detail[Order detail]
+    detail --> reason[Pick a reason]
+    reason --> done([Return confirmed])
+    style reason fill:#FFC2EC,stroke:#F849C1
+""", "zone Return it has no %% about line"),
+    "a zone note over 56 characters": ("""flowchart LR
+    %% level: simplified
+    %% zone: Find the order: list, detail
+    %% zone: Return it: reason, done
+    %% about: Return it | Starts: the reasons, which the app lists in the order they were added
+    %% focus: reason because the reason sets the refund
+    list([Order list]) --> detail[Order detail]
+    detail --> reason[Pick a reason]
+    reason --> done([Return confirmed])
+    style reason fill:#FFC2EC,stroke:#F849C1
+""", "at most 56"),
+    "an about line naming no zone": ("""flowchart LR
+    %% level: simplified
+    %% zone: Find the order: list, detail
+    %% zone: Return it: reason, done
+    %% about: Pay | Starts: the cart
+    %% focus: reason because the reason sets the refund
+    list([Order list]) --> detail[Order detail]
+    detail --> reason[Pick a reason]
+    reason --> done([Return confirmed])
+    style reason fill:#FFC2EC,stroke:#F849C1
+""", "names no zone or lane"),
+    "an about line on a state machine": ("""stateDiagram-v2
+    %% about: Paid | Card charged
+    [*] --> Held
+    Held --> Paid: Card charged
+    Paid --> [*]
+""", "notes belong to the zones or lanes"),
     "an unknown detail level": ("""%% type: process
 flowchart LR
+    %% focus: check because it is the step in question
     %% level: exact
     %% detail: check | Reads the order form
     subgraph client ["Client"]

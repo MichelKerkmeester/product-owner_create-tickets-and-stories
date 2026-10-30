@@ -108,6 +108,7 @@ flowchart LR
     style cs fill:#F5F5F5,stroke:#B3B3B3
     style warehouse fill:#F5F5F5,stroke:#B3B3B3
     style approve fill:#FFE0C2,stroke:#FF9E42
+    %% focus: approve because it is the slowest handoff
 ```
 
 ### Provenance
