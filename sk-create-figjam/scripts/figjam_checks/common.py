@@ -107,6 +107,8 @@ def focus_line_problems(block_text: str) -> list[str]:
     problems = []
     for value in FOCUS_DIRECTIVE.findall(block_text):
         if not BECAUSE.search(value):
+            problems.append(f"%% focus: {value.strip() or '(empty)'} gives no reason: write %% focus: <id> because "
+                            "<reason>, so the key says why the eye is sent there")
             continue
         target, reason = focus_reason(value)
         if not reason:

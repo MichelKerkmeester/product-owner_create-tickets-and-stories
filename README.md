@@ -125,7 +125,7 @@ Both routes run the same rules and the same templates. Section 3 sets up either 
 | Artifacts | Task, subtask, bug report, Story, Epic, Doc and FigJam diagram |
 | Diagram types | Seven: user flow, process, architecture, sequence, state, ER and gantt |
 | Worked examples | 21 filled artifacts and 8 FigJam examples, one per diagram type and a second process with a status lane and detail cards |
-| Versions | Hub 1.0.17.0, `sk-product-owner` 1.2.6.0, `sk-create-figjam` 1.0.16.0, Project kernel v1.2.16 |
+| Versions | Hub 1.0.18.0, `sk-product-owner` 1.2.6.0, `sk-create-figjam` 1.0.17.0, Project kernel v1.2.16 |
 | License | MIT |
 
 &nbsp;
@@ -651,6 +651,6 @@ Your Figma plan or seat has used its monthly tool calls. Open your FigJam drafts
 
 **Release notes**
 
-- **[→ Hub v1.0.17.0](changelog/v1.0.17.0.md)** - the latest hub release
+- **[→ Hub v1.0.18.0](changelog/v1.0.18.0.md)** - the latest hub release
 - **[→ `sk-product-owner` v1.2.6.0](sk-product-owner/changelog/v1.2.6.0.md)** - the latest backlog and doc packet release
-- **[→ `sk-create-figjam` v1.0.16.0](sk-create-figjam/changelog/v1.0.16.0.md)** - the latest FigJam packet release
+- **[→ `sk-create-figjam` v1.0.17.0](sk-create-figjam/changelog/v1.0.17.0.md)** - the latest FigJam packet release

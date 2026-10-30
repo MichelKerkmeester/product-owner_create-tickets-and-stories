@@ -25,12 +25,15 @@ stays plain Mermaid:
   user flow or a process without lanes reads its zones in flow order, an ER
   diagram draws each one around its entities, and lanes and composite states
   are zones already
+- `%% about: Find the order | Starts: the order list | Ends: the button` puts up
+  to three note lines under a zone's or a lane's title. A user flow or a process
+  with two or more zones gives every zone one unless it runs at Simplified
 - `%% focus: id` names the one thing the first glance lands on in a diagram
   that takes no `style` line: a node of an architecture, a state or an ER
   diagram, a message's number in a sequence, a task's id or name in a gantt.
-  `%% focus: id because reason` also says why, which the key draws as
+  It is written `%% focus: id because reason`, which the key draws as
   `In focus: reason`. It is optional, and a user flow or a process marks its
-  first glance with a `style` line instead
+  first glance with a `style` line instead, which takes the same focus line
 - `%% goal: id` names the end a user flow or a process reaches on its main
   row without accenting it, so the accent can mark the decision or step the
   board explains. With no goal line a styled end is the goal, and with no goal
@@ -49,9 +52,10 @@ Usage:
   compose_board.py <model.md> [--diagram N] [--out path]  -> 0 the filled code is written, 1 the model fails
                                                              the check, 2 unreadable or no such diagram
   compose_board.py <model.md> --model                      -> print the MODEL as JSON instead of the code
-  compose_board.py --template                              -> print the compact code with its MODEL and THEME
-                                                             placeholders, the text the Project's composer
-                                                             Knowledge file carries
+  compose_board.py --template [graph|sequence,gantt]       -> print the compact code with its MODEL and THEME
+                                                             placeholders, for every type or only those named;
+                                                             the Project's composer Knowledge file carries the
+                                                             graph code and the sequence,gantt code
   compose_board.py --design-check                          -> print the design a board is drawn in, what it
                                                              changes, its measures and the THEME it sends: 0 the
                                                              design reads with no warning, 1 one or more warnings
@@ -66,6 +70,7 @@ import copy
 import io
 import itertools
 import json
+import math
 import re
 import shutil
 import subprocess
@@ -88,7 +93,10 @@ from figjam_checks.layout import closing_edges  # noqa: E402
 
 PACKET = HERE.parent
 TEMPLATE = PACKET / "assets" / "compose-board.js"
-# The claude.ai Project has no Python, so its agent fills MODEL by hand from a copy of the compact code.
+# The claude.ai Project has no Python, so its agent fills MODEL by hand from a copy of the compact code. The copy
+# holds two blocks, one for graph boards and one for sequence and gantt boards, because the whole composer leaves
+# a large graph model too little of one use_figma call.
+PROJECT_PARTS = ("graph", ("sequence", "gantt"))
 PROJECT_COPY = PACKET.parent / "claude project" / "knowledge" / "Product Owner - Assets - Flow Board Composer.md"
 PROJECT_FENCE = re.compile(r"```javascript\n(.*?)\n```", re.S)
 PROJECT_DESIGN = PROJECT_COPY.with_name("Product Owner - Assets - Flow Board Design.md")
@@ -161,6 +169,44 @@ def zone_problems(zones: list[dict], node_ids: list[str], every_node: bool) -> l
 
 
 FOCUS_LINE = re.compile(r"^\s*%%\s*focus\s*:", re.I | re.M)
+# A zone or lane's notes say where it starts and ends, or what holds inside it, under its title.
+ABOUT_LINE = re.compile(r"^\s*%%\s*about\s*:\s*(.*?)\s*$", re.I | re.M)
+MAX_NOTE_LINES, MAX_NOTE_CHARS = 3, 56
+
+
+def about_problems(block_text: str, zones: list[dict], required: bool) -> list[str]:
+    """Give each zone the notes its `%% about:` line names, or say why a line names nothing or runs too long.
+
+    A zone is named by its label or its id. When `required`, every zone needs one, because a zone that holds only
+    a name tells the reader nothing the nodes inside it do not.
+    """
+    problems, named = [], {}
+    for zone in zones:
+        named[zone["id"].lower()] = named[zone["label"].lower()] = zone
+    for value in ABOUT_LINE.findall(block_text):
+        target, *lines = [part.strip() for part in value.split("|")]
+        zone = named.get(target.lower())
+        if not zone:
+            problems.append(f"%% about: {target or '(empty)'} names no zone or lane: write %% about: <zone label> | line | line")
+            continue
+        if "about" in zone:
+            problems.append(f"zone {zone['label']} has two %% about lines: write its notes on one")
+        if not any(lines):
+            problems.append(f"%% about: {target} has no note: write %% about: {target} | Starts: ... | Ends: ...")
+        if len(lines) > MAX_NOTE_LINES:
+            problems.append(f"zone {zone['label']} carries {len(lines)} note lines, at most {MAX_NOTE_LINES}")
+        for line in lines:
+            if len(line) > MAX_NOTE_CHARS:
+                problems.append(f"zone {zone['label']} note {line[:24]!r}... runs {len(line)} characters, at most "
+                                f"{MAX_NOTE_CHARS}: say it shorter")
+        zone["about"] = [line for line in lines if line]
+    if required:
+        problems += [f"zone {zone['label']} has no %% about line: write %% about: {zone['label']} | Starts: ... | "
+                     "Ends: ... | Good to know: ..., or %% level: simplified for a board that keeps zone names only"
+                     for zone in zones if "about" not in zone]
+    return problems
+
+
 
 
 def focus_problems(model: dict, profile: str, target: str, lines: int, reason: str = "") -> list[str]:
@@ -281,6 +327,15 @@ def flow_kinds(diagram: mermaid_extract.Diagram, block_text: str, profile: str,
     return kinds
 
 
+def detail_bodies(block_text: str) -> dict[str, list[str]]:
+    """The body lines each `%% detail:` line gives its step or state."""
+    bodies = {}
+    for value in flowchart.DETAIL_DIRECTIVE.findall(block_text):
+        node_id, *body = [part.strip() for part in value.split("|")]
+        bodies[node_id] = [line for line in body if line]
+    return bodies
+
+
 def flowchart_model(diagram: mermaid_extract.Diagram, block_text: str, profile: str,
                     zones: list[dict]) -> tuple[dict, list[str]]:
     """The MODEL for a user flow, a process or an architecture, with any problem its zones raise."""
@@ -303,14 +358,14 @@ def flowchart_model(diagram: mermaid_extract.Diagram, block_text: str, profile: 
     states = flowchart.status_states(diagram, block_text)
     kinds = flow_kinds(flowchart.work_view(diagram, states), block_text, profile, lanes)
     kinds.update({state: "status" for state in states})
-    bodies = {}
-    for value in flowchart.DETAIL_DIRECTIVE.findall(block_text):
-        node_id, *body = [part.strip() for part in value.split("|")]
-        bodies[node_id] = [line for line in body if line]
+    bodies = detail_bodies(block_text)
     named = GOAL_LINE.search(block_text)
     if named and kinds.get(named.group(1)) != "success":
         problems.append(f"%% goal: {named.group(1)} is not an end: name the end the main row reaches, "
                         "a rounded node no connector leaves")
+    if profile != flowchart.ARCHITECTURE:
+        level = (flowchart.LEVEL_DIRECTIVE.findall(block_text) or [""])[0].lower()
+        problems += about_problems(block_text, model_zones, bool(zones) and len(zones) > 1 and level != "simplified")
     styled = accent_fills(block_text)
     nodes = [{"id": node.id, "label": node.label, "kind": kinds[node.id], "zone": zone_of.get(node.id),
               **({"accent": True} if styled.get(node.id) else {}),
@@ -347,6 +402,7 @@ def state_model(diagram: mermaid_extract.Diagram, block_text: str) -> tuple[dict
             stereotypes[match.group(1)] = match.group(2).lower()
     by_id = {node.id: node for node in diagram.nodes}
     zones = [{"id": node.id, "label": node.label or node.id} for node in diagram.nodes if node.container]
+    bodies = detail_bodies(block_text)
     nodes = []
     for node in diagram.nodes:
         if node.container:
@@ -370,7 +426,8 @@ def state_model(diagram: mermaid_extract.Diagram, block_text: str) -> tuple[dict
             kind = "finalState"
         else:
             kind = "state"
-        nodes.append({"id": node.id, "label": node.label, "kind": kind, "zone": node.parent})
+        nodes.append({"id": node.id, "label": node.label, "kind": kind, "zone": node.parent,
+                      **({"body": bodies[node.id]} if bodies.get(node.id) else {})})
     edges = [{"from": e.source, "to": e.target, "label": e.label} for e in diagram.edges]
     model = {"type": "graph", "profile": "state", "direction": "TB" if diagram.direction in ("TD", "TB") else "LR",
              "zoneMode": "group", "zones": zones, "nodes": nodes, "edges": edges, "edgeStyles": ["solid"] if edges else [],
@@ -537,6 +594,9 @@ def build_model(block: mermaid_extract.SourceBlock, number: int) -> tuple[dict |
         model, found = gantt_model(block.text)
     if zones and profile in ("state", "sequence", "gantt", flowchart.ARCHITECTURE):
         found.append(f"%% zone lines on a {flow_check.NAMES[profile]}: this kind draws its own grouping")
+    if ABOUT_LINE.search(block.text) and profile not in (flowchart.USER_FLOW, flowchart.PROCESS):
+        found.append(f"%% about on a {flow_check.NAMES.get(profile, profile)}: notes belong to the zones or lanes of a "
+                     "user flow or a process")
     if text.get("focus") or FOCUS_LINE.search(block.text):
         value = text.get("focus", "")
         # A gantt task's own name may hold the word because, so a value that names a task whole names that task.
@@ -644,10 +704,14 @@ BUILD_CALL = "body = (builders[MODEL.type] || buildGraph)(MODEL);"
 SECTION_HEAD = re.compile(r"^// (\d+)\. [A-Z]")
 
 
-def for_type(template: str, kind: str) -> str:
-    """The composer source with the builders other model types need left out."""
-    keep = TYPE_SECTIONS[kind]
-    builder = {"graph": "buildGraph", "sequence": "buildSequence", "gantt": "buildGantt"}[kind]
+def for_type(template: str, kind: str | tuple[str, ...]) -> str:
+    """The composer source with the builders other model types need left out.
+
+    `kind` is one model type, or a tuple of them for code that draws any of those types.
+    """
+    kinds = (kind,) if isinstance(kind, str) else kind
+    keep = [section for name in kinds for section in TYPE_SECTIONS[name]]
+    builders = {"graph": "buildGraph", "sequence": "buildSequence", "gantt": "buildGantt"}
     for line in (BUILDERS_LINE, BUILD_CALL):
         if template.count(line) != 1:
             raise SystemExit(f"{TEMPLATE} must hold `{line}` exactly once")
@@ -660,11 +724,12 @@ def for_type(template: str, kind: str) -> str:
             continue
         out.append(line)
     source = "\n".join(out)
-    source = source.replace(BUILDERS_LINE, f"const builders = {{ {kind}: {builder} }};")
+    named = ", ".join(f"{name}: {builders[name]}" for name in kinds)
+    source = source.replace(BUILDERS_LINE, f"const builders = {{ {named} }};")
     return source.replace(BUILD_CALL, "body = builders[MODEL.type](MODEL);")
 
 
-def compact_template(kind: str | None = None) -> str:
+def compact_template(kind: str | tuple[str, ...] | None = None) -> str:
     """The composer code with its comments, indentation and idle spaces dropped and MODEL and THEME left placeholders.
 
     With a model type it carries only that type's builder. Without one it is the whole composer, which the
@@ -674,7 +739,7 @@ def compact_template(kind: str | None = None) -> str:
     for placeholder in (PLACEHOLDER, THEME_PLACEHOLDER):
         if template.count(placeholder) != 1:
             raise SystemExit(f"{TEMPLATE} must hold {placeholder} exactly once")
-    if kind in TYPE_SECTIONS:
+    if kind in TYPE_SECTIONS or isinstance(kind, tuple):
         template = for_type(template, kind)
     # The code is pasted into every call, so full-line comments, indentation and the spaces around operators
     # are dropped. None carries meaning in JavaScript, and no string in the composer spans a line.
@@ -871,8 +936,8 @@ def key_entries(drawn: dict) -> list[str]:
         if c["name"].startswith("key:"):
             start = shapes[c["start"]["endpointNodeId"]]
             found.append((start["y"], start["x"], c["name"][4:]))
-    # A row starts 88 px down the key and the next 72 px below it, and every sample sits within 28 px of its row's top.
-    row = lambda y: round((y - key["y"] - 102) / 72)  # noqa: E731
+    # A row starts 24 px down the key and the next 56 px below it, and every sample sits within 40 px of its row's top.
+    row = lambda y: (y - key["y"] - 8) // 56  # noqa: E731
     return [name for _, _, name in sorted(found, key=lambda entry: (row(entry[0]), entry[1]))]
 
 
@@ -1056,7 +1121,9 @@ def drawn_checks(name: str, model: dict, drawn: dict, design: dict) -> list[tupl
     short = geometry.short_cards(drawn)
     results.append((f"{name} gives every card height for its lines", not short, "; ".join(short)))
     if model["zoneMode"] in ("lane", "stage") and model["direction"] == "LR":
-        tall = geometry.tall_zones(drawn, labels, model["zoneMode"])
+        notes = max((len(z.get("about", [])) for z in model["zones"]), default=0)
+        head = geometry.ZONE_HEAD + (notes and notes * math.ceil(design["type"]["body"] * 1.45) + 8)
+        tall = geometry.tall_zones(drawn, labels, model["zoneMode"], head=head)
         results.append((f"{name} keeps each zone to its content", not tall, "; ".join(tall)))
     return results
 
@@ -1291,17 +1358,19 @@ def cap_checks(work: Path) -> list[tuple[str, bool, str]]:
 
 def focus_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
     """A `%% focus:` line marks one thing on each diagram that takes no style line, and is refused where it names nothing."""
-    from figjam_checks.fixtures import GOOD
+    from figjam_checks.fixtures import GOOD as good
 
+    # Each case writes its own focus line, so a reason the fixture already carries is taken out first.
+    GOOD = {kind: re.sub(r"^\s*%% focus:.*\n", "", text, flags=re.M) for kind, text in good.items()}
     marked = {"an architecture": "orders", "a sequence": "2", "a state machine": "Pending", "an ER model": "Booking",
               "a gantt chart": "beta"}
-    refused = [("an architecture", "%% focus: ghost", "names nothing"),
-               ("a sequence", "%% focus: 9", "names nothing"),
-               ("an architecture", "%% focus: orders\n%% focus: db", "at most 1"),
+    refused = [("an architecture", "%% focus: ghost because it is new", "names nothing"),
+               ("a sequence", "%% focus: 9 because it is new", "names nothing"),
+               ("an architecture", "%% focus: orders because it is new\n%% focus: db because it is new", "at most 1"),
                ("a user flow with one accent", "%% focus: pick", "mark the first glance with a style line")]
     results = []
     for kind, target in marked.items():
-        model, problems, _ = build_model(mermaid_extract.SourceBlock(1, f"{GOOD[kind]}\n%% focus: {target}\n", 1), 1)
+        model, problems, _ = build_model(mermaid_extract.SourceBlock(1, f"{GOOD[kind]}\n%% focus: {target} because it is new\n", 1), 1)
         drawn = geometry.run_trace(fill_template(model, sent), work) if model else None
         found = [] if not drawn else (geometry.message_accent_problems(drawn, model["messages"]) if model["type"] == "sequence"
                                       else geometry.accent_problems(drawn, {target}))
@@ -1491,11 +1560,33 @@ def checker_checks() -> list[tuple[str, bool, str]]:
     ]
 
 
+def note_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
+    """A zone's notes sit under its title, inside it and above its nodes, and the key keeps to one compact band."""
+    from figjam_checks.fixtures import GOOD
+
+    model, problems, _ = build_model(mermaid_extract.SourceBlock(1, GOOD["a zoned user flow with notes on every zone"], 1), 1)
+    drawn = geometry.run_trace(fill_template(model, sent), work) if model and not problems else {"nodes": []}
+    nodes = drawn["nodes"]
+    results = []
+    for zone in (model or {}).get("zones", []):
+        frame = next((n for n in nodes if n["type"] == "SECTION" and n["name"] == zone["label"]), None)
+        note = next((n for n in nodes if n["type"] == "TEXT" and n["parent"] == zone["label"] and "\n".join(zone["about"]) == n["text"]), None)
+        members = [n for n in nodes if n["parent"] == zone["label"] and n["name"].startswith("node:")]
+        inside = bool(frame and note and members) and note["x"] + note["w"] <= frame["x"] + frame["w"] \
+            and note["y"] + note["h"] <= min(n["y"] for n in members) - 16
+        results.append((f"zone {zone['label']} draws its notes under its title, inside it and above its nodes", inside,
+                        str(note or problems or "no notes drawn")))
+    key = next((n for n in nodes if n["type"] == "SECTION" and n["name"] == "Key"), None)
+    results.append(("a key with one row of samples is one band at most 104 pixels tall", bool(key) and key["h"] <= 104,
+                    str(key and key["h"])))
+    return results
+
+
 def goal_line_checks() -> list[tuple[str, bool, str]]:
     """A goal line names the goal over the longest path's end, and the accent stays on the styled decision."""
     flow = ("flowchart LR\n{goal}    a([Start]) --> d{{Paid?}}\n    d -->|Yes| done([Order placed])\n"
             "    d -->|No| retry[Try another card]\n    retry --> help[Contact support]\n    help --> left([Left the shop])\n"
-            "    style d fill:#FFC2EC,stroke:#F849C1\n")
+            "    style d fill:#FFC2EC,stroke:#F849C1\n    %% focus: d because a failed card ends here\n")
     kinds = {}
     for name, goal in (("plain", ""), ("named", "    %% goal: done\n")):
         model, problems, _ = build_model(mermaid_extract.SourceBlock(1, flow.format(goal=goal), 1), 1)
@@ -1511,7 +1602,7 @@ def diamond_checks(work: Path, sent: dict) -> list[tuple[str, bool, str]]:
     """A 26-character decision traces at the 336 by 216 diamond a live FigJam board drew for it, because the trace
     sets each line at a whole-pixel height, as FigJam does, and three lines at step 1.3 then fit."""
     flow = ("flowchart LR\n    a([Order list]) --> d{Drop-off point or courier?}\n    d -->|Drop-off| b([Drop-off booked])\n"
-            "    d -->|Pickup| c([Pickup booked])\n    style d fill:#FFC2EC,stroke:#F849C1\n")
+            "    d -->|Pickup| c([Pickup booked])\n    style d fill:#FFC2EC,stroke:#F849C1\n    %% focus: d because the choice sets the fee\n")
     model, problems, _ = build_model(mermaid_extract.SourceBlock(1, flow, 1), 1)
     drawn = geometry.run_trace(fill_template(model, sent), work) if model and not problems else None
     box = next((n for n in (drawn or {}).get("nodes", []) if n["name"] == "node:d"), None)
@@ -1616,7 +1707,7 @@ def self_test() -> int:
         "a node left out of the zones": ("flowchart LR\n    %% zone: One: a\n    a([Start]) --> b([End])\n    style b fill:#CDF4D3\n",
                                          "sit in no zone"),
         "a goal line naming a step": ("flowchart LR\n    %% goal: b\n    a([Start]) --> b[Pay]\n    b --> c([Paid])\n"
-                                      "    style b fill:#FFC2EC,stroke:#F849C1\n", "b is not an end"),
+                                      "    style b fill:#FFC2EC,stroke:#F849C1\n    %% focus: b because payment fails here\n", "b is not an end"),
         "a notes line naming a missing node": ("flowchart LR\n    %% notes: ghost\n    a([Start]) --> b([End])\n    style b fill:#CDF4D3\n",
                                                "ghost names no node"),
     }
@@ -1632,6 +1723,7 @@ def self_test() -> int:
         with tempfile.TemporaryDirectory() as work:
             results += defect_checks(Path(work), sent, design)
             results += focus_checks(Path(work), sent)
+            results += note_checks(Path(work), sent)
             results += fan_in_checks(Path(work), sent)
             results += key_line_checks(Path(work), sent)
             results += composite_exit_checks(Path(work), sent)
@@ -1644,10 +1736,10 @@ def self_test() -> int:
             results += cap_checks(Path(work))
             results += extreme_checks(Path(work), base, design)
     if PROJECT_COPY.is_file():
-        block = PROJECT_FENCE.search(PROJECT_COPY.read_text(encoding="utf-8"))
+        blocks = PROJECT_FENCE.findall(PROJECT_COPY.read_text(encoding="utf-8"))
         results.append((f"{PROJECT_COPY.name} carries the current compact code",
-                        bool(block) and block.group(1) == compact_template(),
-                        "rebuild its code block from compose_board.py --template"))
+                        blocks == [compact_template(part) for part in PROJECT_PARTS],
+                        "rebuild its two code blocks from compose_board.py --template graph and --template sequence,gantt"))
     if not node:
         print("SKIP  node is not on PATH, so the filled code was not syntax-checked")
     for name, ok, detail in results:
@@ -1670,6 +1762,13 @@ def main() -> int:
         return self_test()
     if args == ["--template"]:
         print(compact_template())
+        return 0
+    if len(args) == 2 and args[0] == "--template":
+        kinds = tuple(args[1].split(","))
+        if not all(kind in TYPE_SECTIONS for kind in kinds):
+            print(f"--template takes {', '.join(TYPE_SECTIONS)} or several joined by commas", file=sys.stderr)
+            return 2
+        print(compact_template(kinds[0] if len(kinds) == 1 else kinds))
         return 0
     if args == ["--design-check"]:
         return design_check()

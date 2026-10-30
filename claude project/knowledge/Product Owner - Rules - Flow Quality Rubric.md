@@ -30,6 +30,7 @@ The remove test runs on the outline before the first Mermaid block, because a st
 - [ ] No diagram carries the same label on four or more connectors. Cut them all, or keep one where the label says something the shape cannot. Decision exits and sequence messages are exempt, and an architecture renames each edge instead, as its type reference sets out
 - [ ] The remove test ran on the outline before the first Mermaid block, so no node was drawn only to be cut
 - [ ] The diagram sits inside its budget, or was split, and every cut is named under `Left out:`
+- [ ] The board teaches what its source says beyond the request: where the source holds the options a screen offers, the rule a step applies or where a stage starts and ends, the board carries it in a body or a zone note, so a reader answers a question the request's first sentence does not
 
 ---
 
@@ -73,7 +74,7 @@ Those three lines travel into the gate, so the marked node is chosen from them a
 - [ ] Every rule in the type's Templates - Flow Type document holds for each diagram, checked one by one
 - [ ] The model's shape was read before the gate: the widest rank at most 4 steps, the longest path at most 8 steps, at most 2 connectors per step, labels averaging at most 28 characters and at most 2 connector pairs that swap sides
 - [ ] A shape out of band was fixed in the model rather than on the board and read again after the change, because the composer owns the layout and a tangled shape is never rearranged after the write
-- [ ] The MODEL for every diagram was written as Assets - Flow Board Composer Section 2 sets out, with the counts the read-back will look for, and the code in its Section 4 was placed whole
+- [ ] The MODEL for every diagram was written as Assets - Flow Board Composer Section 2 sets out, with the counts the read-back will look for, and the code for its type, Section 4 or Section 5, was placed whole
 - [ ] The gate message names the plan, the file, what will be written, any planned extensions, the calls the write will spend and the rollback
 - [ ] The gate showed the sketch in full, every `%%` and `style` line of the checked model included, with the result of the check by hand, and answered the four critique questions Templates - Flow Mode step 7 names, unless the user already settled them in this conversation
 - [ ] On the generated fallback, an architecture call carries `useArchitectureLayoutCode`, and no other type carries it

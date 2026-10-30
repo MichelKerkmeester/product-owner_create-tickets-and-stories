@@ -35,7 +35,7 @@ Every pattern below passes `scripts/flow_check.py` as a user flow, and `scripts/
 - A label with a parenthesis, a colon or a slash goes in double quotes, such as `pick["Pick a plan (monthly)"]`
 - A decision label is a question, and each exit label is one of its answers
 - Every connector is a solid arrow `-->`
-- A user flow and a process each carry exactly one `style` line, which marks the first glance. A styled failing end or decision keeps its kind and takes a pink outline, a styled step is drawn light pink and the goal is named by a `%% goal:` line and never styled, because readers reach it last. `%% goal: done` names that end the goal without the accent, and the light red pair makes an end a failure. Every pair comes from `references/style-guide.md`, and any other colour is refused or counts as a second accent
+- A user flow and a process each carry exactly one `style` line, which marks the first glance. A styled failing end or decision keeps its kind and takes a pink outline, a styled step is drawn light pink and the goal is named by a `%% goal:` line and never styled, because readers reach it last. Every `style` line on a step or a decision takes a `%% focus: <id> because <reason>` line, which the key draws as `In focus: <reason>`, so the reader learns why the eye is sent there. `%% goal: done` names that end the goal without the accent, and the light red pair makes an end a failure. Every pair comes from `references/style-guide.md`, and any other colour is refused or counts as a second accent
 - Write `flowchart LR` unless the chain is short, because a board reads wider than it reads tall
 
 ### Board lines
@@ -48,12 +48,20 @@ The board's own text rides on `%%` comment lines, which the check ignores and th
 %% source: Sources: five app screenshots and the returns doc. Left out: free pickup over 100 euros, a proposal.
 %% zone: Find the order: orders, detail
 %% zone: Request the return: window, reason, method
+%% about: Find the order | Starts: the order list | Ends: the Start a return button
+%% about: Request the return | Starts: the 30-day check | Ends: drop-off or pickup chosen
+%% focus: window because late returns go to support
+%% level: balanced
+%% detail: reason | Damaged, Wrong size, Not as shown | Changed my mind
 ```
 
 - `%% title:` names the board. With none, the composer takes a Mermaid frontmatter title, a sequence or gantt `title` line, then `Diagram <n>`
 - `%% subtitle:` is one sentence under the title that names where the flow starts and where it ends, and the reader when the brief names one, such as `From the order list to a confirmed return, for the support team`. A board with no start or end, an ER model, names what it covers instead
 - `%% source:` is the line under the key naming the sources and what was left out
 - `%% zone: <label>: <id>, <id>` groups nodes in a tinted section. A user flow or a process without lanes reads its zones in flow order, and once a flow has zones every node sits in exactly one. An ER diagram draws each zone around its entities. Lanes and composite states are zones already, so a laned process, an architecture or a state diagram takes no zone line
+- `%% about: <zone label or lane id> | <line> | <line>` gives a zone or a lane up to three note lines of at most 56 characters, drawn under its title. A stage zone takes `Starts:`, `Ends:` and, when the source holds one, `Good to know:`, so the reader learns where the zone begins and ends without tracing it. A user flow or a process with two or more zones gives every zone one, unless it runs at `%% level: simplified`. A lane takes one when the source says something about that party, such as how long it has to act
+- `%% focus: <id> because <reason>` says why the accent falls where it does, in at most 30 characters. Every styled step or decision needs one, and on a diagram that takes no `style` line it also places the accent
+- `%% level: balanced` or `%% level: faithful` names the detail level, and `%% detail: <id> | <line> | <line>` gives a step what the source says about it under its one-line label: the options a screen offers, the rule a step applies, the time a party has. A body holds up to 4 lines at Balanced and 10 at Faithful, each at most 44 characters. It fits a step of a user flow or a process, a service of an architecture and a state of a state diagram, and Simplified keeps one-line labels
 - `%% goal: <id>` names the end the main row of a user flow or a process reaches, without the accent, so the `style` line can mark the decision or step the board explains
 - `%% notes: <id>, <id>` names the nodes a single sticky will sit beside and moves the key down by one sticky and its gap, so a node on the bottom row keeps the side below it
 
@@ -70,6 +78,7 @@ flowchart TD
     step1 --> step2[Submit]
     step2 --> done([Confirmation shown])
     style step1 fill:#FFC2EC,stroke:#F849C1
+    %% focus: step1 because the form is where people stop
 ```
 
 ### One decision
@@ -83,6 +92,7 @@ flowchart TD
     valid -->|No| fix[Show the field errors]
     fix --> step1
     style valid fill:#FFC2EC,stroke:#F849C1
+    %% focus: valid because errors send people back
 ```
 
 ### Platform split with a merge dot
@@ -99,6 +109,7 @@ flowchart TD
     merge --> pick[Pick an item]
     pick --> done([Item shown])
     style device fill:#FFC2EC,stroke:#F849C1
+    %% focus: device because the two paths differ here
 ```
 
 ### Three outcomes
@@ -112,6 +123,7 @@ flowchart TD
     result -->|Needs info| ask[Ask for missing info]
     ask --> start
     style result fill:#FFC2EC,stroke:#F849C1
+    %% focus: result because the response sets the outcome
 ```
 
 ### A flow split across two diagrams
@@ -125,6 +137,7 @@ flowchart TD
     verify --> profile[Fill in the profile]
     profile --> handoff([Continue to setup])
     style verify fill:#FFC2EC,stroke:#F849C1
+    %% focus: verify because unverified emails stop here
 ```
 
 ```mermaid
@@ -133,6 +146,7 @@ flowchart TD
     handoff([Continue to setup]) --> connect[Connect an account]
     connect --> done([Dashboard shown])
     style connect fill:#FFC2EC,stroke:#F849C1
+    %% focus: connect because setup ends on this step
 ```
 
 ---

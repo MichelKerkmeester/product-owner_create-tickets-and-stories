@@ -54,7 +54,8 @@
     "017-figjam-flow-generation/048-figjam-neighbour-and-closing-fixes",
     "017-figjam-flow-generation/049-figjam-reading-order-and-reply-lead",
     "017-figjam-flow-generation/050-figjam-spec-board-learnings",
-    "017-figjam-flow-generation/051-figjam-gallery-rerun"
+    "017-figjam-flow-generation/051-figjam-gallery-rerun",
+    "017-figjam-flow-generation/052-figjam-boards-that-teach"
   ],
   "manual": {
     "depends_on": [],
@@ -183,17 +184,17 @@
     ],
     "causal_summary": "Product Owner writes stories, epics and product docs but cannot turn screenshots, Figma flows or product docs into diagrams",
     "created_at": "2026-10-19T20:55:21Z",
-    "last_save_at": "2026-10-29T23:12:43.500Z",
+    "last_save_at": "2026-10-30T05:41:12.832Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
       "spec.md",
       "goal.md"
     ],
-    "source_fingerprint": "sha256:a7386820c02d99277ffafac11f3734750940644fd5fb716afefc7a3babf735f0",
+    "source_fingerprint": "sha256:e8f77d002d9f937e856d45030ff988f82ccbe2107acfa4b78dc827ffd0fd5d62",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "ab45b360820cde3a23a00daab0214b1d1ee95fe9a45c806c57fd1e1e31e6700d"
+      "spec.md": "c2ebbbaa33d890b7b60362b07162b115cecf0dcc0d95b189922e926e9c4302a9"
     },
     "last_active_child_id": "017-figjam-flow-generation/049-figjam-reading-order-and-reply-lead",
     "last_active_at": "2026-10-28T06:03:22.199Z"

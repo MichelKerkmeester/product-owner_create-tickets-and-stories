@@ -124,7 +124,11 @@ const PARA = 4;
 const RANK_GAP = 136;
 const CROSS_GAP = 80;
 const ZONE_GAP = 48;
-const ZONE_HEAD = 96;
+// A zone or lane may carry up to three note lines under its title, saying where it starts and ends or what holds
+// inside it. Every zone's head grows by the most lines any zone carries, so zones side by side stay level.
+const NOTE_LINE = Math.ceil(TYPE.body * 1.45);
+const NOTES = Math.max(0, ...(MODEL.zones || []).map((z) => (z.about || []).length));
+const ZONE_HEAD = 96 + (NOTES && NOTES * NOTE_LINE + 8);
 const ZONE_PAD = 48;
 const BOARD_PAD = 80;
 // Each channel is written as hex/255, which is how FigJam knows a colour for one of its palette swatches.
@@ -279,7 +283,7 @@ function connect(parent, from, to, o) {
   created.push(c.id);
   return c;
 }
-function zoneSection(parent, label, tint, x, y, w, hh) {
+function zoneSection(parent, label, tint, x, y, w, hh, about) {
   const sec = figma.createSection();
   parent.appendChild(sec);
   sec.name = label;
@@ -288,7 +292,11 @@ function zoneSection(parent, label, tint, x, y, w, hh) {
   sec.resize(w, hh);
   sec.fills = solid(TINT[tint] || TINT.gray);
   created.push(sec.id);
-  text(sec, label, SEMI, TYPE.zone, 32, 32);
+  const head = text(sec, label, SEMI, TYPE.zone, 32, 32);
+  if (about && about.length) {
+    const t = text(sec, about.join('\n'), REGULAR, TYPE.body, 32, up8(head.y + head.height + 8), w - 64);
+    t.lineHeight = { value: 145, unit: 'PERCENT' };
+  }
   return sec;
 }
 // A zone takes the first tint along the cycle that no kind inside it draws and that no zone already drawn
@@ -519,20 +527,38 @@ function layered(items, edges, opt) {
   // zone boundary also loses a zone pad on each side to the zone's own edge.
   const labelGap = (r) => Math.max(0, ...forward.filter((e) => rank.get(e.to) === r && rank.get(e.from) === r - 1)
     .map((e) => (LR ? (e.lw || 0) + 64 : 0)));
+  // A zone is as wide as its notes. A stage zone along a left to right row too narrow for them gets the room
+  // in the gaps on either side, half each, and its box grows into it below.
+  const noteW = new Map(zones.map((z) => [z.id, (z.about || []).length ? up8(Math.max(...z.about.map((l) => natural(l, REGULAR, TYPE.body).w)) + 64) : 0]));
+  const spread = new Map();
   const centre = [];
   const gapMid = [];
-  let pos = 0;
-  for (let r = 0; r <= maxRank; r++) {
-    if (r > 0) {
-      const boundary = (stage && zoneOfRank[r] !== zoneOfRank[r - 1])
-        || (opt.zoneMode === 'group' && zonesAt[r] !== zonesAt[r - 1]);
-      const floor = boundary ? Math.max(RANK_GAP, ZONE_PAD + ZONE_GAP + (LR ? ZONE_PAD : ZONE_HEAD)) : RANK_GAP;
-      const gap = up8(Math.max(labelGap(r) + (boundary && LR ? 2 * ZONE_PAD : 0), floor));
-      gapMid[r] = pos + gap / 2;
-      pos += gap;
+  const lay = () => {
+    let pos = 0;
+    for (let r = 0; r <= maxRank; r++) {
+      const into = stage && LR && zoneOfRank[r] !== zoneOfRank[r - 1] ? (spread.get(zoneOfRank[r]) || 0) / 2 : 0;
+      if (r > 0) {
+        const boundary = (stage && zoneOfRank[r] !== zoneOfRank[r - 1])
+          || (opt.zoneMode === 'group' && zonesAt[r] !== zonesAt[r - 1]);
+        const floor = boundary ? Math.max(RANK_GAP, ZONE_PAD + ZONE_GAP + (LR ? ZONE_PAD : ZONE_HEAD)) : RANK_GAP;
+        const gap = up8(Math.max(labelGap(r) + (boundary && LR ? 2 * ZONE_PAD : 0), floor)
+          + into + (boundary && stage && LR ? (spread.get(zoneOfRank[r - 1]) || 0) / 2 : 0));
+        gapMid[r] = pos + gap / 2;
+        pos += gap;
+      } else pos += into;
+      centre[r] = pos + extent[r] / 2;
+      pos += extent[r];
     }
-    centre[r] = pos + extent[r] / 2;
-    pos += extent[r];
+  };
+  lay();
+  if (stage && LR) {
+    for (const z of zones) {
+      const rs = ranks.map((_, r) => r).filter((r) => zoneOfRank[r] === z.id);
+      if (!rs.length) continue;
+      const span = centre[rs[rs.length - 1]] + extent[rs[rs.length - 1]] / 2 - centre[rs[0]] + extent[rs[0]] / 2 + 2 * ZONE_PAD;
+      if (noteW.get(z.id) > span) spread.set(z.id, up8(noteW.get(z.id) - span));
+    }
+    if (spread.size) lay();
   }
   // A top to bottom ER board lines its cards up along the top of their rank instead.
   const box = new Map();
@@ -587,6 +613,8 @@ function layered(items, edges, opt) {
     let x1 = Math.max(...members.map((b) => b.x + b.w)), y1 = Math.max(...members.map((b) => b.y + b.h));
     if (stacked) { const [lo, hi] = laneSpan.get(i); if (LR) { y0 = lo; y1 = hi; } else { x0 = lo; x1 = hi; } }
     if (opt.zoneMode === 'lane') { if (LR) { x0 = ext.x0; x1 = ext.x1; } else { y0 = ext.y0; y1 = ext.y1; } }
+    const short = noteW.get(z.id) - (x1 - x0 + 2 * ZONE_PAD);
+    if (short > 0) { x0 -= short / 2; x1 += short / 2; }
     // A back edge inside the zone detours one pad past its boxes, which would lay it on the zone's
     // edge, so that side gets a second pad.
     const loops = edges.some((e) => back.has(e.i) && item.get(e.from).zone === z.id && item.get(e.to).zone === z.id);
@@ -981,7 +1009,7 @@ function buildGraph(M) {
       oy -= y0;
       const zoneNodes = zones.map((z, i) => {
         const b = L.zoneBox[i];
-        return b ? zoneSection(board, z.label, tintFor(i, z.kinds, z.label, ox + b.x, oy + b.y, b.w, b.h), ox + b.x, oy + b.y, b.w, b.h) : null;
+        return b ? zoneSection(board, z.label, tintFor(i, z.kinds, z.label, ox + b.x, oy + b.y, b.w, b.h), ox + b.x, oy + b.y, b.w, b.h, z.about) : null;
       });
       const zoneOf = new Map(zones.map((z, i) => [z.id, zoneNodes[i]]));
       const shapes = new Map();
@@ -1318,7 +1346,11 @@ key.x = BOARD_PAD;
 // A model that names noted nodes widens this gap by one sticky and its gap, so the bottom row keeps its side below.
 key.y = oy + body.height + (MODEL.gap || 64);
 created.push(key.id);
-text(key, T.key.title, SEMI, TYPE.zone, 32, 32);
+// The key is one compact band: its title leads the row and every sample sits beside it at small type, so the
+// key explains the board without taking the room the diagram needs.
+const KEY_ROW = 40;
+const keyTitle = text(key, T.key.title, SEMI, TYPE.label, 24, 24);
+keyTitle.y = 24 + (KEY_ROW - keyTitle.height) / 2;
 const LINES = {
   solid: {}, dashedOptional: { dashed: true }, statusMove: { dashed: 2 }, dashedAsync: { dashed: true }, identifying: { cap: 'NONE' },
   nonIdentifying: { dashed: true, cap: 'NONE' }, twoWay: { start: 'ARROW_LINES' },
@@ -1329,7 +1361,8 @@ const KINDS = Object.keys(T.kind), LINE_ORDER = Object.keys(LINES), ARROW_ORDER 
 const placeOf = (it) => (it.kind === 'focus' || it.arrow === 'focus' ? 999 : it.kind ? KINDS.indexOf(it.kind)
   : it.line ? 100 + LINE_ORDER.indexOf(it.line) : it.arrow ? 200 + ARROW_ORDER.indexOf(it.arrow) : 300);
 const keyWidth = Math.max(body.width, 480);
-let kx = 32, ky = 88, kr = 0;
+const kx0 = up8(24 + keyTitle.width + 32);
+let kx = kx0, ky = 24, kr = 0;
 for (const item of body.key.sort((a, b) => placeOf(a) - placeOf(b))) {
   const x0 = kx, made = [];
   let label;
@@ -1337,41 +1370,42 @@ for (const item of body.key.sort((a, b) => placeOf(a) - placeOf(b))) {
     // The focus sample is drawn as the marked node is, its own kind under the accent's outline.
     const as = item.like || item.kind, f = FIXED[as], sh = shapeOf(as);
     const tall = sh === 'ENG_DATABASE' || sh === 'ENG_QUEUE';
-    const sw = f ? Math.min(f[0], 56) : (ROUND.has(sh) ? 72 : (tall ? 48 : 88));
-    const sht = f ? Math.min(f[1], 56) : (ROUND.has(sh) || tall ? 56 : 48);
+    const sw = f ? Math.min(f[0], 40) : (ROUND.has(sh) ? 48 : (tall ? 32 : 56));
+    const sht = f ? Math.min(f[1], 40) : (ROUND.has(sh) || tall ? 40 : 32);
     // FigJam keeps some shapes above a minimum size, so spacing follows the size it actually drew.
     const sample = shape(key, as, '', kx, ky, sw, sht, `key:${item.kind}`, 0, !!item.like);
-    sample.y = ky + (56 - sample.height) / 2;
+    sample.y = ky + (KEY_ROW - sample.height) / 2;
     made.push(sample);
-    kx += sample.width + 16;
+    kx += sample.width + 12;
     label = item.kind === 'focus' ? FOCUS : T.kind[item.kind].key;
   } else if (item.pin) {
-    made.push(marker(key, '1', kx, ky + 12, 'key:pin'));
-    kx += 48;
+    made.push(marker(key, '1', kx, ky - 4, 'key:pin'));
+    kx += 56;
     label = T.key.pin;
   } else {
     const spec = item.arrow ? ARROWS[item.arrow] : LINES[item.line];
     if (!spec) continue;
     const name = item.arrow || item.line;
-    const a = anchor(key, kx + 8, ky + 28, `key:${name}:a`);
-    const b = anchor(key, kx + 88, ky + 28, `key:${name}:b`);
+    const a = anchor(key, kx + 4, ky + KEY_ROW / 2, `key:${name}:a`);
+    const b = anchor(key, kx + 60, ky + KEY_ROW / 2, `key:${name}:b`);
     connect(key, a, b, { name: `key:${name}`, line: 'STRAIGHT', m0: 'POINT', m1: 'POINT',
       dashed: spec.dashed, endCap: spec.cap === undefined ? 'ARROW_LINES' : spec.cap, startCap: spec.start || 'NONE',
       color: spec.color, weight: spec.weight });
     made.push(a, b);
-    kx += 112;
+    kx += 72;
     label = name === 'focus' ? FOCUS : T.key[name];
   }
-  const t = text(key, label, REGULAR, TYPE.label, kx, ky + 18);
+  const t = text(key, label, REGULAR, TYPE.small, kx, ky);
+  t.y = ky + (KEY_ROW - t.height) / 2;
   made.push(t);
-  if (t.x + t.width > keyWidth - 32 && x0 > 32) {
-    made.forEach((n) => { n.x += 32 - x0; n.y += 72; });
-    ky += 72;
+  if (t.x + t.width > keyWidth - 24 && x0 > kx0) {
+    made.forEach((n) => { n.x += kx0 - x0; n.y += KEY_ROW + 16; });
+    ky += KEY_ROW + 16;
   }
   kr = Math.max(kr, t.x + t.width);
-  kx = up8(t.x + t.width + 48);
+  kx = up8(t.x + t.width + 32);
 }
-key.resize(Math.max(keyWidth, up8(kr + 32)), ky + 88);
+key.resize(Math.max(keyWidth, up8(kr + 24)), ky + KEY_ROW + 24);
 let bottom = key.y + key.height;
 if (MODEL.source) {
   const src = text(board, MODEL.source, REGULAR, TYPE.label, BOARD_PAD, bottom + 32, wrap);

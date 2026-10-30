@@ -39,7 +39,7 @@ Sources: five app screenshots and a returns doc.
 
 - **Reader question:** which screens does a customer pass through to start a return, and where do they choose? A user flow
 - **Detail:** balanced. **Audience:** mixed, so the labels use the app's own words. **Distance:** laptop
-- **Look:** left to right in three zones, finding the order, requesting the return and done. A `%% goal:` line names the confirmation as the goal, so the main line runs from the order list to it and Contact support sits below as an exit. The 30 day decision takes the accent, because it is where a return can end early
+- **Look:** left to right in three zones, finding the order, requesting the return and done, each with notes under its title that say where it starts and ends. A `%% goal:` line names the confirmation as the goal, so the main line runs from the order list to it and Contact support sits below as an exit. The 30 day decision takes the accent, and its `%% focus:` line gives the key that reason: it is where a return can end early
 
 ---
 
@@ -119,6 +119,10 @@ flowchart LR
     %% zone: Find the order: orders, detail
     %% zone: Request the return: window, support, reason, method, dropoff, pickup
     %% zone: Done: confirmed
+    %% about: Find the order | Starts: the order list | Ends: the Start a return button
+    %% about: Request the return | Starts: the 30-day check | Ends: drop-off or courier pickup | Good to know: after 30 days, Contact support
+    %% about: Done | Shows a QR code for the return
+    %% focus: window because returns can end early here
     orders([Order list]) --> detail[Order detail]
     detail --> window{Within 30 days after delivery?}
     window -->|No| support([Contact support])

@@ -1,0 +1,23 @@
+{
+  "level": "2",
+  "specFolder": "017-figjam-flow-generation/052-figjam-boards-that-teach",
+  "description": "Michel found the gallery boards tidy but empty next to the collab chat prompt board",
+  "keywords": [
+    "figjam",
+    "zone",
+    "notes",
+    "detail",
+    "cards",
+    "substance",
+    "gallery",
+    "glm"
+  ],
+  "lastUpdated": "2026-10-30T09:00:00.000Z",
+  "specId": "052",
+  "folderSlug": "figjam-boards-that-teach",
+  "parentChain": [
+    "017-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

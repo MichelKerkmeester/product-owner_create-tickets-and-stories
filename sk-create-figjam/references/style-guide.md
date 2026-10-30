@@ -147,12 +147,12 @@ The start pill keeps its light blue, because at those weights it cannot outweigh
 
 | Type | What carries the accent | How the model says so |
 |---|---|---|
-| User flow, process | A node: a step, a decision or an error end, never the goal | A `style` line, which the check requires |
-| Architecture, state, ER | A node | `%% focus: <id>`, optional |
-| Sequence | A message | `%% focus: <number>`, the message's place in the order, optional |
-| Gantt | A task or a milestone | `%% focus: <id or name>`, optional |
+| User flow, process | A node: a step, a decision or an error end, never the goal | A `style` line, which the check requires, and on a step or a decision `%% focus: <id> because <reason>` |
+| Architecture, state, ER | A node | `%% focus: <id> because <reason>`, optional |
+| Sequence | A message | `%% focus: <number> because <reason>`, the message's place in the order, optional |
+| Gantt | A task or a milestone | `%% focus: <id or name> because <reason>`, optional |
 
-A `%% focus:` line is a comment, so the Mermaid stays plain. It names one thing, and a second line or a name that matches nothing is refused. Written as `%% focus: <id> because <reason>`, it also says why, and the key draws its entry as `In focus: <reason>`, so the reason holds 30 characters at most. A user flow or a process takes a focus line only in that form and only on the node its `style` line marks, because the style line already places the accent. Where a type carries no focus line the first glance is whatever the layout shows first, and the gate says so. A planned first glance is one thing, never a group such as the end states, and when the layout would show another first, the model names it with a focus line rather than promise a glance the board does not give. A state board is the exception: the first state is the first glance, and its focus line marks the state the request names where it is drawn, as `references/types/state.md` Section 5 sets out.
+A `%% focus:` line is a comment, so the Mermaid stays plain. It names one thing, and a second line or a name that matches nothing is refused. It is always written `%% focus: <id> because <reason>`, so the key draws its entry as `In focus: <reason>` and a reader learns why the eye is sent there. The reason holds 30 characters at most, and a focus line without one is refused. A user flow or a process takes a focus line on every styled step or decision, only in that form and only on the node its `style` line marks, because the style line already places the accent. Where a type carries no focus line the first glance is whatever the layout shows first, and the gate says so. A planned first glance is one thing, never a group such as the end states, and when the layout would show another first, the model names it with a focus line rather than promise a glance the board does not give. A state board is the exception: the first state is the first glance, and its focus line marks the state the request names where it is drawn, as `references/types/state.md` Section 5 sets out.
 
 ### Note palettes
 

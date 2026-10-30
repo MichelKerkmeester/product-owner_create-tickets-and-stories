@@ -153,10 +153,16 @@ def flow_focus_problems(block_text: str) -> list[str]:
     The style line already places the accent there, so the focus line only says why, on that node.
     """
     values = FOCUS_DIRECTIVE.findall(block_text)
-    if not values:
-        return []
+    # A lane's style line takes the neutral pair and marks nothing, so only a node's style line is an accent.
     styled = {words[1] for words in (s.split() for s in statements(block_text)) if len(words) > 2
-              and words[0].lower() == "style"}
+              and words[0].lower() == "style"
+              and (flowchart.colour(" ".join(words), "fill"), flowchart.colour(" ".join(words), "stroke")) != LANE_PAIR}
+    # A styled start or end names itself in the key, as the goal or an error. A marked step or decision does not,
+    # and a mark with no reason leaves the reader guessing why the eye is sent there.
+    marked = {node for node in styled if not re.search(rf"(?<![\w-]){re.escape(node)}\(\[", block_text)}
+    if not values:
+        return ["the accent gives no reason: add %% focus: <styled id> because <reason>, which the key draws as "
+                "In focus: <reason>"] if marked else []
     target, reason = focus_reason(values[0])
     if len(values) > 1 or not reason or target not in styled:
         return ["%% focus on a user flow or a process: mark the first glance with a style line, and give its reason as "
@@ -409,19 +415,19 @@ def label_results() -> list[tuple[str, bool, str]]:
          "Label: Editor with welcome tip may leave 'tip' alone"),
         ("a decision label FigJam strands at the traced diamond size is reported as leaving its word",
          "flowchart LR\n    a([Order list]) --> d{Drop-off point or courier?}\n    d -->|Drop-off| b([Drop-off booked])\n"
-         "    d -->|Pickup| c([Pickup booked])\n    style d fill:#FFC2EC,stroke:#F849C1\n",
+         "    d -->|Pickup| c([Pickup booked])\n    style d fill:#FFC2EC,stroke:#F849C1\n    %% focus: d because it is the step in question\n",
          "Label: Drop-off point or courier? leaves 'courier?' alone"),
         ("a decision label of wide letters whose last word FigJam strands is reported though it is 26 characters",
          "flowchart LR\n    a([Order list]) --> d{New price compared to old?}\n    d -->|Higher| b([Pay difference])\n"
-         "    d -->|Lower| c([Credit difference])\n    style d fill:#FFC2EC,stroke:#F849C1\n",
+         "    d -->|Lower| c([Credit difference])\n    style d fill:#FFC2EC,stroke:#F849C1\n    %% focus: d because it is the step in question\n",
          "Label: New price compared to old? leaves 'old?' alone"),
         ("a decision label that wraps clear at the glyph measure reports none though it is 27 characters",
          "flowchart LR\n    a([Order list]) --> d{Within 30 days of delivery?}\n    d -->|Yes| b([Return started])\n"
-         "    d -->|No| c([Contact support])\n    style d fill:#FFC2EC,stroke:#F849C1\n",
+         "    d -->|No| c([Contact support])\n    style d fill:#FFC2EC,stroke:#F849C1\n    %% focus: d because it is the step in question\n",
          None),
         ("a decision label that wraps clear at that width reports none",
          "flowchart LR\n    a([Order list]) --> d{Drop-off or courier pickup?}\n    d -->|Drop-off| b([Drop-off booked])\n"
-         "    d -->|Pickup| c([Pickup booked])\n    style d fill:#FFC2EC,stroke:#F849C1\n",
+         "    d -->|Pickup| c([Pickup booked])\n    style d fill:#FFC2EC,stroke:#F849C1\n    %% focus: d because it is the step in question\n",
          None),
         ("a model with short labels reports none",
          "flowchart LR\n    a([Order placed]) --> b[Send the parcel]\n    b --> c([Parcel sent])\n"
@@ -453,10 +459,10 @@ def label_results() -> list[tuple[str, bool, str]]:
                         code == 1 and "Sides: ghost names no node" in output and "boxed in" not in output, output))
         # A node off the path that takes a column of its own between two row steps is read between them, and
         # the row line bends round it, until the node joins the next step's zone and its column.
-        zoned = ("flowchart LR\n    %% zone: Find: a, d, x{extra}\n    %% zone: Act: b{moved}, c\n    %% zone: Done: e\n"
+        zoned = ("flowchart LR\n    %% level: simplified\n    %% zone: Find: a, d, x{extra}\n    %% zone: Act: b{moved}, c\n    %% zone: Done: e\n"
                  "    a([Order list]) --> d{{Within 30 days?}}\n    d -->|Yes| b[Start a return]\n"
                  "    d -->|No| x([Contact support])\n    b --> c[Pick a reason]\n    c --> e([Return confirmed])\n"
-                 "    style d fill:#FFC2EC,stroke:#F849C1\n")
+                 "    style d fill:#FFC2EC,stroke:#F849C1\n    %% focus: d because it is the step in question\n")
         path.write_text(zoned.format(extra="", moved=", x").replace("a, d, x", "a, d"), encoding="utf-8")
         code, moved = run_quietly(path)
         path.write_text(zoned.format(extra="", moved=""), encoding="utf-8")
@@ -478,7 +484,7 @@ def label_results() -> list[tuple[str, bool, str]]:
                         "        refund([Refund released])\n    end\n    report --> check\n    check -->|Unclear| photo\n"
                         "    photo --> check\n    check -->|Clear| approve\n    approve -->|Claim queued| pickup\n"
                         "    approve -->|Logs| log\n    pickup --> inspect\n    inspect --> refund\n"
-                        "    style approve fill:#FFE0C2,stroke:#FF9E42\n", encoding="utf-8")
+                        "    style approve fill:#FFE0C2,stroke:#FF9E42\n    %% focus: approve because it is the step in question\n", encoding="utf-8")
         code, output = run_quietly(path)
         results.append(("a decision in the accent's lane is read in its column, after an entry to its left",
                         code == 0 and "Glance: Approve the claim (accent) > Damage reported > Damage clear in the photo?"
@@ -488,27 +494,27 @@ def label_results() -> list[tuple[str, bool, str]]:
                         "    free -->|No| other[See other rooms]\n    other -->|Pick a room| price\n"
                         "    price -->|Higher| pay[Pay difference]\n    price -->|Lower| credit[Credit difference]\n"
                         "    price -->|Same| merge((.))\n    pay --> merge\n    credit --> merge\n"
-                        "    merge --> updated([Updated booking])\n    style price fill:#FFC2EC,stroke:#F849C1\n", encoding="utf-8")
+                        "    merge --> updated([Updated booking])\n    style price fill:#FFC2EC,stroke:#F849C1\n    %% focus: price because it is the step in question\n", encoding="utf-8")
         code, output = run_quietly(path)
         results.append(("a decision joined to the accent keeps its column place",
                         code == 0 and "Glance: New price? (accent) > Booking page" in output, output))
         path.write_text("flowchart LR\n    a([Order list]) --> b[Pick the item]\n    b --> d{Within 30 days?}\n"
                         "    d -->|Yes| r[Start a return]\n    d -->|No| s([Contact support])\n    r --> e([Return confirmed])\n"
-                        "    style b fill:#FFC2EC,stroke:#F849C1\n    style d fill:#FFC2EC,stroke:#F849C1\n", encoding="utf-8")
+                        "    style b fill:#FFC2EC,stroke:#F849C1\n    %% focus: b because it is the step in question\n    style d fill:#FFC2EC,stroke:#F849C1\n", encoding="utf-8")
         code, output = run_quietly(path)
         glance_line = next((line for line in output.splitlines() if line.startswith("Glance:")), "")
         results.append(("a second node in the accent fill joined to the first is named once",
                         code == 0 and glance_line.count("Within 30 days?") == 1, output))
         # A line that skips a step on its way to the next one bends on purpose, so it is never a broken row.
-        path.write_text("flowchart LR\n    %% zone: Sign in: o, q, g\n    %% zone: Shop: h, k, p\n"
+        path.write_text("flowchart LR\n    %% level: simplified\n    %% zone: Sign in: o, q, g\n    %% zone: Shop: h, k, p\n"
                         "    o([Open the app]) --> q{Logged in?}\n    q -->|No| g[Log in]\n    g --> h[Home screen]\n"
-                        "    q -->|Yes| h\n    h --> k[Cart]\n    k --> p([Paid])\n    style q fill:#FFC2EC,stroke:#F849C1\n",
+                        "    q -->|Yes| h\n    h --> k[Cart]\n    k --> p([Paid])\n    style q fill:#FFC2EC,stroke:#F849C1\n    %% focus: q because it is the step in question\n",
                         encoding="utf-8")
         code, output = run_quietly(path)
         results.append(("a line that skips a step on the row is no bent row", code == 0 and "Glance:" in output
                         and "Row:" not in output, output))
         path.write_text("flowchart LR\n    %% goal: b\n    a([Start]) --> b[Pack it]\n    b --> c([Done])\n"
-                        "    style b fill:#FFC2EC,stroke:#F849C1\n", encoding="utf-8")
+                        "    style b fill:#FFC2EC,stroke:#F849C1\n    %% focus: b because it is the step in question\n", encoding="utf-8")
         code, output = run_quietly(path)
         results.append(("a goal line the composer refuses fails the check too", code == 1 and "is not an end" in output,
                         output))

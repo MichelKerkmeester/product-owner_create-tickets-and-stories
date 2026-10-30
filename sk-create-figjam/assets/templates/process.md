@@ -46,6 +46,7 @@ flowchart LR
     auto --> done([Approved])
     review --> done
     style size fill:#FFC2EC,stroke:#F849C1
+    %% focus: size because the limit splits the path
 ```
 
 ### Laned process with a handoff in focus
@@ -77,6 +78,7 @@ flowchart LR
     style team fill:#F5F5F5,stroke:#B3B3B3
     style ops fill:#F5F5F5,stroke:#B3B3B3
     style approve fill:#C2E5FF,stroke:#3DADFF
+    %% focus: approve because it hands off to ops
 ```
 
 ### Laned process with a status lane and detail cards
@@ -111,6 +113,7 @@ flowchart LR
     ship -.-> done
     ship --> got
     style ship fill:#C2E5FF,stroke:#3DADFF
+    %% focus: ship because it moves the order
 ```
 
 ### Pipeline with a store and data in and out
@@ -127,4 +130,5 @@ flowchart LR
     save -->|"Later"| notify[[Notify the owner]]
     notify --> done([Import finished])
     style valid fill:#FFC2EC,stroke:#F849C1
+    %% focus: valid because bad rows stop the import
 ```
