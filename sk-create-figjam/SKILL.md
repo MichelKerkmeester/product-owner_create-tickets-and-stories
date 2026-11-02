@@ -33,7 +33,7 @@ The Product Owner packet that draws FigJam diagrams. It picks the diagram type t
 
 The packet has one route, Flow Mode, and one choice inside it: the diagram type. This section and its sibling `ROUTER.md` decide whether a request belongs here and what it loads for that type.
 
-Read [`ROUTER.md`](./ROUTER.md) before selecting skill-local resources; open only the matched files.
+Read [`ROUTER.md`](./ROUTER.md) before selecting skill-local resources, and open only the matched files.
 
 ---
 
