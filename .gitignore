@@ -40,3 +40,7 @@ mcp-code-mode/mcp-server/dist/
 /specs/personal/*
 !/specs/personal/.gitkeep
 !/specs/personal/README.md
+!/specs/personal/z_archive/
+/specs/personal/z_archive/*
+!/specs/personal/z_archive/.gitkeep
+!/specs/personal/z_archive/README.md
