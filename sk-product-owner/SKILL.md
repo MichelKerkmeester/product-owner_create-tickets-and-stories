@@ -43,7 +43,7 @@ Do not use this skill when the deliverable is production code or a live fix. A D
 
 The hub [`../SKILL.md`](../SKILL.md) picks this packet and the hub [`../ROUTER.md`](../ROUTER.md) maps its intents to leaves. This section and its sibling `ROUTER.md` route inside the packet, and the oracle and fixtures in `../benchmark/router/` must never drift from them: exact `$token` commands win over word-boundary keyword scoring, one primary route loads one resource lane, and an unrecognized request asks one clarifying question.
 
-Read [`ROUTER.md`](./ROUTER.md) before selecting skill-local resources; open only the matched files.
+Read [`ROUTER.md`](./ROUTER.md) before selecting skill-local resources, and open only the matched files.
 
 ---
 
