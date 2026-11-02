@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/013-po-realistic-playbook-opus-rerun",
+  "spec_folder": "system/013-po-realistic-playbook-opus-rerun",
+  "parent_id": null,
+  "children_ids": [
+    "system/013-po-realistic-playbook-opus-rerun/001-story-prefix-and-bundle",
+    "system/013-po-realistic-playbook-opus-rerun/002-company-context-fixtures",
+    "system/013-po-realistic-playbook-opus-rerun/003-playbook-rewrite",
+    "system/013-po-realistic-playbook-opus-rerun/004-opus-run",
+    "system/013-po-realistic-playbook-opus-rerun/005-grading-and-report",
+    "system/013-po-realistic-playbook-opus-rerun/006-concise-writing",
+    "system/013-po-realistic-playbook-opus-rerun/007-drop-clarification-exports",
+    "system/013-po-realistic-playbook-opus-rerun/008-cut-exports-and-word-budget",
+    "system/013-po-realistic-playbook-opus-rerun/009-template-forms-and-checklists"
+  ],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "realistic product owner playbook",
+      "opus 5.5 medium playbook rerun",
+      "story export prefix",
+      "company context fixtures",
+      "packet goal",
+      "realistic playbook goal",
+      "076 completion criteria",
+      "goal binding"
+    ],
+    "key_topics": [
+      "realistic",
+      "product",
+      "owner",
+      "playbook",
+      "opus",
+      "medium",
+      "rerun",
+      "story",
+      "export",
+      "prefix",
+      "company",
+      "context"
+    ],
+    "importance_tier": "important",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "goal.md",
+      "001-story-prefix-and-bundle/goal.md",
+      "002-company-context-fixtures/goal.md",
+      "003-playbook-rewrite/goal.md",
+      "004-opus-run/goal.md",
+      "005-grading-and-report/goal.md",
+      "006-concise-writing/goal.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Packet",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Progress",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Four Opus",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Six Opus",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Epic References",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Doc Mode",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The Product Owner playbook measures whether the system follows its rules, but the tickets it produces look nothing like real engineering work",
+    "created_at": "2026-09-25T18:14:13Z",
+    "last_save_at": "2026-11-02T15:30:38.139Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "goal.md"
+    ],
+    "source_fingerprint": "sha256:07392781380c6236c3434331af99a07d0c9e512cfe62d7fc25b762bf445c3503",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "172771c89c6377d8672343a14be04e5078c941f11c4fce92e008ac06c1889ca7"
+    },
+    "last_active_at": null
+  }
+}

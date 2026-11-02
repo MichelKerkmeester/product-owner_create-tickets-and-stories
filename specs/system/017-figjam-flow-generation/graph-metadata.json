@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/017-figjam-flow-generation",
+  "spec_folder": "system/017-figjam-flow-generation",
+  "parent_id": null,
+  "children_ids": [
+    "system/017-figjam-flow-generation/001-research",
+    "system/017-figjam-flow-generation/002-write-route-spike",
+    "system/017-figjam-flow-generation/003-vendored-figma-and-sync",
+    "system/017-figjam-flow-generation/004-parent-hub-conversion",
+    "system/017-figjam-flow-generation/005-flow-mode",
+    "system/017-figjam-flow-generation/006-claude-code-plugin",
+    "system/017-figjam-flow-generation/007-project-mirror",
+    "system/017-figjam-flow-generation/008-upstream-roundtrip-and-release",
+    "system/017-figjam-flow-generation/009-figjam-skill-research",
+    "system/017-figjam-flow-generation/010-flow-mode-hardening",
+    "system/017-figjam-flow-generation/011-figjam-packet-split",
+    "system/017-figjam-flow-generation/012-vendored-clickup",
+    "system/017-figjam-flow-generation/013-skilled-hub-alignment",
+    "system/017-figjam-flow-generation/014-hub-to-root",
+    "system/017-figjam-flow-generation/015-figjam-rebuild",
+    "system/017-figjam-flow-generation/016-figjam-improvement-research",
+    "system/017-figjam-flow-generation/017-board-link-in-artifact",
+    "system/017-figjam-flow-generation/018-artifact-plus-board-pair",
+    "system/017-figjam-flow-generation/019-hosted-route-connection",
+    "system/017-figjam-flow-generation/020-accent-and-cut-test",
+    "system/017-figjam-flow-generation/021-board-critic-pass",
+    "system/017-figjam-flow-generation/022-created-node-tags",
+    "system/017-figjam-flow-generation/023-kernel-no-connector-sentence",
+    "system/017-figjam-flow-generation/024-flow-delivery-pointers",
+    "system/017-figjam-flow-generation/025-plan-whoami",
+    "system/017-figjam-flow-generation/026-self-edit-guidance",
+    "system/017-figjam-flow-generation/027-repeated-edge-labels",
+    "system/017-figjam-flow-generation/028-readback-direction",
+    "system/017-figjam-flow-generation/029-extension-fixes",
+    "system/017-figjam-flow-generation/030-figjam-research-three",
+    "system/017-figjam-flow-generation/031-round-three-apply",
+    "system/017-figjam-flow-generation/032-clickup-push-targets",
+    "system/017-figjam-flow-generation/033-composed-boards",
+    "system/017-figjam-flow-generation/034-stop-and-label-fixes",
+    "system/017-figjam-flow-generation/035-first-glance-and-routing",
+    "system/017-figjam-flow-generation/036-figjam-design-system",
+    "system/017-figjam-flow-generation/037-figjam-design-spec",
+    "system/017-figjam-flow-generation/038-figjam-model-comparison",
+    "system/017-figjam-flow-generation/039-figjam-run-findings",
+    "system/017-figjam-flow-generation/040-figjam-sonnet-run-findings",
+    "system/017-figjam-flow-generation/041-figjam-rerun-findings",
+    "system/017-figjam-flow-generation/042-figjam-glance-and-left-out",
+    "system/017-figjam-flow-generation/043-figjam-rerun-followups",
+    "system/017-figjam-flow-generation/044-figjam-composite-and-path-order",
+    "system/017-figjam-flow-generation/045-figjam-findings-fixes",
+    "system/017-figjam-flow-generation/046-figjam-gate-and-accent-fixes",
+    "system/017-figjam-flow-generation/047-figjam-glance-and-row-fixes",
+    "system/017-figjam-flow-generation/048-figjam-neighbour-and-closing-fixes",
+    "system/017-figjam-flow-generation/049-figjam-reading-order-and-reply-lead",
+    "system/017-figjam-flow-generation/050-figjam-spec-board-learnings",
+    "system/017-figjam-flow-generation/051-figjam-gallery-rerun",
+    "system/017-figjam-flow-generation/052-figjam-boards-that-teach"
+  ],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "figjam flow generation phase parent spec",
+      "packet goal",
+      "durable directive",
+      "completion criteria",
+      "goal binding"
+    ],
+    "key_topics": [
+      "figjam",
+      "flow",
+      "generation",
+      "phase",
+      "parent",
+      "spec",
+      "packet",
+      "goal",
+      "durable",
+      "directive",
+      "completion",
+      "criteria"
+    ],
+    "importance_tier": "important",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "goal.md",
+      "001-research/goal.md",
+      "002-write-route-spike/goal.md",
+      "003-vendored-figma-and-sync/goal.md",
+      "004-parent-hub-conversion/goal.md",
+      "005-flow-mode/goal.md",
+      "006-claude-code-plugin/goal.md",
+      "007-project-mirror/goal.md",
+      "008-upstream-roundtrip-and-release/goal.md",
+      "009-figjam-skill-research/goal.md",
+      "010-flow-mode-hardening/goal.md",
+      "011-figjam-packet-split/goal.md",
+      "012-vendored-clickup/goal.md",
+      "013-skilled-hub-alignment/goal.md",
+      "014-hub-to-root/goal.md",
+      "015-figjam-rebuild/goal.md",
+      "016-figjam-improvement-research/goal.md",
+      "017-board-link-in-artifact/goal.md",
+      "018-artifact-plus-board-pair/goal.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Upgrade Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Code",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Packet",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Make Product Owner",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Decisions Frozen",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Flow Mode",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Documentation Map",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Product Owner writes stories, epics and product docs but cannot turn screenshots, Figma flows or product docs into diagrams",
+    "created_at": "2026-10-19T20:55:21Z",
+    "last_save_at": "2026-11-02T15:30:38.684Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "goal.md"
+    ],
+    "source_fingerprint": "sha256:cd4ab9e3929a526f1e5ab26a387648668dbeb66d888701c6c6c06936901e453c",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "337dc0d5e4a736c946caa2dffecbf28ff296df9f4b07d04383651fc588a98d4c"
+    },
+    "last_active_child_id": "017-figjam-flow-generation/049-figjam-reading-order-and-reply-lead",
+    "last_active_at": "2026-10-28T06:03:22.199Z"
+  }
+}

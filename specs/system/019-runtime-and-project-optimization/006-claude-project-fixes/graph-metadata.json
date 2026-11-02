@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/019-runtime-and-project-optimization/006-claude-project-fixes",
+  "spec_folder": "system/019-runtime-and-project-optimization/006-claude-project-fixes",
+  "parent_id": "system/019-runtime-and-project-optimization",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "claude project fixes",
+      "claude project fixes plan",
+      "claude project fixes tasks",
+      "claude project fixes acceptance criteria",
+      "claude project fixes goal",
+      "claude project fixes implementation summary"
+    ],
+    "key_topics": [
+      "claude",
+      "project",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "review",
+      "found",
+      "desktop"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "claude project/README.md",
+      "sk-product-owner/SKILL.md",
+      "benchmark/router/route_contract.py",
+      "mcp-click-up/SKILL.md",
+      "claude project/Custom Instructions.md",
+      "sk-product-owner/references/router-contract.md",
+      "benchmark/router/differential_corpus.json"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "claude project/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "route_contract.py",
+        "kind": "file",
+        "path": "benchmark/router/route_contract.py",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "router-contract.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/router-contract.md",
+        "source": "derived"
+      },
+      {
+        "name": "differential_corpus.json",
+        "kind": "config",
+        "path": "benchmark/router/differential_corpus.json",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Desktop",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Media Editor",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement The",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Each",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Fix",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The 005 review found that a Claude Desktop user is never told how to connect ClickUp and Figma to this Project, that the private ClickUp doc recipe is one call where two are needed, that just do it misses the Quick route, and seven smaller defects",
+    "created_at": "2026-10-21T16:36:41.820Z",
+    "last_save_at": "2026-11-02T15:31:01.002Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:58d85e6c2851bccb62a43fe35e744c34d47d6d9a807a6a09217bd1310d7df80b",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "77c0c35c8dd3eba032f8e86a0806a0def7ac7d2dca2fdb0fbe2cad814f40d6e1",
+      "plan.md": "b1b833c809502634c18523f8a90dee13601d65784794101c2dacb5870e2d377e",
+      "tasks.md": "54c112b0c23b90cb686f9814bb1102d2f7ed612b5c01fbb05b9024b0a06ccafb",
+      "implementation-summary.md": "5efe6638f53ee8ddcdc2a6fc21e3cf180b13fa42dbf77a53472f6f23f76f4392"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

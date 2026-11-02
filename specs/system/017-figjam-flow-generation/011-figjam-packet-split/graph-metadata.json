@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/017-figjam-flow-generation/011-figjam-packet-split",
+  "spec_folder": "system/017-figjam-flow-generation/011-figjam-packet-split",
+  "parent_id": "system/017-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "figjam packet split",
+      "sk-create-figjam",
+      "phase 11 figjam packet split",
+      "figjam packet split plan",
+      "figjam packet split tasks",
+      "figjam packet split acceptance criteria",
+      "figjam packet split goal",
+      "figjam packet split implementation summary"
+    ],
+    "key_topics": [
+      "figjam",
+      "packet",
+      "split",
+      "sk-create-figjam",
+      "phase",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary"
+    ],
+    "importance_tier": "normal",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "changelog/v1.0.0.0.md",
+      "benchmark/gates/check_hub.py",
+      "claude project/README.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.0.0.0.md",
+        "kind": "doc",
+        "path": "changelog/v1.0.0.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "check_hub.py",
+        "kind": "file",
+        "path": "benchmark/gates/check_hub.py",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "claude project/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Flow Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Clean Architecture",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Current Role",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Hand Flow",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Flow Mode draws boards, and the other five modes write ClickUp artifacts",
+    "created_at": "2026-10-20T14:48:19.087Z",
+    "last_save_at": "2026-11-02T15:30:41.475Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:cd4e207f0c7c1bf85d11f585fd682af9a3b31fd8f99540024cecfe6455d2668f",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "ef5d1761045dec0015a0a8a36dde5dce79d8a6fb1f0a79c03b507c663d7b6260",
+      "plan.md": "69fe8309cb4a0d8f91cee70e802798f4c7533642768aae08e1d8011393daa0d8",
+      "tasks.md": "d6c7a51e3ca577bb4470141f21e2b9619db2ce81be350772251453691a675275",
+      "implementation-summary.md": "1c02cbbabcee9c9d58ac341e7ea59038fc434edd3ab319e475a841a2b01ad0be"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}
