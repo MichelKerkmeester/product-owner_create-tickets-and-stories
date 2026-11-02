@@ -15,28 +15,64 @@ trigger_phrases:
 
 ## 1. OVERVIEW
 
-This folder holds anything you want the Product Owner system to use as a reference while it creates something: briefs, meeting notes, exported docs, screenshots, earlier examples or data. It is yours to fill.
+This folder holds anything you want the Product Owner system to use as a reference while it creates something: briefs, meeting notes, exported docs, screenshots, earlier examples or data. It is yours to fill, and whatever you add stays on your machine.
 
-The system does not read this folder on its own. Name the file in your request so the AI loads it, for example `use context/launch-brief.md as the source`.
+The system does not read this folder on its own. Name the file in your request so the AI loads it.
+
+| Question | Answer |
+| --- | --- |
+| What goes here | Any file the AI should read before it writes |
+| When the AI reads it | Only when your request names the file |
+| Who sees it | Only you. Git ignores everything here except this README and `.gitkeep` |
 
 ---
 
 ## 2. USAGE
 
 1. Copy or export the material into this folder. Markdown, plain text, PDF and images all work.
-2. Mention the file path in your request.
+2. Name the file in your request, for example:
+
+```text
+Use context/launch-brief.md as the source for this task.
+```
+
 3. Remove files once you no longer need them. Nothing here is cleaned up for you.
 
 ---
 
-## 3. WHAT STAYS PRIVATE
+## 3. STRUCTURE
 
-Everything you add here stays on your machine. The system's `.gitignore` keeps the contents of `context/` out of git, so nothing you put here is committed or shared with anyone who clones the repository.
+```text
+context/
+├── README.md        this file
+├── .gitkeep         keeps the empty folder in the repository
+└── <your files>     your reference material
+```
 
-| Path | Tracked by git |
+| Path | Tracked by git | Purpose |
+| --- | --- | --- |
+| `README.md` | ✅ Yes | Explains what the folder is for |
+| `.gitkeep` | ✅ Yes | Keeps the empty folder in the repository |
+| Any other file or folder | ❌ No | Your reference material, kept on your machine |
+
+---
+
+## 4. VERIFICATION
+
+Add a file, then run this from the system folder:
+
+```bash
+git status --short context/
+```
+
+Expected output: nothing. A file listed there would be committed, so check the system's `.gitignore` before you commit.
+
+---
+
+## 5. RELATED RESOURCES
+
+| Resource | What it is |
 | --- | --- |
-| `context/README.md` | ✅ Yes |
-| `context/.gitkeep` | ✅ Yes |
-| Any other file or folder in `context/` | ❌ No |
-
-To confirm, add a file and run `git status` from the system folder. The new file does not appear in the output.
+| [`../README.md`](../README.md) | The Product Owner system's own README |
+| [`../specs/personal/README.md`](../specs/personal/README.md) | Your private spec track for planning your own changes to this system |
+| [Skilled](https://github.com/MichelKerkmeester/skilled-agent-harness_spec-driven-loops) | The spec-driven agent framework these systems are built and maintained with: spec folders, memory, skills and agents |
