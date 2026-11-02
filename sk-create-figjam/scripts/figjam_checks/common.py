@@ -24,11 +24,19 @@ NEEDS_QUOTES = re.compile(r"[():/]")
 CAMEL_CASE_ID = re.compile(r"[A-Za-z][A-Za-z0-9]*")
 RESERVED_IDS = {"end", "subgraph", "graph"}
 MERMAID_KEYWORDS = {"style", "class", "classdef", "click", "default", "flowchart", "direction", "linkstyle"}
+# Emoji blocks, symbol blocks that render as emoji, single emoji-presentation symbols, variation
+# selectors, the zero-width joiner, the keycap mark and the tag characters. The class is built from
+# code points because literal astral and variation-selector characters in a regex are easy to misread.
+EMOJI_RANGES = (
+    (0x1F000, 0x1FAFF), (0x1FC00, 0x1FFFD), (0x2600, 0x27BF), (0x2300, 0x23FF), (0x2B00, 0x2BFF),
+    (0x2194, 0x2199), (0x21A9, 0x21AA), (0x203C, 0x203C), (0x2049, 0x2049), (0x2122, 0x2122),
+    (0x2139, 0x2139), (0x24C2, 0x24C2), (0x00A9, 0x00A9), (0x00AE, 0x00AE), (0x25AA, 0x25AB),
+    (0x25B6, 0x25B6), (0x25C0, 0x25C0), (0x25FB, 0x25FE), (0x3030, 0x3030), (0x303D, 0x303D),
+    (0x3297, 0x3297), (0x3299, 0x3299), (0xFE00, 0xFE0F), (0x200D, 0x200D), (0x20E3, 0x20E3),
+    (0xE0020, 0xE007F),
+)
 EMOJI = re.compile(
-    "[\U0001f000-\U0001faff\U0001fc00-\U0001fffd☀-➿⌀-⏿⬀-⯿"
-    "↔-↙↩↪‼⁉™ℹⓂ©®"
-    "▪▫▶◀◻-◾〰〽㊗㊙︀-️‍⃣"
-    "\U000e0020-\U000e007f]"
+    "[" + "".join(f"\\U{lo:08x}-\\U{hi:08x}" for lo, hi in EMOJI_RANGES) + "]"
 )
 # Symbols the ranges above cover that render as plain text unless a variation
 # selector asks for the emoji form, which the ranges still catch on its own.

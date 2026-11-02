@@ -87,8 +87,14 @@ const D = {
     twoWay: 'Both ways', request: 'Request', reply: 'Reply', async: 'Async message', asyncReply: 'Async reply',
   },
 };
+// THEME comes from a user-edited design file, so its keys are copied as own properties only
+// and the three keys that reach an object's prototype are never written.
+const UNSAFE_KEYS = new Set(['__proto__', 'constructor', 'prototype']);
 const T = (function merge(a, b) {
-  for (const k in b) a[k] = b[k] && typeof b[k] === 'object' && !Array.isArray(b[k]) && a[k] ? merge(a[k], b[k]) : b[k];
+  for (const k of Object.keys(b)) {
+    if (UNSAFE_KEYS.has(k)) continue;
+    a[k] = b[k] && typeof b[k] === 'object' && !Array.isArray(b[k]) && Object.prototype.hasOwnProperty.call(a, k) && a[k] ? merge(a[k], b[k]) : b[k];
+  }
   return a;
 })(D, THEME);
 
