@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/008-router-and-skill-slimming/001-retire-depth",
+  "spec_folder": "system/008-router-and-skill-slimming/001-retire-depth",
+  "parent_id": "system/008-router-and-skill-slimming",
+  "children_ids": [],
+  "migrated": true,
+  "migration_source": "legacy",
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [],
+    "key_topics": [
+      "delete",
+      "556-line",
+      "always-loaded",
+      "depth",
+      "reference",
+      "remove",
+      "seventeen",
+      "referencing",
+      "files",
+      "rehoming",
+      "anything",
+      "still"
+    ],
+    "importance_tier": "high",
+    "status": "planned",
+    "key_files": [
+      "spec.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Test Exports",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "1. METADATA",
+        "kind": "heading",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "2. SCOPE",
+        "kind": "heading",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "3. VERIFICATION",
+        "kind": "heading",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Specification: Retire the DEPTH framework",
+        "kind": "quoted",
+        "path": "spec.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Delete the 556-line always-loaded DEPTH reference and remove it from seventeen referencing files, rehoming anything still live rather than dropping it",
+    "created_at": "2026-09-03T00:00:00Z",
+    "last_save_at": "2026-11-02T15:30:33.140Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md"
+    ],
+    "source_fingerprint": "sha256:840911dd1cbb64e2b385adb4e459a4b7c1807754fa8b7cb1df4480eda73ce5c1",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "457074f0af8070e1f276aa76e245bdbb0a0d1b686cfef076ff5fc1939b221a9f"
+    },
+    "last_active_at": null
+  }
+}

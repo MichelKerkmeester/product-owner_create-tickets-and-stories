@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/019-runtime-and-project-optimization/002-kernel-size",
+  "spec_folder": "system/019-runtime-and-project-optimization/002-kernel-size",
+  "parent_id": "system/019-runtime-and-project-optimization",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "kernel size",
+      "kernel size plan",
+      "kernel size tasks",
+      "kernel size acceptance criteria",
+      "kernel size goal",
+      "kernel size implementation summary"
+    ],
+    "key_topics": [
+      "kernel",
+      "size",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "project",
+      "custom",
+      "instructions"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "claude project/Custom Instructions.md",
+      "benchmark/router/differential.py"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "differential.py",
+        "kind": "file",
+        "path": "benchmark/router/differential.py",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Router Code",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Delivery Protocol",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Each",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Change",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Acceptance Criteria",
+        "kind": "proper_noun",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The Project kernel, Custom Instructions.md, is 75 KB and loads on every turn, and its Section 11 Router Code alone is 27 KB of Python a Project never executes",
+    "created_at": "2026-10-21T13:45:30.687Z",
+    "last_save_at": "2026-11-02T15:31:00.351Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:29d9de204fe0255eca5f2724967709862de14c512b08120b47808335825a5232",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "6e72d69d2c03073dc915c6abe2c610a352e92f64e48c7832b82a3fd3ae97fb57",
+      "plan.md": "6287dfed88669258272911b960db2a031c84997398a8aa70c385f660472640ef",
+      "tasks.md": "b29c36b414a8608fc01514e21bd88394330fff46e68d21329d5ffff8ab59b8e7",
+      "implementation-summary.md": "4fdab8ca38ba610d724948553e070575f5594725f82fa5b41efd7e9e33a4f3db"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

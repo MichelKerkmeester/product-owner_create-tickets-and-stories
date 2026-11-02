@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/017-figjam-flow-generation/043-figjam-rerun-followups",
+  "spec_folder": "system/017-figjam-flow-generation/043-figjam-rerun-followups",
+  "parent_id": "system/017-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "figjam rerun follow-ups",
+      "phase 43 figjam follow-ups",
+      "figjam rerun follow-ups plan",
+      "figjam rerun follow-ups tasks",
+      "figjam rerun follow-ups acceptance criteria",
+      "packet goal",
+      "durable directive",
+      "completion criteria",
+      "goal binding",
+      "figjam rerun follow-ups implementation summary"
+    ],
+    "key_topics": [
+      "figjam",
+      "rerun",
+      "follow-ups",
+      "phase",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "packet",
+      "goal",
+      "durable",
+      "directive"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "sk-create-figjam/scripts/flow_check.py",
+      "benchmark/gates/run_gates.sh",
+      "manual-testing-playbook/manual-testing-playbook.md",
+      "changelog/v1.0.9.0.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "flow_check.py",
+        "kind": "file",
+        "path": "sk-create-figjam/scripts/flow_check.py",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "manual-testing-playbook.md",
+        "kind": "doc",
+        "path": "manual-testing-playbook/manual-testing-playbook.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.0.9.0.md",
+        "kind": "doc",
+        "path": "changelog/v1.0.9.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Each",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Project",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern One",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Claude Sonnet 5.5 high reran the 14 failures of v1.0.7.0 on v1.0.8.0 and 7 pass under the operator's rulings",
+    "created_at": "2026-10-26T18:02:43Z",
+    "last_save_at": "2026-11-02T15:30:58.405Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:9c8f1c0741d49da4fd801379240a251b12daf9f8bdf66ceae1dc09935e6f357a",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "f5a1319ee427b442e49b6d941fe3935d45c035e742e81c0394cf8016b2ad85cd",
+      "plan.md": "2807ac618e92585a0b0109fd3eafd09a4bcc9630ad877de12cf7b2fd6be30706",
+      "tasks.md": "bfc93d6ba51dd2079f26ba66dcd0a9e243c220fa55ea4dce7b096ff8b0dce162",
+      "implementation-summary.md": "1f83b126ebb9ac3c24bfcd41a83ec6ed50ad33c8b4d10499ad595f19197f7e00"
+    },
+    "last_active_at": null
+  }
+}

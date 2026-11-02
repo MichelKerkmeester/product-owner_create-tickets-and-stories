@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/017-figjam-flow-generation/048-figjam-neighbour-and-closing-fixes",
+  "spec_folder": "system/017-figjam-flow-generation/048-figjam-neighbour-and-closing-fixes",
+  "parent_id": "system/017-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "figjam neighbour and closing fixes",
+      "phase 48 figjam fixes",
+      "figjam neighbour and closing fixes plan",
+      "figjam neighbour and closing fixes tasks",
+      "figjam neighbour and closing fixes acceptance criteria",
+      "packet goal",
+      "durable directive",
+      "completion criteria",
+      "goal binding",
+      "figjam neighbour and closing fixes implementation summary"
+    ],
+    "key_topics": [
+      "figjam",
+      "neighbour",
+      "closing",
+      "phase",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "packet",
+      "goal",
+      "durable",
+      "directive"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "sk-create-figjam/scripts/figjam_checks/board_geometry.py",
+      "benchmark/gates/run_gates.sh",
+      "manual-testing-playbook/manual-testing-playbook.md",
+      "sk-create-figjam/SKILL.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "board_geometry.py",
+        "kind": "file",
+        "path": "sk-create-figjam/scripts/figjam_checks/board_geometry.py",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "manual-testing-playbook.md",
+        "kind": "doc",
+        "path": "manual-testing-playbook/manual-testing-playbook.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern One",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Claude Sonnet 5.5 high reran FJ-017, FJ-022, FJ-023 and FJ-036 on v1.0.13.0 and 1 of 4 passed: FJ-022 PASS at 21, FJ-023 FAIL at 21, FJ-036 FAIL at 22 and FJ-017 FAIL with no scorecard",
+    "created_at": "2026-10-28T00:53:24.280Z",
+    "last_save_at": "2026-11-02T15:30:58.030Z",
+    "save_lineage": "same_pass",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:29370cab6edf72837cc0c6cbfec66fc30244b96a4336e48d5afa66b87c16d0aa",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "7b4c6defc70d4edd9b2e34af61beb6dd5e9c8eb56bd3963eada1725d452cf88b",
+      "plan.md": "ddf1e2d86e96d2aa7d4237c3c643ce740db838314c1801ad129aa03532f5cb70",
+      "tasks.md": "d038c46f97f556f069cabac793376f05db60a2b4ea4c3a833a4d23ba488de5fd",
+      "implementation-summary.md": "adfd4375c1ae3dc6a10308588cf434d4c6c3f8d776684ce8636a8c83e4ba5121"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

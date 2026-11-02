@@ -30,3 +30,13 @@ specs/**/containment/
 # The vendored Code Mode server's dependencies and build, made locally by npm ci and npm run build
 mcp-code-mode/mcp-server/node_modules/
 mcp-code-mode/mcp-server/dist/
+
+# context/: reference material for the AI stays on this machine. The folder, .gitkeep and README.md are tracked
+/context/*
+!/context/.gitkeep
+!/context/README.md
+
+# specs/personal/: your own spec folders stay on this machine. The track, .gitkeep and README.md are tracked
+/specs/personal/*
+!/specs/personal/.gitkeep
+!/specs/personal/README.md

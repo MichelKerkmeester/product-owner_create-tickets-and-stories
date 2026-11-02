@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/017-figjam-flow-generation/001-research",
+  "spec_folder": "system/017-figjam-flow-generation/001-research",
+  "parent_id": "system/017-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "phase 1 research",
+      "figjam research",
+      "research plan",
+      "research tasks",
+      "research acceptance criteria",
+      "research goal",
+      "research implementation summary"
+    ],
+    "key_topics": [
+      "phase",
+      "research",
+      "figjam",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "product",
+      "owner"
+    ],
+    "importance_tier": "normal",
+    "status": "draft",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "research/research.md",
+      "mcp-figma/SKILL.md",
+      "mcp-figma/README.md",
+      "mcp-figma/scripts/doctor.sh",
+      ".skilled/skills/mcp-tooling/mode-registry.json",
+      ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md",
+      "sk-product-owner/ROUTER.md",
+      "sk-product-owner/SKILL.md",
+      "scripts/vendor-sync.py",
+      "benchmark/gates/run_gates.sh",
+      "research/lineages/deepseek/iterations/iteration-001.md",
+      "research/lineages/luna/iterations/iteration-001.md",
+      "research/lineages/deepseek/research.md",
+      "research/lineages/luna/research.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "research.md",
+        "kind": "doc",
+        "path": "research/research.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "mcp-figma/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "mcp-figma/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "doctor.sh",
+        "kind": "script",
+        "path": "mcp-figma/scripts/doctor.sh",
+        "source": "derived"
+      },
+      {
+        "name": "mode-registry.json",
+        "kind": "config",
+        "path": ".skilled/skills/mcp-tooling/mode-registry.json",
+        "source": "derived"
+      },
+      {
+        "name": "type-flowchart.md",
+        "kind": "doc",
+        "path": ".skilled/skills/sk-design/sk-design-diagram/references/types/type-flowchart.md",
+        "source": "derived"
+      },
+      {
+        "name": "ROUTER.md",
+        "kind": "doc",
+        "path": "sk-product-owner/ROUTER.md",
+        "source": "derived"
+      },
+      {
+        "name": "vendor-sync.py",
+        "kind": "file",
+        "path": "scripts/vendor-sync.py",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "iteration-001.md",
+        "kind": "doc",
+        "path": "research/lineages/deepseek/iterations/iteration-001.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "research/research.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Scope Boundary",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Product Owner cannot turn screenshots, Figma flows or product docs into diagrams",
+    "created_at": "2026-10-19T20:55:21Z",
+    "last_save_at": "2026-11-02T15:30:40.895Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "research/research.md"
+    ],
+    "source_fingerprint": "sha256:257cc81304aae21ec71f4306cc5449049388dc26926333cdc6c76ac3a0a2b8a6",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "be039149d9d9decce5dba75e1e9b36528d4fdc74f5b60c75f9bf8d6e6fe3554a",
+      "plan.md": "ddcdbe4aa80622cb9282d313a092bc5f49a079ff373a9cb92ef8ba4636ab695a",
+      "tasks.md": "be92b976fe1fedc4faf5b6d2bc85b6bb5c7586d3695dba9368da9aec10c362d9",
+      "implementation-summary.md": "3b47d0e7c929edb0daa4086decc3c0ecbd6c13a33d4172aa514202aa1c63895d",
+      "research/research.md": "3575c7c61a641decc39a95600225f9623cacaf8d3c7ffbec74c0a775adc5a6ea"
+    },
+    "last_active_at": null
+  }
+}

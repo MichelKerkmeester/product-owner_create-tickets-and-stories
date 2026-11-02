@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/014-product-owner-story-feedback",
+  "spec_folder": "system/014-product-owner-story-feedback",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "product owner story feedback",
+      "product owner story and epic template changes requested",
+      "product owner story feedback plan",
+      "product owner story feedback tasks",
+      "product owner story feedback implementation summary"
+    ],
+    "key_topics": [
+      "product",
+      "owner",
+      "story",
+      "feedback",
+      "epic",
+      "template",
+      "changes",
+      "requested",
+      "plan",
+      "tasks",
+      "implementation",
+      "summary"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md",
+      "sk-product-owner/assets/story-template.md",
+      "sk-product-owner/references/story-mode.md",
+      "claude project/Custom Instructions.md",
+      "sk-product-owner/changelog/v1.1.0.0.md",
+      "benchmark/format/validate-output-format.cjs"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "story-template.md",
+        "kind": "doc",
+        "path": "sk-product-owner/assets/story-template.md",
+        "source": "derived"
+      },
+      {
+        "name": "story-mode.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/story-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.1.0.0.md",
+        "kind": "doc",
+        "path": "sk-product-owner/changelog/v1.1.0.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "validate-output-format.cjs",
+        "kind": "file",
+        "path": "benchmark/format/validate-output-format.cjs",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner Story",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement The",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Every Story",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Every Delivery",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose The",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Story Mode",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Merge About",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The PM finds three things in generated Stories that slow them down",
+    "created_at": "2026-10-08T06:35:30Z",
+    "last_save_at": "2026-11-02T15:30:38.248Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:e862c69c1119bb85477489d176f3d3ca58b26a438d8d01ca8cab3d4ef424963e",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "6aee08f127121a4353048ae7f247055e76b9fb98957dfa207cbcb38062ba99c7",
+      "plan.md": "bd4586ca977b51f21d86b12c83b0c1ade5191cd20872f6d03adb7f6b98cdb6ea",
+      "tasks.md": "7ab71ab654c60bca0ab7e0346cb9d147d78b9691eaca474c78dcbdf8996e7d3f",
+      "implementation-summary.md": "ec2bf99f0630ffc675037f5c739df3764235c2fac63457c02e68cc8fa54ff0df"
+    },
+    "last_active_at": null
+  }
+}

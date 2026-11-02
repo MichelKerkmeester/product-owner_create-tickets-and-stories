@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/019-runtime-and-project-optimization/001-runtime-config",
+  "spec_folder": "system/019-runtime-and-project-optimization/001-runtime-config",
+  "parent_id": "system/019-runtime-and-project-optimization",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "runtime config",
+      "runtime config plan",
+      "runtime config tasks",
+      "runtime config acceptance criteria",
+      "runtime config goal",
+      "runtime config implementation summary"
+    ],
+    "key_topics": [
+      "runtime",
+      "config",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "product",
+      "owner",
+      "repository"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "scripts/code-mode.cjs",
+      "scripts/vendor-sync.py",
+      "scripts/tests/test_vendor_sync.py",
+      "benchmark/gates/check_hub.py"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "code-mode.cjs",
+        "kind": "file",
+        "path": "scripts/code-mode.cjs",
+        "source": "derived"
+      },
+      {
+        "name": "vendor-sync.py",
+        "kind": "file",
+        "path": "scripts/vendor-sync.py",
+        "source": "derived"
+      },
+      {
+        "name": "test_vendor_sync.py",
+        "kind": "file",
+        "path": "scripts/tests/test_vendor_sync.py",
+        "source": "derived"
+      },
+      {
+        "name": "check_hub.py",
+        "kind": "file",
+        "path": "benchmark/gates/check_hub.py",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Code Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement The Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Make",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Each",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Change",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The Product Owner repository vendors mcp-click-up and mcp-figma, but it carries no .utcpconfig.json, no .mcp.json and no opencode.json, and its Code Mode launcher lives only in the private .skilled tree, so a clone of the public repo cannot reach ClickUp or Figma through Code Mode",
+    "created_at": "2026-10-21T13:45:28.245Z",
+    "last_save_at": "2026-11-02T15:31:00.352Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:8558d74565d17645b3b8e44772a8545ef776d43b396d18e594cf1f2cab717b55",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "e5625f58fd7de85eb7bdef33fbfc7049c048faba7d39e35fc916d44c16911666",
+      "plan.md": "fc6aa963c35b144f02ffe7a8f61338859606c2ded3549dc79bef686173994afd",
+      "tasks.md": "25374b436ccb0e49704822d0e370cd230304d8d85aaa64b51a43f4a8a255e51f",
+      "implementation-summary.md": "554fbe5bf35059bad3b8caeeb559e8531ce39c08a5f225028447854da7dfef65"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

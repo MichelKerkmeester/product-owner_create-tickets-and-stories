@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/017-figjam-flow-generation/050-figjam-spec-board-learnings",
+  "spec_folder": "system/017-figjam-flow-generation/050-figjam-spec-board-learnings",
+  "parent_id": "system/017-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "figjam spec board learnings",
+      "phase 50 figjam",
+      "figjam status lane",
+      "figjam detail cards",
+      "figjam spec board learnings plan",
+      "figjam spec board learnings tasks",
+      "figjam spec board learnings acceptance criteria",
+      "packet goal",
+      "durable directive",
+      "completion criteria",
+      "goal binding",
+      "figjam spec board learnings implementation summary"
+    ],
+    "key_topics": [
+      "figjam",
+      "spec",
+      "board",
+      "learnings",
+      "phase",
+      "status",
+      "lane",
+      "detail",
+      "cards",
+      "plan",
+      "tasks",
+      "acceptance"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "benchmark/gates/run_gates.sh",
+      "claude project/Custom Instructions.md",
+      "sk-create-figjam/SKILL.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project Sync Loop",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Sync Loop",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Flow Mode",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Process Commission",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "On 2026-10-29 the operator had a FigJam board drawn by hand, outside Flow Mode, from a set of product prompt docs and their screens: two parties moving one shared record through a series of statuses",
+    "created_at": "2026-10-29T17:21:48.000Z",
+    "last_save_at": "2026-11-02T15:30:58.405Z",
+    "save_lineage": "same_pass",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:d10e79d2e2d242d472aee3146461148006d793064e84320c347b382464226864",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "4fb17d67b0f1cf3496665669b3fe3f573ae4f0994c4fe7b890af7826d1286ed8",
+      "plan.md": "5def7569b50a6169f53111ca20490e96fa057c874fe7fa1dd0a237940bbddb90",
+      "tasks.md": "3035e9d4a57dbbd9175f0423f25c06f839b8802db815203a4981dd29163d6b38",
+      "implementation-summary.md": "8c5f4cc6716b7de67fabdf69c51367a5fe941e592f0fb02347b573f9296bb698"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}
