@@ -94,6 +94,7 @@ The gates and the strict check ran first to get the counts. The label and blank-
 | `package_skill.py --check --strict` on `sk-product-owner` | 20 findings, all in `hvr-core.md`, `conciseness.md`, `conciseness-rationale.md`. Before: 105 |
 | `markdown link integrity` | ok |
 | `validate-output-format.cjs --system product-owner` | passed across 73 source files, after the trailing full stop came off the 8 label lines the list prefix made into bullets |
+| Shared cards, after the fix at source | the 20 card findings are gone, all 15 copies match the source bytes, and parity, residency and the format gate pass in all five systems. `gates.py check` in Sales Direct Communication reports no drift after `freeze` |
 | `run_parity.sh` | passes once the Sync Loop counts a loading label in list form as one a mirror never carries |
 <!-- /ANCHOR:verification -->
 
@@ -102,7 +103,8 @@ The gates and the strict check ran first to get the counts. The label and blank-
 <!-- ANCHOR:limitations -->
 ## Known Limitations
 
-1. **The skilled packet contract gate still fails.** It fails on the 20 shared-card findings until `z — Knowledge` fixes them and the five systems that copy them take the change.
+1. **Two Product Owner gates fail on newer render rules.** A Skilled sk-doc merge on 2026-11-05 made the strict check enforce new render checks, which raise 19 packet and 4 hub findings. None of them is among the 105 this packet set out to fix.
+2. **Project uploads wait on Michel.** The changed Rules files in five Projects, plus System - Interactive Mode in Product Owner, need replacing by hand.
 <!-- /ANCHOR:limitations -->
 
 ---

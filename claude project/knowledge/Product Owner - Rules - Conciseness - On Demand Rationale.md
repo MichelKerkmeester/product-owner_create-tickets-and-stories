@@ -10,19 +10,19 @@ trigger_phrases:
   - "worked cuts"
   - "block or advise"
   - "drop-in conciseness block"
-version: 0.100.0.0
+version: 0.100.1.0
 ---
 
 # Rules - Conciseness - On Demand Rationale
 
 The reasons behind the conciseness layer: the vocabulary candidates that were refused and why, the worked cut and keep pairs, the connective argument, and the roster of what blocks against what advises.
 
-**Loading Condition:** ON_DEMAND. Never read in order to write a document, since paying for a justification on every turn is what made the layer too expensive to load
-**Purpose:** Holds what a maintainer needs while changing a rule, so the always-loaded card can hold only what a writer needs while writing
-**Scope:** What the validator holds, the boundaries of the reconstruction test, the refused vocabulary with the correct writing each term would have failed, one worked pair per named cut rule, five worked keeps, the perimeter worked case, rhetorical against semantic connectives, a worked list-to-prose conversion, the check roster, the drop-in instruction block, and the division of labour with the Human Voice card
-**Output Path:** None. It explains the rules another file enforces, and writes no artifact
-**Authority:** `Rules - Conciseness` is the rule. This file is the reason, so a disagreement between them is a defect in this file. Section numbers below match the card, which is what lets a rule and its reason be found from either side
-**Read It When:** adding or removing a blocked term, changing a floor, moving a check between blocking and advisory, or answering why a rule is the shape it is. A writer producing a deliverable never needs it
+- **Loading Condition:** ON_DEMAND. Never read in order to write a document, since paying for a justification on every turn is what made the layer too expensive to load
+- **Purpose:** Holds what a maintainer needs while changing a rule, so the always-loaded card can hold only what a writer needs while writing
+- **Scope:** What the validator holds, the boundaries of the reconstruction test, the refused vocabulary with the correct writing each term would have failed, one worked pair per named cut rule, five worked keeps, the perimeter worked case, rhetorical against semantic connectives, a worked list-to-prose conversion, the check roster, the drop-in instruction block, and the division of labour with the Human Voice card
+- **Output Path:** None. It explains the rules another file enforces, and writes no artifact
+- **Authority:** `Rules - Conciseness` is the rule. This file is the reason, so a disagreement between them is a defect in this file. Section numbers below match the card, which is what lets a rule and its reason be found from either side
+- **Read It When:** adding or removing a blocked term, changing a floor, moving a check between blocking and advisory, or answering why a rule is the shape it is. A writer producing a deliverable never needs it
 
 ---
 
@@ -57,7 +57,9 @@ The test asks about a reader who does not already know the answer. That reader i
 
 ---
 
-## 3.3 TERMS THIS LAYER REFUSES TO BAN
+## 3. CUT RULES
+
+### 3.3 Terms this layer refuses to ban
 
 The blocking lists in Section 3.2 of the card are short on purpose, and the terms below were considered and left out. Each carries content in at least one shape the fleet ships, so banning it would fail correct writing. This is the record of the refusal. Re-proposing one of these terms means answering the case against it first.
 
@@ -71,9 +73,7 @@ The blocking lists in Section 3.2 of the card are short on purpose, and the term
 
 Twenty-one terms across seven categories, and the categories are the durable part. A candidate that falls into one of them is refused for the reason the category states, without a fresh corpus sweep.
 
----
-
-## 3.4 THE TWO CUT RULES THE VALIDATOR SETTLES ALONE
+### 3.4 The two cut rules the validator settles alone
 
 Both shapes are stated in the card. The discriminating examples are here, because precision comes from the near-miss rather than from the definition.
 
@@ -91,9 +91,7 @@ Both shapes are stated in the card. The discriminating examples are here, becaus
 
 Both were probed against all three export trees and all three source perimeters before they were promoted to blocking. Zero hits, so neither landed a gate that was red on arrival.
 
----
-
-## 3.5 WORKED CUTS
+### 3.5 Worked cuts
 
 One pair per named rule. The left side is what arrives, the right side is what ships. Every example is quoted, so a rule that bans a phrase can still show the phrase.
 
@@ -113,7 +111,9 @@ One pair per named rule. The left side is what arrives, the right side is what s
 
 ---
 
-## 4.1 WORKED KEEPS
+## 4. KEEP RULES
+
+### 4.1 Worked keeps
 
 Five pairs, each showing a cut that looked free and was not. The repair is on the right.
 
@@ -127,7 +127,9 @@ Grammar is never the target. A sentence missing its article reads as a headline,
 
 ---
 
-## 5.3 THE PROSE PERIMETER, AND WHY IT IS NOT THE WHOLE FILE
+## 5. OVER-COMPRESSION SIGNATURES
+
+### 5.3 The prose perimeter, and why it is not the whole file
 
 Measured across a whole file, both floors give the wrong answer on a structured artifact, because a headline list, a field block, a hashtag run and a variation label say nothing about compression either way. A deal template scoring zero connectives across its whole file is correct rather than telegraphic, and a check that reports it learns to be ignored, which removes the counterweight the cut side needs.
 
@@ -159,7 +161,9 @@ Read that cap as licence to strip connectives and the output arrives telegraphic
 
 ---
 
-## 7.2 A WORKED CONVERSION
+## 7. FORMAT
+
+### 7.2 A worked conversion
 
 A bulleted block reading "Router binds token", "Keyword pass runs second", "Total weight separates ties" carries three deleted relations. As prose it reads "The router binds an exact command token first, because a keyword-first pass would bind the wrong intent. Keyword scoring runs second, and total weight separates two lanes that reached the same band."
 

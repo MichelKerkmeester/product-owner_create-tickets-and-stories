@@ -7,18 +7,18 @@ trigger_phrases:
   - "human voice card"
   - "hard blockers"
   - "hvr self-scan"
-version: 0.100.0.0
+version: 0.100.1.0
 ---
 
 # Rules - Human Voice Core
 
 Human Voice hard blockers carried inline, loaded on every request so the banned terms are in view while writing.
 
-**Loading Condition:** ALWAYS
-**Purpose:** Carries the Human Voice hard blockers inline so the banned terms are in view on every request, without loading the full standard
-**Scope:** Punctuation, hard blocker words and phrases, banned metaphors and cliches, setup language, generalisation fixes, output warnings, structural bans, always-cut modifiers and the before-delivery self-scan report line
-**Output Path:** None. The card governs the wording of an artifact another file writes, and produces none of its own
-**Authority:** `Rules - Human Voice - EN` is the full standard, symlinked into every consuming system as its own human-voice reference. Carried here: punctuation, hard blocker words and phrases, banned metaphors, setup phrases, generalisation fixes, output warnings, structural bans, always-cut modifiers. Left there: soft deductions, context-dependent flags, voice directives, the precedence hierarchy and the point scoring. Load the standard ON_DEMAND to settle a borderline term or run a scored pass.
+- **Loading Condition:** ALWAYS
+- **Purpose:** Carries the Human Voice hard blockers inline so the banned terms are in view on every request, without loading the full standard
+- **Scope:** Punctuation, hard blocker words and phrases, banned metaphors and cliches, setup language, generalisation fixes, output warnings, structural bans, always-cut modifiers and the before-delivery self-scan report line
+- **Output Path:** None. The card governs the wording of an artifact another file writes, and produces none of its own
+- **Authority:** `Rules - Human Voice - EN` is the full standard, symlinked into every consuming system as its own human-voice reference. Carried here: punctuation, hard blocker words and phrases, banned metaphors, setup phrases, generalisation fixes, output warnings, structural bans, always-cut modifiers. Left there: soft deductions, context-dependent flags, voice directives, the precedence hierarchy and the point scoring. Load the standard ON_DEMAND to settle a borderline term or run a scored pass
 
 ---
 
