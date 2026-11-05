@@ -59,10 +59,11 @@ $ bash benchmark/gates/run_gates.sh   (after)
 - Add the blank line that stops a setext heading in `quality-scoring.md`, `router-contract.md`, `story-mode.md` and their two Project knowledge copies
 - Make `check_markdown_links.py` skip files git ignores, so the private `context/` folder no longer fails the link gate
 - Pull the vendored `mcp-figma` and `mcp-code-mode` copies to upstream, so vendor sync passes
-- Bump `sk-product-owner` to 1.2.9.0 and the hub to 1.0.21.0 with changelogs, and record the change in `SYNC.md`
+- Fix the 20 findings in the three shared cards at their source in `z — Knowledge/`, on Michel's decision, and copy the new bytes into all 15 copies across five systems, re-freezing the Sales Direct Communication snapshot
+- Bump `sk-product-owner` to 1.2.9.0, then 1.2.10.0 for the cards, and the hub to 1.0.21.0 with changelogs, and record the change in `SYNC.md`
 
 ### Out of Scope
-- The 20 findings in `hvr-core.md`, `conciseness.md` and `conciseness-rationale.md`. They are byte copies of `z — Knowledge` cards shared with four other systems, so a fix there needs its own change and Project re-uploads
+- The render checks a Skilled sk-doc merge added on 2026-11-05, after this work began. They raise new findings in the hub README, the examples and the card intros, and need their own change
 - The SKILL.md word count warning. It is advisory and does not fail the gate
 
 ### Files to Change
@@ -121,7 +122,7 @@ $ bash benchmark/gates/run_gates.sh   (after)
 <!-- ANCHOR:questions -->
 ## 7. OPEN QUESTIONS
 
-- Should the shared cards be fixed in `z — Knowledge` and spread to every system that copies them? This is left for Michel to decide
+- Should the shared cards be fixed in `z — Knowledge` and spread to every system that copies them? Decision: yes, by Michel on 2026-11-05
 <!-- /ANCHOR:questions -->
 
 ---

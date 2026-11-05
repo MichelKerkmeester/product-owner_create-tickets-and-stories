@@ -194,7 +194,7 @@
     ],
     "causal_summary": "`packageskill.py --check --strict` failed `sk-product-owner` on 105 render findings: bold label lines that join into one paragraph, and setext underlines that turn a line into a heading",
     "created_at": "2026-11-05T18:32:22Z",
-    "last_save_at": "2026-11-05T18:52:37.752Z",
+    "last_save_at": "2026-11-05T19:17:15.750Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -203,13 +203,13 @@
       "tasks.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:1530296d4c0bf705f0f0b2c811ad87804dff9423adc09986168735e176622c3f",
+    "source_fingerprint": "sha256:678dc16449d7ef5944ba91c3f6c1d46cae8cc132f7319ccc3e1a43102932821a",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "a3447c8dc6f309e4dc3813dee7e32276a46ee308df8bb05561a3d800aac4d921",
+      "spec.md": "18b7cb1fc1eda4a2ab935b4215680c70b9b6f1890cd49a23ea21c12df21ffaeb",
       "plan.md": "c845f0e105c72e685b152b4d4996904e55437cea17f185454be45462a7f5c378",
       "tasks.md": "43d76f0284ba92a68dce8e8b143a7239508f72a85418fe1dbc0de0b15eb9245d",
-      "implementation-summary.md": "eb0c69c4b5bf354af3cc8d51c56acbddc66207c97a62fc20e12d129c64409c0d"
+      "implementation-summary.md": "9e290e92b2449e696e1faac6b867c041957e28e531929a36d4e35fa035978810"
     },
     "last_active_at": null
   }

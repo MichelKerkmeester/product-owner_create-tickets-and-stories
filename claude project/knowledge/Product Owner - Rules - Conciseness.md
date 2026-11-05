@@ -8,19 +8,19 @@ trigger_phrases:
   - "reconstruction test"
   - "concise not robotic"
   - "over-compression"
-version: 0.100.0.0
+version: 0.100.1.0
 ---
 
 # Rules - Conciseness
 
 The conciseness layer above the Human Voice card: what to cut, what is never cut, and the test that decides which is which.
 
-**Loading Condition:** ALWAYS, and rules only. A file paid for on every turn stays small enough to be worth paying for
-**Purpose:** Carries the cut rules, the keep rules and the reconstruction test that decides between them, so every delivery is sized as well as checked for banned wording
-**Scope:** Quantity, structure and load-bearing-ness, so an artifact that clears every hard blocker is not still three times too long. Nothing routes to it, since being ALWAYS-loaded is what makes it unroutable
-**Output Path:** None. The layer governs the length of an artifact another file writes, and produces none of its own
-**Loads With:** the consuming system's skill entry and `Rules - Human Voice Core`. That card governs word choice and this file governs quantity, so both run on every delivery
-**Authority:** `Rules - Conciseness - On Demand Rationale` carries the reason behind every rule below, the vocabulary candidates that were refused, the worked cut and keep pairs, and the roster of what blocks against what advises. Load it ON_DEMAND before changing a rule, never in order to write one. Both files share one numbering, so a section present in one and absent here lives there and keeps its number. That is why this card runs 5, 7, 8, 12 rather than counting straight, and why renumbering it would break the Section 8 citations three skills carry
+- **Loading Condition:** ALWAYS, and rules only. A file paid for on every turn stays small enough to be worth paying for
+- **Purpose:** Carries the cut rules, the keep rules and the reconstruction test that decides between them, so every delivery is sized as well as checked for banned wording
+- **Scope:** Quantity, structure and load-bearing-ness, so an artifact that clears every hard blocker is not still three times too long. Nothing routes to it, since being ALWAYS-loaded is what makes it unroutable
+- **Output Path:** None. The layer governs the length of an artifact another file writes, and produces none of its own
+- **Loads With:** the consuming system's skill entry and `Rules - Human Voice Core`. That card governs word choice and this file governs quantity, so both run on every delivery
+- **Authority:** `Rules - Conciseness - On Demand Rationale` carries the reason behind every rule below, the vocabulary candidates that were refused, the worked cut and keep pairs, and the roster of what blocks against what advises. Load it ON_DEMAND before changing a rule, never in order to write one. Both files share one numbering, so a section present in one and absent here lives there and keeps its number. That is why this card runs 5, 7, 8, 12 rather than counting straight, and why renumbering it would break the Section 8 citations three skills carry
 
 ---
 
