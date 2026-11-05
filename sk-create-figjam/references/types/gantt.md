@@ -15,9 +15,9 @@ version: 1.0.5.0
 
 A gantt chart puts tasks and phases on a time axis, with milestones as points. The composer draws each section as a tinted band, each task as a named row with its bar on a shared axis and each milestone as a diamond, and picks the tick spacing from the chart's length. Neither it nor the generated fallback honours colour, axis, weekend or marker settings, so the check refuses them.
 
-**Loading Condition:** CONDITIONAL, when the Flow route draws a gantt chart
-**Purpose:** The grammar, rules, budget and read-back for a gantt chart
-**Pairs With:** `assets/templates/gantt.md`
+- **Loading Condition:** CONDITIONAL, when the Flow route draws a gantt chart
+- **Purpose:** The grammar, rules, budget and read-back for a gantt chart
+- **Pairs With:** `assets/templates/gantt.md`
 
 ---
 

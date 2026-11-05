@@ -17,13 +17,15 @@ version: 1.0.7.0
 
 The rules for colour, type and spacing on a FigJam board. The composer in `assets/compose-board.js` draws every board in the design `assets/figjam-design.md` holds, which ships as the tables below record, and every hex a model, a design or a note extension uses comes from the palette in Section 3. `scripts/flow_check.py` refuses any other.
 
-**Loading Condition:** CONDITIONAL, before the gate on every Flow route, and when a model or a note extension uses colour
-**Purpose:** Names the colour each kind draws in, the type scale, the grid, the palette pairs the check accepts and the measured contrast record
-**Scope:** The composed board, Mermaid `style`, `classDef` and `linkStyle` colours, sticky and pin colours for notes, and the contrast record the self-test re-measures
+- **Loading Condition:** CONDITIONAL, before the gate on every Flow route, and when a model or a note extension uses colour
+- **Purpose:** Names the colour each kind draws in, the type scale, the grid, the palette pairs the check accepts and the measured contrast record
+- **Scope:** The composed board, Mermaid `style`, `classDef` and `linkStyle` colours, sticky and pin colours for notes, and the contrast record the self-test re-measures
 
 ---
 
 ## 1. OVERVIEW
+
+### Purpose
 
 sk-design-diagram owns a skinnable palette with semantic roles and a record of where each value comes from. A FigJam board already has a palette of its own, and a colour the board recognises as a palette swatch can be recoloured from FigJam's colour picker by anyone on the board. So this guide does not skin the board. It picks FigJam's own pairs, gives each kind of node one of them and records what each pair measures.
 
@@ -36,6 +38,10 @@ Three rules carry the board:
 The board's look is a design a team can change. `assets/figjam-design.md` holds it as tokens: the palette pair each colour role draws, the role each kind takes, the accent, the type sizes, the line colours, the zone tints and the words on the key. The tables below record the shipped design. A design that changes a token changes the board and not this guide, and a token that breaks a gate in Section 4 or a floor in that file's Section 7 falls back to its shipped value with a warning.
 
 The board carries one accent, by default a heavy pink outline on the node, message or task the first glance names. A user flow or a process marks it with a `style` line and the check refuses a model that has none. The other five types may name it with a `%% focus:` line. A `style` line does not colour a node for the board. It tells the composer what the node means, as Section 3 sets out.
+
+### When to Use
+
+Before the gate on every Flow route, and whenever a model or a note extension uses colour.
 
 ---
 

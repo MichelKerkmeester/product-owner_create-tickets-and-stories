@@ -13,9 +13,9 @@ version: 1.0.1.0
 
 Copy/apply patterns for a gantt model. Each pattern passes `scripts/flow_check.py`, and `references/types/gantt.md` holds the rules.
 
-**Loading Condition:** CONDITIONAL, with `references/types/gantt.md`
-**Purpose:** Starting points for a gantt chart
-**Scope:** Two patterns. The provenance table and the reply shape are in `assets/flow-templates.md`
+- **Loading Condition:** CONDITIONAL, with `references/types/gantt.md`
+- **Purpose:** Starting points for a gantt chart
+- **Scope:** Two patterns. The provenance table and the reply shape are in `assets/flow-templates.md`
 
 ---
 

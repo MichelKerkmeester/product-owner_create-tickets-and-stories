@@ -14,9 +14,9 @@ version: 1.0.4.0
 
 Copy/apply patterns for a process model. Each pattern passes `scripts/flow_check.py`, and `references/types/process.md` holds the rules.
 
-**Loading Condition:** CONDITIONAL, with `references/types/process.md`
-**Purpose:** Starting points for a process or decision flowchart
-**Scope:** Four patterns. The provenance table and the reply shape are in `assets/flow-templates.md`
+- **Loading Condition:** CONDITIONAL, with `references/types/process.md`
+- **Purpose:** Starting points for a process or decision flowchart
+- **Scope:** Four patterns. The provenance table and the reply shape are in `assets/flow-templates.md`
 
 ---
 

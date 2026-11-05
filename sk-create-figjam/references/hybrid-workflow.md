@@ -16,9 +16,9 @@ version: 1.0.10.0
 
 A model cannot put a note on a step. The composer draws everything else a model carries: the title, the zones, the colour of every kind, the sequence's step numbers and the key. So the hybrid workflow adds one thing, notes, with `use_figma` inside the board the write returned. Every note is a new node on top of the board. A composed node is never moved, resized or restyled.
 
-**Loading Condition:** ON_DEMAND, when the request asks for notes, callouts or data on specific nodes that the model cannot carry
-**Purpose:** When to add notes to a composed board, the two recipes, their gate and their rollback, and how a board of several diagrams is planned
-**Scope:** Additions through `use_figma` on the composed route. The generated and `fj` routes add nothing beyond the diagram
+- **Loading Condition:** ON_DEMAND, when the request asks for notes, callouts or data on specific nodes that the model cannot carry
+- **Purpose:** When to add notes to a composed board, the two recipes, their gate and their rollback, and how a board of several diagrams is planned
+- **Scope:** Additions through `use_figma` on the composed route. The generated and `fj` routes add nothing beyond the diagram
 
 ---
 

@@ -13,9 +13,9 @@ version: 1.0.0.0
 
 Copy/apply patterns for a state model. Each pattern passes `scripts/flow_check.py`, and `references/types/state.md` holds the rules.
 
-**Loading Condition:** CONDITIONAL, with `references/types/state.md`
-**Purpose:** Starting points for a state diagram
-**Scope:** Three patterns. The provenance table and the reply shape are in `assets/flow-templates.md`
+- **Loading Condition:** CONDITIONAL, with `references/types/state.md`
+- **Purpose:** Starting points for a state diagram
+- **Scope:** Three patterns. The provenance table and the reply shape are in `assets/flow-templates.md`
 
 ---
 

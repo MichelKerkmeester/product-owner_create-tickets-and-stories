@@ -22,6 +22,8 @@ This file is the style every board `assets/compose-board.js` draws. Change a tok
 
 ## 1. OVERVIEW
 
+### Purpose
+
 A board is drawn from FigJam's own palette, so anyone on it can recolour a node from FigJam's picker later. A design never adds a colour. It chooses which FigJam pair carries which meaning.
 
 Three layers carry a colour from this file to a node:
@@ -31,6 +33,10 @@ Three layers carry a colour from this file to a node:
 - **Kinds** are what a model draws, such as a decision or a data store. Each kind names one role and the words its key entry shows, and its shape stays the composer's
 
 So `"goal": "lightTeal"` turns every goal on every board teal and the key says so, while the shapes, the layout and the routing stay as they are. The board is flat: no shadow, no gradient and no fill on the board itself beyond white.
+
+### Usage
+
+Read it before a board write for what each colour, size and key word means. To restyle every board, change a token in the Section 8 json block, and every board composed after it follows.
 
 ---
 

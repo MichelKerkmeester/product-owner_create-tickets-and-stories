@@ -16,9 +16,9 @@ version: 1.0.7.0
 
 A process is work that moves through steps, decisions and often several people or teams: a refund, an approval, a release, an onboarding checklist, a decision tree. It is a flowchart marked `%% type: process`, so the check holds it to process rules rather than user-flow rules.
 
-**Loading Condition:** CONDITIONAL, when the Flow route draws a process or decision flowchart
-**Purpose:** The grammar, rules, budget and read-back for a process
-**Pairs With:** `assets/templates/process.md`
+- **Loading Condition:** CONDITIONAL, when the Flow route draws a process or decision flowchart
+- **Purpose:** The grammar, rules, budget and read-back for a process
+- **Pairs With:** `assets/templates/process.md`
 
 ---
 

@@ -95,7 +95,7 @@ The gates and the strict check ran first to get the counts. The label and blank-
 | `markdown link integrity` | ok |
 | `validate-output-format.cjs --system product-owner` | passed across 73 source files, after the trailing full stop came off the 8 label lines the list prefix made into bullets |
 | Shared cards, after the fix at source | the 20 card findings are gone, all 15 copies match the source bytes, and parity, residency and the format gate pass in all five systems. `gates.py check` in Sales Direct Communication reports no drift after `freeze` |
-| Newer render checks | `sk-product-owner` and the hub pass `package_skill.py --check --strict`. The Conciseness card counts 1 to 8, and every citation moved with it |
+| Newer render checks | `sk-product-owner`, `sk-create-figjam` and the hub pass `package_skill.py --check --strict`. The Conciseness card counts 1 to 8, and every citation moved with it |
 | `run_parity.sh` | passes once the Sync Loop counts a loading label in list form as one a mirror never carries |
 <!-- /ANCHOR:verification -->
 
@@ -104,7 +104,7 @@ The gates and the strict check ran first to get the counts. The label and blank-
 <!-- ANCHOR:limitations -->
 ## Known Limitations
 
-1. **`sk-create-figjam` fails the newer render rules.** The packet contract leg reports 45 findings there, from the render checks Skilled added on 2026-11-05. `sk-product-owner` and the hub pass.
+1. **Vendor sync waits on a peer.** Upstream `mcp-code-mode/ROUTER.md` carries a peer session's uncommitted edit, so the gate reports it upstream-ahead until that commit lands and the copy is pulled.
 2. **Project uploads wait on Michel.** The changed Rules files in five Projects, plus System - Interactive Mode in Product Owner, need replacing by hand.
 <!-- /ANCHOR:limitations -->
 

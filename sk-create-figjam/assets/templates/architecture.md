@@ -13,9 +13,9 @@ version: 1.0.1.0
 
 Copy/apply patterns for an architecture model. Each pattern passes `scripts/flow_check.py`, and `references/types/architecture.md` holds the lanes and the allowed edges.
 
-**Loading Condition:** CONDITIONAL, with `references/types/architecture.md`
-**Purpose:** Starting points for an architecture
-**Scope:** Two patterns. The provenance table and the reply shape are in `assets/flow-templates.md`
+- **Loading Condition:** CONDITIONAL, with `references/types/architecture.md`
+- **Purpose:** Starting points for an architecture
+- **Scope:** Two patterns. The provenance table and the reply shape are in `assets/flow-templates.md`
 
 ---
 

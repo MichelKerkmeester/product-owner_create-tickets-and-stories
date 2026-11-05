@@ -17,13 +17,13 @@ version: 1.0.14.0
 
 Flow-mode guidance for FigJam diagrams. The workflow picks the diagram type the reader's question needs, turns screenshots, a Figma flow, a product doc, a schema or a plan into a Mermaid model of that type, checks it, writes it to a FigJam board and reads the board back before replying.
 
-**Loading Condition:** ALWAYS on a Flow route, as half of the routed pair with `assets/flow-templates.md`
-**Purpose:** Provides the flow-mode workflow, the type choice, the intake, the rules every type shares, the write routes and the delivery reply when `$flow`, `$figjam` or FigJam output wording is detected
-**Scope:** Type choice, intake per input type, the model, the pre-write check, the quality pass, the write gate, the composed, generated and `fj` write routes, the hybrid extension, the read-back and the reply
-**Output Path:** None. Flow Mode delivers a FigJam board URL and writes no file to `export/`
-**Loads With:** `assets/flow-templates.md` as the paired patterns file, the chosen type's file in `references/types/` and its template in `assets/templates/`, beside the Product Owner packet's always-loaded `../sk-product-owner/references/hvr-core.md` and `../sk-product-owner/references/conciseness.md`
-**Routed By:** `$flow`, `$figjam` and FigJam output wording such as "make a FigJam flow from these screenshots" or "draw the booking states in FigJam". The bare word "figma" routes to Task Mode as UI refinement feedback, and FigJam named as another artifact's subject keeps that artifact's route
-**Hands Off To:** the vendored `../mcp-figma/` packet for `figma-ds-cli` mechanics and its mutating gate, and `../sk-product-owner/references/interactive-mode.md` when the type, the sources, the target file or the order cannot be settled from what was supplied
+- **Loading Condition:** ALWAYS on a Flow route, as half of the routed pair with `assets/flow-templates.md`
+- **Purpose:** Provides the flow-mode workflow, the type choice, the intake, the rules every type shares, the write routes and the delivery reply when `$flow`, `$figjam` or FigJam output wording is detected
+- **Scope:** Type choice, intake per input type, the model, the pre-write check, the quality pass, the write gate, the composed, generated and `fj` write routes, the hybrid extension, the read-back and the reply
+- **Output Path:** None. Flow Mode delivers a FigJam board URL and writes no file to `export/`
+- **Loads With:** `assets/flow-templates.md` as the paired patterns file, the chosen type's file in `references/types/` and its template in `assets/templates/`, beside the Product Owner packet's always-loaded `../sk-product-owner/references/hvr-core.md` and `../sk-product-owner/references/conciseness.md`
+- **Routed By:** `$flow`, `$figjam` and FigJam output wording such as "make a FigJam flow from these screenshots" or "draw the booking states in FigJam". The bare word "figma" routes to Task Mode as UI refinement feedback, and FigJam named as another artifact's subject keeps that artifact's route
+- **Hands Off To:** the vendored `../mcp-figma/` packet for `figma-ds-cli` mechanics and its mutating gate, and `../sk-product-owner/references/interactive-mode.md` when the type, the sources, the target file or the order cannot be settled from what was supplied
 
 ---
 

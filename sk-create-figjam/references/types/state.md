@@ -15,9 +15,9 @@ version: 1.0.8.0
 
 A state diagram shows the states one thing can be in and what moves it between them: an order, a booking, a subscription, a review. It answers the questions a Product Owner gets asked most about status fields.
 
-**Loading Condition:** CONDITIONAL, when the Flow route draws a state diagram
-**Purpose:** The grammar, rules, budget and read-back for a state diagram
-**Pairs With:** `assets/templates/state.md`
+- **Loading Condition:** CONDITIONAL, when the Flow route draws a state diagram
+- **Purpose:** The grammar, rules, budget and read-back for a state diagram
+- **Pairs With:** `assets/templates/state.md`
 
 ---
 

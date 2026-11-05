@@ -15,9 +15,9 @@ version: 1.0.4.0
 
 A sequence shows who sends what to whom, in order. Neither the composer nor Figma's generated fallback draws much of Mermaid's sequence grammar, and the generator drops what it cannot draw in silence, so a sequence model here is written in the subset the board actually shows.
 
-**Loading Condition:** CONDITIONAL, when the Flow route draws a sequence
-**Purpose:** The subset, the rules, the budget and the read-back for a sequence
-**Pairs With:** `assets/templates/sequence.md`
+- **Loading Condition:** CONDITIONAL, when the Flow route draws a sequence
+- **Purpose:** The subset, the rules, the budget and the read-back for a sequence
+- **Pairs With:** `assets/templates/sequence.md`
 
 ---
 

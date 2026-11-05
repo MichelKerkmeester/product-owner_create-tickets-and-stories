@@ -15,10 +15,10 @@ version: 1.0.10.0
 
 Copy/apply patterns for Product Owner Flow Mode models.
 
-**Loading Condition:** CONDITIONAL, with `references/flow-mode.md` whenever Flow intent is selected
-**Purpose:** Provides the user-flow patterns, the provenance table every diagram type keeps and the reply shape every type delivers
-**Scope:** Five user-flow patterns, the intake questions, the provenance table and the reply shape. The other types keep their patterns in `assets/templates/`
-**Output Path:** None. The model is working data and the board is the deliverable
+- **Loading Condition:** CONDITIONAL, with `references/flow-mode.md` whenever Flow intent is selected
+- **Purpose:** Provides the user-flow patterns, the provenance table every diagram type keeps and the reply shape every type delivers
+- **Scope:** Five user-flow patterns, the intake questions, the provenance table and the reply shape. The other types keep their patterns in `assets/templates/`
+- **Output Path:** None. The model is working data and the board is the deliverable
 
 ---
 

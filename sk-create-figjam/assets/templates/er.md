@@ -13,9 +13,9 @@ version: 1.0.0.0
 
 Copy/apply patterns for an ER model. Each pattern passes `scripts/flow_check.py`, and `references/types/er.md` holds the rules.
 
-**Loading Condition:** CONDITIONAL, with `references/types/er.md`
-**Purpose:** Starting points for an ER diagram
-**Scope:** Three patterns. The provenance table and the reply shape are in `assets/flow-templates.md`
+- **Loading Condition:** CONDITIONAL, with `references/types/er.md`
+- **Purpose:** Starting points for an ER diagram
+- **Scope:** Three patterns. The provenance table and the reply shape are in `assets/flow-templates.md`
 
 ---
 

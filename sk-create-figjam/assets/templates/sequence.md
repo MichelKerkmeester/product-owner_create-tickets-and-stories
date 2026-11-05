@@ -13,9 +13,9 @@ version: 1.0.1.0
 
 Copy/apply patterns for a sequence model. Each pattern passes `scripts/flow_check.py`, and `references/types/sequence.md` holds the subset the board draws.
 
-**Loading Condition:** CONDITIONAL, with `references/types/sequence.md`
-**Purpose:** Starting points for a sequence
-**Scope:** Two patterns. The provenance table and the reply shape are in `assets/flow-templates.md`
+- **Loading Condition:** CONDITIONAL, with `references/types/sequence.md`
+- **Purpose:** Starting points for a sequence
+- **Scope:** Two patterns. The provenance table and the reply shape are in `assets/flow-templates.md`
 
 ---
 
