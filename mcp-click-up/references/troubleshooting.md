@@ -8,9 +8,10 @@ trigger_phrases:
   - "mcp connection failed"
   - "cupt done wrong status"
   - "team filter slow"
+  - "extra blank line under divider"
 importance_tier: "normal"
 contextType: "general"
-version: 1.0.0.3
+version: 1.0.2.0
 ---
 
 # mcp-click-up Troubleshooting Guide
@@ -21,7 +22,18 @@ Diagnostic guide for cupt CLI and official ClickUp MCP failures, covering instal
 
 ## 1. OVERVIEW
 
-Diagnostic reference for cupt CLI and official ClickUp MCP errors. Start with the Quick Diagnostics sequence (§3) before diving into specific issues. Most failures fall into four categories: installation (cupt not found), authentication (401/no credentials), status resolution (wrong status on completion), and MCP connection (manual misconfigured, credentials unavailable, stdio launch failure, or wrong tool name).
+### Purpose
+
+Diagnostic reference for cupt CLI and official ClickUp MCP errors.
+
+### When to Use
+
+Start with the Quick Diagnostics sequence (§3) before diving into specific issues. Most failures fall into four categories:
+
+- installation (cupt not found)
+- authentication (401/no credentials)
+- status resolution (wrong status on completion)
+- MCP connection (manual misconfigured, credentials unavailable, stdio launch failure, or wrong tool name)
 
 ---
 
@@ -274,6 +286,16 @@ cat .utcp_config.json | grep -A10 '"clickup_official"'
 
 ---
 
+### Doc page shows an extra blank line under every divider
+
+**Cause:** The page was created or rewritten through the MCP. Every divider the server writes gets an empty line under it, whatever markdown spelling the content uses. Pages built in the ClickUp editor do not have it.
+
+**Diagnosis:** Read the page with `content_format: "text/plain"`. Each `" \n"` line holds a divider with the gap. The `"text/md"` read-back looks the same with or without the gap, so it cannot answer this.
+
+**Fix:** No MCP call removes the gap. Delete the empty line under each divider in the ClickUp editor, by hand or through `mcp-chrome-devtools` in a logged-in browser. The steps and the check are in `references/mcp-tools.md` section 8, "Divider spacing on pages the server writes".
+
+---
+
 ## 9. PATH CONFLICT: `cu` VS `cupt`
 
 **Symptom:** Running `cu` instead of `cupt` opens a UUCP program (or errors)
@@ -324,7 +346,7 @@ cupt --version
 
 ## 12. GETTING HELP
 
-- cupt documentation: https://github.com/newz2000/cupt
-- ClickUp API docs: https://clickup.com/api/
-- Official MCP setup docs: https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server
-- Report cupt bugs: https://github.com/newz2000/cupt/issues
+- [cupt documentation](https://github.com/newz2000/cupt)
+- [ClickUp API docs](https://clickup.com/api/)
+- [Official MCP setup docs](https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server)
+- [Report cupt bugs](https://github.com/newz2000/cupt/issues)

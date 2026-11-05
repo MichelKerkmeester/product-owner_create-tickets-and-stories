@@ -1,0 +1,22 @@
+{
+  "specFolder": "system/021-clickup-doc-divider-spacing",
+  "description": "ClickUp doc divider spacing in the Product Owner push",
+  "keywords": [
+    "clickup",
+    "doc",
+    "divider",
+    "spacing",
+    "product",
+    "owner",
+    "push"
+  ],
+  "lastUpdated": "2026-11-05T17:19:22.338Z",
+  "specId": "021",
+  "folderSlug": "clickup-doc-divider-spacing",
+  "parentChain": [
+    "system"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "1"
+}
