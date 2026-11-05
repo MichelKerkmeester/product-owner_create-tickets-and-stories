@@ -19,13 +19,13 @@ Story-mode guidance for the two Barter house-format artifact kinds: **Stories** 
 
 Each shape carries its own scaffold and nothing else: [story-template.md](../assets/story-template.md) and [epic-template.md](../assets/epic-template.md). Everything the shapes share lives here, so a rule has one authority rather than two copies that drift apart.
 
-**Loading Condition:** ON-DEMAND
-**Purpose:** Provides the workflow, shared grammar, artifact-kind selection and delivery standards for `$story`, `$s`, `$prd`, `$p`, `$epic`, `$e` and clear natural-language Story or Epic requests
-**Scope:** New Stories and Epics, and source-safe refinement of existing ones
-**Output Path:** `export/[###] - Story-[description].md` for a new Story, `export/[###] - Epic-[description].md` for a new Epic, or `export/[original-source-filename].md` for a refinement
-**Loads With:** the one scaffold the resolved shape names and never more than one, `assets/story-template.md` or `assets/epic-template.md`, beside the always-loaded `references/hvr-core.md` and `references/conciseness.md`
-**Routed By:** `$story`, `$s`, `$prd`, `$p` for the Story shape, `$epic`, `$e` for the Epic shape, Story-lane framing read most specific first, a role denied a capability, initiative-scale wording, and the prd semantic topic on its 0.85 override
-**Hands Off To:** `references/interactive-mode.md` when the role, user value, requirement shape or artifact kind cannot be inferred safely, which returns here once the user answers
+- **Loading Condition:** ON-DEMAND
+- **Purpose:** Provides the workflow, shared grammar, artifact-kind selection and delivery standards for `$story`, `$s`, `$prd`, `$p`, `$epic`, `$e` and clear natural-language Story or Epic requests
+- **Scope:** New Stories and Epics, and source-safe refinement of existing ones
+- **Output Path:** `export/[###] - Story-[description].md` for a new Story, `export/[###] - Epic-[description].md` for a new Epic, or `export/[original-source-filename].md` for a refinement
+- **Loads With:** the one scaffold the resolved shape names and never more than one, `assets/story-template.md` or `assets/epic-template.md`, beside the always-loaded `references/hvr-core.md` and `references/conciseness.md`
+- **Routed By:** `$story`, `$s`, `$prd`, `$p` for the Story shape, `$epic`, `$e` for the Epic shape, Story-lane framing read most specific first, a role denied a capability, initiative-scale wording, and the prd semantic topic on its 0.85 override
+- **Hands Off To:** `references/interactive-mode.md` when the role, user value, requirement shape or artifact kind cannot be inferred safely, which returns here once the user answers
 
 ---
 
@@ -469,6 +469,7 @@ Load at most one worked example per request.
 - **Source artifact conflicts with supplied context:** user context wins. Flag the difference in prose rather than silently merging
 
 Final reminders: resolve the shape first, across Story and Epic, and load only that shape's scaffold. Narrative comes first. Acceptance criteria prove the promise and trace to requirements (Story) or state release outcomes (Epic). Requirements hold `- []` constraint items, never build steps. `## Delivery` is opt-in and closes the artifact where it is written. Export first and verify.
+
 ---
 
 Story Mode consultation rule:

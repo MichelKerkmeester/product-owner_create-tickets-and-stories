@@ -1,0 +1,20 @@
+{
+  "specFolder": "system/022-strict-contract-and-gate-cleanup",
+  "description": "Strict skill contract and gate cleanup",
+  "keywords": [
+    "strict",
+    "skill",
+    "contract",
+    "gate",
+    "cleanup"
+  ],
+  "lastUpdated": "2026-11-05T18:32:22.971Z",
+  "specId": "022",
+  "folderSlug": "strict-contract-and-gate-cleanup",
+  "parentChain": [
+    "system"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "1"
+}

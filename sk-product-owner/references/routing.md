@@ -15,13 +15,13 @@ version: 1.0.0.0
 
 The routing detail behind Section 2 of [`../SKILL.md`](../SKILL.md). Section 2 holds the command map and the resource loading levels, and this file holds the steps, the thresholds, the topic table and the Story shape rules a request passes through before it loads anything. [`router-contract.md`](router-contract.md) runs the same router as Python.
 
-**Loading Condition:** ON-DEMAND
-**Purpose:** Gives the routing steps, confidence thresholds, semantic topics and Story shape rules behind Section 2 of `../SKILL.md`
-**Scope:** Phase detection, confidence bands, the semantic topic table and Story shape resolution
-**Output Path:** None. It decides which resources load and writes no artifact
-**Loads With:** nothing. It is read alone when a routing decision needs more than Section 2
-**Routed By:** a reader who needs the routing detail, and `../../benchmark/router/differential.py`, which checks its topic table against the oracle
-**Hands Off To:** `router-contract.md` for the exact algorithm
+- **Loading Condition:** ON-DEMAND
+- **Purpose:** Gives the routing steps, confidence thresholds, semantic topics and Story shape rules behind Section 2 of `../SKILL.md`
+- **Scope:** Phase detection, confidence bands, the semantic topic table and Story shape resolution
+- **Output Path:** None. It decides which resources load and writes no artifact
+- **Loads With:** nothing. It is read alone when a routing decision needs more than Section 2
+- **Routed By:** a reader who needs the routing detail, and `../../benchmark/router/differential.py`, which checks its topic table against the oracle
+- **Hands Off To:** `router-contract.md` for the exact algorithm
 
 ---
 

@@ -16,13 +16,13 @@ version: 0.17.0.5
 
 The Smart Router expressed as running Python, one level below the prose routing rules in `../SKILL.md` Section 2 and `routing.md`. This is the algorithm those rules summarize, and `../../benchmark/router/differential.py` executes it to hold `../../benchmark/router/route_contract.py` equal to it.
 
-**Loading Condition:** ON-DEMAND
-**Purpose:** Provides the exact router algorithm, primary detection, phase order, semantic scoring, confidence thresholds, resource loading and Story/Epic shape resolution, for a reader who needs the precise regex or scoring behavior rather than the summarized rule
-**Scope:** Primary detection, phase order, semantic topic scoring, confidence thresholds, resource loading, Story/Epic shape resolution and the Doc context gate
-**Output Path:** None. This file decides which resources a request loads, and writes no artifact
-**Loads With:** nothing. It is read alone, one level below the prose routing rules in `../SKILL.md` Section 2 and `routing.md`, when a request needs the exact algorithm rather than the rule
-**Routed By:** nothing automatic. A reader opens it deliberately, and `../../benchmark/router/differential.py` extracts its Python fence on every gate run and holds `../../benchmark/router/route_contract.py` equal to it
-**Hands Off To:** nothing. It is the leaf authority that `../SKILL.md` Section 2 and `routing.md` summarize, and the resource map inside it names the mode reference each route loads
+- **Loading Condition:** ON-DEMAND
+- **Purpose:** Provides the exact router algorithm, primary detection, phase order, semantic scoring, confidence thresholds, resource loading and Story/Epic shape resolution, for a reader who needs the precise regex or scoring behavior rather than the summarized rule
+- **Scope:** Primary detection, phase order, semantic topic scoring, confidence thresholds, resource loading, Story/Epic shape resolution and the Doc context gate
+- **Output Path:** None. This file decides which resources a request loads, and writes no artifact
+- **Loads With:** nothing. It is read alone, one level below the prose routing rules in `../SKILL.md` Section 2 and `routing.md`, when a request needs the exact algorithm rather than the rule
+- **Routed By:** nothing automatic. A reader opens it deliberately, and `../../benchmark/router/differential.py` extracts its Python fence on every gate run and holds `../../benchmark/router/route_contract.py` equal to it
+- **Hands Off To:** nothing. It is the leaf authority that `../SKILL.md` Section 2 and `routing.md` summarize, and the resource map inside it names the mode reference each route loads
 
 ---
 
@@ -997,6 +997,7 @@ Every Doc selection passes through the contract's `finalize_artifact_route` gate
 Every Doc selection passes through `finalize_artifact_route`. `PENDING` means Doc intent is selected but drafting is blocked until the request and supplied sources are evaluated. Re-running the gate with the derived Doc context returns `BLOCKED` (loads Interactive resources, one consolidated question) or `READY` (drafting permitted).
 
 The gate tests substance as well as process. Its procedural checks confirm that a purpose, an audience, a source set, an authority, a conflict review and a scope exist, and all six can pass over sources that say nothing about what the document is being asked to claim. So the gate also matches the subjects the request asks for claims about against the subjects the supplied sources actually cover, and blocks on any subject no source reaches. A comparison request is the clearest case, because it names two subjects, a source set commonly covers one, and the missing half would otherwise be written from nothing.
+
 ---
 
 Operating model tables:

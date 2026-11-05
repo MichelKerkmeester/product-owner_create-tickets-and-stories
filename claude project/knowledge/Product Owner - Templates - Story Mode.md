@@ -444,6 +444,7 @@ Consult at most one worked example per request.
 - **Source artifact conflicts with supplied context:** user context wins. Flag the difference in prose rather than silently merging
 
 Final reminders: resolve the shape first, across Story and Epic, and load only that shape's scaffold. Narrative comes first. Acceptance criteria prove the promise and trace to requirements (Story) or state release outcomes (Epic). Requirements hold `- []` constraint items, never build steps. `## Delivery` is opt-in and closes the artifact where it is written. Render the Deliverable Block before the reply.
+
 ---
 
 The kernel points here for the Story Mode consultation rule:

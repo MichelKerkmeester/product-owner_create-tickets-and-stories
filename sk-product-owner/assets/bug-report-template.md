@@ -16,10 +16,10 @@ version: 0.17.0.7
 
 Copy/apply template for isolated Product Owner bug reports.
 
-**Loading Condition:** CONDITIONAL, with `references/bug-mode.md` whenever Bug intent is selected
-**Purpose:** Provides the bug report scaffold a new defect report is copied from
-**Scope:** Context, observed and expected behavior, reproduction steps, the evidence fields and the QA handoff checklist
-**Output Path:** `export/[###] - bug-[description].md`
+- **Loading Condition:** CONDITIONAL, with `references/bug-mode.md` whenever Bug intent is selected
+- **Purpose:** Provides the bug report scaffold a new defect report is copied from
+- **Scope:** Context, observed and expected behavior, reproduction steps, the evidence fields and the QA handoff checklist
+- **Output Path:** `export/[###] - bug-[description].md`
 
 ---
 

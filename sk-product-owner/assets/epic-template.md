@@ -16,10 +16,10 @@ version: 0.17.0.7
 
 An Epic frames an initiative and delegates requirements to its child stories.
 
-**Loading Condition:** CONDITIONAL, with `references/story-mode.md` when the resolved shape is Epic
-**Purpose:** Provides the Barter house-format Epic scaffold a new Epic is copied from
-**Scope:** The About umbrella with Problem, Goal and Solution, the Scope of child stories, release-level acceptance criteria and the opt-in Delivery close
-**Output Path:** `export/[###] - Epic-[description].md`, or `export/[original-source-filename].md` for a refinement
+- **Loading Condition:** CONDITIONAL, with `references/story-mode.md` when the resolved shape is Epic
+- **Purpose:** Provides the Barter house-format Epic scaffold a new Epic is copied from
+- **Scope:** The About umbrella with Problem, Goal and Solution, the Scope of child stories, release-level acceptance criteria and the opt-in Delivery close
+- **Output Path:** `export/[###] - Epic-[description].md`, or `export/[original-source-filename].md` for a refinement
 
 ---
 

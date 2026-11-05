@@ -17,13 +17,13 @@ version: 0.17.0.12
 
 The rubric behind the six blocking floors. Each dimension states what it measures, the one test that separates a clear pass from a near miss, and how it reads against each artifact shape the system now produces.
 
-**Loading Condition:** ON-DEMAND
-**Purpose:** Provides the scoring definitions, bands, per-shape readings and revision ladder behind the six blocking floors that `SKILL.md` Section 6 states, for a scorer who needs to settle a borderline dimension or name what a revision cycle must fix
-**Scope:** The six dimensions and their measures, the pass-versus-near-miss test per dimension, the three scoring bands, the per-shape reading across Task, Bug, Doc, Story and Epic, the relationship between the floors and the two always-loaded layers, the revision ladder and the return target per dimension
-**Output Path:** None. This file scores an artifact another file writes, and produces none of its own
-**Loads With:** nothing. The six floors and their pass-versus-near-miss tests sit inline in `SKILL.md` Section 6, so a delivery scores without this file, and this file is opened when a dimension sits on its boundary or a revision cycle needs a named target
-**Routed By:** nothing automatic. The Test phase opens it when a score is borderline, when a shape's reading is in doubt, or when a revision cycle needs to name the phase that owns the weak dimension
-**Hands Off To:** nothing. A failing dimension returns to the phase named for it in section 6, and `references/conciseness.md` owns the reconstruction test that section 5 borrows for Relevance
+- **Loading Condition:** ON-DEMAND
+- **Purpose:** Provides the scoring definitions, bands, per-shape readings and revision ladder behind the six blocking floors that `SKILL.md` Section 6 states, for a scorer who needs to settle a borderline dimension or name what a revision cycle must fix
+- **Scope:** The six dimensions and their measures, the pass-versus-near-miss test per dimension, the three scoring bands, the per-shape reading across Task, Bug, Doc, Story and Epic, the relationship between the floors and the two always-loaded layers, the revision ladder and the return target per dimension
+- **Output Path:** None. This file scores an artifact another file writes, and produces none of its own
+- **Loads With:** nothing. The six floors and their pass-versus-near-miss tests sit inline in `SKILL.md` Section 6, so a delivery scores without this file, and this file is opened when a dimension sits on its boundary or a revision cycle needs a named target
+- **Routed By:** nothing automatic. The Test phase opens it when a score is borderline, when a shape's reading is in doubt, or when a revision cycle needs to name the phase that owns the weak dimension
+- **Hands Off To:** nothing. A failing dimension returns to the phase named for it in section 6, and `references/conciseness.md` owns the reconstruction test that section 5 borrows for Relevance
 
 ---
 
@@ -178,6 +178,7 @@ A single failure is a repair. Two or more say the shape was wrong before the wor
 Each dimension returns to the phase that owns it. Completeness and Relevance return to Discover, because both are decided by what was gathered and scoped. Actionability and Accuracy return to Engineer, where end states and feasibility are set. Clarity and Mechanism Depth return to Prototype, where the words are chosen.
 
 Three cycles is the ceiling. After the third, deliver the best version with the quality line naming the dimension still short, such as `Clarity short after three cycles`, and never open a fourth. The note goes in the reply, never into the artifact.
+
 ---
 
 Delivery prohibitions:
