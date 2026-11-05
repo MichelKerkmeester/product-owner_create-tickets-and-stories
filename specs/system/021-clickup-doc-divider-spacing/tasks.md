@@ -56,6 +56,8 @@ contextType: "general"
 
 - [x] T008 Run the system gates (`benchmark/gates/run_gates.sh`). Verify: 4 of 15 fail, the same four as without this change: vendor drift on `mcp-figma` and `mcp-code-mode`, two image links in `context/`, and the two strict package contracts. Checks 13a, 13b and 13d pass at 1.0.19.0.
 - [x] T009 Validate this packet (`validate.sh --strict`). Verify: `RESULT: PASSED`.
+- [x] T010 Turn the offer into the required routine (`sk-product-owner/SKILL.md` 1.2.8.0, `AGENTS.md`, `SYNC.md`, changelogs v1.2.8.0 and v1.0.20.0). Verify: `rg -n 'Every page push ends|reported done only' sk-product-owner/SKILL.md` prints two lines.
+- [x] T011 Pull the vendored copy at `mcp-click-up` 1.2.11.0 after Skilled commit `8e2976d379`. Verify: `python3 V status --package mcp-click-up` prints `in step at 8e2976d379..., 188 files`.
 <!-- /ANCHOR:phase-3 -->
 
 ---

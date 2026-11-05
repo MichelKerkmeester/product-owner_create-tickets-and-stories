@@ -41,7 +41,8 @@
       "sk-product-owner/SKILL.md",
       "sk-product-owner/changelog/v1.2.7.0.md",
       "changelog/v1.0.19.0.md",
-      "mcp-click-up/SKILL.md",
+      "changelog/v1.0.20.0.md",
+      "sk-product-owner/changelog/v1.2.8.0.md",
       "benchmark/gates/run_gates.sh",
       "mcp-click-up/references/mcp-tools.md",
       "scripts/vendor-sync.py"
@@ -87,6 +88,18 @@
         "name": "v1.0.19.0.md",
         "kind": "doc",
         "path": "changelog/v1.0.19.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.0.20.0.md",
+        "kind": "doc",
+        "path": "changelog/v1.0.20.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.2.8.0.md",
+        "kind": "doc",
+        "path": "sk-product-owner/changelog/v1.2.8.0.md",
         "source": "derived"
       },
       {
@@ -178,23 +191,11 @@
         "kind": "proper_noun",
         "path": "tasks.md",
         "source": "derived"
-      },
-      {
-        "name": "Task Notation",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
-      },
-      {
-        "name": "Push Targets",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
       }
     ],
     "causal_summary": "Every new Doc artifact uses `  ` dividers, and a doc push lands as a new page through `clickupcreatedocumentpage`",
     "created_at": "2026-11-05T17:19:22Z",
-    "last_save_at": "2026-11-05T17:59:46.854Z",
+    "last_save_at": "2026-11-05T18:27:29.639Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -203,13 +204,13 @@
       "tasks.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:0b29b3f94ba14587096b5e826f0dee01ad03d2e87e77e9e11787e28c0b935f2e",
+    "source_fingerprint": "sha256:e110aeac676e7e04846c3eae144feb621ab3575c1af899086bc056aad3597f5a",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "2a1097c263138812717cadeb9fafe172fcedcbd2ac2e20d3177b1b1a9475e98d",
+      "spec.md": "65769d6fa23da7410ada1cdf759c171879d62346e4861e04fee553338a042921",
       "plan.md": "7d0a4c471f4f39b2c2e3f125b38f32920309d2577b332f4187511acdd63fe9bb",
-      "tasks.md": "822965bf28a9e3fc7dbf77e91b535f690a60773e9988d4bfc5b45e350d56e6fb",
-      "implementation-summary.md": "99412f05f13d3e369dcade20a315a3e65caa75807f7d5b16908202292078df83"
+      "tasks.md": "4fc7c705533cf531d3d6b6e58107cd989ddee562a685c31e3645899e22c80f73",
+      "implementation-summary.md": "f61cc2f626157d0e44eae4ec565922648f3bd89c6755a3ce7e72aa364b3a1bed"
     },
     "last_active_at": null
   }
