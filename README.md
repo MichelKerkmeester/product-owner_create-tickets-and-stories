@@ -4,11 +4,11 @@
 [![License](https://img.shields.io/github/license/MichelKerkmeester/product-owner_create-tickets-and-stories?style=for-the-badge&color=7bd88f&labelColor=222222)](LICENSE)
 [![Last Commit](https://img.shields.io/github/last-commit/MichelKerkmeester/product-owner_create-tickets-and-stories?style=for-the-badge&color=5ad4e6&labelColor=222222)](https://github.com/MichelKerkmeester/product-owner_create-tickets-and-stories/commits/main)
 
-> Like it? https://buymeacoffee.com/michelkerkmeester
+> Like it? [Buy me a coffee](https://buymeacoffee.com/michelkerkmeester)
 
 &nbsp;
 
-## 1. 📝 SUMMARY
+## 1. 📝 OVERVIEW
 
 A product owner in a folder: it turns a rough request into a ticket your developers can build from, a bug report, a Story or Epic, or a source-safe doc. When a flow is easier to see than to read, it draws that too, as a FigJam board.
 
@@ -32,7 +32,7 @@ Built for product managers and team leads who write the backlog and for the deve
 
 &nbsp;
 
-## 2. 🗺️ OVERVIEW
+## 2. 🗺️ HOW IT WORKS
 
 ### THE FOUNDATION
 
@@ -125,7 +125,7 @@ Both routes run the same rules and the same templates. Section 3 sets up either 
 | Artifacts | Task, subtask, bug report, Story, Epic, Doc and FigJam diagram |
 | Diagram types | Seven: user flow, process, architecture, sequence, state, ER and gantt |
 | Worked examples | 21 filled artifacts and 8 FigJam examples, one per diagram type and a second process with a status lane and detail cards |
-| Versions | Hub 1.0.22.0, `sk-product-owner` 1.2.10.0, `sk-create-figjam` 1.0.17.0, Project kernel v1.2.16 |
+| Versions | Hub 1.0.23.0, `sk-product-owner` 1.2.11.0, `sk-create-figjam` 1.0.17.0, Project kernel v1.2.17 |
 | License | MIT |
 
 &nbsp;
@@ -469,7 +469,7 @@ A backlog or doc route loads one mode reference and its template, never a second
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem.
 
-- `Custom Instructions.md` is the kernel, v1.2.16, and the routing authority inside the Project
+- `Custom Instructions.md` is the kernel, v1.2.17, and the routing authority inside the Project
 - `knowledge/` holds the 66 knowledge files you upload
 - `README.md` holds the upload steps and the smoke matrix
 
@@ -651,6 +651,6 @@ Your Figma plan or seat has used its monthly tool calls. Open your FigJam drafts
 
 **Release notes**
 
-- **[→ Hub v1.0.22.0](changelog/v1.0.22.0.md)** - the latest hub release
-- **[→ `sk-product-owner` v1.2.10.0](sk-product-owner/changelog/v1.2.10.0.md)** - the latest backlog and doc packet release
+- **[→ Hub v1.0.23.0](changelog/v1.0.23.0.md)** - the latest hub release
+- **[→ `sk-product-owner` v1.2.11.0](sk-product-owner/changelog/v1.2.11.0.md)** - the latest backlog and doc packet release
 - **[→ `sk-create-figjam` v1.0.17.0](sk-create-figjam/changelog/v1.0.17.0.md)** - the latest FigJam packet release

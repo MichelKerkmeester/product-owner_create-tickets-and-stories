@@ -12,6 +12,10 @@ Six dimensions on a ten-point scale, scored against every deliverable before exp
 
 A floor is blocking, not advisory. A dimension under its floor stops the export and names the work, which is why every dimension below carries a test a scorer can actually run rather than an adjective to agree with.
 
+### When to Use
+
+When a score is borderline, when a shape's reading is in doubt, or when a revision cycle needs to name the phase that owns the fix.
+
 ### What a score is not
 
 The score is internal. Two-layer transparency puts the quality line of the Delivery Reply Shape in the reply and never a Quality Score header inside the artifact, exactly as a Mode, Template, Perspectives or Energy header never enters one. For a Doc refinement the fidelity invariant makes that absolute, since injecting scoring metadata into preserved source structure is itself a fidelity break.

@@ -8,19 +8,19 @@ trigger_phrases:
   - "reconstruction test"
   - "concise not robotic"
   - "over-compression"
-version: 0.100.1.0
+version: 0.100.2.0
 ---
 
 # Rules - Conciseness
 
-The conciseness layer above the Human Voice card: what to cut, what is never cut, and the test that decides which is which.
+Use this card to size a delivery. It tells you which lines a reader can lose and which ones they need.
 
 - **Loading Condition:** ALWAYS, and rules only. A file paid for on every turn stays small enough to be worth paying for
 - **Purpose:** Carries the cut rules, the keep rules and the reconstruction test that decides between them, so every delivery is sized as well as checked for banned wording
 - **Scope:** Quantity, structure and load-bearing-ness, so an artifact that clears every hard blocker is not still three times too long. Nothing routes to it, since being ALWAYS-loaded is what makes it unroutable
 - **Output Path:** None. The layer governs the length of an artifact another file writes, and produces none of its own
 - **Loads With:** the consuming system's skill entry and `Rules - Human Voice Core`. That card governs word choice and this file governs quantity, so both run on every delivery
-- **Authority:** `Rules - Conciseness - On Demand Rationale` carries the reason behind every rule below, the vocabulary candidates that were refused, the worked cut and keep pairs, and the roster of what blocks against what advises. Load it ON_DEMAND before changing a rule, never in order to write one. Both files share one numbering, so a section present in one and absent here lives there and keeps its number. That is why this card runs 5, 7, 8, 12 rather than counting straight, and why renumbering it would break the Section 8 citations three skills carry
+- **Authority:** `Rules - Conciseness - On Demand Rationale` carries the reason behind every rule below, the vocabulary candidates that were refused, the worked cut and keep pairs, and the roster of what blocks against what advises. Load it ON_DEMAND before changing a rule, never in order to write one. Sections 1 to 7 carry the same numbers in both files, so a rule and its reason are found from either side. Section 8 has no counterpart there
 
 ---
 
@@ -113,17 +113,17 @@ Both floors are measured over paragraph prose alone, because a ratio only means 
 
 ---
 
-## 7. FORMAT
+## 6. FORMAT
 
 Prose, bullets and tables are not interchangeable, and picking wrong is how a short answer still reads badly. Three questions decide and the first yes wins: prose where the items differ in weight or their order encodes reasoning, a table where every row shares the same fields, bullets where the items are parallel, independently actionable and three to seven in number. Anything reaching the end without a yes is one paragraph pretending to be a list. Over-bulleting is the main way output turns robotic while looking concise, and the tells are verbless fragments, a bullet that needs the one above it to parse, and a list whose connectives were deleted so the items would line up. Heading density scales with length: under 300 words no headings, above that one per 150 to 400 words.
 
 ---
 
-## 8. WHAT A DELIVERABLE NEVER CONTAINS
+## 7. WHAT A DELIVERABLE NEVER CONTAINS
 
 The reasoning that produced an artifact, the score it earned and the assumptions it rests on are real work, and they belong in the reply beside the export path rather than inside the file the reader opens.
 
-### 8.1 The enumeration
+### 7.1 The enumeration
 
 - A scoring section of any kind, whether headed MEQT, HVR, DEAL scoring, Scoring, Self-scan, Hard blockers or Weakest
 - A dimension breakdown line, such as `M 4 · E 6 · Q 6 · T 3 · D 3` or its `D · E · A · L` equivalent
@@ -136,26 +136,26 @@ The reasoning that produced an artifact, the score it earned and the assumptions
 - A validation checklist, a gate roster or a template-compliance report
 - An attestation footer, a Mode header in visible text, a Template version in visible text, or any other processing metadata
 
-### 8.2 The one sanctioned exception
+### 7.2 The one sanctioned exception
 
 Line 1 may carry a single HTML comment header, which renders as nothing and is the designed home for the mode, the framework, the score and the template version. A `Stats:` or `Assumes:` line written as an HTML comment directly below sits inside the same exception, for the same reason. Invisible when rendered is the whole test, so a score written as visible text is a violation wherever it sits in the file and a score written as a comment is fine wherever it sits.
 
-### 8.3 Where the reporting goes instead
+### 7.3 Where the reporting goes instead
 
 The reply carries what the artifact does not: the export path with read-back confirmation where the runtime can write files, the score and its verdict at the depth the mode calls for, the voice self-scan line naming the terms fixed and the terms kept with their reason, the assumptions in a form the user can correct before they harden, a short summary and one next step. Producing that report is the point, and moving it out of the artifact does not make it optional.
 
-### 8.4 Two narrow overrides
+### 7.4 Two narrow overrides
 
 Where the artifact refines a supplied source, never inject a Mode, Template, Perspectives, Quality Score or Energy header into preserved source structure, since the comment header is for a new artifact and a refinement keeps the source's own opening. Where the packaging renders the deliverable in a panel instead of saving a file, that rendered block is the artifact and the enumeration applies to it unchanged, the report follows the block, and the path is reported as export-equivalent rather than claimed as a save.
 
 ---
 
-## 12. THE PRE-EXPORT PASS
+## 8. THE PRE-EXPORT PASS
 
 Run this after the voice pass and before the export, in order. The first two steps are the cut side and the last three are the keep side, and running only the cut side is the failure this layer exists to prevent.
 
 1. Delete every opener, recap and hedge stack named in Section 3.2, both shapes named in Section 3.4, and the question echo, intent narration, compliance acknowledgement and closing recap the body already carries, including the sentences after the phrase that opened one
 2. Apply the reconstruction test to every remaining cut you are tempted to make, and stop at the first one that fails
 3. Name every relation a reader would otherwise guess, then repair referent stripping, telegraphese and condition collapse in place
-4. Confirm one concrete instance survives per non-obvious rule, one caveat survives per action that could go wrong, and the format matches the content under Section 7
-5. Confirm the body carries nothing from Section 8.1, and that everything removed at this step now sits in the reply. This step is skipped most often, because the process material was correct work and deleting correct work feels wrong. It is not deleted, it moves
+4. Confirm one concrete instance survives per non-obvious rule, one caveat survives per action that could go wrong, and the format matches the content under Section 6
+5. Confirm the body carries nothing from Section 7.1, and that everything removed at this step now sits in the reply. This step is skipped most often, because the process material was correct work and deleting correct work feels wrong. It is not deleted, it moves

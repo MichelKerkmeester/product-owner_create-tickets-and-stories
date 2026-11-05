@@ -32,6 +32,10 @@ The Smart Router expressed as running Python, one level below the prose routing 
 
 The router itself, as code. Section 2 below is the whole of it, and the prose rules point here when they need the exact regex or score.
 
+### When to Use
+
+When a routing rule in prose needs its exact regex, keyword or score, or when a routing result needs checking against the code.
+
 ---
 
 ## 2. ROUTER ALGORITHM

@@ -18,7 +18,7 @@ version: 0.17.0.12
 
 # Product Owner - Assets - Interactive Response Templates
 
-Copy/apply response templates for Product Owner interactive intake, and the one reply shape every delivery and clarification reply follows.
+Copy the matching block when a request needs one question before drafting, and shape every reply on Section 3 so delivery and clarification read the same way.
 
 - **Loading Condition:** Section 3 ALWAYS, before the first reply of a session. Sections 1 and 2 CONDITIONAL, with `references/interactive-mode.md` whenever a request reaches the one-question flow
 - **Purpose:** Provides the intake prompts each artifact lane asks when required information is missing, so one question covers every unresolved decision, and the delivery reply shape every other surface points at
