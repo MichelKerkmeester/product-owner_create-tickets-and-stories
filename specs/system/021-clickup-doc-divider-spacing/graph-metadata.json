@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/021-clickup-doc-divider-spacing",
+  "spec_folder": "system/021-clickup-doc-divider-spacing",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "clickup doc divider spacing",
+      "clickup doc divider spacing in the product owner push",
+      "clickup doc divider spacing plan",
+      "clickup doc divider spacing tasks",
+      "clickup doc divider spacing implementation summary"
+    ],
+    "key_topics": [
+      "clickup",
+      "doc",
+      "divider",
+      "spacing",
+      "product",
+      "owner",
+      "push",
+      "plan",
+      "tasks",
+      "implementation",
+      "summary",
+      "every"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md",
+      "sk-product-owner/SKILL.md",
+      "sk-product-owner/changelog/v1.2.7.0.md",
+      "changelog/v1.0.19.0.md",
+      "mcp-click-up/SKILL.md",
+      "benchmark/gates/run_gates.sh",
+      "mcp-click-up/references/mcp-tools.md",
+      "scripts/vendor-sync.py"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.2.7.0.md",
+        "kind": "doc",
+        "path": "sk-product-owner/changelog/v1.2.7.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.0.19.0.md",
+        "kind": "doc",
+        "path": "changelog/v1.0.19.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "mcp-tools.md",
+        "kind": "doc",
+        "path": "mcp-click-up/references/mcp-tools.md",
+        "source": "derived"
+      },
+      {
+        "name": "vendor-sync.py",
+        "kind": "file",
+        "path": "scripts/vendor-sync.py",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Every Doc",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement Every",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Section",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Two",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Pointer",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Push Targets",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Every new Doc artifact uses `  ` dividers, and a doc push lands as a new page through `clickupcreatedocumentpage`",
+    "created_at": "2026-11-05T17:19:22Z",
+    "last_save_at": "2026-11-05T17:53:24.392Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:82eff3b60b9d18b7a065e3d09912711d6fb742b7b8298d38de840b5834a3727e",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "2a1097c263138812717cadeb9fafe172fcedcbd2ac2e20d3177b1b1a9475e98d",
+      "plan.md": "7d0a4c471f4f39b2c2e3f125b38f32920309d2577b332f4187511acdd63fe9bb",
+      "tasks.md": "fc2199dc9b809cb98176434b1e18a38f8b93774522a1204cf90363f6e5848f4a",
+      "implementation-summary.md": "2712a4453e599267bd0524c4b4d86d708d2986b01506b0a9886dff7f99653def"
+    },
+    "last_active_at": null
+  }
+}

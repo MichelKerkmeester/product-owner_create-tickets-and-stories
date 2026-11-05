@@ -2,10 +2,8 @@
 name: mcp-click-up
 description: Routes ClickUp between cupt CLI (daily ops) and the hosted MCP (task create, docs, search). Embedded install and safety rules.
 allowed-tools: [Bash, Edit, Glob, Grep, mcp__code_mode__call_tool_chain, Read, Write]
-version: 1.2.8.0
+version: 1.2.10.0
 ---
-
-<!-- Keywords: clickup, click up, cupt, clickup tasks, my clickup tasks, mark task done, complete a clickup task, log time in clickup, start timer, stop timer, add note to task, tag task, process work queue, task queue, create clickup task, clickup document, clickup doc page, search clickup, clickup mcp, install cupt -->
 
 # mcp-click-up Skill
 
@@ -13,7 +11,7 @@ ClickUp task management via **cupt CLI** (primary) and **official ClickUp MCP** 
 
 ---
 
-## MARKDOWN FORMATTING CONTRACT — READ BEFORE ANY CLICKUP WRITE
+## 0. MARKDOWN FORMATTING CONTRACT — READ BEFORE ANY CLICKUP WRITE
 
 ClickUp shows plain text literally. Markdown sent through a plain-text path shows up in the ClickUp UI as raw `### Heading`, `**bold**`, and `- [ ]` text. Whenever the content contains ANY markdown syntax, use the markdown-aware parameter for the operation. On the Code Mode manual (`clickup_official`), checked against the server's schema on 2026-10-08:
 
@@ -28,6 +26,8 @@ On the raw ClickUp v2 REST API, `markdown_content` is also accepted on task upda
 **Push shape for a markdown artifact:** the document's H1 becomes the task `name` (drop it from the body); strip internal HTML comments and processing metadata; everything else travels verbatim.
 
 **Failure symptom:** literal `###` or `**` visible in a ClickUp task means someone used the plain `description` field. That is the defect, not a rendering bug.
+
+**Doc page dividers:** a page the server creates or rewrites shows an empty line under every divider, and no MCP call removes it. Check with the `content_format: "text/plain"` read-back, because the markdown read-back cannot show it. Fix it in the ClickUp editor, and tell the user before pushing new pages. Steps: `references/mcp-tools.md` section 8.
 
 Worked examples: `references/mcp-tools.md` (Markdown Transport Contract + invocation patterns).
 
@@ -130,6 +130,19 @@ This is ClickUp's official hosted MCP server at `https://mcp.clickup.com/mcp`.
 The registered `clickup_official` manual reaches it over stdio through `npx -y mcp-remote`. It authenticates with OAuth, so the first launch needs one approval in the browser. The manual reads no API key.
 The npm package `@clickup/mcp-server` returned 404 on 2026-07-10 and again on 2026-10-08. The older API-key route no longer works.
 
+**When to prefer MCP:**
+- Creating a task or subtask whose description carries markdown, since `cupt add` sends only the plain `description` field
+- Creating documents and reading or writing their pages
+- Searching the workspace by keyword, or filtering tasks across lists by field
+- Creating or updating lists and folders
+- Task relations, comment threads, chat and reminders
+
+**Limitations:**
+- No dry-run for task completion (always specify correct status)
+- No offline mode
+- Requires Code Mode MCP to be configured
+- No goals, bulk create or update, webhooks, checklist edits, spaces, views, templates, guests, user groups or audit logs. Its operator catalog had nothing enabled on 2026-10-08
+
 **Prerequisites:**
 - Code Mode MCP configured, with the `clickup_official` manual in `.utcp_config.json` (not `opencode.json`, that file is for native/non-Code-Mode MCP tools)
 - One OAuth approval for ClickUp in the browser, on the first launch
@@ -168,19 +181,6 @@ Top-level `await` is rejected, and a returned value comes back as `{}`. Wrap cal
 })();
 ```
 The document tool takes no content. Add text with `clickup_create_document_page` and `content_format: "text/md"`. See `references/mcp-tools.md` sections 7 and 8.
-
-**When to prefer MCP:**
-- Creating a task or subtask whose description carries markdown, since `cupt add` sends only the plain `description` field
-- Creating documents and reading or writing their pages
-- Searching the workspace by keyword, or filtering tasks across lists by field
-- Creating or updating lists and folders
-- Task relations, comment threads, chat and reminders
-
-**Limitations:**
-- No dry-run for task completion (always specify correct status)
-- No offline mode
-- Requires Code Mode MCP to be configured
-- No goals, bulk create or update, webhooks, checklist edits, spaces, views, templates, guests, user groups or audit logs. Its operator catalog had nothing enabled on 2026-10-08
 
 ---
 
@@ -293,9 +293,7 @@ The document tool takes no content. Add text with `clickup_create_document_page`
 - `references/cupt-commands.md` — Full cupt command reference with agent patterns
 - `references/mcp-tools.md`: the 61 live MCP tools, invocation, markdown contract and what the server cannot do
 - `references/troubleshooting.md` — Auth, status, team-filter, MCP failures
-- `INSTALL-GUIDE.md`: step-by-step install with validation checkpoints, at the packet root
-
-Install guide (front door): [INSTALL-GUIDE.md](INSTALL-GUIDE.md) — condensed top-level install doc; the phase-validation reference above stays the router's INSTALL-intent target.
+- [INSTALL-GUIDE.md](INSTALL-GUIDE.md): the condensed top-level install front door at the packet root, with step-by-step install and validation checkpoints, and the router's INSTALL-intent target
 
 **Scripts:**
 - `scripts/install.sh` — Installs cupt + prints MCP config snippet
@@ -314,6 +312,6 @@ Install guide (front door): [INSTALL-GUIDE.md](INSTALL-GUIDE.md) — condensed t
 - `mcp-code-mode` — Code Mode MCP orchestration (used for official MCP invocation)
 
 **External:**
-- cupt repository: https://github.com/newz2000/cupt
-- Official ClickUp MCP setup docs: https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server-1
-- ClickUp API tokens: https://app.clickup.com/settings/apps
+- [cupt repository](https://github.com/newz2000/cupt)
+- [Official ClickUp MCP setup docs](https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server-1)
+- [ClickUp API tokens](https://app.clickup.com/settings/apps)

@@ -2,7 +2,7 @@
 name: sk-product-owner
 description: "Writes Barter tasks, bug reports, Stories, Epics and source-safe product or engineering docs as ClickUp-ready markdown."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.2.6.0
+version: 1.2.7.0
 ---
 
 <!-- Keywords: product-owner, backlog, task, subtask, parent task, bug report, acceptance criteria, story mode, user story, prd, product requirements document, epic, doc mode, product documentation, engineering documentation, ClickUp, $task, $bug, $doc, $story, $prd, $epic, $quick -->
@@ -267,6 +267,8 @@ Where a push lands is a local setting, so a public copy of this repository never
 - When none fits or the file is absent, it asks where and recommends a private doc: `Where in ClickUp should this go? Send a list link, or I'll upload it as a private doc, which I recommend for now.` A link the user sends is used for this push only and is never written to the file
 - A list's id follows `/v/li/` in its link, and a doc's `document_id` follows `/v/dc/`. A page in a named doc is one `clickup_create_document_page` call with that `document_id`, the artifact's H1 as `name`, the artifact as `content` and `content_format: "text/md"`
 - A private doc takes two calls: `clickup_create_document` with `name`, `parent`, `visibility: "PRIVATE"` and `create_page: false`, which takes no content, then `clickup_create_document_page` on the new document the same way. It goes under the fitting list, otherwise under the space or folder the user names
+- A new doc page shows an empty line under every `* * *` divider. The ClickUp MCP writes each divider that way, and no MCP call removes the gap
+- The push reply says so and offers the editor pass in `../mcp-click-up/references/mcp-tools.md` Section 8. That pass edits the page again, so it waits for its own yes
 - When a link does not show which container it is, `clickup_get_workspace_hierarchy` settles it before the push
 - A link's value never enters an export, a spec document or any tracked file, and every push still waits for the user's explicit yes
 
