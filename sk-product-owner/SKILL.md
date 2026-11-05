@@ -2,7 +2,7 @@
 name: sk-product-owner
 description: "Writes Barter tasks, bug reports, Stories, Epics and source-safe product or engineering docs as ClickUp-ready markdown."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.2.10.0
+version: 1.2.11.0
 ---
 
 <!-- Keywords: product-owner, backlog, task, subtask, parent task, bug report, acceptance criteria, story mode, user story, prd, product requirements document, epic, doc mode, product documentation, engineering documentation, ClickUp, $task, $bug, $doc, $story, $prd, $epic, $quick -->
@@ -75,7 +75,7 @@ Canonical perspectives are User, Business, Technical, Risk and Delivery. Standar
 
 The internal layer runs the full phase flow, cognitive rigor, quality scoring and validation. The external layer is the Delivery Reply Shape in `assets/interactive-response-templates.md` Section 3 alone.
 
-A delivered artifact carries the deliverable and nothing about how it was produced. `references/conciseness.md` Section 8 enumerates what that excludes, its one exception (a line-1 HTML comment header) and where the reporting goes instead: the reply. Two come up most often:
+A delivered artifact carries the deliverable and nothing about how it was produced. `references/conciseness.md` Section 7 enumerates what that excludes, its one exception (a line-1 HTML comment header) and where the reporting goes instead: the reply. Two come up most often:
 
 - A validation checklist, a gate roster or a template-compliance report
 - An `[Assumes: ...]` tag, in a task, a bug, a Doc, a Story or an Epic
@@ -111,7 +111,7 @@ A refined task keeps its section names, order and references unless the user ask
 
 For Doc work, classify every material claim as current behavior, approved direction, proposal, retired material or unknown, and resolve authority by `references/doc-mode.md` Section 4, where recency and duplicate bytes are never authority. New technical analysis is an explicitly labelled proposal with its evidence, trade-offs, decision owner and approval gap visible.
 
-A new Doc follows the ClickUp Output Contract in `references/doc-mode.md` Section 1, and a new Story or Epic the house grammar in `references/story-mode.md` Section 3. Both override the dash-bullet guidance in Rules. Bullet items never end with a full stop. Doc Mode's em-dash exceptions and the refinement header rule in `references/conciseness.md` Section 8.4 are narrow overrides, never general permissions.
+A new Doc follows the ClickUp Output Contract in `references/doc-mode.md` Section 1, and a new Story or Epic the house grammar in `references/story-mode.md` Section 3. Both override the dash-bullet guidance in Rules. Bullet items never end with a full stop. Doc Mode's em-dash exceptions and the refinement header rule in `references/conciseness.md` Section 7.4 are narrow overrides, never general permissions.
 
 ### Clarification Protocol
 

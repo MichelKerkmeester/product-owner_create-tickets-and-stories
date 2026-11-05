@@ -7,12 +7,12 @@ trigger_phrases:
   - "human voice card"
   - "hard blockers"
   - "hvr self-scan"
-version: 0.100.1.0
+version: 0.100.2.0
 ---
 
 # Rules - Human Voice Core
 
-Human Voice hard blockers carried inline, loaded on every request so the banned terms are in view while writing.
+Keep this card in view while writing. It lists what fails a piece outright and the edits that are always free to make.
 
 - **Loading Condition:** ALWAYS
 - **Purpose:** Carries the Human Voice hard blockers inline so the banned terms are in view on every request, without loading the full standard
@@ -27,6 +27,10 @@ Human Voice hard blockers carried inline, loaded on every request so the banned 
 ### Purpose
 
 A hard blocker is a failure, not a deduction. An always-cut edit carries no penalty. Only hard blockers are counted on the self-scan line.
+
+### When to Use
+
+On every request, while writing and again before delivery. Open `Rules - Human Voice - EN` as well only to settle a borderline term or run a scored pass.
 
 ---
 

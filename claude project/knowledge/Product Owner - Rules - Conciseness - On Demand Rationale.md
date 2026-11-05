@@ -10,18 +10,18 @@ trigger_phrases:
   - "worked cuts"
   - "block or advise"
   - "drop-in conciseness block"
-version: 0.100.1.0
+version: 0.100.2.0
 ---
 
 # Rules - Conciseness - On Demand Rationale
 
-The reasons behind the conciseness layer: the vocabulary candidates that were refused and why, the worked cut and keep pairs, the connective argument, and the roster of what blocks against what advises.
+Open this file before you change a conciseness rule. It shows why each rule has its shape and which alternatives were already turned down.
 
 - **Loading Condition:** ON_DEMAND. Never read in order to write a document, since paying for a justification on every turn is what made the layer too expensive to load
 - **Purpose:** Holds what a maintainer needs while changing a rule, so the always-loaded card can hold only what a writer needs while writing
 - **Scope:** What the validator holds, the boundaries of the reconstruction test, the refused vocabulary with the correct writing each term would have failed, one worked pair per named cut rule, five worked keeps, the perimeter worked case, rhetorical against semantic connectives, a worked list-to-prose conversion, the check roster, the drop-in instruction block, and the division of labour with the Human Voice card
 - **Output Path:** None. It explains the rules another file enforces, and writes no artifact
-- **Authority:** `Rules - Conciseness` is the rule. This file is the reason, so a disagreement between them is a defect in this file. Section numbers below match the card, which is what lets a rule and its reason be found from either side
+- **Authority:** `Rules - Conciseness` is the rule. This file is the reason, so a disagreement between them is a defect in this file. Sections 1 to 7 carry the card's numbers, which is what lets a rule and its reason be found from either side. Sections 8 to 10 have no counterpart in the card
 - **Read It When:** adding or removing a blocked term, changing a floor, moving a check between blocking and advisory, or answering why a rule is the shape it is. A writer producing a deliverable never needs it
 
 ---
@@ -31,7 +31,7 @@ The reasons behind the conciseness layer: the vocabulary candidates that were re
 The validator holds three kinds of check against the card.
 
 - **Vocabulary checks** name exact terms. Section 3.2 of the card states every one of them, so a writer is never failed for wording no instruction file gave them. A guard inside the validator fails its own run when a term reaches a blocking list without being written into the card
-- **Shape checks** match a sentence or line pattern rather than a word. Sections 3.4 and 8 of the card state each shape and the near-miss it deliberately leaves alone
+- **Shape checks** match a sentence or line pattern rather than a word. Sections 3.4 and 7 of the card state each shape and the near-miss it deliberately leaves alone
 - **Ratio checks** count connectives and articles across the prose in a document. Section 5.2 of the card states the floors and the perimeter they are measured over
 
 The guard is the reason a term cannot be added to the gate alone. A blocking term absent from the always-loaded card is a rule enforced in code and unstated in prose, which is the split that keeps producing writers punished for wording nobody gave them.
@@ -149,9 +149,7 @@ The card states the repair in one sentence. The full order below is the cheapest
 
 A repaired document is longer than the compressed one and shorter than the original. That is the intended shape.
 
----
-
-## 6. RHETORICAL CONNECTIVES VERSUS SEMANTIC ONES
+### 5.5 Rhetorical connectives versus semantic ones
 
 The Human Voice standard penalises `however`, `furthermore`, `moreover`, `additionally` and `consequently` from the third use. Those are rhetorical: they signal a turn in the argument that the sentence order usually already signals.
 
@@ -161,9 +159,9 @@ Read that cap as licence to strip connectives and the output arrives telegraphic
 
 ---
 
-## 7. FORMAT
+## 6. FORMAT
 
-### 7.2 A worked conversion
+### 6.2 A worked conversion
 
 A bulleted block reading "Router binds token", "Keyword pass runs second", "Total weight separates ties" carries three deleted relations. As prose it reads "The router binds an exact command token first, because a keyword-first pass would bind the wrong intent. Keyword scoring runs second, and total weight separates two lanes that reached the same band."
 
@@ -171,9 +169,9 @@ Two sentences replaced three fragments, the word count barely moved, and the rea
 
 ---
 
-## 8. WHY THE PURITY ENUMERATION EXISTS
+## 7. WHY THE PURITY ENUMERATION EXISTS
 
-The rule is not new and the failure is not hypothetical. Exports have shipped with their own scoring appended to the body, which is how the enumeration in Section 8.1 of the card came to be written down.
+The rule is not new and the failure is not hypothetical. Exports have shipped with their own scoring appended to the body, which is how the enumeration in Section 7.1 of the card came to be written down.
 
 The ban anchors on position rather than on vocabulary, because the corpus proves a word-level ban fails correct writing. A shipped requirement reads "which of content quality, communication and timeliness scores strongest and which weakest", so a ban on "score" or "weakest" fails a correct specification. A shipped headline opens "Score a Fjell serum set and earn 150 euro", so a ban on the verb fails shipped copy. A compliant deal template writes `Scoring: DEAL 24/25` inside its line-1 comment header, so a ban that reads comments fails every compliant export in that system.
 
@@ -181,7 +179,7 @@ A heading therefore fires when it carries an unambiguous acronym, or when its ow
 
 ---
 
-## 9. WHAT BLOCKS AND WHAT ADVISES
+## 8. WHAT BLOCKS AND WHAT ADVISES
 
 The format validator runs in two modes, and the same rule can carry different weight in each.
 
@@ -193,7 +191,7 @@ The format validator runs in two modes, and the same rule can carry different we
 
 The purity enumeration never runs on an instruction source at all. A file whose job is to ban a scoring block has to be able to write one down.
 
-### 9.1 The check roster
+### 8.1 The check roster
 
 | Check | On a deliverable | On an instruction source | Stated in the card at |
 | --- | --- | --- | --- |
@@ -213,7 +211,7 @@ The pairing across the middle rows is the point. Each cut-side row that blocks o
 
 ---
 
-## 10. DROP-IN INSTRUCTION BLOCK
+## 9. DROP-IN INSTRUCTION BLOCK
 
 Copy the block below into a system prompt that has no room for the card.
 
@@ -233,7 +231,7 @@ Copy the block below into a system prompt that has no room for the card.
 
 ---
 
-## 11. DIVISION OF LABOUR WITH THE HUMAN VOICE CARD
+## 10. DIVISION OF LABOUR WITH THE HUMAN VOICE CARD
 
 The Human Voice card and the conciseness layer are read on every request and they do not overlap.
 

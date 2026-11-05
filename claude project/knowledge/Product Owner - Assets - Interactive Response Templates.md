@@ -1,6 +1,6 @@
 # Product Owner - Assets - Interactive Response Templates
 
-Copy/apply response templates for Product Owner interactive intake, and the one reply shape every delivery and clarification reply follows.
+Copy the matching block when a request needs one question before drafting, and shape every reply on Section 3 so delivery and clarification read the same way.
 
 ---
 

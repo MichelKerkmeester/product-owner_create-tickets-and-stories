@@ -60,10 +60,11 @@ $ bash benchmark/gates/run_gates.sh   (after)
 - Make `check_markdown_links.py` skip files git ignores, so the private `context/` folder no longer fails the link gate
 - Pull the vendored `mcp-figma` and `mcp-code-mode` copies to upstream, so vendor sync passes
 - Fix the 20 findings in the three shared cards at their source in `z — Knowledge/`, on Michel's decision, and copy the new bytes into all 15 copies across five systems, re-freezing the Sales Direct Communication snapshot
-- Bump `sk-product-owner` to 1.2.9.0, then 1.2.10.0 for the cards, and the hub to 1.0.21.0 with changelogs, and record the change in `SYNC.md`
+- Fix the 23 findings the new Skilled render checks raised on 2026-11-05: renumber the Conciseness card 1 to 8 on Michel's decision, with every citation and kernel v1.2.17, rewrite the card and template intros, add the When to Use sections, open the README with its Overview, and leave `assets/examples/` out of the render scan in Skilled `package_skill.py`
+- Bump `sk-product-owner` to 1.2.9.0, then 1.2.10.0 and 1.2.11.0, and the hub to 1.0.21.0 with changelogs, and record the change in `SYNC.md`
 
 ### Out of Scope
-- The render checks a Skilled sk-doc merge added on 2026-11-05, after this work began. They raise new findings in the hub README, the examples and the card intros, and need their own change
+- The 45 `sk-create-figjam` findings the new render checks raise. That packet waits on Michel's decision
 - The SKILL.md word count warning. It is advisory and does not fail the gate
 
 ### Files to Change
@@ -122,7 +123,7 @@ $ bash benchmark/gates/run_gates.sh   (after)
 <!-- ANCHOR:questions -->
 ## 7. OPEN QUESTIONS
 
-- Should the shared cards be fixed in `z — Knowledge` and spread to every system that copies them? Decision: yes, by Michel on 2026-11-05
+- Should the shared cards be fixed in `z — Knowledge` and spread to every system that copies them? Decision: yes, by Michel on 2026-11-05. The Conciseness card is renumbered rather than exempted, also his decision
 <!-- /ANCHOR:questions -->
 
 ---
