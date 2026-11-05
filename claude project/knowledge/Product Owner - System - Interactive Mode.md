@@ -1,6 +1,6 @@
 # Product Owner - System - Interactive Mode
 
-Conversation flows and state management for interactive guidance with concise transparency: the single-question intake, artifact-intent and energy detection ($task, $bug, $doc, $story, $prd, $epic, $quick), the clarification export contract, source-safety and Story-shape clarification, two-layer transparency, quality control, the formatting rules and the error recovery table.
+When a request is too thin to draft, this mode asks one consolidated question, waits for the answer and sends the reply back to the artifact it belongs to. It covers the single-question intake, artifact-intent and energy detection ($task, $bug, $doc, $story, $prd, $epic, $quick), the clarification export contract, source-safety and Story-shape clarification, two-layer transparency, quality control, the formatting rules and the error recovery table.
 
 Interactive Mode opens when two or more artifact commands appear in one request, when a Doc or Story contract gate is blocked, or when scope, user value or evidence is missing. Once the user answers, Task, Bug, Doc or Story Mode resumes with the answer. The clarification already delivered is left as it stands, and the artifact takes the next number in that lane. The paired question templates live in Assets - Interactive Response Templates.
 
@@ -264,29 +264,29 @@ conversation_flow:
 
 ### Bug Mode
 
-**Entry keywords:** bug, issue, error, broken, fix, defect, crash, failing
-**Energy level:** Standard | **Flow:** `start → bug_context_question → processing (Standard energy) → delivery → complete`
+- **Entry keywords:** bug, issue, error, broken, fix, defect, crash, failing
+- **Energy level:** Standard | **Flow:** `start → bug_context_question → processing (Standard energy) → delivery → complete`
 **Note:** Custom Instructions holds the authoritative mode definitions.
 
 ### Story Mode
 
-**Entry commands:** exact standalone `$story`, `$s`, `$prd` or `$p`, or `$epic` or `$e` for the Epic shape, each asking `story_clarification_question` and waiting before the gate runs unless `$quick` or `$q` accompanies it
-**Entry language:** write a user story, PRD for X, turn this into a PRD, refine this PRD, acceptance scenarios
-**Operation:** Create or refine
-**Artifact-kind gate:** `story_intake_gate` resolves the Story shape (requirements present) or the Epic shape (zero requirements, or child stories plus a Goal); when role, value, requirement shape or artifact kind cannot be inferred safely, `story_clarification_question` asks ONE consolidated question and re-enters the gate.
-**Refinement:** the existing artifact is the structural baseline; add elements in place, never restructure without explicit authorization.
+- **Entry commands:** exact standalone `$story`, `$s`, `$prd` or `$p`, or `$epic` or `$e` for the Epic shape, each asking `story_clarification_question` and waiting before the gate runs unless `$quick` or `$q` accompanies it
+- **Entry language:** write a user story, PRD for X, turn this into a PRD, refine this PRD, acceptance scenarios
+- **Operation:** Create or refine
+- **Artifact-kind gate:** `story_intake_gate` resolves the Story shape (requirements present) or the Epic shape (zero requirements, or child stories plus a Goal); when role, value, requirement shape or artifact kind cannot be inferred safely, `story_clarification_question` asks ONE consolidated question and re-enters the gate
+- **Refinement:** the existing artifact is the structural baseline; add elements in place, never restructure without explicit authorization
 **Note:** Custom Instructions holds the authoritative routing, and Templates - Story Mode holds shape intelligence, workflows and delivery standards.
 
 ### Doc Mode
 
-**Entry commands:** exact standalone `$doc` or `$d`, each asking `doc_clarification_question` and waiting before the gate runs unless `$quick` or `$q` accompanies it
-**Entry language:** document how this works, create a guide, create a catalog, write engineering docs, create API or schema docs or references, write a configuration guide, runbook or troubleshooting guide, document architecture or system behavior, or write a product or technical proposal or recommendation
-**Operation:** Create or refine
-**Energy level:** Standard unless Quick or Deep is selected independently
-**Create flow:** `start → doc_context_gate → processing → delivery → complete`
-**Refine flow:** `start → doc_context_gate → preserve source structure → processing → delivery → complete`
-**Revalidation loop:** When blocked, use `doc_context_gate → doc_clarification_question → doc_context_gate` until the answer is complete, conflict-free or explicitly resolved, and safe to process. After the first answer, only a source conflict with no authority winner, a promised source still missing or a decision the user calls unsettled sends the loop back to a question. Any other gap is drafted as unknown or with its safe default and listed under Open items.
-**Safety gate:** Purpose, audience, source authority, classification as current behavior, approved direction, proposal, retired material or unknown, and contradictions must be safe before drafting. One authoritative source may win only within its declared scope; otherwise ask one consolidated question and wait.
+- **Entry commands:** exact standalone `$doc` or `$d`, each asking `doc_clarification_question` and waiting before the gate runs unless `$quick` or `$q` accompanies it
+- **Entry language:** document how this works, create a guide, create a catalog, write engineering docs, create API or schema docs or references, write a configuration guide, runbook or troubleshooting guide, document architecture or system behavior, or write a product or technical proposal or recommendation
+- **Operation:** Create or refine
+- **Energy level:** Standard unless Quick or Deep is selected independently
+- **Create flow:** `start → doc_context_gate → processing → delivery → complete`
+- **Refine flow:** `start → doc_context_gate → preserve source structure → processing → delivery → complete`
+- **Revalidation loop:** When blocked, use `doc_context_gate → doc_clarification_question → doc_context_gate` until the answer is complete, conflict-free or explicitly resolved, and safe to process. After the first answer, only a source conflict with no authority winner, a promised source still missing or a decision the user calls unsettled sends the loop back to a question. Any other gap is drafted as unknown or with its safe default and listed under Open items
+- **Safety gate:** Purpose, audience, source authority, classification as current behavior, approved direction, proposal, retired material or unknown, and contradictions must be safe before drafting. One authoritative source may win only within its declared scope; otherwise ask one consolidated question and wait
 **Note:** Custom Instructions holds the authoritative intent routing, and Templates - Doc Mode holds source classification, conflict handling, adaptive shapes and refinement fidelity.
 
 ---

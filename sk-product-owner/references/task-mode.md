@@ -19,7 +19,7 @@ Task-mode guidance aligned to the current Product Owner task corpus. This versio
 - **Loading Condition:** ON-DEMAND
 - **Purpose:** Provides task-mode workflow, standards and structure rules for `$task` and `$t` requests
 - **Scope:** Task mode overview, delivery standards, structure rules, error recovery and task template usage pointer
-- **Output Path:** `export/[existing-task-name].md` or `export/[###] - task-[description].md`. Story bundle task paths and the `$story $task` conflict follow the contract in `story-mode.md` Section 7.
+- **Output Path:** `export/[existing-task-name].md` or `export/[###] - task-[description].md`. Story bundle task paths and the `$story $task` conflict follow the contract in `story-mode.md` Section 7
 - **Loads With:** `assets/task-templates.md` as the paired scaffold, beside the always-loaded `references/hvr-core.md` and `references/conciseness.md`
 - **Routed By:** `$task`, `$t`, `$task --subtask`, task framing, the feature, acceptance, user_need, technical_task and integration semantic topics, and the ui_refinement topic on its 0.80 override
 - **Hands Off To:** `references/interactive-mode.md` when scope, user value or testable acceptance criteria cannot be inferred, which returns here once the user answers

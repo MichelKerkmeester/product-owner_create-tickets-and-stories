@@ -93,6 +93,8 @@ The gates and the strict check ran first to get the counts. The label and blank-
 | `bash benchmark/gates/run_gates.sh` | 1 of 15 gates failed (skilled packet contract, shared cards only). Before: 4 of 15 |
 | `package_skill.py --check --strict` on `sk-product-owner` | 20 findings, all in `hvr-core.md`, `conciseness.md`, `conciseness-rationale.md`. Before: 105 |
 | `markdown link integrity` | ok |
+| `validate-output-format.cjs --system product-owner` | passed across 73 source files, after the trailing full stop came off the 8 label lines the list prefix made into bullets |
+| `run_parity.sh` | passes once the Sync Loop counts a loading label in list form as one a mirror never carries |
 <!-- /ANCHOR:verification -->
 
 ---
