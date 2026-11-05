@@ -20,13 +20,13 @@ version: 0.17.0.13
 
 Doc-mode guidance for trustworthy product and engineering documentation. The mode creates or refines guides, catalogs, behavior references, and proposal or future-state documents without turning unverified material into current or approved fact.
 
-**Loading Condition:** ON-DEMAND
-**Purpose:** Provides the workflow, source-authority rules, refinement safeguards, adaptive structures, and delivery standards for `$doc`, `$d`, and clear natural-language documentation requests
-**Scope:** Product, engineering, operational, security, compliance, and mixed-domain documentation covering verified facts, source-backed HOW, approved direction, and explicitly labelled proposals or recommendations
-**Output Path:** `export/[###] - doc-[description].md` for a new document or `export/[original-source-filename].md` for a refinement
-**Loads With:** `assets/doc-templates.md` as the paired scaffold, beside the always-loaded `references/hvr-core.md` and `references/conciseness.md`
-**Routed By:** `$doc`, `$d`, doc framing, and the documentation semantic topic on its 0.85 override. Every Doc route runs the source-authority and conflict gate before drafting, including under Quick energy
-**Hands Off To:** `references/interactive-mode.md` when that gate returns BLOCKED on a missing field, an unresolved source conflict or a claim whose subject no supplied source covers, which returns here once the answer clears the gate
+- **Loading Condition:** ON-DEMAND
+- **Purpose:** Provides the workflow, source-authority rules, refinement safeguards, adaptive structures, and delivery standards for `$doc`, `$d`, and clear natural-language documentation requests
+- **Scope:** Product, engineering, operational, security, compliance, and mixed-domain documentation covering verified facts, source-backed HOW, approved direction, and explicitly labelled proposals or recommendations
+- **Output Path:** `export/[###] - doc-[description].md` for a new document or `export/[original-source-filename].md` for a refinement
+- **Loads With:** `assets/doc-templates.md` as the paired scaffold, beside the always-loaded `references/hvr-core.md` and `references/conciseness.md`
+- **Routed By:** `$doc`, `$d`, doc framing, and the documentation semantic topic on its 0.85 override. Every Doc route runs the source-authority and conflict gate before drafting, including under Quick energy
+- **Hands Off To:** `references/interactive-mode.md` when that gate returns BLOCKED on a missing field, an unresolved source conflict or a claim whose subject no supplied source covers, which returns here once the answer clears the gate
 
 ---
 

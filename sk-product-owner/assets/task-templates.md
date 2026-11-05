@@ -16,10 +16,10 @@ version: 0.17.0.8
 
 Copy/apply templates for Product Owner task deliverables.
 
-**Loading Condition:** CONDITIONAL, with `references/task-mode.md` whenever Task intent is selected
-**Purpose:** Provides the canonical task, parent task, subtask and quick task scaffolds a new task artifact is copied from
-**Scope:** The four task shapes, the sections each one requires and the numbered requirement-group grammar
-**Output Path:** `export/[###] - task-[description].md`, or the existing task filename on a source sync
+- **Loading Condition:** CONDITIONAL, with `references/task-mode.md` whenever Task intent is selected
+- **Purpose:** Provides the canonical task, parent task, subtask and quick task scaffolds a new task artifact is copied from
+- **Scope:** The four task shapes, the sections each one requires and the numbered requirement-group grammar
+- **Output Path:** `export/[###] - task-[description].md`, or the existing task filename on a source sync
 
 ---
 

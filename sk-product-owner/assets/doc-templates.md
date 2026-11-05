@@ -18,10 +18,10 @@ version: 0.17.0.10
 
 Copy/apply scaffolds for new product or engineering documentation in the repository's ClickUp Markdown style. Refinements preserve the supplied document's existing structure instead of imposing these shapes.
 
-**Loading Condition:** CONDITIONAL, with `references/doc-mode.md` whenever Doc intent is selected
-**Purpose:** Provides the adaptive ClickUp-native document scaffolds a new Doc artifact is copied from, plus the overlay a refinement uses instead
-**Scope:** The Guide, Catalog, Behavior reference, Proposal and Narrative overview shapes, the ClickUp layout contract they share, and the refinement overlay
-**Output Path:** `export/[###] - doc-[description].md` for a new document, or `export/[original-source-filename].md` for a refinement
+- **Loading Condition:** CONDITIONAL, with `references/doc-mode.md` whenever Doc intent is selected
+- **Purpose:** Provides the adaptive ClickUp-native document scaffolds a new Doc artifact is copied from, plus the overlay a refinement uses instead
+- **Scope:** The Guide, Catalog, Behavior reference, Proposal and Narrative overview shapes, the ClickUp layout contract they share, and the refinement overlay
+- **Output Path:** `export/[###] - doc-[description].md` for a new document, or `export/[original-source-filename].md` for a refinement
 
 ---
 

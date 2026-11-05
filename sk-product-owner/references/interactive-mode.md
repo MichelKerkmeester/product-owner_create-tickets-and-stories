@@ -17,15 +17,15 @@ version: 0.17.0.22
 
 # Product Owner - System - Interactive Mode
 
-Conversation flows and state management for interactive guidance with concise transparency.
+When a request is too thin to draft, this mode asks one consolidated question, waits for the answer and sends the reply back to the artifact it belongs to.
 
-**Loading Condition:** TRIGGER
-**Purpose:** Provides the conversation flows and state management for interactive guidance, driving the single-question intake, artifact-intent and energy detection, source-safety clarification, two-layer transparency, quality control and formatting rules that turn an ambiguous request into a scoped deliverable
-**Scope:** Conversation flows, state machines, artifact-intent detection ($task/$bug/$doc/$story/$prd/$epic), Quick energy detection ($quick), the clarification export contract, source-safety and Story-shape clarification across Story and Epic, two-layer transparency, quality control, formatting rules, cognitive rigor enforcement and response template usage pointer
-**Output Path:** `export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md`
-**Loads With:** `assets/interactive-response-templates.md` as the paired scaffold, beside the always-loaded `references/hvr-core.md` and `references/conciseness.md`
-**Routed By:** two or more artifact commands in one request, confidence under the 0.40 fallback band, a blocked Doc or Story contract gate, and missing scope, user value or evidence
-**Hands Off To:** the resolved mode reference with its paired scaffold once the user answers, Task, Bug, Doc or Story Mode. The clarification file it wrote is left untouched, and the artifact takes the next number in that lane
+- **Loading Condition:** TRIGGER
+- **Purpose:** Provides the conversation flows and state management for interactive guidance, driving the single-question intake, artifact-intent and energy detection, source-safety clarification, two-layer transparency, quality control and formatting rules that turn an ambiguous request into a scoped deliverable
+- **Scope:** Conversation flows, state machines, artifact-intent detection ($task/$bug/$doc/$story/$prd/$epic), Quick energy detection ($quick), the clarification export contract, source-safety and Story-shape clarification across Story and Epic, two-layer transparency, quality control, formatting rules, cognitive rigor enforcement and response template usage pointer
+- **Output Path:** `export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md`
+- **Loads With:** `assets/interactive-response-templates.md` as the paired scaffold, beside the always-loaded `references/hvr-core.md` and `references/conciseness.md`
+- **Routed By:** two or more artifact commands in one request, confidence under the 0.40 fallback band, a blocked Doc or Story contract gate, and missing scope, user value or evidence
+- **Hands Off To:** the resolved mode reference with its paired scaffold once the user answers, Task, Bug, Doc or Story Mode. The clarification file it wrote is left untouched, and the artifact takes the next number in that lane
 
 ---
 
@@ -287,30 +287,30 @@ conversation_flow:
 
 ### Bug Mode
 
-**Entry keywords:** bug, issue, error, broken, fix, defect, crash, failing
-**Energy level:** Standard | **Flow:** `start → bug_context_question → processing (Standard energy) → delivery → complete`
-**Note:** See SKILL.md Section 2 for authoritative mode definitions.
+- **Entry keywords:** bug, issue, error, broken, fix, defect, crash, failing
+- **Energy level:** Standard | **Flow:** `start → bug_context_question → processing (Standard energy) → delivery → complete`
+- **Note:** See SKILL.md Section 2 for authoritative mode definitions.
 
 ### Story Mode
 
-**Entry commands:** exact standalone `$story`, `$s`, `$prd` or `$p`, or `$epic` or `$e` for the Epic shape, each asking `story_clarification_question` and waiting before the gate runs unless `$quick` or `$q` accompanies it
-**Entry language:** write a user story, PRD for X, turn this into a PRD, refine this PRD, acceptance scenarios
-**Operation:** Create or refine
-**Artifact-kind gate:** `story_intake_gate` resolves the Story shape (requirements present) or the Epic shape (zero requirements, or child stories plus a Goal); when role, value, requirement shape or artifact kind cannot be inferred safely, `story_clarification_question` asks ONE consolidated question and re-enters the gate.
-**Refinement:** the existing artifact is the structural baseline; add elements in place, never restructure without explicit authorization.
-**Note:** See SKILL.md Section 2 for authoritative routing and Story Mode for shape intelligence, workflows and delivery standards.
+- **Entry commands:** exact standalone `$story`, `$s`, `$prd` or `$p`, or `$epic` or `$e` for the Epic shape, each asking `story_clarification_question` and waiting before the gate runs unless `$quick` or `$q` accompanies it
+- **Entry language:** write a user story, PRD for X, turn this into a PRD, refine this PRD, acceptance scenarios
+- **Operation:** Create or refine
+- **Artifact-kind gate:** `story_intake_gate` resolves the Story shape (requirements present) or the Epic shape (zero requirements, or child stories plus a Goal); when role, value, requirement shape or artifact kind cannot be inferred safely, `story_clarification_question` asks ONE consolidated question and re-enters the gate.
+- **Refinement:** the existing artifact is the structural baseline; add elements in place, never restructure without explicit authorization.
+- **Note:** See SKILL.md Section 2 for authoritative routing and Story Mode for shape intelligence, workflows and delivery standards.
 
 ### Doc Mode
 
-**Entry commands:** exact standalone `$doc` or `$d`, each asking `doc_clarification_question` and waiting before the gate runs unless `$quick` or `$q` accompanies it
-**Entry language:** document how this works, create a guide, create a catalog, write engineering docs, create API or schema docs or references, write a configuration guide, runbook or troubleshooting guide, document architecture or system behavior, or write a product or technical proposal or recommendation
-**Operation:** Create or refine
-**Energy level:** Standard unless Quick or Deep is selected independently
-**Create flow:** `start → doc_context_gate → processing → delivery → complete`
-**Refine flow:** `start → doc_context_gate → preserve source structure → processing → delivery → complete`
-**Revalidation loop:** When blocked, use `doc_context_gate → doc_clarification_question → doc_context_gate` until the answer is complete, conflict-free or explicitly resolved, and safe to process. After the first answer, only a source conflict with no authority winner, a promised source still missing or a decision the user calls unsettled sends the loop back to a question. Any other gap is drafted as unknown or with its safe default and listed under Open items.
-**Safety gate:** Purpose, audience, source authority, classification as current behavior, approved direction, proposal, retired material or unknown, and contradictions must be safe before drafting. One authoritative source may win only within its declared scope; otherwise ask one consolidated question and wait.
-**Note:** See SKILL.md Section 2 for authoritative intent routing and Doc Mode for source classification, conflict handling, adaptive shapes and refinement fidelity.
+- **Entry commands:** exact standalone `$doc` or `$d`, each asking `doc_clarification_question` and waiting before the gate runs unless `$quick` or `$q` accompanies it
+- **Entry language:** document how this works, create a guide, create a catalog, write engineering docs, create API or schema docs or references, write a configuration guide, runbook or troubleshooting guide, document architecture or system behavior, or write a product or technical proposal or recommendation
+- **Operation:** Create or refine
+- **Energy level:** Standard unless Quick or Deep is selected independently
+- **Create flow:** `start → doc_context_gate → processing → delivery → complete`
+- **Refine flow:** `start → doc_context_gate → preserve source structure → processing → delivery → complete`
+- **Revalidation loop:** When blocked, use `doc_context_gate → doc_clarification_question → doc_context_gate` until the answer is complete, conflict-free or explicitly resolved, and safe to process. After the first answer, only a source conflict with no authority winner, a promised source still missing or a decision the user calls unsettled sends the loop back to a question. Any other gap is drafted as unknown or with its safe default and listed under Open items.
+- **Safety gate:** Purpose, audience, source authority, classification as current behavior, approved direction, proposal, retired material or unknown, and contradictions must be safe before drafting. One authoritative source may win only within its declared scope; otherwise ask one consolidated question and wait.
+- **Note:** See SKILL.md Section 2 for authoritative intent routing and Doc Mode for source classification, conflict handling, adaptive shapes and refinement fidelity.
 
 ---
 

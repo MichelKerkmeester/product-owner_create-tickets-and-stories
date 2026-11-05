@@ -3,11 +3,9 @@ name: mcp-figma
 description: "Figma CLI orchestrator: drives figma-ds-cli for terminal Figma design work, with an optional Figma MCP via Code Mode."
 compatibility: Requires Figma Desktop (open with a file), Node.js >=18, and the silships figma-ds-cli on PATH. macOS is the supported baseline; the optional Figma MCP uses this project's Code Mode.
 allowed-tools: [Read, Bash, Grep, Glob, mcp__code_mode__call_tool_chain]
-version: 1.1.10.0
+version: 1.2.2.0
 user-invocable: true
 ---
-
-<!-- Keywords: figma, figma cli, figma-cli, figma-ds-cli, figma desktop, render in figma, figma tokens, figma variables, figma components, render jsx in figma, export from figma, extract design.md, figma design system, connect to figma, figma daemon, figma mcp, figma-developer-mcp, figma code mode -->
 
 # Figma (mcp-figma)
 
@@ -113,8 +111,9 @@ The full per-command taxonomy lives in [`references/tool-surface.md`](references
 
 The skill works **fully with the CLI alone**.
 When you need to pull design context FROM Figma, use the **Framelink `figma` manual already registered in Code Mode** (`figma-developer-mcp`, stdio, needs a Figma personal token).
+Before invoking a tool, discover it with `search_tools()` or `tool_info()`.
 Calls go through `call_tool_chain()` with the name `figma.figma_<tool>`. Store the token in `.env` as `figma_FIGMA_API_KEY`; Code Mode prefixes the manual name.
-Before invoking a tool, discover it with `search_tools()` or `tool_info()`. Find the full details and snippet in [`references/mcp-wiring.md`](references/mcp-wiring.md).
+Find the full details and snippet in [`references/mcp-wiring.md`](references/mcp-wiring.md).
 
 ---
 
@@ -230,7 +229,9 @@ Scripts: `scripts/install.sh` (install + verify), `scripts/doctor.sh` (report-on
 
 Examples: [`examples/README.md`](examples/README.md) - safe worked walkthroughs mirroring the playbook scenarios (safe connect + daemon health, read-only inspect/export, optional MCP context pull). They live outside the `references/`/`assets/` discovery roots, so they are linked here rather than auto-loaded by the router.
 
-Related skills: `sk-design-md-generator` (a measured Style Reference of extracted design tokens, applied whenever a read/export feeds a decision), `sk-code` (adapting exports into an app), `mcp-code-mode` (the optional MCP transport), `mcp-chrome-devtools` (browser preview only), and `system-spec-kit` when packet documentation or memory continuity applies.
+Related skills: `sk-design-md-generator` (a measured Style Reference of extracted design tokens, applied whenever a read/export feeds a decision), `sk-code` (adapting exports into an app), `mcp-code-mode` (the optional MCP transport), `mcp-chrome-devtools` (browser preview only), and `system-spec-kit` when packet documentation or memory continuity applies. When a request or a frame leaves a visual value open (spacing, type, color, radius, shadow or motion), or a value sits off every token and scale, load `sk-code-frontend` (`web-visual-values.md`) and decide it there.
+
+A Figma read that feeds code ends at the five-pass check in `.skilled/skills/sk-code/sk-code-frontend/references/figma-to-code.md`.
 
 Install guide: [INSTALL-GUIDE.md](INSTALL-GUIDE.md).
 

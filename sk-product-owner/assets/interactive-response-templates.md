@@ -20,10 +20,10 @@ version: 0.17.0.12
 
 Copy/apply response templates for Product Owner interactive intake, and the one reply shape every delivery and clarification reply follows.
 
-**Loading Condition:** Section 3 ALWAYS, before the first reply of a session. Sections 1 and 2 CONDITIONAL, with `references/interactive-mode.md` whenever a request reaches the one-question flow
-**Purpose:** Provides the intake prompts each artifact lane asks when required information is missing, so one question covers every unresolved decision, and the delivery reply shape every other surface points at
-**Scope:** The comprehensive question, the Task, Bug, Story and Doc context questions, the source-authority question, the response formatting rules and the delivery reply shape with its worked replies
-**Output Path:** `export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md`
+- **Loading Condition:** Section 3 ALWAYS, before the first reply of a session. Sections 1 and 2 CONDITIONAL, with `references/interactive-mode.md` whenever a request reaches the one-question flow
+- **Purpose:** Provides the intake prompts each artifact lane asks when required information is missing, so one question covers every unresolved decision, and the delivery reply shape every other surface points at
+- **Scope:** The comprehensive question, the Task, Bug, Story and Doc context questions, the source-authority question, the response formatting rules and the delivery reply shape with its worked replies
+- **Output Path:** `export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md`
 
 ---
 

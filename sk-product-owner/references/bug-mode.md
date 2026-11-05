@@ -16,13 +16,13 @@ version: 0.17.0.22
 
 Bug-mode guidance for isolated defects. The workflow captures context, observed behavior, reproduction steps, expected behavior and the QA checklist needed before handoff.
 
-**Loading Condition:** ON-DEMAND
-**Purpose:** Provides bug-mode workflow, standards and QA handoff rules for isolated defects when `$bug`, `$b`, `bug report`, `defect`, `broken` or similar language is detected
-**Scope:** Bug mode overview, delivery standards, quality checklist, error recovery and bug report template usage pointer
-**Output Path:** `export/[###] - bug-[description].md`
-**Loads With:** `assets/bug-report-template.md` as the paired scaffold, beside the always-loaded `references/hvr-core.md` and `references/conciseness.md`
-**Routed By:** `$bug`, `$b`, bug framing, symptom wording that names no defect noun, and the bug semantic topic. UI feedback carrying fix language routes to Task Mode instead, because this mode is reserved for unexpected system behavior
-**Hands Off To:** `references/interactive-mode.md` when evidence or reproduction steps are too thin to write from outside Quick energy, which returns here once the user answers
+- **Loading Condition:** ON-DEMAND
+- **Purpose:** Provides bug-mode workflow, standards and QA handoff rules for isolated defects when `$bug`, `$b`, `bug report`, `defect`, `broken` or similar language is detected
+- **Scope:** Bug mode overview, delivery standards, quality checklist, error recovery and bug report template usage pointer
+- **Output Path:** `export/[###] - bug-[description].md`
+- **Loads With:** `assets/bug-report-template.md` as the paired scaffold, beside the always-loaded `references/hvr-core.md` and `references/conciseness.md`
+- **Routed By:** `$bug`, `$b`, bug framing, symptom wording that names no defect noun, and the bug semantic topic. UI feedback carrying fix language routes to Task Mode instead, because this mode is reserved for unexpected system behavior
+- **Hands Off To:** `references/interactive-mode.md` when evidence or reproduction steps are too thin to write from outside Quick energy, which returns here once the user answers
 
 ---
 

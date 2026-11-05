@@ -155,6 +155,7 @@ A single failure is a repair. Two or more say the shape was wrong before the wor
 Each dimension returns to the phase that owns it. Completeness and Relevance return to Discover, because both are decided by what was gathered and scoped. Actionability and Accuracy return to Engineer, where end states and feasibility are set. Clarity and Mechanism Depth return to Prototype, where the words are chosen.
 
 Three cycles is the ceiling. After the third, deliver the best version with the quality line naming the dimension still short, such as `Clarity short after three cycles`, and never open a fourth. The note goes in the reply, never into the artifact.
+
 ---
 
 The kernel points here for these delivery prohibitions:

@@ -14,6 +14,7 @@ from __future__ import annotations
 from collections.abc import Iterator
 import os
 import re
+import subprocess
 import sys
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
@@ -50,7 +51,29 @@ def markdown_files(root: Path) -> list[Path]:
             folder / name for name in names
             if name.lower().endswith(".md") and not (folder / name).is_symlink()
         )
-    return sorted(files)
+    return sorted(set(files) - git_ignored(root, files))
+
+
+def git_ignored(root: Path, files: list[Path]) -> set[Path]:
+    """Return the files git ignores, such as private notes in context/.
+
+    An ignored file is local material, not source, and its links can point at
+    attachments that were never copied. Outside a git checkout nothing is
+    treated as ignored, so every file is still checked.
+    """
+    if not files:
+        return set()
+    listing = "\0".join(str(path.relative_to(root)) for path in files) + "\0"
+    try:
+        result = subprocess.run(
+            ["git", "-C", str(root), "check-ignore", "-z", "--stdin"],
+            input=listing, capture_output=True, text=True, check=False,
+        )
+    except OSError:
+        return set()
+    if result.returncode not in (0, 1):
+        return set()
+    return {root / name for name in result.stdout.split("\0") if name}
 
 
 def without_code(text: str) -> str:
