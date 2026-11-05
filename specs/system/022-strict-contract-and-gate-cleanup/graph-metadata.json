@@ -43,6 +43,7 @@
       "sk-product-owner/changelog/v1.2.9.0.md",
       "changelog/v1.0.21.0.md",
       "claude project/README.md",
+      "mcp-code-mode/ROUTER.md",
       "benchmark/gates/run_gates.sh",
       "benchmark/parity/run_parity.sh"
     ],
@@ -99,6 +100,12 @@
         "name": "README.md",
         "kind": "doc",
         "path": "claude project/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "ROUTER.md",
+        "kind": "doc",
+        "path": "mcp-code-mode/ROUTER.md",
         "source": "derived"
       },
       {
@@ -184,17 +191,11 @@
         "kind": "proper_noun",
         "path": "plan.md",
         "source": "derived"
-      },
-      {
-        "name": "Task Format",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
       }
     ],
     "causal_summary": "`packageskill.py --check --strict` failed `sk-product-owner` on 105 render findings: bold label lines that join into one paragraph, and setext underlines that turn a line into a heading",
     "created_at": "2026-11-05T18:32:22Z",
-    "last_save_at": "2026-11-05T20:17:12.470Z",
+    "last_save_at": "2026-11-05T20:26:34.024Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -203,13 +204,13 @@
       "tasks.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:105746a91c909cdfcab55529f3ca6ee0279d91c4d1172ed669a7e0700c6e759f",
+    "source_fingerprint": "sha256:1d358dfed3020a8237a198f6e6b05923b51ab71e5ea1a9f51c159d60531c0af5",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "909687c4399f40a67daa966295dc760a79de56220647497df98621db34b79fa0",
+      "spec.md": "0d5be1bd34e57760830a267ac0788497564faaf30f5d7726addcba051b1463a6",
       "plan.md": "c845f0e105c72e685b152b4d4996904e55437cea17f185454be45462a7f5c378",
       "tasks.md": "43d76f0284ba92a68dce8e8b143a7239508f72a85418fe1dbc0de0b15eb9245d",
-      "implementation-summary.md": "ace1b8ac6ca0c5f625f4bba6c10baa4944d8b59a95dd5af38b7da4d52790771f"
+      "implementation-summary.md": "9961101ad09a5a059c5b526d1ecb083f9a4b029601b5039ea9945395834dfa21"
     },
     "last_active_at": null
   }

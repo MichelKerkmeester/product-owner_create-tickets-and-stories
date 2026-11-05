@@ -16,9 +16,9 @@ version: 1.0.13.0
 
 The script checks what a script can see. This rubric is the rest: whether the diagram should exist, whether every node earns its place and whether the reader can trust what lands on the board. Walk it after the check passes and before the write gate.
 
-**Loading Condition:** CONDITIONAL, on every Flow route before the write gate
-**Purpose:** The judgement pass between the pre-write check and the gate
-**Scope:** The model, the provenance table, the planned extensions and, after the write, the board and the reply
+- **Loading Condition:** CONDITIONAL, on every Flow route before the write gate
+- **Purpose:** The judgement pass between the pre-write check and the gate
+- **Scope:** The model, the provenance table, the planned extensions and, after the write, the board and the reply
 
 ---
 

@@ -61,10 +61,11 @@ $ bash benchmark/gates/run_gates.sh   (after)
 - Pull the vendored `mcp-figma` and `mcp-code-mode` copies to upstream, so vendor sync passes
 - Fix the 20 findings in the three shared cards at their source in `z — Knowledge/`, on Michel's decision, and copy the new bytes into all 15 copies across five systems, re-freezing the Sales Direct Communication snapshot
 - Fix the 23 findings the new Skilled render checks raised on 2026-11-05: renumber the Conciseness card 1 to 8 on Michel's decision, with every citation and kernel v1.2.17, rewrite the card and template intros, add the When to Use sections, open the README with its Overview, and leave `assets/examples/` out of the render scan in Skilled `package_skill.py`
+- Fix the 45 `sk-create-figjam` findings under the same checks, on Michel's decision, and move that packet to 1.0.18.0
 - Bump `sk-product-owner` to 1.2.9.0, then 1.2.10.0 and 1.2.11.0, and the hub to 1.0.21.0 with changelogs, and record the change in `SYNC.md`
 
 ### Out of Scope
-- The 45 `sk-create-figjam` findings the new render checks raise. That packet waits on Michel's decision
+- The `mcp-code-mode` vendor pull. Upstream holds a peer session's uncommitted `ROUTER.md` edit, so the pull waits for that commit
 - The SKILL.md word count warning. It is advisory and does not fail the gate
 
 ### Files to Change

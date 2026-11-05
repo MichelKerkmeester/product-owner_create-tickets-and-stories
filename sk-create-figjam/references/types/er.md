@@ -15,9 +15,9 @@ version: 1.0.5.0
 
 An ER diagram shows which entities exist, the fields that matter on each and how they relate. The composer draws each entity as a card in the `neutral` role, its name in bold above one line per field with its keys first, and each relationship as a line with no arrow, its cardinality marked at both ends and repeated in words in the label.
 
-**Loading Condition:** CONDITIONAL, when the Flow route draws an ER diagram
-**Purpose:** The grammar, rules, budget and read-back for an ER diagram
-**Pairs With:** `assets/templates/er.md`
+- **Loading Condition:** CONDITIONAL, when the Flow route draws an ER diagram
+- **Purpose:** The grammar, rules, budget and read-back for an ER diagram
+- **Pairs With:** `assets/templates/er.md`
 
 ---
 

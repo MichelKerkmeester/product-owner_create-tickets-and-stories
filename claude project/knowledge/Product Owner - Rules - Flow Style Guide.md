@@ -6,6 +6,8 @@ The rules for colour, type and spacing on a FigJam board. The composer in Assets
 
 ## 1. OVERVIEW
 
+### Purpose
+
 the house diagram guide owns a skinnable palette with semantic roles and a record of where each value comes from. A FigJam board already has a palette of its own, and a colour the board recognises as a palette swatch can be recoloured from FigJam's colour picker by anyone on the board. So this guide does not skin the board. It picks FigJam's own pairs, gives each kind of node one of them and records what each pair measures.
 
 Three rules carry the board:
@@ -17,6 +19,10 @@ Three rules carry the board:
 The board's look is a design a team can change. Assets - Flow Board Design holds it as tokens: the palette pair each colour role draws, the role each kind takes, the accent, the type sizes, the line colours, the zone tints and the words on the key. The tables below record the shipped design. A design that changes a token changes the board and not this guide, and a token that breaks a gate in Section 4 or a floor in that file's Section 7 is never sent.
 
 The board carries one accent, by default a heavy pink outline on the node, message or task the first glance names. A user flow or a process marks it with a `style` line, and a model without one is not written. The other five types may name it with a `%% focus:` line. A `style` line does not colour a node on the board. It tells the composer what the node means, as Section 3 sets out.
+
+### When to Use
+
+Before the gate on every Flow route, and whenever a model or a note extension uses colour.
 
 ---
 

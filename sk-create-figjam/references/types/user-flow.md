@@ -15,9 +15,9 @@ version: 1.0.5.0
 
 A user flow is the screens and choices one person passes through to reach a goal. It is the default Flow type and the strictest, because it is drawn from screenshots and frames a reader will compare node by node.
 
-**Loading Condition:** CONDITIONAL, when the Flow route draws a user flow
-**Purpose:** The grammar, rules, budget and read-back for a user flow
-**Pairs With:** `assets/flow-templates.md`
+- **Loading Condition:** CONDITIONAL, when the Flow route draws a user flow
+- **Purpose:** The grammar, rules, budget and read-back for a user flow
+- **Pairs With:** `assets/flow-templates.md`
 
 ---
 

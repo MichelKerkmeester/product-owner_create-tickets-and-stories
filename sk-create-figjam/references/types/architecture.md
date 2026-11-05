@@ -15,9 +15,9 @@ version: 1.0.4.0
 
 An architecture shows which deployable parts make up a system and how they connect. The composer places every part by the lane it sits in, one column per lane, and the lane sets the part's kind and colour role. Figma's generated fallback uses its own lane layout, which errors or silently mis-draws when its rules are broken, so the check holds every one of them on both routes.
 
-**Loading Condition:** CONDITIONAL, when the Flow route draws an architecture
-**Purpose:** The lanes, the allowed edges, the budget and the read-back for an architecture
-**Pairs With:** `assets/templates/architecture.md`
+- **Loading Condition:** CONDITIONAL, when the Flow route draws an architecture
+- **Purpose:** The lanes, the allowed edges, the budget and the read-back for an architecture
+- **Pairs With:** `assets/templates/architecture.md`
 
 ---
 
