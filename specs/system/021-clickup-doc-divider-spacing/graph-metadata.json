@@ -194,7 +194,7 @@
     ],
     "causal_summary": "Every new Doc artifact uses `  ` dividers, and a doc push lands as a new page through `clickupcreatedocumentpage`",
     "created_at": "2026-11-05T17:19:22Z",
-    "last_save_at": "2026-11-05T17:53:24.392Z",
+    "last_save_at": "2026-11-05T17:59:46.854Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -203,13 +203,13 @@
       "tasks.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:82eff3b60b9d18b7a065e3d09912711d6fb742b7b8298d38de840b5834a3727e",
+    "source_fingerprint": "sha256:0b29b3f94ba14587096b5e826f0dee01ad03d2e87e77e9e11787e28c0b935f2e",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
       "spec.md": "2a1097c263138812717cadeb9fafe172fcedcbd2ac2e20d3177b1b1a9475e98d",
       "plan.md": "7d0a4c471f4f39b2c2e3f125b38f32920309d2577b332f4187511acdd63fe9bb",
-      "tasks.md": "fc2199dc9b809cb98176434b1e18a38f8b93774522a1204cf90363f6e5848f4a",
-      "implementation-summary.md": "2712a4453e599267bd0524c4b4d86d708d2986b01506b0a9886dff7f99653def"
+      "tasks.md": "822965bf28a9e3fc7dbf77e91b535f690a60773e9988d4bfc5b45e350d56e6fb",
+      "implementation-summary.md": "99412f05f13d3e369dcade20a315a3e65caa75807f7d5b16908202292078df83"
     },
     "last_active_at": null
   }

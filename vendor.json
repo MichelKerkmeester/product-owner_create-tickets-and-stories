@@ -78,7 +78,7 @@
       "name": "mcp-click-up",
       "local_path": "mcp-click-up",
       "upstream_path": ".skilled/skills/mcp-tooling/mcp-click-up",
-      "base_commit": "bd575be8cc5bdd256c97a857f277d7bc40219a1c",
+      "base_commit": "76b5f8950d7e633f242aad651862e8c002d829b1",
       "files": {
         "INSTALL-GUIDE.md": "f0e9777ee58f082b8edb5837505bb295939c07099e40c4bf3e1b9b109c4fab47",
         "README.md": "d0c0f49f44ceae0a23213e2561aabb287c4f094c06f76472dac35f97be1e4e7b",
