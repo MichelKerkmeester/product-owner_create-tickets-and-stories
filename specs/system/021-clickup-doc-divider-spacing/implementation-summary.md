@@ -10,7 +10,7 @@ _memory:
     packet_pointer: "system/021-clickup-doc-divider-spacing"
     last_updated_at: "2026-11-05T18:30:00Z"
     last_updated_by: "claude-opus-5-5"
-    recent_action: "Pulled mcp-click-up 1.2.10.0 at bd575be8cc and released the hub at 1.0.19.0"
+    recent_action: "Pulled mcp-click-up 1.2.10.0 at 76b5f8950d and released the hub at 1.0.19.0"
     next_safe_action: "Measure whether the claude.ai ClickUp connector writes the same divider gap before any kernel change"
     blockers: []
     key_files:
@@ -61,7 +61,7 @@ Every new Doc artifact uses `* * *` dividers, and the ClickUp MCP writes each on
 | `sk-product-owner/SKILL.md` | Modified | Two Push Targets bullets, version 1.2.7.0 |
 | `sk-product-owner/changelog/v1.2.7.0.md` | Created | Release note |
 | `SYNC.md` | Modified | Dated note with the no-Project-change reason |
-| `mcp-click-up/`, `vendor.json` | Modified | Vendored pull to upstream `bd575be8cc`, v1.2.10.0 |
+| `mcp-click-up/`, `vendor.json` | Modified | Vendored pull to upstream `76b5f8950d`, v1.2.10.0 |
 | `SKILL.md`, `hub-router.json`, `mode-registry.json`, `description.json`, `README.md` | Modified | Hub 1.0.19.0 |
 | `changelog/v1.0.19.0.md` | Created | Hub release note |
 <!-- /ANCHOR:what-built -->
@@ -71,7 +71,7 @@ Every new Doc artifact uses `* * *` dividers, and the ClickUp MCP writes each on
 <!-- ANCHOR:how-delivered -->
 ## How It Was Delivered
 
-The bullets went in after line 269, below every `SKILL.md` line the playbook cites, the highest being 182. The gates ran before and after the edit with the same four failures, so the edit adds none. The first pull was refused until the Skilled packet was committed as `bd575be8cc`, and the second pull brought the copy in step. The hub release followed the pull, so its note names a copy that has arrived.
+The bullets went in after line 269, below every `SKILL.md` line the playbook cites, the highest being 182. The gates ran before and after the edit with the same four failures, so the edit adds none. The first pull was refused until the Skilled packet was committed as `76b5f8950d`, and the second pull brought the copy in step. The hub release followed the pull, so its note names a copy that has arrived. A peer session later reset the shared Skilled `main` and dropped the upstream commit, so it was restored by cherry-pick as `76b5f8950d` and the copy was pulled again to pin that hash.
 <!-- /ANCHOR:how-delivered -->
 
 ---
@@ -96,7 +96,7 @@ The bullets went in after line 269, below every `SKILL.md` line the playbook cit
 | `rg` for the two bullets and `version: 1.2.7.0` in `sk-product-owner/SKILL.md` | PASS, three lines |
 | `run_gates.sh` before the edit (stashed) | Exit 4: vendor sync, markdown link integrity, skilled hub contract, skilled packet contract |
 | `run_gates.sh` after the edit | Exit 4, the same four gates, no new failure |
-| `vendor-sync.py pull --package mcp-click-up`, then `status` | Pulled 187 files, in step at `bd575be8cc` |
+| `vendor-sync.py pull --package mcp-click-up`, then `status` | Pulled 187 files, in step at `76b5f8950d` |
 | `run_gates.sh` after the pull and release | Exit 4, the same four gates. `mcp-click-up` drift is gone, and 13a, 13b and 13d pass at 1.0.19.0 |
 <!-- /ANCHOR:verification -->
 

@@ -45,7 +45,7 @@ contextType: "general"
 - [x] T003 Add the two Push Targets bullets and bump to 1.2.7.0 (`sk-product-owner/SKILL.md`). Verify: `rg -n 'empty line under every|waits for its own yes|^version: 1.2.7.0' sk-product-owner/SKILL.md` prints three lines.
 - [x] T004 Write the release note (`sk-product-owner/changelog/v1.2.7.0.md`). Verify: the file exists with `version: 1.2.7.0`.
 - [x] T005 Record the change and the no-Project-change reason (`SYNC.md`). Verify: `tail -1 SYNC.md` starts with `- 2026-11-05`.
-- [x] T006 Pull the vendored copy (`mcp-click-up/`, `vendor.json`) after Skilled commit `bd575be8cc`. Verify: `python3 V status --package mcp-click-up` prints `in step at bd575be8cc..., 187 files` and exits 0.
+- [x] T006 Pull the vendored copy (`mcp-click-up/`, `vendor.json`) after Skilled commit `76b5f8950d`. Verify: `python3 V status --package mcp-click-up` prints `in step at 76b5f8950d..., 187 files` and exits 0.
 - [x] T007 Release the hub at 1.0.19.0 (`SKILL.md`, `hub-router.json`, `mode-registry.json`, `description.json`, `README.md`, `changelog/v1.0.19.0.md`). Verify: `rg -n '1\.0\.19\.0' SKILL.md hub-router.json mode-registry.json description.json README.md` prints a line per file.
 <!-- /ANCHOR:phase-2 -->
 
