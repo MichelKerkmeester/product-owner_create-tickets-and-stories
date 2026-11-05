@@ -67,10 +67,10 @@ python3 scripts/vendor-sync.py pull --package mcp-click-up
 - Bump `sk-product-owner` to 1.2.7.0 with a changelog entry, and record the change in `SYNC.md`
 - Pull the vendored `mcp-click-up/` copy to upstream 1.2.10.0 once the Skilled packet is committed
 - Move the hub to 1.0.19.0 with a release note and the README version row, after the pull
+- Make every doc page push run the import check and gap removal under its own approval, and report done only when both pass (`sk-product-owner` 1.2.8.0, `AGENTS.md`, hub 1.0.20.0, vendored `mcp-click-up` 1.2.11.0)
 
 ### Out of Scope
 - The claude.ai Project kernel - the gap was not measured on the connector a Project pushes through, and a Project has no browser for the editor pass
-- `AGENTS.md` - its ClickUp Handoff already defers the mechanics to `mcp-click-up/SKILL.md`, which now carries the warning
 - The upstream `mcp-click-up` text - the Skilled packet owns it
 
 ### Files to Change

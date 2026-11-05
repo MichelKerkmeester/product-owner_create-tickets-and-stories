@@ -64,6 +64,8 @@ Every new Doc artifact uses `* * *` dividers, and the ClickUp MCP writes each on
 | `mcp-click-up/`, `vendor.json` | Modified | Vendored pull to upstream `76b5f8950d`, v1.2.10.0 |
 | `SKILL.md`, `hub-router.json`, `mode-registry.json`, `description.json`, `README.md` | Modified | Hub 1.0.19.0 |
 | `changelog/v1.0.19.0.md` | Created | Hub release note |
+| `sk-product-owner/SKILL.md` 1.2.8.0, `AGENTS.md`, `SYNC.md`, `changelog/v1.0.20.0.md`, `sk-product-owner/changelog/v1.2.8.0.md` | Modified and Created | Every doc page push runs the import check and gap removal, and is done only when both pass |
+| `mcp-click-up/`, `vendor.json` at `8e2976d379` | Modified | Vendored copy at 1.2.11.0, which holds the program |
 <!-- /ANCHOR:what-built -->
 
 ---
