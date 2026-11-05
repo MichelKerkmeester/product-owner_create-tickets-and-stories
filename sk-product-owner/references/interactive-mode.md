@@ -289,16 +289,16 @@ conversation_flow:
 
 - **Entry keywords:** bug, issue, error, broken, fix, defect, crash, failing
 - **Energy level:** Standard | **Flow:** `start → bug_context_question → processing (Standard energy) → delivery → complete`
-- **Note:** See SKILL.md Section 2 for authoritative mode definitions.
+- **Note:** See SKILL.md Section 2 for authoritative mode definitions
 
 ### Story Mode
 
 - **Entry commands:** exact standalone `$story`, `$s`, `$prd` or `$p`, or `$epic` or `$e` for the Epic shape, each asking `story_clarification_question` and waiting before the gate runs unless `$quick` or `$q` accompanies it
 - **Entry language:** write a user story, PRD for X, turn this into a PRD, refine this PRD, acceptance scenarios
 - **Operation:** Create or refine
-- **Artifact-kind gate:** `story_intake_gate` resolves the Story shape (requirements present) or the Epic shape (zero requirements, or child stories plus a Goal); when role, value, requirement shape or artifact kind cannot be inferred safely, `story_clarification_question` asks ONE consolidated question and re-enters the gate.
-- **Refinement:** the existing artifact is the structural baseline; add elements in place, never restructure without explicit authorization.
-- **Note:** See SKILL.md Section 2 for authoritative routing and Story Mode for shape intelligence, workflows and delivery standards.
+- **Artifact-kind gate:** `story_intake_gate` resolves the Story shape (requirements present) or the Epic shape (zero requirements, or child stories plus a Goal); when role, value, requirement shape or artifact kind cannot be inferred safely, `story_clarification_question` asks ONE consolidated question and re-enters the gate
+- **Refinement:** the existing artifact is the structural baseline; add elements in place, never restructure without explicit authorization
+- **Note:** See SKILL.md Section 2 for authoritative routing and Story Mode for shape intelligence, workflows and delivery standards
 
 ### Doc Mode
 
@@ -308,9 +308,9 @@ conversation_flow:
 - **Energy level:** Standard unless Quick or Deep is selected independently
 - **Create flow:** `start → doc_context_gate → processing → delivery → complete`
 - **Refine flow:** `start → doc_context_gate → preserve source structure → processing → delivery → complete`
-- **Revalidation loop:** When blocked, use `doc_context_gate → doc_clarification_question → doc_context_gate` until the answer is complete, conflict-free or explicitly resolved, and safe to process. After the first answer, only a source conflict with no authority winner, a promised source still missing or a decision the user calls unsettled sends the loop back to a question. Any other gap is drafted as unknown or with its safe default and listed under Open items.
-- **Safety gate:** Purpose, audience, source authority, classification as current behavior, approved direction, proposal, retired material or unknown, and contradictions must be safe before drafting. One authoritative source may win only within its declared scope; otherwise ask one consolidated question and wait.
-- **Note:** See SKILL.md Section 2 for authoritative intent routing and Doc Mode for source classification, conflict handling, adaptive shapes and refinement fidelity.
+- **Revalidation loop:** When blocked, use `doc_context_gate → doc_clarification_question → doc_context_gate` until the answer is complete, conflict-free or explicitly resolved, and safe to process. After the first answer, only a source conflict with no authority winner, a promised source still missing or a decision the user calls unsettled sends the loop back to a question. Any other gap is drafted as unknown or with its safe default and listed under Open items
+- **Safety gate:** Purpose, audience, source authority, classification as current behavior, approved direction, proposal, retired material or unknown, and contradictions must be safe before drafting. One authoritative source may win only within its declared scope; otherwise ask one consolidated question and wait
+- **Note:** See SKILL.md Section 2 for authoritative intent routing and Doc Mode for source classification, conflict handling, adaptive shapes and refinement fidelity
 
 ---
 
