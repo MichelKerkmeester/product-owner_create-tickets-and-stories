@@ -1,6 +1,6 @@
 ---
 title: "Implementation Summary"
-description: "sk-product-owner now passes every strict render check it owns, 85 of 105 fixed, and the Product Owner gates went from 11 to 14 of 15 passing."
+description: "sk-product-owner now passes every strict render check it owns, 85 of 105 fixed, and the Product Owner gates went from 11 to 14 of 15 passing, then to all 15 once the shared cards were fixed at source."
 trigger_phrases:
   - "strict contract and gate cleanup implementation summary"
 importance_tier: "normal"
@@ -8,10 +8,10 @@ contextType: "general"
 _memory:
   continuity:
     packet_pointer: "system/022-strict-contract-and-gate-cleanup"
-    last_updated_at: "2026-11-05T18:32:22Z"
+    last_updated_at: "2026-11-06T16:30:00Z"
     last_updated_by: "claude"
-    recent_action: "Fixed 85 strict findings and three failing gates"
-    next_safe_action: "Decide whether to fix the shared cards in z — Knowledge"
+    recent_action: "Recorded the readiness release and the ClickUp pulls"
+    next_safe_action: "Pull mcp-click-up again after each upstream release"
     blockers: []
     key_files: []
     session_dedup:
@@ -36,7 +36,7 @@ _memory:
 | Field | Value |
 |-------|-------|
 | **Spec Folder** | 022-strict-contract-and-gate-cleanup |
-| **Completed** | 2026-11-05 |
+| **Completed** | 2026-11-06 |
 | **Level** | 1 |
 <!-- /ANCHOR:metadata -->
 
@@ -45,7 +45,7 @@ _memory:
 <!-- ANCHOR:what-built -->
 ## What Was Built
 
-`sk-product-owner` passes every strict render check it owns, and 14 of the 15 Product Owner gates pass. The one that fails names only the three shared cards, which come from `z — Knowledge`.
+`sk-product-owner` passes every strict render check it owns, and all 15 Product Owner gates pass. The last gate to fail named only the three shared cards, which were then fixed at their source in `z — Knowledge`. A first ClickUp push of a session now runs the vendored readiness check before it writes.
 
 ### Strict skill contract and gate cleanup
 
@@ -62,6 +62,8 @@ Bold label lines in the references and assets were rendering as one run-on parag
 | `mcp-figma/`, `mcp-code-mode/`, `vendor.json` | Modified | Vendor pull |
 | `sk-product-owner/changelog/v1.2.9.0.md`, `changelog/v1.0.21.0.md` | Created | Release notes |
 | `SKILL.md`, `hub-router.json`, `description.json`, `README.md`, `SYNC.md`, `claude project/README.md` | Modified | Versions and the parity note |
+| `sk-product-owner/SKILL.md` Section 7, `AGENTS.md`, `.utcp_config.json`, `sk-product-owner/changelog/v1.2.12.0.md`, `changelog/v1.0.24.0.md` | Modified and Created | Readiness check after the push is approved, the `aside` and `chrome_devtools_live` manuals |
+| `mcp-click-up/`, `vendor.json` | Modified | Pulls of `mcp-click-up` 1.2.14.0 and 1.2.15.0 |
 <!-- /ANCHOR:what-built -->
 
 ---
@@ -97,6 +99,7 @@ The gates and the strict check ran first to get the counts. The label and blank-
 | Shared cards, after the fix at source | the 20 card findings are gone, all 15 copies match the source bytes, and parity, residency and the format gate pass in all five systems. `gates.py check` in Sales Direct Communication reports no drift after `freeze` |
 | Newer render checks | `sk-product-owner`, `sk-create-figjam` and the hub pass `package_skill.py --check --strict`. The Conciseness card counts 1 to 8, and every citation moved with it |
 | `run_parity.sh` | passes once the Sync Loop counts a loading label in list form as one a mirror never carries |
+| `bash benchmark/gates/run_gates.sh` on 2026-11-06 | all 15 gates pass, after the readiness release and the `mcp-click-up` 1.2.15.0 pull |
 <!-- /ANCHOR:verification -->
 
 ---
@@ -104,7 +107,7 @@ The gates and the strict check ran first to get the counts. The label and blank-
 <!-- ANCHOR:limitations -->
 ## Known Limitations
 
-1. **Vendor sync waits on a peer.** Upstream `mcp-code-mode/ROUTER.md` carries a peer session's uncommitted edit, so the gate reports it upstream-ahead until that commit lands and the copy is pulled.
+1. **Vendor pulls wait on upstream commits.** `vendor-sync.py pull` refuses an upstream with uncommitted changes, so a vendored copy moves only after its upstream release is committed. The `mcp-code-mode` pull that waited on a peer's edit has since landed, and vendor sync reads `ok`.
 2. **Project uploads wait on Michel.** The changed Rules files in five Projects, plus System - Interactive Mode in Product Owner, need replacing by hand.
 <!-- /ANCHOR:limitations -->
 
