@@ -56,6 +56,7 @@ contextType: "general"
 
 - [x] T008 Rerun every gate (`benchmark/gates/run_gates.sh`). Verify: `G` prints `1 of 15 gates failed`, naming only the three shared cards.
 - [x] T009 Record the change (`SYNC.md`). Verify: `rg -n '1.2.9.0' SYNC.md` prints the line.
+- [x] T010 Run the first-use readiness check before the first ClickUp write (`sk-product-owner/SKILL.md` Section 7 at 1.2.12.0, `AGENTS.md`, hub 1.0.24.0, `.utcp_config.json` gains `aside` and `chrome_devtools_live`, vendored `mcp-click-up` 1.2.14.0). Verify: `G` prints `all 15 gates pass`, and `rg -n 'readiness check' sk-product-owner/SKILL.md AGENTS.md` prints both lines.
 <!-- /ANCHOR:phase-3 -->
 
 ---

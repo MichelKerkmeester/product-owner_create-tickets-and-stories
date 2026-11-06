@@ -30,6 +30,39 @@
       }
     },
     {
+      "name": "aside",
+      "call_template_type": "mcp",
+      "config": {
+        "mcpServers": {
+          "aside": {
+            "transport": "stdio",
+            "command": "aside",
+            "args": [
+              "mcp"
+            ],
+            "env": {}
+          }
+        }
+      }
+    },
+    {
+      "name": "chrome_devtools_live",
+      "call_template_type": "mcp",
+      "config": {
+        "mcpServers": {
+          "chrome_devtools_live": {
+            "transport": "stdio",
+            "command": "npx",
+            "args": [
+              "chrome-devtools-mcp@0.26.0",
+              "--autoConnect"
+            ],
+            "env": {}
+          }
+        }
+      }
+    },
+    {
       "name": "figma",
       "call_template_type": "mcp",
       "config": {

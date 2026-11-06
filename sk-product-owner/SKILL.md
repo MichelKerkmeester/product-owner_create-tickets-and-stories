@@ -2,7 +2,7 @@
 name: sk-product-owner
 description: "Writes Barter tasks, bug reports, Stories, Epics and source-safe product or engineering docs as ClickUp-ready markdown."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.2.11.0
+version: 1.2.12.0
 ---
 
 <!-- Keywords: product-owner, backlog, task, subtask, parent task, bug report, acceptance criteria, story mode, user story, prd, product requirements document, epic, doc mode, product documentation, engineering documentation, ClickUp, $task, $bug, $doc, $story, $prd, $epic, $quick -->
@@ -269,7 +269,8 @@ Where a push lands is a local setting, so a public copy of this repository never
 - A private doc takes two calls: `clickup_create_document` with `name`, `parent`, `visibility: "PRIVATE"` and `create_page: false`, which takes no content, then `clickup_create_document_page` on the new document the same way. It goes under the fitting list, otherwise under the space or folder the user names
 - A new doc page shows an empty line under every `* * *` divider. The ClickUp MCP writes each divider that way, and no MCP call removes the gap
 - Every page push ends with the routine in `../mcp-click-up/references/mcp-tools.md` Section 8: check the import, then remove the gaps in the ClickUp editor. The approved push covers it, so it needs no second yes
-- The push is reported done only when the import check shows no missing line and no gap is left. When ClickUp asks for a login, the reply asks the user to log in and runs the routine again
+- After the user's yes and before the first ClickUp write of the session, run the first-use readiness check in `../mcp-click-up/references/mcp-tools.md` Section 3. A first-time user still has to approve the ClickUp MCP once in the browser and, for a doc page, be logged in to ClickUp in Aside or Chrome. For each missing piece, ask with the runtime's structured question tool, such as `AskUserQuestion`, in the words the check gives, wait for the answer, recheck and only then push. The push approval covers the check, which never writes, and later pushes in the same session skip it
+- The push is reported done only when the import check shows no missing line and no gap is left. When the gap pass reports `login: true`, the reply asks the check's login question and runs the routine again. When the user picks a skip, the push still lands and the reply names what was skipped, such as the gaps left on each page
 - When a link does not show which container it is, `clickup_get_workspace_hierarchy` settles it before the push
 - A link's value never enters an export, a spec document or any tracked file, and every push still waits for the user's explicit yes
 

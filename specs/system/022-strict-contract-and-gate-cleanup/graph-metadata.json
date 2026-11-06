@@ -45,7 +45,8 @@
       "claude project/README.md",
       "mcp-code-mode/ROUTER.md",
       "benchmark/gates/run_gates.sh",
-      "benchmark/parity/run_parity.sh"
+      "benchmark/parity/run_parity.sh",
+      "sk-product-owner/SKILL.md"
     ],
     "entities": [
       {
@@ -121,6 +122,12 @@
         "source": "derived"
       },
       {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
         "name": "Feature Specification",
         "kind": "proper_noun",
         "path": "spec.md",
@@ -185,17 +192,11 @@
         "kind": "proper_noun",
         "path": "plan.md",
         "source": "derived"
-      },
-      {
-        "name": "Data Flow Skill",
-        "kind": "proper_noun",
-        "path": "plan.md",
-        "source": "derived"
       }
     ],
     "causal_summary": "`packageskill.py --check --strict` failed `sk-product-owner` on 105 render findings: bold label lines that join into one paragraph, and setext underlines that turn a line into a heading",
     "created_at": "2026-11-05T18:32:22Z",
-    "last_save_at": "2026-11-05T20:26:34.024Z",
+    "last_save_at": "2026-11-06T08:48:25.259Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -204,12 +205,12 @@
       "tasks.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:1d358dfed3020a8237a198f6e6b05923b51ab71e5ea1a9f51c159d60531c0af5",
+    "source_fingerprint": "sha256:56a90edbe4658197092bf6cc63acbab6b2b8ba0793a516336d4174febdd957f4",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
       "spec.md": "0d5be1bd34e57760830a267ac0788497564faaf30f5d7726addcba051b1463a6",
       "plan.md": "c845f0e105c72e685b152b4d4996904e55437cea17f185454be45462a7f5c378",
-      "tasks.md": "43d76f0284ba92a68dce8e8b143a7239508f72a85418fe1dbc0de0b15eb9245d",
+      "tasks.md": "8ab058d17111f2be10291b8a2cae4dd0d4c40f568f4245a181347824f93f4037",
       "implementation-summary.md": "9961101ad09a5a059c5b526d1ecb083f9a4b029601b5039ea9945395834dfa21"
     },
     "last_active_at": null
