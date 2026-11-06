@@ -652,5 +652,5 @@ Your Figma plan or seat has used its monthly tool calls. Open your FigJam drafts
 **Release notes**
 
 - **[→ Hub v1.0.24.0](changelog/v1.0.24.0.md)** - the latest hub release
-- **[→ `sk-product-owner` v1.2.11.0](sk-product-owner/changelog/v1.2.11.0.md)** - the latest backlog and doc packet release
+- **[→ `sk-product-owner` v1.2.12.0](sk-product-owner/changelog/v1.2.12.0.md)** - the latest backlog and doc packet release
 - **[→ `sk-create-figjam` v1.0.18.0](sk-create-figjam/changelog/v1.0.18.0.md)** - the latest FigJam packet release
