@@ -57,6 +57,8 @@ contextType: "general"
 - [x] T008 Rerun every gate (`benchmark/gates/run_gates.sh`). Verify: `G` prints `1 of 15 gates failed`, naming only the three shared cards.
 - [x] T009 Record the change (`SYNC.md`). Verify: `rg -n '1.2.9.0' SYNC.md` prints the line.
 - [x] T010 Run the first-use readiness check before the first ClickUp write (`sk-product-owner/SKILL.md` Section 7 at 1.2.12.0, `AGENTS.md`, hub 1.0.24.0, `.utcp_config.json` gains `aside` and `chrome_devtools_live`, vendored `mcp-click-up` 1.2.14.0). Verify: `G` prints `all 15 gates pass`, and `rg -n 'readiness check' sk-product-owner/SKILL.md AGENTS.md` prints both lines.
+- [x] T011 Pull `mcp-click-up` 1.2.15.0, which closes the readiness and gap-pass tabs by page ID and scopes the check to MCP writes (`mcp-click-up/`, `vendor.json`). Verify: `vendor.json` pins `base_commit` `6a619da8ed`, `diff -rq mcp-click-up` against the upstream mode prints nothing, and `G` prints `vendor sync ok` and `all 15 gates pass`.
+- [x] T012 Bring the packet docs in line with what shipped, and close the 2026-11-06 `SYNC.md` entry as a maintenance record (`spec.md`, `implementation-summary.md`, `tasks.md`, `SYNC.md`). Verify: `rg -n '14 of the 15' implementation-summary.md` prints nothing, `rg -c 'maintenance record, not a review' SYNC.md` prints 60, where it printed 59, `G` prints `all 15 gates pass`, and `validate.sh --strict` on this packet prints `RESULT: PASSED`, run in a scratch clone because the validator needs `.skilled` and `.opencode` at the system root. Section 7 keeps "first ClickUp write", because every Product Owner push goes through the MCP, so it names the same moment as the vendored contract's "first ClickUp MCP write".
 <!-- /ANCHOR:phase-3 -->
 
 ---
@@ -66,7 +68,7 @@ contextType: "general"
 
 - [x] All tasks marked `[x]`
 - [x] No `[B]` blocked tasks remaining
-- [x] Manual verification passed: `G` prints `1 of 15 gates failed`, and the failure is the shared cards this packet leaves out
+- [x] Manual verification passed: `G` prints `all 15 gates pass`, after the shared cards were fixed at their source
 <!-- /ANCHOR:completion -->
 
 ---

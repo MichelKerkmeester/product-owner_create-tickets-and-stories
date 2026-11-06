@@ -46,6 +46,8 @@ $ bash benchmark/gates/run_gates.sh   (after)
   skilled packet contract  FAILED
   Strict mode: 20 contract requirement(s) unmet (references/conciseness-rationale.md, references/conciseness.md, references/hvr-core.md)
 1 of 15 gates failed
+$ bash benchmark/gates/run_gates.sh   (2026-11-06, after the shared-card fix and the readiness release)
+all 15 gates pass
 ```
 <!-- /ANCHOR:measured-behavior -->
 
@@ -63,6 +65,7 @@ $ bash benchmark/gates/run_gates.sh   (after)
 - Fix the 23 findings the new Skilled render checks raised on 2026-11-05: renumber the Conciseness card 1 to 8 on Michel's decision, with every citation and kernel v1.2.17, rewrite the card and template intros, add the When to Use sections, open the README with its Overview, and leave `assets/examples/` out of the render scan in Skilled `package_skill.py`
 - Fix the 45 `sk-create-figjam` findings under the same checks, on Michel's decision, and move that packet to 1.0.18.0
 - Bump `sk-product-owner` to 1.2.9.0, then 1.2.10.0 and 1.2.11.0, and the hub to 1.0.21.0 with changelogs, and record the change in `SYNC.md`
+- Run the vendored `mcp-click-up` first-use readiness check after a push is approved and before the first ClickUp write, add the `aside` and `chrome_devtools_live` manuals to `.utcp_config.json`, and pull `mcp-click-up` 1.2.14.0 and 1.2.15.0 (`sk-product-owner` 1.2.12.0, hub 1.0.24.0)
 
 ### Out of Scope
 - The `mcp-code-mode` vendor pull. Upstream holds a peer session's uncommitted `ROUTER.md` edit, so the pull waits for that commit
@@ -104,7 +107,7 @@ $ bash benchmark/gates/run_gates.sh   (after)
 <!-- ANCHOR:success-criteria -->
 ## 5. SUCCESS CRITERIA
 
-- **SC-001**: `run_gates.sh` prints `1 of 15 gates failed`, and the failure names only the three shared cards
+- **SC-001**: `run_gates.sh` prints `1 of 15 gates failed`, and the failure names only the three shared cards. After the shared cards were fixed at their source, it prints `all 15 gates pass`
 - **SC-002**: The strict count falls from 105 to 20
 <!-- /ANCHOR:success-criteria -->
 
