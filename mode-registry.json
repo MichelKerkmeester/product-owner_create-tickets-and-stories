@@ -1,6 +1,6 @@
 {
   "skill": "product-owner",
-  "version": "1.0.25.0",
+  "version": "1.0.26.0",
   "resourceContractVersion": 1,
   "description": "Declarative mode registry: the single source of truth for the discriminator (workflowMode/packetKind/backendKind) plus the advisorRouting projection for product-owner. The hub reads this file to resolve a mode. Every mode routes by hub membership (routingClass 'metadata'), so the advisor routes the single identity product-owner and the hub picks the mode. The shared parent-hub contract requires an empty toolSurface.bashAllowlist array where no shell command is approved.",
   "discriminator": {
@@ -23,7 +23,7 @@
       "crossHubPairing": {}
     },
     "vendored-packets": {
-      "description": "mcp-figma and mcp-click-up are byte copies of the shared .skilled skills. vendor.json records each upstream path, commit and file hashes, and scripts/vendor-sync.py status, pull and push keep them in step, so nothing inside them is edited here. They carry no Product Owner changes and route inside their own SKILL.md. vendor.json also carries mcp-code-mode, the Code Mode server the repository's own .mcp.json and opencode.json start, and its launcher under scripts/vendored/code-mode. Neither is a mode, so neither is listed here.",
+      "description": "mcp-figma and mcp-click-up are byte copies of the shared .skilled skills. vendor.json records each upstream path, commit and file hashes, and scripts/vendor-sync.py status, pull and push keep them in step, so nothing inside them is edited here. They carry no Product Owner changes and route inside their own SKILL.md. vendor.json also carries mcp-code-mode, the Code Mode server the repository's own .mcp.json and opencode.json start, and its launcher under scripts/vendored/code-mode, plus mcp-aside-devtools and mcp-chrome-devtools, the two browser packets the mcp-click-up gap pass and columns routine drive through the aside and chrome_devtools_live manuals. None of these is a mode, so none is listed here.",
       "manifest": "vendor.json",
       "packets": [
         "mcp-figma",
@@ -44,6 +44,8 @@
         "LICENSE",
         "Favicon.jpg",
         "mcp-code-mode",
+        "mcp-chrome-devtools",
+        "mcp-aside-devtools",
         "opencode.json"
       ]
     }

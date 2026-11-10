@@ -1,0 +1,52 @@
+---
+title: "Screenshot Capture"
+description: "bdg dom screenshot <path> — write a PNG of the current page."
+trigger_phrases:
+  - "bdg screenshot"
+  - "capture page screenshot cli"
+  - "screenshot without puppeteer"
+version: 1.0.0.0
+---
+
+# Screenshot Capture
+
+---
+
+## 1. OVERVIEW
+
+`bdg dom screenshot /tmp/test.png 2>&1` writes a PNG of the current page (verify with the PNG magic bytes `89 50 4e 47`). The CDP alternative `Page.captureScreenshot` returns base64 and supports viewport clips and scale.
+
+---
+
+## 2. HOW IT WORKS
+
+The performance target is capture in under 2 seconds. The graceful-degradation pattern tries the helper first and falls back to `bdg cdp Page.captureScreenshot | jq -r '.result.data' | base64 -d` when the helper fails. On the MCP path the equivalent is `take_screenshot`.
+
+---
+
+## 3. SOURCE FILES
+
+### Implementation
+
+| File | Layer | Role |
+|------|-------|------|
+| `SKILL.md` §7 | CLI | Helper command list (`bdg dom screenshot`) |
+| `references/cdp-patterns.md` §5 | Reference | Full screenshot workflow with fallback |
+| `INSTALL-GUIDE.md` §6 | Guide | Screenshot usage patterns and MCP equivalent |
+
+### Validation And Tests
+
+| File | Type | Role |
+|------|------|------|
+| `manual-testing-playbook/dom-and-screenshot/screenshot-capture.md` | Manual playbook | BDG-010 scenario contract (critical path) |
+
+---
+
+## 4. SOURCE METADATA
+
+- Group: DOM and Screenshot
+- Canonical catalog source: `feature-catalog.md`
+- Feature file path: `dom-and-screenshot/screenshot-capture.md`
+Related references:
+- [viewport-emulation.md](../dom-and-screenshot/viewport-emulation.md) — Viewport Emulation
+- [multi-viewport-test.md](../automation-and-performance/multi-viewport-test.md) — Multi-Viewport Testing

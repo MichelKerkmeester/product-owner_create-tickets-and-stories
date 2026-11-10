@@ -1,0 +1,52 @@
+---
+title: "Dual-Instance Parallel"
+description: "chrome_devtools_1 + chrome_devtools_2 via Promise.all — two isolated browsers running simultaneously."
+trigger_phrases:
+  - "parallel browser testing"
+  - "chrome_devtools_2"
+  - "compare production staging browsers"
+version: 1.0.1.0
+---
+
+# Dual-Instance Parallel
+
+---
+
+## 1. OVERVIEW
+
+Two isolated manuals (`chrome_devtools_1`, `chrome_devtools_2`) each run their own browser process, so a single `call_tool_chain()` can navigate both and capture both screenshots via `Promise.all` — e.g. production vs staging side by side. This is the capability the sequential-only `bdg` CLI cannot provide. The third manual, `chrome_devtools_live`, attaches to the user's own Chrome instead and is not part of this pattern (see `live-instance.md`).
+
+---
+
+## 2. HOW IT WORKS
+
+Each instance is launched with `--isolated=true` so there are no session conflicts. `bdg` exposes one global `status`/`stop` lifecycle with no session selector, so genuine parallel browser control routes through the MCP instances (references/cdp-patterns.md §8 makes this explicit).
+
+---
+
+## 3. SOURCE FILES
+
+### Implementation
+
+| File | Layer | Role |
+|------|-------|------|
+| `SKILL.md` §3 | MCP | Isolated instances and parallel benefit |
+| `INSTALL-GUIDE.md` §6, §8 | Guide | Parallel instance patterns (Pattern 6, Example 5) |
+| `references/cdp-patterns.md` §8 | Reference | Sequential-only CLI boundary, MCP for parallelism |
+
+### Validation And Tests
+
+| File | Type | Role |
+|------|------|------|
+| `manual-testing-playbook/mcp-parallel-instances/dual-instance-parallel.md` | Manual playbook | BDG-015 scenario contract |
+
+---
+
+## 4. SOURCE METADATA
+
+- Group: MCP Parallel Instances
+- Canonical catalog source: `feature-catalog.md`
+- Feature file path: `mcp-parallel-instances/dual-instance-parallel.md`
+Related references:
+- [context-isolation.md](../mcp-parallel-instances/context-isolation.md) — Context Isolation
+- [code-mode-invocation.md](../mcp-parallel-instances/code-mode-invocation.md) — Code Mode Invocation

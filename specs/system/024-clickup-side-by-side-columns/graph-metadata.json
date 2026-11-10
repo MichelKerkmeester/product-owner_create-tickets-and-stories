@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/024-clickup-side-by-side-columns",
+  "spec_folder": "system/024-clickup-side-by-side-columns",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "clickup side-by-side screenshot columns",
+      "clickup side-by-side screenshot columns plan",
+      "clickup side-by-side screenshot columns tasks",
+      "clickup side-by-side screenshot columns implementation summary"
+    ],
+    "key_topics": [
+      "clickup",
+      "side-by-side",
+      "screenshot",
+      "columns",
+      "plan",
+      "tasks",
+      "implementation",
+      "summary",
+      "design",
+      "feedback",
+      "compares",
+      "screen"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md",
+      "sk-product-owner/SKILL.md",
+      "mcp-click-up/references/mcp-tools.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "mcp-tools.md",
+        "kind": "doc",
+        "path": "mcp-click-up/references/mcp-tools.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement Design",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Measured Behavior",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Scope",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Push Targets",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Upstream Skilled",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Vendored",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Completion Criteria",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase 1: Setup",
+        "kind": "heading",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase 2: Implementation",
+        "kind": "heading",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase 3: Verification",
+        "kind": "heading",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Summary",
+        "kind": "proper_noun",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Design feedback compares a built screen with its Figma frame",
+    "created_at": "2026-11-10T16:22:16.762Z",
+    "last_save_at": "2026-11-10T16:22:16.762Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:6c68ec5c7f3ef6915d801dbc079e1a975f0da70a227d5b4ffe76b8a2de283b7d",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "6544544ef438a81ad77fca96f2b98a4dd1981ab8b8e84f119458ea6e9e936441",
+      "plan.md": "2d5a502c038c58146c08ff67eafa08a2ca77a8168c9140e534239a436cbf5b88",
+      "tasks.md": "ed89b360aa90129f4f6bcf3b22bb313e9c95898b7889c4addc63ab33aeb687c2",
+      "implementation-summary.md": "8075ba53b7d05485f47a8d42641b72d53bd5bc472a6b04bb5ad65217aca37fba"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

@@ -2,7 +2,7 @@
 name: product-owner
 description: "Product Owner hub: routes backlog, doc and FigJam diagram requests and two vendored tool packets via mode-registry.json."
 allowed-tools: [Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, mcp__code_mode__call_tool_chain]
-version: 1.0.25.0
+version: 1.0.26.0
 ---
 
 <!-- Keywords: product-owner, sk-product-owner, sk-create-figjam, mcp-click-up, mcp-figma, backlog, task, bug report, user story, epic, prd, product documentation, figjam, user flow, clickup -->
@@ -62,6 +62,8 @@ Product Owner/            the repository root is the hub
   mcp-click-up/            workflow: vendored ClickUp transport
   mcp-figma/               transport: vendored Figma Desktop bridge
   mcp-code-mode/           the vendored Code Mode server, a repository file and no packet
+  mcp-aside-devtools/  mcp-chrome-devtools/
+                           vendored browser packets the ClickUp page routines drive, no packets
   AGENTS.md  SYNC.md  vendor.json  opencode.json  LICENSE  Favicon.jpg
   specs/  export/  claude project/  scripts/
                            repository files, declared in the repo-root-hub extension

@@ -125,7 +125,7 @@ Both routes run the same rules and the same templates. Section 3 sets up either 
 | Artifacts | Task, subtask, bug report, Story, Epic, Doc and FigJam diagram |
 | Diagram types | Seven: user flow, process, architecture, sequence, state, ER and gantt |
 | Worked examples | 21 filled artifacts and 8 FigJam examples, one per diagram type and a second process with a status lane and detail cards |
-| Versions | Hub 1.0.25.0, `sk-product-owner` 1.2.13.0, `sk-create-figjam` 1.0.18.0, Project kernel v1.2.17 |
+| Versions | Hub 1.0.26.0, `sk-product-owner` 1.2.14.0, `sk-create-figjam` 1.0.18.0, Project kernel v1.2.17 |
 | License | MIT |
 
 &nbsp;
@@ -168,7 +168,7 @@ A feature name is not a scope, so the first reply saves one question as `export/
 
 This step is optional and for terminal agents. In Claude Desktop or claude.ai, the Project uses ClickUp's and Figma's own connectors instead, as [USER-GUIDE.md](./USER-GUIDE.md) Section 6 describes.
 
-The repository carries its own Code Mode setup: `.utcp_config.json` registers the `clickup_official` and `figma` manuals, and `.mcp.json` and `opencode.json` start the vendored server in `mcp-code-mode/` through `scripts/code-mode.cjs`. The server needs Node 24, because its `isolated-vm` sandbox has no build for a later Node. The launcher finds an installed Node 24 through nvm, fnm, volta or `PATH` even when your default `node` is newer.
+The repository carries its own Code Mode setup: `.utcp_config.json` registers the `clickup_official` and `figma` manuals, and `.mcp.json` and `opencode.json` start the vendored server in `mcp-code-mode/` through `scripts/code-mode.cjs`. The same config registers the `aside` and `chrome_devtools_live` manuals, which the ClickUp gap pass and columns routine drive. Their packets are vendored in `mcp-aside-devtools/` and `mcp-chrome-devtools/`, so a clone of this repository carries their setup and troubleshooting. The server needs Node 24, because its `isolated-vm` sandbox has no build for a later Node. The launcher finds an installed Node 24 through nvm, fnm, volta or `PATH` even when your default `node` is newer.
 
 ```bash
 cp .env.example .env                      # figma_FIGMA_API_KEY, optional
@@ -523,6 +523,8 @@ The Claude Project files are written by hand from the skill sources, so a matchi
 ├── mcp-click-up/                    vendored ClickUp tool packet
 ├── mcp-figma/                       vendored Figma Desktop tool packet
 ├── mcp-code-mode/                   vendored Code Mode server, built locally under Node 24
+├── mcp-aside-devtools/              vendored Aside browser packet, for the ClickUp page routines
+├── mcp-chrome-devtools/             vendored Chrome DevTools packet, the browser fallback
 ├── claude project/                  the claude.ai kernel, its knowledge files and the push targets template
 ├── benchmark/                       router, format, gate and grader checks, plus the dated runs
 ├── manual-testing-playbook/         the hub routing scenarios
@@ -651,6 +653,6 @@ Your Figma plan or seat has used its monthly tool calls. Open your FigJam drafts
 
 **Release notes**
 
-- **[→ Hub v1.0.25.0](changelog/v1.0.25.0.md)** - the latest hub release
-- **[→ `sk-product-owner` v1.2.13.0](sk-product-owner/changelog/v1.2.13.0.md)** - the latest backlog and doc packet release
+- **[→ Hub v1.0.26.0](changelog/v1.0.26.0.md)** - the latest hub release
+- **[→ `sk-product-owner` v1.2.14.0](sk-product-owner/changelog/v1.2.14.0.md)** - the latest backlog and doc packet release
 - **[→ `sk-create-figjam` v1.0.18.0](sk-create-figjam/changelog/v1.0.18.0.md)** - the latest FigJam packet release

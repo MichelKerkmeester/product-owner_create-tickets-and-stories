@@ -1,0 +1,19 @@
+{
+  "specFolder": "system/024-clickup-side-by-side-columns",
+  "description": "ClickUp side-by-side screenshot columns",
+  "keywords": [
+    "clickup",
+    "side-by-side",
+    "screenshot",
+    "columns"
+  ],
+  "lastUpdated": "2026-11-10T17:30:00.000Z",
+  "specId": "024",
+  "folderSlug": "clickup-side-by-side-columns",
+  "parentChain": [
+    "system"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "1"
+}
