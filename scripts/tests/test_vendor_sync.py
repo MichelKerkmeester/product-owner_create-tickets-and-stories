@@ -34,7 +34,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 # ───────────────────────────────────────────────────────────────
 # 2. FIXTURES
@@ -85,23 +85,51 @@ class ScratchWorld:
     def run(
         self,
         command: str,
+        *flags: str,
         upstream: bool = True,
+        override: Optional[Path] = None,
     ) -> subprocess.CompletedProcess[str]:
         """Run vendor-sync against this scratch repository.
 
         Args:
             command: Vendor-sync command to run.
+            *flags: Extra command-line flags for the command.
             upstream: Whether to expose the scratch upstream root.
+            override: Another path to expose as the upstream root.
 
         Returns:
             Completed subprocess result.
         """
         env = dict(os.environ)
         env.pop("VENDOR_UPSTREAM_ROOT", None)
-        if upstream:
+        if override is not None:
+            env["VENDOR_UPSTREAM_ROOT"] = str(override)
+        elif upstream:
             env["VENDOR_UPSTREAM_ROOT"] = str(self.upstream_root)
-        return subprocess.run([sys.executable, str(SCRIPT), command, "--root", str(self.repo_root)],
+        return subprocess.run([sys.executable, str(SCRIPT), command, *flags, "--root", str(self.repo_root)],
                               capture_output=True, text=True, env=env, cwd=str(self.repo_root))
+
+    def add_package(self, name: str) -> Path:
+        """Add a second skill to the scratch upstream and to the manifest.
+
+        Args:
+            name: Folder and manifest name of the new skill.
+
+        Returns:
+            The new skill folder inside the scratch upstream.
+        """
+        upstream_path = f".skilled/skills/mcp-tooling/{name}"
+        skill_dir = self.upstream_root / upstream_path
+        skill_dir.mkdir(parents=True)
+        (skill_dir / "SKILL.md").write_text(f"# {name}\n")
+        git(self.upstream_root, "-c", "user.name=t", "-c", "user.email=t@t", "add", "-A")
+        self.commit_upstream(f"add {name}")
+        path = self.repo_root / "vendor.json"
+        manifest = json.loads(path.read_text())
+        manifest["packages"].append({"name": name, "local_path": name, "upstream_path": upstream_path,
+                                     "base_commit": None, "files": {}})
+        path.write_text(json.dumps(manifest))
+        return skill_dir
 
     def commit_upstream(self, message: str) -> None:
         """Commit current changes in the scratch upstream repository.
@@ -350,6 +378,207 @@ class VendorSyncTests(unittest.TestCase):
         """Missing shared upstream configuration returns a setup error."""
         result = self.world.run("status", upstream=False)
         self.assertEqual(result.returncode, 2)
+
+    def entry(self, name: str) -> Dict[str, Any]:
+        """Return one package entry of the scratch manifest by name.
+
+        Args:
+            name: Package name to look up.
+
+        Returns:
+            The manifest entry as it is on disk now.
+        """
+        packages = json.loads((self.world.repo_root / "vendor.json").read_text())["packages"]
+        return next(p for p in packages if p["name"] == name)
+
+    def test_sync_pulls_the_entry_that_is_behind_and_leaves_the_one_in_step(self) -> None:
+        """Sync pulls only the entry upstream moved and lists the commits that moved it."""
+        self.world.add_package("other-skill")
+        self.world.run("pull")
+        other_before = self.entry("other-skill")
+        other_file = self.world.repo_root / "other-skill" / "SKILL.md"
+        other_inode = other_file.stat().st_ino
+        (self.world.skill_dir / "references" / "guide.md").write_text("guide line\nupstream fix\n")
+        self.world.commit_upstream("fix the guide")
+        result = self.world.run("sync")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("other-skill: in step", result.stdout)
+        self.assertIn("sample-skill: pulled, 1 file(s) changed", result.stdout)
+        self.assertIn("fix the guide", result.stdout, "a pulled entry must list the commits that moved it")
+        head = git(self.world.upstream_root, "rev-parse", "HEAD").strip()
+        self.assertEqual(self.entry("sample-skill")["base_commit"], head)
+        self.assertEqual(
+            (self.world.repo_root / "sample-skill" / "references" / "guide.md").read_text(),
+            "guide line\nupstream fix\n",
+        )
+        self.assertEqual(self.entry("other-skill"), other_before, "an entry in step keeps its record")
+        self.assertEqual(other_file.stat().st_ino, other_inode, "an entry in step must not be copied again")
+
+    def test_sync_rebaselines_a_fix_pushed_and_committed_upstream(self) -> None:
+        """Sync takes the commit of a pushed fix as the new base instead of refusing the local edit."""
+        self.world.run("pull")
+        (self.world.repo_root / "sample-skill" / "SKILL.md").write_text("# Sample skill\nfixed here\n")
+        self.assertEqual(self.world.run("push").returncode, 0)
+        self.world.commit_upstream("take the fix made here")
+        result = self.world.run("sync")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("sample-skill: pulled, 1 file(s) changed", result.stdout)
+        self.assertEqual(self.world.run("status").returncode, 0)
+
+    def test_sync_with_every_entry_in_step_writes_nothing(self) -> None:
+        """Sync leaves vendor.json and the local copy untouched when nothing moved."""
+        self.world.run("pull")
+        manifest_path = self.world.repo_root / "vendor.json"
+        # Compact JSON differs from the indented form a save writes, so any rewrite shows.
+        manifest_path.write_text(json.dumps(json.loads(manifest_path.read_text())))
+        before = manifest_path.read_bytes()
+        skill = self.world.repo_root / "sample-skill" / "SKILL.md"
+        inode = skill.stat().st_ino
+        result = self.world.run("sync")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("in step", result.stdout)
+        self.assertNotIn("out of step", result.stdout)
+        self.assertEqual(manifest_path.read_bytes(), before, "an in-step sync must not rewrite vendor.json")
+        self.assertEqual(skill.stat().st_ino, inode, "an in-step sync must not copy the package again")
+
+    def test_sync_refuses_local_edits_even_when_upstream_moved(self) -> None:
+        """Sync keeps a local edit upstream does not carry and exits 1 with the reason."""
+        self.world.run("pull")
+        recorded = self.entry("sample-skill")
+        edited = self.world.repo_root / "sample-skill" / "SKILL.md"
+        edited.write_text(edited.read_text() + "local edit\n")
+        (self.world.skill_dir / "references" / "guide.md").write_text("guide line\nupstream fix\n")
+        self.world.commit_upstream("fix the guide")
+        result = self.world.run("sync")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("sample-skill: refused, the local copy has edits upstream does not carry", result.stdout)
+        self.assertIn("1 of 1 entries out of step: sample-skill", result.stdout)
+        self.assertTrue(edited.read_text().endswith("local edit\n"), "a refused sync must keep the local edit")
+        self.assertEqual(self.entry("sample-skill"), recorded, "a refused sync must not move the record")
+
+    def test_sync_refuses_a_never_pulled_entry_whose_folder_already_holds_other_files(self) -> None:
+        """Sync keeps files in the folder of an entry with no recorded hashes to compare them with."""
+        local = self.world.repo_root / "sample-skill" / "SKILL.md"
+        local.parent.mkdir()
+        local.write_text("# written here before any pull\n")
+        recorded = self.entry("sample-skill")
+        result = self.world.run("sync")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("sample-skill: refused, never pulled and its folder holds files", result.stdout)
+        self.assertEqual(local.read_text(), "# written here before any pull\n", "a refused sync must keep the file")
+        self.assertEqual(self.entry("sample-skill"), recorded, "a refused sync must not move the record")
+
+    def test_sync_vendors_a_never_pulled_entry_with_no_local_folder(self) -> None:
+        """Sync pulls an entry that was never pulled when nothing local could be lost."""
+        result = self.world.run("sync")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("sample-skill: pulled, 2 file(s) changed", result.stdout)
+        self.assertTrue((self.world.repo_root / "sample-skill" / "references" / "guide.md").is_file())
+
+    def test_sync_prints_the_rebuild_commands_only_when_a_dependency_file_changed(self) -> None:
+        """A pulled entry that keeps build output out names the rebuild for a changed dependency file."""
+        (self.world.skill_dir / "mcp-server").mkdir()
+        (self.world.skill_dir / "mcp-server" / "package.json").write_text('{"v": 1}\n')
+        git(self.world.upstream_root, "-c", "user.name=t", "-c", "user.email=t@t", "add", "-A")
+        self.world.commit_upstream("add a server")
+        self.set_package(exclude=["node_modules", "dist"])
+        self.world.run("pull")
+        (self.world.skill_dir / "mcp-server" / "package.json").write_text('{"v": 2}\n')
+        self.world.commit_upstream("raise the dependency")
+        hinted = self.world.run("sync")
+        self.assertIn(
+            "rebuild: cd sample-skill/mcp-server && nvm exec 24 npm ci && nvm exec 24 npm run build", hinted.stdout
+        )
+        (self.world.skill_dir / "references" / "guide.md").write_text("guide line\nonly prose\n")
+        self.world.commit_upstream("fix the guide")
+        quiet = self.world.run("sync")
+        self.assertEqual(quiet.returncode, 0, quiet.stdout + quiet.stderr)
+        self.assertNotIn("rebuild", quiet.stdout, "a pull with no dependency change needs no rebuild")
+
+    def test_status_local_passes_with_no_upstream_and_fails_on_a_local_edit(self) -> None:
+        """Local status checks the copy against vendor.json alone and still catches an edit."""
+        self.world.run("pull")
+        clean = self.world.run("status", "--local", upstream=False)
+        self.assertEqual(clean.returncode, 0, clean.stdout + clean.stderr)
+        self.assertIn("local copy matches vendor.json", clean.stdout)
+        guide = self.world.repo_root / "sample-skill" / "references" / "guide.md"
+        guide.write_text("guide line\nedited\n")
+        edited = self.world.run("status", "--local", upstream=False)
+        self.assertEqual(edited.returncode, 1, edited.stdout + edited.stderr)
+        self.assertIn("changed references/guide.md", edited.stdout)
+        self.assertIn("1 of 1 entries out of step: sample-skill", edited.stdout)
+
+    def test_local_flag_is_refused_outside_status(self) -> None:
+        """The local flag cannot ride along with a command that writes."""
+        result = self.world.run("pull", "--local")
+        self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
+        self.assertIn("--local is valid only with status", result.stderr)
+        self.assertFalse((self.world.repo_root / "sample-skill").exists(), "a refused flag must pull nothing")
+
+    def test_diff_shows_the_changed_line_and_exits_one(self) -> None:
+        """Diff prints upstream's added line under the local and upstream file headers."""
+        self.world.run("pull")
+        (self.world.skill_dir / "references" / "guide.md").write_text("guide line\nimproved line\n")
+        result = self.world.run("diff")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("--- local/references/guide.md", result.stdout)
+        self.assertIn("+++ upstream/references/guide.md", result.stdout)
+        self.assertIn("+improved line", result.stdout)
+        self.assertEqual(
+            (self.world.repo_root / "sample-skill" / "references" / "guide.md").read_text(),
+            "guide line\n",
+            "diff is read-only",
+        )
+
+    def test_diff_exits_zero_when_in_step(self) -> None:
+        """Diff reports nothing to show for a copy that equals upstream."""
+        self.world.run("pull")
+        result = self.world.run("diff")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertIn("sample-skill: no differences", result.stdout)
+        self.assertNotIn("---", result.stdout)
+
+    def test_diff_notes_a_binary_file_and_a_file_on_one_side(self) -> None:
+        """Diff names a binary, a local-only and an upstream-only file in one line each."""
+        (self.world.skill_dir / "data.bin").write_bytes(b"\x00\x01\x02")
+        git(self.world.upstream_root, "-c", "user.name=t", "-c", "user.email=t@t", "add", "-A")
+        self.world.commit_upstream("add a binary")
+        self.world.run("pull")
+        local = self.world.repo_root / "sample-skill"
+        (local / "data.bin").write_bytes(b"\x00\x01\x03")
+        (local / "mine.md").write_text("local only\n")
+        (self.world.skill_dir / "theirs.md").write_text("upstream only\n")
+        result = self.world.run("diff")
+        self.assertEqual(result.returncode, 1, result.stdout + result.stderr)
+        self.assertIn("binary file differs data.bin", result.stdout)
+        self.assertIn("only in local mine.md", result.stdout)
+        self.assertIn("only in upstream theirs.md", result.stdout)
+
+    def test_status_ends_with_one_line_naming_the_entries_out_of_step(self) -> None:
+        """Status closes with a count and the names, and stays silent when every entry is in step."""
+        self.world.add_package("other-skill")
+        self.world.run("pull")
+        green = self.world.run("status")
+        self.assertEqual(green.returncode, 0, green.stdout)
+        self.assertNotIn("out of step", green.stdout)
+        guide = self.world.repo_root / "sample-skill" / "references" / "guide.md"
+        guide.write_text("guide line\nedited\n")
+        red = self.world.run("status")
+        self.assertEqual(red.returncode, 1, red.stdout)
+        self.assertEqual(red.stdout.splitlines()[-1], "1 of 2 entries out of step: sample-skill")
+        self.assertIn("other-skill: in step", red.stdout, "the existing per-entry lines must stay")
+
+    def test_override_root_without_a_skilled_folder_is_refused(self) -> None:
+        """An override that is not a root, or sits one level off, is a setup error."""
+        not_a_root = self.world.repo_root.parent / "not-a-root"
+        not_a_root.mkdir()
+        for bad in (not_a_root, self.world.upstream_root / ".skilled"):
+            result = self.world.run("status", override=bad)
+            self.assertEqual(result.returncode, 2, f"{bad}: {result.stdout}{result.stderr}")
+            self.assertIn("VENDOR_UPSTREAM_ROOT holds no .skilled folder", result.stderr)
+        pulled = self.world.run("pull", override=not_a_root)
+        self.assertEqual(pulled.returncode, 2)
+        self.assertFalse((self.world.repo_root / "sample-skill").exists(), "a refused root must vendor nothing")
 
 
 if __name__ == "__main__":

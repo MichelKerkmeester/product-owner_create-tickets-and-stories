@@ -11,7 +11,7 @@ _memory:
     last_updated_at: "2026-11-10T21:30:00Z"
     last_updated_by: "claude-opus-5-5"
     recent_action: "Fixed all 15 review findings, released hub 1.0.28.0 and skill 1.2.16.0, pulled mcp-click-up 1.2.20.0"
-    next_safe_action: "Push the Skilled, Product Owner and outer commits on Michel's go-ahead"
+    next_safe_action: "None. The Skilled, Product Owner and outer commits are pushed"
     blockers: []
     key_files:
       - "mcp-click-up/references/mcp-tools.md"
@@ -117,5 +117,5 @@ The page writer was fixed upstream, committed and vendored. One agent fixed the 
 <!-- ANCHOR:limitations -->
 ## Known Limitations
 
-1. **Mark-as-done match.** The converter grays a Mark-as-done line only when a non-word character follows `done`, as in the template wording.
+1. **Mark-as-done match.** The converter grayed a Mark-as-done line only when punctuation or a space followed `done`, so a short `_Mark as done_` line stayed white. Checked and open lines were always treated alike. Packet 030 widened the match.
 <!-- /ANCHOR:limitations -->

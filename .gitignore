@@ -1,6 +1,11 @@
 # OS-generated files
 .DS_Store
 
+# Python caches: the interpreter and pytest write these inside the skill folders on every check run
+__pycache__/
+*.pyc
+.pytest_cache/
+
 # export/: keep the folder, its .gitkeep and the benchmark deliverables, ignore everything else
 export/*
 !export/.gitkeep
@@ -10,6 +15,24 @@ export/*
 .env
 .env.*
 !.env.example
+
+# Browser captures from the DevTools packets can hold live session cookies and bearer tokens,
+# so the files and folders their recipes write by default never enter this public repo.
+# Images stay unignored here because the repo tracks real ones.
+*.har
+*.heapsnapshot
+cookies.json
+cookies.txt
+requests-summary.json
+errors.json
+console.json
+output.png
+screenshot-b64.txt
+debug.log
+artifacts/
+performance-baselines/
+viewport-tests/
+animation-tests/
 
 # A filled copy of the push targets file, made from claude project/templates/, stays here
 claude project/local/

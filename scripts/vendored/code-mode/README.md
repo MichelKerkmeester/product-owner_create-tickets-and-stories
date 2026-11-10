@@ -15,7 +15,7 @@ version: 1.0.0.0
 
 `scripts/vendored/code-mode/` contains two files imported by `scripts/code-mode.cjs`. The wrapper checks for the built Code Mode entrypoint, resolves a Node executable from `mcp-code-mode/mcp-server/package.json` and starts the child process through `runServer`.
 
-The server manifest currently requires Node `>=24.0.0 <25.0.0`. The wrapper passes command-line arguments to the server and inherits its standard input, output and error streams.
+The server manifest currently requires Node `>=24.22.1 <25.0.0`. The wrapper passes command-line arguments to the server and inherits its standard input, output and error streams.
 
 ---
 

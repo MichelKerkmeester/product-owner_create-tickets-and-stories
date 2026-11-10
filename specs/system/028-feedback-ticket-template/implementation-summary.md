@@ -11,7 +11,7 @@ _memory:
     last_updated_at: "2026-11-10T19:30:00Z"
     last_updated_by: "claude-opus-5-5"
     recent_action: "Added the feedback ticket template, Task Mode rules, example and Project mirrors"
-    next_safe_action: "Add a feedback-ticket export label and doc count clause to the kernel when it next moves"
+    next_safe_action: "None. Kernel v1.2.19 carries the feedback-ticket export label and count clause, added in packet 030"
     blockers: []
     key_files:
       - "sk-product-owner/assets/task-templates.md"
@@ -104,7 +104,7 @@ The shape came from four live Chat Prompts MVP feedback tasks read in ClickUp. T
 <!-- ANCHOR:limitations -->
 ## Known Limitations
 
-1. **Kernel not updated.** A Project has no feedback-ticket export label and does not state the doc count in its push offer.
+1. **Kernel updated later.** Kernel v1.2.19, in packet 030, added the feedback-ticket export label and the count of tickets a review round yields. The pasted Project kernel still needs that version.
 2. **Fields stay manual.** App, Feature and Scope are set by hand after the ticket moves to a list.
 <!-- /ANCHOR:limitations -->
 

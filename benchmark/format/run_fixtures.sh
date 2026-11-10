@@ -11,6 +11,9 @@
 # the four checks that turned blocking once their vocabulary was written into
 # the always-loaded instruction surface.
 #
+# The run ends with the shared Sync Loop's reference parity check when that
+# folder sits beside this repository, and says so when it does not.
+#
 # Exit Codes:
 #   0 - Every case passed
 #   1 - At least one case failed
@@ -25,6 +28,7 @@ cd "$(dirname "$0")" || exit 2
 
 VALIDATOR="./validate-output-format.cjs"
 FIXTURES="./fixtures"
+SYNC_LOOP="../../../z — Claude Project Sync Loop"
 failures=0
 
 # ───────────────────────────────────────────────────────────────
@@ -246,7 +250,39 @@ check "length caps: a four-sentence Problem and a noun pair joined by and stay s
   "${FIXTURES}/length-caps-silent.md"
 
 # ───────────────────────────────────────────────────────────────
-# 4. RESULT
+# 4. PARITY CHECK
+# ───────────────────────────────────────────────────────────────
+
+# This validator is the reference implementation. The shared Sync Loop core is
+# held to its exact exit status, stdout and stderr by a check that lives in that
+# folder, and only that folder's own harness runs it. An edit here that breaks
+# parity would therefore pass every gate this system owns. A standalone clone has no
+# Sync Loop folder, so the step reports itself skipped and counts nothing. A
+# folder that exists without the check is a failure, because a renamed script
+# would otherwise switch the guard off with nothing on the record.
+if [ ! -d "$SYNC_LOOP" ]; then
+  echo "SKIPPED shared core parity, the shared Sync Loop folder is not beside this repository"
+elif [ ! -f "${SYNC_LOOP}/reference-parity.cjs" ]; then
+  echo "FAIL shared core reproduces the reference implementation: ${SYNC_LOOP}/reference-parity.cjs is missing"
+  failures=$((failures + 1))
+else
+  parity_output="$(node "${SYNC_LOOP}/reference-parity.cjs" 2>&1)"
+  parity_status=$?
+  # Exit 0 alone is not a comparison. The check also exits 0 for a reference that
+  # is declared retired, so the pass waits for the sentence only a comparison prints.
+  if [ "$parity_status" -eq 0 ] && printf '%s\n' "$parity_output" | grep -q 'byte-identical to the reference implementation'; then
+    echo "PASS shared core reproduces the reference implementation"
+  else
+    echo "FAIL shared core reproduces the reference implementation"
+    # Keep sed's line-wise prefixing for captured multiline output.
+    # shellcheck disable=SC2001
+    echo "${parity_output}" | sed 's/^/     /'
+    failures=$((failures + 1))
+  fi
+fi
+
+# ───────────────────────────────────────────────────────────────
+# 5. RESULT
 # ───────────────────────────────────────────────────────────────
 
 if [ "$failures" -ne 0 ]; then

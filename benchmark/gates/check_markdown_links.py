@@ -5,6 +5,9 @@
 
 """Check source Markdown links whose destinations stay inside this repository.
 
+The vendored packets that vendor.json lists are upstream's to fix, so the gate
+reads their folders from that manifest and skips them.
+
 Usage:
   check_markdown_links.py -> exit 0 when every relative link resolves, exit 1 otherwise
 """
@@ -12,6 +15,7 @@ Usage:
 from __future__ import annotations
 
 from collections.abc import Iterator
+import json
 import os
 import re
 import subprocess
@@ -24,7 +28,8 @@ from urllib.parse import unquote, urlsplit
 # ───────────────────────────────────────────────────────────────
 
 ROOT = Path(__file__).resolve().parents[2]
-EXCLUDED_DIRS = {".git", "node_modules", "specs", "export", "mcp-click-up", "mcp-figma", "mcp-code-mode"}
+EXCLUDED_DIRS = {".git", "node_modules", "specs", "export"}
+MANIFEST_NAME = "vendor.json"
 REFERENCE_LINK = re.compile(r"(?m)^\s{0,3}\[[^\]]+\]:\s*(?:<([^>]+)>|(\S+))")
 INLINE_CODE = re.compile(r"(`+)[^`\n]*?\1")
 # Worked examples write link targets as placeholders such as figma-url, which the reader
@@ -36,15 +41,31 @@ PLACEHOLDER = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*-url")
 # 2. HELPERS
 # ───────────────────────────────────────────────────────────────
 
+def vendored_packets(root: Path) -> set[str]:
+    """Return the folders of the whole packets that vendor.json copies from upstream.
+
+    Upstream owns those trees, so a broken link in one is fixed there. An entry
+    with an include list copies single files into a folder this repository
+    shares, so its folder stays in scope.
+    """
+    try:
+        packages = json.loads((root / MANIFEST_NAME).read_text(encoding="utf-8"))["packages"]
+        return {package["local_path"] for package in packages if "include" not in package}
+    except (OSError, ValueError, KeyError, TypeError) as error:
+        raise SystemExit(f"FAILED cannot read the vendored folders from {MANIFEST_NAME}: {error}") from error
+
+
 def markdown_files(root: Path) -> list[Path]:
     """Return Markdown files outside the excluded source trees."""
     files = []
+    vendored = vendored_packets(root)
     for current, directories, names in os.walk(root, followlinks=False):
         folder = Path(current)
         relative = folder.relative_to(root)
         directories[:] = [
             name for name in directories
-            if name not in EXCLUDED_DIRS and not (folder / name).is_symlink()
+            if name not in EXCLUDED_DIRS and (relative / name).as_posix() not in vendored
+            and not (folder / name).is_symlink()
             and not (relative == Path("benchmark") and name == "reports")
         ]
         files.extend(

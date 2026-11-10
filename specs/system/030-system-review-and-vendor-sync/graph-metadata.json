@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/030-system-review-and-vendor-sync",
+  "spec_folder": "system/030-system-review-and-vendor-sync",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "system review and vendor sync",
+      "system review and vendor sync plan",
+      "system review and vendor sync tasks",
+      "system review and vendor sync implementation summary"
+    ],
+    "key_topics": [
+      "system",
+      "review",
+      "vendor",
+      "sync",
+      "plan",
+      "tasks",
+      "implementation",
+      "summary",
+      "michel",
+      "asked",
+      "ten-iteration",
+      "whole"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md",
+      "scripts/vendor-sync.py",
+      "scripts/README.md",
+      "scripts/tests/test_vendor_sync.py",
+      "scripts/tests/README.md",
+      "scripts/vendored/code-mode/README.md",
+      "benchmark/gates/run_gates.sh",
+      "benchmark/format/run_fixtures.sh",
+      "claude project/Custom Instructions.md",
+      "claude project/README.md",
+      "changelog/v1.0.29.0.md",
+      "benchmark/format/README.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "vendor-sync.py",
+        "kind": "file",
+        "path": "scripts/vendor-sync.py",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "scripts/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "test_vendor_sync.py",
+        "kind": "file",
+        "path": "scripts/tests/test_vendor_sync.py",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "run_fixtures.sh",
+        "kind": "script",
+        "path": "benchmark/format/run_fixtures.sh",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.0.29.0.md",
+        "kind": "doc",
+        "path": "changelog/v1.0.29.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement Michel",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Every",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Measured Behavior",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Scope",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Five",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Fix",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Michel asked for a ten-iteration review of the whole system and its nested skills, a check that it still follows Skilled sk-doc and sk-code, and an easy way to sync the mcp and browser packets taken from Skilled, with a look at whether the Skilled overlay and repin support could do that",
+    "created_at": "2026-11-10T21:24:54.084Z",
+    "last_save_at": "2026-11-10T21:25:14.307Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:b73cdbd92bc8e93e2bd99690d5b08596ee94feb4f99372a8bb6339488e629981",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "86c395ba1307d5e32bece466bcdcc87bd1de51d8c9593198c9dce3f0eb6eba1c",
+      "plan.md": "7f17221453f29287374caef27f68dd99be5d7a88389c7b5340ebd366ff89d052",
+      "tasks.md": "23e9d86ccd5a250d4e01ba40472179dd5db0fd35d71ba4ba497fccbde85ec8ff",
+      "implementation-summary.md": "32d5fe23eee72ad32553b37e6feb5a8d8a1fb745c587c3520869695187f03d4c"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

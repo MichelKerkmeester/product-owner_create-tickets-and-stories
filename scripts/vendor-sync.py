@@ -14,8 +14,10 @@ point. Every command compares three trees against that record: the local copy,
 the upstream working tree and the manifest itself.
 
 The upstream root is the folder that holds `.skilled`, found by walking up from
-this repository, or `VENDOR_UPSTREAM_ROOT` when set. A standalone clone has no
-such folder, and every command then says so and exits 2 rather than passing.
+this repository, or `VENDOR_UPSTREAM_ROOT` when set. The override must hold
+`.skilled` too, so a path one level off is a setup error and never a wrong tree.
+A standalone clone has no such folder, so every command except `status --local`
+says so and exits 2 rather than passing.
 
 A package may name an `include` list of file paths. Only those files are then
 hashed, pulled and pushed, so one script can be vendored out of a folder that
@@ -41,17 +43,35 @@ Push writes into the upstream working tree and stops there. Committing
 upstream is the operator's step, and `pull` afterwards re-baselines the
 manifest at the new commit.
 
+`sync` is the one command to run after upstream moved. It leaves an entry that
+is in step alone and pulls an entry that is only behind upstream. It refuses an
+entry a pull would not be safe for, and it prints one line per entry. That
+includes a never-pulled entry whose folder already holds other files, which only
+an explicit `pull` vendors over. Under a
+pulled entry it lists up to five upstream commit subjects. When the entry keeps
+build output out of the copy and a dependency file changed, it also prints the
+rebuild commands.
+
+`status --local` compares each local copy with the hashes in `vendor.json` and
+reads no upstream, so it works in a standalone clone too. `diff` prints what
+differs between each local copy and upstream and writes nothing.
+
 Usage:
-  python3 scripts/vendor-sync.py status [--package NAME]
+  python3 scripts/vendor-sync.py status [--package NAME] [--local]
+  python3 scripts/vendor-sync.py sync [--package NAME]
+  python3 scripts/vendor-sync.py diff [--package NAME]
   python3 scripts/vendor-sync.py pull [--package NAME]
   python3 scripts/vendor-sync.py push [--package NAME]
 
 Output:
-  Each command prints package status or change details. Exit codes are 0 for
-  success, 1 for drift or a refused sync, and 2 for setup errors.
+  Each command prints package status or change details. Status and sync end
+  with one line naming the entries that are out of step. Exit codes are 0 for
+  success, 1 for drift, a refused sync or a difference to show, and 2 for setup
+  errors.
 
 Options:
   --package NAME  Run the command for one package from vendor.json.
+  --local         With status, check the local copies against vendor.json only.
   --root PATH     Use another repository root. This internal option is hidden
                   from argparse help.
 """
@@ -61,6 +81,7 @@ Options:
 # ───────────────────────────────────────────────────────────────
 
 import argparse
+import difflib
 import hashlib
 import json
 import os
@@ -77,6 +98,15 @@ from typing import Any, Callable, Dict, List, Optional, Tuple
 REPO_ROOT = Path(__file__).resolve().parent.parent
 MANIFEST_NAME = "vendor.json"
 IGNORED_NAMES = {".DS_Store", "__pycache__"}
+UPSTREAM_MARKER = ".skilled"
+SUBJECT_LIMIT = 5
+
+# A pull never touches build output, so a changed dependency file leaves the old
+# build stale. The commands are the ones the repository README gives for the Code
+# Mode server, which needs Node 24 because its sandbox has no build for a later Node.
+BUILD_OUTPUT = {"node_modules", "dist"}
+DEPENDENCY_FILES = {"package.json", "package-lock.json", ".nvmrc"}
+REBUILD_COMMANDS = "nvm exec 24 npm ci && nvm exec 24 npm run build"
 
 EXIT_OK = 0
 EXIT_DRIFT = 1
@@ -99,15 +129,22 @@ def find_upstream_root(start: Path) -> Optional[Path]:
 
     Returns:
         The upstream root, or ``None`` when no shared skill tree is available.
+
+    Raises:
+        SetupError: If the override names a folder that holds no ``.skilled``.
     """
     override = os.environ.get("VENDOR_UPSTREAM_ROOT")
     if override:
+        # The override meets the test a discovered root meets, so a path one level
+        # off, such as the `.skilled` folder itself, stops here with a clear line.
+        if not (Path(override) / UPSTREAM_MARKER).is_dir():
+            raise SetupError(f"VENDOR_UPSTREAM_ROOT holds no {UPSTREAM_MARKER} folder: {override}")
         return Path(override)
     # Walk the unresolved path: the repository may itself be reached through a
     # link, and the shared skill folder sits beside the link, not its target.
     current = Path(os.path.abspath(start))
     for candidate in [current, *current.parents]:
-        if (candidate / ".skilled").is_dir():
+        if (candidate / UPSTREAM_MARKER).is_dir():
             return candidate
     return None
 
@@ -197,6 +234,19 @@ def diff_trees(expected: Dict[str, str], actual: Dict[str, str]) -> List[str]:
     return changes
 
 
+def changed_paths(old: Dict[str, str], new: Dict[str, str]) -> List[str]:
+    """List the sorted paths whose digest differs, or that exist on one side only.
+
+    Args:
+        old: File digests before a pull.
+        new: File digests after it.
+
+    Returns:
+        Relative paths of every added, removed or changed file.
+    """
+    return sorted(rel for rel in old.keys() | new.keys() if old.get(rel) != new.get(rel))
+
+
 def upstream_commit(upstream_dir: Path, include: Optional[List[str]] = None) -> Optional[str]:
     """Read the last upstream commit affecting a package or included files.
 
@@ -217,6 +267,35 @@ def upstream_commit(upstream_dir: Path, include: Optional[List[str]] = None) -> 
     )
     commit = result.stdout.strip()
     return commit if result.returncode == 0 and commit else None
+
+
+def commit_subjects(
+    upstream_dir: Path,
+    old: Optional[str],
+    new: str,
+    include: Optional[List[str]] = None,
+) -> List[str]:
+    """List the upstream commits that moved a package from one base commit to another.
+
+    Args:
+        upstream_dir: Package path inside the shared skill repository.
+        old: Base commit before the pull, or ``None`` when nothing was pulled yet.
+        new: Base commit after the pull.
+        include: Optional paths that limit the log to selected files.
+
+    Returns:
+        One ``git log --oneline`` line per commit, newest first, or an empty list.
+    """
+    # A missing or unknown old commit, such as a mispinned manifest, gives no range,
+    # so the list is empty and the pull still reports its files.
+    if not old:
+        return []
+    real = upstream_dir.resolve()
+    result = subprocess.run(
+        ["git", "-C", str(real), "log", "--oneline", f"{old}..{new}", "--", *(include or ["."])],
+        capture_output=True, text=True,
+    )
+    return result.stdout.splitlines() if result.returncode == 0 else []
 
 
 def upstream_dirty(upstream_dir: Path, include: Optional[List[str]] = None) -> bool:
@@ -324,24 +403,23 @@ def contained_path(field: str, value: object) -> PurePosixPath:
     return rel
 
 
-def resolve_dirs(
+def resolve_local_dir(
     repo_root: Path,
     package: Dict[str, Any],
-) -> Tuple[Path, Path]:
-    """Resolve and validate a package's local and upstream directories.
+) -> Path:
+    """Resolve and validate a package's local directory and its include and exclude lists.
 
     Args:
         repo_root: Repository root containing the local package copy.
-        package: Manifest entry with local and upstream paths.
+        package: Manifest entry with a local path.
 
     Returns:
-        Local package directory and upstream package directory.
+        Local package directory.
 
     Raises:
-        SetupError: If paths are invalid or the upstream tree is unavailable.
+        SetupError: If the local path or a list entry is invalid.
     """
     local_rel = contained_path("local_path", package.get("local_path"))
-    upstream_rel = contained_path("upstream_path", package.get("upstream_path"))
     include = package.get("include")
     if include is not None:
         if not isinstance(include, list):
@@ -365,6 +443,27 @@ def resolve_dirs(
         raise SetupError(f"{MANIFEST_NAME} local_path resolves outside the repository: {local_rel}") from None
     if local_dir.resolve() == repo_root.resolve():
         raise SetupError(f"{MANIFEST_NAME} local_path names the repository root itself")
+    return local_dir
+
+
+def resolve_dirs(
+    repo_root: Path,
+    package: Dict[str, Any],
+) -> Tuple[Path, Path]:
+    """Resolve and validate a package's local and upstream directories.
+
+    Args:
+        repo_root: Repository root containing the local package copy.
+        package: Manifest entry with local and upstream paths.
+
+    Returns:
+        Local package directory and upstream package directory.
+
+    Raises:
+        SetupError: If paths are invalid or the upstream tree is unavailable.
+    """
+    local_dir = resolve_local_dir(repo_root, package)
+    upstream_rel = contained_path("upstream_path", package.get("upstream_path"))
     upstream_root = find_upstream_root(repo_root)
     if upstream_root is None:
         raise SetupError("no folder holding .skilled above this repository; set VENDOR_UPSTREAM_ROOT")
@@ -447,6 +546,43 @@ def copy_tree(
         shutil.rmtree(retired)
 
 
+def status_lines(repo_root: Path, package: Dict[str, Any]) -> Tuple[int, List[str]]:
+    """Compare the local and upstream package with the manifest.
+
+    Args:
+        repo_root: Repository root containing ``vendor.json``.
+        package: Manifest entry to compare.
+
+    Returns:
+        Zero and the report lines when the package is in step, one and the
+        report lines when it has drifted.
+    """
+    local_dir, upstream_dir = resolve_dirs(repo_root, package)
+    recorded = package.get("files") or {}
+    include, skip = package.get("include"), skip_rule(package)
+    local_changes = diff_trees(recorded, hash_tree(local_dir, include, skip))
+    upstream_changes = diff_trees(recorded, hash_tree(upstream_dir, include, skip))
+    name = package["name"]
+    if not recorded:
+        return EXIT_DRIFT, [f"{name}: never pulled; run pull to vendor it"]
+    if not local_changes and not upstream_changes:
+        current = upstream_commit(upstream_dir, include)
+        if package.get("base_commit") != current:
+            return EXIT_DRIFT, [
+                f"{name}: files in step, but the manifest pins {package.get('base_commit')} and "
+                f"upstream's last commit is {current}"
+            ]
+        return EXIT_OK, [f"{name}: in step at {package.get('base_commit')}, {len(recorded)} files"]
+    lines = []
+    if local_changes:
+        lines.append(f"{name}: local-ahead, {len(local_changes)} change(s)")
+        lines.extend(f"  local {change}" for change in local_changes)
+    if upstream_changes:
+        lines.append(f"{name}: upstream-ahead, {len(upstream_changes)} change(s)")
+        lines.extend(f"  upstream {change}" for change in upstream_changes)
+    return EXIT_DRIFT, lines
+
+
 def status_package(repo_root: Path, package: Dict[str, Any]) -> int:
     """Report whether the local and upstream package match the manifest.
 
@@ -457,38 +593,138 @@ def status_package(repo_root: Path, package: Dict[str, Any]) -> int:
     Returns:
         Zero when the package is in step, one when it has drifted.
     """
-    local_dir, upstream_dir = resolve_dirs(repo_root, package)
+    code, lines = status_lines(repo_root, package)
+    print("\n".join(lines))
+    return code
+
+
+def status_local_package(repo_root: Path, package: Dict[str, Any]) -> int:
+    """Report whether the local package copy matches the hashes in the manifest.
+
+    Args:
+        repo_root: Repository root containing ``vendor.json``.
+        package: Manifest entry to compare.
+
+    Returns:
+        Zero when the local copy matches its record, one when it differs.
+
+    Raises:
+        SetupError: If a manifest path is invalid or the copy holds a symlink.
+    """
+    # Reads the local copy and the manifest alone, so a standalone clone with no
+    # upstream can still prove that no vendored file was edited by hand.
+    local_dir = resolve_local_dir(repo_root, package)
     recorded = package.get("files") or {}
-    include, skip = package.get("include"), skip_rule(package)
-    local_changes = diff_trees(recorded, hash_tree(local_dir, include, skip))
-    upstream_changes = diff_trees(recorded, hash_tree(upstream_dir, include, skip))
     name = package["name"]
     if not recorded:
-        print(f"{name}: never pulled; run pull to vendor it")
+        print(f"{name}: never pulled; nothing recorded to compare with")
         return EXIT_DRIFT
-    if not local_changes and not upstream_changes:
-        current = upstream_commit(upstream_dir, include)
-        if package.get("base_commit") != current:
-            print(
-                f"{name}: files in step, but the manifest pins {package.get('base_commit')} and "
-                f"upstream's last commit is {current}"
-            )
-            return EXIT_DRIFT
-        print(f"{name}: in step at {package.get('base_commit')}, {len(recorded)} files")
+    changes = diff_trees(recorded, hash_tree(local_dir, package.get("include"), skip_rule(package)))
+    if not changes:
+        print(f"{name}: local copy matches vendor.json, {len(recorded)} files")
         return EXIT_OK
-    if local_changes:
-        print(f"{name}: local-ahead, {len(local_changes)} change(s)")
-        for change in local_changes:
-            print(f"  local {change}")
-    if upstream_changes:
-        print(f"{name}: upstream-ahead, {len(upstream_changes)} change(s)")
-        for change in upstream_changes:
-            print(f"  upstream {change}")
+    print(f"{name}: local copy differs from vendor.json, {len(changes)} change(s)")
+    for change in changes:
+        print(f"  local {change}")
     return EXIT_DRIFT
 
 
-def pull_package(repo_root: Path, package: Dict[str, Any]) -> int:
+def file_diff(rel: str, local_path: Path, upstream_path: Path) -> List[str]:
+    """Build the report lines for one file that differs between the local copy and upstream.
+
+    Args:
+        rel: Package-relative path shown in the report.
+        local_path: File in the local copy.
+        upstream_path: File in the upstream tree.
+
+    Returns:
+        A unified diff for a text file, or one note for a binary file.
+    """
+    old, new = local_path.read_bytes(), upstream_path.read_bytes()
+    binary = [f"  binary file differs {rel}"]
+    if b"\0" in old or b"\0" in new:
+        return binary
+    try:
+        old_lines, new_lines = old.decode("utf-8").splitlines(), new.decode("utf-8").splitlines()
+    except UnicodeDecodeError:
+        return binary
+    lines = list(difflib.unified_diff(old_lines, new_lines, f"local/{rel}", f"upstream/{rel}", lineterm=""))
+    # Equal lines with different bytes means only a line ending or the final newline moved.
+    return lines or [f"  line endings or the final newline differ {rel}"]
+
+
+def diff_package(repo_root: Path, package: Dict[str, Any]) -> int:
+    """Print what differs between the local package copy and the upstream working tree.
+
+    Args:
+        repo_root: Repository root containing the local package copy.
+        package: Manifest entry to compare.
+
+    Returns:
+        Zero when the two trees hold the same files, one when they differ.
+
+    Raises:
+        SetupError: If paths or the upstream tree cannot be resolved.
+    """
+    local_dir, upstream_dir = resolve_dirs(repo_root, package)
+    include, skip = package.get("include"), skip_rule(package)
+    local = hash_tree(local_dir, include, skip)
+    upstream = hash_tree(upstream_dir, include, skip)
+    differing = changed_paths(local, upstream)
+    name = package["name"]
+    if not differing:
+        print(f"{name}: no differences")
+        return EXIT_OK
+    print(f"{name}: {len(differing)} file(s) differ")
+    for rel in differing:
+        if rel not in upstream:
+            print(f"  only in local {rel}")
+        elif rel not in local:
+            print(f"  only in upstream {rel}")
+        else:
+            print("\n".join(file_diff(rel, local_dir / rel, upstream_dir / rel)))
+    return EXIT_DRIFT
+
+
+def pull_entry(repo_root: Path, package: Dict[str, Any]) -> Optional[str]:
     """Copy upstream package files to the local tree and update the baseline.
+
+    Args:
+        repo_root: Repository root containing the local package copy.
+        package: Manifest entry to pull.
+
+    Returns:
+        The reason drift blocked the pull, or ``None`` when the pull completed.
+
+    Raises:
+        SetupError: If paths or the upstream commit cannot be resolved.
+    """
+    local_dir, upstream_dir = resolve_dirs(repo_root, package)
+    recorded = package.get("files") or {}
+    include, skip = package.get("include"), skip_rule(package)
+    local = hash_tree(local_dir, include, skip)
+    upstream = hash_tree(upstream_dir, include, skip)
+    # Local edits that upstream already carries are a finished push, not a
+    # conflict, so they may be overwritten. Anything else would be lost.
+    if recorded and diff_trees(recorded, local) and diff_trees(upstream, local):
+        return "the local copy has edits upstream does not carry; push them first"
+    if upstream_dirty(upstream_dir, include):
+        return "upstream has uncommitted changes; commit them first"
+    commit = upstream_commit(upstream_dir, include)
+    if commit is None:
+        raise SetupError(
+            f"cannot read the last upstream commit for {package['name']}; "
+            f"is {upstream_dir} inside a git repository?"
+        )
+    copy_tree(upstream_dir, local_dir, include, skip)
+    package["files"] = hash_tree(local_dir, include, skip)
+    package["base_commit"] = commit
+    save_manifest(repo_root, _manifest_with(repo_root, package))
+    return None
+
+
+def pull_package(repo_root: Path, package: Dict[str, Any]) -> int:
+    """Pull one package and report the result.
 
     Args:
         repo_root: Repository root containing the local package copy.
@@ -500,30 +736,61 @@ def pull_package(repo_root: Path, package: Dict[str, Any]) -> int:
     Raises:
         SetupError: If paths or the upstream commit cannot be resolved.
     """
-    local_dir, upstream_dir = resolve_dirs(repo_root, package)
-    recorded = package.get("files") or {}
-    include, skip = package.get("include"), skip_rule(package)
-    local = hash_tree(local_dir, include, skip)
-    upstream = hash_tree(upstream_dir, include, skip)
-    # Local edits that upstream already carries are a finished push, not a
-    # conflict, so they may be overwritten; anything else would be lost.
-    if recorded and diff_trees(recorded, local) and diff_trees(upstream, local):
-        print(f"{package['name']}: pull refused, the local copy has edits upstream does not carry; push them first")
+    refusal = pull_entry(repo_root, package)
+    if refusal:
+        print(f"{package['name']}: pull refused, {refusal}")
         return EXIT_DRIFT
-    if upstream_dirty(upstream_dir, include):
-        print(f"{package['name']}: pull refused, upstream has uncommitted changes; commit them first")
-        return EXIT_DRIFT
-    commit = upstream_commit(upstream_dir, include)
-    if commit is None:
-        raise SetupError(
-            f"cannot read the last upstream commit for {package['name']}; "
-            f"is {upstream_dir} inside a git repository?"
-        )
-    copy_tree(upstream_dir, local_dir, include, skip)
-    package["files"] = hash_tree(local_dir, include, skip)
-    package["base_commit"] = commit
-    save_manifest(repo_root, _manifest_with(repo_root, package))
     print(f"{package['name']}: pulled {len(package['files'])} files at {package['base_commit']}")
+    return EXIT_OK
+
+
+def sync_package(repo_root: Path, package: Dict[str, Any]) -> int:
+    """Bring one package in step with upstream, touching nothing when it already is.
+
+    Args:
+        repo_root: Repository root containing the local package copy.
+        package: Manifest entry to sync.
+
+    Returns:
+        Zero when the package ends in step, one when the pull was refused.
+
+    Raises:
+        SetupError: If paths or the upstream commit cannot be resolved.
+    """
+    name = package["name"]
+    code, _ = status_lines(repo_root, package)
+    if code == EXIT_OK:
+        print(f"{name}: in step at {package.get('base_commit')}")
+        return EXIT_OK
+    old_files, old_commit = dict(package.get("files") or {}), package.get("base_commit")
+    # A pull finds local edits by comparing with the recorded hashes, and a never-pulled
+    # entry has none, so files already in its folder would be overwritten unseen.
+    if not old_files:
+        local_dir, upstream_dir = resolve_dirs(repo_root, package)
+        include, skip = package.get("include"), skip_rule(package)
+        local = hash_tree(local_dir, include, skip)
+        if local and local != hash_tree(upstream_dir, include, skip):
+            print(f"{name}: refused, never pulled and its folder holds files upstream does not match; run pull to vendor over them")
+            return EXIT_DRIFT
+    refusal = pull_entry(repo_root, package)
+    if refusal:
+        print(f"{name}: refused, {refusal}")
+        return EXIT_DRIFT
+    changed = changed_paths(old_files, package["files"])
+    print(f"{name}: pulled, {len(changed)} file(s) changed, now at {package['base_commit']}")
+    _, upstream_dir = resolve_dirs(repo_root, package)
+    subjects = commit_subjects(upstream_dir, old_commit, package["base_commit"], package.get("include"))
+    for subject in subjects[:SUBJECT_LIMIT]:
+        print(f"  {subject}")
+    if len(subjects) > SUBJECT_LIMIT:
+        print(f"  and {len(subjects) - SUBJECT_LIMIT} more")
+    if BUILD_OUTPUT & set(package.get("exclude") or []):
+        folders = {
+            (PurePosixPath(package["local_path"]) / PurePosixPath(rel).parent).as_posix()
+            for rel in changed if PurePosixPath(rel).name in DEPENDENCY_FILES
+        }
+        for folder in sorted(folders):
+            print(f"  rebuild: cd {folder} && {REBUILD_COMMANDS}")
     return EXIT_OK
 
 
@@ -571,12 +838,27 @@ def _manifest_with(
     return manifest
 
 
-COMMANDS = {"status": status_package, "pull": pull_package, "push": push_package}
+COMMANDS = {
+    "status": status_package,
+    "sync": sync_package,
+    "diff": diff_package,
+    "pull": pull_package,
+    "push": push_package,
+}
 
 
 # ───────────────────────────────────────────────────────────────
 # 6. MAIN
 # ───────────────────────────────────────────────────────────────
+
+COMMAND_HELP = """commands:
+  status  compare each local copy and upstream with vendor.json (--local: local copy only)
+  sync    pull every entry that is behind upstream and leave the rest alone
+  diff    print what differs between each local copy and upstream
+  pull    copy upstream into the local copy and re-baseline vendor.json
+  push    copy local edits into the upstream working tree
+"""
+
 
 def main(argv: Optional[List[str]] = None) -> int:
     """Run one vendor-sync command for all or one selected package.
@@ -587,17 +869,33 @@ def main(argv: Optional[List[str]] = None) -> int:
     Returns:
         The highest exit status returned by the selected package commands.
     """
-    parser = argparse.ArgumentParser(description="Sync vendored skills with their upstream.")
+    parser = argparse.ArgumentParser(
+        description="Sync vendored skills with their upstream.",
+        epilog=COMMAND_HELP,
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+    )
     parser.add_argument("command", choices=sorted(COMMANDS))
-    parser.add_argument("--package", default=None)
+    parser.add_argument("--package", default=None, help="run the command for one entry of vendor.json")
+    parser.add_argument("--local", action="store_true", help="with status, read no upstream (works in a clone)")
     parser.add_argument("--root", default=str(REPO_ROOT), help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
+    if args.local and args.command != "status":
+        parser.error("--local is valid only with status")
     repo_root = Path(args.root)
+    handler = status_local_package if args.local else COMMANDS[args.command]
     try:
         manifest = load_manifest(repo_root)
+        selected = select_packages(manifest, args.package)
         worst = EXIT_OK
-        for package in select_packages(manifest, args.package):
-            worst = max(worst, COMMANDS[args.command](repo_root, package))
+        out_of_step = []
+        for package in selected:
+            code = handler(repo_root, package)
+            worst = max(worst, code)
+            if code != EXIT_OK:
+                out_of_step.append(package["name"])
+        # A red entry hides among the green lines above it, so the output ends by naming it.
+        if out_of_step and args.command in ("status", "sync"):
+            print(f"{len(out_of_step)} of {len(selected)} entries out of step: {', '.join(out_of_step)}")
         return worst
     except SetupError as error:
         print(f"vendor-sync: {error}", file=sys.stderr)
