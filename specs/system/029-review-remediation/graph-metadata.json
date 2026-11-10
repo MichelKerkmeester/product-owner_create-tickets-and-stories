@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/029-review-remediation",
+  "spec_folder": "system/029-review-remediation",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "review remediation",
+      "review remediation plan",
+      "review remediation tasks",
+      "review remediation implementation summary"
+    ],
+    "key_topics": [
+      "review",
+      "remediation",
+      "plan",
+      "tasks",
+      "implementation",
+      "summary",
+      "five-iteration",
+      "deep",
+      "packets",
+      "returned",
+      "conditional",
+      "findings"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md",
+      "mcp-click-up/references/mcp-tools.md",
+      "sk-product-owner/README.md",
+      "claude project/README.md",
+      "benchmark/format/validate-output-format.cjs"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "mcp-tools.md",
+        "kind": "doc",
+        "path": "mcp-click-up/references/mcp-tools.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "sk-product-owner/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "validate-output-format.cjs",
+        "kind": "file",
+        "path": "benchmark/format/validate-output-format.cjs",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Every",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Measured Behavior",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Scope",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Code Mode",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Three",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Fix",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Completion Criteria",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "changelogs",
+        "kind": "key_phrase",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "A five-iteration deep review of packets 026 to 028 returned CONDITIONAL with 2 P1 and 13 P2 findings",
+    "created_at": "2026-11-10T19:25:11.647Z",
+    "last_save_at": "2026-11-10T19:25:11.647Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:4d25d096c5615320dcb7720ba0fea1011f80317b58a77388a235e785245fc487",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "1da59e7b4cacb5d3dab27dbda76b3ff0d94b0de41e4082d53b3d94b11979e76d",
+      "plan.md": "2f25cb9ed4f1c921bbd4333b961ecd1595d84bbc0c4ce5d4babc3043b26fd842",
+      "tasks.md": "74fe66875f55c602234ad8342642d0df9722b7c1fe94dc586b534add17304fbf",
+      "implementation-summary.md": "4ac055684e169eb1b27d5db52f776d1afd5215cad58b1198d81cbc66ebb8bc03"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

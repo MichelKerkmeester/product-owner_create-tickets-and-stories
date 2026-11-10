@@ -90,7 +90,7 @@ Template push on scratch page 2kyq4d0p-123435 (Partner Logic round):
 
 | ID | Requirement | Acceptance Criteria |
 |----|-------------|---------------------|
-| REQ-003 | Mirrors match their sources | `rule_parity.py` passes |
+| REQ-003 | Mirrors match their sources | `validate_parity.py product-owner` passes on every declared pair. `rule_parity.py` counts shared phrases and cannot show a mirror is equal |
 | REQ-004 | The change adds no gate failure | `run_gates.sh` fails only vendor sync on `mcp-code-mode` |
 <!-- /ANCHOR:requirements -->
 

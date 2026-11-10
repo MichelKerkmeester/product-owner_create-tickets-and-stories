@@ -190,7 +190,7 @@
     ],
     "causal_summary": "Review rounds produce feedback tickets that Michel writes by hand in ClickUp, such as the four Chat Prompts MVP Feedback #1 tasks",
     "created_at": "2026-11-10T18:17:56.469Z",
-    "last_save_at": "2026-11-10T18:17:56.469Z",
+    "last_save_at": "2026-11-10T19:25:31.079Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -199,13 +199,13 @@
       "tasks.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:012e3b614e02829394dfd03b7285d9b2ef9f43fe38afbb20d09c7e6266613276",
+    "source_fingerprint": "sha256:3e695a660b2214aeed264435f5325c4650e717ebeed77d9caec79b2c14d2c943",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "64723a8f3347c002badffb6fc972b64957d0478ea1f46b485a52482f54753806",
+      "spec.md": "358c86abff373090ddb4c77e52bf0feced9f48f5625d89c7cc18b3b3be666014",
       "plan.md": "cf0db3171af38db7aca566aedad499575ba46871172d428b92b405e16e5b6e08",
-      "tasks.md": "51e67b19ae5fb968754ade6b9260d67cdfd944059a73c7b02ed1cfb3c8d3035f",
-      "implementation-summary.md": "78727ffd00e5277f99d3e64921ca1d8e8a013ba7fe087ccbce6ef2dc7af07e84"
+      "tasks.md": "c1fb0f934ce6991c5a49c2d64037dd9c8175a0309f5208d31e5dbf5cdb63a6cd",
+      "implementation-summary.md": "9aad663d9e2cd9a48e084bdf928100e3c21bad82092cc543cbba7ddebc6b54e0"
     },
     "last_active_child_id": null,
     "last_active_at": null

@@ -164,15 +164,20 @@ check "mark-as-done: a line between two dividers stays silent" 0 "validation pas
   "${FIXTURES}/markasdone-divider-silent.md"
 
 # The house writes every checkbox `[]`. A spaced one blocks, and the divider
-# rule still reads a Mark-as-done line written in the old form.
+# rule still reads a Mark-as-done line written in the old form. The violation
+# fixture holds only the spaced forms and the silent fixture holds the house
+# form, so a line added to one file never moves an assertion about the other.
+# Twin: the Sync Loop folder's run_fixtures.sh asserts these Mark-as-done and checkbox cases too.
 check "checkbox form: a spaced requirement checkbox fires" 1 "checkbox-form-violation.md:13: a checkbox written" "" \
   "${FIXTURES}/checkbox-form-violation.md"
-check "checkbox form: a spaced Mark-as-done checkbox fires" 1 "checkbox-form-violation.md:30: a checkbox written" "" \
+check "checkbox form: a spaced Mark-as-done checkbox fires" 1 "checkbox-form-violation.md:29: a checkbox written" "" \
   "${FIXTURES}/checkbox-form-violation.md"
-check "checkbox form: the house form stays silent" 1 "" "checkbox-form-violation.md:14:" \
+check "mark-as-done: a missing divider fires on an old-form checkbox" 1 "checkbox-form-violation.md:29: no divider below a Mark-as-done checkbox" "" \
   "${FIXTURES}/checkbox-form-violation.md"
-check "mark-as-done: a missing divider fires on an old-form checkbox" 1 "checkbox-form-violation.md:30: no divider below a Mark-as-done checkbox" "" \
-  "${FIXTURES}/checkbox-form-violation.md"
+check "checkbox form: the house form stays silent" 0 "validation passed" "checkbox written" \
+  "${FIXTURES}/checkbox-form-silent.md"
+check "checkbox form: a compliant house Story passes" 0 "validation passed" "checkbox written" \
+  "${FIXTURES}/house-grammar-silent.md"
 
 # The Barter house shape rules, gated on the `* * *` divider so a deliverable in
 # another grammar never meets them. The silent half matters more than the loud
@@ -182,15 +187,15 @@ check "house grammar: a heading with no divider under it fires" 1 "house-grammar
   "${FIXTURES}/house-grammar-violation.md"
 check "house grammar: a hyphen rule fires" 1 "house-grammar-violation.md:9: a \`---\` divider in a house-grammar deliverable" "" \
   "${FIXTURES}/house-grammar-violation.md"
-check "house grammar: a heading deeper than H4 fires" 1 "house-grammar-violation.md:32: a heading deeper than H4" "" \
+check "house grammar: a heading deeper than H4 fires" 1 "house-grammar-violation.md:31: a heading deeper than H4" "" \
   "${FIXTURES}/house-grammar-violation.md"
 check "house grammar: a Checklist label in Requirements fires" 1 "house-grammar-violation.md:19: a ..Checklist.. label inside Requirements" "" \
   "${FIXTURES}/house-grammar-violation.md"
-check "house grammar: a plain bullet in Requirements fires" 1 "house-grammar-violation.md:22: a plain bullet inside Requirements" "" \
+check "house grammar: a plain bullet in Requirements fires" 1 "house-grammar-violation.md:21: a plain bullet inside Requirements" "" \
   "${FIXTURES}/house-grammar-violation.md"
-check "house grammar: a checklist item in Requirements stays silent" 1 "" "house-grammar-violation.md:21:" \
-  "${FIXTURES}/house-grammar-violation.md"
-check "house grammar: asterisk emphasis fires" 1 "house-grammar-violation.md:34: asterisk emphasis" "" \
+check "house grammar: a checklist item in Requirements stays silent" 0 "validation passed" "house-grammar-silent.md:28:" \
+  "${FIXTURES}/house-grammar-silent.md"
+check "house grammar: asterisk emphasis fires" 1 "house-grammar-violation.md:33: asterisk emphasis" "" \
   "${FIXTURES}/house-grammar-violation.md"
 check "house grammar: the ellipsis cap fires" 1 "house-grammar-violation.md: 3 ellipses" "" \
   "${FIXTURES}/house-grammar-violation.md"

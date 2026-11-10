@@ -173,6 +173,26 @@ const markAsDoneFindings = (lines, index) => {
   return findings;
 };
 
+// The formatter writes the dividers the checker requires, one above and one
+// below each Mark-as-done line, and a divider already in place is not written
+// again. It walks from the bottom and asks about the lines as they stand now,
+// so the divider written under one line is already there when the line above
+// it asks about its neighbour. Two Mark-as-done lines in a row, or with only a
+// blank line between them, therefore share one divider where a lookup against
+// the unmodified source would write a second one and leave the checker
+// reporting two rules in a row that a later run cannot repair.
+const insertMarkAsDoneDividers = (lines) => {
+  const output = [...lines];
+  for (let index = output.length - 1; index >= 0; index -= 1) {
+    if (!MARK_AS_DONE.test(output[index].trim())) continue;
+    const below = contentNeighbour(output, index, 1);
+    if (below < 0 || output[below].trim() !== '* * *') output.splice(index + 1, 0, '* * *');
+    const above = contentNeighbour(output, index, -1);
+    if (above < 0 || output[above].trim() !== '* * *') output.splice(index, 0, '* * *');
+  }
+  return output;
+};
+
 // ─────────────────────────────────────────────────────────────────────────────
 // 3. MASKING
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1580,25 +1600,14 @@ for (const file of files) {
   const source = fs.readFileSync(file, 'utf8');
 
   if (write) {
-    const sourceLines = source.split(/\r?\n/);
-    const formatted = sourceLines.flatMap((line, index) => {
+    const punctuated = source.split(/\r?\n/).map((line) => {
       const bullet = line.match(/^(\s*[-*]\s+)(.*\S)(\s*)$/);
-      let nextLine = line;
       if (bullet && !bullet[2].endsWith('...') && /\.(?:[*_]+)?$/.test(bullet[2])) {
-        nextLine = `${bullet[1]}${bullet[2].replace(/\.(?=[*_]*$)/, '')}${bullet[3]}`;
+        return `${bullet[1]}${bullet[2].replace(/\.(?=[*_]*$)/, '')}${bullet[3]}`;
       }
-      // A Mark-as-done line gets the dividers the checker requires, one above
-      // and one below, and a divider already in place is not written again.
-      if (!MARK_AS_DONE.test(line.trim())) return [nextLine];
-      const above = contentNeighbour(sourceLines, index, -1);
-      const below = contentNeighbour(sourceLines, index, 1);
-      return [
-        ...(above < 0 || sourceLines[above].trim() !== '* * *' ? ['* * *'] : []),
-        nextLine,
-        ...(below < 0 || sourceLines[below].trim() !== '* * *' ? ['* * *'] : []),
-      ];
+      return line;
     });
-    const output = formatted.join('\n');
+    const output = insertMarkAsDoneDividers(punctuated).join('\n');
     if (output !== source) fs.writeFileSync(file, output);
   }
 

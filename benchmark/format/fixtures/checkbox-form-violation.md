@@ -11,7 +11,6 @@
 * * *
 
 - [ ] Payouts run every Tuesday for balances above the €50 floor
-- [] The schedule note reads `Paid out every Tuesday`
 
 * * *
 
@@ -28,14 +27,5 @@
 *   **Then** the payouts screen shows the next Tuesday
 * * *
 - [ ] _Mark as done, if the criteria are met_
-
-2\. **The creator below the floor sees no date**
-
-* * *
-*   **Given** a creator with a balance under the €50 floor
-*   **Then** the payouts screen shows no payout date
-* * *
-- [] _Mark as done, if the criteria are met_
-* * *
 
 ##   

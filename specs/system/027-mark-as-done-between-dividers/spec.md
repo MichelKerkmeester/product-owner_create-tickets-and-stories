@@ -78,7 +78,7 @@ Real export Media, Reel Player: old validator passes, new one reports 15 missing
 | ID | Requirement | Acceptance Criteria |
 |----|-------------|---------------------|
 | REQ-001 | The gate requires both dividers | `run_fixtures.sh` passes with the new violation fixtures |
-| REQ-002 | Every source file follows the rule | `validate-output-format.cjs --system product-owner` exits 0 on 73 files |
+| REQ-002 | Every source file follows the rule | `validate-output-format.cjs --system product-owner` exits 0 on every source file (73 when this packet closed) |
 
 ### P1 - Required (complete OR user-approved deferral)
 

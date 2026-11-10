@@ -83,6 +83,7 @@ benchmark/format/
     +-- catalog-entry-no-index.md
     +-- catalog-entry-silent.md
     +-- catalog-entry-violation.md
+    +-- checkbox-form-silent.md
     +-- checkbox-form-violation.md
     +-- conciseness-silent.md
     +-- conciseness-violation.md
@@ -124,6 +125,7 @@ benchmark/format/
     +-- catalog-entry-no-index.md
     +-- catalog-entry-silent.md
     +-- catalog-entry-violation.md
+    +-- checkbox-form-silent.md
     +-- checkbox-form-violation.md
     +-- conciseness-silent.md
     +-- conciseness-violation.md
@@ -156,13 +158,14 @@ benchmark/format/
 | `fixtures/catalog-entry-silent.md` | Carries a Catalog with its Index heading, two entry headings and two entry links, each with one dash between the stable ID and the entry name, so the narrow Catalog grant clears the gate (`catalog-entry-silent.md:1-31`) |
 | `fixtures/catalog-entry-violation.md` | Keeps the Index heading and puts the same dash on a title, a heading with no stable ID, prose, a second dash, an H2 and a link with trailing text, each of which still blocks (`catalog-entry-violation.md:1-27`) |
 | `fixtures/catalog-entry-no-index.md` | Carries the entry heading and link shapes with no Index heading, so the grant earns nothing outside a Catalog (`catalog-entry-no-index.md:1-11`) |
-| `fixtures/checkbox-form-violation.md` | Writes one requirement checkbox and one Mark as done checkbox in the spaced `- [ ]` form beside the house `- []` form, so only the spaced lines fire and an old-form checkbox with no divider below it still trips the divider check |
+| `fixtures/checkbox-form-silent.md` | Writes every checkbox in the house `- []` form, so the checkbox rule stays silent on it |
+| `fixtures/checkbox-form-violation.md` | Writes one requirement checkbox and one Mark as done checkbox in the spaced `- [ ]` form, so both fire and an old-form checkbox with no divider below it still trips the divider check |
 | `fixtures/conciseness-silent.md` | Holds near-miss cases for exact token binding, export read-back, one hedge, quoted vocabulary and fallback intake (`conciseness-silent.md:1-27`) |
 | `fixtures/conciseness-violation.md` | Holds opener, heading echo, hedge stack and terminal recap cases (`conciseness-violation.md:1-22`) |
 | `fixtures/delivery-placeholder-exempt.md` | Uses an explicit estimate and two placeholder slots so its Delivery section is not placeholder-only (`delivery-placeholder-exempt.md:20-33`) |
 | `fixtures/delivery-placeholder-violation.md` | Uses placeholders in Estimation, Rabbit holes and No-gos to trigger the Delivery advisory (`delivery-placeholder-violation.md:20-33`) |
 | `fixtures/house-grammar-silent.md` | Carries a compliant payout example with a Requirements value, one punctuation exception set, Delivery placeholders and ordinary quality-check prose (`house-grammar-silent.md:1-78`) |
-| `fixtures/house-grammar-violation.md` | Combines a missing divider, wrong divider, deep heading, Requirements checklist and checkbox, asterisk emphasis, repeated priority markers, extra ellipses and extra emoji (`house-grammar-violation.md:5-37`) |
+| `fixtures/house-grammar-violation.md` | Combines a missing divider, wrong divider, deep heading, Requirements Checklist label and plain bullet, asterisk emphasis, repeated priority markers, extra ellipses and extra emoji (`house-grammar-violation.md:5-36`) |
 | `fixtures/length-caps-silent.md` | Holds a four-sentence Problem and a noun pair joined by and, which the length-cap advice leaves silent |
 | `fixtures/length-caps-violation.md` | Holds a third About paragraph, a long bullet, a two-sentence bullet, long and many-sentence paragraphs, a six-sentence Problem and a Then line joining a second outcome, each of which draws a length-cap advisory |
 | `fixtures/markasdone-divider-silent.md` | Sets every Mark as done checkbox between two dividers, across a group heading and into the section close above the spacer heading, so the divider rule stays silent on the correct shape (`markasdone-divider-silent.md:1-41`) |

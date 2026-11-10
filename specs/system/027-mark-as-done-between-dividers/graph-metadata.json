@@ -187,7 +187,7 @@
     ],
     "causal_summary": "Story and Epic criteria closed with a Mark-as-done checkbox that no divider separated from the next criterion, and the format gate blocked a divider there",
     "created_at": "2026-11-10T17:51:23.188Z",
-    "last_save_at": "2026-11-10T17:51:23.188Z",
+    "last_save_at": "2026-11-10T19:25:25.708Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -196,10 +196,10 @@
       "tasks.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:b8f7ac0fbace299a2b1b50e1f2d4819149c11e9d720eb8d27ea0afb842e0897a",
+    "source_fingerprint": "sha256:d67dd0c86469744a10dc48667f8ae54af4bef9cf39d9839c02063bf35920849e",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "19844854b10553d0203c429b96aa53d70244596cb50cfefbedb27c1046578c8b",
+      "spec.md": "ab5fee5aa9f8adc0e433f3ee1e9112b34b441da6c65343b220479886ee7c2bfb",
       "plan.md": "d0c0c72393ed073893d3a10fdc782cfda1f0304fb6829442b2e1f11f4a339477",
       "tasks.md": "93ac4436684cc6e40e0af69254ff81c0a6de54cd96be4d846c892f4f31008711",
       "implementation-summary.md": "5c8210dc09786f03a6cbef21eb3c5edb52c71d3e92804f086b31d8c582a1709d"

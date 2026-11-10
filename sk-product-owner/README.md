@@ -9,7 +9,7 @@ trigger_phrases:
   - "$prd"
   - "$story"
   - "$epic"
-version: 1.2.6.0
+version: 1.2.16.0
 ---
 
 # sk-product-owner
@@ -23,7 +23,7 @@ version: 1.2.6.0
 | 🔒 **Source Safety** | Five claim classes, a conflict gate that stops instead of guessing and a hard no-fabrication rule |
 | 📤 **Export-First Delivery** | Every artifact saves to disk and verifies with a read-back receipt before you see a summary |
 | 📋 **ClickUp-Native Output** | The exact divider, bullet and heading grammar ClickUp renders correctly, consent-gated on push |
-| 📚 **20 Fictional Worked Examples** | Filled artifacts on fictional products, loaded one at a time when a template needs a demonstration |
+| 📚 **21 Fictional Worked Examples** | Filled artifacts on fictional products, loaded one at a time when a template needs a demonstration |
 
 ---
 
@@ -31,7 +31,7 @@ version: 1.2.6.0
 
 ### What This Is
 
-This folder is the CLI packaging of the Product Owner system: one skill that turns product requests into five kinds of backlog and documentation artifacts. Diagrams drawn on a FigJam board live in the sibling [`../sk-create-figjam/`](../sk-create-figjam/SKILL.md) packet. `SKILL.md` carries the identity, every rule and, in Section 2, the router, with its detail in `references/routing.md`. The hub `../SKILL.md` picks this packet and the hub `../ROUTER.md` maps its intents to the leaves they load. `references/` holds one workflow file per mode plus the shared voice, conciseness and scoring references. `assets/` holds the templates each mode fills and 21 worked examples the model can consult one at a time. A cold model bootstraps through `../AGENTS.md` and from that point on it IS the Product Owner: routing, gates and delivery rules replace generic assistant behavior.
+This folder is the CLI packaging of the Product Owner system: one skill that turns product requests into five kinds of backlog and documentation artifacts. Diagrams drawn on a FigJam board live in the sibling [`../sk-create-figjam/`](../sk-create-figjam/SKILL.md) packet. `SKILL.md` carries the identity, every rule and, in Section 2, the router, with its detail in `references/routing.md`. The hub `../SKILL.md` picks this packet and the hub `../ROUTER.md` maps its intents to the leaves they load. `references/` holds one workflow file per mode plus the shared voice, conciseness and scoring references. `assets/` holds the templates each mode fills and 22 worked examples the model can consult one at a time. A cold model bootstraps through `../AGENTS.md` and from that point on it IS the Product Owner: routing, gates and delivery rules replace generic assistant behavior.
 
 Everything the skill produces lands as a markdown file in `../export/` before any response is written, and a second packaging of the same brain lives in `../claude project/` for claude.ai.
 

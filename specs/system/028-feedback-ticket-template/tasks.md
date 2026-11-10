@@ -41,7 +41,7 @@ contextType: "general"
 
 - [x] T002 Write the template (`task-templates.md` Section 6). Verify: `rg -n FEEDBACK assets/task-templates.md` prints the heading.
 - [x] T003 Write the Task Mode rules and routing (`task-mode.md`, `routing.md`). Verify: `rg -n "Feedback Tickets" references` prints both.
-- [x] T004 Add the worked example and its mirrors. Verify: `validate-output-format.cjs` exits 0.
+- [x] T004 Add the worked example and its mirrors. Verify: `validate-output-format.cjs` exits 0 and `validate_parity.py product-owner` passes.
 - [x] T005 Push each ticket as a private doc (`SKILL.md` Section 7). Verify: live push reports gaps 0 and import diff empty.
 <!-- /ANCHOR:phase-2 -->
 
