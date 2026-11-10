@@ -40,6 +40,7 @@ Use Task Mode for:
 - Parent tasks that link or track child subtasks
 - Subtasks covering one area within a parent task
 - Feature work, enhancements, acceptance criteria and refinement of existing task content
+- Feedback tickets from a round of product review, one per app and kind of feedback
 
 ### Command: `$task`
 
@@ -65,6 +66,7 @@ Use Task Mode for:
 - **Synced task:** Existing task updated to match pasted source material or corpus style
 - **Parent task:** Coordination task that links or tracks child subtasks
 - **Subtask:** Narrow task covering one area within a parent task
+- **Feedback ticket:** One round of review feedback for one app, either `Logic` or `UI/UX`, with `## Feedback` in place of Requirements. Section 3 Feedback Tickets sets its rules
 
 ---
 
@@ -77,6 +79,8 @@ Every task must include:
 1. Title
 2. `## About`
 3. `### Requirements`
+
+A feedback ticket replaces `### Requirements` with `## Feedback`, as Section 3 Feedback Tickets sets out.
 
 ### Optional Context Sections
 
@@ -235,6 +239,19 @@ Use when one numbered requirement needs several sub-areas.
 ```
 
 The labels carry a colon and the block takes no `---` divider under `**User Story**`, which is what the task corpus writes and what [task-templates.md](../assets/task-templates.md) shows. The divider rules above cover `## About`, `### Requirements`, category headings and numbered item titles, and the bold sub-labels inside a requirement (`**Checklist**`, `**User Story**`) are not among them. A refinement keeps whatever the source task already uses.
+
+### Feedback Tickets
+
+A feedback ticket carries one round of product review on a feature, for one app and one kind of feedback. The template is Task Templates Section 6.
+
+- **Signal:** the request is review feedback on a built feature, such as notes from a design QA pass, an acceptance round or a list of issues found while testing, and it asks for a ticket or tickets. UI polish with no review round stays an ordinary task
+- **Split:** sort every item into an app, such as Partner or Creator, and a kind: `Logic` for behavior, data and flow, `UI/UX` for layout, styling, copy and interaction detail. Write one ticket per app and kind that has items. The reply names the tickets it wrote. Ask before splitting when an item fits no app or both kinds
+- **Intake:** the first question asks for anything the request leaves out among the team prefix, the feature name, the round number, the apps and whether the feedback blocks the release. A detail the source already gives is not asked again
+- **Title:** `{Team} - {Feature} - Feedback #{Round} - {App}: {Logic | UI/UX}`
+- **Items:** numbered across the ticket, `1\. **{Title}**`, each with a `**Checklist**` written as the fix. A Logic item may carry `**What happened?**` steps, a `Note:` and a `Recording` link
+- **Screenshots:** a `Code` line and a `Figma` line, each above its images. The Figma frame link sits on the `Figma` label. A doc page push sets the pair side by side. A missing side is left out, never filled with a placeholder
+- **Source wording:** a reviewer's note keeps its meaning and its values. Rewrite a complaint as the fix only when the fix is plain from the note, and otherwise keep the reviewer's question as a checklist item
+- **Delivery:** each ticket is its own export file, `export/{Feature}/[###] - feedback-{app}-{kind}.md`. Pushed to ClickUp, each ticket becomes its own private doc unless the user names a list
 
 ### Tables
 

@@ -388,7 +388,7 @@ An attention names the specific item in brackets. The verdict reports gate outco
 
 ## 7. THE EXAMPLES LIBRARY
 
-`assets/examples/` holds 21 filled artifacts, each one instantiating a specific template section named in its frontmatter, so the model pulls exactly one relevant demonstration instead of bulk-reading a folder. Twenty are on fictional products. `task/task-example-ds-variables.md` is a real Barter design token release.
+`assets/examples/` holds 22 filled artifacts, each one instantiating a specific template section named in its frontmatter, so the model pulls exactly one relevant demonstration instead of bulk-reading a folder. Twenty-one are on fictional products. `task/task-example-ds-variables.md` is a real Barter design token release.
 
 | Fixture | Demonstrates |
 |---|---|
@@ -396,6 +396,7 @@ An attention names the specific item in brackets. The verdict reports gate outco
 | `task/task-example-standard-feature.md` | Parent-task coordination, shared scope stated once |
 | `task/task-example-subtask.md` | Bounded child scope that does not leak sibling state |
 | `task/task-example-quick.md` | The compact shape with the unnumbered single requirement group |
+| `task/task-example-feedback.md` | One app's review round as a feedback ticket, grouped by screen, with a Code and Figma screenshot pair |
 | `task/task-example-ds-variables.md` | Parent plus one subtask per app for a design token release in the shipped ClickUp format, the change list stated once and each app's token file checks in its subtask |
 | `bug/bug-example-frontend-visual.md` | Visual defect with design-spec evidence |
 | `bug/bug-example-backend-api.md` | API defect with request and response evidence |
@@ -477,5 +478,5 @@ This README and `SKILL.md` both carry the four-part skill version in frontmatter
 | [`references/router-contract.md`](references/router-contract.md) | The Smart Router as running Python, the exact algorithm the benchmark checks `route_contract.py` against, ON_DEMAND for a reader who needs it |
 | [`assets/story-template.md`](assets/story-template.md) | The Story scaffold |
 | [`assets/epic-template.md`](assets/epic-template.md) | The Epic scaffold |
-| [`assets/examples/`](assets/examples/) | 21 worked examples across task, bug, doc, and story, 20 of them on fictional products |
+| [`assets/examples/`](assets/examples/) | 22 worked examples across task, bug, doc, and story, 21 of them on fictional products |
 | [`../claude project/README.md`](../claude%20project/README.md) | Upload guide and structure map for the Claude Project packaging |

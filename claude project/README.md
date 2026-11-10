@@ -13,7 +13,7 @@ claude project/
 |-- kernel-review.json            <- dated record of one kernel review, read by no tool
 |-- templates/                    <- Product Owner - Local - Push Targets.md, filled and uploaded per user, never shared
 |-- local/                        <- gitignored home for a filled push targets copy
-`-- knowledge/                    <- upload all 66 files as Project Knowledge
+`-- knowledge/                    <- upload all 67 files as Project Knowledge
     |-- Product Owner - System - Interactive Mode.md
     |-- Product Owner - Templates - Task Mode.md
     |-- Product Owner - Templates - Bug Mode.md
@@ -51,7 +51,7 @@ claude project/
     |-- Product Owner - Rules - Flow Style Guide.md
     |-- Product Owner - Rules - Flow Quality Rubric.md
     |-- Product Owner - Reference - Connector Setup.md
-    |-- Product Owner - Examples - Task - ... (5 files)
+    |-- Product Owner - Examples - Task - ... (6 files)
     |-- Product Owner - Examples - Bug - ... (4 files)
     |-- Product Owner - Examples - Doc - ... (7 files)
     |-- Product Owner - Examples - Story - ... (5 files)
@@ -108,7 +108,7 @@ CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Bloc
 | `sk-create-figjam/assets/examples/state-roamstay-booking.md` | `Product Owner - Examples - Flow - State.md` |
 | `sk-create-figjam/assets/examples/er-roamstay-stays.md` | `Product Owner - Examples - Flow - ER.md` |
 | `sk-create-figjam/assets/examples/gantt-loomlist-offline.md` | `Product Owner - Examples - Flow - Gantt.md` |
-| `sk-product-owner/assets/examples/task/` (5 files) | `Product Owner - Examples - Task - ...`, one mirror per example |
+| `sk-product-owner/assets/examples/task/` (6 files) | `Product Owner - Examples - Task - ...`, one mirror per example |
 | `sk-product-owner/assets/examples/bug/` (4 files) | `Product Owner - Examples - Bug - ...`, one mirror per example |
 | `sk-product-owner/assets/examples/doc/` (7 files) | `Product Owner - Examples - Doc - ...`, one mirror per example |
 | `sk-product-owner/assets/examples/story/` (5 files) | `Product Owner - Examples - Story - ...`, one mirror per example |
@@ -143,7 +143,7 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 1. Create or open a claude.ai Project named **Product Owner**.
 2. Paste `Custom Instructions.md` into the Project custom instructions field.
 3. Remove superseded Project Knowledge uploads.
-4. Upload all 66 files in `knowledge/` with filenames unchanged (37 core files plus the 29 Examples mirrors).
+4. Upload all 67 files in `knowledge/` with filenames unchanged (37 core files plus the 30 Examples mirrors).
 5. Run the smoke matrix below.
 6. Confirm the Deliverable Block appears first and the reported path follows the create or refinement contract.
 7. To deliver to ClickUp or draw on FigJam, add the two connectors and run their checks as `../USER-GUIDE.md` sets out.

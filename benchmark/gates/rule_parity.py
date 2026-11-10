@@ -90,7 +90,7 @@ RULES = {
     # families plus every worked example that shows a filled-in checklist.
     "requirement items close under the bold Checklist sub-label": {
         "phrases": ("**Checklist**",),
-        "min_pairs": 9,
+        "min_pairs": 10,
     },
     # Task Mode's own rule states it as a whole sentence with the trailing
     # backtick-quoted period, which is the shape a reader would grep for
