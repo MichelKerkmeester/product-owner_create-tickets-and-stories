@@ -250,9 +250,11 @@ Both kinds carry numbered Given/When/Then acceptance criteria in exact ClickUp f
 *   **Then** only `api` incidents generate notifications for them
 * * *
 - [] _Mark as done, if the criteria are met_
+* * *
+##   
 ```
 
-The Mark-as-done checkbox is the last line in a criterion block. The next criterion starts after one blank line, with no divider between them. The last criterion in the section is followed by a `* * *` that closes Acceptance criteria, on the line directly above the `##   ` spacer, which is the one place a divider follows the checkbox.
+The Mark-as-done line sits between two dividers, the `* * *` above it and a `* * *` directly under it, so in ClickUp it reads as its own band between two rules, which is how the team works the checklist. The next criterion starts after one blank line under the lower divider. Under the last criterion that lower divider is the `* * *` that closes Acceptance criteria, on the line directly above the `##   ` spacer, written once and never doubled.
 
 Acceptance criteria stay few, one per outcome the story exists to guarantee plus the edges that matter, each a numbered block of `Given`, `When`, `Then` and an optional `And` carrying observable outcomes, never ticket fields, story points or INVEST notes. The count grows with the surfaces the story touches, never with its size or its requirement count. Story criteria verify screen-level behavior while Epic criteria stay release-level. A `## Delivery` section (Estimation, Rabbit holes and No-gos, in that order) is opt-in: it closes the artifact where the requester asked for it or where an open question or an undated external constraint forced it, with unknown values left as `TBD...` rather than an inferred estimate, risk or exclusion, and Acceptance criteria is the last section otherwise. The H1 is the plain hyphen path with no `PRD -` prefix and no `BO`/`BE`/`FE` short codes: `# {Persona} - {Area} - {Feature}` for a Story, `# Epic - {Persona} - {Area}` for an Epic. An explicitly stated requirement count or child-story set is authoritative. Clauses and edge cases inside one requirement never spawn extra requirements, and shared machinery is described once in `## Solution` (Story) or `## Scope` (Epic) rather than promoting the artifact to a separate shape.
 

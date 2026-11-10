@@ -23,7 +23,7 @@ Current state:
 *   `check_hub.py` checks that the hub files at the repository root agree with each packet, exempts a packet the registry's `vendored-packets` extension names only when `vendor.json` lists it and it is not the default, holds every other packet to the `workflow` kind, no hub-only file such as a `ROUTER.md` or `graph-metadata.json`, and the skilled smart-router markers in its `SKILL.md` Section 2, and replays the 51 stage one gold rows in `benchmark/hub-routing-cases.json`, the Flow commands, a `cupt` command line and a command conflict among them. `--self-test` plants eleven defects, among them an unregistered packet folder, a vendored `defaultMode`, a packet `ROUTER.md` and a Flow command missing from `packetCommands`, and requires each to fail
 *   The vendor sync gate runs `scripts/vendor-sync.py status`, which fails when one of the five packages `vendor.json` lists differs from `vendor.json` or from the shared skill folder. The five are the vendored `mcp-figma/`, `mcp-click-up/` and `mcp-code-mode/` copies, the Code Mode launcher in `scripts/vendored/code-mode/` and the Mermaid extractor in `sk-create-figjam/scripts/vendored/`. It skips, counted, in a clone with no shared skill folder two levels up
 *   It reads the 64 declared pairs for `product-owner` from the shared `z — Claude Project Sync Loop/systems.py`, never from a local map
-*   It names eight rules this system states and the verbatim spans that carry them, then counts each span on both sides of every pair
+*   It names nine rules this system states and the verbatim spans that carry them, then counts each span on both sides of every pair
 *   It never writes `systems.py`, and it never writes anything under `sk-product-owner/` or `claude project/knowledge/`
 *   The two skilled contract gates run the sk-create-skill `validate_skill_package.py --strict` on the repository root, which also runs the parent-hub checker, and on its two workflow packets. They skip, counted, in a clone with no shared skill folder two levels up
 
@@ -48,7 +48,7 @@ Current state:
 
 * * *
 
-## 4. The eight rules
+## 4. The nine rules
 
 Each rule names a verbatim span, chosen so a reader can grep for it and land on the lines this gate reads. A whole sentence is used where the exact statement is the contract, so a mirror cannot keep a keyword while reversing the rule around it.
 
@@ -57,6 +57,7 @@ Each rule names a verbatim span, chosen so a reader can grep for it and land on 
 | Requirement items close under the bold Checklist sub-label | `**Checklist**` | `references/task-mode.md:109` | 9 |
 | Checklist and bullet items are never closed with a period | `Checklist and bullet items must not end with \`.\`` | `references/task-mode.md:111` | 1 |
 | Acceptance criteria close with the mark-as-done checkbox | `_Mark as done, if the criteria are met_` | `references/story-mode.md:151` | 8 |
+| The Mark-as-done line sits between two dividers | `The Mark-as-done line sits between two dividers` | `references/story-mode.md:151`, `assets/story-template.md:115`, `assets/epic-template.md:122` | 3 |
 | Bug reports carry the two fixed corpus labels in order | `1. Observed Behavior`, `2. Expected Behavior` | `references/bug-mode.md:122` | 7 |
 | The ClickUp definition delimiter is the named exception to the em-dash ban | `` *   **Term** — definition `` | `references/hvr-core.md:41`, `references/doc-mode.md:104` | 2 |
 | Bullet items never end with a full stop | `Bullet items never end with a full stop.` | `references/hvr-core.md:35` | 1 |
@@ -67,7 +68,7 @@ The "pairs today" column is the floor `rule_parity.py` carries for that rule. A 
 
 * * *
 
-## 5. Why these eight and not the Human Voice word or phrase lists
+## 5. Why these nine and not the Human Voice word or phrase lists
 
 `references/hvr-core.md` and `references/human-voice-rules.md` also state the hard-blocker word list, the hard-blocker phrase list and the banned metaphors. Those are checked against actual reply text by `benchmark/grader/hvr_lint.py` instead, because that is a question about what a runtime wrote, not about whether the two documents agree on the rule. Rule parity here checks the declaration, and the linter in `benchmark/grader/` checks behavior. The two are not redundant. A mirror can state a rule correctly while a runtime still violates it, and a runtime can happen to comply while the mirror has quietly drifted.
 
@@ -98,7 +99,7 @@ python3 benchmark/gates/check_leaf_map_parity.py
 
 The runner prints one line per gate and `all 15 gates pass` with exit 0 on a healthy tree. In a clone with no shared skill folder, it prints `11 of 15 gates pass, 4 skipped`. The example lint prints `PASSED N example files and the worked replies on both packagings`, or one line per finding naming the file and the real line, then `FAILED`. A run that finds no example file fails, because a lint that read nothing would print a pass it did not earn.
 
-Expected result on a healthy tree: a pair count, a per-rule count against its floor, then `PASSED 8 rules hold on both sides of every pair that teaches them`. Exit 0.
+Expected result on a healthy tree: a pair count, a per-rule count against its floor, then `PASSED 9 rules hold on both sides of every pair that teaches them`. Exit 0.
 
 A finding prints as `FAILED N rule parity finding(s)` followed by one line per finding, naming the rule, the phrase, the exact count on each side and both file paths. Exit 1.
 

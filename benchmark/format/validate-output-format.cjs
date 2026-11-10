@@ -139,19 +139,38 @@ const vocabularyBlocks = true;
 const errors = [];
 const advisories = [];
 // The Mark-as-done line in either checkbox form, so the divider rule and the
-// stripper still hold on an artifact written before the house dropped the space.
+// formatter still hold on an artifact written before the house dropped the space.
 const MARK_AS_DONE = /^- \[ ?\] _Mark as done, if the criteria are met_$/;
 
-// A divider sitting directly above a same-level empty spacer heading closes the
-// whole H2 section, which is what the Barter house PRDs do at the end of
-// Acceptance criteria, Scope and Requirements. The banned divider is the one
-// that separates a criterion's Mark-as-done line from the next criterion, so
-// only that case is an error. A spacer heading is hashes plus whitespace, whose
-// trim is the hashes, which keeps it visible to the same non-empty content scan.
-const SPACER_HEADING = /^#{2,4}[ \t]+$/;
-const closesSection = (lines, dividerIndex) => {
-  const nextIndex = lines.findIndex((line, index) => index > dividerIndex && line.trim() !== '');
-  return nextIndex >= 0 && SPACER_HEADING.test(lines[nextIndex]);
+// The Mark-as-done line sits between two dividers, so ClickUp reads it as its own
+// band between two rules, which is how the team works the checklist. Blank lines
+// never count, which is what lets one blank line separate the lower divider from
+// the next criterion. Under the last criterion the lower divider is also the
+// section close above the `##   ` spacer heading, so it is written once and a
+// second divider beside it is an error too, because two rules in a row are no
+// band at all.
+const contentNeighbour = (lines, index, step) => {
+  for (let at = index + step; at >= 0 && at < lines.length; at += step) {
+    if (lines[at].trim() !== '') return at;
+  }
+  return -1;
+};
+const markAsDoneFindings = (lines, index) => {
+  const findings = [];
+  const above = contentNeighbour(lines, index, -1);
+  const below = contentNeighbour(lines, index, 1);
+  if (above < 0 || lines[above].trim() !== '* * *') {
+    findings.push({ index, message: 'no divider above a Mark-as-done checkbox' });
+  }
+  if (below < 0 || lines[below].trim() !== '* * *') {
+    findings.push({ index, message: 'no divider below a Mark-as-done checkbox' });
+    return findings;
+  }
+  const beyond = contentNeighbour(lines, below, 1);
+  if (beyond >= 0 && lines[beyond].trim() === '* * *') {
+    findings.push({ index: beyond, message: 'a second divider in a row below a Mark-as-done checkbox' });
+  }
+  return findings;
 };
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -1324,7 +1343,7 @@ function analyse(file, source) {
       errors.push(`${relative}:${index + 1}: a checkbox written \`[ ]\`, where the house form is \`[]\` with no space`);
     });
   }
-  // 1. bullet punctuation and the acceptance-block spacing rule (unchanged)
+  // 1. bullet punctuation and the acceptance-block divider rule
   lines.forEach((line, index) => {
     const bullet = line.match(/^\s*[-*]\s+(.*\S)\s*$/);
     if (bullet && !bullet[1].endsWith('...') && /\.(?:[*_]+)?$/.test(bullet[1])) {
@@ -1332,10 +1351,9 @@ function analyse(file, source) {
     }
 
     if (!MARK_AS_DONE.test(line.trim())) return;
-    const nextContentIndex = lines.findIndex((candidate, candidateIndex) => candidateIndex > index && candidate.trim() !== '');
-    if (nextContentIndex >= 0 && lines[nextContentIndex].trim() === '* * *' && !closesSection(lines, nextContentIndex)) {
-      errors.push(`${relative}:${nextContentIndex + 1}: divider follows a Mark-as-done checkbox`);
-    }
+    markAsDoneFindings(lines, index).forEach(({ index: at, message }) => {
+      errors.push(`${relative}:${at + 1}: ${message}`);
+    });
   });
 
   // 2. Human Voice punctuation, so a cleaned instruction surface cannot rot.
@@ -1562,20 +1580,23 @@ for (const file of files) {
   const source = fs.readFileSync(file, 'utf8');
 
   if (write) {
-    let previousContent = '';
     const sourceLines = source.split(/\r?\n/);
     const formatted = sourceLines.flatMap((line, index) => {
-      // The section-closing divider above a spacer heading is sanctioned, so
-      // the stripper leaves it where the checker leaves it.
-      if (line.trim() === '* * *' && MARK_AS_DONE.test(previousContent) && !closesSection(sourceLines, index)) return [];
-
       const bullet = line.match(/^(\s*[-*]\s+)(.*\S)(\s*)$/);
       let nextLine = line;
       if (bullet && !bullet[2].endsWith('...') && /\.(?:[*_]+)?$/.test(bullet[2])) {
         nextLine = `${bullet[1]}${bullet[2].replace(/\.(?=[*_]*$)/, '')}${bullet[3]}`;
       }
-      if (nextLine.trim() !== '') previousContent = nextLine.trim();
-      return [nextLine];
+      // A Mark-as-done line gets the dividers the checker requires, one above
+      // and one below, and a divider already in place is not written again.
+      if (!MARK_AS_DONE.test(line.trim())) return [nextLine];
+      const above = contentNeighbour(sourceLines, index, -1);
+      const below = contentNeighbour(sourceLines, index, 1);
+      return [
+        ...(above < 0 || sourceLines[above].trim() !== '* * *' ? ['* * *'] : []),
+        nextLine,
+        ...(below < 0 || sourceLines[below].trim() !== '* * *' ? ['* * *'] : []),
+      ];
     });
     const output = formatted.join('\n');
     if (output !== source) fs.writeFileSync(file, output);
@@ -1596,10 +1617,10 @@ if (!lintingArtifacts) {
   if (!skill.includes('Bullet items never end with a full stop')) {
     errors.push('sk-product-owner/SKILL.md: missing the bullet punctuation contract');
   }
-  if (!storyMode.includes('No divider separates a Mark-as-done line from the next criterion')) {
+  if (!storyMode.includes('The Mark-as-done line sits between two dividers')) {
     errors.push('sk-product-owner/references/story-mode.md: missing the acceptance spacing contract');
   }
-  if (!storyMode.includes('the one sanctioned divider after a Mark-as-done checkbox')) {
+  if (!storyMode.includes('the same divider that sits under its Mark-as-done line')) {
     errors.push('sk-product-owner/references/story-mode.md: missing the section-close divider contract');
   }
   if (!storyMode.includes('`## Delivery` is optional and opt-in')) {

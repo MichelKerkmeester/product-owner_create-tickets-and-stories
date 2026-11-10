@@ -48,6 +48,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** every project surface shows it, with no separate save step to remember
 * * *
 - [] _Mark as done, if the criteria are met_
+* * *
 
 2 ) **An invalid name never replaces the saved one**
 * * *

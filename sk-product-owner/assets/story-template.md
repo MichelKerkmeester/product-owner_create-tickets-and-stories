@@ -112,7 +112,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 - Keep acceptance criteria few. One criterion per outcome the story exists to guarantee, plus the edges that matter. The count grows only with the number of surfaces and considerations the story touches, never with its size or the number of requirements
 - One outcome per Then or And line. When a Then line would join two outcomes with "and", the second outcome moves to its own `*   **And**` line, and so does each outcome after it: "the list sorts by rating ascending, and the sort control shows Rating as active" becomes a Then line and an And line. An "and" inside one outcome stays, as in "name and email" or "Terms and Conditions"
 - Surface groups (`#### {Group}`) are optional: add them only when the story spans two or more surfaces and each carries its own criteria (for example `#### Upload`, `#### Playback`). A short story keeps a flat numbered list
-- The Mark-as-done checkbox is the final line of each criterion block. Start the next criterion after one blank line and no divider. The last criterion in the section is the exception: a `* * *` closes Acceptance criteria on the line above the `##   ` spacer, which is what the house Story does
+- The Mark-as-done line sits between two dividers, the `* * *` above it and a `* * *` directly under it, so in ClickUp it reads as its own band between two rules, which is how the team works the checklist. Start the next criterion after one blank line under the lower divider. Under the last criterion that lower divider is the `* * *` that closes Acceptance criteria on the line above the `##   ` spacer, written once and never doubled, which is what the house Story does
 
 ---
 

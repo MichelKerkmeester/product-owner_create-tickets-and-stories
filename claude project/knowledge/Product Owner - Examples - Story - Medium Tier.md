@@ -69,6 +69,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** a photo too small to make a usable square is refused before framing, with "Choose a photo at least 256 x 256 pixels." and the previous avatar left in place
 * * *
 - [] _Mark as done, if the criteria are met_
+* * *
 
 #### Display name
 * * *
@@ -81,6 +82,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** no invalid name can be saved by any route, including pressing Enter
 * * *
 - [] _Mark as done, if the criteria are met_
+* * *
 
 #### Email change
 * * *
@@ -92,6 +94,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** the change lands only after the owner confirms from that address
 * * *
 - [] _Mark as done, if the criteria are met_
+* * *
 
 4 ) **An unconfirmed email change lapses on its own**
 * * *

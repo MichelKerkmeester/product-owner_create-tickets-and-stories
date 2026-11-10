@@ -104,6 +104,7 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **And** no ticket ever produces a second admission, on that device or any other
 * * *
 - [] _Mark as done, if the criteria are met_
+* * *
 
 2 ) **Staff can still admit an attendee when the scan fails**
 * * *
@@ -113,6 +114,7 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **And** that admission carries the same weight as a scanned one everywhere it is counted
 * * *
 - [] _Mark as done, if the criteria are met_
+* * *
 
 3 ) **The queue keeps moving when the venue loses connectivity**
 * * *
@@ -123,6 +125,7 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **And** a ticket admitted offline on one device cannot be admitted again on another
 * * *
 - [] _Mark as done, if the criteria are met_
+* * *
 
 4 ) **Organizers see one headcount they can trust**
 * * *

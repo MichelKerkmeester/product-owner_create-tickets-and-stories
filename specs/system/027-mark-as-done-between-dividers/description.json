@@ -1,0 +1,20 @@
+{
+  "specFolder": "system/027-mark-as-done-between-dividers",
+  "description": "Mark-as-done line between two dividers",
+  "keywords": [
+    "mark",
+    "done",
+    "dividers",
+    "story",
+    "criteria"
+  ],
+  "lastUpdated": "2026-11-10T19:30:00.000Z",
+  "specId": "027",
+  "folderSlug": "mark-as-done-between-dividers",
+  "parentChain": [
+    "system"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "1"
+}

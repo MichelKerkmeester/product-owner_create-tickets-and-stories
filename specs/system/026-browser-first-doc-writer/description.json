@@ -1,0 +1,21 @@
+{
+  "specFolder": "system/026-browser-first-doc-writer",
+  "description": "Browser-first ClickUp doc page writer",
+  "keywords": [
+    "browser",
+    "first",
+    "clickup",
+    "doc",
+    "page",
+    "writer"
+  ],
+  "lastUpdated": "2026-11-10T19:30:00.000Z",
+  "specId": "026",
+  "folderSlug": "browser-first-doc-writer",
+  "parentChain": [
+    "system"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "1"
+}
