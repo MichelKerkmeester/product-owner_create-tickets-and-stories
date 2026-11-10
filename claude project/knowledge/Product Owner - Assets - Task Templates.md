@@ -83,7 +83,7 @@ Components
 
 ---
 
-1.  **{Item Title}**
+1\. **{Item Title}**
 
 ---
 
@@ -102,7 +102,7 @@ Components
 
 ---
 
-2.  **{Item Title}**
+2\. **{Item Title}**
 
 ---
 
@@ -119,7 +119,7 @@ Components
 
 ---
 
-3.  **{Item Title}**
+3\. **{Item Title}**
 
 ---
 
@@ -170,19 +170,19 @@ Flows
 
 ---
 
-1.  **{Subtask Name}**
+1\. **{Subtask Name}**
 
 ---
 
 [{Subtask Title}](url)
 
-2.  **{Subtask Name}**
+2\. **{Subtask Name}**
 
 ---
 
 [{Subtask Title}](url)
 
-3.  **{Subtask Name}**
+3\. **{Subtask Name}**
 
 ---
 
@@ -223,7 +223,7 @@ Components
 
 ---
 
-1.  **{Item Title}**
+1\. **{Item Title}**
 
 ---
 
@@ -270,4 +270,4 @@ Worked example: **Examples - Task - Quick Task** shows exact replacement copy, a
 
 ```
 
-Number requirement groups only when the task carries two or more. A single group keeps its bold title without a number, as above. The moment a second group appears, number them `1.`, `2.` in order.
+Number requirement groups only when the task carries two or more. A single group keeps its bold title without a number, as above. The moment a second group appears, number them `1\. **{Title}**`, `2\. **{Title}**` in order. The backslash before the full stop keeps ClickUp from reading each title as a new numbered list, which restarts every group at 1 because the dividers between groups end the list.

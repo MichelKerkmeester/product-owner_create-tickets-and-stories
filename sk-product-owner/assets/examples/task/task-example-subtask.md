@@ -34,7 +34,7 @@ Components
 
 ---
 
-1.  **Design and write the zero-results state**
+1\. **Design and write the zero-results state**
 
 ---
 
@@ -62,7 +62,7 @@ Users need this state only when the request succeeds and returns no records they
 
 ---
 
-2.  **Design and write the request-failed state**
+2\. **Design and write the request-failed state**
 
 ---
 
@@ -84,7 +84,7 @@ Users need a retry state when Corsair cannot obtain a result set. This state mus
 
 ---
 
-3.  **Cover loading and permission edge cases**
+3\. **Cover loading and permission edge cases**
 
 ---
 

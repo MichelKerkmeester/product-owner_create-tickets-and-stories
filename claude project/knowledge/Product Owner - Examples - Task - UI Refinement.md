@@ -35,7 +35,7 @@ Components
 
 ---
 
-1.  **Match section and row spacing to the design tokens**
+1\. **Match section and row spacing to the design tokens**
 
 ---
 
@@ -55,7 +55,7 @@ Replace the earlier spacing values with the exact measurements in design referen
 
 ---
 
-2.  **Update divider style and placement**
+2\. **Update divider style and placement**
 
 ---
 
@@ -74,7 +74,7 @@ Dividers currently run full width between every row, including after the last ro
 
 ---
 
-3.  **Resize leading icons to match the spec**
+3\. **Resize leading icons to match the spec**
 
 ---
 
@@ -93,7 +93,7 @@ Leading row icons still use the retired 20x20 size. Reference v3 uses 24x24 icon
 
 ---
 
-4.  **Confirm parity across devices and accessibility settings**
+4\. **Confirm parity across devices and accessibility settings**
 
 ---
 

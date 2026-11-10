@@ -40,25 +40,25 @@ Components
 
 ---
 
-1.  **Save and name the current filter combination**
+1\. **Save and name the current filter combination**
 
 ---
 
 [VA-241 - Save a filter preset](https://app.vantage.example/t/VA-241)
 
-2.  **Rename and delete saved presets**
+2\. **Rename and delete saved presets**
 
 ---
 
 [VA-242 - Manage saved filter presets](https://app.vantage.example/t/VA-242)
 
-3.  **Apply a preset and restore all six filter values**
+3\. **Apply a preset and restore all six filter values**
 
 ---
 
 [VA-243 - Apply a saved filter preset](https://app.vantage.example/t/VA-243)
 
-4.  **Set one personal default and handle no-presets fallback**
+4\. **Set one personal default and handle no-presets fallback**
 
 ---
 

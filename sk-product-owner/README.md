@@ -141,7 +141,7 @@ What should change, why it matters and the outcome it creates.
 
 ---
 
-1.  **First requirement group**
+1\. **First requirement group**
 
 ---
 

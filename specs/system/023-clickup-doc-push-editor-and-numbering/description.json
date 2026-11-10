@@ -1,0 +1,22 @@
+{
+  "specFolder": "system/023-clickup-doc-push-editor-and-numbering",
+  "description": "ClickUp doc push editor and numbering fixes",
+  "keywords": [
+    "clickup",
+    "doc",
+    "push",
+    "numbered",
+    "title",
+    "checkbox",
+    "editor"
+  ],
+  "lastUpdated": "2026-11-10T16:30:00.000Z",
+  "specId": "023",
+  "folderSlug": "clickup-doc-push-editor-and-numbering",
+  "parentChain": [
+    "system"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "1"
+}

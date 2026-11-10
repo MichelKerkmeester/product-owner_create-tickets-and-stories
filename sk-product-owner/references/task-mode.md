@@ -104,13 +104,13 @@ Use only when they add value or already exist in the source task:
 
 Each numbered requirement group should follow this pattern unless the source task must be mirrored more literally:
 
-1. Numbered item title
+1. Numbered item title, written `1\. **{Title}**` with the full stop escaped
 2. One or more short paragraphs that explain the outcome and context
 3. `**Checklist**`
 4. `- []` checklist items for literal, actionable requirements
 5. Checklist and bullet items must not end with `.`
 
-Number requirement groups only when the task carries two or more. A single group keeps its bold title without a number. The moment a second group appears, number them `1.`, `2.` in order.
+Number requirement groups only when the task carries two or more. A single group keeps its bold title without a number. The moment a second group appears, number them `1\. **{Title}**`, `2\. **{Title}**` in order. The backslash before the full stop keeps ClickUp from reading each title as a new numbered list, which restarts every group at 1 because the dividers between groups end the list.
 
 ### Assumptions
 
@@ -164,7 +164,7 @@ The active template supports three valid patterns:
 Use when the task is small.
 
 ```markdown
-1.  **{Item Title}**
+1\. **{Item Title}**
 
 ---
 
@@ -185,7 +185,7 @@ Use when the task spans multiple areas.
 
 ---
 
-1.  **{Item Title}**
+1\. **{Item Title}**
 
 ---
 
@@ -202,7 +202,7 @@ Use when the task spans multiple areas.
 Use when one numbered requirement needs several sub-areas.
 
 ```markdown
-1.  **{Item Title}**
+1\. **{Item Title}**
 
 ---
 
