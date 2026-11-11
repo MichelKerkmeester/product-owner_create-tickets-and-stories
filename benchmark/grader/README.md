@@ -11,7 +11,7 @@ trigger_phrases:
 
 * * *
 
-## 1. Overview
+## 1. OVERVIEW
 
 `benchmark/grader/` reads a finished `sk-product-owner/manual-testing-playbook/` run report and checks two things `benchmark/gates/rule_parity.py` cannot: whether the captured reply text actually obeys the Human Voice hard blockers, and whether the skill and Project twin of a scenario reached the same verdict. Neither existed for this system before. There was no grader at all, so `hvr_lint.py` had to be built here from `references/hvr-core.md` rather than imported from elsewhere.
 
@@ -21,9 +21,9 @@ Current state:
 *   Nothing here edits a reply or a result. A dirty finding is a fact about one playbook run, not a repository defect
 *   `lint_replies.py` and `twin_divergence.py` accept a report directory, and `hvr_lint.py` reads one reply file. `lint_replies.py` also accepts one file with `--brief`
 
-* * *
+---
 
-## 2. Files
+## 2. FILES
 
 | File | Responsibility |
 |---|---|
@@ -32,9 +32,9 @@ Current state:
 | `twin_divergence.py` | Reads a report's `results.csv`, pairs an `S`-id with its `P`-id, reports any pair whose verdicts disagree |
 | `check_report.sh` | Runs `lint_replies.py` and `twin_divergence.py` over the same report directory, continues past a finding, exits with how many reported |
 
-* * *
+---
 
-## 3. What the linter checks, and what it deliberately does not
+## 3. WHAT THE LINTER CHECKS, AND WHAT IT DELIBERATELY DOES NOT
 
 `hvr_lint.py` enforces, all deterministic:
 
@@ -55,21 +55,21 @@ Current state:
 
 Left out on purpose, and named so a green result is not read as covering more than it does: the Oxford comma, asterisk emphasis used mid-sentence versus the same asterisks used as a sanctioned structural label, title-case headings, and the document-wide Section 9 bans that need a count across the whole piece rather than a span match (triad density, synonym cycling, false ranges, notability by association). Section 10, "Always cut," is out because `references/hvr-core.md` states outright that those terms are edits and never count toward the hard blocker total.
 
-* * *
+---
 
-## 4. Extraction confidence
+## 4. EXTRACTION CONFIDENCE
 
 A Product Owner delivery reply is supposed to carry its `HVR self-scan:` line and a handful of metadata lines (`Path:`, `Verified:`, `Export path:`, `Export-equivalent path:`, `Mode:`, `Quality Score:`, and similar) beside the artifact, never inside it. The self-scan line in particular exists to name the terms it fixed, so scanning it as prose would fail a clean delivery on its own compliance report. When `hvr_lint.py` finds and strips that shape, confidence is `high`. A reply with none of it is prose throughout, either a plain chat answer or a capture that lost its structure, so confidence is `low` and phrase-shaped findings (the word and phrase lists, the metaphors, the copula list) are downgraded to `soft`. Punctuation and the fixed word list stay `hard` regardless, because an em dash is an em dash whether it sits in reasoning or in a shipped artifact.
 
-* * *
+---
 
-## 5. Scenario ids and the twin pairing
+## 5. SCENARIO IDS AND THE TWIN PAIRING
 
 `sk-product-owner/manual-testing-playbook/manual-testing-playbook.md` runs 68 scenarios as 34 twins, one skill run and one Project run per twin, `S`-prefixed and `P`-prefixed over the same category letters and number, such as `SID-001`/`PID-001`, `STK-001`/`PTK-001`, `SDK-001`/`PDK-001`, `SEP-001`/`PEP-001` and `SFL-001`/`PFL-001`. `twin_divergence.py` pairs by that scheme, confirmed by reading the playbook's own coverage map rather than assumed. A pair is the unit: a scenario run on only one side is named as unpaired, never counted as agreement. A pair with a `PARTIAL` side (most scenarios here run two turns) is named apart from the pairs that agreed rather than compared, because a run that only reached Turn 1 is evidence about Turn 1 alone. An id carrying a suffix after the number is a variant, a re-run or a diagnostic capture, and is listed rather than paired.
 
-* * *
+---
 
-## 6. The report directory shape
+## 6. THE REPORT DIRECTORY SHAPE
 
 Neither `results.csv` nor a `replies/` directory existed anywhere in this system before this benchmark tree, so this is the shape these three tools were built to read:
 
@@ -84,9 +84,9 @@ Neither `results.csv` nor a `replies/` directory existed anywhere in this system
 
 `results.csv`'s `id` values are the playbook's own scenario ids. `lint_replies.py` also accepts a bare `replies/` directory, or a single reply file with `--brief` for a one-line result a per-scenario capture step can print without a JSON reader.
 
-* * *
+---
 
-## 7. Run
+## 7. RUN
 
 Over a finished report directory, from the system root:
 
@@ -106,9 +106,9 @@ python3 benchmark/grader/hvr_lint.py --self-test
 python3 benchmark/grader/lint_replies.py /path/to/one-reply.md --brief
 ```
 
-* * *
+---
 
-## 8. Exit codes
+## 8. EXIT CODES
 
 `lint_replies.py` and `twin_divergence.py`:
 
@@ -129,9 +129,9 @@ python3 benchmark/grader/lint_replies.py /path/to/one-reply.md --brief
 | 64 | usage error, no argument given |
 | 66 | the report directory does not exist. Not 2, because with exactly two checks in the loop `found` can itself reach 2, and a caller could not tell that apart from a missing directory. 66 matches `benchmark/format/validate-output-format.cjs`, which already uses it for an unreadable target path |
 
-* * *
+---
 
-## 9. Related
+## 9. RELATED
 
 *   [`../gates/README.md`](../gates/README.md), the pair-level rule check this reply linter and twin comparison do not replace
 *   [`references/hvr-core.md`](../../sk-product-owner/references/hvr-core.md), the source of every check in `hvr_lint.py`
