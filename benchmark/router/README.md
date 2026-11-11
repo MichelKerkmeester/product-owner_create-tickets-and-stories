@@ -1,5 +1,7 @@
 # Route Contract (executable)
 
+## 1. OVERVIEW
+
 Deterministic characterization of how the Barter Product Owner skill routes a
 request to an artifact intent, sets Quick/Standard energy and decides whether
 to ask one consolidated question, so routing behavior is testable without
@@ -7,7 +9,9 @@ invoking a model. The skill and project kernels are written against this
 contract; claude.ai still interprets prose stochastically, so live adherence
 testing remains mandatory.
 
-## Files
+---
+
+## 2. FILES
 
 - `route_contract.py`, the deterministic router: exact tokens, word-boundary
   keywords, artifact framing, confidence-gated semantic scoring, energy,
@@ -23,7 +27,9 @@ testing remains mandatory.
 - `run_fixtures.sh`, the gate runner. It runs both checks and exits 0 only
   when both pass
 
-## Run
+---
+
+## 3. RUN
 
 ```bash
 bash run_fixtures.sh
@@ -44,7 +50,9 @@ read as a green run over no fixtures at all. A request to inspect goes through
 rather than only the schema, so a router that sends everything to Interactive
 fails it.
 
-## Route object
+---
+
+## 4. ROUTE OBJECT
 
 Every request resolves to one stable object:
 
@@ -81,7 +89,9 @@ that appears in both. `then` is `FLOW` when a Task, Bug, Doc or Story
 request also asks for a FigJam output beside it and `null` everywhere else,
 and the schema rejects it on a route that produces no artifact.
 
-## Decision rules (durable rationale)
+---
+
+## 5. DECISION RULES (DURABLE RATIONALE)
 
 - **Exact tokens**: only a complete `$token` selects an artifact. `$task`,
   `$t`, `$bug`, `$b`, `$doc`, `$d`, `$story`, `$s`, `$prd`, `$p`, `$epic`, `$e`
@@ -151,7 +161,9 @@ and the schema rejects it on a route that produces no artifact.
   the demotion rather than assuming it, and promoting the standard back into
   the always-on tier fails the gate.
 
-## Drift guard
+---
+
+## 6. DRIFT GUARD
 
 `sk-product-owner/references/router-contract.md` carries the same router as
 pseudocode, and the packet's prose routing in `SKILL.md` Section 2 and
@@ -199,7 +211,9 @@ prose where the contract uses a fixed enum, and it omits the confidence it had
 already computed on the bare fallback branch, which the harness recovers from
 the pseudocode's own scoring function.
 
-## What this contract does not simulate
+---
+
+## 7. WHAT THIS CONTRACT DOES NOT SIMULATE
 
 Doc Mode's source-authority and conflict gate (PENDING/BLOCKED/READY) needs
 supplied source context that does not exist in a bare request string, the

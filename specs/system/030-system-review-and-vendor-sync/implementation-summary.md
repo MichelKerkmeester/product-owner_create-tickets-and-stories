@@ -11,7 +11,7 @@ _memory:
     last_updated_at: "2026-11-10T23:30:00Z"
     last_updated_by: "claude-fable-5-2"
     recent_action: "Fixed the confirmed review findings, released hub 1.0.29.0 and kernel v1.2.19, added sync, status --local and diff to vendor-sync.py"
-    next_safe_action: "Commit and push the Skilled, Product Owner and outer changes on Michel's go-ahead, then paste kernel v1.2.19 into the Claude Project"
+    next_safe_action: "Paste kernel v1.2.19 into the Claude Project"
     blockers: []
     key_files:
       - "scripts/vendor-sync.py"
@@ -96,7 +96,7 @@ The hub ALWAYS rule states that each packet owns a `ROUTER.md`, which the hub ga
 
 | File | Action | Purpose |
 |------|--------|---------|
-| Skilled `mcp-chrome-devtools/`, `mcp-aside-devtools/`, `mcp-click-up/`, hub files and changelogs | Modify and Create | Capture rules, Mark-as-done match, hub 1.9.13.0 and 1.9.14.0, in three local commits |
+| Skilled `mcp-chrome-devtools/`, `mcp-aside-devtools/`, `mcp-click-up/`, hub files and changelogs | Modify and Create | Capture rules, Mark-as-done match, hub 1.9.13.0 and 1.9.14.0, in three commits |
 | `mcp-chrome-devtools/`, `mcp-aside-devtools/`, `mcp-click-up/`, `mcp-code-mode/`, `vendor.json` | Modify | Vendor pulls |
 | `scripts/vendor-sync.py`, `scripts/tests/test_vendor_sync.py`, `scripts/README.md`, `scripts/tests/README.md` | Modify | Three commands, 14 new tests, the recipe |
 | `scripts/vendored/code-mode/README.md` | Modify | Node floor follows the server manifest |

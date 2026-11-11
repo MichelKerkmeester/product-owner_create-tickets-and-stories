@@ -8,9 +8,9 @@ trigger_phrases:
 
 # Gates: rule parity, example lint, hub check and the gate runner
 
-* * *
+---
 
-## 1. Overview
+## 1. OVERVIEW
 
 `benchmark/gates/` holds the pair-level rule check, the example lint and the one runner for every gate this system owns. `benchmark/parity/` already confirms every declared mirror exists and every kernel statement stays where it is declared to live. `benchmark/format/` already confirms a delivered artifact has the right shape. Neither reads whether a rule stated in a skill document is the same rule stated in its Project mirror, so a mirror can drift in wording while both of those stay green.
 
@@ -27,15 +27,15 @@ Current state:
 *   It never writes `systems.py`, and it never writes anything under `sk-product-owner/` or `claude project/knowledge/`
 *   The two skilled contract gates run the sk-create-skill `validate_skill_package.py --strict` on the repository root, which also runs the parent-hub checker, and on its two workflow packets. They skip, counted, in a clone with no shared skill folder two levels up
 
-* * *
+---
 
-## 2. Intent lanes and packet manifests
+## 2. INTENT LANES AND PACKET MANIFESTS
 
 `ROUTER.md` uses intent lanes, while `leaf-manifest.json` uses workflow packet names. The crosswalk is the only intended difference. TASK, BUG, DOC, STORY, EPIC and INTERACTIVE map to `sk-product-owner`. FLOW maps to `sk-create-figjam`. CLICK_UP maps to `mcp-click-up`. FIGMA maps to `mcp-figma`. `check_leaf_map_parity.py` compares every lane, including FLOW, with this mapping, checks each packet's manifest leaves and verifies the default resources. It also holds the CLICK_UP and FIGMA lanes to the leaf set of the intent each vendored packet calls common, and replays the FLOW keywords of the `ROUTER.md` block against the hub gold rows, with FLOW giving way to any artifact intent that scores.
 
-* * *
+---
 
-## 3. Files
+## 3. FILES
 
 | File | Responsibility |
 |---|---|
@@ -46,9 +46,9 @@ Current state:
 | `check_markdown_links.py` | Checks every relative Markdown destination in the in-scope source files, skipping `specs/`, `export/`, `benchmark/reports/` and the whole vendored packets that `vendor.json` lists |
 | `run_gates.sh` | Runs every gate above plus the router and format fixtures, vendor sync, Markdown links and skilled contract gates, prints `ok` or the failing gate's own output, and exits with the number of failed gates. The shared parity and residency checks stay in `benchmark/parity/`, because they refuse a declaration with uncommitted edits |
 
-* * *
+---
 
-## 4. The nine rules
+## 4. THE NINE RULES
 
 Each rule names a verbatim span, chosen so a reader can grep for it and land on the lines this gate reads. A whole sentence is used where the exact statement is the contract, so a mirror cannot keep a keyword while reversing the rule around it.
 
@@ -66,24 +66,24 @@ Each rule names a verbatim span, chosen so a reader can grep for it and land on 
 
 The "pairs today" column is the floor `rule_parity.py` carries for that rule. A count below the floor fails even when every per-pair phrase count matches, because a rule can leave its only owning pair with both sides sitting at 0 and 0, which a pure equality check reads as agreement.
 
-* * *
+---
 
-## 5. Why these nine and not the Human Voice word or phrase lists
+## 5. WHY THESE NINE AND NOT THE HUMAN VOICE WORD OR PHRASE LISTS
 
 `references/hvr-core.md` and `references/human-voice-rules.md` also state the hard-blocker word list, the hard-blocker phrase list and the banned metaphors. Those are checked against actual reply text by `benchmark/grader/hvr_lint.py` instead, because that is a question about what a runtime wrote, not about whether the two documents agree on the rule. Rule parity here checks the declaration, and the linter in `benchmark/grader/` checks behavior. The two are not redundant. A mirror can state a rule correctly while a runtime still violates it, and a runtime can happen to comply while the mirror has quietly drifted.
 
-* * *
+---
 
-## 6. Reading the shared declaration safely
+## 6. READING THE SHARED DECLARATION SAFELY
 
 Two things make `z — Claude Project Sync Loop/systems.py` unusual to read from another system's own tooling:
 
 *   It is owned by a different, possibly concurrently running process. `rule_parity.py` reads it as source text and executes it into a private namespace (`sys.dont_write_bytecode = True`, then `compile` and `exec`) rather than `import systems`, so a normal import cannot leave a compiled `.pyc` behind under that directory's `__pycache__`
 *   Four of this system's declared sources are shared rule files (`hvr-core.md`, `human-voice-rules.md`, `conciseness.md`, `conciseness-rationale.md`), carried as regular-file copies of cards in the shared knowledge tree. The path-containment guard stays lexical (`os.path.abspath`, never `os.path.realpath` or `Path.resolve()`), so a system that carries them as symlinks instead still reads each row through the link under the name the declaration gives it, rather than rejecting it as an escape from the skill root
 
-* * *
+---
 
-## 7. Run
+## 7. RUN
 
 From the system root:
 
@@ -113,9 +113,9 @@ CW_ROOT=/path/to/a/sandbox/copy python3 benchmark/gates/rule_parity.py
 
 This is how this gate's own injection proof was run: a full sandbox copy of both trees was built with symlinks dereferenced (`cp -RL`, since a bare `cp -R` leaves the four symlinked sources dangling once they are outside `sk-product-owner/references/`), one file was edited inside the copy, and the real system directory was never touched.
 
-* * *
+---
 
-## 8. Exit codes
+## 8. EXIT CODES
 
 | Exit | Meaning |
 |---|---|
@@ -123,15 +123,15 @@ This is how this gate's own injection proof was run: a full sandbox copy of both
 | 1 | at least one rule parity finding, a count mismatch or a floor not met |
 | 2 | the shared declaration could not be read or executed, `product-owner` is not declared, or it declares no pairs |
 
-* * *
+---
 
-## 9. Registry fields retained
+## 9. REGISTRY FIELDS RETAINED
 
 The empty `toolSurface.bashAllowlist` arrays stay because the shared parent-hub checker requires that field. The empty `extensions.transport-axis.crossHubPairing` stays because the shared transport-axis compiler reads it, and this hub declares no cross-hub pairs. `defaultResourceSemantics` stays because the shared route replay reads it to distinguish a fallback suggestion from a loaded resource. `toolSurface.workspaceWrites` had no reader and is removed from this registry.
 
-* * *
+---
 
-## 10. Related
+## 10. RELATED
 
 *   [`../parity/README.md`](../parity/README.md), the wrappers into the shared gate that checks declaration completeness and kernel residency
 *   [`../grader/README.md`](../grader/README.md), the reply linter and twin comparison this rule check does not replace

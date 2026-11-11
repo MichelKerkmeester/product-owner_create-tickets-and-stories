@@ -9,9 +9,9 @@ trigger_phrases:
 
 # Format: output validator and fixture runner
 
-* * *
+---
 
-## 1. Overview
+## 1. OVERVIEW
 
 `benchmark/format/` contains a Bash fixture runner, a Node validator and a Markdown fixture corpus. The runner fixes the validator and fixture directory in variables, while the validator parses flags and target paths (`run_fixtures.sh:1-30`, `validate-output-format.cjs:1-25`)
 
@@ -22,9 +22,9 @@ Current state:
 *   Explicit validator targets use artifact checks, while no target uses the validator's source inventory (`validate-output-format.cjs:53-81`)
 *   Missing or non-regular targets return exit 66 before file analysis (`validate-output-format.cjs:84-95`)
 
-* * *
+---
 
-## 2. Architecture
+## 2. ARCHITECTURE
 
 ```text
 +------------------------------+
@@ -70,9 +70,9 @@ validate-output-format.cjs -> source inventory when no targets are supplied
 
 The runner supplies fixture paths as command-line arguments to the validator, and the validator selects either those targets or its source inventory (`run_fixtures.sh:29-42, 79-250`, `validate-output-format.cjs:53-81`)
 
-* * *
+---
 
-## 3. Package topology
+## 3. PACKAGE TOPOLOGY
 
 ```text
 benchmark/format/
@@ -112,9 +112,9 @@ run_fixtures.sh -> validate-output-format.cjs -> selected files
 run_fixtures.sh -> fixtures/*.md as validator arguments
 ```
 
-* * *
+---
 
-## 4. Directory tree
+## 4. DIRECTORY TREE
 
 ```text
 benchmark/format/
@@ -147,9 +147,9 @@ benchmark/format/
 
 `run_fixtures.sh:79-250` names every fixture path used by the runner. The fixture responsibilities are listed below with the lines that define each input
 
-* * *
+---
 
-## 5. Key files
+## 5. KEY FILES
 
 | File | Responsibility |
 |---|---|
@@ -177,9 +177,9 @@ benchmark/format/
 | `fixtures/sanctioned-definition-nested.md` | Checks definition bullets at column zero and two deeper indentation levels (`sanctioned-definition-nested.md:1-8`) |
 | `fixtures/sanctioned-shapes.md` | Places definition and status shapes in list, checkbox and blockquote containers, then includes a section status line (`sanctioned-shapes.md:3-21`) |
 
-* * *
+---
 
-## 6. Boundaries and flow
+## 6. BOUNDARIES AND FLOW
 
 | Boundary | Rule |
 |---|---|
@@ -201,9 +201,9 @@ process.argv
   -> output            : validate-output-format.cjs:1717-1733
 ```
 
-* * *
+---
 
-## 7. Entrypoints
+## 7. ENTRYPOINTS
 
 | Entrypoint | Type | Purpose |
 |---|---|---|
@@ -211,9 +211,9 @@ process.argv
 | `validate-output-format.cjs [--write] [file ...]` | Node CLI | Accepts the write flag or target files according to its usage contract (`validate-output-format.cjs:22-36`) |
 | `PO_FORMAT_STATS=1` | Environment flag | Prints per-file statistics after analysis (`validate-output-format.cjs:1520-1539, 1721-1724`) |
 
-* * *
+---
 
-## 8. Validation
+## 8. VALIDATION
 
 Run the fixture harness from the repository root:
 
@@ -233,9 +233,9 @@ node benchmark/format/validate-output-format.cjs path/to/file.md
 
 The direct form accepts one or more target paths, and `--write` is reserved for source mode (`validate-output-format.cjs:27-36, 53-81`)
 
-* * *
+---
 
-## 9. Related
+## 9. RELATED
 
-*   [`../router/README.md`](../router/README.md) documents the sibling executable route contract and its fixture runner (`../router/README.md:1-24`)
+*   [`../router/README.md`](../router/README.md) documents the sibling executable route contract and its fixture runner (`../router/README.md:1-28`)
 *   [`../parity/README.md`](../parity/README.md) documents sibling wrappers that pass system data into the shared parity gate (`../parity/README.md:13-34`)
