@@ -1,6 +1,6 @@
 ---
 title: "sk-create-figjam - Board Screenshots"
-description: "Overview renders of real FigJam boards the skill composed, one per diagram type plus two harder writes, each with the playbook scenario and scorecard result it came from."
+description: "Overview renders of real FigJam boards the skill composed, one per diagram type, a process with a status lane and two harder writes, each with the playbook scenario and scorecard result it came from."
 trigger_phrases:
   - "figjam board screenshots"
   - "figjam gallery"

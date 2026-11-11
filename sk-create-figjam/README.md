@@ -95,7 +95,7 @@ A flowchart that is not a user flow starts with `%% type: process` or `%% type: 
 
 ## 4. STRUCTURE
 
-[`SKILL.md`](SKILL.md) Section 3 holds the packet's file map, one line per path, so this README does not restate it.
+[`SKILL.md`](SKILL.md) Section 3 holds the packet's file map, so this README does not restate it. Three paths sit outside that map: [`ROUTER.md`](ROUTER.md), which the skill loads for routing, `assets/screenshots/`, the gallery above, and `manual-testing-playbook/`, the packet's test scenarios.
 
 ---
 

@@ -8,9 +8,9 @@ contextType: "general"
 _memory:
   continuity:
     packet_pointer: "system/032-fresh-review-fixes"
-    last_updated_at: "2026-11-11T11:05:12Z"
+    last_updated_at: "2026-11-11T15:10:00Z"
     last_updated_by: "generate-context"
-    recent_action: "Added an advisory title check to the format gate and its shared twin, released hub 1.0.32.0"
+    recent_action: "Checked every owned README against the tree and corrected the drift"
     next_safe_action: "Paste kernel v1.2.21 into the Claude Project"
     blockers: []
     key_files:
@@ -87,6 +87,10 @@ Two Stories Michel supplied became the model for a second Story shape. A large S
 A hand-run of the sk-doc checkers after the release found three things, and all are fixed. The grader README has the README heading shape. The vendored `mcp-figma` playbook no longer links into a skill this repository does not vendor, fixed upstream as v1.2.3.0 and pulled. The Skilled README reference checker reads a path written from the repository root, which took the false flags here from 72 to 31 and left all 1,005 Skilled READMEs unchanged.
 
 The output format gate now reads the title of a backlog artifact. It reports a sentence title, a closing full stop, a leading date or a `BUG` lead as one advisory line. The check sits in this repository's validator and in the shared Sync Loop core, gated by a `titleShape` key in `systems.cjs`, and the two print byte-identical output. Twelve playbook overviews now say the title rule asks for the team lead. Hub 1.0.32.0.
+
+### README accuracy pass
+
+Every README this repository owns was checked against the tree, the root one by hand and the benchmark, scripts and FigJam ones by three read-only DeepSeek V4.1 Flash batches whose findings were each confirmed before an edit. The root README gained the feedback ticket path, the title rule, the sectioned Story shape and five missing entries in its tree, and its FigJam example count reads 8. `benchmark/gates/README.md` had 12 stale values: the hub self-test plants thirteen defects, rule parity reads 68 pairs and ten cited source lines had moved. `benchmark/router/README.md` now names `$flow` and `$figjam`, the quick-fallback confidence, the prose-table guard and the packet `ROUTER.md` as the home of the type table. `USER-GUIDE.md` covers feedback tickets and the team question for titles.
 
 ### Finding outcomes
 

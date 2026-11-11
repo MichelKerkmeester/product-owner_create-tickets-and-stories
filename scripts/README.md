@@ -66,8 +66,10 @@ scripts/
 |---|---|
 | `scripts/vendor-sync.py` | Checks, syncs, diffs, pulls or pushes packages recorded in `vendor.json` |
 | `scripts/code-mode.cjs` | Locates the built Code Mode server and launches it under a compatible Node interpreter |
-| `scripts/tests/test_vendor_sync.py` | Exercises vendor synchronization using temporary Git repositories |
+| `scripts/tests/test_vendor_sync.py` | Exercises vendor synchronization using a temporary Git upstream and a temporary local repository |
 | `scripts/vendored/` | Contains the synchronized Code Mode launcher package |
+
+`vendor.json` records seven packages: `mcp-figma`, `mcp-click-up`, `mcp-aside-devtools`, `mcp-chrome-devtools`, `mcp-code-mode`, `code-mode-launcher` and `mermaid-extract`. The last one's copy sits in `sk-create-figjam/scripts/vendored`, outside this folder.
 
 ---
 

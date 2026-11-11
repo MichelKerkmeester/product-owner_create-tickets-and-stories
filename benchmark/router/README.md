@@ -80,7 +80,7 @@ Every request resolves to one stable object:
 The schema rejects unknown or duplicate fields, so the manifest cannot drift
 silently from the contract. `confidence` is `null` for command, framing and
 conflict routes (those decisions do not depend on a topic score) and a float
-in `[0, 1]` for semantic and fallback routes. `shape` is `STORY` or `EPIC`
+in `[0, 1]` for semantic, quick-fallback and fallback routes. `shape` is `STORY` or `EPIC`
 on the Story lane and `null` everywhere else, and the schema rejects
 both a shape on another intent and a Story route that resolved none, since
 that route would load no scaffold. `resources` is what the route preloads and
@@ -94,8 +94,8 @@ and the schema rejects it on a route that produces no artifact.
 ## 5. DECISION RULES (DURABLE RATIONALE)
 
 - **Exact tokens**: only a complete `$token` selects an artifact. `$task`,
-  `$t`, `$bug`, `$b`, `$doc`, `$d`, `$story`, `$s`, `$prd`, `$p`, `$epic`, `$e`
-  and `$task --subtask` are matched as whole tokens, never as substrings, so
+  `$t`, `$bug`, `$b`, `$doc`, `$d`, `$story`, `$s`, `$prd`, `$p`, `$epic`, `$e`,
+  `$flow`, `$figjam` and `$task --subtask` are matched as whole tokens, never as substrings, so
   `$document`, `$docs`, `$debug`, `$stories`, `$epics` and an embedded alias
   never fire a command.
 - **One Story lane, two shapes**: `$story`/`$s`/`$prd`/`$p` (Story) and
@@ -174,6 +174,10 @@ its two side effects, and compared against this contract.
 
 Nine guards fire independently: prose-table parity, copy parity, table parity, kernel surface parity, corpus coverage, per-input behavior parity, hub vocabulary reach, stage agreement and Flow type detection.
 
+- **Prose-table parity**: `references/routing.md` carries a compact topic
+  table a model reads. It is checked as a subset: every topic it names exists
+  in the executable tables in the same order, with the same route and
+  override, and every trigger word it prints is a real synonym
 - **Copy parity**: the kernel ends with the same block minus its comments
   under its own Router Code section, held equal to the stripped reference
   line for line and as a parsed tree, while `SKILL.md` and `routing.md` grow no python fence
@@ -201,8 +205,8 @@ Nine guards fire independently: prose-table parity, copy parity, table parity, k
   route to Flow here, and a Flow route behind the default mode is allowed only
   when a Product Owner artifact word starts the hand-off
 - **Flow type detection**: the FigJam packet picks one of seven diagram types
-  from a request's words, and that table is code in its `SKILL.md`. The block is
-  lifted out and run against `flow_types.json`, which pins two phrasings per
+  from a request's words, and that table is code in the packet's `ROUTER.md` Section 3
+  machine router. The block is lifted out and run against `flow_types.json`, which pins two phrasings per
   type, a request where two types fit and one where none does
 
 The two implementations report a route differently and the harness reconciles

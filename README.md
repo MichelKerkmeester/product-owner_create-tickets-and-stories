@@ -95,6 +95,8 @@ Your numbers stay your numbers.
 
 Two separate artifacts in one house format. A Story opens on the business problem and the solution. Every hard value you supplied, such as `32px` or an exact button label, lands verbatim in Requirements, and the acceptance criteria are numbered Given/When/Then blocks at screen level. An Epic states the problem and the goal, proposes a solution, lists its child stories under Scope and writes its criteria at release level.
 
+A large Story may take the sectioned shape instead: Problem and Solution as lists and numbered requirement sections, each with its own user flow and design links. The scope and length of the Story decide, and a small Story keeps the plain form.
+
 Ask for a Story with its task breakdown and you get one folder holding the Story and a linked task file per task.
 
 ### Product and Engineering Docs
@@ -277,6 +279,10 @@ The Requirements section of a Story from a benchmark run. Every value the source
 
 `32px` never becomes "updated spacing" and `Link Instagram` never becomes "updated copy". The acceptance criteria then describe outcomes and leave the mechanism to the developer.
 
+#### Titles That Match the Backlog
+
+Every title is a label, its segments joined by ` - ` from broad to specific, with no date and no full stop. A task, subtask or bug leads with the team that builds it, as in `FE - Creator - Onboarding v2 - Password reset`. A Story and a parent task lead with the app, and an Epic reads `Epic - {App} - {Initiative}`. When your source names no team, the one question asks for it, and under `$quick` the title leaves the team out, never guessing one. A title you supply is used as given.
+
 #### What Never Enters an Artifact
 
 A delivered file carries the deliverable and nothing about how it was made. These travel in the chat reply instead:
@@ -326,11 +332,12 @@ export/[###] - Story-[description].md
 export/[###] - Story-[description]/[###] - Story-[description].md
 export/[###] - Story-[description]/[###].[n] - task-[description].md
 export/[###] - Epic-[description].md
+export/{feature}/[###] - feedback-{app}-{kind}.md
 export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md
 export/[original-source-filename].md
 ```
 
-A new artifact takes the next free three-digit number. A clarification question is saved like any artifact, with `-clarification` added to its name. A refinement is saved under the exact source filename so you can compare it with the original, and the source itself is never overwritten. A FigJam board writes no file to `export/`, because the board is the deliverable.
+A new artifact takes the next free three-digit number. A clarification question is saved like any artifact, with `-clarification` added to its name. A feedback ticket goes into a folder named after its feature, with the app and the kind, `logic` or `ui-ux`, in its file name. A refinement is saved under the exact source filename so you can compare it with the original, and the source itself is never overwritten. A FigJam board writes no file to `export/`, because the board is the deliverable.
 
 #### A Delivery Reply
 
@@ -458,7 +465,7 @@ Every shape is a plain markdown file you can change to fit your team.
 | [`sk-product-owner/assets/`](sk-product-owner/assets/) | Six templates: Task, Bug, Doc, Story, Epic and the intake questions |
 | [`sk-product-owner/assets/examples/`](sk-product-owner/assets/examples/) | 23 worked artifacts: 6 tasks, 4 bugs, 7 docs and 6 Stories, one of them an Epic |
 | [`sk-product-owner/references/`](sk-product-owner/references/) | 12 rule files: the mode rules, routing, quality scoring and the two voice cards |
-| [`sk-create-figjam/assets/`](sk-create-figjam/assets/) | The diagram patterns per type, the reply shapes, the board composer and 7 worked examples on fictional companies |
+| [`sk-create-figjam/assets/`](sk-create-figjam/assets/) | The diagram patterns per type, the reply shapes, the board composer and 8 worked examples on fictional companies |
 | [`sk-create-figjam/references/`](sk-create-figjam/references/) | The Flow Mode workflow, the notes-on-a-board workflow, one reference per diagram type, the style guide and the quality rubric |
 
 A backlog or doc route loads one mode reference and its template, never a second pair, plus at most one worked example.
@@ -527,10 +534,15 @@ The Claude Project files are written by hand from the skill sources, so a matchi
 ├── mcp-chrome-devtools/             vendored Chrome DevTools packet, the browser fallback
 ├── claude project/                  the claude.ai kernel, its knowledge files and the push targets template
 ├── benchmark/                       router, format, gate and grader checks, plus the dated runs
+├── scripts/                         vendor sync and the Code Mode launcher
+├── vendor.json                      the pinned upstream commit and file hashes of each vendored packet
 ├── manual-testing-playbook/         the hub routing scenarios
 ├── export/                          your generated artifacts, kept local
+├── context/                         your own reference material, kept local
+├── changelog/                       the hub release notes
 ├── specs/                           spec packets for changes to this system
 ├── AGENTS.md                        terminal entry point and command registry
+├── SYNC.md                          the manual parity method and dated review notes
 └── USER-GUIDE.md                    day-to-day use and connector setup
 ```
 

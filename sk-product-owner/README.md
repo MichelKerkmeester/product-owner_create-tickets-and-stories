@@ -416,7 +416,7 @@ An attention names the specific item in brackets. The verdict reports gate outco
 | `story/story-example-complete.md` | The maximal Story: every optional enrichment populated as a reference for what is available |
 | `story/story-example-epic.md` | The Epic shape: Goal, Scope with child stories, release-level acceptance criteria, no requirements |
 
-Every example uses invented products (Driftboard, Ledgerly, Prism, Fieldstack and friends), so the fixtures teach form without leaking real Barter material.
+Those twenty-two use invented products (Driftboard, Ledgerly, Prism, Fieldstack and friends), so they teach form without carrying real Barter material.
 
 ---
 

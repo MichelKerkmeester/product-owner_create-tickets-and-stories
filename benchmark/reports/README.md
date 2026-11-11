@@ -45,6 +45,6 @@ The manual testing playbooks in `sk-product-owner/manual-testing-playbook/` and 
 
 ## 3. STORAGE RULE
 
-Run folders are named `<YYYY-MM-DD>--<subject>--<variant>`, dated by execution. A run whose result changes gets a new folder rather than overwriting a prior one. Board URLs, the test file key, emails and plan names are redacted with the run's `run/redact_run.py` before a folder is committed, because this repository is public.
+Run folders are named `<YYYY-MM-DD>--<subject>--<variant>`, dated by execution. A run whose result changes gets a new folder rather than overwriting a prior one. Board URLs, the test file key, emails and plan names are redacted before a folder is committed, with the run's `run/redact_run.py` where the run carries one, because this repository is public.
 
 The grammar and the report file set are owned by `sk-create-benchmark`. Where this index and that skill differ, the skill is correct.

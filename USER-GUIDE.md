@@ -39,11 +39,15 @@ Start a message with a command, or describe what you want in plain words. "Write
 
 Need a Story and its tasks together? Ask for both in one message, such as "write a Story for saved searches and break it into tasks". The Story arrives with one task file per task, under one number.
 
+Have notes from a review round on a built feature? Ask for feedback tickets, such as "turn this QA feedback on the booking flow into tickets". You get one ticket per app and kind of feedback, Logic or UI/UX, grouped by screen. The question asks for whatever your notes leave out among the team, the feature name, the round number and whether the feedback blocks the release.
+
 ### What It Asks Back
 
 Most requests start with one question, and nothing is drafted until you answer it. The question gathers everything still open in one message: scope, platforms, evidence for a bug, the user and the value for a Story. A doc request also asks which sources to trust, which one wins a conflict and whether each claim is current, approved or only proposed.
 
 Answer in one message and the next reply is the draft. Gaps with a safe default are filled and listed for you to check, so small things never trigger a second round of questions. Only a source conflict, a source you promised but have not sent or a decision you called unsettled can hold the draft again.
+
+Titles follow your backlog: a label joined by ` - ` from broad to specific, with no date. A task, subtask or bug leads with the team that builds it, `FE`, `BE`, `FS`, `DATA` or `DS`, so the question asks for the team when your request names none. A Story leads with the app and an Epic with `Epic`. Under `$quick` no question is asked and the title leaves the team out. A title you give is used as written.
 
 ### What Comes Back
 

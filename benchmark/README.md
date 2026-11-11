@@ -38,7 +38,7 @@ Run both from the repository root. The first replays every row against `../hub-r
 | `fixtures/companies/` | The three fictional company folders the manual testing playbook attaches: Fernhouse, Loomlist and Roamstay |
 | [`format/`](format/README.md) | The output format validator and its fixture runner |
 | [`gates/`](gates/README.md) | Rule parity, example and scaffold lint, the identifier scan, the hub and leaf map checks, the Markdown link check and `run_gates.sh` |
-| [`grader/`](grader/README.md) | The reply linter and twin comparison over a finished playbook report |
+| [`grader/`](grader/README.md) | The reply linter, the twin comparison and the `check_report.sh` runner over a finished playbook report |
 | [`parity/`](parity/README.md) | The wrappers into the shared Sync Loop parity gate |
 | `reports/` | The dated run folders |
 | [`router/`](router/README.md) | The executable route contract, its fixtures and the differential gate |
