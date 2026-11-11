@@ -2,7 +2,7 @@
 name: sk-create-figjam
 description: "Draws FigJam diagrams, from user flows to sequence, state, ER and gantt, as checked Mermaid models composed into framed boards."
 allowed-tools: [Read, Write, Edit, Bash, Glob, Grep, mcp__code_mode__call_tool_chain]
-version: 1.0.19.0
+version: 1.0.20.0
 ---
 
 <!-- Keywords: sk-create-figjam, flow mode, figjam, user flow, process, architecture, sequence diagram, state diagram, er diagram, gantt, flowchart, mermaid, board, $flow, $figjam -->
@@ -42,6 +42,7 @@ Read [`ROUTER.md`](./ROUTER.md) before selecting skill-local resources, and open
 ```text
 sk-create-figjam/
   SKILL.md                       this contract and its routing
+  ROUTER.md                      the machine router the skill loads to pick a diagram type and its files
   README.md                      orientation for a reader
   changelog/                     release notes
   references/flow-mode.md        workflow, the intake Brief and its rounds, type choice, shared rules, playback, write routes, read-back, delivery, recovery
@@ -53,12 +54,14 @@ sk-create-figjam/
   assets/templates/              patterns that pass the check, one file per type beyond user flow
   assets/examples/               one worked example per type on fictional companies, two for a process
   assets/compose-board.js        the use_figma code that composes a board, with its model and theme left to fill
+  assets/screenshots/            overview renders of real boards the skill composed, with the scenario each came from
   assets/figjam-design.md        the design every board is drawn in, one json token block a team edits, with its floors
   scripts/flow_check.py          the pre-write check for every type and its self-test
   scripts/compose_board.py       fills the composer's model from a checked diagram and proves every shipped model composes
   scripts/compose-trace.mjs      runs the filled composer against a recording stand-in for Figma, for the self-test's geometry checks
   scripts/figjam_checks/         the per-type rule modules, the layout measures, the shared palette, the design reader, the board geometry checks and the planted fixtures
   scripts/vendored/              the Mermaid extractor, a byte copy kept in step through ../vendor.json at the repository root
+  manual-testing-playbook/       the packet's test scenarios, grouped by what they prove
 ```
 
 The packet runs under the Product Owner bootstrap in [`../AGENTS.md`](../AGENTS.md), so the persona and the HVR self-scan in step 8 apply here unchanged. It reads the two always-loaded Human Voice cards from `../sk-product-owner/references/` and carries no copy of them.

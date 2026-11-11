@@ -7,7 +7,7 @@ trigger_phrases:
   - "$figjam"
   - "figjam flow"
   - "figjam diagram"
-version: 1.0.19.0
+version: 1.0.20.0
 ---
 
 # sk-create-figjam
@@ -95,7 +95,7 @@ A flowchart that is not a user flow starts with `%% type: process` or `%% type: 
 
 ## 4. STRUCTURE
 
-[`SKILL.md`](SKILL.md) Section 3 holds the packet's file map, so this README does not restate it. Three paths sit outside that map: [`ROUTER.md`](ROUTER.md), which the skill loads for routing, `assets/screenshots/`, the gallery above, and `manual-testing-playbook/`, the packet's test scenarios.
+[`SKILL.md`](SKILL.md) Section 3 holds the packet's file map, so this README does not restate it.
 
 ---
 

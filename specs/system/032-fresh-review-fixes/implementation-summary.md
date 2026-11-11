@@ -8,9 +8,9 @@ contextType: "general"
 _memory:
   continuity:
     packet_pointer: "system/032-fresh-review-fixes"
-    last_updated_at: "2026-11-11T15:10:00Z"
+    last_updated_at: "2026-11-11T17:00:00Z"
     last_updated_by: "generate-context"
-    recent_action: "Checked every owned README against the tree and corrected the drift"
+    recent_action: "Completed the FigJam file map and released hub 1.0.33.0 with sk-create-figjam 1.0.20.0"
     next_safe_action: "Paste kernel v1.2.21 into the Claude Project"
     blockers: []
     key_files:
@@ -91,6 +91,10 @@ The output format gate now reads the title of a backlog artifact. It reports a s
 ### README accuracy pass
 
 Every README this repository owns was checked against the tree, the root one by hand and the benchmark, scripts and FigJam ones by three read-only DeepSeek V4.1 Flash batches whose findings were each confirmed before an edit. The root README gained the feedback ticket path, the title rule, the sectioned Story shape and five missing entries in its tree, and its FigJam example count reads 8. `benchmark/gates/README.md` had 12 stale values: the hub self-test plants thirteen defects, rule parity reads 68 pairs and ten cited source lines had moved. `benchmark/router/README.md` now names `$flow` and `$figjam`, the quick-fallback confidence, the prose-table guard and the packet `ROUTER.md` as the home of the type table. `USER-GUIDE.md` covers feedback tickets and the team question for titles.
+
+### FigJam file map
+
+The Section 3 file map in `sk-create-figjam/SKILL.md` gained rows for `ROUTER.md`, `assets/screenshots/` and `manual-testing-playbook/`. The packet README dropped the sentence that named them as missing, and the screenshots README carries the packet version. This released `sk-create-figjam` 1.0.20.0 and hub 1.0.33.0. No Project file changes, because the map describes the repository folder.
 
 ### Finding outcomes
 
