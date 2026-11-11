@@ -38,6 +38,8 @@
       "tasks.md",
       "implementation-summary.md",
       "sk-product-owner/SKILL.md",
+      "benchmark/gates/README.md",
+      "benchmark/router/README.md",
       "sk-create-figjam/references/flow-mode.md",
       "claude project/Custom Instructions.md",
       "claude project/README.md",
@@ -79,6 +81,12 @@
         "source": "derived"
       },
       {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "benchmark/gates/README.md",
+        "source": "derived"
+      },
+      {
         "name": "flow-mode.md",
         "kind": "doc",
         "path": "sk-create-figjam/references/flow-mode.md",
@@ -88,12 +96,6 @@
         "name": "Custom Instructions.md",
         "kind": "doc",
         "path": "claude project/Custom Instructions.md",
-        "source": "derived"
-      },
-      {
-        "name": "README.md",
-        "kind": "doc",
-        "path": "claude project/README.md",
         "source": "derived"
       },
       {
@@ -195,7 +197,7 @@
     ],
     "causal_summary": "A fresh Fable 5.2 review at medium effort read the whole system with no prior context",
     "created_at": "2026-11-11T08:43:38.085Z",
-    "last_save_at": "2026-11-11T13:41:12.456Z",
+    "last_save_at": "2026-11-11T15:44:58.842Z",
     "save_lineage": "same_pass",
     "last_accessed_at": null,
     "source_docs": [
@@ -204,13 +206,13 @@
       "tasks.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:313aebf2aee55ebac6c349c9cfd63162985505c774748e3c63c04d4a267de4bb",
+    "source_fingerprint": "sha256:74b24fd676e82460a197dbea748de7bd7dbdb98acb1360224d6cc07cecbb042b",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
       "spec.md": "192ac0a18fad3befba6e640db9226e2ad34686226e5878c1d271a5f33db09776",
       "plan.md": "0c05303234cc98cc0a86d593a5cab846e4ccb1c4f096ebfd9f5bb3c2c9c90ae4",
       "tasks.md": "f239f16f563497f5eef755afbd73b82dcec933e34a47508cca3301a036ec4743",
-      "implementation-summary.md": "c39fe5fdd4973a165d844344a69ffa955a8a196407d82c1c24a349a592e202a0"
+      "implementation-summary.md": "428dc4630f7f97dc2f604300cde4fe7c617764a3dfaf641916decf684a43a07a"
     },
     "last_active_child_id": null,
     "last_active_at": null
