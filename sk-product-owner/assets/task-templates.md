@@ -41,7 +41,7 @@ Load this asset with Task Mode. Copy the matching template, remove optional sect
 Worked example: [`examples/task/task-example-ui-refinement.md`](examples/task/task-example-ui-refinement.md) shows the full task shape applied to design-parity work, with functional scope protected and accessibility verification included.
 
 ```markdown
-# {Task Title}
+# {Team} - {App} - {Area} - {Detail}
 
 ## About
 
@@ -154,6 +154,7 @@ Components
 
 ### Notes For Use
 
+- Title the task by the rule in `AGENTS.md` Section 2, Artifact Titles. A task or subtask leads with its team and a parent task with its app. A team the source does not name is asked for or left out
 - Remove any optional section that does not apply
 - If the user provides source content, preserve it and only normalize what the user asked to normalize
 - When the task shares behavior with sibling tasks, add `Related tasks`
@@ -170,7 +171,7 @@ Use this when one parent task coordinates several subtasks.
 Worked example: [`examples/task/task-example-standard-feature.md`](examples/task/task-example-standard-feature.md) shows shared feature scope stated once while independent child tasks retain their own implementation detail. A design token release with one subtask per app lives in [`examples/task/task-example-ds-variables.md`](examples/task/task-example-ds-variables.md): the full change list stated once in the parent, in the ClickUp format the team ships.
 
 ```markdown
-# {Parent Task Title}
+# {App} - {Initiative} - {Area}
 
 ## About
 
@@ -219,7 +220,7 @@ Use this when the work belongs to a larger parent task.
 Worked example: [`examples/task/task-example-subtask.md`](examples/task/task-example-subtask.md) shows a bounded child task that separates zero-result recovery from request failure without leaking permission state. Subtasks split by platform live in [`examples/task/task-example-ds-variables.md`](examples/task/task-example-ds-variables.md): each carries only its own token file and the checks that file needs, under a parent that holds the shared change list.
 
 ```markdown
-# {Subtask Title}
+# {Team} - {App} - {Area} - {Detail}
 
 ## About
 
@@ -265,7 +266,7 @@ Use this for direct small updates when the request is explicit.
 Worked example: [`examples/task/task-example-quick.md`](examples/task/task-example-quick.md) shows exact replacement copy, a zero-day edge and an explicit no-layout-change boundary in the compact shape.
 
 ```markdown
-# {Task Title}
+# {Team} - {App} - {Area} - {Detail}
 
 ## About
 

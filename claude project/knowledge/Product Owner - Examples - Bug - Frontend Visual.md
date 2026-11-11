@@ -4,7 +4,7 @@ Instantiates Bug Report Template section 2. Shows a visual stacking defect with 
 
 ---
 
-# Country dropdown renders behind the payment modal at checkout
+# FE - Cartwell - Checkout - Country Dropdown Hidden Behind Payment Modal
 
 ## About
 

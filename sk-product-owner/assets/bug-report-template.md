@@ -31,7 +31,7 @@ Provides a reusable markdown scaffold for defect reports that need observed beha
 
 ### Usage
 
-Load this asset with Bug Mode. Copy the template, fill only user-supported facts, write `Not provided` where required details are missing and remove conditional comments before delivery. Do not end a newly authored or rewritten bullet item with a full stop.
+Load this asset with Bug Mode. Title the report by the rule in `AGENTS.md` Section 2, Artifact Titles. Copy the template, fill only user-supported facts, write `Not provided` where required details are missing and remove conditional comments before delivery. Do not end a newly authored or rewritten bullet item with a full stop.
 
 ### Frequency
 
@@ -61,7 +61,7 @@ Worked example: [`examples/bug/bug-example-backend-api.md`](examples/bug/bug-exa
 Worked example: [`examples/bug/bug-example-quick.md`](examples/bug/bug-example-quick.md) shows the compact form, honest missing environment data and an unverified route hypothesis.
 
 ````markdown
-# {Bug Title}
+# {Team} - {App} - {Area} - {What}
 
 ## About
 

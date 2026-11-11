@@ -7,7 +7,7 @@ trigger_phrases: ["frontend visual bug example", "worked bug example"]
 version: 0.17.0.2
 ---
 
-# Country dropdown renders behind the payment modal at checkout
+# FE - Cartwell - Checkout - Country Dropdown Hidden Behind Payment Modal
 
 ## About
 

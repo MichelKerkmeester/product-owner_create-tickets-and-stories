@@ -7,7 +7,7 @@ trigger_phrases: ["backend api bug example", "worked bug example"]
 version: 0.17.0.2
 ---
 
-# Orders list endpoint returns duplicate rows across page boundaries
+# BE - Ordly Admin - Orders List - Duplicate Rows Across Page Boundaries
 
 ## About
 

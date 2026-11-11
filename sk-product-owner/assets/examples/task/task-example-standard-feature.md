@@ -7,7 +7,7 @@ trigger_phrases: ["standard feature task example", "worked task example"]
 version: 0.17.0.2
 ---
 
-# Save and manage filter presets on the Vantage Analytics dashboard
+# Vantage Analytics - Filter Presets v1 - Traffic Overview
 
 ## About
 
@@ -37,7 +37,7 @@ Components
 
 ---
 
-- `Dashboard personalization`
+- `Epic - Vantage Analytics - Dashboard Personalization`
 
 ### Requirements
 
@@ -47,22 +47,22 @@ Components
 
 ---
 
-[VA-241 - Save a filter preset](https://app.vantage.example/t/VA-241)
+[FE - Vantage Analytics - Filter Presets v1 - Save Preset](https://app.vantage.example/t/VA-241)
 
 2\. **Rename and delete saved presets**
 
 ---
 
-[VA-242 - Manage saved filter presets](https://app.vantage.example/t/VA-242)
+[FE - Vantage Analytics - Filter Presets v1 - Manage Presets](https://app.vantage.example/t/VA-242)
 
 3\. **Apply a preset and restore all six filter values**
 
 ---
 
-[VA-243 - Apply a saved filter preset](https://app.vantage.example/t/VA-243)
+[FE - Vantage Analytics - Filter Presets v1 - Apply Preset](https://app.vantage.example/t/VA-243)
 
 4\. **Set one personal default and handle no-presets fallback**
 
 ---
 
-[VA-244 - Default filter preset and empty state](https://app.vantage.example/t/VA-244)
+[FE - Vantage Analytics - Filter Presets v1 - Default Preset & Empty State](https://app.vantage.example/t/VA-244)

@@ -2,7 +2,7 @@
 name: sk-product-owner
 description: "Writes Barter tasks, bug reports, Stories, Epics and source-safe product or engineering docs as ClickUp-ready markdown."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.2.17.0
+version: 1.2.18.0
 ---
 
 <!-- Keywords: product-owner, backlog, task, subtask, parent task, bug report, acceptance criteria, story mode, user story, prd, product requirements document, epic, doc mode, product documentation, engineering documentation, ClickUp, $task, $bug, $doc, $story, $prd, $epic, $quick -->
@@ -89,6 +89,7 @@ Deliverables are markdown artifacts saved before any response.
 
 - New task: `export/[###] - task-[description].md`. New bug: `export/[###] - bug-[description].md`. New Doc: `export/[###] - doc-[description].md`. New Story: `export/[###] - Story-[description].md`. New Epic: `export/[###] - Epic-[description].md`. A new Story asked for with its task breakdown follows the bundle contract in `references/story-mode.md` Section 7
 - Every `[description]` is a short lowercase slug of letters, digits and hyphens, never a slash, a dot or a space, so a path built from the user's wording stays inside `export/`
+- Every H1 is a label that follows the title rule in `AGENTS.md` Section 2, Artifact Titles. A title never reaches a file name as written, because the slug rule above builds it
 - A clarification is exported too, in the routed artifact's lane, as `export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md`, using `intake` in place of the artifact word when no artifact was resolved. It holds the question and nothing else: no draft, no partial artifact, no answer. When the user replies, the artifact takes the next number in that lane and the clarification file is left untouched
 - Refinement of an existing task, Doc, Story or Epic: keep the original source basename and never overwrite the supplied source
 

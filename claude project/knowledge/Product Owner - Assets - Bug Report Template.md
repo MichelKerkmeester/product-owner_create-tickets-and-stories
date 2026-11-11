@@ -12,7 +12,7 @@ Provides a reusable markdown scaffold for defect reports that need observed beha
 
 ### Usage
 
-Use this scaffold with the Bug Mode document, which holds the wider Bug rules. Copy the template, fill only user-supported facts, write `Not provided` where required details are missing and remove conditional comments before delivery. Do not end a newly authored or rewritten bullet item with a full stop.
+Use this scaffold with the Bug Mode document, which holds the wider Bug rules. Title the report by the title rule in the Custom Instructions Rules section. Copy the template, fill only user-supported facts, write `Not provided` where required details are missing and remove conditional comments before delivery. Do not end a newly authored or rewritten bullet item with a full stop.
 
 ### Frequency
 
@@ -41,7 +41,7 @@ Four worked examples instantiate this scaffold:
 - **Examples - Bug - Quick Bug** shows the compact form, honest missing environment data and an unverified route hypothesis
 
 ````markdown
-# {Bug Title}
+# {Team} - {App} - {Area} - {What}
 
 ## About
 

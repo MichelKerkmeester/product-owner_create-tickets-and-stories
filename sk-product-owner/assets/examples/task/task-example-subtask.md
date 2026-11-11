@@ -7,13 +7,13 @@ trigger_phrases: ["subtask example", "worked task example"]
 version: 0.17.0.2
 ---
 
-# Empty states for search results in Corsair
+# FE - Corsair - Search Overhaul - Results Panel: Empty & Error States
 
 ## About
 
 ---
 
-This subtask covers the empty and error states for the global search results panel in Corsair, part of the parent task "Search experience overhaul." The panel currently shows the same blank area after a successful zero-result search and after a failed request, so users cannot tell whether to change the query or retry it.
+This subtask covers the empty and error states for the global search results panel in Corsair, part of the parent task `Corsair - Search Overhaul - Results Panel`. The panel currently shows the same blank area after a successful zero-result search and after a failed request, so users cannot tell whether to change the query or retry it.
 
 Design and write the copy for two states: no results found and search request failed. Both states need a supporting action so users can recover without leaving the search panel.
 

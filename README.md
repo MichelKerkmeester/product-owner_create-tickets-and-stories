@@ -124,8 +124,8 @@ Both routes run the same rules and the same templates. Section 3 sets up either 
 |---|---|
 | Artifacts | Task, subtask, bug report, Story, Epic, Doc and FigJam diagram |
 | Diagram types | Seven: user flow, process, architecture, sequence, state, ER and gantt |
-| Worked examples | 22 filled artifacts and 8 FigJam examples, one per diagram type and a second process with a status lane and detail cards |
-| Versions | Hub 1.0.30.0, `sk-product-owner` 1.2.17.0, `sk-create-figjam` 1.0.19.0, Project kernel v1.2.20 |
+| Worked examples | 23 filled artifacts and 8 FigJam examples, one per diagram type and a second process with a status lane and detail cards |
+| Versions | Hub 1.0.31.0, `sk-product-owner` 1.2.18.0, `sk-create-figjam` 1.0.19.0, Project kernel v1.2.21 |
 | License | MIT |
 
 &nbsp;
@@ -160,7 +160,7 @@ A feature name is not a scope, so the first reply saves one question as `export/
 ### Use It in a claude.ai Project
 
 1. Paste `claude project/Custom Instructions.md` into the custom instructions of a Project named **Product Owner**
-2. Remove superseded knowledge uploads, then upload all 67 files in `claude project/knowledge/` with their filenames unchanged
+2. Remove superseded knowledge uploads, then upload all 68 files in `claude project/knowledge/` with their filenames unchanged
 3. Start a chat and ask for a task. The reply opens with a Deliverable Block, the artifact rendered in the side panel, because a Project cannot write files
 4. Optionally add the ClickUp and Figma connectors to push tasks and draw boards. [USER-GUIDE.md](./USER-GUIDE.md) Section 6 walks through adding them and checking that each one works, and the rest of the guide covers day-to-day use
 
@@ -456,7 +456,7 @@ Every shape is a plain markdown file you can change to fit your team.
 | Folder | What it holds |
 |---|---|
 | [`sk-product-owner/assets/`](sk-product-owner/assets/) | Six templates: Task, Bug, Doc, Story, Epic and the intake questions |
-| [`sk-product-owner/assets/examples/`](sk-product-owner/assets/examples/) | 22 worked artifacts: 6 tasks, 4 bugs, 7 docs and 5 Stories, one of them an Epic |
+| [`sk-product-owner/assets/examples/`](sk-product-owner/assets/examples/) | 23 worked artifacts: 6 tasks, 4 bugs, 7 docs and 6 Stories, one of them an Epic |
 | [`sk-product-owner/references/`](sk-product-owner/references/) | 12 rule files: the mode rules, routing, quality scoring and the two voice cards |
 | [`sk-create-figjam/assets/`](sk-create-figjam/assets/) | The diagram patterns per type, the reply shapes, the board composer and 7 worked examples on fictional companies |
 | [`sk-create-figjam/references/`](sk-create-figjam/references/) | The Flow Mode workflow, the notes-on-a-board workflow, one reference per diagram type, the style guide and the quality rubric |
@@ -469,8 +469,8 @@ A backlog or doc route loads one mode reference and its template, never a second
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem.
 
-- `Custom Instructions.md` is the kernel, v1.2.20, and the routing authority inside the Project
-- `knowledge/` holds the 67 knowledge files you upload
+- `Custom Instructions.md` is the kernel, v1.2.21, and the routing authority inside the Project
+- `knowledge/` holds the 68 knowledge files you upload
 - `README.md` holds the upload steps and the smoke matrix
 
 #### What Changes in a Project
@@ -653,6 +653,6 @@ Your Figma plan or seat has used its monthly tool calls. Open your FigJam drafts
 
 **Release notes**
 
-- **[→ Hub v1.0.30.0](changelog/v1.0.30.0.md)** - the latest hub release
-- **[→ `sk-product-owner` v1.2.17.0](sk-product-owner/changelog/v1.2.17.0.md)** - the latest backlog and doc packet release
+- **[→ Hub v1.0.31.0](changelog/v1.0.31.0.md)** - the latest hub release
+- **[→ `sk-product-owner` v1.2.18.0](sk-product-owner/changelog/v1.2.18.0.md)** - the latest backlog and doc packet release
 - **[→ `sk-create-figjam` v1.0.19.0](sk-create-figjam/changelog/v1.0.19.0.md)** - the latest FigJam packet release

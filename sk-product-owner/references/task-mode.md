@@ -56,6 +56,7 @@ Use Task Mode for:
 - Ask one comprehensive question before drafting unless the request already contains enough direction or uses `$quick`. An explicit command routes the request and does not supply that direction
 - Enough direction never covers a scope the model would have to choose: when a supplied source splits the work across teams, owners, surfaces or tickets and the request names none of them, the scope is missing, so the first reply is the one question with no draft
 - Deliver only the requested task, subtask or refinement
+- Title every task, subtask and parent task by the rule in `AGENTS.md` Section 2, Artifact Titles. The one question asks for the team lead when the source names none
 - Do not force a fixed metadata block order when the source task already exists
 - When syncing or refining an existing task, preserve the source section names, section order and reference labels unless the user asks to standardize them. A value, name or status a supplied source gives travels into the task as the source writes it, inside backticks: a value a requirement builds or checks, such as an algorithm, header, endpoint, status code, count, range, timeout, schedule or threshold, an event, property or service name, and a status word such as `deprecated` or `proposed`. A supplied value is a constraint rather than HOW, so staying in WHAT and WHY never removes it. Say what a status means beside its word, never in place of it, and never write a generic stand-in such as the server where the source names the service
 - Use the same filename when updating an existing task
@@ -272,12 +273,13 @@ Use a table when every row shares the same fields, such as token or property val
 - [ ] Task type identified correctly?
 - [ ] Scope limited to the requested change?
 - [ ] Source material preserved when task is a sync or refinement?
+- [ ] Building team named in the source, asked for in the one question or left out of the title and listed under Open items?
 - [ ] Latest template version used?
 - [ ] Supplied links in References, Epic, Related tasks and Related tickets resolve, with unresolvable ones flagged in prose rather than kept as dead links?
 
 ### Structure Validation
 
-- [ ] Title present as H1?
+- [ ] Title present as H1 and written as a label by the title rule?
 - [ ] About uses `## About`?
 - [ ] Requirements uses `### Requirements`?
 - [ ] Numbered requirement groups use clear titles?

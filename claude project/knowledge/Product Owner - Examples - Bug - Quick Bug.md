@@ -4,7 +4,7 @@ Instantiates Bug Report Template section 2 in Quick form. Shows honest missing e
 
 ---
 
-# Terms of Service footer link returns 404 on the marketing site
+# FE - Fernbank - Marketing Site - Terms of Service Footer Link 404
 
 ## About
 

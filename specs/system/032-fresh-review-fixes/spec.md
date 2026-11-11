@@ -60,6 +60,8 @@ tracked files: workspace id in 7, work email in 2, Figma team ids in 6, home pat
 - The six simplification proposals of the review
 - Redaction of the workspace id, work email, Figma team ids and home path, in place and in git history
 - The five upstream items of packet 031, fixed in Skilled and pulled
+- Backlog titles named the way Michel's backlog names its work, added to this packet on his choice
+- A sectioned Story shape, a per-platform sibling rule and one new worked example, drawn from two Stories Michel supplied
 
 ### Out of Scope
 - Review findings F6, F7, F9 and F10, which were not chosen
@@ -99,6 +101,8 @@ tracked files: workspace id in 7, work email in 2, Figma team ids in 6, home pat
 | REQ-006 | A malformed manifest is a setup error | `vendor-sync.py` exits 2 and a test proves it |
 | REQ-007 | The five upstream items are fixed in Skilled | Each has a check that fails before and passes after |
 | REQ-008 | No gate regresses | `run_gates.sh`, parity and residency pass |
+| REQ-009 | A Task or Bug title is a segmented label led by the team | The scaffolds and all eight task and bug examples carry the form |
+| REQ-010 | A large Story can take a sectioned shape | The rule reads as guidance and one worked example passes the format gate |
 <!-- /ANCHOR:requirements -->
 
 ---

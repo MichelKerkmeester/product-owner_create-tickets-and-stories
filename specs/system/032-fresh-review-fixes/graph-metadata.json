@@ -37,6 +37,7 @@
       "plan.md",
       "tasks.md",
       "implementation-summary.md",
+      "sk-product-owner/SKILL.md",
       "sk-create-figjam/references/flow-mode.md",
       "claude project/Custom Instructions.md",
       "claude project/README.md",
@@ -69,6 +70,12 @@
         "name": "implementation-summary.md",
         "kind": "doc",
         "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
         "source": "derived"
       },
       {
@@ -184,18 +191,12 @@
         "kind": "proper_noun",
         "path": "plan.md",
         "source": "derived"
-      },
-      {
-        "name": "Key Components",
-        "kind": "proper_noun",
-        "path": "plan.md",
-        "source": "derived"
       }
     ],
     "causal_summary": "A fresh Fable 5.2 review at medium effort read the whole system with no prior context",
     "created_at": "2026-11-11T08:43:38.085Z",
-    "last_save_at": "2026-11-11T08:43:38.085Z",
-    "save_lineage": "graph_only",
+    "last_save_at": "2026-11-11T12:00:14.106Z",
+    "save_lineage": "same_pass",
     "last_accessed_at": null,
     "source_docs": [
       "spec.md",
@@ -203,13 +204,13 @@
       "tasks.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:1c904c853ff0adf6af930bf9863b1c409fe2e9cd99d8f926d3cde85516514158",
+    "source_fingerprint": "sha256:b7ad6cc09ef804183ab55e359796f2f7050a20513c14a7d25c1d5e0b4bd4118d",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "b29ab6c8825fd9904705e30d156f8ca4360d03b4867a7f62081438516ab10706",
+      "spec.md": "192ac0a18fad3befba6e640db9226e2ad34686226e5878c1d271a5f33db09776",
       "plan.md": "0c05303234cc98cc0a86d593a5cab846e4ccb1c4f096ebfd9f5bb3c2c9c90ae4",
-      "tasks.md": "92c136cf1b5cd71f6c647b49a5572d743f091b2f4fcc80a339b4f36bfcd55fb1",
-      "implementation-summary.md": "c85439e83ede47913d17add8a53fb7417381bc4948c0ece74b3987560faa578e"
+      "tasks.md": "361f0a411147c3c2b78e3d917906204ef4d27ce940cc4708dc775cc010d2cca4",
+      "implementation-summary.md": "ce9b445d726114dd3b9ffb1a3953befa7bd13227fa4953adf1055ec53017c5bf"
     },
     "last_active_child_id": null,
     "last_active_at": null

@@ -69,6 +69,7 @@ Please provide the following information at once:
 **2. Scope & complexity:**
 - For tasks: Backend/Frontend/Mobile/Full-stack/DevOps/QA
 - For bugs: Platform, affected area, severity and reproduction context
+- For tasks and bugs: which team builds it, FE, BE, FS, DATA or DS, when the source names none
 - For Stories: Create or refine, the user role and value, how many requirements, and whether they share one mechanism
 - For docs: Create or refine, product/engineering/mixed domain, purpose, audience, required technical depth, requested scope and preferred shape if known
 
@@ -97,6 +98,7 @@ Please provide the following information at once:
 I'll create your task. Quick questions:
 
 **Format & scope:** Backend/Frontend/Mobile/Full-stack/DevOps/QA
+**Team:** [Only when the source names none: which team builds it? FE, BE, FS, DATA or DS]
 **Requirements:** What needs to be built/fixed? Acceptance criteria? Technical constraints?
 **Design & platform:** Figma links? Platforms? (iOS / Android / Web / All)
 **Dependencies:** Related or dependent tickets?
@@ -110,6 +112,7 @@ I'll create your bug report. Quick questions:
 
 **Bug details:** Unexpected behavior? Expected behavior? Steps to reproduce?
 **Environment:** Where does this occur? Platform(s)? (iOS / Android / Web / All)
+**Team:** [Only when the source names none: which team builds the fix? FE, BE, FS or DATA]
 **Design reference:** Figma references showing expected design?
 **Evidence:** Screenshots, error logs, console output? When first noticed? Known workaround?
 **Validation:** What should I NOT assume about root cause? Related bug reports?

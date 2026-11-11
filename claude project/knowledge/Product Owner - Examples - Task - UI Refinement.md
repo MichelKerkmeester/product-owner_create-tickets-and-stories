@@ -4,7 +4,7 @@ Instantiates Task Templates section 2, Canonical Task. Shows design-parity work 
 
 ---
 
-# Align the Meridian settings screen with the current design reference
+# FE - Meridian - Settings Screen - Design Reference v3 Alignment
 
 ## About
 

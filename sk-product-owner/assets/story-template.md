@@ -1,6 +1,6 @@
 ---
 title: "Product Owner - Assets - Story Template"
-description: "The Barter house-format Story scaffold: a Problem section of three to five sentences, a Solution with Expected outcomes and References, an optional Requirements section holding only hard constraints, a few outcome-led acceptance criteria, and an opt-in Delivery close written only on request or where the artifact forces one. Shared grammar, artifact-kind selection and the optional enrichments live in story-mode.md."
+description: "The Barter house-format Story scaffold: a Problem section of three to five sentences, a Solution with Expected outcomes and References, an optional Requirements section holding only hard constraints, a few outcome-led acceptance criteria, and an opt-in Delivery close written only on request or where the artifact forces one. Shared grammar, artifact-kind selection, the Story shapes and options and the optional enrichments live in story-mode.md, and section 4 holds the optional sectioned shape for a large Story."
 contextType: general
 importance_tier: important
 trigger_phrases:
@@ -18,7 +18,7 @@ The default shape for a Story. Detail scales with scope. The order does not chan
 
 - **Loading Condition:** CONDITIONAL, with `references/story-mode.md` when the resolved shape is Story
 - **Purpose:** Provides the Barter house-format Story scaffold a new Story is copied from
-- **Scope:** The Problem and Solution opening, Requirements as hard constraints only and omitted when there are none, a few outcome-led acceptance criteria and an opt-in Delivery close written only on request or where the artifact forces one
+- **Scope:** The Problem and Solution opening, Requirements as hard constraints only and omitted when there are none, a few outcome-led acceptance criteria, an opt-in Delivery close written only on request or where the artifact forces one and the optional sectioned shape for a large Story
 - **Output Path:** `export/[###] - Story-[description].md`, or `export/[original-source-filename].md` for a refinement
 
 ---
@@ -107,6 +107,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 - Supplied hard values travel verbatim. Copy each number, size, spacing, heading level, limit, exact string and button order into a constraint item with its value intact, in the source's own units and notation, inside backticks. Where the source is organised per screen or surface, mirror that organisation with one bold-lead group per screen under the source's own name, and carry each screen's reuse map as a Shared with: constraint in that group. Where the source names a change without giving its content, point the constraint at the design that settles it rather than inventing the text or dropping the line. A screen the source describes in prose, or shows only in a screenshot, supplies its copy, its labels and its values, and not its layout, its composition or a paraphrase of what it communicates. Carry the strings verbatim in backticks and let the design link carry the rest
 - A source line above the first heading, or for a surface no heading names, is a group of its own under that surface's name, and source hedges are rewritten as facts or open constraints rather than carried into the artifact's prose
 - Requirements is optional only where there is nothing hard to hold. Omit the whole section, spacer included, when the source names no hard constraint and the acceptance criteria say everything. One supplied hard value makes the section mandatory: optionality is permission to omit an empty section, never permission to drop a value the source supplied. Never pad it with outcomes or with screen description to make it look complete. A group named for a screen the source mentioned once holds one item, and a group that grew past its source grew by description
+- This scaffold is the compact shape, the default for small and medium Stories. Story shapes and options in story-mode.md sets out when a Story stays compact, when it takes the sectioned shape and which single option it may borrow, and section 4 below holds the sectioned blocks. A per-platform sibling Story copies this scaffold with the platform in its title
 - `## Delivery` is opt-in and lives in section 3 rather than in the scaffold above, because a delivery view nobody asked for reads as three `TBD...` slots pretending to be a plan. When it is absent, Acceptance criteria is the last section and keeps the close it already writes
 - Acceptance criteria describe what the user can rely on once the work ships and the quality it has to have, from the product's point of view. They leave the mechanism to the developer. A criterion says playback starts at once and adapts to the connection, not which player or bitrate ladder does it
 - Keep acceptance criteria few. One criterion per outcome the story exists to guarantee, plus the edges that matter. The count grows only with the number of surfaces and considerations the story touches, never with its size or the number of requirements
@@ -135,4 +136,69 @@ Append this block only when the requester asked for a delivery view, or when a r
 * * *
 *   TBD...
 * * *
+```
+
+---
+
+## 4. OPTIONAL SECTIONED SHAPE
+
+A large Story may swap the three blocks below into the scaffold above, each in place of its compact counterpart. `#### **References**` and Acceptance criteria stay as written in section 2. Take only the blocks the Story's scope calls for, because each option stands on its own. The rules for every block, and the guidance on when a Story takes it, are in story-mode.md under Story shapes and options.
+
+```markdown
+## Problem
+* * *
+{One sentence that counts the gaps, such as "three gaps get in the way:"}
+
+*   **{Gap}:** {the gap and what it costs, in one sentence}
+*   **{Gap}:** {the gap and what it costs, in one sentence}
+* * *
+##   
+
+## Solution
+* * *
+{One or two sentences of intent.}
+
+**Main changes**
+* * *
+*   {A decision the story makes}
+
+**Small UI/UX improvements**
+* * *
+*   {A smaller change, optional}
+
+**Expected outcomes**
+* * *
+*   {Result for users or the business}
+```
+
+```markdown
+## Requirements
+* * *
+### 1\. {Dependency name}
+* * *
+{One sentence on what the story needs from the other ticket.}
+[{Ticket name}]({ticket-url})
+
+- [] {What the dependency forces}
+###   
+
+### 2\. {Surface or component area}
+* * *
+**User flow:** {who does what, and where}
+
+Design
+[{Design link}]({url})
+
+#### **{Sub-area}**
+* * *
+**{Component group}**
+* * *
+- [] {A constraint with its value in backticks, and a reason clause where the why matters}
+- [] {Each state the source names, as its own item}
+
+**{Next component group}**
+* * *
+- [] {Hard requirement}
+* * *
+##   
 ```

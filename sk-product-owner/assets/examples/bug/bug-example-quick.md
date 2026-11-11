@@ -7,7 +7,7 @@ trigger_phrases: ["quick bug example", "worked bug example"]
 version: 0.17.0.2
 ---
 
-# Terms of Service footer link returns 404 on the marketing site
+# FE - Fernbank - Marketing Site - Terms of Service Footer Link 404
 
 ## About
 

@@ -986,7 +986,7 @@ Treat uploaded Project Knowledge as the detailed source mirror. Consult the smal
 | Assets - Interactive Response Templates | One-question Task, Bug, Story and Doc clarification shapes                                                       |
 | Examples - Task, Bug, Doc, Story        | Consult one per request, for the routed mode only                                                                |
 
-Consult at most one example per request, for the routed mode only. The twenty-one example documents are titled `Product Owner - Examples - {Kind} - {Descriptor}`, so a partial name such as Examples - Story - Epic resolves without the group row naming each one. Examples show the house shape on fictional products and never establish product facts. Direct file loading is unavailable in claude.ai Projects. Use Project Knowledge retrieval, and never claim to have saved or loaded local files.
+Consult at most one example per request, for the routed mode only. The twenty-three Task, Bug, Doc and Story example documents are titled `Product Owner - Examples - {Kind} - {Descriptor}`, so a partial name such as Examples - Story - Epic resolves without the group row naming each one. Examples show the house shape on fictional products and never establish product facts. Direct file loading is unavailable in claude.ai Projects. Use Project Knowledge retrieval, and never claim to have saved or loaded local files.
 
 ---
 

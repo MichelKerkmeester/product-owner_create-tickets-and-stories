@@ -7,7 +7,7 @@ trigger_phrases: ["quick task example", "worked task example"]
 version: 0.17.0.2
 ---
 
-# Update trial-expiry banner copy on the Ledgerly pricing page
+# FE - Ledgerly - Pricing Page - Trial-Expiry Banner Copy
 
 ## About
 

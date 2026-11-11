@@ -4,7 +4,7 @@ Instantiates Task Templates section 5, Quick Task. Shows exact copy replacement 
 
 ---
 
-# Update trial-expiry banner copy on the Ledgerly pricing page
+# FE - Ledgerly - Pricing Page - Trial-Expiry Banner Copy
 
 ## About
 

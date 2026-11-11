@@ -7,7 +7,7 @@ trigger_phrases: ["ui refinement task example", "worked task example"]
 version: 0.17.0.2
 ---
 
-# Align the Meridian settings screen with the current design reference
+# FE - Meridian - Settings Screen - Design Reference v3 Alignment
 
 ## About
 

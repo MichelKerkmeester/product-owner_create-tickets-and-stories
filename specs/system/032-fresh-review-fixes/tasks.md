@@ -50,6 +50,9 @@ contextType: "general"
 - [x] T010 Resync five declared residency statements (Sync Loop `systems.py`). Verify: `residency_check.py --all` prints PASSED.
 - [x] T011 Release hub 1.0.30.0, `sk-product-owner` 1.2.17.0, `sk-create-figjam` 1.0.19.0 and kernel v1.2.20. Verify: `check_changelog_shape.py` prints PASS for each note.
 - [x] T012 Pull the vendored packets from the published Skilled commit (`vendor.json`). Verify: `vendor-sync.py status` reports every entry in step.
+- [x] T016 Add the sectioned Story shape, the per-platform rule and a worked example (`story-mode.md`, `story-template.md`, `story-example-sectioned.md`). Verify: the example passes `validate-output-format.cjs`.
+- [x] T017 State the title rule once and rename eight task and bug examples (`AGENTS.md`, `task-templates.md`, `bug-report-template.md`). Verify: `example_lint.py` prints PASSED.
+- [x] T018 Release hub 1.0.31.0, `sk-product-owner` 1.2.18.0 and kernel v1.2.21, and declare the new example pair. Verify: `check_changelog_shape.py` prints PASS and parity counts 68 pairs.
 <!-- /ANCHOR:phase-2 -->
 
 ---

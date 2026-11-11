@@ -43,6 +43,7 @@ Symptom wording that names no defect noun still belongs here when the report des
 - Stopping to ask still produces a deliverable. Render the question as its own Deliverable Block, labelled `export/[###] - bug-[description]-clarification.md`, holding the question and nothing else, so the request is not lost between sessions. The artifact takes the next number in the lane once the user answers
 - Do not include a table of contents in generated bug reports
 - Keep each Bug report to one isolated defect. Group requests follow the Bug-to-Task Routing Contract above
+- Title the report `{Team} - {App} - {Area} - {What}` by the title rule in the Custom Instructions Rules section. The one question asks for the team lead when the source names none
 - Preserve the fixed template order
 - Capture screenshots, screen recordings, logs and references where they fit the reported bug
 - For a paired FigJam output, use the template’s `References` > `Flows` group only after the board read-back matches the model, as Templates - Flow Mode Section 8 states
@@ -105,7 +106,7 @@ For feature development or enhancements, use `$task` and reference **Templates -
 
 #### Structure order
 
-1. Title as `# {Bug Title}`
+1. Title as `# {Team} - {App} - {Area} - {What}`
 2. `## About` with short description, field table and references
 3. `### Bug`
 4. `1. Observed Behavior`
@@ -168,10 +169,11 @@ For feature development or enhancements, use `$task` and reference **Templates -
 - [ ] Bug description clear and specific?
 - [ ] Location, screen or flow identified when available?
 - [ ] Scope limited to the reported defect?
+- [ ] Building team named in the source, asked for in the one question or left out of the title and listed under Open items?
 
 ### Structure validation
 
-- [ ] Title uses H1 and appears first?
+- [ ] Title uses H1, appears first and follows the title rule?
 - [ ] About section uses `## About`?
 - [ ] About section includes the field table?
 - [ ] References appear under About when provided?

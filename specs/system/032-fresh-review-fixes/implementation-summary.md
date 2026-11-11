@@ -8,10 +8,10 @@ contextType: "general"
 _memory:
   continuity:
     packet_pointer: "system/032-fresh-review-fixes"
-    last_updated_at: "2026-11-11T14:00:00Z"
-    last_updated_by: "claude-fable-5-2"
-    recent_action: "Fixed the chosen review findings, added the source lint, scaffold lint and identifier scan gates, redacted 2,132 record files, released hub 1.0.30.0 and kernel v1.2.20"
-    next_safe_action: "Paste kernel v1.2.20 into the Claude Project and replace the eight knowledge files"
+    last_updated_at: "2026-11-11T11:05:12Z"
+    last_updated_by: "generate-context"
+    recent_action: "Added the backlog title rule and the sectioned Story shape, released hub 1.0.31.0 and kernel v1.2.21"
+    next_safe_action: "Paste kernel v1.2.21 into the Claude Project"
     blockers: []
     key_files:
       - "benchmark/gates/check_identifiers.py"
@@ -19,7 +19,7 @@ _memory:
       - "sk-product-owner/assets/doc-templates.md"
       - "claude project/Custom Instructions.md"
     session_dedup:
-      fingerprint: "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+      fingerprint: "sha256:eaf3fb2ddc5d99133e307f268af4e59c39f3579257feb9e8d6707847b04f41ec"
       session_id: "77e809ab-7e4a-4669-a9c5-ee0fa5f7617b"
       parent_session_id: null
     completion_pct: 100
@@ -74,6 +74,14 @@ A malformed `vendor.json` is a setup error with a one-line message and exit 2. I
 
 Three sk-doc checkers work on a repository that vendors Skilled packets. The playbook validator takes a foreign `--repo-root`. The README reference checker reads a line citation and a path with a space as the file. Catalog discovery skips record trees. The `mcp-code-mode` playbook meets its package contract. The alignment command says why a scope is empty.
 
+### Backlog titles
+
+Michel showed his ClickUp lists and 146 file names as the model. `AGENTS.md` now states one title rule: a title is a label, never a sentence, built from segments joined by ` - ` and running from broad to specific. A Task, Subtask or Bug leads with the team (`FE`, `BE`, `FS`, `DATA` or `DS`). A Story and a Parent task lead with the app. An Epic keeps its `Epic - ` lead and a Bug takes no `BUG` lead. When the source names no team, the one clarification question asks for it, and under `$quick` the lead is left out and listed under Open items. No title carries a date. The eight task and bug examples are renamed to the form. The rule sits in `AGENTS.md` because `sk-product-owner/SKILL.md` has a 5,000-word cap and 50 words of room.
+
+### Sectioned Story shape
+
+Two Stories Michel supplied became the model for a second Story shape. A large Story may write Problem and Solution as lists, split Requirements into numbered `###` sections that each open on a User flow line, and place design links at the top of a section. These are options that scale with scope and length, and the compact shape stays the default. A source covering Desktop and Mobile with differing requirements becomes one sibling Story per platform. A new worked example shows the shape on a fictional thermostat app. The `Checklist` label and nested checklist items stay banned, as Michel chose.
+
 ### Finding outcomes
 
 | Finding | Outcome |
@@ -104,6 +112,10 @@ Three sk-doc checkers work on a repository that vendors Skilled packets. The pla
 | Sync Loop `systems.py` | Modify | Five residency statements follow the kernel |
 | Version files, three changelogs, `SYNC.md` | Modify and Create | Release 1.0.30.0, 1.2.17.0 and 1.0.19.0 |
 | Skilled sk-doc scripts, `mcp-code-mode` playbook, `mcp-click-up` docs, seven changelogs | Modify and Create | Upstream items |
+| `AGENTS.md`, `task-mode.md`, `bug-mode.md`, `story-mode.md`, three scaffolds, eight examples, the playbook root | Modify | The title rule and the renamed examples |
+| `story-template.md`, `story-example-sectioned.md`, `leaf-manifest.json` | Modify and Create | The sectioned Story shape |
+| Kernel v1.2.21, sixteen knowledge files, Sync Loop `systems.py` | Modify and Create | Mirror, one new pair and three residency statements |
+| Version files and two changelogs | Modify and Create | Release 1.0.31.0 and 1.2.18.0 |
 <!-- /ANCHOR:what-built -->
 
 ---
@@ -126,6 +138,8 @@ Three workers fixed separate file sets at once: the skill docs with their mirror
 | Leave the Task Mode tail in the knowledge file | The declaration records it as moved on purpose |
 | Print no matched value in the identifier scan | A gate log is itself a tracked or shared surface |
 | Leave the shared Conciseness card | Its Doc spacer example is copied into three systems, so the edit is a fleet change |
+| Ask for a missing team, never guess it | Michel's choice. A wrong team lead sends the work to the wrong list |
+| Design links in a section are plain lines, not bullets | The format gate blocks a plain bullet inside Requirements, and its validator has a shared twin |
 <!-- /ANCHOR:decisions -->
 
 ---
@@ -161,4 +175,7 @@ Three workers fixed separate file sets at once: the skill docs with their mirror
 6. **The alignment command is local only.** Skilled ignores it in git, so its fix ships in no release.
 7. **The grader skips two card sections.** Sections 6 and 7 hold 30 terms the format validator blocks and the grader does not read, so graded reports keep their counts.
 8. **About 40 scaffold placeholders carry an Oxford comma.** No gate checks it.
+9. **No gate checks a title.** The title rule is taught by the scaffolds and examples. Nothing fails a sentence title.
+10. **Twelve playbook scenarios keep old overview wording.** They say no template names a title code. Their grading is unchanged.
+11. **`AGENTS.md` grew.** It holds 4,455 words, up from 3,974, because the title rule lives there.
 <!-- /ANCHOR:limitations -->

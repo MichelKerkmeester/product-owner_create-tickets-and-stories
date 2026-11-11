@@ -1,4 +1,5 @@
 {
+  "level": "1",
   "specFolder": "system/032-fresh-review-fixes",
   "description": "Fresh review fixes",
   "keywords": [
@@ -8,13 +9,14 @@
     "scaffold",
     "vendor"
   ],
-  "lastUpdated": "2026-11-11T12:00:00.000Z",
+  "lastUpdated": "2026-11-11T11:05:12.884Z",
   "specId": "032",
   "folderSlug": "fresh-review-fixes",
   "parentChain": [
     "system"
   ],
-  "memorySequence": 0,
-  "memoryNameHistory": [],
-  "level": "1"
+  "memorySequence": 1,
+  "memoryNameHistory": [
+    "11-11-26_12-05__packet-032-committed-and-pushed-in-skilled.md"
+  ]
 }

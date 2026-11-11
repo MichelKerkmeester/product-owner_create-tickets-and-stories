@@ -7,7 +7,7 @@ trigger_phrases: ["mobile crash bug example", "worked bug example"]
 version: 0.17.0.2
 ---
 
-# App crashes when attaching a large gallery photo on Android 12
+# FE - Loopline - Composer - Android 12 Crash on Large Gallery Photo
 
 ## About
 
