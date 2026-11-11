@@ -48,7 +48,7 @@ contextType: "implementation"
 - [x] T008 Rewrite the Composition levels and the swapped-pair sentence (`manual-testing-playbook/manual-testing-playbook.md`). Verify: the row carries the three levels. [EVIDENCE: the Composition row reads 2, 1 and 0 with the requested element held to its planned place and "When two parts swap, the part out of place is the one read earlier than its planned place"]
 - [x] T009 Add the turn 1 intake rule (`manual-testing-playbook/manual-testing-playbook.md`). Verify: playbook Section 5 states it. [EVIDENCE: playbook Section 5 states the Standard energy turn 1 intake rule, and FJ-022 now scripts the intake turn its prompt calls for]
 - [x] T010 Write the Project mirror for every changed skill file (`claude project/knowledge/`, `SYNC.md`). Verify: `validate_parity.py product-owner` and `pair_divergence.py product-owner` print PASSED. [EVIDENCE: kernel v1.2.14, seven Knowledge files and the composer mirror changed with their sources and the SYNC.md note of 2026-10-28 records each, parity is read after outer commit 2ea776e8e]
-- [x] T011 Release v1.0.14.0 (`SYNC.md`, `README.md`, version files, changelogs). Verify: the hub, its JSON files and `sk-create-figjam/SKILL.md` read 1.0.14.0. [EVIDENCE: `SKILL.md`, `description.json`, `hub-router.json`, `mode-registry.json` and `sk-create-figjam/SKILL.md` read 1.0.14.0, both v1.0.14.0 changelogs exist and the kernel H1 reads v1.2.14, committed as PO e0a082d5]
+- [x] T011 Release v1.0.14.0 (`SYNC.md`, `README.md`, version files, changelogs). Verify: the hub, its JSON files and `sk-create-figjam/SKILL.md` read 1.0.14.0. [EVIDENCE: `SKILL.md`, `description.json`, `hub-router.json`, `mode-registry.json` and `sk-create-figjam/SKILL.md` read 1.0.14.0, both v1.0.14.0 changelogs exist and the kernel H1 reads v1.2.14, committed as PO 7e85d65b]
 - [x] T012 Review the whole diff with a fresh Opus reviewer and repair the confirmed findings. Verify: each repair is read back. [EVIDENCE: the fresh reviewer found 1 P1 and 9 P2 and no P0, each confirmed and repaired: a second accent-fill node named twice, the top-down reading of the accent's row, a test name, FJ-022's missing intake turn, the playback sentence without the dials, the Composition level against the revision exception, the README code figure, the SYNC section name, the changelog sizes and two serial commas, with 199 of 199 and 1251 of 1251 self-test checks after]
 <!-- /ANCHOR:phase-2 -->
 
@@ -57,12 +57,12 @@ contextType: "implementation"
 <!-- ANCHOR:phase-3 -->
 ## Phase 3: Verification
 
-- [x] T013 Run the self-tests and gates on the committed tree. Verify: both self-tests, the design check, pytest, 15 of 15 gates and the output format gate pass. [EVIDENCE: on the release tree committed as e0a082d5 the flow check printed 199 of 199, the composer 1251 of 1251, the design check exit 0, pytest 18 passed, all 15 gates and the output format gate across 72 source files]
-- [x] T014 Commit and push both repositories. Verify: `validate_parity.py product-owner`, `residency_check.py --all` and `pair_divergence.py product-owner` each print PASSED. [EVIDENCE: PO commits e0a082d5 and 3a3a356a and outer commits 2ea776e8e, 8bc6d1014 and 997560542 pushed, parity PASSED 65 of 65, residency PASSED 7 systems, divergence PASSED 208 pairs and every `check_criteria.sh` row ok]
+- [x] T013 Run the self-tests and gates on the committed tree. Verify: both self-tests, the design check, pytest, 15 of 15 gates and the output format gate pass. [EVIDENCE: on the release tree committed as 7e85d65b the flow check printed 199 of 199, the composer 1251 of 1251, the design check exit 0, pytest 18 passed, all 15 gates and the output format gate across 72 source files]
+- [x] T014 Commit and push both repositories. Verify: `validate_parity.py product-owner`, `residency_check.py --all` and `pair_divergence.py product-owner` each print PASSED. [EVIDENCE: PO commits 7e85d65b and 5887798d and outer commits 2ea776e8e, 8bc6d1014 and 997560542 pushed, parity PASSED 65 of 65, residency PASSED 7 systems, divergence PASSED 208 pairs and every `check_criteria.sh` row ok]
 - [x] T015 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both after the closing edits. [EVIDENCE: `RESULT: PASSED` for this phase and for 017 after the closing edits]
 - [x] T016 Rerun FJ-017, FJ-022, FJ-023 and FJ-036 on v1.0.14.0, each in a fresh draft file (`benchmark/reports/.../skill/sonnet-high-048/`). Verify: each run has a `meta.json` and every turn exited 0. [EVIDENCE: four `meta.json` files, 15 turns at rc 0, one attempt each on the relaunch after a first launch stopped on the weekly usage limit before any model ran]
 - [x] T017 Grade the four runs with two readers per board and one Opus grader (`grades/sonnet-high-048.*`). Verify: every scenario has a verdict with its signals. [EVIDENCE: `sonnet-high-048.jsonl` holds 4 lines with their signals, FJ-017 and FJ-036 PASS and FJ-022 and FJ-023 FAIL, six reader files, and a completeness check corrected three scores against the notes]
-- [x] T018 Record the rerun as run README section 8.14, refresh the gallery with each passing board and commit both repositories. Verify: `validate_parity.py product-owner` prints PASSED. [EVIDENCE: section 8.14 records 2 of 4, the process gallery image is FJ-023's board and PO commit 62320e19 carries the records]
+- [x] T018 Record the rerun as run README section 8.14, refresh the gallery with each passing board and commit both repositories. Verify: `validate_parity.py product-owner` prints PASSED. [EVIDENCE: section 8.14 records 2 of 4, the process gallery image is FJ-023's board and PO commit f9b0bcd5 carries the records]
 <!-- /ANCHOR:phase-3 -->
 
 ---
@@ -137,7 +137,7 @@ contextType: "implementation"
 - [x] CHK-FIX-004 [P0] Adversarial cases for parser fixes [EVIDENCE: cases for a node between, two accents, a decision joined both ways and a top-down flow were probed, and each new self-test fails with its fix removed]
 - [x] CHK-FIX-005 [P1] Matrix axes and row count listed [EVIDENCE: four check changes with five new self-tests, nine rule files with their seven mirrors and the kernel]
 - [x] CHK-FIX-006 [P1] Hostile env variant [EVIDENCE: the spec tools run with the PO links created only for each run and removed after, as the operator asked]
-- [x] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: `git diff e359b8a6..e0a082d5` in the PO repository]
+- [x] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: `git diff 02e3d123..7e85d65b` in the PO repository]
 <!-- /ANCHOR:fix-completeness -->
 
 ---

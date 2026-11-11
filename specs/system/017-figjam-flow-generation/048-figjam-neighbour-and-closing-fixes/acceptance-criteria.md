@@ -35,7 +35,7 @@ One row per criterion. `AC-ID` is stable once written: supersede a criterion, ne
 
 | AC-ID | REQ | Given / When / Then | Verification | Status | Waiver |
 |-------|-----|---------------------|--------------|--------|--------|
-| AC-001 | REQ-001 | Given the changed sources, When every gate runs, Then each exits 0 | On the release tree e0a082d5 the self-tests, the design check, pytest and the gates pass, see tasks T013 | Met | - |
+| AC-001 | REQ-001 | Given the changed sources, When every gate runs, Then each exits 0 | On the release tree 7e85d65b the self-tests, the design check, pytest and the gates pass, see tasks T013 | Met | - |
 | AC-002 | REQ-002 | Given the last commit, When the Sync Loop checks run, Then parity, residency and divergence pass | Parity PASSED 65 of 65, residency PASSED 7 systems and divergence PASSED 208 pairs after outer commit 8bc6d1014 | Met | - |
 | AC-003 | REQ-003 | Given a decision joined to the accent on its row, When the check reads it, Then the `Glance:` line puts it right after the accent unless a node stands between | The cases "a decision beside the accent on its row reads right after it" and "a decision joined to the accent with a node between them on the row keeps its column place" pass in `flow_check.py`, and rubric Section 3 states the exception | Met | - |
 | AC-004 | REQ-004 | Given an intake round, When it ends, Then its last line is one closing question after its last block | Flow templates Section 5, flow-mode Section 8, playbook Section 5 and the kernel state the closing question, and every intake round of the 048 rerun ended on it | Met | - |

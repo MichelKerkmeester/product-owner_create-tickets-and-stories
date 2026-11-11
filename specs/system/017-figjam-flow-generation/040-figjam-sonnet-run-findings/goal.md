@@ -85,8 +85,8 @@ and findings belong here.
 | Rerun of the 31 failed and skipped scenarios | Pending | Held until 22:00 UTC by D1 |
 | Fixes, mirror, review repairs and leftover handoffs | Done | 1,240 and 163 self-test checks, all 15 gates and the format gate exit 0, 040 validates PASSED |
 | Shared Human Voice card and FJ-027 rescore | Done | operator yes, 12 copies one md5, kernel v1.2.8, 7 systems parity PASSED, record 24 PASS 28 FAIL 2 SKIP |
-| Rerun of the 31 scenarios | Done | from 22:00:39 UTC, 14 PASS 13 FAIL 4 SKIP, 31 graded lines, PO 3f4e0b38 |
-| Gallery, doc audit and close-out | Done | v1.0.6.0 gallery, five stale skill lines fixed with mirrors, parity 65 of 65 and residency 7 systems PASSED, PO 0332494a 1b05b590, outer b6442b97 |
+| Rerun of the 31 scenarios | Done | from 22:00:39 UTC, 14 PASS 13 FAIL 4 SKIP, 31 graded lines, PO c4b8d91d |
+| Gallery, doc audit and close-out | Done | v1.0.6.0 gallery, five stale skill lines fixed with mirrors, parity 65 of 65 and residency 7 systems PASSED, PO 31afacdc 7b71c7c0, outer b6442b97 |
 | FJ-031 first board unrendered | Deviation | deleted by its own scripted turns before render, so 16 of 17 boards have a render |
 
 ### Deviations and findings

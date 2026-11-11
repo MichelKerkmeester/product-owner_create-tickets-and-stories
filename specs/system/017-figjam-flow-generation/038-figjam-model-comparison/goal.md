@@ -68,10 +68,10 @@ and findings belong here.
 | Item | State | Evidence |
 |------|-------|----------|
 | Phase opened | Done | 2026-10-25, a child of 017 after 037 |
-| Batch run | Done | 21 of 21 runs completed, pushed per scenario through 315c8179 |
-| Grading | Done | 21 scorecards by Sonnet 5.5 graders, three rotated readers, results in 23eb8293 |
+| Batch run | Done | 21 of 21 runs completed, pushed per scenario through 572edf7a |
+| Grading | Done | 21 scorecards by Sonnet 5.5 graders, three rotated readers, results in 9023ccf7 |
 | Best model | Done | GLM and SWE tie at 148, SWE 2 Max recommended for never writing early or changing others' boards |
-| Gallery | Done | Seven best boards by ADR-004 in 33f93557 |
+| Gallery | Done | Seven best boards by ADR-004 in b958a9b6 |
 | Deviation | Recorded | Readers rotated across models, ADR-003 as-run note |
 | Finding | Open | GLM deleted ten test boards on FJ-024 after a generic yes, a later phase should require a named yes |
 | Six run findings fixed | Done | gantt arrows, ER end marks, delete names its boards, no-fileKey recovery, one verdict rule, gallery on board points, self-test 1029/1029, 15 gates, parity 65/65, live 147:5390 and 148:5423 |

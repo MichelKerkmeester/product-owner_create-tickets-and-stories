@@ -157,7 +157,7 @@ Three workers fixed separate file sets at once: the skill docs with their mirror
 2. **The Project is not updated.** Kernel v1.2.20 and eight knowledge files wait for Michel.
 3. **No example teaches the Logic shape.** The feedback example is UI/UX only now. The scaffold still shows the Logic sections.
 4. **The scan skips binary files.** 332 binary files and one report over 5 MB are not read. That report was checked by hand.
-5. **Old commits keep the values.** This packet redacts the tracked files. The history rewrite Michel chose is a separate step, and it changes every commit hash older packets cite.
+5. **GitHub can keep old commits.** The history of this repository was rewritten after the redaction, and 108 commit citations in 31 record files were repointed. A commit pushed before the rewrite can stay reachable by its hash on GitHub until its support purges it.
 6. **The alignment command is local only.** Skilled ignores it in git, so its fix ships in no release.
 7. **The grader skips two card sections.** Sections 6 and 7 hold 30 terms the format validator blocks and the grader does not read, so graded reports keep their counts.
 8. **About 40 scaffold placeholders carry an Oxford comma.** No gate checks it.

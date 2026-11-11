@@ -59,8 +59,8 @@ contextType: "implementation"
 <!-- ANCHOR:phase-3 -->
 ## Phase 3: Verification
 
-- [x] T015 Run the self-tests and gates on the committed tree. Verify: both self-tests, the design check, pytest, 15 of 15 gates and the output format gate pass. [EVIDENCE: on the committed tree at f0c0ba95 on 2026-10-28 the flow check printed 194 of 194, the composer 1250 of 1250, the design check exit 0, pytest 18 passed and the gates 12 of 15 with the three that need the outer repository skipped in the scratch copy, all 15 having passed on the release tree, and the output format gate passed across 72 source files]
-- [x] T016 Commit and push both repositories. Verify: `validate_parity.py product-owner`, `residency_check.py --all` and `pair_divergence.py product-owner` each print PASSED. [EVIDENCE: PO commits 99fbf956, b573d033 and f0c0ba95 and outer commits 0f808e801 and 3fe1a442e pushed, parity PASSED 65 of 65, residency PASSED 7 systems, divergence PASSED 208 pairs and every `check_criteria.sh` row ok]
+- [x] T015 Run the self-tests and gates on the committed tree. Verify: both self-tests, the design check, pytest, 15 of 15 gates and the output format gate pass. [EVIDENCE: on the committed tree at a6ac600b on 2026-10-28 the flow check printed 194 of 194, the composer 1250 of 1250, the design check exit 0, pytest 18 passed and the gates 12 of 15 with the three that need the outer repository skipped in the scratch copy, all 15 having passed on the release tree, and the output format gate passed across 72 source files]
+- [x] T016 Commit and push both repositories. Verify: `validate_parity.py product-owner`, `residency_check.py --all` and `pair_divergence.py product-owner` each print PASSED. [EVIDENCE: PO commits 2c5760e1, 63ff94c1 and a6ac600b and outer commits 0f808e801 and 3fe1a442e pushed, parity PASSED 65 of 65, residency PASSED 7 systems, divergence PASSED 208 pairs and every `check_criteria.sh` row ok]
 - [x] T017 Validate this phase and the parent. Verify: `validate.sh --strict` prints `RESULT: PASSED` for both after the closing edits. [EVIDENCE: `RESULT: PASSED` for this phase and for 017 after the closing edits]
 - [x] T018 Rerun FJ-017, FJ-022, FJ-023 and FJ-036 on v1.0.13.0, each in a fresh draft file (`benchmark/reports/.../skill/sonnet-high-047/`). Verify: each run has a `meta.json` and every turn exited 0. [EVIDENCE: four `meta.json` files, 15 turns at rc 0, one attempt each]
 - [x] T019 Grade the four runs with two readers per board and one Opus grader (`grades/sonnet-high-047.*`). Verify: every scenario has a verdict with its signals. [EVIDENCE: `sonnet-high-047.jsonl` holds 4 lines with their signals, FJ-022 PASS and three FAIL, six reader files for the three scored boards]
@@ -116,7 +116,7 @@ contextType: "implementation"
 ## Code Quality
 
 - [x] CHK-010 [P0] The composer and check self-tests pass with the new cases [EVIDENCE: on the working tree on 2026-10-28, `flow_check.py --self-test` printed 186 of 186 and `compose_board.py --self-test` 1250 of 1250, each exit 0]
-- [x] CHK-011 [P1] pytest passes [EVIDENCE: pytest 18 passed on the committed tree at f0c0ba95 on 2026-10-28]
+- [x] CHK-011 [P1] pytest passes [EVIDENCE: pytest 18 passed on the committed tree at a6ac600b on 2026-10-28]
 <!-- /ANCHOR:code-quality -->
 
 ---
@@ -139,7 +139,7 @@ contextType: "implementation"
 - [x] CHK-FIX-004 [P0] Adversarial cases for parser fixes [EVIDENCE: the row cases cover a node in its own zone and the same node moved into the next zone, the sides case covers an end dot inside and past one sticky width and the label case covers a word only the narrow measure strands]
 - [x] CHK-FIX-005 [P1] Matrix axes and row count listed [EVIDENCE: the sketch rule over seven examples, three rule files, the kernel and the playbook, and the relabel over the two flow examples whose checks printed a `Label:` line]
 - [x] CHK-FIX-006 [P1] Hostile env variant [EVIDENCE: the spec tools run with the PO links created only for each run and removed after, as the operator asked]
-- [x] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: `git diff 7d10f39e..f0c0ba95` in the PO repository]
+- [x] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: `git diff 5d7fc1c5..a6ac600b` in the PO repository]
 <!-- /ANCHOR:fix-completeness -->
 
 ---

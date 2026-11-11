@@ -83,7 +83,7 @@ and findings belong here.
 | Item | State | Evidence |
 |------|-------|----------|
 | Phase scaffolded | Done | spec, plan, tasks, acceptance criteria and this goal |
-| Release v1.0.12.0 committed and pushed | Done | PO 7ed6e7d5 and 7d10f39e, outer 2169cd312 and f5d8f2360, parity PASSED 65 of 65 |
+| Release v1.0.12.0 committed and pushed | Done | PO cea3265a and 5d7fc1c5, outer 2169cd312 and f5d8f2360, parity PASSED 65 of 65 |
 | Rerun on v1.0.12.0 graded | Done | 0 of 4 pass, run README section 8.12, causes go to phase 047 |
 
 ### Deviations and findings

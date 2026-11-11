@@ -83,7 +83,7 @@ and findings belong here.
 | Checker, composer, docs, example, playbook | Done | flow_check 227 of 227 after the review repairs, composer 1302 of 1302, gates 15 of 15, pytest 18 |
 | Project mirror and release | Done | divergence PASSED 66 pairs, residency PASSED 7 in a scratch clone |
 | Live board | Done | 15 of 15 nodes, 20 of 20 connectors, 0 warnings, fresh view after the card fix |
-| Review, commits and Sync Loop | Done | four review findings repaired; Product Owner c1533f7e, outer 1c4013b2 and 4f4aacb09; parity 66 of 66, residency 7, divergence 66 |
+| Review, commits and Sync Loop | Done | four review findings repaired; Product Owner c1a16ff9, outer 1c4013b2 and 4f4aacb09; parity 66 of 66, residency 7, divergence 66 |
 
 ### Deviations and findings
 

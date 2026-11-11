@@ -76,7 +76,7 @@ and findings belong here.
 
 | Item | State | Evidence |
 |------|-------|----------|
-| Fixes shipped as v1.0.5.0 | Done | PO commits d5d36cd6 to d0f3380e, outer d2d17905 |
+| Fixes shipped as v1.0.5.0 | Done | PO commits 75f8f8bf to 9b4e098a, outer d2d17905 |
 | Goal written after closure | Done | Added so the parent binding table has a row for this phase |
 
 ### Deviations and findings

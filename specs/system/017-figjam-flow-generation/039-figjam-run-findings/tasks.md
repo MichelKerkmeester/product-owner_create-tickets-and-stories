@@ -134,7 +134,7 @@ contextType: "implementation"
 - [x] CHK-FIX-004 [P0] Adversarial cases for parser fixes [EVIDENCE: not a security, path or redaction fix. The section cut is proven by the per-type self-test check and by every fixture composing through it]
 - [x] CHK-FIX-005 [P1] Matrix axes and row count listed [EVIDENCE: three cut types by 1,032 self-test checks, and 54 scenarios by two driver flags]
 - [x] CHK-FIX-006 [P1] Hostile env variant [EVIDENCE: not applicable, no changed code reads process-wide state]
-- [x] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: the diff from PO `main` at 87f1ac18, the commit this phase started from]
+- [x] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: the diff from PO `main` at eb083b2e, the commit this phase started from]
 <!-- /ANCHOR:fix-completeness -->
 
 ---

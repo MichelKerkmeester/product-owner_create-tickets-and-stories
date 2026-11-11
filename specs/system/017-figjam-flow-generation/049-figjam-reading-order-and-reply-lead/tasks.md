@@ -137,7 +137,7 @@ contextType: "implementation"
 - [x] CHK-FIX-004 [P0] Adversarial cases for parser fixes [EVIDENCE: `lead_is_url` on 16 strings and `composition_check.py` on constructed edge cases and the six stored boards]
 - [x] CHK-FIX-005 [P1] Matrix axes and row count listed [EVIDENCE: seven example types against the check, two rerun scenarios and six rescored boards]
 - [x] CHK-FIX-006 [P1] Hostile env variant [EVIDENCE: the spec tools run with the PO links created only for each run and removed after, as the operator asked]
-- [x] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: PO ee2492cf..730231e9 for the release and 730231e9..dbb84f81 for the rerun]
+- [x] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: PO 9ae2ced5..a6443b41 for the release and a6443b41..06128fb5 for the rerun]
 <!-- /ANCHOR:fix-completeness -->
 
 ---

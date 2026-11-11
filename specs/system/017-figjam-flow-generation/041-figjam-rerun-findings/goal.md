@@ -80,7 +80,7 @@ and findings belong here.
 | Item | State | Evidence |
 |------|-------|----------|
 | Phase scaffolded | Done | spec, plan, tasks, acceptance criteria and this goal |
-| Release v1.0.7.0 and kernel v1.2.9 | Done | commits 47258c0a and ea7d13fe, parity PASSED 65/65 |
+| Release v1.0.7.0 and kernel v1.2.9 | Done | commits 7be241fc and 4bde2604, parity PASSED 65/65 |
 | Rerun graded and close-out | Done | 2 PASS 14 FAIL 2 NOT RUN in grades/sonnet-high-041.jsonl, README 8.7, validate.sh PASSED, SC-001 unmet |
 
 ### Deviations and findings

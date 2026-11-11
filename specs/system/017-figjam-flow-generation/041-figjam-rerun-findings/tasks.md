@@ -135,7 +135,7 @@ contextType: "implementation"
 - [x] CHK-FIX-004 [P0] Adversarial cases for parser fixes [EVIDENCE: `figjam_checks/fixtures.py` lines 231 and 450 hold a self-looping flowchart and architecture model that the check refuses]
 - [x] CHK-FIX-005 [P1] Matrix axes and row count listed [EVIDENCE: seven types by two sides, skill and Project, 14 rows, each carrying the one-board sentence]
 - [x] CHK-FIX-006 [P1] Hostile env variant [EVIDENCE: `adaptive_compare.py` line 193 refuses a new-file scenario when `NEW_FILE_PLAN` is unset]
-- [x] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: the diff range 7c077be2..0991e759 plus the close-out commit]
+- [x] CHK-FIX-007 [P1] Evidence pinned to a diff range [EVIDENCE: the diff range de5e916d..da457207 plus the close-out commit]
 <!-- /ANCHOR:fix-completeness -->
 
 ---

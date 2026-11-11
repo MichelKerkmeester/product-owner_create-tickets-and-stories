@@ -51,7 +51,7 @@ One row per criterion. `AC-ID` is stable once written: supersede a criterion, ne
 
 | AC-ID | REQ | Given / When / Then | Verification | Status | Waiver |
 |-------|-----|---------------------|--------------|--------|--------|
-| AC-001 | REQ-001 | Given the changed sources, When every gate runs, Then each exits 0 | On the committed tree at f0c0ba95 the self-tests, the design check, pytest and the gates pass, see tasks T015 | Met | - |
+| AC-001 | REQ-001 | Given the changed sources, When every gate runs, Then each exits 0 | On the committed tree at a6ac600b the self-tests, the design check, pytest and the gates pass, see tasks T015 | Met | - |
 | AC-002 | REQ-002 | Given the last commit, When the Sync Loop checks run, Then parity, residency and divergence pass | Parity PASSED 65 of 65, residency PASSED 7 systems and divergence PASSED 208 pairs after outer commit 3fe1a442e | Met | - |
 | AC-003 | REQ-003 | Given a user flow or a process, When the check reads it, Then a `Glance:` line prints the drawn reading order and the rubric and the playbook plan and score from it | The reading-order case passes in the flow check self-test, 186 of 186, the process example prints its `Glance:` line, rubric Section 3 plans from it with path order as the fallback and the playbook Composition row scores against it | Met | - |
 | AC-004 | REQ-004 | Given a main-row line that bends off the row, When the check reads it, Then a non-failing `Row:` line names the node between and the zone move, and the composer is unchanged | Both row cases pass in the flow check self-test and `git diff` shows no change to `compose_board.py` or `assets/compose-board.js` | Met | - |
