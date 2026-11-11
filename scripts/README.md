@@ -98,7 +98,7 @@ scripts/
 |---|---|
 | 0 | every selected entry is in step or matches its record, or `diff` has nothing to show |
 | 1 | an entry drifted, a sync was refused or `diff` has something to show |
-| 2 | setup error such as a missing manifest, an escaping path, a symlink, a bad `VENDOR_UPSTREAM_ROOT` or no upstream |
+| 2 | setup error such as a missing, truncated or unreadable manifest, an entry with no name, an escaping path, a symlink, a bad `VENDOR_UPSTREAM_ROOT` or no upstream |
 
 `vendor-sync.py push` leaves the upstream changes uncommitted. The operator commits them upstream, then runs `sync` to update the local baseline.
 

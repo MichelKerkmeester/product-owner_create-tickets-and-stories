@@ -20,7 +20,7 @@ Built for product managers and team leads who write the backlog and for the deve
 
 **What's inside**
 
-- **Developer Tasks** - four task shapes, each requirement group ending in a checklist a QA engineer can tick off
+- **Developer Tasks** - five task shapes, each requirement group ending in a checklist a QA engineer can tick off
 - **Bug Reports** - one fixed report where a field you did not supply reads `Not provided`, never a plausible guess
 - **Stories and Epics** - two artifacts in one house format, with every hard value you supplied kept verbatim and numbered Given/When/Then criteria
 - **Source-Safe Docs** - five shapes and a status label on every claim, so a proposal never reads as shipped
@@ -81,7 +81,7 @@ From request to delivery:
 
 Built to be ticked off.
 
-A task takes one of four shapes: a standard task, a parent task that links one subtask per requirement, a subtask for one bounded area or a Quick task with a single requirement group. Every requirement group ends in a checklist of items a QA engineer can tick off. Refining a task you already have keeps its sections and its filename. Only what you asked for changes.
+A task takes one of five shapes: a standard task, a parent task that links one subtask per requirement, a subtask for one bounded area, a Quick task with a single requirement group or a feedback ticket that holds one round of review feedback for one app and one kind. Every requirement group ends in a checklist of items a QA engineer can tick off. Refining a task you already have keeps its sections and its filename. Only what you asked for changes.
 
 ### Bug Reports
 
@@ -125,7 +125,7 @@ Both routes run the same rules and the same templates. Section 3 sets up either 
 | Artifacts | Task, subtask, bug report, Story, Epic, Doc and FigJam diagram |
 | Diagram types | Seven: user flow, process, architecture, sequence, state, ER and gantt |
 | Worked examples | 22 filled artifacts and 8 FigJam examples, one per diagram type and a second process with a status lane and detail cards |
-| Versions | Hub 1.0.29.0, `sk-product-owner` 1.2.16.0, `sk-create-figjam` 1.0.18.0, Project kernel v1.2.19 |
+| Versions | Hub 1.0.30.0, `sk-product-owner` 1.2.17.0, `sk-create-figjam` 1.0.19.0, Project kernel v1.2.20 |
 | License | MIT |
 
 &nbsp;
@@ -147,7 +147,7 @@ Open the folder in an agent CLI that reads `AGENTS.md` and point the model at th
 bash benchmark/gates/run_gates.sh
 ```
 
-A healthy tree ends with `all 15 gates pass`. A standalone clone with no shared skill folder above it ends with `12 of 15 gates pass, 3 skipped`. Section 12 says where each check is documented.
+A healthy tree ends with `all 19 gates pass`. A standalone clone with no shared skill folder above it ends with `16 of 19 gates pass, 3 skipped`. Section 12 says where each check is documented.
 
 ### First Use
 
@@ -469,7 +469,7 @@ A backlog or doc route loads one mode reference and its template, never a second
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem.
 
-- `Custom Instructions.md` is the kernel, v1.2.19, and the routing authority inside the Project
+- `Custom Instructions.md` is the kernel, v1.2.20, and the routing authority inside the Project
 - `knowledge/` holds the 67 knowledge files you upload
 - `README.md` holds the upload steps and the smoke matrix
 
@@ -491,7 +491,7 @@ A claude.ai Project reads hand-written copies of the skill files from `claude pr
 bash benchmark/gates/run_gates.sh
 ```
 
-A healthy tree ends with `all 15 gates pass`. A standalone clone with no shared skill folder above it ends with `12 of 15 gates pass, 3 skipped`.
+A healthy tree ends with `all 19 gates pass`. A standalone clone with no shared skill folder above it ends with `16 of 19 gates pass, 3 skipped`.
 
 #### Where the Detail Lives
 
@@ -653,6 +653,6 @@ Your Figma plan or seat has used its monthly tool calls. Open your FigJam drafts
 
 **Release notes**
 
-- **[→ Hub v1.0.29.0](changelog/v1.0.29.0.md)** - the latest hub release
-- **[→ `sk-product-owner` v1.2.16.0](sk-product-owner/changelog/v1.2.16.0.md)** - the latest backlog and doc packet release
-- **[→ `sk-create-figjam` v1.0.18.0](sk-create-figjam/changelog/v1.0.18.0.md)** - the latest FigJam packet release
+- **[→ Hub v1.0.30.0](changelog/v1.0.30.0.md)** - the latest hub release
+- **[→ `sk-product-owner` v1.2.17.0](sk-product-owner/changelog/v1.2.17.0.md)** - the latest backlog and doc packet release
+- **[→ `sk-create-figjam` v1.0.19.0](sk-create-figjam/changelog/v1.0.19.0.md)** - the latest FigJam packet release

@@ -49,7 +49,7 @@ Environment:
             `claude project/knowledge/` are resolved under. The shared
             declaration itself is always read from its one real location,
             never from this override, so a sandboxed run still checks the
-            genuine 63 pairs against substitute file content.
+            genuine 67 pairs against substitute file content.
 """
 import os
 import sys

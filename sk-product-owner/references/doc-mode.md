@@ -94,7 +94,7 @@ For every new Doc artifact:
 - Use `*   []` for document checklists, with no space between the brackets. Keep ordered procedures numbered
 - Write every heading in sentence case: capitalize the first word plus proper nouns, acronyms and literal identifiers, and nothing else. `### Boundaries and exceptions`, never `### Boundaries and Exceptions`. The scaffold names in doc-templates.md are already written this way, and a heading a writer invents follows the same rule. This is the Human Voice card's title-case ban, and Doc Mode holds no exemption from it. A refinement keeps the supplied document's own heading case
 - Do not end a newly authored or rewritten bullet item with a full stop
-- Treat same-level empty spacer headings such as `##   `, `###   ` or `####   ` as a ClickUp rendering affordance: use them only in ClickUp-bound content, never in a file export, where plain blank lines carry the spacing
+- Keep same-level empty spacer headings such as `##   `, `###   ` or `####   ` between substantial sibling sections in the file export. They are part of the Barter house format, so the body travels to ClickUp verbatim with the spacing intact
 - A divider needs no blank line after it. Content may open on the line directly below, which is what every ClickUp layout fixture in `assets/examples/doc/` does under its section headings, and a blank line there is equally fine. What the layout does fix is the line above: the divider sits immediately under its heading with nothing between them
 - Meet the Readability Floor in doc-templates.md: one idea per paragraph with the takeaway first, links at the end of the sentence or bullet they support, checklist items as short bold imperatives with rationale in the surrounding prose, lists one level deep
 - Preserve semantic table, code-fence, blockquote, link, and identifier formatting
@@ -455,7 +455,7 @@ ClickUp delivery offers and approval follow `SKILL.md` Section 7, ClickUp Handof
 - [ ] Every non-title, non-empty content heading is immediately followed by a divider? (the output-format gate blocks on this)
 - [ ] Unordered bullets use exact `*   ` syntax and no generic hyphen bullet remains?
 - [ ] Definition bullets use `*   **{Term}** — {Definition}` where appropriate?
-- [ ] Empty spacer headings appear only in ClickUp-bound content, never in a file export, and never trail a section?
+- [ ] Empty spacer headings stay in the file export between substantial siblings and never trail a section?
 - [ ] Every heading is sentence case, with only proper nouns, acronyms and literal identifiers capitalized mid-heading?
 - [ ] The Readability Floor holds: one idea per paragraph with the takeaway first, links at the end of what they support, checklist items short with rationale in prose?
 - [ ] Refinement preserves the source layout unless normalization was explicitly authorized?
@@ -502,7 +502,7 @@ Feed Functions and Weighted Ranking material exhibit a Proposal shape because th
 
 ### Feed ClickUp Layout Fixtures
 
-Dead Deals, Feed Functions, How it Works, and Patterns establish the default new-document layout: exact `* * *` dividers, `*   ` unordered bullets, a blank line between the document title and opening divider, dividers immediately after non-title content headings, same-level empty spacer headings between substantial siblings (a ClickUp-paste affordance that file exports drop), divided status blockquotes, definition bullets with bold terms and em dashes, tables for real matrices, and language-tagged technical fences. Treat those files as read-only formatting fixtures, not as proof that every behavior claim is current. They sit outside the output-format gate's enforced set, so their own em dashes and semicolons are reported as advice rather than failing the run, which is why a source-mode run lists them and still exits 0. That is a reporting level for past corpus text and never a licence to write either mark into a new artifact.
+Dead Deals, Feed Functions, How it Works, and Patterns establish the default new-document layout: exact `* * *` dividers, `*   ` unordered bullets, a blank line between the document title and opening divider, dividers immediately after non-title content headings, same-level empty spacer headings between substantial siblings (kept in the file export, which travels to ClickUp verbatim), divided status blockquotes, definition bullets with bold terms and em dashes, tables for real matrices, and language-tagged technical fences. Treat those files as read-only formatting fixtures, not as proof that every behavior claim is current. They sit outside the output-format gate's enforced set, so their own em dashes and semicolons are reported as advice rather than failing the run, which is why a source-mode run lists them and still exits 0. That is a reporting level for past corpus text and never a licence to write either mark into a new artifact.
 
 ### Retired Notification Material
 

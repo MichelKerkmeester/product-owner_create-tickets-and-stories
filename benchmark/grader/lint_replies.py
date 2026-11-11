@@ -37,7 +37,8 @@ Usage:
 Exit codes:
   0   every reply read is clean
   1   at least one reply carries a hard blocker
-  2   the target is not a directory or holds no reply file
+  2   the target is not a directory or holds no reply file, or the Human Voice card
+      the term lists come from could not be read
   64  no target was given
 """
 import csv
@@ -45,7 +46,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from hvr_lint import extract_deliverable, lint  # noqa: E402  path set above
+from hvr_lint import CardError, card_lists, extract_deliverable, lint  # noqa: E402  path set above
 
 TEXT_SUFFIXES = {".txt", ".md"}
 
@@ -83,6 +84,14 @@ def main(argv: list[str]) -> int:
         print("usage: lint_replies.py <run report dir or replies dir>", file=sys.stderr)
         return 64
     target = Path(args[0]).resolve()
+
+    # An unreadable card would otherwise surface as a traceback from the first
+    # reply, which exits 1 and reads as a dirty reply instead of a setup fault.
+    try:
+        card_lists()
+    except CardError as error:
+        print(f"lint_replies: {error}", file=sys.stderr)
+        return 2
 
     if target.is_file():
         row = lint_file(target)

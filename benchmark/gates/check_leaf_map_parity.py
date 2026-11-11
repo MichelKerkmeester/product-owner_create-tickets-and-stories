@@ -16,6 +16,16 @@ point of the top score kept. No other gate reads that block, so a FigJam
 request it cannot see would pass every check while the leaf router found no
 intent for it.
 
+One departure from the shared script is deliberate. That script matches every
+keyword as a substring, so the `$d` of the Doc lane hits `$document`, `$docs`
+and `$debug`, and `$e` hits `$email`. `AGENTS.md` says none of those is a
+command: a `$` command counts only as an exact standalone token. This replay
+holds a `$` keyword to that rule, and a fixed table of command-shaped strings
+proves it on every run, so the block cannot drift back into a matcher that
+reads a word as a command. Stage one matches commands exactly through
+`routerPolicy.packetCommands` and the packet router does the same, so the block
+only has to be right about phrases.
+
 Usage:
   check_leaf_map_parity.py -> exit 0 when every lane, packet and gold row agree, exit 1 otherwise
 """
@@ -54,6 +64,19 @@ FIGJAM_PACKET = "sk-create-figjam"
 # lane has to equal that entry, or the hub loads leaves the packet would not.
 VENDORED_LANE_INTENT = {"CLICK_UP": "CUPT_DAILY", "FIGMA": "CREATE_RENDER"}
 ARTIFACT_LANES = {"TASK", "BUG", "DOC", "STORY", "EPIC"}
+# A `$` command is an exact standalone token. The edges are the packet router's own
+# (references/router-contract.md), which is where `$d,` stays a command and `$d.md`,
+# `$doc/path` and `$docs` do not.
+TOKEN_START = r"(?<![\w$])"
+TOKEN_END = r"(?![\w$/-]|\.\w)"
+# Strings AGENTS.md names as not commands, plus the nine a fresh review found the
+# substring match reading as commands. Each must score no intent.
+NOT_COMMANDS = (
+    "$document", "$docs", "$debug", "$d.md", "$doc/path", "$stories", "$prds", "$sort",
+    "$epics", "$email", "$e.md", "$flowchart",
+)
+# Command shapes that must keep scoring, one per way a command can be written.
+COMMANDS = {"$d,": "DOC", "$s": "STORY", "$e": "EPIC", "$task --subtask": "TASK", "$flow": "FLOW"}
 # The shared replay keeps every intent within this many points of the top score.
 AMBIGUITY_DELTA = 1
 CASES = Path("benchmark/hub-routing-cases.json")
@@ -103,6 +126,18 @@ def packet_leaves(packet: str, intent: str) -> list[str]:
     return [f"{packet}/{leaf}" for leaf in entry if leaf.startswith(("references/", "assets/"))]
 
 
+def keyword_hits(keyword: str, text: str) -> bool:
+    """Whether one keyword hits the lowercased request.
+
+    A `$` keyword is a command and hits only as an exact standalone token. Every
+    other keyword is a phrase and hits anywhere in the text, as in the shared replay.
+    """
+    keyword = keyword.lower()
+    if keyword.startswith("$"):
+        return re.search(TOKEN_START + re.escape(keyword) + TOKEN_END, text) is not None
+    return keyword in text
+
+
 def replay_intents(request: str, signals: dict[str, dict]) -> set[str]:
     """Score a request the way the shared replay does, with FLOW ranked below an artifact.
 
@@ -112,7 +147,7 @@ def replay_intents(request: str, signals: dict[str, dict]) -> set[str]:
     """
     text = " ".join(request.lower().replace("\u2019", "'").split())
     scores = {
-        intent: sum(entry["weight"] for keyword in entry["keywords"] if keyword.lower() in text)
+        intent: sum(entry["weight"] for keyword in entry["keywords"] if keyword_hits(keyword, text))
         for intent, entry in signals.items()
     }
     scores = {intent: score for intent, score in scores.items() if score > 0}
@@ -122,6 +157,20 @@ def replay_intents(request: str, signals: dict[str, dict]) -> set[str]:
         return set()
     top = max(scores.values())
     return {intent for intent, score in scores.items() if top - score <= AMBIGUITY_DELTA}
+
+
+def command_shape_problems(signals: dict[str, dict]) -> list[str]:
+    """Hold the keyword block to the exact-token rule for `$` commands."""
+    problems: list[str] = []
+    for text in NOT_COMMANDS:
+        kept = replay_intents(text, signals)
+        if kept:
+            problems.append(f"ROUTER.md keywords read {text!r} as {sorted(kept)}, but it is not a command")
+    for text, lane in COMMANDS.items():
+        kept = replay_intents(text, signals)
+        if kept != {lane}:
+            problems.append(f"ROUTER.md keywords read {text!r} as {sorted(kept) or 'no intent'}, expected {lane}")
+    return problems
 
 
 def replay_problems(signals: dict[str, dict]) -> list[str]:
@@ -191,6 +240,7 @@ def main() -> int:
         check_resources(lane, packet, resources)
 
     errors.extend(replay_problems(intent_signals))
+    errors.extend(command_shape_problems(intent_signals))
     for lane, intent in VENDORED_LANE_INTENT.items():
         try:
             wanted = packet_leaves(LANE_TO_PACKET[lane], intent)
@@ -207,7 +257,7 @@ def main() -> int:
         return 1
     print(
         f"PASSED {len(lane_keys)} router lanes and DEFAULT_RESOURCE match {len(modes)} packet manifests, "
-        "including FLOW, and the FLOW keywords replay every hub gold row"
+        "including FLOW, the FLOW keywords replay every hub gold row and a `$` keyword counts only as an exact command"
     )
     return 0
 

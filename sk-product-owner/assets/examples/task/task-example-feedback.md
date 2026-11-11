@@ -1,6 +1,6 @@
 ---
 title: "Product Owner - Examples - Task - Feedback Ticket"
-description: "Instantiates Task Templates section 6, Feedback Ticket. Shows one app's UI/UX review round grouped by screen, a Code and Figma screenshot pair and a Logic-style item with steps."
+description: "Instantiates Task Templates section 6, Feedback Ticket. Shows one app's UI/UX review round grouped by screen, a Code and Figma screenshot pair and a Code-only pair where the reviewer gave no Figma frame."
 contextType: general
 importance_tier: normal
 trigger_phrases: ["feedback ticket example", "review feedback task example"]
@@ -69,20 +69,16 @@ Code
 
 ---
 
-3\. **Price breakdown after a date change**
+3\. **Price breakdown spacing**
 
 ---
 
-**What happened?**
-
-1. I picked two nights and opened the summary
-2. I went back and changed the stay to three nights
-3. The summary still showed the two-night price until I refreshed the page
+The price rows sit closer together than in Figma, and the total reads at the same weight as the rows above it.
 
 **Checklist**
 
-- [] Changing the dates updates the price breakdown without a page refresh
-- [] Can the summary show a loading state while the new price is fetched?
+- [] Set the gap between price rows to `space-200`
+- [] Style the total row with `text-strong`
 
-Recording
-[https://cdn.example.com/review/summary-price.mov](https://cdn.example.com/review/summary-price.mov)
+Code
+![](https://cdn.example.com/review/summary-price-built.png)

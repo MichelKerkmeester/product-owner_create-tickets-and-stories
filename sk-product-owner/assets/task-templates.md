@@ -298,7 +298,7 @@ Number requirement groups only when the task carries two or more. A single group
 
 Use this for one round of product review feedback on a feature, such as a design QA pass or an acceptance round. One ticket holds one app and one kind of feedback: `Logic` for behavior and flow, `UI/UX` for visual and interaction detail. A round that covers two apps and both kinds becomes four tickets, and an app or kind with no items gets no ticket.
 
-Worked example: [`examples/task/task-example-feedback.md`](examples/task/task-example-feedback.md) shows a UI/UX ticket with grouped items, a Code and Figma screenshot pair and a Logic item with steps to reproduce.
+Worked example: [`examples/task/task-example-feedback.md`](examples/task/task-example-feedback.md) shows a UI/UX ticket with grouped items, a Code and Figma screenshot pair and a Code-only pair for an item with no Figma frame.
 
 ```markdown
 # {Team} - {Feature} - Feedback #{Round} - {App}: {Logic | UI/UX}

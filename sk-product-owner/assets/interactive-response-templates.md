@@ -60,7 +60,7 @@ Please provide the following information at once:
 - Task - Development task with QA checklist
 - Bug - Defect report with evidence and reproduction steps
 - Story - A Story or Epic in the Barter house format, new or refined, with numbered Given/When/Then acceptance criteria, and Connextra lines or Definition of Ready/Done gates only where the artifact earns them
-- Doc - Product or engineering guide, catalog, behavior reference, runbook, technical reference, or proposal; new or refined
+- Doc - Product or engineering guide, catalog, behavior reference, runbook, technical reference or proposal, new or refined
 
 **If the deliverable is a board:**
 - Who reads it, which question it answers and what that reader should decide after reading it
@@ -124,7 +124,7 @@ I'll create or refine your Story or Epic. Before drafting, I need the unresolved
 
 **Operation:** New Story or Epic, or refine an existing one? For a refinement, which file - I will preserve its structure and only add or adjust what you name.
 **Role & value:** Who is the user, and what benefit should the Story deliver? (This becomes the Connextra "As a ..., I want ..., so that ..." line.)
-**Requirements:** Which concrete requirements should the Story cover? List them for a Story; if there are none - an initiative split across child stories with a Goal - it is an Epic.
+**Requirements:** Which concrete requirements should the Story cover? List them for a Story. If there are none - an initiative split across child stories with a Goal - it is an Epic.
 **Shared machinery:** Do the requirements run through one common mechanism (a pipeline, rule ladder, state machine or lifecycle)? If so, describe it once.
 **Evidence & links:** Any governing docs, technical identifiers, thresholds or task links to carry into the spec blocks - exact values, please.
 **Validation:** What am I likely to assume incorrectly about the user or the promise?
@@ -176,7 +176,7 @@ Nothing comes before the path line: no status line, no sentence announcing the r
 
 - `{verdict}` reads `every floor met` when all six dimensions clear their floors, names the dimension still short when the three-cycle ceiling was reached, such as `Clarity short after three cycles`, and reads `not scored, clarification only` for a clarification
 - For a Doc, `{verdict}` names the five Doc checks in order, each `pass` or `attention`, and an attention names its item in brackets: `Source safety pass, Shape fit pass, ClickUp layout attention (two headings missing the trailing divider), Readability pass, Voice pass`
-- `{kind}` is Task, Subtask, Parent task, Bug, Story, Epic, Story bundle, or Doc with its shape, such as `Doc (Guide)`
+- `{kind}` is Task, Subtask, Parent task, Feedback ticket, Bug, Story, Epic, Story bundle or Doc with its shape, such as `Doc (Guide)`
 - `{energy}` is Quick, Standard or Deep
 
 The line keeps the pipe separators with a space on each side, carries no bold and holds nothing else. The checks behind it run silently, so no checklist, gate roster, validation display or note about a check that did not run appears anywhere in the reply.

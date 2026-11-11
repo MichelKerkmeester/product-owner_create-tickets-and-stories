@@ -27,7 +27,7 @@ Current state:
 
 | File | Responsibility |
 |---|---|
-| `hvr_lint.py` | The linter itself. Reads `references/hvr-core.md` Sections 2 through 5 and 9, deterministic checks only, no model judgement |
+| `hvr_lint.py` | The linter itself. Reads its word, phrase, metaphor and copula lists from `references/hvr-core.md` at run time and carries the Section 2 punctuation patterns, deterministic checks only, no model judgement. `--self-test` edits a made-up card and proves the lists follow it |
 | `lint_replies.py` | Walks a report's `replies/` directory, lints every `.md`/`.txt` file through `hvr_lint.py`, writes `hvr-lint.csv` beside it |
 | `twin_divergence.py` | Reads a report's `results.csv`, pairs an `S`-id with its `P`-id, reports any pair whose verdicts disagree |
 | `check_report.sh` | Runs `lint_replies.py` and `twin_divergence.py` over the same report directory, continues past a finding, exits with how many reported |
@@ -39,9 +39,19 @@ Current state:
 `hvr_lint.py` enforces, all deterministic:
 
 *   **Punctuation** (`references/hvr-core.md` Section 2): em dash, semicolon, curly quotes, more than one ellipsis, a bullet line closed with a period. Em dash carries the three granted exemptions the same section names, the ClickUp definition delimiter, the status-label delimiter and the Catalog entry delimiter on an entry heading or its index link, matched by the shape of the line rather than assumed from the whole document
-*   **The hard blocker word list** (Section 3), word-boundary matched with an optional trailing `s` so `leverages` is caught alongside `leverage`. The six terms Section 3 calls "blocked as metaphor, allowed when literal" (navigating, landscape, unlock, ecosystem, journey, deep dive) are left out, because telling literal from figurative use needs a reader
+*   **The hard blocker word list** (Section 3), word-boundary matched with an optional trailing `s` so `leverages` is caught alongside `leverage`. The six terms Section 3 calls "blocked as metaphor, allowed when literal" (navigating, landscape, unlock, ecosystem, journey, deep dive) are left out, because telling literal from figurative use needs a reader. The format validator reports six other words (`harness`, `foster`, `nurture`, `curate`, `elevate` and `resonate`) as advice because their literal reading is ordinary English. This linter counts them as hard, as the card does
 *   **The hard blocker phrase list** (Section 4) and **the banned metaphors and cliches** (Section 5)
 *   **One Section 9 structural ban**, `not just X, but Y` and its `not only` variant, plus a narrowed copula-avoidance list (`serves as`, `stands as`, `functions as`, `acts as`, `boasts`, with `features` and `offers` left out as ordinary words too common in backlog prose to flag as bare terms)
+
+**Where the lists come from.** The four term lists are parsed from `references/hvr-core.md` each time the linter starts, the way `benchmark/format/validate-output-format.cjs` reads the same sections, so a term added to the card is linted with no second edit. A retyped copy had already lost `a world where` from Section 5. A card that cannot be read, or whose list comes out empty, stops the run with exit 2 and a message and never grades a reply clean. Five departures from the card are named constants in the code:
+
+*   `revolutionize`, the US spelling, is added beside the card's `revolutionise`
+*   `Navigating the [X]` is matched as its fixed prefix `navigating the`, since the bracket names a slot
+*   `game-changer` is counted once, as a word, though Section 5 lists it too
+*   `features` and `offers` are dropped from the copula list, for the reason above
+*   the allowed-when-literal line is not read, because the word list never held those terms
+
+**What it does not read.** Sections 6 (setup language) and 7 (generalisation fixes) hold thirty terms, among them `In summary`, `That said`, `Studies show` and `Some people`. The format validator blocks them and this linter never has, so a reply that uses one grades clean here. Adding them would change the counts of every report already graded, so that call belongs to the owner of the playbook.
 
 Left out on purpose, and named so a green result is not read as covering more than it does: the Oxford comma, asterisk emphasis used mid-sentence versus the same asterisks used as a sanctioned structural label, title-case headings, and the document-wide Section 9 bans that need a count across the whole piece rather than a span match (triad density, synonym cycling, false ranges, notability by association). Section 10, "Always cut," is out because `references/hvr-core.md` states outright that those terms are edits and never count toward the hard blocker total.
 
@@ -92,6 +102,7 @@ Individually:
 python3 benchmark/grader/lint_replies.py /path/to/report-dir
 python3 benchmark/grader/twin_divergence.py /path/to/report-dir
 python3 benchmark/grader/hvr_lint.py /path/to/one-reply.md
+python3 benchmark/grader/hvr_lint.py --self-test
 python3 benchmark/grader/lint_replies.py /path/to/one-reply.md --brief
 ```
 
@@ -105,7 +116,7 @@ python3 benchmark/grader/lint_replies.py /path/to/one-reply.md --brief
 |---|---|
 | 0 | every reply clean, or every paired twin agreed |
 | 1 | at least one reply carries a hard blocker, or at least one pair disagreed |
-| 2 | nothing to check: no report directory, no reply files, no `results.csv`, or no row carries a twin id |
+| 2 | nothing to check: no report directory, no reply files, no `results.csv`, or no row carries a twin id. `lint_replies.py` also returns 2 when the Human Voice card cannot be read |
 | 64 | usage error, no argument given |
 
 `check_report.sh` counts checks that reported findings or could not run:

@@ -379,6 +379,64 @@ class VendorSyncTests(unittest.TestCase):
         result = self.world.run("status", upstream=False)
         self.assertEqual(result.returncode, 2)
 
+    def assert_manifest_setup_error(self, *flags: str, command: str = "status") -> None:
+        """Verify a broken manifest ends in exit 2 with one message line and no traceback.
+
+        Args:
+            *flags: Extra flags for the command.
+            command: Vendor-sync command to run.
+        """
+        result = self.world.run(command, *flags)
+        label = f"{command} {' '.join(flags)}: {result.stdout}{result.stderr}"
+        self.assertEqual(result.returncode, 2, label)
+        self.assertNotIn("Traceback", result.stderr, label)
+        self.assertEqual(len(result.stderr.strip().splitlines()), 1, label)
+        self.assertIn("vendor.json", result.stderr, label)
+
+    def test_truncated_manifest_is_a_setup_error_not_drift(self) -> None:
+        """A manifest cut off mid-write exits 2, where exit 1 would read as drift."""
+        text = (self.world.repo_root / "vendor.json").read_text()
+        (self.world.repo_root / "vendor.json").write_text(text[: len(text) // 2])
+        self.assert_manifest_setup_error()
+        self.assert_manifest_setup_error("--local")
+
+    def test_package_without_a_name_is_a_setup_error(self) -> None:
+        """An entry with no name stops the run before any handler reads it."""
+        manifest = json.loads((self.world.repo_root / "vendor.json").read_text())
+        del manifest["packages"][0]["name"]
+        (self.world.repo_root / "vendor.json").write_text(json.dumps(manifest))
+        for command in ("status", "sync", "diff", "pull", "push"):
+            self.assert_manifest_setup_error(command=command)
+        self.assert_manifest_setup_error("--local")
+
+    def test_other_malformed_manifests_are_setup_errors(self) -> None:
+        """Every shape a hand edit can leave behind is a setup error, never a traceback."""
+        entry = {"name": "sample-skill", "local_path": "sample-skill", "upstream_path": UPSTREAM_PATH}
+        cases = {
+            "empty file": b"",
+            "bytes that are not text": b"\xff\xfe",
+            "top-level array": b"[]",
+            "package that is a string": b'{"packages": ["sample-skill"]}',
+            "package with a null name": json.dumps({"packages": [{**entry, "name": None}]}).encode(),
+            "package with an empty name": json.dumps({"packages": [{**entry, "name": ""}]}).encode(),
+            "files that is a number": json.dumps({"packages": [{**entry, "files": 3}]}).encode(),
+        }
+        for label, content in cases.items():
+            with self.subTest(label):
+                (self.world.repo_root / "vendor.json").write_bytes(content)
+                self.assert_manifest_setup_error("--local")
+
+    def test_unreadable_manifest_is_a_setup_error(self) -> None:
+        """A manifest the process cannot open exits 2 with the reason, not a traceback."""
+        manifest = self.world.repo_root / "vendor.json"
+        manifest.chmod(0o000)
+        try:
+            if os.access(manifest, os.R_OK):
+                self.skipTest("this account reads files regardless of mode")
+            self.assert_manifest_setup_error("--local")
+        finally:
+            manifest.chmod(0o644)
+
     def entry(self, name: str) -> Dict[str, Any]:
         """Return one package entry of the scratch manifest by name.
 

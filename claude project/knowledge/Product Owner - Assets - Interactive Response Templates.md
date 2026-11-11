@@ -37,7 +37,7 @@ Please provide the following information at once:
 - Task - Development task with QA checklist
 - Bug - Defect report with evidence and reproduction steps
 - Story - A Story or Epic in the Barter house format, new or refined, with numbered Given/When/Then acceptance criteria, and Connextra lines or Definition of Ready/Done gates only where the artifact earns them
-- Doc - Product or engineering guide, catalog, behavior reference, runbook, technical reference, or proposal, new or refined
+- Doc - Product or engineering guide, catalog, behavior reference, runbook, technical reference or proposal, new or refined
 
 **If the deliverable is a board:**
 - Who reads it, which question it answers and what that reader should decide after reading it
@@ -153,7 +153,7 @@ Nothing comes before the Deliverable Block: no status line, no sentence announci
 
 - `{verdict}` reads `every floor met` when all six dimensions clear their floors, names the dimension still short when the three-cycle ceiling was reached, such as `Clarity short after three cycles`, and reads `not scored, clarification only` for a clarification
 - For a Doc, `{verdict}` names the five Doc checks in order, each `pass` or `attention`, and an attention names its item in brackets: `Source safety pass, Shape fit pass, ClickUp layout attention (two headings missing the trailing divider), Readability pass, Voice pass`
-- `{kind}` is Task, Subtask, Parent task, Bug, Story, Epic, Story bundle, or Doc with its shape, such as `Doc (Guide)`
+- `{kind}` is Task, Subtask, Parent task, Feedback ticket, Bug, Story, Epic, Story bundle or Doc with its shape, such as `Doc (Guide)`
 - `{energy}` is Quick, Standard or Deep
 
 The line keeps the pipe separators with a space on each side, carries no bold and holds nothing else. The checks behind it run silently, so no checklist, gate roster, validation display or note about a check that did not run appears anywhere in the reply.

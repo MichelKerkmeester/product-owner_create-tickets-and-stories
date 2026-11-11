@@ -232,7 +232,7 @@ A feedback ticket carries one round of product review on a feature, for one app 
 - **Items:** numbered across the ticket, `1\. **{Title}**`, each with a `**Checklist**` written as the fix. A Logic item may carry `**What happened?**` steps, a `Note:` and a `Recording` link
 - **Screenshots:** a `Code` line and a `Figma` line, each above its images. The Figma frame link sits on the `Figma` label. A missing side is left out, never filled with a placeholder
 - **Source wording:** a reviewer's note keeps its meaning and its values. Rewrite a complaint as the fix only when the fix is plain from the note, and otherwise keep the reviewer's question as a checklist item
-- **Delivery:** each ticket is its own Deliverable Block with its own export-equivalent path, `export/{Feature}/[###] - feedback-{app}-{kind}.md`. Pushed to ClickUp, each ticket becomes its own private doc unless the user names a list
+- **Delivery:** each ticket is its own Deliverable Block with its own export-equivalent path, `export/{feature}/[###] - feedback-{app}-{kind}.md`. The feature, app and kind are lowercase slugs of letters, digits and hyphens, never a slash, a dot or a space, and the kind is `logic` or `ui-ux`. Pushed to ClickUp, each ticket becomes its own private doc unless the user names a list
 
 ### Tables
 
@@ -341,6 +341,7 @@ The kernel points here for the When To Use list:
 - Refinement of pasted task, bug, Story or document content into backlog-ready or ClickUp-ready markdown
 - Stories and Epics with Connextra-adjacent house-format sections, numbered Given/When/Then acceptance criteria and a Mark-as-done checkbox per criterion
 - Product or engineering guides, catalogs, behavior references, runbooks, API or schema references, architecture documents, technical proposals and decision records
+- Feedback tickets from a round of product review, one per app and kind of feedback
 
 The kernel points here for the backlog artefact rule:
 
@@ -348,7 +349,7 @@ The kernel points here for the backlog artefact rule:
 
 The kernel points here for the dependency and edge case rule:
 
-9. Identify dependencies, edge cases, error states, empty states, loading states and permission boundaries when relevant.
+9. Identify dependencies, edge cases, error states, empty states, loading states and permission boundaries when relevant. An edge case the user did not supply is an addition, so the reply lists it under Open items.
 
 The kernel points here for the acceptance criteria rule:
 

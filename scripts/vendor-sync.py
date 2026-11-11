@@ -29,6 +29,9 @@ as `mcp-server/README.md` matches that one entry. An excluded entry is never
 hashed or copied, and one that exists in the copy a pull or push replaces is
 carried into the new copy, so a local build survives a pull.
 
+A manifest that is not valid JSON, or that holds a package entry with no name,
+is a setup error too, so a truncated file never reads as drift.
+
 Every manifest path, the local and upstream paths and each include entry, must
 stay beneath its root: an absolute path or a `..` part is a setup error, and
 the local copy must also resolve inside this repository. A pull deletes and
@@ -329,18 +332,39 @@ def load_manifest(repo_root: Path) -> Dict[str, Any]:
         repo_root: Repository root containing ``vendor.json``.
 
     Returns:
-        Parsed manifest with at least one package.
+        Parsed manifest with at least one package, each a named object.
 
     Raises:
-        SetupError: If the manifest is missing or has no package list.
-        json.JSONDecodeError: If the manifest is not valid JSON.
+        SetupError: If the manifest is missing, unreadable, not valid JSON, not
+            an object, has no package list, or holds an entry that is not an
+            object with a name.
     """
     path = repo_root / MANIFEST_NAME
     if not path.is_file():
         raise SetupError(f"no {MANIFEST_NAME} at {repo_root}")
-    manifest = json.loads(path.read_text())
-    if not isinstance(manifest.get("packages"), list) or not manifest["packages"]:
+    # A truncated or hand-edited manifest is the likeliest way this file breaks,
+    # and a traceback would exit 1, which every caller reads as drift.
+    try:
+        manifest = json.loads(path.read_text())
+    except json.JSONDecodeError as error:
+        raise SetupError(f"{MANIFEST_NAME} is not valid JSON: {error}") from None
+    except (OSError, UnicodeDecodeError) as error:
+        raise SetupError(f"{MANIFEST_NAME} cannot be read: {error}") from None
+    if not isinstance(manifest, dict):
+        raise SetupError(f"{MANIFEST_NAME} is not a JSON object")
+    packages = manifest.get("packages")
+    if not isinstance(packages, list) or not packages:
         raise SetupError(f"{MANIFEST_NAME} declares no packages")
+    # Every command reads a package's name, so checking the entries here covers
+    # them all rather than leaving each handler to fail on its own.
+    for position, package in enumerate(packages, start=1):
+        if not isinstance(package, dict):
+            raise SetupError(f"{MANIFEST_NAME} package {position} is not an object")
+        name = package.get("name")
+        if not isinstance(name, str) or not name:
+            raise SetupError(f"{MANIFEST_NAME} package {position} has no name")
+        if package.get("files") is not None and not isinstance(package["files"], dict):
+            raise SetupError(f"{MANIFEST_NAME} files of {name} is not an object")
     return manifest
 
 

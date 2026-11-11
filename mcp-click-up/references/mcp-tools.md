@@ -13,7 +13,7 @@ trigger_phrases:
   - "clickup doc divider gap"
 importance_tier: "normal"
 contextType: "implementation"
-version: 1.1.16.0
+version: 1.1.19.0
 ---
 
 # Official ClickUp MCP Tools Reference
@@ -140,7 +140,7 @@ Use the **official MCP** for:
 
 Use **cupt** for daily task work: listing your queue, showing a task, completing it with a dry run, notes, timers and tags (see `cupt-commands.md`).
 
-**No route on either surface.** The hosted server has no tools for goals or OKRs, bulk task creation or bulk update, webhooks, editing checklists, spaces, views, editing or deleting space tags, task templates, guests, user groups, audit logs or product feedback. It also has no whole-document read or update. Documents are read and written page by page. No tool deletes a document or a page, so a page the API creates stays until someone deletes it in the ClickUp app (checked 2026-11-05). Run trial writes in one scratch doc and tell the user what to delete. Its operator catalog (`clickup_get_operators`) returned "Enabled operators: none" for workspace `90000000000` on 2026-10-08, so `clickup_execute_operator` adds nothing either. Tell the user the feature is not available rather than routing it anywhere.
+**No route on either surface.** The hosted server has no tools for goals or OKRs, bulk task creation or bulk update, webhooks, editing checklists, spaces, views, editing or deleting space tags, task templates, guests, user groups, audit logs or product feedback. It also has no whole-document read or update. Documents are read and written page by page. No tool deletes a document or a page, so a page the API creates stays until someone deletes it in the ClickUp app (checked 2026-11-05). Run trial writes in one scratch doc and tell the user what to delete. Its operator catalog (`clickup_get_operators`) returned "Enabled operators: none" for workspace `<workspace-id>` on 2026-10-08, so `clickup_execute_operator` adds nothing either. Tell the user the feature is not available rather than routing it anywhere.
 
 Two reads survive for things that cannot be edited: `clickup_get_task` with `include: ["checklists"]` returns a task's checklists, and `include: ["dependencies"]` returns its dependencies.
 
@@ -371,6 +371,10 @@ The default way to write a new doc page. The MCP creates the page, the editor wr
 - **Gray text is a class.** ClickUp's gray text colour is `<span class="ql-text-color ql-color-grey">`, which the team uses on the lead number of a numbered title and on the Mark-as-done line. Markdown has no colour, so this is the only path that writes it.
 - **The body editor is inside the task-editor wrapper.** A doc page has a second `.ql-editor` for its title, and on a short page the two can hold the same number of blocks. Select the body with `[data-test="task-editor"] .ql-editor`, falling back to `.ql-editor.ql-cls-checklist`.
 
+**Which browser.** Aside (`mcp-aside-devtools`) owns signed-in ClickUp work by default, and this program drives it. The user's live Chrome (`chrome_devtools_live`) is the fallback, and only the gap pass under "Required after every page write" has a Chrome program.
+
+**No discovery step.** Code Mode asks for `search_tools()` and `tool_info()` before an unknown tool is called. The programs in this section are exempt, because they call tools by the names this document records. When a call answers tool not found, run `tool_info()` on that name before changing the program.
+
 **How to run it.** Create the page with `clickup_create_document_page`, `content_format: "text/md"` and the content `[[BODY]]`, then run the program below with the page ID and the markdown body, without its H1. Give the `call_tool_chain` call a `timeout` of about 90 seconds plus 30 per local image. The program converts the markdown as follows:
 - `## `, `### ` and `#### ` lines become headings, and a heading with no text, such as `###   `, stays an empty spacer heading
 - `* * *`, `- - -`, `---`, `***` or `___` becomes a divider
@@ -598,8 +602,9 @@ The default way to write a new doc page. The MCP creates the page, the editor wr
     .filter((l) => l.trim() !== "" && !/^\[\[[^\]]+\]\]$/.test(l.trim()) && !/^#{1,4}\s*$/.test(l.trim()))
     .map((l) => l.replace(/\[(https?:[^\]\s]+)\]\(\1\)/g, "$1").replace(/!\[[^\]]*\]\([^)]*\)/g, "![](image)").replace(/^\s+/, ""));
   const page = (await clickup_official.clickup_official_clickup_get_document_pages({ document_id: DOC, page_ids: [PAGE], content_format: "text/md" })).pages[0];
-  const got = new Set(norm(page.content));
-  report.importDiff = norm(MD).filter((l) => !got.has(l));
+  // Counted, not a set: a page that kept one of two identical lines has lost a line.
+  const missing = (sent, got) => { const left = new Map(); for (const l of got) left.set(l, (left.get(l) || 0) + 1); return sent.filter((l) => { const n = left.get(l) || 0; if (n > 0) left.set(l, n - 1); return n === 0; }); };
+  report.importDiff = missing(norm(MD), norm(page.content));
   report.mismatch = !report.verify || report.verify.error ? ["verify"] : Object.keys(expected).filter((k) =>
     (k === "columns" ? (report.verify.columns || []).length : report.verify[k]) !== expected[k]);
   console.log(JSON.stringify(report));
@@ -625,7 +630,7 @@ Every divider the server writes gets an empty line under it, so a page built fro
 
 Every `clickup_create_document_page` or `clickup_update_document_page` call that writes a markdown body ends with this routine, in the same turn, before the push is reported. A page written by the browser-first page writer has no gaps to remove, and its own report covers the import check. It belongs to the write the user approved, so it needs no second yes: it removes only empty lines, and step 4 proves the text is unchanged.
 
-1. **Check the import.** Read the page with `content_format: "text/md"` and compare it with the markdown you sent, both normalized: trailing spaces and blank lines dropped, and `[url](url)` unwrapped to the bare URL. A line you sent that is missing from the read-back is an import defect, such as an escaped `\*\*`, a paragraph turned into a heading above a divider, a literal `\[\]` or an auto-linked `.md` name. Fix the content and write the page again before step 2. A bold run that ClickUp re-split around inline code is not a defect.
+1. **Check the import.** Read the page with `content_format: "text/md"` and compare it with the markdown you sent, both normalized: trailing spaces and blank lines dropped, and `[url](url)` unwrapped to the bare URL. Lines are counted, so a line sent twice must come back twice. A line you sent that is missing from the read-back is an import defect, such as an escaped `\*\*`, a paragraph turned into a heading above a divider, a literal `\[\]` or an auto-linked `.md` name. Fix the content and write the page again before step 2. A bold run that ClickUp re-split around inline code is not a defect.
 2. **Count the gaps.** Read the page with `content_format: "text/plain"` and count `/(^|\n) \n/g`. Zero means the routine is done.
 3. **Remove the gaps.** Run one of the two programs below. Both work in a browser the user is already logged in to, in a tab of their own, and close that tab when they finish:
    - **Aside first** (`mcp-aside-devtools`). The `aside` manual drives the user's own Aside browser. `openTab` opens the page as a background tab, so the user's active tab and window stay as they are and they can keep working while the pass runs. Measured on 2026-11-06: the active tab in each window was the same before and after a pass, and the pass tab reported `active: false`.
@@ -701,8 +706,9 @@ Every `clickup_create_document_page` or `clickup_update_document_page` call that
   const report = [];
   for (const page of PAGES) {
     const md = await read(page.id, "text/md");
-    const got = new Set(norm(md));
-    const importDiff = norm(page.sent).filter((line) => !got.has(line));
+    // Counted, not a set: a page that kept one of two identical lines has lost a line.
+    const missing = (sent, got) => { const left = new Map(); for (const l of got) left.set(l, (left.get(l) || 0) + 1); return sent.filter((l) => { const n = left.get(l) || 0; if (n > 0) left.set(l, n - 1); return n === 0; }); };
+    const importDiff = missing(norm(page.sent), norm(md));
     const gapsBefore = gaps(await read(page.id, "text/plain"));
     let browser = { presses: 0, login: false, editor: true }, calls = 0;
     while (gapsBefore > 0 && calls < 30) {
@@ -768,8 +774,9 @@ A report with an `error` field means the Aside call failed before the editor pas
     for (const page of PAGES) {
       const url = `https://app.clickup.com/${WORKSPACE}/v/dc/${DOC}/${page.id}`;
       const md = await read(page.id, "text/md");
-      const got = new Set(norm(md));
-      const importDiff = norm(page.sent).filter((line) => !got.has(line));
+      // Counted, not a set: a page that kept one of two identical lines has lost a line.
+      const missing = (sent, got) => { const left = new Map(); for (const l of got) left.set(l, (left.get(l) || 0) + 1); return sent.filter((l) => { const n = left.get(l) || 0; if (n > 0) left.set(l, n - 1); return n === 0; }); };
+      const importDiff = missing(norm(page.sent), norm(md));
       const gapsBefore = gaps(await read(page.id, "text/plain"));
       let left = gapsBefore, presses = 0, login = false, editor = gapsBefore === 0;
       for (let attempt = 0; left > 0 && attempt < 3; attempt++) {

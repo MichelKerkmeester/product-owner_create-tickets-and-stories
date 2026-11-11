@@ -41,7 +41,7 @@ New documents use the same layout grammar as the canonical Feed documentation:
 - Put one blank line between the document title and its first divider. Put a divider on the line immediately after every non-title content heading that opens a section or subsection
 - Heading depth: H1 is the document title only. Balance the rest of the ladder instead of flattening it. H2 anchors the major sections, Overview included, and stays a minority because ClickUp renders it very large: in a document with around ten headings, three or four H2s is the healthy ceiling. H3 carries the remaining sections and the subsections under an H2 anchor, H4 carries deeper subsections and repeated entries, and a bold paragraph lead replaces anything deeper than H4
 - Put a divider between completed content blocks. A divider needs no blank line after it, and a blank line there is equally fine. What is fixed is the line above: the divider sits immediately under its heading with nothing between them
-- Empty spacer headings (`##   `, `###   ` or `####   `, matching the level of the section they close) are a ClickUp rendering affordance, not document structure. Use them only when the artifact is being prepared for a ClickUp paste or push. A file export uses plain blank lines instead; in a plain markdown reader a spacer line reads as a broken empty heading
+- Empty spacer headings (`##   `, `###   ` or `####   `, matching the level of the section they close) sit between substantial sibling sections and stay in the file export. They are part of the Barter house format, so the body travels to ClickUp verbatim with the spacing intact
 - Wrap a document-wide status notice between the title divider and a second divider
 - Use `*   ` for unordered list items. Do not emit hyphen bullets in a document artifact
 - Do not end a newly authored or rewritten bullet item with a full stop
@@ -68,7 +68,7 @@ Structure earns its place only when it makes the document faster to read. Every 
 - Put evidence and citation links at the end of the sentence or bullet they support. Never chain more than two links inside one sentence, and never interleave link after link mid-sentence
 - A checklist item is a short bold imperative lead plus at most two supporting sentences. Longer rationale moves into the prose above the list
 - Keep lists one level deep. A bullet that wants sub-bullets is a sign the section wants prose, a table or its own subsection
-- The spacer lines shown in the scaffolds below are optional ClickUp affordances, not required output. Omit them in file exports
+- The spacer lines shown in the scaffolds below stay in the file export with the sections they separate, and an optional section that is removed takes its spacer with it
 
 ### Table Patterns
 
@@ -260,13 +260,13 @@ Worked example: **Examples - Doc - Catalog** shows local status labels preserved
 
 | ID | Entry | Category | Status | Source |
 | ---| ---| ---| ---| --- |
-| `{Stable ID}` | [{Entry name}](#{entry-anchor}) | {Category} | {Status} | {Source label or link} |
+| `{stable_id}` | [{Entry name}](#{entry-anchor}) | {Category} | {Status} | {Source label or link} |
 * * *
 ##   
 
 ## {Category}
 * * *
-### {Stable ID} — {Entry name}
+### `{stable_id}` — {Entry name}
 * * *
 **Status:** {Current behavior, approved direction, proposal, retired material, or unknown}
 
@@ -280,11 +280,11 @@ Worked example: **Examples - Doc - Catalog** shows local status labels preserved
 
 **Related entries**
 * * *
-*   [{Stable ID} — {Entry Name}](#{entry-anchor})
+*   [`{stable_id}` — {Entry name}](#{entry-anchor})
 * * *
 ###   
 
-### {Stable ID} — {Entry name}
+### `{stable_id}` — {Entry name}
 * * *
 {Repeat only the fields that this catalog actually uses.}
 * * *
@@ -299,7 +299,7 @@ Worked example: **Examples - Doc - Catalog** shows local status labels preserved
 
 ### Sources
 * * *
-*   [{Source title}]({url-or-relative-path}) — {authority and lifecycle scope}
+*   [{Source title}]({url-or-relative-path}): {authority and lifecycle scope}
 ```
 
 ### Catalog Adaptation Notes
@@ -547,7 +547,7 @@ Worked example: **Examples - Doc - Proposal** shows verified current context sep
 
 ### Source basis
 * * *
-*   [{Source title}]({url-or-relative-path}) — {proposal, approved direction, current behavior, retired material, or unknown scope}
+*   [{Source title}]({url-or-relative-path}): {proposal, approved direction, current behavior, retired material, or unknown scope}
 ```
 
 ### Proposal Adaptation Notes
@@ -622,7 +622,7 @@ where a genuine matrix beats sentences.}
 {Optional. When the document orients a folder or a set of documents, say what to read
 in what order and why, one line of prose per entry.}
 
-*   [{Document}]({relative-path}) — {why the reader would open it}
+*   [{Document}]({relative-path}): {why the reader would open it}
 ```
 
 ### Narrative Overview Adaptation Notes
@@ -716,7 +716,7 @@ This is an intake response, not a document artifact, so it uses the dash-bullet 
 ```markdown
 Before I draft, please confirm the document's purpose and audience, which source should govern each conflict below, whether the result describes current behavior, approved direction, proposal, retired material, or unknown, and any scope that should be excluded?
 
-- **{Conflict topic}:** `{Source A}` says {claim A}; `{Source B}` says {claim B}
+- **{Conflict topic}:** `{Source A}` says {claim A} but `{Source B}` says {claim B}
 - **{Authority gap}:** {Source or claim has no established lifecycle or governing scope}
 - **{Duplicate}:** {Files match or overlap, but neither is declared authoritative}
 ```
@@ -744,7 +744,7 @@ Before export, confirm:
 - [ ] Each section holds one register, narrative or reference, and no section reads like a glossary when its reader needed a story
 - [ ] The chosen shape's reader-simulation question in the Templates - Doc Mode quality checklist passes
 - [ ] Every included optional section satisfies its Include when condition, and no mandatory section is missing
-- [ ] A file export contains no empty spacer headings; they appear only in ClickUp-bound content
+- [ ] Empty spacer headings stay in the file export between substantial siblings and never trail a section
 - [ ] No shipped fact, implementation behavior, root cause, evidence, approval, or sign-off was fabricated
 - [ ] Supplied identifiers and literal content remain exact
 - [ ] A refinement preserves its original structure and basename

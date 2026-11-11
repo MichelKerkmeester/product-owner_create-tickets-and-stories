@@ -9,7 +9,7 @@ trigger_phrases:
   - "$prd"
   - "$story"
   - "$epic"
-version: 1.2.16.0
+version: 1.2.17.0
 ---
 
 # sk-product-owner
@@ -322,7 +322,7 @@ The load-bearing rules: `* * *` dividers only (never `---`), a divider immediate
 
 ### Heading Depth
 
-ClickUp renders H2 enormous, so depth stays balanced. H1 is the title only. H2 anchors a few major sections (Overview and the primary body section) and stays a minority, three or four H2s in a ten-heading document. H3 and H4 carry the working structure and bold paragraph leads replace anything deeper. Empty spacer headings (`##   `) exist only in ClickUp-bound content in a Doc artifact, never in its file export. A Story or Epic is the opposite: its spacers belong to the Barter house format and stay in the saved file.
+ClickUp renders H2 enormous, so depth stays balanced. H1 is the title only. H2 anchors a few major sections (Overview and the primary body section) and stays a minority, three or four H2s in a ten-heading document. H3 and H4 carry the working structure and bold paragraph leads replace anything deeper. Empty spacer headings (`##   `) stay in the saved file of a Doc, a Story and an Epic alike, because they belong to the Barter house format and travel to ClickUp verbatim.
 
 ### Readability Floor
 
@@ -421,7 +421,7 @@ Every example uses invented products (Driftboard, Ledgerly, Prism, Fieldstack an
 
 ## 8. DUAL PACKAGING
 
-This folder is authoritative. A second packaging lives in `../claude project/` for upload to a claude.ai Project: `Custom Instructions.md` is a hand-synthesized kernel carrying the full router and rules, and is the routing authority in that Project because `SKILL.md` itself is not mirrored there. `knowledge/` holds sixty-four documents: sixty-three drawn from `references/` and `assets/` here and in `../sk-create-figjam/` and one from `../USER-GUIDE.md`. Nothing regenerates them. The AI System Sync Compiler is retired, no manifest, lock file or checksum ledger is kept, and every knowledge document is written by hand under the manual parity method. The four shared rule files under `references/` (`hvr-core.md`, `conciseness.md`, `conciseness-rationale.md` and `human-voice-rules.md`) are regular-file copies of cards in `z — Knowledge/`, carried as copies so this system also works as its own repository. Their Project mirrors are byte copies of the same cards, and the parity gate holds both to the cards byte for byte, so neither can fork from the shared source. `../SYNC.md` holds that parity note and the method.
+This folder is authoritative. A second packaging lives in `../claude project/` for upload to a claude.ai Project: `Custom Instructions.md` is a hand-synthesized kernel carrying the full router and rules, and is the routing authority in that Project because `SKILL.md` itself is not mirrored there. `knowledge/` holds sixty-seven documents: sixty-six drawn from `references/` and `assets/` here and in `../sk-create-figjam/` and one from `../USER-GUIDE.md`. Nothing regenerates them. The AI System Sync Compiler is retired, no manifest, lock file or checksum ledger is kept, and every knowledge document is written by hand under the manual parity method. The four shared rule files under `references/` (`hvr-core.md`, `conciseness.md`, `conciseness-rationale.md` and `human-voice-rules.md`) are regular-file copies of cards in `z — Knowledge/`, carried as copies so this system also works as its own repository. Their Project mirrors are byte copies of the same cards, and the parity gate holds both to the cards byte for byte, so neither can fork from the shared source. `../SYNC.md` holds that parity note and the method.
 
 ---
 

@@ -27,6 +27,19 @@
 # workflow packets to the sk-create-skill validator and parent-hub checker in
 # that same shared folder, so they skip in a standalone clone too.
 #
+# The source format lint is the one row that reads the instruction files an
+# agent loads. The format fixtures only prove the validator still catches
+# planted defects, so without this row a banned word or a deleted contract
+# sentence could land in a skill file with every other gate green.
+#
+# The identifier scan reads every tracked file for the private identifiers this
+# public repository must not carry. It needs git and nothing from the shared
+# folder, so it runs in a standalone clone.
+#
+# The reply linter reads a captured playbook run, so only its self-test belongs
+# here. That test proves its word lists follow the Human Voice card instead of a
+# retyped copy.
+#
 # The shared parity and residency checks are not in the list. They read the
 # Sync Loop declaration against git history and refuse a declaration with
 # uncommitted edits, so they run from `benchmark/parity/` once a batch is
@@ -47,15 +60,19 @@ cd "$(dirname "$0")/../.." || exit 2
 GATES=(
   "router fixtures|benchmark/router/run_fixtures.sh|bash benchmark/router/run_fixtures.sh"
   "format fixtures|benchmark/format/run_fixtures.sh|bash benchmark/format/run_fixtures.sh"
+  "source format lint|benchmark/format/validate-output-format.cjs|node benchmark/format/validate-output-format.cjs"
   "rule parity|benchmark/gates/rule_parity.py|python3 benchmark/gates/rule_parity.py"
   "example lint|benchmark/gates/example_lint.py|python3 benchmark/gates/example_lint.py"
   "example lint self-test|benchmark/gates/example_lint.py|python3 benchmark/gates/example_lint.py --self-test"
   "vendor sync|scripts/vendor-sync.py|python3 scripts/vendor-sync.py status"
   "vendor sync tests|scripts/tests/test_vendor_sync.py|python3 scripts/tests/test_vendor_sync.py"
   "markdown link integrity|benchmark/gates/check_markdown_links.py|python3 benchmark/gates/check_markdown_links.py"
+  "identifier scan|benchmark/gates/check_identifiers.py|python3 benchmark/gates/check_identifiers.py"
+  "identifier scan self-test|benchmark/gates/check_identifiers.py|python3 benchmark/gates/check_identifiers.py --self-test"
   "hub check|benchmark/gates/check_hub.py|python3 benchmark/gates/check_hub.py"
   "hub check self-test|benchmark/gates/check_hub.py|python3 benchmark/gates/check_hub.py --self-test"
   "leaf map parity|benchmark/gates/check_leaf_map_parity.py|python3 benchmark/gates/check_leaf_map_parity.py"
+  "reply linter self-test|benchmark/grader/hvr_lint.py|python3 benchmark/grader/hvr_lint.py --self-test"
   "flow check self-test|sk-create-figjam/scripts/flow_check.py|python3 sk-create-figjam/scripts/flow_check.py --self-test"
   "board composer self-test|sk-create-figjam/scripts/compose_board.py|python3 sk-create-figjam/scripts/compose_board.py --self-test"
   "skilled hub contract|../../.skilled/skills/sk-doc/sk-create-skill/scripts/validate_skill_package.py|python3 ../../.skilled/skills/sk-doc/sk-create-skill/scripts/validate_skill_package.py --strict \"$PWD\""
@@ -70,14 +87,14 @@ for entry in "${GATES[@]}"; do
   script="${rest%%|*}"
   command="${rest#*|}"
   if [ "$name" = "rule parity" ] && [ ! -d "../z — Claude Project Sync Loop" ]; then
-    printf '  %-24s SKIPPED, the shared Sync Loop folder is not beside this repository\n' "$name"
+    printf '  %-26s SKIPPED, the shared Sync Loop folder is not beside this repository\n' "$name"
     skipped=$((skipped + 1))
     continue
   fi
   case "$name" in
     "skilled hub contract"|"skilled packet contract")
       if [ ! -d "../../.skilled" ]; then
-        printf '  %-24s SKIPPED, no shared skill folder above this repository to hold the hub to the sk-create-skill contract\n' "$name"
+        printf '  %-26s SKIPPED, no shared skill folder above this repository to hold the hub to the sk-create-skill contract\n' "$name"
         skipped=$((skipped + 1))
         continue
       fi
@@ -91,14 +108,14 @@ for entry in "${GATES[@]}"; do
     note=", local copies only, no shared skill folder above this repository to compare them with"
   fi
   if [ ! -f "$script" ]; then
-    printf '  %-24s MISSING\n' "$name"
+    printf '  %-26s MISSING\n' "$name"
     failed=$((failed + 1))
     continue
   fi
   if output="$(eval "$command" 2>&1)"; then
-    printf '  %-24s ok%s\n' "$name" "$note"
+    printf '  %-26s ok%s\n' "$name" "$note"
   else
-    printf '  %-24s FAILED, its own output follows\n' "$name"
+    printf '  %-26s FAILED, its own output follows\n' "$name"
     printf '%s\n' "$output" | sed 's/^/      /'
     failed=$((failed + 1))
   fi

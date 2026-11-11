@@ -1,6 +1,6 @@
 ---
 title: "Gates: rule parity, example lint, hub check and the gate runner"
-description: "Counts a named rule's verbatim phrases on both sides of every declared pair, lints the worked examples and replies, checks the hub, and runs every gate from one command"
+description: "Counts a named rule's verbatim phrases on both sides of every declared pair, lints the worked examples, scaffolds and replies, checks the hub, scans tracked files for private identifiers, and runs every gate from one command"
 trigger_phrases:
   - "rule parity"
   - "pair-level rule check"
@@ -12,13 +12,15 @@ trigger_phrases:
 
 ## 1. OVERVIEW
 
-`benchmark/gates/` holds the pair-level rule check, the example lint and the one runner for every gate this system owns. `benchmark/parity/` already confirms every declared mirror exists and every kernel statement stays where it is declared to live. `benchmark/format/` already confirms a delivered artifact has the right shape. Neither reads whether a rule stated in a skill document is the same rule stated in its Project mirror, so a mirror can drift in wording while both of those stay green.
+`benchmark/gates/` holds the pair-level rule check, the example and scaffold lint, the hub checks, the identifier scan and the one runner for every gate this system owns. `benchmark/parity/` already confirms every declared mirror exists and every kernel statement stays where it is declared to live. `benchmark/format/` already confirms a delivered artifact has the right shape. Neither reads whether a rule stated in a skill document is the same rule stated in its Project mirror, so a mirror can drift in wording while both of those stay green.
 
 Current state:
 
-*   Six files: `rule_parity.py`, `example_lint.py`, `check_hub.py`, `check_leaf_map_parity.py`, `check_markdown_links.py` and `run_gates.sh`
-*   `example_lint.py` runs the system validator in artifact mode over every worked example and every Project example mirror, and reads the worked replies in the Delivery Reply Shape section of the response templates asset and its mirror line by line
-*   `run_gates.sh` runs the router fixtures, format fixtures, rule parity, example lint and its self-test, vendor sync and its tests, Markdown link integrity, hub check and its self-test, leaf map parity, the Flow check and board composer self-tests and the two skilled contract gates. It keeps going after a red gate and exits with the failure count
+*   Seven files: `rule_parity.py`, `example_lint.py`, `check_hub.py`, `check_leaf_map_parity.py`, `check_markdown_links.py`, `check_identifiers.py` and `run_gates.sh`
+*   `example_lint.py` runs the system validator in artifact mode over every worked example and every Project example mirror, and reads the worked replies in the Delivery Reply Shape section of the response templates asset and its mirror line by line. It also lints the fenced scaffold blocks of every template asset and its mirror, so a scaffold cannot teach a prose em dash or a semicolon the gate blocks in the document copied from it
+*   `check_identifiers.py` reads every file `git ls-files` lists and fails on a ClickUp workspace id, an email address at the company domain, an unredacted Figma team id or an absolute home path. It prints the file, the line and the rule and never the matched value
+*   `run_gates.sh` runs the router fixtures, format fixtures, the source format lint, rule parity, example lint and its self-test, vendor sync and its tests, Markdown link integrity, the identifier scan and its self-test, hub check and its self-test, leaf map parity, the reply linter self-test, the Flow check and board composer self-tests and the two skilled contract gates. It keeps going after a red gate and exits with the failure count
+*   The source format lint is `node benchmark/format/validate-output-format.cjs` with no argument. The format fixtures only prove the validator still catches planted defects, so this row is the one that reads the instruction files an agent loads
 *   `check_markdown_links.py` checks relative Markdown destinations in in-scope source files and skips `specs/`, `export/`, `benchmark/reports/` and the whole vendored packets that `vendor.json` lists
 *   `check_hub.py` checks that the hub files at the repository root agree with each packet, exempts a packet the registry's `vendored-packets` extension names only when `vendor.json` lists it and it is not the default, holds every other packet to the `workflow` kind, no hub-only file such as a `ROUTER.md` or `graph-metadata.json`, and the skilled smart-router markers in its `SKILL.md` Section 2, and replays the 51 stage one gold rows in `benchmark/hub-routing-cases.json`, the Flow commands, a `cupt` command line and a command conflict among them. `--self-test` plants eleven defects, among them an unregistered packet folder, a vendored `defaultMode`, a packet `ROUTER.md` and a Flow command missing from `packetCommands`, and requires each to fail
 *   The vendor sync gate runs `scripts/vendor-sync.py status`, which fails when an entry `vendor.json` lists differs from `vendor.json` or from the shared skill folder. The entries are whole vendored packets such as `mcp-figma/` and `mcp-code-mode/` or single files such as the Code Mode launcher in `scripts/vendored/code-mode/` and the Mermaid extractor in `sk-create-figjam/scripts/vendored/`. In a clone with no shared skill folder two levels up it runs `status --local`, which checks each local copy against the hashes in `vendor.json` alone, and its line says so
@@ -33,6 +35,8 @@ Current state:
 
 `ROUTER.md` uses intent lanes, while `leaf-manifest.json` uses workflow packet names. The crosswalk is the only intended difference. TASK, BUG, DOC, STORY, EPIC and INTERACTIVE map to `sk-product-owner`. FLOW maps to `sk-create-figjam`. CLICK_UP maps to `mcp-click-up`. FIGMA maps to `mcp-figma`. `check_leaf_map_parity.py` compares every lane, including FLOW, with this mapping, checks each packet's manifest leaves and verifies the default resources. It also holds the CLICK_UP and FIGMA lanes to the leaf set of the intent each vendored packet calls common, and replays the FLOW keywords of the `ROUTER.md` block against the hub gold rows, with FLOW giving way to any artifact intent that scores.
 
+The `INTENT_SIGNALS` block cannot be removed. The parent-hub checker in `validate_skill_package.py --strict` requires an active hub router to declare it non-empty, with the same keys as `RESOURCE_MAP` (rule 12a, code RRC-004), and it fails on a removed or emptied block. So the block stays and is held to one rule: it is a phrase hint for stage two and not a command matcher. The shared replay matches every keyword as a substring, which reads `$document`, `$docs`, `$debug`, `$email`, `$epics`, `$prds`, `$stories`, `$sort` and `$flowchart` as commands. This gate matches a `$` keyword only as an exact standalone token, the rule `AGENTS.md` sets and the packet router applies, and it replays those strings plus `$d.md`, `$doc/path` and `$e.md` on every run, requiring each to score no intent. Five command shapes must keep scoring.
+
 ---
 
 ## 3. FILES
@@ -40,11 +44,12 @@ Current state:
 | File | Responsibility |
 |---|---|
 | `rule_parity.py` | Loads `SYSTEMS['product-owner']['pairs']` from the shared declaration, reads each declared source and mirror, counts every rule phrase on both sides, and checks a floor per rule (how many pairs teach it today) |
-| `example_lint.py` | Validates every example under `sk-product-owner/assets/examples/` and every `Product Owner - Examples - *.md` mirror with its preamble set aside, then checks each worked reply for the path line, the read-back line on the skill only, the self-scan and quality lines, the Open items shape and one closing line. `--self-test` breaks one example and one reply in a scratch copy and requires both to fail |
+| `example_lint.py` | Validates every example under `sk-product-owner/assets/examples/` and every `Product Owner - Examples - *.md` mirror with its preamble set aside, then checks each worked reply for the path line, the read-back line on the skill only, the self-scan and quality lines, the Open items shape and one closing line. It also extracts the fenced markdown blocks of `sk-product-owner/assets/*-template.md`, `*-templates.md` and their Project mirrors, runs the validator on them and keeps only the prose em dash and semicolon findings, because placeholder text such as `{Title}` trips the other artifact checks. A block fenced as `text` or as code is not read. `--self-test` breaks one example and one reply in a scratch copy and requires both to fail, then plants an em dash and a semicolon in a scaffold and its mirror and requires them flagged, the sanctioned definition shape passed and a text block skipped |
+| `check_identifiers.py` | Lists tracked files with `git ls-files`, skips binary files and files over 5 MB, and applies four patterns: `clickup-workspace-id` (11 digits beginning 9015), `company-email` (an address at the company domain), `figma-team-id` (`team::` and six or more digits) and `home-path` (an absolute home path under `/Users/` whose name is not a placeholder such as `name`, `user`, `username`, `you` or `example`). A tracked symlink is read as its target. The default output lists the first 20 findings per rule and `--all` lists every one. No pattern or test stores a real value, and there is no allowlist, because every placeholder form a document needs already passes and an exempt path is where an identifier would hide. `--self-test` proves each rule fires on a made-up value, near misses pass, the output never carries the value, the skips hold and a folder that is not a repository exits 2 |
 | `check_hub.py` | Checks the hub files at the repository root, the registry packets, each packet's routing section, the vendored exemption against `vendor.json` and the stage one gold rows. A full stop ends a clause in the single-signal rule only before a space or the end, so a `figma.com/board` link keeps its signal. `--self-test` plants eleven defects in a scratch copy and requires each to fail |
-| `check_leaf_map_parity.py` | Compares every `ROUTER.md` lane and `DEFAULT_RESOURCE` with the packet manifests in `leaf-manifest.json`, holds the CLICK_UP and FIGMA lanes to their vendored packet's common intent and replays the FLOW keywords against the hub gold rows |
+| `check_leaf_map_parity.py` | Compares every `ROUTER.md` lane and `DEFAULT_RESOURCE` with the packet manifests in `leaf-manifest.json`, holds the CLICK_UP and FIGMA lanes to their vendored packet's common intent, replays the FLOW keywords against the hub gold rows and holds every `$` keyword to the exact-token rule |
 | `check_markdown_links.py` | Checks every relative Markdown destination in the in-scope source files, skipping `specs/`, `export/`, `benchmark/reports/` and the whole vendored packets that `vendor.json` lists |
-| `run_gates.sh` | Runs every gate above plus the router and format fixtures, vendor sync, Markdown links and skilled contract gates, prints `ok` or the failing gate's own output, and exits with the number of failed gates. The shared parity and residency checks stay in `benchmark/parity/`, because they refuse a declaration with uncommitted edits |
+| `run_gates.sh` | Runs every gate above plus the router and format fixtures, the source format lint, vendor sync, Markdown links, the reply linter self-test and the skilled contract gates, prints `ok` or the failing gate's own output, and exits with the number of failed gates. The shared parity and residency checks stay in `benchmark/parity/`, because they refuse a declaration with uncommitted edits |
 
 ---
 
@@ -95,9 +100,15 @@ python3 benchmark/gates/example_lint.py --self-test
 python3 benchmark/gates/check_hub.py
 python3 benchmark/gates/check_hub.py --self-test
 python3 benchmark/gates/check_leaf_map_parity.py
+python3 benchmark/gates/check_identifiers.py
+python3 benchmark/gates/check_identifiers.py --self-test
+python3 benchmark/grader/hvr_lint.py --self-test
+node benchmark/format/validate-output-format.cjs
 ```
 
-The runner prints one line per gate and `all 15 gates pass` with exit 0 on a healthy tree. In a clone with no shared skill folder, it prints `12 of 15 gates pass, 3 skipped`. The example lint prints `PASSED N example files and the worked replies on both packagings`, or one line per finding naming the file and the real line, then `FAILED`. A run that finds no example file fails, because a lint that read nothing would print a pass it did not earn.
+The runner prints one line per gate and `all 19 gates pass` with exit 0 on a healthy tree. In a clone with no shared skill folder, it prints `16 of 19 gates pass, 3 skipped`. The example lint prints `PASSED N example files, M scaffold blocks and the worked replies on both packagings`, or one line per finding naming the file and the real line, then `FAILED`. A scaffold finding reads `scaffold block, prose em dash` or `scaffold block, prose semicolon` and names the real line in the template asset or its mirror. A run that finds no example file or no scaffold block fails, because a lint that read nothing would print a pass it did not earn.
+
+The identifier scan prints `PASSED N tracked files hold no private identifier` with exit 0. A finding prints as `path:line: rule` followed by a per-rule count of files and lines and a `FAILED` verdict, exit 1, and a folder that is not a git repository exits 2. The verdict line counts the binary and oversize files it skipped.
 
 Expected result on a healthy tree: a pair count, a per-rule count against its floor, then `PASSED 9 rules hold on both sides of every pair that teaches them`. Exit 0.
 

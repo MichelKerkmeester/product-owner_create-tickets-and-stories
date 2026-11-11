@@ -21,7 +21,7 @@ version: 1.0.0.0
 
 | File | Responsibility |
 |---|---|
-| `scripts/tests/test_vendor_sync.py` | Verifies pulls, pushes, sync, diff, status reporting with and without upstream, include and exclude rules, the override root check, symlink rejection and path containment |
+| `scripts/tests/test_vendor_sync.py` | Verifies pulls, pushes, sync, diff, status reporting with and without upstream, include and exclude rules, the override root check, a malformed manifest, symlink rejection and path containment |
 
 ---
 

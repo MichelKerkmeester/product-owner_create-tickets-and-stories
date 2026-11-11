@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/032-fresh-review-fixes",
+  "spec_folder": "system/032-fresh-review-fixes",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "fresh review fixes",
+      "fresh review fixes plan",
+      "fresh review fixes tasks",
+      "fresh review fixes implementation summary"
+    ],
+    "key_topics": [
+      "fresh",
+      "review",
+      "plan",
+      "tasks",
+      "implementation",
+      "summary",
+      "fable",
+      "medium",
+      "effort",
+      "read",
+      "whole",
+      "system"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md",
+      "sk-create-figjam/references/flow-mode.md",
+      "claude project/Custom Instructions.md",
+      "claude project/README.md",
+      "benchmark/gates/run_gates.sh",
+      "benchmark/gates/check_identifiers.py",
+      "benchmark/grader/hvr_lint.py",
+      "scripts/vendor-sync.py",
+      "scripts/tests/test_vendor_sync.py"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "flow-mode.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/references/flow-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "claude project/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "check_identifiers.py",
+        "kind": "file",
+        "path": "benchmark/gates/check_identifiers.py",
+        "source": "derived"
+      },
+      {
+        "name": "hvr_lint.py",
+        "kind": "file",
+        "path": "benchmark/grader/hvr_lint.py",
+        "source": "derived"
+      },
+      {
+        "name": "vendor-sync.py",
+        "kind": "file",
+        "path": "scripts/vendor-sync.py",
+        "source": "derived"
+      },
+      {
+        "name": "test_vendor_sync.py",
+        "kind": "file",
+        "path": "scripts/tests/test_vendor_sync.py",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Each",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Measured Behavior",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Scope",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Three",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Fix",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "A fresh Fable 5.2 review at medium effort read the whole system with no prior context",
+    "created_at": "2026-11-11T08:43:38.085Z",
+    "last_save_at": "2026-11-11T08:43:38.085Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:1c904c853ff0adf6af930bf9863b1c409fe2e9cd99d8f926d3cde85516514158",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "b29ab6c8825fd9904705e30d156f8ca4360d03b4867a7f62081438516ab10706",
+      "plan.md": "0c05303234cc98cc0a86d593a5cab846e4ccb1c4f096ebfd9f5bb3c2c9c90ae4",
+      "tasks.md": "92c136cf1b5cd71f6c647b49a5572d743f091b2f4fcc80a339b4f36bfcd55fb1",
+      "implementation-summary.md": "c85439e83ede47913d17add8a53fb7417381bc4948c0ece74b3987560faa578e"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

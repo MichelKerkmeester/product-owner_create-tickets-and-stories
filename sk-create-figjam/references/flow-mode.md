@@ -453,7 +453,7 @@ Before the model there is one full playback, and it waits for one answer. It sta
 
 An unanswered question never stops the work. The reading proceeds on the recommendation the question gave, the fact is marked assumed and the playback names it, so the user corrects it before anything is written. A yes moves the work on to the model. A correction changes that row and the playback runs again over the rows it touched.
 
-The playback is not one of the five reply lines. It runs before the write, and the reply states only the board, the read-back, the extensions, what was left out and the self-scan.
+The playback is not part of the reply. It runs before the write, and the reply states only the board, the read-back, the extensions, what was left out, any `Finding:` line and the self-scan.
 
 ### The gate is its own reply
 
