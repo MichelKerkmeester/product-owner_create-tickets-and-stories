@@ -249,6 +249,31 @@ check "length caps: a Then line joining a second outcome with a comma and warns"
 check "length caps: a four-sentence Problem and a noun pair joined by and stay silent" 0 "validation passed" "joins a second outcome" \
   "${FIXTURES}/length-caps-silent.md"
 
+# The title shape advises on a backlog artifact and never blocks, because a
+# refinement keeps its source title and a requester's own title is used as given,
+# and the gate sees neither. The violation fixture holds one task per shape, so
+# every case still exits 0, and its last title fits two shapes, which must report
+# only the first. The silent fixture holds correct titles that sit beside each
+# shape, and the exempt fixture is a Doc, whose title form the check never reads.
+# Twin: the Sync Loop folder's run_fixtures.sh asserts these cases through the
+# shared core, and also that every other system stays silent.
+check "title shape: a sentence with no separator warns" 0 "title-shape-violation.md:1: title holds no" "" \
+  "${FIXTURES}/title-shape-violation.md"
+check "title shape: a trailing full stop warns" 0 "title-shape-violation.md:7: title ends with a full stop" "" \
+  "${FIXTURES}/title-shape-violation.md"
+check "title shape: a date lead with a two-digit year warns" 0 "title-shape-violation.md:13: title opens with a date" "" \
+  "${FIXTURES}/title-shape-violation.md"
+check "title shape: a date lead with a four-digit year warns" 0 "title-shape-violation.md:19: title opens with a date" "" \
+  "${FIXTURES}/title-shape-violation.md"
+check "title shape: a BUG lead in any case warns" 0 "title-shape-violation.md:25: title opens with a BUG lead" "" \
+  "${FIXTURES}/title-shape-violation.md"
+check "title shape: a title fitting two shapes reports the first only" 0 "title-shape-violation.md:31: title ends with a full stop" "title-shape-violation.md:31: title opens with a BUG lead" \
+  "${FIXTURES}/title-shape-violation.md"
+check "title shape: segmented titles and near misses stay silent" 0 "validation passed" "Artifact Titles rule" \
+  "${FIXTURES}/title-shape-silent.md"
+check "title shape: a Doc title is never read" 0 "validation passed" "Artifact Titles rule" \
+  "${FIXTURES}/title-shape-exempt.md"
+
 # ───────────────────────────────────────────────────────────────
 # 4. PARITY CHECK
 # ───────────────────────────────────────────────────────────────

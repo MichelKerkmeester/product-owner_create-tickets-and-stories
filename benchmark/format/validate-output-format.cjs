@@ -1215,7 +1215,48 @@ function lengthCapFindings(lines, uncommented, proseStart) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 14. PER-FILE ANALYSIS
+// 14. TITLE SHAPE
+// ─────────────────────────────────────────────────────────────────────────────
+// A backlog artifact's H1 is a label built from segments joined by ` - `, never
+// a sentence, with no full stop, no date and no `BUG` lead. The check advises
+// and never blocks, because two correct titles look wrong from inside the file:
+// a refinement keeps its source title, and a title the requester states is used
+// as given. Only a backlog artifact is read. Its body opens on About, or on
+// Problem in a Story, where a Doc opens on Overview or on a heading of its own,
+// so a Doc's title form is never held to this one. Every H1 is read, because one
+// file can carry a parent task and its subtasks, and each title draws at most
+// one finding, the first of the four shapes that applies.
+const BACKLOG_OPENING = /^##\s+(?:About|Problem)\s*$/;
+const TITLE_HEADING = /^#\s+(\S.*?)\s*$/;
+const TITLE_SEPARATOR = ' - ';
+const TITLE_DATE_LEAD = /^(?:\d{4}|\d{2})-\d{2}-\d{2}\b/;
+const TITLE_BUG_LEAD = /^BUG - /i;
+
+function titleShapeMessage(title) {
+  if (!title.includes(TITLE_SEPARATOR)) {
+    return `title holds no "${TITLE_SEPARATOR}" separator and reads as a sentence, where the Artifact Titles rule asks for segments`;
+  }
+  if (title.endsWith('.')) return 'title ends with a full stop, where the Artifact Titles rule asks for a label with none';
+  if (TITLE_DATE_LEAD.test(title)) return 'title opens with a date, where the Artifact Titles rule asks for none';
+  if (TITLE_BUG_LEAD.test(title)) return 'title opens with a BUG lead, where the Artifact Titles rule leaves the type to ClickUp';
+  return null;
+}
+
+function titleShapeFindings(prose, lines) {
+  if (!prose.some(({ visible }) => BACKLOG_OPENING.test(visible.trim()))) return [];
+  const proseStart = frontmatterEnd(lines);
+  const findings = [];
+  for (const { index, visible } of prose) {
+    if (index < proseStart) continue;
+    const heading = visible.trim().match(TITLE_HEADING);
+    const message = heading && titleShapeMessage(heading[1]);
+    if (message) findings.push({ index, message });
+  }
+  return findings;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 15. PER-FILE ANALYSIS
 // ─────────────────────────────────────────────────────────────────────────────
 function analyse(file, source) {
   const relative = lintingArtifacts ? file : path.relative(systemRoot, file);
@@ -1251,6 +1292,14 @@ function analyse(file, source) {
       if (shape) {
         errors.push(`${relative}:${index + 1}: ${shape} inside the deliverable, which carries final content only`);
       }
+    });
+
+    // 0a. the title shape. Advice rather than a block, for the reason its
+    // section gives, and gated on the backlog opening the artifact carries.
+    // It runs ahead of the other advice because the title is the first line a
+    // reader meets.
+    titleShapeFindings(prose, lines).forEach(({ index, message }) => {
+      advisories.push(`${relative}:${index + 1}: ${message}`);
     });
 
     // 0b. the deal artifact shape. Gated on the export's own two section
@@ -1591,7 +1640,7 @@ function analyse(file, source) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 15. THE RUN
+// 16. THE RUN
 // ─────────────────────────────────────────────────────────────────────────────
 
 const statLines = [];

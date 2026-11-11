@@ -195,7 +195,7 @@
     ],
     "causal_summary": "A fresh Fable 5.2 review at medium effort read the whole system with no prior context",
     "created_at": "2026-11-11T08:43:38.085Z",
-    "last_save_at": "2026-11-11T12:00:14.106Z",
+    "last_save_at": "2026-11-11T13:41:12.456Z",
     "save_lineage": "same_pass",
     "last_accessed_at": null,
     "source_docs": [
@@ -204,13 +204,13 @@
       "tasks.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:b7ad6cc09ef804183ab55e359796f2f7050a20513c14a7d25c1d5e0b4bd4118d",
+    "source_fingerprint": "sha256:313aebf2aee55ebac6c349c9cfd63162985505c774748e3c63c04d4a267de4bb",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
       "spec.md": "192ac0a18fad3befba6e640db9226e2ad34686226e5878c1d271a5f33db09776",
       "plan.md": "0c05303234cc98cc0a86d593a5cab846e4ccb1c4f096ebfd9f5bb3c2c9c90ae4",
-      "tasks.md": "361f0a411147c3c2b78e3d917906204ef4d27ce940cc4708dc775cc010d2cca4",
-      "implementation-summary.md": "ce9b445d726114dd3b9ffb1a3953befa7bd13227fa4953adf1055ec53017c5bf"
+      "tasks.md": "f239f16f563497f5eef755afbd73b82dcec933e34a47508cca3301a036ec4743",
+      "implementation-summary.md": "c39fe5fdd4973a165d844344a69ffa955a8a196407d82c1c24a349a592e202a0"
     },
     "last_active_child_id": null,
     "last_active_at": null

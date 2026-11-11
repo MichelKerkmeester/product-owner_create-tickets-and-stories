@@ -52,6 +52,8 @@ contextType: "general"
 - [x] T012 Pull the vendored packets from the published Skilled commit (`vendor.json`). Verify: `vendor-sync.py status` reports every entry in step.
 - [x] T016 Add the sectioned Story shape, the per-platform rule and a worked example (`story-mode.md`, `story-template.md`, `story-example-sectioned.md`). Verify: the example passes `validate-output-format.cjs`.
 - [x] T017 State the title rule once and rename eight task and bug examples (`AGENTS.md`, `task-templates.md`, `bug-report-template.md`). Verify: `example_lint.py` prints PASSED.
+- [x] T019 Add an advisory title check to the format gate and its shared twin (`benchmark/format/`, Sync Loop `validate-output-format.cjs`, `systems.cjs`). Verify: `reference-parity.cjs` prints byte-identical.
+- [x] T020 Reword twelve playbook overviews, fix the grader README shape and pull `mcp-figma` v1.2.3.0. Verify: `validate_document.py` prints VALID and the playbook package check passes.
 - [x] T018 Release hub 1.0.31.0, `sk-product-owner` 1.2.18.0 and kernel v1.2.21, and declare the new example pair. Verify: `check_changelog_shape.py` prints PASS and parity counts 68 pairs.
 <!-- /ANCHOR:phase-2 -->
 

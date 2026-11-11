@@ -10,7 +10,7 @@ _memory:
     packet_pointer: "system/032-fresh-review-fixes"
     last_updated_at: "2026-11-11T11:05:12Z"
     last_updated_by: "generate-context"
-    recent_action: "Added the backlog title rule and the sectioned Story shape, released hub 1.0.31.0 and kernel v1.2.21"
+    recent_action: "Added an advisory title check to the format gate and its shared twin, released hub 1.0.32.0"
     next_safe_action: "Paste kernel v1.2.21 into the Claude Project"
     blockers: []
     key_files:
@@ -81,6 +81,12 @@ Michel showed his ClickUp lists and 146 file names as the model. `AGENTS.md` now
 ### Sectioned Story shape
 
 Two Stories Michel supplied became the model for a second Story shape. A large Story may write Problem and Solution as lists, split Requirements into numbered `###` sections that each open on a User flow line, and place design links at the top of a section. These are options that scale with scope and length, and the compact shape stays the default. A source covering Desktop and Mobile with differing requirements becomes one sibling Story per platform. A new worked example shows the shape on a fictional thermostat app. The `Checklist` label and nested checklist items stay banned, as Michel chose.
+
+### Title check and alignment follow-up
+
+A hand-run of the sk-doc checkers after the release found three things, and all are fixed. The grader README has the README heading shape. The vendored `mcp-figma` playbook no longer links into a skill this repository does not vendor, fixed upstream as v1.2.3.0 and pulled. The Skilled README reference checker reads a path written from the repository root, which took the false flags here from 72 to 31 and left all 1,005 Skilled READMEs unchanged.
+
+The output format gate now reads the title of a backlog artifact. It reports a sentence title, a closing full stop, a leading date or a `BUG` lead as one advisory line. The check sits in this repository's validator and in the shared Sync Loop core, gated by a `titleShape` key in `systems.cjs`, and the two print byte-identical output. Twelve playbook overviews now say the title rule asks for the team lead. Hub 1.0.32.0.
 
 ### Finding outcomes
 
@@ -175,7 +181,7 @@ Three workers fixed separate file sets at once: the skill docs with their mirror
 6. **The alignment command is local only.** Skilled ignores it in git, so its fix ships in no release.
 7. **The grader skips two card sections.** Sections 6 and 7 hold 30 terms the format validator blocks and the grader does not read, so graded reports keep their counts.
 8. **About 40 scaffold placeholders carry an Oxford comma.** No gate checks it.
-9. **No gate checks a title.** The title rule is taught by the scaffolds and examples. Nothing fails a sentence title.
-10. **Twelve playbook scenarios keep old overview wording.** They say no template names a title code. Their grading is unchanged.
+9. **The title check advises and never blocks.** A refinement keeps its source title and a stated title is used as given, and the gate can see neither. It reads only an artifact that opens on `## About` or `## Problem`.
+10. **Two shared fixtures print a title advisory under this system.** The two deal-shape fixtures in the Sync Loop do, and only reference parity runs them that way.
 11. **`AGENTS.md` grew.** It holds 4,455 words, up from 3,974, because the title rule lives there.
 <!-- /ANCHOR:limitations -->

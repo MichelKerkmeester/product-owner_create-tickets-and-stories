@@ -123,7 +123,7 @@ Every backlog artifact's H1 is a label, never a sentence, with no full stop and 
 - **Two kinds keep their own form:** a Feedback ticket is `{Team} - {Feature} - Feedback #{Round} - {App}: {Logic | UI/UX}` and a DS ticket is `DS - Variables - {version} - {App} - {Change}`, with the parent DS ticket naming no app
 - **Marks:** a colon marks a part inside one segment, as in `Profile: Highlights` and in a per-platform Story's `Mobile: {Feature}`. `&`, `+`, `/` and commas join siblings. An initiative carries its version, as in `Onboarding v2`, `Fv2.5` and `v1.0.14`
 - **Missing team:** when the source does not name the team that builds a Task, Subtask or Bug, the one clarification question asks for it before the title is written, and the title never carries a guessed team. Where no question is asked, such as under `$quick`, and where the answer still names none, the title leaves the team lead out and the reply lists it under Open items
-- **Given titles:** a refinement keeps its source title, and a title form the requester or a supplied source states is used as given
+- **Given titles:** a refinement keeps its source title, and a title form the requester or a supplied source states is used as given. For that reason the output format gate reports a sentence title, a closing full stop, a leading date or a `BUG` lead as advice, never as a block
 - **File names:** a title never reaches `export/` as written. The `[description]` slug rule in `sk-product-owner/SKILL.md` Section 3 keeps a `:`, `&` or `/` out of the file name
 
 ## Chat Response

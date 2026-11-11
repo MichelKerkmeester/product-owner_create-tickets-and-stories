@@ -43,13 +43,13 @@ Current state:
 +------------------------------+
 | per-file analysis             |
 | validate-output-format.cjs   |
-| :1181-1553                   |
+| :1261-1640                   |
 +----------+-------------------+
            v
 +------------------------------+
 | reports and exit status       |
 | validate-output-format.cjs   |
-| :1687-1703                   |
+| :1766-1782                   |
 +------------------------------+
 
 No target paths:
@@ -57,7 +57,7 @@ validate-output-format.cjs:53-81
 source inventory -> per-file analysis -> reports
 ```
 
-`run_fixtures.sh` passes fixed fixture paths to the validator. A call without target paths uses the source inventory instead, and both paths reach the same per-file analysis and final reporting (`run_fixtures.sh:29-42, 79-250`, `validate-output-format.cjs:53-95, 1599-1615, 1617-1733`)
+`run_fixtures.sh` passes fixed fixture paths to the validator. A call without target paths uses the source inventory instead, and both paths reach the same per-file analysis and final reporting (`run_fixtures.sh:29-42, 79-275`, `validate-output-format.cjs:53-95, 1648-1664, 1666-1782`)
 
 Dependency direction:
 
@@ -68,7 +68,7 @@ validate-output-format.cjs -> explicit target files
 validate-output-format.cjs -> source inventory when no targets are supplied
 ```
 
-The runner supplies fixture paths as command-line arguments to the validator, and the validator selects either those targets or its source inventory (`run_fixtures.sh:29-42, 79-250`, `validate-output-format.cjs:53-81`)
+The runner supplies fixture paths as command-line arguments to the validator, and the validator selects either those targets or its source inventory (`run_fixtures.sh:29-42, 79-275`, `validate-output-format.cjs:53-81`)
 
 ---
 
@@ -100,10 +100,13 @@ benchmark/format/
     +-- requirements-narration-exempt.md
     +-- requirements-narration-violation.md
     +-- sanctioned-definition-nested.md
-    `-- sanctioned-shapes.md
+    +-- sanctioned-shapes.md
+    +-- title-shape-exempt.md
+    +-- title-shape-silent.md
+    `-- title-shape-violation.md
 ```
 
-The runner owns case selection and result comparison. The validator owns file selection, per-file checks and final status, while the fixture files supply the Markdown inputs (`run_fixtures.sh:38-73, 79-250`, `validate-output-format.cjs:80-95, 1599-1615, 1726-1733`)
+The runner owns case selection and result comparison. The validator owns file selection, per-file checks and final status, while the fixture files supply the Markdown inputs (`run_fixtures.sh:38-73, 79-275`, `validate-output-format.cjs:80-95, 1648-1664, 1775-1782`)
 
 Allowed dependency direction:
 
@@ -142,10 +145,13 @@ benchmark/format/
     +-- requirements-narration-exempt.md
     +-- requirements-narration-violation.md
     +-- sanctioned-definition-nested.md
-    `-- sanctioned-shapes.md
+    +-- sanctioned-shapes.md
+    +-- title-shape-exempt.md
+    +-- title-shape-silent.md
+    `-- title-shape-violation.md
 ```
 
-`run_fixtures.sh:79-250` names every fixture path used by the runner. The fixture responsibilities are listed below with the lines that define each input
+`run_fixtures.sh:79-275` names every fixture path used by the runner. The fixture responsibilities are listed below with the lines that define each input
 
 ---
 
@@ -153,8 +159,8 @@ benchmark/format/
 
 | File | Responsibility |
 |---|---|
-| `run_fixtures.sh` | Sets the validator and fixture paths, runs fixed cases and reports aggregate failure or success (`run_fixtures.sh:29-73, 288-292`) |
-| `validate-output-format.cjs` | Parses flags and targets, selects source or artifact mode, analyzes each file and reports the result (`validate-output-format.cjs:22-36, 53-95, 1599-1615, 1617-1733`) |
+| `run_fixtures.sh` | Sets the validator and fixture paths, runs fixed cases and reports aggregate failure or success (`run_fixtures.sh:29-73, 313-317`) |
+| `validate-output-format.cjs` | Parses flags and targets, selects source or artifact mode, analyzes each file and reports the result (`validate-output-format.cjs:22-36, 53-95, 1648-1664, 1666-1782`) |
 | `fixtures/catalog-entry-silent.md` | Carries a Catalog with its Index heading, two entry headings and two entry links, each with one dash between the stable ID and the entry name, so the narrow Catalog grant clears the gate (`catalog-entry-silent.md:1-31`) |
 | `fixtures/catalog-entry-violation.md` | Keeps the Index heading and puts the same dash on a title, a heading with no stable ID, prose, a second dash, an H2 and a link with trailing text, each of which still blocks (`catalog-entry-violation.md:1-27`) |
 | `fixtures/catalog-entry-no-index.md` | Carries the entry heading and link shapes with no Index heading, so the grant earns nothing outside a Catalog (`catalog-entry-no-index.md:1-11`) |
@@ -176,6 +182,9 @@ benchmark/format/
 | `fixtures/requirements-narration-violation.md` | Uses two bullets that report what a screen says without quoting the copy, plus one action bullet (`requirements-narration-violation.md:3-11`) |
 | `fixtures/sanctioned-definition-nested.md` | Checks definition bullets at column zero and two deeper indentation levels (`sanctioned-definition-nested.md:1-8`) |
 | `fixtures/sanctioned-shapes.md` | Places definition and status shapes in list, checkbox and blockquote containers, then includes a section status line (`sanctioned-shapes.md:3-21`) |
+| `fixtures/title-shape-exempt.md` | Gives a Doc a sentence title that ends on a full stop, so the title advice stays silent on a document that is not a backlog artifact (`title-shape-exempt.md:1-9`) |
+| `fixtures/title-shape-silent.md` | Carries a Task, a Story, an Epic and two near misses, one with a date inside its title and one with the word Bug inside it, so no title draws advice (`title-shape-silent.md:1-29`) |
+| `fixtures/title-shape-violation.md` | Holds six Task titles, one with no separator, one with a full stop, two with a date lead, one with a BUG lead and one that fits two shapes and reports the first, each of which draws one title advisory (`title-shape-violation.md:1-35`) |
 
 ---
 
@@ -186,19 +195,20 @@ benchmark/format/
 | Arguments | `validate-output-format.cjs` accepts `--write`, flags and target paths, then rejects unknown flags or `--write` with explicit targets (`validate-output-format.cjs:22-36`) |
 | Source inventory | No explicit target selects the system files, the hub `SKILL.md` and `ROUTER.md`, shared cards and Markdown files found under the skill and `sk-create-figjam` references and assets (`validate-output-format.cjs:38-76, 80-81`) |
 | Target type | Explicit targets must exist and be regular files before analysis begins (`validate-output-format.cjs:84-95`) |
-| Artifact checks | Explicit targets receive purity, shape, Delivery, punctuation, Requirements, voice and conciseness checks, plus length-cap advice (`validate-output-format.cjs:1244-1581, 1583-1588`) |
-| Writing | `--write` is allowed only without explicit targets and writes a changed formatted source file (`validate-output-format.cjs:33-36, 1602-1612`) |
-| Results | Unknown flag combinations return 64, unreadable targets return 66, validation errors return 1 and a clean run prints a passed scope (`validate-output-format.cjs:27-36, 87-95, 1726-1733`) |
+| Artifact checks | Explicit targets receive purity, shape, Delivery, punctuation, Requirements, voice and conciseness checks, plus title-shape and length-cap advice (`validate-output-format.cjs:1285-1630, 1632-1637`) |
+| Title shape | A backlog artifact, one that opens on About or Problem, draws one advisory per H1 that holds no `" - "` separator, ends on a full stop or opens on a date or a BUG lead, and the check never blocks and never reads a Doc. The shared Sync Loop validator repeats it for `product-owner` alone (`validate-output-format.cjs:1220-1256, 1297-1303`) |
+| Writing | `--write` is allowed only without explicit targets and writes a changed formatted source file (`validate-output-format.cjs:33-36, 1651-1661`) |
+| Results | Unknown flag combinations return 64, unreadable targets return 66, validation errors return 1 and a clean run prints a passed scope (`validate-output-format.cjs:27-36, 87-95, 1775-1782`) |
 
-`validate-output-format.cjs:22-36, 53-95, 1599-1615 and 1717-1733` establish the path from argument parsing through file selection, analysis and result reporting
+`validate-output-format.cjs:22-36, 53-95, 1648-1664 and 1766-1782` establish the path from argument parsing through file selection, analysis and result reporting
 
 ```text
 process.argv
   -> flags and targets : validate-output-format.cjs:22-36
   -> file set          : validate-output-format.cjs:53-95
-  -> per-file analysis : validate-output-format.cjs:1599-1615
-  -> checks            : validate-output-format.cjs:1244-1588
-  -> output            : validate-output-format.cjs:1717-1733
+  -> per-file analysis : validate-output-format.cjs:1648-1664
+  -> checks            : validate-output-format.cjs:1285-1637
+  -> output            : validate-output-format.cjs:1766-1782
 ```
 
 ---
@@ -209,7 +219,7 @@ process.argv
 |---|---|---|
 | `run_fixtures.sh` | Bash script | Changes to its own directory and defines the fixed validator and fixture paths (`run_fixtures.sh:1-30`) |
 | `validate-output-format.cjs [--write] [file ...]` | Node CLI | Accepts the write flag or target files according to its usage contract (`validate-output-format.cjs:22-36`) |
-| `PO_FORMAT_STATS=1` | Environment flag | Prints per-file statistics after analysis (`validate-output-format.cjs:1520-1539, 1721-1724`) |
+| `PO_FORMAT_STATS=1` | Environment flag | Prints per-file statistics after analysis (`validate-output-format.cjs:1569-1588, 1770-1773`) |
 
 ---
 
@@ -221,7 +231,7 @@ Run the fixture harness from the repository root:
 bash benchmark/format/run_fixtures.sh
 ```
 
-The harness prints `PASSED all format-validator fixtures` and returns exit 0 when no case increments `failures`. A mismatch prints the failed case and returns exit 1 (`run_fixtures.sh:38-73, 288-292`)
+The harness prints `PASSED all format-validator fixtures` and returns exit 0 when no case increments `failures`. A mismatch prints the failed case and returns exit 1 (`run_fixtures.sh:38-73, 313-317`)
 
 The harness also ends with one more assertion, the shared Sync Loop's reference parity check that holds its validator to this one. It passes only when that check reports a byte-identical comparison, and it prints a skipped line when that folder is not beside this repository
 
