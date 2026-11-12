@@ -1333,26 +1333,25 @@ def extreme_checks(work: Path, base: dict, design: dict) -> list[tuple[str, bool
 
 
 def label_weight_checks(work: Path) -> list[tuple[str, bool, str]]:
-    """An edge label with a short key before a colon sets the key and its colon in Bold, a label of three words or
-    fewer leaving a decision is Bold throughout, and a longer label leaving a step stays Medium."""
+    """An edge label with a key of three words or fewer before a colon sets the key and its colon in Bold, a label
+    leaving a decision is Bold throughout however long, and a label leaving a step stays Medium, short or long,
+    as does one whose words before a colon run past three."""
     model = copy.deepcopy(DEFECT_MODELS["a flow whose decision reaches one goal by two labelled edges"])
     kinds = {n["id"]: n["kind"] for n in model["nodes"]}
-    step = next(e for e in model["edges"] if (geometry_role(kinds.get(e["from"])) != "decision"))
-    step["label"] = "Decline: No impact"
-    plain = next(e for e in model["edges"] if e is not step and geometry_role(kinds.get(e["from"])) != "decision")
-    plain["label"] = "Sends the parcel to the depot"
+    plain = [e for e in model["edges"] if kinds.get(e["from"]) not in ("decision", "choice")]
+    for edge, label in zip(plain, ("Decline: No impact", "Sends the parcel on", "One two three four: rest")):
+        edge["label"] = label
+    exits = [e for e in model["edges"] if kinds.get(e["from"]) in ("decision", "choice")]
+    exits[0]["label"] = "Main feature or new product"
     drawn = geometry.run_trace(fill_template(model, {"id": "Planted 0"}), work)
     bold = {c["label"]: c.get("bold", []) for c in drawn["connectors"] if c["label"]}
-    want = {"Decline: No impact": [[0, 8]], "No": [[0, 2]], "Drop-off point": [[0, 14]], "Sends the parcel to the depot": []}
+    want = {"Decline: No impact": [[0, 8]], "Main feature or new product": [[0, 27]], "Sends the parcel on": [],
+            "One two three four: rest": []}
+    for e in exits[1:]:
+        want[e["label"]] = [[0, len(e["label"])]]
     wrong = [f"{k} is Bold over {bold.get(k)}" for k, v in want.items() if bold.get(k) != v]
-    return [("an edge label sets its key, or a short decision exit, in Bold and leaves a long label Medium",
-             not drawn["error"] and not wrong, "; ".join(wrong) or (drawn["error"] or ""))]
-
-
-def geometry_role(kind: str | None) -> str:
-    """The role a node kind takes in the built-in design, such as decision for a decision or a choice."""
-    return board_design.built_in()["kind"].get(kind or "", {}).get("role", "")
-
+    return [("an edge label sets a short key, or any decision exit, in Bold and leaves a step's label Medium",
+             len(plain) >= 3 and not drawn["error"] and not wrong, "; ".join(wrong) or (drawn["error"] or ""))]
 
 def font_checks(work: Path) -> list[tuple[str, bool, str]]:
     """A family that will not load sets the board in Inter with a warning, and one that names its third weight SemiBold

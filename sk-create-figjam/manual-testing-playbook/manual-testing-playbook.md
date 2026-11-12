@@ -1085,15 +1085,15 @@ Desired user-visible outcome: A Story, a gate for a FigJam board drawn from its 
 
 #### Description
 
-Verify that a request to move or restyle a composed node in a way the model cannot carry gets a plain answer naming the edit in FigJam, and no tool is called.
+Verify that a request to move or restyle a composed node in a way the model cannot carry gets a plain answer naming the edit in FigJam and the direct edit behind its gate, and no tool is called.
 
 #### Scenario Contract
 
 Prompt: `$flow on the Fernhouse return board you drew, move the Approve return node further right and make its text bigger`
 
-Expected signals: The reply says Flow Mode does not move or restyle a composed node, because a nudge and a font size are changes the model cannot carry, names the drag and the font change as hand edits in FigJam, names the `Approve return` node by its label and says a change the model can carry, such as the direction, a zone or a `style` line, is made in the model and composed again after a yes, with the old board section deleted only on a second yes asked after the new board is read back. No Figma tool is called
+Expected signals: The reply says Flow Mode does not move or restyle a composed node, because a nudge and a font size are changes the model cannot carry, names the drag and the font change as hand edits in FigJam, offers a direct edit as a gate that lists the edits, the backup page and the rollback and asks one question about the write, names the `Approve return` node by its label and says a change the model can carry, such as the direction, a zone or a `style` line, is made in the model and composed again after a yes, with the old board section deleted only on a second yes asked after the new board is read back. No Figma tool is called
 
-Desired user-visible outcome: A plain answer that names the two hand edits in FigJam
+Desired user-visible outcome: A plain answer that names the two hand edits in FigJam and offers the direct edit
 
 #### Test Execution
 

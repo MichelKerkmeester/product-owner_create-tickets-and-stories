@@ -198,13 +198,13 @@ A design re-maps meanings onto the pairs in Section 3 and never adds a colour. A
 
 ### Edge label wording
 
-An edge label reads at overview zoom when its outcome stands out. The composer sets the Bold from the label's words, and a person editing a board by hand sets it the same way:
+An edge label reads at overview zoom when its outcome stands out. The composer sets the Bold from the label's words on the boards it lays out as a graph: a user flow, a process, an architecture, a state board and an ER diagram. A sequence message and the generated and `fj` routes stay Medium. A direct edit sets the Bold the same way:
 
-- An outcome with its reason takes a short key, a colon and a capitalised rest, and the key and its colon are Bold, such as **Decline:** No impact
-- A label of three words or fewer leaving a decision names the branch and is Bold throughout, such as **Yes** or **Small fix**
-- Any other label stays Medium, such as a full sentence along a long line
-- Labels take sentence case, and a casing the user set by hand is kept
-- A label stays on one line. A label that would wrap widens its gap instead
+- An outcome with its reason takes a key of three words or fewer, a colon and a capitalised rest, and the key and its colon are Bold, such as **Decline:** No impact. The model writes such a label in double quotes, because the check refuses an unquoted colon
+- A label leaving a decision names the branch and is Bold throughout, such as **Yes** or **Main feature or new product**
+- Any other label stays Medium
+- Every label keeps the 40-character cap and stays on one line. A label that would wrap widens its gap instead
+- Labels take sentence case unless the type sets another, such as the lowercase events of a state board, and a casing the user set by hand is kept
 
 ---
 
@@ -235,9 +235,9 @@ Stickies stand on FigJam's own grid, a gap of 64 pixels from the sticky beside t
 
 ### Boards with stage columns
 
-A timeline drawn by hand, with stages across the top and lanes down the side, keeps one column pitch so its labels have room:
+An existing board with stages across the top and lanes down the side, which the user asks Claude to edit directly, keeps one column pitch so its labels have room:
 
-- Start at a 660 pixel pitch: a 400 pixel card and a 260 pixel gap. A gap is as wide as the widest label in it plus 64, rounded up to 8, and every column takes the widest gap
+- Start at a 660 pixel pitch: a 400 pixel card and a 260 pixel gap. A gap is as wide as the widest label in it plus 64, rounded up to a multiple of 8, and every column takes the widest gap
 - Each column has a header cell with a Bold name and a one-line purpose without a full stop, under the stage it belongs to
 - Each lane opens with a note that says what the lane owns or does
 - To insert a column, shift every node, label and free connector right of it by one pitch, then widen the stage header, every lane band, any full-width lane and the board

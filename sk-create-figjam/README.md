@@ -7,7 +7,7 @@ trigger_phrases:
   - "$figjam"
   - "figjam flow"
   - "figjam diagram"
-version: 1.0.21.0
+version: 1.0.22.0
 ---
 
 # sk-create-figjam

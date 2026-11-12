@@ -5,7 +5,7 @@ trigger_phrases:
   - "figjam board screenshots"
   - "figjam gallery"
   - "sk-create-figjam examples images"
-version: 1.0.21.0
+version: 1.0.22.0
 ---
 
 # sk-create-figjam - Board Screenshots

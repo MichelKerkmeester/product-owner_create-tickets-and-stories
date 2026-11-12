@@ -90,7 +90,7 @@ A board that teaches the reader what its source says: what a step asks, where a 
 - Docs, templates and examples that teach section notes, detail cards and the focus reason.
 - The scorecard change in the playbook root and the quality rubric, and the ten scenarios.
 - The release, the Claude Project mirror, the rerun, the grades and the gallery.
-- Follow-up of 2026-11-12, release 1.0.21.0: a route for a board the user edits by hand, a stage-column grid, Bold edge labels, two copy rules and companion sync, from a review of a hand-built timeline board.
+- Follow-up of 2026-11-12, releases 1.0.21.0 and 1.0.22.0 with hub 1.0.35.0: a route for a board the user edits by hand, a stage-column grid, Bold edge labels, two copy rules and companion sync, from a review of a hand-built timeline board.
 
 ### Out of Scope
 - The Composition rule and the reading-order gaps phase 051 found.

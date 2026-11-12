@@ -131,7 +131,7 @@ def type_resources(diagram_type):
         resources.append(f"assets/templates/{diagram_type}.md")
     return resources
 
-def route_flow(is_flow_request, diagram_type=None, extension=False, restyle=False):
+def route_flow(is_flow_request, diagram_type=None, extension=False, restyle=False, direct_edit=False):
     if not is_flow_request:
         return UNKNOWN_FALLBACK
     inventory = discover_markdown_resources()
@@ -147,6 +147,11 @@ def route_flow(is_flow_request, diagram_type=None, extension=False, restyle=Fals
 
     if not all(load_if_present(path) for path in FLOW_PAIR):
         return {**UNKNOWN_FALLBACK, "resources": loaded}
+    if direct_edit:
+        load_if_present(STYLE_GUIDE)
+        load_if_present(QUALITY_RUBRIC)
+        load_if_present(HYBRID_WORKFLOW)
+        return {"resources": loaded, "direct_edit": True}
     if diagram_type not in DIAGRAM_TYPES:
         return {"resources": loaded, "needs_type": True}
     if not all(load_if_present(path) for path in type_resources(diagram_type)):
@@ -160,4 +165,4 @@ def route_flow(is_flow_request, diagram_type=None, extension=False, restyle=Fals
     return {"resources": loaded, "diagram_type": diagram_type}
 ```
 
-A request that is not a diagram takes the `UNKNOWN_FALLBACK` branch and returns to [`../sk-product-owner/SKILL.md`](../sk-product-owner/SKILL.md) unread past this file. A Flow request with no settled type returns `needs_type`, and the type is asked for before any type file loads. The Product Owner router keeps the `$flow` and `$figjam` commands in its own contract, so a command conflict such as `$task $flow` still asks one question there.
+A request that is not a diagram takes the `UNKNOWN_FALLBACK` branch and returns to [`../sk-product-owner/SKILL.md`](../sk-product-owner/SKILL.md) unread past this file. A Flow request with no settled type returns `needs_type`, and the type is asked for before any type file loads. A direct edit, a change the user asks Claude to make on an existing board, needs no type: it loads the style guide, the quality rubric and the hybrid workflow beside Flow Mode, as `references/flow-mode.md` Section 9 sets out. The Product Owner router keeps the `$flow` and `$figjam` commands in its own contract, so a command conflict such as `$task $flow` still asks one question there.

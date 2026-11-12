@@ -289,17 +289,17 @@ function end(node, magnet = 'AUTO') {
   if (magnet === 'POINT') magnet = { x: node.width / 2, y: node.height / 2 };
   return { endpointNodeId: node.id, [magnet.y === undefined ? 'magnet' : 'position']: magnet };
 }
-// How many leading characters of an edge label are set in Bold. A label with a short key before a colon,
-// such as "Decline: No impact", sets the key and its colon in Bold, so the outcome reads before its reason.
-// A label of three words or fewer leaving a decision, such as "Yes" or "Small fix", is Bold throughout,
-// because it names the branch. Every other label stays Medium.
+// How many leading characters of an edge label are set in Bold. A label with a key of three words or fewer
+// before a colon, such as "Decline: No impact", sets the key and its colon in Bold, so the outcome reads
+// before its reason. A label leaving a decision or a choice names the branch and is Bold throughout. The
+// kind decides, never the colour role, because a design may give a kind another role. Every other label
+// stays Medium.
 function labelBold(e, M) {
   if (!e.label) return 0;
   const k = e.label.indexOf(': ');
   if (k > 0 && e.label.slice(0, k).split(' ').length <= 3) return k + 1;
   const from = M.nodes.find((n) => n.id === e.from);
-  const role = from && T.kind[from.kind] ? T.kind[from.kind].role : '';
-  return role === 'decision' && e.label.split(' ').length <= 3 ? e.label.length : 0;
+  return from && (from.kind === 'decision' || from.kind === 'choice') ? e.label.length : 0;
 }
 function connect(parent, from, to, o) {
   const c = figma.createConnector();

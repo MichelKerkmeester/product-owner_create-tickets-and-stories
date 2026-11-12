@@ -54,7 +54,7 @@ class Text {
     if (this.textAutoResize === 'HEIGHT') this.measure(); else this.h = h;
   }
   // A Bold range is kept, so a check can read which part of a label is set in Bold.
-  setRangeFontName(from, to, font) { if (font && String(font.style).includes('Bold')) (this.boldRanges ||= []).push([from, to]); }
+  setRangeFontName(from, to, font) { if (font && font.style === 'Bold') (this.boldRanges ||= []).push([from, to]); }
   setRangeFontSize() {}
   setRangeLineHeight() {}
   remove() { this.parent.children = this.parent.children.filter((c) => c !== this); }
