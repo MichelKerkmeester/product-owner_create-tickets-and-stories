@@ -208,7 +208,7 @@
     ],
     "causal_summary": "Michel found the gallery boards tidy but empty next to the collab chat prompt board",
     "created_at": "2026-10-30T05:41:12.667Z",
-    "last_save_at": "2026-11-12T16:00:39.236Z",
+    "last_save_at": "2026-11-12T16:39:27.565Z",
     "save_lineage": "same_pass",
     "last_accessed_at": null,
     "source_docs": [
@@ -220,14 +220,14 @@
       "decision-record.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:4a5c8e33702a27cf4fcebe9aa922ebe45123f1d1e97c35b0a83cd148c07fdc6f",
+    "source_fingerprint": "sha256:856b0ba5259894058e71e62eafb9ac705298c010f684bcf97e7cb76e8d3c381d",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
       "spec.md": "f30a4217ad90a7ce534abe2e29b1cc0ca40e21d3d76f4909cc7f19dcdeb4299f",
       "plan.md": "7b135febaafbafd93ddd0e6b967b7163b797c91f5838f3b9e9f8b62127f9c35d",
-      "tasks.md": "b5ccdf1a6ab27d99f19438ca0e605df694f03e0d72f08fe107e9fcb5d3f1bd38",
+      "tasks.md": "d42b42dcb6710c2a3fa8144df355eca10a02cd2b9aa2083a2d68d026ac234a08",
       "decision-record.md": "15e6bf8f35a0b218c1295ff70ffdf284f195a883ca1f82647a0616852fcc4a03",
-      "implementation-summary.md": "e91d9b323a908851bbf1521f12bd17cd6ccc224209ce30c460dbbd7e1438253a"
+      "implementation-summary.md": "a01c68f8ba186fe3c6e7874a22c64d468c52e9d55fbe6faf6c1c14de57b7d870"
     },
     "last_active_child_id": null,
     "last_active_at": null

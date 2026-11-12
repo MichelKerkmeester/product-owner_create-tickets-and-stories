@@ -12,14 +12,16 @@
     "gallery",
     "glm"
   ],
-  "lastUpdated": "2026-11-12T16:00:39.236Z",
+  "lastUpdated": "2026-11-12T16:39:27.565Z",
   "specId": "052",
   "folderSlug": "figjam-boards-that-teach",
   "parentChain": [
     "017-figjam-flow-generation"
   ],
-  "memorySequence": 1,
+  "memorySequence": 3,
   "memoryNameHistory": [
-    "12-11-26_17-00__fixed-the-fresh-fable-review-findings-in-sk.md"
+    "12-11-26_17-00__fixed-the-fresh-fable-review-findings-in-sk.md",
+    "12-11-26_17-34__fixed-the-fresh-fable-review-findings-in-sk.md",
+    "12-11-26_17-39__added-playbook-scenarios-for-the-direct-edit-bold.md"
   ]
 }

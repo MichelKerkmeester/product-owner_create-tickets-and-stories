@@ -49,6 +49,7 @@ contextType: "implementation"
 - [x] T009 Gallery, captions and report section 8.17. Verify: every caption names its run and score. [EVIDENCE: nine images replaced, each caption names FJ-0xx, Sonnet 5.5 medium on v1.0.17.0 and its total of 24; the status lane caption keeps its v1.0.16.0 run per the D7 amendment]
 - [x] T010 Follow-up: the hand route, stage-column grid, Bold edge labels, copy rules and companion sync, release 1.0.21.0 with the Project mirror (`sk-create-figjam/`, `claude project/knowledge/`). Verify: both self-tests pass. [EVIDENCE: compose_board --self-test 1306 of 1306 with a new label weight check, flow_check --self-test 237 of 237, changelog v1.0.21.0, SYNC.md note]
 - [x] T011 Act on the fresh Fable 5.2 review of 1.0.21.0: a gated direct edit with read-back and delete rule, the router branch, kind-based Bold, scoped label and copy rules, FJ-038 and release 1.0.22.0 with hub 1.0.35.0 (`sk-create-figjam/`, `claude project/knowledge/`). Verify: both self-tests pass and two mutations fail the label check. [EVIDENCE: compose_board 1306 of 1306, flow_check 237 of 237, the label check failed with the kind check removed and with the key limit raised to nine]
+- [x] T012 Add playbook scenarios for the direct edit, Bold edge labels and companion sync: FJ-050, FJ-051 and FJ-052 with their root entries, plus the missing FJ-049 index row (`sk-create-figjam/manual-testing-playbook/`). Verify: `run_gates.sh` passes. [EVIDENCE: run_gates.sh 19 of 19, playbook root 1.0.18.0]
 <!-- /ANCHOR:phase-2 -->
 
 ---

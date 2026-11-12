@@ -1,7 +1,7 @@
 ---
 title: "sk-create-figjam: Manual Testing Playbook"
 description: "Operator-facing directory for the FigJam diagram packet: type choice for all seven types, the pre-write check, the board write with its gate, extension and read-back, scored board quality for every type, creation variant and the board design, the boundaries with the Product Owner packet and routing recall for type detection."
-version: 1.0.17.0
+version: 1.0.18.0
 ---
 
 # sk-create-figjam: Manual Testing Playbook
@@ -527,7 +527,7 @@ Desired user-visible outcome: Detail cards that pass at Balanced and Faithful an
 
 ---
 
-## 9. BOARD WRITE (`FJ-007`, `FJ-008`, `FJ-009`, `FJ-017`, `FJ-018`, `FJ-019`, `FJ-048`)
+## 9. BOARD WRITE (`FJ-007`, `FJ-008`, `FJ-009`, `FJ-017`, `FJ-018`, `FJ-019`, `FJ-048`, `FJ-050`, `FJ-052`)
 
 The gate, the write, the extension and the read-back. Scenarios that need a Figma route record SKIP with that route named as the blocker when it is unavailable.
 
@@ -664,9 +664,47 @@ Desired user-visible outcome: A read-back that counts and shows the note the las
 > **Feature File:** [FJ-048](board-write/fresh-read-back-after-write.md)
 > **Catalog:** none, the packet has no feature catalog
 
+### FJ-050 | A direct edit writes only after its own yes
+
+#### Description
+
+Verify that a direct edit is offered behind its own gate with no tool call, and that after the yes it backs up the page, deletes no node it did not create, renders the changed region and reads back the listed edits.
+
+#### Scenario Contract
+
+Prompt: `on the Fernhouse return board, add a Refund column between Inspect and Close, with one card "Send the refund" in the Finance lane, and keep my own edits`
+
+Expected signals: Turn 1 calls no tool. It names the insert as a change the model cannot carry, names the `Inspect` and `Close` columns by their labels, offers the edit in FigJam or a direct edit, lists the edits, the backup page, what the read-back will count and the rollback, and ends on one question about the write. Turn 2 creates a page with `figma.createPage()` named after the board's page with `(backup <date>)` before any node moves, and deletes no node it did not create. Every node right of Inspect moves by one column pitch, the stage and lane rects and the section widen to match, and the hand-restyled label keeps its weight and casing. The changed region is rendered with `node.screenshot()` inside a `use_figma` call and checked for overlaps, and the reply's read-back counts the column, the card and the moved nodes against the gate's list and names any that differ
+
+Desired user-visible outcome: A gate first, then a widened board with the new column, a backup page left for the user to delete and a read-back that matches the gate
+
+#### Test Execution
+
+> **Feature File:** [FJ-050](board-write/direct-edit-after-yes.md)
+> **Catalog:** none, the packet has no feature catalog
+
+### FJ-052 | A copy change reaches every companion
+
+#### Description
+
+Verify that a copy change on a board is carried into every companion in the same turn, with a search for the old wording, the user's own wording kept and the A4 page reflowed.
+
+#### Scenario Contract
+
+Prompt: `on the Fernhouse return board, change the card bullet "Michel assists" to "Michel supports and approves the refund", and keep the docs in line`
+
+Expected signals: The gate lists every companion before the first edit: the board card, the `.md` file and each A4 page that holds the wording. After the yes, the board, the `.md` file and the A4 text all read `Michel supports and approves the refund` in the same turn. The reply names a search of each companion for `Michel assists` and either finds no hit or names the hit in a `Finding:` line. Where the A4 paragraph grew a line, every block below it moves down and keeps the page's own gaps, and the last block still clears the footer. The forced line break stays where the user put it
+
+Desired user-visible outcome: The board and both docs saying the same thing, with no stale wording left
+
+#### Test Execution
+
+> **Feature File:** [FJ-052](board-write/copy-change-reaches-companions.md)
+> **Catalog:** none, the packet has no feature catalog
+
 ---
 
-## 10. BOARD QUALITY (`FJ-022`, `FJ-023`, `FJ-024`, `FJ-025`, `FJ-026`, `FJ-027`, `FJ-028`, `FJ-044`, `FJ-045`, `FJ-049`)
+## 10. BOARD QUALITY (`FJ-022`, `FJ-023`, `FJ-024`, `FJ-025`, `FJ-026`, `FJ-027`, `FJ-028`, `FJ-044`, `FJ-045`, `FJ-049`, `FJ-051`)
 
 One written board per diagram type, scored on the board quality scorecard in Section 3 at two zooms. The overview screenshot scores composition, crossings, shared trunks and label collisions. The 100% screenshot scores fidelity, legibility and signal. The four hygiene checks and the reply close the run. Each scenario names three reader questions with its answers, so clarity is measured, not judged. Two more check the design every type is drawn in: the seven types side by side under the shipped design, and a broken design that falls back token by token.
 
@@ -858,6 +896,25 @@ Desired user-visible outcome: A board that reads in its planned order at both zo
 #### Test Execution
 
 > **Feature File:** [FJ-049](board-quality/status-lane-board-quality.md)
+> **Catalog:** none, the packet has no feature catalog
+
+### FJ-051 | Edge labels take their Bold from their words
+
+#### Description
+
+Verify that a composed process board sets a short key and its colon in Bold, sets every decision exit in Bold throughout and leaves any other label Medium, each on one line.
+
+#### Scenario Contract
+
+Prompt: `$figjam a process of how a Fernhouse feature request is handled, on a new board in our Fernhouse Product plan, with a lane for the requester, the product owner and the product lead. The product owner logs it and checks the impact. No impact: decline it. Low impact today: park it. Has impact: the product lead asks whether it is a small feature or a main feature or new product. Both end in planning.`
+
+Expected signals: The model quotes every label with a colon and the check passes. `python3 scripts/compose_board.py --self-test` reports the row `an edge label sets a short key, or any decision exit, in Bold and leaves a step's label Medium` as passing. On the written board, each outcome label sets only its key and colon in Bold, such as **Decline:** No impact, each label leaving the size decision, such as **Small feature** and **Main feature or new product**, is Bold throughout, and a label leaving a step stays Medium. Every label is one line under the 40-character cap and sentence case
+
+Desired user-visible outcome: A board whose decision outcomes stand out at overview zoom
+
+#### Test Execution
+
+> **Feature File:** [FJ-051](board-quality/bold-edge-labels.md)
 > **Catalog:** none, the packet has no feature catalog
 
 ---
@@ -1420,6 +1477,10 @@ The packet has no feature catalog, so every scenario names `SKILL.md` and the re
 | FJ-046 | A status lane is checked and drawn | Pre-write check | [`pre-write-check/status-lane-checked.md`](pre-write-check/status-lane-checked.md) |
 | FJ-047 | Detail cards at the Balanced and Faithful levels | Pre-write check | [`pre-write-check/detail-cards-at-faithful.md`](pre-write-check/detail-cards-at-faithful.md) |
 | FJ-048 | A read-back judges a view taken after the write | Board write | [`board-write/fresh-read-back-after-write.md`](board-write/fresh-read-back-after-write.md) |
+| FJ-049 | Status lane board quality | Board quality | [`board-quality/status-lane-board-quality.md`](board-quality/status-lane-board-quality.md) |
+| FJ-050 | A direct edit writes only after its own yes | Board write | [`board-write/direct-edit-after-yes.md`](board-write/direct-edit-after-yes.md) |
+| FJ-051 | Edge labels take their Bold from their words | Board quality | [`board-quality/bold-edge-labels.md`](board-quality/bold-edge-labels.md) |
+| FJ-052 | A copy change reaches every companion | Board write | [`board-write/copy-change-reaches-companions.md`](board-write/copy-change-reaches-companions.md) |
 | FJR-001 | User Flow routing | Intra-routing recall | [`intra-routing-recall/route-user-flow.md`](intra-routing-recall/route-user-flow.md) |
 | FJR-002 | Process routing | Intra-routing recall | [`intra-routing-recall/route-process.md`](intra-routing-recall/route-process.md) |
 | FJR-003 | Architecture routing | Intra-routing recall | [`intra-routing-recall/route-architecture.md`](intra-routing-recall/route-architecture.md) |

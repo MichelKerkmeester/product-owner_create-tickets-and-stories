@@ -8,25 +8,18 @@ contextType: "implementation"
 _memory:
   continuity:
     packet_pointer: "system/017-figjam-flow-generation/052-figjam-boards-that-teach"
-    last_updated_at: "2026-11-12T16:00:39Z"
+    last_updated_at: "2026-11-12T16:39:27Z"
     last_updated_by: "generate-context"
-    recent_action: "Shipped the FigJam direct edit route and recorded 20 operator decisions"
-    next_safe_action: "Await the operator go-ahead to push the nested and outer commits"
+    recent_action: "Added playbook scenarios FJ-050 to FJ-052 for the direct edit"
+    next_safe_action: "Run FJ-050 to FJ-052 against a live board"
     blockers: []
     key_files:
+      - "sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md"
+      - "sk-create-figjam/manual-testing-playbook/board-write/direct-edit-after-yes.md"
+      - "sk-create-figjam/manual-testing-playbook/board-quality/bold-edge-labels.md"
+      - "sk-create-figjam/manual-testing-playbook/board-write/copy-change-reaches-companions.md"
       - "sk-create-figjam/references/flow-mode.md"
-      - "sk-create-figjam/assets/compose-board.js"
-      - "sk-create-figjam/scripts/compose_board.py"
-      - "sk-create-figjam/scripts/compose-trace.mjs"
-      - "sk-create-figjam/ROUTER.md"
-    session_ref:
-      runtime: "claude"
-      sessionId: "88e2233f-4654-4867-a184-17ec8ed1436b"
-      workspace: "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner"
-      savedAt: "2026-11-12T16:00:39Z"
-      locatorKind: "transcript_path"
-      version: 1
-    completion_pct: 95
+    completion_pct: 100
     open_questions: []
     answered_questions: []
 ---
