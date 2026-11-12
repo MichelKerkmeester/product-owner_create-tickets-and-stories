@@ -1,0 +1,222 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/033-design-copy-pointer-requirements",
+  "spec_folder": "system/033-design-copy-pointer-requirements",
+  "parent_id": null,
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "design copy pointer requirements",
+      "design copy pointer requirements plan",
+      "design copy pointer requirements tasks",
+      "design copy pointer requirements goal",
+      "design copy pointer requirements implementation summary"
+    ],
+    "key_topics": [
+      "design",
+      "copy",
+      "pointer",
+      "requirements",
+      "plan",
+      "tasks",
+      "goal",
+      "implementation",
+      "summary",
+      "story",
+      "new",
+      "app"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "goal.md",
+      "implementation-summary.md",
+      "sk-product-owner/references/story-mode.md",
+      "sk-product-owner/assets/story-template.md",
+      "claude project/knowledge/Product Owner - Templates - Story Mode.md",
+      "claude project/knowledge/Product Owner - Assets - Story Template.md",
+      "sk-product-owner/SKILL.md",
+      "sk-product-owner/README.md",
+      "claude project/README.md",
+      "changelog/v1.0.34.0.md",
+      "sk-product-owner/changelog/v1.2.19.0.md",
+      "benchmark/gates/run_gates.sh",
+      "benchmark/parity/run_residency.sh"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "story-mode.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/story-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "story-template.md",
+        "kind": "doc",
+        "path": "sk-product-owner/assets/story-template.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner - Templates - Story Mode.md",
+        "kind": "doc",
+        "path": "claude project/knowledge/Product Owner - Templates - Story Mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner - Assets - Story Template.md",
+        "kind": "doc",
+        "path": "claude project/knowledge/Product Owner - Assets - Story Template.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "sk-product-owner/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.0.34.0.md",
+        "kind": "doc",
+        "path": "changelog/v1.0.34.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.2.19.0.md",
+        "kind": "doc",
+        "path": "sk-product-owner/changelog/v1.2.19.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "run_residency.sh",
+        "kind": "script",
+        "path": "benchmark/parity/run_residency.sh",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "App Select",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Story Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Measured Behavior",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "A Story for the new App Select screen wrote nine Requirements items, seven of them one quoted string each: the badge, the heading, the subheading, both option titles and their lines",
+    "created_at": "2026-11-12T14:28:32Z",
+    "last_save_at": "2026-11-12T15:08:52.221Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:97a1bb44fef1423f8936627d6df1b252addbd3283f73dd44f3e091bec287e40e",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "87397aa061f4fe89d993a4281c93939cd0f1857e82175d775f8881f94887a9b9",
+      "plan.md": "a7cb9e04ed9c757c69c2fd1aacf9ea6072fe9a545c7628d7990b48d3c35dc0e6",
+      "tasks.md": "571d77c0662d371bbb7740ca68ef6a9e3c294d5cb49592f2041fb431e70104b0",
+      "implementation-summary.md": "17e21b2558ebb7878f48095b44f865c28d1ab70d1b52639f2b63c3a4295437b9"
+    },
+    "last_active_at": null
+  }
+}

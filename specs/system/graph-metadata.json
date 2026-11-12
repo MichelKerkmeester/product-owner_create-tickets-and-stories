@@ -23,7 +23,20 @@
     "system/017-figjam-flow-generation",
     "system/018-product-owner-deep-review",
     "system/019-runtime-and-project-optimization",
-    "system/020-story-turn-one-gate"
+    "system/020-story-turn-one-gate",
+    "system/021-clickup-doc-divider-spacing",
+    "system/022-strict-contract-and-gate-cleanup",
+    "system/023-clickup-doc-push-editor-and-numbering",
+    "system/024-clickup-side-by-side-columns",
+    "system/025-vendored-browser-packets",
+    "system/026-browser-first-doc-writer",
+    "system/027-mark-as-done-between-dividers",
+    "system/028-feedback-ticket-template",
+    "system/029-review-remediation",
+    "system/030-system-review-and-vendor-sync",
+    "system/031-doc-alignment-follow-up",
+    "system/032-fresh-review-fixes",
+    "system/033-design-copy-pointer-requirements"
   ],
   "manual": {
     "depends_on": [],

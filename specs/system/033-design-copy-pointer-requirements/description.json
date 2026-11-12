@@ -1,0 +1,26 @@
+{
+  "specFolder": "system/033-design-copy-pointer-requirements",
+  "description": "Stop Stories listing every string of a designed screen as a requirement and point at the design instead",
+  "keywords": [
+    "stop",
+    "stories",
+    "listing",
+    "every",
+    "string",
+    "designed",
+    "screen",
+    "requirement",
+    "point",
+    "design",
+    "instead"
+  ],
+  "lastUpdated": "2026-11-12T14:28:32.986Z",
+  "specId": "033",
+  "folderSlug": "design-copy-pointer-requirements",
+  "parentChain": [
+    "system"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "1"
+}
