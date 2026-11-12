@@ -12,12 +12,14 @@
     "gallery",
     "glm"
   ],
-  "lastUpdated": "2026-10-30T09:00:00.000Z",
+  "lastUpdated": "2026-11-12T16:00:39.236Z",
   "specId": "052",
   "folderSlug": "figjam-boards-that-teach",
   "parentChain": [
     "017-figjam-flow-generation"
   ],
-  "memorySequence": 0,
-  "memoryNameHistory": []
+  "memorySequence": 1,
+  "memoryNameHistory": [
+    "12-11-26_17-00__fixed-the-fresh-fable-review-findings-in-sk.md"
+  ]
 }

@@ -83,6 +83,7 @@ and findings belong here.
 | Skill change and release | Done | checker, composer, docs, playbook, 1.0.17.0 and the Project mirror; gates 15 of 15 |
 | Rerun and grading | Done | ten runs graded in `grades/sonnet-medium-052.jsonl`: 3 PASS, Substance 2 on nine boards and 1 on FJ-027; Composition fails six, the 8.16 pattern |
 | Gallery | Done | nine images from this run, the status lane image kept; captions in both READMEs; report section 8.17 |
+| Record the session operator decisions | done | 20 entries in decision-record.md, validate --strict PASSED |
 
 ### Deviations
 

@@ -8,13 +8,25 @@ contextType: "implementation"
 _memory:
   continuity:
     packet_pointer: "system/017-figjam-flow-generation/052-figjam-boards-that-teach"
-    last_updated_at: "2026-10-30T11:00:00Z"
-    last_updated_by: "claude-code"
-    recent_action: "Gallery rerun graded and published; phase closed"
-    next_safe_action: "Take up the glance-order gap in a later phase"
+    last_updated_at: "2026-11-12T16:00:39Z"
+    last_updated_by: "generate-context"
+    recent_action: "Shipped the FigJam direct edit route and recorded 20 operator decisions"
+    next_safe_action: "Await the operator go-ahead to push the nested and outer commits"
     blockers: []
-    key_files: []
-    completion_pct: 100
+    key_files:
+      - "sk-create-figjam/references/flow-mode.md"
+      - "sk-create-figjam/assets/compose-board.js"
+      - "sk-create-figjam/scripts/compose_board.py"
+      - "sk-create-figjam/scripts/compose-trace.mjs"
+      - "sk-create-figjam/ROUTER.md"
+    session_ref:
+      runtime: "claude"
+      sessionId: "88e2233f-4654-4867-a184-17ec8ed1436b"
+      workspace: "/Users/michelkerkmeester/MEGA/Development/AI Systems/AI Systems/Product Owner"
+      savedAt: "2026-11-12T16:00:39Z"
+      locatorKind: "transcript_path"
+      version: 1
+    completion_pct: 95
     open_questions: []
     answered_questions: []
 ---

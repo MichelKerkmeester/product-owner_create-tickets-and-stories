@@ -57,7 +57,8 @@
       "benchmark/reports/2026-10-25--manual-testing-playbook--figjam-model-comparison/grades/sonnet-medium-052.jsonl",
       "sk-create-figjam/changelog/v1.0.17.0.md",
       "changelog/v1.0.18.0.md",
-      "sk-create-figjam/references/flow-mode.md"
+      "sk-create-figjam/references/flow-mode.md",
+      "export/002 - doc-alex-scope-and-responsibilities.md"
     ],
     "entities": [
       {
@@ -163,6 +164,12 @@
         "source": "derived"
       },
       {
+        "name": "002 - doc-alex-scope-and-responsibilities.md",
+        "kind": "doc",
+        "path": "export/002 - doc-alex-scope-and-responsibilities.md",
+        "source": "derived"
+      },
+      {
         "name": "Feature Specification",
         "kind": "proper_noun",
         "path": "spec.md",
@@ -197,18 +204,12 @@
         "kind": "proper_noun",
         "path": "spec.md",
         "source": "derived"
-      },
-      {
-        "name": "Implementation Plan",
-        "kind": "proper_noun",
-        "path": "plan.md",
-        "source": "derived"
       }
     ],
     "causal_summary": "Michel found the gallery boards tidy but empty next to the collab chat prompt board",
     "created_at": "2026-10-30T05:41:12.667Z",
-    "last_save_at": "2026-11-12T15:57:02.266Z",
-    "save_lineage": "graph_only",
+    "last_save_at": "2026-11-12T16:00:39.236Z",
+    "save_lineage": "same_pass",
     "last_accessed_at": null,
     "source_docs": [
       "spec.md",
@@ -219,14 +220,14 @@
       "decision-record.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:e2a91f77f03a3a1e1580d1bc467ab238eaa2dd5aa62008eb97d1a496beac1e8b",
+    "source_fingerprint": "sha256:4a5c8e33702a27cf4fcebe9aa922ebe45123f1d1e97c35b0a83cd148c07fdc6f",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
       "spec.md": "f30a4217ad90a7ce534abe2e29b1cc0ca40e21d3d76f4909cc7f19dcdeb4299f",
       "plan.md": "7b135febaafbafd93ddd0e6b967b7163b797c91f5838f3b9e9f8b62127f9c35d",
       "tasks.md": "b5ccdf1a6ab27d99f19438ca0e605df694f03e0d72f08fe107e9fcb5d3f1bd38",
-      "decision-record.md": "3cbe75f9dbf3302ba837552c69db756112166707d909b1a4b039ade3e16bd6d4",
-      "implementation-summary.md": "5c456060327cc56f009ac04553bd4a7ddabe97f41d707cc26e75aafaa76d7100"
+      "decision-record.md": "15e6bf8f35a0b218c1295ff70ffdf284f195a883ca1f82647a0616852fcc4a03",
+      "implementation-summary.md": "e91d9b323a908851bbf1521f12bd17cd6ccc224209ce30c460dbbd7e1438253a"
     },
     "last_active_child_id": null,
     "last_active_at": null
