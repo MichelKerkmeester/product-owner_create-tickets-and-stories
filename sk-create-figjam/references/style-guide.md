@@ -205,7 +205,7 @@ sk-design-diagram's type ramp and grid carry over, because the composer sets the
 | Subtitle | 28 | Regular, wrapped at the diagram's width between 960 and 1440 pixels and then narrowed while it keeps its number of lines, so its lines come out even |
 | Zone and key names | 24 | Semi Bold |
 | Node label | 20 | Medium |
-| Edge label, key entry, source line | 18 | Medium on a connector, Regular elsewhere |
+| Edge label, key entry, source line | 18 | Medium on a connector with any Bold the next section sets, Regular elsewhere |
 | Entity field | 16 | Regular |
 | Gantt bar length, step pin | 14 | Medium |
 
@@ -214,6 +214,16 @@ Every position and size sits on an 8 pixel grid. A shape grows from its kind's b
 The scale is tuned for a laptop at overview zoom. Reading distance does not change it, as `references/flow-mode.md` Section 4 sets out, and buys fewer nodes and shorter labels instead.
 
 A design re-maps meanings onto the pairs in Section 3 and never adds a colour. A board is shared and recoloured in FigJam, so a brand palette would turn every swatch into a custom colour. A brand colour asked for by name is a hand edit after the write, and the reply says it is off-palette.
+
+### Edge label wording
+
+An edge label reads at overview zoom when its outcome stands out. The composer sets the Bold from the label's words, and a person editing a board by hand sets it the same way:
+
+- An outcome with its reason takes a short key, a colon and a capitalised rest, and the key and its colon are Bold, such as **Decline:** No impact
+- A label of three words or fewer leaving a decision names the branch and is Bold throughout, such as **Yes** or **Small fix**
+- Any other label stays Medium, such as a full sentence along a long line
+- Labels take sentence case, and a casing the user set by hand is kept
+- A label stays on one line. A label that would wrap widens its gap instead
 
 ---
 
@@ -246,3 +256,14 @@ Two rules follow from the bands:
 The composer spaces the diagram on fixed steps: 80 pixels between two nodes in one rank, 136 between ranks, widened so an edge label fits its gap, a 48 pixel zone margin under a 96 pixel zone heading, 48 pixels between two zones, 80 pixels of board margin and 64 pixels above the key. Those steps are the composer's, and a board that reads cramped is fixed in the model rather than by changing them. Zones that share a row line up at the top unless an edge skips a zone in that row, and so do the cards of an ER diagram, and an edge routed outside the nodes widens the diagram rather than running into the title or the board's margin. The composer also routes every edge clear of the zones: no run lies along a zone's border, within 16 pixels outside it or 40 inside, so a line in the 48 pixel gap between two zones keeps to its middle, and no edge runs through a zone it neither starts nor ends in. An architecture therefore stands its lanes in the order client, gateway, service, async, datastore, external, so a queue sits beside the service that writes to it and an edge into it does not cross the stores. A node has four magnets, so each edge leaves from its own while one is free. Edges that only arrive may share a side once the others are taken, each at its own point 24 pixels along it, and then run beside each other for no more than 200 pixels, so a fourth client arrives at the gateway beside another instead of looping across its zone to a free magnet. A merge dot, a choice and a milestone are the nodes where arrivals meet, because each is too small to give every arrival its own point. Any other two runs lie at least 56 pixels apart or share no more than a 56 pixel stub, so two edges never read as near-parallel lines, and a label keeps 8 pixels of air from every other line. The 56 pixel rule holds on the composer's path estimate. FigJam routes each elbow itself and may draw two runs closer, which a grader does not count against the board. A bend that lands on another edge counts as a crossing however short the jog after it, so two edges touch only where they merge into one magnet. The bands govern what a person or a note places: the legend column 200 pixels clear of the diagram, a sticky beside its node and the 400 pixels between two boards of one piece of work.
 
 Stickies stand on FigJam's own grid, a gap of 64 pixels from the sticky beside them, aligned to the top left of the space they fill. A column of stickies keeps that grid, which is why its rows read as one list rather than as separate notes.
+
+### Boards with stage columns
+
+A timeline drawn by hand, with stages across the top and lanes down the side, keeps one column pitch so its labels have room:
+
+- Start at a 660 pixel pitch: a 400 pixel card and a 260 pixel gap. A gap is as wide as the widest label in it plus 64, rounded up to 8, and every column takes the widest gap
+- Each column has a header cell with a Bold name and a one-line purpose without a full stop, under the stage it belongs to
+- Each lane opens with a note that says what the lane owns or does
+- To insert a column, shift every node, label and free connector right of it by one pitch, then widen the stage header, every lane band, any full-width lane and the board
+- Prefer the connector's own text for a label, because it moves with the line. A separate label node sits on the first straight leg after the source, 8 pixels clear of the line, never on a bend
+- Give each labelled exit its own magnet or its own gap, so two labels never share one gap

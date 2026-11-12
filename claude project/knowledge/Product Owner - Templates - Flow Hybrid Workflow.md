@@ -31,7 +31,7 @@ Figma ranks the value by type. Annotation helps a flowchart most, and sequence, 
 3. **Extend** with one `use_figma` call on the same `fileKey`, following one recipe below, and return every created id with the board's size before the call
 4. **Read back** the notes, as Section 6 sets out, and reply
 
-Never create a new file and never call `figma.createPage()`, which throws on a FigJam file. Write `use_figma` code as plain JavaScript with top-level `await` and a `return` of every created id, as Figma's `figma-use` skill requires, and load a node's font before setting its text.
+Never create a new file, and call `figma.createPage()` only for the backup page a board edited by hand takes before a structural change, as Templates - Flow Mode Section 9 sets out. Write `use_figma` code as plain JavaScript with top-level `await` and a `return` of every created id, as Figma's `figma-use` skill requires, and load a node's font before setting its text.
 
 Every node inside a zone has coordinates relative to that zone, so a recipe places a note from the target's `absoluteBoundingBox` minus the board's, never from the `x` and `y` a read reports.
 

@@ -53,7 +53,8 @@ class Text {
     this.w = w;
     if (this.textAutoResize === 'HEIGHT') this.measure(); else this.h = h;
   }
-  setRangeFontName() {}
+  // A Bold range is kept, so a check can read which part of a label is set in Bold.
+  setRangeFontName(from, to, font) { if (font && String(font.style).includes('Bold')) (this.boldRanges ||= []).push([from, to]); }
   setRangeFontSize() {}
   setRangeLineHeight() {}
   remove() { this.parent.children = this.parent.children.filter((c) => c !== this); }
@@ -126,7 +127,7 @@ export async function trace(code) {
     for (const c of n.children) {
       const a = absolute(c);
       if (c.type === 'CONNECTOR') {
-        connectors.push({ name: c.name, start: c.connectorStart, end: c.connectorEnd, label: c.text.characters,
+        connectors.push({ name: c.name, start: c.connectorStart, end: c.connectorEnd, label: c.text.characters, bold: c.text.boldRanges || [],
           line: c.connectorLineType, startCap: c.connectorStartStrokeCap, endCap: c.connectorEndStrokeCap,
           dash: c.dashPattern, stroke: c.strokes, weight: c.strokeWeight });
       } else {

@@ -289,6 +289,18 @@ function end(node, magnet = 'AUTO') {
   if (magnet === 'POINT') magnet = { x: node.width / 2, y: node.height / 2 };
   return { endpointNodeId: node.id, [magnet.y === undefined ? 'magnet' : 'position']: magnet };
 }
+// How many leading characters of an edge label are set in Bold. A label with a short key before a colon,
+// such as "Decline: No impact", sets the key and its colon in Bold, so the outcome reads before its reason.
+// A label of three words or fewer leaving a decision, such as "Yes" or "Small fix", is Bold throughout,
+// because it names the branch. Every other label stays Medium.
+function labelBold(e, M) {
+  if (!e.label) return 0;
+  const k = e.label.indexOf(': ');
+  if (k > 0 && e.label.slice(0, k).split(' ').length <= 3) return k + 1;
+  const from = M.nodes.find((n) => n.id === e.from);
+  const role = from && T.kind[from.kind] ? T.kind[from.kind].role : '';
+  return role === 'decision' && e.label.split(' ').length <= 3 ? e.label.length : 0;
+}
 function connect(parent, from, to, o) {
   const c = figma.createConnector();
   parent.appendChild(c);
@@ -306,6 +318,7 @@ function connect(parent, from, to, o) {
     c.text.fontName = MEDIUM;
     c.text.fontSize = TYPE.label;
     c.text.characters = o.label;
+    if (o.bold) c.text.setRangeFontName(0, o.bold, BOLD);
   }
   created.push(c.id);
   return c;
@@ -758,7 +771,7 @@ function buildGraph(M) {
     if (!ok) warnings.push(`edge ${e.from} -> ${e.to} names a missing node`);
     return ok;
   });
-  edges.forEach((e) => { e.lw = e.label ? natural(e.label, MEDIUM, TYPE.label).w : 0; });
+  edges.forEach((e) => { e.bold = labelBold(e, M); e.lw = e.label ? natural(e.label, e.bold ? BOLD : MEDIUM, TYPE.label).w : 0; });
   // An edge to or from a composite state is laid out against its inner start, or its first member when it has
   // none, and drawn to the zone itself, so a label line declared early cannot pull a composite ahead of the
   // state that enters it.
@@ -1112,12 +1125,12 @@ function buildGraph(M) {
             chain.slice(1).forEach((node, i) => {
               const last = i === chain.length - 2;
               const part = connect(board, chain[i], node, { name: last ? `edge:${e.from}->${e.to}` : `leg:${e.from}->${e.to}:${i + 1}`,
-                line: 'STRAIGHT', m0: i ? 'POINT' : m0, m1: last ? m1 : 'POINT', label: i === leg ? e.label : '',
+                line: 'STRAIGHT', m0: i ? 'POINT' : m0, m1: last ? m1 : 'POINT', label: i === leg ? e.label : '', bold: i === leg ? e.bold : 0,
                 dashed: style.dashed, startCap: i ? 'NONE' : style.startCap, endCap: last ? style.endCap : 'NONE' });
               if (last) c = part;
             });
           } else {
-            c = connect(board, from, to, { name: `edge:${e.from}->${e.to}`, m0, m1, label: e.label, ...style });
+            c = connect(board, from, to, { name: `edge:${e.from}->${e.to}`, m0, m1, label: e.label, bold: e.bold, ...style });
           }
         } catch (err) {
           warnings.push(`edge ${e.from} -> ${e.to}: ${err.message}`);

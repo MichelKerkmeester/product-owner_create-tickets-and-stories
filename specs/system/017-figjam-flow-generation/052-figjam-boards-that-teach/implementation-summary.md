@@ -49,6 +49,7 @@ _memory:
 - **Composer fixes from the rerun.** A 16 pixel corner on body cards, small key samples for the shapes FigJam holds at 80 pixels, and room for database and queue card bodies, in `sk-create-figjam/assets/compose-board.js`
 - **Gallery rerun.** Ten graded runs in `benchmark/reports/2026-10-25--manual-testing-playbook--figjam-model-comparison/grades/sonnet-medium-052.jsonl`, nine new gallery images and report section 8.17
 - **Release.** `sk-create-figjam/changelog/v1.0.17.0.md`, `changelog/v1.0.18.0.md` and the Project mirror, recorded in `SYNC.md`
+- **Follow-up, release 1.0.21.0.** A route for a board edited by hand in `sk-create-figjam/references/flow-mode.md` Section 9, companion sync in Section 8, a stage-column grid and label placement in `references/style-guide.md` Section 7, edge label wording in Section 5, and Bold edge labels in `sk-create-figjam/assets/compose-board.js`, with the Project mirror
 <!-- /ANCHOR:what-built -->
 
 ---
@@ -87,6 +88,8 @@ The rules went into the checker first, with a passing and a refused fixture each
 | Parity | 66 of 66 on commit 4b9c0e665 |
 | Gallery rerun | 3 PASS of 10; Substance 2 on nine boards, 1 on FJ-027; Composition fails six |
 | validate.sh --strict | RESULT: PASSED for 052, 051 and the parent |
+| Follow-up self-tests | compose_board 1306 of 1306, flow_check 237 of 237 |
+| Follow-up parity | Structure resolves 68 of 68 pairs; FAILED only on uncommitted paired files until the commit |
 <!-- /ANCHOR:verification -->
 
 ---

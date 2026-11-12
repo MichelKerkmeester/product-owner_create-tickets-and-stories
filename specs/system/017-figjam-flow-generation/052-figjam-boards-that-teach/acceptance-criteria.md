@@ -44,6 +44,7 @@ One row per criterion. `AC-ID` is stable once written: supersede a criterion, ne
 | AC-007 | REQ-007 | Given the playbook root and rubric, When read, Then Substance is defined and a board totals 24 and passes at 20 | Playbook root Section 3 lines 94 and 115 | Met | - |
 | AC-008 | REQ-008 | Given the ten runs, When their records are read, Then each names `claude-sonnet-5-5` at medium effort and has two reader notes and a scorecard row | Ten meta.json files with response model claude-sonnet-5-5, 20 reader notes, 10 jsonl rows | Met | - |
 | AC-009 | REQ-009 | Given each gallery image, When its caption is read, Then it names a run of this phase and its score | Both READMEs: nine captions name FJ-0xx, Sonnet 5.5 medium on v1.0.17.0 and a total of 24; the status lane caption keeps v1.0.16.0 by the D7 amendment | Met | - |
+| AC-010 | REQ-010 | Given the follow-up, When the references and the composer are read and both self-tests run, Then the hand route, the grid, the label wording, the copy rules and companion sync are written and a key or a short decision exit is drawn Bold | flow-mode Sections 5, 8 and 9, style-guide Sections 5 and 7, quality-rubric Section 6; compose_board --self-test 1306 of 1306 including the label weight check; flow_check 237 of 237 | Met | - |
 
 ### Status values
 
@@ -70,5 +71,5 @@ waiver is treated as an unmet criterion rather than as a pass.
 
 **Closeable:** Yes
 
-Eight criteria are Met and AC-006 is Waived by ADR-001, because FJ-025's narrow second board wraps its key to two rows of 144 pixels.
+Nine criteria are Met and AC-006 is Waived by ADR-001, because FJ-025's narrow second board wraps its key to two rows of 144 pixels.
 <!-- /ANCHOR:closure -->

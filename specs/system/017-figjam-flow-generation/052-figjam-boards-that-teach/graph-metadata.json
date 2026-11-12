@@ -56,7 +56,8 @@
       "sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md",
       "benchmark/reports/2026-10-25--manual-testing-playbook--figjam-model-comparison/grades/sonnet-medium-052.jsonl",
       "sk-create-figjam/changelog/v1.0.17.0.md",
-      "changelog/v1.0.18.0.md"
+      "changelog/v1.0.18.0.md",
+      "sk-create-figjam/references/flow-mode.md"
     ],
     "entities": [
       {
@@ -156,6 +157,12 @@
         "source": "derived"
       },
       {
+        "name": "flow-mode.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/references/flow-mode.md",
+        "source": "derived"
+      },
+      {
         "name": "Feature Specification",
         "kind": "proper_noun",
         "path": "spec.md",
@@ -196,17 +203,11 @@
         "kind": "proper_noun",
         "path": "plan.md",
         "source": "derived"
-      },
-      {
-        "name": "Sync Loop",
-        "kind": "proper_noun",
-        "path": "plan.md",
-        "source": "derived"
       }
     ],
     "causal_summary": "Michel found the gallery boards tidy but empty next to the collab chat prompt board",
     "created_at": "2026-10-30T05:41:12.667Z",
-    "last_save_at": "2026-11-02T15:31:00.998Z",
+    "last_save_at": "2026-11-12T15:02:16.615Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -218,14 +219,14 @@
       "decision-record.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:cef7b7af064c057aa6adb5c4333b666662f12cfd5304539258ae742ab96a8272",
+    "source_fingerprint": "sha256:1e55d85a82de2f0a2f060e9dd2ea57f3c8ec5992dba4123d7096a9e83f5f4bbc",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "508610adcd1d91c7fa825823b861eed9027b25e2205694baa6a6299b94cf95aa",
+      "spec.md": "b89e1fb2db6fc33651b94ab7005356e28ee1b6bacd6b29126b56c104c870709c",
       "plan.md": "7b135febaafbafd93ddd0e6b967b7163b797c91f5838f3b9e9f8b62127f9c35d",
-      "tasks.md": "6c14a715ae91fd00ddfe0854c1c14eb6b0d6742f303a938faabb6384a6241f25",
+      "tasks.md": "860943009a48056d2bd50a7d842bbcbc2478b0520e6b799ac09520914b52c9a3",
       "decision-record.md": "3cbe75f9dbf3302ba837552c69db756112166707d909b1a4b039ade3e16bd6d4",
-      "implementation-summary.md": "b49c30d3b224f29398970aaed4431ea47f311d5c98f2f2b03c3db27e1c1fd700"
+      "implementation-summary.md": "01bcd0cfa4ebe7f9ba3821f95d75b84370110cea18bbc69072c816be4f640135"
     },
     "last_active_child_id": null,
     "last_active_at": null

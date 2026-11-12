@@ -47,6 +47,7 @@ contextType: "implementation"
 - [x] T007 Run the ten scenarios on Sonnet 5.5 medium (`skill/sonnet-medium-052/`). Verify: each run has a meta.json and a board. [EVIDENCE: ten meta.json files each name a board; seven reruns after the composer fixes and a third run of FJ-024 and FJ-049, first passes in `failed-attempts/sonnet-medium-052/`]
 - [x] T008 Read and grade each board. Verify: twenty reader notes and ten scorecard rows. [EVIDENCE: `grades/sonnet-medium-052/readers/` holds 20 notes each ending on an Order line; `grades/sonnet-medium-052.jsonl` holds 10 rows; composition_check.py rerun by the operator gives the recorded levels]
 - [x] T009 Gallery, captions and report section 8.17. Verify: every caption names its run and score. [EVIDENCE: nine images replaced, each caption names FJ-0xx, Sonnet 5.5 medium on v1.0.17.0 and its total of 24; the status lane caption keeps its v1.0.16.0 run per the D7 amendment]
+- [x] T010 Follow-up: the hand route, stage-column grid, Bold edge labels, copy rules and companion sync, release 1.0.21.0 with the Project mirror (`sk-create-figjam/`, `claude project/knowledge/`). Verify: both self-tests pass. [EVIDENCE: compose_board --self-test 1306 of 1306 with a new label weight check, flow_check --self-test 237 of 237, changelog v1.0.21.0, SYNC.md note]
 <!-- /ANCHOR:phase-2 -->
 
 ---

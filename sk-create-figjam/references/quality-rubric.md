@@ -123,7 +123,10 @@ After the write, before the reply:
 - [ ] The marked node reads first, and no other node competes with it, except on a state board, where it reads where the composer draws it and leads its glance line
 - [ ] A screenshot finding is reported, and it is fixed only by reshaping the model and composing again after a yes, inside the two-attempt bound `references/flow-mode.md` Section 9 sets
 - [ ] Each extension landed where planned and covers no composed node's label
-- [ ] Nothing was moved, resized or restyled after the write
+- [ ] Nothing was moved, resized or restyled after the write, unless the user asked for an edit by hand, which `references/flow-mode.md` Section 9 sets out
+- [ ] No card bullet, lane note, header line or edge label leaves one word alone on its last line
+- [ ] Every edge label follows `references/style-guide.md` Section 5 under Edge label wording: a Bold key and colon before a capitalised reason, Bold for a short decision exit, Medium for the rest, all on one line
+- [ ] On a board with companion documents, every copy change reached each `.md` file and A4 page, and no A4 page left a block closer to the one above it than the page's own gaps
 - [ ] Every finding below full marks names the label it sits on, where it sits in the frame, and one fix, which is a model change composed again after a yes or a named composer limit the writer cannot move
 
 ---

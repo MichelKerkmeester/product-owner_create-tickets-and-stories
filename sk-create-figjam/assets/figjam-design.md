@@ -96,7 +96,7 @@ The `key` group holds the key's own words: its title, the step pin's entry and o
 | `subtitle` | 28 | Regular | The line under the title, wrapped between 960 and 1440 pixels into even lines |
 | `zone` | 24 | Semi Bold | Zone names and the key's title |
 | `node` | 20 | Medium | Node labels and entity names |
-| `label` | 18 | Medium on a connector, Regular elsewhere | Edge labels, key entries, gantt axis and task names, the source line |
+| `label` | 18 | Medium on a connector with a Bold key or a Bold short decision exit, Regular elsewhere | Edge labels, key entries, gantt axis and task names, the source line |
 | `field` | 16 | Regular | Entity fields |
 | `body` | 16 | Regular at 145% line height | A detail card's body under its Bold label, after a 10 pixel spacer |
 | `small` | 14 | Medium | Gantt bar lengths and step pins |

@@ -90,6 +90,7 @@ A board that teaches the reader what its source says: what a step asks, where a 
 - Docs, templates and examples that teach section notes, detail cards and the focus reason.
 - The scorecard change in the playbook root and the quality rubric, and the ten scenarios.
 - The release, the Claude Project mirror, the rerun, the grades and the gallery.
+- Follow-up of 2026-11-12, release 1.0.21.0: a route for a board the user edits by hand, a stage-column grid, Bold edge labels, two copy rules and companion sync, from a review of a hand-built timeline board.
 
 ### Out of Scope
 - The Composition rule and the reading-order gaps phase 051 found.
@@ -132,6 +133,7 @@ A board that teaches the reader what its source says: what a step asks, where a 
 | REQ-007 | The scorecard scores Substance | The playbook root and rubric define it, and every scored scenario totals 24 |
 | REQ-008 | Ten graded runs on Sonnet 5.5 medium | Each meta.json names `claude-sonnet-5-5` at medium effort, with two reader notes and a scorecard row |
 | REQ-009 | The gallery comes from this run, the status lane image excepted by D7 | Every caption names its run, model, version and score |
+| REQ-010 | Boards edited by hand and Bold edge labels (follow-up) | The references carry the hand route, the grid, the label wording, the copy rules and companion sync, the composer sets a key or a short decision exit in Bold, and both self-tests pass |
 <!-- /ANCHOR:requirements -->
 
 ---
