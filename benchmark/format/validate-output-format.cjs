@@ -1266,7 +1266,72 @@ function titleShapeFindings(prose, lines) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 15. PER-FILE ANALYSIS
+// 15. DESIGN COPY
+// ─────────────────────────────────────────────────────────────────────────────
+// A Story or Epic carries text the requester typed verbatim and leaves text
+// read off a screenshot or a design in the design, naming each element by its
+// role. The gate cannot see where a string came from, so this is a density
+// proxy, and it advises rather than blocks. It counts the distinct copy-like
+// backtick spans in Requirements and Acceptance criteria: a sentence-case
+// phrase of two or more words, or a phrase that ends on sentence punctuation.
+// Values, typography tokens, identifiers, paths, placeholders and commands
+// never count, and neither does a one-word label, which reads the same as a
+// component name. Measured with this function: none in the six Story
+// examples, both scaffolds, their Project mirrors and the local exports, once
+// the sectioned example named its two empty states by role where it had
+// quoted them, at most 8 across 262 graded benchmark Stories built from typed
+// PM notes, and 17 in a Story that transcribed its screenshots. The threshold sits between the last two, and
+// the one transcribed sample is all that set it, so a Story quoting nine to
+// eleven strings off a design still passes in silence and Requirements still
+// needs a reader.
+const DESIGN_COPY_THRESHOLD = 12;
+const DESIGN_COPY_SECTION = /^##\s+(?:Requirements|Acceptance criteria)\s*$/i;
+const ANY_H2_SECTION = /^##\s+(?!\*\*|\s*$)/;
+const INLINE_CODE_SPAN = /`([^`\n]+)`/g;
+const NOT_COPY_LEAD = /^[\d.,+-]|^[$/#]|\{/;
+const NOT_COPY_SHAPE = /\w\/\w| \/ |\.\w{2,4}$|_|::|\(\)|=>|==|<|>|\bREM\b|\dpx\b/;
+
+function copyLikeSpan(span) {
+  const text = span.trim();
+  if (!/[A-Za-z]/.test(text) || NOT_COPY_LEAD.test(text) || NOT_COPY_SHAPE.test(text)) return false;
+  const words = text.split(/\s+/);
+  if (words.length < 2) return false;
+  const sentenceCase = /^[A-Z]/.test(text) && words.slice(1).some((word) => /^[a-z]/.test(word));
+  return sentenceCase || /[A-Za-z][.!?]$/.test(text);
+}
+
+function designCopyFindings(lines) {
+  const strings = new Set();
+  let first = -1;
+  let inSection = false;
+  let inFence = false;
+  lines.forEach((line, index) => {
+    if (/^\s*(```|~~~)/.test(line)) {
+      inFence = !inFence;
+      return;
+    }
+    if (inFence) return;
+    if (ANY_H2_SECTION.test(line)) {
+      inSection = DESIGN_COPY_SECTION.test(line.trim());
+      if (inSection && first < 0) first = index;
+      return;
+    }
+    if (!inSection) return;
+    for (const match of line.matchAll(INLINE_CODE_SPAN)) {
+      if (copyLikeSpan(match[1])) strings.add(match[1].trim());
+    }
+  });
+  if (strings.size < DESIGN_COPY_THRESHOLD) return [];
+  return [
+    {
+      index: first,
+      message: `${strings.size} distinct UI strings quoted in Requirements and Acceptance criteria. If they were read off a screenshot or design, the design already carries them, so name each element by its role and quote only the string the requester says is the change`,
+    },
+  ];
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// 16. PER-FILE ANALYSIS
 // ─────────────────────────────────────────────────────────────────────────────
 function analyse(file, source) {
   const relative = lintingArtifacts ? file : path.relative(systemRoot, file);
@@ -1387,11 +1452,12 @@ function analyse(file, source) {
     // An item saying a screen explains, states, tells or informs, while quoting
     // none of the copy, reports that a string exists without carrying the
     // string. The design already holds what the screen says, so the item fixes
-    // nothing a build could get wrong, and the repair is to quote the copy in
-    // backticks or drop the item. Deliberately narrow, and a copy-paraphrase
-    // check rather than a description check: third-person verb forms only, so
-    // the noun "state" never matches, and any backtick in the item is an
-    // exemption because an item that quotes the copy has carried the value.
+    // nothing a build could get wrong, and the repair is to strike the item,
+    // never to quote a string read off a design into it. Deliberately narrow,
+    // and a copy-paraphrase check rather than a description check: third-person
+    // verb forms only, so the noun "state" never matches, and any backtick in
+    // the item is an exemption because a string the requester typed is a value
+    // the item carries.
     // Measured at one hit across 261 Requirements bullets in the story corpus
     // and zero across 67 in the worked examples, mirrors and numbered exports.
     // The wider "describes a screen" class is not mechanically separable, so
@@ -1435,10 +1501,17 @@ function analyse(file, source) {
         if (!item || item[1].includes('`')) continue;
         if (!/\b(?:explains|states|tells|informs)\b/.test(item[1])) continue;
         errors.push(
-          `${relative}:${i + 1}: Requirements item reports what a screen says without quoting the copy`,
+          `${relative}:${i + 1}: Requirements item reports what a screen says, which the design already carries, so the item is struck`,
         );
       }
     }
+
+    // 0g. copy read off a design stays in the design. Advice rather than a
+    // block, because the gate cannot tell typed copy from transcribed copy,
+    // for the reason its section gives.
+    designCopyFindings(lines).forEach(({ index, message }) => {
+      advisories.push(`${relative}:${index + 1}: ${message}`);
+    });
   }
 
   // 0f. the house writes every checkbox `[]`, with no space between the
@@ -1678,7 +1751,7 @@ function analyse(file, source) {
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 16. THE RUN
+// 17. THE RUN
 // ─────────────────────────────────────────────────────────────────────────────
 
 const statLines = [];

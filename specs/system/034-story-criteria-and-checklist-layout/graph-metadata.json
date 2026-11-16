@@ -45,7 +45,8 @@
       "benchmark/format/validate-output-format.cjs",
       "benchmark/gates/run_gates.sh",
       "claude project/Custom Instructions.md",
-      "changelog/v1.0.36.0.md"
+      "changelog/v1.0.36.0.md",
+      "changelog/v1.0.37.0.md"
     ],
     "entities": [
       {
@@ -127,6 +128,12 @@
         "source": "derived"
       },
       {
+        "name": "v1.0.37.0.md",
+        "kind": "doc",
+        "path": "changelog/v1.0.37.0.md",
+        "source": "derived"
+      },
+      {
         "name": "Feature Specification",
         "kind": "proper_noun",
         "path": "spec.md",
@@ -185,17 +192,11 @@
         "kind": "proper_noun",
         "path": "plan.md",
         "source": "derived"
-      },
-      {
-        "name": "Overview Write",
-        "kind": "proper_noun",
-        "path": "plan.md",
-        "source": "derived"
       }
     ],
     "causal_summary": "Michel chose a new house layout for Stories that differs from the current rules in four places",
     "created_at": "2026-11-16T16:01:35.229Z",
-    "last_save_at": "2026-11-16T18:35:20.983Z",
+    "last_save_at": "2026-11-16T20:59:48.011Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -204,13 +205,13 @@
       "tasks.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:a5e17234c7c8324191a9f223a05e93b398f8aa3926936f027424efea48cde887",
+    "source_fingerprint": "sha256:9244c7f8e55cd323f47b72636b484ee720fbae11f0c153de206f09ade5ee5b02",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "32f3cc376de597e0b627bb1925dc91c1fcc274555207b52841a02909f7b9845c",
+      "spec.md": "6d2098245d4d57178955fdd4462c592ad1a9b45e550de3d3166e916fec66bc6f",
       "plan.md": "8f41f2e3763550ab2b651041bab1f54761dbc3d0d9326d03dbd49163f290bbcd",
-      "tasks.md": "480ffd15919da7f8ce225c8d9a58f2af5a8766d6c13f3831892068f3f1ea066c",
-      "implementation-summary.md": "bea91544284568ef5bf196f8d4e179a46519de103d373f4885ba832c70a826f7"
+      "tasks.md": "236107b4b11188ab7c9f912141a3d3acd9b9faef50536cfff4337e3a4d9833a8",
+      "implementation-summary.md": "2a3812d49e9bcbc84b5ebf736415a9a55c94bea5df40e10facccff9a3300bf3b"
     },
     "last_active_child_id": null,
     "last_active_at": null

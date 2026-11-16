@@ -63,6 +63,20 @@ contextType: "general"
 
 ---
 
+<!-- ANCHOR:phase-4 -->
+## Phase 4: Design copy stays in the design
+
+- [x] T013 Measure copy-like backtick spans in Requirements and Acceptance criteria across the examples, scaffolds, mirrors, exports and graded benchmark Stories, and the one transcribed Story. Verify: the shipped function counts at most 8 distinct strings across 262 benchmark Stories and 17 in the transcribed one.
+- [x] T014 Check the Story playbook scenarios against the split rule (`sk-product-owner/manual-testing-playbook/`). Verify: every Story scenario's source is typed notes, so no expected result changes.
+- [x] T015 Rewrite the copy rules in Story Mode, the Story template, the sectioned example and their mirrors, and add one clause to the kernel Story paragraph (`sk-product-owner/references/story-mode.md`). Verify: `rg 'its exact copy, its labels and its values|quote the copy in' sk-product-owner benchmark/format 'claude project' --glob '!**/changelog/**'` prints nothing.
+- [x] T016 Add the design-copy advisory and the narration repair wording to both validators, the `designCopy` key to `systems.cjs`, two fixtures per folder and the runner cases (`V`). Verify: `node $SL/reference-parity.cjs` prints `shared core is byte-identical to the reference implementation`, and the pre-change validator prints no advisory on `design-copy-violation.md`.
+- [x] T017 Update the omitted-line record and resync the kernel statement in the shared declaration (`SL/systems.py`). Verify: a second `resync_statement.py` run prints `0 statement(s) resynced`.
+- [x] T018 Bump the hub to 1.0.37.0, the skill to 1.2.21.0 and the kernel to v1.2.23, write both release notes and add the dated parity note (`changelog/v1.0.37.0.md`). Verify: `rg -c '1.0.37.0' hub-router.json` prints 1.
+- [x] T019 Rerun every gate, fixture suite and the scratch-clone checks from the final state. Verify: `run_gates.sh` prints `1 of 19 gates failed`, and the fixture runners print 84 and 181 passes.
+<!-- /ANCHOR:phase-4 -->
+
+---
+
 <!-- ANCHOR:completion -->
 ## Completion Criteria
 

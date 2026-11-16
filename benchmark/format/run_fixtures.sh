@@ -292,6 +292,20 @@ check "title shape: segmented titles and near misses stay silent" 0 "validation 
 check "title shape: a Doc title is never read" 0 "validation passed" "Artifact Titles rule" \
   "${FIXTURES}/title-shape-exempt.md"
 
+# Copy read off a design stays in the design, so a Story quoting many distinct
+# UI strings in Requirements and Acceptance criteria draws one advisory and
+# never blocks, because copy the requester typed is kept verbatim and the gate
+# cannot tell the two apart. The violation fixture quotes twelve distinct
+# strings, the threshold. The silent fixture quotes eleven, repeats some of
+# them, and holds values, tokens, identifiers, one-word labels, a title-case
+# name, Solution prose and a fenced block, any of which counted would tip it.
+# Twin: the Sync Loop folder's run_fixtures.sh asserts these cases through the
+# shared core, and also that another system stays silent.
+check "design copy: twelve distinct quoted strings advise" 0 "design-copy-violation.md:20: 12 distinct UI strings" "" \
+  "${FIXTURES}/design-copy-violation.md"
+check "design copy: eleven strings and every non-copy shape stay silent" 0 "validation passed" "distinct UI strings" \
+  "${FIXTURES}/design-copy-silent.md"
+
 # ───────────────────────────────────────────────────────────────
 # 4. PARITY CHECK
 # ───────────────────────────────────────────────────────────────

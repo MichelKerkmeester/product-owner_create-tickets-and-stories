@@ -93,8 +93,8 @@ Design
 - [] Implement each empty state of the card as the linked design shows it
 - [] Missing temperature: the reading shows `--`, so the humidity chip keeps its place
 - [] Missing humidity: the chip is hidden, and the name and temperature stay
-- [] Missing temperature and humidity: the card shows the room name and the label `No sensor data`
-- [] Sensor offline (edge case): the card keeps its last reading and adds the label `Offline`, so a stale value never reads as live
+- [] Missing temperature and humidity: the card shows the room name and the no-data label
+- [] Sensor offline (edge case): the card keeps its last reading and adds the offline label, so a stale value never reads as live
 ###   
 
 ### 3\. Schedule editor
@@ -157,7 +157,7 @@ Design
 
 **Sheet content**
 * * *
-- [] A room with no notes reads `No notes for this room yet.`
+- [] A room with no notes shows the empty-notes line
 - [] Shared with: the room card tap and the schedule block tap, one sheet for both
 * * *
 ##   
