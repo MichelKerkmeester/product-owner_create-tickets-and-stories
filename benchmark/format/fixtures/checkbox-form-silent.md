@@ -28,7 +28,6 @@
 *   **Then** the payouts screen shows the next Tuesday
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 2\. **The creator below the floor sees no date**
 
@@ -37,6 +36,3 @@
 *   **Then** the payouts screen shows no payout date
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
-
-##   

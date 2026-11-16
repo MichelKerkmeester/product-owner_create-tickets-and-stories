@@ -142,19 +142,20 @@ const advisories = [];
 // formatter still hold on an artifact written before the house dropped the space.
 const MARK_AS_DONE = /^- \[ ?\] _Mark as done, if the criteria are met_$/;
 
-// The Mark-as-done line sits between two dividers, so ClickUp reads it as its own
-// band between two rules, which is how the team works the checklist. Blank lines
-// never count, which is what lets one blank line separate the lower divider from
-// the next criterion. Under the last criterion the lower divider is also the
-// section close above the `##   ` spacer heading, so it is written once and a
-// second divider beside it is an error too, because two rules in a row are no
-// band at all.
+// A Mark-as-done line closes its criterion. The `* * *` that closes the
+// Given/When/Then bullets sits directly above it, and nothing rules it off below.
+// One empty line follows it before the next criterion opens. Under the last
+// criterion the line ends the section, so a `##   ` spacer after it is written
+// only when a `## Delivery` section follows. Blank lines never count when the
+// neighbours are read, and a closing code fence directly under the line ends a
+// shown sample rather than starting a criterion.
 const contentNeighbour = (lines, index, step) => {
   for (let at = index + step; at >= 0 && at < lines.length; at += step) {
     if (lines[at].trim() !== '') return at;
   }
   return -1;
 };
+const SPACER_HEADING = /^##\s*$/;
 const markAsDoneFindings = (lines, index) => {
   const findings = [];
   const above = contentNeighbour(lines, index, -1);
@@ -162,31 +163,39 @@ const markAsDoneFindings = (lines, index) => {
   if (above < 0 || lines[above].trim() !== '* * *') {
     findings.push({ index, message: 'no divider above a Mark-as-done checkbox' });
   }
-  if (below < 0 || lines[below].trim() !== '* * *') {
-    findings.push({ index, message: 'no divider below a Mark-as-done checkbox' });
-    return findings;
-  }
-  const beyond = contentNeighbour(lines, below, 1);
-  if (beyond >= 0 && lines[beyond].trim() === '* * *') {
-    findings.push({ index: beyond, message: 'a second divider in a row below a Mark-as-done checkbox' });
+  if (below >= 0 && lines[below].trim() === '* * *') {
+    findings.push({ index: below, message: 'a divider below a Mark-as-done checkbox, where one empty line leads to the next criterion' });
+  } else if (below >= 0 && SPACER_HEADING.test(lines[below].trim()) && contentNeighbour(lines, below, 1) < 0) {
+    findings.push({ index: below, message: 'a spacer after the last Mark-as-done checkbox, where the artifact ends on that line' });
+  } else if (index + 1 < lines.length && lines[index + 1].trim() !== '' && !lines[index + 1].trim().startsWith('```')) {
+    findings.push({ index, message: 'no empty line after a Mark-as-done checkbox' });
   }
   return findings;
 };
 
-// The formatter writes the dividers the checker requires, one above and one
-// below each Mark-as-done line, and a divider already in place is not written
-// again. It walks from the bottom and asks about the lines as they stand now,
-// so the divider written under one line is already there when the line above
-// it asks about its neighbour. Two Mark-as-done lines in a row, or with only a
-// blank line between them, therefore share one divider where a lookup against
-// the unmodified source would write a second one and leave the checker
-// reporting two rules in a row that a later run cannot repair.
-const insertMarkAsDoneDividers = (lines) => {
+// The formatter writes the layout the checker requires. It adds the divider
+// above a Mark-as-done line where one is missing, and removes a divider under
+// the line together with the blank lines around it, leaving one empty line
+// before whatever follows, and writes that empty line where the next criterion
+// starts directly under the line. A spacer left after the last line is removed,
+// because the artifact ends on that line. It walks from the bottom, so a splice
+// never moves a line it has still to visit.
+const placeMarkAsDoneDividers = (lines) => {
   const output = [...lines];
   for (let index = output.length - 1; index >= 0; index -= 1) {
     if (!MARK_AS_DONE.test(output[index].trim())) continue;
     const below = contentNeighbour(output, index, 1);
-    if (below < 0 || output[below].trim() !== '* * *') output.splice(index + 1, 0, '* * *');
+    if (below >= 0 && output[below].trim() === '* * *') {
+      let end = below + 1;
+      while (end < output.length && output[end].trim() === '') end += 1;
+      output.splice(index + 1, end - index - 1, ...(end < output.length ? [''] : []));
+    } else if (index + 1 < output.length && output[index + 1].trim() !== '') {
+      output.splice(index + 1, 0, '');
+    }
+    const after = contentNeighbour(output, index, 1);
+    if (after >= 0 && SPACER_HEADING.test(output[after].trim()) && contentNeighbour(output, after, 1) < 0) {
+      output.splice(index + 1, output.length - index - 1, '');
+    }
     const above = contentNeighbour(output, index, -1);
     if (above < 0 || output[above].trim() !== '* * *') output.splice(index, 0, '* * *');
   }
@@ -587,6 +596,7 @@ const HYPHEN_RULE = /^-{3,}$/;
 const CONTENT_HEADING = /^#{2,6}[ \t]+\S/;
 const DEEP_HEADING = /^#{5,6}[ \t]+\S/;
 const REQUIREMENTS_CHECKLIST = /^\*{2}Checklist\*{2}/;
+const USER_FLOW_LABEL = /^\*{2}User flow:\*{2}/;
 // A checkbox in either form, `[]` as the house writes it or `[ ]` as older
 // artifacts do, capturing the item text.
 const CHECKBOX_ITEM = /^(?:\*\s{3}|[-*+]\s)\[[ xX]?\]\s+(.*\S)\s*$/;
@@ -1362,10 +1372,17 @@ function analyse(file, source) {
     });
 
     // 0d. Requirements hold constraints a build can fail, each one a `- []`
-    // checklist item under its group name. A plain bullet there is the retired
-    // shape and a `**Checklist**` label is build tracking, so both settle without
-    // reading the wording. The per-criterion Mark-as-done checkbox lives in
-    // Acceptance criteria and never inside Requirements.
+    // checklist item. A numbered section sets its checks under a `**Checklist**`
+    // label with a `* * *` divider directly under it, so a label with no divider is
+    // half the shape. The only plain bullets there are the steps of a section's
+    // `**User flow:**`, one bullet per step in the run directly under that label
+    // alone on its line, where an empty line inside the run does not end it. A flow
+    // written after the label on one line, a plain bullet anywhere else, or a
+    // Checklist label outside a numbered section is the retired shape. All of these
+    // settle without reading the wording. The scan runs to the next H2 section and
+    // reads through a `##   ` spacer and a bold `## **Part**` heading, which split
+    // Requirements without ending it. The per-criterion Mark-as-done checkbox lives
+    // in Acceptance criteria and never inside Requirements.
     //
     // An item saying a screen explains, states, tells or informs, while quoting
     // none of the copy, reports that a string exists without carrying the
@@ -1381,18 +1398,39 @@ function analyse(file, source) {
     // Requirements still needs a reader.
     const requirementsIndex = lines.findIndex((line) => line.trim() === '## Requirements');
     if (requirementsIndex >= 0) {
-      const nextSection = lines.findIndex((line, i) => i > requirementsIndex && /^## /.test(line));
+      const nextSection = lines.findIndex((line, i) => i > requirementsIndex && /^## (?!\*\*|\s*$)/.test(line));
       const last = nextSection === -1 ? lines.length : nextSection;
+      let inUserFlow = false;
+      let inNumberedSection = false;
       for (let i = requirementsIndex + 1; i < last; i += 1) {
         const line = lines[i].trim();
+        if (line.startsWith('#')) inNumberedSection = /^### \d+\\?\. /.test(line);
         if (REQUIREMENTS_CHECKLIST.test(line)) {
-          errors.push(`${relative}:${i + 1}: a **Checklist** label inside Requirements, where each constraint is its own checklist item`);
+          inUserFlow = false;
+          if (!inNumberedSection) {
+            errors.push(`${relative}:${i + 1}: a **Checklist** label outside a numbered requirement section`);
+          }
+          const under = contentNeighbour(lines, i, 1);
+          if (under < 0 || lines[under].trim() !== '* * *') {
+            errors.push(`${relative}:${i + 1}: a **Checklist** label inside Requirements with no divider under it`);
+          }
+          continue;
+        }
+        if (USER_FLOW_LABEL.test(line)) {
+          inUserFlow = line === '**User flow:**';
+          if (!inUserFlow) {
+            errors.push(`${relative}:${i + 1}: a User flow written on one line, where the label stands alone and each step is its own bullet`);
+          }
           continue;
         }
         if (/^\*   \S/.test(lines[i])) {
-          errors.push(`${relative}:${i + 1}: a plain bullet inside Requirements, where each constraint is a \`- []\` checklist item`);
+          if (!inUserFlow) {
+            errors.push(`${relative}:${i + 1}: a plain bullet inside Requirements outside a User flow, where each constraint is a \`- []\` checklist item`);
+          }
           continue;
         }
+        if (line === '') continue;
+        inUserFlow = false;
         const item = lines[i].match(CHECKBOX_ITEM);
         if (!item || item[1].includes('`')) continue;
         if (!/\b(?:explains|states|tells|informs)\b/.test(item[1])) continue;
@@ -1656,7 +1694,7 @@ for (const file of files) {
       }
       return line;
     });
-    const output = insertMarkAsDoneDividers(punctuated).join('\n');
+    const output = placeMarkAsDoneDividers(punctuated).join('\n');
     if (output !== source) fs.writeFileSync(file, output);
   }
 
@@ -1675,10 +1713,10 @@ if (!lintingArtifacts) {
   if (!skill.includes('Bullet items never end with a full stop')) {
     errors.push('sk-product-owner/SKILL.md: missing the bullet punctuation contract');
   }
-  if (!storyMode.includes('The Mark-as-done line sits between two dividers')) {
+  if (!storyMode.includes('The Mark-as-done line sits directly under the `* * *` that closes the Given/When/Then bullets')) {
     errors.push('sk-product-owner/references/story-mode.md: missing the acceptance spacing contract');
   }
-  if (!storyMode.includes('the same divider that sits under its Mark-as-done line')) {
+  if (!storyMode.includes('Acceptance criteria is the one exception: it takes no close')) {
     errors.push('sk-product-owner/references/story-mode.md: missing the section-close divider contract');
   }
   if (!storyMode.includes('`## Delivery` is optional and opt-in')) {

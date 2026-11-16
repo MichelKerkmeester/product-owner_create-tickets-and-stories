@@ -156,16 +156,34 @@ check "requirements narration fires on the second item" 1 "requirements-narratio
   "${FIXTURES}/requirements-narration-violation.md"
 check "a quoted string and real constraints stay silent" 0 "validation passed" "reports what a screen says" \
   "${FIXTURES}/requirements-narration-exempt.md"
-check "mark-as-done: a line with no divider below it fires" 1 "markasdone-divider-violation.md:15: no divider below a Mark-as-done checkbox" "" \
+check "mark-as-done: a divider below the line fires" 1 "markasdone-divider-violation.md:16: a divider below a Mark-as-done checkbox" "" \
   "${FIXTURES}/markasdone-divider-violation.md"
-check "mark-as-done: a line with no divider above it fires" 1 "markasdone-divider-violation.md:22: no divider above a Mark-as-done checkbox" "" \
+check "mark-as-done: a line with no divider above it fires" 1 "markasdone-divider-violation.md:23: no divider above a Mark-as-done checkbox" "" \
   "${FIXTURES}/markasdone-divider-violation.md"
-check "mark-as-done: a second divider at the section close fires" 1 "markasdone-divider-violation.md:33: a second divider in a row below a Mark-as-done checkbox" "" \
+check "mark-as-done: a criterion directly under the line fires" 1 "markasdone-divider-violation.md:31: no empty line after a Mark-as-done checkbox" "" \
   "${FIXTURES}/markasdone-divider-violation.md"
-check "mark-as-done: the three findings are the whole report" 1 "failed with 3 error(s)" "" \
+check "mark-as-done: a spacer after the last line fires" 1 "markasdone-divider-violation.md:40: a spacer after the last Mark-as-done checkbox" "" \
   "${FIXTURES}/markasdone-divider-violation.md"
-check "mark-as-done: a line between two dividers stays silent" 0 "validation passed" "Mark-as-done checkbox" \
+check "mark-as-done: the four findings are the whole report" 1 "failed with 4 error(s)" "" \
+  "${FIXTURES}/markasdone-divider-violation.md"
+check "mark-as-done: a divider above and an empty line below stays silent" 0 "validation passed" "Mark-as-done checkbox" \
   "${FIXTURES}/markasdone-divider-silent.md"
+check "requirements layout: a one-line User flow fires" 1 "requirements-layout-violation.md:17: a User flow written on one line" "" \
+  "${FIXTURES}/requirements-layout-violation.md"
+check "requirements layout: a Checklist label with no divider fires" 1 "requirements-layout-violation.md:19: a \*\*Checklist\*\* label inside Requirements with no divider under it" "" \
+  "${FIXTURES}/requirements-layout-violation.md"
+check "requirements layout: a plain bullet outside a User flow fires" 1 "requirements-layout-violation.md:21: a plain bullet inside Requirements outside a User flow" "" \
+  "${FIXTURES}/requirements-layout-violation.md"
+check "requirements layout: the three findings are the whole report" 1 "failed with 3 error(s)" "" \
+  "${FIXTURES}/requirements-layout-violation.md"
+check "requirements layout: labels, flows, parts and columns stay silent" 0 "validation passed" "Requirements" \
+  "${FIXTURES}/requirements-layout-silent.md"
+check "requirements layout: a Checklist label outside a numbered section fires" 1 "requirements-checklist-scope-violation.md:9: a \*\*Checklist\*\* label outside a numbered requirement section" "" \
+  "${FIXTURES}/requirements-checklist-scope-violation.md"
+check "requirements layout: the scope finding is the whole report" 1 "failed with 1 error(s)" "" \
+  "${FIXTURES}/requirements-checklist-scope-violation.md"
+check "mark-as-done: an empty line and a spacer before Delivery stay silent" 0 "validation passed" "Mark-as-done checkbox" \
+  "${FIXTURES}/markasdone-delivery-silent.md"
 
 # The house writes every checkbox `[]`. A spaced one blocks, and the divider
 # rule still reads a Mark-as-done line written in the old form. The violation
@@ -176,7 +194,7 @@ check "checkbox form: a spaced requirement checkbox fires" 1 "checkbox-form-viol
   "${FIXTURES}/checkbox-form-violation.md"
 check "checkbox form: a spaced Mark-as-done checkbox fires" 1 "checkbox-form-violation.md:29: a checkbox written" "" \
   "${FIXTURES}/checkbox-form-violation.md"
-check "mark-as-done: a missing divider fires on an old-form checkbox" 1 "checkbox-form-violation.md:29: no divider below a Mark-as-done checkbox" "" \
+check "mark-as-done: a divider below fires on an old-form checkbox" 1 "checkbox-form-violation.md:30: a divider below a Mark-as-done checkbox" "" \
   "${FIXTURES}/checkbox-form-violation.md"
 check "checkbox form: the house form stays silent" 0 "validation passed" "checkbox written" \
   "${FIXTURES}/checkbox-form-silent.md"

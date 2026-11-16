@@ -16,7 +16,6 @@
 *   **Then** the profile shows live counts again
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 2 ) **The creator cancels the relink**
 
@@ -25,7 +24,6 @@
 *   **Then** the screen closes and nothing changes
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 #### Expiry
 
@@ -37,5 +35,3 @@
 *   **Then** the profile says the link needs renewing
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
-##   

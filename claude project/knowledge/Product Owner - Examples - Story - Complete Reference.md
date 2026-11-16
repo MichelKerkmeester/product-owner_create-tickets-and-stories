@@ -133,7 +133,6 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** the redemption is counted against that code
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 2 ) **A code outside its window does nothing at all**
 * * *
@@ -144,7 +143,6 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** the organizer reads that window in their own local time wherever the code is shown
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 #### Redemption limits
 * * *
@@ -156,7 +154,6 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** every attempt past the cap is refused as fully redeemed
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 4 ) **An abandoned checkout gives its seat back**
 * * *
@@ -166,7 +163,6 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** another member can still use the code
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 #### Revoke
 * * *
@@ -178,7 +174,6 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** every other code in the presale keeps working
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 6 ) **A revoke never undoes an order already placed**
 * * *
@@ -188,7 +183,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** only new redemptions are blocked
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
+
 ##   
 
 #### **Definition of Done**

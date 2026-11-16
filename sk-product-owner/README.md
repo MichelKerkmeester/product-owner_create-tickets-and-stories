@@ -9,7 +9,7 @@ trigger_phrases:
   - "$prd"
   - "$story"
   - "$epic"
-version: 1.2.19.0
+version: 1.2.20.0
 ---
 
 # sk-product-owner
@@ -234,7 +234,7 @@ The documents developers cut tickets from, produced in two artifact kinds rather
 | Story | `$story` `$s` `$prd` `$p`. One feature area: a Problem of three to five sentences and a Solution, Requirements only when there are hard constraints to state (no outcomes, no build steps), a few outcome-led acceptance criteria, and a `## Delivery` close only where the requester asked for it or the artifact forced it. The compact shape is the default. A large Story may take the sectioned shape or borrow one of its options. A source whose Desktop and Mobile requirements differ becomes one sibling Story per platform |
 | Epic | `$epic` `$e`. An initiative split across child stories: an About carrying a Goal, a `## Scope` of child stories, release-level acceptance criteria, and the same opt-in Delivery close, with no Requirements of its own |
 
-Both kinds share one markdown grammar, which lives once in `references/story-mode.md` rather than being copied into each scaffold, and each kind carries its own scaffold that a request loads on its own. A Story's `## Requirements` names each requirement as a bold paragraph lead followed by short `- []` constraint items holding only the hard requirements the delivery has to satisfy, with every hard value the source supplied carried across verbatim in its own units and notation. It never carries a `**Checklist**` label or build steps, because the verifiable detail lives in the acceptance criteria and the child tasks the story feeds. An Epic swaps that whole section for a `## Scope` listing its child stories, and swaps the Expected outcomes label that closes a Story's Solution for a `#### Goal` section. A Story's Problem and Solution sit at H2, and an Epic's Problem, Goal and Solution sit at H4 under its About. Everything else is shared.
+Both kinds share one markdown grammar, which lives once in `references/story-mode.md` rather than being copied into each scaffold, and each kind carries its own scaffold that a request loads on its own. A Story's `## Requirements` names each requirement as a bold paragraph lead followed by short `- []` constraint items holding only the hard requirements the delivery has to satisfy, with every hard value the source supplied carried across verbatim in its own units and notation. It never carries build steps, and a numbered requirement section sets its checks under a `**Checklist**` label with a divider under it, because the verifiable detail lives in the acceptance criteria and the child tasks the story feeds. An Epic swaps that whole section for a `## Scope` listing its child stories, and swaps the Expected outcomes label that closes a Story's Solution for a `#### Goal` section. A Story's Problem and Solution sit at H2, and an Epic's Problem, Goal and Solution sit at H4 under its About. Everything else is shared.
 
 Across every Product Owner artifact, newly authored or rewritten bullet items never end with a full stop. Source-preserving refinements keep untouched punctuation unless the user requests normalization.
 
@@ -250,11 +250,9 @@ Both kinds carry numbered Given/When/Then acceptance criteria in exact ClickUp f
 *   **Then** only `api` incidents generate notifications for them
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
-##   
 ```
 
-The Mark-as-done line sits between two dividers, the `* * *` above it and a `* * *` directly under it, so in ClickUp it reads as its own band between two rules, which is how the team works the checklist. The next criterion starts after one blank line under the lower divider. Under the last criterion that lower divider is the `* * *` that closes Acceptance criteria, on the line directly above the `##   ` spacer, written once and never doubled.
+The Mark-as-done line sits directly under the `* * *` that closes the Given/When/Then bullets, and no divider goes under it. The next criterion starts after one empty line. The last criterion ends on its Mark-as-done line, with no divider and no spacer after it.
 
 Acceptance criteria stay few, one per outcome the story exists to guarantee plus the edges that matter, each a numbered block of `Given`, `When`, `Then` and an optional `And` carrying observable outcomes, never ticket fields, story points or INVEST notes. The count grows with the surfaces the story touches, never with its size or its requirement count. Story criteria verify screen-level behavior while Epic criteria stay release-level. A `## Delivery` section (Estimation, Rabbit holes and No-gos, in that order) is opt-in: it closes the artifact where the requester asked for it or where an open question or an undated external constraint forced it, with unknown values left as `TBD...` rather than an inferred estimate, risk or exclusion, and Acceptance criteria is the last section otherwise. The H1 is the plain hyphen path, led by the app, with no `PRD -` prefix and no team lead: `# {Persona} - {Area} - {Feature}` for a Story, `# Epic - {Persona} - {Area}` for an Epic. An explicitly stated requirement count or child-story set is authoritative. Clauses and edge cases inside one requirement never spawn extra requirements, and shared machinery is described once in `## Solution` (Story) or `## Scope` (Epic) rather than promoting the artifact to a separate shape.
 

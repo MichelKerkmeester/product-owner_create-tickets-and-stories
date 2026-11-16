@@ -94,32 +94,30 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** {a second outcome, on its own line rather than joined to the Then line with "and"}
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
-##   
 ```
 
 ### Notes For Use
 
-- The `#### **References**` block uses plain sub-labels (`Components`, `Flows`, `Lifecycle`), not bold. Omit any group with no supplied links. Paired FigJam board link placement follows Flow Mode Section 8. Images are embedded in ClickUp after export, so the artifact never carries an image, a screenshot reference or a file path to one
+- The `#### **References**` block uses plain sub-labels (`Components`, `Flows`, `Lifecycle`), not bold. Omit any group with no supplied links. Paired FigJam board link placement follows Flow Mode Section 8. Images are embedded in ClickUp after export, so the drafted artifact carries no image, screenshot reference or file path to one. On a push, a requirement section's screenshots sit side by side in ClickUp columns, as story-mode.md Section 3 sets out
 - Solution is the product decision in prose: what changes for the user and why that shape answers the Problem. It never restates the constraints that sit in Requirements or the outcomes that sit in Acceptance criteria, and it names no mechanism. If a Solution bullet could be pasted into Requirements or a criterion unchanged, it belongs there instead. `**Expected outcomes**` closes Solution as a bold label with a `* * *` divider under it, never as a heading, because the outcomes belong to Solution rather than standing as a section of their own
 - Problem opens the Story with no intro lines above it. It states the business problem in three to five sentences, one paragraph: what breaks or is missing today, who it costs and why it matters to the business. It names no solution and links no parent epic in place of the prose. This paragraph is the one exception to the three-sentence paragraph cap
-- Requirements hold hard requirements only: the formats, limits, platforms, integrations, compliance rules and performance floors the delivery has to satisfy whatever approach the developer takes. Each group is a bold name, a divider and short `- []` checklist items, one constraint per item, stated as a fact or an instruction rather than as a user outcome or a build step. Every item is a sentence a build can fail, so an item that reports what a screen says, shows or contains, naming no value, limit, condition, effect or named flow a build could get wrong, is description and is struck rather than reworded. An item that only quotes a string a design already shows, such as a heading and the line it reads, is the same description and is struck. Never a `**Checklist**` label, and never `[ ]` with a space
+- Requirements hold hard requirements only: the formats, limits, platforms, integrations, compliance rules and performance floors the delivery has to satisfy whatever approach the developer takes. Each group is a bold name, a divider and short `- []` checklist items, one constraint per item, stated as a fact or an instruction rather than as a user outcome or a build step. Every item is a sentence a build can fail, so an item that reports what a screen says, shows or contains, naming no value, limit, condition, effect or named flow a build could get wrong, is description and is struck rather than reworded. An item that only quotes a string a design already shows, such as a heading and the line it reads, is the same description and is struck. A `**Checklist**` label appears only over a numbered section's checks, as section 4 shows, and never `[ ]` with a space
 - Supplied hard values travel verbatim. Copy each number, size, spacing, heading level, limit, exact string and button order into a constraint item with its value intact, in the source's own units and notation, inside backticks. Where the source is organised per screen or surface, mirror that organisation with one bold-lead group per screen under the source's own name, and carry each screen's reuse map as a Shared with: constraint in that group. Where the source names a change without giving its content, point the constraint at the design that settles it rather than inventing the text or dropping the line. A screen the source describes in prose supplies the values that prose states, and not its layout, its composition or a paraphrase of what it communicates. A new screen or component supplied as a design, whether a Figma frame, a design link or a screenshot, keeps its copy in the design. Write one item saying its copy and layout follow the design, add only the rules a design cannot show, and quote a string only where it is the change or names the element a rule is about. Never write one item per visible string
 - A source line above the first heading, or for a surface no heading names, is a group of its own under that surface's name, and source hedges are rewritten as facts or open constraints rather than carried into the artifact's prose
 - Requirements is optional only where there is nothing hard to hold. Omit the whole section, spacer included, when the source names no hard constraint and the acceptance criteria say everything. One supplied hard value makes the section mandatory: optionality is permission to omit an empty section, never permission to drop a value the source supplied. Never pad it with outcomes or with screen description to make it look complete. A group named for a screen the source mentioned once holds one item, and a group that grew past its source grew by description
 - This scaffold is the compact shape, the default for small and medium Stories. Story shapes and options in story-mode.md sets out when a Story stays compact, when it takes the sectioned shape and which single option it may borrow, and section 4 below holds the sectioned blocks. A per-platform sibling Story copies this scaffold with the platform in its title
-- `## Delivery` is opt-in and lives in section 3 rather than in the scaffold above, because a delivery view nobody asked for reads as three `TBD...` slots pretending to be a plan. When it is absent, Acceptance criteria is the last section and keeps the close it already writes
+- `## Delivery` is opt-in and lives in section 3 rather than in the scaffold above, because a delivery view nobody asked for reads as three `TBD...` slots pretending to be a plan. When it is absent, Acceptance criteria is the last section and the artifact ends on its last Mark-as-done line
 - Acceptance criteria describe what the user can rely on once the work ships and the quality it has to have, from the product's point of view. They leave the mechanism to the developer. A criterion says playback starts at once and adapts to the connection, not which player or bitrate ladder does it
 - Keep acceptance criteria few. One criterion per outcome the story exists to guarantee, plus the edges that matter. The count grows only with the number of surfaces and considerations the story touches, never with its size or the number of requirements
 - One outcome per Then or And line. When a Then line would join two outcomes with "and", the second outcome moves to its own `*   **And**` line, and so does each outcome after it: "the list sorts by rating ascending, and the sort control shows Rating as active" becomes a Then line and an And line. An "and" inside one outcome stays, as in "name and email" or "Terms and Conditions"
 - Surface groups (`#### {Group}`) are optional: add them only when the story spans two or more surfaces and each carries its own criteria (for example `#### Upload`, `#### Playback`). A short story keeps a flat numbered list
-- The Mark-as-done line sits between two dividers, the `* * *` above it and a `* * *` directly under it, so in ClickUp it reads as its own band between two rules, which is how the team works the checklist. Start the next criterion after one blank line under the lower divider. Under the last criterion that lower divider is the `* * *` that closes Acceptance criteria on the line above the `##   ` spacer, written once and never doubled, which is what the house Story does
+- The Mark-as-done line sits directly under the `* * *` that closes the Given/When/Then bullets, and no divider goes under it. Start the next criterion after one empty line. The last criterion ends on its Mark-as-done line, with no divider and no spacer after it
 
 ---
 
 ## 3. OPTIONAL DELIVERY CLOSE
 
-Append this block only when the requester asked for a delivery view, or when a requirement carries an `**Open:**` line or an undated external constraint forces one. Otherwise the scaffold above is the whole artifact and its trailing `##   ` spacer is the last line of the file.
+Append this block only when the requester asked for a delivery view, or when a requirement carries an `**Open:**` line or an undated external constraint forces one. Otherwise the scaffold above is the whole artifact and its last Mark-as-done line is the last line of the file. When the block is appended, an empty line and a `##   ` spacer go between that line and `## Delivery`, with no divider above the spacer.
 
 ```markdown
 ## Delivery
@@ -179,15 +177,23 @@ A large Story may swap the three blocks below into the scaffold above, each in p
 {One sentence on what the story needs from the other ticket.}
 [{Ticket name}]({ticket-url})
 
+**Checklist**
+* * *
 - [] {What the dependency forces}
 ###   
 
 ### 2\. {Surface or component area}
 * * *
-**User flow:** {who does what, and where}
+**User flow:**
+*   {Who does what, and where}
+*   {The next step of the flow}
 
 Design
 [{Design link}]({url})
+
+**Checklist**
+* * *
+- [] {A constraint for the section as a whole}
 
 #### **{Sub-area}**
 * * *

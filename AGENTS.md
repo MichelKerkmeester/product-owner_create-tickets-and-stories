@@ -151,7 +151,7 @@ When this runtime has the ClickUp MCP (native, or the vendored `mcp-click-up/` p
 - Silently reconciling conflicting sources or repairing unrelated source defects
 - Using `---` dividers or generic `-` bullets in a new Doc artifact. Use `* * *` and `*   ` instead
 - Ending a newly authored or rewritten bullet item with a full stop
-- Leaving a Story or Epic Mark-as-done checkbox without a `* * *` divider above and below it, or doubling the divider under the last criterion, as `sk-product-owner/references/story-mode.md` Section 3 sets out
+- Putting a `* * *` divider under a Story or Epic Mark-as-done checkbox or leaving one without the divider above it, as `sk-product-owner/references/story-mode.md` Section 3 sets out
 
 Violation of this protocol invalidates the response.
 

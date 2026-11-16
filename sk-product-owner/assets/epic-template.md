@@ -108,8 +108,6 @@ Each child story carries the detailed criteria for its own screens and states.
 *   **And** {additional outcome, on its own line rather than joined to the Then line with "and"}
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
-##   
 ```
 
 ### Notes For Use
@@ -119,13 +117,13 @@ Each child story carries the detailed criteria for its own screens and states.
 - A first-drafted Epic usually has no child-story links at all, because the stories do not exist yet. That is the normal case and it does not block the Scope section. Name each intended child story as plain text in its own `*   ` bullet, written in the shape its Story H1 will take (`{Persona or platform} - {Area or initiative} - {Feature}`), and add the link when the story is created. Never invent a ClickUp or Figma URL to make a bullet look finished, and never drop a child story because it has no link. A group that mixes linked and unlinked bullets is normal and needs no explanatory note
 - Release-level acceptance criteria describe outcomes a completed release guarantees. Screen-level detail belongs in the child stories
 - One outcome per Then or And line, as in a Story. A second outcome joined to a Then line with "and" moves to its own `*   **And**` line, while an "and" inside one outcome stays
-- The Mark-as-done line sits between two dividers, the `* * *` above it and a `* * *` directly under it, so in ClickUp it reads as its own band between two rules, which is how the team works the checklist. Start the next criterion after one blank line under the lower divider. Under the last criterion that lower divider is the `* * *` that closes Acceptance criteria on the line above the `##   ` spacer, written once and never doubled, exactly as the `#### Added Later` group's last bullet is closed before Scope's spacer
+- The Mark-as-done line sits directly under the `* * *` that closes the Given/When/Then bullets, and no divider goes under it, as in a Story. Start the next criterion after one empty line. The last criterion ends on its Mark-as-done line, with no divider and no spacer after it, while Scope still closes on the `* * *` above its spacer
 
 ---
 
 ## 3. OPTIONAL DELIVERY CLOSE
 
-Append this block only when the requester asked for a delivery view, or when a requirement carries an `**Open:**` line or an undated external constraint forces one. Otherwise the scaffold above is the whole artifact and its trailing `##   ` spacer is the last line of the file.
+Append this block only when the requester asked for a delivery view, or when a requirement carries an `**Open:**` line or an undated external constraint forces one. Otherwise the scaffold above is the whole artifact and its last Mark-as-done line is the last line of the file. When the block is appended, an empty line and a `##   ` spacer go between that line and `## Delivery`, with no divider above the spacer.
 
 ```markdown
 ## Delivery

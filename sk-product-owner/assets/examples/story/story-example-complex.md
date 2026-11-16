@@ -71,7 +71,6 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** that release counts against the cap for every other payout type, not only its own
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 2 ) **The cap defers a payout without losing it**
 * * *
@@ -81,7 +80,6 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** every deferred payout waits for a later pass with its amount and destination intact, rather than being cancelled or converted to another type
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 3 ) **No payout releases before its money has cleared**
 * * *
@@ -91,7 +89,6 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** it releases on the first pass after the funds clear, still subject to the shared cap
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 #### Risk and fallback
 * * *
@@ -103,7 +100,6 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** it waits in the shared manual review queue with its original amount and destination, ready for a person to act on
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 #### Type scope
 * * *
@@ -115,7 +111,7 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** their remaining payout types keep releasing exactly as before
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
+
 ##   
 
 ## Delivery

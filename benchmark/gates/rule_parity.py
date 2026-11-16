@@ -103,19 +103,19 @@ RULES = {
     # checkbox line. Story Mode states it once as the rule, and the templates
     # and every worked Story/Epic example show it repeated per criterion, so the
     # count on a multi-criterion example is greater than one and still has
-    # to match between the two sides. The divider above and below it is the next
-    # rule's to hold.
+    # to match between the two sides. The divider above it is the next rule's
+    # to hold.
     "acceptance criteria close with the mark-as-done checkbox": {
         "phrases": ("_Mark as done, if the criteria are met_",),
         "min_pairs": 8,
     },
-    # The checkbox line sits between two dividers, so ClickUp reads it as its own
-    # band between two rules, which is how the team works the checklist. Story
-    # Mode states the rule and both scaffolds open their note on the same clause,
-    # so a mirror that slips back to the no-divider wording loses the clause and
-    # the count breaks while the checkbox phrase above still agrees.
-    "the mark-as-done line sits between two dividers": {
-        "phrases": ("The Mark-as-done line sits between two dividers",),
+    # The checkbox line sits directly under the divider that closes its bullets,
+    # with no divider under it. Story Mode states the rule and both scaffolds
+    # open their note on the same clause, so a mirror that slips back to the old
+    # two-divider wording loses the clause and the count breaks while the
+    # checkbox phrase above still agrees.
+    "the mark-as-done line sits directly under its divider": {
+        "phrases": ("The Mark-as-done line sits directly under the `* * *`",),
         "min_pairs": 3,
     },
     # The Barter bug corpus writes these two labels verbatim and in order.

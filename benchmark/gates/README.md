@@ -61,8 +61,8 @@ Each rule names a verbatim span, chosen so a reader can grep for it and land on 
 |---|---|---|---|
 | Requirement items close under the bold Checklist sub-label | `**Checklist**` | `references/task-mode.md:114` | 10 |
 | Checklist and bullet items are never closed with a period | `Checklist and bullet items must not end with \`.\`` | `references/task-mode.md:116` | 1 |
-| Acceptance criteria close with the mark-as-done checkbox | `_Mark as done, if the criteria are met_` | `references/story-mode.md:152` | 8 |
-| The Mark-as-done line sits between two dividers | `The Mark-as-done line sits between two dividers` | `references/story-mode.md:152`, `assets/story-template.md:116`, `assets/epic-template.md:122` | 3 |
+| Acceptance criteria close with the mark-as-done checkbox | `_Mark as done, if the criteria are met_` | `references/story-mode.md:153` | 8 |
+| The Mark-as-done line sits directly under its divider | `` The Mark-as-done line sits directly under the `* * *` `` | `references/story-mode.md:153`, `assets/story-template.md:114`, `assets/epic-template.md:120` | 3 |
 | Bug reports carry the two fixed corpus labels in order | `1. Observed Behavior`, `2. Expected Behavior` | `references/bug-mode.md:123` | 7 |
 | The ClickUp definition delimiter is the named exception to the em-dash ban | `` *   **Term** — definition `` | `references/hvr-core.md:45`, `references/doc-mode.md:104` | 2 |
 | Bullet items never end with a full stop | `Bullet items never end with a full stop.` | `references/hvr-core.md:39` | 1 |

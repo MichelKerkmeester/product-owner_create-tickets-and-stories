@@ -36,7 +36,8 @@
     "system/030-system-review-and-vendor-sync",
     "system/031-doc-alignment-follow-up",
     "system/032-fresh-review-fixes",
-    "system/033-design-copy-pointer-requirements"
+    "system/033-design-copy-pointer-requirements",
+    "system/034-story-criteria-and-checklist-layout"
   ],
   "manual": {
     "depends_on": [],

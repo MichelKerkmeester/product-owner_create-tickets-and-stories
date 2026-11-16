@@ -59,13 +59,17 @@ Flows
 The Hearthly design tokens v2 are needed to build this story, so the work starts once that ticket ships.
 [Hearthly design tokens v2](https://tasks.hearthly.example/t/design-tokens-v2)
 
+**Checklist**
+* * *
 - [] Integrate the v2 tokens into the Hearthly app
 - [] The cards, the schedule and the sheet take every shadow and background gradient from those tokens, so none is hard-coded
 ###   
 
 ### 2\. Room cards
 * * *
-**User flow:** a homeowner scans the room cards on the Mobile home screen
+**User flow:**
+*   A homeowner opens the Mobile home screen
+*   The homeowner scans the room cards
 
 Design
 [Mobile - Room card](https://figma.example/hearthly/mobile-room-card)
@@ -95,7 +99,9 @@ Design
 
 ### 3\. Schedule editor
 * * *
-**User flow:** a homeowner edits a day's heating schedule by dragging a block handle
+**User flow:**
+*   A homeowner opens a day's heating schedule
+*   The homeowner drags a block handle to change the block
 
 Design
 [Mobile - Schedule block](https://figma.example/hearthly/mobile-schedule-block)
@@ -136,7 +142,9 @@ Design
 
 ### 4\. Room sheet
 * * *
-**User flow:** a homeowner taps a room card or a schedule block and opens the room's sheet
+**User flow:**
+*   A homeowner taps a room card or a schedule block
+*   The room's sheet opens
 
 Design
 [Mobile - Room sheet](https://figma.example/hearthly/mobile-room-sheet)
@@ -167,7 +175,6 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** the card says the sensor is offline
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 2 ) **A block follows the finger and lands on a clean time**
 * * *
@@ -178,7 +185,6 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** it never ends up shorter than the shortest allowed block
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 3 ) **The schedule stays readable while a block moves**
 * * *
@@ -189,7 +195,6 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** on release, everything returns to rest with no jump
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 4 ) **A block that crosses midnight stays one block**
 * * *
@@ -199,7 +204,6 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** both days show the same times
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 5 ) **The sheet keeps the schedule in view**
 * * *
@@ -210,7 +214,6 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** a room with no notes shows the no-notes message
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 6 ) **Both entry points open the same sheet**
 * * *
@@ -219,7 +222,6 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **Then** the same sheet opens with the same content
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
 
 7 ) **Every change is applied, and it matches Figma 1:1**
 * * *
@@ -229,5 +231,3 @@ All acceptance criteria below must be met, or discuss and rescope any that canno
 *   **And** every shadow and background gradient is taken 1:1 from the Hearthly design tokens v2, with nothing hard-coded
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
-##   

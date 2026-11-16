@@ -14,7 +14,7 @@
 *   **Then** the platform reconnects and the profile shows live counts again
 * * *
 - [] _Mark as done, if the criteria are met_
-* * *
+
 ##   
 
 ## Delivery
