@@ -1,0 +1,28 @@
+{
+  "level": "2",
+  "specFolder": "system/reviews/001-po-realistic-playbook-opus-rerun/005-grading-and-report",
+  "description": "Run output is not a result until each scenario is graded whole against the rules the runtime saw",
+  "keywords": [
+    "run",
+    "output",
+    "result",
+    "until",
+    "scenario",
+    "graded",
+    "whole",
+    "against",
+    "rules",
+    "runtime",
+    "saw"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.061Z",
+  "specId": "005",
+  "folderSlug": "grading-and-report",
+  "parentChain": [
+    "system",
+    "reviews",
+    "001-po-realistic-playbook-opus-rerun"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

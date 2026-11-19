@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization/016-figma-desktop-setup",
+  "description": "Repo users meet the fj route only as a missing route: README, USER-GUIDE and the Project say nothing about figma-ds-cli, and Flow Mode's No route",
+  "keywords": [
+    "repo",
+    "users",
+    "meet",
+    "route",
+    "only",
+    "missing",
+    "readme",
+    "user-guide",
+    "project",
+    "say",
+    "nothing",
+    "about",
+    "figma-ds-cli",
+    "flow",
+    "mode"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.487Z",
+  "specId": "016",
+  "folderSlug": "figma-desktop-setup",
+  "parentChain": [
+    "system",
+    "platform",
+    "006-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

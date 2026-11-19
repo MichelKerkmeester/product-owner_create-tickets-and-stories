@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/052-figjam-boards-that-teach",
+  "description": "Michel found the gallery boards tidy but empty next to the collab chat prompt board",
+  "keywords": [
+    "michel",
+    "found",
+    "gallery",
+    "boards",
+    "tidy",
+    "empty",
+    "next",
+    "collab",
+    "chat",
+    "prompt",
+    "board"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.445Z",
+  "specId": "052",
+  "folderSlug": "figjam-boards-that-teach",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 3,
+  "memoryNameHistory": [
+    "12-11-26_17-00__fixed-the-fresh-fable-review-findings-in-sk.md",
+    "12-11-26_17-34__fixed-the-fresh-fable-review-findings-in-sk.md",
+    "12-11-26_17-39__added-playbook-scenarios-for-the-direct-edit-bold.md"
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/017-criterion-as-triple",
+  "description": "The packet never names acceptance criteria, so the one pre-structured input arrives as prose and is asked only to be classified",
+  "keywords": [
+    "packet",
+    "never",
+    "names",
+    "acceptance",
+    "criteria",
+    "one",
+    "pre-structured",
+    "input",
+    "arrives",
+    "prose",
+    "asked",
+    "only",
+    "classified"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.400Z",
+  "specId": "017",
+  "folderSlug": "criterion-as-triple",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

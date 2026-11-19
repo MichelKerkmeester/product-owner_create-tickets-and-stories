@@ -1,0 +1,27 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/018-artifact-plus-board-pair",
+  "description": "The router discards FigJam wording beside an artifact, so a request for both silently loses the diagram",
+  "keywords": [
+    "router",
+    "discards",
+    "figjam",
+    "wording",
+    "beside",
+    "artifact",
+    "request",
+    "silently",
+    "loses",
+    "diagram"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.188Z",
+  "specId": "018",
+  "folderSlug": "artifact-plus-board-pair",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

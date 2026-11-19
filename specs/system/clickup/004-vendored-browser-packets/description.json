@@ -1,0 +1,26 @@
+{
+  "level": "1",
+  "specFolder": "system/clickup/004-vendored-browser-packets",
+  "description": "The ClickUp gap pass and columns routine drive the browser through the `aside` and `chromedevtoolslive` manuals",
+  "keywords": [
+    "clickup",
+    "gap",
+    "pass",
+    "columns",
+    "routine",
+    "drive",
+    "browser",
+    "aside",
+    "chromedevtoolslive",
+    "manuals"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.501Z",
+  "specId": "004",
+  "folderSlug": "vendored-browser-packets",
+  "parentChain": [
+    "system",
+    "clickup"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

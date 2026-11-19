@@ -1,0 +1,27 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/022-created-node-tags",
+  "description": "In a new session nothing records which nodes an earlier write created, so a revision would duplicate the diagram",
+  "keywords": [
+    "new",
+    "session",
+    "nothing",
+    "records",
+    "nodes",
+    "earlier",
+    "write",
+    "revision",
+    "duplicate",
+    "diagram"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.192Z",
+  "specId": "022",
+  "folderSlug": "created-node-tags",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

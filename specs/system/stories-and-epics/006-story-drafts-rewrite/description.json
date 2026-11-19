@@ -1,0 +1,30 @@
+{
+  "level": "1",
+  "specFolder": "system/stories-and-epics/006-story-drafts-rewrite",
+  "description": "Sixteen Story Drafts under `AI Systems/Product Owner/export/Story Drafts/` had to be rewritten in place as full Stories in the current house format,",
+  "keywords": [
+    "sixteen",
+    "story",
+    "drafts",
+    "systems",
+    "product",
+    "owner",
+    "export",
+    "rewritten",
+    "place",
+    "full",
+    "stories",
+    "current",
+    "house",
+    "format"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.053Z",
+  "specId": "006",
+  "folderSlug": "story-drafts-rewrite",
+  "parentChain": [
+    "system",
+    "stories-and-epics"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

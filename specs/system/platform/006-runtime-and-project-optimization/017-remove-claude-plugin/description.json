@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization/017-remove-claude-plugin",
+  "description": "The repository ships a Claude Code plugin nobody installs: claude-plugin/ manifests, a generated skills tree, scripts/build-plugin.py and a gate that",
+  "keywords": [
+    "repository",
+    "ships",
+    "claude",
+    "code",
+    "plugin",
+    "nobody",
+    "installs",
+    "claude-plugin",
+    "manifests",
+    "skills",
+    "tree",
+    "scripts",
+    "build-plugin",
+    "gate"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.489Z",
+  "specId": "017",
+  "folderSlug": "remove-claude-plugin",
+  "parentChain": [
+    "system",
+    "platform",
+    "006-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

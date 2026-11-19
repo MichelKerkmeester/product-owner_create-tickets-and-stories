@@ -1,0 +1,29 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization/001-runtime-config",
+  "description": "The Product Owner repository vendors mcp-click-up and mcp-figma, but it carries no .utcpconfig.json, no .mcp.json and no opencode.json, and its Code",
+  "keywords": [
+    "product",
+    "owner",
+    "repository",
+    "vendors",
+    "mcp-click-up",
+    "mcp-figma",
+    "carries",
+    "utcpconfig",
+    "json",
+    "mcp",
+    "opencode",
+    "code"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.461Z",
+  "specId": "001",
+  "folderSlug": "runtime-config",
+  "parentChain": [
+    "system",
+    "platform",
+    "006-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

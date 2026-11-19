@@ -1,0 +1,26 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/029-extension-fixes/008-dangling-connectors",
+  "description": "The direction rule has no answer for a connector without two node ends",
+  "keywords": [
+    "direction",
+    "rule",
+    "answer",
+    "connector",
+    "without",
+    "two",
+    "node",
+    "ends"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.203Z",
+  "specId": "008",
+  "folderSlug": "dangling-connectors",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "029-extension-fixes"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

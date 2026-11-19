@@ -1,0 +1,28 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization/014-user-guide-rewrite",
+  "description": "USER-GUIDE.md fails sk-doc validation as an install guide, missing the Prerequisites, Installation and Verification sections",
+  "keywords": [
+    "user-guide",
+    "fails",
+    "sk-doc",
+    "validation",
+    "install",
+    "guide",
+    "missing",
+    "prerequisites",
+    "installation",
+    "verification",
+    "sections"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.484Z",
+  "specId": "014",
+  "folderSlug": "user-guide-rewrite",
+  "parentChain": [
+    "system",
+    "platform",
+    "006-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

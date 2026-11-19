@@ -1,0 +1,30 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/029-extension-fixes/009-pair-reply-ending",
+  "description": "The pair's first reply has two endings, and accepting the ClickUp offer pushes an artifact with no board link",
+  "keywords": [
+    "pair",
+    "first",
+    "reply",
+    "two",
+    "endings",
+    "accepting",
+    "clickup",
+    "offer",
+    "pushes",
+    "artifact",
+    "board",
+    "link"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.204Z",
+  "specId": "009",
+  "folderSlug": "pair-reply-ending",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "029-extension-fixes"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,19 @@
+{
+  "specFolder": "system/reviews/007-po-system-deep-review",
+  "description": "PO whole-system deep review",
+  "keywords": [
+    "whole-system",
+    "deep",
+    "review"
+  ],
+  "lastUpdated": "2026-11-19T09:44:58.064Z",
+  "specId": "007",
+  "folderSlug": "po-system-deep-review",
+  "parentChain": [
+    "system",
+    "reviews"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": [],
+  "level": "1"
+}

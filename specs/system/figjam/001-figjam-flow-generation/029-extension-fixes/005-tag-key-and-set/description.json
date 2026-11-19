@@ -1,0 +1,30 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/029-extension-fixes/005-tag-key-and-set",
+  "description": "The tag paragraph rests on a superseded Figma rule and never says which value is the key or where the created nodes come from",
+  "keywords": [
+    "tag",
+    "paragraph",
+    "rests",
+    "superseded",
+    "figma",
+    "rule",
+    "never",
+    "says",
+    "value",
+    "key",
+    "nodes",
+    "come"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.201Z",
+  "specId": "005",
+  "folderSlug": "tag-key-and-set",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "029-extension-fixes"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

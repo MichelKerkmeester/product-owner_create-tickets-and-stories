@@ -1,0 +1,30 @@
+{
+  "level": "1",
+  "specFolder": "system/stories-and-epics/012-feedback-ticket-template",
+  "description": "Review rounds produce feedback tickets that Michel writes by hand in ClickUp, such as the four Chat Prompts MVP Feedback #1 tasks",
+  "keywords": [
+    "review",
+    "rounds",
+    "produce",
+    "feedback",
+    "tickets",
+    "michel",
+    "writes",
+    "hand",
+    "clickup",
+    "four",
+    "chat",
+    "prompts",
+    "mvp",
+    "tasks"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.504Z",
+  "specId": "012",
+  "folderSlug": "feedback-ticket-template",
+  "parentChain": [
+    "system",
+    "stories-and-epics"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

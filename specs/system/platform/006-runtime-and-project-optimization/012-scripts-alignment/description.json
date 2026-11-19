@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization/012-scripts-alignment",
+  "description": "The scripts folder fails the sk-code-skilled alignment verifier with missing code READMEs, and its owned scripts were never checked against the Python",
+  "keywords": [
+    "scripts",
+    "folder",
+    "fails",
+    "sk-code-skilled",
+    "alignment",
+    "verifier",
+    "missing",
+    "code",
+    "readmes",
+    "owned",
+    "never",
+    "checked",
+    "against",
+    "python"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.481Z",
+  "specId": "012",
+  "folderSlug": "scripts-alignment",
+  "parentChain": [
+    "system",
+    "platform",
+    "006-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

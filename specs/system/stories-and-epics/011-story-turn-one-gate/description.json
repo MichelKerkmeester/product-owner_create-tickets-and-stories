@@ -1,0 +1,26 @@
+{
+  "level": "1",
+  "specFolder": "system/stories-and-epics/011-story-turn-one-gate",
+  "description": "Five story runs of the Product Owner Project on DeepSeek V4.1 Flash high, through Devin and again through Pi",
+  "keywords": [
+    "five",
+    "story",
+    "runs",
+    "product",
+    "owner",
+    "project",
+    "deepseek",
+    "flash",
+    "high",
+    "devin"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.494Z",
+  "specId": "011",
+  "folderSlug": "story-turn-one-gate",
+  "parentChain": [
+    "system",
+    "stories-and-epics"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

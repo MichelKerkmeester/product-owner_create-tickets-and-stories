@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/reviews/001-po-realistic-playbook-opus-rerun",
+  "description": "The Product Owner playbook measures whether the system follows its rules, but the tickets it produces look nothing like real engineering work",
+  "keywords": [
+    "product",
+    "owner",
+    "playbook",
+    "measures",
+    "whether",
+    "system",
+    "follows",
+    "rules",
+    "tickets",
+    "produces",
+    "look",
+    "nothing",
+    "like",
+    "real",
+    "engineering",
+    "work"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.065Z",
+  "specId": "001",
+  "folderSlug": "po-realistic-playbook-opus-rerun",
+  "parentChain": [
+    "system",
+    "reviews"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

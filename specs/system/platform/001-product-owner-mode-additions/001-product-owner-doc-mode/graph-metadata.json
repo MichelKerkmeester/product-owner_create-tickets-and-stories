@@ -1,0 +1,227 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/platform/001-product-owner-mode-additions/001-product-owner-doc-mode",
+  "spec_folder": "system/platform/001-product-owner-mode-additions/001-product-owner-doc-mode",
+  "parent_id": "system/platform/001-product-owner-mode-additions",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "product owner doc mode",
+      "document how this works",
+      "product documentation routing",
+      "source authority conflict gate",
+      "documentation refinement fidelity",
+      "product owner doc mode implementation",
+      "doc mode routing plan",
+      "documentation source authority",
+      "claude package parity",
+      "product owner doc mode tasks",
+      "doc mode implementation",
+      "doc mode verification"
+    ],
+    "key_topics": [
+      "product",
+      "owner",
+      "doc",
+      "mode",
+      "document",
+      "works",
+      "documentation",
+      "routing",
+      "source",
+      "authority",
+      "conflict",
+      "gate"
+    ],
+    "importance_tier": "high",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "decision-record.md",
+      "implementation-summary.md",
+      "research.md",
+      "handover.md",
+      "claude project/README.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "decision-record.md",
+        "kind": "doc",
+        "path": "decision-record.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "research.md",
+        "kind": "doc",
+        "path": "research.md",
+        "source": "derived"
+      },
+      {
+        "name": "handover.md",
+        "kind": "doc",
+        "path": "handover.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "claude project/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner Doc Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Doc Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Decisions",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implement Doc Mode",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Closed Amendment",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Execution Protocol",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Checklist Before",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Execution Rules",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Decision Record",
+        "kind": "proper_noun",
+        "path": "decision-record.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Before this release, the Product Owner system had no documentation artifact type",
+    "created_at": "2026-07-14T10:07:21Z",
+    "last_save_at": "2026-11-19T09:18:34.558Z",
+    "save_lineage": "same_pass",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "decision-record.md",
+      "implementation-summary.md",
+      "research.md",
+      "handover.md"
+    ],
+    "source_fingerprint": "sha256:8db035d7f72bb25aa4de4d09e157a093f09b15f7c125999cbf0857e9243c7ea1",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "59da6bb6a0f52bd010e1f79742fa7c44034c0b317ec5b92b6726755d15074f7a",
+      "plan.md": "dfb0eac273a148d271d7d8c8f52113fffc49dcc99a4fa01ebeca892a9413d228",
+      "tasks.md": "64bc6c1cf132a01d4bf74aaf72a20da88b77456b0d12a201871f6c5458debb7c",
+      "decision-record.md": "99255d8875ea5739b7b4fe090e3f300a45e66ce9999442eaceb3d612e8c96f4c",
+      "implementation-summary.md": "13c4b95656cb2739d9930b28959271a69eb6a1b457f7a89e154ac43c6c4cf299",
+      "research.md": "ec27d8d22e6561af7ac09c985d920e5bf10ddab01db5aa102c756b75314193d7",
+      "handover.md": "360bc6604d748a3d0f524f9d6dbcfc29c0b2cb5835b6b088093b70768c767956"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/003-question-bank",
+  "description": "The type table is already question-shaped and has never been used as an interview",
+  "keywords": [
+    "type",
+    "table",
+    "already",
+    "question-shaped",
+    "never",
+    "interview"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.387Z",
+  "specId": "003",
+  "folderSlug": "question-bank",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply",
+  "description": "Both packets ask one round of questions and then draw, the AI reads screenshots and product logic into a model with no stated order of inference, and",
+  "keywords": [
+    "packets",
+    "ask",
+    "one",
+    "round",
+    "questions",
+    "draw",
+    "reads",
+    "screenshots",
+    "product",
+    "logic",
+    "model",
+    "stated",
+    "order",
+    "inference"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.420Z",
+  "specId": "031",
+  "folderSlug": "round-three-apply",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

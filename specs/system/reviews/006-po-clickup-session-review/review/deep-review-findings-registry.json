@@ -1,0 +1,1421 @@
+{
+  "sessionId": "2026-11-10T18:34:20Z",
+  "parentSessionId": null,
+  "generation": 1,
+  "lineageMode": "new",
+  "continuedFromRun": null,
+  "terminalStop": null,
+  "status": "INITIALIZED",
+  "openFindings": [
+    {
+      "findingId": "R1-P1-001",
+      "severity": "P1",
+      "title": "The browser-first delivery gate cannot fail on a lost divider or a lost indent",
+      "file": "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+      "line": 583,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R2-P1-001",
+      "severity": "P1",
+      "title": "Ungated local image read feeds a ClickUp upload",
+      "file": "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+      "line": 531,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "security",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "security"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R2-P1-001",
+      "severity": "P1",
+      "title": "Confirmed: ungated local image read feeds a ClickUp upload",
+      "file": "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+      "line": 531,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 5,
+      "lastSeen": 5,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 5,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P1-001",
+      "severity": "P1",
+      "title": "Packet 028 certifies mirror-to-source equality with a gate whose own contract excludes it",
+      "file": "AI Systems/Product Owner/specs/system/028-feedback-ticket-template/spec.md",
+      "line": 93,
+      "description": "",
+      "findingClass": "verification_gap",
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "traceability",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "traceability"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P1-001",
+      "severity": "P1",
+      "title": "Confirmed: 028 REQ-003 cites a phrase-count gate for a body-equality claim",
+      "file": "AI Systems/Product Owner/specs/system/028-feedback-ticket-template/spec.md",
+      "line": 93,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 5,
+      "lastSeen": 5,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 5,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R1-P1-001",
+      "severity": "P2",
+      "title": "Downgraded: delivery gate names gaps, leftovers and importDiff as failing conditions",
+      "file": "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+      "line": 589,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 5,
+      "lastSeen": 5,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 5,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R1-P2-002",
+      "severity": "P2",
+      "title": "A `- - -` divider renders as a bullet reading `- -`",
+      "file": "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+      "line": 416,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R1-P2-003",
+      "severity": "P2",
+      "title": "The `--write` formatter inserts dividers from the original neighbour lookup",
+      "file": "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs",
+      "line": 1594,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R1-P2-004",
+      "severity": "P2",
+      "title": "The import normalizer exists in three copies that have already diverged",
+      "file": "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+      "line": 579,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R2-P2-001",
+      "severity": "P2",
+      "title": "Link scheme not filtered; javascript: survives esc",
+      "file": "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+      "line": 408,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "security",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "security"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R2-P2-002",
+      "severity": "P2",
+      "title": "Standing version sentence says skill 1.2.11.0, frontmatter says 1.2.15.0",
+      "file": "AI Systems/Product Owner/SYNC.md",
+      "line": 18,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "security",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "security"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P2-001",
+      "severity": "P2",
+      "title": "027's REQ-002 evidence row names a file count that HEAD can no longer reproduce",
+      "file": "AI Systems/Product Owner/specs/system/027-mark-as-done-between-dividers/spec.md",
+      "line": 81,
+      "description": "",
+      "findingClass": "stale_evidence",
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "traceability",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "traceability"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P2-002",
+      "severity": "P2",
+      "title": "The skill's own README freezes its version nine releases behind the frontmatter it describes",
+      "file": "AI Systems/Product Owner/sk-product-owner/README.md",
+      "line": 12,
+      "description": "",
+      "findingClass": "doc_drift",
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "traceability",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "traceability"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P2-003",
+      "severity": "P2",
+      "title": "The two READMEs disagree on how many worked examples exist",
+      "file": "AI Systems/Product Owner/sk-product-owner/README.md",
+      "line": 26,
+      "description": "",
+      "findingClass": "doc_drift",
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "traceability",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "traceability"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R4-P2-001",
+      "severity": "P2",
+      "title": "gapsLeft computed by two different expressions across the two browser programs",
+      "file": "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+      "line": 694,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R4-P2-002",
+      "severity": "P2",
+      "title": "Leftover placeholder marker set enumerated in three places with three member lists",
+      "file": "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+      "line": 570,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R4-P2-003",
+      "severity": "P2",
+      "title": "checkbox-form fixture carries its near-miss assertion inside a violation file",
+      "file": "AI Systems/Product Owner/benchmark/format/run_fixtures.sh",
+      "line": 172,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R4-P2-004",
+      "severity": "P2",
+      "title": "Two harnesses pin unequal subsets of the shared core in two helper styles",
+      "file": "AI Systems/z — Claude Project Sync Loop/run_fixtures.sh",
+      "line": 487,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    }
+  ],
+  "resolvedFindings": [],
+  "blockedStopHistory": [],
+  "persistentSameSeverity": [],
+  "severityChanged": [],
+  "repeatedFindings": [],
+  "dimensionCoverage": {
+    "correctness": true,
+    "security": true,
+    "traceability": true,
+    "maintainability": true
+  },
+  "findingsBySeverity": {
+    "P0": 0,
+    "P1": 5,
+    "P2": 13
+  },
+  "openFindingsCount": 18,
+  "resolvedFindingsCount": 0,
+  "convergenceScore": 0.9,
+  "graphConvergenceScore": 0,
+  "graphDecision": null,
+  "graphBlockers": [],
+  "graphSignals": {},
+  "candidateCoverage": {
+    "covered": [
+      "assertion_coverage",
+      "contract_gap",
+      "count_drift",
+      "doc_code_drift",
+      "doc_count_drift",
+      "doc_drift",
+      "duplicate_logic",
+      "duplication",
+      "formatter_non_convergence",
+      "harness_parity",
+      "naming_convention",
+      "output_encoding",
+      "path_traversal",
+      "secret_exposure",
+      "spec_evidence_mismatch",
+      "spec_mismatch",
+      "stale_evidence",
+      "trust_boundary",
+      "verification_gap",
+      "write_surface"
+    ],
+    "ruledOut": [
+      "boundary_handling",
+      "doc_code_drift",
+      "doc_count_drift",
+      "duplication",
+      "harness_parity",
+      "mirror_parity",
+      "secret_exposure",
+      "spec_mismatch",
+      "state_transition",
+      "write_surface"
+    ],
+    "deferred": [
+      "stale_evidence"
+    ],
+    "blocked": [
+      "count_drift",
+      "spec_evidence_mismatch",
+      "vendored_manifest_integrity"
+    ],
+    "byBugClass": {
+      "verification_gap": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "contract_gap": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "formatter_non_convergence": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "duplicate_logic": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "state_transition": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1,
+          5
+        ]
+      },
+      "boundary_handling": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "spec_mismatch": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1,
+          3
+        ]
+      },
+      "trust_boundary": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1,
+          5
+        ]
+      },
+      "path_traversal": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "output_encoding": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "secret_exposure": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "write_surface": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "doc_drift": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2,
+          3
+        ]
+      },
+      "template_parity": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "stale_evidence": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": true,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "count_drift": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": true,
+        "iterations": [
+          3
+        ]
+      },
+      "mirror_parity": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "gate_count_claim": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "pair_count_reconciliation": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "duplication": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4,
+          5
+        ]
+      },
+      "naming_convention": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "doc_code_drift": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "assertion_coverage": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "harness_parity": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "vendored_manifest_integrity": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": true,
+        "iterations": [
+          4
+        ]
+      },
+      "doc_count_drift": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "spec_evidence_mismatch": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": true,
+        "iterations": [
+          5
+        ]
+      }
+    }
+  },
+  "searchDebt": [
+    {
+      "iteration": 3,
+      "id": "SL-307",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/gates/rule_parity.py"
+      ],
+      "bugClass": "count_drift",
+      "disposition": "blocked",
+      "rationale": "Missing evidence is not a pass",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/gates/rule_parity.py:52"
+      ],
+      "reason": "The gate's pair selection code was not read, so its 63 cannot be reconciled; no claim is made either way"
+    },
+    {
+      "iteration": 3,
+      "id": "SL-308",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/specs/system/026-browser-first-doc-writer/tasks.md"
+      ],
+      "bugClass": "stale_evidence",
+      "disposition": "deferred",
+      "rationale": "Recorded not verified, not asserted clean",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/specs/system/026-browser-first-doc-writer/tasks.md:52"
+      ],
+      "reason": "The gate harness was not located this iteration; carried to iteration 4"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-407",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/vendor.json"
+      ],
+      "bugClass": "vendored_manifest_integrity",
+      "disposition": "blocked",
+      "rationale": "Missing evidence is not a pass; the hash was not recomputed and no enforcing gate was read",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/vendor.json:1"
+      ],
+      "reason": "The SHA-256 of references/mcp-tools.md at HEAD was not computed, so neither side of the comparison exists"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-505",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/specs/system/028-feedback-ticket-template/spec.md"
+      ],
+      "bugClass": "spec_evidence_mismatch",
+      "disposition": "blocked",
+      "rationale": "unlocation is not absence; recorded as search debt rather than a finding",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/specs/system/028-feedback-ticket-template/spec.md:94"
+      ],
+      "reason": "run_gates.sh never located despite five passes of searching"
+    }
+  ],
+  "ruledOutCandidates": [
+    {
+      "iteration": 1,
+      "id": "SL-005",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs",
+        "AI Systems/z — Claude Project Sync Loop/validate-output-format.cjs"
+      ],
+      "bugClass": "spec_mismatch",
+      "disposition": "ruled_out",
+      "rationale": "Three shared symbols are textually identical across the twins",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs:143",
+        "AI Systems/z — Claude Project Sync Loop/validate-output-format.cjs:197"
+      ],
+      "reason": "symbol diff returned identical bodies"
+    },
+    {
+      "iteration": 1,
+      "id": "SL-006",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs"
+      ],
+      "bugClass": "boundary_handling",
+      "disposition": "ruled_out",
+      "rationale": "Both ends guarded; first and last line return -1 cleanly",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs:153"
+      ],
+      "reason": "loop bound covers both directions"
+    },
+    {
+      "iteration": 1,
+      "id": "SL-007",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs"
+      ],
+      "bugClass": "state_transition",
+      "disposition": "ruled_out",
+      "rationale": "sourceLines is never mutated, so index alignment holds",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs:1583"
+      ],
+      "reason": "verified by direct read"
+    },
+    {
+      "iteration": 1,
+      "id": "SL-008",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md"
+      ],
+      "bugClass": "state_transition",
+      "disposition": "ruled_out",
+      "rationale": "quiet already prevents the insertion",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:445"
+      ],
+      "reason": "verified by direct read"
+    },
+    {
+      "iteration": 2,
+      "id": "SL-003",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/.gitignore"
+      ],
+      "bugClass": "secret_exposure",
+      "disposition": "ruled_out",
+      "rationale": "No live credential; presigned match is out of scope and expired.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/SYNC.md:18"
+      ],
+      "reason": "Pattern scan across the whole tracked tree found documentation placeholders only."
+    },
+    {
+      "iteration": 2,
+      "id": "SL-004",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs"
+      ],
+      "bugClass": "write_surface",
+      "disposition": "ruled_out",
+      "rationale": "Exclusivity check is the containment.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs:34"
+      ],
+      "reason": "Cannot combine --write with an explicit file list."
+    },
+    {
+      "iteration": 2,
+      "id": "SL-005",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/z — Claude Project Sync Loop/systems.cjs",
+        "AI Systems/Product Owner/benchmark/gates/rule_parity.py"
+      ],
+      "bugClass": "write_surface",
+      "disposition": "ruled_out",
+      "rationale": "No write path reaches claude project/.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/gates/rule_parity.py:191"
+      ],
+      "reason": "No write primitive present in either script."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-305",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Examples - Task - Feedback Ticket.md"
+      ],
+      "bugClass": "mirror_parity",
+      "disposition": "ruled_out",
+      "rationale": "The mirror content is correct, which is why the finding is the gate and not the mirror",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/assets/examples/task/task-example-feedback.md:10",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Examples - Task - Feedback Ticket.md:7"
+      ],
+      "reason": "Anchored body diff is identical to the end of the file"
+    },
+    {
+      "iteration": 3,
+      "id": "SL-306",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/z — Claude Project Sync Loop/systems.py"
+      ],
+      "bugClass": "mirror_parity",
+      "disposition": "ruled_out",
+      "rationale": "Registration is complete; only the checker depth is in question",
+      "evidenceRefs": [
+        "AI Systems/z — Claude Project Sync Loop/systems.py:1796"
+      ],
+      "reason": "Declaration present, so the pair is diffed"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-405",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/task-templates.md",
+        "AI Systems/Product Owner/sk-product-owner/references/task-mode.md",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Assets - Task Templates.md",
+        "AI Systems/Product Owner/SYNC.md"
+      ],
+      "bugClass": "doc_code_drift",
+      "disposition": "ruled_out",
+      "rationale": "Clean by mechanical count, and the SYNC.md em dashes are inside a literal path",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:594"
+      ],
+      "reason": "Zero em dashes on every changed prose surface; all semicolon hits resolve to fenced code"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-406",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/format/fixtures",
+        "AI Systems/z — Claude Project Sync Loop/fixtures"
+      ],
+      "bugClass": "harness_parity",
+      "disposition": "ruled_out",
+      "rationale": "Byte-identical in both trees",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/format/fixtures/markasdone-divider-silent.md:1"
+      ],
+      "reason": "diff is empty for all three fixtures"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-408",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/z — Claude Project Sync Loop/feature-catalog/output-format-gate/output-format-validator.md"
+      ],
+      "bugClass": "doc_code_drift",
+      "disposition": "ruled_out",
+      "rationale": "Entry and tree agree; the entry is silent on the Product Owner twin rather than wrong",
+      "evidenceRefs": [
+        "AI Systems/z — Claude Project Sync Loop/feature-catalog/output-format-gate/output-format-validator.md:44"
+      ],
+      "reason": "All five named files exist and match their stated roles"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-501",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md"
+      ],
+      "bugClass": "state_transition",
+      "disposition": "ruled_out",
+      "rationale": "importDiff covers the lost-line case, so the original reach does not exist; the surviving residue is the three ungated report keys, already tracked as the downgraded R1-P1-001 P2",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:565",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:566",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:589"
+      ],
+      "reason": "counterevidence at mcp-tools.md:589 and :608 refutes the gaps-only premise"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-502",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md"
+      ],
+      "bugClass": "doc_count_drift",
+      "disposition": "ruled_out",
+      "rationale": "behaviour-equivalent; the P2 remains a readability finding only",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:694",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:776"
+      ],
+      "reason": "direct read of both expressions and their initialisers"
+    }
+  ],
+  "cleanSearchProof": [
+    {
+      "iteration": 1,
+      "id": "SL-005",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs",
+        "AI Systems/z — Claude Project Sync Loop/validate-output-format.cjs"
+      ],
+      "bugClass": "spec_mismatch",
+      "disposition": "ruled_out",
+      "rationale": "Three shared symbols are textually identical across the twins",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs:143",
+        "AI Systems/z — Claude Project Sync Loop/validate-output-format.cjs:197"
+      ],
+      "proof": "symbol diff returned identical bodies"
+    },
+    {
+      "iteration": 1,
+      "id": "SL-006",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs"
+      ],
+      "bugClass": "boundary_handling",
+      "disposition": "ruled_out",
+      "rationale": "Both ends guarded; first and last line return -1 cleanly",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs:153"
+      ],
+      "proof": "loop bound covers both directions"
+    },
+    {
+      "iteration": 1,
+      "id": "SL-007",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs"
+      ],
+      "bugClass": "state_transition",
+      "disposition": "ruled_out",
+      "rationale": "sourceLines is never mutated, so index alignment holds",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs:1583"
+      ],
+      "proof": "verified by direct read"
+    },
+    {
+      "iteration": 1,
+      "id": "SL-008",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md"
+      ],
+      "bugClass": "state_transition",
+      "disposition": "ruled_out",
+      "rationale": "quiet already prevents the insertion",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:445"
+      ],
+      "proof": "verified by direct read"
+    },
+    {
+      "iteration": 2,
+      "id": "SL-003",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/.gitignore"
+      ],
+      "bugClass": "secret_exposure",
+      "disposition": "ruled_out",
+      "rationale": "No live credential; presigned match is out of scope and expired.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/SYNC.md:18"
+      ],
+      "proof": "Pattern scan across the whole tracked tree found documentation placeholders only."
+    },
+    {
+      "iteration": 2,
+      "id": "SL-004",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs"
+      ],
+      "bugClass": "write_surface",
+      "disposition": "ruled_out",
+      "rationale": "Exclusivity check is the containment.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs:34"
+      ],
+      "proof": "Cannot combine --write with an explicit file list."
+    },
+    {
+      "iteration": 2,
+      "id": "SL-005",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/z — Claude Project Sync Loop/systems.cjs",
+        "AI Systems/Product Owner/benchmark/gates/rule_parity.py"
+      ],
+      "bugClass": "write_surface",
+      "disposition": "ruled_out",
+      "rationale": "No write path reaches claude project/.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/gates/rule_parity.py:191"
+      ],
+      "proof": "No write primitive present in either script."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-305",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Examples - Task - Feedback Ticket.md"
+      ],
+      "bugClass": "mirror_parity",
+      "disposition": "ruled_out",
+      "rationale": "The mirror content is correct, which is why the finding is the gate and not the mirror",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/assets/examples/task/task-example-feedback.md:10",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Examples - Task - Feedback Ticket.md:7"
+      ],
+      "proof": "Anchored body diff is identical to the end of the file"
+    },
+    {
+      "iteration": 3,
+      "id": "SL-306",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/z — Claude Project Sync Loop/systems.py"
+      ],
+      "bugClass": "mirror_parity",
+      "disposition": "ruled_out",
+      "rationale": "Registration is complete; only the checker depth is in question",
+      "evidenceRefs": [
+        "AI Systems/z — Claude Project Sync Loop/systems.py:1796"
+      ],
+      "proof": "Declaration present, so the pair is diffed"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-405",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md",
+        "AI Systems/Product Owner/sk-product-owner/assets/task-templates.md",
+        "AI Systems/Product Owner/sk-product-owner/references/task-mode.md",
+        "AI Systems/Product Owner/claude project/knowledge/Product Owner - Assets - Task Templates.md",
+        "AI Systems/Product Owner/SYNC.md"
+      ],
+      "bugClass": "doc_code_drift",
+      "disposition": "ruled_out",
+      "rationale": "Clean by mechanical count, and the SYNC.md em dashes are inside a literal path",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:594"
+      ],
+      "proof": "Zero em dashes on every changed prose surface; all semicolon hits resolve to fenced code"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-406",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/format/fixtures",
+        "AI Systems/z — Claude Project Sync Loop/fixtures"
+      ],
+      "bugClass": "harness_parity",
+      "disposition": "ruled_out",
+      "rationale": "Byte-identical in both trees",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/format/fixtures/markasdone-divider-silent.md:1"
+      ],
+      "proof": "diff is empty for all three fixtures"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-408",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/z — Claude Project Sync Loop/feature-catalog/output-format-gate/output-format-validator.md"
+      ],
+      "bugClass": "doc_code_drift",
+      "disposition": "ruled_out",
+      "rationale": "Entry and tree agree; the entry is silent on the Product Owner twin rather than wrong",
+      "evidenceRefs": [
+        "AI Systems/z — Claude Project Sync Loop/feature-catalog/output-format-gate/output-format-validator.md:44"
+      ],
+      "proof": "All five named files exist and match their stated roles"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-501",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md"
+      ],
+      "bugClass": "state_transition",
+      "disposition": "ruled_out",
+      "rationale": "importDiff covers the lost-line case, so the original reach does not exist; the surviving residue is the three ungated report keys, already tracked as the downgraded R1-P1-001 P2",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:565",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:566",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:589"
+      ],
+      "proof": "counterevidence at mcp-tools.md:589 and :608 refutes the gaps-only premise"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-502",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md"
+      ],
+      "bugClass": "doc_count_drift",
+      "disposition": "ruled_out",
+      "rationale": "behaviour-equivalent; the P2 remains a readability finding only",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:694",
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:776"
+      ],
+      "proof": "direct read of both expressions and their initialisers"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-507",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/format/fixtures/markasdone-divider-silent.md"
+      ],
+      "bugClass": "state_transition",
+      "disposition": "not_applicable",
+      "rationale": "the byte read closes the observation gap but the fixture's silence is a checker-output fact, which a read-only iteration does not produce",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/format/fixtures/markasdone-divider-silent.md:1"
+      ],
+      "proof": "requires running the format harness, outside a read-only review iteration"
+    }
+  ],
+  "searchCoverage": {
+    "requiredBugClasses": [
+      "state_transition",
+      "trust_boundary",
+      "spec_evidence_mismatch",
+      "doc_count_drift",
+      "duplication"
+    ],
+    "covered": [],
+    "ruledOut": [
+      "state_transition",
+      "doc_count_drift",
+      "duplication"
+    ],
+    "deferred": [
+      "trust_boundary"
+    ],
+    "blocked": [
+      "spec_evidence_mismatch"
+    ],
+    "graphCoverageMode": "graphless_fallback"
+  },
+  "traceability": {
+    "summary": {
+      "required": 0,
+      "executed": 0,
+      "pass": 0,
+      "partial": 0,
+      "fail": 0,
+      "blocked": 0,
+      "notApplicable": 0,
+      "gatingFailures": 0
+    },
+    "results": []
+  },
+  "divergence": {
+    "started": [],
+    "completed": [],
+    "failed": [],
+    "overrides": [],
+    "saturatedDirections": [],
+    "remainingFrontier": [],
+    "currentFocus": ""
+  },
+  "fieldWarnings": [],
+  "corruptionWarnings": []
+}

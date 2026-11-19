@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/figjam/001-figjam-flow-generation/031-round-three-apply",
+  "spec_folder": "system/figjam/001-figjam-flow-generation/031-round-three-apply",
+  "parent_id": "system/figjam/001-figjam-flow-generation",
+  "children_ids": [
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/001-intake-brief",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/002-draw-ready-stop-rule",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/003-question-bank",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/004-sparring-outline-pass",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/005-playback-and-gate-line",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/006-challenge-ladder",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/007-po-lane-board-block",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/008-quick-and-just-do-it",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/009-kernel-carries-loop",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/010-intake-in-always-and-router",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/011-intake-test-contract",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/012-reaction-graph-first",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/013-intake-record-per-item",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/014-verify-image-labels",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/015-inference-ladder",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/016-screen-or-state",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/017-criterion-as-triple",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/018-edge-actor",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/019-source-evidence-limits",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/020-type-against-needs-row",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/021-contradicted-item-surface",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/022-chunk-allocation",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/023-pre-gate-reread",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/024-first-glance",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/025-visible-titles",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/026-spacing-scale",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/027-multi-diagram-board",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/028-better-mermaid-lane-order",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/029-legend-as-key",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/030-reading-distance-dial",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/031-pre-write-layout-check",
+    "system/figjam/001-figjam-flow-generation/031-round-three-apply/032-composition-scorecard"
+  ],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "round three apply phase parent spec",
+      "round three apply goal"
+    ],
+    "key_topics": [
+      "round",
+      "three",
+      "apply",
+      "phase",
+      "parent",
+      "spec",
+      "goal",
+      "packets",
+      "ask",
+      "one",
+      "questions",
+      "draw"
+    ],
+    "importance_tier": "important",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "goal.md",
+      "001-intake-brief/goal.md",
+      "002-draw-ready-stop-rule/goal.md",
+      "003-question-bank/goal.md",
+      "004-sparring-outline-pass/goal.md",
+      "005-playback-and-gate-line/goal.md",
+      "006-challenge-ladder/goal.md",
+      "007-po-lane-board-block/goal.md",
+      "008-quick-and-just-do-it/goal.md",
+      "009-kernel-carries-loop/goal.md",
+      "010-intake-in-always-and-router/goal.md",
+      "011-intake-test-contract/goal.md",
+      "012-reaction-graph-first/goal.md",
+      "013-intake-record-per-item/goal.md",
+      "014-verify-image-labels/goal.md",
+      "015-inference-ladder/goal.md",
+      "016-screen-or-state/goal.md",
+      "017-criterion-as-triple/goal.md",
+      "018-edge-actor/goal.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Packet",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement Both",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Apply",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Decisions Frozen",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Documentation Map",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Brief",
+        "kind": "proper_noun",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "colliding",
+        "kind": "key_phrase",
+        "path": "goal.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Both packets ask one round of questions and then draw, the AI reads screenshots and product logic into a model with no stated order of inference, and nothing governs how a finished board composes",
+    "created_at": "2026-10-21T07:49:37.153Z",
+    "last_save_at": "2026-11-19T09:18:21.910Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "goal.md"
+    ],
+    "source_fingerprint": "sha256:6fcf96d7c8bd5f0c66b58067a063638366754d0dae5883987c307c5d6ffa5fda",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "b30ceca6ec135c02074dd14ef20de033e6d3ea8b349664ba589202185e93b5cc"
+    },
+    "last_active_child_id": "017-figjam-flow-generation/031-round-three-apply/032-composition-scorecard",
+    "last_active_at": null
+  }
+}

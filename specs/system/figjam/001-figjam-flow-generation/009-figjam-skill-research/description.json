@@ -1,0 +1,29 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/009-figjam-skill-research",
+  "description": "Flow Mode was built without comparing it to the public FigJam diagram skills, Figma's own among them",
+  "keywords": [
+    "flow",
+    "mode",
+    "without",
+    "comparing",
+    "public",
+    "figjam",
+    "diagram",
+    "skills",
+    "figma",
+    "own",
+    "among",
+    "them"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.075Z",
+  "specId": "009",
+  "folderSlug": "figjam-skill-research",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

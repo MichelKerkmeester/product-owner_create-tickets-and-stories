@@ -1,0 +1,24 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/028-readback-direction",
+  "description": "The read-back requires the same direction but never says how direction is read",
+  "keywords": [
+    "read-back",
+    "requires",
+    "same",
+    "direction",
+    "never",
+    "says",
+    "read"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.197Z",
+  "specId": "028",
+  "folderSlug": "readback-direction",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

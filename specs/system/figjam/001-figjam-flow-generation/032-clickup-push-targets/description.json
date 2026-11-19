@@ -1,0 +1,30 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/032-clickup-push-targets",
+  "description": "A ClickUp push has no destination rule, so every push asks from scratch and a public repo cannot carry a team's ClickUp links",
+  "keywords": [
+    "clickup",
+    "push",
+    "destination",
+    "rule",
+    "every",
+    "asks",
+    "scratch",
+    "public",
+    "repo",
+    "cannot",
+    "carry",
+    "team",
+    "links"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.421Z",
+  "specId": "032",
+  "folderSlug": "clickup-push-targets",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,33 @@
+{
+  "level": "2",
+  "specFolder": "system/reviews/002-product-owner-deep-review/006-own-fixes",
+  "description": "The five reviews found 5 P1 and 39 P2 defects in files Product Owner owns, among them a skill rubric that asks for Project-only delivery proof, a",
+  "keywords": [
+    "five",
+    "reviews",
+    "found",
+    "defects",
+    "files",
+    "product",
+    "owner",
+    "owns",
+    "among",
+    "them",
+    "skill",
+    "rubric",
+    "asks",
+    "project-only",
+    "delivery",
+    "proof"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.456Z",
+  "specId": "006",
+  "folderSlug": "own-fixes",
+  "parentChain": [
+    "system",
+    "reviews",
+    "002-product-owner-deep-review"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

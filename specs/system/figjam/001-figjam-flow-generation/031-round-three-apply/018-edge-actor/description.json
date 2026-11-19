@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/018-edge-actor",
+  "description": "A connector takes an optional label and nothing else, while the process row already asks who performs each step",
+  "keywords": [
+    "connector",
+    "takes",
+    "optional",
+    "label",
+    "nothing",
+    "else",
+    "while",
+    "process",
+    "row",
+    "already",
+    "asks",
+    "performs",
+    "step"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.401Z",
+  "specId": "018",
+  "folderSlug": "edge-actor",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

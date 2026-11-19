@@ -1,0 +1,26 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/021-board-critic-pass",
+  "description": "Crossings and misleading routes are scored in the playbook but never checked in a real run",
+  "keywords": [
+    "crossings",
+    "misleading",
+    "routes",
+    "scored",
+    "playbook",
+    "never",
+    "checked",
+    "real",
+    "run"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.191Z",
+  "specId": "021",
+  "folderSlug": "board-critic-pass",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/030-figjam-research-three/003-interactive-intake",
+  "description": "Both packets ask one bounded round of questions and then draw, so a thin brief yields a board that answers the wrong question",
+  "keywords": [
+    "packets",
+    "ask",
+    "one",
+    "bounded",
+    "round",
+    "questions",
+    "draw",
+    "thin",
+    "brief",
+    "yields",
+    "board",
+    "answers",
+    "wrong",
+    "question"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.315Z",
+  "specId": "003",
+  "folderSlug": "interactive-intake",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "030-figjam-research-three"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

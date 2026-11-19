@@ -1,0 +1,33 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization/007-project-ux-and-mode-fixes",
+  "description": "A review against Media Editor found that the kernel never defines when a connector is present, never offers setup when none is, keeps raw energy and",
+  "keywords": [
+    "review",
+    "against",
+    "media",
+    "editor",
+    "found",
+    "kernel",
+    "never",
+    "defines",
+    "connector",
+    "present",
+    "offers",
+    "setup",
+    "none",
+    "keeps",
+    "raw",
+    "energy"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.472Z",
+  "specId": "007",
+  "folderSlug": "project-ux-and-mode-fixes",
+  "parentChain": [
+    "system",
+    "platform",
+    "006-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

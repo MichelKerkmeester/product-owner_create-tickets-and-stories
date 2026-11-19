@@ -1,0 +1,25 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/017-board-link-in-artifact",
+  "description": "A board made for an artifact never reaches it, so the link is lost and ClickUp never carries it",
+  "keywords": [
+    "board",
+    "artifact",
+    "never",
+    "reaches",
+    "link",
+    "lost",
+    "clickup",
+    "carries"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.187Z",
+  "specId": "017",
+  "folderSlug": "board-link-in-artifact",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,24 @@
+{
+  "level": "1",
+  "specFolder": "system/clickup/002-clickup-doc-push-editor-and-numbering",
+  "description": "A task pushed to a private ClickUp doc on 2026-11-10 showed three defects",
+  "keywords": [
+    "task",
+    "pushed",
+    "private",
+    "clickup",
+    "doc",
+    "showed",
+    "three",
+    "defects"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.499Z",
+  "specId": "002",
+  "folderSlug": "clickup-doc-push-editor-and-numbering",
+  "parentChain": [
+    "system",
+    "clickup"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

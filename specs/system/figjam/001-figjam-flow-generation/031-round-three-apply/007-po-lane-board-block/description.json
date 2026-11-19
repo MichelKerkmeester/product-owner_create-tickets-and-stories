@@ -1,0 +1,34 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/007-po-lane-board-block",
+  "description": "A FigJam request that reaches the Product Owner lane inherits questions about deliverable type, scope and sources, and the packet's own escalation",
+  "keywords": [
+    "figjam",
+    "request",
+    "reaches",
+    "product",
+    "owner",
+    "lane",
+    "inherits",
+    "questions",
+    "about",
+    "deliverable",
+    "type",
+    "scope",
+    "sources",
+    "packet",
+    "own",
+    "escalation"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.390Z",
+  "specId": "007",
+  "folderSlug": "po-lane-board-block",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

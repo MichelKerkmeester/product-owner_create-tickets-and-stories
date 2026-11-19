@@ -1,0 +1,34 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/020-type-against-needs-row",
+  "description": "The two sections are never joined, so a state diagram ordered for a Loomlist billing screen whose screenshots show no events is drawn with invented",
+  "keywords": [
+    "two",
+    "sections",
+    "never",
+    "joined",
+    "state",
+    "diagram",
+    "ordered",
+    "loomlist",
+    "billing",
+    "screen",
+    "whose",
+    "screenshots",
+    "show",
+    "events",
+    "drawn",
+    "invented"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.403Z",
+  "specId": "020",
+  "folderSlug": "type-against-needs-row",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

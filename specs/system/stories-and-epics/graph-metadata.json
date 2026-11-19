@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/stories-and-epics",
+  "spec_folder": "system/stories-and-epics",
+  "parent_id": "system",
+  "children_ids": [
+    "system/stories-and-epics/001-product-owner-scope-aware-verbosity",
+    "system/stories-and-epics/002-product-owner-story-format-audit",
+    "system/stories-and-epics/003-product-owner-prd-opening-restructure",
+    "system/stories-and-epics/004-product-owner-prd-delivery",
+    "system/stories-and-epics/005-story-mode-and-shape-templates",
+    "system/stories-and-epics/006-story-drafts-rewrite",
+    "system/stories-and-epics/007-requirements-bloat",
+    "system/stories-and-epics/008-holdout-review",
+    "system/stories-and-epics/009-product-owner-story-feedback",
+    "system/stories-and-epics/010-rename-prd-terminology-to-story-and-epic",
+    "system/stories-and-epics/011-story-turn-one-gate",
+    "system/stories-and-epics/012-feedback-ticket-template",
+    "system/stories-and-epics/013-design-copy-pointer-requirements",
+    "system/stories-and-epics/014-story-criteria-and-checklist-layout"
+  ],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [],
+    "key_topics": [
+      "system/stories-and-epics"
+    ],
+    "causal_summary": "Container folder for system/stories-and-epics."
+  }
+}

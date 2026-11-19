@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/platform/007-strict-contract-and-gate-cleanup",
+  "spec_folder": "system/platform/007-strict-contract-and-gate-cleanup",
+  "parent_id": "system/platform",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "strict contract and gate cleanup",
+      "strict skill contract and gate cleanup",
+      "strict contract and gate cleanup plan",
+      "strict contract and gate cleanup tasks",
+      "strict contract and gate cleanup implementation summary"
+    ],
+    "key_topics": [
+      "strict",
+      "contract",
+      "gate",
+      "cleanup",
+      "skill",
+      "plan",
+      "tasks",
+      "implementation",
+      "summary",
+      "packageskill",
+      "check",
+      "failed"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md",
+      "claude project/knowledge/Product Owner - Rules - Quality Scoring.md",
+      "benchmark/gates/check_markdown_links.py",
+      "sk-product-owner/changelog/v1.2.9.0.md",
+      "changelog/v1.0.21.0.md",
+      "claude project/README.md",
+      "sk-product-owner/SKILL.md",
+      "sk-product-owner/changelog/v1.2.12.0.md",
+      "changelog/v1.0.24.0.md",
+      "benchmark/gates/run_gates.sh",
+      "benchmark/parity/run_parity.sh"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner - Rules - Quality Scoring.md",
+        "kind": "doc",
+        "path": "claude project/knowledge/Product Owner - Rules - Quality Scoring.md",
+        "source": "derived"
+      },
+      {
+        "name": "check_markdown_links.py",
+        "kind": "file",
+        "path": "benchmark/gates/check_markdown_links.py",
+        "source": "derived"
+      },
+      {
+        "name": "v1.2.9.0.md",
+        "kind": "doc",
+        "path": "sk-product-owner/changelog/v1.2.9.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.0.21.0.md",
+        "kind": "doc",
+        "path": "changelog/v1.0.21.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "claude project/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.2.12.0.md",
+        "kind": "doc",
+        "path": "sk-product-owner/changelog/v1.2.12.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.0.24.0.md",
+        "kind": "doc",
+        "path": "changelog/v1.0.24.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "run_parity.sh",
+        "kind": "script",
+        "path": "benchmark/parity/run_parity.sh",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Four Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Every",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Measured Behavior",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview The",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Source",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "`packageskill.py --check --strict` failed `sk-product-owner` on 105 render findings: bold label lines that join into one paragraph, and setext underlines that turn a line into a heading",
+    "created_at": "2026-11-05T18:32:22Z",
+    "last_save_at": "2026-11-19T09:18:48.563Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:6121d168fdce7ac025200a065deea66d8e7350ee2bd2e1009e8378443415eaac",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "44fa213f61ae74b0c93485fea678b9bb97c1c0b9ab30c636ba5285cb23e46eb2",
+      "plan.md": "c845f0e105c72e685b152b4d4996904e55437cea17f185454be45462a7f5c378",
+      "tasks.md": "9c5c0cbff3fc21e051cd808307e57d773623a6465c15fe320608434c58634ad8",
+      "implementation-summary.md": "774c46fd65859c5587c15de23ede3b0b1158d4dd5397dcc40a2388049dee29fa"
+    },
+    "last_active_at": null
+  }
+}

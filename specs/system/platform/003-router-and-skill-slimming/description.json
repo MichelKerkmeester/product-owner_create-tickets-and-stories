@@ -1,0 +1,23 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/003-router-and-skill-slimming",
+  "description": "Sixteen of twenty realistic requests fall through to a clarifying question.",
+  "keywords": [
+    "sixteen",
+    "twenty",
+    "realistic",
+    "requests",
+    "fall",
+    "clarifying",
+    "question"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.053Z",
+  "specId": "003",
+  "folderSlug": "router-and-skill-slimming",
+  "parentChain": [
+    "system",
+    "platform"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

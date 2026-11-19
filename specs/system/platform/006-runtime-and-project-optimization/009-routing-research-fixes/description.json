@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization/009-routing-research-fixes",
+  "description": "The 008 research found gates that miss what they describe, a stale plugin build, no link check, an oversized kernel, stale README counts, unread",
+  "keywords": [
+    "research",
+    "found",
+    "gates",
+    "miss",
+    "describe",
+    "stale",
+    "plugin",
+    "link",
+    "check",
+    "oversized",
+    "kernel",
+    "readme",
+    "counts",
+    "unread"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.477Z",
+  "specId": "009",
+  "folderSlug": "routing-research-fixes",
+  "parentChain": [
+    "system",
+    "platform",
+    "006-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

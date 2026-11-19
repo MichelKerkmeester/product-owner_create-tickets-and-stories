@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/platform/003-router-and-skill-slimming/002-router-contract-extraction",
+  "spec_folder": "system/platform/003-router-and-skill-slimming/002-router-contract-extraction",
+  "parent_id": "system/platform/003-router-and-skill-slimming",
+  "children_ids": [],
+  "migrated": true,
+  "migration_source": "legacy",
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [],
+    "key_topics": [
+      "move",
+      "608-line",
+      "pseudocode",
+      "fence",
+      "dedicated",
+      "reference",
+      "repoint",
+      "differential",
+      "harness",
+      "taking",
+      "skill",
+      "lines"
+    ],
+    "importance_tier": "high",
+    "status": "planned",
+    "key_files": [
+      "spec.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Test Exports",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "1. METADATA",
+        "kind": "heading",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "2. SCOPE",
+        "kind": "heading",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "3. VERIFICATION",
+        "kind": "heading",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "description:",
+        "kind": "quoted",
+        "path": "spec.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Move the 608-line pseudocode fence to a dedicated reference and repoint the differential harness, taking SKILL.md under 600 lines",
+    "created_at": "2026-09-03T00:00:00Z",
+    "last_save_at": "2026-11-19T09:18:37.980Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md"
+    ],
+    "source_fingerprint": "sha256:4f9d86ad0957809f598318652e4c15ff0da933c24533303d2283500ef796d9fc",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "fe5e3161af82619ed33efe62f1241bb7186f1ffd6c56576a166c01185eeec252"
+    },
+    "last_active_at": null
+  }
+}

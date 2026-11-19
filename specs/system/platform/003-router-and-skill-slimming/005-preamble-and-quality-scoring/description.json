@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/003-router-and-skill-slimming/005-preamble-and-quality-scoring",
+  "description": "Give every non-symlink reference the same seven-key preamble carrying routing and connection information, and restore the six-dimension scoring rubric",
+  "keywords": [
+    "give",
+    "every",
+    "non-symlink",
+    "reference",
+    "same",
+    "seven-key",
+    "preamble",
+    "carrying",
+    "routing",
+    "connection",
+    "information",
+    "restore",
+    "six-dimension",
+    "scoring",
+    "rubric"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.052Z",
+  "specId": "005",
+  "folderSlug": "preamble-and-quality-scoring",
+  "parentChain": [
+    "system",
+    "platform",
+    "003-router-and-skill-slimming"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

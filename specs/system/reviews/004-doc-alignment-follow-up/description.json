@@ -1,0 +1,30 @@
+{
+  "level": "1",
+  "specFolder": "system/reviews/004-doc-alignment-follow-up",
+  "description": "Michel asked for the Skilled alignment command on the whole system, to check each skill doc against sk-create-skill and the playbooks and READMEs",
+  "keywords": [
+    "michel",
+    "asked",
+    "skilled",
+    "alignment",
+    "command",
+    "whole",
+    "system",
+    "check",
+    "skill",
+    "doc",
+    "against",
+    "sk-create-skill",
+    "playbooks",
+    "readmes"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.508Z",
+  "specId": "004",
+  "folderSlug": "doc-alignment-follow-up",
+  "parentChain": [
+    "system",
+    "reviews"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

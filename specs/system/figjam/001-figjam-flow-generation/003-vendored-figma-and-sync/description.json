@@ -1,0 +1,28 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/003-vendored-figma-and-sync",
+  "description": "The figma skill lives only in the shared .skilled repo, which is a different git repo from Product Owner",
+  "keywords": [
+    "figma",
+    "skill",
+    "lives",
+    "only",
+    "shared",
+    "skilled",
+    "repo",
+    "different",
+    "git",
+    "product",
+    "owner"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.070Z",
+  "specId": "003",
+  "folderSlug": "vendored-figma-and-sync",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

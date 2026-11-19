@@ -1,0 +1,33 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization/010-routing-p0-fixes",
+  "description": "Stage one is stated in prose, in hub-router.json sentences nothing reads and in a hand-coded Python copy, a request that opens with a tool drops the",
+  "keywords": [
+    "stage",
+    "one",
+    "stated",
+    "prose",
+    "hub-router",
+    "json",
+    "sentences",
+    "nothing",
+    "reads",
+    "hand-coded",
+    "python",
+    "copy",
+    "request",
+    "opens",
+    "tool",
+    "drops"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.479Z",
+  "specId": "010",
+  "folderSlug": "routing-p0-fixes",
+  "parentChain": [
+    "system",
+    "platform",
+    "006-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

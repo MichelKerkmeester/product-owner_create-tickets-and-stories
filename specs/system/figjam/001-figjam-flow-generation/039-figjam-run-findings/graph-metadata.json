@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/figjam/001-figjam-flow-generation/039-figjam-run-findings",
+  "spec_folder": "system/figjam/001-figjam-flow-generation/039-figjam-run-findings",
+  "parent_id": "system/figjam/001-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "figjam run findings",
+      "phase 39 figjam run findings",
+      "figjam run findings plan",
+      "figjam run findings tasks",
+      "figjam run findings acceptance criteria",
+      "packet goal",
+      "durable directive",
+      "completion criteria",
+      "goal binding",
+      "figjam run findings implementation summary"
+    ],
+    "key_topics": [
+      "figjam",
+      "run",
+      "findings",
+      "phase",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "packet",
+      "goal",
+      "durable",
+      "directive"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "benchmark/gates/run_gates.sh",
+      "sk-create-figjam/references/flow-mode.md",
+      "claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+      "sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md",
+      "sk-create-figjam/assets/compose-board.js",
+      "sk-create-figjam/scripts/compose_board.py"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "flow-mode.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/references/flow-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner - Templates - Flow Mode.md",
+        "kind": "doc",
+        "path": "claude project/knowledge/Product Owner - Templates - Flow Mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "manual-testing-playbook.md",
+        "kind": "doc",
+        "path": "sk-create-figjam/manual-testing-playbook/manual-testing-playbook.md",
+        "source": "derived"
+      },
+      {
+        "name": "compose-board.js",
+        "kind": "code",
+        "path": "sk-create-figjam/assets/compose-board.js",
+        "source": "derived"
+      },
+      {
+        "name": "compose_board.py",
+        "kind": "file",
+        "path": "sk-create-figjam/scripts/compose_board.py",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Opus",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Handoff Criteria",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Phase Context This",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Flow Mode",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Three Flow Mode",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern One",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Claude Opus 5.5 medium drew 20 sound boards in 24 scenarios, but the skill got in its way five times",
+    "created_at": "2026-10-26T16:10:14Z",
+    "last_save_at": "2026-11-19T09:18:30.738Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:c5bbb9fe1f13e8913a3d42f4cd586ca65bacdaa2b36209d068e662f4ea3072b9",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "110a6764be409093c10ddaf4319bcb8de61f2f92c5d195eb41f02b2c45b989c9",
+      "plan.md": "1195c9fcf7e8285df1ba80a71ec1affa2fe6a01c0740deccf087ecf486cbb4c8",
+      "tasks.md": "f8b7dae89720254c58192cc0f3c1b20640a9712acc8de39f0f431eebbd1b9c5f",
+      "implementation-summary.md": "152aec33715bb4aeafd5cf7eaa645c8bb19f152f88da62aa462c9b9d7b9b7c10"
+    },
+    "last_active_at": null
+  }
+}

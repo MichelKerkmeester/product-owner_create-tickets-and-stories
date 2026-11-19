@@ -1,0 +1,27 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/029-extension-fixes/007-revision-plan",
+  "description": "whoami cannot say which plan owns an existing board, so a revision can misname its plan",
+  "keywords": [
+    "whoami",
+    "cannot",
+    "say",
+    "plan",
+    "owns",
+    "existing",
+    "board",
+    "revision",
+    "misname"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.202Z",
+  "specId": "007",
+  "folderSlug": "revision-plan",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "029-extension-fixes"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

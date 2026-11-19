@@ -1,0 +1,33 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/006-challenge-ladder",
+  "description": "The ladder starts at the type, so a brief that names no type is never challenged, and filling nine rows for an impossible board wastes the user's time",
+  "keywords": [
+    "ladder",
+    "starts",
+    "type",
+    "brief",
+    "names",
+    "never",
+    "challenged",
+    "filling",
+    "nine",
+    "rows",
+    "impossible",
+    "board",
+    "wastes",
+    "user",
+    "time"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.389Z",
+  "specId": "006",
+  "folderSlug": "challenge-ladder",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

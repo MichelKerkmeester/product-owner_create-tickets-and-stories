@@ -1,0 +1,34 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/019-source-evidence-limits",
+  "description": "The intake has four input types and no ticket row,, and nothing says which item kinds a source may contribute, so a reported error invites an invented",
+  "keywords": [
+    "intake",
+    "four",
+    "input",
+    "types",
+    "ticket",
+    "row",
+    "nothing",
+    "says",
+    "item",
+    "kinds",
+    "source",
+    "contribute",
+    "reported",
+    "error",
+    "invites",
+    "invented"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.402Z",
+  "specId": "019",
+  "folderSlug": "source-evidence-limits",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

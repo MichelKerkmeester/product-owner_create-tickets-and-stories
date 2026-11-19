@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization",
+  "description": "The public Product Owner repository vendors mcp-click-up and mcp-figma but carries no runtime config for them, and its Code Mode launcher exists only",
+  "keywords": [
+    "public",
+    "product",
+    "owner",
+    "repository",
+    "vendors",
+    "mcp-click-up",
+    "mcp-figma",
+    "carries",
+    "runtime",
+    "config",
+    "them",
+    "code",
+    "mode",
+    "launcher",
+    "exists",
+    "only"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.493Z",
+  "specId": "006",
+  "folderSlug": "runtime-and-project-optimization",
+  "parentChain": [
+    "system",
+    "platform"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

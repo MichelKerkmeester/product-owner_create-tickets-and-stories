@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization/015-live-figma-test",
+  "description": "The FigJam Flow scenarios that need a live session or Figma Desktop were never run, so the fj write route and the conversational Flow behavior have no",
+  "keywords": [
+    "figjam",
+    "flow",
+    "scenarios",
+    "need",
+    "live",
+    "session",
+    "figma",
+    "desktop",
+    "never",
+    "run",
+    "write",
+    "route",
+    "conversational",
+    "behavior"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.486Z",
+  "specId": "015",
+  "folderSlug": "live-figma-test",
+  "parentChain": [
+    "system",
+    "platform",
+    "006-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

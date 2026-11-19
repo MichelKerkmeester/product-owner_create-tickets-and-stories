@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/stories-and-epics/003-product-owner-prd-opening-restructure",
+  "description": "Restructure the first part of a PRD / Story artifact to the team's real house opening — About narrative with lifecycle, Problem, Solution, References,",
+  "keywords": [
+    "restructure",
+    "first",
+    "part",
+    "prd",
+    "story",
+    "artifact",
+    "team",
+    "real",
+    "house",
+    "opening",
+    "about",
+    "narrative",
+    "lifecycle",
+    "problem",
+    "solution",
+    "references"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.045Z",
+  "specId": "003",
+  "folderSlug": "product-owner-prd-opening-restructure",
+  "parentChain": [
+    "system",
+    "stories-and-epics"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

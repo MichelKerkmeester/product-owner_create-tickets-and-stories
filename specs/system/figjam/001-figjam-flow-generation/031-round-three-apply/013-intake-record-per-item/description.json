@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/013-intake-record-per-item",
+  "description": "A row is added for an edge only when its source differs from its ends, so an inferred user-flow connector has no class at all, while the rubric asks",
+  "keywords": [
+    "row",
+    "edge",
+    "only",
+    "source",
+    "differs",
+    "ends",
+    "inferred",
+    "user-flow",
+    "connector",
+    "class",
+    "while",
+    "rubric",
+    "asks"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.395Z",
+  "specId": "013",
+  "folderSlug": "intake-record-per-item",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

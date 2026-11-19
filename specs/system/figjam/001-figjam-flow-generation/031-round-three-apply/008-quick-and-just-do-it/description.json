@@ -1,0 +1,28 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/008-quick-and-just-do-it",
+  "description": "Quick may skip routine intake, and the facts it may never skip are Doc-shaped, so no board fact is protected",
+  "keywords": [
+    "quick",
+    "skip",
+    "routine",
+    "intake",
+    "facts",
+    "never",
+    "doc-shaped",
+    "board",
+    "fact",
+    "protected"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.391Z",
+  "specId": "008",
+  "folderSlug": "quick-and-just-do-it",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,26 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/011-intake-test-contract",
+  "description": "The loop cannot pass as written, and no scenario covers an under-specified brief",
+  "keywords": [
+    "loop",
+    "cannot",
+    "pass",
+    "written",
+    "scenario",
+    "covers",
+    "under-specified",
+    "brief"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.394Z",
+  "specId": "011",
+  "folderSlug": "intake-test-contract",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

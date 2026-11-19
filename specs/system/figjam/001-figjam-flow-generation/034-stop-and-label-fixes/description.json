@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/034-stop-and-label-fixes",
+  "description": "The 2026-10-24 Sonnet run merged the playback and the gate into one stop and wrote on the reading yes in several scenarios, wrote on an answer to a",
+  "keywords": [
+    "sonnet",
+    "run",
+    "merged",
+    "playback",
+    "gate",
+    "one",
+    "stop",
+    "wrote",
+    "reading",
+    "yes",
+    "several",
+    "scenarios",
+    "answer"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.426Z",
+  "specId": "034",
+  "folderSlug": "stop-and-label-fixes",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 1,
+  "memoryNameHistory": [
+    "25-10-26_16-33__closed-the-stop-and-label-fixes-phase-034-the.md"
+  ]
+}

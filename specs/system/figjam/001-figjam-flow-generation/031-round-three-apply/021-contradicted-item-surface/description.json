@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/021-contradicted-item-surface",
+  "description": "Followed literally the rule removes the connector and reports nothing a reader can see, and an unreported deletion is worse than a drawn guess",
+  "keywords": [
+    "followed",
+    "literally",
+    "rule",
+    "removes",
+    "connector",
+    "reports",
+    "nothing",
+    "reader",
+    "see",
+    "unreported",
+    "deletion",
+    "worse",
+    "drawn",
+    "guess"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.404Z",
+  "specId": "021",
+  "folderSlug": "contradicted-item-surface",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,27 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/007-project-mirror",
+  "description": "The claude.ai Project cannot run the fj CLI and can write boards only through a Figma connector",
+  "keywords": [
+    "claude",
+    "project",
+    "cannot",
+    "run",
+    "cli",
+    "write",
+    "boards",
+    "only",
+    "figma",
+    "connector"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.074Z",
+  "specId": "007",
+  "folderSlug": "project-mirror",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

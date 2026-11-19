@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/023-pre-gate-reread",
+  "description": "Nothing reads a source, so the provenance table and the `Left out:` list are claims no check verifies, and a model can equally promise what the source",
+  "keywords": [
+    "nothing",
+    "reads",
+    "source",
+    "provenance",
+    "table",
+    "left",
+    "list",
+    "claims",
+    "check",
+    "verifies",
+    "model",
+    "equally",
+    "promise"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.407Z",
+  "specId": "023",
+  "folderSlug": "pre-gate-reread",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

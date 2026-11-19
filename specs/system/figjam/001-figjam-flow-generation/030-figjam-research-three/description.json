@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/030-figjam-research-three",
+  "description": "The FigJam packet checks a model's structure, but three questions are still open: how a finished board can look and read better, how the AI should",
+  "keywords": [
+    "figjam",
+    "packet",
+    "checks",
+    "model",
+    "structure",
+    "three",
+    "questions",
+    "still",
+    "open",
+    "finished",
+    "board",
+    "look",
+    "read",
+    "better"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.384Z",
+  "specId": "030",
+  "folderSlug": "figjam-research-three",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

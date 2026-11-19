@@ -1,0 +1,29 @@
+{
+  "level": "2",
+  "specFolder": "system/reviews/002-product-owner-deep-review/002-sk-create-figjam",
+  "description": "Nothing has reviewed `sk-create-figjam/`, the workflow packet that draws FigJam diagrams, with its scripts and checks on its own since packet 017",
+  "keywords": [
+    "nothing",
+    "reviewed",
+    "sk-create-figjam",
+    "workflow",
+    "packet",
+    "draws",
+    "figjam",
+    "diagrams",
+    "scripts",
+    "checks",
+    "own",
+    "since"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.449Z",
+  "specId": "002",
+  "folderSlug": "sk-create-figjam",
+  "parentChain": [
+    "system",
+    "reviews",
+    "002-product-owner-deep-review"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

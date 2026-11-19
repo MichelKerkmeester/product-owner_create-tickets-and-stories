@@ -1,0 +1,29 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/012-reaction-graph-first",
+  "description": "The intake reads node by node for content and infers every move, and `usefigma` appears only as a write,",
+  "keywords": [
+    "intake",
+    "reads",
+    "node",
+    "content",
+    "infers",
+    "every",
+    "move",
+    "usefigma",
+    "appears",
+    "only",
+    "write"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.394Z",
+  "specId": "012",
+  "folderSlug": "reaction-graph-first",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

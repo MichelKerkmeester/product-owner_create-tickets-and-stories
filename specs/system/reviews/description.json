@@ -1,0 +1,16 @@
+{
+  "level": "sub-track",
+  "specFolder": "system/reviews",
+  "description": "Container folder for system/reviews.",
+  "keywords": [
+    "reviews"
+  ],
+  "lastUpdated": "2026-11-19T09:15:17.267Z",
+  "specId": "system/reviews",
+  "folderSlug": "reviews",
+  "parentChain": [
+    "system"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,30 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/029-extension-fixes/002-pair-phrasing-and-framing",
+  "description": "Seven common pair phrasings drop the board, and a doc or bug request with a board loses the artifact to FLOW",
+  "keywords": [
+    "seven",
+    "common",
+    "pair",
+    "phrasings",
+    "drop",
+    "board",
+    "doc",
+    "bug",
+    "request",
+    "loses",
+    "artifact",
+    "flow"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.199Z",
+  "specId": "002",
+  "folderSlug": "pair-phrasing-and-framing",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "029-extension-fixes"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

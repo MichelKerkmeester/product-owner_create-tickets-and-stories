@@ -1,0 +1,25 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/042-figjam-glance-and-left-out",
+  "description": "Claude Sonnet 5.5 high reran every scenario that did not pass on v1.0.6.0 and passed 2 of 16",
+  "keywords": [
+    "claude",
+    "sonnet",
+    "high",
+    "reran",
+    "every",
+    "scenario",
+    "pass",
+    "passed"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.436Z",
+  "specId": "042",
+  "folderSlug": "figjam-glance-and-left-out",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

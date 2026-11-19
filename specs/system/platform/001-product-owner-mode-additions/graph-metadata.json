@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/platform/001-product-owner-mode-additions",
+  "spec_folder": "system/platform/001-product-owner-mode-additions",
+  "parent_id": "system/platform",
+  "children_ids": [
+    "system/platform/001-product-owner-mode-additions/001-product-owner-doc-mode",
+    "system/platform/001-product-owner-mode-additions/002-product-owner-story-mode",
+    "system/platform/001-product-owner-mode-additions/003-product-owner-clickup-handoff",
+    "system/platform/001-product-owner-mode-additions/004-task-examples",
+    "system/platform/001-product-owner-mode-additions/005-bug-examples",
+    "system/platform/001-product-owner-mode-additions/006-doc-examples",
+    "system/platform/001-product-owner-mode-additions/007-story-examples",
+    "system/platform/001-product-owner-mode-additions/008-package-rewiring",
+    "system/platform/001-product-owner-mode-additions/009-example-template-integration",
+    "system/platform/001-product-owner-mode-additions/010-filename-hyphenation",
+    "system/platform/001-product-owner-mode-additions/011-readme-rewrite",
+    "system/platform/001-product-owner-mode-additions/012-cross-model-production-test",
+    "system/platform/001-product-owner-mode-additions/013-doc-narrative-shape",
+    "system/platform/001-product-owner-mode-additions/014-doc-mode-teachings",
+    "system/platform/001-product-owner-mode-additions/015-clickup-heading-depth",
+    "system/platform/001-product-owner-mode-additions/016-skill-folder-rename",
+    "system/platform/001-product-owner-mode-additions/017-skill-md-alignment"
+  ],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "product owner mode additions",
+      "product owner parent spec",
+      "per-mode examples"
+    ],
+    "key_topics": [
+      "product",
+      "owner",
+      "mode",
+      "additions",
+      "parent",
+      "spec",
+      "per-mode",
+      "examples",
+      "capability",
+      "wave",
+      "doc",
+      "story"
+    ],
+    "importance_tier": "high",
+    "status": "in_progress",
+    "key_files": [
+      "spec.md",
+      "tasks.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner Mode Additions",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Doc Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Story Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Doc Templates",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Opening Contract",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Parent spec for the Product Owner capability wave: Doc Mode, Story Mode, ClickUp handoff, per-mode example libraries, and the package rewiring that ships them across both packagings.",
+    "created_at": "2026-10-13T12:52:54.898Z",
+    "last_save_at": "2026-11-19T09:18:34.111Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "tasks.md"
+    ],
+    "source_fingerprint": "sha256:b2947b181038ed904362ce407e6fa0edba8538b66614dd9da2902862f84f0494",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "c002fc8221893164e87627ef6115de3f03307f0eb10b64035b02d9cdf2aa06f9",
+      "tasks.md": "8768240c1c4b47278ca382986e6bcc3896ed9d1198fe538c2cd22c8af6e26552"
+    },
+    "last_active_child_id": "002-product-owner-mode-additions/001-product-owner-doc-mode",
+    "last_active_at": null
+  }
+}

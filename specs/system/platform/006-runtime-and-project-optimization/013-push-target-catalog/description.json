@@ -1,0 +1,35 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization/013-push-target-catalog",
+  "description": "Push targets held one link per artifact kind, but the operator's ClickUp has several lists and docs per team, so a single slot per kind cannot express",
+  "keywords": [
+    "push",
+    "targets",
+    "held",
+    "one",
+    "link",
+    "per",
+    "artifact",
+    "kind",
+    "operator",
+    "clickup",
+    "several",
+    "lists",
+    "docs",
+    "team",
+    "single",
+    "slot",
+    "cannot",
+    "express"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.483Z",
+  "specId": "013",
+  "folderSlug": "push-target-catalog",
+  "parentChain": [
+    "system",
+    "platform",
+    "006-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

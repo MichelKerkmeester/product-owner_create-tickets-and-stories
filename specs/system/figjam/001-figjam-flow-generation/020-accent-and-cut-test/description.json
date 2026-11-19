@@ -1,0 +1,29 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/020-accent-and-cut-test",
+  "description": "The rubric lists four accent candidates with no way to choose, and nothing uses the reader question to cut nodes",
+  "keywords": [
+    "rubric",
+    "lists",
+    "four",
+    "accent",
+    "candidates",
+    "way",
+    "choose",
+    "nothing",
+    "reader",
+    "question",
+    "cut",
+    "nodes"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.190Z",
+  "specId": "020",
+  "folderSlug": "accent-and-cut-test",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

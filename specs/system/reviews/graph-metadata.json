@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/reviews",
+  "spec_folder": "system/reviews",
+  "parent_id": "system",
+  "children_ids": [
+    "system/reviews/001-po-realistic-playbook-opus-rerun",
+    "system/reviews/002-product-owner-deep-review",
+    "system/reviews/003-system-review-and-vendor-sync",
+    "system/reviews/004-doc-alignment-follow-up",
+    "system/reviews/005-fresh-review-fixes",
+    "system/reviews/006-po-clickup-session-review",
+    "system/reviews/007-po-system-deep-review"
+  ],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [],
+    "key_topics": [
+      "system/reviews"
+    ],
+    "causal_summary": "Container folder for system/reviews."
+  }
+}

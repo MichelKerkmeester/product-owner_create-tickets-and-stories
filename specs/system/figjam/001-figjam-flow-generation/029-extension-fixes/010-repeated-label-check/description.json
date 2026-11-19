@@ -1,0 +1,28 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/029-extension-fixes/010-repeated-label-check",
+  "description": "The repeated-label rule is checked by hand only, and a model with four connectors labelled then passes",
+  "keywords": [
+    "repeated-label",
+    "rule",
+    "checked",
+    "hand",
+    "only",
+    "model",
+    "four",
+    "connectors",
+    "labelled",
+    "passes"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.205Z",
+  "specId": "010",
+  "folderSlug": "repeated-label-check",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "029-extension-fixes"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,25 @@
+{
+  "level": "2",
+  "specFolder": "system/reviews/001-po-realistic-playbook-opus-rerun/006-concise-writing",
+  "description": "The benchmark exports read bloated: 109 bullets run over 30 words and 81 paragraphs over 60",
+  "keywords": [
+    "benchmark",
+    "exports",
+    "read",
+    "bloated",
+    "bullets",
+    "run",
+    "words",
+    "paragraphs"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.062Z",
+  "specId": "006",
+  "folderSlug": "concise-writing",
+  "parentChain": [
+    "system",
+    "reviews",
+    "001-po-realistic-playbook-opus-rerun"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

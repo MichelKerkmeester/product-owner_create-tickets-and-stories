@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/clickup",
+  "spec_folder": "system/clickup",
+  "parent_id": "system",
+  "children_ids": [
+    "system/clickup/001-clickup-doc-divider-spacing",
+    "system/clickup/002-clickup-doc-push-editor-and-numbering",
+    "system/clickup/003-clickup-side-by-side-columns",
+    "system/clickup/004-vendored-browser-packets",
+    "system/clickup/005-browser-first-doc-writer",
+    "system/clickup/006-mark-as-done-between-dividers",
+    "system/clickup/007-review-remediation"
+  ],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [],
+    "key_topics": [
+      "system/clickup"
+    ],
+    "causal_summary": "Container folder for system/clickup."
+  }
+}

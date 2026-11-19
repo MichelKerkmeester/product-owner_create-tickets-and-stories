@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization/018-project-parity",
+  "description": "The Claude Project package was mirrored by hand across many phases, the parity gate still reports quality-scoring.md as changed after its mirror, and",
+  "keywords": [
+    "claude",
+    "project",
+    "package",
+    "mirrored",
+    "hand",
+    "across",
+    "many",
+    "phases",
+    "parity",
+    "gate",
+    "still",
+    "reports",
+    "quality-scoring",
+    "changed",
+    "mirror"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.491Z",
+  "specId": "018",
+  "folderSlug": "project-parity",
+  "parentChain": [
+    "system",
+    "platform",
+    "006-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

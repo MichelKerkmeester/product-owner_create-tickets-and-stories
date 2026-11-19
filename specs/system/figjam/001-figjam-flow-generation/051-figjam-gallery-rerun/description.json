@@ -1,0 +1,23 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/051-figjam-gallery-rerun",
+  "description": "Each gallery image shows the composer of the run it came from, from v1.0.6.0 to v1.0.15.0",
+  "keywords": [
+    "gallery",
+    "image",
+    "shows",
+    "composer",
+    "run",
+    "came"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.444Z",
+  "specId": "051",
+  "folderSlug": "figjam-gallery-rerun",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

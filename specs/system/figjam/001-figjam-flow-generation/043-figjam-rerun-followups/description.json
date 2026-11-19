@@ -1,0 +1,25 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/043-figjam-rerun-followups",
+  "description": "Claude Sonnet 5.5 high reran the 14 failures of v1.0.7.0 on v1.0.8.0 and 7 pass under the operator's rulings",
+  "keywords": [
+    "claude",
+    "sonnet",
+    "high",
+    "reran",
+    "failures",
+    "pass",
+    "operator",
+    "rulings"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.437Z",
+  "specId": "043",
+  "folderSlug": "figjam-rerun-followups",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

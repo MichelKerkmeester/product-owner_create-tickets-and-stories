@@ -1,0 +1,155 @@
+{
+  "topic": "Review: The whole Product Owner system and its nested skills in AI Systems/Product Owner: hub SKILL.md, ROUTER.md and AGENTS.md, sk-product-owner, sk-create-figjam, the vendored mcp-click-up, mcp-aside-devtools, mcp-chrome-devtools, mcp-code-mode and mcp-figma packages, vendor.json and scripts/vendor-sync.py, claude project/, benchmark/ gates and fixtures, manual-testing-playbook/, SYNC.md, READMEs, USER-GUIDE.md and changelogs",
+  "sessionId": "2026-11-10T20:08:17Z",
+  "parentSessionId": null,
+  "lineageMode": "new",
+  "generation": 1,
+  "continuedFromRun": null,
+  "migrationWindowEndsAt": "",
+  "maxIterations": 10,
+  "convergenceThreshold": 0.1,
+  "antiConvergence": {
+    "minIterations": 2,
+    "convergenceMode": "default",
+    "stopPolicy": "max-iterations",
+    "divergent": {}
+  },
+  "stuckThreshold": 2,
+  "maxDurationMinutes": 600,
+  "maxToolCallsPerIteration": 12,
+  "maxMinutesPerIteration": 10,
+  "progressiveSynthesis": false,
+  "specFolder": "specs/054-po-system-deep-review",
+  "createdAt": "2026-11-10T20:08:17Z",
+  "status": "complete",
+  "releaseReadinessState": "in-progress",
+  "executionMode": "auto",
+  "executor": {
+    "kind": "cli-pi",
+    "model": "opencode-go/deepseek-v4.1-flash",
+    "reasoningEffort": "max",
+    "serviceTier": null,
+    "sandboxMode": null,
+    "timeoutSeconds": 1800
+  },
+  "mode": "review",
+  "reviewTarget": "The whole Product Owner system and its nested skills in AI Systems/Product Owner: hub SKILL.md, ROUTER.md and AGENTS.md, sk-product-owner, sk-create-figjam, the vendored mcp-click-up, mcp-aside-devtools, mcp-chrome-devtools, mcp-code-mode and mcp-figma packages, vendor.json and scripts/vendor-sync.py, claude project/, benchmark/ gates and fixtures, manual-testing-playbook/, SYNC.md, READMEs, USER-GUIDE.md and changelogs",
+  "reviewTargetType": "directory",
+  "reviewDimensions": [
+    "correctness",
+    "security",
+    "traceability",
+    "maintainability"
+  ],
+  "reviewFocus": "Find drift, bugs and refinement or improvement opportunities across the whole Product Owner system. Check alignment with Skilled sk-doc (sk-create-skill package shape, README, changelog, frontmatter, playbook and catalog modes) and with sk-code for scripts and validators. Analyze how easily the vendored mcp and browser packages sync from Skilled, and whether Skilled overlay and repinning support for external repos (doctor:overlay, system-skilled-doctor) could replace or simplify scripts/vendor-sync.py. Never open or quote AI Systems/Product Owner/.env, it holds secrets. Skip specs/, export/ and z_archive/ except as evidence.",
+  "severityThreshold": "P2",
+  "crossReference": {
+    "core": [
+      "spec_code",
+      "checklist_evidence"
+    ],
+    "overlay": [
+      "skill_agent",
+      "agent_cross_runtime",
+      "feature_catalog_code",
+      "playbook_capability"
+    ]
+  },
+  "qualityGateThreshold": true,
+  "runtimeCapabilityResolver": ".skilled/skills/system-deep-loop/deep-review/scripts/runtime-capabilities.cjs",
+  "reducerScriptPath": ".skilled/skills/system-deep-loop/runtime/scripts/reduce-state.cjs",
+  "fileProtection": {
+    "deep-review-config.json": "immutable",
+    "deep-review-state.jsonl": "append-only",
+    "deep-review-findings-registry.json": "auto-generated",
+    "deep-review-strategy.md": "mutable",
+    "deep-review-dashboard.md": "auto-generated",
+    ".deep-review-pause": "operator-controlled",
+    "review-report.md": "mutable",
+    "review-report-v*.md": "write-once",
+    "iteration-*.md": "write-once"
+  },
+  "reducer": {
+    "enabled": true,
+    "inputs": [
+      "latestJSONLDelta",
+      "newIterationFile",
+      "priorReducedState"
+    ],
+    "outputs": [
+      "findingsRegistry",
+      "dashboardMetrics",
+      "strategyUpdates"
+    ],
+    "metrics": [
+      "dimensionsCovered",
+      "findingsBySeverity",
+      "openFindings",
+      "resolvedFindings",
+      "convergenceScore"
+    ]
+  },
+  "_optimizerManaged": {
+    "description": "Fields managed by the offline loop optimizer (042.004). See optimizer-manifest.json for the canonical tunable/locked field registry.",
+    "manifestPath": ".skilled/skills/system-spec-kit/runtime/cli/optimizer/optimizer-manifest.json",
+    "tunableFields": [
+      "convergenceThreshold",
+      "stuckThreshold",
+      "maxIterations"
+    ],
+    "lockedFields": [
+      "lineageMode",
+      "reducer",
+      "fileProtection",
+      "sessionId",
+      "mode",
+      "reviewDimensions",
+      "antiConvergence.convergenceMode",
+      "antiConvergence.stopPolicy"
+    ],
+    "promotionMode": "advisory-only"
+  },
+  "reviewScopeFiles": [
+    "AI Systems/Product Owner/AGENTS.md",
+    "AI Systems/Product Owner/SKILL.md",
+    "AI Systems/Product Owner/ROUTER.md",
+    "AI Systems/Product Owner/README.md",
+    "AI Systems/Product Owner/USER-GUIDE.md",
+    "AI Systems/Product Owner/SYNC.md",
+    "AI Systems/Product Owner/description.json",
+    "AI Systems/Product Owner/hub-router.json",
+    "AI Systems/Product Owner/mode-registry.json",
+    "AI Systems/Product Owner/leaf-manifest.json",
+    "AI Systems/Product Owner/graph-metadata.json",
+    "AI Systems/Product Owner/vendor.json",
+    "AI Systems/Product Owner/.utcp_config.json",
+    "AI Systems/Product Owner/.mcp.json",
+    "AI Systems/Product Owner/opencode.json",
+    "AI Systems/Product Owner/.gitignore",
+    "AI Systems/Product Owner/.env.example",
+    "AI Systems/Product Owner/click-up-links.md",
+    "AI Systems/Product Owner/changelog/",
+    "AI Systems/Product Owner/sk-product-owner/",
+    "AI Systems/Product Owner/sk-create-figjam/",
+    "AI Systems/Product Owner/mcp-click-up/",
+    "AI Systems/Product Owner/mcp-aside-devtools/",
+    "AI Systems/Product Owner/mcp-chrome-devtools/",
+    "AI Systems/Product Owner/mcp-code-mode/",
+    "AI Systems/Product Owner/mcp-figma/",
+    "AI Systems/Product Owner/claude project/",
+    "AI Systems/Product Owner/benchmark/",
+    "AI Systems/Product Owner/manual-testing-playbook/",
+    "AI Systems/Product Owner/scripts/",
+    "AI Systems/Product Owner/context/",
+    "AI Systems/z \u2014 Claude Project Sync Loop/",
+    ".skilled/skills/sk-doc/",
+    ".skilled/skills/sk-code/",
+    ".skilled/skills/system-skilled-doctor/",
+    ".skilled/commands/doctor/overlay.md"
+  ],
+  "resource_map_present": false,
+  "stopPolicy": "max-iterations",
+  "resource_map": {
+    "emit": true
+  }
+}

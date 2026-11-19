@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization/008-routing-research",
+  "description": "Routing lives in several copies across the parent hub, both packets, the router contract and the Claude Project kernel, and nobody has checked",
+  "keywords": [
+    "routing",
+    "lives",
+    "several",
+    "copies",
+    "across",
+    "parent",
+    "hub",
+    "packets",
+    "router",
+    "contract",
+    "claude",
+    "project",
+    "kernel",
+    "nobody",
+    "checked"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.475Z",
+  "specId": "008",
+  "folderSlug": "routing-research",
+  "parentChain": [
+    "system",
+    "platform",
+    "006-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,26 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/001-research",
+  "description": "Product Owner cannot turn screenshots, Figma flows or product docs into diagrams",
+  "keywords": [
+    "product",
+    "owner",
+    "cannot",
+    "turn",
+    "screenshots",
+    "figma",
+    "flows",
+    "docs",
+    "diagrams"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.069Z",
+  "specId": "001",
+  "folderSlug": "research",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

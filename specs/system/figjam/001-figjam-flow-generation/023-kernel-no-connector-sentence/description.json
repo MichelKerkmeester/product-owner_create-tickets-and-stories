@@ -1,0 +1,26 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/023-kernel-no-connector-sentence",
+  "description": "The kernel drops 'never as the board' and the stand-in ban that its Knowledge mirror carries",
+  "keywords": [
+    "kernel",
+    "drops",
+    "never",
+    "board",
+    "stand-in",
+    "ban",
+    "knowledge",
+    "mirror",
+    "carries"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.193Z",
+  "specId": "023",
+  "folderSlug": "kernel-no-connector-sentence",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

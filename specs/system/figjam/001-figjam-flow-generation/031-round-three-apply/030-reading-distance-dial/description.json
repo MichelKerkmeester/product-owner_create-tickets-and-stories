@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/030-reading-distance-dial",
+  "description": "The packet holds that 'A FigJam board fixes the format and the size, so two remain', yet the generator's font cannot be changed afterwards, so a board",
+  "keywords": [
+    "packet",
+    "holds",
+    "figjam",
+    "board",
+    "format",
+    "size",
+    "two",
+    "remain",
+    "generator",
+    "font",
+    "cannot",
+    "changed",
+    "afterwards"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.417Z",
+  "specId": "030",
+  "folderSlug": "reading-distance-dial",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

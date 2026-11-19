@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/022-chunk-allocation",
+  "description": "The split is decided from the model while the ledger is checked against the sources afterwards, so a large input is corrected late instead of",
+  "keywords": [
+    "split",
+    "decided",
+    "model",
+    "while",
+    "ledger",
+    "checked",
+    "against",
+    "sources",
+    "afterwards",
+    "large",
+    "input",
+    "corrected",
+    "late",
+    "instead"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.405Z",
+  "specId": "022",
+  "folderSlug": "chunk-allocation",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

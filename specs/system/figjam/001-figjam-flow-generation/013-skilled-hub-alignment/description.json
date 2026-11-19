@@ -1,0 +1,28 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/013-skilled-hub-alignment",
+  "description": "The hub copies Moneybird Accountant's shape: the repository root is the hub, each workflow packet keeps its router in a `ROUTER.md`, and",
+  "keywords": [
+    "hub",
+    "copies",
+    "moneybird",
+    "accountant",
+    "shape",
+    "repository",
+    "root",
+    "workflow",
+    "packet",
+    "keeps",
+    "router"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.082Z",
+  "specId": "013",
+  "folderSlug": "skilled-hub-alignment",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,30 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization/002-kernel-size",
+  "description": "The Project kernel, Custom Instructions.md, is 75 KB and loads on every turn, and its Section 11 Router Code alone is 27 KB of Python a Project never",
+  "keywords": [
+    "project",
+    "kernel",
+    "custom",
+    "instructions",
+    "loads",
+    "every",
+    "turn",
+    "section",
+    "router",
+    "code",
+    "alone",
+    "python",
+    "never"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.462Z",
+  "specId": "002",
+  "folderSlug": "kernel-size",
+  "parentChain": [
+    "system",
+    "platform",
+    "006-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

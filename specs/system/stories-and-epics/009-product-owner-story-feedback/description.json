@@ -1,0 +1,22 @@
+{
+  "level": "1",
+  "specFolder": "system/stories-and-epics/009-product-owner-story-feedback",
+  "description": "The PM finds three things in generated Stories that slow them down",
+  "keywords": [
+    "finds",
+    "three",
+    "things",
+    "stories",
+    "slow",
+    "them"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.066Z",
+  "specId": "009",
+  "folderSlug": "product-owner-story-feedback",
+  "parentChain": [
+    "system",
+    "stories-and-epics"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

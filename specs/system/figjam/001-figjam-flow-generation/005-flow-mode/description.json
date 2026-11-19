@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/005-flow-mode",
+  "description": "Product Owner has no mode that produces diagrams, and its export protocol blocks every reply until a markdown file is saved, which does not fit a",
+  "keywords": [
+    "product",
+    "owner",
+    "mode",
+    "produces",
+    "diagrams",
+    "export",
+    "protocol",
+    "blocks",
+    "every",
+    "reply",
+    "until",
+    "markdown",
+    "file",
+    "saved",
+    "fit"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.072Z",
+  "specId": "005",
+  "folderSlug": "flow-mode",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

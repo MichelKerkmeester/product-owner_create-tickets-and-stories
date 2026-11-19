@@ -1,0 +1,26 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/038-figjam-model-comparison",
+  "description": "The gallery shows boards the composer drew before phase 037, so it no longer shows what the skill draws",
+  "keywords": [
+    "gallery",
+    "shows",
+    "boards",
+    "composer",
+    "drew",
+    "phase",
+    "longer",
+    "skill",
+    "draws"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.432Z",
+  "specId": "038",
+  "folderSlug": "figjam-model-comparison",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

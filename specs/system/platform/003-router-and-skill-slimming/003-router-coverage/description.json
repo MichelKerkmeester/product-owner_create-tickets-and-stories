@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/003-router-and-skill-slimming/003-router-coverage",
+  "description": "Extend the semantic tables so ordinary phrasing reaches the right mode, cutting the twenty-request fallback count from sixteen to at most four",
+  "keywords": [
+    "extend",
+    "semantic",
+    "tables",
+    "ordinary",
+    "phrasing",
+    "reaches",
+    "right",
+    "mode",
+    "cutting",
+    "twenty-request",
+    "fallback",
+    "count",
+    "sixteen",
+    "four"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.050Z",
+  "specId": "003",
+  "folderSlug": "router-coverage",
+  "parentChain": [
+    "system",
+    "platform",
+    "003-router-and-skill-slimming"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

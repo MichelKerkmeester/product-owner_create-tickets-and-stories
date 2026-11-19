@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/reviews/002-product-owner-deep-review/005-whole-repo",
+  "description": "Nothing has reviewed the whole Product Owner repository: the hub root files, `claude project/`, `scripts/`, `benchmark/`, the manual-testing playbooks",
+  "keywords": [
+    "nothing",
+    "reviewed",
+    "whole",
+    "product",
+    "owner",
+    "repository",
+    "hub",
+    "root",
+    "files",
+    "claude",
+    "project",
+    "scripts",
+    "benchmark",
+    "manual-testing",
+    "playbooks"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.453Z",
+  "specId": "005",
+  "folderSlug": "whole-repo",
+  "parentChain": [
+    "system",
+    "reviews",
+    "002-product-owner-deep-review"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

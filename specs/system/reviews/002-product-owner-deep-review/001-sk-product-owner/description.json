@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/reviews/002-product-owner-deep-review/001-sk-product-owner",
+  "description": "Nothing has reviewed `sk-product-owner/`, the default workflow packet that writes tasks, bugs, Stories, Epics and docs on its own since packet 017",
+  "keywords": [
+    "nothing",
+    "reviewed",
+    "sk-product-owner",
+    "default",
+    "workflow",
+    "packet",
+    "writes",
+    "tasks",
+    "bugs",
+    "stories",
+    "epics",
+    "docs",
+    "own",
+    "since"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.448Z",
+  "specId": "001",
+  "folderSlug": "sk-product-owner",
+  "parentChain": [
+    "system",
+    "reviews",
+    "002-product-owner-deep-review"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

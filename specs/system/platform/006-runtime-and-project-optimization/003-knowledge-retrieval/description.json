@@ -1,0 +1,28 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization/003-knowledge-retrieval",
+  "description": "The Project's 62 knowledge files total 700 KB, with 28 examples and four Templates files of 36 to 48 KB, so retrieval can pull overlapping text for",
+  "keywords": [
+    "project",
+    "knowledge",
+    "files",
+    "total",
+    "examples",
+    "four",
+    "templates",
+    "retrieval",
+    "pull",
+    "overlapping",
+    "text"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.463Z",
+  "specId": "003",
+  "folderSlug": "knowledge-retrieval",
+  "parentChain": [
+    "system",
+    "platform",
+    "006-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

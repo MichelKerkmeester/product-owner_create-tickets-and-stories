@@ -1,0 +1,28 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/014-hub-to-root",
+  "description": "The skilled checkers read a whole folder as the skill, so phase 013 had to put the hub in `product-owner/` to pass",
+  "keywords": [
+    "skilled",
+    "checkers",
+    "read",
+    "whole",
+    "folder",
+    "skill",
+    "phase",
+    "put",
+    "hub",
+    "product-owner",
+    "pass"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.083Z",
+  "specId": "014",
+  "folderSlug": "hub-to-root",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

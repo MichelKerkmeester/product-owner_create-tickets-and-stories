@@ -1,0 +1,26 @@
+{
+  "level": "2",
+  "specFolder": "system/reviews/001-po-realistic-playbook-opus-rerun/002-company-context-fixtures",
+  "description": "Phase 003 rewrites the playbook so 46 scenarios produce tickets for Roamstay, Loomlist and Fernhouse",
+  "keywords": [
+    "phase",
+    "rewrites",
+    "playbook",
+    "scenarios",
+    "produce",
+    "tickets",
+    "roamstay",
+    "loomlist",
+    "fernhouse"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.059Z",
+  "specId": "002",
+  "folderSlug": "company-context-fixtures",
+  "parentChain": [
+    "system",
+    "reviews",
+    "001-po-realistic-playbook-opus-rerun"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

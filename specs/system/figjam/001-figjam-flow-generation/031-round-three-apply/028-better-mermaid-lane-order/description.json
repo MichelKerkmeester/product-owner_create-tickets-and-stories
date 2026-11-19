@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/028-better-mermaid-lane-order",
+  "description": "The fix for a cramped diagram is described as reshaping the model, and no file says which levers survive on an ELK layout or that the check never",
+  "keywords": [
+    "cramped",
+    "diagram",
+    "described",
+    "reshaping",
+    "model",
+    "file",
+    "says",
+    "levers",
+    "survive",
+    "elk",
+    "layout",
+    "check",
+    "never"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.414Z",
+  "specId": "028",
+  "folderSlug": "better-mermaid-lane-order",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

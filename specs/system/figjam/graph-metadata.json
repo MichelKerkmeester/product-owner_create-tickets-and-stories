@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/figjam",
+  "spec_folder": "system/figjam",
+  "parent_id": "system",
+  "children_ids": [
+    "system/figjam/001-figjam-flow-generation"
+  ],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [],
+    "key_topics": [
+      "system/figjam"
+    ],
+    "causal_summary": "Container folder for system/figjam."
+  }
+}

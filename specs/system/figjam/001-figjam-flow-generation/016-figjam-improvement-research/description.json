@@ -1,0 +1,25 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/016-figjam-improvement-research",
+  "description": "Phase 015 grew sk-create-figjam to seven diagram types from the 009 corpus and sk-design-diagram",
+  "keywords": [
+    "phase",
+    "grew",
+    "sk-create-figjam",
+    "seven",
+    "diagram",
+    "types",
+    "corpus",
+    "sk-design-diagram"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.085Z",
+  "specId": "016",
+  "folderSlug": "figjam-improvement-research",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

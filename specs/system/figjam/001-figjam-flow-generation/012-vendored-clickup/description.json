@@ -1,0 +1,27 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/012-vendored-clickup",
+  "description": "Product Owner writes ClickUp tasks and docs, but the ClickUp skill lives only in `.skilled`",
+  "keywords": [
+    "product",
+    "owner",
+    "writes",
+    "clickup",
+    "tasks",
+    "docs",
+    "skill",
+    "lives",
+    "only",
+    "skilled"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.081Z",
+  "specId": "012",
+  "folderSlug": "vendored-clickup",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

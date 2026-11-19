@@ -1,0 +1,26 @@
+{
+  "level": "1",
+  "specFolder": "system/clickup/006-mark-as-done-between-dividers",
+  "description": "Story and Epic criteria closed with a Mark-as-done checkbox that no divider separated from the next criterion",
+  "keywords": [
+    "story",
+    "epic",
+    "criteria",
+    "closed",
+    "mark-as-done",
+    "checkbox",
+    "divider",
+    "separated",
+    "next",
+    "criterion"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.503Z",
+  "specId": "006",
+  "folderSlug": "mark-as-done-between-dividers",
+  "parentChain": [
+    "system",
+    "clickup"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

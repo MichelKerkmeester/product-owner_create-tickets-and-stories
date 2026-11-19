@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/002-write-route-spike",
+  "description": "The hosted Figma MCP has one recorded board in this repo and no recorded schema, and the fj route has help output but has never written a node",
+  "keywords": [
+    "hosted",
+    "figma",
+    "mcp",
+    "one",
+    "recorded",
+    "board",
+    "repo",
+    "schema",
+    "route",
+    "help",
+    "output",
+    "never",
+    "written",
+    "node"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.069Z",
+  "specId": "002",
+  "folderSlug": "write-route-spike",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

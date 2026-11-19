@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/030-figjam-research-three/002-input-to-model-logic",
+  "description": "The packet says what each input type gives, but not how a model should read a set of screenshots or a product spec into nodes, edges and decisions",
+  "keywords": [
+    "packet",
+    "says",
+    "input",
+    "type",
+    "gives",
+    "model",
+    "read",
+    "set",
+    "screenshots",
+    "product",
+    "spec",
+    "nodes",
+    "edges",
+    "decisions"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.257Z",
+  "specId": "002",
+  "folderSlug": "input-to-model-logic",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "030-figjam-research-three"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,35 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/026-spacing-scale",
+  "description": "Every number in the packet is a constant chosen for one recipe, a 250px legend gutter, a 40px sticky clearance and a 24px tint expansion, and none of",
+  "keywords": [
+    "every",
+    "number",
+    "packet",
+    "constant",
+    "chosen",
+    "one",
+    "recipe",
+    "250px",
+    "legend",
+    "gutter",
+    "40px",
+    "sticky",
+    "clearance",
+    "24px",
+    "tint",
+    "expansion",
+    "none"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.411Z",
+  "specId": "026",
+  "folderSlug": "spacing-scale",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,27 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/002-draw-ready-stop-rule",
+  "description": "No stop rule exists, and the five asking situations are situational rather than confidence-driven",
+  "keywords": [
+    "stop",
+    "rule",
+    "exists",
+    "five",
+    "asking",
+    "situations",
+    "situational",
+    "rather",
+    "confidence-driven"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.386Z",
+  "specId": "002",
+  "folderSlug": "draw-ready-stop-rule",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

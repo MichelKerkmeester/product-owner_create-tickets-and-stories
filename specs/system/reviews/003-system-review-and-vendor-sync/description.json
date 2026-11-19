@@ -1,0 +1,30 @@
+{
+  "level": "1",
+  "specFolder": "system/reviews/003-system-review-and-vendor-sync",
+  "description": "Michel asked for a ten-iteration review of the whole system and its nested skills, a check that it still follows Skilled sk-doc and sk-code",
+  "keywords": [
+    "michel",
+    "asked",
+    "ten-iteration",
+    "review",
+    "whole",
+    "system",
+    "nested",
+    "skills",
+    "check",
+    "still",
+    "follows",
+    "skilled",
+    "sk-doc",
+    "sk-code"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.507Z",
+  "specId": "003",
+  "folderSlug": "system-review-and-vendor-sync",
+  "parentChain": [
+    "system",
+    "reviews"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

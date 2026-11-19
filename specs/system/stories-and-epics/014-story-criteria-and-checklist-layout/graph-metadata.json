@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/stories-and-epics/014-story-criteria-and-checklist-layout",
+  "spec_folder": "system/stories-and-epics/014-story-criteria-and-checklist-layout",
+  "parent_id": "system/stories-and-epics",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "story criteria and checklist layout",
+      "story criteria and checklist layout plan",
+      "story criteria and checklist layout tasks",
+      "story criteria and checklist layout implementation summary"
+    ],
+    "key_topics": [
+      "story",
+      "criteria",
+      "checklist",
+      "layout",
+      "plan",
+      "tasks",
+      "implementation",
+      "summary",
+      "michel",
+      "chose",
+      "new",
+      "house"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md",
+      "sk-product-owner/SKILL.md",
+      "benchmark/format/run_fixtures.sh",
+      "sk-product-owner/references/story-mode.md",
+      "sk-product-owner/assets/story-template.md",
+      "benchmark/gates/rule_parity.py",
+      "benchmark/format/validate-output-format.cjs",
+      "benchmark/gates/run_gates.sh",
+      "claude project/Custom Instructions.md",
+      "changelog/v1.0.36.0.md",
+      "changelog/v1.0.37.0.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "run_fixtures.sh",
+        "kind": "script",
+        "path": "benchmark/format/run_fixtures.sh",
+        "source": "derived"
+      },
+      {
+        "name": "story-mode.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/story-mode.md",
+        "source": "derived"
+      },
+      {
+        "name": "story-template.md",
+        "kind": "doc",
+        "path": "sk-product-owner/assets/story-template.md",
+        "source": "derived"
+      },
+      {
+        "name": "rule_parity.py",
+        "kind": "file",
+        "path": "benchmark/gates/rule_parity.py",
+        "source": "derived"
+      },
+      {
+        "name": "validate-output-format.cjs",
+        "kind": "file",
+        "path": "benchmark/format/validate-output-format.cjs",
+        "source": "derived"
+      },
+      {
+        "name": "run_gates.sh",
+        "kind": "script",
+        "path": "benchmark/gates/run_gates.sh",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.0.36.0.md",
+        "kind": "doc",
+        "path": "changelog/v1.0.36.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.0.37.0.md",
+        "kind": "doc",
+        "path": "changelog/v1.0.37.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "New Stories",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement Michel",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Story Mode",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose New Stories",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Sync Loop",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "Michel chose a new house layout for Stories that differs from the current rules in four places",
+    "created_at": "2026-11-16T16:01:35.229Z",
+    "last_save_at": "2026-11-19T09:19:22.172Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:a21ee186a25d306192044107d78b51bd2afb499a925b0bfd7a6652bce84c6411",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "6d2098245d4d57178955fdd4462c592ad1a9b45e550de3d3166e916fec66bc6f",
+      "plan.md": "8f41f2e3763550ab2b651041bab1f54761dbc3d0d9326d03dbd49163f290bbcd",
+      "tasks.md": "236107b4b11188ab7c9f912141a3d3acd9b9faef50536cfff4337e3a4d9833a8",
+      "implementation-summary.md": "55ff957c4fec36a4d667945a5b30dd62727c29ba86dd65596a80d154d0ceaff5"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

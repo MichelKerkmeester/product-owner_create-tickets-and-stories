@@ -1,0 +1,29 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/039-figjam-run-findings",
+  "description": "Claude Opus 5.5 medium drew 20 sound boards in 24 scenarios, but the skill got in its way five times",
+  "keywords": [
+    "claude",
+    "opus",
+    "medium",
+    "drew",
+    "sound",
+    "boards",
+    "scenarios",
+    "skill",
+    "got",
+    "way",
+    "five",
+    "times"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.434Z",
+  "specId": "039",
+  "folderSlug": "figjam-run-findings",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

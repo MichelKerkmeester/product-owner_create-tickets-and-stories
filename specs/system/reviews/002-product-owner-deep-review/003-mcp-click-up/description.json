@@ -1,0 +1,23 @@
+{
+  "level": "2",
+  "specFolder": "system/reviews/002-product-owner-deep-review/003-mcp-click-up",
+  "description": "Nothing has reviewed `mcp-click-up/`, the vendored ClickUp packet",
+  "keywords": [
+    "nothing",
+    "reviewed",
+    "mcp-click-up",
+    "vendored",
+    "clickup",
+    "packet"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.451Z",
+  "specId": "003",
+  "folderSlug": "mcp-click-up",
+  "parentChain": [
+    "system",
+    "reviews",
+    "002-product-owner-deep-review"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

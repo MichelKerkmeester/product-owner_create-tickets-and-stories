@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/reviews/002-product-owner-deep-review",
+  "description": "Product Owner grew from one skill into a hub of four packets with a Project mirror, a plugin and a set of gates across 32 phases of work",
+  "keywords": [
+    "product",
+    "owner",
+    "grew",
+    "one",
+    "skill",
+    "hub",
+    "four",
+    "packets",
+    "project",
+    "mirror",
+    "plugin",
+    "set",
+    "gates",
+    "across",
+    "phases",
+    "work"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.459Z",
+  "specId": "002",
+  "folderSlug": "product-owner-deep-review",
+  "parentChain": [
+    "system",
+    "reviews"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

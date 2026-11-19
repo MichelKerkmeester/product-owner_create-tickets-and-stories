@@ -1,0 +1,29 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/015-inference-ladder",
+  "description": "The intake names only the filename grammar and one question, so a set with no numbering falls straight to the question",
+  "keywords": [
+    "intake",
+    "names",
+    "only",
+    "filename",
+    "grammar",
+    "one",
+    "question",
+    "set",
+    "numbering",
+    "falls",
+    "straight"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.398Z",
+  "specId": "015",
+  "folderSlug": "inference-ladder",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

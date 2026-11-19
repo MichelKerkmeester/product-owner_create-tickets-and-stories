@@ -1,0 +1,30 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/040-figjam-sonnet-run-findings",
+  "description": "Claude Sonnet 5.5 high ran all 54 FigJam scenarios on v1.0.5.0 and passed 23 once skeptics and an adjudicator had checked one grader's verdicts",
+  "keywords": [
+    "claude",
+    "sonnet",
+    "high",
+    "ran",
+    "figjam",
+    "scenarios",
+    "passed",
+    "skeptics",
+    "adjudicator",
+    "checked",
+    "one",
+    "grader",
+    "verdicts"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.435Z",
+  "specId": "040",
+  "folderSlug": "figjam-sonnet-run-findings",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

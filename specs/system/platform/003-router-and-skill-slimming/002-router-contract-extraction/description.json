@@ -1,0 +1,29 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/003-router-and-skill-slimming/002-router-contract-extraction",
+  "description": "Move the 608-line pseudocode fence to a dedicated reference and repoint the differential harness, taking SKILL.md under 600 lines",
+  "keywords": [
+    "move",
+    "608-line",
+    "pseudocode",
+    "fence",
+    "dedicated",
+    "reference",
+    "repoint",
+    "differential",
+    "harness",
+    "taking",
+    "skill",
+    "lines"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.049Z",
+  "specId": "002",
+  "folderSlug": "router-contract-extraction",
+  "parentChain": [
+    "system",
+    "platform",
+    "003-router-and-skill-slimming"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

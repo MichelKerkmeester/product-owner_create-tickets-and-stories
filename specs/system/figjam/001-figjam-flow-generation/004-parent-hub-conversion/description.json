@@ -1,0 +1,21 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/004-parent-hub-conversion",
+  "description": "Product Owner is a single skill",
+  "keywords": [
+    "product",
+    "owner",
+    "single",
+    "skill"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.071Z",
+  "specId": "004",
+  "folderSlug": "parent-hub-conversion",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

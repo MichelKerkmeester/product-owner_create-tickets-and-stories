@@ -1,0 +1,26 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/045-figjam-findings-fixes",
+  "description": "Claude Sonnet 5.5 high reran the 6 failures of v1.0.9.0 on v1.0.10.0 and 2 pass, FJ-032 by the operator's ruling",
+  "keywords": [
+    "claude",
+    "sonnet",
+    "high",
+    "reran",
+    "failures",
+    "pass",
+    "fj-032",
+    "operator",
+    "ruling"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.439Z",
+  "specId": "045",
+  "folderSlug": "figjam-findings-fixes",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

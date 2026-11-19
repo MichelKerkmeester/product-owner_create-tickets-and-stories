@@ -1,0 +1,29 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/014-verify-image-labels",
+  "description": "The click target 'is read off the image' and no read tool, checkpoint or verification appears in the packet, so a label is a transcription of an",
+  "keywords": [
+    "click",
+    "target",
+    "read",
+    "image",
+    "tool",
+    "checkpoint",
+    "verification",
+    "appears",
+    "packet",
+    "label",
+    "transcription"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.397Z",
+  "specId": "014",
+  "folderSlug": "verify-image-labels",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

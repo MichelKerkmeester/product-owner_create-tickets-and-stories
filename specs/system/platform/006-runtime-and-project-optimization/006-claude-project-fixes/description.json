@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization/006-claude-project-fixes",
+  "description": "The 005 review found that a Claude Desktop user is never told how to connect ClickUp and Figma to this Project, that the private ClickUp doc recipe is",
+  "keywords": [
+    "review",
+    "found",
+    "claude",
+    "desktop",
+    "user",
+    "never",
+    "told",
+    "connect",
+    "clickup",
+    "figma",
+    "project",
+    "private",
+    "doc",
+    "recipe"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.470Z",
+  "specId": "006",
+  "folderSlug": "claude-project-fixes",
+  "parentChain": [
+    "system",
+    "platform",
+    "006-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

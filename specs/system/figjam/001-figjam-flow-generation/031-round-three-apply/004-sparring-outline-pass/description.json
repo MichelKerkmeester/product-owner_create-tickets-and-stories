@@ -1,0 +1,30 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/004-sparring-outline-pass",
+  "description": "The remove test depends on a `userIntent` sentence the intake never establishes, and that sentence is composed only at the write call",
+  "keywords": [
+    "remove",
+    "test",
+    "depends",
+    "userintent",
+    "sentence",
+    "intake",
+    "never",
+    "establishes",
+    "composed",
+    "only",
+    "write",
+    "call"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.388Z",
+  "specId": "004",
+  "folderSlug": "sparring-outline-pass",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

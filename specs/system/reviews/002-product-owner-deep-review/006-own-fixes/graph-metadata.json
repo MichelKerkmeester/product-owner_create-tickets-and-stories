@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/reviews/002-product-owner-deep-review/006-own-fixes",
+  "spec_folder": "system/reviews/002-product-owner-deep-review/006-own-fixes",
+  "parent_id": "system/reviews/002-product-owner-deep-review",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "own fixes",
+      "own fixes plan",
+      "own fixes tasks",
+      "own fixes acceptance criteria",
+      "own fixes goal",
+      "own fixes implementation summary"
+    ],
+    "key_topics": [
+      "own",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "implementation",
+      "summary",
+      "five",
+      "reviews",
+      "found",
+      "defects"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md",
+      "benchmark/README.md",
+      "sk-product-owner/SKILL.md",
+      "benchmark/grader/README.md",
+      "scripts/vendor-sync.py",
+      "scripts/tests/test_vendor_sync.py",
+      "benchmark/gates/example_lint.py",
+      "benchmark/gates/rule_parity.py",
+      "claude project/Custom Instructions.md",
+      "claude project/README.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "README.md",
+        "kind": "doc",
+        "path": "benchmark/README.md",
+        "source": "derived"
+      },
+      {
+        "name": "SKILL.md",
+        "kind": "doc",
+        "path": "sk-product-owner/SKILL.md",
+        "source": "derived"
+      },
+      {
+        "name": "vendor-sync.py",
+        "kind": "file",
+        "path": "scripts/vendor-sync.py",
+        "source": "derived"
+      },
+      {
+        "name": "test_vendor_sync.py",
+        "kind": "file",
+        "path": "scripts/tests/test_vendor_sync.py",
+        "source": "derived"
+      },
+      {
+        "name": "example_lint.py",
+        "kind": "file",
+        "path": "benchmark/gates/example_lint.py",
+        "source": "derived"
+      },
+      {
+        "name": "rule_parity.py",
+        "kind": "file",
+        "path": "benchmark/gates/rule_parity.py",
+        "source": "derived"
+      },
+      {
+        "name": "Custom Instructions.md",
+        "kind": "doc",
+        "path": "claude project/Custom Instructions.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Product Owner",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement The",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Fix",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Scope",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Each",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Fix",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The five reviews found 5 P1 and 39 P2 defects in files Product Owner owns, among them a skill rubric that asks for Project-only delivery proof, a private-doc recipe that omits a required parameter and a plugin build that ships a playbook its own rule excludes",
+    "created_at": "2026-10-21T12:47:14.761Z",
+    "last_save_at": "2026-11-19T09:18:53.915Z",
+    "save_lineage": "graph_only",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:0f960c57bc2c796ea02b4a2b6351900bcbc614a32a9ebc9e491b6795741d7e42",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "03a80fd1270a5f60b996738024bd05863da043e6c5b8e9765c026636418b5147",
+      "plan.md": "749f422480b6d57080533b5568ea7837f11bf8d324d2d6e096f1045a5f8b2dfd",
+      "tasks.md": "56d889021aad4d2005bf4b0a0a4dd6fc520313f79913ee22dd2117a9d4280158",
+      "implementation-summary.md": "d1c296f8288da5596356b19739893e6874763f742ae7b82c5fa48811258ff315"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/010-intake-in-always-and-router",
+  "description": "A rule that lives only inside a reference is easy to skip, and the FLOW leaf pair is everything a Flow request loads",
+  "keywords": [
+    "rule",
+    "lives",
+    "only",
+    "inside",
+    "reference",
+    "easy",
+    "skip",
+    "flow",
+    "leaf",
+    "pair",
+    "everything",
+    "request",
+    "loads"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.393Z",
+  "specId": "010",
+  "folderSlug": "intake-in-always-and-router",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

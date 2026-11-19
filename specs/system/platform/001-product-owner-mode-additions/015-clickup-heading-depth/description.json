@@ -1,0 +1,26 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/001-product-owner-mode-additions/015-clickup-heading-depth",
+  "description": "Product Owner artifacts use H2 for every section, and ClickUp renders H2 very large.",
+  "keywords": [
+    "product",
+    "owner",
+    "artifacts",
+    "every",
+    "section",
+    "clickup",
+    "renders",
+    "very",
+    "large"
+  ],
+  "lastUpdated": "2026-10-13T12:52:47.140Z",
+  "specId": "015",
+  "folderSlug": "clickup-heading-depth",
+  "parentChain": [
+    "system",
+    "platform",
+    "001-product-owner-mode-additions"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

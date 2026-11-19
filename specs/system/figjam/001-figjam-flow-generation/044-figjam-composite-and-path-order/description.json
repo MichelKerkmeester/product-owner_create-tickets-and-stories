@@ -1,0 +1,23 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/044-figjam-composite-and-path-order",
+  "description": "Claude Sonnet 5.5 high reran the 7 failures of v1.0.8.0 on v1.0.9.0 and 1 passes",
+  "keywords": [
+    "claude",
+    "sonnet",
+    "high",
+    "reran",
+    "failures",
+    "passes"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.438Z",
+  "specId": "044",
+  "folderSlug": "figjam-composite-and-path-order",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

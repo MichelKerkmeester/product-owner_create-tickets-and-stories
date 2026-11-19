@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/figjam/001-figjam-flow-generation/035-first-glance-and-routing",
+  "spec_folder": "system/figjam/001-figjam-flow-generation/035-first-glance-and-routing",
+  "parent_id": "system/figjam/001-figjam-flow-generation",
+  "children_ids": [],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [
+      "first glance and routing",
+      "first glance and routing plan",
+      "first glance and routing tasks",
+      "first glance and routing acceptance criteria",
+      "first glance and routing goal",
+      "first glance and routing decision",
+      "first glance and routing implementation summary"
+    ],
+    "key_topics": [
+      "first",
+      "glance",
+      "routing",
+      "plan",
+      "tasks",
+      "acceptance",
+      "criteria",
+      "goal",
+      "decision",
+      "implementation",
+      "summary",
+      "rerun"
+    ],
+    "importance_tier": "normal",
+    "status": "complete",
+    "key_files": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "decision-record.md",
+      "implementation-summary.md"
+    ],
+    "entities": [
+      {
+        "name": "spec.md",
+        "kind": "doc",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "plan.md",
+        "kind": "doc",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "tasks.md",
+        "kind": "doc",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "acceptance-criteria.md",
+        "kind": "doc",
+        "path": "acceptance-criteria.md",
+        "source": "derived"
+      },
+      {
+        "name": "goal.md",
+        "kind": "doc",
+        "path": "goal.md",
+        "source": "derived"
+      },
+      {
+        "name": "decision-record.md",
+        "kind": "doc",
+        "path": "decision-record.md",
+        "source": "derived"
+      },
+      {
+        "name": "implementation-summary.md",
+        "kind": "doc",
+        "path": "implementation-summary.md",
+        "source": "derived"
+      },
+      {
+        "name": "Feature Specification",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Parent Spec",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Problem Statement The",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Purpose Tie",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "In Scope",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "The Claude Project",
+        "kind": "proper_noun",
+        "path": "spec.md",
+        "source": "derived"
+      },
+      {
+        "name": "Implementation Plan",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Technical Context",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Overview Each",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Pattern Fix",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Key Components",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Data Flow",
+        "kind": "proper_noun",
+        "path": "plan.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Format",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Task Notation",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Completion Criteria",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Verification Checklist",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      },
+      {
+        "name": "Verification Protocol",
+        "kind": "proper_noun",
+        "path": "tasks.md",
+        "source": "derived"
+      }
+    ],
+    "causal_summary": "The 2026-10-25 rerun held stop discipline in all 18 scenarios but passed only 2: on most boards the planned first glance does not read first because the accent is optional, shares a hue with a kind fill and loses to the start pill, architecture and ER edges run along zone borders and share stubs and corridors, replies carry text after the HVR line, and four model misses trace to skill wording",
+    "created_at": "2026-10-25T11:27:55.414Z",
+    "last_save_at": "2026-11-19T09:18:28.702Z",
+    "save_lineage": "same_pass",
+    "last_accessed_at": null,
+    "source_docs": [
+      "spec.md",
+      "plan.md",
+      "tasks.md",
+      "acceptance-criteria.md",
+      "goal.md",
+      "decision-record.md",
+      "implementation-summary.md"
+    ],
+    "source_fingerprint": "sha256:fc83d6c0038fcc7bac4840837fc2008c9c5c76a66be831b32154f44426aba5e1",
+    "source_fingerprint_docset": 3,
+    "source_doc_hashes": {
+      "spec.md": "8697826ac4fb9015a8877009fae9db542e9d7b615a035805f5ed137bb2c4164f",
+      "plan.md": "9639190e324c90191b022f51f0247dea55cc1fcaa02bc5495ad0f1f1d5befc5d",
+      "tasks.md": "aef990b355808ef9b11be168562aef9b5daceaf88a1f77ddabdbc65f9baa3fc7",
+      "decision-record.md": "207bd2f68c101553f8299426f3a1cf93792d712ee6a3549262c32c7593be4ca2",
+      "implementation-summary.md": "5b82a89cf732bcb49f8dc6adb9302484874949f1d6b3d0fd9fc8839f4962deef"
+    },
+    "last_active_child_id": null,
+    "last_active_at": null
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/029-extension-fixes",
+  "description": "Five more research iterations found that eight of the twelve shipped FigJam changes stop short and ranked five new ones",
+  "keywords": [
+    "five",
+    "research",
+    "iterations",
+    "found",
+    "eight",
+    "twelve",
+    "shipped",
+    "figjam",
+    "changes",
+    "stop",
+    "short",
+    "ranked",
+    "new",
+    "ones"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.207Z",
+  "specId": "029",
+  "folderSlug": "extension-fixes",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

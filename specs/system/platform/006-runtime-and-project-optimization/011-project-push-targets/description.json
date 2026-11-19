@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/platform/006-runtime-and-project-optimization/011-project-push-targets",
+  "description": "The command-line skill reads ClickUp push targets from a gitignored .env, while a Claude Project holds none and asks where on every push",
+  "keywords": [
+    "command-line",
+    "skill",
+    "reads",
+    "clickup",
+    "push",
+    "targets",
+    "gitignored",
+    "env",
+    "while",
+    "claude",
+    "project",
+    "holds",
+    "none",
+    "asks",
+    "every"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.480Z",
+  "specId": "011",
+  "folderSlug": "project-push-targets",
+  "parentChain": [
+    "system",
+    "platform",
+    "006-runtime-and-project-optimization"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

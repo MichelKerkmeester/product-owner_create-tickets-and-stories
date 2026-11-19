@@ -1,0 +1,29 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/029-extension-fixes/001-board-link-resave",
+  "description": "The link stops at the reply, so the saved artifact keeps no link and a Doc is told to use a Flows group it lacks",
+  "keywords": [
+    "link",
+    "stops",
+    "reply",
+    "saved",
+    "artifact",
+    "keeps",
+    "doc",
+    "told",
+    "flows",
+    "group",
+    "lacks"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.198Z",
+  "specId": "001",
+  "folderSlug": "board-link-resave",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "029-extension-fixes"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

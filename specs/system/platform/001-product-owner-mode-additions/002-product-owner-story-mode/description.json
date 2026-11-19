@@ -1,0 +1,30 @@
+{
+  "level": "1",
+  "specFolder": "system/platform/001-product-owner-mode-additions/002-product-owner-story-mode",
+  "description": "Story Mode for the Product Owner system: research-grounded story formats, a three-tier template family, and a routed STORY intent with interactive",
+  "keywords": [
+    "story",
+    "mode",
+    "product",
+    "owner",
+    "system",
+    "research-grounded",
+    "formats",
+    "three-tier",
+    "template",
+    "family",
+    "routed",
+    "intent",
+    "interactive"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.038Z",
+  "specId": "002",
+  "folderSlug": "product-owner-story-mode",
+  "parentChain": [
+    "system",
+    "platform",
+    "001-product-owner-mode-additions"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

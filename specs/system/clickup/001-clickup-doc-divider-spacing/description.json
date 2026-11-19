@@ -1,0 +1,25 @@
+{
+  "level": "1",
+  "specFolder": "system/clickup/001-clickup-doc-divider-spacing",
+  "description": "Every new Doc artifact uses `  ` dividers, and a doc push lands as a new page through `clickupcreatedocumentpage`",
+  "keywords": [
+    "every",
+    "new",
+    "doc",
+    "artifact",
+    "dividers",
+    "push",
+    "lands",
+    "page",
+    "clickupcreatedocumentpage"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.496Z",
+  "specId": "001",
+  "folderSlug": "clickup-doc-divider-spacing",
+  "parentChain": [
+    "system",
+    "clickup"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

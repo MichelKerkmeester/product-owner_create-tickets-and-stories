@@ -1,0 +1,25 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/024-flow-delivery-pointers",
+  "description": "Two pointers send readers to the write routes for the reply format",
+  "keywords": [
+    "two",
+    "pointers",
+    "send",
+    "readers",
+    "write",
+    "routes",
+    "reply",
+    "format"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.194Z",
+  "specId": "024",
+  "folderSlug": "flow-delivery-pointers",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

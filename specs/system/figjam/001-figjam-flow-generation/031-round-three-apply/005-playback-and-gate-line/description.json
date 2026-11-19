@@ -1,0 +1,25 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/005-playback-and-gate-line",
+  "description": "The gate's facts are all write-side and none is the board's message or reader",
+  "keywords": [
+    "gate",
+    "facts",
+    "write-side",
+    "none",
+    "board",
+    "message",
+    "reader"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.388Z",
+  "specId": "005",
+  "folderSlug": "playback-and-gate-line",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

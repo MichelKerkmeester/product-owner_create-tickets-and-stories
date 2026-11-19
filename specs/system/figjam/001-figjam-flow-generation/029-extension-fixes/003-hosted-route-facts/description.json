@@ -1,0 +1,28 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/029-extension-fixes/003-hosted-route-facts",
+  "description": "The packet claims no Code Mode manual reaches an HTTP server, which the ClickUp manual contradicts",
+  "keywords": [
+    "packet",
+    "claims",
+    "code",
+    "mode",
+    "manual",
+    "reaches",
+    "http",
+    "server",
+    "clickup",
+    "contradicts"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.199Z",
+  "specId": "003",
+  "folderSlug": "hosted-route-facts",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "029-extension-fixes"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

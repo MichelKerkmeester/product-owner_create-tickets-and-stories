@@ -1,0 +1,33 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/024-first-glance",
+  "description": "The rubric tests whether the accent reads first, but nothing is written down in advance, so a board can only be judged against itself and a title that",
+  "keywords": [
+    "rubric",
+    "tests",
+    "whether",
+    "accent",
+    "reads",
+    "first",
+    "nothing",
+    "written",
+    "advance",
+    "board",
+    "only",
+    "judged",
+    "against",
+    "itself",
+    "title"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.408Z",
+  "specId": "024",
+  "folderSlug": "first-glance",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

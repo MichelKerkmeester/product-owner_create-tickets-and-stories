@@ -1,0 +1,24 @@
+{
+  "level": "2",
+  "specFolder": "system/reviews/002-product-owner-deep-review/004-mcp-figma",
+  "description": "Nothing has reviewed `mcp-figma/`, the vendored Figma transport packet",
+  "keywords": [
+    "nothing",
+    "reviewed",
+    "mcp-figma",
+    "vendored",
+    "figma",
+    "transport",
+    "packet"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.452Z",
+  "specId": "004",
+  "folderSlug": "mcp-figma",
+  "parentChain": [
+    "system",
+    "reviews",
+    "002-product-owner-deep-review"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

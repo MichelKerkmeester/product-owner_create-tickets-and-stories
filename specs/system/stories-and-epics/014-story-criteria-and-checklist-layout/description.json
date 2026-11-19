@@ -1,0 +1,27 @@
+{
+  "level": "1",
+  "specFolder": "system/stories-and-epics/014-story-criteria-and-checklist-layout",
+  "description": "Michel chose a new house layout for Stories that differs from the current rules in four places",
+  "keywords": [
+    "michel",
+    "chose",
+    "new",
+    "house",
+    "layout",
+    "stories",
+    "differs",
+    "current",
+    "rules",
+    "four",
+    "places"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.512Z",
+  "specId": "014",
+  "folderSlug": "story-criteria-and-checklist-layout",
+  "parentChain": [
+    "system",
+    "stories-and-epics"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

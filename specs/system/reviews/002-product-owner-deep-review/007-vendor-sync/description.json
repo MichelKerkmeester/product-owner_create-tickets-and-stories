@@ -1,0 +1,30 @@
+{
+  "level": "2",
+  "specFolder": "system/reviews/002-product-owner-deep-review/007-vendor-sync",
+  "description": "The mcp-click-up and mcp-figma findings are fixed upstream in the mcp-tooling packet 023, and the vendored copies in Product Owner still carry the old",
+  "keywords": [
+    "mcp-click-up",
+    "mcp-figma",
+    "findings",
+    "upstream",
+    "mcp-tooling",
+    "packet",
+    "vendored",
+    "copies",
+    "product",
+    "owner",
+    "still",
+    "carry",
+    "old"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.458Z",
+  "specId": "007",
+  "folderSlug": "vendor-sync",
+  "parentChain": [
+    "system",
+    "reviews",
+    "002-product-owner-deep-review"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

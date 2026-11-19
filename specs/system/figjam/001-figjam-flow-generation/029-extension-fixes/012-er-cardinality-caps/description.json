@@ -1,0 +1,27 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/029-extension-fixes/012-er-cardinality-caps",
+  "description": "The ER read-back never checks cardinality and the direction rule would read ER markers as arrows",
+  "keywords": [
+    "read-back",
+    "never",
+    "checks",
+    "cardinality",
+    "direction",
+    "rule",
+    "read",
+    "markers",
+    "arrows"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.207Z",
+  "specId": "012",
+  "folderSlug": "er-cardinality-caps",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "029-extension-fixes"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

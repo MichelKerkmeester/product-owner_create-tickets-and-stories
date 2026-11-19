@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/035-first-glance-and-routing",
+  "description": "The 2026-10-25 rerun held stop discipline in all 18 scenarios but passed only 2: on most boards the planned first glance does not read first because",
+  "keywords": [
+    "rerun",
+    "held",
+    "stop",
+    "discipline",
+    "scenarios",
+    "passed",
+    "only",
+    "boards",
+    "planned",
+    "first",
+    "glance",
+    "read",
+    "because"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.428Z",
+  "specId": "035",
+  "folderSlug": "first-glance-and-routing",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 1,
+  "memoryNameHistory": [
+    "25-10-26_16-33__closed-the-first-glance-and-routing-phase-035-the.md"
+  ]
+}

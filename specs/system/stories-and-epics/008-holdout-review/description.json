@@ -1,0 +1,28 @@
+{
+  "level": "1",
+  "specFolder": "system/stories-and-epics/008-holdout-review",
+  "description": "The Requirements rule had been rewritten twice, in `ba2bec3` and `095479a`, but it had never been tested against a source the skill had not already",
+  "keywords": [
+    "requirements",
+    "rule",
+    "rewritten",
+    "twice",
+    "ba2bec3",
+    "095479a",
+    "never",
+    "tested",
+    "against",
+    "source",
+    "skill",
+    "already"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.055Z",
+  "specId": "008",
+  "folderSlug": "holdout-review",
+  "parentChain": [
+    "system",
+    "stories-and-epics"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,27 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/029-extension-fixes/004-critic-pass-source",
+  "description": "Step 10 never says where the screenshot comes from and leaves out the cut-label and hierarchy checks",
+  "keywords": [
+    "step",
+    "never",
+    "says",
+    "screenshot",
+    "comes",
+    "leaves",
+    "cut-label",
+    "hierarchy",
+    "checks"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.200Z",
+  "specId": "004",
+  "folderSlug": "critic-pass-source",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "029-extension-fixes"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

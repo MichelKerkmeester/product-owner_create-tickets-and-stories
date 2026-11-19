@@ -1,0 +1,32 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/025-visible-titles",
+  "description": "A title is a text node reached only when the gate named an extension, and nothing says the generator's `name` renders on the board",
+  "keywords": [
+    "title",
+    "text",
+    "node",
+    "reached",
+    "only",
+    "gate",
+    "named",
+    "extension",
+    "nothing",
+    "says",
+    "generator",
+    "name",
+    "renders",
+    "board"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.410Z",
+  "specId": "025",
+  "folderSlug": "visible-titles",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

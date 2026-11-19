@@ -1,0 +1,24 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/006-claude-code-plugin",
+  "description": "Product Owner reaches Claude Code only through this repo",
+  "keywords": [
+    "product",
+    "owner",
+    "reaches",
+    "claude",
+    "code",
+    "only",
+    "repo"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.073Z",
+  "specId": "006",
+  "folderSlug": "claude-code-plugin",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

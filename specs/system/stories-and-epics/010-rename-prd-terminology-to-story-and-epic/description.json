@@ -1,0 +1,33 @@
+{
+  "level": "2",
+  "specFolder": "system/stories-and-epics/010-rename-prd-terminology-to-story-and-epic",
+  "description": "Product Owner produces two artifact kinds, Story and Epic, yet about fifty lines across the skill, the kernel, the Project knowledge and the READMEs",
+  "keywords": [
+    "product",
+    "owner",
+    "produces",
+    "two",
+    "artifact",
+    "kinds",
+    "story",
+    "epic",
+    "about",
+    "fifty",
+    "lines",
+    "across",
+    "skill",
+    "kernel",
+    "project",
+    "knowledge",
+    "readmes"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.067Z",
+  "specId": "010",
+  "folderSlug": "rename-prd-terminology-to-story-and-epic",
+  "parentChain": [
+    "system",
+    "stories-and-epics"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

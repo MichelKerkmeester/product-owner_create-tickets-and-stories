@@ -1,0 +1,34 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/029-extension-fixes/011-read-call-allowance",
+  "description": "Starter users and View or Collab seats get six tool calls a month, so read-backs can fail for a reason the packet never names",
+  "keywords": [
+    "starter",
+    "users",
+    "view",
+    "collab",
+    "seats",
+    "get",
+    "six",
+    "tool",
+    "calls",
+    "month",
+    "read-backs",
+    "fail",
+    "reason",
+    "packet",
+    "never",
+    "names"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.206Z",
+  "specId": "011",
+  "folderSlug": "read-call-allowance",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "029-extension-fixes"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

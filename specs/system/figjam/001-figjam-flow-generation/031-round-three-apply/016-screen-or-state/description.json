@@ -1,0 +1,30 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/016-screen-or-state",
+  "description": "One rectangle means 'a screen or an action' and a state has no entry at all, so two supplied images of one screen become two nodes",
+  "keywords": [
+    "one",
+    "rectangle",
+    "means",
+    "screen",
+    "action",
+    "state",
+    "entry",
+    "two",
+    "supplied",
+    "images",
+    "become",
+    "nodes"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.399Z",
+  "specId": "016",
+  "folderSlug": "screen-or-state",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,29 @@
+{
+  "level": "1",
+  "specFolder": "system/stories-and-epics/007-requirements-bloat",
+  "description": "Four of the five bullets under `Initial Instagram Sheet` in `Highlights - Onboarding - Instagram ReAuth.md` describe the screen rather than state a",
+  "keywords": [
+    "four",
+    "five",
+    "bullets",
+    "initial",
+    "instagram",
+    "sheet",
+    "highlights",
+    "onboarding",
+    "reauth",
+    "describe",
+    "screen",
+    "rather",
+    "state"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.054Z",
+  "specId": "007",
+  "folderSlug": "requirements-bloat",
+  "parentChain": [
+    "system",
+    "stories-and-epics"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

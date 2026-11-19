@@ -1,0 +1,31 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/031-round-three-apply/027-multi-diagram-board",
+  "description": "The only multi-diagram rule is that the work stays on one board through the `fileKey`, and the split scenario asks only that the two diagrams do not",
+  "keywords": [
+    "only",
+    "multi-diagram",
+    "rule",
+    "work",
+    "stays",
+    "one",
+    "board",
+    "filekey",
+    "split",
+    "scenario",
+    "asks",
+    "two",
+    "diagrams"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.413Z",
+  "specId": "027",
+  "folderSlug": "multi-diagram-board",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation",
+    "031-round-three-apply"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

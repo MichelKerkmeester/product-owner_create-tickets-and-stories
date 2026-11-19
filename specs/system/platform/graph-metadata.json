@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "packet_id": "system/platform",
+  "spec_folder": "system/platform",
+  "parent_id": "system",
+  "children_ids": [
+    "system/platform/001-product-owner-mode-additions",
+    "system/platform/002-human-voice-and-conciseness-enforcement",
+    "system/platform/003-router-and-skill-slimming",
+    "system/platform/004-product-owner-public-repo",
+    "system/platform/005-deal-templates-upgrades",
+    "system/platform/006-runtime-and-project-optimization",
+    "system/platform/007-strict-contract-and-gate-cleanup"
+  ],
+  "manual": {
+    "depends_on": [],
+    "supersedes": [],
+    "related_to": []
+  },
+  "derived": {
+    "trigger_phrases": [],
+    "key_topics": [
+      "system/platform"
+    ],
+    "causal_summary": "Container folder for system/platform."
+  }
+}

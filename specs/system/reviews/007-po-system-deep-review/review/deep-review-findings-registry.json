@@ -1,0 +1,2620 @@
+{
+  "sessionId": "2026-11-10T20:08:17Z",
+  "parentSessionId": null,
+  "generation": 1,
+  "lineageMode": "new",
+  "continuedFromRun": null,
+  "terminalStop": null,
+  "status": "INITIALIZED",
+  "openFindings": [
+    {
+      "findingId": "1",
+      "severity": "P1",
+      "title": "Hub NEVER rule forbids the packet-local ROUTER.md that three packets already carry and the gate requires",
+      "file": "AI Systems/Product Owner/SKILL.md",
+      "line": 87,
+      "description": "",
+      "findingClass": "contract_drift",
+      "deltaStatus": null,
+      "scopeProof": "SKILL.md:87 is in the reviewed hub; all four corroborating files were read on disk this iteration.",
+      "affectedSurfaceHints": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/benchmark/gates/check_hub.py",
+        "AI Systems/Product Owner/sk-product-owner/ROUTER.md",
+        "AI Systems/Product Owner/sk-create-figjam/ROUTER.md",
+        "AI Systems/Product Owner/mcp-figma/ROUTER.md"
+      ],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "5",
+      "severity": "P1",
+      "title": "The Product Owner release gate runs a diverged fork of the output-format validator the Sync Loop owns",
+      "file": "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs",
+      "line": 1,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "N8-P1-001",
+      "severity": "P1",
+      "title": "Vendored chrome-devtools docs claim chrome_devtools_1/2 manuals that .utcp_config.json never registers; parallel-instance scenarios cite a nonexistent manual",
+      "file": "AI Systems/Product Owner/mcp-chrome-devtools/README.md",
+      "line": 95,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 8,
+      "lastSeen": 8,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 8,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R10-REF-001",
+      "severity": "P1",
+      "title": "The packet ROUTER contradiction is total: 7 of 7 packets, gate and disk against prose",
+      "file": "AI Systems/Product Owner/SKILL.md",
+      "line": 87,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 10,
+      "lastSeen": 10,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 10,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R10-REF-002",
+      "severity": "P1",
+      "title": "The validator fork is a rewrite: two mode models, no shared dependency",
+      "file": "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs",
+      "line": 1,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 10,
+      "lastSeen": 10,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 10,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R10-REF-003",
+      "severity": "P1",
+      "title": "The unregistered manual names reach three packets, not one",
+      "file": "AI Systems/Product Owner/mcp-chrome-devtools/README.md",
+      "line": 95,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 10,
+      "lastSeen": 10,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 10,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P1-001",
+      "severity": "P1",
+      "title": "Browser evidence artifacts carry live session secrets with no redaction rule and no ignore boundary",
+      "file": "AI Systems/Product Owner/mcp-chrome-devtools/references/cdp-patterns.md",
+      "line": 412,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "security",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P1",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "security"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "2",
+      "severity": "P2",
+      "title": "scripts/ is claimed as a declared repo-root-hub path but is absent from repoPaths",
+      "file": "AI Systems/Product Owner/SKILL.md",
+      "line": 69,
+      "description": "",
+      "findingClass": "registry_disk_drift",
+      "deltaStatus": null,
+      "scopeProof": "repoPaths read from mode-registry.json:35-50; scripts/ confirmed present and enumerated on disk.",
+      "affectedSurfaceHints": [
+        "AI Systems/Product Owner/mode-registry.json",
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/scripts/"
+      ],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "3",
+      "severity": "P2",
+      "title": "ROUTER.md names a parser script that does not exist anywhere in the repository",
+      "file": "AI Systems/Product Owner/ROUTER.md",
+      "line": 73,
+      "description": "",
+      "findingClass": "stale_cross_reference",
+      "deltaStatus": null,
+      "scopeProof": "leaf-route-replay searched repository-wide this iteration (zero hits); the two sibling lib scripts probed and resolve.",
+      "affectedSurfaceHints": [
+        "AI Systems/Product Owner/ROUTER.md",
+        "AI Systems/Product Owner/benchmark/gates/check_leaf_map_parity.py"
+      ],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "4",
+      "severity": "P2",
+      "title": "The INSTALL-GUIDE.md exclusion is justified by a ROOT_RESOURCES array the vendored packet does not have",
+      "file": "AI Systems/Product Owner/ROUTER.md",
+      "line": 19,
+      "description": "",
+      "findingClass": "unbacked_justification",
+      "deltaStatus": null,
+      "scopeProof": "ROOT_RESOURCES and rootResources grepped in mcp-click-up/SKILL.md and mcp-figma/SKILL.md (zero hits); INSTALL-GUIDE grepped in mcp-click-up/SKILL.md (one hit, line 302).",
+      "affectedSurfaceHints": [
+        "AI Systems/Product Owner/ROUTER.md",
+        "AI Systems/Product Owner/mcp-click-up/SKILL.md",
+        "AI Systems/Product Owner/mcp-figma/SKILL.md",
+        "AI Systems/Product Owner/leaf-manifest.json"
+      ],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 1,
+      "lastSeen": 1,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 1,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "6",
+      "severity": "P2",
+      "title": "The release runner reports a clean pass while five checked-in parity and residency scripts never run",
+      "file": "AI Systems/Product Owner/benchmark/gates/run_gates.sh",
+      "line": 29,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "7",
+      "severity": "P2",
+      "title": "Gate wiring derives the existence-check path from the second whitespace token",
+      "file": "AI Systems/Product Owner/benchmark/gates/run_gates.sh",
+      "line": 65,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 2,
+      "lastSeen": 2,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 2,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "N8-P2-002",
+      "severity": "P2",
+      "title": "figma-developer-mcp@latest and unversioned mcp-remote float while the rest of the system pins by version and base_commit",
+      "file": "AI Systems/Product Owner/.utcp_config.json",
+      "line": 75,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 8,
+      "lastSeen": 8,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 8,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P2-002",
+      "severity": "P2",
+      "title": "Redaction rule is scoped to an undefined term and weaker than its own catalog leaf",
+      "file": "AI Systems/Product Owner/mcp-aside-devtools/SKILL.md",
+      "line": 135,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "security",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "security"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R3-P2-003",
+      "severity": "P2",
+      "title": "vendor-sync.py validates its discovered upstream root but not its override root",
+      "file": "AI Systems/Product Owner/scripts/vendor-sync.py",
+      "line": 105,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "security",
+      "firstSeen": 3,
+      "lastSeen": 3,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 3,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "security"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R4-P2-001",
+      "severity": "P2",
+      "title": "92 packet-local changelog entries in the placement sk-create-changelog deprecated; no global product-owner component",
+      "file": ".skilled/skills/sk-doc/sk-create-changelog/SKILL.md",
+      "line": 10,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R4-P2-002",
+      "severity": "P2",
+      "title": ".gitignore omits Python cache directories that already exist inside the shippable skill folder",
+      "file": "AI Systems/Product Owner/.gitignore",
+      "line": 2,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 4,
+      "lastSeen": 4,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 4,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R5-P2-001",
+      "severity": "P2",
+      "title": "Kernel's retrieval table undercounts the example documents the package ships",
+      "file": "AI Systems/Product Owner/claude project/Custom Instructions.md",
+      "line": 192,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 5,
+      "lastSeen": 5,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 5,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R5-P2-002",
+      "severity": "P2",
+      "title": "The upload guide's final step names a smoke matrix that no playbook document carries",
+      "file": "AI Systems/Product Owner/claude project/README.md",
+      "line": 213,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 5,
+      "lastSeen": 5,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 5,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R6-P2-001",
+      "severity": "P2",
+      "title": "Format validator has no JSDoc across 34 functions and no bracketed console prefix",
+      "file": "AI Systems/Product Owner/benchmark/format/validate-output-format.cjs",
+      "line": 1718,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 6,
+      "lastSeen": 6,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 6,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R6-P2-002",
+      "severity": "P2",
+      "title": "Nine live shell runners omit -e; four document why, five parity wrappers record nothing",
+      "file": "AI Systems/Product Owner/benchmark/gates/run_gates.sh",
+      "line": 39,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "correctness",
+      "firstSeen": 6,
+      "lastSeen": 6,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 6,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "correctness"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R7-P2-001",
+      "severity": "P2",
+      "title": "exclude list mixes build output with upstream content, no rationale",
+      "file": "AI Systems/Product Owner/vendor.json",
+      "line": null,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "maintainability",
+      "firstSeen": 7,
+      "lastSeen": 7,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 7,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "maintainability"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R7-P2-002",
+      "severity": "P2",
+      "title": "two sync mechanisms, disjoint verbs, zero cross-reference",
+      "file": "AI Systems/Product Owner/scripts/vendor-sync.py",
+      "line": null,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "maintainability",
+      "firstSeen": 7,
+      "lastSeen": 7,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 7,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "maintainability"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R9-P2-001",
+      "severity": "P2",
+      "title": "Hub layout block calls the two browser trees packets and no packets in one line",
+      "file": "AI Systems/Product Owner/SKILL.md",
+      "line": 66,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "maintainability",
+      "firstSeen": 9,
+      "lastSeen": 9,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 9,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "maintainability"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R9-P2-002",
+      "severity": "P2",
+      "title": "About 11,800 words load before task work and AGENTS.md duplicates registry precedence in prose",
+      "file": "AI Systems/Product Owner/AGENTS.md",
+      "line": 205,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "maintainability",
+      "firstSeen": 9,
+      "lastSeen": 9,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 9,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "maintainability"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R9-P2-003",
+      "severity": "P2",
+      "title": "Two incompatible vendoring models coexist and vendored packets have no local-edit path",
+      "file": "AI Systems/Product Owner/vendor.json",
+      "line": 1,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "maintainability",
+      "firstSeen": 9,
+      "lastSeen": 9,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 9,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "maintainability"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R9-P2-004",
+      "severity": "P2",
+      "title": "Kernel review record cannot answer whether the Project kernel is current",
+      "file": "AI Systems/Product Owner/claude project/kernel-review.json",
+      "line": 1,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "maintainability",
+      "firstSeen": 9,
+      "lastSeen": 9,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 9,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "maintainability"
+      ],
+      "mergedFindingIds": []
+    },
+    {
+      "findingId": "R9-P2-005",
+      "severity": "P2",
+      "title": "Parity note is 22,351 words in 136 lines with two headings, leaving the hand-parity method without an index",
+      "file": "AI Systems/Product Owner/SYNC.md",
+      "line": 6,
+      "description": "",
+      "findingClass": null,
+      "deltaStatus": null,
+      "scopeProof": null,
+      "affectedSurfaceHints": [],
+      "contentHash": null,
+      "dimension": "maintainability",
+      "firstSeen": 9,
+      "lastSeen": 9,
+      "status": "active",
+      "transitions": [
+        {
+          "iteration": 9,
+          "from": null,
+          "to": "P2",
+          "reason": "Initial discovery (delta)"
+        }
+      ],
+      "dimensions": [
+        "maintainability"
+      ],
+      "mergedFindingIds": []
+    }
+  ],
+  "resolvedFindings": [],
+  "blockedStopHistory": [],
+  "persistentSameSeverity": [],
+  "severityChanged": [],
+  "repeatedFindings": [],
+  "dimensionCoverage": {
+    "correctness": true,
+    "security": true,
+    "traceability": true,
+    "maintainability": true
+  },
+  "findingsBySeverity": {
+    "P0": 0,
+    "P1": 7,
+    "P2": 21
+  },
+  "openFindingsCount": 28,
+  "resolvedFindingsCount": 0,
+  "convergenceScore": 0.817,
+  "graphConvergenceScore": 0,
+  "graphDecision": null,
+  "graphBlockers": [],
+  "graphSignals": {},
+  "candidateCoverage": {
+    "covered": [
+      "checker_undercoverage",
+      "config_manifest_drift",
+      "contract_drift",
+      "cross_reference_integrity",
+      "divergent_mechanism",
+      "documentation_contract",
+      "documentation_contradiction",
+      "documentation_placement_drift",
+      "duplicate_artifact_drift",
+      "duplicate_mechanism",
+      "duplicated_authority",
+      "exit_code_handling",
+      "fragile_gate_wiring",
+      "gate_cannot_fail",
+      "input_validation",
+      "insecure_default",
+      "numeric_claim_drift",
+      "packaging_hygiene_gap",
+      "producer_consumer_mismatch",
+      "registry_disk_parity",
+      "reproducibility_gap",
+      "secret_artifact_leak",
+      "stale_documentation",
+      "tooling_doctrine",
+      "ungoverned_record",
+      "unmaintainable_artifact",
+      "unresolvable_operator_pointer"
+    ],
+    "ruledOut": [
+      "capability_gap",
+      "config_manifest_drift",
+      "confusing_deputy",
+      "cross_reference_integrity",
+      "dead_path",
+      "documentation_contract",
+      "documentation_contradiction",
+      "error_handling",
+      "exit_code_handling",
+      "frontmatter_contract_violation",
+      "gate_cannot_fail",
+      "manual_name_drift",
+      "packaging_hygiene_gap",
+      "path_traversal",
+      "routing_precedence",
+      "secret_exposure",
+      "shape_contract_violation",
+      "stale_documentation",
+      "stale_example",
+      "stale_review_record",
+      "tracked_vs_ignored_surface",
+      "version_parity",
+      "version_scheme_drift"
+    ],
+    "deferred": [
+      "capability_gap",
+      "command_injection",
+      "data_loss_path",
+      "secret_artifact_leak",
+      "secret_exposure",
+      "test_coverage",
+      "vendor_manifest_asymmetry"
+    ],
+    "blocked": [],
+    "byBugClass": {
+      "registry_disk_parity": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "cross_reference_integrity": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1,
+          10
+        ]
+      },
+      "routing_precedence": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "version_parity": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "state_transition": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "boundary_handling": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1
+        ]
+      },
+      "producer_consumer_mismatch": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          1,
+          10
+        ]
+      },
+      "duplicate_artifact_drift": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2,
+          10
+        ]
+      },
+      "gate_cannot_fail": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "exit_code_handling": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "checker_undercoverage": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "fragile_gate_wiring": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "dead_path": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "duplicate_artifact_drift in the vendored mcp packages": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          2
+        ]
+      },
+      "documentation_placement_drift": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "packaging_hygiene_gap": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4,
+          10
+        ]
+      },
+      "shape_contract_violation": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "frontmatter_contract_violation": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          4
+        ]
+      },
+      "contract_drift": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          8,
+          10
+        ]
+      },
+      "reproducibility_gap": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          8
+        ]
+      },
+      "manual_name_drift": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          8
+        ]
+      },
+      "stale_example": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          8
+        ]
+      },
+      "vendor_manifest_asymmetry": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": true,
+        "blocked": false,
+        "iterations": [
+          8
+        ]
+      },
+      "numeric_claim_drift": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "unresolvable_operator_pointer": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "stale_review_record": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "tracked_vs_ignored_surface": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "version_scheme_drift": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          5
+        ]
+      },
+      "config_manifest_drift": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          7
+        ]
+      },
+      "duplicate_mechanism": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          7
+        ]
+      },
+      "stale_documentation": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          7,
+          10
+        ]
+      },
+      "capability_gap": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": true,
+        "blocked": false,
+        "iterations": [
+          7,
+          9
+        ]
+      },
+      "data_loss_path": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": true,
+        "blocked": false,
+        "iterations": [
+          7
+        ]
+      },
+      "secret_artifact_leak": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": true,
+        "blocked": false,
+        "iterations": [
+          3,
+          10
+        ]
+      },
+      "input_validation": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "secret_exposure": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": true,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "confusing_deputy": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "path_traversal": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "command_injection": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": true,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "insecure_default": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          3
+        ]
+      },
+      "documentation_contradiction": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          9
+        ]
+      },
+      "duplicated_authority": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          9
+        ]
+      },
+      "divergent_mechanism": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          9
+        ]
+      },
+      "ungoverned_record": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          9
+        ]
+      },
+      "unmaintainable_artifact": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          9
+        ]
+      },
+      "documentation_contract": {
+        "covered": true,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          6
+        ]
+      },
+      "tooling_doctrine": {
+        "covered": true,
+        "ruledOut": false,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          6
+        ]
+      },
+      "error_handling": {
+        "covered": false,
+        "ruledOut": true,
+        "deferred": false,
+        "blocked": false,
+        "iterations": [
+          6
+        ]
+      },
+      "test_coverage": {
+        "covered": false,
+        "ruledOut": false,
+        "deferred": true,
+        "blocked": false,
+        "iterations": [
+          6
+        ]
+      }
+    }
+  },
+  "searchDebt": [
+    {
+      "iteration": 3,
+      "id": "SL-308",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/scripts/vendor-sync.py"
+      ],
+      "bugClass": "command_injection",
+      "disposition": "deferred",
+      "rationale": "honest gap, not a pass",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/scripts/vendor-sync.py:403"
+      ],
+      "reason": "No subprocess or os.system search was run; budget was spent on the secret surface. The functions read use shutil/pathlib only, which is suggestive but not a search result."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-309",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/.gitignore"
+      ],
+      "bugClass": "secret_exposure",
+      "disposition": "deferred",
+      "rationale": "neither confirmed nor refuted",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/.gitignore:35"
+      ],
+      "reason": "The check itself was malformed; re-run as `git ls-files context` next iteration."
+    },
+    {
+      "iteration": 6,
+      "id": "SL-0605",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/grader"
+      ],
+      "bugClass": "test_coverage",
+      "disposition": "deferred",
+      "rationale": "no rules line for a test requirement verified within budget; router pair is fixture-exercised",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/grader/check_report.sh:65"
+      ],
+      "reason": "rule line not verified this iteration"
+    },
+    {
+      "iteration": 7,
+      "id": "SL-103",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/scripts/vendor-sync.py"
+      ],
+      "bugClass": "data_loss_path",
+      "disposition": "deferred",
+      "rationale": "severity depends on an unread branch, so it is recorded rather than inferred",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/scripts/vendor-sync.py:52"
+      ],
+      "reason": "budget exhausted before the pull body read; carried as the first required-evidence item in Next Focus"
+    },
+    {
+      "iteration": 8,
+      "id": "SL-807",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/vendor.json"
+      ],
+      "bugClass": "vendor_manifest_asymmetry",
+      "disposition": "deferred",
+      "rationale": "Carried forward as edge case 4.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/vendor.json:239"
+      ],
+      "reason": "Separating a genuine per-package difference from a stale exclude needs vendor-sync.py --verify against the upstream tree, outside this iteration's read-only budget."
+    },
+    {
+      "iteration": 9,
+      "id": "SL-908",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/manual-testing-playbook/",
+        "AI Systems/Product Owner/sk-create-figjam/manual-testing-playbook/"
+      ],
+      "bugClass": "capability_gap",
+      "disposition": "deferred",
+      "rationale": "Reading playbook bodies against capabilities needs its own budget; belongs to the traceability iteration.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/manual-testing-playbook/"
+      ],
+      "reason": "body comparison deferred to the traceability pass"
+    },
+    {
+      "iteration": 10,
+      "id": "SL-1007",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-chrome-devtools/references/cdp-patterns.md"
+      ],
+      "bugClass": "secret_artifact_leak",
+      "disposition": "deferred",
+      "rationale": "anchor holds; the ignore-boundary half was not re-grepped inside budget, so the finding is carried active rather than re-adjudicated",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-chrome-devtools/references/cdp-patterns.md:412"
+      ],
+      "reason": "budget: .gitignore *.har sweep dropped at the tool-call ceiling"
+    }
+  ],
+  "ruledOutCandidates": [
+    {
+      "iteration": 1,
+      "id": "SL-001",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/ROUTER.md:77-132",
+        "AI Systems/Product Owner/leaf-manifest.json:1-117"
+      ],
+      "bugClass": "cross_reference_integrity",
+      "disposition": "ruled_out",
+      "rationale": "no dangling leaf in either the human map or the generated manifest",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/ROUTER.md:96-132",
+        "AI Systems/Product Owner/leaf-manifest.json:4-114"
+      ],
+      "reason": "complete existence sweep returned zero misses"
+    },
+    {
+      "iteration": 1,
+      "id": "SL-003",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/hub-router.json:24-81",
+        "AI Systems/Product Owner/ROUTER.md:42-44"
+      ],
+      "bugClass": "routing_precedence",
+      "disposition": "ruled_out",
+      "rationale": "ordering and examples are self-consistent; the artifact-request noun gap changes no outcome",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/hub-router.json:24-81",
+        "AI Systems/Product Owner/ROUTER.md:43-44"
+      ],
+      "reason": "traced each documented example through the declared classes"
+    },
+    {
+      "iteration": 1,
+      "id": "SL-004",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/SKILL.md:5",
+        "AI Systems/Product Owner/hub-router.json:3",
+        "AI Systems/Product Owner/mode-registry.json:3",
+        "AI Systems/Product Owner/description.json:4",
+        "AI Systems/Product Owner/changelog/v1.0.28.0.md:9"
+      ],
+      "bugClass": "version_parity",
+      "disposition": "ruled_out",
+      "rationale": "version authority stated at SKILL.md:14 is satisfied",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/SKILL.md:14",
+        "AI Systems/Product Owner/changelog/v1.0.28.0.md:3"
+      ],
+      "reason": "four-way equality confirmed"
+    },
+    {
+      "iteration": 2,
+      "id": "SL-009",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/gates/run_gates.sh:47",
+        "AI Systems/Product Owner/benchmark/gates/run_gates.sh:52",
+        "AI Systems/Product Owner/benchmark/gates/run_gates.sh:54",
+        "AI Systems/Product Owner/benchmark/gates/run_gates.sh:55"
+      ],
+      "bugClass": "gate_cannot_fail",
+      "disposition": "ruled_out",
+      "rationale": "no check that cannot fail found in the self-test family",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/gates/check_hub.py:701",
+        "AI Systems/Product Owner/benchmark/gates/example_lint.py:337",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py:636",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/compose_board.py:1761",
+        "AI Systems/Product Owner/scripts/tests/test_vendor_sync.py:352"
+      ],
+      "reason": "all five self-test and suite gates execute assertions and fail on planted defects"
+    },
+    {
+      "iteration": 2,
+      "id": "SL-010",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/gates/run_gates.sh:99",
+        "AI Systems/Product Owner/benchmark/router/run_fixtures.sh:28",
+        "AI Systems/Product Owner/benchmark/format/run_fixtures.sh:250"
+      ],
+      "bugClass": "exit_code_handling",
+      "disposition": "ruled_out",
+      "rationale": "the only exit-contract gap is the silent parity exclusion, filed as finding 6 under a different bug class",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/gates/run_gates.sh:99",
+        "AI Systems/Product Owner/benchmark/router/run_fixtures.sh:28",
+        "AI Systems/Product Owner/benchmark/format/run_fixtures.sh:250"
+      ],
+      "reason": "exit codes match the documented contract at every runner inspected"
+    },
+    {
+      "iteration": 2,
+      "id": "SL-013",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/gates/rule_parity.py:68"
+      ],
+      "bugClass": "dead_path",
+      "disposition": "ruled_out",
+      "rationale": "no dead path in the rule-parity wiring",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/gates/run_gates.sh:66",
+        "AI Systems/Product Owner/benchmark/gates/rule_parity.py:68"
+      ],
+      "reason": "both paths derive to the same folder from the same start point"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-401",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-create-figjam/SKILL.md"
+      ],
+      "bugClass": "frontmatter_contract_violation",
+      "disposition": "ruled_out",
+      "rationale": "frontmatter contract at sk-create-skill/SKILL.md:144-149 satisfied on all three files",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:2"
+      ],
+      "reason": "all required fields present and well formed"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-403",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/",
+        ".skilled/skills/sk-doc/sk-create-skill/SKILL.md"
+      ],
+      "bugClass": "shape_contract_violation",
+      "disposition": "ruled_out",
+      "rationale": "shape matches the contract",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/README.md:1"
+      ],
+      "reason": "README.md and dated run folders both present"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-405",
+      "dimension": "traceability",
+      "targetRefs": [
+        ".skilled/skills/sk-doc/sk-create-skill/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/references/",
+        "AI Systems/Product Owner/sk-create-figjam/references/"
+      ],
+      "bugClass": "shape_contract_violation",
+      "disposition": "ruled_out",
+      "rationale": ":48 describes that packet's own route map, not a rule imposed on other packages",
+      "evidenceRefs": [
+        ".skilled/skills/sk-doc/sk-create-skill/SKILL.md:48"
+      ],
+      "reason": "no universal rule exists in this repository"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-406",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/",
+        "AI Systems/Product Owner/sk-create-figjam/"
+      ],
+      "bugClass": "shape_contract_violation",
+      "disposition": "ruled_out",
+      "rationale": "conditional rule plus a reference implementation that omits it",
+      "evidenceRefs": [
+        ".skilled/skills/sk-doc/sk-create-skill/SKILL.md:167"
+      ],
+      "reason": "not a mandatory shape element"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-407",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/manual-testing-playbook/manual-testing-playbook.md"
+      ],
+      "bugClass": "shape_contract_violation",
+      "disposition": "ruled_out",
+      "rationale": "index declares scope, persistence and category layout",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/manual-testing-playbook/manual-testing-playbook.md:24"
+      ],
+      "reason": "contract present and complete"
+    },
+    {
+      "iteration": 8,
+      "id": "SL-803",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:290",
+        "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/"
+      ],
+      "bugClass": "stale_example",
+      "disposition": "ruled_out",
+      "rationale": "Claim matches disk exactly.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:290"
+      ],
+      "reason": "Count verified accurate: 69 markdown files minus the index is 68."
+    },
+    {
+      "iteration": 8,
+      "id": "SL-804",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/manual-testing-playbook/manual-testing-playbook.md:28"
+      ],
+      "bugClass": "stale_example",
+      "disposition": "ruled_out",
+      "rationale": "Self-description is accurate.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/manual-testing-playbook/manual-testing-playbook.md:36"
+      ],
+      "reason": "7 declared, 7 present, ids match one-to-one."
+    },
+    {
+      "iteration": 8,
+      "id": "SL-805",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/.utcp_config.json",
+        "AI Systems/Product Owner/mcp-click-up/"
+      ],
+      "bugClass": "manual_name_drift",
+      "disposition": "ruled_out",
+      "rationale": "No drift.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/.utcp_config.json:16"
+      ],
+      "reason": "Name is used consistently at source and in the package docs."
+    },
+    {
+      "iteration": 8,
+      "id": "SL-806",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-figma/",
+        "AI Systems/Product Owner/.utcp_config.json"
+      ],
+      "bugClass": "manual_name_drift",
+      "disposition": "ruled_out",
+      "rationale": "No name drift.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/.utcp_config.json:66"
+      ],
+      "reason": "Namespace consistent; only the version pin is at issue."
+    },
+    {
+      "iteration": 5,
+      "id": "SL-503",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/claude project/kernel-review.json:1"
+      ],
+      "bugClass": "stale_review_record",
+      "disposition": "ruled_out",
+      "rationale": "the file describes itself as a dated record and nothing executes against it",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/claude project/kernel-review.json:12",
+        "AI Systems/z — Claude Project Sync Loop/episodes/hand-run/000-packet-record/research/iteration-9.md:56"
+      ],
+      "reason": "declared dated record, no live reader"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-504",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/.gitignore:15",
+        "AI Systems/Product Owner/claude project/local/"
+      ],
+      "bugClass": "tracked_vs_ignored_surface",
+      "disposition": "ruled_out",
+      "rationale": "ignore rule covers the filled copy and git confirms it is untracked",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/.gitignore:15",
+        "AI Systems/Product Owner/.gitignore:15"
+      ],
+      "reason": "verified by git index query"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-505",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/SKILL.md:5",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:5",
+        "AI Systems/Product Owner/claude project/Custom Instructions.md:1"
+      ],
+      "bugClass": "version_scheme_drift",
+      "disposition": "ruled_out",
+      "rationale": "three independent schemes, each internally consistent and cross-cited",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/claude project/README.md:63"
+      ],
+      "reason": "all three schemes agree with their own changelogs and the README"
+    },
+    {
+      "iteration": 7,
+      "id": "SL-104",
+      "dimension": "maintainability",
+      "targetRefs": [
+        ".skilled/commands/doctor/scripts/overlay-engine.cjs",
+        "AI Systems/Product Owner/vendor.json"
+      ],
+      "bugClass": "capability_gap",
+      "disposition": "ruled_out",
+      "rationale": "replacement is not an effort question",
+      "evidenceRefs": [
+        ".skilled/commands/doctor/scripts/overlay-engine.cjs:73"
+      ],
+      "reason": "four structural blockers, each verified by direct read"
+    },
+    {
+      "iteration": 7,
+      "id": "SL-105",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/vendor.json"
+      ],
+      "bugClass": "config_manifest_drift",
+      "disposition": "ruled_out",
+      "rationale": "the overlay state machine has no consumer in this repository today",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/vendor.json:1"
+      ],
+      "reason": "byte-identical to the recorded hashes"
+    },
+    {
+      "iteration": 3,
+      "id": "SL-302",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/.env.example",
+        "AI Systems/Product Owner/.utcp_config.json",
+        "AI Systems/Product Owner/opencode.json",
+        "AI Systems/Product Owner/.mcp.json"
+      ],
+      "bugClass": "secret_exposure",
+      "disposition": "ruled_out",
+      "rationale": "verified by direct read of each file",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/.utcp_config.json:79",
+        "AI Systems/Product Owner/.env.example:15"
+      ],
+      "reason": "No literal credential in any tracked runtime config; credential references are ${VAR} placeholders."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-303",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/.env",
+        "AI Systems/Product Owner/click-up-links.md",
+        "AI Systems/Product Owner/claude project/local"
+      ],
+      "bugClass": "secret_exposure",
+      "disposition": "ruled_out",
+      "rationale": "index inspection, not inference",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/.gitignore:10",
+        "AI Systems/Product Owner/.gitignore:16"
+      ],
+      "reason": "None of the private files appears in git ls-files, so no pre-ignore commit exists."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-304",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/.utcp_config.json",
+        "AI Systems/Product Owner/mcp-figma/references/mcp-wiring.md"
+      ],
+      "bugClass": "confusing_deputy",
+      "disposition": "ruled_out",
+      "rationale": "counterevidence found before reporting",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-figma/references/mcp-wiring.md:82",
+        "AI Systems/Product Owner/mcp-figma/references/troubleshooting.md:396"
+      ],
+      "reason": "Deliberate and documented in four places."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-306",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/scripts/vendor-sync.py"
+      ],
+      "bugClass": "path_traversal",
+      "disposition": "ruled_out",
+      "rationale": "traversal ruled out; the residual root-trust gap is filed separately as R3-P2-003",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/scripts/vendor-sync.py:322",
+        "AI Systems/Product Owner/scripts/vendor-sync.py:363"
+      ],
+      "reason": "Spelling guard plus resolved containment on the written tree; the docstring's claim holds for the manifest value."
+    },
+    {
+      "iteration": 9,
+      "id": "SL-906",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/",
+        "AI Systems/Product Owner/sk-product-owner/",
+        "AI Systems/Product Owner/mcp-code-mode/"
+      ],
+      "bugClass": "capability_gap",
+      "disposition": "ruled_out",
+      "rationale": "Tool-surface catalogs have no workflow counterpart; asymmetry follows packet kind, not an omission.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-code-mode/"
+      ],
+      "reason": "shape difference explained by packet kind"
+    },
+    {
+      "iteration": 9,
+      "id": "SL-907",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/claude project/kernel-review.json"
+      ],
+      "bugClass": "documentation_contradiction",
+      "disposition": "ruled_out",
+      "rationale": "The record is honest about being historical; the actionable defect was refiled as the unanswerable comparison, not as drift.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/claude project/kernel-review.json:1"
+      ],
+      "reason": "self-disclaimed historical record, not a false current claim"
+    },
+    {
+      "iteration": 6,
+      "id": "SL-0603",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md"
+      ],
+      "bugClass": "error_handling",
+      "disposition": "ruled_out",
+      "rationale": "cleanup-path swallow is deliberate and outer state records the outcome",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:110"
+      ],
+      "reason": "verified by direct read"
+    },
+    {
+      "iteration": 6,
+      "id": "SL-0604",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/scripts/vendored/code-mode"
+      ],
+      "bugClass": "documentation_contract",
+      "disposition": "ruled_out",
+      "rationale": "vendored, hashed and repin-capable so the convention difference is upstream",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/vendor.json:1"
+      ],
+      "reason": "declared in vendor manifest"
+    },
+    {
+      "iteration": 6,
+      "id": "SL-0606",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/reports"
+      ],
+      "bugClass": "documentation_contract",
+      "disposition": "ruled_out",
+      "rationale": "iteration 2 ruled archived snapshots are recorded run output",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/reports/README.md"
+      ],
+      "reason": "prior-iteration ruling honored"
+    },
+    {
+      "iteration": 10,
+      "id": "SL-1004",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/.gitignore",
+        "AI Systems/Product Owner/context/"
+      ],
+      "bugClass": "packaging_hygiene_gap",
+      "disposition": "ruled_out",
+      "rationale": "the carried-forward UNVERIFIED item resolves clean",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/.gitignore:34",
+        "AI Systems/Product Owner/context/README.md:1"
+      ],
+      "reason": "tracked as claimed; ignored file is local-only by design"
+    },
+    {
+      "iteration": 10,
+      "id": "SL-1005",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/USER-GUIDE.md"
+      ],
+      "bugClass": "stale_documentation",
+      "disposition": "ruled_out",
+      "rationale": "the guide states no numeric claim to drift",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/USER-GUIDE.md:1"
+      ],
+      "reason": "no version or count present"
+    },
+    {
+      "iteration": 10,
+      "id": "SL-1006",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/graph-metadata.json",
+        "AI Systems/Product Owner/SKILL.md"
+      ],
+      "bugClass": "cross_reference_integrity",
+      "disposition": "ruled_out",
+      "rationale": "agrees with SKILL.md:72",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/graph-metadata.json:1"
+      ],
+      "reason": "single hub identity, no duplicate"
+    }
+  ],
+  "cleanSearchProof": [
+    {
+      "iteration": 1,
+      "id": "SL-001",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/ROUTER.md:77-132",
+        "AI Systems/Product Owner/leaf-manifest.json:1-117"
+      ],
+      "bugClass": "cross_reference_integrity",
+      "disposition": "ruled_out",
+      "rationale": "no dangling leaf in either the human map or the generated manifest",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/ROUTER.md:96-132",
+        "AI Systems/Product Owner/leaf-manifest.json:4-114"
+      ],
+      "proof": "complete existence sweep returned zero misses"
+    },
+    {
+      "iteration": 1,
+      "id": "SL-003",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/hub-router.json:24-81",
+        "AI Systems/Product Owner/ROUTER.md:42-44"
+      ],
+      "bugClass": "routing_precedence",
+      "disposition": "ruled_out",
+      "rationale": "ordering and examples are self-consistent; the artifact-request noun gap changes no outcome",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/hub-router.json:24-81",
+        "AI Systems/Product Owner/ROUTER.md:43-44"
+      ],
+      "proof": "traced each documented example through the declared classes"
+    },
+    {
+      "iteration": 1,
+      "id": "SL-004",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/SKILL.md:5",
+        "AI Systems/Product Owner/hub-router.json:3",
+        "AI Systems/Product Owner/mode-registry.json:3",
+        "AI Systems/Product Owner/description.json:4",
+        "AI Systems/Product Owner/changelog/v1.0.28.0.md:9"
+      ],
+      "bugClass": "version_parity",
+      "disposition": "ruled_out",
+      "rationale": "version authority stated at SKILL.md:14 is satisfied",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/SKILL.md:14",
+        "AI Systems/Product Owner/changelog/v1.0.28.0.md:3"
+      ],
+      "proof": "four-way equality confirmed"
+    },
+    {
+      "iteration": 2,
+      "id": "SL-009",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/gates/run_gates.sh:47",
+        "AI Systems/Product Owner/benchmark/gates/run_gates.sh:52",
+        "AI Systems/Product Owner/benchmark/gates/run_gates.sh:54",
+        "AI Systems/Product Owner/benchmark/gates/run_gates.sh:55"
+      ],
+      "bugClass": "gate_cannot_fail",
+      "disposition": "ruled_out",
+      "rationale": "no check that cannot fail found in the self-test family",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/gates/check_hub.py:701",
+        "AI Systems/Product Owner/benchmark/gates/example_lint.py:337",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/flow_check.py:636",
+        "AI Systems/Product Owner/sk-create-figjam/scripts/compose_board.py:1761",
+        "AI Systems/Product Owner/scripts/tests/test_vendor_sync.py:352"
+      ],
+      "proof": "all five self-test and suite gates execute assertions and fail on planted defects"
+    },
+    {
+      "iteration": 2,
+      "id": "SL-010",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/gates/run_gates.sh:99",
+        "AI Systems/Product Owner/benchmark/router/run_fixtures.sh:28",
+        "AI Systems/Product Owner/benchmark/format/run_fixtures.sh:250"
+      ],
+      "bugClass": "exit_code_handling",
+      "disposition": "ruled_out",
+      "rationale": "the only exit-contract gap is the silent parity exclusion, filed as finding 6 under a different bug class",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/gates/run_gates.sh:99",
+        "AI Systems/Product Owner/benchmark/router/run_fixtures.sh:28",
+        "AI Systems/Product Owner/benchmark/format/run_fixtures.sh:250"
+      ],
+      "proof": "exit codes match the documented contract at every runner inspected"
+    },
+    {
+      "iteration": 2,
+      "id": "SL-013",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/gates/rule_parity.py:68"
+      ],
+      "bugClass": "dead_path",
+      "disposition": "ruled_out",
+      "rationale": "no dead path in the rule-parity wiring",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/gates/run_gates.sh:66",
+        "AI Systems/Product Owner/benchmark/gates/rule_parity.py:68"
+      ],
+      "proof": "both paths derive to the same folder from the same start point"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-401",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md",
+        "AI Systems/Product Owner/sk-create-figjam/SKILL.md"
+      ],
+      "bugClass": "frontmatter_contract_violation",
+      "disposition": "ruled_out",
+      "rationale": "frontmatter contract at sk-create-skill/SKILL.md:144-149 satisfied on all three files",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:2"
+      ],
+      "proof": "all required fields present and well formed"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-403",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/",
+        ".skilled/skills/sk-doc/sk-create-skill/SKILL.md"
+      ],
+      "bugClass": "shape_contract_violation",
+      "disposition": "ruled_out",
+      "rationale": "shape matches the contract",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/README.md:1"
+      ],
+      "proof": "README.md and dated run folders both present"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-405",
+      "dimension": "traceability",
+      "targetRefs": [
+        ".skilled/skills/sk-doc/sk-create-skill/SKILL.md",
+        "AI Systems/Product Owner/sk-product-owner/references/",
+        "AI Systems/Product Owner/sk-create-figjam/references/"
+      ],
+      "bugClass": "shape_contract_violation",
+      "disposition": "ruled_out",
+      "rationale": ":48 describes that packet's own route map, not a rule imposed on other packages",
+      "evidenceRefs": [
+        ".skilled/skills/sk-doc/sk-create-skill/SKILL.md:48"
+      ],
+      "proof": "no universal rule exists in this repository"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-406",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/",
+        "AI Systems/Product Owner/sk-create-figjam/"
+      ],
+      "bugClass": "shape_contract_violation",
+      "disposition": "ruled_out",
+      "rationale": "conditional rule plus a reference implementation that omits it",
+      "evidenceRefs": [
+        ".skilled/skills/sk-doc/sk-create-skill/SKILL.md:167"
+      ],
+      "proof": "not a mandatory shape element"
+    },
+    {
+      "iteration": 4,
+      "id": "SL-407",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/manual-testing-playbook/manual-testing-playbook.md"
+      ],
+      "bugClass": "shape_contract_violation",
+      "disposition": "ruled_out",
+      "rationale": "index declares scope, persistence and category layout",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/manual-testing-playbook/manual-testing-playbook.md:24"
+      ],
+      "proof": "contract present and complete"
+    },
+    {
+      "iteration": 8,
+      "id": "SL-803",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:290",
+        "AI Systems/Product Owner/sk-product-owner/manual-testing-playbook/"
+      ],
+      "bugClass": "stale_example",
+      "disposition": "ruled_out",
+      "rationale": "Claim matches disk exactly.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:290"
+      ],
+      "proof": "Count verified accurate: 69 markdown files minus the index is 68."
+    },
+    {
+      "iteration": 8,
+      "id": "SL-804",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/manual-testing-playbook/manual-testing-playbook.md:28"
+      ],
+      "bugClass": "stale_example",
+      "disposition": "ruled_out",
+      "rationale": "Self-description is accurate.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/manual-testing-playbook/manual-testing-playbook.md:36"
+      ],
+      "proof": "7 declared, 7 present, ids match one-to-one."
+    },
+    {
+      "iteration": 8,
+      "id": "SL-805",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/.utcp_config.json",
+        "AI Systems/Product Owner/mcp-click-up/"
+      ],
+      "bugClass": "manual_name_drift",
+      "disposition": "ruled_out",
+      "rationale": "No drift.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/.utcp_config.json:16"
+      ],
+      "proof": "Name is used consistently at source and in the package docs."
+    },
+    {
+      "iteration": 8,
+      "id": "SL-806",
+      "dimension": "correctness",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-figma/",
+        "AI Systems/Product Owner/.utcp_config.json"
+      ],
+      "bugClass": "manual_name_drift",
+      "disposition": "ruled_out",
+      "rationale": "No name drift.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/.utcp_config.json:66"
+      ],
+      "proof": "Namespace consistent; only the version pin is at issue."
+    },
+    {
+      "iteration": 5,
+      "id": "SL-503",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/claude project/kernel-review.json:1"
+      ],
+      "bugClass": "stale_review_record",
+      "disposition": "ruled_out",
+      "rationale": "the file describes itself as a dated record and nothing executes against it",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/claude project/kernel-review.json:12",
+        "AI Systems/z — Claude Project Sync Loop/episodes/hand-run/000-packet-record/research/iteration-9.md:56"
+      ],
+      "proof": "declared dated record, no live reader"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-504",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/.gitignore:15",
+        "AI Systems/Product Owner/claude project/local/"
+      ],
+      "bugClass": "tracked_vs_ignored_surface",
+      "disposition": "ruled_out",
+      "rationale": "ignore rule covers the filled copy and git confirms it is untracked",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/.gitignore:15",
+        "AI Systems/Product Owner/.gitignore:15"
+      ],
+      "proof": "verified by git index query"
+    },
+    {
+      "iteration": 5,
+      "id": "SL-505",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/SKILL.md:5",
+        "AI Systems/Product Owner/sk-product-owner/SKILL.md:5",
+        "AI Systems/Product Owner/claude project/Custom Instructions.md:1"
+      ],
+      "bugClass": "version_scheme_drift",
+      "disposition": "ruled_out",
+      "rationale": "three independent schemes, each internally consistent and cross-cited",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/claude project/README.md:63"
+      ],
+      "proof": "all three schemes agree with their own changelogs and the README"
+    },
+    {
+      "iteration": 7,
+      "id": "SL-104",
+      "dimension": "maintainability",
+      "targetRefs": [
+        ".skilled/commands/doctor/scripts/overlay-engine.cjs",
+        "AI Systems/Product Owner/vendor.json"
+      ],
+      "bugClass": "capability_gap",
+      "disposition": "ruled_out",
+      "rationale": "replacement is not an effort question",
+      "evidenceRefs": [
+        ".skilled/commands/doctor/scripts/overlay-engine.cjs:73"
+      ],
+      "proof": "four structural blockers, each verified by direct read"
+    },
+    {
+      "iteration": 7,
+      "id": "SL-105",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/vendor.json"
+      ],
+      "bugClass": "config_manifest_drift",
+      "disposition": "ruled_out",
+      "rationale": "the overlay state machine has no consumer in this repository today",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/vendor.json:1"
+      ],
+      "proof": "byte-identical to the recorded hashes"
+    },
+    {
+      "iteration": 3,
+      "id": "SL-302",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/.env.example",
+        "AI Systems/Product Owner/.utcp_config.json",
+        "AI Systems/Product Owner/opencode.json",
+        "AI Systems/Product Owner/.mcp.json"
+      ],
+      "bugClass": "secret_exposure",
+      "disposition": "ruled_out",
+      "rationale": "verified by direct read of each file",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/.utcp_config.json:79",
+        "AI Systems/Product Owner/.env.example:15"
+      ],
+      "proof": "No literal credential in any tracked runtime config; credential references are ${VAR} placeholders."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-303",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/.env",
+        "AI Systems/Product Owner/click-up-links.md",
+        "AI Systems/Product Owner/claude project/local"
+      ],
+      "bugClass": "secret_exposure",
+      "disposition": "ruled_out",
+      "rationale": "index inspection, not inference",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/.gitignore:10",
+        "AI Systems/Product Owner/.gitignore:16"
+      ],
+      "proof": "None of the private files appears in git ls-files, so no pre-ignore commit exists."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-304",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/.utcp_config.json",
+        "AI Systems/Product Owner/mcp-figma/references/mcp-wiring.md"
+      ],
+      "bugClass": "confusing_deputy",
+      "disposition": "ruled_out",
+      "rationale": "counterevidence found before reporting",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-figma/references/mcp-wiring.md:82",
+        "AI Systems/Product Owner/mcp-figma/references/troubleshooting.md:396"
+      ],
+      "proof": "Deliberate and documented in four places."
+    },
+    {
+      "iteration": 3,
+      "id": "SL-306",
+      "dimension": "security",
+      "targetRefs": [
+        "AI Systems/Product Owner/scripts/vendor-sync.py"
+      ],
+      "bugClass": "path_traversal",
+      "disposition": "ruled_out",
+      "rationale": "traversal ruled out; the residual root-trust gap is filed separately as R3-P2-003",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/scripts/vendor-sync.py:322",
+        "AI Systems/Product Owner/scripts/vendor-sync.py:363"
+      ],
+      "proof": "Spelling guard plus resolved containment on the written tree; the docstring's claim holds for the manifest value."
+    },
+    {
+      "iteration": 9,
+      "id": "SL-906",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/",
+        "AI Systems/Product Owner/sk-product-owner/",
+        "AI Systems/Product Owner/mcp-code-mode/"
+      ],
+      "bugClass": "capability_gap",
+      "disposition": "ruled_out",
+      "rationale": "Tool-surface catalogs have no workflow counterpart; asymmetry follows packet kind, not an omission.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-code-mode/"
+      ],
+      "proof": "shape difference explained by packet kind"
+    },
+    {
+      "iteration": 9,
+      "id": "SL-907",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/claude project/kernel-review.json"
+      ],
+      "bugClass": "documentation_contradiction",
+      "disposition": "ruled_out",
+      "rationale": "The record is honest about being historical; the actionable defect was refiled as the unanswerable comparison, not as drift.",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/claude project/kernel-review.json:1"
+      ],
+      "proof": "self-disclaimed historical record, not a false current claim"
+    },
+    {
+      "iteration": 6,
+      "id": "SL-0603",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md"
+      ],
+      "bugClass": "error_handling",
+      "disposition": "ruled_out",
+      "rationale": "cleanup-path swallow is deliberate and outer state records the outcome",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/mcp-click-up/references/mcp-tools.md:110"
+      ],
+      "proof": "verified by direct read"
+    },
+    {
+      "iteration": 6,
+      "id": "SL-0604",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/scripts/vendored/code-mode"
+      ],
+      "bugClass": "documentation_contract",
+      "disposition": "ruled_out",
+      "rationale": "vendored, hashed and repin-capable so the convention difference is upstream",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/vendor.json:1"
+      ],
+      "proof": "declared in vendor manifest"
+    },
+    {
+      "iteration": 6,
+      "id": "SL-0606",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/benchmark/reports"
+      ],
+      "bugClass": "documentation_contract",
+      "disposition": "ruled_out",
+      "rationale": "iteration 2 ruled archived snapshots are recorded run output",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/benchmark/reports/README.md"
+      ],
+      "proof": "prior-iteration ruling honored"
+    },
+    {
+      "iteration": 10,
+      "id": "SL-1004",
+      "dimension": "maintainability",
+      "targetRefs": [
+        "AI Systems/Product Owner/.gitignore",
+        "AI Systems/Product Owner/context/"
+      ],
+      "bugClass": "packaging_hygiene_gap",
+      "disposition": "ruled_out",
+      "rationale": "the carried-forward UNVERIFIED item resolves clean",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/.gitignore:34",
+        "AI Systems/Product Owner/context/README.md:1"
+      ],
+      "proof": "tracked as claimed; ignored file is local-only by design"
+    },
+    {
+      "iteration": 10,
+      "id": "SL-1005",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/USER-GUIDE.md"
+      ],
+      "bugClass": "stale_documentation",
+      "disposition": "ruled_out",
+      "rationale": "the guide states no numeric claim to drift",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/USER-GUIDE.md:1"
+      ],
+      "proof": "no version or count present"
+    },
+    {
+      "iteration": 10,
+      "id": "SL-1006",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/graph-metadata.json",
+        "AI Systems/Product Owner/SKILL.md"
+      ],
+      "bugClass": "cross_reference_integrity",
+      "disposition": "ruled_out",
+      "rationale": "agrees with SKILL.md:72",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/graph-metadata.json:1"
+      ],
+      "proof": "single hub identity, no duplicate"
+    },
+    {
+      "iteration": 10,
+      "id": "SL-1008",
+      "dimension": "traceability",
+      "targetRefs": [
+        "AI Systems/Product Owner/"
+      ],
+      "bugClass": "cross_reference_integrity",
+      "disposition": "not_applicable",
+      "rationale": "the hub ships no feature catalog",
+      "evidenceRefs": [
+        "AI Systems/Product Owner/SKILL.md:66"
+      ],
+      "proof": "no feature catalog in this surface"
+    }
+  ],
+  "searchCoverage": {
+    "requiredBugClasses": [
+      "contract_drift",
+      "duplicate_artifact_drift",
+      "producer_consumer_mismatch",
+      "secret_artifact_leak",
+      "packaging_hygiene_gap",
+      "stale_documentation",
+      "cross_reference_integrity"
+    ],
+    "covered": [
+      "contract_drift",
+      "duplicate_artifact_drift",
+      "producer_consumer_mismatch"
+    ],
+    "ruledOut": [
+      "packaging_hygiene_gap",
+      "stale_documentation",
+      "cross_reference_integrity"
+    ],
+    "deferred": [
+      "secret_artifact_leak"
+    ],
+    "blocked": [],
+    "graphCoverageMode": "graphless_fallback"
+  },
+  "traceability": {
+    "summary": {
+      "required": 0,
+      "executed": 0,
+      "pass": 0,
+      "partial": 0,
+      "fail": 0,
+      "blocked": 0,
+      "notApplicable": 0,
+      "gatingFailures": 0
+    },
+    "results": []
+  },
+  "divergence": {
+    "started": [],
+    "completed": [],
+    "failed": [],
+    "overrides": [],
+    "saturatedDirections": [],
+    "remainingFrontier": [],
+    "currentFocus": ""
+  },
+  "fieldWarnings": [],
+  "corruptionWarnings": []
+}

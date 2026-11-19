@@ -1,0 +1,25 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/019-hosted-route-connection",
+  "description": "The primary write route is undocumented and the vendored mcp-figma calls it unsupported",
+  "keywords": [
+    "primary",
+    "write",
+    "route",
+    "undocumented",
+    "vendored",
+    "mcp-figma",
+    "calls",
+    "unsupported"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.189Z",
+  "specId": "019",
+  "folderSlug": "hosted-route-connection",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

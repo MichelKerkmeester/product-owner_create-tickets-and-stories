@@ -1,0 +1,22 @@
+{
+  "level": "1",
+  "specFolder": "system/clickup/003-clickup-side-by-side-columns",
+  "description": "Design feedback compares a built screen with its Figma frame",
+  "keywords": [
+    "design",
+    "feedback",
+    "compares",
+    "screen",
+    "figma",
+    "frame"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.500Z",
+  "specId": "003",
+  "folderSlug": "clickup-side-by-side-columns",
+  "parentChain": [
+    "system",
+    "clickup"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

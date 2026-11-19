@@ -1,0 +1,26 @@
+{
+  "level": "2",
+  "specFolder": "system/stories-and-epics/004-product-owner-prd-delivery",
+  "description": "The Product Owner PRD template does not match the approved stories now used by the Barter team",
+  "keywords": [
+    "product",
+    "owner",
+    "prd",
+    "template",
+    "match",
+    "approved",
+    "stories",
+    "now",
+    "barter",
+    "team"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.046Z",
+  "specId": "004",
+  "folderSlug": "product-owner-prd-delivery",
+  "parentChain": [
+    "system",
+    "stories-and-epics"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

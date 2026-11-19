@@ -1,0 +1,23 @@
+{
+  "level": "1",
+  "specFolder": "system/clickup/007-review-remediation",
+  "description": "A five-iteration deep review of packets 026 to 028 returned CONDITIONAL with 2 P1 and 13 P2 findings",
+  "keywords": [
+    "five-iteration",
+    "deep",
+    "review",
+    "packets",
+    "returned",
+    "conditional",
+    "findings"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.506Z",
+  "specId": "007",
+  "folderSlug": "review-remediation",
+  "parentChain": [
+    "system",
+    "clickup"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -1,0 +1,25 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation/046-figjam-gate-and-accent-fixes",
+  "description": "Claude Sonnet 5.5 high reran the 4 failures of v1.0.10.0 on v1.0.11.0 and 2 pass",
+  "keywords": [
+    "claude",
+    "sonnet",
+    "high",
+    "reran",
+    "failures",
+    "pass"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.440Z",
+  "specId": "046",
+  "folderSlug": "figjam-gate-and-accent-fixes",
+  "parentChain": [
+    "system",
+    "figjam",
+    "001-figjam-flow-generation"
+  ],
+  "memorySequence": 1,
+  "memoryNameHistory": [
+    "28-10-26_00-47__closed-phase-046-the-v1-0-12-0-rerun-passed-0-of.md"
+  ]
+}

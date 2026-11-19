@@ -1,0 +1,25 @@
+{
+  "level": "2",
+  "specFolder": "system/reviews/001-po-realistic-playbook-opus-rerun/008-cut-exports-and-word-budget",
+  "description": "The operator read the exports after phase 006 and found them still bloated",
+  "keywords": [
+    "operator",
+    "read",
+    "exports",
+    "phase",
+    "found",
+    "them",
+    "still",
+    "bloated"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.064Z",
+  "specId": "008",
+  "folderSlug": "cut-exports-and-word-budget",
+  "parentChain": [
+    "system",
+    "reviews",
+    "001-po-realistic-playbook-opus-rerun"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

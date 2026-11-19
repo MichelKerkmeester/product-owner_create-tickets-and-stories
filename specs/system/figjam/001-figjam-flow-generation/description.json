@@ -1,0 +1,28 @@
+{
+  "level": "2",
+  "specFolder": "system/figjam/001-figjam-flow-generation",
+  "description": "Product Owner writes stories, epics and product docs but cannot turn screenshots, Figma flows or product docs into diagrams",
+  "keywords": [
+    "product",
+    "owner",
+    "writes",
+    "stories",
+    "epics",
+    "docs",
+    "cannot",
+    "turn",
+    "screenshots",
+    "figma",
+    "flows",
+    "diagrams"
+  ],
+  "lastUpdated": "2026-11-19T09:15:18.446Z",
+  "specId": "001",
+  "folderSlug": "figjam-flow-generation",
+  "parentChain": [
+    "system",
+    "figjam"
+  ],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}
