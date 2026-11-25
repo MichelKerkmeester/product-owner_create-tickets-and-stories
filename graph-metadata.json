@@ -10,7 +10,7 @@
       {
         "target": "mcp-tooling",
         "weight": 0.5,
-        "context": "carries vendored copies of the mcp-click-up and mcp-figma packets and pushes an approved Task, Bug, Doc, Story or Epic export through the ClickUp transport after explicit user approval"
+        "context": "carries vendored copies of the mcp-click-up and mcp-figma packets and pushes an approved Task, Briefing, Bug, Doc, Story or Epic export through the ClickUp transport after explicit user approval"
       }
     ],
     "siblings": [
@@ -127,7 +127,7 @@
       "figjam diagrams"
     ],
     "intent_signals": [
-      "write a Barter task, bug, Story, Epic or doc",
+      "write a Barter task, design briefing, bug, Story, Epic or doc",
       "draw a user flow or another diagram on a FigJam board",
       "run a cupt or figma-ds-cli operation"
     ],
@@ -171,7 +171,7 @@
         "source": "derived"
       }
     ],
-    "causal_summary": "product-owner is the single public skill identity for the Product Owner system. It routes a request to one of four packets through mode-registry.json and hub-router.json: sk-product-owner writes Barter tasks, bugs, Stories, Epics and docs, sk-create-figjam draws FigJam diagrams, from user flows to sequence, state, ER and gantt charts, and the vendored mcp-click-up and mcp-figma packets carry the ClickUp and Figma Desktop transports. The advisor sees one hub, and packetKind separates the workflow packets from the Figma transport.",
+    "causal_summary": "product-owner is the single public skill identity for the Product Owner system. It routes a request to one of four packets through mode-registry.json and hub-router.json: sk-product-owner writes Barter tasks, design briefings, bugs, Stories, Epics and docs, sk-create-figjam draws FigJam diagrams, from user flows to sequence, state, ER and gantt charts, and the vendored mcp-click-up and mcp-figma packets carry the ClickUp and Figma Desktop transports. The advisor sees one hub, and packetKind separates the workflow packets from the Figma transport.",
     "created_at": "2026-01-01T00:00:00Z",
     "last_updated_at": "2026-10-20T18:00:00Z"
   }

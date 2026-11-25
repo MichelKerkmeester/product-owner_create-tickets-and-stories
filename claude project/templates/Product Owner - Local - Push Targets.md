@@ -6,7 +6,7 @@ Add one line per list or doc, its name and then the link copied from ClickUp, un
 
 ## Lists
 
-Tasks, subtasks, parent tasks, bugs, Stories and Epics are created in a list.
+Tasks, subtasks, parent tasks, briefings, bugs, Stories and Epics are created in a list.
 
 ### Team name
 

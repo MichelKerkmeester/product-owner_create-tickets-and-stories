@@ -9,7 +9,7 @@ trigger_phrases:
   - "exact routing algorithm"
   - "how does the router work"
   - "route_contract.py"
-version: 0.17.0.5
+version: 0.17.0.6
 ---
 
 # Product Owner - Router Contract
@@ -140,6 +140,7 @@ SEMANTIC_TOPICS = {
 RESOURCE_MAP = {
     "ALWAYS": DEFAULT_RESOURCE,
     "TASK": ["references/task-mode.md", "assets/task-templates.md"],
+    "BRIEFING": ["references/briefing-mode.md", "assets/design-briefing-template.md"],
     "BUG": ["references/bug-mode.md", "assets/bug-report-template.md"],
     "DOC": ["references/doc-mode.md", "assets/doc-templates.md"],
     "STORY": ["references/story-mode.md"],
@@ -181,7 +182,7 @@ SHAPE_FRAMES = {
     "EPIC": [
         rf"\b(write|create|draft|make) (an? )?{FRAME_MODIFIER}epic\b",
         r"\bepic (for|about|covering)\b",
-        rf"\bturn (this|these|it|that) into (an? )?{FRAME_MODIFIER}epic\b",
+        rf"\bturn (this|these|it|that|(?:the |our |my |[\w-]+'s )(?:[\w-]+ ){{0,4}}?(?:notes?|threads?|messages?|transcripts?)) into (an? )?{FRAME_MODIFIER}epic\b",
         r"\b(refine|update|edit) (this |the |an? )?epic\b",
         # An initiative can be named by its scale instead of the word "epic":
         # "whole dashboard thing", "the whole creator verification programme"
@@ -204,7 +205,7 @@ SHAPE_FRAMES = {
         rf"\b(write|create|draft|make) (a |an )?{FRAME_MODIFIER}(user )?stor(y|ies)\b",
         r"\buser story\b",
         r"\bstory (for|about|covering)\b",
-        rf"\bturn (this|these|it|that) into (a |an )?{FRAME_MODIFIER}(prd|stor(y|ies))\b",
+        rf"\bturn (this|these|it|that|(?:the |our |my |[\w-]+'s )(?:[\w-]+ ){{0,4}}?(?:notes?|threads?|messages?|transcripts?)) into (a |an )?{FRAME_MODIFIER}(prd|stor(y|ies))\b",
         r"\b(refine|update|edit) (this |the |an? )?(prd|(user )?story)\b",
         # "Creators cannot X, we should let them" is a capability request with
         # no PRD noun anywhere in it: the denial names the gap and "let them"
@@ -279,10 +280,10 @@ DOC_AUTHOR_VERBS = r"(write|create|draft|put together|pull together|prepare|asse
 
 # Converting something already in hand into an artifact is the same request as
 # writing one, with the pronoun standing for the source.
-TURN_INTO = r"\bturn (?:(?:this|these|it|that) )?into (?:a |an )?"
+TURN_INTO = r"\bturn (?:(?:this|these|it|that|(?:the |our |my |[\w-]+'s )(?:[\w-]+ ){0,4}?(?:notes?|threads?|messages?|transcripts?)) )?into (?:a |an )?"
 
 UNKNOWN_FALLBACK_CHECKLIST = [
-    "Confirm whether the user needs a task, subtask, parent task, bug report, user story, product/engineering document or a diagram on a FigJam board",
+    "Confirm whether the user needs a task, subtask, parent task, bug report, design briefing, user story, product/engineering document or a diagram on a FigJam board",
     "Confirm scope, platform, user value and desired outcome",
     "Ask for evidence or reproduction steps when bug indicators appear",
     "For documentation, confirm purpose, audience, source authority and source classification",
@@ -329,6 +330,10 @@ def detect_controls(text: str) -> dict:
         artifact_commands.add("TASK")
     if has_exact_token(normalized, "$bug") or has_exact_token(normalized, "$b"):
         artifact_commands.add("BUG")
+    # A design briefing is its own artifact kind with no one-letter shortcut,
+    # because $b is Bug. $briefings and $brief are ordinary text.
+    if has_exact_token(normalized, "$briefing"):
+        artifact_commands.add("BRIEFING")
     if has_exact_token(normalized, "$doc") or has_exact_token(normalized, "$d"):
         artifact_commands.add("DOC")
     if (has_exact_token(normalized, "$story") or has_exact_token(normalized, "$s")
@@ -382,15 +387,15 @@ def detect_artifact_frame(text: str) -> Optional[str]:
             # the packet frames them too. A request that stage one sends here
             # as a ticket would otherwise fall to the backlog question, or to
             # Flow when the ticket's subject is a FigJam board.
-            r"\b(?:create|write|draft|make|file|log|raise|refine) (?:a |an |another )?(?:dev |development |design )?(?:task|subtask|parent task|ticket|briefing)s?\b",
+            r"\b(?:create|write|draft|make|file|log|raise|refine) (?:a |an |another )?(?:dev |development |design )?(?:task|subtask|parent task|ticket)s?\b",
             # "open" is an adjective in "list my open tasks", so it counts as
             # a verb only with an indefinite article.
-            r"\bopen (?:a |an )(?:dev |development |design )?(?:task|subtask|parent task|ticket|briefing)\b",
+            r"\bopen (?:a |an )(?:dev |development |design )?(?:task|subtask|parent task|ticket)\b",
             # "add" asks for a new artifact only with an indefinite opener:
             # "add a task to fix the export" files one, while "add the task to
             # the sprint" acts on one that exists.
-            r"\badd (?:a |an |another )(?:dev |development |design )?(?:task|subtask|parent task|ticket|briefing)s?\b",
-            rf"{TURN_INTO}(?:dev |development |design )?(?:task|subtask|parent task|ticket|briefing)s?\b",
+            r"\badd (?:a |an |another )(?:dev |development |design )?(?:task|subtask|parent task|ticket)s?\b",
+            rf"{TURN_INTO}(?:dev |development |design )?(?:task|subtask|parent task|ticket)s?\b",
             r"\btask to document\b",
             r"\bacceptance criteria\b",
             # Backlog intake for a concrete addition rarely says "task": "add
@@ -405,14 +410,26 @@ def detect_artifact_frame(text: str) -> Optional[str]:
             # target or carries a board link, because "add notes to the figjam
             # board" edits a board and is no backlog intake. The two local
             # lookaheads cover the object and the target, and the whole-line
-            # one covers a link sitting anywhere.
-            r"^(?!.*\bfigma\.com/board/).*\badd (?!(?:[\w'-]+\s+){0,4}figjam\b)(?:a |an |another )?[\w'-]+(?:\s+[\w'-]+){0,3} (?:to|on|for|in) the\b(?!(?:\s+[\w'-]+){0,3}\s+figjam\b)",
+            # one covers a link sitting anywhere. A briefing is its own artifact, so
+            # the frame leaves "add a briefing for the ..." to the Briefing frame.
+            r"^(?!.*\bfigma\.com/board/).*\badd (?!(?:[\w'-]+\s+){0,4}figjam\b)(?!(?:a |an |another )?(?:design )?briefings?\b)(?:a |an |another )?[\w'-]+(?:\s+[\w'-]+){0,3} (?:to|on|for|in) the\b(?!(?:\s+[\w'-]+){0,3}\s+figjam\b)",
             r"\bbuild (?:a |an )?[\w'-]+(?:\s+[\w'-]+){0,4} component\b",
             # Its own narrow entry because the surrounding sentence can carry
             # a competing bug word ("search results are slow, need
             # pagination"), and the build ask is what the person is actually
             # asking for.
             r"\bneed(?:s)? (?:\w+\s+){0,1}pagination\b",
+        ],
+        # A design briefing is its own artifact kind, framed by its own noun so a
+        # request for one never routes as a task. The bare word "brief" stays out,
+        # because the Story frame already owns "brief for the PM".
+        "BRIEFING": [
+            r"\b(?:create|write|draft|make|file|log|raise|refine) (?:a |an |another )?(?:design )?briefings?\b",
+            r"\bopen (?:a |an )(?:design )?briefing\b",
+            r"\badd (?:a |an |another )(?:design )?briefings?\b",
+            rf"{TURN_INTO}(?:design )?briefings?\b",
+            r"\b(?:i|we) (?:need|want) (?:a |an |another )(?:design )?briefings? (?:for|on|about|covering)\b",
+            r"^(?:a |an )?(?:design )?briefings? for\b",
         ],
         "BUG": [
             r"\b(create|write|file) (a )?(bug report|defect report)\b",
@@ -701,14 +718,14 @@ def evaluate_doc_context(doc_context: Optional[dict]) -> dict:
 # then" or "also", because those are the ways a second output follows the first.
 FIGJAM_SECOND_OUTPUT_RE = re.compile(
     r"(?:^|\band\s+|\bthen\s+|\balso\s+|[.!?]\s+|,\s+)(?:make|draw|create|add|build|sketch|map|put)\b"
-    r"(?!\s+(?:a|an|the)?\s*(?:task|subtask|bug|issue|story|document|doc|runbook|prd|ticket|spec)\b)"
+    r"(?!\s+(?:a|an|the)?\s*(?:task|subtask|bug|issue|story|document|doc|runbook|prd|ticket|briefing|spec)\b)"
     r"[^.!?]{0,30}\bfigjam\b"
     r"|\b(?:with|plus|and) (?:a |an |the )?figjam "
     r"(?:(?:user|process|architecture|sequence|state|er|gantt|data) )?"
     r"(?:flow|flowchart|board|diagram|chart|map)s?\b"
     r"|\bfigjam\b[^.!?]{0,60}\b(?:flow|flowchart|board|diagram|chart|map)s?\b"
     r"[^.!?]{0,30}\b(?:then|and then)\s+(?:write|create|draft|make|turn)\b"
-    r"[^.!?]{0,40}\b(?:task|subtask|bug|issue|story|document|doc|runbook|prd|ticket|spec)\b"
+    r"[^.!?]{0,40}\b(?:task|subtask|bug|issue|story|document|doc|runbook|prd|ticket|briefing|spec)\b"
 )
 
 def finalize_artifact_route(
@@ -733,7 +750,7 @@ def finalize_artifact_route(
 
     # The pair forms only on an artifact route, since a bare Flow request is the
     # diagram itself.
-    second_output = primary in {"TASK", "BUG", "DOC", "STORY"} and bool(FIGJAM_SECOND_OUTPUT_RE.search(text.lower()))
+    second_output = primary in {"TASK", "BRIEFING", "BUG", "DOC", "STORY"} and bool(FIGJAM_SECOND_OUTPUT_RE.search(text.lower()))
     result = {
         "intent": primary,
         "energy": energy,
@@ -792,7 +809,7 @@ def route_product_owner_resources(user_input: str, doc_context: Optional[dict] =
             "intent": "INTERACTIVE",
             "energy": energy,
             "source": "conflicting artifact commands",
-            "clarification": "Ask one comprehensive question to select Task, Bug, Doc or Story and, if Doc or Story is selected, gather its contract fields in the same answer; then wait",
+            "clarification": "Ask one comprehensive question to select Task, Briefing, Bug, Doc or Story and, if Doc or Story is selected, gather its contract fields in the same answer; then wait",
             "clarification_fields": [
                 "artifact choice",
                 "if Doc: purpose, audience, sources, authority and lifecycle status",
@@ -904,13 +921,14 @@ Detect the artifact command or framing and select the right mode before consulti
 ```text
 $task | $t                    -> Task Mode
 $task --subtask               -> Task Mode (child-task scope)
+$briefing                     -> Briefing Mode (no one-letter shortcut, $b stays Bug)
 $bug | $b                     -> Bug Mode
 $doc | $d                     -> Doc Mode -> source-authority and conflict gate before draft
 $story | $s | $prd | $p       -> Story Mode (Story shape)
 $epic | $e                    -> Story Mode (Epic shape)
 $quick | $q                   -> energy override only, never an intent. Bare, with no other artifact detected, it retains the narrow Task fallback
 2+ artifact commands          -> Interactive Mode (one consolidated question)
-no command, framing hit       -> route by artifact framing ("write a task/bug/prd/story/doc ...")
+no command, framing hit       -> route by artifact framing ("write a task/briefing/bug/prd/story/doc ...")
 no command, no framing        -> score semantic topics, route by confidence threshold
 confidence < LOW (0.40)       -> Interactive Mode (one comprehensive question), except under Quick energy, which keeps the narrow Task fallback
 ```
@@ -919,9 +937,9 @@ Phase detection order:
 
 1. Normalize case. Extract `$quick` / `$q` or natural quick/fast framing as energy only, never as intent.
 2. Detect `$task --subtask` before the bare `$task` command. Both dedupe to Task intent with child-task scope.
-3. Collect every exact artifact command (`$task`/`$t`, `$bug`/`$b`, `$doc`/`$d`, `$story`/`$s`/`$prd`/`$p`, `$epic`/`$e`) instead of stopping at the first match. More than one collected command is a conflict routed to one consolidated question. `$epic`/`$e` select the Epic shape and never conflict with the `$story`/`$s`/`$prd`/`$p` Story commands, since both select Story Mode and differ only in the one scaffold they consult. `$document`, `$docs`, `$debug`, `$prds`, `$stories`, `$epics`, embedded aliases and filename-like tokens such as `$d.md` are ordinary text, never commands. Punctuation-delimited commands such as `$d,` remain valid.
+3. Collect every exact artifact command (`$task`/`$t`, `$briefing`, `$bug`/`$b`, `$doc`/`$d`, `$story`/`$s`/`$prd`/`$p`, `$epic`/`$e`) instead of stopping at the first match. More than one collected command is a conflict routed to one consolidated question. `$epic`/`$e` select the Epic shape and never conflict with the `$story`/`$s`/`$prd`/`$p` Story commands, since both select Story Mode and differ only in the one scaffold they consult. `$document`, `$docs`, `$debug`, `$briefings`, `$brief`, `$prds`, `$stories`, `$epics`, embedded aliases and filename-like tokens such as `$d.md` are ordinary text, never commands. Punctuation-delimited commands such as `$d,` remain valid.
 4. With exactly one command, it wins over any natural-language wording. `$quick $doc` and `$doc $quick` both mean Doc intent with Quick energy. The same order rule applies to `$quick $prd`, `$quick $story` and `$quick $epic`.
-5. With no command, detect artifact framing ("write a task/bug/PRD/doc ..."). Framing beats subject nouns and semantic scores, and more than one framing match is also a conflict. "Create a task to document X" is Task, "bug report about documentation" is Bug, and "document bug behavior" is Doc. A clear write/create/draft request whose object is documentation, docs, a document, guide, reference, catalog, runbook, proposal, recommendation or decision record routes to Doc regardless of subject modifiers (developer, API, endpoint, deployment, debugging, SDK, CLI, integration, infrastructure or service). Explicit Task or Bug framing still wins. "Recommend/select/choose/compare/analyze ... and document it" is a Doc proposal or recommendation. The "refine/update/edit" form plus a typed or titled document is a Doc refinement. A FigJam board named beside another artifact's framing is that artifact's subject, so "add a task to update the figjam board" is Task and "log a bug in the figjam board" is Bug. A FigJam output verb, a request to add notes to or update a FigJam board and a figma.com/board link are Flow framing, which any other artifact framing outranks.
+5. With no command, detect artifact framing ("write a task/briefing/bug/PRD/doc ..."). Framing beats subject nouns and semantic scores, and more than one framing match is also a conflict. "Create a task to document X" is Task, "bug report about documentation" is Bug, and "document bug behavior" is Doc. A clear write/create/draft request whose object is documentation, docs, a document, guide, reference, catalog, runbook, proposal, recommendation or decision record routes to Doc regardless of subject modifiers (developer, API, endpoint, deployment, debugging, SDK, CLI, integration, infrastructure or service). Explicit Task or Bug framing still wins. "Recommend/select/choose/compare/analyze ... and document it" is a Doc proposal or recommendation. The "refine/update/edit" form plus a typed or titled document is a Doc refinement. A FigJam board named beside another artifact's framing is that artifact's subject, so "add a task to update the figjam board" is Task and "log a bug in the figjam board" is Bug. A FigJam output verb, a request to add notes to or update a FigJam board and a figma.com/board link are Flow framing, which any other artifact framing outranks.
 6. Apply the UI-refinement Task override only after commands and framing are checked: UI feedback and polish route to Task Mode even when "fix" or "broken" co-occurs with feedback language, because Bug Mode is reserved for unexpected system behavior.
 7. With no command or framing, score semantic topics and route by confidence threshold.
 8. Route every Doc selection through the source-authority and conflict gate before drafting, including under Quick energy. Quick may skip routine intake and use safe defaults. It never bypasses artifact-command conflicts or a Doc's source-authority, contradiction and lifecycle gates.
@@ -947,7 +965,7 @@ Resource loading levels:
 | Level       | Consult when                                               | Knowledge                                                                                                                                                                                                          |
 | -------------| ------------------------------------------------------------| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ALWAYS      | Every answer                                               | Human Voice Core, Rules - Conciseness                                                                                                                                                                              |
-| CONDITIONAL | Mode matches                                               | Task Mode + Task Templates, Bug Mode + Bug Report Template, Doc Mode + Doc Templates, Story Mode + one of Story Template or Epic Template, Interactive Mode + Interactive Response Templates |
+| CONDITIONAL | Mode matches                                               | Task Mode + Task Templates, Briefing Mode + Design Briefing Template, Bug Mode + Bug Report Template, Doc Mode + Doc Templates, Story Mode + one of Story Template or Epic Template, Interactive Mode + Interactive Response Templates |
 | ON_DEMAND   | Missing fact, source-preservation check or template detail | Rules - Human Voice EN for a borderline term. One reference or asset for the gap, and at most one worked example per mode, never a bulk folder read                                                                |
 
 Smart routing matrix:
@@ -955,6 +973,7 @@ Smart routing matrix:
 | Route        | Trigger signals                                                                                                                                                                 | Consult                                             | Action                                                                                   | Blocking gate                                                                                                                                               |
 | --------------| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| -----------------------------------------------------| ------------------------------------------------------------------------------------------| -------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Task         | Exact Task command or explicit task framing, plus feature, acceptance and UI refinement signals                                                                                 | These kernel rules, HVR, Task Mode, Task Templates               | Create or refine a task artifact                                                         | Six dimensions + HVR                                                                                                                                        |
+| Briefing     | Exact Briefing command or explicit design briefing framing ("write a design briefing", "create a briefing", "turn this into a briefing") | These kernel rules, HVR, Briefing Mode, Design Briefing Template | Create or refine a design briefing | Six dimensions + HVR |
 | Bug          | Exact Bug command or explicit bug-report framing, plus defect and repro signals                                                                                                 | These kernel rules, HVR, Bug Mode, Bug Report Template           | Create or refine a bug report                                                            | Six dimensions + HVR                                                                                                                                        |
 | Doc          | Exact Doc command or explicit product or engineering documentation framing                                                                                                      | These kernel rules, HVR, Doc Mode, Doc Templates                 | Create or safely refine product or engineering documentation                             | Source classification + conflict + fidelity + ClickUp or preserved-source format + six dimensions + HVR                                                     |
 | Story        | Exact Story command (`$story`/`$s`/`$prd`/`$p`, `$epic`/`$e`) or explicit story or epic framing ("write a user story", "write an epic", "turn this into a prd", "make a draft") | These kernel rules, HVR, Story Mode, the resolved shape template | Create or safely refine a Story or an Epic                                              | artifact kind named + no requirement checklist + Delivery only where requested or forced + acceptance-criteria checks + house format + six dimensions + HVR |
@@ -974,19 +993,21 @@ Treat uploaded Project Knowledge as the detailed source mirror. Consult the smal
 | Rules - Conciseness - On Demand Rationale | On demand, before changing a conciseness rule, for the refusal vocabulary and the block-versus-advise roster   |
 | Rules - Quality Scoring                 | On demand, to settle a borderline dimension or read a shape against the rubric                                   |
 | Templates - Task Mode                   | Task, subtask, parent task, acceptance criteria and task refinement                                              |
+| Templates - Briefing Mode               | Design briefings for the Product Design team, the title form, section jobs, audiences and facets                 |
 | Templates - Bug Mode                    | Bugs, reproduction steps and evidence                                                                            |
 | Templates - Doc Mode                    | Product or engineering document creation, source classification, conflict handling and refinement fidelity       |
 | Templates - Story Mode                  | Story creation and refinement, the shared house grammar, shape selection, the enrichments and delivery standards |
 | System - Interactive Mode               | Missing artifact type or inputs, command conflicts, blocking Doc ambiguity and unresolved Story-vs-Epic          |
 | Assets - Task Templates                 | New Task, parent-task, subtask and Quick Task structure                                                          |
+| Assets - Design Briefing Template       | Design briefing structure, the optional sections and the facet grammar                                           |
 | Assets - Bug Report Template            | Bug report structure and required evidence fields                                                                |
 | Assets - Doc Templates                  | ClickUp-native Guide, Catalog, Behavior reference, Proposal and Narrative overview shapes                        |
 | Assets - Story Template                 | The Story scaffold                                                                                               |
 | Assets - Epic Template                  | The Epic scaffold                                                                                                |
-| Assets - Interactive Response Templates | One-question Task, Bug, Story and Doc clarification shapes                                                       |
-| Examples - Task, Bug, Doc, Story        | Consult one per request, for the routed mode only                                                                |
+| Assets - Interactive Response Templates | One-question Task, Briefing, Bug, Story and Doc clarification shapes                                             |
+| Examples - Task, Briefing, Bug, Doc, Story | Consult one per request, for the routed mode only                                                                |
 
-Consult at most one example per request, for the routed mode only. The twenty-three Task, Bug, Doc and Story example documents are titled `Product Owner - Examples - {Kind} - {Descriptor}`, so a partial name such as Examples - Story - Epic resolves without the group row naming each one. Examples show the house shape on fictional products and never establish product facts. Direct file loading is unavailable in claude.ai Projects. Use Project Knowledge retrieval, and never claim to have saved or loaded local files.
+Consult at most one example per request, for the routed mode only. The twenty-six Task, Briefing, Bug, Doc and Story example documents are titled `Product Owner - Examples - {Kind} - {Descriptor}`, so a partial name such as Examples - Story - Epic resolves without the group row naming each one. Examples show the house shape on fictional products and never establish product facts. Direct file loading is unavailable in claude.ai Projects. Use Project Knowledge retrieval, and never claim to have saved or loaded local files.
 
 ---
 
@@ -1009,6 +1030,7 @@ Operating model tables:
 | Artifact intent | Command and natural-language signals                                                                                                                                                                              | Use                                                                         | Primary knowledge                                            |
 | -----------------| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| -----------------------------------------------------------------------------| --------------------------------------------------------------|
 | Task            | `$task`, `$t`, `$task --subtask`, create a task, feature, acceptance criteria, backlog, UI refinement, copy consistency, casing, capitalisation                                                                    | Tasks, subtasks, parent tasks, acceptance criteria and task refinement      | Task Mode, Task Templates, HVR                               |
+| Briefing        | `$briefing`, write a design briefing, create a briefing, turn this into a briefing                                                                                                                                | Design briefings for the Product Design team                                | Briefing Mode, Design Briefing Template, HVR                 |
 | Bug             | `$bug`, `$b`, write a bug report, defect, broken, crash, failing, repro                                                                                                                                           | Bug reports, reproduction evidence and unexpected behavior                  | Bug Mode, Bug Report Template, HVR                           |
 | Doc             | `$doc`, `$d`, document how, clear write/create/draft documentation requests with arbitrary subject modifiers, recommend/select/compare then document the result, or refine/update/edit a typed or titled document | Product or engineering documentation creation and safe refinement           | Doc Mode, Doc Templates, HVR                                 |
 | Story           | `$story`, `$s`, `$prd`, `$p`, `$epic`, `$e`, write a user story, write an epic, prd for, turn this into a prd, refine this prd, draft for PM, write a draft, bare story, changing how X works | Stories and Epics in the Barter house format                  | Story Mode, the resolved shape template, HVR                 |

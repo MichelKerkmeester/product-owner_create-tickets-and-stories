@@ -1,29 +1,30 @@
 ---
 title: "sk-product-owner"
-description: "Product Owner skill for Barter: routes requests into tasks, bugs, stories, epics and source-safe product or engineering docs, exports every artifact before responding."
+description: "Product Owner skill for Barter: routes requests into tasks, design briefings, bugs, stories, epics and source-safe product or engineering docs, exports every artifact before responding."
 trigger_phrases:
   - "product owner"
   - "$task"
+  - "$briefing"
   - "$bug"
   - "$doc"
   - "$prd"
   - "$story"
   - "$epic"
-version: 1.2.22.0
+version: 1.2.23.0
 ---
 
 # sk-product-owner
 
-> Turns a half-formed product request into an export-ready task, bug report, Story, Epic or source-safe document, without inventing a single fact along the way.
+> Turns a half-formed product request into an export-ready task, design briefing, bug report, Story, Epic or source-safe document, without inventing a single fact along the way.
 
 | Core layer | What it adds |
 |---|---|
-| 🧭 **Smart Router** | Six artifact intents behind exact commands, artifact framing and semantic scoring, with Flow handed to its own packet |
+| 🧭 **Smart Router** | Seven artifact intents behind exact commands, artifact framing and semantic scoring, with Flow handed to its own packet |
 | 🧠 **Energy-Scaled Thinking** | Five phases with energy levels, so a copy tweak and a behavior reference each get fitting rigor |
 | 🔒 **Source Safety** | Five claim classes, a conflict gate that stops instead of guessing and a hard no-fabrication rule |
 | 📤 **Export-First Delivery** | Every artifact saves to disk and verifies with a read-back receipt before you see a summary |
 | 📋 **ClickUp-Native Output** | The exact divider, bullet and heading grammar ClickUp renders correctly, consent-gated on push |
-| 📚 **22 Fictional Worked Examples** | Filled artifacts on fictional products, loaded one at a time when a template needs a demonstration |
+| 📚 **25 Fictional Worked Examples** | Filled artifacts on fictional products, loaded one at a time when a template needs a demonstration |
 
 ---
 
@@ -31,7 +32,7 @@ version: 1.2.22.0
 
 ### What This Is
 
-This folder is the CLI packaging of the Product Owner system: one skill that turns product requests into five kinds of backlog and documentation artifacts. Diagrams drawn on a FigJam board live in the sibling [`../sk-create-figjam/`](../sk-create-figjam/SKILL.md) packet. `SKILL.md` carries the identity, every rule and, in Section 2, the router, with its detail in `references/routing.md`. The hub `../SKILL.md` picks this packet and the hub `../ROUTER.md` maps its intents to the leaves they load. `references/` holds one workflow file per mode plus the shared voice, conciseness and scoring references. `assets/` holds the templates each mode fills and 23 worked examples the model can consult one at a time. A cold model bootstraps through `../AGENTS.md` and from that point on it IS the Product Owner: routing, gates and delivery rules replace generic assistant behavior.
+This folder is the CLI packaging of the Product Owner system: one skill that turns product requests into six kinds of backlog and documentation artifacts. Diagrams drawn on a FigJam board live in the sibling [`../sk-create-figjam/`](../sk-create-figjam/SKILL.md) packet. `SKILL.md` carries the identity, every rule and, in Section 2, the router, with its detail in `references/routing.md`. The hub `../SKILL.md` picks this packet and the hub `../ROUTER.md` maps its intents to the leaves they load. `references/` holds one workflow file per mode plus the shared voice, conciseness and scoring references. `assets/` holds the templates each mode fills and 26 worked examples the model can consult one at a time. A cold model bootstraps through `../AGENTS.md` and from that point on it IS the Product Owner: routing, gates and delivery rules replace generic assistant behavior.
 
 Everything the skill produces lands as a markdown file in `../export/` before any response is written, and a second packaging of the same brain lives in `../claude project/` for claude.ai.
 
@@ -82,6 +83,7 @@ Point any capable model at `../AGENTS.md` and ask:
 
 ```text
 $task define the saved-deal empty state
+$briefing the reach pause, for Partner and Creator
 $bug login returns the wrong error message
 $doc document how notification delivery works
 $story saved searches for creators
@@ -103,6 +105,8 @@ Exact commands win over wording. Plain language routes by artifact framing: "cre
 | "Recommend a ranking approach and document it" | Doc, labelled Proposal |
 | "Write a user story for saved searches" | Story |
 | "Create a task to write a PRD about search" | Task |
+| "Write a design briefing for the reach pause" | Briefing |
+| "Create a task to write a briefing" | Task |
 | "Refine the settings panel spacing" | Task (UI-refinement override) |
 | "Refine the Notification settings guide" | Doc refinement |
 | `$task $doc explain Feed v2` | One clarification question, no artifact |
@@ -160,6 +164,19 @@ Short outcome description.
 ```
 
 Structure rules that matter day to day: `## About` at H2 and `### Requirements` at H3 with `---` dividers, requirement groups numbered only when there are two or more (a single group keeps its bold title unnumbered), every group carrying a `**Checklist**` of literal `- []` items a QA engineer can verify, and optional Given/When/Then user-story blocks where value needs spelling out. Checklist items never end with a period, assumptions never appear as bracketed tags and out-of-scope platform behavior gets an honest carve-out instead of silence. Refining an existing task keeps its structure, naming and quirks.
+
+### Briefing Mode (`$briefing`)
+
+A brief for the Product Design team that states WHAT to design and WHY, before a dev task exists. A briefing is its own artifact kind and never routes as a task. It has no one-letter shortcut, because `$b` is Bug.
+
+| Section | Use |
+|---|---|
+| About | The problem, with its data, and the decision |
+| Briefing | The design direction, what is reused and dropped, and the optional References, Flows and Related tasks blocks |
+| Requirements | Facets of `- []` items a design review can tick, under ALL-CAPS audience headings when there are two or more audiences |
+| Optional sections | Deliverables, Copy, Open Questions, Success Signal and Dev Handover, removed whole when they do not apply |
+
+The title is `Briefing - {App or Apps} - {Area} - {Detail}`, led by the type and never by a team. The export is `export/[###] - briefing-[description].md`.
 
 ### Bug Mode (`$bug`, `$b`)
 
@@ -386,7 +403,7 @@ An attention names the specific item in brackets. The verdict reports gate outco
 
 ## 7. THE EXAMPLES LIBRARY
 
-`assets/examples/` holds 23 filled artifacts, each one instantiating a specific template section named in its frontmatter, so the model pulls exactly one relevant demonstration instead of bulk-reading a folder. Twenty-two are on fictional products. `task/task-example-ds-variables.md` is a real Barter design token release.
+`assets/examples/` holds 26 filled artifacts, each one instantiating a specific template section named in its frontmatter, so the model pulls exactly one relevant demonstration instead of bulk-reading a folder. Twenty-five are on fictional products. `task/task-example-ds-variables.md` is a real Barter design token release.
 
 | Fixture | Demonstrates |
 |---|---|
@@ -395,10 +412,10 @@ An attention names the specific item in brackets. The verdict reports gate outco
 | `task/task-example-subtask.md` | Bounded child scope that does not leak sibling state |
 | `task/task-example-quick.md` | The compact shape with the unnumbered single requirement group |
 | `task/task-example-feedback.md` | One app's review round as a feedback ticket, grouped by screen, with a Code and Figma screenshot pair |
-| `task/task-example-design-briefing-full.md` | A design briefing across two apps and a design system block, with every optional section and a Why facet |
-| `task/task-example-design-briefing-single.md` | A design briefing for one app with no audience labels |
-| `task/task-example-design-briefing-minimal.md` | A design briefing with the core sections and one link block |
 | `task/task-example-ds-variables.md` | Parent plus one subtask per app for a design token release in the shipped ClickUp format, the change list stated once and each app's token file checks in its subtask |
+| `briefing/briefing-example-full.md` | A design briefing across two apps and a design system block, with every optional section and a Why facet |
+| `briefing/briefing-example-single.md` | A design briefing for one app with no audience labels |
+| `briefing/briefing-example-minimal.md` | A design briefing with the core sections and two facets |
 | `bug/bug-example-frontend-visual.md` | Visual defect with design-spec evidence |
 | `bug/bug-example-backend-api.md` | API defect with request and response evidence |
 | `bug/bug-example-mobile-crash.md` | Crash report with device context honestly marked where missing |
@@ -417,13 +434,13 @@ An attention names the specific item in brackets. The verdict reports gate outco
 | `story/story-example-complete.md` | The maximal Story: every optional enrichment populated as a reference for what is available |
 | `story/story-example-epic.md` | The Epic shape: Goal, Scope with child stories, release-level acceptance criteria, no requirements |
 
-Those twenty-two use invented products (Driftboard, Ledgerly, Prism, Fieldstack and friends), so they teach form without carrying real Barter material.
+Those twenty-five use invented products (Driftboard, Ledgerly, Ordly, Prism, Fieldstack and friends), so they teach form without carrying real Barter material.
 
 ---
 
 ## 8. DUAL PACKAGING
 
-This folder is authoritative. A second packaging lives in `../claude project/` for upload to a claude.ai Project: `Custom Instructions.md` is a hand-synthesized kernel carrying the full router and rules, and is the routing authority in that Project because `SKILL.md` itself is not mirrored there. `knowledge/` holds sixty-eight documents: sixty-seven drawn from `references/` and `assets/` here and in `../sk-create-figjam/` and one from `../USER-GUIDE.md`. Nothing regenerates them. The AI System Sync Compiler is retired, no manifest, lock file or checksum ledger is kept, and every knowledge document is written by hand under the manual parity method. The four shared rule files under `references/` (`hvr-core.md`, `conciseness.md`, `conciseness-rationale.md` and `human-voice-rules.md`) are regular-file copies of cards in `z — Knowledge/`, carried as copies so this system also works as its own repository. Their Project mirrors are byte copies of the same cards, and the parity gate holds both to the cards byte for byte, so neither can fork from the shared source. `../SYNC.md` holds that parity note and the method.
+This folder is authoritative. A second packaging lives in `../claude project/` for upload to a claude.ai Project: `Custom Instructions.md` is a hand-synthesized kernel carrying the full router and rules, and is the routing authority in that Project because `SKILL.md` itself is not mirrored there. `knowledge/` holds seventy-three documents: seventy-two drawn from `references/` and `assets/` here and in `../sk-create-figjam/` and one from `../USER-GUIDE.md`. Nothing regenerates them. The AI System Sync Compiler is retired, no manifest, lock file or checksum ledger is kept, and every knowledge document is written by hand under the manual parity method. The four shared rule files under `references/` (`hvr-core.md`, `conciseness.md`, `conciseness-rationale.md` and `human-voice-rules.md`) are regular-file copies of cards in `z — Knowledge/`, carried as copies so this system also works as its own repository. Their Project mirrors are byte copies of the same cards, and the parity gate holds both to the cards byte for byte, so neither can fork from the shared source. `../SYNC.md` holds that parity note and the method.
 
 ---
 
@@ -470,6 +487,7 @@ This README and `SKILL.md` both carry the four-part skill version in frontmatter
 | [`../sk-create-figjam/SKILL.md`](../sk-create-figjam/SKILL.md) | Flow Mode, its own packet: the workflow, the patterns and the pre-write check |
 | [`../SYNC.md`](../SYNC.md) | Hand-authored parity note and manual parity method for the Claude Project package |
 | [`references/task-mode.md`](references/task-mode.md) | Task, subtask, and parent-task workflow and structure rules |
+| [`references/briefing-mode.md`](references/briefing-mode.md) | Design briefing workflow, title form, section jobs, audience headings and facets |
 | [`references/bug-mode.md`](references/bug-mode.md) | Bug workflow, evidence handling, and QA checklist |
 | [`references/doc-mode.md`](references/doc-mode.md) | Doc creation, refinement, source-authority, and fidelity rules |
 | [`references/story-mode.md`](references/story-mode.md) | The shared house grammar, Story and Epic shape selection, the optional enrichments, and refinement fidelity |
@@ -478,7 +496,8 @@ This README and `SKILL.md` both carry the four-part skill version in frontmatter
 | [`references/conciseness.md`](references/conciseness.md) | ALWAYS-loaded conciseness layer: the reconstruction test, the named cut and keep rules, and format choice |
 | [`references/human-voice-rules.md`](references/human-voice-rules.md) | Voice and style rules every artifact passes, ON_DEMAND behind the card |
 | [`references/router-contract.md`](references/router-contract.md) | The Smart Router as running Python, the exact algorithm the benchmark checks `route_contract.py` against, ON_DEMAND for a reader who needs it |
+| [`assets/design-briefing-template.md`](assets/design-briefing-template.md) | The design briefing scaffold |
 | [`assets/story-template.md`](assets/story-template.md) | The Story scaffold |
 | [`assets/epic-template.md`](assets/epic-template.md) | The Epic scaffold |
-| [`assets/examples/`](assets/examples/) | 23 worked examples across task, bug, doc, and story, 22 of them on fictional products |
+| [`assets/examples/`](assets/examples/) | 26 worked examples across task, briefing, bug, doc, and story, 25 of them on fictional products |
 | [`../claude project/README.md`](../claude%20project/README.md) | Upload guide and structure map for the Claude Project packaging |

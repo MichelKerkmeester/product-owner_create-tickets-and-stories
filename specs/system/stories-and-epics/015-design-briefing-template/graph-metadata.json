@@ -48,14 +48,19 @@
       "benchmark/format/run_fixtures.sh",
       "benchmark/router/run_fixtures.sh",
       "sk-create-figjam/assets/README.md",
+      "sk-product-owner/references/briefing-mode.md",
       "sk-product-owner/assets/task-templates.md",
+      "sk-product-owner/references/router-contract.md",
+      "benchmark/gates/check_leaf_map_parity.py",
       "sk-product-owner/SKILL.md",
       "sk-product-owner/README.md",
-      "sk-product-owner/changelog/v1.2.22.0.md",
+      "sk-product-owner/changelog/v1.2.23.0.md",
+      "changelog/v1.0.39.0.md",
       "benchmark/format/validate-output-format.cjs",
+      "sk-product-owner/assets/design-briefing-template.md",
+      "benchmark/router/route_contract.py",
       "benchmark/gates/run_gates.sh",
-      "sk-product-owner/references/task-mode.md",
-      "claude project/Custom Instructions.md"
+      "sk-product-owner/references/task-mode.md"
     ],
     "entities": [
       {
@@ -95,9 +100,27 @@
         "source": "derived"
       },
       {
+        "name": "briefing-mode.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/briefing-mode.md",
+        "source": "derived"
+      },
+      {
         "name": "task-templates.md",
         "kind": "doc",
         "path": "sk-product-owner/assets/task-templates.md",
+        "source": "derived"
+      },
+      {
+        "name": "router-contract.md",
+        "kind": "doc",
+        "path": "sk-product-owner/references/router-contract.md",
+        "source": "derived"
+      },
+      {
+        "name": "check_leaf_map_parity.py",
+        "kind": "file",
+        "path": "benchmark/gates/check_leaf_map_parity.py",
         "source": "derived"
       },
       {
@@ -107,15 +130,33 @@
         "source": "derived"
       },
       {
-        "name": "v1.2.22.0.md",
+        "name": "v1.2.23.0.md",
         "kind": "doc",
-        "path": "sk-product-owner/changelog/v1.2.22.0.md",
+        "path": "sk-product-owner/changelog/v1.2.23.0.md",
+        "source": "derived"
+      },
+      {
+        "name": "v1.0.39.0.md",
+        "kind": "doc",
+        "path": "changelog/v1.0.39.0.md",
         "source": "derived"
       },
       {
         "name": "validate-output-format.cjs",
         "kind": "file",
         "path": "benchmark/format/validate-output-format.cjs",
+        "source": "derived"
+      },
+      {
+        "name": "design-briefing-template.md",
+        "kind": "doc",
+        "path": "sk-product-owner/assets/design-briefing-template.md",
+        "source": "derived"
+      },
+      {
+        "name": "route_contract.py",
+        "kind": "file",
+        "path": "benchmark/router/route_contract.py",
         "source": "derived"
       },
       {
@@ -128,12 +169,6 @@
         "name": "task-mode.md",
         "kind": "doc",
         "path": "sk-product-owner/references/task-mode.md",
-        "source": "derived"
-      },
-      {
-        "name": "Custom Instructions.md",
-        "kind": "doc",
-        "path": "claude project/Custom Instructions.md",
         "source": "derived"
       },
       {
@@ -155,7 +190,7 @@
         "source": "derived"
       },
       {
-        "name": "Task Mode",
+        "name": "Briefing Mode",
         "kind": "proper_noun",
         "path": "spec.md",
         "source": "derived"
@@ -171,41 +206,11 @@
         "kind": "proper_noun",
         "path": "spec.md",
         "source": "derived"
-      },
-      {
-        "name": "Implementation Plan",
-        "kind": "proper_noun",
-        "path": "plan.md",
-        "source": "derived"
-      },
-      {
-        "name": "Technical Context",
-        "kind": "proper_noun",
-        "path": "plan.md",
-        "source": "derived"
-      },
-      {
-        "name": "Claude Project",
-        "kind": "proper_noun",
-        "path": "plan.md",
-        "source": "derived"
-      },
-      {
-        "name": "Sync Loop",
-        "kind": "proper_noun",
-        "path": "plan.md",
-        "source": "derived"
-      },
-      {
-        "name": "Task Format",
-        "kind": "proper_noun",
-        "path": "tasks.md",
-        "source": "derived"
       }
     ],
     "causal_summary": "Michel writes briefings for the Product Design team by hand, such as `Briefing - Partner & Creator - Barter Deals - Desired Collab Amount & Reach Pause`",
     "created_at": "2026-11-25T13:59:30.031Z",
-    "last_save_at": "2026-11-25T13:59:30.031Z",
+    "last_save_at": "2026-11-25T14:40:04.912Z",
     "save_lineage": "graph_only",
     "last_accessed_at": null,
     "source_docs": [
@@ -214,12 +219,12 @@
       "tasks.md",
       "implementation-summary.md"
     ],
-    "source_fingerprint": "sha256:77aadfe9a0305b8db22b8f121977eff65f4b7f23df903c15e165439299f8ea6e",
+    "source_fingerprint": "sha256:3fe9c48a22cc94945ac1173bfa7185a0297acacba7846423ceacf70d4a3855da",
     "source_fingerprint_docset": 3,
     "source_doc_hashes": {
-      "spec.md": "75212928d85226e3aa67f05173415cc311a75f19149acc010bdba9a1a5a491ec",
-      "plan.md": "541473fb3607e2ddfc730842d8520893c594fef23863f5f1419889f032ccd528",
-      "tasks.md": "a2281a55441a9551444953105b1d921b9a0f53dcaa48f0015fd61e861bf530c9",
+      "spec.md": "6e8918db5287548468de8e9c66ec38b422a985b78748fa9c3181a7f7ab6a1339",
+      "plan.md": "13b521935c9ac3af06d97b9085c6626db260616bf746e88131ee75cde83dc1cb",
+      "tasks.md": "18130e158620b39ee37f16cb785c7e4a7d6a8e742aed42981f57c70c5c0e90f3",
       "implementation-summary.md": "a4ba85402446c4a9c90cd027ee96b9805e040018b5fac42a76c8824a729d1206"
     },
     "last_active_at": null

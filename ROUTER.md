@@ -24,7 +24,8 @@ Routing is two stages: the hub picks the mode, this router picks the leaves with
 
 ## 2. INTENT MODEL
 
-- **TASK leaves**: `task-mode.md` and `task-templates.md`, for `$task`, `$t`, `$task --subtask` and task wording such as "create a task", "write a subtask", "write a design briefing" or "acceptance criteria for", and for UI refinement feedback, which stays a Task
+- **TASK leaves**: `task-mode.md` and `task-templates.md`, for `$task`, `$t`, `$task --subtask` and task wording such as "create a task", "write a subtask" or "acceptance criteria for", and for UI refinement feedback, which stays a Task
+- **BRIEFING leaves**: `briefing-mode.md` and `design-briefing-template.md`, for `$briefing` and briefing wording such as "write a design briefing", "create a briefing" or "turn this into a briefing". A briefing is its own artifact kind, so it never loads the Task leaves
 - **BUG leaves**: `bug-mode.md` and `bug-report-template.md`, for `$bug`, `$b` and bug wording such as "write a bug", "bug report" or "it crashes when"
 - **DOC leaves**: `doc-mode.md` and `doc-templates.md`, for `$doc`, `$d` and documentation wording such as "document how", "write a runbook" or "api reference"
 - **STORY leaves**: `story-mode.md` and `story-template.md`, for `$story`, `$s`, `$prd`, `$p` and Story wording such as "write a PRD", "user story" or "draft for PM"
@@ -83,6 +84,7 @@ SHARED_CONTROL_RESOURCES = []
 
 INTENT_SIGNALS = {
     "TASK":        {"weight": 4, "keywords": ["$task", "$t", "$task --subtask", "create a task", "write a task", "add a task", "make a task", "create a ticket", "write a ticket", "write a subtask", "acceptance criteria for", "polish", "spacing", "alignment"]},
+    "BRIEFING":    {"weight": 4, "keywords": ["$briefing", "write a briefing", "create a briefing", "draft a briefing", "make a briefing", "design briefing", "briefing for design"]},
     "BUG":         {"weight": 4, "keywords": ["$bug", "$b", "write a bug", "log a bug", "create a bug", "file a bug", "bug report", "defect", "crashes when", "steps to reproduce"]},
     "DOC":         {"weight": 4, "keywords": ["$doc", "$d", "document how", "write a doc", "write a guide", "write a runbook", "api reference", "architecture document", "decision record"]},
     "STORY":       {"weight": 4, "keywords": ["$story", "$s", "$prd", "$p", "write a prd", "user story", "story for", "draft for pm"]},
@@ -97,6 +99,10 @@ RESOURCE_MAP = {
     "TASK": [
         "sk-product-owner/references/task-mode.md",
         "sk-product-owner/assets/task-templates.md"
+    ],
+    "BRIEFING": [
+        "sk-product-owner/references/briefing-mode.md",
+        "sk-product-owner/assets/design-briefing-template.md"
     ],
     "BUG": [
         "sk-product-owner/references/bug-mode.md",

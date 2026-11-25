@@ -94,6 +94,9 @@ ARTIFACT_COMMANDS: Dict[str, str] = {
     # $epic/$e is the same Story intent under a different shape rather than a
     # separate intent, so it never conflicts with $story.
     "$epic": "STORY", "$e": "STORY",
+    # A design briefing is its own artifact kind with no one-letter shortcut,
+    # because $b is Bug. $briefings and $brief are ordinary text.
+    "$briefing": "BRIEFING",
     # Flow Mode answers to both names people use for it, and to no single
     # letter, because $f would read as a fast-energy control.
     "$flow": "FLOW", "$figjam": "FLOW",
@@ -144,7 +147,7 @@ SHAPE_FRAMES: Dict[str, List[str]] = {
     "EPIC": [
         rf"\b(write|create|draft|make) (an? )?{FRAME_MODIFIER}epic\b",
         r"\bepic (for|about|covering)\b",
-        rf"\bturn (this|these|it|that) into (an? )?{FRAME_MODIFIER}epic\b",
+        rf"\bturn (this|these|it|that|(?:the |our |my |[\w-]+'s )(?:[\w-]+ ){{0,4}}?(?:notes?|threads?|messages?|transcripts?)) into (an? )?{FRAME_MODIFIER}epic\b",
         r"\b(refine|update|edit) (this |the |an? )?epic\b",
         # An initiative can be named by its scale instead of the word "epic":
         # "whole dashboard thing", "the whole creator verification programme"
@@ -167,7 +170,7 @@ SHAPE_FRAMES: Dict[str, List[str]] = {
         rf"\b(write|create|draft|make) (a |an )?{FRAME_MODIFIER}(user )?stor(y|ies)\b",
         r"\buser story\b",
         r"\bstory (for|about|covering)\b",
-        rf"\bturn (this|these|it|that) into (a |an )?{FRAME_MODIFIER}(prd|stor(y|ies))\b",
+        rf"\bturn (this|these|it|that|(?:the |our |my |[\w-]+'s )(?:[\w-]+ ){{0,4}}?(?:notes?|threads?|messages?|transcripts?)) into (a |an )?{FRAME_MODIFIER}(prd|stor(y|ies))\b",
         r"\b(refine|update|edit) (this |the |an? )?(prd|(user )?story)\b",
         # "Creators cannot X, we should let them" is a capability request with
         # no PRD noun anywhere in it: the denial names the gap and "let them"
@@ -243,7 +246,7 @@ DOC_AUTHOR_VERBS = r"(write|create|draft|put together|pull together|prepare|asse
 
 # Converting something already in hand into an artifact is the same request as
 # writing one, with the pronoun standing for the source.
-TURN_INTO = r"\bturn (?:(?:this|these|it|that) )?into (?:a |an )?"
+TURN_INTO = r"\bturn (?:(?:this|these|it|that|(?:the |our |my |[\w-]+'s )(?:[\w-]+ ){0,4}?(?:notes?|threads?|messages?|transcripts?)) )?into (?:a |an )?"
 
 # Artifact framing (word/phrase patterns, not exact tokens). Framing beats
 # subject nouns and semantic scoring but loses to an explicit command.
@@ -254,15 +257,15 @@ FRAME_PATTERNS: Dict[str, List[str]] = {
         # ticket would otherwise fall to the backlog question, or to Flow when
         # the ticket's subject is a FigJam board.
         r"\b(?:create|write|draft|make|file|log|raise|refine) (?:a |an |another )?(?:dev |development |design )?"
-        r"(?:task|subtask|parent task|ticket|briefing)s?\b",
+        r"(?:task|subtask|parent task|ticket)s?\b",
         # "open" is an adjective in "list my open tasks", so it counts as a verb
         # only with an indefinite article.
-        r"\bopen (?:a |an )(?:dev |development |design )?(?:task|subtask|parent task|ticket|briefing)\b",
+        r"\bopen (?:a |an )(?:dev |development |design )?(?:task|subtask|parent task|ticket)\b",
         # "add" asks for a new artifact only with an indefinite opener: "add a
         # task to fix the export" files one, while "add the task to the
         # sprint" acts on one that exists.
-        r"\badd (?:a |an |another )(?:dev |development |design )?(?:task|subtask|parent task|ticket|briefing)s?\b",
-        rf"{TURN_INTO}(?:dev |development |design )?(?:task|subtask|parent task|ticket|briefing)s?\b",
+        r"\badd (?:a |an |another )(?:dev |development |design )?(?:task|subtask|parent task|ticket)s?\b",
+        rf"{TURN_INTO}(?:dev |development |design )?(?:task|subtask|parent task|ticket)s?\b",
         r"\btask to document\b",
         r"\bacceptance criteria\b",
         # Backlog intake for a concrete addition rarely says "task": "add a
@@ -276,8 +279,11 @@ FRAME_PATTERNS: Dict[str, List[str]] = {
         # request that names a FigJam object or target or carries a board
         # link, because "add notes to the figjam board" edits a board and is
         # no backlog intake. The two local lookaheads cover the object and the
-        # target, and the whole-line one covers a link sitting anywhere.
+        # target, and the whole-line one covers a link sitting anywhere. A
+        # briefing is its own artifact, so the frame leaves "add a briefing for
+        # the ..." to the Briefing frame.
         r"^(?!.*\bfigma\.com/board/).*\badd (?!(?:[\w'-]+\s+){0,4}figjam\b)"
+        r"(?!(?:a |an |another )?(?:design )?briefings?\b)"
         r"(?:a |an |another )?[\w'-]+(?:\s+[\w'-]+){0,3} (?:to|on|for|in) the\b"
         r"(?!(?:\s+[\w'-]+){0,3}\s+figjam\b)",
         r"\bbuild (?:a |an )?[\w'-]+(?:\s+[\w'-]+){0,4} component\b",
@@ -285,6 +291,17 @@ FRAME_PATTERNS: Dict[str, List[str]] = {
         # competing bug word ("search results are slow, need pagination"),
         # and the build ask is what the person is actually asking for.
         r"\bneed(?:s)? (?:\w+\s+){0,1}pagination\b",
+    ],
+    # A design briefing is its own artifact kind, framed by its own noun so a
+    # request for one never routes as a task. The bare word "brief" stays out,
+    # because the Story frame already owns "brief for the PM".
+    "BRIEFING": [
+        r"\b(?:create|write|draft|make|file|log|raise|refine) (?:a |an |another )?(?:design )?briefings?\b",
+        r"\bopen (?:a |an )(?:design )?briefing\b",
+        r"\badd (?:a |an |another )(?:design )?briefings?\b",
+        rf"{TURN_INTO}(?:design )?briefings?\b",
+        r"\b(?:i|we) (?:need|want) (?:a |an |another )(?:design )?briefings? (?:for|on|about|covering)\b",
+        r"^(?:a |an )?(?:design )?briefings? for\b",
     ],
     "BUG": [
         r"\b(create|write|file) (a )?(bug report|defect report)\b",
@@ -445,14 +462,14 @@ BUG_GROUP_TASK_RE = re.compile(
 # a second output follows the first.
 FIGJAM_SECOND_OUTPUT_RE = re.compile(
     r"(?:^|\band\s+|\bthen\s+|\balso\s+|[.!?]\s+|,\s+)(?:make|draw|create|add|build|sketch|map|put)\b"
-    r"(?!\s+(?:a|an|the)?\s*(?:task|subtask|bug|issue|story|document|doc|runbook|prd|ticket|spec)\b)"
+    r"(?!\s+(?:a|an|the)?\s*(?:task|subtask|bug|issue|story|document|doc|runbook|prd|ticket|briefing|spec)\b)"
     r"[^.!?]{0,30}\bfigjam\b"
     r"|\b(?:with|plus|and) (?:a |an |the )?figjam "
     r"(?:(?:user|process|architecture|sequence|state|er|gantt|data) )?"
     r"(?:flow|flowchart|board|diagram|chart|map)s?\b"
     r"|\bfigjam\b[^.!?]{0,60}\b(?:flow|flowchart|board|diagram|chart|map)s?\b"
     r"[^.!?]{0,30}\b(?:then|and then)\s+(?:write|create|draft|make|turn)\b"
-    r"[^.!?]{0,40}\b(?:task|subtask|bug|issue|story|document|doc|runbook|prd|ticket|spec)\b"
+    r"[^.!?]{0,40}\b(?:task|subtask|bug|issue|story|document|doc|runbook|prd|ticket|briefing|spec)\b"
 )
 
 
@@ -565,7 +582,7 @@ ROUTE_FIELDS = [
     "intent", "energy", "source", "shape", "confidence", "needs_disambiguation", "resources", "on_demand", "then"
 ]
 
-INTENT_VALUES = ["TASK", "BUG", "DOC", "STORY", "FLOW", "INTERACTIVE"]
+INTENT_VALUES = ["TASK", "BRIEFING", "BUG", "DOC", "STORY", "FLOW", "INTERACTIVE"]
 # Only the Story intent carries a shape. Every other route leaves it None, so
 # a shape appearing on a Task or Doc route is a bug the schema catches.
 SHAPE_VALUES = ["STORY", "EPIC", None]
@@ -596,6 +613,7 @@ ALWAYS = DEFAULT_RESOURCE
 ON_DEMAND = ["references/human-voice-rules.md"]
 RESOURCE_MAP: Dict[str, List[str]] = {
     "TASK": ["references/task-mode.md", "assets/task-templates.md"],
+    "BRIEFING": ["references/briefing-mode.md", "assets/design-briefing-template.md"],
     "BUG": ["references/bug-mode.md", "assets/bug-report-template.md"],
     "DOC": ["references/doc-mode.md", "assets/doc-templates.md"],
     "STORY": ["references/story-mode.md"],
@@ -618,7 +636,7 @@ SHAPE_TEMPLATES: Dict[str, str] = {
 # One consolidated intake question governs every ambiguous or conflicting
 # turn: the router asks once, then waits, and never guesses the artifact.
 DISAMBIGUATION_CHECKLIST = [
-    "Confirm whether the user needs a task, subtask, parent task, bug report, user story, "
+    "Confirm whether the user needs a task, subtask, parent task, bug report, design briefing, user story, "
     "product/engineering document or a diagram on a FigJam board",
     "Confirm scope, platform, user value and desired outcome",
     "Ask for evidence or reproduction steps when bug indicators appear",
@@ -833,7 +851,7 @@ def _route(intent: str, energy: str, source: str, confidence: Optional[float],
     shape = resolve_shape(intent, text)
     # The paired output rides on the route instead of the intent, so the
     # artifact keeps its lane and gains one named follow-up.
-    second_output = intent in {"TASK", "BUG", "DOC", "STORY"} and bool(FIGJAM_SECOND_OUTPUT_RE.search(text.lower()))
+    second_output = intent in {"TASK", "BRIEFING", "BUG", "DOC", "STORY"} and bool(FIGJAM_SECOND_OUTPUT_RE.search(text.lower()))
     return {
         "intent": intent,
         "energy": energy,
@@ -910,7 +928,7 @@ def validate_route_object(obj: Dict[str, Any]) -> List[str]:
         errors.append("Story route resolved no shape, so no scaffold would load")
     if obj.get("then") not in THEN_VALUES:
         errors.append(f"bad then: {obj.get('then')}")
-    if obj.get("then") is not None and obj.get("intent") not in {"TASK", "BUG", "DOC", "STORY"}:
+    if obj.get("then") is not None and obj.get("intent") not in {"TASK", "BRIEFING", "BUG", "DOC", "STORY"}:
         errors.append(f"then on a route that produces no artifact: {obj.get('intent')}")
     confidence = obj.get("confidence")
     if confidence is not None and not (isinstance(confidence, (int, float)) and 0.0 <= confidence <= 1.0):
@@ -1004,6 +1022,9 @@ SELF_CHECK_SAMPLES = [
     ("$document is the filename I meant", {"source": "fallback"}),
     # Quick energy is extracted before the artifact intent.
     ("$quick $bug the login screen hangs", {"intent": "BUG", "energy": "QUICK"}),
+    # A design briefing is its own artifact kind, by command and by framing.
+    ("$briefing the reach pause", {"intent": "BRIEFING", "source": "command"}),
+    ("write a design briefing for the reach pause", {"intent": "BRIEFING", "source": "framing"}),
     # An unroutable request asks rather than guessing.
     ("thoughts?", {"intent": "INTERACTIVE", "needs_disambiguation": True}),
     # A FigJam board is the subject of a ticket when the request asks for the

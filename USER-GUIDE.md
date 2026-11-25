@@ -6,7 +6,7 @@
 
 ## 1. OVERVIEW
 
-Product Owner turns rough notes, screenshots and pasted text into backlog work your team can pick up straight away. It writes tasks, subtasks, bug reports, Stories, Epics and product or engineering docs. It also draws diagrams on FigJam boards: user flows, processes, architectures, sequences, state machines, data models and plans.
+Product Owner turns rough notes, screenshots and pasted text into backlog work your team can pick up straight away. It writes tasks, subtasks, design briefings, bug reports, Stories, Epics and product or engineering docs. It also draws diagrams on FigJam boards: user flows, processes, architectures, sequences, state machines, data models and plans.
 
 Two habits run through every request. It asks before it guesses, in one combined question rather than a drip of them. And it writes nothing to ClickUp or Figma until you say yes in the same chat.
 
@@ -30,6 +30,7 @@ Start a message with a command, or describe what you want in plain words. "Write
 | --- | --- | --- |
 | `$task` | `$t` | A development task with its requirements and QA checklist |
 | `$task --subtask` | none | A subtask under a parent task |
+| `$briefing` | none | A design briefing for the Product Design team |
 | `$bug` | `$b` | A bug report with steps, expected behavior and evidence |
 | `$story` | `$s` | A Story with numbered Given/When/Then acceptance criteria. `$prd` and `$p` work too |
 | `$epic` | `$e` | An Epic with its goal and scope, ready to split into Stories |
@@ -47,7 +48,7 @@ Most requests start with one question, and nothing is drafted until you answer i
 
 Answer in one message and the next reply is the draft. Gaps with a safe default are filled and listed for you to check, so small things never trigger a second round of questions. Only a source conflict, a source you promised but have not sent or a decision you called unsettled can hold the draft again.
 
-Titles follow your backlog: a label joined by ` - ` from broad to specific, with no date. A task, subtask or bug leads with the team that builds it, `FE`, `BE`, `FS`, `DATA` or `DS`, so the question asks for the team when your request names none. A Story leads with the app and an Epic with `Epic`. Under `$quick` no question is asked and the title leaves the team out. A title you give is used as written.
+Titles follow your backlog: a label joined by ` - ` from broad to specific, with no date. A task, subtask or bug leads with the team that builds it, `FE`, `BE`, `FS`, `DATA` or `DS`, so the question asks for the team when your request names none. A Story leads with the app, an Epic with `Epic` and a briefing with `Briefing`. Under `$quick` no question is asked and the title leaves the team out. A title you give is used as written.
 
 ### What Comes Back
 
@@ -162,7 +163,7 @@ Every addition you did not ask for sits under Open items, numbered, with what th
 
 ### Refine What You Already Have
 
-Paste an existing task, Story, Epic or doc and say what should change. The refinement keeps its section names, order, links and identifiers, and touches only what you named. In a terminal it saves under the original file name and never overwrites your source. Ask for a full restructure or ClickUp normalization explicitly when you want one.
+Paste an existing task, briefing, Story, Epic or doc and say what should change. The refinement keeps its section names, order, links and identifiers, and touches only what you named. In a terminal it saves under the original file name and never overwrites your source. Ask for a full restructure or ClickUp normalization explicitly when you want one.
 
 ### Pair an Artifact With a Board
 
@@ -253,6 +254,6 @@ A Mermaid block with a note that there is no Figma connector means the connector
 
 - [README.md](./README.md): What Product Owner is, and the setup for terminal agents
 - [sk-create-figjam/SKILL.md](./sk-create-figjam/SKILL.md): The FigJam diagram workflow and the Figma tools it calls
-- [sk-product-owner/SKILL.md](./sk-product-owner/SKILL.md): The rules behind every task, bug, Story, Epic and doc
+- [sk-product-owner/SKILL.md](./sk-product-owner/SKILL.md): The rules behind every task, briefing, bug, Story, Epic and doc
 - [claude project/README.md](./claude%20project/README.md): What the Project contains and how to upload it
 - [mcp-click-up/SKILL.md](./mcp-click-up/SKILL.md): The ClickUp tools and their parameters

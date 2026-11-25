@@ -2,10 +2,10 @@
 name: product-owner
 description: "Product Owner hub: routes backlog, doc and FigJam diagram requests and two vendored tool packets via mode-registry.json."
 allowed-tools: [Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, mcp__code_mode__call_tool_chain]
-version: 1.0.38.0
+version: 1.0.39.0
 ---
 
-<!-- Keywords: product-owner, sk-product-owner, sk-create-figjam, mcp-click-up, mcp-figma, backlog, task, bug report, user story, epic, prd, product documentation, figjam, user flow, clickup -->
+<!-- Keywords: product-owner, sk-product-owner, sk-create-figjam, mcp-click-up, mcp-figma, backlog, task, design briefing, bug report, user story, epic, prd, product documentation, figjam, user flow, clickup -->
 
 # Product Owner Hub
 
@@ -21,7 +21,7 @@ Use this skill for Barter backlog and documentation work, for diagrams drawn on 
 
 | Mode | Kind | Use it for | Packet |
 |------|------|------------|--------|
-| **sk-product-owner** | workflow | Every task, bug, Story, Epic, Doc and clarification request. The default | [`sk-product-owner/`](sk-product-owner/SKILL.md) |
+| **sk-product-owner** | workflow | Every task, design briefing, bug, Story, Epic, Doc and clarification request. The default | [`sk-product-owner/`](sk-product-owner/SKILL.md) |
 | **sk-create-figjam** | workflow | A diagram drawn on a FigJam board, from a user flow to a sequence, state, ER or gantt chart: `$flow`, `$figjam` or FigJam output wording with no Product Owner artifact named | [`sk-create-figjam/`](sk-create-figjam/SKILL.md) |
 | **mcp-click-up** | workflow | A request that opens with a `cupt` or ClickUp MCP operation, or names one and no Product Owner artifact. Vendored | [`mcp-click-up/`](mcp-click-up/SKILL.md) |
 | **mcp-figma** | transport | A request that opens with a `figma-ds-cli` operation, or names one and no Product Owner artifact. Vendored, read-only in this workspace | [`mcp-figma/`](mcp-figma/SKILL.md) |
@@ -57,7 +57,7 @@ Product Owner/            the repository root is the hub
   graph-metadata.json      the ONE advisor identity for the whole hub
   leaf-manifest.json       generated (workflowMode, leaf) pairs
   changelog/  manual-testing-playbook/  benchmark/
-  sk-product-owner/        workflow: tasks, bugs, Stories, Epics, docs
+  sk-product-owner/        workflow: tasks, briefings, bugs, Stories, Epics, docs
   sk-create-figjam/        workflow: FigJam diagrams
   mcp-click-up/            workflow: vendored ClickUp transport
   mcp-figma/               transport: vendored Figma Desktop bridge

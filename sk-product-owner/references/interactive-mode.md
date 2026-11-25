@@ -1,6 +1,6 @@
 ---
 title: "Product Owner - System - Interactive Mode"
-description: "Conversation flow and state management for Product Owner task, bug and document guidance."
+description: "Conversation flow and state management for Product Owner task, briefing, bug and document guidance."
 contextType: implementation
 importance_tier: important
 trigger_phrases:
@@ -12,7 +12,7 @@ trigger_phrases:
   - "clarification flow"
   - "document intake"
   - "source authority clarification"
-version: 0.17.0.22
+version: 0.17.0.23
 ---
 
 # Product Owner - System - Interactive Mode
@@ -21,11 +21,11 @@ When a request is too thin to draft, this mode asks one consolidated question, w
 
 - **Loading Condition:** TRIGGER
 - **Purpose:** Provides the conversation flows and state management for interactive guidance, driving the single-question intake, artifact-intent and energy detection, source-safety clarification, two-layer transparency, quality control and formatting rules that turn an ambiguous request into a scoped deliverable
-- **Scope:** Conversation flows, state machines, artifact-intent detection ($task/$bug/$doc/$story/$prd/$epic), Quick energy detection ($quick), the clarification export contract, source-safety and Story-shape clarification across Story and Epic, two-layer transparency, quality control, formatting rules, cognitive rigor enforcement and response template usage pointer
-- **Output Path:** `export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md`
+- **Scope:** Conversation flows, state machines, artifact-intent detection ($task/$briefing/$bug/$doc/$story/$prd/$epic), Quick energy detection ($quick), the clarification export contract, source-safety and Story-shape clarification across Story and Epic, two-layer transparency, quality control, formatting rules, cognitive rigor enforcement and response template usage pointer
+- **Output Path:** `export/[###] - {task|briefing|bug|doc|Story|Epic}-[description]-clarification.md`
 - **Loads With:** `assets/interactive-response-templates.md` as the paired scaffold, beside the always-loaded `references/hvr-core.md` and `references/conciseness.md`
 - **Routed By:** two or more artifact commands in one request, confidence under the 0.40 fallback band, a blocked Doc or Story contract gate, and missing scope, user value or evidence
-- **Hands Off To:** the resolved mode reference with its paired scaffold once the user answers, Task, Bug, Doc or Story Mode. The clarification file it wrote is left untouched, and the artifact takes the next number in that lane
+- **Hands Off To:** the resolved mode reference with its paired scaffold once the user answers, Task, Briefing, Bug, Doc or Story Mode. The clarification file it wrote is left untouched, and the artifact takes the next number in that lane
 
 ---
 
@@ -58,7 +58,7 @@ For an ambiguous no-command request, the first question also offers the energy c
 1. **ONE comprehensive question** - Ask for ALL unresolved information at once. When two artifact commands conflict and one of them draws a board, such as `$task $flow`, the first question settles the artifact and asks no board fact, and neither the question nor its Open items names one, such as the target file, the type or the reader. The board facts wait for Flow Mode's own round. Once the user answers, the next reply drafts: a gap with a safe default is drafted with that default and listed under Open items, and only a source conflict with no authority winner, a promised source that has not arrived or a decision the user calls unsettled or a board intake still short of the draw-ready threshold and stop rule in `../sk-create-figjam/references/flow-mode.md` Section 2 may hold the draft a second time, with a question about those alone. For a board that second round asks three things only: who reads it, which question it answers and what the reader should decide
 2. **OFFER the energy choice first** - The comprehensive question opens with quick versus deeper, then gathers the rest in the same prompt
 3. **WAIT for response** - Never proceed without user input when clarification or a document safety decision is required
-4. **SEPARATE intent from energy** - Recognize Task, Bug, Doc, Story or Interactive intent independently from Quick, Standard or Deep energy
+4. **SEPARATE intent from energy** - Recognize Task, Briefing, Bug, Doc, Story or Interactive intent independently from Quick, Standard or Deep energy
 5. **PRESERVE source safety** - Never infer document authority, resolve contradictions silently or promote proposed or retired material to current behavior
 6. **Energy-scaled processing** - Apply with two-layer transparency
 7. **ARTIFACT delivery** - All output properly formatted, including ClickUp grammar for new Doc artifacts and no bullet item ending with a full stop
@@ -89,7 +89,7 @@ A clarification is exported like any other deliverable. A question that exists o
 Save it in the routed artifact's lane, under the next number in that lane, with `-clarification` appended to the description stem:
 
 ```text
-export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md
+export/[###] - {task|briefing|bug|doc|Story|Epic}-[description]-clarification.md
 ```
 
 A request that reached Interactive Mode through a Task, Doc, Story or Bug gate keeps that lane and prefix, because the clarification is about that artifact. A Story asked for with its tasks asks in the Story lane at the top of `export/`, outside the bundle folder, which then takes the next number. A request with no resolved artifact at all uses `intake` in place of the artifact word. Read the file back and reply in the Delivery Reply Shape in `assets/interactive-response-templates.md` Section 3, whose closing line says the artifact comes next once the user answers, without naming the artifact's path or file.
@@ -108,7 +108,7 @@ For an ambiguous request with no command, the FIRST interactive question offers 
 | **Quick** (lean) | Run a lean pass with smart defaults and a quick-energy flow (Discover → Prototype → Harmonize), minimal back-and-forth |
 | **Deeper** (think longer) | Take more time, read more context and apply the full phase flow at Standard or Deep energy |
 
-If the user does not pick, default to Standard energy and proceed with the answers provided. `$quick` and `$q` set Quick energy only. Quick may bypass routine Task, Bug or Doc intake when safe defaults are sufficient, but it never bypasses unclear document purpose or audience, unresolved source authority, contradictory sources or an unclear status of current behavior, approved direction, proposal, retired material or unknown.
+If the user does not pick, default to Standard energy and proceed with the answers provided. `$quick` and `$q` set Quick energy only. Quick may bypass routine Task, Briefing, Bug or Doc intake when safe defaults are sufficient, but it never bypasses unclear document purpose or audience, unresolved source authority, contradictory sources or an unclear status of current behavior, approved direction, proposal, retired material or unknown.
 
 Every question also states the reading the input already shows and a recommended answer with a one-line reason so a user who does not know can accept it. An unanswered question is never a dead end. A fact the user does not settle is assumed rather than escalated, marked `assumed` with what would settle it and named in the playback before the gate, where it can be corrected before anything is written. That holds for the reader and the question as much as for any other fact.
 
@@ -126,10 +126,10 @@ A board fact follows the same rule. Quick fills every row of Flow Mode's Brief, 
 | Path | Flow |
 | ---- | ---- |
 | **Unresolved no-command request** | Welcome + comprehensive question (energy choice first, then ALL unresolved info) → Wait → Process → Deliver |
-| **Clear natural-language Task, Bug or Doc** | Route directly to the matching context gate; clear Doc framing proceeds to `doc_context_gate` |
-| **Direct Task, Bug, Story or Epic** (`$task`/`$bug`/`$story`/`$epic` and their aliases) | Context-specific question → Wait → Process → Deliver |
+| **Clear natural-language Task, Briefing, Bug or Doc** | Route directly to the matching context gate; clear Doc framing proceeds to `doc_context_gate` |
+| **Direct Task, Briefing, Bug, Story or Epic** (`$task`/`$briefing`/`$bug`/`$story`/`$epic` and their aliases) | Context-specific question → Wait → Process → Deliver |
 | **Direct Doc** (`$doc`/`$d`) | Doc clarification → Wait → Doc context gate, back to Doc clarification while blocked → Process only when safe → Deliver |
-| **Quick energy** (`$quick`/`$q`) | Select Task, Bug, Doc or Story independently; Task/Bug may skip routine intake, while Doc and Story still pass through their gates |
+| **Quick energy** (`$quick`/`$q`) | Select Task, Briefing, Bug, Doc or Story independently; Task/Briefing/Bug may skip routine intake, while Doc and Story still pass through their gates |
 | **Quick Doc with a safety gap** | One consolidated Doc clarification → Wait → Doc context gate → Process only when safe → Deliver |
 
 ---
@@ -151,6 +151,7 @@ states:
       $task --subtask: task_format_question
       $task: task_format_question
       $bug: bug_context_question
+      $briefing: briefing_context_question
       $doc: doc_clarification_question
       $story: story_clarification_question
       $s: story_clarification_question
@@ -166,9 +167,12 @@ states:
     expectedInputs: [format, scope, requirements, acceptance_criteria]
   bug_context_question:
     expectedInputs: [unexpected_behavior, expected_behavior, reproduction_steps]
+  briefing_context_question:
+    expectedInputs: [apps, area, decision, audiences, design_system_block]
   semantic_intent_gate:
     clear_task: task_format_question
     clear_bug: bug_context_question
+    clear_briefing: briefing_context_question
     clear_doc: doc_context_gate
     clear_story: story_intake_gate
     unresolved_or_low_confidence: comprehensive_question
@@ -234,6 +238,7 @@ artifact_commands:
   $task --subtask: { type: task, shape: subtask, check_before: $task }
   $task: { aliases: [$t], type: task, ask_format: true }
   $bug: { aliases: [$b], type: bug_report }
+  $briefing: { type: briefing, operation: create_or_refine }
   $doc: { aliases: [$d], type: document, domains: [product, engineering, operational, security, compliance, mixed], operation: create_or_refine }
   $story: { aliases: [$s, $prd, $p], type: story, shape: story, operation: create_or_refine }
   $epic: { aliases: [$e], type: story, shape: epic, operation: create_or_refine }
@@ -248,7 +253,7 @@ energy_language:
 detection_rules:
   command_match: exact_standalone_token
   case_handling: normalize_before_matching
-  false_matches: [$document, $docs, $debug, $d.md, $doc/path, $stories, $prds, $sort, $epics, $email, $e.md, embedded_$d, embedded_$s]
+  false_matches: [$document, $docs, $debug, $d.md, $doc/path, $stories, $prds, $sort, $epics, $email, $e.md, $briefings, $brief, embedded_$d, embedded_$s]
   explicit_artifact_command_over_natural_language: true
   conflicting_artifact_commands: ask_one_consolidated_question
   quick_with_conflict: ask_one_consolidated_question
@@ -291,6 +296,15 @@ conversation_flow:
 - **Energy level:** Standard | **Flow:** `start → bug_context_question → processing (Standard energy) → delivery → complete`
 - **Note:** See SKILL.md Section 2 for authoritative mode definitions
 
+### Briefing Mode
+
+- **Entry commands:** exact standalone `$briefing`, asking `briefing_context_question` and waiting before the gate runs unless `$quick` or `$q` accompanies it. `$briefings` and `$brief` are ordinary text
+- **Entry language:** write a design briefing, create a briefing, turn this into a briefing
+- **Operation:** Create or refine
+- **Energy level:** Standard unless Quick or Deep is selected independently
+- **Flow:** `start → briefing_context_question → processing → delivery → complete`
+- **Note:** See `briefing-mode.md` for the title form, section jobs, audience headings and facets
+
 ### Story Mode
 
 - **Entry commands:** exact standalone `$story`, `$s`, `$prd` or `$p`, or `$epic` or `$e` for the Epic shape, each asking `story_clarification_question` and waiting before the gate runs unless `$quick` or `$q` accompanies it
@@ -320,9 +334,9 @@ conversation_flow:
 process_input:
   1_detect_intent:
     - scan_for:
-        artifact_commands: ['$task --subtask', '$task', '$t', '$bug', '$b', '$doc', '$d', '$prd', '$p', '$story', '$s', '$epic', '$e']
+        artifact_commands: ['$task --subtask', '$task', '$t', '$briefing', '$bug', '$b', '$doc', '$d', '$prd', '$p', '$story', '$s', '$epic', '$e']
         energy_commands: ['$quick', '$q']
-        keywords: ['task', 'dev task', 'bug', 'bug report', 'defect', 'issue', 'error', 'broken', 'crash', 'failing', 'fix', 'feature', 'capability', 'document', 'document how', 'guide', 'catalog', 'behavior reference', 'engineering docs', 'technical documentation', 'api docs', 'api reference', 'schema documentation', 'schema reference', 'architecture docs', 'architecture recommendation', 'configuration guide', 'runbook', 'troubleshooting guide', 'technical proposal', 'technical recommendation', 'decision record', 'prd', 'product requirements document', 'user story', 'story for', 'acceptance scenarios', 'quick']
+        keywords: ['task', 'dev task', 'briefing', 'design briefing', 'bug', 'bug report', 'defect', 'issue', 'error', 'broken', 'crash', 'failing', 'fix', 'feature', 'capability', 'document', 'document how', 'guide', 'catalog', 'behavior reference', 'engineering docs', 'technical documentation', 'api docs', 'api reference', 'schema documentation', 'schema reference', 'architecture docs', 'architecture recommendation', 'configuration guide', 'runbook', 'troubleshooting guide', 'technical proposal', 'technical recommendation', 'decision record', 'prd', 'product requirements document', 'user story', 'story for', 'acceptance scenarios', 'quick']
     - extract: [artifact_intent, energy, operation, requirements]
     # Note: Semantic topic detection is defined in SKILL.md Section 2
   2_apply_cognitive_rigor:
@@ -348,7 +362,7 @@ process_input:
 
 intelligent_parser:
   detect_patterns:
-    type: ['task', 'bug report', 'document', 'guide', 'catalog', 'behavior reference', 'api docs', 'api reference', 'schema documentation', 'schema reference', 'architecture docs', 'architecture recommendation', 'configuration guide', 'runbook', 'troubleshooting guide', 'proposal', 'recommendation', 'decision record', 'fix', 'feature']
+    type: ['task', 'briefing', 'bug report', 'document', 'guide', 'catalog', 'behavior reference', 'api docs', 'api reference', 'schema documentation', 'schema reference', 'architecture docs', 'architecture recommendation', 'configuration guide', 'runbook', 'troubleshooting guide', 'proposal', 'recommendation', 'decision record', 'fix', 'feature']
     scope: ['backend', 'frontend', 'mobile', 'fullstack']
     scale: ['program', 'strategic']
     task_shape_hint: ['small', 'medium', 'large']
@@ -558,7 +572,7 @@ formatting_enforcement:
 | Scope (task) | Infer from requirements |
 | Complexity | Standard if unclear |
 | Story artifact kind | Story when requirements are present; Epic when there are none (or child stories plus a Goal). `$prd`/`$p`/`$story`/`$s` select Story, `$epic`/`$e` select Epic; ask only when the kind is not inferable |
-| Artifact intent | Task unless Bug or Doc framing is clear |
+| Artifact intent | Task unless Briefing, Bug or Doc framing is clear |
 | Platform | All |
 | Doc shape | Infer Guide, Catalog, Behavior reference, Narrative overview or Proposal from a clear purpose; otherwise ask |
 | Doc domain and detail | Infer product, engineering or mixed scope and required HOW from the request and audience; ask only when the choice materially changes the artifact |
@@ -568,7 +582,7 @@ formatting_enforcement:
 ### Key Rules Summary
 
 - **ONE comprehensive question** per interaction (all info at once)
-- **Intent and energy are independent**: Task, Bug, Doc or Story plus Quick, Standard or Deep
+- **Intent and energy are independent**: Task, Briefing, Bug, Doc or Story plus Quick, Standard or Deep
 - **Doc safety is blocking**: never infer authority, merge contradictions or change current behavior, approved direction, proposal, retired material or unknown into another status
 - **Doc refinement is source-led**: preserve the filename, structure, links, identifiers, tables and untouched literal copy
 - **New Doc layout is ClickUp-native**: exact `* * *` dividers and `*   ` unordered bullets; refinements preserve source style unless normalization is requested

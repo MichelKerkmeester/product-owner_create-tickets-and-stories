@@ -70,9 +70,11 @@ A 10 is not a target. It records that the test found nothing on a deliberate sec
 
 ## 4. READING THE DIMENSIONS PER SHAPE
 
-The artifact set is Task, Bug, Doc, and Story Mode's two shapes. A shape changes which dimension decides the delivery and can change what a dimension is even allowed to measure. Scoring a shape against another shape's contract is a rubric error, not a finding.
+The artifact set is Task, Briefing, Bug, Doc, and Story Mode's two shapes. A shape changes which dimension decides the delivery and can change what a dimension is even allowed to measure. Scoring a shape against another shape's contract is a rubric error, not a finding.
 
 **Task.** Actionability decides it. Requirements are QA-checkable outcomes, so a checklist item with no observable end state is the standard 6. Mechanism Depth is satisfied by a user-value line rather than by implementation reasoning, since a task that explains HOW has drifted out of Product Owner scope and loses Relevance for it.
+
+**Briefing.** Actionability and Accuracy decide it. Requirements are lines a design review can tick, so a line with no tickable end state is the standard 6, and a number, range or threshold the source did not give is an Accuracy failure at 7. A requirement restated in Briefing costs Clarity, and Mechanism Depth is satisfied by the problem and the decision in About rather than by implementation reasoning.
 
 **Bug.** Accuracy decides it. An observed behavior, a reproduction step or a root cause that no evidence supports is the standard 7, and `Not provided` is the correct entry where an inference would otherwise go. Completeness is scored against the evidence supplied and never against a complete investigation, so a faithful report of thin evidence still reaches 8.
 
@@ -100,6 +102,7 @@ Apply the phase flow at the detected energy level and validate before delivery.
 Read the dimensions against the resolved shape. Scoring one shape against another shape's contract is a rubric error rather than a finding.
 
 - **Task:** Actionability decides it. A checklist item with no observable end state fails, and Mechanism Depth is satisfied by a user-value line rather than by implementation reasoning
+- **Briefing:** Actionability and Accuracy decide it. A Requirements line a design review cannot tick fails, and a number the source did not give fails
 - **Bug:** Accuracy decides it. An observed behavior, reproduction step or root cause that no evidence supports fails, `Not provided` is the correct entry where an inference would otherwise go, and Completeness is scored against the evidence supplied rather than against a complete investigation
 - **Doc:** Accuracy and Relevance decide it, and the source-authority gate feeds Accuracy directly, so a claim whose subject no supplied source covers fails even when the ClickUp layout is spotless. For a refinement, Completeness is scored on the requested change plus preserved fidelity, never on gaps the source already carried
 
@@ -123,7 +126,7 @@ If any floor fails, revise before delivering. Keep assumption analysis internal.
 
 The kernel points here for the pre-reply quality checklist:
 
-- Artifact intent is Task, Bug, Doc, Story or valid Interactive intake. Energy is tracked separately
+- Artifact intent is Task, Briefing, Bug, Doc, Story or valid Interactive intake. Energy is tracked separately
 - Exact commands, natural framing and tie-break rules resolve consistently, and conflicting commands or framing produced one consolidated question, not a draft
 - User value, audience and outcome are clear or safely clarified
 - Project Knowledge consultation matches the routed path and stays inside the smallest safe set

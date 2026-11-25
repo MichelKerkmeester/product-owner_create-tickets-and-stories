@@ -8,12 +8,13 @@ trigger_phrases:
   - "comprehensive intake question"
   - "task format question"
   - "bug context question"
+  - "briefing context question"
   - "story context question"
   - "Story context question"
   - "document context question"
   - "source authority question"
   - "one question intake"
-version: 0.17.0.12
+version: 0.17.0.13
 ---
 
 # Product Owner - Assets - Interactive Response Templates
@@ -22,8 +23,8 @@ Copy the matching block when a request needs one question before drafting, and s
 
 - **Loading Condition:** Section 3 ALWAYS, before the first reply of a session. Sections 1 and 2 CONDITIONAL, with `references/interactive-mode.md` whenever a request reaches the one-question flow
 - **Purpose:** Provides the intake prompts each artifact lane asks when required information is missing, so one question covers every unresolved decision, and the delivery reply shape every other surface points at
-- **Scope:** The comprehensive question, the Task, Bug, Story and Doc context questions, the source-authority question, the response formatting rules and the delivery reply shape with its worked replies
-- **Output Path:** `export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md`
+- **Scope:** The comprehensive question, the Task, Briefing, Bug, Story and Doc context questions, the source-authority question, the response formatting rules and the delivery reply shape with its worked replies
+- **Output Path:** `export/[###] - {task|briefing|bug|doc|Story|Epic}-[description]-clarification.md`
 
 ---
 
@@ -31,7 +32,7 @@ Copy the matching block when a request needs one question before drafting, and s
 
 ### Purpose
 
-Provides reusable multi-line markdown prompts for default intake, task-specific intake, bug-specific intake, Story intake and product- or engineering-document creation or refinement.
+Provides reusable multi-line markdown prompts for default intake, task-specific intake, briefing-specific intake, bug-specific intake, Story intake and product- or engineering-document creation or refinement.
 
 ### Usage
 
@@ -58,6 +59,7 @@ Please provide the following information at once:
 
 **1. Deliverable type:**
 - Task - Development task with QA checklist
+- Briefing - Design briefing for the Product Design team, with the problem, the design direction and requirements a design review can tick
 - Bug - Defect report with evidence and reproduction steps
 - Story - A Story or Epic in the Barter house format, new or refined, with numbered Given/When/Then acceptance criteria, and Connextra lines or Definition of Ready/Done gates only where the artifact earns them
 - Doc - Product or engineering guide, catalog, behavior reference, runbook, technical reference or proposal, new or refined
@@ -68,6 +70,7 @@ Please provide the following information at once:
 
 **2. Scope & complexity:**
 - For tasks: Backend/Frontend/Mobile/Full-stack/DevOps/QA
+- For briefings: the apps, the product area and whether a design system block belongs in it
 - For bugs: Platform, affected area, severity and reproduction context
 - For tasks and bugs: which team builds it, FE, BE, FS, DATA or DS, when the source names none
 - For Stories: Create or refine, the user role and value, how many requirements, and whether they share one mechanism
@@ -103,6 +106,18 @@ I'll create your task. Quick questions:
 **Design & platform:** Figma links? Platforms? (iOS / Android / Web / All)
 **Dependencies:** Related or dependent tickets?
 **Validation:** What am I likely misunderstanding? What constraints should I question?
+```
+
+### Briefing Context Question
+
+```markdown
+I'll create your design briefing. Quick questions:
+
+**Apps & area:** Which apps does the design change, Partner, Creator or Backoffice, and which product area? Is it a design system change with no app screen?
+**Decision:** What problem does the briefing answer, and what is already decided?
+**Audiences & coverage:** What must design cover for each app, and does a design system block belong in it?
+**References:** Figma links, current screens or related tasks to link?
+**Validation:** What am I likely to assume incorrectly about the decision or its numbers?
 ```
 
 ### Bug Context Question
@@ -179,7 +194,7 @@ Nothing comes before the path line: no status line, no sentence announcing the r
 
 - `{verdict}` reads `every floor met` when all six dimensions clear their floors, names the dimension still short when the three-cycle ceiling was reached, such as `Clarity short after three cycles`, and reads `not scored, clarification only` for a clarification
 - For a Doc, `{verdict}` names the five Doc checks in order, each `pass` or `attention`, and an attention names its item in brackets: `Source safety pass, Shape fit pass, ClickUp layout attention (two headings missing the trailing divider), Readability pass, Voice pass`
-- `{kind}` is Task, Subtask, Parent task, Feedback ticket, Design briefing, Bug, Story, Epic, Story bundle or Doc with its shape, such as `Doc (Guide)`
+- `{kind}` is Task, Subtask, Parent task, Feedback ticket, Briefing, Bug, Story, Epic, Story bundle or Doc with its shape, such as `Doc (Guide)`
 - `{energy}` is Quick, Standard or Deep
 
 The line keeps the pipe separators with a space on each side, carries no bold and holds nothing else. The checks behind it run silently, so no checklist, gate roster, validation display or note about a check that did not run appears anywhere in the reply.

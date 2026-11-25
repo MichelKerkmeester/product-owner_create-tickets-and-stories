@@ -48,6 +48,7 @@ ROOT = Path(__file__).resolve().parents[2]
 # This crosswalk is the one deliberate translation between those key sets.
 LANE_TO_PACKET = {
     "TASK": "sk-product-owner",
+    "BRIEFING": "sk-product-owner",
     "BUG": "sk-product-owner",
     "DOC": "sk-product-owner",
     "STORY": "sk-product-owner",
@@ -63,7 +64,7 @@ FIGJAM_PACKET = "sk-create-figjam"
 # leaf set of that packet's common intent and the packet adds the rest. The
 # lane has to equal that entry, or the hub loads leaves the packet would not.
 VENDORED_LANE_INTENT = {"CLICK_UP": "CUPT_DAILY", "FIGMA": "CREATE_RENDER"}
-ARTIFACT_LANES = {"TASK", "BUG", "DOC", "STORY", "EPIC"}
+ARTIFACT_LANES = {"TASK", "BRIEFING", "BUG", "DOC", "STORY", "EPIC"}
 # A `$` command is an exact standalone token. The edges are the packet router's own
 # (references/router-contract.md), which is where `$d,` stays a command and `$d.md`,
 # `$doc/path` and `$docs` do not.
@@ -73,10 +74,10 @@ TOKEN_END = r"(?![\w$/-]|\.\w)"
 # substring match reading as commands. Each must score no intent.
 NOT_COMMANDS = (
     "$document", "$docs", "$debug", "$d.md", "$doc/path", "$stories", "$prds", "$sort",
-    "$epics", "$email", "$e.md", "$flowchart",
+    "$epics", "$email", "$e.md", "$flowchart", "$briefings", "$brief",
 )
 # Command shapes that must keep scoring, one per way a command can be written.
-COMMANDS = {"$d,": "DOC", "$s": "STORY", "$e": "EPIC", "$task --subtask": "TASK", "$flow": "FLOW"}
+COMMANDS = {"$d,": "DOC", "$s": "STORY", "$e": "EPIC", "$briefing": "BRIEFING", "$task --subtask": "TASK", "$flow": "FLOW"}
 # The shared replay keeps every intent within this many points of the top score.
 AMBIGUITY_DELTA = 1
 CASES = Path("benchmark/hub-routing-cases.json")

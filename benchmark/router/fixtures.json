@@ -3186,6 +3186,106 @@
   {
     "input": "write a design briefing for the reach pause",
     "expect": {
+      "intent": "BRIEFING",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/briefing-mode.md",
+        "assets/design-briefing-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "create a briefing for the required target audience field",
+    "expect": {
+      "intent": "BRIEFING",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/briefing-mode.md",
+        "assets/design-briefing-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$briefing the reach pause",
+    "expect": {
+      "intent": "BRIEFING",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/briefing-mode.md",
+        "assets/design-briefing-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$quick $briefing required target audience",
+    "expect": {
+      "intent": "BRIEFING",
+      "energy": "QUICK",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/briefing-mode.md",
+        "assets/design-briefing-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "add a briefing for the login export",
+    "expect": {
+      "intent": "BRIEFING",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/briefing-mode.md",
+        "assets/design-briefing-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "create a task to write a briefing for the reach pause",
+    "expect": {
       "intent": "TASK",
       "energy": "STANDARD",
       "source": "framing",
@@ -3204,7 +3304,88 @@
     }
   },
   {
-    "input": "create a briefing for the required target audience field",
+    "input": "write a briefing and make a figjam flow of it",
+    "expect": {
+      "intent": "BRIEFING",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/briefing-mode.md",
+        "assets/design-briefing-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ],
+      "then": "FLOW"
+    }
+  },
+  {
+    "input": "$briefing Wishlist for Web and the app, from Maud's contact summary in context/fernhouse-wishlist-feedback.md. Company background is in context/fernhouse-context.md.",
+    "expect": {
+      "intent": "BRIEFING",
+      "energy": "STANDARD",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/briefing-mode.md",
+        "assets/design-briefing-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "Can you write a design briefing for Ines from Tomas's free cancellation filter notes? The notes are in context/roamstay-free-cancellation-pm-notes.md and our company background is in context/roamstay-context.md.",
+    "expect": {
+      "intent": "BRIEFING",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/briefing-mode.md",
+        "assets/design-briefing-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "$quick $briefing The offline marker and the count of waiting changes in the Desktop top bar, from Oskar's offline brief in context/loomlist-offline-mode-brief.md. Product context is in context/loomlist-context.md.",
+    "expect": {
+      "intent": "BRIEFING",
+      "energy": "QUICK",
+      "source": "command",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/briefing-mode.md",
+        "assets/design-briefing-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "Create a task to write a design briefing for the date picker stay limits, from Ines's notes in context/roamstay-date-picker-design-notes.md. Company background is in context/roamstay-context.md.",
     "expect": {
       "intent": "TASK",
       "energy": "STANDARD",
@@ -3217,6 +3398,266 @@
         "references/conciseness.md",
         "references/task-mode.md",
         "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "turn Tomas's notes into a design briefing",
+    "expect": {
+      "intent": "BRIEFING",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/briefing-mode.md",
+        "assets/design-briefing-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "turn the call notes into a bug report",
+    "expect": {
+      "intent": "BUG",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/bug-mode.md",
+        "assets/bug-report-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "turn Maria's transcript into a user story",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "turn our planning thread into a task",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "turn the interview notes into a guide",
+    "expect": {
+      "intent": "DOC",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/doc-mode.md",
+        "assets/doc-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "turn the notes into a table",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "turn the call notes into an epic",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "EPIC",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/epic-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "turn Tomas's notes into a story",
+    "expect": {
+      "intent": "STORY",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": "STORY",
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/story-mode.md",
+        "assets/story-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "I need a briefing for the offers screen",
+    "expect": {
+      "intent": "BRIEFING",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/briefing-mode.md",
+        "assets/design-briefing-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "briefing for design",
+    "expect": {
+      "intent": "BRIEFING",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/briefing-mode.md",
+        "assets/design-briefing-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "a design briefing for the filter",
+    "expect": {
+      "intent": "BRIEFING",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/briefing-mode.md",
+        "assets/design-briefing-template.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "Create a task to write a design briefing for the date picker stay limits",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "we need a briefing banner on the dashboard",
+    "expect": {
+      "intent": "INTERACTIVE",
+      "energy": "STANDARD",
+      "source": "fallback",
+      "shape": null,
+      "confidence": 0.0,
+      "needs_disambiguation": true,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/interactive-mode.md",
+        "assets/interactive-response-templates.md"
       ],
       "on_demand": [
         "references/human-voice-rules.md"

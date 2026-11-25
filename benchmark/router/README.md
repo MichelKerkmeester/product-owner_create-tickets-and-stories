@@ -85,7 +85,7 @@ on the Story lane and `null` everywhere else, and the schema rejects
 both a shape on another intent and a Story route that resolved none, since
 that route would load no scaffold. `resources` is what the route preloads and
 `on_demand` is what it names without loading, and the schema rejects any file
-that appears in both. `then` is `FLOW` when a Task, Bug, Doc or Story
+that appears in both. `then` is `FLOW` when a Task, Briefing, Bug, Doc or Story
 request also asks for a FigJam output beside it and `null` everywhere else,
 and the schema rejects it on a route that produces no artifact.
 
@@ -94,9 +94,9 @@ and the schema rejects it on a route that produces no artifact.
 ## 5. DECISION RULES (DURABLE RATIONALE)
 
 - **Exact tokens**: only a complete `$token` selects an artifact. `$task`,
-  `$t`, `$bug`, `$b`, `$doc`, `$d`, `$story`, `$s`, `$prd`, `$p`, `$epic`, `$e`,
+  `$t`, `$briefing`, `$bug`, `$b`, `$doc`, `$d`, `$story`, `$s`, `$prd`, `$p`, `$epic`, `$e`,
   `$flow`, `$figjam` and `$task --subtask` are matched as whole tokens, never as substrings, so
-  `$document`, `$docs`, `$debug`, `$stories`, `$epics` and an embedded alias
+  `$document`, `$docs`, `$debug`, `$briefings`, `$brief`, `$stories`, `$epics` and an embedded alias
   never fire a command.
 - **One Story lane, two shapes**: `$story`/`$s`/`$prd`/`$p` (Story) and
   `$epic`/`$e` (Epic) both bind STORY and never conflict with each other. The

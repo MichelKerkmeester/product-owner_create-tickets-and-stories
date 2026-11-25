@@ -530,7 +530,7 @@ def check_table_parity(skill: types.ModuleType) -> List[str]:
 
     compare("ALWAYS", skill.RESOURCE_MAP["ALWAYS"], rc.ALWAYS)
     compare("ON_DEMAND", skill.RESOURCE_MAP["ON_DEMAND"], rc.ON_DEMAND)
-    for intent in ("TASK", "BUG", "DOC", "STORY", "FLOW", "INTERACTIVE"):
+    for intent in ("TASK", "BRIEFING", "BUG", "DOC", "STORY", "FLOW", "INTERACTIVE"):
         compare(f"RESOURCE_MAP[{intent}]", skill.RESOURCE_MAP[intent], rc.RESOURCE_MAP[intent])
 
     # The shape tables decide which single scaffold the Story lane loads. They
@@ -729,7 +729,7 @@ FLOW_TYPES_PATH = HERE / "flow_types.json"
 # into a sentence. A noun the hub gains that is missing here fails the guard
 # rather than going untested.
 NOUN_INTENT = {
-    "task": "TASK", "subtask": "TASK", "ticket": "TASK", "briefing": "TASK", "bug": "BUG",
+    "task": "TASK", "subtask": "TASK", "ticket": "TASK", "briefing": "BRIEFING", "bug": "BUG",
     "story": "STORY", "prd": "STORY", "epic": "STORY",
     "doc": "DOC", "document": "DOC", "guide": "DOC", "runbook": "DOC",
 }

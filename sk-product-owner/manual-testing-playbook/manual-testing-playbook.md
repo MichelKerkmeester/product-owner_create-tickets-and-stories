@@ -1,12 +1,12 @@
 ---
 title: "Product Owner: Manual Testing Playbook"
 description: "Operator-facing directory, execution policy and release-readiness guide for the two-runtime Product Owner manual validation package."
-version: 2.5.3.0
+version: 2.5.4.0
 ---
 
 # Product Owner: Manual Testing Playbook
 
-This package turns the Product Owner contract into 68 reproducible conversations across two runtimes, each one a realistic request at one of three fictional companies. The skill set (`S`-prefixed IDs) runs the system from `AGENTS.md` with `sk-product-owner/` loaded. The Project set (`P`-prefixed IDs) runs the same system from `claude project/Custom Instructions.md` with that system's knowledge documents attached. The root owns shared policy and indexing. Each linked scenario file owns synchronized prompts, its attachment list, a conversation chain, one nine-field execution table and current source anchors.
+This package turns the Product Owner contract into 76 reproducible conversations across two runtimes, each one a realistic request at one of three fictional companies. The skill set (`S`-prefixed IDs) runs the system from `AGENTS.md` with `sk-product-owner/` loaded. The Project set (`P`-prefixed IDs) runs the same system from `claude project/Custom Instructions.md` with that system's knowledge documents attached. The root owns shared policy and indexing. Each linked scenario file owns synchronized prompts, its attachment list, a conversation chain, one nine-field execution table and current source anchors.
 
 ---
 
@@ -19,22 +19,22 @@ A scenario run is complete only after its `PASS`, `FAIL` or `SKIP` outcome and r
 
 ## 1. OVERVIEW
 
-The playbook covers 68 scenarios in two mirrored sets of 34, grouped under twelve category folders and set at Roamstay, Loomlist and Fernhouse. No alternate or supplemental scenario files are part of the package.
+The playbook covers 76 scenarios in two mirrored sets of 38, grouped under twelve category folders and set at Roamstay, Loomlist and Fernhouse. No alternate or supplemental scenario files are part of the package.
 
-The baseline backlog and document scenarios cover 8 tasks, 3 bugs, 5 Stories, 4 Epics and 5 docs. The existing Flow Mode scenario ends in a checked flow model with no board because no Figma route is connected. The original 26 conversations per runtime include one Story refinement and one bundle holding 4 nested tasks. Eight added routing scenarios per runtime validate the hand-off contracts. They contribute 20 user turns each, including seven fresh energy probes, for 136 turns across both runtimes.
+The baseline backlog and document scenarios cover 8 tasks, 3 briefings, 3 bugs, 5 Stories, 4 Epics and 5 docs, plus one task that only names a briefing as its subject. The existing Flow Mode scenario ends in a checked flow model with no board because no Figma route is connected. The original 26 conversations per runtime include one Story refinement and one bundle holding 4 nested tasks. Eight added routing scenarios per runtime validate the hand-off contracts. They contribute 20 user turns each, including seven fresh energy probes. The four added briefing scenarios per runtime contribute 6 user turns in total. Across all 76 scenarios the set runs 153 user turns, 76 on the skill side and 77 on the Project side.
 
 ### Coverage map
 
 | Category | IDs | Count | Primary surface |
 |---|---|---:|---|
 | Skill identity | `SID-001` | 1 | Skill delivery contract handover on a Loomlist task |
-| Skill backlog modes | `STK-001..STK-007`, `SBG-001..SBG-003` | 10 | Quick, FE, BE and DATA tasks, a parent and subtask pair, three bug depths and the ClickUp push targets, filesystem delivery |
+| Skill backlog modes | `STK-001..STK-007`, `SBG-001..SBG-003`, `SBR-001..SBR-004` | 14 | Quick, FE, BE and DATA tasks, a parent and subtask pair, three bug depths, the ClickUp push targets, and the design briefing with two audiences, one app, Quick energy and its Task lookalike, filesystem delivery |
 | Skill document modes | `SDK-001..SDK-005` | 5 | Behavior reference, runbook, proposal, the catalog conflict gate and a narrative status overview |
 | Skill story modes | `SST-001..SST-004`, `SEP-001..SEP-003` | 7 | Stories with hard values and forced Delivery, a refinement, the Story bundle and three Epics |
 | Skill interactive routing | `SIR-001..SIR-010` | 10 | Vague intake, command conflict, Flow pairing, Story bundles, Bug pairing and grouping, Task clarification, Quick fallback, energy resolution and ClickUp handoff |
 | Skill flow modes | `SFL-001` | 1 | A `$flow` model, the pre-write check and the write gate with no Figma route, nothing under `export/` |
 | Project identity | `PID-001` | 1 | Project Deliverable Block handover on a Loomlist task |
-| Project backlog modes | `PTK-001..PTK-007`, `PBG-001..PBG-003` | 10 | The same tasks and bugs as Deliverable Blocks, and a ClickUp offer that always asks where |
+| Project backlog modes | `PTK-001..PTK-007`, `PBG-001..PBG-003`, `PBR-001..PBR-004` | 14 | The same tasks, bugs and briefings as Deliverable Blocks, and a ClickUp offer that always asks where |
 | Project document modes | `PDK-001..PDK-005` | 5 | The same docs and the conflict stop in a Project |
 | Project story modes | `PST-001..PST-004`, `PEP-001..PEP-003` | 7 | The same Stories, bundle and Epics as Deliverable Blocks |
 | Project interactive routing | `PIR-001..PIR-010` | 10 | Vague intake, command conflict, Flow pairing, Story bundles, Bug pairing and grouping, Task clarification, Quick fallback, energy resolution and ClickUp handoff |
@@ -60,7 +60,7 @@ This skill has no canonical feature catalog. Scenario files link directly to cur
 
 ### Natural Turn 1 coverage
 
-At least two scenarios per set open with a Turn 1 that carries no command token, no leading slash and no dollar-prefixed flag: `STK-006`, `SDK-001`, `SST-001`, `SEP-002` and `SIR-001` on the skill side, `PTK-006`, `PDK-001`, `PST-001`, `PEP-002` and `PIR-001` on the Project side. The reason is measured rather than stylistic: the 2026-09-16 comparison run on Barter Deal Templates gave two readers the same six prompts, one restricted to that system's Project package and one to its skill, and found that, on that system, a user naming an energy in plain words is covered by no rule in either packaging.
+At least two scenarios per set open with a Turn 1 that carries no command token, no leading slash and no dollar-prefixed flag: `STK-006`, `SBR-002`, `SDK-001`, `SST-001`, `SEP-002` and `SIR-001` on the skill side, `PTK-006`, `PBR-002`, `PDK-001`, `PST-001`, `PEP-002` and `PIR-001` on the Project side. The reason is measured rather than stylistic: the 2026-09-16 comparison run on Barter Deal Templates gave two readers the same six prompts, one restricted to that system's Project package and one to its skill, and found that, on that system, a user naming an energy in plain words is covered by no rule in either packaging.
 
 ---
 
@@ -158,7 +158,7 @@ A clarification is a delivery on both runtimes, except in Flow Mode, which write
 - Skill side: the question-only file saved under its lane's `-clarification` name and read back, and a reply carrying its path, the `Verified: read-back succeeded; N lines` line and the `HVR self-scan:` line. Whether the reply also prints the question is not graded either way. `references/interactive-mode.md` asks the user the question, while `AGENTS.md` Section 2 keeps a full artifact out of chat and the file is that artifact. The tension is logged as a follow-up finding
 - Project side: the question rendered as its own block, then `Export-equivalent path:` with the `-clarification` name and the `HVR self-scan:` line
 
-The lane is the routed artifact's word, one of `{task|bug|doc|Story|Epic}`, or `intake` when no artifact was resolved (`SKILL.md` line 124, `Custom Instructions.md` line 288). A Story asked for with its tasks asks in the Story lane at the top of `export/`, outside the bundle folder, and the folder takes the next number (`references/interactive-mode.md` line 93, line 70 of the knowledge file).
+The lane is the routed artifact's word, one of `{task|briefing|bug|doc|Story|Epic}`, or `intake` when no artifact was resolved (`SKILL.md` line 124, `Custom Instructions.md` line 288). A Story asked for with its tasks asks in the Story lane at the top of `export/`, outside the bundle folder, and the folder takes the next number (`references/interactive-mode.md` line 93, line 70 of the knowledge file).
 
 ### Rendering without a Canvas panel
 
@@ -166,7 +166,7 @@ The kernel delivers every artifact as a Canvas Artifact in the side Canvas panel
 
 ### Export names
 
-The `[description]` part of every path a scenario names is illustrative, because the rules fix the pattern and not the slug (`SKILL.md` lines 123 and 124, `Custom Instructions.md` lines 283 to 288). Grade the artifact word (`task`, `bug`, `doc`, `Story`, `Epic` or `intake`) and the `-clarification` suffix on both runtimes. On the skill side grade the order too, with the clarification first and the artifact on the next number. On the Project side `[NNN]` is a placeholder the human reconciles (`Custom Instructions.md` line 293), so number order is not graded there.
+The `[description]` part of every path a scenario names is illustrative, because the rules fix the pattern and not the slug (`SKILL.md` lines 123 and 124, `Custom Instructions.md` lines 283 to 288). Grade the artifact word (`task`, `briefing`, `bug`, `doc`, `Story`, `Epic` or `intake`) and the `-clarification` suffix on both runtimes. On the skill side grade the order too, with the clarification first and the artifact on the next number. On the Project side `[NNN]` is a placeholder the human reconciles (`Custom Instructions.md` line 293), so number order is not graded there.
 
 A new Story asked for with its tasks saves as one bundle folder, `export/[###] - Story-[description]/`, holding `[###] - Story-[description].md` and one `[###].[n] - task-[description].md` per task (`AGENTS.md` lines 86 to 93, `references/story-mode.md` lines 384 to 401, `Custom Instructions.md` line 286). Grade the folder, the artifact word on every file in it and `n` counting from 1 in the Story's task order, on both runtimes. The `n` suffix is not a number the human reconciles. On the Project side each file gets its own Deliverable Block, Story first, each with its own `Export-equivalent path:` inside the folder.
 
@@ -211,7 +211,7 @@ Ticket realism grades whether a delivered artifact reads like work a team at the
 | Advisory | Size band | The artifact body's line count against the band the scenario records, and the length caps: a bullet is one sentence of 25 words or fewer, a paragraph at most three sentences and 60 words except a Story's Problem at three to five sentences and 100 words, a Then or And line holding one outcome, and an About or Overview opening at most two paragraphs, with code, tables, Given/When/Then lines and verbatim source copy exempt, and the word budget counted outside code blocks: a task inside a Story bundle at most 500 words, a subtask 750, any other task 900, a bug 800, an Epic 1,000, and a Story or a Doc 1,400, exceeded only where supplied values, requirements or criteria need the room. Never a failure, whatever the scenario tests |
 | Advisory | Commentary | Unchanged from Defect severity, its delivery-shape exception for `PID-001` included |
 | Advisory | Asking for a fact an attachment already states | Recorded as it is today, never a failure |
-| Advisory | A Task or Bug title with no discipline code | The title rule leaves the team lead out and lists it under Open items when the source names none and no question could be asked, so it is recorded only. Story and Epic H1s follow the skill's H1 rule, which leads them with the app and bans a team lead and a `PRD -` prefix, so neither the rubric nor any Pass clause expects a code there |
+| Advisory | A Task or Bug title with no discipline code | The title rule leaves the team lead out and lists it under Open items when the source names none and no question could be asked, so it is recorded only. Story and Epic H1s follow the skill's H1 rule, which leads them with the app and bans a team lead and a `PRD -` prefix, so neither the rubric nor any Pass clause expects a code there. A briefing H1 leads with `Briefing` and takes no team lead, so no code is expected there either |
 
 These existing readings stay exactly as they are, and no rubric item turns one into a failure: response ordering and commentary length, progress-note verbosity, commentary before a Project block, the skill reply printing the clarification question, Project number order and the illustrative `[description]` slug.
 
@@ -227,7 +227,7 @@ The system is ready only when every scenario has evidence, no scenario is `FAIL`
 |---|---|---|
 | 1 | `SID-001`, `PID-001` | One fresh session per runtime, handovers run first |
 | 2 | `STK-001..STK-007`, `PTK-001..PTK-007` | Separate task baselines per runtime, the parent and subtask pair and the ClickUp offer included |
-| 3 | `SBG-001..SBG-003`, `PBG-001..PBG-003` | Separate bug baselines per runtime |
+| 3 | `SBG-001..SBG-003`, `PBG-001..PBG-003`, `SBR-001..SBR-004`, `PBR-001..PBR-004` | Separate bug and briefing baselines per runtime, clarification exports allowed |
 | 4 | `SDK-001..SDK-005`, `PDK-001..PDK-005` | Separate doc baselines, clarification exports allowed |
 | 5 | `SST-001..SST-004`, `SEP-001..SEP-003`, `PST-001..PST-004`, `PEP-001..PEP-003` | Story and Epic baselines, one bundle folder and one refinement export allowed |
 | 6 | `SIR-001..SIR-010`, `PIR-001..PIR-010` | Fresh routing baselines, including seven independent energy probes |
@@ -257,7 +257,7 @@ Desired user-visible outcome: A saved task-lane question, then a saved task for 
 
 ---
 
-## 8. SKILL BACKLOG MODES (`STK-001..STK-007`, `SBG-001..SBG-003`)
+## 8. SKILL BACKLOG MODES (`STK-001..STK-007`, `SBG-001..SBG-003`, `SBR-001..SBR-004`)
 
 ### STK-001 | Quick copy task
 
@@ -418,6 +418,70 @@ Desired user-visible outcome: One evidence question saved as a clarification, th
 #### Test execution
 
 > **Feature file:** [SBG-003](skill-backlog-modes/two-platform-log-bug.md)
+
+### SBR-001 | Two audience briefing
+
+#### Description
+
+Verify the briefing question under `$briefing` and one briefing that keeps the contact numbers with their source and period, splits Requirements into two ALL-CAPS H4 audience headings and leaves the undecided phone lists under Open Questions.
+
+#### Scenario contract
+
+Prompt: `$briefing Wishlist for Web and the app, from Maud's contact summary in context/fernhouse-wishlist-feedback.md. Company background is in context/fernhouse-context.md.`
+
+Desired user-visible outcome: One briefing question that collects the decision, the surfaces and the design system answer, then one briefing for Web and the app that a design review can tick line by line
+
+#### Test execution
+
+> **Feature file:** [SBR-001](skill-backlog-modes/two-audience-briefing.md)
+
+### SBR-002 | Single app in plain words
+
+#### Description
+
+Verify that natural wording routes to Briefing Mode, asks only what the notes leave out and then exports a single app briefing with no audience headings whose copy values stay as the notes wrote them.
+
+#### Scenario contract
+
+Prompt: `Turn Tomas's free cancellation filter notes into a design briefing for Ines. The notes are in context/roamstay-free-cancellation-pm-notes.md and our company background is in context/roamstay-context.md.`
+
+Desired user-visible outcome: One briefing question about the design system block, then one single app briefing that keeps the badge, the empty state and the date pattern as the notes wrote them
+
+#### Test execution
+
+> **Feature file:** [SBR-002](skill-backlog-modes/single-app-plain-words.md)
+
+### SBR-003 | Quick briefing
+
+#### Description
+
+Verify that Quick energy skips the briefing intake and still exports one small briefing that stays inside the requested scope and writes no number the brief does not give.
+
+#### Scenario contract
+
+Prompt: `$quick $briefing The offline marker and the count of waiting changes in the Desktop top bar, from Oskar's offline brief in context/loomlist-offline-mode-brief.md. Product context is in context/loomlist-context.md.`
+
+Desired user-visible outcome: One small briefing for the offline marker and the waiting changes count, saved and read back with no question asked first
+
+#### Test execution
+
+> **Feature file:** [SBR-003](skill-backlog-modes/quick-briefing.md)
+
+### SBR-004 | Task lookalike stays Task
+
+#### Description
+
+Verify that a request to create a task whose subject is a design briefing stays in Task Mode, asks the Task question and saves it in the task lane.
+
+#### Scenario contract
+
+Prompt: `Create a task to write a design briefing for the date picker stay limits, from Ines's notes in context/roamstay-date-picker-design-notes.md. Company background is in context/roamstay-context.md.`
+
+Desired user-visible outcome: One Task question saved in the task lane, with no briefing drafted and no briefing-lane file
+
+#### Test execution
+
+> **Feature file:** [SBR-004](skill-backlog-modes/task-lookalike-stays-task.md)
 
 ---
 
@@ -824,7 +888,7 @@ Desired user-visible outcome: A rendered task-lane question, then a rendered tas
 
 ---
 
-## 14. PROJECT BACKLOG MODES (`PTK-001..PTK-007`, `PBG-001..PBG-003`)
+## 14. PROJECT BACKLOG MODES (`PTK-001..PTK-007`, `PBG-001..PBG-003`, `PBR-001..PBR-004`)
 
 ### PTK-001 | Quick copy task
 
@@ -985,6 +1049,70 @@ Desired user-visible outcome: One evidence question rendered as a clarification 
 #### Test execution
 
 > **Feature file:** [PBG-003](project-backlog-modes/two-platform-log-bug.md)
+
+### PBR-001 | Two audience briefing
+
+#### Description
+
+Verify the briefing question under `$briefing` and one briefing that keeps the contact numbers with their source and period, splits Requirements into two ALL-CAPS H4 audience headings and leaves the undecided phone lists under Open Questions.
+
+#### Scenario contract
+
+Prompt: `$briefing Wishlist for Web and the app, from Maud's contact summary in context/fernhouse-wishlist-feedback.md. Company background is in context/fernhouse-context.md.`
+
+Desired user-visible outcome: One briefing question block that collects the decision, the surfaces and the design system answer, then one briefing for Web and the app that a design review can tick line by line
+
+#### Test execution
+
+> **Feature file:** [PBR-001](project-backlog-modes/two-audience-briefing.md)
+
+### PBR-002 | Single app in plain words
+
+#### Description
+
+Verify that natural wording routes to Briefing Mode, asks only what the notes leave out and then renders a single app briefing with no audience headings whose copy values stay as the notes wrote them.
+
+#### Scenario contract
+
+Prompt: `Turn Tomas's free cancellation filter notes into a design briefing for Ines. The notes are in context/roamstay-free-cancellation-pm-notes.md and our company background is in context/roamstay-context.md.`
+
+Desired user-visible outcome: One briefing question block about the design system block, then one single app briefing that keeps the badge, the empty state and the date pattern as the notes wrote them
+
+#### Test execution
+
+> **Feature file:** [PBR-002](project-backlog-modes/single-app-plain-words.md)
+
+### PBR-003 | Quick briefing
+
+#### Description
+
+Verify that Quick energy skips the briefing intake and still renders one small briefing that stays inside the requested scope and writes no number the brief does not give.
+
+#### Scenario contract
+
+Prompt: `$quick $briefing The offline marker and the count of waiting changes in the Desktop top bar, from Oskar's offline brief in context/loomlist-offline-mode-brief.md. Product context is in context/loomlist-context.md.`
+
+Desired user-visible outcome: One small briefing for the offline marker and the waiting changes count, rendered with no question asked first
+
+#### Test execution
+
+> **Feature file:** [PBR-003](project-backlog-modes/quick-briefing.md)
+
+### PBR-004 | Task lookalike stays Task
+
+#### Description
+
+Verify that a request to create a task whose subject is a design briefing stays in Task Mode, asks the Task question and renders it in the task lane.
+
+#### Scenario contract
+
+Prompt: `Create a task to write a design briefing for the date picker stay limits, from Ines's notes in context/roamstay-date-picker-design-notes.md. Company background is in context/roamstay-context.md.`
+
+Desired user-visible outcome: One Task question rendered under a task-lane label, with no briefing drafted and no briefing-lane label
+
+#### Test execution
+
+> **Feature file:** [PBR-004](project-backlog-modes/task-lookalike-stays-task.md)
 
 ---
 
@@ -1375,12 +1503,12 @@ Desired user-visible outcome: A checked back-in-stock flow model and a write gat
 
 | Check | Coverage | Playbook overlap |
 |---|---|---|
-| [`../../benchmark/router/run_fixtures.sh`](../../benchmark/router/run_fixtures.sh) | Router differential against `route_contract.py` | Turn 1 routing of every ID, most directly `STK-003`, `STK-005`, `STK-006`, `SBG-003`, `SDK-003`, `SST-003`, `SEP-001..SEP-003`, `SIR-001..SIR-010` and their Project mirrors |
+| [`../../benchmark/router/run_fixtures.sh`](../../benchmark/router/run_fixtures.sh) | Router differential against `route_contract.py` | Turn 1 routing of every ID, most directly `STK-003`, `STK-005`, `STK-006`, `SBG-003`, `SBR-002`, `SBR-004`, `SDK-003`, `SST-003`, `SEP-001..SEP-003`, `SIR-001..SIR-010` and their Project mirrors |
 | [`../../benchmark/format/run_fixtures.sh`](../../benchmark/format/run_fixtures.sh) | Output-format gate on this system's instruction surface | All delivered artifact shapes |
 | [`../../benchmark/parity/`](../../benchmark/parity/) scripts | Kernel-to-skill parity and residency checks | `PID-001`, `SID-001` |
 | [`../../sk-create-figjam/scripts/flow_check.py`](../../sk-create-figjam/scripts/flow_check.py) | Flowchart rules on a Flow Mode model, with a self-test the gate runner calls | `SFL-001`, `PFL-001` |
 | Playbook package validator | Paths, IDs, sections, prompts, tables, links | This package |
-| Real manual execution | Runtime behavior and side effects | All 68 IDs, `SID-001` to `PFL-001` |
+| Real manual execution | Runtime behavior and side effects | All 76 IDs, `SID-001` to `PFL-001` |
 
 ---
 
@@ -1399,6 +1527,10 @@ Desired user-visible outcome: A checked back-in-stock flow model and a write gat
 | SBG-001 | Quick bug | Skill backlog modes | [SBG-001](skill-backlog-modes/quick-bug.md) | [`bug-mode.md`](../references/bug-mode.md) |
 | SBG-002 | Support ticket bug | Skill backlog modes | [SBG-002](skill-backlog-modes/support-ticket-bug.md) | [`bug-mode.md`](../references/bug-mode.md) |
 | SBG-003 | Two-platform log bug | Skill backlog modes | [SBG-003](skill-backlog-modes/two-platform-log-bug.md) | [`bug-mode.md`](../references/bug-mode.md) |
+| SBR-001 | Two audience briefing | Skill backlog modes | [SBR-001](skill-backlog-modes/two-audience-briefing.md) | [`briefing-mode.md`](../references/briefing-mode.md) |
+| SBR-002 | Single app in plain words | Skill backlog modes | [SBR-002](skill-backlog-modes/single-app-plain-words.md) | [`briefing-mode.md`](../references/briefing-mode.md) |
+| SBR-003 | Quick briefing | Skill backlog modes | [SBR-003](skill-backlog-modes/quick-briefing.md) | [`briefing-mode.md`](../references/briefing-mode.md) |
+| SBR-004 | Task lookalike stays Task | Skill backlog modes | [SBR-004](skill-backlog-modes/task-lookalike-stays-task.md) | [`routing.md`](../references/routing.md) |
 | SDK-001 | Behavior reference | Skill document modes | [SDK-001](skill-document-modes/behavior-reference.md) | [`doc-mode.md`](../references/doc-mode.md) |
 | SDK-002 | Incident runbook | Skill document modes | [SDK-002](skill-document-modes/incident-runbook.md) | [`doc-mode.md`](../references/doc-mode.md) |
 | SDK-003 | Proposal with a decision owner | Skill document modes | [SDK-003](skill-document-modes/proposal-decision-owner.md) | [`doc-mode.md`](../references/doc-mode.md) |
@@ -1433,6 +1565,10 @@ Desired user-visible outcome: A checked back-in-stock flow model and a write gat
 | PBG-001 | Quick bug | Project backlog modes | [PBG-001](project-backlog-modes/quick-bug.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PBG-002 | Support ticket bug | Project backlog modes | [PBG-002](project-backlog-modes/support-ticket-bug.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PBG-003 | Two-platform log bug | Project backlog modes | [PBG-003](project-backlog-modes/two-platform-log-bug.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
+| PBR-001 | Two audience briefing | Project backlog modes | [PBR-001](project-backlog-modes/two-audience-briefing.md) | [`Product Owner - Templates - Briefing Mode.md`](../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Briefing%20Mode.md) |
+| PBR-002 | Single app in plain words | Project backlog modes | [PBR-002](project-backlog-modes/single-app-plain-words.md) | [`Product Owner - Templates - Briefing Mode.md`](../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Briefing%20Mode.md) |
+| PBR-003 | Quick briefing | Project backlog modes | [PBR-003](project-backlog-modes/quick-briefing.md) | [`Product Owner - Templates - Briefing Mode.md`](../../claude%20project/knowledge/Product%20Owner%20-%20Templates%20-%20Briefing%20Mode.md) |
+| PBR-004 | Task lookalike stays Task | Project backlog modes | [PBR-004](project-backlog-modes/task-lookalike-stays-task.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PDK-001 | Behavior reference | Project document modes | [PDK-001](project-document-modes/behavior-reference.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PDK-002 | Incident runbook | Project document modes | [PDK-002](project-document-modes/incident-runbook.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |
 | PDK-003 | Proposal with a decision owner | Project document modes | [PDK-003](project-document-modes/proposal-decision-owner.md) | [`Custom Instructions.md`](../../claude%20project/Custom%20Instructions.md) |

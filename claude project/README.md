@@ -8,14 +8,15 @@ Hand-maintained local package for the Product Owner claude.ai Project. The kerne
 
 ```text
 claude project/
-|-- Custom Instructions.md        <- synthesized Project kernel v1.2.24 (routing authority, SKILL.md is not loaded in this Project)
+|-- Custom Instructions.md        <- synthesized Project kernel v1.2.25 (routing authority, SKILL.md is not loaded in this Project)
 |-- README.md                     <- upload manifest and hand-authored parity note
 |-- kernel-review.json            <- dated record of one kernel review, read by no tool
 |-- templates/                    <- Product Owner - Local - Push Targets.md, filled and uploaded per user, never shared
 |-- local/                        <- gitignored home for a filled push targets copy
-`-- knowledge/                    <- upload all 71 files as Project Knowledge
+`-- knowledge/                    <- upload all 73 files as Project Knowledge
     |-- Product Owner - System - Interactive Mode.md
     |-- Product Owner - Templates - Task Mode.md
+    |-- Product Owner - Templates - Briefing Mode.md
     |-- Product Owner - Templates - Bug Mode.md
     |-- Product Owner - Templates - Doc Mode.md
     |-- Product Owner - Templates - Story Mode.md
@@ -29,6 +30,7 @@ claude project/
     |-- Product Owner - Templates - Flow Type - Gantt.md
     |-- Product Owner - Templates - Flow Hybrid Workflow.md
     |-- Product Owner - Assets - Task Templates.md
+    |-- Product Owner - Assets - Design Briefing Template.md
     |-- Product Owner - Assets - Bug Report Template.md
     |-- Product Owner - Assets - Interactive Response Templates.md
     |-- Product Owner - Assets - Doc Templates.md
@@ -51,7 +53,8 @@ claude project/
     |-- Product Owner - Rules - Flow Style Guide.md
     |-- Product Owner - Rules - Flow Quality Rubric.md
     |-- Product Owner - Reference - Connector Setup.md
-    |-- Product Owner - Examples - Task - ... (9 files)
+    |-- Product Owner - Examples - Task - ... (6 files)
+    |-- Product Owner - Examples - Briefing - ... (3 files)
     |-- Product Owner - Examples - Bug - ... (4 files)
     |-- Product Owner - Examples - Doc - ... (7 files)
     |-- Product Owner - Examples - Story - ... (6 files)
@@ -60,7 +63,7 @@ claude project/
 
 ## Custom Instructions = Skill Kernel, Project-Adapted
 
-`Custom Instructions.md` v1.2.24 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.22.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
+`Custom Instructions.md` v1.2.25 is the synthesized claude.ai kernel aligned to **Product Owner Skill v1.2.23.0**. It is the routing authority for this Project because `SKILL.md` is no longer mirrored into Project Knowledge. The kernel carries the full smart-routing prose, energy-scaled quality gates, backlog WHAT/WHY boundaries, source-backed technical HOW, product and engineering Doc routing, Quick as a separate energy override, Human Voice Rules, source authority, conflict blocking, ClickUp formatting, refinement fidelity and export-equivalent delivery.
 
 CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Block**, direct resource loading becomes Project Knowledge consultation, and the response reports an export-equivalent path. Refinements keep delivery metadata outside preserved content unless equivalent metadata already exists in the source.
 
@@ -70,10 +73,12 @@ CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Bloc
 | --- | --- |
 | `sk-product-owner/references/interactive-mode.md` | `Product Owner - System - Interactive Mode.md` |
 | `sk-product-owner/references/task-mode.md` | `Product Owner - Templates - Task Mode.md` |
+| `sk-product-owner/references/briefing-mode.md` | `Product Owner - Templates - Briefing Mode.md` |
 | `sk-product-owner/references/bug-mode.md` | `Product Owner - Templates - Bug Mode.md` |
 | `sk-product-owner/references/doc-mode.md` | `Product Owner - Templates - Doc Mode.md` |
 | `sk-product-owner/references/story-mode.md` | `Product Owner - Templates - Story Mode.md` |
 | `sk-product-owner/assets/task-templates.md` | `Product Owner - Assets - Task Templates.md` |
+| `sk-product-owner/assets/design-briefing-template.md` | `Product Owner - Assets - Design Briefing Template.md` |
 | `sk-product-owner/assets/bug-report-template.md` | `Product Owner - Assets - Bug Report Template.md` |
 | `sk-product-owner/assets/interactive-response-templates.md` | `Product Owner - Assets - Interactive Response Templates.md` |
 | `sk-product-owner/assets/doc-templates.md` | `Product Owner - Assets - Doc Templates.md` |
@@ -108,7 +113,8 @@ CLI-only mechanics are adapted: filesystem export becomes the **Deliverable Bloc
 | `sk-create-figjam/assets/examples/state-roamstay-booking.md` | `Product Owner - Examples - Flow - State.md` |
 | `sk-create-figjam/assets/examples/er-roamstay-stays.md` | `Product Owner - Examples - Flow - ER.md` |
 | `sk-create-figjam/assets/examples/gantt-loomlist-offline.md` | `Product Owner - Examples - Flow - Gantt.md` |
-| `sk-product-owner/assets/examples/task/` (9 files) | `Product Owner - Examples - Task - ...`, one mirror per example |
+| `sk-product-owner/assets/examples/task/` (6 files) | `Product Owner - Examples - Task - ...`, one mirror per example |
+| `sk-product-owner/assets/examples/briefing/` (3 files) | `Product Owner - Examples - Briefing - ...`, one mirror per example |
 | `sk-product-owner/assets/examples/bug/` (4 files) | `Product Owner - Examples - Bug - ...`, one mirror per example |
 | `sk-product-owner/assets/examples/doc/` (7 files) | `Product Owner - Examples - Doc - ...`, one mirror per example |
 | `sk-product-owner/assets/examples/story/` (6 files) | `Product Owner - Examples - Story - ...`, one mirror per example |
@@ -143,14 +149,15 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 1. Create or open a claude.ai Project named **Product Owner**.
 2. Paste `Custom Instructions.md` into the Project custom instructions field.
 3. Remove superseded Project Knowledge uploads.
-4. Upload all 71 files in `knowledge/` with filenames unchanged (37 core files plus the 34 Examples mirrors).
+4. Upload all 73 files in `knowledge/` with filenames unchanged (39 core files plus the 34 Examples mirrors).
 5. Run the smoke matrix below.
 6. Confirm the Deliverable Block appears first and the reported path follows the create or refinement contract.
 7. To deliver to ClickUp or draw on FigJam, add the two connectors and run their checks as `../USER-GUIDE.md` sets out.
 
 ## Smoke Matrix
 
-- `$task`, `$bug`, `$doc` and `$d` select their named artifact intents.
+- `$task`, `$briefing`, `$bug`, `$doc` and `$d` select their named artifact intents. `$briefing` has no shortcut, `$b` stays Bug, and `$briefings`, `$brief` and `$brief.md` never activate Briefing.
+- `write a design briefing`, `create a briefing` and `turn this into a briefing` route to Briefing, and `create a task to write a briefing` stays Task.
 - `$quick $doc` and `$doc $quick` select Doc with Quick energy; `$quick` alone retains the Task fallback.
 - `$document`, `$docs`, `$debug`, embedded `$d`, `$d.md` and `$doc/path` do not activate Doc; `$d,` does.
 - `create a task to document X` stays Task, `bug report about documentation` stays Bug and `document bug behavior` becomes Doc.
@@ -172,6 +179,7 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 - A Doc refinement retains its original basename, structure, links, identifiers, tables, literal copy and status markers outside requested scope.
 - New Docs report `export/NNN - doc-[description].md`; refinements report `export/[original-source-filename].md`.
 - Task and Bug output keeps the shapes `Product Owner - Templates - Task Mode.md` and `Product Owner - Templates - Bug Mode.md` set out.
+- Briefing output keeps the shape `Product Owner - Templates - Briefing Mode.md` and `Product Owner - Assets - Design Briefing Template.md` set out: About, Briefing and Requirements as H2, ALL-CAPS H4 audience headings only for two or more audiences, bold facet lead lines with `- []` items, one blank line between sections and two before Requirements, before each later audience heading and before each section after Requirements.
 - New Docs balance heading depth: H2 stays a minority of headings and H3/H4 carry the rest, with no all-H2 wall.
 - Doc deliveries report their status in the chat reply beside the export-equivalent path, as the quality line and the `HVR self-scan:` line of the Delivery Reply Shape, and never as a footer or verdict block inside the deliverable.
 - `$story`, `$s`, `$prd` and `$p` select Story; `$stories`, `$prds`, `$sort` and embedded `$s` do not; `create a task to write a PRD` stays Task.
@@ -190,10 +198,10 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 - With no Figma connector, `$flow` gives the checked model as a Mermaid block and prints no `Read-back:` line.
 - In claude.ai in a browser, with both connectors switched on, the ClickUp offer and the FigJam write gate behave as they do in Claude Desktop.
 - An approved ClickUp push uses `markdown_description` (never plain `description`) and the created task renders real headings, bold and checkboxes with zero literal `###`, `**` or `- []` text.
-- `$task`, `$bug` and `$story` each consult only their own routed knowledge pair (Task Mode + Task Templates, Bug Mode + Bug Report Template, Story Mode + the one scaffold the resolved shape names) and load no unrelated mode resource. A `$story` request consults Story Template and never Epic Template.
+- `$task`, `$briefing`, `$bug` and `$story` each consult only their own routed knowledge pair (Task Mode + Task Templates, Briefing Mode + Design Briefing Template, Bug Mode + Bug Report Template, Story Mode + the one scaffold the resolved shape names) and load no unrelated mode resource. A `$story` request consults Story Template and never Epic Template.
 - `skip depth` explicitly selects Raw energy and skips the phase flow. `$quick` never selects Raw, and Raw never fires without the explicit phrase.
 - `$quick $story` and `$story $quick` (and the `$prd`/`$p` aliases, and `$epic`/`$e`) both select Story with Quick energy, matching the `$quick $doc` / `$doc $quick` order equivalence.
-- New Task, Bug, Doc, Story and Epic exports report `export/NNN - {task|bug|doc|Story|Epic}-[description].md`. A Task source sync retains the existing task filename.
+- New Task, Briefing, Bug, Doc, Story and Epic exports report `export/NNN - {task|briefing|bug|doc|Story|Epic}-[description].md`. A Task source sync retains the existing task filename.
 - A `$story` request that asks for its task breakdown renders one Deliverable Block per file, Story first, each with its own `Export-equivalent path:` inside `export/NNN - Story-[description]/`. The Story's `#### **Tasks**` block links each `NNN.[n] - task-[description].md`, each task's `**Story**` block links the Story, and one `HVR self-scan:` line covers the set.
 - An approved task read-back uses `clickup_get_task` with `include: ["description"]` and confirms the rendered body matches the pushed artifact before delivery is reported complete.
 - An approved ClickUp document or page create uses markdown content with the markdown `content_format` value, never the plain `description` field.

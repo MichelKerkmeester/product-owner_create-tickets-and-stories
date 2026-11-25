@@ -10,7 +10,7 @@
 
 ## 1. 📝 OVERVIEW
 
-A product owner in a folder: it turns a rough request into a ticket your developers can build from, a bug report, a Story or Epic, or a source-safe doc. When a flow is easier to see than to read, it draws that too, as a FigJam board.
+A product owner in a folder: it turns a rough request into a ticket your developers can build from, a design briefing, a bug report, a Story or Epic, or a source-safe doc. When a flow is easier to see than to read, it draws that too, as a FigJam board.
 
 Describe what you need in plain words or start with a `$` command. Product Owner drafts against a fixed template, checks the draft and only then hands it over. You keep the decisions. It does the structure, the formatting, the checking and the delivery.
 
@@ -20,7 +20,8 @@ Built for product managers and team leads who write the backlog and for the deve
 
 **What's inside**
 
-- **Developer Tasks** - six task shapes, each requirement group ending in a checklist a QA engineer can tick off
+- **Developer Tasks** - five task shapes, each requirement group ending in a checklist a QA engineer can tick off
+- **Design Briefings** - their own artifact, telling the Product Design team what to design and why, with requirements a design review can tick off
 - **Bug Reports** - one fixed report where a field you did not supply reads `Not provided`, never a plausible guess
 - **Stories and Epics** - two artifacts in one house format, with every hard value you supplied kept verbatim and numbered Given/When/Then criteria
 - **Source-Safe Docs** - five shapes and a status label on every claim, so a proposal never reads as shipped
@@ -58,8 +59,8 @@ From request to delivery:
          │  4. Unsure            one question       │
          └─────────────┬──────────────────┬─────────┘
                        │                  │
-          Task, Bug, Story,          FigJam diagram
-          Epic or Doc                     │
+          Task, Briefing, Bug,       FigJam diagram
+          Story, Epic or Doc              │
                        │                  │
                        ▼                  ▼
           One question when a      Brief, playback,
@@ -81,7 +82,13 @@ From request to delivery:
 
 Built to be ticked off.
 
-A task takes one of six shapes: a standard task, a parent task that links one subtask per requirement, a subtask for one bounded area, a Quick task with a single requirement group, a feedback ticket that holds one round of review feedback for one app and one kind or a design briefing that tells the Product Design team what to design and why. Every requirement group ends in a checklist of items a QA engineer can tick off. Refining a task you already have keeps its sections and its filename. Only what you asked for changes.
+A task takes one of five shapes: a standard task, a parent task that links one subtask per requirement, a subtask for one bounded area, a Quick task with a single requirement group or a feedback ticket that holds one round of review feedback for one app and one kind. Every requirement group ends in a checklist of items a QA engineer can tick off. Refining a task you already have keeps its sections and its filename. Only what you asked for changes.
+
+### Design Briefings
+
+What to design, and why.
+
+A design briefing is its own kind of artifact, never a task. It tells the Product Design team what to design and why, before a dev task exists. About holds the problem and the decision, Briefing holds the design direction and Requirements holds the checklist a design review can tick, grouped by audience and facet. Ask for one with `$briefing` or with plain words such as "write a design briefing for the reach pause".
 
 ### Bug Reports
 
@@ -124,10 +131,10 @@ Both routes run the same rules and the same templates. Section 3 sets up either 
 
 | Item | Detail |
 |---|---|
-| Artifacts | Task, subtask, bug report, Story, Epic, Doc and FigJam diagram |
+| Artifacts | Task, subtask, design briefing, bug report, Story, Epic, Doc and FigJam diagram |
 | Diagram types | Seven: user flow, process, architecture, sequence, state, ER and gantt |
-| Worked examples | 23 filled artifacts and 8 FigJam examples, one per diagram type and a second process with a status lane and detail cards |
-| Versions | Hub 1.0.38.0, `sk-product-owner` 1.2.22.0, `sk-create-figjam` 1.0.22.0, Project kernel v1.2.24 |
+| Worked examples | 26 filled artifacts and 8 FigJam examples, one per diagram type and a second process with a status lane and detail cards |
+| Versions | Hub 1.0.39.0, `sk-product-owner` 1.2.23.0, `sk-create-figjam` 1.0.22.0, Project kernel v1.2.25 |
 | License | MIT |
 
 &nbsp;
@@ -180,7 +187,7 @@ A feature name is not a scope, so the first reply saves one question as `export/
 ### Use It in a claude.ai Project
 
 1. Paste `claude project/Custom Instructions.md` into the custom instructions of a Project named **Product Owner**
-2. Remove superseded knowledge uploads, then upload all 68 files in `claude project/knowledge/` with their filenames unchanged
+2. Remove superseded knowledge uploads, then upload all 73 files in `claude project/knowledge/` with their filenames unchanged
 3. Start a chat and ask for a task. The reply opens with a Deliverable Block, the artifact rendered in the side panel, because a Project cannot write files
 4. Optionally add the ClickUp and Figma connectors to push tasks and draw boards. [USER-GUIDE.md](./USER-GUIDE.md) Section 6 walks through adding them and checking that each one works, and the rest of the guide covers day-to-day use
 
@@ -221,6 +228,7 @@ One request, one route. A command sets it, and plain words work too.
 |---|---|---|
 | `$task` | `$t` | A developer task |
 | `$task --subtask` | none | A subtask under a parent task |
+| `$briefing` | none | A design briefing for the Product Design team |
 | `$bug` | `$b` | A bug report |
 | `$story` | `$s`, `$prd`, `$p` | A Story |
 | `$epic` | `$e` | An Epic |
@@ -344,6 +352,7 @@ The save happens before the reply, and the reply reports only what the save prov
 
 ```text
 export/[###] - task-[description].md
+export/[###] - briefing-[description].md
 export/[###] - bug-[description].md
 export/[###] - doc-[description].md
 export/[###] - Story-[description].md
@@ -351,7 +360,7 @@ export/[###] - Story-[description]/[###] - Story-[description].md
 export/[###] - Story-[description]/[###].[n] - task-[description].md
 export/[###] - Epic-[description].md
 export/{feature}/[###] - feedback-{app}-{kind}.md
-export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md
+export/[###] - {task|briefing|bug|doc|Story|Epic}-[description]-clarification.md
 export/[original-source-filename].md
 ```
 
@@ -480,9 +489,9 @@ Every shape is a plain markdown file you can change to fit your team.
 
 | Folder | What it holds |
 |---|---|
-| [`sk-product-owner/assets/`](sk-product-owner/assets/) | Six templates: Task, Bug, Doc, Story, Epic and the intake questions |
-| [`sk-product-owner/assets/examples/`](sk-product-owner/assets/examples/) | 23 worked artifacts: 6 tasks, 4 bugs, 7 docs and 6 Stories, one of them an Epic |
-| [`sk-product-owner/references/`](sk-product-owner/references/) | 12 rule files: the mode rules, routing, quality scoring and the two voice cards |
+| [`sk-product-owner/assets/`](sk-product-owner/assets/) | Seven templates: Task, Design Briefing, Bug, Doc, Story, Epic and the intake questions |
+| [`sk-product-owner/assets/examples/`](sk-product-owner/assets/examples/) | 26 worked artifacts: 6 tasks, 3 briefings, 4 bugs, 7 docs and 6 Stories, one of them an Epic |
+| [`sk-product-owner/references/`](sk-product-owner/references/) | 13 rule files: the mode rules, routing, quality scoring and the two voice cards |
 | [`sk-create-figjam/assets/`](sk-create-figjam/assets/) | The diagram patterns per type, the reply shapes, the board composer and 8 worked examples on fictional companies |
 | [`sk-create-figjam/references/`](sk-create-figjam/references/) | The Flow Mode workflow, the notes-on-a-board workflow, one reference per diagram type, the style guide and the quality rubric |
 
@@ -494,8 +503,8 @@ A backlog or doc route loads one mode reference and its template, never a second
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem.
 
-- `Custom Instructions.md` is the kernel, v1.2.24, and the routing authority inside the Project
-- `knowledge/` holds the 68 knowledge files you upload
+- `Custom Instructions.md` is the kernel, v1.2.25, and the routing authority inside the Project
+- `knowledge/` holds the 73 knowledge files you upload
 - `README.md` holds the upload steps and the smoke matrix
 
 #### What Changes in a Project
@@ -543,7 +552,7 @@ The Claude Project files are written by hand from the skill sources, so a matchi
 ├── SKILL.md, ROUTER.md              the hub and its leaf map
 ├── mode-registry.json               the packet registry
 ├── hub-router.json                  the stage one routing signals
-├── sk-product-owner/                tasks, bug reports, Stories, Epics and Docs
+├── sk-product-owner/                tasks, briefings, bug reports, Stories, Epics and Docs
 ├── sk-create-figjam/                FigJam diagrams, from the Brief to the read-back
 ├── mcp-click-up/                    vendored ClickUp tool packet
 ├── mcp-figma/                       vendored Figma Desktop tool packet
@@ -673,6 +682,7 @@ Your Figma plan or seat has used its monthly tool calls. Open your FigJam drafts
 **Mode references**
 
 - **[→ Task Mode](sk-product-owner/references/task-mode.md)** - task and subtask rules
+- **[→ Briefing Mode](sk-product-owner/references/briefing-mode.md)** - design briefings for the Product Design team
 - **[→ Bug Mode](sk-product-owner/references/bug-mode.md)** - defect evidence and reproduction rules
 - **[→ Story Mode](sk-product-owner/references/story-mode.md)** - the house format for Stories and Epics
 - **[→ Doc Mode](sk-product-owner/references/doc-mode.md)** - source classes and the authority order
@@ -682,6 +692,6 @@ Your Figma plan or seat has used its monthly tool calls. Open your FigJam drafts
 
 **Release notes**
 
-- **[→ Hub v1.0.37.0](changelog/v1.0.37.0.md)** - the latest hub release
-- **[→ `sk-product-owner` v1.2.22.0](sk-product-owner/changelog/v1.2.22.0.md)** - the latest backlog and doc packet release
+- **[→ Hub v1.0.39.0](changelog/v1.0.39.0.md)** - the latest hub release
+- **[→ `sk-product-owner` v1.2.23.0](sk-product-owner/changelog/v1.2.23.0.md)** - the latest backlog and doc packet release
 - **[→ `sk-create-figjam` v1.0.22.0](sk-create-figjam/changelog/v1.0.22.0.md)** - the latest FigJam packet release

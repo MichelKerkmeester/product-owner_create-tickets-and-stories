@@ -62,6 +62,18 @@ contextType: "general"
 
 ---
 
+<!-- ANCHOR:phase-4 -->
+## Phase 4: Move the briefing out of Task Mode
+
+- [x] T012 Create the mode reference, the template and the examples folder, and take Section 7 and the Design Briefings entry out of Task Mode and Task Templates (`sk-product-owner/references/briefing-mode.md`, `assets/design-briefing-template.md`, `assets/examples/briefing/`). Verify: `rg -c -i 'briefing' sk-product-owner/assets/task-templates.md` prints 0
+- [x] T013 Add the `BRIEFING` intent to the router contract, the route oracle, the differential gate, the route fixtures and the leaf map gate (`sk-product-owner/references/router-contract.md`, `benchmark/router/`, `benchmark/gates/check_leaf_map_parity.py`). Verify: `bash benchmark/router/run_fixtures.sh` prints `PASSED 195/195 fixtures` and `PASSED 288/288 differential inputs`
+- [x] T014 Wire `$briefing` and the BRIEFING lane through `AGENTS.md`, both routers, `SKILL.md`, the READMEs, Interactive Mode and its templates, Quality Scoring and the hub (`AGENTS.md`, `ROUTER.md`, `sk-product-owner/`). Verify: `rg -c '\$briefing' AGENTS.md` prints a count above 0
+- [x] T015 Regenerate `leaf-manifest.json` and write the Project mirrors, the kernel's Section 10 from the contract, and the declaration (`leaf-manifest.json`, `claude project/`, `SL/systems.py`). Verify: `generate-leaf-manifest.cjs --check` exits 0, and parity and residency pass in a scratch clone
+- [x] T016 Bump `sk-product-owner` to 1.2.23.0, the hub to 1.0.39.0 and the kernel to v1.2.25, with both changelogs and the dated parity note (`sk-product-owner/changelog/v1.2.23.0.md`, `changelog/v1.0.39.0.md`, `SYNC.md`). Verify: `rg -c '1.2.23.0' sk-product-owner/SKILL.md` prints 1
+<!-- /ANCHOR:phase-4 -->
+
+---
+
 <!-- ANCHOR:completion -->
 ## Completion Criteria
 

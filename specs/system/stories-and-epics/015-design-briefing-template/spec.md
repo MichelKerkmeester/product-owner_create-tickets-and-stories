@@ -1,6 +1,6 @@
 ---
 title: "Feature Specification: Design briefing template"
-description: "Product Owner gains a design briefing task shape for the Product Design team, with a template, three worked examples, Task Mode rules, Project mirrors and a format gate that accepts plain bullets under a Why facet in a briefing."
+description: "Product Owner gains a design briefing for the Product Design team as its own artifact kind, with a $briefing command, a Briefing Mode reference, a template, three worked examples, Project mirrors and a format gate that accepts plain bullets under a Why facet in a briefing."
 trigger_phrases:
   - "design briefing template"
 importance_tier: "normal"
@@ -30,10 +30,10 @@ contextType: "general"
 ## 2. PROBLEM & PURPOSE
 
 ### Problem Statement
-Michel writes briefings for the Product Design team by hand, such as `Briefing - Partner & Creator - Barter Deals - Desired Collab Amount & Reach Pause`. Product Owner had no shape for them. A briefing also carries a `**Why**` facet of plain bullets inside Requirements, which the format gate reports as a plain bullet outside a User flow.
+Michel writes briefings for the Product Design team by hand, such as `Briefing - Partner & Creator - Barter Deals - Desired Collab Amount & Reach Pause`. Product Owner had no shape for them. A first pass added the briefing as a sixth task shape, and Michel then decided a briefing is not a task, so it now stands beside Task, Bug, Doc and Story as its own artifact kind. A briefing also carries a `**Why**` facet of plain bullets inside Requirements, which the format gate reports as a plain bullet outside a User flow.
 
 ### Purpose
-Product Owner writes a design briefing from a template, in the layout Michel approved, and the gate accepts the briefing's one plain-bullet facet and nothing wider.
+Product Owner writes a design briefing from its own mode and template, in the layout Michel approved, a request for one never routes as a task, and the gate accepts the briefing's one plain-bullet facet and nothing wider.
 <!-- /ANCHOR:problem -->
 
 <!-- ANCHOR:measured-behavior -->
@@ -51,26 +51,31 @@ $ node "z — Claude Project Sync Loop/validate-output-format.cjs" --system prod
 
 ### In Scope
 - Title `Briefing - {App or Apps} - {Area} - {Detail}`, with the area named in full, such as `Barter Deals`
-- H2 sections, ALL-CAPS H3 audience headings with a divider, Title Case facet labels and section headings, and `- []` checkboxes
-- Task Templates Section 7, three worked examples, a Task Mode entry with checklist lines, and the `AGENTS.md` title and file naming rules
-- The Project kernel, three knowledge mirrors, two edited mirrors and the Sync Loop declaration
+- H2 sections, ALL-CAPS H4 audience headings with a divider, Title Case facet labels and section headings, and `- []` checkboxes
+- `references/briefing-mode.md`, `assets/design-briefing-template.md`, three worked examples under `assets/examples/briefing/`, and the `AGENTS.md` title, file naming and command rules
+- The `BRIEFING` intent in the router contract, the route oracle, the differential gate, the route fixtures, the hub leaf map and its gate
+- The `$briefing` command, with no shortcut because `$b` is Bug
+- The Project kernel, five new knowledge mirrors, the edited mirrors and the Sync Loop declaration
 - A `**Why**` exemption in both validators, scoped to a document whose title starts `Briefing - `
 
 ### Out of Scope
 - The shared Human Voice card and its copies, because the gate never flags the briefing's own labels
-- The router tables and gold rows, because the leaf map parity and hub gates depend on them
+- A semantic topic for briefings, because a briefing is asked for by its noun or by `$briefing`
+- Task Mode and Task Templates beyond removing the briefing
 - The user's own briefing files, which only a scratch copy converted
 
 ### Files to Change
 
 | File Path | Change Type | Description |
 |-----------|-------------|-------------|
-| `sk-product-owner/assets/task-templates.md`, `references/task-mode.md`, `assets/examples/task/` | Modify and Create | Section 7, the Task Mode entry and three examples |
-| `AGENTS.md`, `sk-product-owner/SKILL.md`, `README.md`, `sk-product-owner/README.md` | Modify | Title rule, file naming, shape lists and versions |
+| `sk-product-owner/references/briefing-mode.md`, `assets/design-briefing-template.md`, `assets/examples/briefing/` | Create | The mode reference, the scaffold and three examples |
+| `sk-product-owner/assets/task-templates.md`, `references/task-mode.md`, `assets/examples/task/` | Modify and Delete | The briefing leaves Task Mode, and the three examples move out |
+| `sk-product-owner/references/router-contract.md`, `benchmark/router/`, `benchmark/gates/check_leaf_map_parity.py`, `ROUTER.md`, `leaf-manifest.json` | Modify | The `BRIEFING` intent, its frames, fixtures and leaf lane |
+| `AGENTS.md`, `sk-product-owner/SKILL.md`, `README.md`, `sk-product-owner/README.md`, Interactive Mode and its templates, Quality Scoring | Modify | Command registry, token rules, loading order, intake question, kind lists and versions |
 | `benchmark/format/` validator, three fixtures, runner and README | Modify and Create | The Why exemption |
 | `../z — Claude Project Sync Loop/` validator, three fixtures, runner, `systems.py`, README | Modify and Create | The shared copy, the new mirror pairs and the resynced statements |
 | `claude project/` kernel, knowledge files, README and `SYNC.md` | Modify and Create | Hand-written mirrors and the parity note |
-| `leaf-manifest.json`, `sk-product-owner/changelog/v1.2.22.0.md` | Modify and Create | Regenerated manifest and the release note |
+| `leaf-manifest.json`, `sk-product-owner/changelog/v1.2.23.0.md`, `changelog/v1.0.39.0.md` | Modify and Create | Regenerated manifest and the release notes |
 <!-- /ANCHOR:scope -->
 
 ---
@@ -93,6 +98,8 @@ $ node "z — Claude Project Sync Loop/validate-output-format.cjs" --system prod
 | REQ-004 | The Project carries the same shape | Residency and parity pass in a scratch clone with a throwaway commit |
 | REQ-005 | The gates hold against the baseline | `run_gates.sh` fails no gate beyond the baseline's identifier scan and the one peer-file gap named in the summary |
 | REQ-006 | The real briefing passes in the new layout | A scratch copy converted to the layout exits 0 |
+| REQ-007 | A briefing request routes to its own intent | `route_contract.py` routes `$briefing` and `write a design briefing` to `BRIEFING`, and `create a task to write a briefing` stays `TASK` |
+| REQ-008 | The router copies agree | `benchmark/router/run_fixtures.sh` passes, with the kernel's Router Code equal to the contract's with its comments removed |
 <!-- /ANCHOR:requirements -->
 
 ---
@@ -112,7 +119,7 @@ $ node "z — Claude Project Sync Loop/validate-output-format.cjs" --system prod
 | Type | Item | Impact | Mitigation |
 |------|------|--------|------------|
 | Dependency | The shared validator and declaration live in the parent repository | Two repositories change together | Run parity and residency in a scratch clone of both |
-| Risk | A bare briefing request routes to the interactive fallback, not Task | Medium | Reported, with the router left alone |
+| Risk | A briefing paired with a FigJam board has no defined link group in Flow Mode Section 8 | Low | The router carries the pairing, and the link placement is reported for the owner of `sk-create-figjam` |
 <!-- /ANCHOR:risks -->
 
 ---
@@ -120,7 +127,7 @@ $ node "z — Claude Project Sync Loop/validate-output-format.cjs" --system prod
 <!-- ANCHOR:questions -->
 ## 7. OPEN QUESTIONS
 
-- Should the router tables gain a briefing signal and a gold row, so a bare briefing request reaches Task Mode?
+- Should Flow Mode Section 8 name a link group for a briefing, as it does for a Task, Bug, Story, Epic and Doc?
 <!-- /ANCHOR:questions -->
 
 ---
