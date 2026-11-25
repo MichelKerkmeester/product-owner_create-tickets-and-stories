@@ -1164,7 +1164,9 @@ def add_package(
     save_manifest(repo_root, manifest)
     try:
         if remote:
-            use_remote_upstream([entry], ref)
+            # The manifest already holds the new entry, so this covers it and every
+            # entry the gates read from the same clone afterwards.
+            use_remote_upstream(manifest["packages"], ref)
         refusal = pull_entry(repo_root, entry)
     except SetupError:
         # A failed pull would leave an entry with no record, which every later
@@ -1259,7 +1261,9 @@ def main(argv: Optional[List[str]] = None) -> int:
         manifest = load_manifest(repo_root)
         selected = select_packages(manifest, args.package)
         if args.remote:
-            use_remote_upstream(selected, args.ref)
+            # The gates read every entry from the same clone after a one-package run,
+            # so the checkout always covers the whole manifest, not only the selection.
+            use_remote_upstream(manifest["packages"], args.ref)
         worst = EXIT_OK
         out_of_step = []
         for package in selected:

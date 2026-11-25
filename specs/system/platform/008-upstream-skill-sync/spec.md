@@ -48,6 +48,7 @@ Anyone with this repository can update every vendored skill from the public Skil
 - `scripts/update-vendored.sh`, one command that syncs and runs the gates, and a Claude Code `/vendor-update` command that runs it
 - Tests for all three script changes, and the docs that describe the commands
 - Code-folder READMEs: refresh the five under `scripts/` and add the four missing under `sk-create-figjam/` (`assets/`, `scripts/`, `scripts/figjam_checks/`, `scripts/vendored/`), added at the operator's request
+- Remove the skill-format JSONs nothing reads from eight AI-system skill folders (Copywriter, Deal Templates, both Sales systems, Prompt Improver, HolyArrs and Moneybird's two CLI packets), and the doc lines that name them, at the operator's request. Product Owner, Media Editor and Moneybird's accountant packet keep theirs, because their own gates read them. The skill advisor reads only `.skilled/skills/`, so none of the systems is indexed by it
 
 ### Out of Scope
 - Changing what any vendored copy contains

@@ -712,6 +712,19 @@ class VendorSyncTests(unittest.TestCase):
         self.assertIn("sample-skill: in step", second.stdout)
         self.assertTrue(marker.is_file(), "a second run must reuse the cached clone")
 
+    def test_remote_sync_of_one_package_checks_out_every_entry(self) -> None:
+        """A one-package remote run leaves every entry readable, because the gates read them all."""
+        self.world.add_package("other-skill")
+        bare = self.world.bare_upstream()
+        cache = Path(self._tmp.name) / "cache"
+        env = {"VENDOR_UPSTREAM_URL": bare.as_uri(), "VENDOR_UPSTREAM_CACHE": str(cache)}
+        result = self.world.run("sync", "--remote", "--package", "sample-skill", upstream=False, env_extra=env)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertTrue(
+            (cache / ".skilled/skills/mcp-tooling/other-skill/SKILL.md").is_file(),
+            "an entry the run did not select must still be checked out",
+        )
+
     def test_add_vendors_a_new_package_with_the_default_exclude(self) -> None:
         """Add writes an entry that leaves the advisor metadata out and pulls it."""
         added = self.world.upstream_root / ".skilled/skills/mcp-tooling/added-skill"

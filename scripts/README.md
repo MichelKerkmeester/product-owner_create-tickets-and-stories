@@ -126,7 +126,7 @@ Upstream moved:
 bash scripts/update-vendored.sh
 ```
 
-That is the whole routine. It syncs every entry, prints any `rebuild:` line again under a heading, then runs the gates. Run each rebuild line it names, because a stale build is the one failure the gates cannot see. It exits 0 when the sync and every gate pass, 2 on a bad argument, and otherwise with the number of failed gates or the sync's own status. The gates still run after a refused sync, so both results show.
+That is the whole routine. It syncs every entry, prints any `rebuild:` line again under a heading, then runs the gates. Run each rebuild line it names, because a stale build is the one failure the gates cannot see. It exits 0 when the sync and every gate pass, 1 when the sync or any gate fails, and 2 on a bad argument. The gates still run after a refused sync, so both results show.
 
 `update-vendored.sh` reads a local Skilled checkout when one sits above the repository, because that is faster and carries edits that have not been pushed yet. `--remote` and `--local-upstream` force either source. `--package NAME` limits the run to one entry and `--ref REF` reads another branch, tag or commit from the remote.
 

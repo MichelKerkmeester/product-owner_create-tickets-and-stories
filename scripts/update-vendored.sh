@@ -18,8 +18,8 @@
 #
 # Exit Codes:
 #   0 - the sync and every gate passed
+#   1 - the sync or at least one gate failed; the output above names which
 #   2 - a bad argument, or the repository root could not be reached
-#   N - the number of gates that failed, or the sync's own status when it failed
 
 set -euo pipefail
 
@@ -185,7 +185,9 @@ echo
 gate_status=0
 bash benchmark/gates/run_gates.sh || gate_status=$?
 
-if [[ "$gate_status" -ne 0 ]]; then
-    exit "$gate_status"
+# The gate runner exits with its failure count and vendor-sync uses 2 for a setup
+# error, so either could read as a bad argument. Any failure here is reported as 1.
+if [[ "$gate_status" -ne 0 || "$sync_status" -ne 0 ]]; then
+    exit 1
 fi
-exit "$sync_status"
+exit 0
