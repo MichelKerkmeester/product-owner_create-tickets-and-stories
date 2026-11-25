@@ -4,7 +4,7 @@ description: "Documents the vendored resolver that selects a Node interpreter fo
 trigger_phrases:
   - node resolver library
   - node engine selection
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # Code Mode Resolver Library: Node Engine Selection
@@ -41,7 +41,7 @@ The resolver checks the running interpreter, `PATH` entries and the configured n
 
 ## 4. VENDOR WORKFLOW
 
-This file is vendored from `.skilled/bin` in the shared skill tree through `scripts/vendor-sync.py`, package `code-mode-launcher`. Never edit it here. Make fixes in the shared skill tree, then run `python3 scripts/vendor-sync.py pull --package code-mode-launcher` from the repository root.
+This file is vendored from `.skilled/bin` in the shared skill tree through `scripts/vendor-sync.py`, package `code-mode-launcher`. Never edit it here. Make fixes in the shared skill tree, then run `bash scripts/update-vendored.sh --package code-mode-launcher` from the repository root.
 
 Check the recorded copy with:
 
@@ -49,7 +49,7 @@ Check the recorded copy with:
 python3 scripts/vendor-sync.py status --package code-mode-launcher
 ```
 
-Expected result: vendor status reports `code-mode-launcher` in step.
+Expected result: vendor status reports `code-mode-launcher` in step. In a standalone clone with no Skilled checkout above it, add `--remote`, or use `--local` to check the copy against `vendor.json` alone.
 
 ---
 

@@ -19,6 +19,15 @@ this repository, or `VENDOR_UPSTREAM_ROOT` when set. The override must hold
 A standalone clone has no such folder, so every command except `status --local`
 says so and exits 2 rather than passing.
 
+`--remote` reads upstream from a cached partial clone of the public Skilled
+repository instead, so a standalone clone syncs with no checkout above it. The
+clone keeps every commit and fetches a blob only when a checkout needs one,
+because the commit lookups read history rather than file contents. It lives in
+`VENDOR_UPSTREAM_CACHE`, else under `XDG_CACHE_HOME` or the home cache folder,
+and a later run fetches into it rather than cloning again. `VENDOR_UPSTREAM_URL`
+points the fetch at a mirror and `--ref` picks the branch, tag or commit.
+`--remote` outranks `VENDOR_UPSTREAM_ROOT`, which outranks the walk-up.
+
 A package may name an `include` list of file paths. Only those files are then
 hashed, pulled and pushed, so one script can be vendored out of a folder that
 holds others, and a push never replaces the files beside it upstream.
@@ -52,19 +61,26 @@ entry a pull would not be safe for, and it prints one line per entry. That
 includes a never-pulled entry whose folder already holds other files, which only
 an explicit `pull` vendors over. Under a
 pulled entry it lists up to five upstream commit subjects. When the entry keeps
-build output out of the copy and a dependency file changed, it also prints the
-rebuild commands.
+build output out of the copy and a dependency file or a source file changed, it
+also prints the rebuild commands, once per folder that holds a `package.json`.
+
+`add` writes a new entry for an upstream path and pulls it, so a new skill, mode
+or hub needs no hand-written manifest line. It leaves `graph-metadata.json` out
+by default, because this hub keeps one advisor identity, and an explicit
+`--exclude` list replaces that default.
 
 `status --local` compares each local copy with the hashes in `vendor.json` and
 reads no upstream, so it works in a standalone clone too. `diff` prints what
 differs between each local copy and upstream and writes nothing.
 
 Usage:
-  python3 scripts/vendor-sync.py status [--package NAME] [--local]
-  python3 scripts/vendor-sync.py sync [--package NAME]
-  python3 scripts/vendor-sync.py diff [--package NAME]
-  python3 scripts/vendor-sync.py pull [--package NAME]
+  python3 scripts/vendor-sync.py status [--package NAME] [--local | --remote [--ref REF]]
+  python3 scripts/vendor-sync.py sync [--package NAME] [--remote [--ref REF]]
+  python3 scripts/vendor-sync.py diff [--package NAME] [--remote [--ref REF]]
+  python3 scripts/vendor-sync.py pull [--package NAME] [--remote [--ref REF]]
   python3 scripts/vendor-sync.py push [--package NAME]
+  python3 scripts/vendor-sync.py add --package NAME --upstream PATH
+      [--local-path PATH] [--exclude NAME ...] [--remote [--ref REF]]
 
 Output:
   Each command prints package status or change details. Status and sync end
@@ -73,8 +89,16 @@ Output:
   errors.
 
 Options:
-  --package NAME  Run the command for one package from vendor.json.
+  --package NAME  Run the command for one package from vendor.json, or name the
+                  entry add writes.
   --local         With status, check the local copies against vendor.json only.
+  --remote        Read upstream from a cached clone of the public repository.
+  --ref REF       With --remote, the branch, tag or commit to read. Default main.
+  --upstream PATH With add, the upstream path of the new package.
+  --local-path PATH
+                  With add, the local folder. Default the last upstream part.
+  --exclude NAME  With add, names or paths the copy leaves out. Replaces the
+                  default graph-metadata.json.
   --root PATH     Use another repository root. This internal option is hidden
                   from argparse help.
 """
@@ -104,11 +128,22 @@ IGNORED_NAMES = {".DS_Store", "__pycache__"}
 UPSTREAM_MARKER = ".skilled"
 SUBJECT_LIMIT = 5
 
+# The public repository every vendored package comes from. VENDOR_UPSTREAM_URL
+# points a run at a mirror, which is how the tests reach a bare repository.
+UPSTREAM_URL = "https://github.com/MichelKerkmeester/skilled-agent-harness_spec-driven-loops.git"
+UPSTREAM_REF = "main"
+CACHE_FOLDER = "product-owner-vendor/skilled"
+
+# A new entry leaves the advisor metadata out, because this hub allows only its
+# own graph-metadata.json and the advisor must find one identity.
+DEFAULT_EXCLUDE = ["graph-metadata.json"]
+
 # A pull never touches build output, so a changed dependency file leaves the old
 # build stale. The commands are the ones the repository README gives for the Code
 # Mode server, which needs Node 24 because its sandbox has no build for a later Node.
 BUILD_OUTPUT = {"node_modules", "dist"}
 DEPENDENCY_FILES = {"package.json", "package-lock.json", ".nvmrc"}
+SOURCE_SUFFIXES = {".ts", ".tsx", ".js", ".mjs", ".cjs"}
 REBUILD_COMMANDS = "nvm exec 24 npm ci && nvm exec 24 npm run build"
 
 EXIT_OK = 0
@@ -322,7 +357,171 @@ def upstream_dirty(upstream_dir: Path, include: Optional[List[str]] = None) -> b
 
 
 # ───────────────────────────────────────────────────────────────
-# 4. MANIFEST
+# 4. UPSTREAM CLONE
+# ───────────────────────────────────────────────────────────────
+
+def git_run(args: List[str], cwd: Optional[Path] = None) -> subprocess.CompletedProcess:
+    """Run one git command and report a missing git as a setup error.
+
+    Args:
+        args: Arguments passed to git after the executable name.
+        cwd: Optional working directory for the command.
+
+    Returns:
+        Completed git process.
+
+    Raises:
+        SetupError: If git is not installed.
+    """
+    try:
+        return subprocess.run(
+            ["git", *args], cwd=str(cwd) if cwd is not None else None, capture_output=True, text=True
+        )
+    except FileNotFoundError:
+        raise SetupError("git is required to read the upstream repository and was not found on PATH") from None
+
+
+def git_reason(result: subprocess.CompletedProcess) -> str:
+    """Return the last line git wrote, so a setup error stays one line.
+
+    Args:
+        result: Completed git process that failed.
+
+    Returns:
+        The last non-empty line of its standard error, or its exit status.
+    """
+    lines = [line.strip() for line in result.stderr.splitlines() if line.strip()]
+    return lines[-1] if lines else f"git exited {result.returncode}"
+
+
+def cache_dir() -> Path:
+    """Return the folder that holds the cached upstream clone.
+
+    Returns:
+        ``VENDOR_UPSTREAM_CACHE`` when set, else the folder under
+        ``XDG_CACHE_HOME`` or the home cache directory.
+    """
+    override = os.environ.get("VENDOR_UPSTREAM_CACHE")
+    if override:
+        return Path(override)
+    base = os.environ.get("XDG_CACHE_HOME")
+    return (Path(base) if base else Path.home() / ".cache") / CACHE_FOLDER
+
+
+def sparse_patterns(packages: List[Dict[str, Any]]) -> List[str]:
+    """List the sparse-checkout patterns that cover the selected packages.
+
+    Args:
+        packages: Manifest entries whose upstream paths must be present.
+
+    Returns:
+        Non-cone patterns, one pair per upstream path and included file.
+
+    Raises:
+        SetupError: If a package names an invalid upstream or include path.
+    """
+    paths = set()
+    for package in packages:
+        base = contained_path("upstream_path", package.get("upstream_path"))
+        paths.add(base.as_posix())
+        for rel in package.get("include") or []:
+            paths.add((base / contained_path("include entry", rel)).as_posix())
+    # The root is recognised by the marker folder, so a package outside it would
+    # leave the marker out of the checkout and the root would read as no root.
+    if not any(path == UPSTREAM_MARKER or path.startswith(UPSTREAM_MARKER + "/") for path in paths):
+        paths.add(UPSTREAM_MARKER)
+    patterns = []
+    for path in sorted(paths):
+        # A directory pattern covers everything under it and the glob covers a
+        # file at that path, so either shape is checked out.
+        patterns.extend([f"/{path}", f"/{path}/**"])
+    return patterns
+
+
+def resolve_ref(cache: Path, ref: str) -> Optional[str]:
+    """Resolve a branch, tag or commit to the commit the clone holds.
+
+    Args:
+        cache: Cached clone directory.
+        ref: Branch, tag or commit named on the command line.
+
+    Returns:
+        Commit hash, or ``None`` when the clone does not hold the ref.
+    """
+    # The remote-tracking branch comes first, because a fetch moves it and leaves
+    # the local branch the clone made at the commit it was cloned at.
+    for candidate in (f"refs/remotes/origin/{ref}", f"refs/tags/{ref}", f"refs/heads/{ref}", ref):
+        result = git_run(["rev-parse", "--verify", "--quiet", f"{candidate}^{{commit}}"], cache)
+        if result.returncode == 0 and result.stdout.strip():
+            return result.stdout.strip()
+    return None
+
+
+def remote_upstream_root(packages: List[Dict[str, Any]], ref: str) -> Path:
+    """Clone or refresh the cached upstream and check out the selected paths.
+
+    Args:
+        packages: Manifest entries whose upstream paths must be present.
+        ref: Branch, tag or commit to check out.
+
+    Returns:
+        Cache directory holding the checked-out upstream tree.
+
+    Raises:
+        SetupError: If git is missing, the clone, fetch or checkout fails, or the
+            checkout holds no ``.skilled`` folder.
+    """
+    url = os.environ.get("VENDOR_UPSTREAM_URL") or UPSTREAM_URL
+    cache = cache_dir()
+    if (cache / ".git").is_dir():
+        # A later run reuses the clone, so only the refs move. The URL is set
+        # again because a mirror named on this run would otherwise fetch the
+        # tree the first run cloned.
+        git_run(["remote", "set-url", "origin", url], cache)
+        fetched = git_run(["fetch", "--prune", "--tags", "origin"], cache)
+        if fetched.returncode != 0:
+            raise SetupError(f"cannot fetch {url}: {git_reason(fetched)}")
+    else:
+        # A half-written cache from an interrupted clone would fail every later
+        # run, so it is cleared before the clone writes into it.
+        if cache.exists():
+            shutil.rmtree(cache)
+        cache.parent.mkdir(parents=True, exist_ok=True)
+        cloned = git_run(["clone", "--filter=blob:none", "--no-checkout", "--sparse", url, str(cache)])
+        if cloned.returncode != 0:
+            raise SetupError(f"cannot clone {url}: {git_reason(cloned)}")
+    sparse = git_run(["sparse-checkout", "set", "--no-cone", *sparse_patterns(packages)], cache)
+    if sparse.returncode != 0:
+        raise SetupError(f"cannot set the sparse checkout in {cache}: {git_reason(sparse)}")
+    commit = resolve_ref(cache, ref)
+    if commit is None:
+        raise SetupError(f"the upstream repository holds no ref named {ref}")
+    checkout = git_run(["checkout", "--detach", commit], cache)
+    if checkout.returncode != 0:
+        raise SetupError(f"cannot check out {ref} in {cache}: {git_reason(checkout)}")
+    if not (cache / UPSTREAM_MARKER).is_dir():
+        raise SetupError(f"the upstream checkout at {cache} holds no {UPSTREAM_MARKER} folder")
+    return cache
+
+
+def use_remote_upstream(packages: List[Dict[str, Any]], ref: str) -> None:
+    """Point every later upstream lookup at the cached clone.
+
+    Args:
+        packages: Manifest entries whose upstream paths must be present.
+        ref: Branch, tag or commit to check out.
+
+    Raises:
+        SetupError: If the clone cannot be prepared.
+    """
+    # The override is the one place every command already reads the upstream root
+    # from, so setting it here gives --remote its precedence over both the
+    # environment and the walk-up without threading a parameter through each handler.
+    os.environ["VENDOR_UPSTREAM_ROOT"] = str(remote_upstream_root(packages, ref))
+
+
+# ───────────────────────────────────────────────────────────────
+# 5. MANIFEST
 # ───────────────────────────────────────────────────────────────
 
 def load_manifest(repo_root: Path) -> Dict[str, Any]:
@@ -498,7 +697,7 @@ def resolve_dirs(
 
 
 # ───────────────────────────────────────────────────────────────
-# 5. COMMANDS
+# 6. COMMANDS
 # ───────────────────────────────────────────────────────────────
 
 def carry_excluded(old: Path, new: Path, skip: Skip) -> None:
@@ -747,6 +946,56 @@ def pull_entry(repo_root: Path, package: Dict[str, Any]) -> Optional[str]:
     return None
 
 
+def rebuild_folders(
+    package: Dict[str, Any],
+    local_dir: Path,
+    changed: List[str],
+) -> List[str]:
+    """List the folders a pull left needing a rebuild, one entry each.
+
+    Args:
+        package: Manifest entry that was pulled.
+        local_dir: Local package directory after the pull.
+        changed: Package-relative paths the pull added, removed or changed.
+
+    Returns:
+        Sorted repository-relative folders to rebuild in.
+    """
+    # A pull never copies build output, so a changed dependency file or a changed
+    # source file leaves the old build stale. A source file names its folder by
+    # the nearest ancestor that holds a package.json, because that is where the
+    # build script lives, and a dependency file names the folder it sits in.
+    folders = set()
+    for rel in changed:
+        path = PurePosixPath(rel)
+        if path.name in DEPENDENCY_FILES:
+            folders.add(path.parent)
+            continue
+        if path.suffix not in SOURCE_SUFFIXES or BUILD_OUTPUT & set(path.parts):
+            continue
+        for ancestor in (path.parent, *path.parent.parents):
+            if (local_dir / ancestor / "package.json").is_file():
+                folders.add(ancestor)
+                break
+    return sorted((PurePosixPath(package["local_path"]) / folder).as_posix() for folder in folders)
+
+
+def print_rebuilds(package: Dict[str, Any], local_dir: Path, changed: List[str]) -> None:
+    """Print the rebuild commands a pull left behind, once per folder.
+
+    Args:
+        package: Manifest entry that was pulled.
+        local_dir: Local package directory after the pull.
+        changed: Package-relative paths the pull added, removed or changed.
+    """
+    # Only a package that keeps build output out of the copy can be left with a
+    # stale build, because every other package carries its build with it.
+    if not BUILD_OUTPUT & set(package.get("exclude") or []):
+        return
+    for folder in rebuild_folders(package, local_dir, changed):
+        print(f"  rebuild: cd {folder} && {REBUILD_COMMANDS}")
+
+
 def pull_package(repo_root: Path, package: Dict[str, Any]) -> int:
     """Pull one package and report the result.
 
@@ -760,11 +1009,14 @@ def pull_package(repo_root: Path, package: Dict[str, Any]) -> int:
     Raises:
         SetupError: If paths or the upstream commit cannot be resolved.
     """
+    old_files = dict(package.get("files") or {})
     refusal = pull_entry(repo_root, package)
     if refusal:
         print(f"{package['name']}: pull refused, {refusal}")
         return EXIT_DRIFT
     print(f"{package['name']}: pulled {len(package['files'])} files at {package['base_commit']}")
+    local_dir, _ = resolve_dirs(repo_root, package)
+    print_rebuilds(package, local_dir, changed_paths(old_files, package["files"]))
     return EXIT_OK
 
 
@@ -794,7 +1046,10 @@ def sync_package(repo_root: Path, package: Dict[str, Any]) -> int:
         include, skip = package.get("include"), skip_rule(package)
         local = hash_tree(local_dir, include, skip)
         if local and local != hash_tree(upstream_dir, include, skip):
-            print(f"{name}: refused, never pulled and its folder holds files upstream does not match; run pull to vendor over them")
+            print(
+                f"{name}: refused, never pulled and its folder holds files upstream does not match;"
+                " run pull to vendor over them"
+            )
             return EXIT_DRIFT
     refusal = pull_entry(repo_root, package)
     if refusal:
@@ -802,19 +1057,13 @@ def sync_package(repo_root: Path, package: Dict[str, Any]) -> int:
         return EXIT_DRIFT
     changed = changed_paths(old_files, package["files"])
     print(f"{name}: pulled, {len(changed)} file(s) changed, now at {package['base_commit']}")
-    _, upstream_dir = resolve_dirs(repo_root, package)
+    local_dir, upstream_dir = resolve_dirs(repo_root, package)
     subjects = commit_subjects(upstream_dir, old_commit, package["base_commit"], package.get("include"))
     for subject in subjects[:SUBJECT_LIMIT]:
         print(f"  {subject}")
     if len(subjects) > SUBJECT_LIMIT:
         print(f"  and {len(subjects) - SUBJECT_LIMIT} more")
-    if BUILD_OUTPUT & set(package.get("exclude") or []):
-        folders = {
-            (PurePosixPath(package["local_path"]) / PurePosixPath(rel).parent).as_posix()
-            for rel in changed if PurePosixPath(rel).name in DEPENDENCY_FILES
-        }
-        for folder in sorted(folders):
-            print(f"  rebuild: cd {folder} && {REBUILD_COMMANDS}")
+    print_rebuilds(package, local_dir, changed)
     return EXIT_OK
 
 
@@ -852,6 +1101,83 @@ def push_package(repo_root: Path, package: Dict[str, Any]) -> int:
     return EXIT_OK
 
 
+def drop_entry(repo_root: Path, name: str) -> None:
+    """Remove one package entry from the manifest and save it.
+
+    Args:
+        repo_root: Repository root containing ``vendor.json``.
+        name: Package name to remove.
+    """
+    manifest = load_manifest(repo_root)
+    manifest["packages"] = [p for p in manifest["packages"] if p.get("name") != name]
+    save_manifest(repo_root, manifest)
+
+
+def add_package(
+    repo_root: Path,
+    name: Optional[str],
+    upstream: Optional[str],
+    local_path: Optional[str],
+    exclude: Optional[List[str]],
+    remote: bool,
+    ref: str,
+) -> int:
+    """Write a new manifest entry for an upstream package and pull it.
+
+    Args:
+        repo_root: Repository root containing ``vendor.json``.
+        name: Package name for the new entry.
+        upstream: Upstream path of the package to vendor.
+        local_path: Local folder for the copy, or ``None`` for the last upstream part.
+        exclude: Names or paths the copy leaves out, or ``None`` for the default.
+        remote: Whether to read upstream from the cached clone.
+        ref: Branch, tag or commit to read when ``remote`` is set.
+
+    Returns:
+        Zero when the entry is written and pulled.
+
+    Raises:
+        SetupError: If a required option is missing, the name is taken, the local
+            path escapes the repository, the folder already holds files, or the
+            pull cannot be completed.
+    """
+    if not name or not upstream:
+        raise SetupError("add needs --package NAME and --upstream UPSTREAM_PATH")
+    manifest = load_manifest(repo_root)
+    if any(package.get("name") == name for package in manifest["packages"]):
+        raise SetupError(f"{name} is already in {MANIFEST_NAME}")
+    upstream_rel = contained_path("upstream_path", upstream)
+    entry: Dict[str, Any] = {
+        "name": name,
+        "local_path": local_path or upstream_rel.name,
+        "upstream_path": upstream_rel.as_posix(),
+        "base_commit": "",
+        "files": {},
+    }
+    # The default keeps one advisor identity in this hub, and an explicit list
+    # replaces it so a package that needs its own metadata can say so.
+    entry["exclude"] = list(exclude) if exclude else list(DEFAULT_EXCLUDE)
+    local_dir = resolve_local_dir(repo_root, entry)
+    if local_dir.is_dir() and any(local_dir.iterdir()):
+        raise SetupError(f"{entry['local_path']} already holds files; add vendors into an empty folder")
+    manifest["packages"].append(entry)
+    save_manifest(repo_root, manifest)
+    try:
+        if remote:
+            use_remote_upstream([entry], ref)
+        refusal = pull_entry(repo_root, entry)
+    except SetupError:
+        # A failed pull would leave an entry with no record, which every later
+        # status reads as drift, so the manifest is put back as it was.
+        drop_entry(repo_root, name)
+        raise
+    if refusal:
+        drop_entry(repo_root, name)
+        raise SetupError(f"cannot vendor {name}: {refusal}")
+    print(f"{name}: added from {entry['upstream_path']}, {len(entry['files'])} file(s) at {entry['base_commit']}")
+    return EXIT_OK
+
+
 def _manifest_with(
     repo_root: Path,
     package: Dict[str, Any],
@@ -870,9 +1196,13 @@ COMMANDS = {
     "push": push_package,
 }
 
+# `add` writes a new entry instead of walking the existing ones, so it is named
+# in the command list and handled before the per-package dispatch.
+COMMAND_NAMES = sorted([*COMMANDS, "add"])
+
 
 # ───────────────────────────────────────────────────────────────
-# 6. MAIN
+# 7. MAIN
 # ───────────────────────────────────────────────────────────────
 
 COMMAND_HELP = """commands:
@@ -881,6 +1211,7 @@ COMMAND_HELP = """commands:
   diff    print what differs between each local copy and upstream
   pull    copy upstream into the local copy and re-baseline vendor.json
   push    copy local edits into the upstream working tree
+  add     write a new entry for an upstream package and pull it
 """
 
 
@@ -898,18 +1229,37 @@ def main(argv: Optional[List[str]] = None) -> int:
         epilog=COMMAND_HELP,
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
-    parser.add_argument("command", choices=sorted(COMMANDS))
-    parser.add_argument("--package", default=None, help="run the command for one entry of vendor.json")
+    parser.add_argument("command", choices=COMMAND_NAMES)
+    parser.add_argument(
+        "--package", default=None, help="run the command for one entry of vendor.json, or name the entry add writes"
+    )
     parser.add_argument("--local", action="store_true", help="with status, read no upstream (works in a clone)")
+    parser.add_argument(
+        "--remote", action="store_true", help="read upstream from a cached clone of the public repository"
+    )
+    parser.add_argument("--ref", default=UPSTREAM_REF, help="with --remote, the branch, tag or commit to read")
+    parser.add_argument("--upstream", default=None, help="with add, the upstream path of the new package")
+    parser.add_argument("--local-path", default=None, help="with add, the local folder of the new package")
+    parser.add_argument("--exclude", nargs="+", default=None, help="with add, names or paths the copy leaves out")
     parser.add_argument("--root", default=str(REPO_ROOT), help=argparse.SUPPRESS)
     args = parser.parse_args(argv)
     if args.local and args.command != "status":
         parser.error("--local is valid only with status")
+    if args.remote and args.local:
+        parser.error("--remote is valid only with a command that reads upstream")
+    if args.command != "add" and (args.upstream or args.local_path or args.exclude):
+        parser.error("--upstream, --local-path and --exclude are valid only with add")
     repo_root = Path(args.root)
-    handler = status_local_package if args.local else COMMANDS[args.command]
     try:
+        if args.command == "add":
+            return add_package(
+                repo_root, args.package, args.upstream, args.local_path, args.exclude, args.remote, args.ref
+            )
+        handler = status_local_package if args.local else COMMANDS[args.command]
         manifest = load_manifest(repo_root)
         selected = select_packages(manifest, args.package)
+        if args.remote:
+            use_remote_upstream(selected, args.ref)
         worst = EXIT_OK
         out_of_step = []
         for package in selected:

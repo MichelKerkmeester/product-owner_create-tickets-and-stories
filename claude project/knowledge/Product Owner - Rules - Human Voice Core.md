@@ -47,7 +47,7 @@ A consuming system may grant a narrow exemption where a target format fixes a sh
 - Product Owner Doc Mode grants the Catalog entry delimiter `### {Stable ID} — {Entry name}` on an H3 entry heading and on its `*   [{Stable ID} — {Entry name}](#{entry-anchor})` index link, inside a Catalog that carries its Index heading, and nowhere else
 - Product Owner Bug Mode grants the two fixed corpus labels `**1. Observed Behavior**` and `**2. Expected Behavior**`, which the Barter bug corpus writes verbatim. No other heading or label in that system escapes sentence case
 - Product Owner Story Mode grants the literal placeholder `TBD...` in the three `## Delivery` slots, Estimation, Rabbit holes and No-gos. It is a fixed token rather than a prose ellipsis, so it never counts against the one-ellipsis cap
-- Barter Deal Templates grants one closing emoji per headline and one trailing emoji at the end of each offer, value, creator-fit and requirement bullet line in deal copy. None may lead a line or sit in About prose, and every other piece that system writes keeps the one-emoji cap
+- Barter Deal Templates grants at most one opening and one closing emoji per headline, one trailing emoji at the end of each offer, value and creator-fit bullet line and one leading emoji at the start of each requirement bullet line in deal copy. No other emoji may lead a line or sit in About prose, and every other piece that system writes keeps the one-emoji cap
 
 ---
 

@@ -3182,5 +3182,45 @@
       "confidence": null,
       "then": null
     }
+  },
+  {
+    "input": "write a design briefing for the reach pause",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
+  },
+  {
+    "input": "create a briefing for the required target audience field",
+    "expect": {
+      "intent": "TASK",
+      "energy": "STANDARD",
+      "source": "framing",
+      "shape": null,
+      "confidence": null,
+      "needs_disambiguation": false,
+      "resources": [
+        "references/hvr-core.md",
+        "references/conciseness.md",
+        "references/task-mode.md",
+        "assets/task-templates.md"
+      ],
+      "on_demand": [
+        "references/human-voice-rules.md"
+      ]
+    }
   }
 ]

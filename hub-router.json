@@ -1,6 +1,6 @@
 {
   "skill": "product-owner",
-  "version": "1.0.37.0",
+  "version": "1.0.38.0",
   "routerPolicy": {
     "defaultMode": "sk-product-owner",
     "ambiguityDelta": 1,
@@ -191,6 +191,8 @@
         "bugs",
         "ticket",
         "tickets",
+        "briefing",
+        "briefings",
         "story",
         "stories",
         "prd",
@@ -218,6 +220,8 @@
         "bugs",
         "ticket",
         "tickets",
+        "briefing",
+        "briefings",
         "story",
         "stories",
         "prd",

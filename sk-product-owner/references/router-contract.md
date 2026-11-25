@@ -382,15 +382,15 @@ def detect_artifact_frame(text: str) -> Optional[str]:
             # the packet frames them too. A request that stage one sends here
             # as a ticket would otherwise fall to the backlog question, or to
             # Flow when the ticket's subject is a FigJam board.
-            r"\b(?:create|write|draft|make|file|log|raise|refine) (?:a |an |another )?(?:dev |development )?(?:task|subtask|parent task|ticket)s?\b",
+            r"\b(?:create|write|draft|make|file|log|raise|refine) (?:a |an |another )?(?:dev |development |design )?(?:task|subtask|parent task|ticket|briefing)s?\b",
             # "open" is an adjective in "list my open tasks", so it counts as
             # a verb only with an indefinite article.
-            r"\bopen (?:a |an )(?:dev |development )?(?:task|subtask|parent task|ticket)\b",
+            r"\bopen (?:a |an )(?:dev |development |design )?(?:task|subtask|parent task|ticket|briefing)\b",
             # "add" asks for a new artifact only with an indefinite opener:
             # "add a task to fix the export" files one, while "add the task to
             # the sprint" acts on one that exists.
-            r"\badd (?:a |an |another )(?:dev |development )?(?:task|subtask|parent task|ticket)s?\b",
-            rf"{TURN_INTO}(?:dev |development )?(?:task|subtask|parent task|ticket)s?\b",
+            r"\badd (?:a |an |another )(?:dev |development |design )?(?:task|subtask|parent task|ticket|briefing)s?\b",
+            rf"{TURN_INTO}(?:dev |development |design )?(?:task|subtask|parent task|ticket|briefing)s?\b",
             r"\btask to document\b",
             r"\bacceptance criteria\b",
             # Backlog intake for a concrete addition rarely says "task": "add

@@ -2,7 +2,7 @@
 name: product-owner
 description: "Product Owner hub: routes backlog, doc and FigJam diagram requests and two vendored tool packets via mode-registry.json."
 allowed-tools: [Read, Write, Edit, Bash, Glob, Grep, WebFetch, WebSearch, mcp__code_mode__call_tool_chain]
-version: 1.0.37.0
+version: 1.0.38.0
 ---
 
 <!-- Keywords: product-owner, sk-product-owner, sk-create-figjam, mcp-click-up, mcp-figma, backlog, task, bug report, user story, epic, prd, product documentation, figjam, user flow, clickup -->
@@ -62,8 +62,8 @@ Product Owner/            the repository root is the hub
   mcp-click-up/            workflow: vendored ClickUp transport
   mcp-figma/               transport: vendored Figma Desktop bridge
   mcp-code-mode/           the vendored Code Mode server, a repository file and no packet
-  mcp-aside-devtools/  mcp-chrome-devtools/
-                           vendored browser packets the ClickUp page routines drive, with no mode
+  mcp-browser-use/         the vendored browser hub, whose Aside and Chrome DevTools modes
+                           the ClickUp page routines drive, with no mode here
   AGENTS.md  SYNC.md  vendor.json  opencode.json  LICENSE  Favicon.jpg
   specs/  export/  context/  claude project/  scripts/
                            repository files, declared in the repo-root-hub extension
@@ -71,7 +71,7 @@ Product Owner/            the repository root is the hub
 
 `mcp-code-mode/` carries its own `leaf-manifest.json` because it is the Code Mode server this repository ships beside the packets, not a workflow packet, so the rule against a leaf manifest inside a packet does not reach it. The hub shares the repository root with the bootstrap `AGENTS.md`, the Claude Project package, the spec packets, the exports, the system gates in `benchmark/` and the tooling in `scripts/`. `mode-registry.json` lists those repository entries in its `repo-root-hub` extension, so the skilled checkers skip them and read the hub id from the folder name in kebab case. Each vendored packet is a byte-identical copy of a shared skill: `vendor.json` records its upstream and `scripts/vendor-sync.py` keeps it in step, so its routing stays in its own `SKILL.md` and sibling `ROUTER.md`. Only this hub carries a `graph-metadata.json`, so the advisor discovers one `product-owner` identity.
 
-This system registers only the `chrome_devtools_live` Chrome manual, so the `chrome_devtools_1` and `chrome_devtools_2` manuals that the vendored `mcp-chrome-devtools/` and `mcp-code-mode/` docs name are absent. A task that needs isolated instances adds them from `mcp-chrome-devtools/assets/utcp-chrome-devtools-manuals.md`.
+This system registers only the `chrome_devtools_live` Chrome manual, so the `chrome_devtools_1` and `chrome_devtools_2` manuals that the vendored `mcp-browser-use/mcp-chrome-devtools/` and `mcp-code-mode/` docs name are absent. A task that needs isolated instances adds them from `mcp-browser-use/mcp-chrome-devtools/assets/utcp-chrome-devtools-manuals.md`.
 
 ---
 

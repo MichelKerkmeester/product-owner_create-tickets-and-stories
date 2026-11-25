@@ -206,10 +206,11 @@ const placeMarkAsDoneDividers = (lines) => {
 // 3. MASKING
 // ─────────────────────────────────────────────────────────────────────────────
 // Quoted spans hold cited material, so a document naming a banned phrase is
-// not using it. Path-like spans carry structural punctuation that no voice
+// not using it. French cites between guillemets, so a « » span is blanked the
+// same way as a straight-quoted one. Path-like spans carry structural punctuation that no voice
 // rule governs. Both are blanked before any prose rule runs.
 const maskInlineCode = (line) => line.replace(/`[^`]*`/g, (match) => ' '.repeat(match.length));
-const maskQuoted = (line) => line.replace(/"[^"]*"/g, (match) => ' '.repeat(match.length));
+const maskQuoted = (line) => line.replace(/"[^"]*"|«[^»]*»/g, (match) => ' '.repeat(match.length));
 
 // An HTML comment renders as nothing, so a metadata header written as one is
 // addressed to the toolchain rather than to the reader. Comment spans are
@@ -369,22 +370,32 @@ const SEMANTIC_CONNECTIVES = [
   'because', 'so that', 'unless', 'which means', 'while', 'although', 'though', 'since',
   'whereas', 'in order to', 'rather than', 'instead of', 'when', 'if', 'until', 'before',
   'after', 'so',
-  // A Dutch or German deal carries the same logic in its own words, and an
-  // English-only list scores every one of them as connective-free.
+  // A Dutch, German or French deal carries the same logic in its own words, and
+  // an English-only list scores every one of them as connective-free.
   'omdat', 'zodat', 'tenzij', 'terwijl', 'hoewel', 'sinds', 'wanneer', 'als', 'totdat',
   'voordat', 'nadat', 'dus', 'zodra', 'in plaats van',
   'weil', 'damit', 'falls', 'während', 'obwohl', 'seit', 'wenn', 'bis', 'bevor',
   'nachdem', 'denn', 'sobald', 'statt',
+  // The French `car` stays out because it is also the English noun.
+  'parce que', 'puisque', 'donc', 'mais', 'pourtant', 'cependant', 'alors', 'ensuite',
+  'tandis que', 'afin de', 'quand', 'lorsque', 'si', 'pour que', 'avant de', 'bien que',
 ];
 
-// Articles in the three deal languages, for the same reason.
+// Articles in the four deal languages, for the same reason. The fences are
+// Unicode letters rather than the ASCII word boundary, which treats an accented
+// letter as a break and so counted the tail of rôle or modèle as the article le.
+// The French elided article takes no closing fence, so l'été still counts. The
+// French du stays out because it is also the German pronoun, and counting it
+// would inflate a German deal's article total.
 const ARTICLE_PATTERN =
-  /\b(?:the|a|an|de|het|een|der|die|das|dem|den|des|ein|eine|einen|einem|einer|eines)\b/g;
+  /(?<![\p{L}\p{N}_])(?:the|a|an|de|het|een|der|die|das|dem|den|des|ein|eine|einen|einem|einer|eines|le|la|les|un|une)(?![\p{L}\p{N}_])|(?<![\p{L}\p{N}_])[ld]'/gu;
 
 const contentWords = (text) =>
   text
     .toLowerCase()
-    .replace(/[^a-z0-9\s-]/g, ' ')
+    // Letters in any script stay, so an accented word such as créateur is one
+    // word rather than two fragments.
+    .replace(/[^\p{L}\p{N}\s-]/gu, ' ')
     .split(/\s+/)
     .filter((word) => word.length >= 3 && !STOPWORDS.has(word))
     .map((word) => word.replace(/s$/, ''))
@@ -614,7 +625,8 @@ const EMPHASIS_SPAN = /(?<![\\*])\*(?![*\s])[^*\n]*[^*\s]\*(?!\*)/;
 // `←` is a house priority marker, and the dash and quote ranges stay out
 // because the punctuation pass already owns them.
 const PICTOGRAPH = /[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}]/gu;
-const ELLIPSIS = /\.\.\./g;
+// French writes the ellipsis as the one character U+2026, which counts the same.
+const ELLIPSIS = /\.\.\.|\u2026/g;
 const TBD_TOKEN = /TBD\.\.\./g;
 
 // One finding per line, named for the shape it is, so a leaked block reports
@@ -788,7 +800,7 @@ function statesListingDeal(texts) {
   if (texts.some((text) => DEAL_H1_SECTION.test(text))) return true;
   return texts.some((text) => DEAL_VALUE_LINE.test(text) || DEAL_LISTING_LABEL.test(text));
 }
-const DEAL_LISTING_LABEL = /^(?:What you receive|Wat je ontvangt|Das erhältst du|Perfect for|Perfect voor|Perfekt für)$/;
+const DEAL_LISTING_LABEL = /^(?:What you receive|Wat je ontvangt|Das erhältst du|Ce que tu reçois|Perfect for|Perfect voor|Perfekt für|Parfait pour)$/;
 const CREATOR_FIT_LABEL = '**Perfect for:**';
 const CREATOR_FIT_LABEL_SHAPE = /^\*\*[A-Za-z][A-Za-z' ]*? for:\*\*$/;
 // The creator-fit lead names the creator, not the deal. The deal Standards allow
@@ -827,8 +839,8 @@ const DEAL_BULLET = /^[-*+]\s+\S/;
 const DEAL_VARIATION_LABEL = /\*\*Most (?:valuable|authentic|concise)\*\*/;
 const DEAL_NUMBERED_ITEM = /^\d+[.)]\s+\S/;
 const DEAL_HEADING = /^#{1,6}\s+\S/;
-const DEAL_VALUE_LINE = /^-\s*(?:Total value|Totale waarde|Gesamtwert)\s*:/;
-const DEAL_CONTENT_IDEAS = /Content ?ideas|Contentideeën|Content-Ideen/i;
+const DEAL_VALUE_LINE = /^-\s*(?:Total value|Totale waarde|Gesamtwert|Valeur totale)\s*:/;
+const DEAL_CONTENT_IDEAS = /Content ?ideas|Contentideeën|Content-Ideen|Idées de contenu/i;
 // A hashtag line is nothing but tags, which is what tells it apart from a heading:
 // there the `#` is followed by a space.
 const DEAL_HASHTAG_LINE = /^\s*#[^\s#]\S*(?:\s+#[^\s#]\S*)*\s*$/;
@@ -836,6 +848,86 @@ const DEAL_TITLE_LIMIT = 65;
 const DEAL_TITLE_MARKER = /^#\s+/;
 const DEAL_OBLIGATION_FLOOR = 5;
 const DEAL_OBLIGATION_CEILING = 7;
+// The call-to-action shape starts at export template v0.120. Its title opens and
+// closes on one emoji and carries no amount, and Requirements starts from as few
+// as two standard lines, each led by its one emoji. An export stamped earlier
+// keeps the shape it was written under, and a reply with no export header is
+// read in the current shape.
+const DEAL_TEMPLATE_STAMP = /Template:\s*v(\d+)\.(\d+)/;
+const DEAL_CTA_SHAPE_FROM = [0, 120];
+const DEAL_CTA_OBLIGATION_FLOOR = 2;
+// A market tag such as `(BE/FR)` may follow the closing emoji, so it comes off
+// before the emoji and the length are read.
+const DEAL_MARKET_TAG = /\s*\((?:[A-Z]{2})(?:\/[A-Z]{2})*\)\s*$/;
+const DEAL_TITLE_AMOUNT = /[€$£]\s?\d|\bEUR\s?\d|\d[\d.,]*\s?(?:€|euros?\b|eur\b)|\bt\.w\.v\.|\bim Wert von\b|\b(?:d'|pour )une valeur de\b/i;
+// A flag is a pair of regional indicators, which the pictograph range also
+// covers, so the title's no-flag rule reads them on their own.
+const DEAL_TITLE_FLAG = /[\u{1F1E6}-\u{1F1FF}]/u;
+// From export template v0.121 the deal sits under a list of title options, the
+// H1 repeats option 1, and a title may open on one emoji, close on one, do both
+// or carry none, so long as the options do not all share one pattern.
+const DEAL_TITLE_OPTIONS_FROM = [0, 121];
+const DEAL_TITLE_OPTIONS_HEADING = /^###\s+(?:Title options|Titelopties|Titeloptionen|Propositions de titre)\s*$/;
+const DEAL_TITLE_OPTION_ITEM = /^\d+[.)]\s+(\S.*?)\s*$/;
+const DEAL_CARD_HEADING = /^###\s+(?:Company info|Bedrijfsgegevens|Unternehmensangaben|Infos entreprise)\s*$/;
+const DEAL_TITLE_OPTION_FLOOR = 5;
+function dealStampAtLeast(prose, [fromMajor, fromMinor]) {
+  const header = prose.find(({ raw }) => raw.includes('<!--') && DEAL_TEMPLATE_STAMP.test(raw));
+  if (!header) return true;
+  const [, major, minor] = header.raw.match(DEAL_TEMPLATE_STAMP);
+  return Number(major) > fromMajor || (Number(major) === fromMajor && Number(minor) >= fromMinor);
+}
+function dealUsesCtaShape(prose) {
+  return dealStampAtLeast(prose, DEAL_CTA_SHAPE_FROM);
+}
+function dealUsesTitleOptions(prose) {
+  return dealStampAtLeast(prose, DEAL_TITLE_OPTIONS_FROM);
+}
+// The numbered lines directly under the Title options heading, up to the divider
+// or heading that closes the list. Each carries its index and its title text.
+function dealTitleOptionRows(rows) {
+  const heading = rows.findIndex(({ text }) => DEAL_TITLE_OPTIONS_HEADING.test(text));
+  if (heading === -1) return { heading: null, options: [] };
+  const options = [];
+  for (const row of rows.slice(heading + 1)) {
+    if (row.text === '') continue;
+    const item = row.text.match(DEAL_TITLE_OPTION_ITEM);
+    if (!item) break;
+    options.push({ index: row.index, text: item[1] });
+  }
+  return { heading: rows[heading], options };
+}
+// A title's emoji as a reader sees them. A joined sequence, a skin tone, a keycap
+// and a flag each fold to one glyph, and Extended_Pictographic reaches the emoji
+// below the shared range, such as an alarm clock or a copyright sign. The leading
+// and trailing runs are counted by walking the characters, because an astral
+// character class followed by one more atom and an end anchor misses on this V8.
+const TITLE_EMOJI = /\p{Extended_Pictographic}/u;
+function dealTitleEmojiShape(text) {
+  const folded = text
+    .replace(DEAL_MARKET_TAG, '')
+    .replace(/\u200D\p{Extended_Pictographic}\uFE0F?/gu, '')
+    .replace(/[\u{1F3FB}-\u{1F3FF}\uFE0F]/gu, '')
+    .replace(/[0-9#*]\u20E3/gu, '\u2B50')
+    .replace(/[\u{1F1E6}-\u{1F1FF}]{2}/gu, '\u2B50');
+  const chars = [...folded];
+  const isEmoji = (ch) => TITLE_EMOJI.test(ch);
+  const isGap = (ch) => /\s/.test(ch);
+  let start = 0;
+  let lead = 0;
+  while (start < chars.length && (isEmoji(chars[start]) || isGap(chars[start]))) {
+    if (isEmoji(chars[start])) lead += 1;
+    start += 1;
+  }
+  let end = chars.length - 1;
+  let trail = 0;
+  while (end >= start && (isEmoji(chars[end]) || isGap(chars[end]))) {
+    if (isEmoji(chars[end])) trail += 1;
+    end -= 1;
+  }
+  const inner = chars.slice(start, end + 1).filter(isEmoji).length;
+  return { lead, trail, inner };
+}
 // A title closes on one emoji, so both title rules read the sentence without its
 // closing glyph. That glyph is punctuation the card fixes, so it is never part of
 // the character count and never stands between a value and the end of the line.
@@ -948,13 +1040,21 @@ function singleListingFindings(rows) {
 
   // The retired shape leaked its variation label and its headline list above the
   // title, so both are read over everything the after-delivery block does not own.
+  const optionsShape = dealUsesTitleOptions(rows);
+  const titleOptions = optionsShape ? dealTitleOptionRows(rows) : { heading: null, options: [] };
+  const optionIndexes = new Set(titleOptions.options.map(({ index }) => index));
   rows.slice(0, dealEnd).forEach(({ index, text }) => {
     const label = text.match(DEAL_VARIATION_LABEL);
     if (label) {
       findings.push({ index, message: `variation label ${label[0]}, where a deal carries one listing rather than a menu of them` });
     }
-    if (DEAL_NUMBERED_ITEM.test(text)) {
-      findings.push({ index, message: 'a numbered headline list, where a deal carries one title and no alternatives' });
+    if (DEAL_NUMBERED_ITEM.test(text) && !optionIndexes.has(index)) {
+      findings.push({
+        index,
+        message: optionsShape
+          ? 'a numbered list above the deal outside Title options, where only the title options are numbered'
+          : 'a numbered headline list, where a deal carries one title and no alternatives',
+      });
     }
   });
 
@@ -964,14 +1064,68 @@ function singleListingFindings(rows) {
   // marker comes off before the sentence is read.
   const above = rows.slice(0, about).filter(({ text }) => text !== '' && text !== '---');
   const title = above[above.length - 1] || null;
-  if (title) {
-    const sentence = title.text.replace(DEAL_TITLE_MARKER, '').replace(DEAL_CLOSING_GLYPHS, '');
-    if (DEAL_TITLE_VALUE_TAIL.test(sentence)) {
-      findings.push({ index: title.index, message: 'title ends on a separator and a value, where the card allows a value inside the sentence and bans the tail' });
+  const ctaShape = dealUsesCtaShape(rows);
+  // One set of sentence rules serves the H1 and every title option. Only the
+  // v0.120 shape, which has no options, still requires both emoji on the H1.
+  const titleFindings = (index, line, what, requireBothEmoji) => {
+    const sentence = (ctaShape ? line.replace(DEAL_MARKET_TAG, '') : line).replace(DEAL_CLOSING_GLYPHS, '');
+    if (ctaShape && DEAL_TITLE_AMOUNT.test(sentence)) {
+      findings.push({ index, message: `${what} carries an amount, where the call-to-action title keeps the value on the Total value line` });
     }
-    const length = [...sentence].length;
+    if (requireBothEmoji && (!new RegExp(PICTOGRAPH.source, 'u').test(line.slice(0, 2)) || !DEAL_CLOSING_GLYPHS.test(line.replace(DEAL_MARKET_TAG, '')))) {
+      findings.push({ index, message: `${what} does not open and close on one emoji, which the call-to-action title requires` });
+    }
+    if (ctaShape && DEAL_TITLE_FLAG.test(line)) {
+      findings.push({ index, message: `${what} carries a country flag, which the call-to-action title leaves to the market tag` });
+    }
+    if (DEAL_TITLE_VALUE_TAIL.test(sentence)) {
+      findings.push({ index, message: `${what} ends on a separator and a value, where the card allows a value inside the sentence and bans the tail` });
+    }
+    // A market tag counts toward the ceiling, so it is added back with its space.
+    const tag = ctaShape ? (line.match(DEAL_MARKET_TAG) || [''])[0].trim() : '';
+    // The opening emoji and its space never count toward the ceiling, which
+    // measures the sentence a creator reads.
+    const counted = ctaShape ? sentence.replace(/\u200D\p{Extended_Pictographic}\uFE0F?|[\u{1F3FB}-\u{1F3FF}]/gu, '').replace(new RegExp(`^(?:${PICTOGRAPH.source})\\uFE0F?\\s*`, 'u'), '') : sentence;
+    const length = [...counted].length + (tag ? tag.length + 1 : 0);
     if (length > DEAL_TITLE_LIMIT) {
-      findings.push({ index: title.index, message: `title runs ${length} characters, over the ${DEAL_TITLE_LIMIT} the deal card allows` });
+      findings.push({ index, message: `${what} runs ${length} characters, over the ${DEAL_TITLE_LIMIT} the deal card allows` });
+    }
+  };
+  if (title) {
+    titleFindings(title.index, title.text.replace(DEAL_TITLE_MARKER, ''), 'title', ctaShape && !optionsShape);
+  }
+  if (optionsShape) {
+    const { heading, options } = titleOptions;
+    if (!heading) {
+      findings.push({ index: title ? title.index : rows[about].index, message: 'no Title options heading above the deal, where the deal shows five numbered title options' });
+    } else {
+      if (options.length < DEAL_TITLE_OPTION_FLOOR) {
+        findings.push({ index: heading.index, message: `Title options carries ${options.length} titles, where the deal shows at least ${DEAL_TITLE_OPTION_FLOOR}` });
+      }
+      options.forEach(({ index, text }) => titleFindings(index, text, 'title option', false));
+      // The options sit between the Company info card and the deal, closed by a
+      // divider above the title.
+      const card = rows.find(({ text }) => DEAL_CARD_HEADING.test(text));
+      if ((card && heading.index < card.index) || (title && heading.index > title.index)) {
+        findings.push({ index: heading.index, message: 'Title options sit outside their place between the Company info card and the deal title' });
+      }
+      const last = options[options.length - 1];
+      const after = last ? rows.find((row) => row.index > last.index && row.text !== '') : null;
+      if (last && (!after || after.text !== '---')) {
+        findings.push({ index: last.index, message: 'no `---` divider between the Title options and the deal title' });
+      }
+      if (title && options.length && title.text.replace(DEAL_TITLE_MARKER, '') !== options[0].text) {
+        findings.push({ index: title.index, message: 'title differs from title option 1, which the H1 repeats word for word' });
+      }
+      // The emoji pattern of a title is whether it opens on one and whether it
+      // closes on one, so four patterns exist and the options must not share one.
+      const pattern = (text) => {
+        const { lead, trail } = dealTitleEmojiShape(text);
+        return `${lead > 0}/${trail > 0}`;
+      };
+      if (options.length > 1 && new Set(options.map(({ text }) => pattern(text))).size === 1) {
+        findings.push({ index: heading.index, message: 'every title option uses the same emoji pattern, where the options mix opening, closing, both and none' });
+      }
     }
   }
 
@@ -998,10 +1152,11 @@ function singleListingFindings(rows) {
   const obligations = rows
     .slice(requirements + 1, requirementsEnd === -1 ? rows.length : requirementsEnd)
     .filter(({ text }) => DEAL_BULLET.test(text)).length;
-  if (obligations < DEAL_OBLIGATION_FLOOR || obligations > DEAL_OBLIGATION_CEILING) {
+  const floor = ctaShape ? DEAL_CTA_OBLIGATION_FLOOR : DEAL_OBLIGATION_FLOOR;
+  if (obligations < floor || obligations > DEAL_OBLIGATION_CEILING) {
     findings.push({
       index: rows[requirements].index,
-      message: `Requirements carries ${obligations} bullet lines, where a deal requires ${DEAL_OBLIGATION_FLOOR} to ${DEAL_OBLIGATION_CEILING}`,
+      message: `Requirements carries ${obligations} bullet lines, where a deal requires ${floor} to ${DEAL_OBLIGATION_CEILING}`,
     });
   }
 
@@ -1468,9 +1623,20 @@ function analyse(file, source) {
       const last = nextSection === -1 ? lines.length : nextSection;
       let inUserFlow = false;
       let inNumberedSection = false;
+      // A design briefing is the one shape whose Requirements may carry a plain
+      // bullet, and only under a **Why** facet: a reason is not a constraint a
+      // review can tick. The shape is read off its `# Briefing - ` title.
+      const isBriefing = lines.some((line) => /^# Briefing - /.test(line));
+      let inWhyFacet = false;
       for (let i = requirementsIndex + 1; i < last; i += 1) {
         const line = lines[i].trim();
         if (line.startsWith('#')) inNumberedSection = /^### \d+\\?\. /.test(line);
+        if (line.startsWith('#')) inWhyFacet = false;
+        if (isBriefing && line === '**Why**') {
+          inWhyFacet = true;
+          inUserFlow = false;
+          continue;
+        }
         if (REQUIREMENTS_CHECKLIST.test(line)) {
           inUserFlow = false;
           if (!inNumberedSection) {
@@ -1490,13 +1656,14 @@ function analyse(file, source) {
           continue;
         }
         if (/^\*   \S/.test(lines[i])) {
-          if (!inUserFlow) {
+          if (!inUserFlow && !inWhyFacet) {
             errors.push(`${relative}:${i + 1}: a plain bullet inside Requirements outside a User flow, where each constraint is a \`- []\` checklist item`);
           }
           continue;
         }
         if (line === '') continue;
         inUserFlow = false;
+        inWhyFacet = false;
         const item = lines[i].match(CHECKBOX_ITEM);
         if (!item || item[1].includes('`')) continue;
         if (!/\b(?:explains|states|tells|informs)\b/.test(item[1])) continue;

@@ -92,6 +92,12 @@ export/[###] - Story-[description]/[###].[n] - task-[description].md
 
 A new Story asked for together with its task breakdown saves as one folder under one number, holding the Story and one task file per task, with `n` counting from 1 in the Story's task order. The Story lists its tasks in a `#### **Tasks**` block inside `## Solution`, after `#### **References**`, each bullet linking the sibling task file. Each task uses the Canonical Task template, which Story Mode reads from `sk-product-owner/assets/task-templates.md` on demand, and names its Story in a `**Story**` block between `**Epic**` and `**Parent task**`. A clarification asked first stays at the top of `export/` in the Story lane, and the folder takes the next number. Read back every file in the folder, then reply with every path, Story first, each with its own `Verified: read-back succeeded; N lines` line, and one `HVR self-scan:` line counted across the whole bundle. A file whose read-back still fails after one retry gets no `Path:` line, and the reply says the bundle is blocked. A source whose Desktop and Mobile requirements differ saves as one Story file per platform instead, and the reply lists every path as `sk-product-owner/references/story-mode.md` Section 7 sets out.
 
+Design briefing:
+
+```text
+export/[###] - briefing-[description].md
+```
+
 Feedback ticket:
 
 ```text
@@ -112,6 +118,7 @@ Examples:
 - `export/008 - task-payout-pause-clarification.md` for the question asked before that task, which then saves as `export/009 - task-payout-pause.md`
 - `export/010 - Story-order-tracking/` for a Story asked for with its tasks, holding `010 - Story-order-tracking.md`, `010.1 - task-order-status-api.md` and `010.2 - task-order-tracking-screen.md`
 - `export/booking-flow-mvp/011 - feedback-guest-ui-ux.md` for the Guest UI/UX ticket of a feedback round
+- `export/012 - briefing-partner-required-target-audience.md` for a design briefing
 - `export/Barter deal - Image(s).md` for a refinement of that supplied file
 
 ## Artifact Titles
@@ -119,8 +126,8 @@ Examples:
 Every backlog artifact's H1 is a label, never a sentence, with no full stop and no date. It joins its segments with ` - `, broad to specific, in the Title Case the backlog writes: the lead, the app or audience, the initiative or area with its version, the surface and the detail. A segment the work does not have is left out.
 
 - **Build work leads with the team:** a Task or Subtask is `{Team} - {App} - {Area} - {Detail}` and a Bug is `{Team} - {App} - {Area} - {What}`, with the what naming the defect as a noun phrase. The team is `FE`, `BE`, `FS`, `DATA` or `DS` and the app is `Creator`, `Partner`, `BM`, `BM Partner`, `BM Dashboard`, `BO` or the product's own name. A Bug takes no `BUG` lead, because ClickUp shows the type
-- **Planning work leads with the app:** a Story and a Parent task lead with the app or product, and their build tasks and subtasks carry the team. An Epic is the one kind with a type lead, `Epic - {App} - {Initiative}`. `sk-product-owner/references/story-mode.md` Section 3 sets the Story and Epic forms
-- **Two kinds keep their own form:** a Feedback ticket is `{Team} - {Feature} - Feedback #{Round} - {App}: {Logic | UI/UX}` and a DS ticket is `DS - Variables - {version} - {App} - {Change}`, with the parent DS ticket naming no app
+- **Planning work leads with the app:** a Story and a Parent task lead with the app or product, and their build tasks and subtasks carry the team. An Epic and a Briefing are the two kinds with a type lead, `Epic - {App} - {Initiative}` and `Briefing - {App or Apps} - {Area} - {Detail}`. `sk-product-owner/references/story-mode.md` Section 3 sets the Story and Epic forms
+- **Three kinds keep their own form:** a Feedback ticket is `{Team} - {Feature} - Feedback #{Round} - {App}: {Logic | UI/UX}`, a DS ticket is `DS - Variables - {version} - {App} - {Change}`, with the parent DS ticket naming no app, and a design Briefing is `Briefing - {App or Apps} - {Area} - {Detail}`. A briefing joins two apps with `&`, names the area in full, such as `Barter Deals`, and uses `Design System` as the app when it changes no app screen. `sk-product-owner/references/task-mode.md` Section 3 sets the briefing form
 - **Marks:** a colon marks a part inside one segment, as in `Profile: Highlights` and in a per-platform Story's `Mobile: {Feature}`. `&`, `+`, `/` and commas join siblings. An initiative carries its version, as in `Onboarding v2`, `Fv2.5` and `v1.0.14`
 - **Missing team:** when the source does not name the team that builds a Task, Subtask or Bug, the one clarification question asks for it before the title is written, and the title never carries a guessed team. Where no question is asked, such as under `$quick`, and where the answer still names none, the title leaves the team lead out and the reply lists it under Open items
 - **Given titles:** a refinement keeps its source title, and a title form the requester or a supplied source states is used as given. For that reason the output format gate reports a sentence title, a closing full stop, a leading date or a `BUG` lead as advice, never as a block

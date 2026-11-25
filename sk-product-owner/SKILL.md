@@ -2,7 +2,7 @@
 name: sk-product-owner
 description: "Writes Barter tasks, bug reports, Stories, Epics and source-safe product or engineering docs as ClickUp-ready markdown."
 allowed-tools: [Read, Write, Edit, Glob, Grep, WebFetch, WebSearch]
-version: 1.2.21.0
+version: 1.2.22.0
 ---
 
 <!-- Keywords: product-owner, backlog, task, subtask, parent task, bug report, acceptance criteria, story mode, user story, prd, product requirements document, epic, doc mode, product documentation, engineering documentation, ClickUp, $task, $bug, $doc, $story, $prd, $epic, $quick -->
@@ -25,6 +25,7 @@ Use this skill for Product Owner backlog artifacts and product, engineering, ope
 
 - Development tasks, subtasks, parent tasks, acceptance criteria and QA-ready requirements, including Figma feedback or product notes turned into task-ready outcomes
 - Feedback tickets from a round of product review, one per app and kind of feedback, in the shape Task Mode Section 3 sets out
+- Design briefings for the Product Design team
 - Bug reports, defect writeups, reproduction steps and expected behavior
 - Stories and Epics in the Barter house format
 - Product or engineering guides, catalogs, behavior references, runbooks, API or schema references, architecture documents, technical proposals and decision records

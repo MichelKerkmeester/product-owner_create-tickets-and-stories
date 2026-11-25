@@ -80,6 +80,9 @@ benchmark/format/
 +-- run_fixtures.sh
 +-- validate-output-format.cjs
 `-- fixtures/
+    +-- briefing-why-outside-violation.md
+    +-- briefing-why-silent.md
+    +-- briefing-why-violation.md
     +-- catalog-entry-no-index.md
     +-- catalog-entry-silent.md
     +-- catalog-entry-violation.md
@@ -131,6 +134,9 @@ benchmark/format/
 +-- run_fixtures.sh
 +-- validate-output-format.cjs
 `-- fixtures/
+    +-- briefing-why-outside-violation.md
+    +-- briefing-why-silent.md
+    +-- briefing-why-violation.md
     +-- catalog-entry-no-index.md
     +-- catalog-entry-silent.md
     +-- catalog-entry-violation.md
@@ -175,6 +181,9 @@ benchmark/format/
 | `validate-output-format.cjs` | Parses flags and targets, selects source or artifact mode, analyzes each file and reports the result (`validate-output-format.cjs:22-36, 53-95, 1759-1775, 1777-1893`) |
 | `fixtures/catalog-entry-silent.md` | Carries a Catalog with its Index heading, two entry headings and two entry links, each with one dash between the stable ID and the entry name, so the narrow Catalog grant clears the gate (`catalog-entry-silent.md:1-31`) |
 | `fixtures/catalog-entry-violation.md` | Keeps the Index heading and puts the same dash on a title, a heading with no stable ID, prose, a second dash, an H2 and a link with trailing text, each of which still blocks (`catalog-entry-violation.md:1-27`) |
+| `fixtures/briefing-why-outside-violation.md` | Puts a Why facet with a plain bullet in a document whose title is not a briefing, so the one Requirements bullet still fires (`briefing-why-outside-violation.md:1-10`) |
+| `fixtures/briefing-why-silent.md` | Carries a Why facet with two plain bullets between two checklist facets in a briefing, so the Requirements bullet rule stays silent (`briefing-why-silent.md:1-21`) |
+| `fixtures/briefing-why-violation.md` | Writes a plain bullet under a Display facet and another under Validation after the Why facet ends, one finding each (`briefing-why-violation.md:1-21`) |
 | `fixtures/catalog-entry-no-index.md` | Carries the entry heading and link shapes with no Index heading, so the grant earns nothing outside a Catalog (`catalog-entry-no-index.md:1-11`) |
 | `fixtures/checkbox-form-silent.md` | Writes every checkbox in the house `- []` form, so the checkbox rule stays silent on it |
 | `fixtures/checkbox-form-violation.md` | Writes one requirement checkbox and one Mark as done checkbox in the spaced `- [ ]` form, so both fire and an old-form checkbox with a divider below it still trips the divider check |

@@ -4,7 +4,7 @@ description: "Orientation for the vendored Code Mode process launcher and Node e
 trigger_phrases:
   - code mode vendor
   - node engine resolver
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # Code Mode Vendor: Launcher and Node Resolver
@@ -58,7 +58,7 @@ scripts/vendored/code-mode/
 
 ## 5. VENDOR WORKFLOW
 
-These files are vendored from `.skilled/bin` in the shared skill tree through `scripts/vendor-sync.py`, package `code-mode-launcher`. Never edit these files here. Make fixes in the shared skill tree, then run `python3 scripts/vendor-sync.py pull --package code-mode-launcher` from the repository root.
+These files are vendored from `.skilled/bin` in the shared skill tree through `scripts/vendor-sync.py`, package `code-mode-launcher`. Never edit these files here. Make fixes in the shared skill tree, then run `bash scripts/update-vendored.sh --package code-mode-launcher` from the repository root.
 
 Check the recorded copy with:
 
@@ -66,7 +66,7 @@ Check the recorded copy with:
 python3 scripts/vendor-sync.py status --package code-mode-launcher
 ```
 
-Expected result: vendor status reports `code-mode-launcher` in step.
+Expected result: vendor status reports `code-mode-launcher` in step. In a standalone clone with no Skilled checkout above it, add `--remote`, or use `--local` to check the copy against `vendor.json` alone.
 
 ---
 

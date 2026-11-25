@@ -729,7 +729,7 @@ FLOW_TYPES_PATH = HERE / "flow_types.json"
 # into a sentence. A noun the hub gains that is missing here fails the guard
 # rather than going untested.
 NOUN_INTENT = {
-    "task": "TASK", "subtask": "TASK", "ticket": "TASK", "bug": "BUG",
+    "task": "TASK", "subtask": "TASK", "ticket": "TASK", "briefing": "TASK", "bug": "BUG",
     "story": "STORY", "prd": "STORY", "epic": "STORY",
     "doc": "DOC", "document": "DOC", "guide": "DOC", "runbook": "DOC",
 }

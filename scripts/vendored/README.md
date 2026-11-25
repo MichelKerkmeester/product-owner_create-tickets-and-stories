@@ -4,7 +4,7 @@ description: "Orientation for the Code Mode launcher files synchronized from the
 trigger_phrases:
   - vendored scripts
   - code mode launcher vendor
-version: 1.0.0.0
+version: 1.0.1.0
 ---
 
 # Vendored Scripts: Synchronized Code Mode Files
@@ -15,7 +15,7 @@ version: 1.0.0.0
 
 `scripts/vendored/` holds the files from the `code-mode-launcher` package that `scripts/code-mode.cjs` imports. The package comes from `.skilled/bin` in the shared skill tree and includes only the launcher and Node engine resolver.
 
-These files are vendored through `scripts/vendor-sync.py`. Never edit them here. Make fixes in the shared skill tree, then run `python3 scripts/vendor-sync.py pull --package code-mode-launcher` from the repository root.
+These files are vendored through `scripts/vendor-sync.py`. Never edit them here. Make fixes in the shared skill tree, then run `bash scripts/update-vendored.sh --package code-mode-launcher` from the repository root.
 
 ---
 
@@ -53,7 +53,7 @@ python3 scripts/vendor-sync.py status --package code-mode-launcher
 node --check scripts/code-mode.cjs
 ```
 
-Expected result: vendor status reports the package in step and Node exits with status 0.
+Expected result: vendor status reports the package in step and Node exits with status 0. In a standalone clone with no Skilled checkout above it, add `--remote` to the status command, or use `--local` to check the copy against `vendor.json` alone.
 
 ---
 

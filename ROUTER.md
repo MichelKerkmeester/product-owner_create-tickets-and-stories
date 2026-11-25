@@ -24,7 +24,7 @@ Routing is two stages: the hub picks the mode, this router picks the leaves with
 
 ## 2. INTENT MODEL
 
-- **TASK leaves**: `task-mode.md` and `task-templates.md`, for `$task`, `$t`, `$task --subtask` and task wording such as "create a task", "write a subtask" or "acceptance criteria for", and for UI refinement feedback, which stays a Task
+- **TASK leaves**: `task-mode.md` and `task-templates.md`, for `$task`, `$t`, `$task --subtask` and task wording such as "create a task", "write a subtask", "write a design briefing" or "acceptance criteria for", and for UI refinement feedback, which stays a Task
 - **BUG leaves**: `bug-mode.md` and `bug-report-template.md`, for `$bug`, `$b` and bug wording such as "write a bug", "bug report" or "it crashes when"
 - **DOC leaves**: `doc-mode.md` and `doc-templates.md`, for `$doc`, `$d` and documentation wording such as "document how", "write a runbook" or "api reference"
 - **STORY leaves**: `story-mode.md` and `story-template.md`, for `$story`, `$s`, `$prd`, `$p` and Story wording such as "write a PRD", "user story" or "draft for PM"

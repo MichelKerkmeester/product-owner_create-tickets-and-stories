@@ -9,7 +9,7 @@ trigger_phrases:
   - "$prd"
   - "$story"
   - "$epic"
-version: 1.2.21.0
+version: 1.2.22.0
 ---
 
 # sk-product-owner
@@ -395,6 +395,9 @@ An attention names the specific item in brackets. The verdict reports gate outco
 | `task/task-example-subtask.md` | Bounded child scope that does not leak sibling state |
 | `task/task-example-quick.md` | The compact shape with the unnumbered single requirement group |
 | `task/task-example-feedback.md` | One app's review round as a feedback ticket, grouped by screen, with a Code and Figma screenshot pair |
+| `task/task-example-design-briefing-full.md` | A design briefing across two apps and a design system block, with every optional section and a Why facet |
+| `task/task-example-design-briefing-single.md` | A design briefing for one app with no audience labels |
+| `task/task-example-design-briefing-minimal.md` | A design briefing with the core sections and one link block |
 | `task/task-example-ds-variables.md` | Parent plus one subtask per app for a design token release in the shipped ClickUp format, the change list stated once and each app's token file checks in its subtask |
 | `bug/bug-example-frontend-visual.md` | Visual defect with design-spec evidence |
 | `bug/bug-example-backend-api.md` | API defect with request and response evidence |

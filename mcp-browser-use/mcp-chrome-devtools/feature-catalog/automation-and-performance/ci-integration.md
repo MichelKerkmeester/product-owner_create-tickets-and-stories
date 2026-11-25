@@ -1,0 +1,54 @@
+---
+title: "CI Integration"
+description: "Exit-code driven chaining of the example scripts with set -e and trap cleanup for pipelines."
+trigger_phrases:
+  - "browser tests in ci"
+  - "ci visual regression pipeline"
+  - "bdg pipeline integration"
+version: 1.0.1.0
+---
+
+# CI Integration
+
+---
+
+## 1. OVERVIEW
+
+All three example scripts return semantic exit codes, so a CI job chains them under `set -e`: baseline capture, animation assertions, then the viewport matrix — failing the pipeline on the first assertion miss.
+
+The viewport matrix also fails on a console error, read from `bdg console --list --json` (see `examples/README.md` §3.3).
+
+---
+
+## 2. HOW IT WORKS
+
+The scripts use configurable thresholds for automated validation and timestamped output for historical comparison. Each script calls `bdg stop` inline rather than through a trap, and CI environments add security flags (`--disable-gpu --disable-dev-shm-usage --remote-debugging-address=127.0.0.1`) via `CHROME_FLAGS`.
+
+---
+
+## 3. SOURCE FILES
+
+### Implementation
+
+| File | Layer | Role |
+|------|-------|------|
+| `examples/README.md` §4 | Guide | ci-visual-tests chaining pattern |
+| `INSTALL-GUIDE.md` §4 | Guide | CI/CD security flags |
+| `references/session-management.md` §9 | Reference | Trap-based cleanup the scripts rely on |
+
+### Validation And Tests
+
+| File | Type | Role |
+|------|------|------|
+| `examples/README.md` §3 | Manual playbook | Per-script exit-code contracts |
+
+---
+
+## 4. SOURCE METADATA
+
+- Group: Automation and Performance
+- Canonical catalog source: `feature-catalog.md`
+- Feature file path: `automation-and-performance/ci-integration.md`
+Related references:
+- [performance-baseline.md](../automation-and-performance/performance-baseline.md) — Performance Baseline
+- [sandbox-errors.md](../recovery-and-troubleshooting/sandbox-errors.md) — Linux Sandbox Errors

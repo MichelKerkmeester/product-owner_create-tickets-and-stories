@@ -9,7 +9,7 @@ trigger_phrases:
   - "subtask parent task"
   - "source task sync"
   - "requirements checklist"
-version: 0.17.0.22
+version: 0.17.0.23
 ---
 
 # Product Owner - Templates - Task Mode
@@ -41,6 +41,7 @@ Use Task Mode for:
 - Subtasks covering one area within a parent task
 - Feature work, enhancements, acceptance criteria and refinement of existing task content
 - Feedback tickets from a round of product review, one per app and kind of feedback
+- Design briefings that tell the Product Design team what to design and why, before a dev task exists
 
 ### Command: `$task`
 
@@ -68,6 +69,7 @@ Use Task Mode for:
 - **Parent task:** Coordination task that links or tracks child subtasks
 - **Subtask:** Narrow task covering one area within a parent task
 - **Feedback ticket:** One round of review feedback for one app, either `Logic` or `UI/UX`, with `## Feedback` in place of Requirements. Section 3 Feedback Tickets sets its rules
+- **Design briefing:** A brief for the Product Design team, titled `Briefing - ...`, with About, Briefing and Requirements as its core sections. Section 3 Design Briefings sets its rules
 
 ---
 
@@ -81,7 +83,7 @@ Every task must include:
 2. `## About`
 3. `### Requirements`
 
-A feedback ticket replaces `### Requirements` with `## Feedback`, as Section 3 Feedback Tickets sets out.
+A feedback ticket replaces `### Requirements` with `## Feedback`, as Section 3 Feedback Tickets sets out. A design briefing writes its three core sections as `## About`, `## Briefing` and `## Requirements`, as Section 3 Design Briefings sets out.
 
 ### Optional Context Sections
 
@@ -254,6 +256,22 @@ A feedback ticket carries one round of product review on a feature, for one app 
 - **Source wording:** a reviewer's note keeps its meaning and its values. Rewrite a complaint as the fix only when the fix is plain from the note, and otherwise keep the reviewer's question as a checklist item
 - **Delivery:** each ticket is its own export file, `export/{feature}/[###] - feedback-{app}-{kind}.md`. The feature, app and kind are lowercase slugs of letters, digits and hyphens, never a slash, a dot or a space, and the kind is `logic` or `ui-ux`. Pushed to ClickUp, each ticket becomes its own private doc unless the user names a list
 
+### Design Briefings
+
+A design briefing tells the Product Design team what to design and why, before a dev task exists. It names the problem, the design direction and the outcomes a design review can check, and leaves how devs build it out, apart from the logic Dev Handover passes on. The template is Task Templates Section 7.
+
+- **Signal:** the request asks for a briefing, a design brief or a brief for the Product Design team, or hands over a decision and asks what design must cover. A request for a build task from an approved design stays an ordinary task, and notes from a review round stay a feedback ticket
+- **Intake:** the first question asks for anything the request leaves out among the apps, the area and whether a design system block belongs in it. A detail the source already gives is not asked again
+- **Title:** `Briefing - {App or Apps} - {Area} - {Detail}`. `Briefing` is the type lead and no team leads it. Two apps are joined with `&`, the apps are `Partner`, `Creator` and `Backoffice`, and a briefing that changes no app screen uses `Design System`. The area is named in full, such as `Barter Deals`, never `Deals`
+- **Core sections:** `## About`, `## Briefing` and `## Requirements`, each written as H2. Every other section is optional and removed whole when it does not apply: `#### **References**` and `#### **Related tasks**` under Briefing, then `## Deliverables`, `## Copy`, `## Open Questions`, `## Success Signal` and `## Dev Handover`, in that order
+- **Section jobs:** About holds the problem and the decision. Briefing holds the design direction and never restates a requirement. A line a design review could tick belongs in Requirements
+- **Audiences:** under Requirements, `### PARTNER`, `### CREATOR`, `### BACKOFFICE` and `### DESIGN SYSTEM` are ALL-CAPS H3 headings with a `* * *` divider under each. Add them only when the briefing has two or more audiences, and a single audience starts straight on its first facet
+- **Facets:** each facet is a bold Title Case lead line such as `**Display**`, `**Validation**`, `**Existing Deals**`, `**Reach Paused**`, `**Notification & Email**`, `**Visibility**` or `**Contrast**`, with `- []` items under it. A facet is named for the thing it checks, and no prose or User Story sits under it
+- **Why facet:** under `### DESIGN SYSTEM`, a `**Why**` facet gives the reason for a component trade-off in plain `*   ` bullets. It is the one facet without checkboxes, and the format gate accepts those bullets only under `**Why**` in a document whose title starts `Briefing - `
+- **Own labels:** the Title Case section headings (`Open Questions`, `Success Signal`, `Dev Handover`), the ALL-CAPS audience headings and the Title Case facet labels are the briefing's own labels, which no sentence case rule in another shape renames. The format gate reads none of them as a finding
+- **Source wording:** a number, range or threshold the source gives travels as written, and a number the source does not give is never written. Name a notification by its catalog title in backticks
+- **Delivery:** `export/[###] - briefing-[description].md`. Pushed to ClickUp, each `- []` is sent as `- [ ]` so it imports as a checkbox
+
 ### Tables
 
 Use a table when every row shares the same fields, such as token or property values that change per size.
@@ -275,6 +293,7 @@ Use a table when every row shares the same fields, such as token or property val
 - [ ] Source material preserved when task is a sync or refinement?
 - [ ] Building team named in the source, asked for in the one question or left out of the title and listed under Open items?
 - [ ] Latest template version used?
+- [ ] A design briefing titled `Briefing - {App or Apps} - {Area} - {Detail}`, with the area named in full?
 - [ ] Supplied links in References, Epic, Related tasks and Related tickets resolve, with unresolvable ones flagged in prose rather than kept as dead links?
 
 ### Structure Validation
@@ -286,6 +305,7 @@ Use a table when every row shares the same fields, such as token or property val
 - [ ] Actionable requirement items use `- []`, with no space between the brackets?
 - [ ] `---` dividers used consistently?
 - [ ] Every table at most 4 columns, with Size leftmost when values vary by size?
+- [ ] A design briefing has `## About`, `## Briefing` and `## Requirements` as H2, audiences as ALL-CAPS H3 headings only when there are two or more, and a `**Why**` facet only in plain bullets under `### DESIGN SYSTEM`?
 
 ### Content Validation
 
@@ -295,6 +315,7 @@ Use a table when every row shares the same fields, such as token or property val
 - [ ] No unrequested scope added?
 - [ ] Optional sections included only when useful?
 - [ ] User Story included only when it adds value?
+- [ ] A design briefing's Requirements hold only lines a design review can tick, with Briefing holding the direction and Open Questions holding only what is undecided?
 
 ### Source Sync Validation
 
@@ -363,6 +384,7 @@ When To Use list:
 - Stories and Epics with Connextra-adjacent house-format sections, numbered Given/When/Then acceptance criteria and a Mark-as-done checkbox per criterion
 - Product or engineering guides, catalogs, behavior references, runbooks, API or schema references, architecture documents, technical proposals and decision records
 - Feedback tickets from a round of product review, one per app and kind of feedback
+- Design briefings that tell the Product Design team what to design and why, before a dev task exists
 
 Backlog artefact rule:
 

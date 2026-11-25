@@ -88,6 +88,7 @@ class ScratchWorld:
         *flags: str,
         upstream: bool = True,
         override: Optional[Path] = None,
+        env_extra: Optional[Dict[str, str]] = None,
     ) -> subprocess.CompletedProcess[str]:
         """Run vendor-sync against this scratch repository.
 
@@ -96,18 +97,40 @@ class ScratchWorld:
             *flags: Extra command-line flags for the command.
             upstream: Whether to expose the scratch upstream root.
             override: Another path to expose as the upstream root.
+            env_extra: Extra environment variables for the run.
 
         Returns:
             Completed subprocess result.
         """
         env = dict(os.environ)
         env.pop("VENDOR_UPSTREAM_ROOT", None)
+        env.pop("VENDOR_UPSTREAM_URL", None)
+        env.pop("VENDOR_UPSTREAM_CACHE", None)
         if override is not None:
             env["VENDOR_UPSTREAM_ROOT"] = str(override)
         elif upstream:
             env["VENDOR_UPSTREAM_ROOT"] = str(self.upstream_root)
+        if env_extra:
+            env.update(env_extra)
         return subprocess.run([sys.executable, str(SCRIPT), command, *flags, "--root", str(self.repo_root)],
                               capture_output=True, text=True, env=env, cwd=str(self.repo_root))
+
+    def bare_upstream(self) -> Path:
+        """Clone the scratch upstream into a bare repository a file URL can reach.
+
+        Returns:
+            Path of the bare repository.
+        """
+        bare = self.upstream_root.parent / "upstream.git"
+        subprocess.run(["git", "clone", "-q", "--bare", str(self.upstream_root), str(bare)],
+                       capture_output=True, text=True, check=True)
+        # The default ref is main, and a scratch repository may have been seeded on
+        # another branch name, so the bare copy is renamed to match.
+        git(bare, "branch", "-M", "main")
+        # Without this the clone falls back to a full one, and the test would not
+        # exercise the partial clone the script asks for.
+        git(bare, "config", "uploadpack.allowFilter", "true")
+        return bare
 
     def add_package(self, name: str) -> Path:
         """Add a second skill to the scratch upstream and to the manifest.
@@ -553,6 +576,36 @@ class VendorSyncTests(unittest.TestCase):
         self.assertEqual(quiet.returncode, 0, quiet.stdout + quiet.stderr)
         self.assertNotIn("rebuild", quiet.stdout, "a pull with no dependency change needs no rebuild")
 
+    def test_sync_prints_a_rebuild_line_when_a_source_file_changes(self) -> None:
+        """A changed source file names the folder holding package.json, once per folder."""
+        server = self.world.skill_dir / "mcp-server"
+        server.mkdir()
+        (server / "package.json").write_text('{"v": 1}\n')
+        (server / "index.ts").write_text("export const a = 1\n")
+        (server / "helper.mjs").write_text("export const b = 1\n")
+        git(self.world.upstream_root, "-c", "user.name=t", "-c", "user.email=t@t", "add", "-A")
+        self.world.commit_upstream("add a server")
+        self.set_package(exclude=["node_modules", "dist"])
+        self.world.run("pull")
+        (server / "index.ts").write_text("export const a = 2\n")
+        (server / "helper.mjs").write_text("export const b = 2\n")
+        self.world.commit_upstream("change the server source")
+        result = self.world.run("sync")
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(
+            result.stdout.count(
+                "rebuild: cd sample-skill/mcp-server && nvm exec 24 npm ci && nvm exec 24 npm run build"
+            ),
+            1,
+            result.stdout,
+        )
+        (self.world.skill_dir / "references" / "notes.ts").write_text("export const c = 1\n")
+        git(self.world.upstream_root, "-c", "user.name=t", "-c", "user.email=t@t", "add", "-A")
+        self.world.commit_upstream("add a stray source file")
+        quiet = self.world.run("sync")
+        self.assertEqual(quiet.returncode, 0, quiet.stdout + quiet.stderr)
+        self.assertNotIn("rebuild", quiet.stdout, "a source file with no package.json above it needs no rebuild")
+
     def test_status_local_passes_with_no_upstream_and_fails_on_a_local_edit(self) -> None:
         """Local status checks the copy against vendor.json alone and still catches an edit."""
         self.world.run("pull")
@@ -637,6 +690,74 @@ class VendorSyncTests(unittest.TestCase):
         pulled = self.world.run("pull", override=not_a_root)
         self.assertEqual(pulled.returncode, 2)
         self.assertFalse((self.world.repo_root / "sample-skill").exists(), "a refused root must vendor nothing")
+
+    def test_remote_sync_pulls_from_a_bare_repository_and_reuses_the_cache(self) -> None:
+        """A file URL and a cache folder are enough to sync with no checkout above the repository."""
+        bare = self.world.bare_upstream()
+        cache = Path(self._tmp.name) / "cache"
+        env = {"VENDOR_UPSTREAM_URL": bare.as_uri(), "VENDOR_UPSTREAM_CACHE": str(cache)}
+        first = self.world.run("sync", "--remote", upstream=False, env_extra=env)
+        self.assertEqual(first.returncode, 0, first.stdout + first.stderr)
+        self.assertIn("sample-skill: pulled, 2 file(s) changed", first.stdout)
+        self.assertTrue((cache / ".git").is_dir(), "the clone must land in the cache folder")
+        self.assertEqual(
+            self.world.manifest()["base_commit"], git(self.world.upstream_root, "rev-parse", "HEAD").strip()
+        )
+        # A marker inside the clone survives only when the second run fetches into
+        # the cache instead of cloning again.
+        marker = cache / ".git" / "reuse-marker"
+        marker.write_text("kept\n")
+        second = self.world.run("sync", "--remote", upstream=False, env_extra=env)
+        self.assertEqual(second.returncode, 0, second.stdout + second.stderr)
+        self.assertIn("sample-skill: in step", second.stdout)
+        self.assertTrue(marker.is_file(), "a second run must reuse the cached clone")
+
+    def test_add_vendors_a_new_package_with_the_default_exclude(self) -> None:
+        """Add writes an entry that leaves the advisor metadata out and pulls it."""
+        added = self.world.upstream_root / ".skilled/skills/mcp-tooling/added-skill"
+        added.mkdir(parents=True)
+        (added / "SKILL.md").write_text("# Added skill\n")
+        (added / "graph-metadata.json").write_text('{"name": "added-skill"}\n')
+        git(self.world.upstream_root, "-c", "user.name=t", "-c", "user.email=t@t", "add", "-A")
+        self.world.commit_upstream("add a skill")
+        result = self.world.run(
+            "add", "--package", "added-skill", "--upstream", ".skilled/skills/mcp-tooling/added-skill"
+        )
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        entry = self.entry("added-skill")
+        self.assertEqual(entry["local_path"], "added-skill")
+        self.assertEqual(entry["exclude"], ["graph-metadata.json"])
+        self.assertEqual(sorted(entry["files"]), ["SKILL.md"])
+        self.assertEqual(entry["base_commit"], git(self.world.upstream_root, "rev-parse", "HEAD").strip())
+        self.assertIn("added-skill: added from .skilled/skills/mcp-tooling/added-skill, 1 file(s) at", result.stdout)
+        self.assertFalse((self.world.repo_root / "added-skill" / "graph-metadata.json").exists())
+        status = self.world.run("status", "--package", "added-skill")
+        self.assertEqual(status.returncode, 0, status.stdout + status.stderr)
+        self.assertIn("added-skill: in step", status.stdout)
+
+    def test_add_refuses_a_name_that_already_exists(self) -> None:
+        """Add never rewrites an entry that vendor.json already holds."""
+        before = (self.world.repo_root / "vendor.json").read_bytes()
+        result = self.world.run("add", "--package", "sample-skill", "--upstream", UPSTREAM_PATH)
+        self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
+        self.assertIn("sample-skill is already in vendor.json", result.stderr)
+        self.assertEqual((self.world.repo_root / "vendor.json").read_bytes(), before)
+
+    def test_add_refuses_an_escaping_local_path_and_a_folder_that_holds_files(self) -> None:
+        """Add never aims a copy outside the repository or over files already there."""
+        outside = self.plant_outside()
+        escaped = self.world.run(
+            "add", "--package", "added-skill", "--upstream", UPSTREAM_PATH, "--local-path", "../outside"
+        )
+        self.assertEqual(escaped.returncode, 2, escaped.stdout + escaped.stderr)
+        self.assertIn("escapes its root", escaped.stderr)
+        (self.world.repo_root / "sample-skill").mkdir()
+        (self.world.repo_root / "sample-skill" / "keep.md").write_text("must survive\n")
+        occupied = self.world.run("add", "--package", "added-skill", "--upstream", UPSTREAM_PATH)
+        self.assertEqual(occupied.returncode, 2, occupied.stdout + occupied.stderr)
+        self.assertIn("already holds files", occupied.stderr)
+        self.assertEqual((self.world.repo_root / "sample-skill" / "keep.md").read_text(), "must survive\n")
+        self.assertEqual(sorted(p.name for p in outside.iterdir()), ["keep.md"])
 
 
 if __name__ == "__main__":

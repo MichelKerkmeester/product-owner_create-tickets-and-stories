@@ -1,0 +1,12 @@
+{
+  "level": "1",
+  "specFolder": "system/stories-and-epics/015-design-briefing-template",
+  "description": "Michel needs a Design Briefing template so Product Owner can brief the Product Design team on what to design and why",
+  "keywords": ["design", "briefing", "template", "product", "design", "team", "format", "gate", "why", "facet"],
+  "lastUpdated": "2026-11-25T12:00:00.000Z",
+  "specId": "015",
+  "folderSlug": "design-briefing-template",
+  "parentChain": ["system", "stories-and-epics"],
+  "memorySequence": 0,
+  "memoryNameHistory": []
+}

@@ -20,7 +20,7 @@ Built for product managers and team leads who write the backlog and for the deve
 
 **What's inside**
 
-- **Developer Tasks** - five task shapes, each requirement group ending in a checklist a QA engineer can tick off
+- **Developer Tasks** - six task shapes, each requirement group ending in a checklist a QA engineer can tick off
 - **Bug Reports** - one fixed report where a field you did not supply reads `Not provided`, never a plausible guess
 - **Stories and Epics** - two artifacts in one house format, with every hard value you supplied kept verbatim and numbered Given/When/Then criteria
 - **Source-Safe Docs** - five shapes and a status label on every claim, so a proposal never reads as shipped
@@ -81,7 +81,7 @@ From request to delivery:
 
 Built to be ticked off.
 
-A task takes one of five shapes: a standard task, a parent task that links one subtask per requirement, a subtask for one bounded area, a Quick task with a single requirement group or a feedback ticket that holds one round of review feedback for one app and one kind. Every requirement group ends in a checklist of items a QA engineer can tick off. Refining a task you already have keeps its sections and its filename. Only what you asked for changes.
+A task takes one of six shapes: a standard task, a parent task that links one subtask per requirement, a subtask for one bounded area, a Quick task with a single requirement group, a feedback ticket that holds one round of review feedback for one app and one kind or a design briefing that tells the Product Design team what to design and why. Every requirement group ends in a checklist of items a QA engineer can tick off. Refining a task you already have keeps its sections and its filename. Only what you asked for changes.
 
 ### Bug Reports
 
@@ -127,7 +127,7 @@ Both routes run the same rules and the same templates. Section 3 sets up either 
 | Artifacts | Task, subtask, bug report, Story, Epic, Doc and FigJam diagram |
 | Diagram types | Seven: user flow, process, architecture, sequence, state, ER and gantt |
 | Worked examples | 23 filled artifacts and 8 FigJam examples, one per diagram type and a second process with a status lane and detail cards |
-| Versions | Hub 1.0.37.0, `sk-product-owner` 1.2.21.0, `sk-create-figjam` 1.0.22.0, Project kernel v1.2.23 |
+| Versions | Hub 1.0.38.0, `sk-product-owner` 1.2.22.0, `sk-create-figjam` 1.0.22.0, Project kernel v1.2.24 |
 | License | MIT |
 
 &nbsp;
@@ -151,6 +151,24 @@ bash benchmark/gates/run_gates.sh
 
 A healthy tree ends with `all 19 gates pass`. A standalone clone with no shared skill folder above it ends with `16 of 19 gates pass, 3 skipped`. Section 12 says where each check is documented.
 
+### Update the Vendored Skills
+
+The packets in `mcp-click-up/`, `mcp-figma/`, `mcp-code-mode/`, `mcp-browser-use/` and `scripts/vendored/` are copies of skills that live in the public Skilled repository. One command brings every copy in step with it and runs the gates:
+
+```bash
+bash scripts/update-vendored.sh
+```
+
+It reads a cached clone of the public repository, so no checkout of Skilled is needed. It prints a `rebuild:` line for any server whose source or dependencies moved, and those lines run before the gates. `--package NAME` limits the run to one entry and `--ref REF` reads another branch, tag or commit.
+
+To vendor a new skill, mode or hub, name its upstream path:
+
+```bash
+python3 scripts/vendor-sync.py add --package NAME --upstream .skilled/skills/<area>/<skill>
+```
+
+That writes the `vendor.json` entry and pulls the files. It leaves `graph-metadata.json` out by default, because this hub keeps one advisor identity. [scripts/README.md](scripts/README.md) Section 5 covers the rest.
+
 ### First Use
 
 ```text
@@ -170,7 +188,7 @@ A feature name is not a scope, so the first reply saves one question as `export/
 
 This step is optional and for terminal agents. In Claude Desktop or claude.ai, the Project uses ClickUp's and Figma's own connectors instead, as [USER-GUIDE.md](./USER-GUIDE.md) Section 6 describes.
 
-The repository carries its own Code Mode setup: `.utcp_config.json` registers the `clickup_official` and `figma` manuals, and `.mcp.json` and `opencode.json` start the vendored server in `mcp-code-mode/` through `scripts/code-mode.cjs`. The same config registers the `aside` and `chrome_devtools_live` manuals, which the ClickUp gap pass and columns routine drive. Their packets are vendored in `mcp-aside-devtools/` and `mcp-chrome-devtools/`, so a clone of this repository carries their setup and troubleshooting. The server needs Node 24, because its `isolated-vm` sandbox has no build for a later Node. The launcher finds an installed Node 24 through nvm, fnm, volta or `PATH` even when your default `node` is newer.
+The repository carries its own Code Mode setup: `.utcp_config.json` registers the `clickup_official` and `figma` manuals, and `.mcp.json` and `opencode.json` start the vendored server in `mcp-code-mode/` through `scripts/code-mode.cjs`. The same config registers the `aside` and `chrome_devtools_live` manuals, which the ClickUp gap pass and columns routine drive. Their packets are vendored as modes of the `mcp-browser-use/` hub, so a clone of this repository carries their setup and troubleshooting. The server needs Node 24, because its `isolated-vm` sandbox has no build for a later Node. The launcher finds an installed Node 24 through nvm, fnm, volta or `PATH` even when your default `node` is newer.
 
 ```bash
 cp .env.example .env                      # figma_FIGMA_API_KEY, optional
@@ -337,7 +355,7 @@ export/[###] - {task|bug|doc|Story|Epic}-[description]-clarification.md
 export/[original-source-filename].md
 ```
 
-A new artifact takes the next free three-digit number. A clarification question is saved like any artifact, with `-clarification` added to its name. A feedback ticket goes into a folder named after its feature, with the app and the kind, `logic` or `ui-ux`, in its file name. A refinement is saved under the exact source filename so you can compare it with the original, and the source itself is never overwritten. A FigJam board writes no file to `export/`, because the board is the deliverable.
+A new artifact takes the next free three-digit number. A clarification question is saved like any artifact, with `-clarification` added to its name. A feedback ticket goes into a folder named after its feature, with the app and the kind, `logic` or `ui-ux`, in its file name. A design briefing is saved as `briefing-` followed by its description. A refinement is saved under the exact source filename so you can compare it with the original, and the source itself is never overwritten. A FigJam board writes no file to `export/`, because the board is the deliverable.
 
 #### A Delivery Reply
 
@@ -476,7 +494,7 @@ A backlog or doc route loads one mode reference and its template, never a second
 
 `claude project/` carries the same system for a claude.ai Project, which has no filesystem.
 
-- `Custom Instructions.md` is the kernel, v1.2.23, and the routing authority inside the Project
+- `Custom Instructions.md` is the kernel, v1.2.24, and the routing authority inside the Project
 - `knowledge/` holds the 68 knowledge files you upload
 - `README.md` holds the upload steps and the smoke matrix
 
@@ -530,11 +548,10 @@ The Claude Project files are written by hand from the skill sources, so a matchi
 ├── mcp-click-up/                    vendored ClickUp tool packet
 ├── mcp-figma/                       vendored Figma Desktop tool packet
 ├── mcp-code-mode/                   vendored Code Mode server, built locally under Node 24
-├── mcp-aside-devtools/              vendored Aside browser packet, for the ClickUp page routines
-├── mcp-chrome-devtools/             vendored Chrome DevTools packet, the browser fallback
+├── mcp-browser-use/                 vendored browser hub: Aside for the ClickUp page routines, Chrome DevTools as the fallback
 ├── claude project/                  the claude.ai kernel, its knowledge files and the push targets template
 ├── benchmark/                       router, format, gate and grader checks, plus the dated runs
-├── scripts/                         vendor sync and the Code Mode launcher
+├── scripts/                         vendor sync, the one-command update and the Code Mode launcher
 ├── vendor.json                      the pinned upstream commit and file hashes of each vendored packet
 ├── manual-testing-playbook/         the hub routing scenarios
 ├── export/                          your generated artifacts, kept local
@@ -666,5 +683,5 @@ Your Figma plan or seat has used its monthly tool calls. Open your FigJam drafts
 **Release notes**
 
 - **[→ Hub v1.0.37.0](changelog/v1.0.37.0.md)** - the latest hub release
-- **[→ `sk-product-owner` v1.2.21.0](sk-product-owner/changelog/v1.2.21.0.md)** - the latest backlog and doc packet release
+- **[→ `sk-product-owner` v1.2.22.0](sk-product-owner/changelog/v1.2.22.0.md)** - the latest backlog and doc packet release
 - **[→ `sk-create-figjam` v1.0.22.0](sk-create-figjam/changelog/v1.0.22.0.md)** - the latest FigJam packet release

@@ -178,6 +178,14 @@ check "requirements layout: the three findings are the whole report" 1 "failed w
   "${FIXTURES}/requirements-layout-violation.md"
 check "requirements layout: labels, flows, parts and columns stay silent" 0 "validation passed" "Requirements" \
   "${FIXTURES}/requirements-layout-silent.md"
+check "briefing: plain bullets under a Why facet stay silent" 0 "validation passed" "plain bullet" \
+  "${FIXTURES}/briefing-why-silent.md"
+check "briefing: a plain bullet under another facet fires" 1 "briefing-why-violation.md:15: a plain bullet inside Requirements" "" \
+  "${FIXTURES}/briefing-why-violation.md"
+check "briefing: a plain bullet after the Why facet ends fires" 1 "briefing-why-violation.md:21: a plain bullet inside Requirements" "" \
+  "${FIXTURES}/briefing-why-violation.md"
+check "briefing: a Why facet outside a briefing still fires" 1 "briefing-why-outside-violation.md:10: a plain bullet inside Requirements" "" \
+  "${FIXTURES}/briefing-why-outside-violation.md"
 check "requirements layout: a Checklist label outside a numbered section fires" 1 "requirements-checklist-scope-violation.md:9: a \*\*Checklist\*\* label outside a numbered requirement section" "" \
   "${FIXTURES}/requirements-checklist-scope-violation.md"
 check "requirements layout: the scope finding is the whole report" 1 "failed with 1 error(s)" "" \
