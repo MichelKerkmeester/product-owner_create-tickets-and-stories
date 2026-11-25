@@ -45,7 +45,8 @@ Everything the skill produces lands as a markdown file in `../export/` before an
 ┌────────────────────────────────────────────────────┐
 │                    SMART ROUTER                    │
 │                                                    │
-│  1. Exact commands    $task $bug $doc $story       │
+│  1. Exact commands    $task $briefing $bug $doc    │
+│                       $story $epic $flow $quick    │
 │  2. Artifact framing  "task to document X" = Task  │
 │  3. Semantic topics   weighted intent signals      │
 │  4. Interactive       one-question fallback        │
@@ -173,7 +174,7 @@ A brief for the Product Design team that states WHAT to design and WHY, before a
 |---|---|
 | About | The problem, with its data, and the decision |
 | Briefing | The design direction, what is reused and dropped, and the optional References, Flows and Related tasks blocks |
-| Requirements | Facets of `- []` items a design review can tick, under ALL-CAPS audience headings when there are two or more audiences |
+| Requirements | Facets of `- []` items a design review can tick, under ALL-CAPS H4 audience headings when there are two or more audiences |
 | Optional sections | Deliverables, Copy, Open Questions, Success Signal and Dev Handover, removed whole when they do not apply |
 
 The title is `Briefing - {App or Apps} - {Area} - {Detail}`, led by the type and never by a team. The export is `export/[###] - briefing-[description].md`.
@@ -413,8 +414,8 @@ An attention names the specific item in brackets. The verdict reports gate outco
 | `task/task-example-quick.md` | The compact shape with the unnumbered single requirement group |
 | `task/task-example-feedback.md` | One app's review round as a feedback ticket, grouped by screen, with a Code and Figma screenshot pair |
 | `task/task-example-ds-variables.md` | Parent plus one subtask per app for a design token release in the shipped ClickUp format, the change list stated once and each app's token file checks in its subtask |
-| `briefing/briefing-example-full.md` | A design briefing across two apps and a design system block, with every optional section and a Why facet |
-| `briefing/briefing-example-single.md` | A design briefing for one app with no audience labels |
+| `briefing/briefing-example-full.md` | A design briefing across two apps and a design system block, with every optional section, every link block including Flows and a Why facet |
+| `briefing/briefing-example-single.md` | A design briefing for one app with no audience headings and every optional section |
 | `briefing/briefing-example-minimal.md` | A design briefing with the core sections and two facets |
 | `bug/bug-example-frontend-visual.md` | Visual defect with design-spec evidence |
 | `bug/bug-example-backend-api.md` | API defect with request and response evidence |
