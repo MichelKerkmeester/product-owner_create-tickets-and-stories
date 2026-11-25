@@ -23,9 +23,10 @@
 # levels up. A standalone clone has none, so there the gate checks each local
 # copy against the hashes in vendor.json alone, and its line says so.
 #
-# The two skilled contract gates hold the hub at this repository root and its two
-# workflow packets to the sk-create-skill validator and parent-hub checker in
-# that same shared folder, so they skip in a standalone clone too.
+# The skilled packet contract gate holds the two workflow packets to the
+# sk-create-skill validator in that same shared folder, so it skips in a
+# standalone clone too. The hub itself carries no advisor identity files, since
+# no advisor ever indexes this repository, so it is not held to that contract.
 #
 # The source format lint is the one row that reads the instruction files an
 # agent loads. The format fixtures only prove the validator still catches
@@ -75,7 +76,6 @@ GATES=(
   "reply linter self-test|benchmark/grader/hvr_lint.py|python3 benchmark/grader/hvr_lint.py --self-test"
   "flow check self-test|sk-create-figjam/scripts/flow_check.py|python3 sk-create-figjam/scripts/flow_check.py --self-test"
   "board composer self-test|sk-create-figjam/scripts/compose_board.py|python3 sk-create-figjam/scripts/compose_board.py --self-test"
-  "skilled hub contract|../../.skilled/skills/sk-doc/sk-create-skill/scripts/validate_skill_package.py|python3 ../../.skilled/skills/sk-doc/sk-create-skill/scripts/validate_skill_package.py --strict \"$PWD\""
   "skilled packet contract|../../.skilled/skills/sk-doc/sk-create-skill/scripts/validate_skill_package.py|python3 ../../.skilled/skills/sk-doc/sk-create-skill/scripts/validate_skill_package.py --strict \"$PWD/sk-product-owner\" && python3 ../../.skilled/skills/sk-doc/sk-create-skill/scripts/validate_skill_package.py --strict \"$PWD/sk-create-figjam\""
 )
 total=${#GATES[@]}
@@ -92,9 +92,9 @@ for entry in "${GATES[@]}"; do
     continue
   fi
   case "$name" in
-    "skilled hub contract"|"skilled packet contract")
+    "skilled packet contract")
       if [ ! -d "../../.skilled" ]; then
-        printf '  %-26s SKIPPED, no shared skill folder above this repository to hold the hub to the sk-create-skill contract\n' "$name"
+        printf '  %-26s SKIPPED, no shared skill folder above this repository to hold the packets to the sk-create-skill contract\n' "$name"
         skipped=$((skipped + 1))
         continue
       fi

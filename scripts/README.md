@@ -97,7 +97,7 @@ scripts/
 
 `--remote` reads upstream from a cached partial clone of the public Skilled repository instead, so a standalone clone syncs with no checkout above it. The clone keeps every commit and fetches a blob only when a checkout needs one, because the commit lookups read history. It lives in `VENDOR_UPSTREAM_CACHE`, else under `XDG_CACHE_HOME` or `~/.cache/product-owner-vendor/skilled`, and a later run fetches into it rather than cloning again. `VENDOR_UPSTREAM_URL` points the fetch at a mirror and `--ref` picks the branch, tag or commit, `main` by default. `--remote` outranks `VENDOR_UPSTREAM_ROOT`, which outranks the walk-up, and it is refused with `status --local`.
 
-`add` writes the entry through the same manifest helpers and then pulls it. `--local-path` defaults to the last part of the upstream path, and `--exclude` defaults to `graph-metadata.json`, because this hub keeps one advisor identity. An explicit `--exclude` list replaces that default. It refuses a name `vendor.json` already holds, a local path that escapes the repository and a folder that already holds files, and it takes the entry back out when the pull fails.
+`add` writes the entry through the same manifest helpers and then pulls it. `--local-path` defaults to the last part of the upstream path, and `--exclude` defaults to `graph-metadata.json`, because an upstream advisor identity means nothing in this repository. An explicit `--exclude` list replaces that default. It refuses a name `vendor.json` already holds, a local path that escapes the repository and a folder that already holds files, and it takes the entry back out when the pull fails.
 
 `sync` prints one line per entry:
 

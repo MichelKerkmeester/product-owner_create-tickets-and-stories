@@ -11,7 +11,7 @@ version: 1.0.39.0
 
 One public skill identity over three workflow packets and one transport packet. This hub holds no packet-local logic. It routes by `workflowMode` through `mode-registry.json`, uses `hub-router.json` for router policy, signals and outcomes, and hands stage two to the root `ROUTER.md`, which maps the request's intent to the packet's leaves.
 
-**Version authority.** This file's `version` frontmatter is the hub's release version and matches the newest entry under `changelog/`. `description.json`, `mode-registry.json` and `hub-router.json` carry the same value. `ROUTER.md` keeps its own document version, and each packet keeps its own release line.
+**Version authority.** This file's `version` frontmatter is the hub's release version and matches the newest entry under `changelog/`. `mode-registry.json` and `hub-router.json` carry the same value. `ROUTER.md` keeps its own document version, and each packet keeps its own release line.
 
 ---
 
@@ -53,8 +53,6 @@ Product Owner/            the repository root is the hub
   ROUTER.md                stage two: intent to packet-local leaves
   mode-registry.json       the four modes and the discriminator
   hub-router.json          router policy, signals and vocabulary classes
-  description.json         hub advisor descriptor
-  graph-metadata.json      the ONE advisor identity for the whole hub
   leaf-manifest.json       generated (workflowMode, leaf) pairs
   changelog/  manual-testing-playbook/  benchmark/
   sk-product-owner/        workflow: tasks, briefings, bugs, Stories, Epics, docs
@@ -100,6 +98,5 @@ This system registers only the `chrome_devtools_live` Chrome manual, so the `chr
 ## 5. REFERENCES
 
 - Registry: [`mode-registry.json`](mode-registry.json). Hub router: [`hub-router.json`](hub-router.json). Stage two: [`ROUTER.md`](ROUTER.md)
-- Advisor descriptor: [`description.json`](description.json). Skill-graph identity: [`graph-metadata.json`](graph-metadata.json)
 - Packets: [`sk-product-owner/SKILL.md`](sk-product-owner/SKILL.md), [`sk-create-figjam/SKILL.md`](sk-create-figjam/SKILL.md), [`mcp-click-up/SKILL.md`](mcp-click-up/SKILL.md) and [`mcp-figma/SKILL.md`](mcp-figma/SKILL.md)
 - Hub companions: [`changelog/`](changelog/), [`manual-testing-playbook/`](manual-testing-playbook/manual-testing-playbook.md) and [`benchmark/`](benchmark/README.md)

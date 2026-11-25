@@ -55,6 +55,7 @@ contextType: "general"
 - [x] T010 Refresh the code READMEs under `scripts/` and add the four missing under `sk-create-figjam/`. Verify: `validate_document.py` prints `VALID` for each.
 - [x] T011 Check out every entry on a one-package remote run, and exit 1 for any sync or gate failure (`scripts/vendor-sync.py`, `scripts/update-vendored.sh`, `scripts/README.md`). Verify: `update-vendored.sh --package mermaid-extract` in a clone with no Skilled checkout prints `vendor sync ok`, and `Ran 42 tests` and `OK`.
 - [x] T012 Delete the 20 tracked skill-format JSONs no code, gate, CI or advisor reads, and fix the doc lines naming them (Copywriter README, Prompt Improver README, Moneybird `SKILL.md`). Verify: each system's checks give the same result before and after. HolyArrs' 4 untracked files were deleted on the operator's answer, with no backup, and its README tree updated.
+- [x] T013 Remove the hub's `description.json` and `graph-metadata.json`, drop the skilled hub contract gate, add `sk-create-figjam/assets/README.md` to the Sync Loop `systems.cjs` list, and replace the home path in 32 review receipts. Verify: `run_gates.sh` prints `all 18 gates pass`.
 - [x] T009 Validate this packet (`validate.sh --strict`). Verify: `RESULT: PASSED`.
 <!-- /ANCHOR:phase-3 -->
 

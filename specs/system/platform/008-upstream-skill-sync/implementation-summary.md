@@ -11,7 +11,7 @@ _memory:
     last_updated_at: "2026-11-24T19:30:00Z"
     last_updated_by: "claude-opus-5-5"
     recent_action: "Added remote sync, the add command, source rebuild lines and the one-command update"
-    next_safe_action: "Regenerate leaf-manifest.json once the peer session's task examples settle, then commit in the Product Owner repository"
+    next_safe_action: "None; all work is committed and pushed in the Product Owner and Barter repositories"
     blockers: []
     key_files:
       - "scripts/vendor-sync.py"
@@ -63,6 +63,8 @@ Anyone with this repository can now update the vendored skills from the public S
 | `scripts/README.md`, `README.md`, `changelog/v1.0.38.0.md` | Modified | Document the commands |
 | `scripts/tests/README.md`, `scripts/vendored/README.md` and its two `code-mode` READMEs | Modified | Current commands, test coverage and the standalone-clone check |
 | 24 `graph-metadata.json`, `description.json` and leaf files in Copywriter, Deal Templates, Sales Direct, Sales HubSpot, Prompt Improver, HolyArrs and Moneybird's two CLI packets | Deleted | Nothing reads them, and the advisor never indexes these systems |
+| `description.json`, `graph-metadata.json` at the hub root; `benchmark/gates/run_gates.sh`, `check_hub.py`, `SKILL.md` and the READMEs that count the gates | Deleted, Modified | No advisor indexes this repository, so the hub drops its identity files and the gate that required them (18 gates) |
+| `z — Claude Project Sync Loop/systems.cjs`, 32 receipts under `specs/system/reviews/00{6,7}-*/review/dispatch-receipts/` | Modified | The shared format core lists the FigJam assets README, and the receipts carry `/Users/user` in place of the home path |
 | `Barter - Copywriter/sk-barter-copywriter/README.md`, `Prompt Improver/README.md`, `HolyArrs NAS/README.md`, `Moneybird Accountant/SKILL.md` | Modified | Drop the lines naming the deleted files |
 | `sk-create-figjam/assets/README.md`, `sk-create-figjam/scripts/README.md`, `scripts/figjam_checks/README.md`, `scripts/vendored/README.md` | Created | Code-folder READMEs where none existed |
 <!-- /ANCHOR:what-built -->
@@ -100,6 +102,7 @@ DeepSeek V4.1 Flash at max effort wrote the change through one Vibe build run, a
 | sk-doc `validate_document.py` on all nine code READMEs | VALID, 0 issues each |
 | `run_gates.sh` with `VENDOR_UPSTREAM_ROOT` set to the Skilled checkout | 4 of 19 fail: the identifier scan that failed before, the hub contract on a stale `leaf-manifest.json`, and the format fixtures and packet contract on another session's uncommitted `sk-product-owner` and `benchmark/format` edits |
 | Checks of the eight systems before and after deleting the 24 unread JSONs | No delta: Copywriter, HubSpot and Sales Direct gates pass, Deal Templates fails its `content_parity` gate before and after, Prompt Improver rule parity passes, and Moneybird route table, reference index (566 of 566), CLI suites (62 and 30) and wording suites pass |
+| `run_gates.sh` after removing the hub identity files and fixing the two red gates | All 18 gates pass. The Sync Loop core is byte-identical to the reference again, and the identifier scan reads 12,604 tracked files clean |
 | `bash scripts/update-vendored.sh --remote` | 2 of 19 gates fail, the identifier scan and skilled packet contract that failed before |
 | `update-vendored.sh --package mermaid-extract` in a fresh clone with no Skilled checkout and an empty cache | Vendor sync gate ok, 1 of 19 fails (the identifier scan), exit 1. Before the fix the vendor sync gate failed on a clone that held only the selected package |
 <!-- /ANCHOR:verification -->
@@ -111,7 +114,8 @@ DeepSeek V4.1 Flash at max effort wrote the change through one Vibe build run, a
 
 - `--remote` needs network access to GitHub, and `VENDOR_UPSTREAM_URL` is the route when that repository moves
 - The eight skill folders no longer pass the Skilled format validators (`validate_skill_package.py`, `ci-skill-root-metadata.cjs`). Nothing runs those on them automatically, and the operator accepted the trade. It reverses the leaf files `specs/fleet/standards-alignment/004-skill-package-sk-doc-alignment` added to Prompt Improver
-- `leaf-manifest.json` must be regenerated before the commit, because `sk-create-figjam/assets/README.md` is a new leaf. The regeneration waits for another session's new task examples to settle, so the manifest lists only finished files
+- The 32 edited receipts no longer match their `mac`. Only a resume of those finished review runs checks it, with a secret the run's engine held
+- Dropping the skilled hub contract gate also drops its leaf-manifest drift and reachability checks for the hub. `check_hub.py` and leaf map parity still run
 <!-- /ANCHOR:limitations -->
 
 ---

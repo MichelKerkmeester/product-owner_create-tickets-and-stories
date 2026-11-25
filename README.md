@@ -156,7 +156,7 @@ Open the folder in an agent CLI that reads `AGENTS.md` and point the model at th
 bash benchmark/gates/run_gates.sh
 ```
 
-A healthy tree ends with `all 19 gates pass`. A standalone clone with no shared skill folder above it ends with `16 of 19 gates pass, 3 skipped`. Section 12 says where each check is documented.
+A healthy tree ends with `all 18 gates pass`. A standalone clone with no shared skill folder above it ends with `16 of 18 gates pass, 2 skipped`. Section 12 says where each check is documented.
 
 ### Update the Vendored Skills
 
@@ -174,7 +174,7 @@ To vendor a new skill, mode or hub, name its upstream path:
 python3 scripts/vendor-sync.py add --package NAME --upstream .skilled/skills/<area>/<skill>
 ```
 
-That writes the `vendor.json` entry and pulls the files. It leaves `graph-metadata.json` out by default, because this hub keeps one advisor identity. [scripts/README.md](scripts/README.md) Section 5 covers the rest.
+That writes the `vendor.json` entry and pulls the files. It leaves `graph-metadata.json` out by default, because an upstream advisor identity means nothing in this repository. [scripts/README.md](scripts/README.md) Section 5 covers the rest.
 
 ### First Use
 
@@ -525,7 +525,7 @@ A claude.ai Project reads hand-written copies of the skill files from `claude pr
 bash benchmark/gates/run_gates.sh
 ```
 
-A healthy tree ends with `all 19 gates pass`. A standalone clone with no shared skill folder above it ends with `16 of 19 gates pass, 3 skipped`.
+A healthy tree ends with `all 18 gates pass`. A standalone clone with no shared skill folder above it ends with `16 of 18 gates pass, 2 skipped`.
 
 #### Where the Detail Lives
 

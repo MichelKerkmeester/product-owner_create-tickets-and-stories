@@ -215,7 +215,7 @@ Push targets come from a private Knowledge file, `Product Owner - Local - Push T
 - After a kernel change, record the review as a dated sentence in the system SYNC.md review notes: who reviewed, what changed, what was decided
 - Before live upload, run this system's own checks from its root. The sync compiler was
   retired and `check --system` no longer exists, so nothing is verified by invoking it:
-  - `bash benchmark/gates/run_gates.sh`, which runs the router and format fixtures, rule parity, the example lint and the other 15 of its 19 gates
+  - `bash benchmark/gates/run_gates.sh`, which runs the router and format fixtures, rule parity, the example lint and the other 14 of its 18 gates
   - `bash benchmark/parity/run_parity.sh`
 - Remove superseded mirror filenames and search for stale version references.
 - Re-upload changed files to the live Project and run the Smoke Matrix above.

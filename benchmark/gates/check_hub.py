@@ -49,8 +49,9 @@ from typing import Any, Callable
 HERE = Path(__file__).resolve().parent
 ROOT = Path(os.environ.get("PO_ROOT") or HERE.parent.parent)
 
-HUB_FILES = ("SKILL.md", "ROUTER.md", "mode-registry.json", "hub-router.json",
-             "description.json", "graph-metadata.json", "leaf-manifest.json")
+# No advisor indexes this repository, so the hub carries no description.json or
+# graph-metadata.json, and a packet carrying one is still residue.
+HUB_FILES = ("SKILL.md", "ROUTER.md", "mode-registry.json", "hub-router.json", "leaf-manifest.json")
 VENDOR_FILE = "vendor.json"
 VENDOR_EXTENSION = "vendored-packets"
 CASES = Path("benchmark/hub-routing-cases.json")
